@@ -21,6 +21,16 @@
 - [Q18: How do you implement comprehensive error handling and logging in Node.js applications?](#q18-how-do-you-implement-comprehensive-error-handling-and-logging-in-nodejs-applications)
 - [Q19: How do you build real-time applications with WebSockets and Socket.io in Node.js?](#q19-how-do-you-build-real-time-applications-with-websockets-and-socketio-in-nodejs)
 - [Q20: How do you implement advanced Node.js patterns and enterprise architecture?](#q20-how-do-you-implement-advanced-nodejs-patterns-and-enterprise-architecture)
+- [Q21: What is the difference between `process.nextTick()` and `setImmediate()`?](#q21-what-is-the-difference-between-processnexttick-and-setimmediate)
+- [Q22: How does Node.js handle child processes?](#q22-how-does-nodejs-handle-child-processes)
+- [Q23: What are streams in Node.js and what are the different types?](#q23-what-are-streams-in-nodejs-and-what-are-the-different-types)
+- [Q24: What is a Buffer in Node.js and why is it used?](#q24-what-is-a-buffer-in-nodejs-and-why-is-it-used)
+- [Q25: What is the `EventEmitter` class in Node.js?](#q25-what-is-the-eventemitter-class-in-nodejs)
+- [Q26: What is the `fs` module and what are its common use cases?](#q26-what-is-the-fs-module-and-what-are-its-common-use-cases)
+- [Q27: What is the `path` module and why is it important?](#q27-what-is-the-path-module-and-why-is-it-important)
+- [Q28: What is the `os` module and what are some of its use cases?](#q28-what-is-the-os-module-and-what-are-some-of-its-use-cases)
+- [Q29: What is the `util` module and what are some of its key functions?](#q29-what-is-the-util-module-and-what-are-some-of-its-key-functions)
+- [Q30: What is the `dns` module and how do you use it to resolve domain names?](#q30-what-is-the-dns-module-and-how-do-you-use-it-to-resolve-domain-names)
 
 ---
 
@@ -14122,6 +14132,977 @@ Real-time applications require careful consideration of scalability, security, a
 ---
 
 ### Q20: How do you implement advanced Node.js patterns and enterprise architecture?
+
+### Q21: What is the difference between `process.nextTick()` and `setImmediate()`?
+**Difficulty: Hard**
+
+**Answer:**
+`process.nextTick()` and `setImmediate()` are both Node.js-specific functions that schedule callbacks to be executed in the event loop, but they operate in different phases. Understanding their differences is crucial for writing predictable asynchronous code.
+
+**`process.nextTick()`**
+
+- **Phase**: Executes in the **next tick queue**, which is processed *immediately* after the current operation completes and *before* the event loop proceeds to the next phase (e.g., timers, I/O).
+- **Priority**: Highest priority among asynchronous scheduling methods. Callbacks in the next tick queue are executed before any other I/O events or timers.
+- **Use Case**: For urgent tasks that must execute before the event loop continues. It's often used to ensure that an object's properties are set or an event is emitted before the user can access it.
+
+**`setImmediate()`**
+
+- **Phase**: Executes in the **check phase** of the event loop.
+- **Priority**: Lower priority than `process.nextTick()`. Callbacks are executed after the poll phase (I/O callbacks) and before the close callbacks phase.
+- **Use Case**: For scheduling tasks to run immediately after the current poll phase has completed. It is designed to be a more resource-friendly alternative to `process.nextTick()` for deferring execution.
+
+**Key Differences Summarized:**
+
+| Feature              | `process.nextTick()`                               | `setImmediate()`                                  |
+| -------------------- | -------------------------------------------------- | ------------------------------------------------- |
+| **Event Loop Phase** | Executes before the next event loop phase begins.  | Executes in the check phase of the event loop.    |
+| **Priority**         | Highest priority; runs before any other async task. | Runs after the poll phase; lower priority.        |
+| **Recursion Risk**   | Can starve the event loop if used recursively.     | Does not block the event loop.                    |
+| **Use Case**         | Urgent, immediate execution before I/O.            | Deferring execution until after the poll phase.   |
+
+**Code Example:**
+
+```javascript
+console.log('start');
+
+setImmediate(() => {
+  console.log('setImmediate callback');
+});
+
+process.nextTick(() => {
+  console.log('process.nextTick callback');
+});
+
+console.log('end');
+
+// Output:
+// start
+// end
+// process.nextTick callback
+// setImmediate callback
+```
+
+**Why this order?**
+1. `start` and `end` are logged synchronously.
+2. `process.nextTick()` is called, and its callback is placed in the next tick queue.
+3. `setImmediate()` is called, and its callback is scheduled for the check phase.
+4. The current script finishes, and Node.js processes the next tick queue *before* moving to the next event loop phase. This is why `process.nextTick callback` is logged first.
+5. The event loop proceeds to the check phase, where the `setImmediate callback` is executed.
+
+**Recursive Starvation Example:**
+
+```javascript
+// This will block the event loop indefinitely
+process.nextTick(function recursiveTick() {
+  console.log('Starving the event loop!');
+  process.nextTick(recursiveTick);
+});
+
+// This will not be executed because the next tick queue is never empty
+setImmediate(() => {
+  console.log('This will never run.');
+});
+```
+
+**Conclusion:**
+
+- Use `process.nextTick()` when you need to execute a callback *before* the event loop continues. Be cautious with recursion, as it can block the event loop.
+- Use `setImmediate()` when you want to queue a callback to run in the next cycle of the event loop, after I/O events are processed. It is the safer and more predictable option for most use cases.
+
+### Q22: How does Node.js handle child processes?
+**Difficulty: Hard**
+
+**Answer:**
+Node.js can create child processes using the `child_process` module, which is essential for running external commands, executing scripts, or leveraging multi-core systems. This allows a Node.js application to offload tasks to separate processes, preventing the main event loop from being blocked.
+
+The `child_process` module provides four different methods for creating child processes:
+
+1.  **`spawn()`**: Spawns a new process asynchronously. It is the most resource-efficient method and is ideal for long-running processes or tasks that produce a large amount of data. Data is streamed via `stdin`, `stdout`, and `stderr`.
+
+    ```javascript
+    const { spawn } = require('child_process');
+
+    const ls = spawn('ls', ['-lh', '/usr']);
+
+    ls.stdout.on('data', (data) => {
+      console.log(`stdout: ${data}`);
+    });
+
+    ls.stderr.on('data', (data) => {
+      console.error(`stderr: ${data}`);
+    });
+
+    ls.on('close', (code) => {
+      console.log(`child process exited with code ${code}`);
+    });
+    ```
+
+2.  **`exec()`**: Spawns a shell and executes a command within that shell. It buffers the entire output and passes it to a callback function. It is suitable for short commands that return a small amount of data.
+
+    ```javascript
+    const { exec } = require('child_process');
+
+    exec('ls -lh', (error, stdout, stderr) => {
+      if (error) {
+        console.error(`exec error: ${error}`);
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
+      console.error(`stderr: ${stderr}`);
+    });
+    ```
+
+3.  **`execFile()`**: Similar to `exec()`, but it executes a file directly without spawning a shell. This makes it slightly more efficient and secure, as it is not vulnerable to shell injection attacks.
+
+    ```javascript
+    const { execFile } = require('child_process');
+
+    execFile('node', ['--version'], (error, stdout, stderr) => {
+      if (error) {
+        throw error;
+      }
+      console.log(stdout);
+    });
+    ```
+
+4.  **`fork()`**: A special version of `spawn()` that creates a new Node.js process. It establishes an IPC (Inter-Process Communication) channel, allowing messages to be passed between the parent and child processes.
+
+    ```javascript
+    // parent.js
+    const { fork } = require('child_process');
+
+    const forked = fork('child.js');
+
+    forked.on('message', (msg) => {
+      console.log('Message from child', msg);
+    });
+
+    forked.send({ hello: 'world' });
+
+    // child.js
+    process.on('message', (msg) => {
+      console.log('Message from parent:', msg);
+    });
+
+    let counter = 0;
+
+    setInterval(() => {
+      process.send({ counter: counter++ });
+    }, 1000);
+    ```
+
+**Key Differences:**
+
+| Method       | Spawns Shell | IPC Channel | Use Case                                      |
+| :----------- | :----------- | :---------- | :-------------------------------------------- |
+| **`spawn()`**  | No           | No          | Long-running processes, large data streams    |
+| **`exec()`**   | Yes          | No          | Short commands, small output                  |
+| **`execFile()`**| No           | No          | Executing files directly, more secure         |
+| **`fork()`**   | No           | Yes         | Running Node.js modules, inter-process comm.  |
+
+**Conclusion:**
+
+Choosing the right method depends on the specific use case. `spawn()` is best for streaming large amounts of data, `exec()` is convenient for simple commands, `execFile()` is a safer alternative to `exec()`, and `fork()` is ideal for creating worker processes with built-in communication.
+
+### Q23: What are streams in Node.js and what are the different types?
+**Difficulty: Medium**
+
+**Answer:**
+Streams are one of the fundamental concepts in Node.js, providing an efficient way to handle reading and writing data. They are collections of data that might not be available all at once, allowing you to process large amounts of data in smaller, manageable chunks without keeping it all in memory.
+
+There are four main types of streams in Node.js:
+
+1.  **Readable Streams**: Used for reading data from a source, such as a file, an HTTP request, or standard input. The `fs.createReadStream()` method is a common way to create a readable stream.
+
+    ```javascript
+    const fs = require('fs');
+
+    const readableStream = fs.createReadStream('file.txt');
+
+    readableStream.on('data', (chunk) => {
+      console.log(`Received ${chunk.length} bytes of data.`);
+    });
+
+    readableStream.on('end', () => {
+      console.log('Finished reading data.');
+    });
+    ```
+
+2.  **Writable Streams**: Used for writing data to a destination, such as a file, an HTTP response, or standard output. The `fs.createWriteStream()` method creates a writable stream.
+
+    ```javascript
+    const fs = require('fs');
+
+    const writableStream = fs.createWriteStream('output.txt');
+
+    writableStream.write('Hello, ');
+    writableStream.write('world!');
+    writableStream.end();
+    ```
+
+3.  **Duplex Streams**: Streams that are both readable and writable. They can be used for communication where data flows in both directions, such as a TCP socket.
+
+    ```javascript
+    const { Duplex } = require('stream');
+
+    const duplexStream = new Duplex({
+      write(chunk, encoding, callback) {
+        console.log(chunk.toString());
+        callback();
+      },
+      read(size) {
+        if (this.currentCharCode > 90) {
+          this.push(null);
+          return;
+        }
+        this.push(String.fromCharCode(this.currentCharCode++));
+      }
+    });
+
+    duplexStream.currentCharCode = 65;
+    process.stdin.pipe(duplexStream).pipe(process.stdout);
+    ```
+
+4.  **Transform Streams**: A type of duplex stream where the output is computed based on the input. They are used for modifying or transforming data as it is being read or written, such as in compression or encryption.
+
+    ```javascript
+    const { Transform } = require('stream');
+
+    const upperCaseTr = new Transform({
+      transform(chunk, encoding, callback) {
+        this.push(chunk.toString().toUpperCase());
+        callback();
+      }
+    });
+
+    process.stdin.pipe(upperCaseTr).pipe(process.stdout);
+    ```
+
+**Piping Streams**
+
+The `pipe()` method is a powerful feature that connects a readable stream to a writable stream, automatically managing the flow of data and handling backpressure.
+
+```javascript
+const fs = require('fs');
+const zlib = require('zlib');
+
+const readable = fs.createReadStream('source.txt');
+const writable = fs.createWriteStream('destination.txt.gz');
+const gzip = zlib.createGzip();
+
+// Pipe the source file to the gzip stream, then to the destination file
+readable.pipe(gzip).pipe(writable);
+
+console.log('File compressed.');
+```
+
+**Conclusion:**
+
+Streams are essential for building high-performance, memory-efficient applications in Node.js. By processing data in chunks, they allow you to handle large datasets and I/O operations without overwhelming the system's resources.
+
+### Q24: What is a Buffer in Node.js and why is it used?
+**Difficulty: Medium**
+
+**Answer:**
+A `Buffer` in Node.js is a global object used to handle binary data directly. It is a fixed-size chunk of memory allocated outside of the V8 JavaScript engine, making it efficient for working with raw binary data, such as file streams, network packets, or cryptographic data.
+
+**Why are Buffers needed?**
+
+JavaScript was originally designed for browsers and did not have a built-in mechanism for handling binary data. When Node.js was created, it needed a way to interact with I/O operations, which often involve binary data streams. Buffers were introduced to fill this gap, providing a way to work with octet streams in a way that is both efficient and easy to use.
+
+**Creating Buffers:**
+
+There are several ways to create a `Buffer`:
+
+1.  **`Buffer.alloc(size)`**: Creates a new `Buffer` of a specified size, initialized with zeros. This is the recommended method for creating new buffers.
+
+    ```javascript
+    const buf1 = Buffer.alloc(10); // Creates a buffer of 10 bytes, filled with zeros
+    console.log(buf1);
+    ```
+
+2.  **`Buffer.from(string[, encoding])`**: Creates a new `Buffer` from a string, array, or another buffer. You can specify the encoding, which defaults to `'utf8'`.
+
+    ```javascript
+    const buf2 = Buffer.from('Hello, world!', 'utf8');
+    console.log(buf2.toString('hex')); // Convert buffer to hex string
+    ```
+
+3.  **`Buffer.concat(list[, totalLength])`**: Concatenates an array of `Buffer` instances into a single `Buffer`.
+
+    ```javascript
+    const bufA = Buffer.from('Hello');
+    const bufB = Buffer.from(' World');
+    const bufC = Buffer.concat([bufA, bufB]);
+    console.log(bufC.toString()); // 'Hello World'
+    ```
+
+**Working with Buffers:**
+
+Buffers behave similarly to arrays of integers, but they correspond to raw memory and cannot be resized.
+
+-   **Writing to a Buffer**:
+
+    ```javascript
+    const buf = Buffer.alloc(256);
+    const len = buf.write('Node.js is awesome!');
+    console.log(`Octets written: ${len}`);
+    ```
+
+-   **Reading from a Buffer**:
+
+    ```javascript
+    const buf = Buffer.from('Hello, Buffer!');
+    console.log(buf.toString('utf8', 0, 5)); // 'Hello'
+    ```
+
+-   **Converting to JSON**:
+
+    ```javascript
+    const buf = Buffer.from('Just a string');
+    const json = JSON.stringify(buf);
+    console.log(json); // Outputs a JSON representation of the buffer
+    const copy = Buffer.from(JSON.parse(json).data);
+    console.log(copy.toString()); // 'Just a string'
+    ```
+
+**Buffers and Character Encodings:**
+
+Buffers are essential for handling different character encodings. When converting a `Buffer` to a string, you can specify the encoding to ensure the data is interpreted correctly.
+
+```javascript
+const buffer = Buffer.from('你好', 'utf8');
+console.log(buffer);
+console.log(buffer.toString('hex'));
+console.log(buffer.toString('base64'));
+```
+
+**Conclusion:**
+
+Buffers are a fundamental part of Node.js, enabling it to handle binary data efficiently. They are crucial for working with files, network protocols, and any other I/O-bound operations that deal with raw data streams.
+
+### Q25: What is the `EventEmitter` class in Node.js?
+**Difficulty: Medium**
+
+**Answer:**
+The `EventEmitter` is a core class in Node.js, found in the `events` module. It is central to the asynchronous, event-driven architecture of Node.js, allowing objects to emit named events that cause listener functions to be called. Many of Node.js's built-in modules, such as `http`, `fs`, and `stream`, inherit from `EventEmitter`.
+
+**Key Concepts:**
+
+-   **Emitting Events**: An `EventEmitter` instance can emit named events using the `emit()` method.
+-   **Listening for Events**: You can register listener functions to be called when a specific event is emitted, using methods like `on()`, `once()`, and `addListener()`.
+
+**Core Methods:**
+
+-   **`on(eventName, listener)`**: Adds a listener function for a specified event. Multiple listeners can be added for the same event.
+-   **`emit(eventName[, ...args])`**: Emits an event, causing all registered listeners for that event to be called in the order they were registered. You can pass arguments to the listeners.
+-   **`once(eventName, listener)`**: Adds a one-time listener that is invoked only the next time the event is emitted, after which it is removed.
+-   **`removeListener(eventName, listener)`**: Removes a specified listener for an event.
+-   **`removeAllListeners([eventName])`**: Removes all listeners, or those of a specified event.
+
+**Example:**
+
+```javascript
+const EventEmitter = require('events');
+
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+
+// Register a listener for the 'greet' event
+myEmitter.on('greet', (name) => {
+  console.log(`Hello, ${name}!`);
+});
+
+// Register a one-time listener
+myEmitter.once('special', () => {
+  console.log('This is a special, one-time event.');
+});
+
+// Emit the 'greet' event
+myEmitter.emit('greet', 'Node.js Developer');
+
+// Emit the 'special' event
+myEmitter.emit('special');
+myEmitter.emit('special'); // This will not trigger the listener again
+```
+
+**Error Handling:**
+
+If an `EventEmitter` emits an `error` event, it is treated as a special case. If there are no listeners for the `error` event, Node.js will throw an exception, print a stack trace, and exit the process. Therefore, it is best practice to always register a listener for the `error` event.
+
+```javascript
+myEmitter.on('error', (err) => {
+  console.error('An error occurred:', err);
+});
+
+myEmitter.emit('error', new Error('Something went wrong!'));
+```
+
+**Inheritance:**
+
+It is common to extend the `EventEmitter` class to create custom event-driven objects.
+
+```javascript
+class Ticker extends EventEmitter {
+  constructor() {
+    super();
+    setInterval(() => {
+      this.emit('tick', Date.now());
+    }, 1000);
+  }
+}
+
+const ticker = new Ticker();
+
+ticker.on('tick', (timestamp) => {
+  console.log(`Tick received at ${timestamp}`);
+});
+```
+
+**Conclusion:**
+
+The `EventEmitter` class is a cornerstone of Node.js, providing a powerful pattern for handling asynchronous events. By using `EventEmitter`, you can create decoupled, event-driven components that are easy to manage and extend.
+
+### Q26: What is the `fs` module and what are its common use cases?
+**Difficulty: Easy**
+
+**Answer:**
+The `fs` (File System) module is a built-in Node.js module that provides an API for interacting with the file system. It allows you to perform various operations, such as reading, writing, updating, and deleting files and directories. The `fs` module provides both synchronous and asynchronous methods for these operations.
+
+**Common Use Cases:**
+
+1.  **Reading Files**: You can read the contents of a file using `fs.readFile()` (asynchronous) or `fs.readFileSync()` (synchronous).
+
+    ```javascript
+    const fs = require('fs');
+
+    // Asynchronous read
+    fs.readFile('example.txt', 'utf8', (err, data) => {
+      if (err) throw err;
+      console.log('Async Read:', data);
+    });
+
+    // Synchronous read
+    try {
+      const data = fs.readFileSync('example.txt', 'utf8');
+      console.log('Sync Read:', data);
+    } catch (err) {
+      console.error(err);
+    }
+    ```
+
+2.  **Writing Files**: You can write data to a file using `fs.writeFile()` (asynchronous) or `fs.writeFileSync()` (synchronous). If the file does not exist, it will be created. If it exists, its content will be overwritten.
+
+    ```javascript
+    const fs = require('fs');
+
+    const content = 'This is the content to be written.';
+
+    // Asynchronous write
+    fs.writeFile('newfile.txt', content, (err) => {
+      if (err) throw err;
+      console.log('File written successfully!');
+    });
+    ```
+
+3.  **Appending to Files**: To add content to the end of an existing file, you can use `fs.appendFile()`.
+
+    ```javascript
+    const fs = require('fs');
+
+    fs.appendFile('existing.txt', '\nThis is new content.', (err) => {
+      if (err) throw err;
+      console.log('Content appended!');
+    });
+    ```
+
+4.  **Checking for File Existence**: You can check if a file or directory exists using `fs.access()` or `fs.existsSync()`.
+
+    ```javascript
+    const fs = require('fs');
+
+    fs.access('myfile.txt', fs.constants.F_OK, (err) => {
+      console.log(err ? 'File does not exist' : 'File exists');
+    });
+    ```
+
+5.  **Working with Directories**: The `fs` module also provides methods for directory operations, such as creating, reading, and deleting directories.
+
+    ```javascript
+    const fs = require('fs');
+
+    // Create a directory
+    fs.mkdir('new_dir', { recursive: true }, (err) => {
+      if (err) throw err;
+    });
+
+    // Read a directory
+    fs.readdir('.', (err, files) => {
+      if (err) throw err;
+      console.log('Current directory files:', files);
+    });
+
+    // Remove a directory
+    fs.rmdir('new_dir', (err) => {
+      if (err) throw err;
+    });
+    ```
+
+6.  **Using Streams**: For large files, it is more efficient to use streams to read or write data in chunks.
+
+    ```javascript
+    const fs = require('fs');
+
+    const reader = fs.createReadStream('largefile.log');
+    const writer = fs.createWriteStream('copy_of_largefile.log');
+
+    reader.pipe(writer);
+    ```
+
+**Synchronous vs. Asynchronous:**
+
+-   **Asynchronous methods** are non-blocking and use callback functions. They are recommended for most use cases, as they do not block the event loop.
+-   **Synchronous methods** are blocking, meaning they halt the execution of the program until the operation is complete. They are useful for simple scripts or at the start of a program when you need to load configuration files.
+
+**Conclusion:**
+
+The `fs` module is a fundamental part of Node.js, providing the necessary tools to interact with the file system. Its asynchronous nature makes it well-suited for building scalable, I/O-intensive applications.
+
+### Q27: What is the `path` module and why is it important?
+**Difficulty: Easy**
+
+**Answer:**
+The `path` module is a built-in Node.js module that provides utilities for working with file and directory paths. It is essential for creating cross-platform applications because it handles path-related operations in a way that is consistent across different operating systems (e.g., Windows, macOS, and Linux).
+
+**Why is it important?**
+
+Different operating systems use different path delimiters (`\` on Windows, `/` on POSIX systems). Hardcoding path strings can lead to bugs when your application is run on a different OS. The `path` module abstracts away these differences, ensuring your code is portable.
+
+**Common `path` Module Methods:**
+
+1.  **`path.join([...paths])`**: Joins all given path segments together using the platform-specific separator as a delimiter, then normalizes the resulting path.
+
+    ```javascript
+    const path = require('path');
+
+    const myPath = path.join('/users', 'admin', 'files', '..', 'image.jpg');
+    console.log(myPath); // On POSIX: /users/admin/image.jpg
+                         // On Windows: \users\admin\image.jpg
+    ```
+
+2.  **`path.resolve([...paths])`**: Resolves a sequence of paths or path segments into an absolute path. It works from right to left, with each subsequent path prepended until an absolute path is constructed.
+
+    ```javascript
+    const path = require('path');
+
+    console.log(path.resolve('/foo/bar', './baz')); // /foo/bar/baz
+    console.log(path.resolve('/foo/bar', '/tmp/file/')); // /tmp/file
+    ```
+
+3.  **`path.normalize(path)`**: Normalizes the given path, resolving `..` and `.` segments.
+
+    ```javascript
+    const path = require('path');
+
+    console.log(path.normalize('/users/joe/..//website/index.html'));
+    // \users\website\index.html on Windows
+    // /users/website/index.html on POSIX
+    ```
+
+4.  **`path.basename(path[, ext])`**: Returns the last portion of a path, similar to the `basename` command in Unix.
+
+    ```javascript
+    const path = require('path');
+
+    console.log(path.basename('/foo/bar/baz/asdf/quux.html')); // quux.html
+    console.log(path.basename('/foo/bar/baz/asdf/quux.html', '.html')); // quux
+    ```
+
+5.  **`path.dirname(path)`**: Returns the directory name of a path, similar to the `dirname` command.
+
+    ```javascript
+    const path = require('path');
+
+    console.log(path.dirname('/foo/bar/baz/asdf/quux.html')); // /foo/bar/baz/asdf
+    ```
+
+6.  **`path.extname(path)`**: Returns the extension of the path, from the last occurrence of the `.` to the end of the string.
+
+    ```javascript
+    const path = require('path');
+
+    console.log(path.extname('index.html')); // .html
+    console.log(path.extname('index.coffee.md')); // .md
+    ```
+
+7.  **`path.parse(path)`**: Returns an object whose properties represent significant elements of the path.
+
+    ```javascript
+    const path = require('path');
+
+    console.log(path.parse('/home/user/dir/file.txt'));
+    // {
+    //   root: '/',
+    //   dir: '/home/user/dir',
+    //   base: 'file.txt',
+    //   ext: '.txt',
+    //   name: 'file'
+    // }
+    ```
+
+8.  **`path.format(pathObject)`**: Returns a path string from an object—the opposite of `path.parse()`.
+
+    ```javascript
+    const path = require('path');
+
+    const pathObj = {
+      root: '/',
+      dir: '/home/user/dir',
+      base: 'file.txt',
+      ext: '.txt',
+      name: 'file'
+    };
+
+    console.log(path.format(pathObj)); // /home/user/dir/file.txt
+    ```
+
+**Conclusion:**
+
+The `path` module is an indispensable tool for writing robust, cross-platform Node.js applications. By using its methods, you can ensure that your file and directory paths are handled correctly, regardless of the operating system on which your code is running.
+
+### Q28: What is the `os` module and what are some of its use cases?
+**Difficulty: Easy**
+
+**Answer:**
+The `os` module is a built-in Node.js module that provides operating system-related utility methods and properties. It allows you to get information about the computer's operating system, such as CPU architecture, network interfaces, and memory.
+
+**Common `os` Module Methods and Properties:**
+
+1.  **`os.userInfo()`**: Returns information about the currently effective user.
+
+    ```javascript
+    const os = require('os');
+
+    console.log(os.userInfo());
+    // {
+    //   uid: 501,
+    //   gid: 20,
+    //   username: 'joyent',
+    //   homedir: '/home/joyent',
+    //   shell: '/bin/bash'
+    // }
+    ```
+
+2.  **`os.homedir()`**: Returns the home directory of the current user as a string.
+
+    ```javascript
+    const os = require('os');
+
+    console.log(os.homedir()); // /Users/your-username
+    ```
+
+3.  **`os.hostname()`**: Returns the hostname of the operating system.
+
+    ```javascript
+    const os = require('os');
+
+    console.log(os.hostname()); // your-computer-name.local
+    ```
+
+4.  **`os.type()`**: Returns the operating system name (e.g., `'Linux'`, `'Darwin'` for macOS, `'Windows_NT'` for Windows).
+
+    ```javascript
+    const os = require('os');
+
+    console.log(os.type()); // Darwin
+    ```
+
+5.  **`os.platform()`**: Returns a string identifying the operating system platform (e.g., `'darwin'`, `'win32'`, `'linux'`).
+
+    ```javascript
+    const os = require('os');
+
+    console.log(os.platform()); // darwin
+    ```
+
+6.  **`os.arch()`**: Returns the operating system CPU architecture (e.g., `'x64'`, `'arm'`).
+
+    ```javascript
+    const os = require('os');
+
+    console.log(os.arch()); // x64
+    ```
+
+7.  **`os.release()`**: Returns the operating system as a string.
+
+    ```javascript
+    const os = require('os');
+
+    console.log(os.release()); // 20.6.0
+    ```
+
+8.  **`os.cpus()`**: Returns an array of objects containing information about each logical CPU core.
+
+    ```javascript
+    const os = require('os');
+
+    console.log(os.cpus());
+    /*
+    [
+      {
+        model: 'Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz',
+        speed: 2200,
+        times: { user: 12345, nice: 0, sys: 6789, idle: 98765, irq: 0 }
+      },
+      // ... more cores
+    ]
+    */
+    ```
+
+9.  **`os.totalmem()`**: Returns the total amount of system memory in bytes.
+
+    ```javascript
+    const os = require('os');
+
+    console.log(`${(os.totalmem() / 1024 / 1024 / 1024).toFixed(2)} GB`); // e.g., 16.00 GB
+    ```
+
+10. **`os.freemem()`**: Returns the amount of free system memory in bytes.
+
+    ```javascript
+    const os = require('os');
+
+    console.log(`${(os.freemem() / 1024 / 1024 / 1024).toFixed(2)} GB`); // e.g., 4.21 GB
+    ```
+
+11. **`os.networkInterfaces()`**: Returns an object containing network interfaces that have been assigned a network address.
+
+    ```javascript
+    const os = require('os');
+
+    console.log(os.networkInterfaces());
+    /*
+    {
+      lo0: [ ... ],
+      en0: [
+        { address: '192.168.1.101', netmask: '255.255.255.0', family: 'IPv4', mac: '...', internal: false },
+        ...
+      ]
+    }
+    */
+    ```
+
+**Use Cases:**
+
+*   **System Monitoring**: Building tools to monitor CPU usage, memory, and network status.
+*   **Feature Flagging**: Enabling or disabling features based on the operating system.
+*   **Parallel Processing**: Determining the number of CPU cores to optimize parallel tasks, such as with the `cluster` module.
+*   **Configuration**: Setting platform-specific configuration paths (e.g., for log files or temporary directories).
+
+**Conclusion:**
+
+The `os` module provides a simple yet powerful API for interacting with the underlying operating system, making it a valuable tool for system-level programming and creating environment-aware applications in Node.js.
+
+### Q29: What is the `util` module and what are some of its key functions?
+**Difficulty: Medium**
+
+**Answer:**
+The `util` module is a built-in Node.js module that provides various utility functions that are helpful for application development. Many of these utilities are designed to support the needs of Node.js's internal APIs. However, they are also available for use in application code.
+
+**Key `util` Module Functions:**
+
+1.  **`util.promisify(original)`**: Takes a function that follows the common error-first callback style (i.e., `(err, value) => ...`) and returns a version that returns promises.
+
+    ```javascript
+    const util = require('util');
+    const fs = require('fs');
+
+    const readFilePromise = util.promisify(fs.readFile);
+
+    async function readMyFile() {
+      try {
+        const data = await readFilePromise('my-file.txt', 'utf8');
+        console.log(data);
+      } catch (err) {
+        console.error('Error reading file:', err);
+      }
+    }
+
+    readMyFile();
+    ```
+
+2.  **`util.callbackify(original)`**: Takes an `async` function (or a function that returns a `Promise`) and returns a function that follows the error-first callback style.
+
+    ```javascript
+    const util = require('util');
+
+    async function fn() {
+      return 'hello world';
+    }
+
+    const callbackFunction = util.callbackify(fn);
+
+    callbackFunction((err, ret) => {
+      if (err) throw err;
+      console.log(ret); // hello world
+    });
+    ```
+
+3.  **`util.inherits(constructor, superConstructor)`**: This was traditionally used for prototypal inheritance but is now largely considered deprecated in favor of ES6 `class` and `extends`. It inherits the prototype methods from one constructor into another.
+
+    ```javascript
+    const util = require('util');
+    const EventEmitter = require('events');
+
+    function MyStream() {
+      EventEmitter.call(this);
+    }
+
+    util.inherits(MyStream, EventEmitter);
+
+    MyStream.prototype.write = function(data) {
+      this.emit('data', data);
+    };
+
+    const stream = new MyStream();
+    stream.on('data', (data) => console.log(`Received data: "${data}"`));
+    stream.write('It works!');
+    ```
+
+4.  **`util.format(format[, ...args])`**: Returns a formatted string using `printf`-like format specifiers.
+
+    ```javascript
+    const util = require('util');
+
+    console.log(util.format('%s:%s', 'foo', 'bar')); // 'foo:bar'
+    console.log(util.format('My favorite number is %d', 42)); // 'My favorite number is 42'
+    console.log(util.format('The object is %j', { a: 1 })); // 'The object is {"a":1}'
+    ```
+
+5.  **`util.inspect(object[, options])`**: Returns a string representation of an object, which is useful for debugging.
+
+    ```javascript
+    const util = require('util');
+
+    const obj = { name: 'John', details: { age: 30, city: 'New York' } };
+
+    console.log(util.inspect(obj, { showHidden: false, depth: null, colors: true }));
+    /*
+    {
+      name: 'John',
+      details: { age: 30, city: 'New York' }
+    }
+    */
+    ```
+
+6.  **`util.types`**: Provides type checks for different kinds of built-in objects.
+
+    ```javascript
+    const util = require('util');
+
+    console.log(util.types.isDate(new Date())); // true
+    console.log(util.types.isRegExp(/abc/)); // true
+    console.log(util.types.isPromise(Promise.resolve())); // true
+    ```
+
+**Conclusion:**
+
+The `util` module offers a collection of valuable tools for Node.js developers. While some of its features, like `util.inherits`, have been superseded by modern JavaScript syntax, functions like `util.promisify` and `util.inspect` remain highly relevant for writing clean, modern, and debuggable Node.js code.
+
+### Q30: What is the `dns` module and how do you use it to resolve domain names?
+**Difficulty: Medium**
+
+**Answer:**
+The `dns` module is a built-in Node.js module that provides functions for Domain Name System (DNS) resolution. It can be used to query DNS records, such as IP addresses (A and AAAA records), mail exchange records (MX records), and more.
+
+The module provides two main sets of functions:
+
+1.  Functions that use the underlying operating system's DNS resolution mechanisms (e.g., `dns.lookup()`).
+2.  Functions that connect to a DNS server to perform resolution, and are independent of the OS (e.g., `dns.resolve()`).
+
+**Key `dns` Module Functions:**
+
+1.  **`dns.lookup(hostname[, options], callback)`**: Resolves a hostname into the first found A (IPv4) or AAAA (IPv6) record. This function uses the same OS facilities as other programs, like `ping`.
+
+    ```javascript
+    const dns = require('dns');
+
+    dns.lookup('google.com', (err, address, family) => {
+      if (err) throw err;
+      console.log('Address:', address); // e.g., '172.217.14.238'
+      console.log('IP Family:', family); // 4 or 6
+    });
+    ```
+
+2.  **`dns.resolve(hostname[, rrtype], callback)`**: Resolves a hostname using the network for DNS queries. It can resolve different types of records specified by `rrtype`.
+
+    *   **`A`**: IPv4 addresses (default).
+    *   **`AAAA`**: IPv6 addresses.
+    *   **`MX`**: Mail exchange records.
+    *   **`TXT`**: Text records.
+    *   **`NS`**: Name server records.
+    *   **`CNAME`**: Canonical name records.
+
+    ```javascript
+    const dns = require('dns');
+
+    // Resolve A records
+    dns.resolve('google.com', 'A', (err, records) => {
+      if (err) throw err;
+      console.log('A Records:', records); // ['172.217.14.238']
+    });
+
+    // Resolve MX records
+    dns.resolve('google.com', 'MX', (err, records) => {
+      if (err) throw err;
+      console.log('MX Records:', records);
+      // [ { exchange: 'smtp.google.com', priority: 10 }, ... ]
+    });
+    ```
+
+3.  **`dns.reverse(ip, callback)`**: Performs a reverse DNS query for a given IP address to get an array of hostnames.
+
+    ```javascript
+    const dns = require('dns');
+
+    dns.reverse('8.8.8.8', (err, hostnames) => {
+      if (err) throw err;
+      console.log('Hostnames for 8.8.8.8:', hostnames); // ['dns.google']
+    });
+    ```
+
+**`dns.lookup()` vs. `dns.resolve()`**
+
+| Feature            | `dns.lookup()`                                       | `dns.resolve()`                                      |
+| ------------------ | ---------------------------------------------------- | ---------------------------------------------------- |
+| **Mechanism**      | Uses OS facilities (`getaddrinfo`)                   | Always performs a DNS query on the network.          |
+| **Blocking**       | Can be synchronous if no callback is provided.       | Always asynchronous.                                 |
+| **Configuration**  | Respects local configurations like `hosts` file.     | Ignores local configurations.                        |
+| **Use Case**       | Most common use cases, like connecting to a server.  | Tools that need to perform specific DNS lookups.     |
+
+**Promisified Version:**
+
+The `dns` module also has a `promises` API for working with `async/await`.
+
+```javascript
+const { promises: dnsPromises } = require('dns');
+
+async function lookupExample() {
+  try {
+    const { address, family } = await dnsPromises.lookup('google.com');
+    console.log('Address:', address);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+lookupExample();
+```
+
+**Conclusion:**
+
+The `dns` module is essential for any Node.js application that needs to interact with network resources by name. Understanding the difference between `lookup` and `resolve` is key to using it correctly for different scenarios, from simple server connections to building DNS diagnostic tools.
 **Difficulty: Expert**
 
 **Answer:**

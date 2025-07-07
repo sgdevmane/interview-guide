@@ -53,6 +53,16 @@
 48. [Q48: What is the `async` pipe?](#q48-what-is-the-async-pipe)
 49. [Q49: What is content projection in Angular?](#q49-what-is-content-projection-in-angular)
 50. [Q50: What are the different ways to handle forms in Angular?](#q50-what-are-the-different-ways-to-handle-forms-in-angular)
+51. [Q51: What is the difference between an Observable and a Promise?](#q51-what-is-the-difference-between-an-observable-and-a-promise)
+52. [Q52: What is the difference between ng-container, ng-template and ng-content?](#q52-what-is-the-difference-between-ng-container-ng-template-and-ng-content)
+53. [Q53: What is the difference between ViewChild and ContentChild?](#q53-what-is-the-difference-between-viewchild-and-contentchild)
+54. [Q54: Explain dependency injection (DI) in Angular.](#q54-explain-dependency-injection-di-in-angular)
+55. [Q55: What is the difference between the constructor and ngOnInit?](#q55-what-is-the-difference-between-the-constructor-and-ngoninit)
+56. [Q56: What is Angular routing and how do you set it up?](#q56-what-is-angular-routing-and-how-do-you-set-it-up)
+57. [Q57: What are route guards in Angular?](#q57-what-are-route-guards-in-angular)
+58. [Q58: What is lazy loading in Angular and how do you implement it?](#q58-what-is-lazy-loading-in-angular-and-how-do-you-implement-it)
+59. [Q59: What is the difference between RouterModule.forRoot() and RouterModule.forChild()?](#q59-what-is-the-difference-between-routermoduleforroot-and-routermoduleforchild)
+60. [Q60: How do you make an HTTP request in Angular?](#q60-how-do-you-make-an-http-request-in-angular)
 
 ---
 
@@ -14463,3 +14473,648 @@ export class PerformanceOptimizedComponent {
 ```
 
 This comprehensive Angular guide now covers the most advanced topics including Angular 15+ image optimization, standalone APIs, Angular 16+ Signals, Angular 17+ SSR enhancements, Angular 18+ Material 3 design system with advanced theming, new control flow syntax with deferrable views, micro-frontends with Module Federation, cross-application state management, advanced performance monitoring, and sophisticated caching strategies essential for enterprise-level Angular applications.
+
+### Q51: What is the difference between an Observable and a Promise?
+**Difficulty: Medium**
+
+**Answer:**
+Both `Observables` and `Promises` are used to handle asynchronous operations in JavaScript and TypeScript. However, they have some key differences.
+
+**Promises:**
+- A `Promise` handles a single event when an async operation completes or fails.
+- It is not cancellable.
+- It is always asynchronous.
+- It emits a single value.
+
+**Observables:**
+- An `Observable` is a stream of data that can emit multiple values over time.
+- It is cancellable.
+- It can be either synchronous or asynchronous.
+- It provides many operators like `map`, `filter`, `reduce`, etc.
+
+**Comparison Table:**
+
+| Feature | Promise | Observable |
+| --- | --- | --- |
+| **Values** | Emits a single value | Emits multiple values over time |
+| **Cancellable** | No | Yes, using the `unsubscribe()` method |
+| **Execution** | Eager (executes immediately) | Lazy (executes only when subscribed to) |
+| **Operators** | Limited (.then, .catch, .finally) | Many operators (map, filter, reduce, etc.) |
+| **Type** | Asynchronous | Can be synchronous or asynchronous |
+
+**Promise Example:**
+```typescript
+const myPromise = new Promise(resolve => {
+  setTimeout(() => {
+    resolve('Promise resolved!');
+  }, 1000);
+});
+
+myPromise.then(value => console.log(value));
+```
+
+**Observable Example:**
+```typescript
+import { Observable } from 'rxjs';
+
+const myObservable = new Observable(observer => {
+  let count = 0;
+  const interval = setInterval(() => {
+    observer.next(count++);
+    if (count === 5) {
+      observer.complete();
+    }
+  }, 1000);
+
+  return () => {
+    clearInterval(interval);
+  };
+});
+
+const subscription = myObservable.subscribe({
+  next: value => console.log(value),
+  complete: () => console.log('Observable completed!')
+});
+
+setTimeout(() => {
+  subscription.unsubscribe();
+  console.log('Unsubscribed!');
+}, 3500);
+```
+
+**When to use which?**
+
+- Use a `Promise` for single, one-off asynchronous operations, like fetching data from an API.
+- Use an `Observable` for streams of data, like user input events, WebSockets, or any other sequence of events over time.
+
+### Q52: What is the difference between ng-container, ng-template and ng-content?
+**Difficulty: Medium**
+
+**Answer:**
+These are three powerful features in Angular for manipulating templates and creating reusable components.
+
+**`ng-container`**
+
+- The `<ng-container>` is a grouping element that doesn't get rendered in the DOM. It's a comment in the DOM.
+- It's useful when you need to apply a structural directive (like `*ngIf` or `*ngFor`) to a block of elements without introducing an extra element in the DOM.
+
+**`ng-container` Example:**
+```html
+<ng-container *ngIf="user">
+  <h2>{{ user.name }}</h2>
+  <p>{{ user.email }}</p>
+</ng-container>
+```
+Without `ng-container`, you would need to wrap the `h2` and `p` tags in a `div` or `span`, which might not be desirable for your layout.
+
+**`ng-template`**
+
+- The `<ng-template>` is a template element that contains a part of a template that can be composed with other templates.
+- Angular doesn't render the content of `<ng-template>` by default. It's only rendered when you explicitly tell Angular to do so, usually with a structural directive or by creating an embedded view from it.
+
+**`ng-template` Example:**
+```html
+<div *ngIf="isLoggedIn; else loggedOut">
+  Welcome back, user!
+</div>
+
+<ng-template #loggedOut>
+  Please log in.
+</ng-template>
+```
+In this example, the content of the `loggedOut` template is only rendered if `isLoggedIn` is `false`.
+
+**`ng-content`**
+
+- The `<ng-content>` is used to project content from a parent component into a child component's template.
+- This is a key feature for creating reusable components.
+
+**`ng-content` Example:**
+
+**Parent Component:**
+```html
+<app-card>
+  <h2 class="card-title">Card Title</h2>
+  <div class="card-body">Card content goes here.</div>
+</app-card>
+```
+
+**Child Component (`app-card`):**
+```html
+<div class="card">
+  <ng-content select=".card-title"></ng-content>
+  <hr>
+  <ng-content select=".card-body"></ng-content>
+</div>
+```
+In this example, the `h2` and `div` from the parent component are projected into the `ng-content` slots in the child component.
+
+**Summary:**
+
+- Use `<ng-container>` to group elements without adding an extra element to the DOM.
+- Use `<ng-template>` to define a template that can be rendered dynamically.
+- Use `<ng-content>` to project content from a parent component into a child component.
+
+### Q53: What is the difference between ViewChild and ContentChild?
+**Difficulty: Hard**
+
+**Answer:**
+Both `ViewChild` and `ContentChild` are decorators used to query and get a reference to elements in the DOM. The main difference is the timing of when the element is available and where it is being queried from.
+
+**`ViewChild`**
+
+- `ViewChild` is used to get a reference to a DOM element or a component from the component's own template (its view).
+- The referenced element is available in the `ngAfterViewInit` lifecycle hook.
+
+**`ViewChild` Example:**
+
+**Component:**
+```typescript
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+
+@Component({
+  selector: 'app-parent',
+  template: `
+    <input #myInput type="text" value="Hello">
+    <app-child></app-child>
+  `
+})
+export class ParentComponent implements AfterViewInit {
+  @ViewChild('myInput') myInput: ElementRef;
+
+  ngAfterViewInit() {
+    console.log(this.myInput.nativeElement.value);
+  }
+}
+```
+
+**`ContentChild`**
+
+- `ContentChild` is used to get a reference to a DOM element or a component that is projected into the component using `<ng-content>`.
+- The referenced element is available in the `ngAfterContentInit` lifecycle hook.
+
+**`ContentChild` Example:**
+
+**Parent Component:**
+```html
+<app-child>
+  <div #projectedContent>This is projected content.</div>
+</app-child>
+```
+
+**Child Component (`app-child`):**
+```typescript
+import { Component, ContentChild, ElementRef, AfterContentInit } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+    <h2>Child Component</h2>
+    <ng-content></ng-content>
+  `
+})
+export class ChildComponent implements AfterContentInit {
+  @ContentChild('projectedContent') projectedContent: ElementRef;
+
+  ngAfterContentInit() {
+    console.log(this.projectedContent.nativeElement.textContent);
+  }
+}
+```
+
+**Summary:**
+
+| Feature | `ViewChild` | `ContentChild` |
+| --- | --- | --- |
+| **Purpose** | To query elements from the component's own template. | To query elements projected into the component. |
+| **Availability** | `ngAfterViewInit` | `ngAfterContentInit` |
+| **Use Case** | Accessing elements within the component's view. | Accessing content passed from a parent component. |
+
+### Q54: Explain dependency injection (DI) in Angular.
+**Difficulty: Medium**
+
+**Answer:**
+Dependency Injection (DI) is a core concept in Angular that allows a class to receive its dependencies from an external source rather than creating them itself. This design pattern leads to more modular, reusable, and testable code.
+
+**Key Concepts in Angular DI:**
+
+1.  **Injector:** The injector is the main DI mechanism in Angular. It is responsible for creating dependency instances and injecting them into components, directives, and services. Each Angular application has a root injector, and you can configure additional injectors at the component level.
+
+2.  **Provider:** A provider tells the injector *how* to create an instance of a dependency. You can provide a service using the `@Injectable()` decorator or by registering it in an `NgModule` or component.
+
+3.  **Dependency:** A dependency is the object that a class needs to perform its function. In Angular, this is typically a service, but it can be any value, such as a string or a function.
+
+**How DI Works:**
+
+1.  **Registration:** You register a provider with an injector. This is typically done in an `NgModule` or a component's `providers` array.
+
+    ```typescript
+    import { Injectable } from '@angular/core';
+
+    @Injectable({
+      providedIn: 'root' // Registers the service with the root injector
+    })
+    export class MyService {
+      getData() {
+        return 'some data';
+      }
+    }
+    ```
+
+2.  **Injection:** When a component or service needs a dependency, it requests it in its constructor.
+
+    ```typescript
+    import { Component } from '@angular/core';
+    import { MyService } from './my.service';
+
+    @Component({
+      selector: 'app-my-component',
+      template: '<p>{{ data }}</p>'
+    })
+    export class MyComponent {
+      data: string;
+
+      constructor(private myService: MyService) {
+        this.data = this.myService.getData();
+      }
+    }
+    ```
+
+3.  **Resolution:** The injector looks up the provider for the requested dependency, creates an instance if one doesn't already exist, and injects it into the component.
+
+**Benefits of DI:**
+
+-   **Decoupling:** Components are decoupled from their dependencies, making them easier to manage and reuse.
+-   **Testability:** You can easily provide mock dependencies during testing, which makes it easier to isolate and test components.
+-   **Modularity:** DI promotes a modular architecture where services can be developed and maintained independently.
+
+### Q55: What is the difference between the constructor and ngOnInit?
+**Difficulty: Easy**
+
+**Answer:**
+Both the `constructor` and `ngOnInit` are lifecycle methods in Angular, but they serve different purposes and are called at different times.
+
+**`constructor`**
+
+-   The `constructor` is a default method of a TypeScript class. It is executed when the class is instantiated.
+-   It is primarily used for **dependency injection** and to initialize class members. You should not put any complex logic or side effects (like fetching data) in the constructor.
+
+**`ngOnInit`**
+
+-   `ngOnInit` is a lifecycle hook that Angular calls shortly after creating a component.
+-   It is called **after** the constructor and after Angular has initialized all data-bound properties of a directive. This is the right place to put initialization logic, such as fetching data from a server.
+
+**Example:**
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { MyService } from './my.service';
+
+@Component({
+  selector: 'app-example',
+  template: '<p>{{ message }}</p>'
+})
+export class ExampleComponent implements OnInit {
+  message: string;
+
+  constructor(private myService: MyService) {
+    // Used for dependency injection
+    console.log('Constructor called');
+  }
+
+  ngOnInit() {
+    // Used for component initialization
+    console.log('ngOnInit called');
+    this.message = 'Component initialized!';
+  }
+}
+```
+
+**Key Differences:**
+
+| Feature | `constructor` | `ngOnInit` |
+| --- | --- | --- |
+| **Purpose** | Dependency injection and basic initialization. | Complex initialization and data fetching. |
+| **Timing** | Called when the class is instantiated. | Called after the component's data-bound properties have been initialized. |
+| **Best Practice** | Keep it simple and focused on DI. | Use for logic that relies on the component's state. |
+
+### Q56: What is Angular routing and how do you set it up?
+**Difficulty: Easy**
+
+**Answer:**
+Angular routing allows you to navigate between different views or components in a single-page application (SPA) without a full page reload. The Angular Router is a powerful module that enables you to define navigation paths and associate them with specific components.
+
+**Setting up Angular Routing:**
+
+1.  **Import `RouterModule`:** First, you need to import the `RouterModule` and `Routes` from `@angular/router` in your `app.module.ts`.
+
+2.  **Define Routes:** Create an array of `Routes` where you define the path and the component to be displayed for that path.
+
+    ```typescript
+    import { Routes } from '@angular/router';
+    import { HomeComponent } from './home/home.component';
+    import { AboutComponent } from './about/about.component';
+
+    export const routes: Routes = [
+      { path: 'home', component: HomeComponent },
+      { path: 'about', component: AboutComponent },
+      { path: '', redirectTo: '/home', pathMatch: 'full' } // Default route
+    ];
+    ```
+
+3.  **Configure `RouterModule`:** In your `app.module.ts`, import the `routes` and configure the `RouterModule` using `RouterModule.forRoot(routes)`.
+
+    ```typescript
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
+    import { RouterModule } from '@angular/router';
+    import { routes } from './app.routes';
+
+    import { AppComponent } from './app.component';
+
+    @NgModule({
+      declarations: [
+        AppComponent
+      ],
+      imports: [
+        BrowserModule,
+        RouterModule.forRoot(routes)
+      ],
+      providers: [],
+      bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+    ```
+
+4.  **Add `router-outlet`:** In your `app.component.html`, add the `<router-outlet>` directive. This is where the router will render the component for the current route.
+
+    ```html
+    <h1>My App</h1>
+    <nav>
+      <a routerLink="/home">Home</a>
+      <a routerLink="/about">About</a>
+    </nav>
+    <router-outlet></router-outlet>
+    ```
+
+5.  **Use `routerLink`:** Use the `routerLink` directive to create navigation links in your application.
+
+**Key Features of Angular Router:**
+
+-   **Route Parameters:** Pass data between routes (e.g., `/product/:id`).
+-   **Child Routes:** Nest routes for more complex layouts.
+-   **Route Guards:** Protect routes from unauthorized access.
+-   **Lazy Loading:** Load modules on demand to improve performance.
+
+### Q57: What are route guards in Angular?
+**Difficulty: Medium**
+
+**Answer:**
+Route guards are interfaces that you can implement to control access to routes in an Angular application. They are used to protect routes from unauthorized or unauthenticated users. A route guard's logic is executed before a route is activated, and it can return `true` to allow navigation or `false` to prevent it.
+
+**Types of Route Guards:**
+
+1.  **`CanActivate`:** Controls if a route can be activated. This is the most common guard and is used for authentication and authorization.
+
+2.  **`CanActivateChild`:** Controls if a child route can be activated. This is useful for protecting entire sections of an application.
+
+3.  **`CanDeactivate`:** Controls if a user can navigate away from a route. This is often used to prevent users from losing unsaved changes.
+
+4.  **`Resolve`:** Fetches data before a route is activated. This ensures that the necessary data is available before the component is rendered.
+
+5.  **`CanLoad`:** Controls if a module can be lazy-loaded. This is used to prevent modules from being loaded for unauthorized users.
+
+**Example of `CanActivate` Guard:**
+
+**Auth Guard Service:**
+```typescript
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { AuthService } from './auth.service';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(): boolean {
+    if (this.authService.isLoggedIn()) {
+      return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+}
+```
+
+**Route Configuration:**
+```typescript
+import { Routes } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
+import { AuthGuard } from './auth.guard';
+
+export const routes: Routes = [
+  { 
+    path: 'admin', 
+    component: AdminComponent, 
+    canActivate: [AuthGuard] // Protect the admin route
+  }
+];
+```
+
+In this example, the `AuthGuard` checks if the user is logged in before activating the `/admin` route. If the user is not logged in, they are redirected to the `/login` page.
+
+### Q58: What is lazy loading in Angular and how do you implement it?
+**Difficulty: Medium**
+
+**Answer:**
+Lazy loading is a technique in Angular that allows you to load modules on demand, rather than loading everything at once when the application starts. This can significantly improve the initial load time of your application, especially for large applications with many modules.
+
+**Benefits of Lazy Loading:**
+
+-   **Faster Initial Load:** The initial bundle size is smaller, leading to a faster startup time.
+-   **On-Demand Loading:** Modules are loaded only when the user navigates to their routes.
+-   **Better Performance:** Reduced memory consumption and improved overall performance.
+
+**Implementing Lazy Loading:**
+
+1.  **Create a Feature Module:** Create a separate module for the feature you want to lazy-load. This module will have its own components, services, and routing.
+
+    **Products Module (`products.module.ts`):**
+    ```typescript
+    import { NgModule } from '@angular/core';
+    import { CommonModule } from '@angular/common';
+    import { RouterModule, Routes } from '@angular/router';
+    import { ProductsListComponent } from './products-list/products-list.component';
+
+    const routes: Routes = [
+      { path: '', component: ProductsListComponent }
+    ];
+
+    @NgModule({
+      declarations: [ProductsListComponent],
+      imports: [
+        CommonModule,
+        RouterModule.forChild(routes) // Use forChild for feature modules
+      ]
+    })
+    export class ProductsModule { }
+    ```
+
+2.  **Configure the App Routing:** In your main `app-routing.module.ts`, use the `loadChildren` property to specify the path to the feature module.
+
+    **App Routing (`app-routing.module.ts`):**
+    ```typescript
+    import { NgModule } from '@angular/core';
+    import { RouterModule, Routes } from '@angular/router';
+
+    const routes: Routes = [
+      { 
+        path: 'products',
+        loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+      },
+      // Other routes
+    ];
+
+    @NgModule({
+      imports: [RouterModule.forRoot(routes)],
+      exports: [RouterModule]
+    })
+    export class AppRoutingModule { }
+    ```
+
+When the user navigates to the `/products` path, Angular will automatically download and load the `ProductsModule`. The `loadChildren` property takes a function that returns a promise, which resolves to the feature module.
+
+### Q59: What is the difference between RouterModule.forRoot() and RouterModule.forChild()? 
+**Difficulty: Medium**
+
+**Answer:**
+Both `RouterModule.forRoot()` and `RouterModule.forChild()` are static methods used to configure the Angular Router, but they are used in different contexts and have different effects on the application's dependency injection system.
+
+**`RouterModule.forRoot(routes)`**
+
+-   **Usage:** This method should be called **only once** in the root module of your application (usually `AppModule`).
+-   **Purpose:** It creates and configures the `Router` service with the provided routes. It also registers the router's service providers, such as `Router`, `ActivatedRoute`, and `RouterOutlet`.
+-   **Effect:** When you call `forRoot()`, you are making the router services available to the entire application.
+
+**Example (`app.module.ts`):**
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [/* ... */];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+**`RouterModule.forChild(routes)`**
+
+-   **Usage:** This method is used in **feature modules** to register additional routes.
+-   **Purpose:** It registers the routes for a specific feature module but does **not** re-register the router's service providers. This is because the services are already available from the root injector.
+-   **Effect:** It ensures that feature modules have their own routing configuration without creating new instances of the router services.
+
+**Example (feature module):**
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { FeatureComponent } from './feature.component';
+
+const routes: Routes = [
+  { path: '', component: FeatureComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class FeatureRoutingModule { }
+```
+
+**Summary:**
+
+| Method | `RouterModule.forRoot()` | `RouterModule.forChild()` |
+| --- | --- | --- |
+| **Module** | Root module (`AppModule`) | Feature modules |
+| **Providers** | Registers router services | Does not register router services |
+| **Usage** | Call only once | Call in each feature module with routes |
+
+### Q60: How do you make an HTTP request in Angular?
+**Difficulty: Easy**
+
+**Answer:**
+Angular provides the `HttpClient` service to make HTTP requests to a server. The `HttpClient` is part of the `@angular/common/http` module and offers a simple and powerful way to interact with APIs.
+
+**Steps to Make an HTTP Request:**
+
+1.  **Import `HttpClientModule`:** First, you need to import the `HttpClientModule` in your root module (`app.module.ts`).
+
+    ```typescript
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
+    import { HttpClientModule } from '@angular/common/http';
+
+    @NgModule({
+      imports: [
+        BrowserModule,
+        HttpClientModule
+      ],
+      // ...
+    })
+    export class AppModule { }
+    ```
+
+2.  **Inject `HttpClient`:** Inject the `HttpClient` service into your component or service where you want to make the request.
+
+3.  **Make the Request:** Use one of the `HttpClient` methods (e.g., `get()`, `post()`, `put()`, `delete()`) to make the request. These methods return an `Observable`, which you can subscribe to to get the response.
+
+**Example of a GET Request:**
+
+**Data Service (`data.service.ts`):**
+```typescript
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+  private apiUrl = 'https://api.example.com/data';
+
+  constructor(private http: HttpClient) { }
+
+  getData(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
+  }
+}
+```
+
+**Component (`my-component.component.ts`):**
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { DataService } from './data.service';
+
+@Component({
+  selector: 'app-my-component',
+  template: '<div *ngIf="data">{{ data | json }}</div>'
+})
+export class MyComponent implements OnInit {
+  data: any;
+
+  constructor(private dataService: DataService) { }
+
+  ngOnInit() {
+    this.dataService.getData().subscribe(response => {
+      this.data = response;
+    });
+  }
+}
+```
+
+In this example, the `DataService` makes a GET request to the API, and the `MyComponent` subscribes to the `Observable` to receive the data.

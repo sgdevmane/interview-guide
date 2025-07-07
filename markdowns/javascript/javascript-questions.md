@@ -98,6 +98,22 @@
     - [Q71: Explain JavaScript build tools and module bundlers. What are their purposes, and how do they improve modern web development?](#q71-explain-javascript-build-tools-and-module-bundlers-what-are-their-purposes-and-how-do-they-improve-modern-web-development)
     - [Q72: Explain Progressive Web Apps (PWAs). How do they work, and what JavaScript technologies enable them?](#q72-explain-progressive-web-apps-pwas-how-do-they-work-and-what-javascript-technologies-enable-them)
     - [Q73: Compare and contrast popular JavaScript frameworks and libraries. What are their strengths, weaknesses, and best use cases?](#q73-compare-and-contrast-popular-javascript-frameworks-and-libraries-what-are-their-strengths-weaknesses-and-best-use-cases)
+    - [Q74: What are the differences between Map and Set in JavaScript?](#q74-what-are-the-differences-between-map-and-set-in-javascript)
+    - [Q75: Explain the 'this' keyword in JavaScript.](#q75-explain-the-this-keyword-in-javascript)
+    - [Q76: What is prototypal inheritance?](#q76-what-is-prototypal-inheritance)
+    - [Q77: What is the difference between synchronous and asynchronous programming in JavaScript?](#q77-what-is-the-difference-between-synchronous-and-asynchronous-programming-in-javascript)
+    - [Q78: What is a closure in JavaScript?](#q78-what-is-a-closure-in-javascript)
+    - [Q79: What is the difference between `==` and `===` in JavaScript?](#q79-what-is-the-difference-between--and--in-javascript)
+    - [Q80: What is hoisting in JavaScript?](#q80-what-is-hoisting-in-javascript)
+    - [Q81: What is event bubbling and event capturing in JavaScript?](#q81-what-is-event-bubbling-and-event-capturing-in-javascript)
+    - [Q82: What is the difference between `null` and `undefined` in JavaScript?](#q82-what-is-the-difference-between-null-and-undefined-in-javascript)
+    - [Q83: What is the difference between `Promise.all()` and `Promise.race()`?](#q83-what-is-the-difference-between-promiseall-and-promiserace)
+    - [Q84: What are the different ways to create objects in JavaScript?](#q84-what-are-the-different-ways-to-create-objects-in-javascript)
+    - [Q85: What is the difference between `call`, `apply`, and `bind` in JavaScript?](#q85-what-is-the-difference-between-call-apply-and-bind-in-javascript)
+    - [Q86: What is currying in JavaScript?](#q86-what-is-currying-in-javascript)
+    - [Q87: What are the different types of errors in JavaScript?](#q87-what-are-the-different-types-of-errors-in-javascript)
+    - [Q88: What is the difference between cookies, local storage, and session storage?](#q88-what-is-the-difference-between-cookies-local-storage-and-session-storage)
+    - [Q89: What are debouncing and throttling in JavaScript?](#q89-what-are-debouncing-and-throttling-in-javascript)
   - [Advanced JavaScript Topics](#advanced-javascript-topics)
     - [Q74: Explain JavaScript memory management and garbage collection. How can you identify and fix memory leaks in JavaScript applications?](#q74-explain-javascript-memory-management-and-garbage-collection-how-can-you-identify-and-fix-memory-leaks-in-javascript-applications)
     - [Q75: Explain JavaScript's concurrency model and event loop. How does JavaScript handle asynchronous operations despite being single-threaded?](#q75-explain-javascripts-concurrency-model-and-event-loop-how-does-javascript-handle-asynchronous-operations-despite-being-single-threaded)
@@ -55270,3 +55286,1247 @@ async function wasiExample() {
 8. Memory management is manual in WebAssembly, requiring explicit allocation and deallocation
 9. Threading support is emerging but requires SharedArrayBuffer and careful synchronization
 10. The future of WebAssembly includes garbage collection, exception handling, and standardized system interfaces
+
+### Q74: What are the differences between Map and Set in JavaScript?
+**Difficulty: Easy**
+
+**Answer:**
+`Map` and `Set` are two new data structures introduced in ES6 that provide more efficient ways to handle collections of data compared to plain objects and arrays.
+
+**`Set`**
+
+A `Set` is a collection of **unique values**. It is similar to an array, but it does not allow duplicate entries.
+
+**Key Characteristics of `Set`:**
+
+-   **Unique Values:** Each value in a `Set` must be unique.
+-   **Order of Elements:** Elements are iterated in insertion order.
+-   **No Key-Value Pairs:** It only stores values.
+
+**Example:**
+
+```javascript
+const mySet = new Set();
+
+mySet.add(1); // {1}
+mySet.add(5); // {1, 5}
+mySet.add(5); // {1, 5} (duplicate is ignored)
+mySet.add('some text'); // {1, 5, 'some text'}
+
+console.log(mySet.has(1)); // true
+mySet.delete(5);
+
+for (const item of mySet) {
+  console.log(item);
+}
+// 1
+// 'some text'
+```
+
+**`Map`**
+
+A `Map` is a collection of **key-value pairs**. It is similar to an object, but it allows keys of any type (not just strings or symbols).
+
+**Key Characteristics of `Map`:**
+
+-   **Key-Value Pairs:** Stores data as key-value pairs.
+-   **Any Key Type:** Keys can be any value, including functions, objects, or any primitive.
+-   **Order of Elements:** Keys are iterated in insertion order.
+
+**Example:**
+
+```javascript
+const myMap = new Map();
+
+const keyString = 'a string';
+const keyObj = {};
+const keyFunc = function() {};
+
+myMap.set(keyString, "value associated with 'a string'");
+myMap.set(keyObj, 'value associated with keyObj');
+myMap.set(keyFunc, 'value associated with keyFunc');
+
+console.log(myMap.get(keyString)); // "value associated with 'a string'"
+console.log(myMap.size); // 3
+
+for (const [key, value] of myMap) {
+  console.log(`${key} = ${value}`);
+}
+```
+
+**Summary of Differences:**
+
+| Feature | `Set` | `Map` |
+| --- | --- | --- |
+| **Structure** | Collection of unique values | Collection of key-value pairs |
+| **Uniqueness** | Values must be unique | Keys must be unique |
+| **Purpose** | Storing a list of unique items | Storing mapped data |
+| **Retrieval** | Check for the existence of a value (`has()`) | Retrieve a value by its key (`get()`) |
+
+### Q75: Explain the 'this' keyword in JavaScript.
+**Difficulty: Medium**
+
+**Answer:**
+The `this` keyword in JavaScript is one of the most fundamental yet often misunderstood concepts. Its value is determined by how a function is called (its execution context). Here are the main rules for how `this` is determined:
+
+**1. Global Context**
+
+In the global execution context (outside of any function), `this` refers to the global object, which is `window` in a browser or `global` in Node.js.
+
+```javascript
+console.log(this === window); // true
+```
+
+**2. Function Context**
+
+Inside a regular function, the value of `this` depends on how the function is called.
+
+-   **Simple Function Call:** If a function is called directly, `this` will be the global object in non-strict mode, or `undefined` in strict mode.
+
+    ```javascript
+    function myFunction() {
+      console.log(this);
+    }
+    myFunction(); // window (non-strict) or undefined (strict)
+    ```
+
+-   **Method Call:** When a function is called as a method of an object, `this` refers to the object the method is called on.
+
+    ```javascript
+    const myObj = {
+      myMethod: function() {
+        console.log(this);
+      }
+    };
+    myObj.myMethod(); // myObj
+    ```
+
+**3. Arrow Functions**
+
+Arrow functions do not have their own `this` context. Instead, they inherit `this` from their enclosing (lexical) scope. This is a key difference from regular functions.
+
+```javascript
+const myObj = {
+  myMethod: function() {
+    const myArrowFunction = () => {
+      console.log(this); // 'this' is inherited from myMethod
+    };
+    myArrowFunction();
+  }
+};
+myObj.myMethod(); // myObj
+```
+
+**4. Explicit Binding (`call`, `apply`, `bind`)**
+
+You can explicitly set the value of `this` using the `call()`, `apply()`, or `bind()` methods.
+
+-   **`call()` and `apply()`:** Immediately invoke the function with a specified `this` value.
+-   **`bind()`:** Creates a new function with a bound `this` value that can be called later.
+
+```javascript
+function myFunction() {
+  console.log(this.name);
+}
+
+const obj1 = { name: 'obj1' };
+const obj2 = { name: 'obj2' };
+
+myFunction.call(obj1); // 'obj1'
+
+const boundFunction = myFunction.bind(obj2);
+boundFunction(); // 'obj2'
+```
+
+**5. Constructor Calls**
+
+When a function is used as a constructor with the `new` keyword, `this` is bound to the new object being created.
+
+```javascript
+function MyConstructor() {
+  this.myProperty = 'some value';
+}
+
+const instance = new MyConstructor();
+console.log(instance.myProperty); // 'some value'
+
+### Q76: What is prototypal inheritance?
+**Difficulty: Medium**
+
+**Answer:**
+Prototypal inheritance is a fundamental concept in JavaScript where objects can inherit properties and methods from other objects. Unlike class-based inheritance found in languages like Java or C++, JavaScript's inheritance model is based on a chain of objects (the prototype chain).
+
+**How it Works:**
+
+Every JavaScript object has a private property called `[[Prototype]]` (often accessible via `__proto__` or `Object.getPrototypeOf()`) that holds a reference to another object, called its **prototype**. When you try to access a property on an object, the JavaScript engine first checks if the property exists on the object itself. If not, it looks at the object's prototype, then the prototype's prototype, and so on, until it finds the property or reaches the end of the chain (`null`).
+
+**Creating Inheritance:**
+
+You can create prototypal inheritance using `Object.create()` or by setting the prototype of a constructor function.
+
+**Example using `Object.create()`:**
+
+```javascript
+const animal = {
+  speak: function() {
+    console.log(`${this.name} makes a noise.`);
+  }
+};
+
+const dog = Object.create(animal);
+dog.name = 'Rex';
+
+dog.speak(); // 'Rex makes a noise.'
+
+console.log(Object.getPrototypeOf(dog) === animal); // true
+```
+
+**Example using a Constructor:**
+
+```javascript
+function Animal(name) {
+  this.name = name;
+}
+
+Animal.prototype.speak = function() {
+  console.log(`${this.name} makes a noise.`);
+};
+
+function Dog(name, breed) {
+  Animal.call(this, name);
+  this.breed = breed;
+}
+
+// Set up the prototype chain
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.bark = function() {
+  console.log('Woof!');
+};
+
+const myDog = new Dog('Buddy', 'Golden Retriever');
+myDog.speak(); // 'Buddy makes a noise.'
+myDog.bark(); // 'Woof!'
+```
+
+**Key Takeaways:**
+
+-   Objects inherit directly from other objects.
+-   The prototype chain is how JavaScript implements inheritance.
+-   `Object.create()` is a modern way to create objects with a specific prototype.
+-   Constructor functions and their `prototype` property are a more traditional way to set up inheritance.
+
+### Q77: What is the difference between synchronous and asynchronous programming in JavaScript?
+**Difficulty: Easy**
+
+**Answer:**
+JavaScript can execute code in two ways: synchronously and asynchronously. Understanding the difference is crucial for writing efficient and non-blocking applications.
+
+**Synchronous Programming**
+
+In synchronous programming, tasks are executed one after another in a sequence. Each task must complete before the next one begins. This is often referred to as **blocking** because a long-running task can block the entire application, making it unresponsive.
+
+**Example:**
+
+```javascript
+console.log('First task');
+
+// This is a long-running task
+for (let i = 0; i < 1000000000; i++) {
+  // Do nothing
+}
+
+console.log('Second task'); // This will only run after the loop finishes
+```
+
+In this example, the "Second task" message will not be logged until the long loop has completed, which could take several seconds.
+
+**Asynchronous Programming**
+
+In asynchronous programming, tasks can be executed independently of the main program flow. This is **non-blocking**, meaning that the application can continue to run other tasks while waiting for a long-running operation to complete. This is essential for tasks like fetching data from a server, reading a file, or handling user events.
+
+JavaScript uses an **event loop** to handle asynchronous operations. When an asynchronous task is initiated, it is offloaded to a Web API (in the browser) or a system API (in Node.js). Once the task is complete, a callback function is placed in the callback queue, and the event loop will execute it when the call stack is empty.
+
+**Example using `setTimeout`:**
+
+```javascript
+console.log('First task');
+
+setTimeout(() => {
+  console.log('This is an asynchronous task');
+}, 2000);
+
+console.log('Second task');
+```
+
+**Output:**
+```
+First task
+Second task
+This is an asynchronous task // (after 2 seconds)
+```
+
+In this example, the `setTimeout` function schedules the callback to run after 2 seconds, but it does not block the main thread. The "Second task" is logged immediately.
+
+**Common Asynchronous Patterns:**
+
+-   **Callbacks:** The original way to handle asynchronous operations.
+-   **Promises:** A more robust way to handle asynchronous operations, representing the eventual completion (or failure) of a task.
+-   **Async/Await:** Syntactic sugar on top of Promises that makes asynchronous code look and behave more like synchronous code.
+
+### Q78: What is a closure in JavaScript?
+**Difficulty: Medium**
+
+**Answer:**
+
+A closure is a feature in JavaScript where an inner function has access to the outer (enclosing) function's variables—scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function's variables, and it has access to the global variables.
+
+**How Closures Work**
+
+A closure is created every time a function is created. The key to understanding closures is that when an outer function returns, its execution context is removed from the call stack, but its variables are not necessarily garbage collected. If an inner function, which is returned or passed somewhere else, still has a reference to the outer function's variables, those variables will be kept in memory.
+
+**Example:**
+
+```javascript
+function outerFunction() {
+  let outerVariable = 'I am from the outer function';
+
+  function innerFunction() {
+    console.log(outerVariable);
+  }
+
+  return innerFunction;
+}
+
+const myClosure = outerFunction();
+myClosure(); // Logs: 'I am from the outer function'
+```
+
+In this example, `outerFunction` returns `innerFunction`. When we call `outerFunction()`, it returns `innerFunction`, which we assign to `myClosure`. Even though `outerFunction` has finished executing, `myClosure` (which is `innerFunction`) still has access to `outerVariable`.
+
+**Practical Use Cases for Closures:**
+
+1.  **Data Encapsulation and Private Variables:**
+
+    Closures can be used to create private variables and methods, which is a fundamental concept in object-oriented programming.
+
+    ```javascript
+    function createCounter() {
+      let count = 0;
+
+      return {
+        increment: function() {
+          count++;
+        },
+        decrement: function() {
+          count--;
+        },
+        getValue: function() {
+          return count;
+        }
+      };
+    }
+
+    const counter = createCounter();
+    counter.increment();
+    console.log(counter.getValue()); // 1
+    console.log(counter.count); // undefined (cannot access the private variable)
+    ```
+
+2.  **Event Handlers and Callbacks:**
+
+    Closures are often used in event handlers and callbacks to maintain state.
+
+    ```javascript
+    for (var i = 1; i <= 3; i++) {
+      setTimeout(function() {
+        console.log(i); // Logs 4, 4, 4
+      }, 1000);
+    }
+    ```
+
+    The classic loop problem above can be solved with closures (or by using `let` in modern JavaScript).
+
+    ```javascript
+    for (var i = 1; i <= 3; i++) {
+      (function(j) {
+        setTimeout(function() {
+          console.log(j); // Logs 1, 2, 3
+        }, 1000);
+      })(i);
+    }
+    ```
+
+### Q79: What is the difference between `==` and `===` in JavaScript?
+**Difficulty: Easy**
+
+**Answer:**
+
+The difference between `==` (loose equality) and `===` (strict equality) is a fundamental concept in JavaScript. It's a common source of bugs if not understood correctly.
+
+**`==` (Loose Equality)**
+
+The `==` operator compares two values for equality **after** performing type coercion. This means that if the operands are of different types, JavaScript will attempt to convert one or both of them to a common type before making the comparison.
+
+**Example:**
+
+```javascript
+console.log(5 == '5');         // true (string '5' is coerced to number 5)
+console.log(true == 1);          // true (boolean true is coerced to number 1)
+console.log(null == undefined);  // true
+console.log(0 == false);         // true (boolean false is coerced to number 0)
+```
+
+**`===` (Strict Equality)**
+
+The `===` operator compares two values for equality **without** performing type coercion. If the values are of different types, the result will always be `false`.
+
+**Example:**
+
+```javascript
+console.log(5 === '5');        // false (number vs. string)
+console.log(true === 1);         // false (boolean vs. number)
+console.log(null === undefined); // false
+console.log(0 === false);        // false (number vs. boolean)
+```
+
+**Comparison Table**
+
+| Feature        | `==` (Loose Equality)                               | `===` (Strict Equality)                           |
+| -------------- | --------------------------------------------------- | ------------------------------------------------- |
+| **Type Coercion** | Yes, converts operands to the same type before comparison. | No, operands must be of the same type.            |
+| **Comparison** | Compares values.                                    | Compares both values and types.                   |
+| **Predictability** | Less predictable due to complex coercion rules.     | More predictable and generally safer to use.      |
+
+**Best Practice**
+
+It is generally recommended to use the `===` operator for equality comparisons in JavaScript. This avoids unexpected behavior from type coercion and makes the code more readable and maintainable. Only use `==` if you have a specific reason to perform a loose comparison and you fully understand the type coercion rules.
+
+### Q80: What is hoisting in JavaScript?
+**Difficulty: Medium**
+
+**Answer:**
+
+Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope (either the global scope or a function scope) before code execution. This means that you can use a variable or call a function before it has been declared in the code.
+
+**How Hoisting Works**
+
+It's important to understand that only the **declarations** are hoisted, not the **initializations**.
+
+**Variable Hoisting**
+
+When a variable is declared with `var`, its declaration is hoisted to the top of the scope, and it is initialized with the value `undefined`.
+
+**Example:**
+
+```javascript
+console.log(myVar); // undefined
+var myVar = 5;
+console.log(myVar); // 5
+```
+
+This code is interpreted by the JavaScript engine as:
+
+```javascript
+var myVar;
+console.log(myVar); // undefined
+myVar = 5;
+console.log(myVar); // 5
+```
+
+**`let` and `const` Hoisting**
+
+Variables declared with `let` and `const` are also hoisted, but they are not initialized. They are in a state called the **Temporal Dead Zone (TDZ)** from the start of the scope until the declaration is encountered. Accessing them in the TDZ will result in a `ReferenceError`.
+
+**Example:**
+
+```javascript
+console.log(myLet); // ReferenceError: Cannot access 'myLet' before initialization
+let myLet = 10;
+```
+
+**Function Hoisting**
+
+Function declarations are fully hoisted, meaning both the declaration and the definition are moved to the top of the scope. This allows you to call a function before it is defined in the code.
+
+**Example:**
+
+```javascript
+myFunction(); // 'Hello, world!'
+
+function myFunction() {
+  console.log('Hello, world!');
+}
+```
+
+**Function Expressions**
+
+Function expressions are not hoisted in the same way. If a function expression is assigned to a `var` variable, the variable declaration is hoisted, but the function assignment is not. If assigned to `let` or `const`, it is subject to the TDZ.
+
+**Example:**
+
+```javascript
+myFuncExpr(); // TypeError: myFuncExpr is not a function
+
+var myFuncExpr = function() {
+  console.log('This is a function expression.');
+};
+```
+
+**Key Takeaways**
+
+-   `var` declarations are hoisted and initialized with `undefined`.
+-   `let` and `const` declarations are hoisted but not initialized (TDZ).
+-   Function declarations are fully hoisted.
+-   Function expressions are not fully hoisted.
+-   To avoid confusion, it's best practice to declare all variables and functions at the top of their scope.
+
+### Q81: What is event bubbling and event capturing in JavaScript?
+**Difficulty: Medium**
+
+**Answer:**
+
+Event bubbling and event capturing are two ways of event propagation in the HTML DOM API. When an event occurs on an element, that event is first captured and handled by the innermost element and then propagated to outer elements.
+
+**Event Flow Phases**
+
+There are three phases of event propagation:
+1. **Capturing Phase** - The event goes from the window down through the DOM tree to the target element
+2. **Target Phase** - The event reaches the target element
+3. **Bubbling Phase** - The event bubbles up from the target element through its ancestors to the window
+
+**Event Bubbling**
+
+In event bubbling, the event is first handled by the innermost element and then propagated to outer elements. It's like a bubble rising up through water.
+
+**Example:**
+
+```html
+<div id="outer">
+  <div id="inner">
+    <button id="button">Click me!</button>
+  </div>
+</div>
+
+<script>
+document.getElementById('button').addEventListener('click', function() {
+  console.log('Button clicked!');
+});
+
+document.getElementById('inner').addEventListener('click', function() {
+  console.log('Inner div clicked!');
+});
+
+document.getElementById('outer').addEventListener('click', function() {
+  console.log('Outer div clicked!');
+});
+</script>
+```
+
+When clicking the button, the output will be:
+```
+Button clicked!
+Inner div clicked!
+Outer div clicked!
+```
+
+**Event Capturing**
+
+Event capturing is the opposite of bubbling, where the event is first captured by the outermost element and then propagated to the inner elements. To use event capturing, set the third argument of `addEventListener` to `true`.
+
+**Example:**
+
+```javascript
+document.getElementById('outer').addEventListener('click', function() {
+  console.log('Outer div clicked!');
+}, true);
+
+document.getElementById('inner').addEventListener('click', function() {
+  console.log('Inner div clicked!');
+}, true);
+
+document.getElementById('button').addEventListener('click', function() {
+  console.log('Button clicked!');
+}, true);
+```
+
+Now when clicking the button, the output will be:
+```
+Outer div clicked!
+Inner div clicked!
+Button clicked!
+```
+
+**Stopping Event Propagation**
+
+You can stop event propagation using `event.stopPropagation()`:
+
+```javascript
+document.getElementById('inner').addEventListener('click', function(event) {
+  console.log('Inner div clicked!');
+  event.stopPropagation(); // Stops the event from bubbling up
+});
+```
+
+**Preventing Default Behavior**
+
+Some events have default behaviors (like form submission). You can prevent these using `event.preventDefault()`:
+
+```javascript
+document.getElementById('myForm').addEventListener('submit', function(event) {
+  if (!validateForm()) {
+    event.preventDefault(); // Prevents form submission
+  }
+});
+```
+
+**Key Takeaways**
+
+-   Event bubbling propagates from inner to outer elements (default behavior)
+-   Event capturing propagates from outer to inner elements (set `useCapture` to `true`)
+-   `stopPropagation()` stops event propagation
+-   `preventDefault()` prevents default event behavior
+-   Understanding event propagation is crucial for handling complex event interactions in web applications
+
+### Q82: What is the difference between `null` and `undefined` in JavaScript?
+**Difficulty: Easy**
+
+**Answer:**
+
+`null` and `undefined` are two primitive values in JavaScript that represent the absence of a value. However, they are used in different contexts and have different meanings.
+
+**`undefined`**
+
+`undefined` typically means that a variable has been declared but has not yet been assigned a value.
+
+**Situations where you get `undefined`:**
+
+1.  A variable is declared but not initialized:
+    ```javascript
+    let x;
+    console.log(x); // undefined
+    ```
+
+2.  A function does not return a value:
+    ```javascript
+    function doNothing() {}
+    console.log(doNothing()); // undefined
+    ```
+
+3.  Accessing a non-existent property of an object:
+    ```javascript
+    const obj = { a: 1 };
+    console.log(obj.b); // undefined
+    ```
+
+**`null`**
+
+`null` is an assignment value. It can be assigned to a variable as a representation of no value. It is an intentional absence of any object value.
+
+**Example:**
+
+```javascript
+let y = null;
+console.log(y); // null
+```
+
+**Comparison**
+
+| Feature      | `undefined`                                       | `null`                                            |
+| ------------ | ------------------------------------------------- | ------------------------------------------------- |
+| **Meaning**  | A variable has been declared but not assigned a value. | An intentional absence of any object value.       |
+| **Type**     | `typeof undefined` is `'undefined'`.              | `typeof null` is `'object'` (a historical bug).   |
+| **Coercion** | `undefined` coerces to `NaN` in numeric operations. | `null` coerces to `0` in numeric operations.      |
+
+**Loose vs. Strict Equality**
+
+When compared with `==`, `null` and `undefined` are equal. When compared with `===`, they are not equal.
+
+```javascript
+console.log(null == undefined);  // true
+console.log(null === undefined); // false
+```
+
+**Best Practice**
+
+-   The JavaScript engine sets values to `undefined` when they are not initialized.
+-   Programmers should use `null` to indicate an intentional absence of a value.
+-   This distinction helps in debugging and understanding the state of variables in your code.
+
+### Q83: What is the difference between `Promise.all()` and `Promise.race()`?
+**Difficulty: Medium**
+
+**Answer:**
+
+`Promise.all()` and `Promise.race()` are two static methods on the `Promise` object that are used to handle multiple promises concurrently.
+
+**`Promise.all()`**
+
+`Promise.all()` takes an iterable of promises as input and returns a single `Promise`. This returned promise fulfills when **all** of the input's promises fulfill, with an array of the fulfillment values. It rejects when **any** of the input's promises reject, with the reason of the first promise that rejected.
+
+**Example:**
+
+```javascript
+const promise1 = Promise.resolve(3);
+const promise2 = 42;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'foo');
+});
+
+Promise.all([promise1, promise2, promise3]).then((values) => {
+  console.log(values); // [3, 42, 'foo']
+});
+```
+
+If one promise rejects:
+
+```javascript
+const promise1 = Promise.resolve(3);
+const promise2 = Promise.reject('Error!');
+
+Promise.all([promise1, promise2]).catch((error) => {
+  console.error(error); // 'Error!'
+});
+```
+
+**`Promise.race()`**
+
+`Promise.race()` also takes an iterable of promises as input and returns a single `Promise`. This returned promise settles (either fulfills or rejects) as soon as the **first** promise in the iterable settles.
+
+**Example:**
+
+```javascript
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 500, 'one');
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 100, 'two');
+});
+
+Promise.race([promise1, promise2]).then((value) => {
+  console.log(value); // 'two' (promise2 was faster)
+});
+```
+
+If the first settled promise is a rejection:
+
+```javascript
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 500, 'one');
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(reject, 100, 'Error!');
+});
+
+Promise.race([promise1, promise2]).catch((error) => {
+  console.error(error); // 'Error!'
+});
+```
+
+**Comparison Table**
+
+| Feature          | `Promise.all()`                                                              | `Promise.race()`                                                              |
+| ---------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **Fulfillment**  | Fulfills when **all** promises fulfill.                                      | Fulfills when the **first** promise fulfills.                                 |
+| **Rejection**    | Rejects when **any** promise rejects.                                        | Rejects when the **first** promise rejects.                                   |
+| **Returned Value** | An array of fulfillment values from all promises.                            | The fulfillment value or rejection reason of the first settled promise.       |
+| **Use Case**     | When you need to wait for multiple asynchronous operations to complete.        | When you need to get the result of the fastest asynchronous operation.        |
+
+### Q84: What are the different ways to create objects in JavaScript?
+**Difficulty: Medium**
+
+**Answer:**
+
+There are several ways to create objects in JavaScript, each with its own use cases.
+
+**1. Object Literal**
+
+This is the simplest and most common way to create an object.
+
+```javascript
+const person = {
+  name: 'John',
+  age: 30,
+  greet: function() {
+    console.log('Hello!');
+  }
+};
+```
+
+**2. `new Object()` Constructor**
+
+You can create an empty object using the `new Object()` constructor and then add properties to it.
+
+```javascript
+const person = new Object();
+person.name = 'John';
+person.age = 30;
+```
+
+**3. Constructor Function**
+
+You can define a constructor function to create multiple objects of the same type.
+
+```javascript
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const person1 = new Person('John', 30);
+const person2 = new Person('Jane', 25);
+```
+
+**4. `Object.create()`**
+
+`Object.create()` allows you to create a new object with a specified prototype object.
+
+```javascript
+const personProto = {
+  greet: function() {
+    console.log('Hello, my name is ' + this.name);
+  }
+};
+
+const person = Object.create(personProto);
+person.name = 'John';
+person.greet(); // 'Hello, my name is John'
+```
+
+**5. ES6 Classes**
+
+ES6 introduced the `class` syntax, which is syntactic sugar over JavaScript's existing prototype-based inheritance.
+
+```javascript
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log('Hello!');
+  }
+}
+
+const person1 = new Person('John', 30);
+```
+
+**Key Takeaways**
+
+-   **Object literals** are great for simple, one-off objects.
+-   **Constructor functions** are useful for creating multiple objects with the same structure.
+-   **`Object.create()`** is powerful for setting up inheritance chains.
+-   **ES6 classes** provide a cleaner, more modern syntax for object creation and inheritance.
+
+### Q85: What is the difference between `call`, `apply`, and `bind` in JavaScript?
+**Difficulty: Medium**
+
+**Answer:**
+
+`call`, `apply`, and `bind` are methods on the `Function.prototype` that allow you to control the `this` context of a function call.
+
+**`call()`**
+
+The `call()` method calls a function with a given `this` value and arguments provided individually.
+
+**Syntax:** `function.call(thisArg, arg1, arg2, ...)`
+
+**Example:**
+
+```javascript
+const person = {
+  name: 'John'
+};
+
+function greet(greeting, punctuation) {
+  console.log(greeting + ', ' + this.name + punctuation);
+}
+
+greet.call(person, 'Hello', '!'); // 'Hello, John!'
+```
+
+**`apply()`**
+
+The `apply()` method is similar to `call()`, but it takes arguments as an array.
+
+**Syntax:** `function.apply(thisArg, [argsArray])`
+
+**Example:**
+
+```javascript
+const person = {
+  name: 'John'
+};
+
+function greet(greeting, punctuation) {
+  console.log(greeting + ', ' + this.name + punctuation);
+}
+
+greet.apply(person, ['Hello', '!']); // 'Hello, John!'
+```
+
+**`bind()`**
+
+The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+
+**Syntax:** `function.bind(thisArg, arg1, arg2, ...)`
+
+**Example:**
+
+```javascript
+const person = {
+  name: 'John'
+};
+
+function greet(greeting, punctuation) {
+  console.log(greeting + ', ' + this.name + punctuation);
+}
+
+const greetJohn = greet.bind(person, 'Hello');
+greetJohn('!'); // 'Hello, John!'
+```
+
+**Comparison Table**
+
+| Method | `this` Context | Arguments                               | Invocation                                  |
+| ------ | -------------- | --------------------------------------- | ------------------------------------------- |
+| `call` | Sets `this`    | Passed individually                     | Immediately invokes the function            |
+| `apply`| Sets `this`    | Passed as an array                      | Immediately invokes the function            |
+| `bind` | Sets `this`    | Passed individually (can be pre-filled) | Returns a new function, does not invoke immediately |
+
+**Key Takeaways**
+
+-   Use `call` or `apply` when you want to invoke a function immediately with a specific `this` context.
+-   Use `bind` when you want to create a new function with a bound `this` context that can be called later.
+
+### Q86: What is currying in JavaScript?
+**Difficulty: Hard**
+
+**Answer:**
+
+Currying is an advanced technique of working with functions. It's a transformation of a function with multiple arguments into a sequence of nested functions, each taking a single argument.
+
+**How Currying Works**
+
+Instead of taking all arguments at once, a curried function takes the first argument and returns a new function that takes the second argument and returns a new function that takes the third argument, and so on, until all arguments have been fulfilled.
+
+**Example:**
+
+A non-curried function:
+
+```javascript
+function add(a, b, c) {
+  return a + b + c;
+}
+
+console.log(add(1, 2, 3)); // 6
+```
+
+A curried version of the same function:
+
+```javascript
+function curryAdd(a) {
+  return function(b) {
+    return function(c) {
+      return a + b + c;
+    };
+  };
+}
+
+console.log(curryAdd(1)(2)(3)); // 6
+```
+
+**Practical Use Cases**
+
+1.  **Creating Reusable Functions:**
+
+    Currying allows you to create specialized, reusable functions by pre-filling some of the arguments.
+
+    ```javascript
+    function multiply(a, b) {
+      return a * b;
+    }
+
+    function curryMultiply(a) {
+      return function(b) {
+        return a * b;
+      };
+    }
+
+    const double = curryMultiply(2);
+    console.log(double(5)); // 10
+    console.log(double(10)); // 20
+    ```
+
+2.  **Function Composition:**
+
+    Currying is often used in functional programming to compose functions.
+
+    ```javascript
+    const compose = (f, g) => (x) => f(g(x));
+
+    const toUpperCase = (str) => str.toUpperCase();
+    const exclaim = (str) => str + '!';
+
+    const shout = compose(exclaim, toUpperCase);
+    console.log(shout('hello')); // 'HELLO!'
+    ```
+
+**Advanced Currying with `bind`**
+
+You can also use the `bind` method to achieve currying:
+
+```javascript
+function multiply(a, b) {
+  return a * b;
+}
+
+const multiplyByTwo = multiply.bind(null, 2);
+console.log(multiplyByTwo(4)); // 8
+```
+
+**Key Takeaways**
+
+-   Currying transforms a multi-argument function into a sequence of single-argument functions.
+-   It allows for the creation of specialized, reusable functions.
+-   It is a core concept in functional programming and can be used for function composition.
+
+### Q87: What are the different types of errors in JavaScript?
+**Difficulty: Medium**
+
+**Answer:**
+
+JavaScript has several built-in error types that can be thrown when something goes wrong. Understanding these error types is crucial for debugging.
+
+**1. `Error`**
+
+This is the base object for all errors. You can use it to create your own custom errors.
+
+```javascript
+throw new Error('This is a generic error.');
+```
+
+**2. `SyntaxError`**
+
+A `SyntaxError` is thrown when the JavaScript engine encounters code that violates the language's syntax rules.
+
+```javascript
+let x = 1; // Missing semicolon might not throw an error due to ASI
+let y =; // SyntaxError: Unexpected token ';'
+```
+
+**3. `ReferenceError`**
+
+A `ReferenceError` is thrown when you try to access a variable that is not declared or is not in the current scope.
+
+```javascript
+console.log(nonExistentVariable); // ReferenceError: nonExistentVariable is not defined
+```
+
+**4. `TypeError`**
+
+A `TypeError` is thrown when an operator or function is used on a value of an unexpected type.
+
+```javascript
+const num = 123;
+num.toUpperCase(); // TypeError: num.toUpperCase is not a function
+
+const obj = null;
+console.log(obj.property); // TypeError: Cannot read properties of null
+```
+
+**5. `RangeError`**
+
+A `RangeError` is thrown when a value is not in the set or range of allowed values.
+
+```javascript
+const arr = new Array(-1); // RangeError: Invalid array length
+```
+
+**6. `URIError`**
+
+A `URIError` is thrown when a global URI handling function (like `decodeURIComponent()`) is used in a way that is not compatible with its definition.
+
+```javascript
+decodeURIComponent('%'); // URIError: URI malformed
+```
+
+**Handling Errors with `try...catch`**
+
+You can use the `try...catch` statement to handle exceptions in your code.
+
+```javascript
+try {
+  // Code that may throw an error
+  const result = someFunctionThatMightFail();
+  console.log(result);
+} catch (error) {
+  console.error('An error occurred:', error.message);
+  // You can also check the error type
+  if (error instanceof TypeError) {
+    // Handle TypeError specifically
+  }
+}
+```
+
+**Key Takeaways**
+
+-   Understanding the different error types helps you to debug your code more effectively.
+-   Use `try...catch` blocks to gracefully handle exceptions and prevent your application from crashing.
+
+### Q88: What is the difference between cookies, local storage, and session storage?
+**Difficulty: Medium**
+
+**Answer:**
+
+Cookies, local storage, and session storage are all ways to store data on the client-side, but they have different use cases, limitations, and lifespans.
+
+**Cookies**
+
+Cookies are small pieces of data sent from a website and stored on the user's computer by the web browser. They are primarily used for session management, personalization, and tracking.
+
+-   **Size:** Up to 4KB
+-   **Expiration:** Manually set expiration date.
+-   **Accessibility:** Accessible on both the server and client.
+-   **Sent with HTTP Requests:** Yes, cookies are sent with every HTTP request, which can impact performance.
+
+**Local Storage**
+
+Local storage is part of the Web Storage API and allows you to store key-value pairs in the browser with no expiration date.
+
+-   **Size:** Around 5-10MB (varies by browser).
+-   **Expiration:** Never expires until manually cleared.
+-   **Accessibility:** Accessible only on the client-side.
+-   **Sent with HTTP Requests:** No.
+
+**Example:**
+
+```javascript
+// Set item
+localStorage.setItem('username', 'JohnDoe');
+
+// Get item
+const username = localStorage.getItem('username');
+
+// Remove item
+localStorage.removeItem('username');
+
+// Clear all items
+localStorage.clear();
+```
+
+**Session Storage**
+
+Session storage is also part of the Web Storage API and is similar to local storage, but the data is only stored for the duration of the page session. A page session lasts for as long as the browser is open and survives over page reloads and restores.
+
+-   **Size:** Around 5-10MB (varies by browser).
+-   **Expiration:** Expires when the tab or browser is closed.
+-   **Accessibility:** Accessible only on the client-side.
+-   **Sent with HTTP Requests:** No.
+
+**Example:**
+
+```javascript
+// Set item
+sessionStorage.setItem('cart', JSON.stringify({ items: [] }));
+```
+
+**Comparison Table**
+
+| Feature               | Cookies                                   | Local Storage                             | Session Storage                           |
+| --------------------- | ----------------------------------------- | ----------------------------------------- | ----------------------------------------- |
+| **Storage Capacity**  | 4KB                                       | 5-10MB                                    | 5-10MB                                    |
+| **Expiration**        | Manually set                              | Never                                     | On tab/browser close                      |
+| **Accessibility**     | Server and client                         | Client only                               | Client only                               |
+| **Sent with Requests**| Yes                                       | No                                        | No                                        |
+| **Use Case**          | Session management, tracking              | Storing user preferences, offline data    | Storing temporary data for a single session |
+
+**Key Takeaways**
+
+-   Use **cookies** when you need data to be accessible on the server.
+-   Use **local storage** for long-term storage of non-sensitive data.
+-   Use **session storage** for temporary data that should be cleared when the user closes the tab.
+
+### Q89: What are debouncing and throttling in JavaScript?
+**Difficulty: Hard**
+
+**Answer:**
+
+Debouncing and throttling are two techniques to control how often a function is executed. They are particularly useful for improving performance in event-driven applications (e.g., handling `resize`, `scroll`, or `keyup` events).
+
+**Debouncing**
+
+Debouncing groups a sequence of calls to a function into a single call. The function is only executed after a certain amount of time has passed without it being called again.
+
+**Analogy:** Imagine you are in an elevator. The door stays open as long as people keep coming in. The door only closes after a few seconds have passed since the last person entered.
+
+**Use Case:** Search bar suggestions. You don't want to send an API request for every keystroke. Instead, you wait until the user has stopped typing for a moment.
+
+**Example:**
+
+```javascript
+function debounce(func, delay) {
+  let timeoutId;
+  return function(...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+const handleInput = (event) => {
+  console.log('Fetching suggestions for:', event.target.value);
+};
+
+const debouncedInput = debounce(handleInput, 300);
+document.getElementById('search').addEventListener('input', debouncedInput);
+```
+
+**Throttling**
+
+Throttling ensures that a function is executed at most once every specified period. It guarantees a regular rate of execution.
+
+**Analogy:** Imagine you are firing a machine gun. You can only fire a certain number of bullets per second, no matter how fast you pull the trigger.
+
+**Use Case:** Infinite scrolling. You want to check the user's scroll position to see if you need to load more content, but you don't need to check on every single scroll event. Throttling the check to every 200ms is more efficient.
+
+**Example:**
+
+```javascript
+function throttle(func, limit) {
+  let inThrottle;
+  return function(...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+const handleScroll = () => {
+  console.log('Checking scroll position...');
+};
+
+const throttledScroll = throttle(handleScroll, 200);
+window.addEventListener('scroll', throttledScroll);
+```
+
+**Comparison Table**
+
+| Feature         | Debouncing                                                              | Throttling                                                              |
+| --------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **Execution**   | Executes the function only after a period of inactivity.                | Executes the function at a regular interval.                            |
+| **Guarantees**  | Guarantees that the function is not called too frequently in succession. | Guarantees a minimum time between function calls.                       |
+| **Use Case**    | Responding to user input (e.g., search suggestions).                    | Rate-limiting events that fire rapidly (e.g., scrolling, resizing).     |
+
+**Key Takeaways**
+
+-   Use **debouncing** when you only care about the final state (e.g., when the user stops typing).
+-   Use **throttling** when you want to handle all intermediate states at a controlled rate (e.g., animations or scroll handling).
+```

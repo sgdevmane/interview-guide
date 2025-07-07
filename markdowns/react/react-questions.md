@@ -71,6 +71,11 @@
 68. [Q68: What is the difference between `getBy`, `queryBy`, and `findBy` queries in React Testing Library?](#q68-what-is-the-difference-between-getby-queryby-and-findby-queries-in-react-testing-library)
 69. [Q69: What is the difference between `fireEvent` and `user-event` in React Testing Library?](#q69-what-is-the-difference-between-fireevent-and-user-event-in-react-testing-library)
 70. [Q70: What is the `act()` function in React Testing Library, and when should you use it?](#q70-what-is-the-act-function-in-react-testing-library-and-when-should-you-use-it)
+71. [Q71: What is the difference between `useRef` and `useState`?](#q71-what-is-the-difference-between-useref-and-usestate)
+72. [Q72: What is the difference between a controlled and an uncontrolled component?](#q72-what-is-the-difference-between-a-controlled-and-an-uncontrolled-component)
+73. [Q73: What is `React.memo()` and how is it different from `useMemo()`?](#q73-what-is-reactmemo-and-how-is-it-different-from-usememo)
+74. [Q74: What is the difference between `useMemo` and `useCallback`?](#q74-what-is-the-difference-between-usememo-and-usecallback)
+75. [Q75: What are custom hooks, and why would you create one?](#q75-what-are-custom-hooks-and-why-would-you-create-one)
 
 ---
 
@@ -99,7 +104,359 @@ React is a JavaScript library for building user interfaces, particularly web app
 import React, { useState }
 ```
 
+### Q71: What is the difference between `useRef` and `useState`?
+**Difficulty: Medium**
+
+**Answer:**
+Both `useRef` and `useState` are React Hooks that allow you to manage data within a functional component, but they serve different purposes and have different behaviors.
+
+| Feature | `useState` | `useRef` |
+| :--- | :--- | :--- |
+| **Purpose** | To manage state that, when updated, triggers a re-render of the component. | To create a mutable reference to a value or a DOM element that persists across renders without causing a re-render. |
+| **Re-renders** | Updating the state with the setter function (e.g., `setState()`) causes the component to re-render. | Mutating the `.current` property of a ref does **not** cause a re-render. |
+| **Value Access** | The current state value is accessed directly from the state variable. | The value is accessed through the `.current` property of the ref object. |
+| **Asynchronous Updates** | State updates are asynchronous and batched for performance. | Ref updates are synchronous. You can read the value immediately after setting it. |
+
+**When to use `useState`:**
+
+-   When you need to store data that affects the component's output (what it renders).
+-   When changes to the data should be reflected in the UI.
+
 ```jsx
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+```
+
+**When to use `useRef`:**
+
+1.  **Accessing DOM Elements**: To get a direct reference to a DOM node (e.g., to focus an input or measure its size).
+2.  **Storing a Mutable Value without Re-rendering**: To keep track of a value that can change over time but doesn't need to trigger a re-render (e.g., storing a timer ID).
+
+```jsx
+import React, { useRef, useEffect } from 'react';
+
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null);
+
+  const onButtonClick = () => {
+    // `current` points to the mounted text input element
+    inputEl.current.focus();
+  };
+
+  return (
+    <>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </>
+  );
+}
+```
+
+In summary, use `useState` for data that is part of the component's render logic and `useRef` for managing mutable data that should not trigger re-renders or for direct DOM manipulation.
+
+### Q72: What is the difference between a controlled and an uncontrolled component?
+
+**Difficulty**: Medium
+
+**Answer**:
+
+The main difference between controlled and uncontrolled components in React lies in how they manage form data.
+
+**Controlled Components**:
+
+In a controlled component, form data is handled by the React component's state. The component that renders the form also controls what happens in that form on subsequent user input. The state is the single source of truth for the input elements.
+
+-   The value of the input element is driven by the component's state.
+-   Changes to the input are handled by an `onChange` event handler that updates the state.
+
+**Example of a controlled component**:
+
+```jsx
+import React, { useState } from 'react';
+
+function ControlledForm() {
+  const [value, setValue] = useState('');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  return (
+    <form>
+      <label>
+        Name:
+        <input type="text" value={value} onChange={handleChange} />
+      </label>
+      <p>Input value: {value}</p>
+    </form>
+  );
+}
+```
+
+**Uncontrolled Components**:
+
+In an uncontrolled component, form data is handled by the DOM itself. Instead of writing an event handler for every state update, you use a `ref` to get form values from the DOM when you need them (e.g., when the user submits the form).
+
+-   The DOM is the source of truth for the input elements.
+-   You use a `ref` to access the input's value directly from the DOM.
+
+**Example of an uncontrolled component**:
+
+```jsx
+import React, { useRef } from 'react';
+
+function UncontrolledForm() {
+  const inputRef = useRef(null);
+
+  const handleSubmit = (event) => {
+    alert('A name was submitted: ' + inputRef.current.value);
+    event.preventDefault();
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        Name:
+        <input type="text" ref={inputRef} />
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
+  );
+}
+```
+
+| Feature | Controlled Component | Uncontrolled Component |
+| :--- | :--- | :--- |
+| **Data Flow** | State-driven. React state is the single source of truth. | DOM-driven. The DOM stores the state. |
+| **State Management** | Explicitly managed via `useState` and `onChange` handlers. | Managed by the DOM. Accessed via `ref`. |
+| **Predictability** | More predictable and easier to debug since all state changes go through a handler. | Less predictable as the data is not managed by React. |
+| **Use Case** | Ideal for forms that require validation, conditional logic, or dynamic inputs. | Useful for simple forms or when integrating with non-React code. |
+
+### Q73: What is `React.memo()` and how is it different from `useMemo()`?
+
+**Difficulty**: Medium
+
+**Answer**:
+
+`React.memo()` and `useMemo()` are both tools for optimizing performance in React by memoizing values, but they are used in different contexts.
+
+**`React.memo()`**
+
+`React.memo()` is a higher-order component (HOC) that memoizes a functional component. It prevents the component from re-rendering if its props have not changed. This is useful for optimizing functional components that render often with the same props.
+
+-   It performs a shallow comparison of the component's props.
+-   You can provide a custom comparison function as a second argument to override the default shallow comparison.
+
+**Example of `React.memo()`**:
+
+```jsx
+import React from 'react';
+
+const MyComponent = React.memo(function MyComponent(props) {
+  /* render using props */
+  console.log('Rendering MyComponent');
+  return <div>{props.text}</div>;
+});
+
+function ParentComponent() {
+  const [text, setText] = React.useState('Hello');
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <MyComponent text={text} />
+    </div>
+  );
+}
+```
+
+In this example, `MyComponent` will only re-render when the `text` prop changes, not when the `count` state in `ParentComponent` changes.
+
+**`useMemo()`**
+
+`useMemo()` is a hook that memoizes a value. It recomputes the memoized value only when one of the dependencies has changed. This is useful for avoiding expensive calculations on every render.
+
+-   It takes a function and a dependency array as arguments.
+-   It returns a memoized value.
+
+**Example of `useMemo()`**:
+
+```jsx
+import React, { useMemo, useState } from 'react';
+
+function ExpensiveCalculationComponent({ num }) {
+  const expensiveValue = useMemo(() => {
+    console.log('Performing expensive calculation...');
+    // Imagine this is a heavy calculation
+    return num * 2;
+  }, [num]); // Only re-calculates if 'num' changes
+
+  return <div>Result: {expensiveValue}</div>;
+}
+
+function App() {
+  const [count, setCount] = useState(0);
+  const [num, setNum] = useState(10);
+
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Increment count</button>
+      <button onClick={() => setNum(num + 1)}>Increment num</button>
+      <p>Count: {count}</p>
+      <ExpensiveCalculationComponent num={num} />
+    </div>
+  );
+}
+```
+
+In this example, the expensive calculation will only run when the `num` prop changes, not when the `count` state changes.
+
+| Feature | `React.memo()` | `useMemo()` |
+| :--- | :--- | :--- |
+| **Type** | Higher-Order Component (HOC) | Hook |
+| **Purpose** | Memoizes a functional component to prevent re-renders. | Memoizes a value to avoid expensive calculations. |
+| **Usage** | Wraps a component. | Called inside a component. |
+| **Returns** | A memoized component. | A memoized value. |
+
+### Q74: What is the difference between `useMemo` and `useCallback`?
+
+**Difficulty**: Medium
+
+**Answer**:
+
+`useMemo` and `useCallback` are both React Hooks used for performance optimization by memoizing values, but they serve slightly different purposes.
+
+**`useMemo`**
+
+`useMemo` memoizes a **value**. It takes a function and a dependency array, and it re-evaluates the function only when one of the dependencies has changed. This is useful for avoiding expensive calculations on every render.
+
+-   **Returns**: A memoized value.
+
+**Example of `useMemo`**:
+
+```jsx
+import React, { useMemo, useState } from 'react';
+
+function DataDisplay({ data }) {
+  const processedData = useMemo(() => {
+    console.log('Processing data...');
+    return data.map(item => item.toUpperCase());
+  }, [data]);
+
+  return (
+    <ul>
+      {processedData.map((item, index) => <li key={index}>{item}</li>)}
+    </ul>
+  );
+}
+```
+
+**`useCallback`**
+
+`useCallback` memoizes a **function**. It returns a memoized version of the callback that only changes if one of the dependencies has changed. This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders.
+
+-   **Returns**: A memoized function.
+
+**Example of `useCallback`**:
+
+```jsx
+import React, { useCallback, useState } from 'react';
+
+const Button = React.memo(({ onClick, children }) => {
+  console.log(`Rendering button: ${children}`);
+  return <button onClick={onClick}>{children}</button>;
+});
+
+function ParentComponent() {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = useCallback(() => {
+    setCount(c => c + 1);
+  }, []);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <Button onClick={handleIncrement}>Increment</Button>
+    </div>
+  );
+}
+```
+
+In this example, `handleIncrement` is memoized, so the `Button` component does not re-render when `ParentComponent` re-renders, because the `onClick` prop (the function) has not changed.
+
+| Feature | `useMemo` | `useCallback` |
+| :--- | :--- | :--- |
+| **Purpose** | Memoizes a value. | Memoizes a function. |
+| **Returns** | A memoized value. | A memoized function. |
+| **Use Case** | Avoiding expensive calculations. | Preventing re-renders of child components that depend on function reference equality. |
+
+In short, `useCallback(fn, deps)` is equivalent to `useMemo(() => fn, deps)`.
+
+### Q75: What are custom hooks, and why would you create one?
+
+**Difficulty**: Medium
+
+**Answer**:
+
+A custom hook is a JavaScript function whose name starts with `"use"` and that can call other hooks. They are a way to extract component logic into reusable functions.
+
+**Why create a custom hook?**
+
+1.  **Reusability**: To share logic between multiple components. For example, if you have several components that need to fetch data from the same endpoint, you can create a `useFetch` hook.
+2.  **Separation of Concerns**: To keep complex component logic separate from the UI, making the component easier to read and maintain.
+3.  **Abstraction**: To hide complex implementation details. A component using a custom hook doesn't need to know how it works internally.
+
+**Rules of Hooks**:
+
+Custom hooks must follow the same rules as standard hooks:
+
+-   Only call hooks at the top level. Don't call them inside loops, conditions, or nested functions.
+-   Only call hooks from React function components or other custom hooks.
+
+**Example of a custom hook**:
+
+Let's create a `useToggle` hook to manage a boolean state.
+
+```jsx
+import { useState, useCallback } from 'react';
+
+// Custom hook
+function useToggle(initialValue = false) {
+  const [value, setValue] = useState(initialValue);
+
+  const toggle = useCallback(() => {
+    setValue(v => !v);
+  }, []);
+
+  return [value, toggle];
+}
+
+// How to use the custom hook in a component
+function ToggleComponent() {
+  const [isOn, toggleIsOn] = useToggle(false);
+
+  return (
+    <div>
+      <p>{isOn ? 'On' : 'Off'}</p>
+      <button onClick={toggleIsOn}>Toggle</button>
+    </div>
+  );
+}
+```
+
+In this example, the `useToggle` hook encapsulates the logic for toggling a boolean value, and it can be reused in any component that needs this functionality.```jsx
 // components/InteractiveButton.js (Client Component)
 'use client';
 
