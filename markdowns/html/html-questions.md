@@ -22,6 +22,69 @@
 19. [Q19: How do you implement advanced HTML5 accessibility and inclusive design patterns?](#q19-how-do-you-implement-advanced-html5-accessibility-and-inclusive-design-patterns)
 20. [Q20: How do you implement advanced Web Components with Shadow DOM and modern HTML5 features?](#q20-how-do-you-implement-advanced-web-components-with-shadow-dom-and-modern-html5-features)
 21. [Q21: How do you implement Progressive Web App (PWA) features with advanced caching strategies and offline functionality?](#q21-how-do-you-implement-progressive-web-app-pwa-features-with-advanced-caching-strategies-and-offline-functionality)
+22. [Q22: How do you work with HTML5 Canvas API for graphics and animations?](#q22-how-do-you-work-with-html5-canvas-api-for-graphics-and-animations)
+23. [Q23: How do you implement HTML5 Drag and Drop functionality?](#q23-how-do-you-implement-html5-drag-and-drop-functionality)
+24. [Q24: How do you work with Web Storage API (localStorage and sessionStorage)?](#q24-how-do-you-work-with-web-storage-api-localstorage-and-sessionstorage)
+25. [Q25: How do you implement WebSockets for real-time communication?](#q25-how-do-you-implement-websockets-for-real-time-communication)
+26. [Q26: What is the difference between `<div>` and `<span>`?](#q26-what-is-the-difference-between-div-and-span)
+27. [Q27: What is the purpose of the `<head>` section in an HTML document?](#q27-what-is-the-purpose-of-the-head-section-in-an-html-document)
+28. [Q28: What are the different types of lists in HTML?](#q28-what-are-the-different-types-of-lists-in-html)
+29. [Q29: How do you embed audio and video in a webpage?](#q29-how-do-you-embed-audio-and-video-in-a-webpage)
+30. [Q30: What is an `<iframe>` and when should you use it?](#q30-what-is-an-iframe-and-when-should-you-use-it)
+31. [Q31: What is the difference between `id` and `class` attributes?](#q31-what-is-the-difference-between-id-and-class-attributes)
+32. [Q32: What are `data-*` attributes and how are they used?](#q32-what-are-data-attributes-and-how-are-they-used)
+33. [Q33: What is the purpose of the `alt` attribute on an `<img>` tag?](#q33-what-is-the-purpose-of-the-alt-attribute-on-an-img-tag)
+34. [Q34: How do you create a hyperlink in HTML?](#q34-how-do-you-create-a-hyperlink-in-html)
+35. [Q35: What are HTML entities and why are they used?](#q35-what-are-html-entities-and-why-are-they-used)
+36. [Q36: What is the difference between `<script>`, `<script async>`, and `<script defer>`?](#q36-what-is-the-difference-between-script-script-async-and-script-defer)
+37. [Q37: What is CORS and why is it important?](#q37-what-is-cors-and-why-is-it-important)
+38. [Q38: What is the difference between `localStorage` and `sessionStorage`?](#q38-what-is-the-difference-between-localstorage-and-sessionstorage)
+39. [Q39: What is the difference between `<canvas>` and `<svg>`?](#q39-what-is-the-difference-between-canvas-and-svg)
+40. [Q40: How do you create responsive images in HTML?](#q40-how-do-you-create-responsive-images-in-html)
+41. [Q41: What is the purpose of the `<meta>` tag in HTML?](#q41-what-is-the-purpose-of-the-meta-tag-in-html)
+42. [Q42: What is the purpose of the `rel` attribute on a `link` tag?](#q42-what-is-the-purpose-of-the-rel-attribute-on-a-link-tag)
+43. [Q43: What are Web Workers and what are they used for?](#q43-what-are-web-workers-and-what-are-they-used-for)
+44. [Q44: What are Server-Sent Events (SSE)?](#q44-what-are-server-sent-events-sse)
+45. [Q45: Explain the `defer` attribute in a `<script>` tag.](#q45-explain-the-defer-attribute-in-a-script-tag)
+46. [Q46: What is the difference between block and inline elements?](#q46-what-is-the-difference-between-block-and-inline-elements)
+47. [Q47: What is the purpose of the `box-sizing` property in CSS?](#q47-what-is-the-purpose-of-the-box-sizing-property-in-css)
+48. [Q48: What is CSS Specificity and how is it calculated?](#q48-what-is-css-specificity-and-how-is-it-calculated)
+49. [Q49: What is the difference between `em` and `rem` units in CSS?](#q49-what-is-the-difference-between-em-and-rem-units-in-css)
+50. [Q50: What is CSS Flexbox and what are its key features?](#q50-what-is-css-flexbox-and-what-are-its-key-features)
+51. [Q51: What is the difference between `<em>` and `<strong>` tags?](#q51-what-is-the-difference-between-em-and-strong-tags)
+52. [Q52: What is the purpose of the `DOCTYPE` declaration?](#q52-what-is-the-purpose-of-the-doctype-declaration)
+53. [Q53: What is the difference between an `id` and a `class`?](#q53-what-is-the-difference-between-an-id-and-a-class)
+54. [Q54: What are `data-*` attributes and why are they used?](#q54-what-are-data--attributes-and-why-are-they-used)
+55. [Q55: What is the difference between block and inline elements?](#q55-what-is-the-difference-between-block-and-inline-elements)
+56. [Q56: What is the CSS Box Model?](#q56-what-is-the-css-box-model)
+57. [Q57: What is CSS Specificity and how is it calculated?](#q57-what-is-css-specificity-and-how-is-it-calculated)
+58. [Q58: What is the difference between `display: none;` and `visibility: hidden;`?](#q58-what-is-the-difference-between-display-none-and-visibility-hidden)
+59. [Q59: What are the different values for the CSS `position` property?](#q59-what-are-the-different-values-for-the-css-position-property)
+60. [Q60: What is CSS Flexbox?](#q60-what-is-css-flexbox)
+61. [Q61: What is CSS Grid?](#q61-what-is-css-grid)
+62. [Q62: What is the difference between CSS Flexbox and Grid?](#q62-what-is-the-difference-between-css-flexbox-and-grid)
+63. [Q63: What is responsive web design and how are media queries used?](#q63-what-is-responsive-web-design-and-how-are-media-queries-used)
+64. [Q64: What are CSS preprocessors and why are they useful?](#q64-what-are-css-preprocessors-and-why-are-they-useful)
+65. [Q65: What is the difference between `px`, `em`, and `rem` units?](#q65-what-is-the-difference-between-px-em-and-rem-units)
+66. [Q66: What is the `z-index` property and how does stacking context work?](#q66-what-is-the-z-index-property-and-how-does-stacking-context-work)
+67. [Q67: What are pseudo-classes and pseudo-elements in CSS?](#q67-what-are-pseudo-classes-and-pseudo-elements-in-css)
+68. [Q68: What is the difference between `==` and `===` in JavaScript?](#q68-what-is-the-difference-between-and-in-javascript)
+69. [Q69: What is hoisting in JavaScript?](#q69-what-is-hoisting-in-javascript)
+70. [Q70: What is the difference between `null` and `undefined` in JavaScript?](#q70-what-is-the-difference-between-null-and-undefined-in-javascript)
+71. [Q71: What is a closure in JavaScript?](#q71-what-is-a-closure-in-javascript)
+72. [Q72: Explain the `this` keyword in JavaScript.](#q72-explain-the-this-keyword-in-javascript)
+73. [Q73: What is prototypal inheritance in JavaScript?](#q73-what-is-prototypal-inheritance-in-javascript)
+74. [Q74: What is the difference between Promises and Callbacks?](#q74-what-is-the-difference-between-promises-and-callbacks)
+75. [Q75: What is `async/await` and how does it work?](#q75-what-is-asyncawait-and-how-does-it-work)
+76. [Q76: What is the Event Loop in JavaScript?](#q76-what-is-the-event-loop-in-javascript)
+77. [Q77: What are the differences between `var`, `let`, and `const`?](#q77-what-are-the-differences-between-var-let-and-const)
+78. [Q78: What are arrow functions and how do they differ from regular functions?](#q78-what-are-arrow-functions-and-how-do-they-differ-from-regular-functions)
+79. [Q79: What is the difference between the spread and rest operators?](#q79-what-is-the-difference-between-the-spread-and-rest-operators)
+80. [Q80: Explain the array methods `map`, `filter`, and `reduce`.](#q80-explain-the-array-methods-map-filter-and-reduce)
+81. [Q81: What is the difference between a shallow copy and a deep copy of an object?](#q81-what-is-the-difference-between-a-shallow-copy-and-a-deep-copy-of-an-object)
+82. [Q82: What is event delegation in JavaScript?](#q82-what-is-event-delegation-in-javascript)
+83. [Q83: What are the differences between `localStorage`, `sessionStorage`, and Cookies?](#q83-what-are-the-differences-between-localstorage-sessionstorage-and-cookies)
+84. [Q84: What are debouncing and throttling in JavaScript?](#q84-what-are-debouncing-and-throttling-in-javascript)
 
 ---
 
@@ -494,6 +557,1432 @@ function drop(ev) {
 </script>
 
 <style>
+
+---
+
+### Q26: What is the difference between `<div>` and `<span>`?
+
+**Answer:**
+Both `<div>` and `<span>` are generic HTML elements used to group content. The key difference lies in their display behavior and semantic purpose.
+
+**`<div>` (Division Element):**
+- **Block-level element**: It occupies the full width available and starts on a new line.
+- **Purpose**: Used to group larger sections of content, such as a layout container, a card, or a section of a page.
+
+**`<span>` (Span Element):**
+- **Inline element**: It only occupies the space required for its content and does not start on a new line.
+- **Purpose**: Used to group smaller, inline pieces of content, such as a few words within a paragraph, to apply styling or scripting.
+
+**Example:**
+```html
+<div style="border: 1px solid black; padding: 10px;">
+  <h2>This is a heading inside a div</h2>
+  <p>This is a paragraph. <span style="color: blue; font-weight: bold;">This part is a span</span> and is styled differently.</p>
+  <p>This div takes up the full width.</p>
+</div>
+
+<p>Here is another paragraph outside the div.</p>
+```
+
+**Summary of Differences:**
+
+| Feature      | `<div>`                               | `<span>`                                   |
+|--------------|---------------------------------------|--------------------------------------------|
+| **Display**  | Block-level                           | Inline                                     |
+| **New Line** | Starts on a new line                  | Does not start on a new line               |
+| **Usage**    | Grouping block-level content, layouts | Grouping inline content, styling text      |
+| **Content**  | Can contain other block/inline elements | Should primarily contain inline elements/text |
+
+---
+
+### Q27: What is the purpose of the `<head>` section in an HTML document?
+
+**Answer:**
+The `<head>` section of an HTML document contains machine-readable information (metadata) about the page. It is not displayed in the browser's main content area, but it provides essential information for the browser, search engines, and other web services.
+
+**Key elements found in the `<head>`:**
+
+- **`<title>`**: Sets the title of the page, which appears in the browser tab and search engine results.
+- **`<meta>`**: Provides metadata such as character set, viewport settings, page description, keywords, and author.
+- **`<link>`**: Used to link external resources, most commonly CSS stylesheets.
+- **`<style>`**: Contains inline CSS styles for the document.
+- **`<script>`**: Used to include JavaScript files or inline scripts.
+- **`<base>`**: Specifies the base URL for all relative URLs in the document.
+
+**Example:**
+```html
+<head>
+    <!-- Character encoding -->
+    <meta charset="UTF-8">
+
+    <!-- Viewport settings for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Page title -->
+    <title>My Awesome Webpage</title>
+
+    <!-- SEO metadata -->
+    <meta name="description" content="A brief description of the page content.">
+    <meta name="keywords" content="html, head, metadata, seo">
+    <meta name="author" content="John Doe">
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Inline styles -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+
+    <!-- JavaScript file -->
+    <script src="/js/main.js" defer></script>
+
+    <!-- Base URL -->
+    <base href="https://www.example.com/">
+</head>
+```
+
+---
+
+### Q28: What are the different types of lists in HTML?
+
+**Answer:**
+HTML provides three main types of lists to structure content: ordered lists, unordered lists, and description lists.
+
+**1. Unordered List (`<ul>`):**
+- Used when the order of items is not important.
+- Items are typically displayed with bullet points.
+- Each list item is defined with the `<li>` tag.
+
+```html
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Orange</li>
+</ul>
+```
+
+**2. Ordered List (`<ol>`):**
+- Used when the order of items is important.
+- Items are displayed with numbers by default.
+- The `type` attribute can be used to change the marker (e.g., 'A', 'a', 'I', 'i').
+
+```html
+<ol type="1">
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+</ol>
+```
+
+**3. Description List (`<dl>`):**
+- Used to create a list of terms and their descriptions.
+- Consists of three tags: `<dl>` (the list itself), `<dt>` (the term), and `<dd>` (the description).
+
+```html
+<dl>
+  <dt>HTML</dt>
+  <dd>HyperText Markup Language, the standard for creating web pages.</dd>
+  <dt>CSS</dt>
+  <dd>Cascading Style Sheets, used for styling the presentation of a document.</dd>
+</dl>
+```
+
+**Nested Lists:**
+Lists can also be nested inside one another to create hierarchical structures.
+
+```html
+<ul>
+  <li>Fruit
+    <ol>
+      <li>Apple</li>
+      <li>Banana</li>
+    </ol>
+  </li>
+  <li>Vegetable
+    <ul>
+      <li>Carrot</li>
+      <li>Broccoli</li>
+    </ul>
+  </li>
+</ul>
+```
+
+---
+
+### Q29: How do you embed audio and video in a webpage?
+
+**Answer:**
+HTML5 introduced the `<audio>` and `<video>` elements to natively embed media content in a webpage without requiring plugins like Flash.
+
+**Embedding Audio:**
+The `<audio>` element is used to embed sound content.
+
+```html
+<audio controls>
+  <source src="audio.mp3" type="audio/mpeg">
+  <source src="audio.ogg" type="audio/ogg">
+  Your browser does not support the audio element.
+</audio>
+```
+
+**Common `<audio>` Attributes:**
+- **`controls`**: Displays standard audio controls (play, pause, volume).
+- **`autoplay`**: Starts playing the audio automatically (often blocked by browsers).
+- **`loop`**: Repeats the audio once it finishes.
+- **`muted`**: Mutes the audio by default.
+- **`preload`**: Specifies if and how the audio should be loaded when the page loads ('auto', 'metadata', 'none').
+
+**Embedding Video:**
+The `<video>` element is used for embedding video content.
+
+```html
+<video width="640" height="360" controls poster="poster.jpg">
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.webm" type="video/webm">
+  <track src="captions_en.vtt" kind="captions" srclang="en" label="English">
+  Your browser does not support the video tag.
+</video>
+```
+
+**Common `<video>` Attributes:**
+- **`width` / `height`**: Sets the dimensions of the video player.
+- **`poster`**: Specifies an image to be shown while the video is downloading or until the user hits play.
+- **`playsinline`**: Allows the video to play within the element's playback area on mobile devices.
+- **`<source>`**: Allows you to specify multiple media resources for different browser compatibility.
+- **`<track>`**: Used to specify timed text tracks (like subtitles or captions).
+
+---
+
+### Q30: What is an `<iframe>` and when should you use it?
+
+**Answer:**
+An `<iframe>` (Inline Frame) is an HTML element that allows you to embed another HTML document within the current one. This is useful for including content from other sources, such as maps, videos, or advertisements.
+
+**Syntax:**
+```html
+<iframe src="https://www.example.com" width="600" height="400" title="Example Website"></iframe>
+```
+
+**Common `<iframe>` Attributes:**
+- **`src`**: The URL of the page to embed.
+- **`width` / `height`**: The dimensions of the iframe.
+- **`title`**: A descriptive title for accessibility.
+- **`allow`**: Specifies a feature policy for the iframe (e.g., `allow="fullscreen"`).
+- **`sandbox`**: Enables a set of restrictions for the content in the iframe for security.
+
+**Use Cases:**
+- **Embedding third-party content**: YouTube videos, Google Maps, social media widgets.
+- **Advertisements**: Displaying ads from an ad network.
+- **Isolated components**: Embedding a complex application or widget that needs to be isolated from the main page's CSS and JavaScript.
+
+**Security Considerations:**
+- **Clickjacking**: Iframes can be used for clickjacking attacks. Use the `X-Frame-Options` HTTP header or Content Security Policy (CSP) `frame-ancestors` directive to prevent your site from being embedded in malicious iframes.
+- **Sandboxing**: Use the `sandbox` attribute to restrict the capabilities of the embedded content, such as preventing scripts from running or forms from being submitted.
+
+**Example of a sandboxed iframe:**
+```html
+<iframe src="untrusted.html" sandbox="allow-scripts allow-same-origin">
+</iframe>
+```
+This example allows the iframe to run scripts and access its own origin but blocks other potentially dangerous actions.
+
+---
+
+### Q31: What is the difference between `id` and `class` attributes?
+
+**Answer:**
+Both `id` and `class` are global attributes used to apply identifiers to HTML elements, but they serve different purposes.
+
+**`id` Attribute:**
+- **Uniqueness**: The `id` must be unique within the entire HTML document. An `id` should only be used once.
+- **Purpose**: Primarily used to identify a single, specific element for JavaScript manipulation (e.g., `document.getElementById()`) or for linking to a specific part of a page with anchor tags (`<a href="#unique-id">`).
+- **CSS**: Can be used as a CSS selector (`#unique-id`), but it's highly specific and generally less reusable than classes.
+
+**`class` Attribute:**
+- **Reusability**: The same `class` name can be used on multiple elements.
+- **Purpose**: Primarily used to group multiple elements that share the same styling or behavior. An element can also have multiple classes, separated by spaces.
+- **CSS**: The primary way to apply styles to elements. It promotes reusable and modular CSS.
+
+**Example:**
+```html
+<!-- Using id for a unique element -->
+<header id="main-header">
+  <h1>Website Title</h1>
+</header>
+
+<!-- Using class for multiple, reusable components -->
+<div class="card">
+  <h2>Card 1</h2>
+  <p>Some text.</p>
+</div>
+
+<div class="card featured">
+  <h2>Card 2 (Featured)</h2>
+  <p>This card has two classes.</p>
+</div>
+
+<a href="#main-header">Back to top</a>
+```
+
+**CSS:**
+```css
+/* Styling a unique element by id */
+#main-header {
+  background-color: #333;
+  color: white;
+}
+
+/* Styling reusable components by class */
+.card {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.featured {
+  border-color: gold;
+  background-color: #fffbe6;
+}
+```
+
+**Summary of Differences:**
+
+| Feature        | `id`                                      | `class`                                       |
+|----------------|-------------------------------------------|-----------------------------------------------|
+| **Uniqueness** | Must be unique in the document            | Can be used on multiple elements              |
+| **Selector**   | CSS: `#id`, JS: `getElementById()`        | CSS: `.class`, JS: `getElementsByClassName()` |
+| **Use Case**   | Identifying a single element, page anchors | Styling multiple elements, component styling  |
+| **Specificity**| High specificity in CSS                   | Lower specificity, more reusable              |
+
+---
+
+### Q32: What are `data-*` attributes and how are they used?
+
+**Answer:**
+`data-*` attributes are a way to store custom data private to the page or application, for which there are no more appropriate attributes or elements. They are intended to store data that is primarily used by scripts.
+
+**Syntax:**
+The attribute name must start with `data-` and contain no uppercase letters.
+
+```html
+<div class="user" data-user-id="12345" data-user-role="admin">
+  John Doe
+</div>
+```
+
+**Accessing `data-*` Attributes in JavaScript:**
+You can access these attributes using the `dataset` property of the element object.
+
+```javascript
+const userElement = document.querySelector('.user');
+
+// Accessing data attributes
+const userId = userElement.dataset.userId; // "12345"
+const userRole = userElement.dataset.userRole; // "admin"
+
+console.log(`User ID: ${userId}, Role: ${userRole}`);
+
+// Modifying data attributes
+userElement.dataset.userRole = 'editor';
+console.log(userElement.dataset.userRole); // "editor"
+```
+
+**Accessing `data-*` Attributes in CSS:**
+You can also use `data-*` attributes in CSS for styling, using attribute selectors.
+
+```css
+.user[data-user-role="admin"] {
+  color: red;
+  font-weight: bold;
+}
+
+.user[data-user-role="editor"] {
+  color: blue;
+}
+
+/* You can also display the data content */
+.user::after {
+  content: ' (' attr(data-user-role) ')';
+}
+```
+
+**Use Cases:**
+- Storing extra information about an element that doesn't have a semantic representation (e.g., the ID of a product in a list).
+- Triggering JavaScript behavior based on the data.
+- Styling elements based on their data.
+
+---
+
+### Q33: What is the purpose of the `alt` attribute on an `<img>` tag?
+
+**Answer:**
+The `alt` attribute (alternative text) on an `<img>` tag provides a textual alternative to the image. It serves several important purposes:
+
+1.  **Accessibility**: Screen readers read the `alt` text aloud to visually impaired users, allowing them to understand the content and context of the image.
+
+2.  **Broken Images**: If the image fails to load (due to a broken link, slow connection, etc.), the browser will display the `alt` text instead.
+
+3.  **SEO (Search Engine Optimization)**: Search engines use `alt` text to understand the content of an image, which can help with image search rankings.
+
+**How to write good `alt` text:**
+-   **Be descriptive but concise**: Describe the important information in the image.
+-   **Avoid redundancy**: Don't start with "Image of..." or "Picture of...".
+-   **Context is key**: The `alt` text should make sense within the context of the surrounding text.
+-   **Decorative images**: If an image is purely decorative and provides no information, use an empty `alt` attribute (`alt=""`). This tells screen readers to ignore the image.
+
+**Examples:**
+
+**Good `alt` text:**
+```html
+<img src="dog.jpg" alt="A golden retriever playing fetch in a park.">
+```
+
+**`alt` text for a logo link:**
+```html
+<a href="/">
+  <img src="logo.png" alt="Homepage">
+</a>
+```
+
+**Decorative image:**
+```html
+<img src="background-pattern.png" alt="">
+
+---
+
+### Q34: How do you create a hyperlink in HTML?
+
+**Answer:**
+Hyperlinks are created using the `<a>` (anchor) tag. The `href` attribute is the most important attribute of the `<a>` tag, as it specifies the destination of the link.
+
+**Types of Hyperlinks:**
+
+**1. External Link:**
+Links to a page on a different website.
+```html
+<a href="https://www.google.com">Go to Google</a>
+```
+
+**2. Internal Link:**
+Links to another page within the same website.
+```html
+<a href="/about.html">About Us</a>
+```
+
+**3. Anchor Link (Jumping to a section on the same page):**
+Links to a specific element on the same page that has an `id`.
+```html
+<a href="#section2">Go to Section 2</a>
+
+<!-- ... later in the page ... -->
+
+<h2 id="section2">Section 2</h2>
+```
+
+**4. Email Link:**
+Creates a link that opens the user's default email client.
+```html
+<a href="mailto:contact@example.com">Email Us</a>
+```
+
+**5. Telephone Link:**
+Creates a link that initiates a phone call on mobile devices.
+```html
+<a href="tel:+1234567890">Call Us</a>
+```
+
+**Important `<a>` Tag Attributes:**
+- **`target`**: Specifies where to open the linked document.
+  - `_self`: (Default) Opens in the same frame.
+  - `_blank`: Opens in a new tab or window.
+  - `_parent`: Opens in the parent frame.
+  - `_top`: Opens in the full body of the window.
+- **`rel`**: Specifies the relationship between the current document and the linked document. For `target="_blank"`, it's a security best practice to include `rel="noopener noreferrer"`.
+- **`download`**: Prompts the user to download the linked file.
+
+**Example with `target` and `rel`:**
+```html
+<a href="https://www.example.com" target="_blank" rel="noopener noreferrer">
+  External Site (opens in new tab)
+</a>
+```
+
+---
+
+### Q35: What are HTML entities and why are they used?
+
+**Answer:**
+HTML entities are used to display reserved characters that have a special meaning in HTML (like `<` and `>`), or characters that are not present on a standard keyboard.
+
+An entity consists of an ampersand (`&`), an entity name or number, and a semicolon (`;`).
+
+**Why use HTML entities?**
+1.  **To display reserved characters**: If you want to display the `<` character in your text, you need to use an entity (`&lt;`) to prevent the browser from interpreting it as the start of a tag.
+2.  **To display special characters**: For symbols like the copyright sign (`©`) or the Euro sign (`€`), entities provide a universal way to display them across different platforms and character sets.
+
+**Common HTML Entities:**
+
+| Character | Entity Name | Entity Number | Description         |
+| :-------: | :---------: | :-----------: | ------------------- |
+|    `<`    | `&lt;`      | `&#60;`       | Less than           |
+|    `>`    | `&gt;`      | `&#62;`       | Greater than        |
+|    `&`    | `&amp;`     | `&#38;`       | Ampersand           |
+|    `"`    | `&quot;`    | `&#34;`       | Double quote        |
+|    `'`    | `&apos;`    | `&#39;`       | Single quote (apostrophe) |
+|   ` `   | `&nbsp;`    | `&#160;`      | Non-breaking space  |
+|    `©`    | `&copy;`    | `&#169;`      | Copyright           |
+|    `®`    | `&reg;`     | `&#174;`      | Registered trademark|
+|    `€`    | `&euro;`    | `&#8364;`      | Euro                |
+
+**Example:**
+```html
+<!-- Displaying code with reserved characters -->
+<p>The `&lt;p&gt;` tag is used for paragraphs.</p>
+
+<!-- Using a non-breaking space to keep words together -->
+<p>Price: 10&nbsp;€</p>
+
+<!-- Copyright notice -->
+<footer>
+  <p>&copy; 2024 My Company. All rights reserved.</p>
+</footer>
+```
+
+---
+
+### Q36: What is the difference between `<script>`, `<script async>`, and `<script defer>`?
+
+**Answer:**
+These attributes control how an external JavaScript file is downloaded and executed, which significantly impacts page load performance.
+
+**1. `<script>` (Default)**
+- **HTML Parsing:** Pauses.
+- **Script Download:** Happens immediately, blocking HTML parsing.
+- **Script Execution:** Happens immediately after download, also blocking HTML parsing.
+- **Order:** Scripts are fetched and executed in the order they appear in the document.
+
+This is render-blocking. If the script is large, the user will see a blank page until it's downloaded and executed.
+
+```html
+<script src="main.js"></script>
+```
+
+**2. `<script async>`**
+- **HTML Parsing:** Does not pause.
+- **Script Download:** Happens asynchronously alongside HTML parsing.
+- **Script Execution:** Happens as soon as the script is downloaded, which pauses HTML parsing.
+- **Order:** Scripts are executed as soon as they are downloaded, not necessarily in the order they appear.
+
+Use `async` for independent scripts that don't rely on other scripts or the DOM being fully parsed (e.g., analytics).
+
+```html
+<script async src="analytics.js"></script>
+```
+
+**3. `<script defer>`**
+- **HTML Parsing:** Does not pause.
+- **Script Download:** Happens asynchronously alongside HTML parsing.
+- **Script Execution:** Is deferred until the HTML document has been fully parsed (just before the `DOMContentLoaded` event).
+- **Order:** Scripts are executed in the order they appear in the document.
+
+Use `defer` for scripts that need the full DOM and/or depend on other scripts. This is often the best choice for performance.
+
+```html
+<script defer src="library.js"></script>
+<script defer src="main.js"></script> <!-- Executes after library.js -->
+```
+
+**Summary Table:**
+
+| Attribute | Pauses HTML Parsing? | Asynchronous Download? | Executes Before DOMContentLoaded? | Execution Order Guaranteed? |
+| :-------- | :------------------: | :--------------------: | :-------------------------------: | :-------------------------: |
+| `(none)`  |          Yes         |           No           |                Yes                |             Yes             |
+| `async`   |   Only on execution  |          Yes           |            Not guaranteed           |              No             |
+| `defer`   |          No          |          Yes           |                No                 |             Yes             |
+
+---
+
+### Q37: What is CORS and why is it important?
+
+**Answer:**
+CORS (Cross-Origin Resource Sharing) is a security mechanism that allows a web page from one origin (domain, protocol, or port) to request resources from a different origin. It is a crucial part of the modern web, enabling complex applications that fetch data from various APIs.
+
+**Why is CORS needed?**
+Web browsers enforce a **Same-Origin Policy (SOP)**, which restricts web pages from making requests to a different origin than the one that served the page. This is a critical security measure to prevent malicious scripts on one page from accessing sensitive data on another page.
+
+CORS provides a controlled way to relax the SOP, allowing servers to explicitly permit cross-origin requests from specific origins.
+
+**How CORS Works:**
+CORS works by adding new HTTP headers to the request and response. The most important one is `Access-Control-Allow-Origin`.
+
+1.  **Client-Side Request:** When a browser makes a cross-origin request (e.g., using `fetch` or `XMLHttpRequest`), it automatically adds an `Origin` header with the current page's origin.
+
+    ```javascript
+    // Request from http://example.com to http://api.com/data
+    fetch('http://api.com/data');
+    // Browser adds header: Origin: http://example.com
+    ```
+
+2.  **Server-Side Response:** The server at `api.com` receives the request. If it wants to allow the request, it must include the `Access-Control-Allow-Origin` header in its response.
+
+    -   To allow a specific origin:
+        `Access-Control-Allow-Origin: http://example.com`
+    -   To allow any origin (less secure):
+        `Access-Control-Allow-Origin: *`
+
+3.  **Browser Enforcement:** The browser receives the response. If the `Access-Control-Allow-Origin` header is missing or doesn't match the page's origin, the browser blocks the request, and the JavaScript code receives an error.
+
+**Preflight Requests (`OPTIONS`):**
+For requests that can modify data (e.g., `PUT`, `DELETE`) or have custom headers, the browser sends a "preflight" request using the `OPTIONS` method first. This request asks the server for permission before sending the actual request. The server must respond with the appropriate CORS headers (`Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`) to approve the preflight check.
+
+---
+
+### Q38: What is the difference between `localStorage` and `sessionStorage`?
+
+**Answer:**
+Both `localStorage` and `sessionStorage` are part of the Web Storage API, which allows browsers to store key/value pairs locally on the user's computer. They provide a way to store data on the client-side that persists across page reloads.
+
+The main difference lies in their **persistence and scope**.
+
+**`localStorage`**
+- **Persistence:** The data has no expiration time. It remains until it is explicitly cleared through JavaScript or by the user clearing their browser cache/data.
+- **Scope:** The data is shared across all tabs and windows from the same origin (domain).
+- **Use Cases:** Storing user preferences (like a theme), keeping a user logged in, or storing data that needs to be available for a long time.
+
+**`sessionStorage`**
+- **Persistence:** The data is only available for the duration of the page session. A session ends when the browser tab is closed. Reloading the page does not clear it.
+- **Scope:** The data is scoped to a single browser tab. Data in one tab is not accessible in another tab, even if they are from the same origin.
+- **Use Cases:** Storing temporary data for a multi-step form, preserving application state for a single session, or storing data that should be discarded after the user leaves.
+
+**Summary Table:**
+
+| Feature          | `localStorage`                               | `sessionStorage`                             |
+| :--------------- | :------------------------------------------- | :------------------------------------------- |
+| **Lifetime**     | Persists until explicitly deleted            | Persists for one session (until tab is closed) |
+| **Scope**        | Shared across all tabs/windows of an origin  | Scoped to a single tab                       |
+| **Accessibility**| Available in any tab or window from the origin | Only available in the tab that created it    |
+| **Data Sharing** | Data is shared between tabs                  | Data is isolated between tabs                |
+
+**API and Example:**
+Both objects share the same API methods:
+- `setItem(key, value)`: Add a key/value pair.
+- `getItem(key)`: Retrieve an item by its key.
+- `removeItem(key)`: Remove an item by its key.
+- `clear()`: Remove all items.
+- `key(index)`: Get the key at a given index.
+- `length`: Get the number of stored items.
+
+```javascript
+// --- localStorage Example ---
+
+// Store a user's preferred theme
+localStorage.setItem('theme', 'dark');
+
+// Retrieve the theme on a different page or later visit
+const currentTheme = localStorage.getItem('theme'); // 'dark'
+
+// --- sessionStorage Example ---
+
+// Store temporary form data in a multi-step process
+sessionStorage.setItem('formStep1Data', 'Some user input');
+
+// Retrieve it on the next step in the same tab
+const step1Data = sessionStorage.getItem('formStep1Data');
+
+// This data will be gone if the user closes and reopens the tab.
+```
+
+---
+
+### Q39: What is the difference between `<canvas>` and `<svg>`?
+
+**Answer:**
+Both `<canvas>` and `<svg>` are used to draw graphics on a web page, but they work in fundamentally different ways and are suited for different tasks.
+
+**`<canvas>`**
+- **Type:** Raster-based (pixel-based).
+- **How it works:** Provides a drawing surface where you can draw graphics dynamically using JavaScript. Once drawn, the graphics are not part of the DOM.
+- **Performance:** Better for a large number of objects or fast, real-time animations (like games).
+- **Scalability:** Resolution-dependent. Graphics can become pixelated when scaled up.
+- **Accessibility:** Poor. Content is not accessible to screen readers.
+- **Use Cases:** Games, data visualizations, image editing applications, real-time video processing.
+
+**`<svg>` (Scalable Vector Graphics)**
+- **Type:** Vector-based (shape-based).
+- **How it works:** Defines graphics using an XML-based markup language. Each shape is a DOM element that can be manipulated with CSS and JavaScript.
+- **Performance:** Can be slow with a very large number of elements, as each one is a node in the DOM.
+- **Scalability:** Resolution-independent. Graphics scale perfectly to any size without losing quality.
+- **Accessibility:** Excellent. Text within SVG is accessible, and you can add titles and descriptions to elements.
+- **Use Cases:** Logos, icons, illustrations, charts, and diagrams where scalability and interactivity are important.
+
+**Summary Table:**
+
+| Feature           | `<canvas>`                                  | `<svg>`                                      |
+| :---------------- | :------------------------------------------ | :------------------------------------------- |
+| **Technology**    | Raster (Bitmap)                             | Vector                                       |
+| **Drawing API**   | JavaScript (Imperative)                     | XML/DOM (Declarative)                        |
+| **DOM Interaction**| No, it's a single element                   | Yes, every shape is a DOM node               |
+| **Scalability**   | Poor, resolution-dependent                  | Excellent, resolution-independent            |
+| **Performance**   | High for complex scenes and animations      | Can be slow with many elements               |
+| **Accessibility** | Poor                                        | Good, supports text and ARIA attributes      |
+| **Best For**      | Dynamic graphics, games, pixel manipulation | High-quality, scalable icons, charts, logos  |
+
+**Example:**
+
+**Canvas (drawing a red rectangle):**
+```html
+<canvas id="myCanvas" width="200" height="100"></canvas>
+<script>
+  const canvas = document.getElementById('myCanvas');
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = 'red';
+  ctx.fillRect(10, 10, 150, 80);
+</script>
+```
+
+**SVG (creating a red rectangle):**
+```html
+<svg width="200" height="100">
+  <rect x="10" y="10" width="150" height="80" style="fill:red" />
+</svg>
+```
+
+---
+
+### Q40: How do you create responsive images in HTML?
+
+**Answer:**
+Responsive images are crucial for performance and user experience, ensuring that the browser loads the most appropriate image for the user's device and screen size. There are two main approaches:
+
+**1. Resolution Switching with `srcset` and `sizes`**
+This is the most common technique. It allows the browser to choose the best image from a set of options based on the device's resolution and viewport width.
+
+- **`srcset`**: A comma-separated list of image URLs and their intrinsic widths (e.g., `image-small.jpg 400w`, `image-large.jpg 800w`). The `w` descriptor tells the browser the width of the image file.
+- **`sizes`**: A comma-separated list of media conditions and the width of the image slot for that condition. This tells the browser how wide the image will be displayed on the page at different viewport widths. The last item is the default.
+
+**Example:**
+```html
+<img 
+  srcset="image-small.jpg 400w, 
+          image-medium.jpg 800w, 
+          image-large.jpg 1200w"
+  sizes="(max-width: 600px) 100vw, 
+         (max-width: 900px) 50vw, 
+         33vw"
+  src="image-medium.jpg" 
+  alt="A responsive image.">
+```
+
+**How it works:**
+- If the viewport is `600px` or less, the image will take up `100%` of the viewport width (`100vw`). The browser might choose `image-small.jpg` or `image-medium.jpg`.
+- If the viewport is between `601px` and `900px`, the image will take up `50%` of the viewport width (`50vw`).
+- Above `900px`, the image will take up `33%` of the viewport width (`33vw`).
+- The `src` attribute is a fallback for older browsers that don't support `srcset`.
+
+**2. Art Direction with the `<picture>` Element**
+This technique is used when you need to show completely different images at different screen sizes (e.g., a cropped version on mobile).
+
+- **`<picture>`**: A container element.
+- **`<source>`**: One or more source elements, each with a `media` attribute (a media query) and a `srcset` attribute.
+- **`<img>`**: The fallback element, which is always required and is displayed if no media queries match.
+
+**Example:**
+```html
+<picture>
+  <!-- Show this image on screens 700px or wider -->
+  <source media="(min-width: 700px)" srcset="image-wide.jpg">
+  
+  <!-- Show this image on screens 500px or wider -->
+  <source media="(min-width: 500px)" srcset="image-medium.jpg">
+  
+  <!-- Fallback image for screens smaller than 500px and older browsers -->
+  <img src="image-narrow.jpg" alt="A description of the image.">
+</picture>
+```
+
+---
+
+### Q41: What is the purpose of the `<meta>` tag in HTML?
+
+**Answer:**
+The `<meta>` tag, placed inside the `<head>` section, provides metadata about the HTML document. Metadata is data (information) about data; it is not displayed on the page but is machine-parsable. It is used by browsers, search engines, and other web services.
+
+**Common Uses of the `<meta>` Tag:**
+
+**1. Specifying Character Set:**
+This is crucial for ensuring the browser interprets the text content correctly. UTF-8 is the standard.
+```html
+<meta charset="UTF-8">
+```
+
+**2. SEO and Social Media Optimization:**
+   - **`description`**: A concise summary of the page's content, often used by search engines in search results.
+   - **`keywords`**: A list of keywords relevant to the page (less important for modern SEO but still seen).
+   - **Open Graph (for Facebook, LinkedIn, etc.)**: Controls how content appears when shared.
+
+```html
+<meta name="description" content="High-quality interview questions for HTML, CSS, and JavaScript.">
+<meta name="keywords" content="HTML, CSS, JavaScript, Interview, Questions">
+
+<!-- Open Graph Data -->
+<meta property="og:title" content="Web Dev Interview Guide">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://example.com/image.jpg">
+```
+
+**3. Setting the Viewport for Responsive Design:**
+This tag is essential for responsive web design, telling the browser how to control the page's dimensions and scaling.
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+- `width=device-width`: Sets the width of the page to follow the screen-width of the device.
+- `initial-scale=1.0`: Sets the initial zoom level when the page is first loaded by the browser.
+
+**4. Controlling Browser Behavior:**
+   - **`http-equiv`**: Can be used to simulate an HTTP response header.
+
+```html
+<!-- Auto-refresh the page every 30 seconds -->
+<meta http-equiv="refresh" content="30">
+
+<!-- Set compatibility mode for Internet Explorer -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+```
+
+**5. Author Information:**
+```html
+<meta name="author" content="John Doe">
+```
+
+---
+
+### Q42: What is the purpose of the `rel` attribute on a `link` tag?
+
+**Answer:**
+The `rel` attribute on a `<link>` tag specifies the relationship between the current document and the linked resource. It is a required attribute and is crucial for the browser to understand how to handle the linked file.
+
+**Common `rel` attribute values:**
+
+**1. `stylesheet`**
+This is the most common value. It indicates that the linked resource is a CSS stylesheet.
+```html
+<link rel="stylesheet" href="/css/styles.css">
+```
+
+**2. `icon`**
+Specifies the favicon for the website, which is displayed in the browser tab and bookmarks.
+```html
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"> <!-- For Apple devices -->
+```
+
+**3. `preconnect`**
+Instructs the browser to connect to a domain in advance without revealing any private information. This can speed up the loading of resources from that domain later on.
+```html
+<link rel="preconnect" href="https://fonts.gstatic.com">
+```
+
+**4. `preload`**
+Instructs the browser to fetch a resource in the background with a high priority, because it will be needed soon. This is useful for critical resources like fonts or above-the-fold images.
+```html
+<link rel="preload" href="/fonts/myfont.woff2" as="font" type="font/woff2" crossorigin>
+```
+- The `as` attribute is required to specify the type of content being preloaded.
+
+**5. `dns-prefetch`**
+Instructs the browser to perform a DNS lookup for a domain in advance. This is a lighter-weight version of `preconnect`.
+```html
+<link rel="dns-prefetch" href="//example.com">
+```
+
+**6. `alternate`**
+Indicates an alternate version of the document, such as a print-friendly version, a translation, or an RSS feed.
+```html
+<!-- Link to an RSS feed -->
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/feed.xml">
+
+<!-- Link to a translated version of the page -->
+<link rel="alternate" hreflang="es" href="https://example.com/es/">
+```
+
+**7. `canonical`**
+Specifies the preferred or "canonical" URL for a page that has multiple versions. This is important for SEO to avoid duplicate content issues.
+```html
+<link rel="canonical" href="https://example.com/products/original-page/">
+```
+
+---
+
+### Q43: What are Web Workers and what are they used for?
+
+**Answer:**
+Web Workers are a simple means for web content to run scripts in background threads. The worker thread can perform tasks without interfering with the user interface. A worker can send and receive messages from the main thread that created it.
+
+**Why use Web Workers?**
+JavaScript is single-threaded. Long-running scripts can block the main thread, making the user interface unresponsive (e.g., freezing the page, preventing clicks). Web Workers solve this by allowing you to delegate computationally intensive tasks to a separate thread.
+
+**Use Cases:**
+-   Processing large amounts of data (e.g., sorting, searching).
+-   Complex calculations (e.g., cryptography, image or video processing).
+-   Keeping a persistent connection open with a server (e.g., WebSockets).
+-   Prefetching and caching data in the background.
+
+**How Web Workers Work:**
+1.  **Main Script:** Creates a new `Worker` object, passing the URL of the worker script.
+2.  **Communication:** The main script and the worker communicate using the `postMessage()` method to send messages and an `onmessage` event handler to receive them.
+3.  **Worker Script:** The worker script runs in a separate global context. It does not have access to the DOM, the `window` object, or the `document` object.
+
+**Example of a Dedicated Worker:**
+
+**`main.js` (Main Thread)**
+```javascript
+// 1. Create a new worker
+const myWorker = new Worker('worker.js');
+
+// 2. Send a message to the worker
+myWorker.postMessage([5, 10]);
+console.log('Message posted to worker');
+
+// 3. Listen for messages from the worker
+myWorker.onmessage = function(e) {
+  console.log('Message received from worker:', e.data);
+};
+
+// 4. Handle errors
+myWorker.onerror = function(error) {
+  console.error('Error in worker:', error.message);
+};
+```
+
+**`worker.js` (Worker Thread)**
+```javascript
+// Listen for messages from the main thread
+self.onmessage = function(e) {
+  console.log('Message received from main script');
+  const result = e.data[0] * e.data[1];
+
+  // Send the result back to the main thread
+  self.postMessage(result);
+};
+```
+
+**Types of Web Workers:**
+-   **Dedicated Workers:** Are owned by a single script.
+-   **Shared Workers:** Can be shared by multiple scripts running in different windows or iframes (from the same origin).
+-   **Service Workers:** Act as a proxy server between the web application, the browser, and the network. They are essential for Progressive Web Apps (PWAs), enabling features like offline access and push notifications.
+
+---
+
+### Q44: What are Server-Sent Events (SSE)?
+
+**Answer:**
+Server-Sent Events (SSE) is a technology that enables a server to push data to a client asynchronously once an initial client connection has been established. It provides a one-way communication channel from the server to the client over a single, long-lived HTTP connection.
+
+**How SSE Works:**
+1.  The client creates an `EventSource` object, specifying the URL of an endpoint that will push updates.
+2.  The server keeps the connection open and sends messages to the client in a specific text format (`data: ...\n\n`).
+3.  The client receives these messages as events in the browser.
+
+**Key Features:**
+-   **One-way communication:** Server to client only.
+-   **Automatic reconnection:** If the connection is lost, the `EventSource` will automatically try to reconnect.
+-   **Standard HTTP:** It works over regular HTTP, so it doesn't require special protocols or servers like WebSockets.
+-   **Event-based:** The server can send named events, allowing the client to handle different types of messages.
+
+**SSE vs. WebSockets:**
+
+| Feature             | Server-Sent Events (SSE)          | WebSockets                            |
+| :------------------ | :-------------------------------- | :------------------------------------ |
+| **Communication**   | Unidirectional (Server -> Client) | Bidirectional (Client <-> Server)     |
+| **Protocol**        | Standard HTTP/S                   | WebSocket protocol (`ws://`, `wss://`) |
+| **Complexity**      | Simpler to implement              | More complex                          |
+| **Reconnection**    | Automatic                         | Manual implementation required        |
+| **Data Format**     | UTF-8 text only                   | Text and binary                       |
+| **Use Cases**       | News feeds, stock tickers, notifications | Real-time chat, online gaming, collaboration tools |
+
+**Example:**
+
+**Client-Side JavaScript:**
+```javascript
+const eventSource = new EventSource('/sse-endpoint');
+
+// Listen for messages with the default 'message' event name
+eventSource.onmessage = function(event) {
+  console.log('New message:', event.data);
+};
+
+// Listen for a custom named event
+eventSource.addEventListener('update', function(event) {
+  console.log('Update received:', event.data);
+});
+
+eventSource.onerror = function(err) {
+  console.error('EventSource failed:', err);
+};
+```
+
+**Server-Side (Node.js/Express Example):**
+```javascript
+app.get('/sse-endpoint', (req, res) => {
+  // Set headers for SSE
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  res.flushHeaders(); // Flush the headers to establish the connection
+
+  // Send a message every 2 seconds
+  const intervalId = setInterval(() => {
+    const date = new Date().toLocaleTimeString();
+    res.write(`data: ${date}\n\n`); // Note the format
+  }, 2000);
+
+  // Clean up when the client closes the connection
+  req.on('close', () => {
+    clearInterval(intervalId);
+    res.end();
+  });
+});
+```
+
+---
+
+### Q45: Explain the `defer` attribute in a `<script>` tag.
+
+**Answer:**
+The `defer` attribute is a boolean attribute for the `<script>` tag that tells the browser to execute the script file after the HTML document has been fully parsed, but before the `DOMContentLoaded` event is fired.
+
+**Key Characteristics of `defer`:**
+
+1.  **Asynchronous Download:** The script is downloaded asynchronously in the background, meaning it does not block the HTML parser. The page continues to render while the script is being downloaded.
+
+2.  **Delayed Execution:** Unlike a regular script, a deferred script is not executed immediately after it's downloaded. Instead, the browser waits until it has finished parsing all the HTML.
+
+3.  **Execution Order:** If there are multiple deferred scripts, they are guaranteed to execute in the order they appear in the HTML document. This is a key difference from the `async` attribute.
+
+**Visual Representation:**
+
+-   **Normal `<script>`:**
+    `HTML Parsing -> [Script Download -> Script Execution] -> HTML Parsing Continues`
+
+-   **`<script defer>`:**
+    `HTML Parsing --------------------------------------> [All Scripts Execute] -> DOMContentLoaded`
+    `           (Script Download in parallel)          `
+
+**When to use `defer`:**
+`defer` is the preferred method for including external JavaScript files when:
+-   The script needs to access or manipulate the DOM.
+-   The script is not critical for the initial rendering of the page.
+-   The script depends on another script (and their order needs to be maintained).
+
+By using `defer`, you ensure that your scripts don't block the page from rendering, leading to a faster perceived load time and a better user experience.
+
+**Example:**
+In this example, `library.js` is guaranteed to execute before `main.js`, and both will run after the browser has parsed the entire page.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Defer Example</title>
+  <script src="library.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+  <p>This content will be visible even while the scripts are downloading.</p>
+</body>
+</html>
+```
+
+**`defer` vs. `async`:**
+
+| Feature             | `defer`                                      | `async`                                      |
+| :------------------ | :------------------------------------------- | :------------------------------------------- |
+| **Execution Time**  | After HTML parsing is complete               | As soon as the script is downloaded          |
+| **Execution Order** | Guaranteed to be in the order of appearance  | No order guaranteed; executes when ready     |
+| **DOM Access**      | Safe; DOM is fully parsed                    | Not safe; DOM may not be ready               |
+| **Use Case**        | Scripts that need the DOM or depend on others | Independent scripts (e.g., analytics, ads)   |
+
+---
+
+### Q46: What is the difference between block and inline elements?
+
+**Answer:**
+In HTML, elements are generally categorized as either **block-level** or **inline-level**. This distinction defines how the element behaves in the page layout and what kind of content it can hold.
+
+#### Block-Level Elements
+
+Block-level elements are designed to structure the main parts of your web page. They have the following key characteristics:
+
+1.  **Always Start on a New Line:** They take up the full width available, pushing any subsequent elements to a new line.
+2.  **Can Have Width and Height:** You can explicitly set their `width`, `height`, `margin`, and `padding`.
+3.  **Can Contain Other Elements:** They can contain other block-level elements and inline-level elements.
+
+**Common Examples:**
+-   `<div>`
+-   `<p>`
+-   `<h1>` - `<h6>`
+-   `<ul>`, `<ol>`, `<li>`
+-   `<form>`
+-   `<table>`
+-   `<header>`, `<footer>`, `<section>`, `<article>`
+
+#### Inline-Level Elements
+
+Inline-level elements are used for smaller pieces of content within a block-level element. They do not disrupt the flow of the document.
+
+1.  **Do Not Start on a New Line:** They only take up as much width as necessary and sit within the flow of the text.
+2.  **Limited Styling:** You can set horizontal `padding` and `margin`, but vertical `padding` and `margin` (top/bottom) will not affect the surrounding elements. `width` and `height` properties have no effect.
+3.  **Can Only Contain Data and Other Inline Elements:** It is semantically incorrect for an inline element to contain a block-level element.
+
+**Common Examples:**
+-   `<span>`
+-   `<a>`
+-   `<img>`
+-   `<strong>`, `<em>`
+-   `<input>`
+-   `<button>`
+-   `<label>`
+
+#### Example:
+
+```html
+<div style="background-color: lightblue;">
+  This is a block-level div. 
+  <p style="background-color: lightgreen;">This paragraph is also a block element.</p>
+</div>
+
+<p style="background-color: lightcoral;">
+  This is a paragraph containing an <span style="background-color: yellow;">inline span</span>, an 
+  <a href="#">inline link</a>, and an <img src="#" alt="image"> inline image. They all flow together on the same line.
+</p>
+```
+
+#### Summary Table
+
+| Feature                  | Block-Level Element                          | Inline-Level Element                         |
+| :----------------------- | :------------------------------------------- | :------------------------------------------- |
+| **Layout**               | Starts on a new line; takes up full width    | Flows within text; takes up necessary width  |
+| **Dimensions**           | `width` and `height` can be set              | `width` and `height` have no effect          |
+| **Margin/Padding**       | All sides are respected                      | Only horizontal margin/padding is respected  |
+| **Content Model**        | Can contain block and inline elements        | Can contain data and other inline elements   |
+| **Primary Use**          | Structural sections of a page                | Text-level semantics and content styling     |
+
+---
+
+### Q47: What is the purpose of the `box-sizing` property in CSS?
+
+**Answer:**
+The `box-sizing` property in CSS defines how the `width` and `height` of an element are calculated. It determines whether the element's padding and border are included in the total width and height.
+
+There are two main values for `box-sizing`:
+
+1.  `content-box` (the default)
+2.  `border-box`
+
+#### `content-box` (Default Behavior)
+
+When `box-sizing` is set to `content-box`, the `width` and `height` properties only apply to the content of the element. The padding and border are added *on top of* the specified width and height, making the element larger than you might expect.
+
+**Total Width** = `width` + `padding-left` + `padding-right` + `border-left` + `border-right`
+**Total Height** = `height` + `padding-top` + `padding-bottom` + `border-top` + `border-bottom`
+
+This can make layout calculations tricky. For example, if you want two elements to fit side-by-side in a container, you have to subtract their padding and border from their widths.
+
+#### `border-box` (Intuitive Behavior)
+
+When `box-sizing` is set to `border-box`, the `width` and `height` properties include the content, padding, and border. This means that if you set an element's width to `100px`, it will be exactly `100px` wide on the screen, regardless of its padding or border.
+
+**Total Width** = `width` (includes padding and border)
+**Total Height** = `height` (includes padding and border)
+
+The content area inside the element shrinks to accommodate the padding and border.
+
+#### Example:
+
+Let's compare two `div` elements, both with the same width, padding, and border, but different `box-sizing` values.
+
+```html
+<style>
+  .box {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 10px solid #333;
+    margin-bottom: 20px;
+  }
+
+  .content-box {
+    box-sizing: content-box; /* Default */
+    background-color: lightcoral;
+  }
+
+  .border-box {
+    box-sizing: border-box;
+    background-color: lightblue;
+  }
+</style>
+
+<div class="box content-box">
+  content-box (Total Width: 200 + 40 + 20 = 260px)
+</div>
+
+<div class="box border-box">
+  border-box (Total Width: 200px)
+</div>
+```
+
+#### Why `border-box` is Recommended
+
+Using `box-sizing: border-box;` is widely considered a best practice in modern web development. It makes creating layouts much more predictable and intuitive. Many developers apply this rule to all elements on the page with a universal selector:
+
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+```
+
+This ensures that all elements use the more manageable `border-box` model, simplifying responsive design and grid layouts.
+
+---
+
+### Q48: What is CSS Specificity and how is it calculated?
+
+**Answer:**
+CSS Specificity is the set of rules browsers use to determine which CSS style declaration should be applied to an element when multiple, conflicting declarations exist. The more specific a selector is, the higher its precedence, meaning its styles will override those from less specific selectors.
+
+#### How Specificity is Calculated
+
+Specificity is typically calculated by scoring selectors based on their components. A common way to visualize this is as a four-part value, often represented as `(I, C, A, E)`:
+
+1.  **I - Inline Styles:** `(1, 0, 0, 0)` - Styles applied directly to an element using the `style` attribute. This has the highest specificity.
+2.  **C - IDs:** `(0, 1, 0, 0)` - Selectors that use an ID (e.g., `#my-id`).
+3.  **A - Classes, Attributes, and Pseudo-classes:** `(0, 0, 1, 0)` - Selectors that use a class (`.my-class`), an attribute (`[type="text"]`), or a pseudo-class (`:hover`).
+4.  **E - Elements and Pseudo-elements:** `(0, 0, 0, 1)` - Selectors that use an element name (`div`) or a pseudo-element (`::before`).
+
+The universal selector (`*`) and the combinators (`+`, `>`, `~`, ' ') have no effect on specificity (a value of `0, 0, 0, 0`).
+
+**The `!important` Rule**
+The `!important` rule is an exception. When used on a style declaration, it overrides any other declaration, regardless of specificity. However, it should be used sparingly as it can make debugging difficult.
+
+#### Example Calculation:
+
+Let's analyze a few selectors:
+
+-   `p` -> Specificity: `(0, 0, 0, 1)` (1 element)
+-   `p.intro` -> Specificity: `(0, 0, 1, 1)` (1 class, 1 element)
+-   `#main p.intro` -> Specificity: `(0, 1, 1, 1)` (1 ID, 1 class, 1 element)
+-   `<p style="color: blue;">` -> Specificity: `(1, 0, 0, 0)` (inline style)
+
+**Conflict Resolution:**
+When comparing two selectors, the browser starts from the highest-specificity column (IDs) and moves down. The selector with the higher score in the most specific column wins.
+
+For example, `(0, 1, 0, 0)` is more specific than `(0, 0, 10, 0)` because the single ID outweighs any number of classes.
+
+If two selectors have the same specificity, the one that appears later in the CSS file (or stylesheet order) wins. This is known as the **last-in-wins** rule.
+
+#### Code Example:
+
+```html
+<style>
+  /* Specificity: 0,0,0,1 */
+  p {
+    color: blue;
+  }
+
+  /* Specificity: 0,0,1,1 */
+  p.intro {
+    color: green;
+  }
+
+  /* Specificity: 0,1,0,1 */
+  #main-content p {
+    color: red;
+  }
+</style>
+
+<div id="main-content">
+  <p class="intro">This text will be red.</p>
+  <p>This text will also be red.</p>
+</div>
+
+<p class="intro">This text will be green.</p>
+```
+
+**Explanation:**
+-   The first two paragraphs are inside the `div` with the ID `main-content`. The selector `#main-content p` has a higher specificity `(0,1,0,1)` than `p.intro` `(0,0,1,1)`, so the text is **red**.
+-   The last paragraph is not inside `#main-content`. The selector `p.intro` `(0,0,1,1)` is more specific than `p` `(0,0,0,1)`, so the text is **green**.
+
+---
+
+### Q49: What is the difference between `em` and `rem` units in CSS?
+
+**Answer:**
+`em` and `rem` are relative length units in CSS, meaning they scale based on the font size of other elements. They are essential for creating scalable and responsive designs, but they have a key difference in what they are relative to.
+
+#### `em` Unit
+
+The `em` unit is relative to the `font-size` of its **direct or nearest parent element**.
+
+-   If an element has a `font-size` of `16px`, then for that element and its children, `1em` = `16px`.
+-   The main challenge with `em` units is that they can compound. If you have nested elements and each one uses `em` for font-size, the sizing can become complex and hard to predict.
+
+**Example of Compounding:**
+
+```html
+<style>
+  .parent {
+    font-size: 1.2em; /* 1.2 * 16px = 19.2px (assuming root is 16px) */
+  }
+  .child {
+    font-size: 1.2em; /* 1.2 * 19.2px = 23.04px */
+  }
+</style>
+
+<div class="parent">
+  This is the parent.
+  <div class="child">
+    This is the child. Its font size has compounded.
+  </div>
+</div>
+```
+
+#### `rem` (Root em) Unit
+
+The `rem` unit is relative only to the `font-size` of the **root element** (the `<html>` element). This avoids the compounding issue of `em` units.
+
+-   By default, the root font size in most browsers is `16px`, so `1rem` = `16px`.
+-   No matter how deeply nested an element is, its `rem` value will always be a multiple of the root font size.
+-   This makes `rem` units highly predictable and easy to manage for creating consistent spacing and sizing across a website.
+
+**Example:**
+
+```html
+<style>
+  html {
+    font-size: 16px; /* This is the root font size */
+  }
+  .parent {
+    font-size: 1.2rem; /* 1.2 * 16px = 19.2px */
+  }
+  .child {
+    font-size: 1.2rem; /* 1.2 * 16px = 19.2px (does not compound) */
+  }
+</style>
+
+<div class="parent">
+  This is the parent.
+  <div class="child">
+    This is the child. Its font size is the same as the parent's.
+  </div>
+</div>
+```
+
+#### Summary Table
+
+| Feature          | `em`                                       | `rem` (Root em)                            |
+| :--------------- | :----------------------------------------- | :----------------------------------------- |
+| **Relative To**  | `font-size` of the parent element          | `font-size` of the root (`<html>`) element |
+| **Compounding**  | Yes, values can cascade and compound       | No, values are always relative to the root |
+| **Predictability** | Can be complex in nested structures        | Highly predictable and consistent          |
+| **Use Case**     | Sizing elements relative to their container (e.g., padding on a button) | Global sizing, typography, and spacing for overall layout consistency |
+
+---
+
+### Q50: What is CSS Flexbox and what are its key features?
+
+**Answer:**
+CSS Flexbox (Flexible Box Layout) is a one-dimensional layout model that provides an efficient way to arrange, align, and distribute space among items in a container, even when their size is unknown or dynamic. It is the ideal tool for creating responsive layouts and positioning elements within a container.
+
+To use Flexbox, you define a **flex container** by setting its `display` property to `flex` or `inline-flex`. The direct children of this container automatically become **flex items**.
+
+#### Key Features and Properties
+
+Flexbox is controlled by a set of properties on both the container and the items.
+
+**Container Properties:**
+
+1.  **`display`**: Initializes a flex container. (`flex` for block-level, `inline-flex` for inline-level).
+
+2.  **`flex-direction`**: Defines the main axis along which flex items are placed.
+    -   `row` (default): Left to right.
+    -   `row-reverse`: Right to left.
+    -   `column`: Top to bottom.
+    -   `column-reverse`: Bottom to top.
+
+3.  **`justify-content`**: Aligns flex items along the **main axis**.
+    -   `flex-start` (default): Items are packed at the start.
+    -   `flex-end`: Items are packed at the end.
+    -   `center`: Items are centered.
+    -   `space-between`: Items are evenly distributed with the first item at the start and the last at the end.
+    -   `space-around`: Items are evenly distributed with equal space around them.
+
+4.  **`align-items`**: Aligns flex items along the **cross axis** (the axis perpendicular to `flex-direction`).
+    -   `stretch` (default): Items stretch to fill the container.
+    -   `flex-start`: Items are aligned at the start of the cross axis.
+    -   `flex-end`: Items are aligned at the end of the cross axis.
+    -   `center`: Items are centered on the cross axis.
+
+5.  **`flex-wrap`**: Controls whether flex items are forced onto one line or can wrap onto multiple lines.
+    -   `nowrap` (default): All items are on one line.
+    -   `wrap`: Items wrap onto multiple lines if needed.
+
+**Item Properties:**
+
+1.  **`flex-grow`**: Defines the ability of a flex item to grow if necessary. It accepts a unitless value that serves as a proportion.
+
+2.  **`flex-shrink`**: Defines the ability of a flex item to shrink if necessary.
+
+3.  **`flex-basis`**: Defines the default size of an element before the remaining space is distributed.
+
+4.  **`order`**: Controls the order in which items appear in the flex container.
+
+#### Example:
+
+This example creates a container that centers its children both horizontally and vertically.
+
+```html
+<style>
+  .flex-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center;     /* Vertical centering */
+    height: 200px;
+    background-color: #f0f0f0;
+  }
+
+  .flex-item {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-color: dodgerblue;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+  }
+</style>
+
+<div class="flex-container">
+  <div class="flex-item">1</div>
+  <div class="flex-item">2</div>
+  <div class="flex-item">3</div>
+</div>
+```
+
+Flexbox simplifies many layout challenges that were once difficult with traditional methods like floats, making it a fundamental tool for modern CSS development.
+```
+
+
+
+
 .drag-item {
     width: 100px;
     height: 50px;
@@ -7468,3 +8957,4761 @@ self.addEventListener('notificationclick', (event) => {
 ```
 
 This comprehensive enhancement adds cutting-edge web components, advanced PWA capabilities, sophisticated caching strategies, push notifications, offline functionality, modern web standards, advanced Web APIs, performance monitoring, accessibility patterns, and inclusive design principles that represent the current state of HTML5 and web development.
+
+### Q22: How do you work with HTML5 Canvas API for graphics and animations?
+
+**Answer:**
+The HTML5 Canvas API provides a powerful way to draw graphics, create animations, and manipulate images directly in the browser without plugins. It offers a resolution-dependent bitmap canvas that can be used to render graphs, game graphics, art, or other visual images on the fly.
+
+**Basic Canvas Setup:**
+```html
+<canvas id="myCanvas" width="600" height="400"></canvas>
+
+<script>
+  // Get the canvas element
+  const canvas = document.getElementById('myCanvas');
+  
+  // Get the drawing context
+  const ctx = canvas.getContext('2d');
+  
+  // Now you can use ctx to draw on the canvas
+</script>
+```
+
+**Drawing Basic Shapes:**
+```javascript
+// Drawing rectangles
+ctx.fillStyle = '#3498db';  // Set fill color
+ctx.fillRect(50, 50, 100, 75);  // x, y, width, height
+
+ctx.strokeStyle = '#e74c3c';  // Set stroke color
+ctx.lineWidth = 5;  // Set line width
+ctx.strokeRect(200, 50, 100, 75);  // Outlined rectangle
+
+// Drawing paths (lines, curves)
+ctx.beginPath();
+ctx.moveTo(50, 200);  // Starting point
+ctx.lineTo(200, 200);  // Draw line to point
+ctx.lineTo(125, 250);  // Draw another line
+ctx.closePath();  // Close the path
+ctx.fillStyle = '#2ecc71';
+ctx.fill();  // Fill the path
+
+// Drawing circles/arcs
+ctx.beginPath();
+ctx.arc(350, 200, 50, 0, Math.PI * 2);  // x, y, radius, startAngle, endAngle
+ctx.fillStyle = '#9b59b6';
+ctx.fill();
+```
+
+**Working with Text:**
+```javascript
+// Drawing text
+ctx.font = 'bold 24px Arial';  // Set font style
+ctx.fillStyle = '#34495e';
+ctx.textAlign = 'center';
+ctx.fillText('Hello Canvas!', canvas.width/2, 350);  // text, x, y
+
+// Outlined text
+ctx.strokeStyle = '#f39c12';
+ctx.lineWidth = 1;
+ctx.strokeText('Outlined Text', canvas.width/2, 380);
+```
+
+**Creating Basic Animation:**
+```javascript
+// Animation variables
+let x = 0;
+let y = 200;
+let dx = 2;
+let radius = 30;
+
+// Animation function
+function animate() {
+  // Clear the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Draw the circle
+  ctx.beginPath();
+  ctx.arc(x, y, radius, 0, Math.PI * 2);
+  ctx.fillStyle = '#3498db';
+  ctx.fill();
+  
+  // Update position
+  x += dx;
+  
+  // Bounce off walls
+  if (x + radius > canvas.width || x - radius < 0) {
+    dx = -dx;
+  }
+  
+  // Request next frame
+  requestAnimationFrame(animate);
+}
+
+// Start animation
+animate();
+```
+
+**Working with Images:**
+```javascript
+// Load and draw an image
+const img = new Image();
+img.src = 'image.jpg';
+img.onload = function() {
+  // Draw the image once it's loaded
+  ctx.drawImage(img, 50, 50);  // Basic: image, x, y
+  
+  // With sizing: image, x, y, width, height
+  ctx.drawImage(img, 200, 50, 150, 100);
+  
+  // Cropping: image, srcX, srcY, srcW, srcH, destX, destY, destW, destH
+  ctx.drawImage(img, 0, 0, 100, 100, 400, 50, 100, 100);
+};
+```
+
+**Advanced Canvas Techniques:**
+
+**1. Gradients and Patterns:**
+```javascript
+// Linear gradient
+const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+gradient.addColorStop(0, '#3498db');
+gradient.addColorStop(0.5, '#9b59b6');
+gradient.addColorStop(1, '#e74c3c');
+
+ctx.fillStyle = gradient;
+ctx.fillRect(50, 50, 500, 100);
+
+// Radial gradient
+const radialGradient = ctx.createRadialGradient(300, 250, 20, 300, 250, 100);
+radialGradient.addColorStop(0, '#f1c40f');
+radialGradient.addColorStop(1, '#e67e22');
+
+ctx.fillStyle = radialGradient;
+ctx.beginPath();
+ctx.arc(300, 250, 100, 0, Math.PI * 2);
+ctx.fill();
+
+// Pattern
+const patternImg = new Image();
+patternImg.src = 'pattern.png';
+patternImg.onload = function() {
+  const pattern = ctx.createPattern(patternImg, 'repeat');
+  ctx.fillStyle = pattern;
+  ctx.fillRect(50, 400, 500, 100);
+};
+```
+
+**2. Shadows and Transparency:**
+```javascript
+// Shadows
+ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+ctx.shadowBlur = 10;
+ctx.shadowOffsetX = 5;
+ctx.shadowOffsetY = 5;
+
+ctx.fillStyle = '#3498db';
+ctx.fillRect(100, 100, 200, 100);
+
+// Reset shadows
+ctx.shadowColor = 'transparent';
+
+// Transparency
+ctx.globalAlpha = 0.5;  // Set global transparency
+ctx.fillStyle = '#e74c3c';
+ctx.fillRect(150, 150, 200, 100);
+
+// Reset transparency
+ctx.globalAlpha = 1.0;
+```
+
+**3. Transformations:**
+```javascript
+// Save the current state
+ctx.save();
+
+// Translate (move the origin)
+ctx.translate(canvas.width/2, canvas.height/2);
+
+// Rotate (in radians)
+ctx.rotate(Math.PI / 4);  // 45 degrees
+
+// Scale
+ctx.scale(1.5, 0.5);  // x, y scale factors
+
+// Draw a rectangle at the transformed position
+ctx.fillStyle = '#2ecc71';
+ctx.fillRect(-50, -50, 100, 100);  // Centered at the transformed origin
+
+// Restore the original state
+ctx.restore();
+```
+
+**4. Compositing Operations:**
+```javascript
+// Draw a background shape
+ctx.fillStyle = '#3498db';
+ctx.fillRect(100, 100, 200, 200);
+
+// Set compositing operation
+ctx.globalCompositeOperation = 'source-atop';  // Only draw where both shapes overlap
+
+// Draw another shape with the compositing effect
+ctx.fillStyle = '#e74c3c';
+ctx.beginPath();
+ctx.arc(250, 250, 100, 0, Math.PI * 2);
+ctx.fill();
+
+// Reset compositing
+ctx.globalCompositeOperation = 'source-over';  // Default
+```
+
+**5. Pixel Manipulation:**
+```javascript
+// Get image data
+const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+const data = imageData.data;
+
+// Manipulate pixels (invert colors)
+for (let i = 0; i < data.length; i += 4) {
+  data[i]     = 255 - data[i];     // red
+  data[i + 1] = 255 - data[i + 1]; // green
+  data[i + 2] = 255 - data[i + 2]; // blue
+  // data[i + 3] is alpha (leave unchanged)
+}
+
+// Put the modified image data back
+ctx.putImageData(imageData, 0, 0);
+```
+
+**6. Advanced Animation with Physics:**
+```javascript
+// Ball object
+class Ball {
+  constructor(x, y, radius, color) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+    this.color = color;
+    this.dx = (Math.random() - 0.5) * 5;
+    this.dy = (Math.random() - 0.5) * 5;
+    this.gravity = 0.1;
+    this.friction = 0.99;
+    this.bounce = 0.8;
+  }
+  
+  update() {
+    // Apply gravity
+    this.dy += this.gravity;
+    
+    // Update position
+    this.x += this.dx;
+    this.y += this.dy;
+    
+    // Bounce off walls
+    if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {
+      this.dx = -this.dx * this.friction;
+    }
+    
+    // Bounce off floor
+    if (this.y + this.radius > canvas.height) {
+      this.y = canvas.height - this.radius;
+      this.dy = -this.dy * this.bounce;
+      this.dx *= this.friction;
+    }
+  }
+  
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.closePath();
+  }
+}
+
+// Create balls
+const balls = [];
+for (let i = 0; i < 20; i++) {
+  const radius = Math.random() * 20 + 10;
+  const x = Math.random() * (canvas.width - radius * 2) + radius;
+  const y = Math.random() * (canvas.height - radius * 2) + radius;
+  const color = `hsl(${Math.random() * 360}, 50%, 50%)`;
+  
+  balls.push(new Ball(x, y, radius, color));
+}
+
+// Animation loop
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  balls.forEach(ball => {
+    ball.update();
+    ball.draw();
+  });
+  
+  requestAnimationFrame(animate);
+}
+
+animate();
+```
+
+**7. Canvas Performance Optimization:**
+```javascript
+// 1. Use multiple canvases for layering
+const backgroundCanvas = document.createElement('canvas');
+backgroundCanvas.width = canvas.width;
+backgroundCanvas.height = canvas.height;
+const bgCtx = backgroundCanvas.getContext('2d');
+
+// Draw static background once
+function drawBackground() {
+  // Draw complex background
+  bgCtx.fillStyle = '#f5f5f5';
+  bgCtx.fillRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+  
+  // Draw grid
+  bgCtx.strokeStyle = '#ddd';
+  bgCtx.lineWidth = 1;
+  
+  for (let x = 0; x < backgroundCanvas.width; x += 20) {
+    bgCtx.beginPath();
+    bgCtx.moveTo(x, 0);
+    bgCtx.lineTo(x, backgroundCanvas.height);
+    bgCtx.stroke();
+  }
+  
+  for (let y = 0; y < backgroundCanvas.height; y += 20) {
+    bgCtx.beginPath();
+    bgCtx.moveTo(0, y);
+    bgCtx.lineTo(backgroundCanvas.width, y);
+    bgCtx.stroke();
+  }
+}
+
+drawBackground();
+
+// In animation loop, draw background once then animated elements
+function optimizedAnimate() {
+  // Clear main canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Draw background (just once per frame)
+  ctx.drawImage(backgroundCanvas, 0, 0);
+  
+  // Draw animated elements
+  // ...
+  
+  requestAnimationFrame(optimizedAnimate);
+}
+```
+
+**8. Responsive Canvas:**
+```javascript
+function resizeCanvas() {
+  // Set canvas dimensions to match window size
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  // Redraw everything after resize
+  draw();
+}
+
+// Listen for window resize events
+window.addEventListener('resize', resizeCanvas);
+
+// Initial setup
+resizeCanvas();
+```
+
+**9. Canvas Interaction:**
+```javascript
+// Mouse interaction
+let isDrawing = false;
+let lastX = 0;
+let lastY = 0;
+
+canvas.addEventListener('mousedown', (e) => {
+  isDrawing = true;
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+canvas.addEventListener('mousemove', (e) => {
+  if (!isDrawing) return;
+  
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(e.offsetX, e.offsetY);
+  ctx.strokeStyle = '#3498db';
+  ctx.lineWidth = 5;
+  ctx.lineCap = 'round';
+  ctx.stroke();
+  
+  [lastX, lastY] = [e.offsetX, e.offsetY];
+});
+
+canvas.addEventListener('mouseup', () => {
+  isDrawing = false;
+});
+
+canvas.addEventListener('mouseout', () => {
+  isDrawing = false;
+});
+
+// Touch support
+canvas.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  const touch = e.touches[0];
+  const mouseEvent = new MouseEvent('mousedown', {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  canvas.dispatchEvent(mouseEvent);
+});
+
+canvas.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  const touch = e.touches[0];
+  const mouseEvent = new MouseEvent('mousemove', {
+    clientX: touch.clientX,
+    clientY: touch.clientY
+  });
+  canvas.dispatchEvent(mouseEvent);
+});
+
+canvas.addEventListener('touchend', (e) => {
+  e.preventDefault();
+  const mouseEvent = new MouseEvent('mouseup');
+  canvas.dispatchEvent(mouseEvent);
+});
+```
+
+**10. Canvas with WebGL (3D):**
+```javascript
+// Get WebGL context instead of 2D
+const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+
+if (!gl) {
+  console.error('WebGL not supported');
+} else {
+  // Set clear color (RGBA)
+  gl.clearColor(0.9, 0.9, 0.9, 1.0);
+  
+  // Clear the canvas
+  gl.clear(gl.COLOR_BUFFER_BIT);
+  
+  // Create shaders, buffers, etc. for 3D rendering
+  // This is just a basic setup - WebGL requires much more code
+  
+  // Vertex shader program
+  const vsSource = `
+    attribute vec4 aVertexPosition;
+    uniform mat4 uModelViewMatrix;
+    uniform mat4 uProjectionMatrix;
+    void main() {
+      gl_Position = uProjectionMatrix * uModelViewMatrix * aVertexPosition;
+    }
+  `;
+  
+  // Fragment shader program
+  const fsSource = `
+    void main() {
+      gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+    }
+  `;
+  
+  // Initialize shader program
+  const shaderProgram = initShaderProgram(gl, vsSource, fsSource);
+  
+  // WebGL initialization continues...
+}
+
+// Helper function to initialize shader program
+function initShaderProgram(gl, vsSource, fsSource) {
+  const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+  const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+  
+  // Create the shader program
+  const shaderProgram = gl.createProgram();
+  gl.attachShader(shaderProgram, vertexShader);
+  gl.attachShader(shaderProgram, fragmentShader);
+  gl.linkProgram(shaderProgram);
+  
+  // Check if it linked successfully
+  if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+    console.error('Unable to initialize shader program: ' + gl.getProgramInfoLog(shaderProgram));
+    return null;
+  }
+  
+  return shaderProgram;
+}
+
+function loadShader(gl, type, source) {
+  const shader = gl.createShader(type);
+  gl.shaderSource(shader, source);
+  gl.compileShader(shader);
+  
+  // Check if compilation was successful
+  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+    console.error('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
+    gl.deleteShader(shader);
+    return null;
+  }
+  
+  return shader;
+}
+```
+
+**Best Practices for Canvas Development:**
+
+1. **Performance Optimization**:
+   - Use multiple canvases for layering (static vs. dynamic content)
+   - Batch similar drawing operations
+   - Use `requestAnimationFrame` instead of `setTimeout` for animations
+   - Avoid unnecessary canvas state changes
+   - Consider using offscreen canvas for complex calculations
+
+2. **Responsive Design**:
+   - Scale canvas dimensions based on device pixel ratio
+   - Adjust drawing based on canvas size
+   - Handle window resize events appropriately
+
+3. **Accessibility**:
+   - Provide alternative content inside the canvas element
+   - Add ARIA attributes for screen readers
+   - Implement keyboard navigation for interactive canvas elements
+
+4. **Cross-Browser Compatibility**:
+   - Test on different browsers and devices
+   - Use feature detection
+   - Provide fallbacks for unsupported features
+
+5. **Memory Management**:
+   - Clean up resources when they're no longer needed
+   - Remove event listeners when appropriate
+   - Be mindful of large image manipulations
+
+### Q23: How do you implement HTML5 Drag and Drop functionality?
+
+**Answer:**
+HTML5 Drag and Drop (DnD) API allows users to drag and drop elements within a web application, providing a more intuitive and interactive user experience. It's built into the browser and doesn't require external libraries.
+
+**Basic Implementation:**
+
+```html
+<!-- Basic Drag and Drop Example -->
+<div id="draggable" draggable="true">Drag me</div>
+<div id="dropzone">Drop here</div>
+
+<script>
+  // Get elements
+  const draggable = document.getElementById('draggable');
+  const dropzone = document.getElementById('dropzone');
+  
+  // Add event listeners for the draggable element
+  draggable.addEventListener('dragstart', (e) => {
+    // Set data to be transferred
+    e.dataTransfer.setData('text/plain', e.target.id);
+    
+    // Add a class for styling during drag
+    e.target.classList.add('dragging');
+  });
+  
+  draggable.addEventListener('dragend', (e) => {
+    // Remove the dragging class
+    e.target.classList.remove('dragging');
+  });
+  
+  // Add event listeners for the drop zone
+  dropzone.addEventListener('dragover', (e) => {
+    // Prevent default to allow drop
+    e.preventDefault();
+    
+    // Add a class for styling during dragover
+    e.target.classList.add('dragover');
+  });
+  
+  dropzone.addEventListener('dragleave', (e) => {
+    // Remove the dragover class
+    e.target.classList.remove('dragover');
+  });
+  
+  dropzone.addEventListener('drop', (e) => {
+    // Prevent default action
+    e.preventDefault();
+    
+    // Remove the dragover class
+    e.target.classList.remove('dragover');
+    
+    // Get the dragged element's ID from dataTransfer
+    const id = e.dataTransfer.getData('text/plain');
+    const draggedElement = document.getElementById(id);
+    
+    // Append the dragged element to the drop zone
+    e.target.appendChild(draggedElement);
+  });
+</script>
+
+<style>
+  #draggable {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    cursor: move;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #dropzone {
+    width: 200px;
+    height: 200px;
+    border: 2px dashed #2c3e50;
+    padding: 10px;
+    min-height: 120px;
+  }
+  
+  .dragging {
+    opacity: 0.5;
+  }
+  
+  .dragover {
+    background-color: #ecf0f1;
+    border-color: #3498db;
+  }
+</style>
+```
+
+**Key Drag and Drop Events:**
+
+1. **For the draggable element:**
+   - `dragstart`: Fired when the drag operation begins
+   - `drag`: Fired continuously during the drag operation
+   - `dragend`: Fired when the drag operation ends
+
+2. **For the drop target:**
+   - `dragenter`: Fired when a dragged element enters the drop target
+   - `dragover`: Fired continuously when a dragged element is over the drop target
+   - `dragleave`: Fired when a dragged element leaves the drop target
+   - `drop`: Fired when an element is dropped on the target
+
+**The DataTransfer Object:**
+
+The `dataTransfer` object is used to hold data during drag and drop operations:
+
+```javascript
+// Setting data during dragstart
+document.addEventListener('dragstart', (e) => {
+  // Set plain text
+  e.dataTransfer.setData('text/plain', 'This is text data');
+  
+  // Set JSON data
+  const jsonData = JSON.stringify({ id: 123, name: 'Item' });
+  e.dataTransfer.setData('application/json', jsonData);
+  
+  // Set HTML content
+  e.dataTransfer.setData('text/html', '<p>This is <strong>HTML</strong> content</p>');
+  
+  // Set drag image (custom visual representation)
+  const img = new Image();
+  img.src = 'custom-drag-image.png';
+  e.dataTransfer.setDragImage(img, 10, 10); // image, offsetX, offsetY
+  
+  // Set allowed effects
+  e.dataTransfer.effectAllowed = 'copy'; // 'copy', 'move', 'link', or 'copyMove'
+});
+
+// Getting data during drop
+document.addEventListener('drop', (e) => {
+  // Get plain text
+  const text = e.dataTransfer.getData('text/plain');
+  
+  // Get and parse JSON data
+  const jsonData = e.dataTransfer.getData('application/json');
+  const parsedData = JSON.parse(jsonData);
+  
+  // Get HTML content
+  const html = e.dataTransfer.getData('text/html');
+  
+  // Set the drop effect
+  e.dataTransfer.dropEffect = 'copy'; // 'copy', 'move', or 'link'
+});
+```
+
+**Advanced Drag and Drop Implementations:**
+
+**1. Sortable List:**
+
+```html
+<ul id="sortable-list">
+  <li draggable="true" data-id="1">Item 1</li>
+  <li draggable="true" data-id="2">Item 2</li>
+  <li draggable="true" data-id="3">Item 3</li>
+  <li draggable="true" data-id="4">Item 4</li>
+  <li draggable="true" data-id="5">Item 5</li>
+</ul>
+
+<script>
+  const sortableList = document.getElementById('sortable-list');
+  let draggedItem = null;
+  
+  // Add event listeners to all list items
+  sortableList.querySelectorAll('li').forEach(item => {
+    // Dragstart event
+    item.addEventListener('dragstart', (e) => {
+      draggedItem = item;
+      setTimeout(() => {
+        item.classList.add('dragging');
+      }, 0);
+      e.dataTransfer.setData('text/plain', item.dataset.id);
+    });
+    
+    // Dragend event
+    item.addEventListener('dragend', () => {
+      draggedItem.classList.remove('dragging');
+      draggedItem = null;
+    });
+    
+    // Dragover event
+    item.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      if (item !== draggedItem) {
+        const rect = item.getBoundingClientRect();
+        const y = e.clientY - rect.top;
+        const height = rect.height;
+        
+        // Determine if we should insert before or after the hovered item
+        if (y < height / 2) {
+          sortableList.insertBefore(draggedItem, item);
+        } else {
+          sortableList.insertBefore(draggedItem, item.nextSibling);
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  #sortable-list {
+    list-style: none;
+    padding: 0;
+    width: 300px;
+  }
+  
+  #sortable-list li {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    margin-bottom: 5px;
+    cursor: move;
+    user-select: none;
+  }
+  
+  #sortable-list li.dragging {
+    opacity: 0.5;
+    background-color: #e9ecef;
+  }
+</style>
+```
+
+**2. File Drag and Drop Upload:**
+
+```html
+<div id="file-dropzone" class="file-drop-area">
+  <span class="file-msg">Drag & drop files here or click to browse</span>
+  <input type="file" class="file-input" multiple>
+</div>
+
+<div id="preview-container" class="preview-container"></div>
+
+<script>
+  const dropzone = document.getElementById('file-dropzone');
+  const fileInput = dropzone.querySelector('.file-input');
+  const previewContainer = document.getElementById('preview-container');
+  
+  // Handle file selection via input
+  fileInput.addEventListener('change', handleFiles);
+  
+  // Handle drag and drop events
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropzone.addEventListener(eventName, preventDefaults, false);
+  });
+  
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropzone.addEventListener(eventName, highlight, false);
+  });
+  
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropzone.addEventListener(eventName, unhighlight, false);
+  });
+  
+  function highlight() {
+    dropzone.classList.add('highlight');
+  }
+  
+  function unhighlight() {
+    dropzone.classList.remove('highlight');
+  }
+  
+  // Handle dropped files
+  dropzone.addEventListener('drop', (e) => {
+    const dt = e.dataTransfer;
+    const files = dt.files;
+    handleFiles({ target: { files } });
+  });
+  
+  function handleFiles(e) {
+    const files = [...e.target.files];
+    previewContainer.innerHTML = '';
+    
+    files.forEach(file => {
+      // Check if file is an image
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        
+        reader.onload = (e) => {
+          const img = document.createElement('img');
+          img.src = e.target.result;
+          img.classList.add('preview-image');
+          previewContainer.appendChild(img);
+        };
+        
+        reader.readAsDataURL(file);
+      } else {
+        // For non-image files
+        const fileInfo = document.createElement('div');
+        fileInfo.classList.add('file-info');
+        fileInfo.textContent = `${file.name} (${formatFileSize(file.size)})`;
+        previewContainer.appendChild(fileInfo);
+      }
+      
+      // Here you would typically upload the file to a server
+      // uploadFile(file);
+    });
+  }
+  
+  function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+  
+  // Simulate click on file input when dropzone is clicked
+  dropzone.addEventListener('click', () => {
+    fileInput.click();
+  });
+</script>
+
+<style>
+  .file-drop-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    max-width: 100%;
+    padding: 25px;
+    border: 2px dashed #d9d9d9;
+    border-radius: 3px;
+    transition: 0.2s;
+    background-color: #f8f8f8;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .file-drop-area.highlight {
+    border-color: #3498db;
+    background-color: rgba(52, 152, 219, 0.05);
+  }
+  
+  .file-msg {
+    font-size: 16px;
+    color: #777;
+    font-weight: 300;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  
+  .file-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .preview-image {
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+  }
+  
+  .file-info {
+    padding: 8px 12px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+</style>
+```
+
+**3. Drag Between Multiple Containers:**
+
+```html
+<div class="container">
+  <div class="board">
+    <h3>To Do</h3>
+    <div class="dropzone" id="todo">
+      <div class="card" draggable="true" data-id="task1">Complete project proposal</div>
+      <div class="card" draggable="true" data-id="task2">Research competitors</div>
+      <div class="card" draggable="true" data-id="task3">Create wireframes</div>
+    </div>
+  </div>
+  
+  <div class="board">
+    <h3>In Progress</h3>
+    <div class="dropzone" id="inprogress"></div>
+  </div>
+  
+  <div class="board">
+    <h3>Done</h3>
+    <div class="dropzone" id="done"></div>
+  </div>
+</div>
+
+<script>
+  // Get all cards and dropzones
+  const cards = document.querySelectorAll('.card');
+  const dropzones = document.querySelectorAll('.dropzone');
+  let draggedCard = null;
+  
+  // Add event listeners to cards
+  cards.forEach(card => {
+    card.addEventListener('dragstart', dragStart);
+    card.addEventListener('dragend', dragEnd);
+  });
+  
+  // Add event listeners to dropzones
+  dropzones.forEach(dropzone => {
+    dropzone.addEventListener('dragover', dragOver);
+    dropzone.addEventListener('dragleave', dragLeave);
+    dropzone.addEventListener('drop', drop);
+  });
+  
+  function dragStart() {
+    draggedCard = this;
+    setTimeout(() => {
+      this.classList.add('dragging');
+    }, 0);
+  }
+  
+  function dragEnd() {
+    this.classList.remove('dragging');
+    draggedCard = null;
+  }
+  
+  function dragOver(e) {
+    e.preventDefault();
+    this.classList.add('dragover');
+  }
+  
+  function dragLeave() {
+    this.classList.remove('dragover');
+  }
+  
+  function drop() {
+    this.classList.remove('dragover');
+    this.appendChild(draggedCard);
+    
+    // Here you would typically update your backend
+    updateCardStatus(draggedCard.dataset.id, this.id);
+  }
+  
+  function updateCardStatus(cardId, newStatus) {
+    console.log(`Card ${cardId} moved to ${newStatus}`);
+    // API call to update status in the backend
+    // fetch('/api/tasks/' + cardId, {
+    //   method: 'PATCH',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ status: newStatus })
+    // });
+  }
+</script>
+
+<style>
+  .container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .board {
+    flex: 1;
+    background-color: #f1f3f5;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 10px;
+  }
+  
+  .board h3 {
+    margin-top: 0;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .dropzone {
+    min-height: 200px;
+    padding: 10px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropzone.dragover {
+    background-color: rgba(52, 152, 219, 0.1);
+  }
+  
+  .card {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    cursor: move;
+    user-select: none;
+  }
+  
+  .card.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+</style>
+```
+
+**Cross-Browser Compatibility and Accessibility:**
+
+```javascript
+// Feature detection for drag and drop
+function dragDropSupported() {
+  const div = document.createElement('div');
+  return ('draggable' in div) || ('ondragstart' in div && 'ondrop' in div);
+}
+
+// Add fallback for browsers that don't support drag and drop
+if (!dragDropSupported()) {
+  // Implement alternative UI (e.g., click to select, then click to place)
+  implementFallbackUI();
+}
+
+// Accessibility enhancements
+function enhanceAccessibility() {
+  // Add keyboard support
+  const draggables = document.querySelectorAll('[draggable="true"]');
+  const dropzones = document.querySelectorAll('.dropzone');
+  
+  draggables.forEach((item, index) => {
+    // Add ARIA attributes
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-grabbed', 'false');
+    item.setAttribute('tabindex', '0');
+    
+    // Add keyboard event listeners
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        // Toggle selection
+        const isGrabbed = item.getAttribute('aria-grabbed') === 'true';
+        
+        // Deselect all items first
+        draggables.forEach(d => d.setAttribute('aria-grabbed', 'false'));
+        
+        if (!isGrabbed) {
+          item.setAttribute('aria-grabbed', 'true');
+          announceToScreenReader(`Item ${index + 1} selected. Use arrow keys to navigate to a drop target and press Enter to drop.`);
+        }
+      }
+      
+      // Handle arrow keys for navigation when an item is selected
+      if (item.getAttribute('aria-grabbed') === 'true') {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          focusNextDropzone(document.activeElement);
+        }
+      }
+    });
+  });
+  
+  dropzones.forEach((zone, index) => {
+    zone.setAttribute('role', 'region');
+    zone.setAttribute('aria-dropeffect', 'move');
+    zone.setAttribute('tabindex', '0');
+    
+    zone.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        // Find the currently selected draggable
+        const selectedItem = document.querySelector('[aria-grabbed="true"]');
+        
+        if (selectedItem) {
+          // Perform the drop
+          zone.appendChild(selectedItem);
+          selectedItem.setAttribute('aria-grabbed', 'false');
+          announceToScreenReader(`Item dropped in zone ${index + 1}.`);
+        }
+      }
+    });
+  });
+}
+
+function announceToScreenReader(message) {
+  const announcer = document.getElementById('a11y-announcer') || createAnnouncer();
+  announcer.textContent = message;
+}
+
+function createAnnouncer() {
+  const announcer = document.createElement('div');
+  announcer.id = 'a11y-announcer';
+  announcer.setAttribute('aria-live', 'assertive');
+  announcer.setAttribute('aria-atomic', 'true');
+  announcer.className = 'sr-only';
+  document.body.appendChild(announcer);
+  return announcer;
+}
+
+function focusNextDropzone(currentElement) {
+  const dropzones = Array.from(document.querySelectorAll('.dropzone'));
+  const currentIndex = dropzones.indexOf(currentElement);
+  const nextIndex = (currentIndex + 1) % dropzones.length;
+  dropzones[nextIndex].focus();
+}
+
+// Call the accessibility enhancement function
+enhanceAccessibility();
+```
+
+**Best Practices for HTML5 Drag and Drop:**
+
+1. **Visual Feedback**:
+   - Provide clear visual cues during drag operations
+   - Highlight drop zones when items are dragged over them
+   - Show a preview of where the item will be placed
+
+2. **Performance**:
+   - Use event delegation for large numbers of draggable items
+   - Minimize DOM manipulations during drag operations
+   - Consider throttling or debouncing dragover events
+
+3. **Accessibility**:
+   - Provide keyboard alternatives for drag and drop operations
+   - Use ARIA attributes to enhance screen reader support
+   - Ensure sufficient color contrast for visual indicators
+
+4. **Mobile Support**:
+   - Implement touch event handlers for mobile devices
+   - Consider using libraries like mobile-drag-drop for better cross-device support
+   - Test on various mobile devices and browsers
+
+5. **Error Handling**:
+   - Validate data during drop operations
+   - Provide clear feedback when drops are invalid
+   - Implement undo functionality for accidental drops
+
+### Q24: How do you work with Web Storage API (localStorage and sessionStorage)?
+
+**Answer:**
+The Web Storage API provides mechanisms for storing key-value pairs in a web browser. It offers two storage objects with similar APIs but different behaviors:
+
+1. **localStorage**: Persists data with no expiration date, even when the browser is closed and reopened
+2. **sessionStorage**: Stores data for one session (data is lost when the browser tab is closed)
+
+**Basic Usage:**
+
+```javascript
+// localStorage operations
+
+// Storing data
+localStorage.setItem('username', 'JohnDoe');
+localStorage.setItem('isLoggedIn', 'true');
+localStorage.setItem('lastLogin', new Date().toISOString());
+
+// Retrieving data
+const username = localStorage.getItem('username'); // Returns 'JohnDoe'
+const isLoggedIn = localStorage.getItem('isLoggedIn'); // Returns 'true' as a string
+const lastLogin = localStorage.getItem('lastLogin');
+
+// Removing specific data
+localStorage.removeItem('lastLogin');
+
+// Clearing all data
+localStorage.clear();
+
+// Getting the number of items
+const itemCount = localStorage.length;
+
+// Getting key by index
+for (let i = 0; i < localStorage.length; i++) {
+  const key = localStorage.key(i);
+  const value = localStorage.getItem(key);
+  console.log(`${key}: ${value}`);
+}
+
+// sessionStorage operations (identical API)
+sessionStorage.setItem('currentPage', 'dashboard');
+const currentPage = sessionStorage.getItem('currentPage');
+sessionStorage.removeItem('currentPage');
+sessionStorage.clear();
+```
+
+**Storing Complex Data Types:**
+
+Web Storage only supports strings. To store objects or arrays, you need to convert them to JSON:
+
+```javascript
+// Storing objects or arrays
+const userPreferences = {
+  theme: 'dark',
+  fontSize: 16,
+  notifications: {
+    email: true,
+    push: false
+  },
+  recentSearches: ['javascript', 'html5', 'css3']
+};
+
+// Convert to JSON string before storing
+localStorage.setItem('userPreferences', JSON.stringify(userPreferences));
+
+// Retrieve and parse back to object
+const storedPreferences = JSON.parse(localStorage.getItem('userPreferences'));
+console.log(storedPreferences.theme); // 'dark'
+console.log(storedPreferences.notifications.email); // true
+console.log(storedPreferences.recentSearches[0]); // 'javascript'
+```
+
+**Storage Event:**
+
+The `storage` event fires when storage changes in one tab/window and can be detected in other tabs/windows:
+
+```javascript
+// Listen for changes to localStorage from other tabs/windows
+window.addEventListener('storage', (event) => {
+  console.log('Storage changed in another window/tab');
+  console.log('Key modified:', event.key);
+  console.log('Old value:', event.oldValue);
+  console.log('New value:', event.newValue);
+  console.log('Storage area:', event.storageArea); // localStorage or sessionStorage
+  console.log('Page URL:', event.url);
+  
+  // Update UI based on the change if needed
+  if (event.key === 'theme') {
+    applyTheme(event.newValue);
+  }
+});
+```
+
+**Storage Wrapper Utility:**
+
+A common pattern is to create a wrapper utility for Web Storage to handle JSON conversion and provide additional functionality:
+
+```javascript
+// Storage utility class
+class StorageUtil {
+  constructor(storageType = 'local') {
+    this.storage = storageType === 'local' ? localStorage : sessionStorage;
+  }
+  
+  // Get item with optional default value
+  get(key, defaultValue = null) {
+    const item = this.storage.getItem(key);
+    
+    if (item === null) {
+      return defaultValue;
+    }
+    
+    try {
+      return JSON.parse(item);
+    } catch (e) {
+      return item;
+    }
+  }
+  
+  // Set item with automatic JSON stringification
+  set(key, value) {
+    try {
+      const valueToStore = typeof value === 'object' ? JSON.stringify(value) : value;
+      this.storage.setItem(key, valueToStore);
+      return true;
+    } catch (e) {
+      console.error('Storage error:', e);
+      return false;
+    }
+  }
+  
+  // Remove item
+  remove(key) {
+    this.storage.removeItem(key);
+  }
+  
+  // Clear all items
+  clear() {
+    this.storage.clear();
+  }
+  
+  // Get all stored items as an object
+  getAll() {
+    const items = {};
+    
+    for (let i = 0; i < this.storage.length; i++) {
+      const key = this.storage.key(i);
+      items[key] = this.get(key);
+    }
+    
+    return items;
+  }
+  
+  // Check if key exists
+  has(key) {
+    return this.storage.getItem(key) !== null;
+  }
+}
+
+// Usage
+const localStore = new StorageUtil('local');
+const sessionStore = new StorageUtil('session');
+
+localStore.set('user', { id: 123, name: 'John' });
+const user = localStore.get('user');
+console.log(user.name); // 'John'
+
+// With default value
+const settings = localStore.get('settings', { darkMode: false });
+```
+
+**Practical Examples:**
+
+**1. Theme Switcher:**
+
+```javascript
+// Theme switcher with localStorage persistence
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Initialize theme from localStorage or default to 'light'
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  body.setAttribute('data-theme', savedTheme);
+  themeToggle.checked = savedTheme === 'dark';
+}
+
+// Toggle theme and save to localStorage
+themeToggle.addEventListener('change', () => {
+  const newTheme = themeToggle.checked ? 'dark' : 'light';
+  body.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+});
+
+// Initialize theme on page load
+initTheme();
+```
+
+**2. Form Data Persistence:**
+
+```javascript
+// Save form data as user types
+const contactForm = document.getElementById('contact-form');
+const formFields = contactForm.querySelectorAll('input, textarea');
+const formKey = 'contact_form_draft';
+
+// Load saved form data
+function loadFormData() {
+  const savedData = sessionStorage.getItem(formKey);
+  
+  if (savedData) {
+    const formData = JSON.parse(savedData);
+    
+    formFields.forEach(field => {
+      if (formData[field.name]) {
+        field.value = formData[field.name];
+      }
+    });
+  }
+}
+
+// Save form data as user types
+formFields.forEach(field => {
+  field.addEventListener('input', saveFormData);
+});
+
+function saveFormData() {
+  const formData = {};
+  
+  formFields.forEach(field => {
+    formData[field.name] = field.value;
+  });
+  
+  sessionStorage.setItem(formKey, JSON.stringify(formData));
+}
+
+// Clear saved data on form submission
+contactForm.addEventListener('submit', () => {
+  sessionStorage.removeItem(formKey);
+});
+
+// Load saved data when page loads
+loadFormData();
+```
+
+**3. Shopping Cart:**
+
+```javascript
+// Simple shopping cart with localStorage
+class ShoppingCart {
+  constructor() {
+    this.cartKey = 'shopping_cart';
+    this.cart = this.getCart();
+  }
+  
+  // Get cart from localStorage
+  getCart() {
+    const cartData = localStorage.getItem(this.cartKey);
+    return cartData ? JSON.parse(cartData) : [];
+  }
+  
+  // Save cart to localStorage
+  saveCart() {
+    localStorage.setItem(this.cartKey, JSON.stringify(this.cart));
+    this.updateCartUI();
+  }
+  
+  // Add item to cart
+  addItem(product) {
+    // Check if product already exists
+    const existingItem = this.cart.find(item => item.id === product.id);
+    
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      this.cart.push({
+        ...product,
+        quantity: 1
+      });
+    }
+    
+    this.saveCart();
+  }
+  
+  // Remove item from cart
+  removeItem(productId) {
+    this.cart = this.cart.filter(item => item.id !== productId);
+    this.saveCart();
+  }
+  
+  // Update item quantity
+  updateQuantity(productId, quantity) {
+    const item = this.cart.find(item => item.id === productId);
+    
+    if (item) {
+      item.quantity = Math.max(1, quantity);
+      this.saveCart();
+    }
+  }
+  
+  // Clear cart
+  clearCart() {
+    this.cart = [];
+    this.saveCart();
+  }
+  
+  // Get cart total
+  getTotal() {
+    return this.cart.reduce((total, item) => {
+      return total + (item.price * item.quantity);
+    }, 0);
+  }
+  
+  // Update cart UI
+  updateCartUI() {
+    const cartCount = document.getElementById('cart-count');
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    
+    // Update cart count
+    const itemCount = this.cart.reduce((count, item) => count + item.quantity, 0);
+    cartCount.textContent = itemCount;
+    
+    // Update cart items list
+    cartItems.innerHTML = '';
+    
+    this.cart.forEach(item => {
+      const cartItem = document.createElement('div');
+      cartItem.className = 'cart-item';
+      cartItem.innerHTML = `
+        <span>${item.name} x ${item.quantity}</span>
+        <span>$${(item.price * item.quantity).toFixed(2)}</span>
+        <button class="remove-item" data-id="${item.id}">Remove</button>
+      `;
+      cartItems.appendChild(cartItem);
+    });
+    
+    // Add event listeners to remove buttons
+    document.querySelectorAll('.remove-item').forEach(button => {
+      button.addEventListener('click', () => {
+        this.removeItem(button.dataset.id);
+      });
+    });
+    
+    // Update total
+    cartTotal.textContent = `$${this.getTotal().toFixed(2)}`;
+  }
+}
+
+// Initialize cart
+const cart = new ShoppingCart();
+
+// Add product to cart when 'Add to Cart' button is clicked
+document.querySelectorAll('.add-to-cart').forEach(button => {
+  button.addEventListener('click', () => {
+    const productId = button.dataset.id;
+    const productName = button.dataset.name;
+    const productPrice = parseFloat(button.dataset.price);
+    
+    cart.addItem({
+      id: productId,
+      name: productName,
+      price: productPrice
+    });
+  });
+});
+
+// Initialize cart UI
+cart.updateCartUI();
+```
+
+**Storage Limitations and Best Practices:**
+
+1. **Storage Limits**:
+   - Most browsers limit storage to 5-10MB per domain
+   - When the limit is exceeded, browsers may throw a `QuotaExceededError`
+
+```javascript
+// Handle storage quota errors
+function safelyStoreData(key, data) {
+  try {
+    localStorage.setItem(key, data);
+    return true;
+  } catch (e) {
+    if (isQuotaExceededError(e)) {
+      alert('Storage quota exceeded. Please clear some space.');
+      // Implement a cleanup strategy here
+      cleanupOldData();
+      return false;
+    }
+    throw e; // Re-throw if it's a different error
+  }
+}
+
+function isQuotaExceededError(e) {
+  return (
+    e instanceof DOMException &&
+    // Firefox
+    (e.code === 22 ||
+     // Chrome
+     e.code === 1014 ||
+     // Safari
+     e.name === 'QuotaExceededError' ||
+     // Firefox
+     e.name === 'NS_ERROR_DOM_QUOTA_REACHED')
+  );
+}
+
+function cleanupOldData() {
+  // Strategy: Remove oldest items first
+  const itemTimestamps = JSON.parse(localStorage.getItem('item_timestamps') || '{}');
+  const keys = Object.keys(itemTimestamps);
+  
+  // Sort keys by timestamp (oldest first)
+  keys.sort((a, b) => itemTimestamps[a] - itemTimestamps[b]);
+  
+  // Remove oldest items until we've cleared enough space
+  for (let i = 0; i < Math.min(keys.length, 5); i++) {
+    localStorage.removeItem(keys[i]);
+  }
+  
+  // Update timestamps
+  for (let i = 0; i < keys.length; i++) {
+    delete itemTimestamps[keys[i]];
+  }
+  
+  localStorage.setItem('item_timestamps', JSON.stringify(itemTimestamps));
+}
+
+// When storing an item, also store its timestamp
+function storeWithTimestamp(key, value) {
+  // Store the actual data
+  localStorage.setItem(key, value);
+  
+  // Update timestamp registry
+  const timestamps = JSON.parse(localStorage.getItem('item_timestamps') || '{}');
+  timestamps[key] = Date.now();
+  localStorage.setItem('item_timestamps', JSON.stringify(timestamps));
+}
+```
+
+2. **Security Considerations**:
+   - Never store sensitive data (passwords, tokens) in localStorage as it's accessible via JavaScript
+   - sessionStorage is slightly more secure but still vulnerable to XSS attacks
+
+```javascript
+// DON'T DO THIS - Insecure storage of sensitive data
+localStorage.setItem('authToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...');
+
+// Better approach - store non-sensitive data only
+localStorage.setItem('userPreferences', JSON.stringify({ theme: 'dark' }));
+
+// For sensitive data, use HttpOnly cookies (server-side) or a more secure approach
+```
+
+3. **Data Expiration**:
+   - localStorage doesn't have built-in expiration, but you can implement it manually
+
+```javascript
+// Storage with expiration
+const storageWithExpiry = {
+  setWithExpiry(key, value, ttl) {
+    const item = {
+      value: value,
+      expiry: Date.now() + ttl,
+    };
+    localStorage.setItem(key, JSON.stringify(item));
+  },
+  
+  getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key);
+    
+    // Return null if item doesn't exist
+    if (!itemStr) {
+      return null;
+    }
+    
+    const item = JSON.parse(itemStr);
+    const isExpired = Date.now() > item.expiry;
+    
+    // Delete if expired
+    if (isExpired) {
+      localStorage.removeItem(key);
+      return null;
+    }
+    
+    return item.value;
+  }
+};
+
+// Usage
+// Store data with 1-day expiration (86400000 ms)
+storageWithExpiry.setWithExpiry('user', { name: 'John' }, 86400000);
+
+// Get data (returns null if expired)
+const user = storageWithExpiry.getWithExpiry('user');
+```
+
+4. **Storage Events and Synchronization**:
+   - Use storage events to keep multiple tabs in sync
+
+```javascript
+// Synchronize data across tabs
+function syncDataAcrossTabs() {
+  // Listen for changes in other tabs
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'appState') {
+      updateUIFromState(JSON.parse(event.newValue));
+    }
+  });
+  
+  // Update data and notify other tabs
+  function updateAppState(newState) {
+    // Update localStorage
+    localStorage.setItem('appState', JSON.stringify(newState));
+    
+    // Update current tab's UI
+    updateUIFromState(newState);
+  }
+  
+  function updateUIFromState(state) {
+    // Update UI based on state
+    document.body.className = state.theme;
+    document.getElementById('username').textContent = state.username;
+    // etc.
+  }
+  
+  return {
+    updateAppState
+  };
+}
+
+const tabSync = syncDataAcrossTabs();
+
+// Usage
+document.getElementById('theme-switch').addEventListener('click', () => {
+  const currentState = JSON.parse(localStorage.getItem('appState') || '{}');
+  const newTheme = currentState.theme === 'dark' ? 'light' : 'dark';
+  
+  tabSync.updateAppState({
+    ...currentState,
+    theme: newTheme
+  });
+});
+```
+
+5. **Feature Detection**:
+   - Always check if Web Storage is available before using it
+
+```javascript
+function isStorageAvailable(type) {
+  try {
+    const storage = window[type];
+    const testKey = '__storage_test__';
+    storage.setItem(testKey, testKey);
+    storage.removeItem(testKey);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+// Usage
+if (isStorageAvailable('localStorage')) {
+  // localStorage is available
+  initializeApp();
+} else {
+  // localStorage is not available
+  // Implement fallback (cookies, in-memory storage, etc.)
+  initializeAppWithFallback();
+}
+```
+
+**Comparison with Cookies:**
+
+| Feature | localStorage | sessionStorage | Cookies |
+|---------|-------------|----------------|--------|
+| Capacity | ~5-10MB | ~5-10MB | ~4KB |
+| Expiration | Never | Tab close | Configurable |
+| Storage Location | Browser only | Browser only | Browser & Server |
+| Sent with Requests | No | No | Yes |
+| Accessibility | JavaScript only | JavaScript only | JavaScript & Server |
+| Editable by User | Yes | Yes | Yes |
+| Security | Vulnerable to XSS | Vulnerable to XSS | Can be made secure with HttpOnly flag |
+
+**Modern Alternatives:**
+
+1. **IndexedDB**: For larger, structured data storage
+2. **Cache API**: For storing HTTP responses (part of Service Workers)
+3. **Web SQL**: Deprecated, not recommended for new projects
+
+```javascript
+// Example of when to use IndexedDB instead of localStorage
+function shouldUseIndexedDB(dataSize) {
+  // If data is larger than 1MB, prefer IndexedDB
+  return dataSize > 1024 * 1024;
+}
+
+// Example of using Cache API with Service Worker
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open('app-static-v1').then((cache) => {
+      return cache.addAll([
+        '/',
+        '/styles.css',
+        '/app.js',
+        '/logo.png'
+      ]);
+    })
+  );
+});
+
+---
+
+### Q51: What is the difference between `<em>` and `<strong>` tags?
+
+**Answer:**
+
+Both `<em>` and `<strong>` are HTML tags used to give special emphasis to text, but they convey different semantic meanings and are used for different purposes.
+
+#### `<em>` (Emphasis) Tag
+
+*   **Semantic Meaning**: The `<em>` tag is used to indicate **stress emphasis**. It suggests that the enclosed text should be read with a different tone or emphasis, which can change the meaning of the sentence.
+*   **Default Browser Styling**: Browsers typically render `<em>` text in *italics*.
+*   **Use Case**: Use `<em>` when you want to change the nuance of a sentence. It's about linguistic emphasis.
+
+**Example**:
+
+```html
+<p>I am <em>so</em> excited to learn HTML!</p>
+<!-- The emphasis on "so" intensifies the feeling of excitement. -->
+
+<p>You <em>must</em> complete this task by Friday.</p>
+<!-- The emphasis on "must" highlights the urgency or requirement. -->
+```
+
+#### `<strong>` (Strong Importance) Tag
+
+*   **Semantic Meaning**: The `<strong>` tag is used to indicate **strong importance, seriousness, or urgency**. It marks text that is more important than the surrounding content.
+*   **Default Browser Styling**: Browsers typically render `<strong>` text in **bold**.
+*   **Use Case**: Use `<strong>` for warnings, important notices, or to highlight keywords that are central to the content.
+
+**Example**:
+
+```html
+<p><strong>Warning:</strong> Do not touch the live wires.</p>
+<!-- The "Warning" is critical information for safety. -->
+
+<p>This task is of <strong>high priority</strong>.</p>
+<!-- "High priority" signals the importance of the task. -->
+```
+
+#### Key Differences Summarized
+
+| Feature             | `<em>` Tag                               | `<strong>` Tag                             |
+| ------------------- | ----------------------------------------- | ------------------------------------------ |
+| **Semantic Meaning**| Stress emphasis (changes sentence meaning) | Strong importance, seriousness, or urgency |
+| **Default Style**   | Italic                                    | Bold                                       |
+| **Use Case**        | To alter the tone or nuance of a sentence | For warnings, critical notices, or keywords|
+| **Accessibility**   | Screen readers may change their tone of voice | Screen readers may speak with a stronger voice |
+
+#### Why Not Just Use `<b>` and `<i>`?
+
+The `<b>` (bold) and `<i>` (italic) tags are purely presentational. They tell the browser to make text bold or italic without conveying any semantic meaning. While they still work, `<strong>` and `<em>` are preferred because they provide additional context to search engines and assistive technologies like screen readers, which improves both SEO and accessibility.
+
+---
+
+### Q52: What is the purpose of the `DOCTYPE` declaration?
+
+**Answer:**
+
+The `<!DOCTYPE html>` declaration is an instruction to the web browser about what version of HTML the page is written in. It is the very first thing in your HTML document, before the `<html>` tag.
+
+#### Why is it Important?
+
+1.  **Triggers Standards Mode**: The primary purpose of the `DOCTYPE` is to prevent the browser from switching into **"quirks mode."**
+    *   **Standards Mode**: The browser renders the page according to the W3C and IETF standards. This ensures more predictable and consistent rendering across different browsers.
+    *   **Quirks Mode**: If the `DOCTYPE` is missing or incorrect, the browser makes a best-guess attempt to render the page, often by emulating the behavior of older, non-standard browsers (like Netscape 4 and Internet Explorer 5). This can lead to inconsistent layouts and buggy behavior.
+
+2.  **Ensures Cross-Browser Compatibility**: By telling all browsers to use the same rendering mode (standards mode), the `DOCTYPE` helps ensure that your website looks and functions the same way for all users, regardless of the browser they are using.
+
+3.  **Enables HTML5 Features**: The modern `<!DOCTYPE html>` declaration is specifically what tells the browser to interpret the document as HTML5. Without it, new HTML5 elements (like `<article>`, `<section>`, `<nav>`) and APIs may not work correctly.
+
+#### The HTML5 `DOCTYPE`
+
+The `DOCTYPE` for HTML5 is simple and case-insensitive:
+
+```html
+<!DOCTYPE html>
+```
+
+This is much simpler than the `DOCTYPE` declarations required for older versions of HTML, which were based on SGML (Standard Generalized Markup Language) and required a reference to a Document Type Definition (DTD).
+
+**Example of an older XHTML 1.0 Strict `DOCTYPE`:**
+
+```html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+```
+
+Fortunately, with HTML5, we only need to remember the simple version.
+
+#### In Summary
+
+| Without `<!DOCTYPE html>` (Quirks Mode) | With `<!DOCTYPE html>` (Standards Mode) |
+| --------------------------------------- | --------------------------------------- |
+| Inconsistent rendering across browsers  | Consistent, predictable rendering       |
+| CSS might not apply as expected         | CSS rules are interpreted correctly     |
+| Layouts can break easily                | Layouts are more stable and reliable    |
+| HTML5 features may not work             | Full HTML5 support is enabled           |
+
+**Conclusion**: Always include the `<!DOCTYPE html>` declaration at the very beginning of every HTML document. It is not an HTML tag; it is a mandatory instruction that ensures your web page is rendered correctly and consistently.
+
+---
+
+### Q53: What is the difference between an `id` and a `class`?
+
+**Answer:**
+
+The `id` and `class` attributes are both used to apply identifiers to HTML elements, but they serve different purposes and have different rules.
+
+#### `id` Attribute
+
+*   **Uniqueness**: An `id` must be **unique** within the entire HTML document. No two elements can have the same `id`.
+*   **Purpose**: It is used to identify a single, specific element.
+*   **Use Cases**:
+    1.  **Styling with CSS**: To apply styles to a unique element (e.g., `#header`, `#main-content`).
+    2.  **JavaScript Manipulation**: To select and manipulate a specific element using `document.getElementById()`.
+    3.  **Fragment Identifiers (Anchor Links)**: To create links that jump to a specific section of a page (e.g., `<a href="#section1">`).
+
+**Example**:
+
+```html
+<div id="main-header">
+  <h1>Welcome to my Website</h1>
+</div>
+
+<style>
+  #main-header {
+    background-color: #333;
+    color: white;
+  }
+</style>
+
+<script>
+  const header = document.getElementById('main-header');
+  header.style.padding = '20px';
+</script>
+```
+
+#### `class` Attribute
+
+*   **Uniqueness**: A `class` name can be used on **multiple** elements.
+*   **Purpose**: It is used to group multiple elements that share the same characteristics or styling.
+*   **Multiple Classes**: An element can have multiple class names, separated by spaces.
+*   **Use Cases**:
+    1.  **Styling with CSS**: To apply the same styles to a group of elements (e.g., `.button`, `.alert`, `.card`).
+    2.  **JavaScript Manipulation**: To select and manipulate a group of elements using `document.getElementsByClassName()` or `document.querySelectorAll()`.
+
+**Example**:
+
+```html
+<button class="btn btn-primary">Submit</button>
+<button class="btn btn-secondary">Cancel</button>
+
+<div class="alert alert-success">Operation was successful!</div>
+<div class="alert alert-danger">An error occurred.</div>
+
+<style>
+  .btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  .btn-primary {
+    background-color: blue;
+    color: white;
+  }
+  .alert {
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  .alert-success {
+    background-color: lightgreen;
+  }
+</style>
+```
+
+#### Summary of Key Differences
+
+| Feature          | `id`                                      | `class`                                       |
+| ---------------- | ----------------------------------------- | --------------------------------------------- |
+| **Uniqueness**   | Must be unique within the page            | Can be used on multiple elements              |
+| **CSS Selector** | `#` (e.g., `#my-id`)                      | `.` (e.g., `.my-class`)                       |
+| **JavaScript**   | `document.getElementById()` (returns one element) | `getElementsByClassName()` (returns a collection) |
+| **Usage**        | For a single, unique element              | For a group of similar elements               |
+| **Anchor Links** | Yes (`href="#my-id"`)                     | No                                            |
+
+#### Best Practices
+
+*   Use `id` for major, unique page sections like headers, footers, and main content areas.
+*   Use `class` for reusable components and elements that appear multiple times, like buttons, cards, alerts, and list items.
+*   Avoid using `id` for styling if the same style might be needed elsewhere. A `class` is more flexible and reusable.
+
+---
+
+### Q54: What are `data-*` attributes and why are they used?
+
+**Answer:**
+
+`data-*` attributes are a standardized way to embed custom, private data on an HTML element. They allow you to store extra information that doesn't have a defined semantic meaning, which can then be easily accessed and manipulated by JavaScript.
+
+#### Syntax and Rules
+
+*   The attribute name must start with `data-`.
+*   It must contain at least one character after the prefix.
+*   The attribute name should not contain any uppercase letters.
+*   The attribute value can be any string.
+
+**Example**:
+
+```html
+<div id="user-profile" data-user-id="12345" data-user-role="admin" data-active-status="true">
+  <p>Username: JohnDoe</p>
+</div>
+
+<ul>
+  <li data-animal-type="mammal">Dog</li>
+  <li data-animal-type="bird">Eagle</li>
+  <li data-animal-type="reptile">Lizard</li>
+</ul>
+```
+
+#### Why Use `data-*` Attributes?
+
+1.  **Storing Element-Specific Data**: They are perfect for storing simple data that is directly related to an element, such as a product ID, a user role, or a component's state, without polluting the `class` or `id` attributes.
+
+2.  **Clean Separation**: They keep custom data within the HTML, separating it from JavaScript logic. This can make the code cleaner and more declarative.
+
+3.  **JavaScript Hooks**: They provide a way for JavaScript to interact with elements without relying on non-semantic classes like `js-modal-trigger`. Instead, you can use a selector like `[data-action="open-modal"]`.
+
+4.  **Styling with CSS**: You can also use `data-*` attributes as selectors in CSS to apply styles based on the data.
+
+#### Accessing `data-*` Attributes
+
+You can access `data-*` attributes in JavaScript using two main methods:
+
+1.  **`getAttribute()` / `setAttribute()`**: The traditional way to access any attribute.
+
+2.  **`dataset` Property**: The recommended, more convenient way. The `dataset` property is a `DOMStringMap` object that provides access to all `data-*` attributes on an element. The part of the attribute name after `data-` is converted from kebab-case to camelCase.
+
+**Example of Accessing Data:**
+
+```html
+<div id="product" data-product-id="987" data-in-stock="false">...</div>
+```
+
+```javascript
+const productElement = document.getElementById('product');
+
+// Using getAttribute()
+const productId = productElement.getAttribute('data-product-id'); // "987"
+
+// Using the dataset property (recommended)
+const productIdFromDataset = productElement.dataset.productId; // "987"
+const inStock = productElement.dataset.inStock; // "false"
+
+console.log(productIdFromDataset); // "987"
+console.log(typeof inStock); // string
+
+// Modifying data attributes
+productElement.dataset.inStock = 'true';
+// This changes the HTML to: <div ... data-in-stock="true">
+```
+
+**Note**: All values read from `dataset` are strings. You may need to convert them to the appropriate type (e.g., using `parseInt()` or `JSON.parse()`).
+
+#### Styling with CSS
+
+You can use attribute selectors to style elements based on their `data-*` attributes.
+
+```css
+/* Style all elements with a specific data attribute */
+[data-user-role] {
+  border: 1px solid #ccc;
+}
+
+/* Style based on a specific data attribute value */
+[data-user-role="admin"] {
+  background-color: lightyellow;
+  border-color: gold;
+}
+
+[data-active-status="false"] {
+  opacity: 0.5;
+}
+```
+
+In summary, `data-*` attributes provide a powerful and standard-compliant way to add custom data to your HTML, making your code more organized and maintainable.
+
+---
+
+### Q55: What is the difference between block and inline elements?
+
+**Answer:**
+
+In HTML, elements are generally categorized as either **block-level** or **inline-level**. The primary difference between them lies in how they are displayed on the page and the box model properties they can accept.
+
+#### Block-Level Elements
+
+Block-level elements are designed to structure the main parts of your web page.
+
+*   **Display Behavior**:
+    *   They always start on a **new line**.
+    *   They take up the **full width** available to them, stretching from the left to the right edge of their container.
+*   **Content Model**: They can contain other block-level elements and inline-level elements.
+*   **Box Model**: You can set `width`, `height`, `margin` (top and bottom), and `padding` on them.
+
+**Common Block-Level Elements**:
+*   `<div>`
+*   `<p>`
+*   `<h1>` - `<h6>`
+*   `<ul>`, `<ol>`, `<li>`
+*   `<form>`
+*   `<header>`, `<footer>`, `<section>`, `<article>`, `<nav>`
+
+**Example**:
+
+```html
+<div style="background-color: lightblue;">This is a div.</div>
+<p style="background-color: lightcoral;">This is a paragraph.</p>
+```
+
+Each of these elements will appear on its own line and span the full width of the page.
+
+#### Inline-Level Elements
+
+Inline-level elements are used for smaller pieces of content within a block-level element.
+
+*   **Display Behavior**:
+    *   They do **not** start on a new line.
+    *   They only take up as much **width as necessary** to fit their content.
+*   **Content Model**: They can generally only contain other inline-level elements.
+*   **Box Model**: You can set `padding` and `margin` on the left and right, but **top and bottom margins and padding are not respected**. `width` and `height` properties have no effect.
+
+**Common Inline-Level Elements**:
+*   `<span>`
+*   `<a>`
+*   `<img>`
+*   `<strong>`, `<em>`
+*   `<input>`, `<button>`, `<label>`
+*   `<br>`
+
+**Example**:
+
+```html
+<p>
+  This is a paragraph with an <a href="#">inline link</a> and a 
+  <span style="background-color: lightgreen;">span element</span> inside it.
+</p>
+```
+
+Both the `<a>` and `<span>` elements will appear within the flow of the paragraph text.
+
+#### Key Differences Summarized
+
+| Feature              | Block-Level Elements                      | Inline-Level Elements                          |
+| -------------------- | ----------------------------------------- | ---------------------------------------------- |
+| **Starts on New Line** | Yes                                       | No                                             |
+| **Width**            | Takes up the full available width         | Takes up only the necessary width              |
+| **Content**          | Can contain block and inline elements     | Can usually only contain inline elements       |
+| **`width` & `height`** | Respected                                 | Not respected                                  |
+| **`margin` & `padding`** | All sides are respected                   | Only left and right sides are respected        |
+
+#### The `display` Property
+
+You can change the default display behavior of any element using the CSS `display` property. The most common values are:
+
+*   `display: block;` (Makes an inline element behave like a block)
+*   `display: inline;` (Makes a block element behave like an inline)
+*   `display: inline-block;` (A hybrid of the two)
+*   `display: none;` (Hides the element completely)
+
+**`inline-block`**: This value is particularly useful. It makes an element flow like an inline element (doesn't start on a new line) but allows you to set `width`, `height`, and top/bottom `margin` and `padding` like a block element.
+
+---
+
+### Q56: What is the CSS Box Model?
+
+**Answer:**
+
+The CSS Box Model is a fundamental concept that describes how every HTML element is represented as a rectangular box on a web page. This box consists of four parts, layered like an onion:
+
+1.  **Content**: The actual content of the box, where text and images appear. Its dimensions are defined by `width` and `height`.
+2.  **Padding**: The transparent area around the content, clearing space between the content and the border. It is controlled by `padding` properties.
+3.  **Border**: A border that goes around the padding and content. It is defined by `border` properties.
+4.  **Margin**: The transparent area outside the border, creating space between this element and other elements. It is controlled by `margin` properties.
+
+Here is a visual representation:
+
+```
+  +---------------------------------------------------+
+  |                      Margin                       |
+  |   +-------------------------------------------+   |
+  |   |                   Border                  |   |
+  |   |   +-----------------------------------+   |   |
+  |   |   |              Padding              |   |   |
+  |   |   |   +---------------------------+   |   |   |
+  |   |   |   |          Content          |   |   |   |
+  |   |   |   +---------------------------+   |   |   |
+  |   |   |                                   |   |   |
+  |   |   +-----------------------------------+   |   |
+  |   |                                           |   |
+  |   +-------------------------------------------+   |
+  |                                                   |
+  +---------------------------------------------------+
+```
+
+#### `box-sizing` Property
+
+The `box-sizing` property changes how the total width and height of an element are calculated.
+
+1.  **`content-box` (Default)**:
+    *   The `width` and `height` properties apply only to the **content area**.
+    *   The total width of the element is `width` + `padding-left` + `padding-right` + `border-left` + `border-right`.
+    *   The total height is `height` + `padding-top` + `padding-bottom` + `border-top` + `border-bottom`.
+
+    **Example**:
+
+    ```css
+    .box {
+      width: 200px;
+      padding: 20px;
+      border: 10px solid black;
+      box-sizing: content-box; /* Default behavior */
+    }
+    /* Total width = 200 + 20 + 20 + 10 + 10 = 260px */
+    ```
+
+2.  **`border-box`**:
+    *   The `width` and `height` properties include the **content, padding, and border**.
+    *   The total width of the element is simply the value of the `width` property.
+    *   The content area shrinks to accommodate the padding and border.
+
+    **Example**:
+
+    ```css
+    .box {
+      width: 200px;
+      padding: 20px;
+      border: 10px solid black;
+      box-sizing: border-box;
+    }
+    /* Total width = 200px */
+    ```
+
+Using `box-sizing: border-box;` is a common best practice because it makes layout calculations more intuitive and predictable. It's often applied globally:
+
+```css
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+```
+
+This setup ensures that all elements use the more manageable `border-box` model, simplifying responsive design and grid layouts.
+
+---
+
+### Q57: What is CSS Specificity and how is it calculated?
+
+**Answer:**
+
+CSS Specificity is the set of rules browsers use to determine which CSS style declaration is applied to an element when multiple, conflicting declarations exist. It's a weighting system that gives more importance to certain types of selectors.
+
+#### The Specificity Hierarchy
+
+Specificity is calculated by scoring selectors based on their components. The hierarchy, from highest to lowest specificity, is as follows:
+
+1.  **Inline Styles**: Styles applied directly to an element using the `style` attribute.
+    *   Example: `<div style="color: red;">`
+
+2.  **IDs**: Selectors that target an element by its unique `id`.
+    *   Example: `#my-id`
+
+3.  **Classes, Attributes, and Pseudo-classes**: This group includes:
+    *   Classes (`.my-class`)
+    *   Attribute selectors (`[type="text"]`)
+    *   Pseudo-classes (`:hover`, `:focus`)
+
+4.  **Elements and Pseudo-elements**: This is the least specific group.
+    *   Element selectors (`div`, `p`)
+    *   Pseudo-elements (`::before`, `::after`)
+
+#### How to Calculate Specificity
+
+A common way to visualize specificity is as a three-column value: `(IDs, Classes, Elements)`.
+
+*   **IDs**: Count the number of ID selectors. `(1, 0, 0)`
+*   **Classes**: Count the number of class, attribute, and pseudo-class selectors. `(0, 1, 0)`
+*   **Elements**: Count the number of element and pseudo-element selectors. `(0, 0, 1)`
+
+When comparing two selectors, the one with the highest value in the leftmost column wins. If they are equal, move to the next column to the right.
+
+**Example Calculation**:
+
+Consider the following CSS:
+
+```css
+/* Specificity: (0, 0, 1) */
+div { color: blue; }
+
+/* Specificity: (0, 1, 0) */
+.my-class { color: green; }
+
+/* Specificity: (1, 0, 0) */
+#my-id { color: purple; }
+
+/* Specificity: (0, 1, 1) */
+div.my-class { color: orange; }
+
+/* Specificity: (1, 1, 0) */
+#my-id.my-class { color: pink; }
+```
+
+And this HTML:
+
+```html
+<div id="my-id" class="my-class">Hello World</div>
+```
+
+The text will be **pink**. Here's why:
+
+1.  `#my-id.my-class` `(1, 1, 0)` beats `#my-id` `(1, 0, 0)` because it has a higher value in the second column.
+2.  It also beats `div.my-class` `(0, 1, 1)` because it has a higher value in the first column.
+
+#### The `!important` Rule
+
+The `!important` rule is an exception that overrides all other specificity rules. When `!important` is added to a style declaration, that declaration takes precedence over any other.
+
+```css
+p {
+  color: blue !important; /* This will always be applied */
+}
+
+#my-paragraph {
+  color: red; /* This will be ignored */
+}
+```
+
+**Best Practice**: Avoid using `!important` unless absolutely necessary (e.g., overriding styles from a third-party library). Overusing it can lead to a specificity war and make your CSS difficult to maintain.
+
+#### Summary Table
+
+| Selector Type                               | Specificity Value |
+| ------------------------------------------- | ----------------- |
+| `!important`                                | Overrides all     |
+| Inline Styles (`style="..."`)               | `(1, 0, 0, 0)`*   |
+| ID (`#my-id`)                               | `(0, 1, 0, 0)`    |
+| Class (`.my-class`), Attribute (`[type]`), Pseudo-class (`:hover`) | `(0, 0, 1, 0)`    |
+| Element (`div`), Pseudo-element (`::before`) | `(0, 0, 0, 1)`    |
+| Universal Selector (`*`), Combinators (`+`, `>`) | No specificity    |
+
+*Note: Some representations use four columns to include inline styles.*
+
+---
+
+### Q58: What is the difference between `display: none;` and `visibility: hidden;`?
+
+**Answer:**
+
+Both `display: none;` and `visibility: hidden;` make an element invisible, but they do so in fundamentally different ways, which affects page layout and behavior.
+
+#### `display: none;`
+
+When you apply `display: none;` to an element, it's as if the element doesn't exist in the document at all.
+
+*   **Layout**: The element is completely **removed from the document flow**. It takes up **no space** on the page, and other elements will reflow to fill the void.
+*   **Visibility**: The element and all its descendant elements are hidden.
+*   **Accessibility**: The element is ignored by screen readers.
+*   **Events**: The element cannot be targeted by JavaScript events.
+
+**Example**:
+
+```html
+<p>First paragraph.</p>
+<p style="display: none;">This paragraph is hidden.</p>
+<p>Third paragraph.</p>
+```
+
+In this case, the third paragraph will appear immediately after the first, as if the second paragraph never existed.
+
+#### `visibility: hidden;`
+
+When you apply `visibility: hidden;`, the element is hidden, but it still occupies its space in the layout.
+
+*   **Layout**: The element is **still part of the document flow** and **takes up its original space**. It's rendered as an invisible box.
+*   **Visibility**: The element is hidden, but its descendant elements can be made visible again by setting `visibility: visible;` on them.
+*   **Accessibility**: The element is still accessible to screen readers (though its content is not spoken).
+*   **Events**: The element cannot be targeted by JavaScript events.
+
+**Example**:
+
+```html
+<p>First paragraph.</p>
+<p style="visibility: hidden;">This paragraph is invisible but takes up space.</p>
+<p>Third paragraph.</p>
+```
+
+Here, there will be a visible gap between the first and third paragraphs, which is the space occupied by the hidden second paragraph.
+
+#### Comparison Table
+
+| Feature                      | `display: none;`                                  | `visibility: hidden;`                             |
+| ---------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| **Effect on Layout**         | Element is removed from the document flow.        | Element remains in the flow, occupying space.     |
+| **Space Occupied**           | Takes up no space.                                | Takes up its full, original space.                |
+| **Child Elements**           | All children are hidden and cannot be made visible. | Children are hidden but can be made visible.      |
+| **Performance**              | Triggers a browser **reflow** (re-calculation of layout). | Triggers a browser **repaint** (re-drawing the screen). |
+| **Accessibility**            | Ignored by screen readers.                        | Not read by screen readers but still in the accessibility tree. |
+| **Use Case**                 | Hiding/showing elements dynamically (e.g., modals, dropdowns). | Creating visual effects where space must be preserved. |
+
+In summary, use `display: none;` when you want to completely remove an element from the page, and use `visibility: hidden;` when you need to hide an element while preserving the space it occupies.
+
+---
+
+### Q59: What are the different values for the CSS `position` property?
+
+**Answer:**
+
+The CSS `position` property determines the positioning method used for an element. It works in conjunction with the offset properties `top`, `right`, `bottom`, and `left`. There are five main values for `position`.
+
+#### 1. `static`
+
+*   **Default value**.
+*   The element is positioned according to the **normal document flow**.
+*   The offset properties (`top`, `right`, `bottom`, `left`) and `z-index` have **no effect**.
+
+```css
+.static-element {
+  position: static;
+}
+```
+
+#### 2. `relative`
+
+*   The element is positioned according to the normal document flow, but you can then **offset it relative to its original position**.
+*   The offset properties move the element from its static position without affecting the layout of surrounding elements.
+*   It creates a **new stacking context** and establishes a positioning context for `absolute`-ly positioned child elements.
+
+```css
+.relative-element {
+  position: relative;
+  top: -20px; /* Moves up 20px */
+  left: 20px; /* Moves right 20px */
+}
+```
+
+#### 3. `absolute`
+
+*   The element is **removed from the normal document flow**.
+*   It is positioned relative to its **nearest positioned ancestor** (i.e., an ancestor with a `position` value other than `static`).
+*   If no positioned ancestor is found, it is positioned relative to the initial containing block (usually the `<html>` element).
+*   Other elements behave as if the absolutely positioned element does not exist.
+
+```css
+.parent {
+  position: relative; /* Establishes positioning context */
+}
+
+.absolute-element {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+```
+
+#### 4. `fixed`
+
+*   The element is **removed from the normal document flow**.
+*   It is positioned relative to the **viewport** (the browser window).
+*   It stays in the same place even when the page is scrolled.
+*   Commonly used for navigation bars, headers, or chat widgets.
+
+```css
+.fixed-element {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+}
+```
+
+#### 5. `sticky`
+
+*   A hybrid of `relative` and `fixed` positioning.
+*   The element is treated as `position: relative` until it crosses a specified threshold (defined by `top`, `right`, `bottom`, or `left`) during scrolling, at which point it becomes `position: fixed`.
+*   It "sticks" to its container.
+
+```css
+.sticky-element {
+  position: sticky;
+  top: 0; /* Sticks to the top of the viewport when scrolling */
+}
+```
+
+#### Comparison Table
+
+| `position` Value | In Document Flow? | Positioning Context                               | Use Case                                    |
+| :--------------- | :---------------- | :------------------------------------------------ | :------------------------------------------ |
+| **`static`**     | Yes               | N/A                                               | Default element behavior.                   |
+| **`relative`**   | Yes               | Its own static position                           | Minor adjustments; creating a context for `absolute` children. |
+| **`absolute`**   | No                | Nearest positioned ancestor                       | Overlays, tooltips, complex layouts.        |
+| **`fixed`**      | No                | Viewport                                          | Sticky headers/footers, modals.             |
+| **`sticky`**     | Yes               | Scrolls with parent, then sticks to the viewport | Sticky navigation, section headings.        |
+
+---
+
+### Q60: What is CSS Flexbox?
+
+**Answer:**
+
+CSS Flexible Box Layout, commonly known as **Flexbox**, is a one-dimensional layout model designed to provide a more efficient way to arrange, align, and distribute space among items in a container, even when their size is unknown or dynamic.
+
+To start using Flexbox, you apply `display: flex;` to a container element. This container becomes a **flex container**, and its direct children become **flex items**.
+
+```html
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+```
+
+```css
+.flex-container {
+  display: flex;
+}
+```
+
+Flexbox has two axes:
+
+*   **Main Axis**: The primary axis along which flex items are laid out. It is defined by the `flex-direction` property.
+*   **Cross Axis**: The axis perpendicular to the main axis.
+
+#### Key Properties for the Flex Container
+
+1.  **`flex-direction`**: Defines the direction of the main axis.
+    *   `row` (default): Left to right.
+    *   `row-reverse`: Right to left.
+    *   `column`: Top to bottom.
+    *   `column-reverse`: Bottom to top.
+
+2.  **`justify-content`**: Aligns flex items along the **main axis**.
+    *   `flex-start` (default): Items are packed toward the start.
+    *   `flex-end`: Items are packed toward the end.
+    *   `center`: Items are centered.
+    *   `space-between`: Items are evenly distributed; the first item is on the start line, the last on the end line.
+    *   `space-around`: Items are evenly distributed with equal space around them.
+
+3.  **`align-items`**: Aligns flex items along the **cross axis**.
+    *   `stretch` (default): Items stretch to fill the container.
+    *   `flex-start`: Items are placed at the start of the cross axis.
+    *   `flex-end`: Items are placed at the end of the cross axis.
+    *   `center`: Items are centered on the cross axis.
+
+4.  **`flex-wrap`**: Controls whether flex items are forced onto one line or can wrap onto multiple lines.
+    *   `nowrap` (default): All items will be on one line.
+    *   `wrap`: Items will wrap onto multiple lines, from top to bottom.
+    *   `wrap-reverse`: Items will wrap onto multiple lines from bottom to top.
+
+#### Key Properties for Flex Items
+
+1.  **`flex-grow`**: Defines the ability of a flex item to grow if necessary. It accepts a unitless value that serves as a proportion.
+    *   `flex-grow: 1;` means the item will take up any remaining space in the container.
+
+2.  **`flex-shrink`**: Defines the ability of a flex item to shrink if necessary.
+
+3.  **`flex-basis`**: Defines the default size of an element before the remaining space is distributed.
+
+4.  **`flex` (Shorthand)**: Combines `flex-grow`, `flex-shrink`, and `flex-basis`.
+    *   `flex: 0 1 auto;` (default)
+    *   `flex: 1;` is equivalent to `flex: 1 1 0;`
+
+5.  **`align-self`**: Allows the default alignment (or the one specified by `align-items`) to be overridden for individual flex items.
+
+**Example**: A simple centered layout.
+
+```css
+.container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+  height: 100vh;
+}
+```
+
+Flexbox is ideal for component layouts and small-scale designs, while CSS Grid is generally better for large-scale, two-dimensional page layouts.
+
+---
+
+### Q61: What is CSS Grid?
+
+**Answer:**
+
+CSS Grid Layout is a **two-dimensional** layout system for the web. It lets you create complex, responsive layouts with rows and columns, making it easier to design web pages without having to use hacks like floats and positioning.
+
+To start using Grid, you apply `display: grid;` to a container element. This becomes a **grid container**, and its direct children become **grid items**.
+
+```html
+<div class="grid-container">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+  <div class="item">4</div>
+</div>
+```
+
+#### Core Concepts of CSS Grid
+
+*   **Grid Container**: The element on which `display: grid` is applied.
+*   **Grid Item**: The direct children of the grid container.
+*   **Grid Line**: The dividing lines that make up the structure of the grid.
+*   **Grid Track**: The space between two adjacent grid lines (a column or a row).
+*   **Grid Cell**: The space between two adjacent row and two adjacent column grid lines (a single "unit" of the grid).
+*   **Grid Area**: A total space surrounded by four grid lines, which can be composed of any number of grid cells.
+
+#### Key Properties for the Grid Container
+
+1.  **`grid-template-columns` / `grid-template-rows`**: Defines the columns and rows of the grid.
+    *   You can use any length unit (`px`, `%`, `em`).
+    *   The `fr` unit represents a fraction of the available space.
+
+    ```css
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr; /* Three equal-width columns */
+      grid-template-rows: 100px 200px;   /* Two rows with specified heights */
+    }
+    ```
+
+2.  **`grid-gap` (or `gap`)**: A shorthand for `grid-row-gap` and `grid-column-gap`, specifying the size of the grid lines (the gutter).
+
+    ```css
+    .container {
+      display: grid;
+      gap: 20px;
+    }
+    ```
+
+3.  **`justify-items` / `align-items`**: Aligns grid items along the row (inline) and column (block) axes within their grid area.
+    *   Values: `start`, `end`, `center`, `stretch` (default).
+
+4.  **`justify-content` / `align-content`**: Aligns the entire grid within the grid container when the total size of the grid is smaller than its container.
+
+#### Key Properties for Grid Items
+
+1.  **`grid-column-start` / `grid-column-end`**: Determines a grid item's size and location by specifying which grid lines it starts and ends on.
+2.  **`grid-row-start` / `grid-row-end`**: Same as above, but for rows.
+3.  **`grid-column` / `grid-row` (Shorthand)**: Combines the start and end properties.
+
+    ```css
+    .item-1 {
+      grid-column: 1 / 3; /* Span from line 1 to line 3 */
+      grid-row: 1 / 2;
+    }
+    ```
+
+4.  **`grid-area`**: Gives an item a name so that it can be placed by a template created with the `grid-template-areas` property.
+
+**Example**: A simple page layout.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  gap: 10px;
+  height: 100vh;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.footer { grid-area: footer; }
+```
+
+CSS Grid is powerful for overall page layouts, while Flexbox excels at aligning items within a component.
+
+---
+
+### Q62: What is the difference between CSS Flexbox and Grid?
+
+**Answer:**
+
+Both CSS Flexbox and Grid are powerful layout models, but they are designed to solve different problems. The primary difference is that **Flexbox is for one-dimensional layouts**, while **Grid is for two-dimensional layouts**.
+
+#### CSS Flexbox (One-Dimensional)
+
+Flexbox is designed to lay out items in a single dimension—either in a row or a column.
+
+*   **Axis**: It works along a single main axis (`flex-direction`).
+*   **Content-First**: Its primary strength is distributing space along that axis, making it ideal for aligning items within a container.
+*   **Use Cases**: Perfect for component-level layouts, such as navigation bars, form elements, or card components where items are arranged in a line.
+
+**Think of Flexbox as arranging items in a list.**
+
+```css
+.flex-container {
+  display: flex; /* Lays out children in a row by default */
+  justify-content: space-between;
+}
+```
+
+#### CSS Grid (Two-Dimensional)
+
+Grid is designed for laying out items in two dimensions—rows and columns simultaneously.
+
+*   **Axes**: It works with both a horizontal and a vertical axis at the same time.
+*   **Layout-First**: It allows you to define a rigid grid structure and place items within it, giving you precise control over the overall page layout.
+*   **Use Cases**: Ideal for the main page layout, such as creating headers, footers, sidebars, and main content areas.
+
+**Think of Grid as arranging items in a spreadsheet.**
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Defines two columns */
+  grid-template-rows: auto 1fr;    /* Defines two rows */
+}
+```
+
+#### Comparison Table
+
+| Feature         | Flexbox                                       | Grid                                              |
+| --------------- | --------------------------------------------- | ------------------------------------------------- |
+| **Dimensions**  | **One-dimensional** (row or column)           | **Two-dimensional** (rows and columns)            |
+| **Primary Use** | Aligning content and distributing space within a container. | Overall page layout.                              |
+| **Approach**    | Content-first                                 | Layout-first                                      |
+| **Item Sizing** | Items can grow/shrink along the main axis.    | Items are placed into explicitly defined grid cells. |
+| **Flexibility** | More flexible for content that changes size.  | More rigid and structured.                        |
+| **Best For**    | Components, navigation bars, UI elements.     | Full-page layouts, complex responsive designs.    |
+
+#### Can They Be Used Together?
+
+Yes, and they often should be. A common pattern is to use **Grid for the main page structure** and **Flexbox for the components within that structure**.
+
+**Example**:
+
+1.  Use **Grid** to create a `header`, `main`, and `footer` layout.
+2.  Inside the `header`, use **Flexbox** to align the logo and navigation links.
+
+This approach leverages the strengths of both models, resulting in clean, maintainable, and responsive designs.
+
+---
+
+### Q63: What is responsive web design and how are media queries used?
+
+**Answer:**
+
+**Responsive Web Design (RWD)** is an approach to web design that makes web pages render well on a variety of devices and window or screen sizes. The goal is to create a single, flexible website that adapts its layout to the viewing environment.
+
+The core principles of RWD are:
+
+1.  **Fluid Grids**: Using relative units like percentages (`%`) or viewport units (`vw`, `vh`) for layout widths, rather than fixed units like pixels (`px`). This allows the layout to stretch or shrink with the browser size.
+2.  **Flexible Images**: Sizing images and other media with relative units (like `max-width: 100%;`) to prevent them from overflowing their containers.
+3.  **Media Queries**: A CSS feature that allows you to apply styles only when certain conditions about the browser or device environment are met, such as its width, height, or orientation.
+
+#### How Media Queries Work
+
+Media queries are the key to RWD. They allow you to create different layouts for different screen sizes using CSS. A media query consists of a media type and one or more expressions involving media features.
+
+**Syntax**:
+
+```css
+@media media-type and (media-feature: value) {
+  /* CSS rules to apply when the condition is true */
+}
+```
+
+*   **`media-type`**: Describes the general category of a device (e.g., `screen`, `print`, `all`).
+*   **`media-feature`**: Describes a specific characteristic of the user agent or display (e.g., `width`, `height`, `orientation`).
+
+**Example**: Changing the layout based on screen width.
+
+This is a **mobile-first** approach, where the default styles target mobile devices, and media queries add complexity for larger screens.
+
+```css
+/* Default styles for mobile */
+.container {
+  width: 100%;
+}
+
+.sidebar {
+  display: none; /* Hide sidebar on small screens */
+}
+
+/* Styles for tablets and larger (min-width: 768px) */
+@media screen and (min-width: 768px) {
+  .container {
+    display: flex;
+  }
+
+  .sidebar {
+    display: block; /* Show sidebar */
+    width: 30%;
+  }
+
+  .main-content {
+    width: 70%;
+  }
+}
+
+/* Styles for desktops and larger (min-width: 1024px) */
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+```
+
+#### The Viewport Meta Tag
+
+For media queries to work correctly on mobile devices, you must include the viewport meta tag in the `<head>` of your HTML document. This tag tells the browser how to control the page's dimensions and scaling.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+*   `width=device-width`: Sets the width of the page to follow the screen-width of the device.
+*   `initial-scale=1.0`: Sets the initial zoom level when the page is first loaded by the browser.
+
+Without this tag, mobile browsers will render the page at a typical desktop screen width and then scale it down, making it unreadable.
+
+---
+
+### Q64: What are CSS preprocessors and why are they useful?
+
+**Answer:**
+
+A **CSS preprocessor** is a scripting language that extends the default capabilities of CSS. It allows you to use features that don't exist in plain CSS, such as variables, nesting, mixins, and functions. The preprocessor takes code written in its own syntax and compiles it into standard, browser-readable CSS.
+
+The most popular CSS preprocessors are **Sass (Syntactically Awesome Style Sheets)**, **Less**, and **Stylus**.
+
+#### Why Are They Useful?
+
+CSS preprocessors help make your stylesheets more maintainable, scalable, and organized. They promote DRY (Don't Repeat Yourself) principles and reduce code duplication.
+
+Key features and their benefits include:
+
+1.  **Variables**: Store values (like colors or fonts) that you can reuse throughout your stylesheets. This makes global changes much easier.
+
+    **Sass Example**:
+    ```scss
+    $primary-color: #3498db;
+
+    .button {
+      background-color: $primary-color;
+    }
+
+    .link {
+      color: $primary-color;
+    }
+    ```
+
+2.  **Nesting**: Nest your CSS selectors in a way that follows the same visual hierarchy as your HTML. This makes your code more readable and organized.
+
+    **Sass Example**:
+    ```scss
+    nav {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li { display: inline-block; }
+
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+    ```
+
+3.  **Mixins**: Reusable blocks of styles that can be included anywhere in your stylesheet. You can even pass arguments to them, making them like functions for CSS.
+
+    **Sass Example**:
+    ```scss
+    @mixin flex-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      @include flex-center;
+    }
+    ```
+
+4.  **Partials and Imports**: Break your CSS into smaller, more manageable files (partials) and then import them into a single main file. This is great for organizing large projects.
+
+    ```scss
+    // _variables.scss
+    $font-stack: Helvetica, sans-serif;
+
+    // styles.scss
+    @import 'variables';
+
+    body {
+      font-family: $font-stack;
+    }
+    ```
+
+5.  **Functions and Logic**: Use built-in functions to manipulate values (e.g., darken or lighten a color) or write your own. You can also use control directives like `@if`, `@for`, and `@each`.
+
+    **Sass Example**:
+    ```scss
+    .button {
+      background-color: #3498db;
+      &:hover {
+        background-color: darken(#3498db, 10%);
+      }
+    }
+    ```
+
+#### The Compilation Step
+
+Because browsers don't understand preprocessor syntax, you need a **compiler** to convert your `.scss` or `.less` files into a standard `.css` file. This compilation step can be automated with build tools like Webpack, Gulp, or Parcel, or through command-line tools provided by the preprocessors themselves.
+
+---
+
+### Q65: What is the difference between `px`, `em`, and `rem` units?
+
+**Answer:**
+
+Choosing the right CSS unit is crucial for creating scalable, maintainable, and accessible web designs. `px`, `em`, and `rem` are three of the most common units for sizing fonts and other elements, each with different behaviors.
+
+#### `px` (Pixels)
+
+*   **Type**: Absolute Unit
+*   **Definition**: A pixel is a fixed-size unit that corresponds to one dot on the screen. It is not scalable and is considered an absolute unit because it is not relative to anything else.
+*   **Behavior**: `1px` is always `1px`, regardless of any other element's size.
+*   **Use Case**: Best used for things that should remain a fixed size, such as `border-width` or when you need pixel-perfect precision. It is generally discouraged for font sizes because it doesn't scale with user preferences, which can be an accessibility issue.
+
+```css
+.element {
+  font-size: 16px; /* Always 16 pixels */
+  border: 1px solid black;
+}
+```
+
+#### `em` (Ep-Mutton)
+
+*   **Type**: Relative Unit
+*   **Definition**: The `em` unit is relative to the **`font-size` of its direct parent element**.
+*   **Behavior**: If a parent has `font-size: 16px;`, then `1em` for a child element will be `16px`, `2em` will be `32px`, and so on. This can lead to a compounding effect, as `em` units on nested elements are relative to their parent's font size, which might also be set in `em`.
+*   **Use Case**: Useful when you want an element's size (like `padding` or `margin`) to scale relative to the font size of its parent. This is common in modular components.
+
+```html
+<div style="font-size: 20px;">
+  <p style="font-size: 1.2em;">This text is 24px (20px * 1.2)</p>
+</div>
+```
+
+#### `rem` (Root Em)
+
+*   **Type**: Relative Unit
+*   **Definition**: The `rem` unit is relative to the **`font-size` of the root element** (the `<html>` element).
+*   **Behavior**: It avoids the compounding issue of `em` units. No matter how deeply nested an element is, `1rem` is always equal to the font size of the `<html>` element. The browser's default is typically `16px`.
+*   **Use Case**: The modern standard for font sizes and often for spacing (`padding`, `margin`). It allows users to change their browser's base font size for accessibility, and the entire layout will scale predictably.
+
+```css
+html {
+  font-size: 16px; /* Browser default */
+}
+
+.title {
+  font-size: 2rem; /* 32px */
+}
+
+.subtitle {
+  font-size: 1.5rem; /* 24px */
+}
+```
+
+#### Comparison Table
+
+| Unit | Type      | Relative To                               | Compounding? | Best For                                       |
+| :--- | :-------- | :---------------------------------------- | :----------- | :--------------------------------------------- |
+| `px` | Absolute  | N/A (fixed)                               | No           | Borders, fixed-size elements.                  |
+| `em` | Relative  | Parent element's `font-size`              | Yes          | Sizing within a component that should scale together. |
+| `rem`| Relative  | Root (`<html>`) element's `font-size`     | No           | Global font sizes, margins, and paddings.      |
+
+**Best Practice**: Use `rem` for font sizes and spacing to ensure your layout is scalable and accessible. Use `em` for properties that should be relative to an element's own font size. Use `px` sparingly for elements that must have a fixed size.
+
+---
+
+### Q66: What is the `z-index` property and how does stacking context work?
+
+**Answer:**
+
+The `z-index` property in CSS controls the vertical stacking order of positioned elements (i.e., elements with a `position` value other than `static`). An element with a higher `z-index` will appear in front of an element with a lower `z-index`.
+
+However, `z-index` only works within the same **stacking context**. This is a crucial concept to understand why `z-index` sometimes doesn't behave as expected.
+
+#### What is a Stacking Context?
+
+A stacking context is a three-dimensional conceptualization of HTML elements along an imaginary z-axis, perpendicular to the screen. Within a stacking context, child elements are stacked according to specific rules, and `z-index` values are only meaningful within that context.
+
+A new stacking context can be created by any element that has:
+
+1.  A `position` value of `absolute` or `relative` and a `z-index` value other than `auto`.
+2.  A `position` value of `fixed` or `sticky`.
+3.  An `opacity` value less than `1`.
+4.  A `transform`, `filter`, or `perspective` value other than `none`.
+5.  A `mix-blend-mode` value other than `normal`.
+
+#### How Stacking Works
+
+When a new stacking context is formed, all of its child elements are contained within it. This means that if an element inside Stacking Context A has a `z-index` of 999, and an element inside Stacking Context B has a `z-index` of 1, the element in Context A can **never** appear on top of the element in Context B if Context B itself has a higher stack level.
+
+**Stacking Order Within a Context**:
+
+Within a single stacking context, elements are stacked in the following order, from back to front:
+
+1.  The background and borders of the element forming the stacking context.
+2.  Positioned elements with a **negative `z-index`** (higher values are closer to the front).
+3.  Non-positioned, block-level elements in the order they appear in the HTML.
+4.  Positioned elements with a `z-index` of `auto` or `0`.
+5.  Positioned elements with a **positive `z-index`** (higher values are closer to the front).
+
+**Example**:
+
+```html
+<div class="parent-1" style="position: relative; z-index: 1;">
+  <div class="child-1" style="position: absolute; z-index: 999; background: lightblue;">
+    Child 1 (z-index: 999)
+  </div>
+</div>
+
+<div class="parent-2" style="position: relative; z-index: 2;">
+  <div class="child-2" style="position: absolute; z-index: 1; background: lightcoral;">
+    Child 2 (z-index: 1)
+  </div>
+</div>
+```
+
+Even though `child-1` has a much higher `z-index` (999) than `child-2` (1), **`parent-2` will appear on top** because its stacking context (`z-index: 2`) is higher than `parent-1`'s (`z-index: 1`). The `z-index` of the children is only compared within their respective parent's stacking context.
+
+#### Key Takeaways
+
+*   `z-index` only applies to **positioned elements**.
+*   `z-index` values are only compared **within the same stacking context**.
+*   A new stacking context can be formed by various properties, not just `position` and `z-index`.
+*   To fix `z-index` issues, you often need to adjust the `z-index` or `position` of a parent element, not just the element you're trying to move.
+
+---
+
+### Q67: What are pseudo-classes and pseudo-elements in CSS?
+
+**Answer:**
+
+Pseudo-classes and pseudo-elements are CSS selectors that allow you to style elements based on state or to style specific parts of an element, respectively. They both extend the functionality of regular CSS selectors.
+
+#### Pseudo-Classes
+
+A **pseudo-class** is used to define a special state of an element. It's like applying a class to an element when a certain condition is met, but without any JavaScript or changes to the HTML.
+
+*   **Syntax**: A single colon (`:`), e.g., `:hover`.
+*   **Purpose**: To style an element based on its state or its relationship to other elements.
+
+**Common Pseudo-Classes:**
+
+*   `:hover`: Selects an element when the user mouses over it.
+*   `:focus`: Selects an element that has received focus (e.g., an input field that is clicked into).
+*   `:active`: Selects an element that is currently being activated by the user (e.g., a button being clicked).
+*   `:visited`: Selects a link that the user has already visited.
+*   `:first-child`: Selects the first element among a group of siblings.
+*   `:last-child`: Selects the last element among a group of siblings.
+*   `:nth-child(n)`: Selects an element based on its position among its siblings (e.g., `:nth-child(2n)` selects all even elements).
+
+**Example**:
+
+```css
+/* Style a button on hover */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Style an input field when it's in focus */
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Style every odd list item */
+li:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+```
+
+#### Pseudo-Elements
+
+A **pseudo-element** is used to style a specific part of an element. It's like adding a new, virtual element to the DOM that you can style independently.
+
+*   **Syntax**: A double colon (`::`), e.g., `::before`. (Note: A single colon was used in older CSS versions and is still supported for backward compatibility, but `::` is the standard for pseudo-elements in CSS3).
+*   **Purpose**: To style a specific part of an element's content.
+
+**Common Pseudo-Elements:**
+
+*   `::before`: Creates a pseudo-element that is the first child of the selected element. Often used to add cosmetic content.
+*   `::after`: Creates a pseudo-element that is the last child of the selected element.
+*   `::first-letter`: Selects the first letter of a block-level element.
+*   `::first-line`: Selects the first line of a block-level element.
+*   `::selection`: Selects the portion of an element that is currently highlighted by the user.
+*   `::placeholder`: Selects the placeholder text in an input field.
+
+**Example**:
+
+```css
+/* Add a decorative quote before a blockquote */
+blockquote::before {
+  content: '"';
+  font-size: 3em;
+  color: #ccc;
+}
+
+/* Style the first letter of every paragraph */
+p::first-letter {
+  font-size: 200%;
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Change the background color of selected text */
+::selection {
+  background: #ffc107;
+  color: #333;
+}
+```
+
+#### Comparison Table
+
+| Feature          | Pseudo-Class (`:`)                               | Pseudo-Element (`::`)                                |
+| ---------------- | ------------------------------------------------ | ---------------------------------------------------- |
+| **Purpose**      | Styles an element based on its state.            | Styles a specific part of an element.                |
+| **Analogy**      | A "fake" class that is dynamically applied.    | A "fake" element inserted into the DOM.            |
+| **Syntax**       | Single colon (`:hover`)                          | Double colon (`::before`)                            |
+| **Example Use**  | Styling a link on hover (`a:hover`).             | Adding an icon before a link (`a::before`).          |
+| **DOM Impact**   | Does not create new elements.                    | Acts as if it's creating a new element.              |
+
+---
+
+### Q68: What is the difference between `==` and `===` in JavaScript?
+
+**Answer:**
+
+The difference between the `==` (loose equality) and `===` (strict equality) operators is a fundamental concept in JavaScript. The key distinction lies in how they handle data types when comparing values.
+
+#### Strict Equality (`===`)
+
+The strict equality operator, also known as the identity operator, compares two values for equality **without performing any type conversion**.
+
+*   **How it works**: It returns `true` only if both the **value** and the **data type** are the same.
+*   **Best Practice**: This is the recommended comparison operator to use in almost all cases because it is predictable and avoids subtle bugs related to type coercion.
+
+**Example**:
+
+```javascript
+1 === 1;       // true (number vs. number, same value)
+'1' === 1;     // false (string vs. number)
+'1' === '1';   // true (string vs. string, same value)
+
+true === 1;    // false (boolean vs. number)
+null === undefined; // false (null vs. undefined)
+0 === -0;      // true
+NaN === NaN;   // false (NaN is not equal to anything, including itself)
+```
+
+#### Loose Equality (`==`)
+
+The loose equality operator, also known as the equality operator, compares two values for equality **after converting both values to a common type** (a process called type coercion).
+
+*   **How it works**: If the two values have different types, it will attempt to convert one or both values to a matching type before making the comparison.
+*   **Disadvantages**: The rules for type coercion can be complex and non-obvious, leading to unexpected results and making code harder to debug.
+
+**Example**:
+
+```javascript
+1 == 1;        // true
+'1' == 1;      // true (string '1' is coerced to number 1)
+'1' == '1';    // true
+
+true == 1;     // true (boolean true is coerced to number 1)
+false == 0;    // true (boolean false is coerced to number 0)
+
+null == undefined; // true (this is a special case in the language spec)
+'' == false;   // true (empty string is coerced to 0, false is coerced to 0)
+```
+
+#### Comparison Table
+
+| Feature         | Loose Equality (`==`)                               | Strict Equality (`===`)                              |
+| --------------- | --------------------------------------------------- | ---------------------------------------------------- |
+| **Comparison**  | Compares **value** only.                            | Compares both **value** and **type**.                |
+| **Type Coercion** | **Performs** type coercion if types are different.  | **Does not perform** any type coercion.              |
+| **Predictability**| Can lead to unexpected results.                     | Predictable and safe.                                |
+| **Recommendation**| Avoid unless you have a specific reason for it.     | **Always prefer** this operator.                     |
+
+#### Why You Should Almost Always Use `===`
+
+Using `===` makes your code more robust, readable, and easier to maintain. It prevents bugs that can arise from JavaScript's automatic type conversions. By checking both type and value, you are being more explicit about your intentions, which leads to fewer surprises.
+
+The only time you might consider using `==` is when you specifically need to check for `null` or `undefined` at the same time, as `x == null` will be `true` if `x` is either `null` or `undefined`, and `false` otherwise. However, even this can be written more explicitly if needed.
+
+---
+
+### Q69: What is hoisting in JavaScript?
+
+**Answer:**
+
+Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope (either the global scope or a function scope) before code execution. It's important to understand that only the **declarations** are hoisted, not the **initializations**.
+
+This means you can use a variable or call a function before it has been declared in your code.
+
+#### Hoisting with `var`
+
+Variables declared with `var` are hoisted to the top of their scope and are initialized with the value `undefined`.
+
+**Example**:
+
+```javascript
+console.log(myVar); // Outputs: undefined
+
+var myVar = 5;
+
+console.log(myVar); // Outputs: 5
+```
+
+**How the engine sees it**:
+
+```javascript
+var myVar; // Declaration is hoisted, initialized to undefined
+
+console.log(myVar); // Reads the undefined value
+
+myVar = 5; // Initialization happens here
+
+console.log(myVar); // Reads the new value
+```
+
+#### Hoisting with `let` and `const`
+
+Variables declared with `let` and `const` are also hoisted, but they are not initialized. They are in a state called the **Temporal Dead Zone (TDZ)** from the start of the block until the declaration is encountered.
+
+Accessing a `let` or `const` variable before its declaration results in a `ReferenceError`.
+
+**Example**:
+
+```javascript
+console.log(myLet); // Throws ReferenceError: Cannot access 'myLet' before initialization
+
+let myLet = 10;
+```
+
+**Temporal Dead Zone (TDZ)**:
+The TDZ is the period between entering scope and the variable declaration. During this time, the variable cannot be accessed. This helps to avoid bugs by making it an error to use a variable before it has been declared.
+
+#### Function Hoisting
+
+Function declarations are fully hoisted, meaning both the declaration and the definition are moved to the top. This allows you to call a function before you've declared it.
+
+**Example (Function Declaration)**:
+
+```javascript
+hoistedFunction(); // Outputs: "Hello, world!"
+
+function hoistedFunction() {
+  console.log("Hello, world!");
+}
+```
+
+However, **function expressions** are not hoisted in the same way. If a function expression is assigned to a `var` variable, the variable declaration is hoisted, but the function body is not. If assigned to `let` or `const`, it is subject to the TDZ.
+
+**Example (Function Expression)**:
+
+```javascript
+console.log(notHoisted); // Outputs: undefined
+notHoisted(); // Throws TypeError: notHoisted is not a function
+
+var notHoisted = function() {
+  console.log("This will not work.");
+};
+```
+
+#### Summary Table
+
+| Keyword              | Hoisted? | Initialized?      | Temporal Dead Zone (TDZ)? | Scope         |
+| -------------------- | -------- | ----------------- | ------------------------- | ------------- |
+| `var`                | Yes      | `undefined`       | No                        | Function      |
+| `let`                | Yes      | Not initialized   | Yes                       | Block         |
+| `const`              | Yes      | Not initialized   | Yes                       | Block         |
+| `function` (decl.)   | Yes      | The function itself | No                        | Function      |
+| `function` (expr.)   | Depends on `var`/`let`/`const` | Depends on `var`/`let`/`const` | Depends on `let`/`const` | Depends on `var`/`let`/`const` |
+
+**Best Practice**: Always declare your variables and functions at the top of their scope to avoid confusion related to hoisting. Using `let` and `const` over `var` is recommended as it leads to more predictable code and helps prevent common errors.
+
+---
+
+### Q70: What is the difference between `null` and `undefined` in JavaScript?
+
+**Answer:**
+
+In JavaScript, both `null` and `undefined` represent the absence of a value, but they are used in different contexts and have distinct meanings.
+
+#### `undefined`
+
+`undefined` is a primitive value that indicates that a variable has been declared but has not yet been assigned a value. It is the default value for:
+
+*   Variables that are declared but not initialized.
+*   Function arguments that are not provided.
+*   The return value of functions that do not explicitly return a value.
+*   Properties of an object that do not exist.
+
+**Example**:
+
+```javascript
+let myVar; // Declared but not initialized
+console.log(myVar); // Outputs: undefined
+
+function greet(name) {
+  console.log(`Hello, ${name}`);
+}
+greet(); // Outputs: "Hello, undefined"
+
+const obj = { a: 1 };
+console.log(obj.b); // Outputs: undefined
+```
+
+#### `null`
+
+`null` is also a primitive value, but it represents the **intentional absence** of any object value. It is a value that can be assigned to a variable to explicitly indicate that it has no value.
+
+Think of it as a placeholder for an object that is expected to be assigned later, or as an explicit signal that there is no object to return.
+
+**Example**:
+
+```javascript
+let user = null; // Explicitly set to null
+
+// Later, this might be assigned an object
+user = { name: 'Alice' };
+
+function findUser(id) {
+  if (id === 1) {
+    return { name: 'Bob' };
+  }
+  return null; // Explicitly return null if no user is found
+}
+
+console.log(findUser(2)); // Outputs: null
+```
+
+#### Key Differences and Comparison
+
+| Feature         | `undefined`                                       | `null`                                              |
+| --------------- | ------------------------------------------------- | --------------------------------------------------- |
+| **Meaning**     | A variable has been declared but not assigned a value. | An intentional absence of any value.                |
+| **Type**        | `typeof undefined` is `"undefined"`.              | `typeof null` is `"object"` (a historical bug).     |
+| **Origin**      | Usually set by the JavaScript engine automatically. | Usually set by the developer intentionally.         |
+| **Math Ops**    | `undefined + 1` results in `NaN`.                 | `null + 1` results in `1` (`null` is coerced to `0`).|
+
+#### Equality Checks
+
+When comparing `null` and `undefined`, the results differ based on the equality operator used:
+
+*   **Loose Equality (`==`)**: `null == undefined` returns `true`. This is a special case where they are considered equal.
+*   **Strict Equality (`===`)**: `null === undefined` returns `false` because they are of different types.
+
+```javascript
+console.log(null == undefined);  // true
+console.log(null === undefined); // false
+```
+
+**Best Practice**: Use `null` to explicitly signal "no value" for a variable or return value. Rely on `undefined` as the default state for uninitialized variables. When checking for either, be mindful of the difference between `==` and `===`.
+
+---
+
+### Q71: What is a closure in JavaScript?
+
+**Answer:**
+
+A closure is the combination of a function and the lexical environment within which that function was declared. In simpler terms, a closure gives you access to an outer function's scope from an inner function, even after the outer function has finished executing.
+
+This means the inner function "remembers" the environment (the variables, constants, and arguments) in which it was created.
+
+#### How Closures Work
+
+Three key ingredients create a closure:
+
+1.  **An outer function** that contains an inner function.
+2.  **An inner function** that makes use of variables from the outer function.
+3.  **The outer function returns the inner function**.
+
+When the outer function is called, it creates an environment. When it returns the inner function, that inner function maintains a reference to its lexical environment, preventing it from being garbage collected.
+
+**Example: A Simple Counter**
+
+```javascript
+function createCounter() {
+  let count = 0; // This variable is part of the closure's environment
+
+  // This inner function is a closure
+  return function() {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter1 = createCounter(); // counter1 is now a function that has its own private 'count' variable
+const counter2 = createCounter(); // counter2 has a completely separate 'count' variable
+
+counter1(); // Outputs: 1
+counter1(); // Outputs: 2
+
+counter2(); // Outputs: 1 (independent of counter1)
+console.log(typeof count); // Outputs: "undefined". The 'count' variable is not accessible in the global scope.
+```
+
+In this example, `createCounter` is called twice, creating two separate execution environments. Each of the returned functions (`counter1` and `counter2`) forms a closure, each with its own private `count` variable that persists across calls.
+
+#### Common Use Cases for Closures
+
+1.  **Data Privacy and Encapsulation**: Closures are the primary way to create private variables and methods in JavaScript, mimicking the behavior of private members in object-oriented programming. The `count` variable in the example above is effectively private.
+
+2.  **Event Handlers and Callbacks**: Closures are essential for event handlers, especially in loops, to capture the correct value of a variable at the time the handler is created.
+
+    ```javascript
+    for (var i = 1; i <= 3; i++) {
+      // Using a closure to capture the value of 'i' for each timeout
+      (function(j) {
+        setTimeout(function() {
+          console.log(j);
+        }, j * 1000);
+      })(i);
+    }
+    // Outputs: 1 (after 1s), 2 (after 2s), 3 (after 3s)
+    // Without the closure, it would output 4, 4, 4.
+    // Note: This specific problem is more easily solved with `let` in modern JS.
+    ```
+
+3.  **Currying and Partial Application**: Closures enable functional programming techniques like currying, where a function that takes multiple arguments is transformed into a sequence of functions that each take a single argument.
+
+    ```javascript
+    function multiply(a) {
+      return function(b) {
+        return a * b;
+      };
+    }
+
+    const multiplyByTwo = multiply(2);
+    console.log(multiplyByTwo(5)); // Outputs: 10
+    ```
+
+#### Key Takeaway
+
+A closure is a function that remembers the variables from the scope where it was created. It's a fundamental concept in JavaScript that enables powerful patterns like data privacy and functional programming.
+
+---
+
+### Q72: Explain the `this` keyword in JavaScript.
+
+**Answer:**
+
+The `this` keyword in JavaScript is a reference to an object. The object it refers to depends on how and where `this` is called. Its value is determined at the time a function is executed (runtime binding), not when it is defined.
+
+Understanding the context of `this` is crucial for writing predictable JavaScript code. Here are the primary rules for how its value is determined:
+
+#### 1. Global Context
+
+In the global execution context (outside of any function), `this` refers to the global object. In a web browser, the global object is `window`.
+
+```javascript
+console.log(this); // In a browser, this will log the Window object
+```
+
+In strict mode (`'use strict'`), `this` in the global context remains the global object, but within a function, it's `undefined` if not set by the call.
+
+#### 2. Function Context (Method Invocation)
+
+When a function is called as a method of an object, `this` refers to the object the method is called on.
+
+```javascript
+const person = {
+  name: 'Alice',
+  greet: function() {
+    console.log(`Hello, my name is ${this.name}.`);
+  }
+};
+
+person.greet(); // Outputs: "Hello, my name is Alice." (this refers to 'person')
+```
+
+This is the most common and straightforward use of `this`.
+
+#### 3. Function Context (Simple Function Call)
+
+When a function is called as a standalone function (not as a method of an object), `this` will refer to the global object (`window` in browsers). This can lead to unexpected behavior.
+
+```javascript
+function showName() {
+  console.log(this.name);
+}
+
+const person = { name: 'Bob', showName: showName };
+const name = 'Global Name';
+
+person.showName(); // Outputs: "Bob" (this is 'person')
+
+const standaloneShowName = person.showName;
+standaloneShowName(); // Outputs: "Global Name" (this is 'window')
+```
+
+In **strict mode**, `this` will be `undefined` in this case to prevent accidental modification of the global object.
+
+#### 4. Constructor Context (`new` Keyword)
+
+When a function is used as a constructor with the `new` keyword, `this` refers to the newly created instance of the object.
+
+```javascript
+function Person(name) {
+  // this = {}; (implicitly created)
+  this.name = name;
+  // return this; (implicitly returned)
+}
+
+const alice = new Person('Alice');
+console.log(alice.name); // Outputs: "Alice" (this refers to the 'alice' instance)
+```
+
+#### 5. Explicit Binding (`call`, `apply`, `bind`)
+
+You can explicitly set the value of `this` using these three methods of the `Function.prototype`.
+
+*   **`call(thisArg, arg1, arg2, ...)`**: Invokes the function immediately with a specified `this` value and arguments provided individually.
+*   **`apply(thisArg, [argsArray])`**: Invokes the function immediately with a specified `this` value and arguments provided as an array.
+*   **`bind(thisArg)`**: Returns a **new function** where `this` is permanently bound to the provided value. It does not invoke the function immediately.
+
+```javascript
+function introduce(greeting, punctuation) {
+  console.log(`${greeting}, I'm ${this.name}${punctuation}`);
+}
+
+const person = { name: 'Charlie' };
+
+introduce.call(person, 'Hi', '!');   // Outputs: "Hi, I'm Charlie!"
+introduce.apply(person, ['Hey', '.']); // Outputs: "Hey, I'm Charlie."
+
+const boundIntroduce = introduce.bind(person);
+boundIntroduce('Hello', '...'); // Outputs: "Hello, I'm Charlie..."
+```
+
+#### 6. Arrow Functions
+
+Arrow functions (`=>`) do not have their own `this` context. Instead, they inherit `this` from their enclosing (lexical) scope. This behavior is different from all other function types and is extremely useful for callbacks and methods that need to access the parent object's context.
+
+```javascript
+const person = {
+  name: 'David',
+  hobbies: ['reading', 'coding'],
+  showHobbies: function() {
+    this.hobbies.forEach(hobby => {
+      // 'this' here is lexically inherited from showHobbies
+      // so it correctly refers to the 'person' object.
+      console.log(`${this.name} likes ${hobby}.`);
+    });
+  }
+};
+
+person.showHobbies();
+// Outputs:
+// "David likes reading."
+// "David likes coding."
+```
+If a regular function were used inside `forEach`, `this` would refer to the global object (or be `undefined` in strict mode).
+
+#### Summary Table
+
+| Invocation Type        | `this` refers to...                                |
+| ---------------------- | -------------------------------------------------- |
+| **Global**             | The global object (`window`)                       |
+| **Method** (`obj.fn()`)  | The object (`obj`)                                 |
+| **Simple Call** (`fn()`) | The global object (`window`) or `undefined` (strict) |
+| **Constructor** (`new fn()`) | The newly created instance                       |
+| **`call`/`apply`/`bind`** | The object explicitly passed as an argument        |
+| **Arrow Function**     | The `this` of its surrounding lexical scope        |
+
+---
+
+### Q73: What is prototypal inheritance in JavaScript?
+
+**Answer:**
+
+Prototypal inheritance is a fundamental concept in JavaScript where objects can inherit properties and methods from other objects. Unlike classical inheritance (found in languages like Java or C++), JavaScript does not have classes in the traditional sense. Instead, it uses a **prototype chain**.
+
+Every JavaScript object has a private property which holds a link to another object called its **prototype**. That prototype object has a prototype of its own, and so on, until an object is reached with `null` as its prototype. This series of linked objects is the prototype chain.
+
+When you try to access a property on an object, the JavaScript engine first checks if the property exists on the object itself. If not, it looks at the object's prototype. If it's still not found, it continues up the prototype chain until it either finds the property or reaches the end of the chain (`null`).
+
+#### How to Implement Prototypal Inheritance
+
+There are several ways to set up prototypal inheritance in JavaScript.
+
+**1. Using `Object.create()`**
+
+This is the modern and recommended way to create an object with a specific prototype.
+
+```javascript
+// The object we want to inherit from
+const animal = {
+  makeSound: function() {
+    console.log('Some generic sound');
+  }
+};
+
+// Create a new object 'dog' that inherits from 'animal'
+const dog = Object.create(animal);
+dog.breed = 'Golden Retriever';
+
+dog.makeSound(); // Outputs: "Some generic sound" (inherited from animal)
+console.log(dog.breed); // Outputs: "Golden Retriever" (own property)
+
+// The prototype of 'dog' is the 'animal' object
+console.log(Object.getPrototypeOf(dog) === animal); // true
+```
+
+**2. Using Constructor Functions**
+
+This was the traditional way to mimic classes before ES6. The link between instances and the prototype is established through the constructor's `prototype` property.
+
+```javascript
+// Constructor function for Animal
+function Animal(name) {
+  this.name = name;
+}
+
+// Add a method to the Animal's prototype
+Animal.prototype.makeSound = function() {
+  console.log('Some generic sound');
+};
+
+// Constructor function for Dog
+function Dog(name, breed) {
+  // Call the parent constructor to set the 'name' property
+  Animal.call(this, name);
+  this.breed = breed;
+}
+
+// Set up the prototype chain: Dog.prototype inherits from Animal.prototype
+Dog.prototype = Object.create(Animal.prototype);
+// Restore the constructor property
+Dog.prototype.constructor = Dog;
+
+// Add a method specific to Dog
+Dog.prototype.bark = function() {
+  console.log('Woof!');
+};
+
+const myDog = new Dog('Buddy', 'Labrador');
+
+myDog.makeSound(); // Outputs: "Some generic sound" (inherited from Animal.prototype)
+myDog.bark();      // Outputs: "Woof!"
+console.log(myDog.name); // Outputs: "Buddy"
+```
+
+**3. Using ES6 `class` Syntax**
+
+ES6 introduced the `class` keyword, which provides a much cleaner and more familiar syntax for setting up prototypal inheritance. It is important to remember that this is **syntactic sugar** over the existing prototypal inheritance mechanism; it does not introduce a new inheritance model.
+
+```javascript
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  makeSound() {
+    console.log('Some generic sound');
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name); // Call the parent constructor
+    this.breed = breed;
+  }
+
+  bark() {
+    console.log('Woof!');
+  }
+}
+
+const myDog = new Dog('Rex', 'German Shepherd');
+
+myDog.makeSound(); // Outputs: "Some generic sound"
+myDog.bark();      // Outputs: "Woof!"
+console.log(myDog.name); // Outputs: "Rex"
+```
+
+#### Key Takeaways
+
+*   JavaScript uses **prototypal inheritance**, not classical inheritance.
+*   Objects inherit directly from other objects via the **prototype chain**.
+*   When accessing a property, JavaScript searches up the prototype chain until the property is found or the chain ends.
+*   ES6 `class` syntax is the modern way to work with prototypes, but it's syntactic sugar over the underlying prototypal mechanism.
+
+---
+
+### Q74: What is the difference between Promises and Callbacks?
+
+**Answer:**
+
+Both callbacks and Promises are used to handle asynchronous operations in JavaScript. However, Promises were introduced in ES6 to solve several problems associated with the traditional callback-based approach, most notably "Callback Hell."
+
+#### Callbacks
+
+A callback is a function that is passed as an argument to another function and is executed after the outer function has completed its operation. This is the classic way of handling asynchronous code.
+
+**How it works**: You provide one function to handle success and another to handle errors.
+
+**Example (Callback-based)**:
+
+```javascript
+function fetchData(url, successCallback, errorCallback) {
+  // Simulate a network request
+  setTimeout(() => {
+    if (url) {
+      const data = { message: 'Data fetched successfully' };
+      successCallback(data);
+    } else {
+      const error = new Error('Invalid URL');
+      errorCallback(error);
+    }
+  }, 1000);
+}
+
+// Usage
+fetchData(
+  'https://api.example.com/data',
+  (data) => console.log('Success:', data.message),
+  (error) => console.error('Error:', error.message)
+);
+```
+
+**Problems with Callbacks**:
+
+1.  **Callback Hell (Pyramid of Doom)**: When you need to perform multiple sequential asynchronous operations, you end up nesting callbacks inside each other, leading to code that is hard to read, reason about, and maintain.
+
+    ```javascript
+    // Pyramid of Doom
+    asyncOp1(data1 => {
+      asyncOp2(data2 => {
+        asyncOp3(data3 => {
+          // ...and so on
+        });
+      });
+    });
+    ```
+
+2.  **Inversion of Control**: You pass your callback function to another function, trusting that it will be called correctly (e.g., only once, with the right arguments). You lose control over its execution.
+
+#### Promises
+
+A Promise is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. A Promise can be in one of three states:
+
+*   **Pending**: The initial state; neither fulfilled nor rejected.
+*   **Fulfilled**: The operation completed successfully.
+*   **Rejected**: The operation failed.
+
+**How it works**: A function returns a Promise object. You can then attach callbacks to this object using the `.then()` (for fulfillment) and `.catch()` (for rejection) methods.
+
+**Example (Promise-based)**:
+
+```javascript
+function fetchData(url) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (url) {
+        const data = { message: 'Data fetched successfully' };
+        resolve(data); // Fulfill the promise
+      } else {
+        const error = new Error('Invalid URL');
+        reject(error); // Reject the promise
+      }
+    }, 1000);
+  });
+}
+
+// Usage
+fetchData('https://api.example.com/data')
+  .then(data => {
+    console.log('Success:', data.message);
+  })
+  .catch(error => {
+    console.error('Error:', error.message);
+  });
+```
+
+**Advantages of Promises**:
+
+1.  **Readability and Chaining**: Promises allow you to chain asynchronous operations in a flat, sequential manner, avoiding the pyramid of doom.
+
+    ```javascript
+    asyncOp1()
+      .then(result1 => asyncOp2(result1))
+      .then(result2 => asyncOp3(result2))
+      .then(result3 => console.log('Done!'))
+      .catch(error => console.error(error));
+    ```
+
+2.  **Better Error Handling**: You can use a single `.catch()` at the end of the chain to handle any error that occurs in any of the preceding steps.
+
+3.  **Control is not Inverted**: You receive a Promise object and decide when and how to handle its result. The control remains with your code.
+
+#### Comparison Table
+
+| Feature              | Callbacks                                          | Promises                                             |
+| -------------------- | -------------------------------------------------- | ---------------------------------------------------- |
+| **Style**            | Nested, pyramid-like structure (Callback Hell).    | Chainable, linear structure (`.then()`).             |
+| **Readability**      | Poor for complex operations.                       | Excellent, easy to follow.                           |
+| **Error Handling**   | Error callback for each operation.                 | Centralized error handling with `.catch()`.          |
+| **Control Flow**     | Inversion of Control: you pass your function away. | You get a return value (the Promise) to work with.   |
+| **Composition**      | Difficult to compose multiple operations.          | Easy to compose with methods like `Promise.all()`.   |
+
+**Conclusion**: While callbacks are a fundamental pattern, Promises provide a more robust, readable, and maintainable way to handle asynchronous code in modern JavaScript. The introduction of `async/await` in ES2017 builds on top of Promises, making asynchronous code look and feel even more synchronous and further improving readability.
+
+---
+
+### Q75: What is `async/await` and how does it work?
+
+**Answer:**
+
+`async/await` is a modern JavaScript feature (introduced in ES2017) that provides syntactic sugar on top of Promises, making asynchronous code easier to write and read. It allows you to write asynchronous code that looks and behaves like synchronous code, thus avoiding the need for long `.then()` chains.
+
+#### The `async` Keyword
+
+The `async` keyword is used to declare an **asynchronous function**. When a function is declared with `async`, it automatically does two things:
+
+1.  It ensures that the function always returns a Promise.
+2.  If the function explicitly returns a value, that value will be wrapped in a resolved Promise (e.g., `return 42` becomes `Promise.resolve(42)`).
+
+```javascript
+async function myFunc() {
+  return 'Hello, world!';
+}
+
+myFunc().then(value => console.log(value)); // Outputs: "Hello, world!"
+```
+
+#### The `await` Keyword
+
+The `await` keyword can **only be used inside an `async` function**. It pauses the execution of the `async` function until a Promise is settled (either fulfilled or rejected).
+
+*   If the Promise is **fulfilled**, `await` returns the fulfilled value.
+*   If the Promise is **rejected**, `await` throws the rejected value (the error).
+
+This allows you to assign the result of a Promise to a variable directly, just as you would with synchronous code.
+
+**Example: From `.then()` to `async/await`**
+
+Let's take a Promise-based function:
+
+```javascript
+function fetchData() {
+  return new Promise(resolve => {
+    setTimeout(() => resolve('Data has been fetched!'), 1000);
+  });
+}
+```
+
+**Using `.then()` chains:**
+
+```javascript
+function processData() {
+  fetchData()
+    .then(data => {
+      console.log(data);
+      return fetchData(); // another async operation
+    })
+    .then(data2 => {
+      console.log(data2);
+    });
+}
+```
+
+**Using `async/await`:**
+
+```javascript
+async function processDataWithAsync() {
+  console.log('Fetching data...');
+  const data = await fetchData(); // Pauses here until the promise resolves
+  console.log(data); // Runs after the promise is fulfilled
+
+  console.log('Fetching data again...');
+  const data2 = await fetchData();
+  console.log(data2);
+  
+  console.log('All done!');
+}
+
+processDataWithAsync();
+```
+
+As you can see, the `async/await` version is much more linear and readable.
+
+#### Error Handling with `try...catch`
+
+One of the most significant advantages of `async/await` is that it allows you to use standard `try...catch` blocks for error handling, just like with synchronous code. This is often cleaner than the `.catch()` method used with Promises.
+
+```javascript
+async function fetchAndProcess() {
+  try {
+    const response = await fetch('https://api.invalid-url.com/data');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    // Catches both network errors and thrown errors
+    console.error('Failed to fetch data:', error);
+  }
+}
+```
+
+#### Key Takeaways
+
+*   `async/await` is syntactic sugar for Promises.
+*   `async` functions always return a Promise.
+*   `await` pauses the execution of an `async` function until a Promise settles.
+*   `await` can only be used inside `async` functions.
+*   Error handling is done with standard `try...catch` blocks.
+*   It dramatically improves the readability and maintainability of asynchronous code.
+
+---
+
+### Q76: What is the Event Loop in JavaScript?
+
+**Answer:**
+
+The Event Loop is a fundamental concept in JavaScript that enables its non-blocking, asynchronous behavior. JavaScript is single-threaded, meaning it can only execute one piece of code at a time. The Event Loop is the mechanism that allows JavaScript to perform long-running tasks (like network requests or timers) without freezing the main thread, ensuring a smooth user experience.
+
+To understand the Event Loop, you need to know its key components:
+
+1.  **Call Stack**: A data structure that keeps track of function calls. When a function is called, it's pushed onto the stack. When it returns, it's popped off. JavaScript executes whatever is on top of the stack.
+
+2.  **Web APIs / Node.js APIs**: These are APIs provided by the browser (or Node.js) that handle asynchronous operations (e.g., `setTimeout`, `fetch`, DOM events). When an async operation is initiated, it's handed off to these APIs, freeing up the Call Stack.
+
+3.  **Callback Queue (or Task Queue)**: When an asynchronous operation completes, its callback function is placed in the Callback Queue. These are considered **macrotasks**.
+
+4.  **Microtask Queue**: This queue is for callbacks from Promises (`.then()`, `.catch()`, `.finally()`) and other microtasks like `queueMicrotask()` and `MutationObserver`. The Microtask Queue has a **higher priority** than the Callback Queue.
+
+#### How it Works
+
+The process follows a continuous loop:
+
+1.  Code is executed from the Call Stack. If it's an asynchronous operation, it's passed to a Web API.
+2.  The Event Loop constantly checks if the **Call Stack is empty**.
+3.  If the Call Stack is empty, the Event Loop first checks the **Microtask Queue**.
+4.  It executes **all** available microtasks in the Microtask Queue, one by one, until the queue is empty. If these microtasks create new microtasks, those are also executed before moving on.
+5.  Once the Microtask Queue is empty, the Event Loop checks the **Callback Queue (Macrotask Queue)**.
+6.  It takes the **oldest** task (one macrotask) from the Callback Queue, pushes it onto the Call Stack for execution.
+7.  The loop repeats from step 1.
+
+**Example of Execution Order:**
+
+```javascript
+console.log('1. Start');
+
+setTimeout(() => {
+  console.log('2. setTimeout (Macrotask)');
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('3. Promise (Microtask)');
+});
+
+console.log('4. End');
+```
+
+**Execution Order and Output:**
+
+1.  `'1. Start'` is logged. `setTimeout` is sent to the Web API. `Promise.resolve()` puts its `.then()` callback into the Microtask Queue.
+2.  `'4. End'` is logged.
+3.  The initial script is done, so the Call Stack is now empty.
+4.  The Event Loop checks the **Microtask Queue**. It finds the Promise callback and executes it. `'3. Promise (Microtask)'` is logged.
+5.  The Microtask Queue is now empty. The Event Loop checks the **Callback Queue**.
+6.  It finds the `setTimeout` callback and executes it. `'2. setTimeout (Macrotask)'` is logged.
+
+**Final Output:**
+
+```
+1. Start
+4. End
+3. Promise (Microtask)
+2. setTimeout (Macrotask)
+```
+
+#### Key Takeaway
+
+The Event Loop is the reason JavaScript can be non-blocking. It orchestrates the execution of code between the Call Stack, Web APIs, and the different task queues. The most important rule to remember is that **microtasks always have priority and are executed completely before any single macrotask**.
+
+---
+
+### Q77: What are the differences between `var`, `let`, and `const`?
+
+**Answer:**
+
+In JavaScript, `var`, `let`, and `const` are used for variable declaration, but they differ in terms of scope, hoisting, and mutability. The introduction of `let` and `const` in ES6 addressed common issues associated with `var`.
+
+#### 1. Scope
+
+*   **`var`**: Has **function scope**. A variable declared with `var` is accessible anywhere within the function it's declared in, regardless of block. If declared outside any function, it has global scope.
+*   **`let` and `const`**: Have **block scope**. They are only accessible within the block (`{...}`) in which they are defined. This is generally more predictable and helps avoid bugs.
+
+**Example:**
+
+```javascript
+function scopeTest() {
+  if (true) {
+    var varVariable = 'I am var'; // function scope
+    let letVariable = 'I am let'; // block scope
+    const constVariable = 'I am const'; // block scope
+  }
+  console.log(varVariable);   // 'I am var'
+  // console.log(letVariable);   // ReferenceError: letVariable is not defined
+  // console.log(constVariable); // ReferenceError: constVariable is not defined
+}
+scopeTest();
+```
+
+#### 2. Hoisting
+
+Hoisting is JavaScript's behavior of moving declarations to the top of their scope before code execution.
+
+*   **`var`**: Declarations are hoisted and initialized with `undefined`. You can access a `var` variable before it's declared without an error, but its value will be `undefined`.
+*   **`let` and `const`**: Declarations are hoisted but **not initialized**. Accessing them before the declaration results in a `ReferenceError`. The period from the start of the block to the declaration is known as the **Temporal Dead Zone (TDZ)**.
+
+**Example:**
+
+```javascript
+console.log(x); // undefined (hoisted and initialized)
+var x = 5;
+
+// console.log(y); // ReferenceError: Cannot access 'y' before initialization (TDZ)
+let y = 10;
+
+// console.log(z); // ReferenceError: Cannot access 'z' before initialization (TDZ)
+const z = 15;
+```
+
+#### 3. Re-declaration and Re-assignment
+
+*   **`var`**: Can be **re-declared** and **re-assigned** within the same scope.
+*   **`let`**: Can be **re-assigned** but **cannot be re-declared** within the same scope.
+*   **`const`**: **Cannot be re-declared or re-assigned**. The variable is immutable, meaning its value cannot be changed. However, for objects and arrays, the *contents* (properties or elements) can be modified, but the variable cannot be reassigned to a new object or array.
+
+**Example:**
+
+```javascript
+// var
+var a = 1;
+var a = 2; // Re-declaration allowed
+a = 3;     // Re-assignment allowed
+console.log(a); // 3
+
+// let
+let b = 1;
+// let b = 2; // SyntaxError: 'b' has already been declared
+b = 3;     // Re-assignment allowed
+console.log(b); // 3
+
+// const
+const c = 1;
+// const c = 2; // SyntaxError: 'c' has already been declared
+// c = 3;       // TypeError: Assignment to constant variable.
+
+const obj = { key: 'value' };
+obj.key = 'new value'; // This is allowed
+// obj = { newKey: 'newValue' }; // TypeError: Assignment to constant variable.
+```
+
+#### Comparison Table
+
+| Feature | `var` | `let` | `const` |
+| :--- | :--- | :--- | :--- |
+| **Scope** | Function | Block | Block |
+| **Hoisting** | Hoisted & initialized to `undefined` | Hoisted, not initialized (TDZ) | Hoisted, not initialized (TDZ) |
+| **Re-declaration** | Allowed | Not allowed in the same scope | Not allowed in the same scope |
+| **Re-assignment** | Allowed | Allowed | Not allowed |
+| **Global Object** | Attaches to `window` in browsers | Does not attach to `window` | Does not attach to `window` |
+
+#### Best Practice
+
+*   Use **`const`** by default for all variable declarations.
+*   Use **`let`** only when you know the variable's value needs to change (e.g., in a loop counter).
+*   Avoid using **`var`** in modern JavaScript to prevent scope and hoisting-related issues.
+
+---
+
+### Q78: What are arrow functions and how do they differ from regular functions?
+
+**Answer:**
+
+Arrow functions, introduced in ES6, provide a more concise syntax for writing function expressions. They also behave differently from traditional function expressions in a few key ways, particularly regarding the `this` keyword.
+
+#### Syntax
+
+Arrow functions offer a shorter syntax compared to regular functions.
+
+```javascript
+// Regular Function Expression
+const add = function(a, b) {
+  return a + b;
+};
+
+// Arrow Function
+const addArrow = (a, b) => a + b; // Implicit return for single expressions
+
+// Arrow function with a block body
+const subtract = (a, b) => {
+  const result = a - b;
+  return result; // Explicit return required
+};
+
+// Arrow function with a single parameter
+const square = x => x * x;
+```
+
+#### Key Differences
+
+1.  **Lexical `this` Binding**
+
+    This is the most significant difference. Arrow functions do **not** have their own `this` context. Instead, they inherit `this` from their parent scope (the enclosing lexical context). Regular functions get their own `this` value depending on how they are called (e.g., as a method, in the global context, with `call`/`apply`).
+
+    This behavior is extremely useful for callbacks and event handlers, as it solves the common problem of having to use `that = this` or `.bind(this)`.
+
+    **Example:**
+
+    ```javascript
+    function Timer() {
+      this.seconds = 0;
+
+      // Regular function - `this` refers to the global object (or is undefined in strict mode)
+      // setInterval(function() {
+      //   this.seconds++; // Fails because `this` is not the Timer instance
+      //   console.log(this.seconds);
+      // }, 1000);
+
+      // Arrow function - `this` is inherited from the Timer's scope
+      setInterval(() => {
+        this.seconds++;
+        console.log(this.seconds); // Works correctly, `this` is the Timer instance
+      }, 1000);
+    }
+
+    const myTimer = new Timer();
+    ```
+
+2.  **No `arguments` Object**
+
+    Arrow functions do not have their own `arguments` object. If you need to access the arguments passed to an arrow function, you should use **rest parameters** (`...args`).
+
+    ```javascript
+    // Regular function
+    function logArgs() {
+      console.log(arguments);
+    }
+    logArgs(1, 2, 3); // [Arguments] { '0': 1, '1': 2, '2': 3 }
+
+    // Arrow function
+    const logArgsArrow = (...args) => {
+      // console.log(arguments); // ReferenceError: arguments is not defined
+      console.log(args);
+    };
+    logArgsArrow(1, 2, 3); // [1, 2, 3]
+    ```
+
+3.  **Cannot be used as Constructors**
+
+    Arrow functions cannot be used as constructors and will throw an error when used with `new`. They do not have a `prototype` property.
+
+    ```javascript
+    const Person = (name) => {
+      this.name = name;
+    };
+
+    // const john = new Person('John'); // TypeError: Person is not a constructor
+    ```
+
+#### When to Use Arrow Functions
+
+*   **Callbacks and Higher-Order Functions**: Perfect for short, non-method functions, especially in array methods like `.map()`, `.filter()`, and `.forEach()`, where lexical `this` is a benefit.
+*   **When you need to preserve the `this` context** from the parent scope without using `.bind()`.
+
+#### When NOT to Use Arrow Functions
+
+*   **Object Methods**: If you need a method to access the object's properties via `this`, use a regular function or the ES6 method syntax.
+*   **Constructors**: As they cannot be used with `new`.
+*   **Event Handlers that need a dynamic `this`**: When you need `this` to refer to the element that triggered the event, a regular function is required.
+
+---
+
+### Q79: What is the difference between the spread and rest operators?
+
+**Answer:**
+
+The spread (`...`) and rest (`...`) operators in JavaScript use the same syntax but perform opposite functions depending on where they are used. The rest operator collects multiple elements into an array, while the spread operator expands an iterable into individual elements.
+
+#### Rest Operator (`...`)
+
+The rest operator is used in a function's parameter list to **collect all remaining arguments into a single array**. This allows you to handle functions with a variable number of arguments.
+
+*   It must be the **last parameter** in a function definition.
+*   It gathers individual arguments into an array.
+
+**Syntax:**
+
+```javascript
+function myFunction(firstArg, secondArg, ...restOfArgs) {
+  console.log(firstArg);      // 1
+  console.log(secondArg);     // 2
+  console.log(restOfArgs);    // [3, 4, 5]
+}
+
+myFunction(1, 2, 3, 4, 5);
+```
+
+In this example, `...restOfArgs` collects all arguments after the first two into an array named `restOfArgs`.
+
+#### Spread Operator (`...`)
+
+The spread operator is used to **expand an iterable** (like an array or string) into its individual elements. It can be used in various contexts, such as in function calls, array literals, and object literals.
+
+*   It "spreads out" the elements of an iterable.
+*   It can be used anywhere in an array or object literal, and multiple times.
+
+**Use Cases:**
+
+1.  **In Function Calls:** To pass elements of an array as individual arguments to a function.
+
+    ```javascript
+    function sum(x, y, z) {
+      return x + y + z;
+    }
+
+    const numbers = [1, 2, 3];
+    const result = sum(...numbers); // Equivalent to sum(1, 2, 3)
+    console.log(result); // 6
+    ```
+
+2.  **In Array Literals:** To create a new array containing elements from another array (useful for copying or merging arrays).
+
+    ```javascript
+    const arr1 = [1, 2];
+    const arr2 = [3, 4];
+
+    // Copying an array
+    const arr1Copy = [...arr1];
+    console.log(arr1Copy); // [1, 2]
+
+    // Merging arrays
+    const mergedArray = [...arr1, ...arr2, 5];
+    console.log(mergedArray); // [1, 2, 3, 4, 5]
+    ```
+
+3.  **In Object Literals (ES2018):** To copy or merge properties from one object into another.
+
+    ```javascript
+    const obj1 = { a: 1, b: 2 };
+    const obj2 = { c: 3, d: 4 };
+
+    // Copying an object
+    const obj1Copy = { ...obj1 };
+    console.log(obj1Copy); // { a: 1, b: 2 }
+
+    // Merging objects
+    const mergedObject = { ...obj1, ...obj2, e: 5 };
+    console.log(mergedObject); // { a: 1, b: 2, c: 3, d: 4, e: 5 }
+
+    // Overwriting properties
+    const updatedObject = { ...obj1, b: 99 };
+    console.log(updatedObject); // { a: 1, b: 99 }
+    ```
+
+#### Summary Table
+
+| Operator | Usage | Function | Example |
+| :--- | :--- | :--- | :--- |
+| **Rest** | In function parameter lists | **Collects** multiple elements into a single array | `function fn(a, ...rest) {}` |
+| **Spread** | In function calls, array/object literals | **Expands** an iterable into individual elements | `const arr = [...iterable];` |
+
+**Key Takeaway:** Think of **rest** as *gathering* items into an array and **spread** as *spreading* them out. The context in which `...` is used determines its behavior.
+
+---
+
+### Q80: Explain the array methods `map`, `filter`, and `reduce`.
+
+**Answer:**
+
+`map`, `filter`, and `reduce` are three of the most powerful and commonly used array methods in JavaScript. They are higher-order functions that allow for a declarative, functional approach to handling arrays, and they all operate by iterating over an array and returning a new value without modifying the original array.
+
+#### 1. `map()`
+
+The `map()` method **transforms** each element in an array and returns a **new array** of the same length with the transformed elements.
+
+*   **Purpose**: To create a new array by applying a function to every element of the original array.
+*   **Return Value**: A new array.
+
+**Syntax:**
+
+```javascript
+const newArray = originalArray.map((currentValue, index, array) => {
+  // return transformed value
+});
+```
+
+**Example:** Doubling each number in an array.
+
+```javascript
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(num => num * 2);
+
+console.log(doubled); // [2, 4, 6, 8]
+console.log(numbers); // [1, 2, 3, 4] (original array is unchanged)
+```
+
+#### 2. `filter()`
+
+The `filter()` method **creates a new array** containing only the elements from the original array that pass a certain test (i.e., for which the callback function returns `true`).
+
+*   **Purpose**: To select a subset of elements from an array based on a condition.
+*   **Return Value**: A new array, which can be shorter than the original.
+
+**Syntax:**
+
+```javascript
+const newArray = originalArray.filter((currentValue, index, array) => {
+  // return true to keep the element, false to discard it
+});
+```
+
+**Example:** Filtering out only the even numbers.
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6];
+const evens = numbers.filter(num => num % 2 === 0);
+
+console.log(evens); // [2, 4, 6]
+console.log(numbers); // [1, 2, 3, 4, 5, 6] (original array is unchanged)
+```
+
+#### 3. `reduce()`
+
+The `reduce()` method executes a reducer function on each element of the array, resulting in a **single output value**. It "reduces" the array to a single value (e.g., a number, string, or object).
+
+*   **Purpose**: To aggregate all elements of an array into one final value.
+*   **Return Value**: A single value of any type.
+
+**Syntax:**
+
+```javascript
+const singleValue = originalArray.reduce((accumulator, currentValue, index, array) => {
+  // return the new accumulator value
+}, initialValue);
+```
+
+*   `accumulator`: The value returned from the previous iteration. On the first call, it's the `initialValue` if provided; otherwise, it's the first element of the array.
+*   `initialValue`: An optional starting value for the accumulator.
+
+**Example:** Summing all numbers in an array.
+
+```javascript
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0); // 0 is the initial value for the accumulator
+
+console.log(sum); // 10
+```
+
+**Another Example:** Grouping objects by a property.
+
+```javascript
+const people = [
+  { name: 'Alice', age: 21 },
+  { name: 'Bob', age: 25 },
+  { name: 'Charlie', age: 21 },
+];
+
+const groupedByAge = people.reduce((acc, person) => {
+  const age = person.age;
+  if (!acc[age]) {
+    acc[age] = [];
+  }
+  acc[age].push(person);
+  return acc;
+}, {});
+
+// Output:
+// {
+//   '21': [ { name: 'Alice', age: 21 }, { name: 'Charlie', age: 21 } ],
+//   '25': [ { name: 'Bob', age: 25 } ]
+// }
+```
+
+#### Summary Table
+
+| Method | Purpose | Returns | Use Case Example |
+| :--- | :--- | :--- | :--- |
+| **`map()`** | Transform each element | A new array of the same length | Converting an array of numbers to an array of strings |
+| **`filter()`** | Select a subset of elements | A new array with elements that pass a test | Getting all users who are active |
+| **`reduce()`** | Aggregate elements to a single value | A single value (any type) | Calculating the total price of items in a cart |
+
+---
+
+### Q81: What is the difference between a shallow copy and a deep copy of an object?
+
+**Answer:**
+
+The difference between a shallow and a deep copy lies in how they handle nested objects and arrays. Understanding this is crucial for avoiding unintended side effects when working with complex data structures in JavaScript.
+
+#### Shallow Copy
+
+A shallow copy of an object creates a new object, but it only copies the **top-level properties**. If a property's value is a primitive type (like a number or string), the value is copied. However, if a property's value is a reference type (like an object or array), only the **reference** is copied, not the actual nested object itself.
+
+This means that both the original object and the copied object will point to the **same nested object**. Modifying the nested object through one copy will affect the other.
+
+**Common ways to create a shallow copy:**
+
+1.  **Spread Operator (`...`)**
+2.  **`Object.assign()`**
+
+**Example:**
+
+```javascript
+const original = {
+  name: 'Alice',
+  details: { age: 30, city: 'New York' }
+};
+
+// Create a shallow copy
+const shallowCopy = { ...original };
+
+// Modify a top-level property
+shallowCopy.name = 'Bob';
+
+// Modify a nested property
+shallowCopy.details.age = 31;
+
+console.log(original.name);       // 'Alice' (Unaffected)
+console.log(shallowCopy.name);      // 'Bob' (Changed)
+
+console.log(original.details.age);  // 31 (Affected!)
+console.log(shallowCopy.details.age); // 31 (Changed)
+```
+
+As you can see, changing `shallowCopy.details.age` also changed `original.details.age` because both objects share the same `details` object.
+
+#### Deep Copy
+
+A deep copy creates a **completely independent** new object. It recursively copies all properties, including all nested objects and arrays. The new object and the original object do not share any references.
+
+Modifying any part of the deep copy, no matter how nested, will not affect the original object.
+
+**Common ways to create a deep copy:**
+
+1.  **`JSON.parse(JSON.stringify(object))`**: A common and easy trick, but it has limitations. It cannot copy functions, `undefined`, Symbols, or handle circular references.
+2.  **Libraries like Lodash**: The `_.cloneDeep()` method is a robust and reliable way to create a deep copy.
+3.  **Custom recursive function**: For full control, you can write your own function to traverse and copy the object.
+
+**Example:**
+
+```javascript
+const original = {
+  name: 'Alice',
+  details: { age: 30, city: 'New York' },
+  greet: () => console.log('Hello')
+};
+
+// Create a deep copy using JSON methods
+const deepCopy = JSON.parse(JSON.stringify(original));
+
+// Modify a nested property
+deepCopy.details.age = 31;
+
+console.log(original.details.age);  // 30 (Unaffected)
+console.log(deepCopy.details.age); // 31 (Changed)
+
+// Note the limitation with functions
+console.log(original.greet); // [Function: greet]
+console.log(deepCopy.greet); // undefined (Function was lost)
+```
+
+#### Comparison Table
+
+| Feature | Shallow Copy | Deep Copy |
+| :--- | :--- | :--- |
+| **Top-Level Properties** | Copied | Copied |
+| **Nested Objects/Arrays** | References are copied (shared) | Cloned recursively (not shared) |
+| **Independence** | Not fully independent | Fully independent |
+| **Common Methods** | `...`, `Object.assign()` | `JSON.parse(JSON.stringify())`, `_.cloneDeep()` |
+| **Performance** | Faster | Slower (more work to do) |
+
+**Best Practice:**
+
+*   Use a **shallow copy** when your object only contains primitive values or when you intentionally want to share nested objects.
+*   Use a **deep copy** when you need a complete, independent duplicate of an object to prevent side effects, especially in complex applications (e.g., state management in frameworks like React/Redux).
+
+---
+
+### Q82: What is event delegation in JavaScript?
+
+**Answer:**
+
+Event delegation is a powerful technique for handling events in JavaScript where, instead of attaching an event listener to every single child element, you attach a single listener to a common parent element. This listener then analyzes the event as it bubbles up the DOM tree to find the actual target element that triggered it.
+
+This pattern relies on **event bubbling**, the mechanism where an event fired on a child element propagates (or "bubbles") up to its parent elements in the DOM hierarchy.
+
+#### Why Use Event Delegation?
+
+1.  **Improved Performance and Memory Efficiency**: Attaching hundreds or thousands of event listeners can consume a lot of memory and slow down your application. A single listener on a parent element is far more efficient.
+
+2.  **Simplified Code**: It keeps your code cleaner and more maintainable by centralizing the event handling logic.
+
+3.  **Handles Dynamically Added Elements**: If you add new child elements to the parent (e.g., fetching data and rendering a new list item), you don't need to manually attach new event listeners to them. The parent's listener will automatically handle events from these new elements.
+
+#### How it Works
+
+The process involves three steps:
+
+1.  Attach an event listener to a parent container element.
+2.  When an event is triggered on a child element, it bubbles up to the parent.
+3.  Inside the parent's event listener, use the `event.target` property to identify the specific child element that was the source of the event.
+
+**Example:**
+
+Imagine you have a list of items, and you want to log the text of any item that is clicked.
+
+**HTML:**
+
+```html
+<ul id="my-list">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+<button id="add-item">Add New Item</button>
+```
+
+**Without Event Delegation (Inefficient):**
+
+```javascript
+const listItems = document.querySelectorAll('#my-list li');
+listItems.forEach(item => {
+  item.addEventListener('click', event => {
+    console.log(event.target.textContent);
+  });
+});
+// This approach fails to add listeners to dynamically added items.
+```
+
+**With Event Delegation (Efficient and Dynamic):**
+
+```javascript
+const list = document.getElementById('my-list');
+
+list.addEventListener('click', event => {
+  // Check if the clicked element is an <li>
+  if (event.target && event.target.nodeName === 'LI') {
+    console.log('Clicked on:', event.target.textContent);
+  }
+});
+
+// Now, even if we add new items, the listener will work for them.
+const addItemButton = document.getElementById('add-item');
+let itemCount = 3;
+
+addItemButton.addEventListener('click', () => {
+  itemCount++;
+  const newItem = document.createElement('li');
+  newItem.textContent = `Item ${itemCount}`;
+  list.appendChild(newItem);
+});
+```
+
+In the event delegation example, we attach only one listener to the `<ul>` element. When an `<li>` is clicked, the event bubbles up to the `<ul>`. The listener checks if the `event.target` (the actual element clicked) was an `<li>` and, if so, performs the action. This single listener works for all existing and future `<li>` elements inside the list.
+
+#### Key Takeaway
+
+Event delegation is a memory-efficient and flexible pattern for handling events on a large number of elements or on elements that are added to the DOM dynamically. It's a fundamental concept for writing scalable and performant web applications.
+
+---
+
+### Q83: What are the differences between `localStorage`, `sessionStorage`, and Cookies?
+
+**Answer:**
+
+`localStorage`, `sessionStorage`, and `cookies` are all client-side storage mechanisms that allow you to store data in the user's browser, but they have different use cases, storage limits, and lifespans.
+
+#### Cookies
+
+Cookies are small strings of data that a server sends to the user's browser. The browser stores them and sends them back to the same server with every subsequent request. They were originally designed for server-side communication.
+
+*   **Storage Limit**: ~4KB.
+*   **Expiration**: Manually set expiration date.
+*   **Accessibility**: Accessible on both the server and client (via `document.cookie`).
+*   **Sent with HTTP Requests**: Yes, automatically sent with every HTTP request to the same domain, which can impact performance if the data is large.
+*   **Use Case**: Primarily for session management (like keeping a user logged in) and tracking user behavior.
+
+#### Web Storage API (`localStorage` and `sessionStorage`)
+
+The Web Storage API provides a simpler, more modern way to store key-value pairs in the browser. It is not sent with every HTTP request.
+
+**1. `localStorage`**
+
+`localStorage` stores data with no expiration date. The data persists even after the browser window is closed and reopened.
+
+*   **Storage Limit**: ~5-10MB (much larger than cookies).
+*   **Expiration**: Never expires. Data remains until it is explicitly cleared by the user or web app.
+*   **Accessibility**: Accessible only on the client-side, within the same origin.
+*   **Sent with HTTP Requests**: No.
+*   **Use Case**: Storing user preferences (like a theme setting), application state, or data that needs to be available across multiple sessions.
+
+**Example:**
+
+```javascript
+// Set an item
+localStorage.setItem('theme', 'dark');
+
+// Get an item
+const theme = localStorage.getItem('theme'); // 'dark'
+
+// Remove an item
+localStorage.removeItem('theme');
+
+// Clear all items
+localStorage.clear();
+```
+
+**2. `sessionStorage`**
+
+`sessionStorage` is identical to `localStorage` except that it only stores data for the duration of a **browser session**. A session ends when the tab or window is closed.
+
+*   **Storage Limit**: ~5-10MB.
+*   **Expiration**: Expires when the tab is closed.
+*   **Accessibility**: Accessible only on the client-side, within the same origin and the same tab/window.
+*   **Sent with HTTP Requests**: No.
+*   **Use Case**: Storing temporary data for a single session, like data in a multi-step form, so it's not lost if the user reloads the page.
+
+**Example:**
+
+```javascript
+// Set an item
+sessionStorage.setItem('formData', 'some data');
+
+// Get an item
+const data = sessionStorage.getItem('formData');
+```
+
+#### Comparison Table
+
+| Feature | `localStorage` | `sessionStorage` | `Cookies` |
+| :--- | :--- | :--- | :--- |
+| **Storage Limit** | 5-10MB | 5-10MB | ~4KB |
+| **Expiration** | Never | On tab close | Manually set | 
+| **Accessibility** | Client-side only | Client-side only | Client & Server |
+| **Sent with HTTP Requests**| No | No | Yes |
+| **Scope** | Same origin | Same origin, per tab | Same domain |
+
+**Key Takeaway:**
+
+*   Use **Cookies** for small pieces of data that need to be accessed by the server (e.g., authentication tokens).
+*   Use **`localStorage`** for persistent client-side data that should be available across sessions.
+*   Use **`sessionStorage`** for temporary data that is relevant only to the current browser tab session.
+
+---
+
+### Q84: What are debouncing and throttling in JavaScript?
+
+**Answer:**
+
+Debouncing and throttling are two rate-limiting techniques used to control how often a function is executed. They are essential for improving performance in response to frequent events like resizing the window, scrolling, or user input.
+
+#### Debouncing
+
+Debouncing ensures that a function is not called again until a certain amount of time has passed **without it being called**. It groups a burst of events into a single one.
+
+*   **Analogy**: Imagine you are in an elevator. The door stays open as long as people keep arriving (triggering the sensor). The door only closes (the event fires) after a few seconds of no one else arriving.
+*   **How it works**: Every time the event is triggered, a timer is reset. The function is only executed after the timer completes without being reset.
+
+**Use Cases:**
+
+*   **Search Bar Suggestions**: You only want to fetch search results after the user has stopped typing for a moment, not on every keystroke.
+*   **Window Resizing**: You only want to recalculate a layout after the user has finished resizing the window, not continuously during the resize.
+
+**Example Implementation:**
+
+```javascript
+function debounce(func, delay) {
+  let timeoutId;
+
+  return function(...args) {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+}
+
+// Usage
+const expensiveOperation = () => console.log('Performing an expensive operation...');
+const debouncedOperation = debounce(expensiveOperation, 300);
+
+window.addEventListener('resize', debouncedOperation);
+```
+
+#### Throttling
+
+Throttling ensures that a function is called **at most once** in a specified time interval, no matter how many times the event is triggered.
+
+*   **Analogy**: Imagine a machine gun that can only fire one bullet every second. Even if you pull the trigger 10 times in that second, it will only fire once.
+*   **How it works**: When the event is first triggered, the function is called, and a cooldown period starts. All subsequent calls during this cooldown are ignored. The function can only be called again after the cooldown period has ended.
+
+**Use Cases:**
+
+*   **Infinite Scrolling**: Firing a request to fetch more content as the user scrolls. Throttling prevents sending too many requests.
+*   **Tracking Mouse Movement**: Updating an element's position based on the cursor. Throttling ensures the updates happen smoothly without overwhelming the browser.
+
+**Example Implementation:**
+
+```javascript
+function throttle(func, limit) {
+  let inThrottle = false;
+
+  return function(...args) {
+    if (!inThrottle) {
+      func.apply(this, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+// Usage
+const onScroll = () => console.log('Scrolled!');
+const throttledScroll = throttle(onScroll, 1000);
+
+window.addEventListener('scroll', throttledScroll);
+```
+
+#### Comparison Table
+
+| Feature | Debouncing | Throttling |
+| :--- | :--- | :--- |
+| **Execution** | Executes only **after** a period of inactivity. | Executes **at most once** per specified interval. |
+| **Main Goal** | Postpone execution until there's a pause. | Guarantee a minimum time between executions. |
+| **Example** | "Wait until the user stops typing." | "Fire this event every 100ms as the user scrolls." |
+
+**Key Takeaway:**
+
+*   Use **debounce** when you only care about the final state of an event series (e.g., final input value, final window size).
+*   Use **throttle** when you want to handle an event at a regular, controlled rate during a continuous series of events (e.g., scrolling, dragging).
+```

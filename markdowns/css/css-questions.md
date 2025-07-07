@@ -33,6 +33,3793 @@
 30. [Q30: How do you implement advanced CSS performance optimization and critical rendering path?](#q30-how-do-you-implement-advanced-css-performance-optimization-and-critical-rendering-path)
 31. [Q31: How do you implement advanced CSS Container Queries and modern layout techniques for responsive design?](#q31-how-do-you-implement-advanced-css-container-queries-and-modern-layout-techniques-for-responsive-design)
 32. [Q32: How do you implement advanced CSS architecture with CSS Layers, Scope, and modern design systems?](#q32-how-do-you-implement-advanced-css-architecture-with-css-layers-scope-and-modern-design-systems)
+33. [Q33: What is the CSS `aspect-ratio` property and how is it used?](#q33-what-is-the-css-aspect-ratio-property-and-how-is-it-used)
+34. [Q34: How do you implement CSS subgrid and what problems does it solve?](#q34-how-do-you-implement-css-subgrid-and-what-problems-does-it-solve)
+35. [Q35: Explain the CSS `clamp()`, `min()`, and `max()` functions with examples.](#q35-explain-the-css-clamp-min-and-max-functions-with-examples)
+36. [Q36: What are CSS scroll snap points and how do you implement them?](#q36-what-are-css-scroll-snap-points-and-how-do-you-implement-them)
+37. [Q37: How do you implement dark mode using CSS custom properties?](#q37-how-do-you-implement-dark-mode-using-css-custom-properties)
+38. [Q38: What are CSS view transitions and how do you implement them?](#q38-what-are-css-view-transitions-and-how-do-you-implement-them)
+39. [Q39: How do you implement responsive typography using modern CSS?](#q39-how-do-you-implement-responsive-typography-using-modern-css)
+40. [Q40: What are CSS masking and clipping techniques?](#q40-what-are-css-masking-and-clipping-techniques)
+41. [Q41: How do you implement CSS blend modes for creative effects?](#q41-how-do-you-implement-css-blend-modes-for-creative-effects)
+42. [Q42: What are CSS counters and how do you use them?](#q42-what-are-css-counters-and-how-do-you-use-them)
+43. [Q43: How do you implement CSS scroll-driven animations?](#q43-how-do-you-implement-css-scroll-driven-animations)
+44. [Q44: What is the CSS `content-visibility` property and how does it improve performance?](#q44-what-is-the-css-content-visibility-property-and-how-does-it-improve-performance)
+45. [Q45: How do you implement CSS grid auto-placement algorithms effectively?](#q45-how-do-you-implement-css-grid-auto-placement-algorithms-effectively)
+46. [Q46: What are CSS anchor positioning and how do you use them?](#q46-what-are-css-anchor-positioning-and-how-do-you-use-them)
+47. [Q47: How do you implement print stylesheets and optimize for print media?](#q47-how-do-you-implement-print-stylesheets-and-optimize-for-print-media)
+48. [Q48: What are CSS containment strategies and how do they improve performance?](#q48-what-are-css-containment-strategies-and-how-do-they-improve-performance)
+49. [Q49: How do you implement CSS feature detection and provide fallbacks?](#q49-how-do-you-implement-css-feature-detection-and-provide-fallbacks)
+50. [Q50: What are CSS comparison functions and how do you use them?](#q50-what-are-css-comparison-functions-and-how-do-you-use-them)
+51. [Q51: How do you implement CSS nesting and what are its benefits?](#q51-how-do-you-implement-css-nesting-and-what-are-its-benefits)
+52. [Q52: What are CSS relative color syntax and color functions?](#q52-what-are-css-relative-color-syntax-and-color-functions)
+
+---
+
+## Modern CSS Properties
+
+### Q33: What is the CSS `aspect-ratio` property and how is it used?
+
+**Answer:**
+The `aspect-ratio` property in CSS sets a preferred aspect ratio for the box, which will be used to calculate either its width or height when only one dimension is specified. It helps maintain consistent proportions across different screen sizes.
+
+**Basic Usage:**
+```css
+/* Basic aspect ratio of 16:9 */
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* Square aspect ratio */
+.profile-image {
+  width: 200px;
+  aspect-ratio: 1 / 1;
+}
+
+/* Using decimal notation */
+.widescreen {
+  height: 300px;
+  aspect-ratio: 2.35 / 1; /* Cinematic widescreen ratio */
+}
+```
+
+**Practical Applications:**
+
+1. **Responsive Media Containers:**
+```css
+/* Video embed that maintains aspect ratio */
+.video-embed {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+/* Image gallery with consistent card sizes */
+.gallery-item {
+  width: calc(33.333% - 20px);
+  aspect-ratio: 4 / 3;
+  margin: 10px;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+```
+
+2. **Responsive UI Elements:**
+```css
+/* Hero banner with consistent proportions */
+.hero-banner {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Card layout with consistent heights */
+.card {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 3 / 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image {
+  flex: 0 0 auto;
+  aspect-ratio: 16 / 9;
+}
+```
+
+3. **Fallback for Browsers Without Support:**
+```css
+.responsive-element {
+  width: 100%;
+  /* Fallback for browsers that don't support aspect-ratio */
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio (9 / 16 = 0.5625) */
+}
+
+@supports (aspect-ratio: 16 / 9) {
+  .responsive-element {
+    height: auto;
+    padding-bottom: 0;
+    aspect-ratio: 16 / 9;
+  }
+}
+```
+
+**Benefits of Using `aspect-ratio`:**
+- Eliminates the need for padding hacks to maintain aspect ratios
+- Simplifies responsive design for media elements
+- Reduces layout shifts during page load
+- Works seamlessly with modern layout systems like Grid and Flexbox
+- Improves performance by allowing the browser to allocate space before content loads
+
+### Q34: How do you implement CSS subgrid and what problems does it solve?
+
+**Answer:**
+CSS subgrid is a feature of CSS Grid Layout that allows nested grid containers to participate in the parent grid's layout. It enables child grid items to align with the parent grid's tracks, solving alignment and sizing challenges in complex nested layouts.
+
+**Basic Implementation:**
+
+```css
+/* Parent grid container */
+.parent-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+}
+
+/* Child grid that uses subgrid */
+.child-grid {
+  grid-column: 2 / 12; /* Spans from column line 2 to 12 */
+  display: grid;
+  /* Use subgrid to inherit parent's column tracks */
+  grid-template-columns: subgrid;
+  /* Can also use subgrid for rows */
+  grid-template-rows: subgrid;
+}
+
+/* Grandchild items will align to the parent grid's columns */
+.grandchild-item {
+  grid-column: span 3; /* Spans 3 columns of the parent grid */
+}
+```
+
+**Problems Subgrid Solves:**
+
+1. **Alignment Across Nested Components:**
+   Before subgrid, aligning elements across different nested components to the same grid was difficult. Subgrid allows elements at different DOM depths to align to the same grid lines.
+
+2. **Content-Based Sizing Across Levels:**
+   Subgrid allows row heights to be determined by content in nested grids, maintaining consistent row heights across complex layouts.
+
+3. **Simplified Markup:**
+   Reduces the need for extra wrapper elements just to maintain alignment with parent grids.
+
+**Practical Examples:**
+
+1. **Card Layout with Aligned Elements:**
+```css
+/* Main product grid */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Product card that uses subgrid */
+.product-card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3; /* Each card spans 3 rows */
+}
+
+/* All product images will have the same height */
+.product-image { grid-row: 1; }
+
+/* All product titles will align across cards */
+.product-title { grid-row: 2; }
+
+/* All product prices will align across cards */
+.product-price { grid-row: 3; }
+```
+
+2. **Form Layout with Aligned Labels and Inputs:**
+```css
+/* Form container */
+.form {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px 20px;
+}
+
+/* Form group that uses subgrid */
+.form-group {
+  grid-column: 1 / -1; /* Span all columns */
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+/* Labels align in first column */
+.form-label { grid-column: 1; }
+
+/* Inputs align in second column */
+.form-input { grid-column: 2; }
+```
+
+3. **Article Layout with Aligned Sections:**
+```css
+/* Main article grid */
+.article {
+  display: grid;
+  grid-template-columns: 1fr 800px 1fr;
+  grid-template-rows: repeat(auto-fill, auto);
+}
+
+/* Article section that uses subgrid */
+.article-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+/* Main content in the center column */
+.article-content {
+  grid-column: 2;
+}
+
+/* Full-width elements that break out of the center column */
+.article-image-full {
+  grid-column: 1 / -1;
+}
+
+/* Side notes in the margin */
+.article-sidenote {
+  grid-column: 3;
+}
+```
+
+**Browser Support and Fallbacks:**
+
+```css
+/* Check for subgrid support */
+@supports (grid-template-columns: subgrid) {
+  .child-grid {
+    grid-template-columns: subgrid;
+  }
+}
+
+/* Fallback for browsers without subgrid support */
+@supports not (grid-template-columns: subgrid) {
+  .child-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+```
+
+---
+
+### Q35: What are CSS Container Queries and how do they differ from Media Queries?
+
+**Answer:**
+CSS Container Queries allow you to apply styles to elements based on the size of their containing element rather than the viewport size. This is a significant advancement in responsive design, enabling truly component-based responsive layouts.
+
+**Basic Implementation:**
+
+```css
+/* Define a container */
+.card-container {
+  container-type: inline-size; /* Enable container queries for this element */
+  container-name: card; /* Optional: Name the container for reference */
+}
+
+/* Apply styles based on container width */
+@container (min-width: 400px) {
+  .card-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+  }
+}
+
+/* Using named containers */
+@container card (max-width: 300px) {
+  .card-title {
+    font-size: 1rem;
+  }
+}
+```
+
+**Key Differences from Media Queries:**
+
+1. **Scope of Responsiveness:**
+   - Media Queries: Respond to the entire viewport's dimensions
+   - Container Queries: Respond to the dimensions of a specific container element
+
+2. **Component Reusability:**
+   - Media Queries: Components need different styles based on where they appear in the layout
+   - Container Queries: Components can adapt automatically regardless of their position in the layout
+
+3. **Contextual Awareness:**
+   - Media Queries: No awareness of component's context
+   - Container Queries: Directly respond to the component's immediate context
+
+4. **Nesting Behavior:**
+   - Media Queries: All elements respond to the same viewport size
+   - Container Queries: Elements can respond differently based on their individual container sizes
+
+**Practical Use Cases:**
+
+1. **Card Components:**
+```css
+.card-container {
+  container-type: inline-size;
+}
+
+/* Default: Stacked layout for narrow containers */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Switch to side-by-side layout in wider containers */
+@container (min-width: 350px) {
+  .card {
+    flex-direction: row;
+  }
+  
+  .card-image {
+    width: 40%;
+  }
+  
+  .card-content {
+    width: 60%;
+  }
+}
+```
+
+2. **Navigation Components:**
+```css
+.nav-container {
+  container-type: inline-size;
+}
+
+/* Default: Hamburger menu for narrow containers */
+.nav-menu {
+  display: none;
+}
+
+.nav-toggle {
+  display: block;
+}
+
+/* Switch to horizontal menu in wider containers */
+@container (min-width: 600px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .nav-toggle {
+    display: none;
+  }
+}
+```
+
+3. **Form Layouts:**
+```css
+.form-container {
+  container-type: inline-size;
+}
+
+/* Default: Stacked form fields */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Switch to side-by-side layout in wider containers */
+@container (min-width: 500px) {
+  .form-group {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .form-label {
+    width: 30%;
+    padding-right: 1rem;
+    text-align: right;
+  }
+  
+  .form-input {
+    width: 70%;
+  }
+}
+```
+
+**Advanced Features:**
+
+1. **Container Query Units:**
+```css
+.responsive-text {
+  /* Font size is 5% of the container width */
+  font-size: 5cqi; /* Container-query-inline-size */
+  
+  /* Padding is 2% of the container height */
+  padding: 2cqb; /* Container-query-block-size */
+}
+```
+
+2. **Style Queries (Experimental):**
+```css
+/* Apply styles based on container's style properties */
+@container style(--theme: dark) {
+  .card {
+    background-color: #333;
+    color: white;
+  }
+}
+```
+
+**Browser Support and Fallbacks:**
+
+```css
+/* Check for container query support */
+@supports (container-type: inline-size) {
+  .card-container {
+    container-type: inline-size;
+  }
+  
+  @container (min-width: 400px) {
+    .card {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+}
+
+/* Fallback for browsers without container query support */
+@supports not (container-type: inline-size) {
+  /* Use media queries as fallback */
+  @media (min-width: 768px) {
+    .card {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+}
+```
+
+---
+
+### Q36: How do you use CSS Custom Properties (Variables) and what are their advantages?
+
+**Answer:**
+CSS Custom Properties, also known as CSS Variables, allow you to define reusable values that can be referenced throughout your stylesheets. They provide a way to store values in one place and use them across your CSS, making maintenance easier and enabling dynamic styling.
+
+**Basic Implementation:**
+
+```css
+/* Defining custom properties at the :root level (global scope) */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --text-color: #333;
+  --spacing-unit: 8px;
+  --border-radius: 4px;
+  --font-family: 'Roboto', sans-serif;
+}
+
+/* Using custom properties */
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 4);
+  border-radius: var(--border-radius);
+  font-family: var(--font-family);
+}
+
+.button.secondary {
+  background-color: var(--secondary-color);
+}
+
+/* Using fallback values */
+.element {
+  margin: var(--custom-margin, 20px); /* Uses 20px if --custom-margin is not defined */
+}
+```
+
+**Advantages of CSS Custom Properties:**
+
+1. **Single Source of Truth:**
+   Define values once and reuse them throughout your stylesheet, making updates easier and more consistent.
+
+2. **Scoping and Cascading:**
+   Unlike preprocessor variables (Sass, Less), CSS variables cascade and can be scoped to specific elements.
+
+```css
+/* Global default */
+:root {
+  --theme-color: blue;
+}
+
+/* Scoped to a specific component */
+.card {
+  --theme-color: green; /* Overrides the global variable for this component */
+  border: 2px solid var(--theme-color);
+}
+
+/* Further scoping with media queries */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-color: lightblue; /* Changes in dark mode */
+  }
+}
+```
+
+3. **Runtime Manipulation with JavaScript:**
+   Unlike preprocessor variables, CSS variables can be modified at runtime with JavaScript.
+
+```javascript
+// Get the root element
+const root = document.documentElement;
+
+// Set a custom property
+root.style.setProperty('--primary-color', '#ff0000');
+
+// Get a custom property value
+const primaryColor = getComputedStyle(root).getPropertyValue('--primary-color');
+console.log(primaryColor); // "#ff0000"
+
+// Respond to user interactions
+document.getElementById('theme-toggle').addEventListener('click', function() {
+  if (root.style.getPropertyValue('--theme-mode') === 'light') {
+    root.style.setProperty('--theme-mode', 'dark');
+    root.style.setProperty('--bg-color', '#333');
+    root.style.setProperty('--text-color', '#fff');
+  } else {
+    root.style.setProperty('--theme-mode', 'light');
+    root.style.setProperty('--bg-color', '#fff');
+    root.style.setProperty('--text-color', '#333');
+  }
+});
+```
+
+4. **Responsive Design:**
+   Easily change values based on media queries without duplicating style rules.
+
+```css
+:root {
+  --header-height: 60px;
+  --sidebar-width: 250px;
+  --content-padding: 20px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 50px;
+    --sidebar-width: 0;
+    --content-padding: 10px;
+  }
+}
+
+.header {
+  height: var(--header-height);
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+}
+
+.content {
+  padding: var(--content-padding);
+  margin-left: var(--sidebar-width);
+  margin-top: var(--header-height);
+}
+```
+
+5. **Theming and Dark Mode:**
+   Implement theme switching with minimal code changes.
+
+```css
+/* Light theme (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --heading-color: #222222;
+  --link-color: #0066cc;
+  --border-color: #dddddd;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-color: #222222;
+  --text-color: #eeeeee;
+  --heading-color: #ffffff;
+  --link-color: #66aaff;
+  --border-color: #444444;
+}
+
+/* Apply variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3 {
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+.card {
+  border: 1px solid var(--border-color);
+}
+```
+
+6. **Calculations and Transformations:**
+   Use `calc()` with variables for dynamic calculations.
+
+```css
+:root {
+  --base-size: 16px;
+  --scale-ratio: 1.25;
+}
+
+h1 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio) * var(--scale-ratio)); } /* ~31px */
+h2 { font-size: calc(var(--base-size) * var(--scale-ratio) * var(--scale-ratio)); } /* ~25px */
+h3 { font-size: calc(var(--base-size) * var(--scale-ratio)); } /* ~20px */
+body { font-size: var(--base-size); } /* 16px */
+small { font-size: calc(var(--base-size) / var(--scale-ratio)); } /* ~13px */
+```
+
+**Browser Support and Fallbacks:**
+
+```css
+/* Modern browsers */
+:root {
+  --main-color: #ff0000;
+}
+
+.element {
+  /* Fallback first for older browsers */
+  color: #ff0000;
+  /* Modern browsers will use this */
+  color: var(--main-color);
+}
+
+/* Feature detection with @supports */
+@supports (--css: variables) {
+  .element {
+    color: var(--main-color);
+  }
+}
+```
+
+---
+
+### Q37: Explain CSS Grid Layout and how it differs from Flexbox
+
+**Answer:**
+CSS Grid Layout is a two-dimensional layout system designed for organizing content in rows and columns. Unlike Flexbox, which is primarily one-dimensional, Grid allows precise control over both dimensions simultaneously, making it ideal for complex page layouts.
+
+**Basic Implementation:**
+
+```css
+/* Creating a basic grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+  grid-template-rows: auto 200px auto;   /* Three rows with specific heights */
+  gap: 20px;                            /* Gap between grid items */
+}
+
+/* Placing items in the grid */
+.header {
+  grid-column: 1 / -1;                 /* Span all columns */
+  grid-row: 1;                         /* Place in first row */
+}
+
+.sidebar {
+  grid-column: 1;                      /* First column */
+  grid-row: 2 / 4;                     /* Span from row 2 to 4 */
+}
+
+.main-content {
+  grid-column: 2 / 4;                  /* Span from column 2 to 4 */
+  grid-row: 2;                         /* Place in second row */
+}
+
+.footer {
+  grid-column: 2 / 4;                  /* Span from column 2 to 4 */
+  grid-row: 3;                         /* Place in third row */
+}
+```
+
+**Key Differences from Flexbox:**
+
+1. **Dimensionality:**
+   - Grid: Two-dimensional (rows and columns simultaneously)
+   - Flexbox: One-dimensional (row OR column at a time)
+
+2. **Layout Approach:**
+   - Grid: Layout-first approach (define the container, then place items)
+   - Flexbox: Content-first approach (items define their own size, container adapts)
+
+3. **Alignment Control:**
+   - Grid: Controls alignment in both dimensions with precise placement
+   - Flexbox: Excels at distributing space and aligning items in a single dimension
+
+4. **Use Cases:**
+   - Grid: Overall page layout, complex grid-based interfaces
+   - Flexbox: Component layout, navigation bars, centering items
+
+**Advanced Grid Features:**
+
+1. **Named Grid Lines and Areas:**
+```css
+.container {
+  display: grid;
+  grid-template-columns: [sidebar-start] 250px [sidebar-end content-start] 1fr [content-end];
+  grid-template-rows: [header-start] 100px [header-end main-start] auto [main-end footer-start] 80px [footer-end];
+  
+  /* Alternative named areas approach */
+  grid-template-areas:
+    "header header header"
+    "sidebar content content"
+    "sidebar footer footer";
+}
+
+/* Using named grid areas */
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer { grid-area: footer; }
+```
+
+2. **Auto-placement and Auto-fit/Auto-fill:**
+```css
+/* Auto-placement with dense packing algorithm */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  grid-auto-flow: dense; /* Attempts to fill holes in the grid */
+}
+
+/* Auto-fill vs Auto-fit */
+.auto-fill-container {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* Creates as many tracks as will fit, even empty ones */
+}
+
+.auto-fit-container {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  /* Creates only as many tracks as needed, expanding them to fill space */
+}
+```
+
+3. **Responsive Grid without Media Queries:**
+```css
+.responsive-grid {
+  display: grid;
+  /* Creates columns that are at least 300px wide, but can expand to fill available space */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+```
+
+4. **Masonry-like Layout with Grid:**
+```css
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 20px; /* Small row height as a grid unit */
+  gap: 20px;
+}
+
+.masonry-item:nth-child(1) { grid-row: span 8; } /* 160px tall */
+.masonry-item:nth-child(2) { grid-row: span 5; } /* 100px tall */
+.masonry-item:nth-child(3) { grid-row: span 9; } /* 180px tall */
+.masonry-item:nth-child(4) { grid-row: span 6; } /* 120px tall */
+/* And so on... */
+```
+
+5. **Grid Template Areas for Responsive Layouts:**
+```css
+.container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas:
+    "header header header"
+    "sidebar-1 main sidebar-2"
+    "footer footer footer";
+}
+
+/* Responsive layout changes with media queries */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas:
+      "header header"
+      "sidebar-1 main"
+      "sidebar-2 sidebar-2"
+      "footer footer";
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar-1"
+      "sidebar-2"
+      "footer";
+  }
+}
+```
+
+**Practical Use Cases:**
+
+1. **Magazine/News Layout:**
+```css
+.news-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 20px;
+}
+
+.featured-article {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+
+.secondary-article {
+  grid-column: 3 / 5;
+  grid-row: 1;
+}
+
+.tertiary-article {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.quaternary-article {
+  grid-column: 4;
+  grid-row: 2;
+}
+```
+
+2. **Dashboard Layout:**
+```css
+.dashboard {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 60px 1fr 40px;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+}
+
+.dashboard-header { grid-area: header; }
+.dashboard-sidebar { grid-area: sidebar; }
+.dashboard-main { grid-area: main; }
+.dashboard-footer { grid-area: footer; }
+
+/* Responsive dashboard */
+@media (max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 50px 1fr 40px;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "main"
+      "footer";
+  }
+}
+```
+
+3. **Photo Gallery:**
+```css
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 10px;
+}
+
+/* Featured images span multiple cells */
+.gallery-item.featured-landscape {
+  grid-column: span 2;
+}
+
+.gallery-item.featured-portrait {
+  grid-row: span 2;
+}
+
+.gallery-item.featured-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+```
+
+**When to Use Grid vs. Flexbox:**
+
+- **Use Grid when:**
+  - Creating full-page or component layouts with rows and columns
+  - Precise placement of elements is required
+  - Working with two-dimensional layouts
+  - Creating grid-based designs like galleries, dashboards, or magazine layouts
+
+- **Use Flexbox when:**
+  - Working with a single row or column of items
+  - Distributing space between items in a single dimension
+  - Centering elements vertically and horizontally
+  - Creating flexible components like navigation bars, card layouts, or form controls
+
+**Best Practice:** Combine both - use Grid for the overall page layout and Flexbox for component-level layouts.
+
+---
+
+### Q38: Explain CSS Animations and Transitions, and when to use each
+
+**Answer:**
+CSS Animations and Transitions are two powerful techniques for adding motion and interactivity to web pages without JavaScript. While they serve similar purposes, they have different use cases and implementation approaches.
+
+**CSS Transitions:**
+Transitions provide a smooth change from one state to another over a specified duration. They're triggered by state changes (like hover, focus, or class changes) and are ideal for simple, single-state changes.
+
+**Basic Transition Implementation:**
+
+```css
+.button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  /* Define the transition */
+  transition-property: background-color, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transition-delay: 0s;
+  
+  /* Shorthand syntax */
+  transition: background-color 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+}
+```
+
+**CSS Animations:**
+Animations allow for more complex, multi-step animations using keyframes. They can run automatically, loop, alternate directions, and define multiple states throughout the animation sequence.
+
+**Basic Animation Implementation:**
+
+```css
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.notification {
+  /* Define the animation */
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  
+  /* Shorthand syntax */
+  animation: pulse 2s ease-in-out infinite;
+}
+```
+
+**When to Use Transitions:**
+
+1. **State Changes:** For simple changes between two states (hover, focus, active, etc.)
+2. **UI Feedback:** For immediate user interaction feedback
+3. **Simple Effects:** When you need simple motion like color changes, scaling, or opacity
+4. **Performance:** When you want the most efficient animation method for simple changes
+
+**Example: Button Hover Effect**
+```css
+.button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+```
+
+**When to Use Animations:**
+
+1. **Auto-playing Effects:** When animation should play on page load
+2. **Complex Sequences:** For animations with multiple steps or keyframes
+3. **Looping Animations:** When you need continuous motion
+4. **Timing Control:** When you need precise control over multiple animation stages
+
+**Example: Loading Spinner**
+```css
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+```
+
+**Advanced Techniques:**
+
+1. **Chaining Animations:**
+```css
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); }
+  to { transform: translateY(0); }
+}
+
+.element {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards, slideUp 0.5s forwards;
+}
+```
+
+2. **Staggered Animations:**
+```css
+.item:nth-child(1) { animation-delay: 0s; }
+.item:nth-child(2) { animation-delay: 0.1s; }
+.item:nth-child(3) { animation-delay: 0.2s; }
+.item:nth-child(4) { animation-delay: 0.3s; }
+```
+
+3. **Animation Events with JavaScript:**
+```javascript
+const element = document.querySelector('.animated-element');
+
+element.addEventListener('animationstart', () => {
+  console.log('Animation started');
+});
+
+element.addEventListener('animationend', () => {
+  console.log('Animation ended');
+  element.classList.add('animation-completed');
+});
+
+element.addEventListener('animationiteration', () => {
+  console.log('Animation iteration');
+});
+```
+
+4. **Transition Events with JavaScript:**
+```javascript
+const element = document.querySelector('.transition-element');
+
+element.addEventListener('transitionstart', () => {
+  console.log('Transition started');
+});
+
+element.addEventListener('transitionend', () => {
+  console.log('Transition ended');
+  element.classList.add('transition-completed');
+});
+```
+
+5. **Using CSS Variables for Dynamic Animations:**
+```css
+:root {
+  --animation-duration: 1s;
+  --animation-easing: ease-in-out;
+  --animation-distance: 20px;
+}
+
+@keyframes slide {
+  from { transform: translateY(var(--animation-distance)); }
+  to { transform: translateY(0); }
+}
+
+.element {
+  animation: slide var(--animation-duration) var(--animation-easing) forwards;
+}
+
+/* Adjust animation parameters with JavaScript */
+document.documentElement.style.setProperty('--animation-duration', '2s');
+```
+
+**Performance Considerations:**
+
+1. **Animate Only Transform and Opacity:**
+```css
+/* Good - uses GPU acceleration */
+.efficient-animation {
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Avoid - causes layout recalculation */
+.inefficient-animation {
+  transition: width 0.3s, height 0.3s, margin 0.3s;
+}
+```
+
+2. **Prevent Animation of Hidden Elements:**
+```css
+/* Pause animations when element is not visible */
+.element:not(:visible) {
+  animation-play-state: paused;
+}
+
+/* Or when the page is not visible */
+@media (prefers-reduced-motion) {
+  .element {
+    animation: none;
+    transition: none;
+  }
+}
+```
+
+3. **Use will-change for Complex Animations:**
+```css
+.complex-animation {
+  will-change: transform, opacity;
+  animation: complex-move 1s ease-in-out;
+}
+```
+
+**Accessibility Considerations:**
+
+```css
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+}
+```
+
+---
+
+### Q39: Explain CSS Flexbox and its key properties
+
+**Answer:**
+CSS Flexbox (Flexible Box Layout) is a one-dimensional layout system designed for arranging items in rows or columns. It provides a more efficient way to distribute space and align items, even when their size is unknown or dynamic.
+
+**Basic Flexbox Container Properties:**
+
+```css
+.flex-container {
+  display: flex; /* or inline-flex */
+  
+  /* Main axis direction */
+  flex-direction: row; /* default: left to right */
+  /* Alternatives: row-reverse, column, column-reverse */
+  
+  /* Wrapping behavior */
+  flex-wrap: nowrap; /* default: single-line */
+  /* Alternatives: wrap, wrap-reverse */
+  
+  /* Shorthand for flex-direction and flex-wrap */
+  flex-flow: row nowrap;
+  
+  /* Main axis alignment (horizontal by default) */
+  justify-content: flex-start; /* default: items at start */
+  /* Alternatives: flex-end, center, space-between, space-around, space-evenly */
+  
+  /* Cross axis alignment (vertical by default) */
+  align-items: stretch; /* default: stretch to fill container */
+  /* Alternatives: flex-start, flex-end, center, baseline */
+  
+  /* Multi-line alignment (when flex-wrap is enabled) */
+  align-content: stretch; /* default: lines stretch to fill container */
+  /* Alternatives: flex-start, flex-end, center, space-between, space-around */
+  
+  /* Gap between flex items */
+  gap: 20px; /* Equal gap in both directions */
+  row-gap: 10px; /* Gap between rows */
+  column-gap: 20px; /* Gap between columns */
+}
+```
+
+**Flex Item Properties:**
+
+```css
+.flex-item {
+  /* Order (default is 0, lower values appear first) */
+  order: 0;
+  
+  /* Ability to grow if space is available (default is 0) */
+  flex-grow: 0;
+  
+  /* Ability to shrink if needed (default is 1) */
+  flex-shrink: 1;
+  
+  /* Default size before growing/shrinking (default is auto) */
+  flex-basis: auto;
+  
+  /* Shorthand for flex-grow, flex-shrink, and flex-basis */
+  flex: 0 1 auto; /* default */
+  
+  /* Common flex shorthand values */
+  /* flex: 1; = flex: 1 1 0%; (can grow, can shrink, starts at 0%) */
+  /* flex: auto; = flex: 1 1 auto; (can grow, can shrink, starts at content size) */
+  /* flex: none; = flex: 0 0 auto; (can't grow, can't shrink, starts at content size) */
+  /* flex: initial; = flex: 0 1 auto; (can't grow, can shrink, starts at content size) */
+  
+  /* Override container's align-items for specific item */
+  align-self: auto; /* default: inherit from container */
+  /* Alternatives: flex-start, flex-end, center, baseline, stretch */
+}
+```
+
+**Common Flexbox Patterns:**
+
+1. **Centering Content (Both Horizontally and Vertically):**
+```css
+.center-container {
+  display: flex;
+  justify-content: center; /* Horizontal centering */
+  align-items: center; /* Vertical centering */
+  height: 300px; /* Container needs height for vertical centering */
+}
+```
+
+2. **Navigation Bar:**
+```css
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Logo on left, links on right */
+  align-items: center;
+  padding: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px; /* Space between nav items */
+}
+
+/* Responsive navigation */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+  
+  .nav-links {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: space-around;
+  }
+}
+```
+
+3. **Card Layout with Equal Height:**
+```css
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  flex: 1 1 300px; /* Grow, shrink, basis */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.card-body {
+  flex: 1; /* Takes up all available space, pushing footer down */
+}
+
+.card-footer {
+  margin-top: auto; /* Pushes footer to bottom */
+}
+```
+
+4. **Holy Grail Layout:**
+```css
+.holy-grail {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.holy-grail-header,
+.holy-grail-footer {
+  flex-shrink: 0; /* Don't shrink header/footer */
+}
+
+.holy-grail-body {
+  display: flex;
+  flex: 1; /* Take up all available space */
+}
+
+.holy-grail-content {
+  flex: 1; /* Take up all available space */
+}
+
+.holy-grail-nav,
+.holy-grail-ads {
+  flex: 0 0 200px; /* Don't grow, don't shrink, fixed width */
+}
+
+.holy-grail-nav {
+  order: -1; /* Place nav before content */
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .holy-grail-body {
+    flex-direction: column;
+  }
+  
+  .holy-grail-nav,
+  .holy-grail-ads {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+```
+
+5. **Sticky Footer:**
+```css
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1; /* Grow to fill available space */
+}
+
+.footer {
+  flex-shrink: 0; /* Don't shrink footer */
+}
+```
+
+**Advanced Flexbox Techniques:**
+
+1. **Flex Basis vs Width/Height:**
+```css
+.item {
+  /* flex-basis takes precedence over width/height when in the same direction as flex-direction */
+  width: 200px;
+  flex-basis: 300px; /* This will be used instead of width in row direction */
+}
+```
+
+2. **Auto Margins for Alignment:**
+```css
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-end {
+  margin-left: auto; /* Pushes this and subsequent items to the end */
+}
+
+/* Useful for creating space between groups of flex items */
+.space-between-groups {
+  display: flex;
+}
+
+.group-2 {
+  margin-left: auto; /* Creates space between group-1 and group-2 */
+}
+```
+
+3. **Nested Flexbox for Complex Layouts:**
+```css
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+```
+
+4. **Responsive Flexbox without Media Queries:**
+```css
+.responsive-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.responsive-item {
+  flex: 1 1 calc(25% - 20px); /* 4 items per row with 20px gap */
+  min-width: 200px; /* Forces wrapping on smaller screens */
+  margin: 10px;
+}
+```
+
+**Browser Support and Fallbacks:**
+
+```css
+/* Modern browsers */
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Fallback for older browsers */
+.no-flexbox .container {
+  display: table;
+  width: 100%;
+}
+
+.no-flexbox .item {
+  display: table-cell;
+}
+
+/* Feature detection with @supports */
+@supports (display: flex) {
+  .container {
+    display: flex;
+  }
+}
+
+@supports not (display: flex) {
+  .container {
+    display: block;
+  }
+  
+  .item {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+```
+
+**Common Flexbox Gotchas:**
+
+1. **Minimum Size of Flex Items:**
+```css
+.flex-container {
+  display: flex;
+}
+
+.flex-item {
+  flex: 1;
+  /* By default, flex items won't shrink below their minimum content size */
+  /* To allow further shrinking: */
+  min-width: 0; /* or min-height: 0 for column direction */
+}
+```
+
+2. **Aligning Last Row in a Wrapped Flex Container:**
+```css
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Add empty items to ensure last row aligns properly */
+.flex-container::after {
+  content: "";
+  flex: 1 1 auto; /* Same as the real items */
+}
+```
+
+3. **Controlling Flex Item Order for Accessibility:**
+```css
+/* Visual order may differ from DOM order, which can affect accessibility */
+.flex-container {
+  display: flex;
+}
+
+.first-visually {
+  order: -1; /* Appears first visually */
+}
+
+/* Ensure keyboard navigation follows visual order with tabindex */
+<div class="flex-container">
+  <div class="item" tabindex="2">Second</div>
+  <div class="item first-visually" tabindex="1">First</div>
+</div>
+```
+
+---
+
+### Q40: What are CSS Preprocessors and what advantages do they offer?
+
+**Answer:**
+CSS Preprocessors are scripting languages that extend CSS with features like variables, nesting, mixins, functions, and mathematical operations. They compile into standard CSS that browsers can understand, allowing developers to write more maintainable and reusable stylesheets.
+
+**Popular CSS Preprocessors:**
+- **Sass/SCSS** - Most widely used, with two syntaxes (indented Sass and SCSS)
+- **Less** - JavaScript-based preprocessor with similar features to Sass
+- **Stylus** - Minimalist syntax with powerful features
+- **PostCSS** - Tool for transforming CSS with JavaScript plugins
+
+**Key Features and Advantages:**
+
+1. **Variables:**
+   Store and reuse values throughout your stylesheets.
+
+```scss
+// Sass/SCSS
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$border-radius: 4px;
+$font-stack: 'Roboto', sans-serif;
+
+.button {
+  background-color: $primary-color;
+  border-radius: $border-radius;
+  font-family: $font-stack;
+}
+
+.alert {
+  border: 1px solid $secondary-color;
+  border-radius: $border-radius;
+}
+```
+
+2. **Nesting:**
+   Write nested selectors that mirror HTML structure.
+
+```scss
+// Sass/SCSS
+.card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  
+  .card-header {
+    background-color: #f5f5f5;
+    padding: 10px;
+    
+    h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  // Parent selector reference
+  &:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    .card-header {
+      background-color: #e9e9e9;
+    }
+  }
+}
+```
+
+3. **Mixins:**
+   Define reusable blocks of styles that can accept parameters.
+
+```scss
+// Sass/SCSS
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+  -webkit-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+.modal {
+  @include flex-center;
+  @include border-radius(4px);
+  @include box-shadow(0, 2px, 10px, rgba(0, 0, 0, 0.1));
+}
+
+// Mixin with default parameters
+@mixin button($bg-color: #3498db, $text-color: white, $padding: 10px 20px) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $padding;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
+
+.primary-button {
+  @include button;
+}
+
+.secondary-button {
+  @include button(#2ecc71, white, 8px 16px);
+}
+```
+
+4. **Functions:**
+   Create custom functions to compute and return values.
+
+```scss
+// Sass/SCSS
+@function calculate-width($col-count, $total-cols: 12) {
+  @return percentage($col-count / $total-cols);
+}
+
+.sidebar {
+  width: calculate-width(3); // 25%
+}
+
+.main-content {
+  width: calculate-width(9); // 75%
+}
+
+// Color manipulation functions
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+$brand-color: #3498db;
+
+.light-variant {
+  background-color: tint($brand-color, 30%); // Lighter blue
+}
+
+.dark-variant {
+  background-color: shade($brand-color, 30%); // Darker blue
+}
+```
+
+5. **Inheritance/Extend:**
+   Share sets of properties from one selector to another.
+
+```scss
+// Sass/SCSS
+%button-base {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.primary-button {
+  @extend %button-base;
+  background-color: #3498db;
+  color: white;
+}
+
+.secondary-button {
+  @extend %button-base;
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.success-button {
+  @extend %button-base;
+  background-color: #2ecc71;
+  color: white;
+}
+```
+
+6. **Partials and Imports:**
+   Split CSS into smaller, more manageable files.
+
+```scss
+// _variables.scss
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$text-color: #333;
+
+// _mixins.scss
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// _reset.scss
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// main.scss
+@import 'variables';
+@import 'mixins';
+@import 'reset';
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: $text-color;
+}
+
+.container {
+  @include flex-center;
+  background-color: $primary-color;
+}
+```
+
+7. **Control Directives:**
+   Use programming constructs like conditionals and loops.
+
+```scss
+// Sass/SCSS
+// Conditionals
+$theme: 'dark';
+
+.element {
+  @if $theme == 'dark' {
+    background-color: #333;
+    color: white;
+  } @else {
+    background-color: white;
+    color: #333;
+  }
+}
+
+// Loops
+@for $i from 1 through 5 {
+  .col-#{$i} {
+    width: 20% * $i;
+  }
+}
+
+$sizes: (small: 12px, medium: 16px, large: 20px);
+
+@each $name, $size in $sizes {
+  .text-#{$name} {
+    font-size: $size;
+  }
+}
+
+$i: 1;
+@while $i <= 5 {
+  .item-#{$i} {
+    z-index: 100 - $i;
+  }
+  $i: $i + 1;
+}
+```
+
+8. **Mathematical Operations:**
+   Perform calculations within your stylesheets.
+
+```scss
+// Sass/SCSS
+$container-width: 1200px;
+$column-count: 12;
+$gutter: 20px;
+
+.container {
+  width: $container-width;
+  margin: 0 auto;
+}
+
+.column {
+  float: left;
+  margin-right: $gutter;
+  
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+@for $i from 1 through $column-count {
+  .col-#{$i} {
+    width: ($container-width - ($gutter * ($column-count - 1))) * ($i / $column-count) + ($gutter * ($i - 1));
+  }
+}
+```
+
+**Practical Example: Theme System with Sass:**
+
+```scss
+// _themes.scss
+$themes: (
+  light: (
+    bg-color: #ffffff,
+    text-color: #333333,
+    heading-color: #222222,
+    link-color: #0066cc,
+    border-color: #dddddd
+  ),
+  dark: (
+    bg-color: #222222,
+    text-color: #eeeeee,
+    heading-color: #ffffff,
+    link-color: #66aaff,
+    border-color: #444444
+  )
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $value in $map {
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+// styles.scss
+@import 'themes';
+
+body {
+  @include themed() {
+    background-color: themed('bg-color');
+    color: themed('text-color');
+  }
+}
+
+h1, h2, h3 {
+  @include themed() {
+    color: themed('heading-color');
+  }
+}
+
+a {
+  @include themed() {
+    color: themed('link-color');
+  }
+}
+
+.card {
+  @include themed() {
+    border: 1px solid themed('border-color');
+  }
+}
+```
+
+**Advantages of CSS Preprocessors:**
+
+1. **Improved Maintainability:**
+   - Variables for consistent values
+   - Modular code with partials and imports
+   - DRY (Don't Repeat Yourself) principles with mixins and extends
+
+2. **Enhanced Organization:**
+   - Logical nesting that mirrors HTML structure
+   - Split code into smaller, focused files
+   - Better organization of related styles
+
+3. **Increased Productivity:**
+   - Reusable code blocks with mixins and functions
+   - Faster development with programming features
+   - Easier maintenance and updates
+
+4. **Better Abstraction:**
+   - Create design systems and component libraries
+   - Abstract complex CSS patterns into simple, reusable pieces
+   - Implement theming and skinning more efficiently
+
+**Potential Drawbacks:**
+
+1. **Learning Curve:** Requires learning new syntax and concepts
+2. **Build Step:** Requires compilation before deployment
+3. **Debugging:** Line numbers in compiled CSS may not match source files
+4. **Overuse:** Can lead to bloated CSS if features are overused
+
+**Modern Alternatives:**
+
+With the advent of CSS Custom Properties (variables) and modern build tools, some preprocessor features are now available in native CSS. However, preprocessors still offer significant advantages for complex projects, especially with features like mixins, functions, and control directives.
+
+---
+
+### Q41: What is CSS-in-JS and what are its advantages and disadvantages?
+
+**Answer:**
+CSS-in-JS is an approach to styling in web applications where CSS is written directly within JavaScript code, typically within component files. This technique is popular in component-based frameworks like React, Vue, and Angular, as it allows for more tightly coupled components and styles.
+
+**Popular CSS-in-JS Libraries:**
+- **Styled Components** - Uses tagged template literals to style components
+- **Emotion** - Flexible library with string or object styles
+- **JSS** - Uses JavaScript objects for styles
+- **Stitches** - Near-zero runtime, SSR support
+- **Vanilla Extract** - Zero-runtime, TypeScript-first CSS-in-JS
+
+**Basic Implementation Examples:**
+
+1. **Styled Components:**
+```jsx
+import styled from 'styled-components';
+
+// Create a styled button component
+const Button = styled.button`
+  background-color: ${props => props.primary ? '#3498db' : 'white'};
+  color: ${props => props.primary ? 'white' : '#3498db'};
+  padding: 10px 20px;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: ${props => props.primary ? '#2980b9' : '#f8f9fa'};
+  }
+  
+  &:active {
+    transform: translateY(1px);
+  }
+`;
+
+// Use the component
+function App() {
+  return (
+    <div>
+      <Button primary>Primary Button</Button>
+      <Button>Secondary Button</Button>
+    </div>
+  );
+}
+```
+
+2. **Emotion:**
+```jsx
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
+
+const buttonStyles = (primary) => css`
+  background-color: ${primary ? '#3498db' : 'white'};
+  color: ${primary ? 'white' : '#3498db'};
+  padding: 10px 20px;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: ${primary ? '#2980b9' : '#f8f9fa'};
+  }
+  
+  &:active {
+    transform: translateY(1px);
+  }
+`;
+
+function Button({ primary, children }) {
+  return (
+    <button css={buttonStyles(primary)}>
+      {children}
+    </button>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Button primary>Primary Button</Button>
+      <Button>Secondary Button</Button>
+    </div>
+  );
+}
+```
+
+3. **JSS:**
+```jsx
+import { createUseStyles } from 'react-jss';
+
+const useStyles = createUseStyles({
+  button: {
+    padding: '10px 20px',
+    border: '2px solid #3498db',
+    borderRadius: 4,
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    
+    '&:active': {
+      transform: 'translateY(1px)'
+    }
+  },
+  primaryButton: {
+    backgroundColor: '#3498db',
+    color: 'white',
+    
+    '&:hover': {
+      backgroundColor: '#2980b9'
+    }
+  },
+  secondaryButton: {
+    backgroundColor: 'white',
+    color: '#3498db',
+    
+    '&:hover': {
+      backgroundColor: '#f8f9fa'
+    }
+  }
+});
+
+function Button({ primary, children }) {
+  const classes = useStyles();
+  return (
+    <button className={`${classes.button} ${primary ? classes.primaryButton : classes.secondaryButton}`}>
+      {children}
+    </button>
+  );
+}
+```
+
+**Advanced Features:**
+
+1. **Theming:**
+```jsx
+// Styled Components example
+import styled, { ThemeProvider } from 'styled-components';
+
+const theme = {
+  colors: {
+    primary: '#3498db',
+    secondary: '#2ecc71',
+    danger: '#e74c3c',
+    text: '#333',
+    background: '#fff'
+  },
+  fonts: {
+    body: 'Roboto, sans-serif',
+    heading: 'Montserrat, sans-serif'
+  },
+  spacing: {
+    small: '8px',
+    medium: '16px',
+    large: '24px'
+  },
+  breakpoints: {
+    mobile: '576px',
+    tablet: '768px',
+    desktop: '1024px'
+  }
+};
+
+const Button = styled.button`
+  background-color: ${props => props.theme.colors[props.variant || 'primary']};
+  color: white;
+  padding: ${props => props.theme.spacing.medium};
+  font-family: ${props => props.theme.fonts.body};
+  border: none;
+  border-radius: 4px;
+`;
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <Button>Primary Button</Button>
+      <Button variant="secondary">Secondary Button</Button>
+      <Button variant="danger">Danger Button</Button>
+    </ThemeProvider>
+  );
+}
+```
+
+2. **Global Styles:**
+```jsx
+// Styled Components example
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    color: ${props => props.theme.colors.text};
+    background-color: ${props => props.theme.colors.background};
+  }
+  
+  a {
+    color: ${props => props.theme.colors.primary};
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+`;
+
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      {/* Rest of your app */}
+    </ThemeProvider>
+  );
+}
+```
+
+3. **Dynamic Styling Based on Props:**
+```jsx
+import styled from 'styled-components';
+
+const Card = styled.div`
+  background-color: ${props => props.theme.colors.background};
+  border-radius: ${props => props.rounded ? '8px' : '0'};
+  box-shadow: ${props => props.elevated ? '0 4px 8px rgba(0,0,0,0.1)' : 'none'};
+  padding: ${props => props.theme.spacing[props.padding || 'medium']};
+  margin: ${props => props.theme.spacing[props.margin || 'small']};
+  width: ${props => props.width || '100%'};
+  border: ${props => props.bordered ? `1px solid ${props.theme.colors.primary}` : 'none'};
+`;
+
+function ProductCard({ product, isHighlighted }) {
+  return (
+    <Card 
+      rounded 
+      elevated={isHighlighted}
+      padding="large"
+      bordered={isHighlighted}
+    >
+      <h2>{product.name}</h2>
+      <p>{product.description}</p>
+      <span>${product.price}</span>
+    </Card>
+  );
+}
+```
+
+4. **Composition and Component Extension:**
+```jsx
+import styled from 'styled-components';
+
+const BaseButton = styled.button`
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+`;
+
+const PrimaryButton = styled(BaseButton)`
+  background-color: ${props => props.theme.colors.primary};
+  color: white;
+  border: none;
+  
+  &:hover {
+    background-color: ${props => props.theme.colors.primaryDark};
+  }
+`;
+
+const OutlineButton = styled(BaseButton)`
+  background-color: transparent;
+  color: ${props => props.theme.colors.primary};
+  border: 2px solid ${props => props.theme.colors.primary};
+  
+  &:hover {
+    background-color: ${props => props.theme.colors.primaryLight};
+  }
+`;
+
+const IconButton = styled(BaseButton)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+`;
+```
+
+**Advantages of CSS-in-JS:**
+
+1. **Scoped Styles:**
+   - Automatic scoping prevents style leakage and conflicts
+   - Component-specific styling without naming conventions
+   - No need for BEM, SMACSS, or other CSS methodologies
+
+2. **Dynamic Styling:**
+   - Styles can respond to props, state, and context
+   - Conditional rendering of styles based on application state
+   - Theme support with access to theme variables
+
+3. **Co-location:**
+   - Styles live with the components they style
+   - Easier to understand component behavior
+   - Improved maintainability with component-centric organization
+
+4. **JavaScript Features:**
+   - Use variables, functions, loops, and conditionals in styles
+   - Share constants between styles and JavaScript
+   - Compose and reuse style fragments
+
+5. **Critical CSS Extraction:**
+   - Many libraries support automatic extraction of critical CSS
+   - Improved performance with server-side rendering
+   - Only load styles for components that are actually used
+
+6. **Type Safety:**
+   - TypeScript integration for style objects
+   - Autocomplete for theme properties
+   - Catch styling errors at compile time
+
+**Disadvantages of CSS-in-JS:**
+
+1. **Runtime Overhead:**
+   - Many CSS-in-JS libraries add JavaScript overhead
+   - Style parsing and injection at runtime
+   - Can impact performance, especially on lower-end devices
+
+2. **Learning Curve:**
+   - New syntax and concepts to learn
+   - Different mental model from traditional CSS
+   - Library-specific APIs and patterns
+
+3. **Tooling Limitations:**
+   - Some CSS tools don't work with CSS-in-JS
+   - Browser DevTools integration can be limited
+   - Linting and validation may require special plugins
+
+4. **Bundle Size:**
+   - CSS-in-JS libraries add to JavaScript bundle size
+   - Can increase initial load time
+   - May not be ideal for performance-critical applications
+
+5. **Server-Side Rendering Complexity:**
+   - Additional setup required for SSR
+   - Potential for style flickering during hydration
+   - Extra steps to extract and manage critical CSS
+
+**When to Use CSS-in-JS:**
+
+- Component-based applications (React, Vue, Angular)
+- Applications with highly dynamic styling needs
+- Teams that prefer JavaScript-centric workflows
+- Projects that benefit from tight component/style coupling
+
+**When to Avoid CSS-in-JS:**
+
+- Performance-critical applications
+- Projects with large teams of CSS specialists
+- Simple websites with minimal interactivity
+- When bundle size is a primary concern
+
+**Zero-Runtime CSS-in-JS:**
+
+To address performance concerns, newer CSS-in-JS libraries like Vanilla Extract, Linaria, and Stitches offer "zero-runtime" or "near-zero-runtime" approaches that extract CSS at build time:
+
+```jsx
+// Vanilla Extract example
+import { style, createTheme } from '@vanilla-extract/css';
+
+export const [themeClass, vars] = createTheme({
+  colors: {
+    primary: '#3498db',
+    secondary: '#2ecc71',
+    text: '#333'
+  },
+  space: {
+    small: '8px',
+    medium: '16px',
+    large: '24px'
+  }
+});
+
+export const button = style({
+  backgroundColor: vars.colors.primary,
+  color: 'white',
+  padding: `${vars.space.small} ${vars.space.medium}`,
+  border: 'none',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  ':hover': {
+    backgroundColor: 'darkblue'
+  }
+});
+
+// In your component
+import { themeClass, button } from './styles.css.ts';
+
+function App() {
+  return (
+    <div className={themeClass}>
+      <button className={button}>Click Me</button>
+    </div>
+  );
+}
+```
+
+---
+
+### Q42: What are CSS Methodologies and how do they help in organizing CSS?
+
+**Answer:**
+CSS Methodologies are structured approaches to writing and organizing CSS code that aim to improve maintainability, scalability, and collaboration in projects. They provide conventions and guidelines for naming classes, structuring files, and managing specificity.
+
+**Popular CSS Methodologies:**
+
+1. **BEM (Block, Element, Modifier)**
+
+BEM is one of the most widely used CSS methodologies that focuses on component-based development through a specific naming convention.
+
+- **Block**: Standalone entity that is meaningful on its own (e.g., `header`, `menu`, `button`)
+- **Element**: A part of a block that has no standalone meaning (e.g., `menu__item`, `header__logo`)
+- **Modifier**: A flag on a block or element to change appearance or behavior (e.g., `button--large`, `menu__item--active`)
+
+```css
+/* Block component */
+.card {}
+
+/* Element that depends upon the block */
+.card__title {}
+.card__image {}
+.card__button {}
+
+/* Modifier that changes the style of the block */
+.card--featured {}
+.card--dark {}
+
+/* Modifier that changes the style of an element */
+.card__button--primary {}
+.card__button--secondary {}
+```
+
+HTML implementation:
+
+```html
+<div class="card card--featured">
+  <h2 class="card__title">Card Title</h2>
+  <img class="card__image" src="image.jpg" alt="Card Image">
+  <p class="card__content">Card content goes here...</p>
+  <button class="card__button card__button--primary">Read More</button>
+</div>
+```
+
+**Advantages of BEM:**
+- Clear relationship between HTML and CSS
+- Reduced specificity issues
+- Self-documenting code
+- Component-based approach
+
+**Disadvantages of BEM:**
+- Long class names
+- Verbose HTML
+- Learning curve for new team members
+
+2. **OOCSS (Object-Oriented CSS)**
+
+OOCSS focuses on separating structure from skin and container from content, promoting reusability.
+
+**Key principles:**
+- Separate structure and skin (visual features)
+- Separate container and content
+
+```css
+/* Structure */
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Skin */
+.btn-primary {
+  background-color: #0d6efd;
+  color: white;
+  border: 1px solid #0a58ca;
+}
+
+.btn-success {
+  background-color: #198754;
+  color: white;
+  border: 1px solid #146c43;
+}
+```
+
+HTML implementation:
+
+```html
+<button class="btn btn-primary">Primary Button</button>
+<button class="btn btn-success">Success Button</button>
+```
+
+**Advantages of OOCSS:**
+- Promotes code reuse
+- Reduces CSS file size
+- Consistent UI patterns
+
+**Disadvantages of OOCSS:**
+- Multiple classes in HTML
+- Can be difficult to maintain in large projects
+- Less semantic class names
+
+3. **SMACSS (Scalable and Modular Architecture for CSS)**
+
+SMACSS is more of a style guide than a rigid framework, categorizing CSS rules into five types:
+
+- **Base**: Default styles, element selectors
+- **Layout**: Divides the page into sections
+- **Module**: Reusable, modular components
+- **State**: Describes how modules or layouts look in a particular state
+- **Theme**: Visual appearance (colors, fonts)
+
+```css
+/* Base */
+body, p, h1, h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.l-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.l-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Module */
+.nav {}
+.nav-item {}
+
+.card {}
+.card-header {}
+.card-body {}
+
+/* State */
+.is-active {}
+.is-hidden {}
+
+/* Theme */
+.theme-dark {}
+.theme-light {}
+```
+
+**Advantages of SMACSS:**
+- Flexible framework
+- Clear categorization of styles
+- Scalable for large projects
+
+**Disadvantages of SMACSS:**
+- More complex than other methodologies
+- Requires team discipline
+- More decision-making involved
+
+4. **ITCSS (Inverted Triangle CSS)**
+
+ITCSS is a methodology that organizes CSS files by specificity and reach, from generic to explicit, following an inverted triangle structure.
+
+**Layers (from top to bottom):**
+
+1. **Settings**: Variables and configuration
+2. **Tools**: Mixins and functions
+3. **Generic**: Reset and normalize styles
+4. **Elements**: Bare HTML elements
+5. **Objects**: Class-based selectors for structure
+6. **Components**: Specific UI components
+7. **Utilities**: Helper classes with high specificity
+
+```scss
+// Settings
+$color-primary: #0d6efd;
+$font-size-base: 16px;
+
+// Tools
+@mixin center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Generic
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Elements
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+}
+
+// Objects
+.o-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// Components
+.c-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+// Utilities
+.u-text-center {
+  text-align: center !important;
+}
+```
+
+**Advantages of ITCSS:**
+- Manages specificity effectively
+- Scalable for large projects
+- Clear organization of files
+
+**Disadvantages of ITCSS:**
+- Steeper learning curve
+- Requires preprocessor for optimal use
+- More complex file structure
+
+5. **Atomic CSS / Utility-First CSS**
+
+Atomic CSS focuses on small, single-purpose classes that are named based on their visual function. Tailwind CSS is a popular framework that follows this approach.
+
+```css
+/* Atomic classes */
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.p-4 { padding: 1rem; }
+.m-2 { margin: 0.5rem; }
+.text-lg { font-size: 1.125rem; }
+.font-bold { font-weight: 700; }
+.text-blue-500 { color: #3b82f6; }
+.bg-gray-100 { background-color: #f3f4f6; }
+.rounded { border-radius: 0.25rem; }
+.shadow { box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
+```
+
+HTML implementation:
+
+```html
+<div class="flex items-center justify-between p-4 bg-gray-100 rounded shadow">
+  <h2 class="text-lg font-bold text-blue-500">Card Title</h2>
+  <button class="p-2 bg-blue-500 text-white rounded">Action</button>
+</div>
+```
+
+**Advantages of Atomic CSS:**
+- Reduced CSS file size (after gzipping)
+- Consistent design constraints
+- Faster development once learned
+- No need to invent class names
+
+**Disadvantages of Atomic CSS:**
+- HTML can become verbose
+- Steeper learning curve
+- Less semantic HTML
+- Can be difficult to read and maintain
+
+**Choosing the Right Methodology:**
+
+The choice of CSS methodology depends on several factors:
+
+1. **Project Size and Complexity**:
+   - Small projects: Simpler methodologies like BEM might be sufficient
+   - Large projects: More structured approaches like ITCSS or SMACSS
+
+2. **Team Size and Experience**:
+   - Larger teams benefit from stricter conventions
+   - Consider the learning curve for your team
+
+3. **Project Lifecycle**:
+   - Long-term projects need more maintainable approaches
+   - Short-term projects might prioritize development speed
+
+4. **Integration with Frameworks**:
+   - Some frameworks have their own conventions
+   - Consider how the methodology works with your tech stack
+
+**Hybrid Approaches:**
+
+Many teams adopt hybrid approaches, combining elements from different methodologies:
+
+```css
+/* BEM for components */
+.card {}
+.card__title {}
+.card__content {}
+
+/* Utility classes for common patterns */
+.u-flex {}
+.u-text-center {}
+.u-margin-top-lg {}
+
+/* State classes */
+.is-active {}
+.is-disabled {}
+```
+
+**Best Practices Regardless of Methodology:**
+
+1. **Consistent Naming Convention**:
+   - Stick to one naming pattern throughout the project
+   - Document conventions for the team
+
+2. **Modular Structure**:
+   - Break CSS into logical, manageable files
+   - Use imports or a build system to combine them
+
+3. **Comments and Documentation**:
+   - Document complex components and patterns
+   - Explain the purpose of non-obvious styles
+
+4. **Avoid Deep Nesting**:
+   - Keep selector specificity low
+   - Limit nesting depth (even with preprocessors)
+
+5. **Responsive Design Integration**:
+   - Consider how your methodology handles breakpoints
+   - Maintain consistency across device sizes
+
+---
+
+### Q43: How can you optimize CSS for performance?
+
+**Answer:**
+Optimizing CSS for performance is crucial for faster page loads, smoother animations, and better user experience. Here are comprehensive strategies for CSS performance optimization:
+
+**1. Minimize CSS Size and HTTP Requests**
+
+- **Combine CSS Files**: Reduce HTTP requests by merging multiple CSS files into one.
+
+```html
+<!-- Before optimization: Multiple HTTP requests -->
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="typography.css">
+<link rel="stylesheet" href="layout.css">
+<link rel="stylesheet" href="components.css">
+
+<!-- After optimization: Single HTTP request -->
+<link rel="stylesheet" href="main.min.css">
+```
+
+- **Minify CSS**: Remove unnecessary characters (whitespace, comments, etc.) to reduce file size.
+
+```css
+/* Before minification */
+.header {
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin-bottom: 30px;
+  /* This is the main header */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* After minification */
+.header{background-color:#f8f9fa;padding:20px;margin-bottom:30px;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+```
+
+- **Use CSS Compression**: Enable GZIP or Brotli compression on your server.
+
+```apache
+# Apache .htaccess example
+<IfModule mod_deflate.c>
+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
+  AddOutputFilterByType DEFLATE text/css
+  # More mime types here...
+</IfModule>
+```
+
+**2. Optimize CSS Delivery**
+
+- **Critical CSS**: Inline critical CSS in the `<head>` and load non-critical CSS asynchronously.
+
+```html
+<head>
+  <!-- Inline critical CSS -->
+  <style>
+    /* Critical styles needed for above-the-fold content */
+    body { margin: 0; font-family: sans-serif; }
+    .header { /* ... */ }
+    .hero { /* ... */ }
+  </style>
+  
+  <!-- Load non-critical CSS asynchronously -->
+  <link rel="preload" href="main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="main.css"></noscript>
+</head>
+```
+
+- **Use Media Queries**: Load CSS conditionally based on device characteristics.
+
+```html
+<!-- Only load print styles when printing -->
+<link rel="stylesheet" href="print.css" media="print">
+
+<!-- Only load specific styles for larger screens -->
+<link rel="stylesheet" href="desktop.css" media="(min-width: 1024px)">
+```
+
+**3. Optimize CSS Selectors**
+
+- **Avoid Overly Complex Selectors**: Simplify selectors to improve rendering performance.
+
+```css
+/* Inefficient - deeply nested, complex selector */
+body div.container ul li a.link span.text { color: red; }
+
+/* More efficient - direct class selector */
+.link-text { color: red; }
+```
+
+- **Limit Selector Nesting**: Avoid excessive nesting in preprocessors like Sass.
+
+```scss
+// Inefficient - too much nesting
+.card {
+  .header {
+    .title {
+      .icon {
+        // Compiles to .card .header .title .icon
+        color: blue;
+      }
+    }
+  }
+}
+
+// More efficient - flatter structure
+.card {
+  // Some card styles
+}
+.card__title-icon {
+  color: blue;
+}
+```
+
+- **Avoid Universal Selectors**: Minimize use of `*` selector and complex child selectors.
+
+```css
+/* Inefficient - forces browser to check every element */
+* { box-sizing: border-box; }
+
+/* More efficient - target only what you need */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+```
+
+**4. Optimize Rendering Performance**
+
+- **Use `transform` and `opacity` for Animations**: These properties are GPU-accelerated.
+
+```css
+/* Inefficient - triggers layout and paint */
+@keyframes move-inefficient {
+  from { left: 0; top: 0; }
+  to { left: 200px; top: 200px; }
+}
+
+/* Efficient - only triggers compositing */
+@keyframes move-efficient {
+  from { transform: translate(0, 0); }
+  to { transform: translate(200px, 200px); }
+}
+```
+
+- **Avoid Layout Thrashing**: Group read and write DOM operations.
+
+```javascript
+// Inefficient - causes multiple reflows
+const element = document.getElementById('box');
+element.classList.add('expanded'); // Write
+console.log(element.offsetHeight); // Read - forces reflow
+element.style.margin = '20px'; // Write - causes another reflow
+console.log(element.offsetWidth); // Read - forces reflow again
+
+// Efficient - group reads and writes
+const element = document.getElementById('box');
+// All reads
+const height = element.offsetHeight;
+const width = element.offsetWidth;
+// All writes
+element.classList.add('expanded');
+element.style.margin = '20px';
+```
+
+- **Use `will-change` Sparingly**: Hint to browsers about elements that will animate.
+
+```css
+/* Use only for elements that will actually change */
+.sidebar {
+  will-change: transform;
+}
+
+/* Remove when animation is done */
+.sidebar.animation-done {
+  will-change: auto;
+}
+```
+
+**5. Reduce Unused CSS**
+
+- **Remove Unused Styles**: Use tools like PurgeCSS to eliminate unused CSS.
+
+```javascript
+// Example PurgeCSS configuration in a build process
+const purgecss = require('@fullhuman/postcss-purgecss');
+
+module.exports = {
+  plugins: [
+    // Other plugins...
+    purgecss({
+      content: ['./src/**/*.html', './src/**/*.js'],
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    })
+  ]
+};
+```
+
+- **Code Splitting**: Split CSS by route or component.
+
+```javascript
+// Example with webpack and CSS modules
+import styles from './ComponentStyles.css';
+
+function MyComponent() {
+  return <div className={styles.container}>Content</div>;
+}
+```
+
+**6. Optimize CSS Variables**
+
+- **Scope CSS Variables Appropriately**: Define variables at the level they're needed.
+
+```css
+/* Inefficient - global scope when not needed */
+:root {
+  --button-color: blue;
+  --button-padding: 10px 15px;
+  --button-radius: 4px;
+}
+
+/* More efficient - scoped to where it's used */
+.button-group {
+  --button-color: blue;
+  --button-padding: 10px 15px;
+  --button-radius: 4px;
+}
+```
+
+**7. Use Modern CSS Features Efficiently**
+
+- **CSS Grid and Flexbox**: Use for layouts instead of older techniques.
+
+```css
+/* Inefficient - using floats for grid layout */
+.grid::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.grid-item {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+/* Efficient - using CSS Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+```
+
+- **Container Queries**: Style based on container size rather than viewport.
+
+```css
+@container sidebar (min-width: 400px) {
+  .sidebar-item {
+    padding: 1rem;
+  }
+}
+```
+
+**8. Optimize Web Fonts**
+
+- **Use `font-display`**: Control how fonts are displayed during loading.
+
+```css
+@font-face {
+  font-family: 'MyFont';
+  src: url('myfont.woff2') format('woff2');
+  font-display: swap; /* Show fallback font until custom font loads */
+}
+```
+
+- **Subset Fonts**: Include only the characters you need.
+
+```html
+<!-- Only load Latin character subset -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap&subset=latin" rel="stylesheet">
+```
+
+**9. Implement Responsive Images with CSS**
+
+- **Use Modern Image Formats**: WebP, AVIF with fallbacks.
+
+```css
+.hero {
+  background-image: url('image.avif');
+}
+@supports not (background-image: url('image.avif')) {
+  .hero {
+    background-image: url('image.webp');
+  }
+}
+@supports not (background-image: url('image.webp')) {
+  .hero {
+    background-image: url('image.jpg');
+  }
+}
+```
+
+- **Use `image-set()` for Responsive Images**:
+
+```css
+.hero {
+  background-image: image-set(
+    url('image-1x.jpg') 1x,
+    url('image-2x.jpg') 2x,
+    url('image-3x.jpg') 3x
+  );
+}
+```
+
+**10. Testing and Monitoring CSS Performance**
+
+- **Use Browser DevTools**: Identify render-blocking CSS and performance issues.
+
+- **Implement Performance Budgets**: Set limits on CSS file size and load time.
+
+```javascript
+// Example webpack performance budget
+module.exports = {
+  performance: {
+    maxAssetSize: 100000, // 100kb
+    maxEntrypointSize: 300000,
+    hints: 'warning'
+  }
+};
+```
+
+- **Measure First Contentful Paint (FCP)** and **Largest Contentful Paint (LCP)**: Key metrics affected by CSS performance.
+
+**11. Advanced Techniques**
+
+- **CSS Containment**: Isolate parts of the page for better performance.
+
+```css
+.widget {
+  contain: content; /* Isolate this element's rendering from the rest of the page */
+}
+```
+
+- **Layer Promotion with `will-change` or `transform: translateZ(0)`**: Create a new compositor layer.
+
+```css
+.moving-element {
+  transform: translateZ(0); /* Force layer creation */
+  /* or */
+  will-change: transform;
+}
+```
+
+- **Reduce Paint Areas**: Minimize the regions that need repainting.
+
+```css
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  overflow: auto;
+  /* Create a new layer to avoid repainting the main content when scrolling the sidebar */
+  transform: translateZ(0);
+}
+```
+
+**12. CSS Architecture for Performance**
+
+- **Component-Based CSS**: Organize CSS into reusable, isolated components.
+
+```css
+/* Button component with all its variants contained */
+.btn {
+  /* Base styles */
+}
+.btn--primary {
+  /* Primary variant */
+}
+.btn--large {
+  /* Size variant */
+}
+```
+
+- **CSS Modules or Scoped CSS**: Use build tools to scope CSS to components.
+
+```jsx
+// React with CSS Modules example
+import styles from './Button.module.css';
+
+function Button() {
+  return <button className={styles.button}>Click me</button>;
+}
+```
+
+**Performance Measurement Tools:**
+
+1. **Lighthouse**: Audit CSS performance as part of overall web performance
+2. **WebPageTest**: Detailed waterfall analysis of CSS loading
+3. **Chrome DevTools Performance panel**: Analyze rendering performance
+4. **CSS Stats**: Analyze and visualize CSS statistics
+5. **Bundle analyzers**: Understand CSS size in your bundle
+
+**Best Practices Summary:**
+
+1. Minimize file size through combining, minifying, and compressing CSS
+2. Optimize delivery with critical CSS and asynchronous loading
+3. Write efficient selectors and avoid complexity
+4. Use GPU-accelerated properties for animations
+5. Eliminate unused CSS
+6. Leverage modern CSS features appropriately
+7. Optimize web fonts and images
+8. Implement proper CSS architecture
+9. Regularly test and monitor performance
+
+---
+
+### Q44: How can you make CSS more accessible?
+
+**Answer:**
+Creating accessible CSS is essential for ensuring web content is usable by people with various disabilities. Here are comprehensive strategies for improving CSS accessibility:
+
+**1. Text Readability and Visibility**
+
+- **Ensure Sufficient Color Contrast**: Follow WCAG guidelines for text contrast ratios.
+
+```css
+/* Poor contrast - fails accessibility standards */
+.poor-contrast {
+  color: #999; /* Light gray */
+  background-color: #fff; /* White */
+}
+
+/* Good contrast - passes WCAG AA standards */
+.good-contrast {
+  color: #595959; /* Darker gray */
+  background-color: #fff; /* White */
+}
+
+/* Better contrast - passes WCAG AAA standards */
+.better-contrast {
+  color: #333; /* Dark gray */
+  background-color: #fff; /* White */
+}
+```
+
+- **Use Relative Font Sizes**: Allow text to scale based on user preferences.
+
+```css
+/* Avoid fixed pixel sizes */
+.fixed-size {
+  font-size: 12px; /* Doesn't scale with user preferences */
+}
+
+/* Use relative units */
+.scalable-size {
+  font-size: 1rem; /* Scales with user's root font size setting */
+}
+
+/* For components that need proportional sizing */
+.card-title {
+  font-size: 1.25em; /* Relative to parent element's font size */
+}
+```
+
+- **Maintain Line Height and Spacing**: Ensure adequate spacing for readability.
+
+```css
+/* Improved readability with proper spacing */
+body {
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  word-spacing: 0.05em;
+}
+
+p {
+  margin-bottom: 1.5em; /* Space between paragraphs */
+}
+```
+
+**2. Focus Styles and Keyboard Navigation**
+
+- **Enhance Focus Indicators**: Make focus states clearly visible.
+
+```css
+/* Default browser focus may be subtle */
+
+/* Enhanced focus styles */
+:focus {
+  outline: 3px solid #4d90fe;
+  outline-offset: 2px;
+}
+
+/* Different focus styles for different elements */
+a:focus {
+  outline: 2px solid #4d90fe;
+  text-decoration: underline;
+}
+
+button:focus {
+  outline: 3px solid #4d90fe;
+  box-shadow: 0 0 0 3px rgba(77, 144, 254, 0.5);
+}
+```
+
+- **Never Completely Remove Focus Outlines**: Ensure keyboard users can see what's focused.
+
+```css
+/* Problematic - completely removes focus indicator */
+:focus {
+  outline: none;
+}
+
+/* Better - provides alternative focus styling */
+:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(77, 144, 254, 0.8);
+}
+
+/* Best - only customize focus for mouse users, preserve keyboard focus */
+:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(77, 144, 254, 0.5);
+}
+:focus-visible {
+  outline: 3px solid #4d90fe;
+  outline-offset: 2px;
+}
+```
+
+- **Ensure Logical Tab Order**: Use CSS positioning carefully to maintain logical flow.
+
+```css
+/* Problematic - visual order differs from DOM order */
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/* Better - maintain visual and DOM order alignment */
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* If visual reordering is necessary, ensure tabindex is used appropriately */
+```
+
+**3. Responsive Design and Zoom Support**
+
+- **Create Zoom-Friendly Layouts**: Ensure content works when zoomed to 200%.
+
+```css
+/* Avoid fixed width containers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+/* Use flexible layouts */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+```
+
+- **Use Responsive Typography**: Scale text appropriately across devices.
+
+```css
+/* Fluid typography using clamp() */
+:root {
+  --fluid-type-min: 1rem;      /* 16px */
+  --fluid-type-max: 1.25rem;    /* 20px */
+  --fluid-screen-min: 20rem;    /* 320px */
+  --fluid-screen-max: 80rem;    /* 1280px */
+}
+
+body {
+  font-size: clamp(
+    var(--fluid-type-min),
+    calc(1rem + 0.5vw),
+    var(--fluid-type-max)
+  );
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+```
+
+- **Ensure Touch Targets Are Large Enough**: Accommodate users with motor impairments.
+
+```css
+button, .clickable, a {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px;
+}
+
+/* Ensure adequate spacing between touch targets */
+nav a {
+  margin: 0 8px;
+}
+```
+
+**4. Motion and Animation Considerations**
+
+- **Respect User Motion Preferences**: Use `prefers-reduced-motion` media query.
+
+```css
+/* Default animation */
+.card {
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
+  }
+  
+  /* Alternative non-motion feedback */
+  .card:hover {
+    border-color: #4d90fe;
+  }
+}
+```
+
+- **Avoid Content That Flashes or Flickers**: Prevent seizures and discomfort.
+
+```css
+/* Avoid rapid animations */
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* If animation is necessary, make it subtle and slow */
+@keyframes gentle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.notification {
+  animation: gentle-pulse 3s infinite;
+}
+
+/* Always provide a way to stop animations */
+.notification.paused {
+  animation-play-state: paused;
+}
+```
+
+**5. Color and Visual Information**
+
+- **Don't Rely Solely on Color**: Provide additional visual cues.
+
+```css
+/* Poor accessibility - color alone indicates state */
+.error-text {
+  color: red;
+}
+
+/* Better accessibility - multiple visual cues */
+.error-text {
+  color: #d32f2f;
+  border-left: 4px solid #d32f2f;
+  padding-left: 10px;
+  background-color: #ffebee;
+}
+
+/* Form validation example */
+.input-error {
+  border: 2px solid #d32f2f;
+}
+
+.error-message {
+  color: #d32f2f;
+  display: flex;
+  align-items: center;
+}
+
+.error-message::before {
+  content: "⚠️";
+  margin-right: 8px;
+}
+```
+
+- **Support High Contrast Mode**: Test with Windows High Contrast Mode.
+
+```css
+/* Use transparent borders that become visible in high contrast mode */
+.card {
+  border: 1px solid transparent;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Use forced-colors media query for high contrast adjustments */
+@media (forced-colors: active) {
+  .card {
+    border: 1px solid CanvasText;
+    box-shadow: none;
+  }
+  
+  /* Ensure icons remain visible */
+  .icon {
+    forced-color-adjust: none;
+  }
+}
+```
+
+**6. Form Styling and Usability**
+
+- **Maintain Clear Form Controls**: Ensure form elements are recognizable.
+
+```css
+/* Maintain recognizable form controls */
+input[type="checkbox"], input[type="radio"] {
+  /* Increase size for better touch targets */
+  width: 20px;
+  height: 20px;
+  /* Ensure they stand out visually */
+  accent-color: #0066cc;
+}
+
+/* Custom styled checkbox that maintains accessibility */
+.custom-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+}
+
+/* Accessible states */
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #0066cc;
+}
+
+.custom-checkbox input:focus ~ .checkmark {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox input:checked ~ .checkmark:after {
+  display: block;
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+```
+
+- **Provide Clear Focus for Form Elements**: Ensure users know which field is active.
+
+```css
+input:focus, textarea:focus, select:focus {
+  border-color: #4d90fe;
+  box-shadow: 0 0 0 3px rgba(77, 144, 254, 0.5);
+  outline: none;
+}
+
+/* Style labels to indicate focused fields */
+input:focus + label {
+  color: #0066cc;
+  font-weight: bold;
+}
+```
+
+**7. Text and Content Layout**
+
+- **Ensure Text Remains Visible During Font Loading**: Prevent FOIT (Flash of Invisible Text).
+
+```css
+@font-face {
+  font-family: 'CustomFont';
+  src: url('custom-font.woff2') format('woff2');
+  font-display: swap; /* Show fallback font until custom font loads */
+}
+```
+
+- **Set Maximum Line Length**: Improve readability with appropriate measure.
+
+```css
+.content {
+  max-width: 70ch; /* Approximately 70 characters per line */
+  margin: 0 auto;
+}
+```
+
+- **Use Proper Heading Hierarchy**: Style headings to reflect their level.
+
+```css
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+```
+
+**8. Print Styles for Accessibility**
+
+- **Optimize for Print**: Ensure content is accessible when printed.
+
+```css
+@media print {
+  /* Ensure text is black on white background */
+  body {
+    color: #000;
+    background: #fff;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  /* Make links and abbreviations more useful in print */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+  }
+  
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+    font-size: 90%;
+  }
+  
+  /* Hide non-essential elements */
+  nav, .sidebar, .ads, .comments, button, .no-print {
+    display: none !important;
+  }
+  
+  /* Ensure images don't get cut off */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  /* Avoid breaking inside paragraphs and headings */
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  /* Avoid breaks after headings */
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+}
+```
+
+**9. Hiding Content Accessibly**
+
+- **Visually Hide Content While Keeping It Accessible to Screen Readers**:
+
+```css
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* For elements that should be visible to all users on focus */
+.sr-only-focusable:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+```
+
+**10. Testing and Tools for CSS Accessibility**
+
+- **Use Automated Testing Tools**: Incorporate accessibility checks in your workflow.
+
+```javascript
+// Example using axe-core in JavaScript testing
+import { axe } from 'axe-core';
+
+describe('Homepage accessibility', () => {
+  it('should have no accessibility violations', async () => {
+    const results = await axe(document.body);
+    expect(results.violations).toHaveLength(0);
+  });
+});
+```
+
+- **Manual Testing Checklist**:
+  - Test with keyboard navigation only
+  - Test with screen readers (NVDA, JAWS, VoiceOver)
+  - Test with zoom set to 200%
+  - Test with text-only zoom
+  - Test with Windows High Contrast Mode
+  - Test with animations disabled
+
+**11. Advanced CSS Accessibility Techniques**
+
+- **Use CSS Generated Content Carefully**: Ensure it's not essential for understanding.
+
+```css
+/* Decorative content is fine */
+.external-link::after {
+  content: " ↗";
+  display: inline-block;
+}
+
+/* But don't put essential content in CSS */
+.price::before {
+  content: "$"; /* Screen readers might miss this */
+}
+
+/* Better approach */
+<span class="price"><span aria-hidden="true">$</span>19.99</span>
+```
+
+- **Support Both Dark and Light Modes**: Respect user preferences.
+
+```css
+:root {
+  --text-color: #333;
+  --background-color: #fff;
+  --link-color: #0066cc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #eee;
+    --background-color: #121212;
+    --link-color: #4da3ff;
+  }
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+a {
+  color: var(--link-color);
+}
+```
+
+**12. Accessibility-First CSS Architecture**
+
+- **Build Accessibility into Component Design**: Create accessible patterns from the start.
+
+```css
+/* Example of an accessible dropdown component */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.dropdown-toggle:focus {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+}
+
+.dropdown-toggle[aria-expanded="true"] {
+  border-color: #0066cc;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  min-width: 200px;
+  padding: 8px 0;
+  margin-top: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-item:focus {
+  outline: 2px solid #4d90fe;
+  background-color: #f5f5f5;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+```
+
+**Best Practices Summary:**
+
+1. Ensure sufficient color contrast for all text
+2. Use relative units for font sizes and spacing
+3. Create clear, visible focus indicators
+4. Design layouts that work at 200% zoom
+5. Respect user preferences for motion and color schemes
+6. Don't rely solely on color to convey information
+7. Make form controls clear and usable
+8. Test with assistive technologies
+9. Use appropriate ARIA attributes with corresponding CSS
+10. Create print styles for better document accessibility
 
 ---
 
@@ -207,6 +3994,2206 @@ The CSS Box Model describes how elements are structured and how their dimensions
 /* None - removes element from document flow */
 .hidden {
     display: none;
+}
+```
+
+### Q45: How do you implement CSS grid auto-placement algorithms effectively?
+
+**Answer:**
+CSS Grid's auto-placement algorithm is a powerful feature that automatically positions items in a grid layout when explicit placement isn't specified. Understanding and controlling this algorithm allows for dynamic, responsive layouts with minimal code.
+
+**Basic Auto-Placement Concepts:**
+
+```css
+/* Basic auto-placement */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Items will automatically flow into available grid cells */
+.grid-item {
+  /* No explicit placement needed */
+}
+```
+
+**Controlling Auto-Placement Direction:**
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  
+  /* Control the flow direction */
+  grid-auto-flow: row; /* Default: fills rows first, then moves to next row */
+}
+
+.column-flow {
+  grid-auto-flow: column; /* Fills columns first, then moves to next column */
+}
+
+.dense-packing {
+  grid-auto-flow: dense; /* Attempts to fill holes in the grid */
+}
+
+.row-dense {
+  grid-auto-flow: row dense; /* Combines row direction with dense packing */
+}
+```
+
+**Auto-Placement with Implicit Grid Sizing:**
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Explicit columns */
+  
+  /* Define how auto-created rows should be sized */
+  grid-auto-rows: minmax(100px, auto);
+  
+  /* Define how auto-created columns should be sized (when items overflow) */
+  grid-auto-columns: minmax(200px, 1fr);
+}
+```
+
+**Advanced Auto-Placement Techniques:**
+
+1. **Responsive Auto-Placement with Auto-Fit/Auto-Fill:**
+
+```css
+.auto-fit-grid {
+  display: grid;
+  /* Creates as many columns as will fit, each at least 250px wide */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.auto-fill-grid {
+  display: grid;
+  /* Similar to auto-fit but can leave empty tracks */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+```
+
+2. **Auto-Placement with Named Grid Areas:**
+
+```css
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "header header header header"
+    "sidebar main main main"
+    "sidebar content content aside"
+    "footer footer footer footer";
+  gap: 20px;
+}
+
+/* Items with grid-area will be placed explicitly */
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+
+/* Items without grid-area will use auto-placement algorithm */
+.card {
+  /* These will flow into any available cells not occupied by explicitly placed items */
+}
+```
+
+3. **Mixing Explicit and Auto Placement:**
+
+```css
+.mixed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 15px;
+}
+
+/* Explicitly placed items */
+.featured {
+  grid-column: 1 / -1; /* Spans all columns */
+  grid-row: 1; /* Placed in the first row */
+}
+
+.sidebar {
+  grid-column: 1; /* First column */
+  grid-row: 2 / span 2; /* Spans 2 rows starting from row 2 */
+}
+
+/* Auto-placed items will flow around the explicitly placed ones */
+.card {
+  /* These will be auto-placed in remaining spaces */
+}
+```
+
+4. **Auto-Placement with Spanning Items:**
+
+```css
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 10px;
+  grid-auto-flow: dense; /* Important for filling gaps when items span multiple cells */
+}
+
+/* Different item sizes */
+.gallery-item:nth-child(4n+1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item:nth-child(8n+3) {
+  grid-column: span 2;
+}
+
+.gallery-item:nth-child(6n+5) {
+  grid-row: span 2;
+}
+```
+
+**Practical Use Cases:**
+
+1. **Dynamic Card Layout:**
+
+```css
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: minmax(200px, auto);
+  gap: 20px;
+}
+
+/* Featured cards */
+.card.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Auto-placement will handle the rest */
+```
+
+2. **Masonry-Style Layout:**
+
+```css
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: 20px; /* Small row height as a grid unit */
+  gap: 15px;
+}
+
+/* Items with varying heights */
+.masonry-item {
+  /* Calculate grid-row-end based on content height using JS */
+}
+
+/* Example JavaScript to calculate spans */
+const resizeGridItem = (item) => {
+  const grid = document.querySelector('.masonry-grid');
+  const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+  const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('gap'));
+  
+  const contentHeight = item.querySelector('.content').getBoundingClientRect().height;
+  const rowSpan = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
+  
+  item.style.gridRowEnd = 'span ' + rowSpan;
+};
+
+// Apply to all items
+document.querySelectorAll('.masonry-item').forEach(resizeGridItem);
+```
+
+3. **Content-Priority Layout:**
+
+```css
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 20px;
+  grid-auto-flow: dense; /* Important for priority-based placement */
+}
+
+/* High priority content gets more space and earlier placement */
+.high-priority {
+  grid-column: span 4;
+  order: -1; /* Lower order values appear earlier in source order */
+}
+
+.medium-priority {
+  grid-column: span 3;
+  order: 0;
+}
+
+.low-priority {
+  grid-column: span 2;
+  order: 1;
+}
+```
+
+**Best Practices for Grid Auto-Placement:**
+
+1. **Use `grid-auto-flow: dense` for Space Efficiency:**
+   When you have items of varying sizes, using `dense` packing can prevent gaps in your layout, but be aware this may change the visual order of elements from their source order.
+
+2. **Combine Auto-Placement with Explicit Placement:**
+   Place key elements explicitly (like headers, featured content) and let auto-placement handle the rest for maximum flexibility.
+
+3. **Set Reasonable Minimum Sizes:**
+   When using `minmax()` with `auto-fit` or `auto-fill`, choose minimum sizes that make sense for your content to prevent awkward layouts.
+
+4. **Consider Accessibility:**
+   Be cautious with `dense` packing and reordering as it may create a disconnect between the visual order and the tab/screen reader order. Test with assistive technologies.
+
+5. **Test Across Viewport Sizes:**
+   Auto-placement behavior can change dramatically at different viewport sizes, especially with responsive techniques like `auto-fit`.
+
+6. **Use Feature Queries for Fallbacks:**
+
+```css
+@supports (display: grid) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@supports not (display: grid) {
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .grid-item {
+    flex: 0 0 calc(33.333% - 20px);
+    margin: 10px;
+  }
+}
+```
+
+### Q45: How do you implement CSS grid auto-placement algorithms effectively?
+
+**Answer:**
+CSS Grid's auto-placement algorithm is a powerful feature that automatically positions items in a grid layout when explicit placement isn't specified. Understanding and controlling this algorithm allows for dynamic, responsive layouts with minimal code.
+
+**Basic Auto-Placement Concepts:**
+
+```css
+/* Basic auto-placement */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Items will automatically flow into available grid cells */
+.grid-item {
+  /* No explicit placement needed */
+}
+```
+
+**Controlling Auto-Placement Direction:**
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  
+  /* Control the flow direction */
+  grid-auto-flow: row; /* Default: fills rows first, then moves to next row */
+}
+
+.column-flow {
+  grid-auto-flow: column; /* Fills columns first, then moves to next column */
+}
+
+.dense-packing {
+  grid-auto-flow: dense; /* Attempts to fill holes in the grid */
+}
+```
+
+**Auto-Placement with Implicit Grid Sizing:**
+
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Explicit columns */
+  
+  /* Define how auto-created rows should be sized */
+  grid-auto-rows: minmax(100px, auto);
+  
+  /* Define how auto-created columns should be sized (when items overflow) */
+  grid-auto-columns: minmax(200px, 1fr);
+}
+```
+
+**Advanced Auto-Placement Techniques:**
+
+1. **Responsive Auto-Placement with Auto-Fit/Auto-Fill:**
+
+```css
+.auto-fit-grid {
+  display: grid;
+  /* Creates as many columns as will fit, each at least 250px wide */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.auto-fill-grid {
+  display: grid;
+  /* Similar to auto-fit but can leave empty tracks */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+```
+
+2. **Mixing Explicit and Auto Placement:**
+
+```css
+.mixed-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  gap: 15px;
+}
+
+/* Explicitly placed items */
+.featured {
+  grid-column: 1 / -1; /* Spans all columns */
+  grid-row: 1; /* Placed in the first row */
+}
+
+.sidebar {
+  grid-column: 1; /* First column */
+  grid-row: 2 / span 2; /* Spans 2 rows starting from row 2 */
+}
+
+/* Auto-placed items will flow around the explicitly placed ones */
+.card {
+  /* These will be auto-placed in remaining spaces */
+}
+```
+
+**Best Practices for Grid Auto-Placement:**
+
+1. **Use `grid-auto-flow: dense` for Space Efficiency:**
+   When you have items of varying sizes, using `dense` packing can prevent gaps in your layout, but be aware this may change the visual order of elements from their source order.
+
+2. **Combine Auto-Placement with Explicit Placement:**
+   Place key elements explicitly (like headers, featured content) and let auto-placement handle the rest for maximum flexibility.
+
+3. **Set Reasonable Minimum Sizes:**
+   When using `minmax()` with `auto-fit` or `auto-fill`, choose minimum sizes that make sense for your content to prevent awkward layouts.
+
+4. **Consider Accessibility:**
+   Be cautious with `dense` packing and reordering as it may create a disconnect between the visual order and the tab/screen reader order. Test with assistive technologies.
+
+---
+
+### Q46: What are CSS anchor positioning and how do you use them?
+
+**Answer:**
+CSS anchor positioning is a modern layout feature that allows elements to be positioned relative to other elements (anchors) on the page, even when they're not direct parent-child relationships. This feature is particularly useful for creating tooltips, popovers, dropdown menus, and other UI components that need to be positioned relative to trigger elements.
+
+**Basic Concept:**
+
+Anchor positioning allows you to position an element (like a tooltip) relative to another element (like a button) without complex JavaScript calculations or absolute positioning hacks.
+
+**Basic Implementation:**
+
+```css
+/* The anchor element */
+.button {
+  /* Declare this element as an anchor that other elements can position against */
+  anchor-name: --button-anchor;
+}
+
+/* The positioned element */
+.tooltip {
+  /* Position relative to the anchor */
+  position: absolute;
+  anchor-default: --button-anchor;
+  
+  /* Position the tooltip above the button */
+  inset-block-end: calc(anchor-size(block-start) + 8px);
+  inset-inline-start: anchor-size(inline-start);
+}
+```
+
+**Positioning Options:**
+
+```css
+.popover {
+  position: absolute;
+  anchor-default: --trigger-anchor;
+  
+  /* Different positioning options */
+  
+  /* 1. Position at the bottom of the anchor */
+  top: anchor(bottom);
+  
+  /* 2. Center horizontally relative to the anchor */
+  left: anchor(center);
+  
+  /* 3. Position with offset */
+  top: calc(anchor(bottom) + 10px);
+  
+  /* 4. Position using logical properties */
+  inset-block-start: anchor(block-end);
+  inset-inline-start: anchor(inline-start);
+}
+```
+
+**Advanced Features:**
+
+1. **Position Fallbacks:**
+
+```css
+.tooltip {
+  position: absolute;
+  anchor-default: --button-anchor;
+  
+  /* Try to position above first */
+  position-fallback: --tooltip-position;
+}
+
+@position-fallback --tooltip-position {
+  @try {
+    /* Try positioning above */
+    bottom: calc(anchor(top) + 10px);
+    left: anchor(center);
+  }
+  
+  @try {
+    /* If above doesn't fit, try below */
+    top: calc(anchor(bottom) + 10px);
+    left: anchor(center);
+  }
+  
+  @try {
+    /* If below doesn't fit, try right */
+    left: calc(anchor(right) + 10px);
+    top: anchor(center);
+  }
+  
+  @try {
+    /* Last resort: left */
+    right: calc(anchor(left) + 10px);
+    top: anchor(center);
+  }
+}
+```
+
+2. **Multiple Anchors:**
+
+```css
+/* Define multiple anchors */
+.header-logo { anchor-name: --logo-anchor; }
+.nav-toggle { anchor-name: --toggle-anchor; }
+
+/* Position based on viewport size */
+.dropdown {
+  position: absolute;
+  
+  /* Use different anchors based on context */
+  @media (min-width: 768px) {
+    anchor-default: --logo-anchor;
+    top: anchor(bottom);
+    left: anchor(left);
+  }
+  
+  @media (max-width: 767px) {
+    anchor-default: --toggle-anchor;
+    top: anchor(bottom);
+    right: anchor(right);
+  }
+}
+```
+
+**Practical Use Cases:**
+
+1. **Tooltips:**
+
+```css
+.tooltip-trigger {
+  anchor-name: --tooltip-anchor;
+  position: relative;
+}
+
+.tooltip {
+  position: absolute;
+  anchor-default: --tooltip-anchor;
+  position-fallback: --tooltip-position;
+  
+  /* Styling */
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  max-width: 200px;
+  z-index: 100;
+  
+  /* Hide by default */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.tooltip-trigger:hover + .tooltip,
+.tooltip-trigger:focus + .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+@position-fallback --tooltip-position {
+  @try { bottom: calc(anchor(top) - 8px); left: anchor(center); transform: translateX(-50%); }
+  @try { top: calc(anchor(bottom) + 8px); left: anchor(center); transform: translateX(-50%); }
+  @try { left: calc(anchor(right) + 8px); top: anchor(center); transform: translateY(-50%); }
+  @try { right: calc(anchor(left) - 8px); top: anchor(center); transform: translateY(-50%); }
+}
+```
+
+2. **Dropdown Menus:**
+
+```css
+.dropdown-trigger {
+  anchor-name: --dropdown-anchor;
+}
+
+.dropdown-menu {
+  position: absolute;
+  anchor-default: --dropdown-anchor;
+  top: anchor(bottom);
+  left: anchor(start);
+  min-width: max(100%, 200px); /* At least as wide as the trigger */
+  
+  /* Styling */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+```
+
+**Browser Support and Fallbacks:**
+
+As of my knowledge cutoff, CSS anchor positioning is still an experimental feature with limited browser support. Always provide fallbacks:
+
+```css
+/* Fallback for browsers without anchor positioning support */
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Use feature detection */
+@supports (anchor-name: --a) {
+  .tooltip-trigger {
+    anchor-name: --tooltip-anchor;
+  }
+  
+  .tooltip {
+    anchor-default: --tooltip-anchor;
+    top: anchor(bottom);
+    left: anchor(center);
+    transform: translateX(-50%);
+  }
+}
+```
+
+**JavaScript Alternative:**
+
+For browsers without support, you can use JavaScript libraries like Popper.js or Floating UI to achieve similar positioning behavior:
+
+```javascript
+// Using Floating UI
+import {computePosition, flip, shift, offset} from '@floating-ui/dom';
+
+const trigger = document.querySelector('.tooltip-trigger');
+const tooltip = document.querySelector('.tooltip');
+
+function updatePosition() {
+  computePosition(trigger, tooltip, {
+    placement: 'top',
+    middleware: [offset(8), flip(), shift({padding: 5})]
+  }).then(({x, y}) => {
+    Object.assign(tooltip.style, {
+      left: `${x}px`,
+      top: `${y}px`
+    });
+  });
+}
+
+// Update position on relevant events
+trigger.addEventListener('mouseenter', () => {
+  tooltip.style.display = 'block';
+  updatePosition();
+});
+
+trigger.addEventListener('mouseleave', () => {
+  tooltip.style.display = 'none';
+});
+
+window.addEventListener('resize', updatePosition);
+window.addEventListener('scroll', updatePosition);
+```
+
+---
+
+### Q47: How do you implement print stylesheets and optimize for print media?
+
+**Answer:**
+Print stylesheets allow you to create specialized styles for when users print your web pages. This ensures that your content is readable, conserves ink, and presents information appropriately in a printed format.
+
+**Basic Implementation:**
+
+You can target print media using the `@media print` rule:
+
+```css
+/* Regular styles for screen viewing */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Styles that only apply when printing */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+}
+```
+
+Alternatively, you can use a separate stylesheet specifically for print:
+
+```html
+<!-- Main stylesheet for screen viewing -->
+<link rel="stylesheet" href="styles.css" media="screen">
+
+<!-- Stylesheet that only applies when printing -->
+<link rel="stylesheet" href="print.css" media="print">
+```
+
+**Essential Print Optimizations:**
+
+1. **Remove Unnecessary Elements:**
+
+```css
+@media print {
+  /* Hide navigation, ads, comments, and other non-essential elements */
+  nav, .sidebar, .ads, .comments, .footer-links, .social-buttons {
+    display: none !important;
+  }
+  
+  /* Hide any elements with the no-print class */
+  .no-print {
+    display: none !important;
+  }
+}
+```
+
+2. **Optimize Typography:**
+
+```css
+@media print {
+  body {
+    /* Use serif fonts for better readability in print */
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  /* Ensure adequate contrast */
+  * {
+    color: black !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  /* Make headings stand out */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    font-weight: bold;
+  }
+  
+  h1 { font-size: 24pt; }
+  h2 { font-size: 20pt; }
+  h3 { font-size: 16pt; }
+}
+```
+
+3. **Handle Links and URLs:**
+
+```css
+@media print {
+  /* Show the URL after each link */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 90%;
+    font-style: italic;
+  }
+  
+  /* Don't show URL for internal links or javascript */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  
+  /* Make links stand out without underlines */
+  a {
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
+```
+
+4. **Page Breaks and Layout Control:**
+
+```css
+@media print {
+  /* Avoid breaking images and tables across pages */
+  img, table {
+    page-break-inside: avoid;
+  }
+  
+  /* Ensure headings don't print at the bottom of the page */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  /* Force page breaks before major sections */
+  section, .new-section {
+    page-break-before: always;
+  }
+  
+  /* Prevent orphaned headings */
+  h1, h2, h3, h4, h5 {
+    page-break-after: avoid;
+  }
+  
+  /* Prevent widows and orphans */
+  p, li, blockquote {
+    orphans: 3; /* Minimum number of lines at bottom of page */
+    widows: 3;  /* Minimum number of lines at top of page */
+  }
+}
+```
+
+5. **Images and Background Handling:**
+
+```css
+@media print {
+  /* Ensure images are sized appropriately */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Force background images to print (if necessary) */
+  .print-bg {
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  /* Add borders to images that might be hard to see */
+  img {
+    border: 1px solid #ddd;
+  }
+}
+```
+
+**Advanced Print Techniques:**
+
+1. **Custom Page Size and Margins:**
+
+```css
+@media print {
+  @page {
+    size: letter; /* Can be 'A4', 'letter', 'legal', or custom dimensions */
+    margin: 2cm; /* Set uniform margins */
+  }
+  
+  /* Different margins for first page */
+  @page :first {
+    margin-top: 3cm;
+  }
+  
+  /* Different margins for left and right pages in a book-like layout */
+  @page :left {
+    margin-right: 3cm;
+  }
+  
+  @page :right {
+    margin-left: 3cm;
+  }
+}
+```
+
+2. **Headers and Footers:**
+
+```css
+@media print {
+  /* Add page numbers at the bottom */
+  @page {
+    @bottom-center {
+      content: "Page " counter(page);
+    }
+  }
+  
+  /* Add title in the header */
+  @page {
+    @top-center {
+      content: "Company Report 2023";
+      font-family: sans-serif;
+    }
+  }
+  
+  /* Add date in the footer */
+  @page {
+    @bottom-right {
+      content: "Printed on " attr(data-print-date);
+    }
+  }
+}
+```
+
+3. **Print-Specific Layouts:**
+
+```css
+@media print {
+  /* Convert multi-column layout to single column */
+  .grid-container, .flex-container {
+    display: block !important;
+  }
+  
+  /* Make tables more print-friendly */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Expand collapsed content for print */
+  .accordion-content, .collapsed {
+    display: block !important;
+    height: auto !important;
+  }
+}
+```
+
+**Testing and Debugging Print Styles:**
+
+1. **Print Preview:** Most browsers have a print preview feature that allows you to see how your page will look when printed.
+
+2. **Browser Developer Tools:** Chrome and Firefox allow you to emulate print media:
+   - In Chrome DevTools: Open the rendering tab and select "Emulate CSS media type: print"
+   - In Firefox DevTools: Click on the responsive design mode icon, then select "Print" from the media type dropdown
+
+3. **JavaScript Print Testing:**
+
+```javascript
+// Add a button to test print styles without actually printing
+document.getElementById('test-print-styles').addEventListener('click', function() {
+  document.body.classList.toggle('print-preview');
+});
+```
+
+```css
+/* CSS to emulate print styles */
+body.print-preview {
+  width: 8.5in;
+  height: 11in;
+  margin: 0 auto;
+  padding: 0.5in;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+body.print-preview * {
+  /* Apply all your print styles here */
+}
+```
+
+**Best Practices and Common Pitfalls:**
+
+1. **Test on Different Browsers:** Print rendering can vary significantly between browsers.
+
+2. **Consider Ink Usage:** Dark backgrounds and unnecessary images waste ink.
+
+3. **Test with Different Paper Sizes:** Your design should work on both A4 and US Letter.
+
+4. **Handle Long URLs:** Very long URLs can break layouts when printed.
+
+5. **QR Codes for Digital Content:** Instead of printing long URLs, consider adding QR codes that link back to the online content:
+
+```css
+@media print {
+  /* Show QR codes in print that were hidden on screen */
+  .print-qr-code {
+    display: block;
+    margin: 20px 0;
+  }
+  
+  /* Hide long URLs and show QR code instead */
+  .long-url {
+    display: none;
+  }
+}
+```
+
+6. **Print-Specific Content:**
+
+```html
+<div class="screen-only">Click the button to download the PDF</div>
+<div class="print-only">For the latest version of this document, visit example.com/docs</div>
+```
+
+```css
+.print-only {
+  display: none;
+}
+
+@media print {
+  .screen-only {
+    display: none;
+  }
+  
+  .print-only {
+    display: block;
+  }
+}
+```
+
+**Responsive Print Design:**
+
+Combine print media queries with responsive design principles:
+
+```css
+/* Base styles for both screen and print */
+.content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Screen-specific responsive adjustments */
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 0 20px;
+  }
+}
+
+/* Print-specific responsive adjustments */
+@media print {
+  /* Reset any screen-specific responsive styles */
+  .content {
+    width: 100%;
+    padding: 0;
+    max-width: none;
+  }
+  
+  /* Adjust font sizes for print */
+  @page {
+    size: letter portrait;
+  }
+  
+  /* Different styles based on page width */
+  @media (max-width: 8.5in) {
+    body {
+      font-size: 10pt;
+    }
+  }
+}
+```
+
+---
+
+### Q48: What are CSS containment strategies and how do they improve performance?
+
+**Answer:**
+CSS containment is a set of CSS properties that allow developers to isolate parts of a page and tell the browser that an element's subtree is independent from the rest of the page. This enables the browser to optimize rendering and improve performance by skipping unnecessary operations.
+
+**Basic Concept:**
+
+The `contain` property in CSS allows you to tell the browser which aspects of an element are isolated from the rest of the document. This helps the browser optimize rendering by:
+
+1. Limiting the scope of layout recalculations
+2. Reducing style recalculations
+3. Preventing unnecessary repaints
+4. Optimizing the rendering pipeline
+
+**The `contain` Property:**
+
+```css
+.isolated-component {
+  contain: content;
+}
+```
+
+The `contain` property accepts several values that control different aspects of containment:
+
+1. **`size`**: The element's size does not depend on its children
+2. **`layout`**: Nothing outside can affect the internal layout and vice versa
+3. **`style`**: Effects like `:hover` don't escape the element
+4. **`paint`**: The element's descendants don't display outside its bounds
+5. **`content`**: Combines `layout` and `paint` containment
+6. **`strict`**: Combines all containment types (`size`, `layout`, `style`, and `paint`)
+7. **`none`**: No containment applied (default)
+
+**Practical Examples:**
+
+1. **Basic Containment for Components:**
+
+```css
+/* Isolate a complex UI component */
+.card-component {
+  contain: content;
+  /* Other styles */
+  width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+```
+
+2. **Size Containment for Fixed-Size Elements:**
+
+```css
+/* For elements with known dimensions */
+.avatar {
+  contain: size layout;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+```
+
+3. **Layout Containment for Independent Sections:**
+
+```css
+/* For sections that don't affect other parts of the layout */
+.sidebar {
+  contain: layout;
+  width: 250px;
+  height: 100vh;
+  overflow-y: auto;
+}
+```
+
+4. **Paint Containment for Offscreen Elements:**
+
+```css
+/* For elements that might be partially offscreen */
+.map-container {
+  contain: paint;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+}
+```
+
+5. **Strict Containment for Maximum Isolation:**
+
+```css
+/* For completely independent widgets */
+.third-party-widget {
+  contain: strict;
+  width: 300px;
+  height: 250px;
+  overflow: auto;
+}
+```
+
+**Performance Benefits:**
+
+1. **Reduced Layout Thrashing:**
+
+When an element has `layout` containment, changes inside it won't trigger layout recalculations for the rest of the page:
+
+```css
+.infinite-scroll-container {
+  contain: layout;
+  height: 500px;
+  overflow-y: auto;
+}
+```
+
+2. **Optimized Repaints:**
+
+With `paint` containment, the browser can skip painting elements that are outside the viewport:
+
+```css
+.offscreen-canvas {
+  contain: paint;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+```
+
+3. **Faster Style Recalculations:**
+
+The `style` containment limits the scope of certain selectors and pseudo-classes:
+
+```css
+.isolated-hover-effects {
+  contain: style;
+}
+
+.isolated-hover-effects:hover .highlight {
+  /* These effects won't trigger recalculations outside the container */
+  background-color: yellow;
+  transform: scale(1.05);
+}
+```
+
+4. **Predictable Size Calculations:**
+
+The `size` containment tells the browser that an element's size doesn't depend on its children:
+
+```css
+.fixed-size-container {
+  contain: size;
+  width: 400px;
+  height: 300px;
+  overflow: auto;
+}
+```
+
+**Advanced Containment Strategies:**
+
+1. **Content Visibility:**
+
+The `content-visibility` property takes containment further by allowing the browser to skip rendering offscreen content entirely:
+
+```css
+.section {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px; /* Hint for the browser about size */
+}
+```
+
+2. **Contain Intrinsic Size:**
+
+When using `content-visibility` or `contain: size`, you can provide size hints to prevent layout shifts:
+
+```css
+.lazy-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px 600px; /* Width and height hints */
+}
+```
+
+3. **Combining with will-change:**
+
+```css
+.animated-panel {
+  contain: paint layout;
+  will-change: transform;
+  transition: transform 0.3s ease;
+}
+```
+
+4. **Containment for Virtual Lists:**
+
+```css
+.virtual-list-container {
+  contain: strict;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.virtual-list-item {
+  contain: layout;
+  height: 50px;
+}
+```
+
+**Real-World Use Cases:**
+
+1. **Social Media Feeds:**
+
+```css
+.feed-container {
+  contain: content;
+}
+
+.feed-item {
+  contain: layout;
+  content-visibility: auto;
+  contain-intrinsic-size: 120px;
+  margin-bottom: 16px;
+}
+```
+
+2. **Complex Dashboards:**
+
+```css
+.dashboard-widget {
+  contain: content;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.widget-content {
+  contain: layout;
+  padding: 16px;
+}
+```
+
+3. **Image Galleries:**
+
+```css
+.gallery {
+  contain: layout;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.gallery-item {
+  contain: strict;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+```
+
+4. **Third-Party Embeds:**
+
+```css
+.embedded-widget {
+  contain: strict;
+  width: 100%;
+  height: 400px;
+  border: none;
+  overflow: hidden;
+}
+```
+
+**Best Practices and Considerations:**
+
+1. **Don't Over-Contain:**
+Apply containment only where it makes sense. Unnecessary containment can sometimes hurt performance or cause layout issues.
+
+2. **Be Careful with `size` Containment:**
+When using `size` containment, you must explicitly set dimensions or the element might collapse.
+
+```css
+/* This might collapse if children have no height */
+.risky-container {
+  contain: size;
+  /* Missing explicit height */
+}
+
+/* Better approach */
+.safe-container {
+  contain: size;
+  height: 300px; /* Explicit height */
+  overflow: auto; /* Handle overflow */
+}
+```
+
+3. **Test Performance Impact:**
+Measure before and after applying containment to ensure it's actually helping:
+
+```javascript
+// Before adding containment
+console.time('Before Containment');
+// Perform layout-intensive operations
+console.timeEnd('Before Containment');
+
+// After adding containment
+console.time('After Containment');
+// Same operations
+console.timeEnd('After Containment');
+```
+
+4. **Combine with Other Performance Techniques:**
+
+```css
+.optimized-component {
+  contain: content;
+  will-change: transform; /* For animations */
+  transform: translateZ(0); /* Force GPU acceleration when needed */
+  transition: opacity 0.3s ease;
+}
+```
+
+5. **Consider Accessibility:**
+Ensure that containment doesn't break accessibility features like focus management or screen reader navigation.
+
+**Browser Support and Fallbacks:**
+
+As of my knowledge cutoff, CSS containment has good support in modern browsers but may not work in older browsers. Always provide fallbacks:
+
+```css
+/* Basic styling for all browsers */
+.component {
+  /* Regular styles */
+}
+
+/* Add containment for supporting browsers */
+@supports (contain: content) {
+  .component {
+    contain: content;
+  }
+}
+
+/* Advanced containment for newest browsers */
+@supports (content-visibility: auto) {
+  .component {
+    content-visibility: auto;
+    contain-intrinsic-size: 300px;
+  }
+}
+```
+
+**Debugging Containment:**
+
+In Chrome DevTools, you can visualize containment regions:
+
+1. Open DevTools
+2. Go to the Rendering tab (press Esc, then select Rendering)
+3. Enable "Show CSS containment"
+
+This will highlight elements with containment applied, helping you debug and optimize your containment strategy.
+
+---
+
+### Q49: How do you implement CSS feature detection and provide fallbacks?
+
+**Answer:**
+CSS feature detection is a technique that allows you to determine whether a browser supports a particular CSS feature before using it. This approach enables you to provide appropriate fallbacks for browsers that don't support newer features, ensuring a consistent user experience across different browsers and devices.
+
+**Basic Feature Detection with `@supports`:**
+
+The primary method for CSS feature detection is the `@supports` rule (also known as feature queries). It allows you to conditionally apply styles based on whether the browser supports a specific CSS property or value:
+
+```css
+/* Basic syntax */
+@supports (property: value) {
+  /* Styles to apply if the feature is supported */
+}
+```
+
+**Practical Examples:**
+
+1. **Grid Layout with Flexbox Fallback:**
+
+```css
+/* Fallback for browsers that don't support Grid */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  flex: 1 1 300px;
+  margin: 10px;
+}
+
+/* Grid layout for supporting browsers */
+@supports (display: grid) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .item {
+    flex: none; /* Reset flex properties */
+    margin: 0; /* Reset margin as grid-gap handles spacing */
+  }
+}
+```
+
+2. **Modern CSS Properties with Fallbacks:**
+
+```css
+/* Fallback for browsers that don't support aspect-ratio */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Modern approach with aspect-ratio */
+@supports (aspect-ratio: 16 / 9) {
+  .video-container {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding-bottom: 0;
+    aspect-ratio: 16 / 9;
+  }
+  
+  .video-container iframe {
+    position: static;
+    height: 100%;
+  }
+}
+```
+
+3. **Multiple Property Support Check:**
+
+```css
+/* Check for multiple CSS properties */
+@supports (display: flex) and (position: sticky) {
+  .advanced-layout {
+    /* Styles that require both flexbox and sticky positioning */
+  }
+}
+```
+
+4. **Negative Feature Detection:**
+
+```css
+/* Styles for browsers that DON'T support a feature */
+@supports not (display: grid) {
+  .legacy-layout {
+    /* Alternative layout for browsers without grid support */
+  }
+}
+```
+
+**Advanced Feature Detection Techniques:**
+
+1. **Logical Operators:**
+
+```css
+/* AND operator - all conditions must be true */
+@supports (display: grid) and (grid-template-areas: "header header") {
+  /* Styles that require both grid and grid-template-areas */
+}
+
+/* OR operator - at least one condition must be true */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+  /* Styles for either standard or webkit-prefixed backdrop-filter */
+}
+
+/* NOT operator - condition must be false */
+@supports not (display: grid) {
+  /* Fallback styles for browsers without grid support */
+}
+
+/* Combining operators with parentheses */
+@supports ((display: grid) and (grid-auto-flow: dense)) or (display: flex) {
+  /* Styles for browsers with advanced grid features OR flexbox */
+}
+```
+
+2. **Selector Feature Detection:**
+
+```css
+/* Check if :is() pseudo-class is supported */
+@supports selector(:is(a, b)) {
+  /* Use :is() for more concise selectors */
+  :is(h1, h2, h3):hover {
+    color: blue;
+  }
+}
+
+/* Fallback for browsers that don't support :is() */
+@supports not selector(:is(a, b)) {
+  h1:hover, h2:hover, h3:hover {
+    color: blue;
+  }
+}
+```
+
+3. **Custom Property (Variable) Detection:**
+
+```css
+/* Check if CSS variables are supported */
+@supports (--custom: property) {
+  :root {
+    --main-color: #3498db;
+    --accent-color: #e74c3c;
+  }
+  
+  .element {
+    color: var(--main-color);
+    border-color: var(--accent-color);
+  }
+}
+
+/* Fallback for browsers without CSS variable support */
+@supports not (--custom: property) {
+  .element {
+    color: #3498db;
+    border-color: #e74c3c;
+  }
+}
+```
+
+**Progressive Enhancement Strategies:**
+
+1. **Layer Your CSS:**
+
+```css
+/* Base styles for all browsers */
+.card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+/* Enhanced styles for browsers with box-shadow support */
+@supports (box-shadow: 0 0 10px rgba(0,0,0,0.1)) {
+  .card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+}
+
+/* Further enhancement for browsers with backdrop-filter */
+@supports (backdrop-filter: blur(10px)) {
+  .card.glass {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+  }
+}
+```
+
+2. **Combine with Modernizr (JavaScript-based detection):**
+
+```html
+<!-- Include Modernizr for additional feature detection -->
+<script src="modernizr.js"></script>
+```
+
+```css
+/* CSS using Modernizr-added classes */
+.flexbox .container {
+  display: flex;
+}
+
+.no-flexbox .container {
+  display: block;
+}
+
+/* Combine with @supports for more specific cases */
+.flexbox .container {
+  display: flex;
+}
+
+@supports (display: grid) {
+  .flexbox.cssgrids .container {
+    display: grid;
+  }
+}
+```
+
+**Real-World Use Cases:**
+
+1. **Modern Layout Techniques:**
+
+```css
+/* Base layout for all browsers */
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.columns {
+  display: block; /* Stack by default */
+}
+
+.column {
+  margin-bottom: 20px;
+}
+
+/* Flexbox for better browsers */
+@supports (display: flex) {
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+  }
+  
+  .column {
+    flex: 1 1 300px;
+    margin: 0 10px 20px;
+  }
+}
+
+/* Grid for modern browsers */
+@supports (display: grid) {
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+    margin: 0;
+  }
+  
+  .column {
+    margin: 0;
+  }
+}
+```
+
+2. **Advanced Visual Effects:**
+
+```css
+/* Base styling */
+.modal {
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+/* Add box-shadow if supported */
+@supports (box-shadow: 0 0 10px rgba(0,0,0,0.1)) {
+  .modal {
+    border: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+}
+
+/* Add backdrop blur for glass effect if supported */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+  .modal.glass {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+```
+
+3. **Typography Enhancements:**
+
+```css
+/* Base typography */
+.text {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* Use font-display if supported */
+@supports (font-display: swap) {
+  @font-face {
+    font-family: 'CustomFont';
+    src: url('custom-font.woff2') format('woff2');
+    font-display: swap;
+  }
+  
+  .text {
+    font-family: 'CustomFont', Arial, sans-serif;
+  }
+}
+
+/* Use variable fonts if supported */
+@supports (font-variation-settings: normal) {
+  .text {
+    font-family: 'Variable', Arial, sans-serif;
+    font-variation-settings: 'wght' 400;
+  }
+  
+  .text strong {
+    font-variation-settings: 'wght' 700;
+    font-weight: normal; /* Let the variation settings handle it */
+  }
+}
+```
+
+**JavaScript-Based Feature Detection:**
+
+For more complex cases, you can combine CSS feature detection with JavaScript:
+
+```javascript
+// Check if a CSS property is supported
+function supportsProperty(property) {
+  return property in document.body.style;
+}
+
+// Check if a CSS value is supported
+function supportsPropertyValue(property, value) {
+  const element = document.createElement('div');
+  element.style[property] = value;
+  return element.style[property] === value;
+}
+
+// Apply classes based on feature support
+if (supportsProperty('gridTemplateColumns')) {
+  document.documentElement.classList.add('supports-grid');
+}
+
+if (supportsPropertyValue('display', 'flex')) {
+  document.documentElement.classList.add('supports-flexbox');
+}
+```
+
+**Best Practices:**
+
+1. **Start with Base Styles:**
+Always begin with styles that work everywhere, then progressively enhance.
+
+```css
+/* Base styles for all browsers */
+.element {
+  /* Core styling that works everywhere */
+}
+
+/* Enhanced styles for modern browsers */
+@supports (feature: value) {
+  .element {
+    /* Modern styling */
+  }
+}
+```
+
+2. **Test Thoroughly:**
+Test your feature detection in multiple browsers to ensure it works as expected.
+
+3. **Don't Over-Detect:**
+Only use feature detection when necessary. For many CSS properties, the default fallback behavior is acceptable.
+
+4. **Combine Techniques:**
+Use both CSS and JavaScript feature detection for the most robust approach.
+
+5. **Document Your Fallbacks:**
+Comment your code to explain the fallback strategy for future developers.
+
+```css
+/* 
+1. Base layout uses floats for IE11 and older browsers
+2. Flexbox layout for browsers that support it
+3. Grid layout for modern browsers with auto-placement support
+*/
+```
+
+**Performance Considerations:**
+
+1. **Minimize Duplicate Code:**
+Try to structure your CSS to minimize duplication between feature-supported and fallback code.
+
+2. **Consider File Size:**
+Feature detection adds code size. For critical CSS, balance comprehensive fallbacks against performance.
+
+3. **Use CSS Cascade Layers:**
+For complex applications, consider organizing feature detection with cascade layers:
+
+```css
+@layer base, fallbacks, modern;
+
+@layer base {
+  /* Base styles for all browsers */
+}
+
+@layer fallbacks {
+  /* Intermediate fallbacks for partial support */
+}
+
+@layer modern {
+  @supports (display: grid) and (gap: 1rem) {
+    /* Modern styles for full feature support */
+  }
+}
+```
+
+---
+
+### Q50: What are CSS comparison functions and how do you use them?
+
+**Answer:**
+CSS comparison functions are a set of modern CSS functions that allow you to compare values and select the most appropriate one based on specific conditions. These functions enhance the expressiveness and flexibility of CSS, enabling more dynamic styling without relying on JavaScript or media queries.
+
+**Core CSS Comparison Functions:**
+
+1. **`min()`**: Returns the smallest value from a list of comma-separated values
+2. **`max()`**: Returns the largest value from a list of comma-separated values
+3. **`clamp()`**: Constrains a value between a minimum and maximum value
+4. **`comparison()`**: Compares two values and returns one of two results based on the comparison (newer function)
+
+**Basic Usage Examples:**
+
+1. **`min()` Function:**
+
+```css
+/* Element will be 90% of container width, but never wider than 600px */
+.element {
+  width: min(90%, 600px);
+}
+```
+
+2. **`max()` Function:**
+
+```css
+/* Element will be at least 300px wide, or 50% of container width if that's larger */
+.element {
+  width: max(300px, 50%);
+}
+```
+
+3. **`clamp()` Function:**
+
+```css
+/* Font size will be at least 1rem, preferred 5vw, but never larger than 2rem */
+.responsive-text {
+  font-size: clamp(1rem, 5vw, 2rem);
+}
+```
+
+**Practical Applications:**
+
+1. **Responsive Typography Without Media Queries:**
+
+```css
+/* Fluid typography that scales with viewport width */
+h1 {
+  /* Minimum: 2rem, Preferred: 5vw, Maximum: 4rem */
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h2 {
+  /* Minimum: 1.5rem, Preferred: 3vw, Maximum: 3rem */
+  font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+p {
+  /* Minimum: 1rem, Preferred: 1.5vw, Maximum: 1.25rem */
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.5;
+}
+```
+
+2. **Flexible Layouts:**
+
+```css
+/* Container that's responsive but within constraints */
+.container {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+/* Card that grows but has minimum and maximum sizes */
+.card {
+  width: clamp(300px, 30%, 500px);
+  padding: clamp(1rem, 3%, 2rem);
+}
+
+/* Sidebar that's responsive but never too narrow */
+.sidebar {
+  width: max(250px, 20%);
+}
+```
+
+3. **Spacing and Margins:**
+
+```css
+/* Responsive spacing that's never too small or too large */
+.section {
+  padding: clamp(1rem, 5vw, 3rem);
+}
+
+/* Responsive gap in grid layouts */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+}
+```
+
+4. **Responsive Images:**
+
+```css
+/* Image that scales but never gets too large */
+.hero-image {
+  width: 100%;
+  height: clamp(200px, 30vw, 400px);
+  object-fit: cover;
+}
+
+/* Thumbnail that maintains minimum size */
+.thumbnail {
+  width: max(100px, 15%);
+  aspect-ratio: 1 / 1;
+}
+```
+
+**Advanced Techniques:**
+
+1. **Combining Multiple Comparison Functions:**
+
+```css
+/* Complex responsive sizing */
+.element {
+  /* At least 300px, but never more than 90% of container or 800px */
+  width: max(300px, min(90%, 800px));
+  
+  /* Padding that's at least 1rem, scales with viewport, but never more than 2rem */
+  padding: clamp(1rem, calc(0.5rem + 2vw), 2rem);
+}
+```
+
+2. **Creating Responsive Breakpoints Without Media Queries:**
+
+```css
+:root {
+  /* Base size that changes at different viewport widths */
+  --responsive-spacing: max(
+    1rem, /* Minimum spacing */
+    min(
+      3rem, /* Maximum spacing */
+      calc(0.5rem + 3vw) /* Fluid spacing between min and max */
+    )
+  );
+}
+
+.layout {
+  padding: var(--responsive-spacing);
+  gap: calc(var(--responsive-spacing) / 2);
+}
+```
+
+3. **Dynamic Column Layouts:**
+
+```css
+.grid-layout {
+  display: grid;
+  /* Creates columns that are at least 200px wide, but expand to fill available space */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
+}
+```
+
+4. **Conditional Styling Based on Container Size:**
+
+```css
+.adaptive-component {
+  /* Base styles */
+  padding: min(5vw, 2rem);
+  
+  /* Text size adapts to component width */
+  font-size: clamp(1rem, 3cqi, 1.5rem); /* Using container query units */
+  
+  /* Border gets thicker as component gets larger */
+  border-width: clamp(1px, 0.5cqw, 5px);
+}
+```
+
+**Newer CSS Comparison Features:**
+
+1. **Conditional Values with `@supports`:**
+
+```css
+.element {
+  /* Fallback for browsers that don't support clamp() */
+  font-size: 1.25rem;
+}
+
+@supports (font-size: clamp(1rem, 5vw, 2rem)) {
+  .element {
+    font-size: clamp(1rem, 5vw, 2rem);
+  }
+}
+```
+
+2. **Using with CSS Custom Properties:**
+
+```css
+:root {
+  --min-size: 1rem;
+  --preferred-size: 5vw;
+  --max-size: 2rem;
+  
+  --fluid-size: clamp(var(--min-size), var(--preferred-size), var(--max-size));
+}
+
+.heading {
+  font-size: var(--fluid-size);
+}
+
+.subheading {
+  font-size: calc(var(--fluid-size) * 0.8);
+}
+```
+
+3. **Container Query Units with Comparison Functions:**
+
+```css
+@container (min-width: 400px) {
+  .card-title {
+    font-size: clamp(1.2rem, 5cqi, 2rem); /* cqi = container query inline size */
+  }
+  
+  .card-content {
+    padding: min(5cqw, 2rem); /* cqw = container query width */
+  }
+}
+```
+
+**Real-World Examples:**
+
+1. **Responsive Article Layout:**
+
+```css
+.article {
+  /* Container width that's centered and responsive */
+  width: min(90%, 800px);
+  margin: 0 auto;
+  
+  /* Responsive spacing */
+  padding: clamp(1rem, 5vw, 3rem);
+}
+
+.article h1 {
+  font-size: clamp(2rem, 5vw + 1rem, 4rem);
+  margin-bottom: clamp(0.5rem, 3vw, 1.5rem);
+}
+
+.article p {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+.article img {
+  width: 100%;
+  height: clamp(200px, 30vw, 500px);
+  object-fit: cover;
+}
+```
+
+2. **Dashboard Card Component:**
+
+```css
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1rem, 3vw, 3rem);
+}
+
+.card {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border-radius: min(1rem, 3%);
+  box-shadow: 0 clamp(2px, 0.5vw, 5px) clamp(5px, 1vw, 15px) rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
+}
+```
+
+3. **Responsive Button:**
+
+```css
+.button {
+  padding: clamp(0.5rem, 1vw + 0.25rem, 1rem) clamp(1rem, 2vw + 0.5rem, 2rem);
+  font-size: clamp(0.875rem, 1vw + 0.5rem, 1.125rem);
+  border-radius: clamp(4px, 0.5vw, 8px);
+  transition: transform 0.2s ease;
+}
+
+.button:hover {
+  transform: scale(clamp(1.02, 1 + 0.05vw, 1.05));
+}
+
+.button.large {
+  padding: clamp(0.75rem, 1.5vw + 0.25rem, 1.5rem) clamp(1.5rem, 3vw + 0.5rem, 3rem);
+  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.5rem);
+}
+```
+
+**Best Practices and Tips:**
+
+1. **Use Appropriate Units:**
+   - For text: `rem`, `em`, and viewport units work well with comparison functions
+   - For layouts: percentages, viewport units, and pixels provide good constraints
+
+2. **Test Across Viewport Sizes:**
+   - Always test how your comparison functions behave across different screen sizes
+   - Pay special attention to the transition points where values change
+
+3. **Provide Fallbacks:**
+   - Some older browsers don't support comparison functions
+   - Use `@supports` or provide simple fallbacks before your advanced styles
+
+4. **Avoid Overly Complex Nesting:**
+   - While you can nest comparison functions, it can become hard to read and debug
+   - Consider using CSS custom properties for complex calculations
+
+5. **Document Your Approach:**
+   - Add comments explaining the min, preferred, and max values in your `clamp()` functions
+   - Explain the reasoning behind complex calculations
+
+**Browser Support:**
+
+As of my knowledge cutoff, `min()`, `max()`, and `clamp()` have good support in modern browsers (Chrome, Firefox, Safari, Edge). For older browsers, you can provide fallbacks:
+
+```css
+/* Fallback for browsers that don't support clamp() */
+.heading {
+  font-size: 1.5rem; /* Fallback */
+}
+
+@supports (font-size: clamp(1rem, 5vw, 2rem)) {
+  .heading {
+    font-size: clamp(1rem, 5vw, 2rem);
+  }
+}
+```
+
+**Performance Considerations:**
+
+Comparison functions are generally performant, but complex nested calculations can impact rendering performance. When using many nested functions, consider using CSS custom properties to simplify and potentially improve performance:
+
+```css
+/* Instead of this */
+.complex {
+  padding: clamp(1rem, max(2vw, min(5vw, 3rem)), 4rem);
+}
+
+/* Do this */
+:root {
+  --min-padding: 1rem;
+  --preferred-padding: max(2vw, min(5vw, 3rem));
+  --max-padding: 4rem;
+}
+
+.complex {
+  padding: clamp(var(--min-padding), var(--preferred-padding), var(--max-padding));
 }
 ```
 

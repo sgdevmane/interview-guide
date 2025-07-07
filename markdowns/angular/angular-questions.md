@@ -39,6 +39,20 @@
 34. [Q34: Compare Angular Signals with RxJS Observables and explain when to use each.](#q34-compare-angular-signals-with-rxjs-observables-and-explain-when-to-use-each)
 35. [Q35: How do you implement Angular 18+ Material 3 Design System and advanced theming?](#q35-how-do-you-implement-angular-18-material-3-design-system-and-advanced-theming)
 36. [Q36: How do you implement advanced Angular 18+ performance optimization with new control flow and deferrable views?](#q36-how-do-you-implement-advanced-angular-18-performance-optimization-with-new-control-flow-and-deferrable-views)
+37. [Q37: What is the difference between `ng-template`, `ng-container`, and `ng-content`?](#q37-what-is-the-difference-between-ng-template-ng-container-and-ng-content)
+38. [Q38: What are Angular Resolvers and how do they work?](#q38-what-are-angular-resolvers-and-how-do-they-work)
+39. [Q39: What are Angular Interceptors and how do you use them?](#q39-what-are-angular-interceptors-and-how-do-you-use-them)
+40. [Q40: What are Angular Guards and what are the different types?](#q40-what-are-angular-guards-and-what-are-the-different-types)
+41. [Q41: What is the difference between `ViewChild` and `ContentChild`?](#q41-what-is-the-difference-between-viewchild-and-contentchild)
+42. [Q42: What is the `HostListener` and `HostBinding` decorators?](#q42-what-is-the-hostlistener-and-hostbinding-decorators)
+43. [Q43: What is the difference between `RouterModule.forRoot()` and `RouterModule.forChild()`?](#q43-what-is-the-difference-between-routermoduleforroot-and-routermoduleforchild)
+44. [Q44: What is the difference between `constructor` and `ngOnInit`?](#q44-what-is-the-difference-between-constructor-and-ngoninit)
+45. [Q45: What are RxJS Observables, Observers, and Subscriptions?](#q45-what-are-rxjs-observables-observers-and-subscriptions)
+46. [Q46: What is the difference between a component and a directive?](#q46-what-is-the-difference-between-a-component-and-a-directive)
+47. [Q47: What are pure and impure pipes?](#q47-what-are-pure-and-impure-pipes)
+48. [Q48: What is the `async` pipe?](#q48-what-is-the-async-pipe)
+49. [Q49: What is content projection in Angular?](#q49-what-is-content-projection-in-angular)
+50. [Q50: What are the different ways to handle forms in Angular?](#q50-what-are-the-different-ways-to-handle-forms-in-angular)
 
 ---
 
@@ -194,6 +208,1327 @@ export class CapitalizePipe implements PipeTransform {
 ```
 
 ---
+
+### Q37: What is the difference between `ng-template`, `ng-container`, and `ng-content`?
+**Difficulty: Medium**
+
+**Answer:**
+These are three powerful features in Angular for creating dynamic and reusable components, but they serve different purposes.
+
+| Feature | Purpose | Rendered in DOM | Use Case |
+| :--- | :--- | :--- | :--- |
+| **`ng-template`** | Defines a template that can be rendered conditionally by structural directives like `*ngIf`, `*ngFor`, or `ngSwitch`. | No (it's a template) | Creating reusable template snippets that can be passed around and instantiated when needed. |
+| **`ng-container`** | A grouping element that doesn't get rendered in the DOM. | No (it's a comment) | Grouping elements without adding an extra node to the DOM, often used with structural directives. |
+| **`ng-content`** | A placeholder for projecting content from a parent component into a child component's template. | Yes (content is projected) | Creating reusable wrapper components that can display dynamic content provided by the parent. |
+
+**1. `ng-template` Example:**
+
+`ng-template` defines a block of HTML that is not rendered by default. It's used by structural directives to stamp out views.
+
+```html
+<!-- The 'else' block is defined in an ng-template -->
+<div *ngIf="user; else loading">
+  Welcome, {{ user.name }}!
+</div>
+
+<ng-template #loading>
+  <p>Loading user data...</p>
+</ng-template>
+```
+
+**2. `ng-container` Example:**
+
+`ng-container` is a logical container that can be used to group elements without introducing an extra element in the DOM. This is useful when you can't put a structural directive on a specific element.
+
+```html
+<!-- Avoids creating an extra div just for the *ngIf -->
+<ng-container *ngIf="user">
+  <td>{{ user.name }}</td>
+  <td>{{ user.email }}</td>
+</ng-container>
+
+<!-- Without ng-container, you might need a less clean solution -->
+<td *ngIf="user">{{ user.name }}</td>
+<td *ngIf="user">{{ user.email }}</td>
+```
+
+**3. `ng-content` Example (Content Projection):**
+
+`ng-content` allows you to create components that can be configured with content from their parent.
+
+**`app-card.component.html`**
+```html
+<div class="card">
+  <div class="card-header">
+    <!-- Project content with the 'header' attribute here -->
+    <ng-content select="[card-header]"></ng-content>
+  </div>
+  <div class="card-body">
+    <!-- Project any other content here -->
+    <ng-content></ng-content>
+  </div>
+</div>
+```
+
+**`app.component.html`**
+```html
+<app-card>
+  <!-- This h3 will be projected into the card-header slot -->
+  <h3 card-header>My Card Title</h3>
+
+  <!-- This paragraph will be projected into the default slot -->
+  <p>This is the body of the card.</p>
+</app-card>
+```
+
+### Q38: What are Angular Resolvers and how do they work?
+**Difficulty: Hard**
+
+**Answer:**
+
+A Route Resolver is a feature of the Angular Router that allows you to fetch data before a route is activated. This is useful for ensuring that the necessary data is available before the component is rendered, which can prevent partially loaded pages or the need for loading spinners within the component itself.
+
+**How it Works:**
+
+1.  **Create a Resolver Service:** You create a class that implements the `Resolve` interface. This class must have a `resolve()` method.
+2.  **Implement `resolve()`:** This method is where you fetch your data (e.g., from an API). It can return an `Observable`, a `Promise`, or a direct value.
+3.  **Register the Resolver:** You add the resolver to the `resolve` property of a route definition in your routing module.
+4.  **Access the Data:** The resolved data is available in the component through the `ActivatedRoute` service.
+
+**Example:**
+
+**1. Create the Resolver (`user-resolver.service.ts`)**
+
+```typescript
+import { Injectable } from '@angular/core';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { UserService } from './user.service';
+import { User } from './user.model';
+
+@Injectable({ providedIn: 'root' })
+export class UserResolver implements Resolve<User | null> {
+  constructor(private userService: UserService) {}
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<User | null> {
+    const userId = route.paramMap.get('id');
+    if (!userId) {
+      return of(null);
+    }
+
+    return this.userService.getUser(userId).pipe(
+      catchError(error => {
+        console.error('Error fetching user:', error);
+        // Optionally, navigate to an error page
+        return of(null);
+      })
+    );
+  }
+}
+```
+
+**2. Add the Resolver to the Route (`app-routing.module.ts`)**
+
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserResolver } from './user-resolver.service';
+
+const routes: Routes = [
+  {
+    path: 'users/:id',
+    component: UserProfileComponent,
+    resolve: {
+      user: UserResolver // 'user' is the key for the resolved data
+    }
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+**3. Access the Data in the Component (`user-profile.component.ts`)**
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { User } from './user.model';
+
+@Component({
+  selector: 'app-user-profile',
+  template: `
+    <div *ngIf="user">
+      <h2>{{ user.name }}</h2>
+      <p>Email: {{ user.email }}</p>
+    </div>
+    <div *ngIf="!user">
+      <p>User not found.</p>
+    </div>
+  `
+})
+export class UserProfileComponent implements OnInit {
+  user: User | null = null;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    // The 'user' key matches the key in the resolve object in the route config
+    this.user = this.route.snapshot.data['user'];
+  }
+}
+```
+
+**When to Use a Resolver:**
+
+*   When a component absolutely cannot render without certain data.
+*   To avoid a "flicker" effect where a component loads and then immediately shows a loading spinner.
+*   To centralize data fetching logic for a specific route.
+
+**Considerations:**
+
+*   Resolvers can slow down initial page navigation if the data takes a long time to load. The user will see a blank page until the resolver completes.
+*   For non-essential data, it's often better to load it within the component's `ngOnInit` to show the component shell faster.
+
+### Q39: What are Angular Interceptors and how do you use them?
+**Difficulty: Hard**
+
+**Answer:**
+
+HTTP Interceptors are a powerful feature in Angular that allow you to intercept and transform HTTP requests and responses globally. They are services that implement the `HttpInterceptor` interface and can be used for a variety of tasks, such as adding authentication tokens, logging, caching, and error handling.
+
+**How it Works:**
+
+1.  **Create an Interceptor Service:** Create a class that implements the `HttpInterceptor` interface. This class must have an `intercept()` method.
+2.  **Implement `intercept()`:** This method receives the outgoing `HttpRequest` and a `HttpHandler`. You can modify the request before passing it to the next handler in the chain using `handler.handle(request)`.
+3.  **Provide the Interceptor:** You register the interceptor in your `AppModule` (or a feature module) in the `providers` array, using the `HTTP_INTERCEPTORS` multi-provider token.
+
+**Example: Authentication Token Interceptor**
+
+**1. Create the Interceptor (`auth.interceptor.ts`)**
+
+```typescript
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest
+} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+  constructor(private authService: AuthService) {}
+
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const authToken = this.authService.getAuthToken();
+
+    // Clone the request and add the authorization header
+    const authReq = req.clone({
+      headers: req.headers.set('Authorization', `Bearer ${authToken}`)
+    });
+
+    // Pass the cloned request to the next handler
+    return next.handle(authReq);
+  }
+}
+```
+
+**2. Provide the Interceptor (`app.module.ts`)**
+
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+import { AuthInterceptor } from './auth.interceptor';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule, HttpClientModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true // This is important, as it allows multiple interceptors
+    }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+**Example: Error Handling Interceptor**
+
+Interceptors are also great for centralized error handling.
+
+```typescript
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse
+} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+@Injectable()
+export class ErrorInterceptor implements HttpInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    return next.handle(req).pipe(
+      catchError((error: HttpErrorResponse) => {
+        let errorMessage = 'An unknown error occurred!';
+        if (error.error instanceof ErrorEvent) {
+          // Client-side errors
+          errorMessage = `Error: ${error.error.message}`;
+        } else {
+          // Server-side errors
+          errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+        }
+        // You could log the error to a logging service here
+        window.alert(errorMessage);
+        return throwError(() => new Error(errorMessage));
+      })
+    );
+  }
+}
+```
+
+**Key Points:**
+
+*   **Immutability:** `HttpRequest` and `HttpResponse` objects are immutable, so you must `clone()` them to make modifications.
+*   **Order Matters:** If you have multiple interceptors, they will be executed in the order they are provided in the `providers` array.
+*   **`multi: true`:** This option is crucial because it tells Angular that `HTTP_INTERCEPTORS` is a token for a multi-provider, which allows you to have multiple interceptors registered.
+
+### Q40: What are Angular Guards and what are the different types?
+**Difficulty: Medium**
+
+**Answer:**
+
+Route Guards are services that implement specific interfaces to control navigation to and from routes. They are a powerful feature of the Angular Router for implementing authentication, authorization, and other navigation-related logic.
+
+**Types of Route Guards:**
+
+| Guard | Interface | Description |
+| :--- | :--- | :--- |
+| **`CanActivate`** | `CanActivate` | Controls if a route can be activated. Used for authentication and authorization. |
+| **`CanActivateChild`** | `CanActivateChild` | Controls if a child route can be activated. Useful for protecting entire sections of an application. |
+| **`CanDeactivate`** | `CanDeactivate<T>` | Controls if a user can navigate away from a route. Used to prevent accidental data loss (e.g., unsaved form changes). |
+| **`CanLoad`** | `CanLoad` | Controls if a lazy-loaded module can be loaded. Prevents loading of entire feature modules for unauthorized users. |
+| **`Resolve`** | `Resolve<T>` | (Already covered) Fetches data before a route is activated. |
+
+**Example: `CanActivate` Guard**
+
+**1. Create the Guard (`auth.guard.ts`)**
+
+```typescript
+import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
+
+@Injectable({ providedIn: 'root' })
+export class AuthGuard implements CanActivate {
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (this.authService.isLoggedIn()) {
+      return true;
+    } else {
+      // Redirect to the login page
+      return this.router.createUrlTree(['/login']);
+    }
+  }
+}
+```
+
+**2. Apply the Guard to a Route (`app-routing.module.ts`)**
+
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
+
+const routes: Routes = [
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard] // Apply the guard here
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+**Example: `CanDeactivate` Guard**
+
+**1. Define the Interface for the Component**
+
+```typescript
+import { Observable } from 'rxjs';
+
+export interface CanComponentDeactivate {
+  canDeactivate: () => Observable<boolean> | Promise<boolean> | boolean;
+}
+```
+
+**2. Create the Guard (`can-deactivate.guard.ts`)**
+
+```typescript
+import { Injectable } from '@angular/core';
+import { CanDeactivate } from '@angular/router';
+import { Observable } from 'rxjs';
+import { CanComponentDeactivate } from './can-component-deactivate';
+
+@Injectable({ providedIn: 'root' })
+export class CanDeactivateGuard implements CanDeactivate<CanComponentDeactivate> {
+  canDeactivate(
+    component: CanComponentDeactivate): Observable<boolean> | Promise<boolean> | boolean {
+    return component.canDeactivate ? component.canDeactivate() : true;
+  }
+}
+```
+
+**3. Implement the Interface in the Component (`edit-profile.component.ts`)**
+
+```typescript
+import { Component } from '@angular/core';
+import { CanComponentDeactivate } from './can-component-deactivate';
+
+@Component({
+  selector: 'app-edit-profile',
+  template: '...'
+})
+export class EditProfileComponent implements CanComponentDeactivate {
+  hasUnsavedChanges = false;
+
+  canDeactivate(): boolean {
+    if (this.hasUnsavedChanges) {
+      return window.confirm('You have unsaved changes! Are you sure you want to leave?');
+    }
+    return true;
+  }
+}
+```
+
+**4. Apply the Guard to the Route**
+
+```typescript
+{
+  path: 'profile/edit',
+  component: EditProfileComponent,
+  canDeactivate: [CanDeactivateGuard]
+}
+```
+
+### Q41: What is the difference between `ViewChild` and `ContentChild`?
+**Difficulty: Hard**
+
+**Answer:**
+
+`@ViewChild` and `@ContentChild` are decorators used to query and get a reference to elements or components in the DOM. The key difference lies in *where* they look for these elements.
+
+| Decorator | Looks In | Timing | Use Case |
+| :--- | :--- | :--- | :--- |
+| **`@ViewChild`** | The component's own template (its view). | Available in `ngAfterViewInit`. | Accessing a child component, directive, or DOM element that is part of the component's own template. |
+| **`@ContentChild`** | Content projected into the component using `<ng-content>`. | Available in `ngAfterContentInit`. | Accessing a child component, directive, or DOM element that has been passed in from a parent component. |
+
+**`@ViewChild` Example:**
+
+`@ViewChild` is used to access elements within a component's own view.
+
+**`child.component.ts`**
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: '<p>I am the child component.</p>'
+})
+export class ChildComponent {
+  message = 'Hello from Child!';
+}
+```
+
+**`parent.component.ts`**
+```typescript
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { ChildComponent } from './child.component';
+
+@Component({
+  selector: 'app-parent',
+  template: `
+    <h2>Parent Component</h2>
+    <app-child></app-child>
+  `
+})
+export class ParentComponent implements AfterViewInit {
+  @ViewChild(ChildComponent) childComponent!: ChildComponent;
+
+  ngAfterViewInit() {
+    // The childComponent is now available
+    console.log(this.childComponent.message); // Logs "Hello from Child!"
+  }
+}
+```
+
+**`@ContentChild` Example:**
+
+`@ContentChild` is used to access elements that are projected into a component via `<ng-content>`.
+
+**`info.component.ts`** (This is the projected component)
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-info',
+  template: '<p>This is some info.</p>'
+})
+export class InfoComponent {
+  info = 'Important Information';
+}
+```
+
+**`wrapper.component.ts`** (This component uses `<ng-content>`)
+```typescript
+import { Component, ContentChild, AfterContentInit } from '@angular/core';
+import { InfoComponent } from './info.component';
+
+@Component({
+  selector: 'app-wrapper',
+  template: `
+    <div class="wrapper">
+      <h3>Wrapper Title</h3>
+      <ng-content></ng-content>
+    </div>
+  `
+})
+export class WrapperComponent implements AfterContentInit {
+  @ContentChild(InfoComponent) infoComponent!: InfoComponent;
+
+  ngAfterContentInit() {
+    // The infoComponent is now available
+    console.log(this.infoComponent.info); // Logs "Important Information"
+  }
+}
+```
+
+**`app.component.html`** (This is where the projection happens)
+```html
+<app-wrapper>
+  <!-- This app-info component is projected into app-wrapper -->
+  <app-info></app-info>
+</app-wrapper>
+```
+
+**Summary:**
+
+*   Use `@ViewChild` when you need to interact with a component or element that is part of the component's direct template.
+*   Use `@ContentChild` when you are creating a reusable or wrapper component and need to interact with the content that is passed into it from a parent.
+
+### Q42: What is the `HostListener` and `HostBinding` decorators?
+**Difficulty: Medium**
+
+**Answer:**
+
+`@HostListener` and `@HostBinding` are two decorators in Angular that are very useful for interacting with the host element of a component or directive.
+
+**`@HostListener`**
+
+The `@HostListener` decorator allows you to listen for events on the host element. This is a cleaner way to handle events on the host element than adding an event listener manually in `ngOnInit`.
+
+**Syntax:**
+`@HostListener('eventName', ['$event'])`
+
+**Example: Highlight Directive**
+
+Let's create a directive that highlights the host element when the mouse enters and leaves.
+
+```typescript
+import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  constructor(private el: ElementRef, private renderer: Renderer2) {}
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight('yellow');
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlight(null);
+  }
+
+  private highlight(color: string | null) {
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', color);
+  }
+}
+```
+
+**`@HostBinding`**
+
+The `@HostBinding` decorator allows you to bind a property of the host element to a property of the component or directive. This is useful for dynamically changing the host element's properties, such as its class, style, or other attributes.
+
+**Syntax:**
+`@HostBinding('property')`
+
+**Example: Draggable Directive**
+
+Let's create a directive that makes an element draggable and changes its cursor style.
+
+```typescript
+import { Directive, HostBinding, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[appDraggable]'
+})
+export class DraggableDirective {
+  @HostBinding('style.cursor') cursor = 'grab';
+  @HostBinding('class.is-dragging') isDragging = false;
+
+  @HostListener('mousedown') onMouseDown() {
+    this.isDragging = true;
+    this.cursor = 'grabbing';
+  }
+
+  @HostListener('mouseup') onMouseUp() {
+    this.isDragging = false;
+    this.cursor = 'grab';
+  }
+}
+```
+
+In this example:
+
+*   `@HostBinding('style.cursor')` binds the `cursor` property of the directive to the `style.cursor` property of the host element.
+*   `@HostBinding('class.is-dragging')` binds the `isDragging` boolean property to the presence of the `is-dragging` class on the host element.
+
+**Summary:**
+
+| Decorator | Purpose |
+| :--- | :--- |
+| **`@HostListener`** | Listens for events on the host element. |
+| **`@HostBinding`** | Binds a directive's property to a property of the host element. |
+
+### Q43: What is the difference between `RouterModule.forRoot()` and `RouterModule.forChild()`?
+**Difficulty: Medium**
+
+**Answer:**
+
+`RouterModule.forRoot()` and `RouterModule.forChild()` are two static methods of the `RouterModule` that are used to configure the Angular Router. The key difference between them is how they handle the registration of router services and routes.
+
+| Method | Purpose | Where to Use | Services Provided |
+| :--- | :--- | :--- | :--- |
+| **`forRoot()`** | Configures the router at the root level of the application. It should only be called once in the entire application, typically in the `AppModule`. | `AppModule` | Provides and configures all the router services (e.g., `Router`, `ActivatedRoute`) and registers the global routes. |
+| **`forChild()`** | Configures the router for a feature module. It should be used in all feature modules that have their own routes. | Feature Modules | Registers the routes for the feature module but does not re-provide the router services. It uses the services provided by `forRoot()`. |
+
+**`RouterModule.forRoot()`**
+
+This method is used in the root module (`AppModule`) to set up the router for the entire application. It creates and configures the `Router` service and registers the top-level routes.
+
+**`app-routing.module.ts`**
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'about', component: AboutComponent },
+  // Lazy-loaded feature module
+  { path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule) }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)], // Use forRoot() here
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+**`RouterModule.forChild()`**
+
+This method is used in feature modules to register their own routes. It does not create a new `Router` service; instead, it registers the routes with the existing `Router` instance created by `forRoot()`.
+
+**`products-routing.module.ts`** (in the `products` feature module)
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+
+const routes: Routes = [
+  { path: '', component: ProductListComponent },
+  { path: ':id', component: ProductDetailComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)], // Use forChild() here
+  exports: [RouterModule]
+})
+export class ProductsRoutingModule { }
+```
+
+**Why the Distinction is Important:**
+
+*   **Singleton Services:** The `Router` service is a singleton, meaning there should only be one instance of it in the entire application. `forRoot()` ensures this by providing the service only once at the root level.
+*   **Lazy Loading:** If you were to use `forRoot()` in a lazy-loaded feature module, it would create a new instance of the `Router` service, which would break the application's routing.
+*   **Clear Separation:** This pattern provides a clear separation of concerns between the root application's routing configuration and the routing configuration of its feature modules.
+
+### Q44: What is the difference between `constructor` and `ngOnInit`?
+**Difficulty: Easy**
+
+**Answer:**
+
+The `constructor` and `ngOnInit` are both used for initialization in Angular components and services, but they serve different purposes and are called at different stages of the component lifecycle.
+
+| Aspect | `constructor` | `ngOnInit` |
+| :--- | :--- | :--- |
+| **Purpose** | Dependency injection and basic field initialization. | Complex initialization logic, data fetching, and operations that require the component's inputs to be available. |
+| **Lifecycle Stage** | Called first, before any lifecycle hooks. | Called after the constructor and after Angular has initialized the component's data-bound properties (`@Input()`). |
+| **Dependency Injection** | The primary place for dependency injection. | Dependencies should already be available from the constructor. |
+| **`@Input()` Properties** | `@Input()` properties are not yet available. | `@Input()` properties are available and can be used. |
+
+**`constructor`**
+
+The `constructor` is a feature of the TypeScript class itself. It is called when an instance of the class is created. Its primary role in Angular is to inject dependencies into the component or service.
+
+```typescript
+import { Component } from '@angular/core';
+import { UserService } from './user.service';
+
+@Component({
+  selector: 'app-user-profile',
+  template: `...`
+})
+export class UserProfileComponent {
+  private userService: UserService;
+
+  constructor(userService: UserService) {
+    this.userService = userService; // Dependency injection
+    console.log('Constructor called'); // `@Input()` properties are not available here
+  }
+}
+```
+
+**`ngOnInit`**
+
+`ngOnInit` is a lifecycle hook provided by Angular. It is called after the constructor and after Angular has initialized all of the component's data-bound properties (e.g., properties decorated with `@Input()`). This makes it the ideal place for any complex initialization logic that relies on these properties.
+
+```typescript
+import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from './user.service';
+
+@Component({
+  selector: 'app-user-profile',
+  template: `<h1>{{ user.name }}</h1>`
+})
+export class UserProfileComponent implements OnInit {
+  @Input() userId: number;
+  user: any;
+
+  constructor(private userService: UserService) {
+    console.log('Constructor called');
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit called');
+    // `@Input()` properties are available here
+    if (this.userId) {
+      this.userService.getUser(this.userId).subscribe(user => {
+        this.user = user;
+      });
+    }
+  }
+}
+```
+
+**Key Takeaways:**
+
+*   Use the `constructor` for dependency injection and to initialize class fields with default values.
+*   Use `ngOnInit` for any logic that needs to run after the component's inputs are available, such as fetching data from a server or performing other complex initializations.
+
+### Q45: What are RxJS Observables, Observers, and Subscriptions?
+**Difficulty: Medium**
+
+**Answer:**
+
+RxJS (Reactive Extensions for JavaScript) is a library for reactive programming using Observables, which makes it easier to compose asynchronous or callback-based code. In Angular, RxJS is used extensively, particularly with the `HttpClient` and the `Router`.
+
+**Observable**
+
+An **Observable** is a stream of data that can emit multiple values over time. It can be thought of as a lazy push-based collection. It's "lazy" because it won't start emitting values until someone subscribes to it.
+
+*   **Analogy:** A newspaper subscription. You subscribe to a newspaper, and it gets delivered to you every day (multiple values over time).
+
+**Observer**
+
+An **Observer** is an object with three optional methods (or callbacks) that knows how to handle the values delivered by the Observable:
+
+1.  `next(value)`: Called when the Observable emits a new value.
+2.  `error(err)`: Called when the Observable encounters an error.
+3.  `complete()`: Called when the Observable has finished emitting values.
+
+*   **Analogy:** You (the subscriber) are the observer. You read the newspaper (`next`), handle any delivery issues (`error`), and know when the subscription ends (`complete`).
+
+**Subscription**
+
+A **Subscription** is an object that represents the execution of an Observable. It is primarily used to cancel the execution, which is important for preventing memory leaks.
+
+*   **Analogy:** The subscription itself is the contract between you and the newspaper company. You can cancel it at any time (`unsubscribe()`).
+
+**How They Work Together**
+
+1.  You create an **Observable** that defines a stream of data.
+2.  You create an **Observer** with `next`, `error`, and `complete` handlers.
+3.  You **subscribe** to the Observable with the Observer.
+4.  The Observable starts emitting values, and the Observer's handlers are called accordingly.
+5.  The `subscribe()` method returns a **Subscription** object, which you can use to `unsubscribe()`.
+
+**Code Example:**
+
+```typescript
+import { Observable } from 'rxjs';
+
+// 1. Create an Observable
+const myObservable = new Observable(subscriber => {
+  console.log('Observable execution starts');
+  subscriber.next(1);
+  subscriber.next(2);
+  subscriber.next(3);
+  // subscriber.error(new Error('Something went wrong!'));
+  setTimeout(() => {
+    subscriber.next(4);
+    subscriber.complete();
+  }, 1000);
+});
+
+// 2. Create an Observer
+const myObserver = {
+  next: value => console.log(`Next value: ${value}`),
+  error: err => console.error(`Error: ${err.message}`),
+  complete: () => console.log('Observable complete')
+};
+
+// 3. Subscribe to the Observable
+console.log('Before subscribe');
+const subscription = myObservable.subscribe(myObserver);
+console.log('After subscribe');
+
+// To stop receiving notifications, you can unsubscribe
+// subscription.unsubscribe();
+```
+
+**Output:**
+
+```
+Before subscribe
+Observable execution starts
+Next value: 1
+Next value: 2
+Next value: 3
+After subscribe
+// (after 1 second)
+Next value: 4
+Observable complete
+```
+
+**Key Takeaways:**
+
+*   **Observables** are lazy streams of data.
+*   **Observers** are the consumers of the data.
+*   **Subscriptions** link Observables and Observers and allow for cancellation.
+*   Always `unsubscribe()` from subscriptions in long-lived components (e.g., in the `ngOnDestroy` lifecycle hook) to avoid memory leaks.
+
+### Q46: What is the difference between a component and a directive?
+**Difficulty: Easy**
+
+**Answer:**
+
+In Angular, both components and directives are used to manipulate the DOM, but they have distinct purposes and characteristics. The key difference is that a component is a directive with a template, whereas a directive is used to add behavior to an existing element.
+
+In fact, a component is a specific type of directive. There are three types of directives in Angular:
+
+1.  **Components:** Directives with a template.
+2.  **Attribute directives:** Change the appearance or behavior of an element, component, or another directive.
+3.  **Structural directives:** Change the DOM layout by adding and removing DOM elements.
+
+| Feature | Component | Directive |
+| :--- | :--- | :--- |
+| **Template** | Has its own template. | Does not have a template. |
+| **Decorator** | `@Component` | `@Directive` |
+| **Purpose** | To create UI widgets with both view and logic. | To add behavior to existing elements. |
+| **Registration** | Registered in `declarations` array of an `NgModule`. | Registered in `declarations` array of an `NgModule`. |
+| **Usage** | Used as an element in a template (e.g., `<app-my-component>`). | Used as an attribute on an element (e.g., `<p appHighlight>`). |
+
+**Component**
+
+A component is a self-contained block of UI that consists of a template (HTML), a class (TypeScript), and styles (CSS). It's the primary building block of an Angular application.
+
+**`my-component.component.ts`**
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-my-component',
+  template: '<h2>This is My Component</h2>',
+  styles: ['h2 { color: blue; }']
+})
+export class MyComponentComponent { }
+```
+
+**Directive**
+
+A directive is used to add custom behavior to elements in the DOM. It doesn't have its own template.
+
+**Attribute Directive Example (`highlight.directive.ts`)**
+
+This directive changes the background color of the element it's applied to.
+
+```typescript
+import { Directive, ElementRef, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  constructor(private el: ElementRef) { }
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight('yellow');
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlight(null);
+  }
+
+  private highlight(color: string | null) {
+    this.el.nativeElement.style.backgroundColor = color;
+  }
+}
+```
+
+**Usage in a template:**
+
+```html
+<p appHighlight>Hover over me to highlight!</p>
+```
+
+**Structural Directive Example (`*ngIf`)**
+
+Structural directives, like `*ngIf` and `*ngFor`, change the structure of the DOM.
+
+```html
+<div *ngIf="isLoggedIn">Welcome, user!</div>
+```
+
+**Key Takeaways:**
+
+*   A component is a directive with a template.
+*   Use components to create UI elements.
+*   Use attribute directives to change the appearance or behavior of an element.
+*   Use structural directives to change the DOM layout.
+
+### Q47: What are pure and impure pipes?
+**Difficulty: Medium**
+
+**Answer:**
+
+In Angular, pipes are used to transform data in a template. There are two types of pipes: **pure** and **impure**.
+
+| Feature | Pure Pipe | Impure Pipe |
+| :--- | :--- | :--- |
+| **`pure` flag** | `@Pipe({ pure: true })` (default) | `@Pipe({ pure: false })` |
+| **Execution** | Executes only when it detects a "pure change" to the input value (i.e., a change to a primitive value or a changed object reference). | Executes during every change detection cycle, regardless of whether the input value has changed. |
+| **Performance** | More performant, as it doesn't run on every change detection cycle. | Less performant, as it runs frequently. |
+| **Use Case** | Stateless transformations where the output depends only on the input. | Stateful transformations or transformations that need to be re-evaluated on every change detection cycle (e.g., filtering a mutable array). |
+
+**Pure Pipe**
+
+A pure pipe is only re-evaluated when its input value changes. This is the default behavior for pipes. Angular's built-in pipes, like `DatePipe`, `CurrencyPipe`, and `JsonPipe`, are pure.
+
+**Example of a custom pure pipe:**
+
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'multiply',
+  pure: true // This is the default
+})
+export class MultiplyPipe implements PipeTransform {
+  transform(value: number, multiplier: number): number {
+    console.log('Pure pipe executed');
+    return value * multiplier;
+  }
+}
+```
+
+If you use this pipe in a component and the input value doesn't change, the pipe will only be executed once.
+
+**Impure Pipe**
+
+An impure pipe is executed on every change detection cycle, which means it runs very frequently. This can be useful for scenarios where the pipe needs to be aware of changes within a mutable object, but it can also have a significant performance impact.
+
+**Example of a custom impure pipe:**
+
+Let's say you have a pipe that filters a list of items. If the list is mutable (i.e., you can add or remove items from it without changing the array reference), a pure pipe won't detect the changes. In this case, you would need an impure pipe.
+
+```typescript
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+  name: 'filterList',
+  pure: false // Set to false to make it impure
+})
+export class FilterListPipe implements PipeTransform {
+  transform(items: any[], filter: string): any[] {
+    console.log('Impure pipe executed');
+    if (!items || !filter) {
+      return items;
+    }
+    return items.filter(item => item.name.includes(filter));
+  }
+}
+```
+
+**When to Use Each:**
+
+*   **Pure Pipes:** Use them whenever possible. They are highly efficient and cover most use cases.
+*   **Impure Pipes:** Use them sparingly and only when necessary, such as when you need to handle changes within a mutable object or when the pipe's output depends on some external state. A common example is the built-in `AsyncPipe`, which is impure because it needs to subscribe to an Observable and react to its emissions.
+
+**Key Takeaways:**
+
+*   Pure pipes are the default and are more performant.
+*   Impure pipes run on every change detection cycle and should be used with caution.
+*   The choice between a pure and impure pipe depends on whether the transformation is stateless or stateful.
+
+### Q48: What is the `async` pipe?
+**Difficulty: Medium**
+
+**Answer:**
+
+The `async` pipe is a built-in impure pipe in Angular that subscribes to an `Observable` or `Promise` and returns the latest value it has emitted. When the component is destroyed, the `async` pipe automatically unsubscribes, which helps to avoid potential memory leaks.
+
+**Key Features:**
+
+*   **Automatic Subscription:** It handles the subscription to Observables and Promises for you.
+*   **Automatic Unsubscription:** It automatically unsubscribes when the component is destroyed, preventing memory leaks.
+*   **Data Binding:** It unwraps the data from the asynchronous source and makes it available for data binding in the template.
+*   **Change Detection:** It marks the component for change detection whenever a new value is emitted.
+
+**How to Use It**
+
+You can use the `async` pipe in your templates to bind the output of an Observable or Promise to the view.
+
+**With an Observable**
+
+Let's say you have a component that fetches data from a service that returns an Observable.
+
+**`user.service.ts`**
+```typescript
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
+
+@Injectable({ providedIn: 'root' })
+export class UserService {
+  getUser(): Observable<any> {
+    return of({ name: 'John Doe' }).pipe(delay(1000));
+  }
+}
+```
+
+**`user.component.ts`**
+```typescript
+import { Component } from '@angular/core';
+import { UserService } from './user.service';
+import { Observable } from 'rxjs';
+
+@Component({
+  selector: 'app-user',
+  template: `
+    <div *ngIf="user$ | async as user">
+      <p>User: {{ user.name }}</p>
+    </div>
+    <div *ngIf="!(user$ | async)">
+      <p>Loading user...</p>
+    </div>
+  `
+})
+export class UserComponent {
+  user$: Observable<any>;
+
+  constructor(private userService: UserService) {
+    this.user$ = this.userService.getUser();
+  }
+}
+```
+
+In this example:
+
+1.  `user$` is an Observable that will emit the user data.
+2.  `user$ | async` subscribes to the `user$` Observable.
+3.  `*ngIf="user$ | async as user"` waits for the Observable to emit a value. Once it does, the `*ngIf` becomes `true`, and the emitted value is assigned to the local template variable `user`.
+
+**Without the `async` Pipe**
+
+Without the `async` pipe, you would have to manually subscribe and unsubscribe, which is more verbose and error-prone.
+
+```typescript
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { UserService } from './user.service';
+import { Subscription } from 'rxjs';
+
+@Component({
+  selector: 'app-user',
+  template: `
+    <div *ngIf="user">
+      <p>User: {{ user.name }}</p>
+    </div>
+    <div *ngIf="!user">
+      <p>Loading user...</p>
+    </div>
+  `
+})
+export class UserComponent implements OnInit, OnDestroy {
+  user: any;
+  private subscription: Subscription;
+
+  constructor(private userService: UserService) { }
+
+  ngOnInit() {
+    this.subscription = this.userService.getUser().subscribe(user => {
+      this.user = user;
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+}
+```
+
+**Key Takeaways:**
+
+*   The `async` pipe simplifies working with asynchronous data in your templates.
+*   It helps you avoid manual subscription management and prevents memory leaks.
+*   It's the recommended way to handle Observables and Promises in Angular templates.
+
+### Q49: What is content projection in Angular?
+**Difficulty: Medium**
+
+**Answer:**
+
+Content projection is a pattern in Angular that allows you to insert, or "project," content from a parent component into a child component's template. This is useful for creating reusable components that can be customized with different content.
+
+The primary mechanism for content projection is the `<ng-content>` element.
+
+**How It Works**
+
+1.  You place the `<ng-content>` element in the child component's template as a placeholder for the external content.
+2.  In the parent component's template, you place the content you want to project inside the child component's selector tags.
+
+**Single-Slot Content Projection**
+
+This is the most basic form of content projection, where all the content from the parent is projected into a single `<ng-content>` slot.
+
+**`child.component.ts`**
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+    <div class="card">
+      <div class="card-header">Child Component</div>
+      <div class="card-body">
+        <ng-content></ng-content> <!-- Content will be projected here -->
+      </div>
+    </div>
+  `
+})
+export class ChildComponent { }
+```
+
+**`parent.component.html`**
+```html
+<app-child>
+  <!-- This content will be projected into the child component -->
+  <h1>This is projected content!</h1>
+  <p>It can be any HTML content.</p>
+</app-child>
+```
+
+**Multi-Slot Content Projection**
+
+You can also create components with multiple slots for content projection. This is done using the `select` attribute on the `<ng-content>` element, which allows you to specify which content goes where based on a CSS selector.
+
+**`child.component.ts`**
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `
+    <div class="card">
+      <div class="card-header">
+        <ng-content select="[card-title]"></ng-content> <!-- Title slot -->
+      </div>
+      <div class="card-body">
+        <ng-content select="[card-body]"></ng-content> <!-- Body slot -->
+      </div>
+      <div class="card-footer">
+        <ng-content></ng-content> <!-- Default slot for any other content -->
+      </div>
+    </div>
+  `
+})
+export class ChildComponent { }
+```
+
+**`parent.component.html`**
+```html
+<app-child>
+  <h2 card-title>Projected Title</h2>
+  <p card-body>This is the projected body content.</p>
+  <button>Default Content</button>
+</app-child>
+```
+
+In this example:
+
+*   The `<h2>` element has the `card-title` attribute, so it will be projected into the `<ng-content>` with `select="[card-title]"`.
+*   The `<p>` element has the `card-body` attribute, so it will be projected into the `<ng-content>` with `select="[card-body]"`.
+*   The `<button>` element doesn't match any `select` attribute, so it will be projected into the default `<ng-content>` slot.
+
+**Key Takeaways:**
+
+*   Content projection is a powerful way to create flexible and reusable components.
+*   `<ng-content>` is the key element for implementing content projection.
+*   You can use single-slot or multi-slot content projection depending on your needs.
+
+### Q50: What are the different ways to handle forms in Angular?
+**Difficulty: Medium**
+
+**Answer:**
+
+Angular provides two main approaches for handling forms: **Template-Driven Forms** and **Reactive Forms**.
+
+| Feature | Template-Driven Forms | Reactive Forms |
+| :--- | :--- | :--- |
+| **Setup** | Minimal setup; mostly done in the template. | More setup required in the component class. |
+| **Data Model** | Implicitly created by directives like `ngModel`. | Explicitly created in the component class using `FormControl`, `FormGroup`, and `FormArray`. |
+| **Data Flow** | Asynchronous. | Synchronous. |
+| **Validation** | Validation logic is defined using directives in the template. | Validation logic is defined as functions in the component class. |
+| **Unit Testing** | More difficult to unit test. | Easier to unit test because the form model is independent of the template. |
+| **Use Case** | Best for simple forms with minimal validation. | Best for complex forms, dynamic forms, and when you need more control and testability. |
+
+**Template-Driven Forms**
+
+In template-driven forms, the logic and validation are primarily handled in the template using directives. Angular creates the form model for you behind the scenes.
+
+**Key Directives:**
+
+*   `ngModel`: Binds a form control to a property in the component.
+*   `ngForm`: Creates a top-level `FormGroup` instance.
+
+**Example:**
+
+**`app.component.html`**
+```html
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="user.name" required>
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
+```
+
+**`app.component.ts`**
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  user = { name: '' };
+
+  onSubmit(formValue: any) {
+    console.log(formValue);
+  }
+}
+```
+
+**Reactive Forms**
+
+In reactive forms, you define the form model programmatically in the component class. This gives you more control and makes the form model easier to test.
+
+**Key Classes:**
+
+*   `FormControl`: Manages the value and validation status of an individual form control.
+*   `FormGroup`: Tracks the value and validity of a group of `FormControl` instances.
+*   `FormArray`: Tracks the value and validity of an array of `FormControl`, `FormGroup`, or `FormArray` instances.
+
+**Example:**
+
+**`app.component.ts`**
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent implements OnInit {
+  userForm: FormGroup;
+
+  ngOnInit() {
+    this.userForm = new FormGroup({
+      name: new FormControl('', Validators.required)
+    });
+  }
+
+  onSubmit() {
+    console.log(this.userForm.value);
+  }
+}
+```
+
+**`app.component.html`**
+```html
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name">
+  </div>
+  <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
+```
+
+**Key Takeaways:**
+
+*   **Template-Driven Forms** are good for simple scenarios and are easy to set up.
+*   **Reactive Forms** are more powerful, scalable, and testable, making them the preferred choice for complex applications.
 
 ### Q3: What are Angular Standalone Components and how do they work?
 **Difficulty: Medium**
