@@ -60,6 +60,12 @@ angular-14-lead/
 │   └── ngrx-questions.md               # NgRx state management patterns (12+ topics)
 ├── performance/
 │   └── performance-questions.md        # Performance optimization strategies (12+ topics)
+├── webpack-babel-vite/
+│   └── webpack-babel-vite-questions.md # Webpack, Babel & Vite questions
+├── rust/
+│   └── rust-questions.md               # Rust programming language questions
+├── golang/
+│   └── golang-questions.md             # Go programming language questions
 ├── integration/
 │   └── angular14-integration-questions.md # Angular 14+ integration patterns (12+ topics)
 └── docs/                               # Additional documentation
@@ -80,6 +86,9 @@ angular-14-lead/
 - **🔄 NgRx Questions**: State management, effects, selectors, and enterprise patterns
 - **⚡ Performance Questions**: Optimization strategies, monitoring, caching, and scalability
 - **🔗 Integration Questions**: Angular 14+ features, modern tooling, and CI/CD practices
+- **🛠️ Build Tools**: Webpack, Babel, and Vite configuration and optimization
+- **🦀 Rust Questions**: Memory safety, ownership, concurrency, and systems programming
+- **🐹 Golang Questions**: Goroutines, channels, interfaces, and concurrent patterns
 
 ### 🎨 Interactive HTML Format
 
