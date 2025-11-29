@@ -8,9 +8,108 @@
 5. [How do you implement micro-frontend architecture with Angular 14?](#q5-how-do-you-implement-micro-frontend-architecture-with-angular-14)
 6. [How do you implement advanced state sharing between Angular 14 applications?](#q6-how-do-you-implement-advanced-state-sharing-between-angular-14-applications)
 7. [How do you implement real-time collaboration features in Angular 14?](#q7-how-do-you-implement-real-time-collaboration-features-in-angular-14)
-8. [How would you implement advanced Angular 14+ integration with modern development tools and CI/CD pipelines?](#q8-how-would-you-implement-advanced-angular-14-integration-with-modern-development-tools-and-cicd-pipelines)
-9. [How would you implement advanced Angular 14+ integration with modern monitoring, analytics, and observability tools?](#q9-how-would-you-implement-advanced-angular-14-integration-with-modern-monitoring-analytics-and-observability-tools)
-
+8. [How would you implement advanced Angular 14+ integration with modern development tools and CI/CD pipelines?](#q8-how-would-you-implement-advanced-angular-14+-integration-with-modern-development-tools-and-ci-cd-pipelines)
+9. [How would you implement advanced Angular 14+ integration with modern monitoring, analytics, and observability tools?](#q9-how-would-you-implement-advanced-angular-14+-integration-with-modern-monitoring-analytics-and-observability-tools)
+10. [How do you integrate Angular with Firebase using AngularFire?](#q10-how-do-you-integrate-angular-with-firebase-using-angularfire)
+11. [How do you integrate Redux DevTools with NgRx?](#q11-how-do-you-integrate-redux-devtools-with-ngrx)
+12. [How do you integrate Tailwind CSS with Angular?](#q12-how-do-you-integrate-tailwind-css-with-angular)
+13. [How do you integrate Angular Material?](#q13-how-do-you-integrate-angular-material)
+14. [How do you integrate GraphQL with Apollo in Angular?](#q14-how-do-you-integrate-graphql-with-apollo-in-angular)
+15. [How do you integrate Storybook with Angular?](#q15-how-do-you-integrate-storybook-with-angular)
+16. [How do you integrate Jest for testing in Angular?](#q16-how-do-you-integrate-jest-for-testing-in-angular)
+17. [How do you integrate Cypress for E2E testing?](#q17-how-do-you-integrate-cypress-for-e2e-testing)
+18. [How do you integrate Google Maps?](#q18-how-do-you-integrate-google-maps)
+19. [How do you integrate Socket.io with Angular?](#q19-how-do-you-integrate-socketio-with-angular)
+20. [How do you integrate Stripe Elements?](#q20-how-do-you-integrate-stripe-elements)
+21. [How do you integrate Chart.js?](#q21-how-do-you-integrate-chartjs)
+22. [How do you integrate Auth0?](#q22-how-do-you-integrate-auth0)
+23. [How do you integrate Angular with Docker?](#q23-how-do-you-integrate-angular-with-docker)
+24. [How do you integrate Internationalization (i18n)?](#q24-how-do-you-integrate-internationalization-i18n)
+25. [How do you integrate `ngx-translate` for dynamic i18n?](#q25-how-do-you-integrate-`ngx-translate`-for-dynamic-i18n)
+26. [How do you integrate Sentry for error tracking?](#q26-how-do-you-integrate-sentry-for-error-tracking)
+27. [How do you integrate Prettier and ESLint?](#q27-how-do-you-integrate-prettier-and-eslint)
+28. [How do you integrate Husky for git hooks?](#q28-how-do-you-integrate-husky-for-git-hooks)
+29. [How do you integrate a mock server (JSON Server)?](#q29-how-do-you-integrate-a-mock-server-json-server)
+30. [How do you integrate Keycloak for IAM?](#q30-how-do-you-integrate-keycloak-for-iam)
+31. [How do you integrate AG Grid?](#q31-how-do-you-integrate-ag-grid)
+32. [How do you integrate RxJS Operators for HTTP retry strategies?](#q32-how-do-you-integrate-rxjs-operators-for-http-retry-strategies)
+33. [How do you integrate Web Workers in Angular?](#q33-how-do-you-integrate-web-workers-in-angular)
+34. [How do you integrate Service Workers (PWA)?](#q34-how-do-you-integrate-service-workers-pwa)
+35. [How do you integrate Module Federation (Micro-frontends)?](#q35-how-do-you-integrate-module-federation-micro-frontends)
+36. [How do you integrate Angular Universal (SSR)?](#q36-how-do-you-integrate-angular-universal-ssr)
+37. [How do you integrate a Virtual Scroller (CDK)?](#q37-how-do-you-integrate-a-virtual-scroller-cdk)
+38. [How do you integrate Drag and Drop (CDK)?](#q38-how-do-you-integrate-drag-and-drop-cdk)
+39. [How do you integrate Lottie Animations?](#q39-how-do-you-integrate-lottie-animations)
+40. [How do you integrate Markdown rendering?](#q40-how-do-you-integrate-markdown-rendering)
+41. [How do you integrate a Date Picker (Material)?](#q41-how-do-you-integrate-a-date-picker-material)
+42. [How do you integrate Form Validation (Reactive)?](#q42-how-do-you-integrate-form-validation-reactive)
+43. [How do you integrate File Upload?](#q43-how-do-you-integrate-file-upload)
+44. [How do you integrate JWT Handling?](#q44-how-do-you-integrate-jwt-handling)
+45. [How do you integrate FontAwesome?](#q45-how-do-you-integrate-fontawesome)
+46. [How do you integrate Google Analytics 4 (GA4)?](#q46-how-do-you-integrate-google-analytics-4-ga4)
+47. [How do you integrate Hotjar?](#q47-how-do-you-integrate-hotjar)
+48. [How do you integrate Bootstrap 5?](#q48-how-do-you-integrate-bootstrap-5)
+49. [How do you integrate PrimeNG?](#q49-how-do-you-integrate-primeng)
+50. [How do you integrate Lodash?](#q50-how-do-you-integrate-lodash)
+51. [How do you integrate Moment.js (or Day.js)?](#q51-how-do-you-integrate-momentjs-or-dayjs)
+52. [How do you integrate PDF generation (`jspdf`)?](#q52-how-do-you-integrate-pdf-generation-`jspdf`)
+53. [How do you integrate Excel export (`xlsx`)?](#q53-how-do-you-integrate-excel-export-`xlsx`)
+54. [How do you integrate Clipboard copy?](#q54-how-do-you-integrate-clipboard-copy)
+55. [How do you integrate QR Code generation?](#q55-how-do-you-integrate-qr-code-generation)
+56. [How do you integrate Toast Notifications (`ngx-toastr`)?](#q56-how-do-you-integrate-toast-notifications-`ngx-toastr`)
+57. [How do you integrate Loading Spinner (Overlay)?](#q57-how-do-you-integrate-loading-spinner-overlay)
+58. [How do you integrate Environment Variables?](#q58-how-do-you-integrate-environment-variables)
+59. [How do you integrate Custom Web Elements?](#q59-how-do-you-integrate-custom-web-elements)
+60. [How do you integrate Angular with Electron?](#q60-how-do-you-integrate-angular-with-electron)
+61. [How do you integrate Angular with Tauri?](#q61-how-do-you-integrate-angular-with-tauri)
+62. [How do you integrate Angular with Ionic?](#q62-how-do-you-integrate-angular-with-ionic)
+63. [How do you integrate Push Notifications?](#q63-how-do-you-integrate-push-notifications)
+64. [How do you integrate Biometric Auth (WebAuthn)?](#q64-how-do-you-integrate-biometric-auth-webauthn)
+65. [How do you integrate Voice Recognition (Web Speech API)?](#q65-how-do-you-integrate-voice-recognition-web-speech-api)
+66. [How do you integrate Text-to-Speech?](#q66-how-do-you-integrate-text-to-speech)
+67. [How do you integrate Drag and Drop File Upload?](#q67-how-do-you-integrate-drag-and-drop-file-upload)
+68. [How do you integrate Infinite Scroll?](#q68-how-do-you-integrate-infinite-scroll)
+69. [How do you integrate Skeleton Loading?](#q69-how-do-you-integrate-skeleton-loading)
+70. [How do you integrate Image Cropping?](#q70-how-do-you-integrate-image-cropping)
+71. [How do you integrate PDF Viewer?](#q71-how-do-you-integrate-pdf-viewer)
+72. [How do you integrate Video Player?](#q72-how-do-you-integrate-video-player)
+73. [How do you integrate Rich Text Editor (WYSIWYG)?](#q73-how-do-you-integrate-rich-text-editor-wysiwyg)
+74. [How do you integrate Code Highlighting?](#q74-how-do-you-integrate-code-highlighting)
+75. [How do you integrate Cookie Handling?](#q75-how-do-you-integrate-cookie-handling)
+76. [How do you integrate LocalStorage/SessionStorage?](#q76-how-do-you-integrate-localstorage-sessionstorage)
+77. [How do you integrate Key Bindings (Hotkeys)?](#q77-how-do-you-integrate-key-bindings-hotkeys)
+78. [How do you integrate Screen/Device Detection?](#q78-how-do-you-integrate-screen-device-detection)
+79. [How do you integrate FullCalendar?](#q79-how-do-you-integrate-fullcalendar)
+80. [How do you integrate Tooltips?](#q80-how-do-you-integrate-tooltips)
+81. [How do you integrate Popovers?](#q81-how-do-you-integrate-popovers)
+82. [How do you integrate Modals/Dialogs?](#q82-how-do-you-integrate-modals-dialogs)
+83. [How do you integrate Side Navigation (Drawer)?](#q83-how-do-you-integrate-side-navigation-drawer)
+84. [How do you integrate Tabs?](#q84-how-do-you-integrate-tabs)
+85. [How do you integrate Stepper?](#q85-how-do-you-integrate-stepper)
+86. [How do you integrate Tree View?](#q86-how-do-you-integrate-tree-view)
+87. [How do you integrate Autocomplete?](#q87-how-do-you-integrate-autocomplete)
+88. [How do you integrate Slider?](#q88-how-do-you-integrate-slider)
+89. [How do you integrate Toggle Switch?](#q89-how-do-you-integrate-toggle-switch)
+90. [How do you integrate Badge?](#q90-how-do-you-integrate-badge)
+91. [How do you integrate Progress Bar/Spinner?](#q91-how-do-you-integrate-progress-bar-spinner)
+92. [How do you integrate Snackbar/Toast?](#q92-how-do-you-integrate-snackbar-toast)
+93. [How do you integrate Bottom Sheet?](#q93-how-do-you-integrate-bottom-sheet)
+94. [How do you integrate Expansion Panel (Accordion)?](#q94-how-do-you-integrate-expansion-panel-accordion)
+95. [How do you integrate Divider?](#q95-how-do-you-integrate-divider)
+96. [How do you integrate Grid List?](#q96-how-do-you-integrate-grid-list)
+97. [How do you integrate Virtual Keyboard?](#q97-how-do-you-integrate-virtual-keyboard)
+98. [How do you integrate Signature Pad?](#q98-how-do-you-integrate-signature-pad)
+99. [How do you integrate Barcode Scanner?](#q99-how-do-you-integrate-barcode-scanner)
+100. [How do you integrate Geolocation?](#q100-how-do-you-integrate-geolocation)
+101. [How do you integrate Vibration?](#q101-how-do-you-integrate-vibration)
+102. [How do you integrate Battery Status?](#q102-how-do-you-integrate-battery-status)
+103. [How do you integrate Network Status Detection?](#q103-how-do-you-integrate-network-status-detection)
+104. [How do you integrate Page Visibility API?](#q104-how-do-you-integrate-page-visibility-api)
+105. [How do you integrate Fullscreen API?](#q105-how-do-you-integrate-fullscreen-api)
+106. [How do you integrate Picture-in-Picture?](#q106-how-do-you-integrate-picture-in-picture)
+107. [How do you integrate Share API (Web Share)?](#q107-how-do-you-integrate-share-api-web-share)
+108. [How do you integrate Payment Request API?](#q108-how-do-you-integrate-payment-request-api)
+109. [How do you integrate Bluetooth (Web Bluetooth)?](#q109-how-do-you-integrate-bluetooth-web-bluetooth)
 ---
 
 ## Angular 14 New Features
@@ -3170,3 +3269,1753 @@ interface AnalyticsReport {
 ```
 
 This comprehensive integration guide now covers advanced Angular 14 patterns including micro-frontend architecture, cross-application state management, real-time collaboration features, modern development toolchain integration, advanced CI/CD pipelines, comprehensive monitoring and observability, and analytics dashboard integration with practical implementation examples.
+
+---
+
+### Q10: How do you integrate Angular with Firebase using AngularFire?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Integration Steps:**
+
+1.  **Install:** `ng add @angular/fire`
+2.  **Configuration:** Set up `firebase` config in `environment.ts`.
+3.  **Setup (Standalone):**
+```typescript
+// app.config.ts
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
+  ]
+};
+```
+4.  **Usage:** Inject `Firestore` service to interact with the database.
+
+---
+
+### Q11: How do you integrate Redux DevTools with NgRx?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Integration:**
+
+1.  **Install:** `npm install @ngrx/store-devtools --save-dev`
+2.  **Register:**
+```typescript
+// app.config.ts
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideStore(),
+    provideStoreDevtools({
+      maxAge: 25, // Retains last 25 states
+      logOnly: !isDevMode(), // Restrict extension to log-only mode
+      autoPause: true, // Pauses recording actions and state changes when the extension window is not open
+      trace: false, //  If set to true, will include stack trace for every dispatched action
+      traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
+    })
+  ]
+};
+```
+
+---
+
+### Q12: How do you integrate Tailwind CSS with Angular?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Steps:**
+
+1.  **Install:** `npm install -D tailwindcss postcss autoprefixer`
+2.  **Init:** `npx tailwindcss init`
+3.  **Configure `tailwind.config.js`:**
+```javascript
+module.exports = {
+  content: [
+    "./src/**/*.{html,ts}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+4.  **Update `styles.css`:**
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+---
+
+### Q13: How do you integrate Angular Material?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Command:**
+`ng add @angular/material`
+
+**What it does:**
+1.  Adds dependencies.
+2.  Asks for a theme selection (Deep Purple/Amber, Indigo/Pink, etc.).
+3.  Sets up global typography and browser animations.
+4.  Imports `MatModule`s are no longer automatic in Standalone; you import what you need in components.
+
+---
+
+### Q14: How do you integrate GraphQL with Apollo in Angular?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Integration:**
+
+1.  **Install:** `ng add apollo-angular`
+2.  **Configuration:** Creates `graphql.provider.ts` (or config in `app.config.ts`).
+```typescript
+import { ApolloClientOptions, InMemoryCache } from '@apollo/client/core';
+import { HttpLink } from 'apollo-angular/http';
+
+const uri = 'https://api.example.com/graphql';
+
+export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
+  return {
+    link: httpLink.create({ uri }),
+    cache: new InMemoryCache(),
+  };
+}
+```
+3.  **Usage:** Inject `Apollo` service to watch queries or mutate data.
+
+---
+
+### Q15: How do you integrate Storybook with Angular?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Command:**
+`npx storybook@latest init`
+
+**Process:**
+1.  Detects Angular project.
+2.  Installs dependencies (`@storybook/angular`).
+3.  Adds `storybook` and `build-storybook` scripts to `package.json`.
+4.  Creates `.storybook` folder with config.
+5.  Generates example stories.
+
+---
+
+### Q16: How do you integrate Jest for testing in Angular?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Migration from Karma/Jasmine:**
+
+1.  **Remove Karma:** `npm uninstall karma karma-chrome-launcher ...`
+2.  **Install Jest:** `npm install -D jest @types/jest jest-preset-angular`
+3.  **Configure `setup-jest.ts`:**
+```typescript
+import 'jest-preset-angular/setup-jest';
+```
+4.  **Update `package.json`:**
+```json
+"scripts": {
+  "test": "jest"
+},
+"jest": {
+  "preset": "jest-preset-angular",
+  "setupFilesAfterEnv": ["<rootDir>/setup-jest.ts"]
+}
+```
+
+---
+
+### Q17: How do you integrate Cypress for E2E testing?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Integration:**
+
+1.  **Install:** `ng add @cypress/schematic`
+2.  **Command:** `ng e2e`
+3.  **Structure:** Creates `cypress/` folder with `e2e/` and `support/`.
+4.  **Configuration:** `cypress.config.ts` handles base URL and other settings.
+
+---
+
+### Q18: How do you integrate Google Maps?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `@angular/google-maps`:**
+
+1.  **Install:** `npm install @angular/google-maps`
+2.  **Load API:** Add script to `index.html` with API Key.
+3.  **Usage:**
+```typescript
+import { GoogleMapsModule } from '@angular/google-maps';
+
+@Component({
+  standalone: true,
+  imports: [GoogleMapsModule],
+  template: `
+    <google-map height="400px" width="750px" [center]="center" [zoom]="zoom">
+      <map-marker [position]="center"></map-marker>
+    </google-map>
+  `
+})
+export class MapComponent {
+  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
+  zoom = 4;
+}
+```
+
+---
+
+### Q19: How do you integrate Socket.io with Angular?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Using `ngx-socket-io`:**
+
+1.  **Install:** `npm install ngx-socket-io`
+2.  **Config:**
+```typescript
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+```
+3.  **Service:**
+```typescript
+@Injectable({ providedIn: 'root' })
+export class ChatService {
+  constructor(private socket: Socket) {}
+
+  sendMessage(msg: string) {
+    this.socket.emit('message', msg);
+  }
+
+  getMessage() {
+    return this.socket.fromEvent('message');
+  }
+}
+```
+
+---
+
+### Q20: How do you integrate Stripe Elements?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Integration:**
+
+1.  **Script:** Load Stripe.js in `index.html`.
+2.  **Wrapper:** Use `ngx-stripe` or custom wrapper.
+3.  **Component:**
+```typescript
+@ViewChild(StripeCardComponent) card: StripeCardComponent;
+
+createToken() {
+  this.stripeService
+    .createToken(this.card.element, { name: 'John Doe' })
+    .subscribe((result) => {
+      if (result.token) {
+        // Send token to backend
+      }
+    });
+}
+```
+
+---
+
+### Q21: How do you integrate Chart.js?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `ng2-charts`:**
+
+1.  **Install:** `npm install ng2-charts chart.js`
+2.  **Imports:** `BaseChartDirective` (Standalone).
+3.  **Template:**
+```html
+<canvas baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [type]="'bar'">
+</canvas>
+```
+
+---
+
+### Q22: How do you integrate Auth0?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Using Auth0 Angular SDK:**
+
+1.  **Install:** `npm install @auth0/auth0-angular`
+2.  **Config:**
+```typescript
+provideAuth0({
+  domain: '{yourDomain}',
+  clientId: '{yourClientId}',
+  authorizationParams: {
+    redirect_uri: window.location.origin
+  }
+})
+```
+3.  **Guard:** Use `authGuardFn` to protect routes.
+4.  **Interceptor:** Use `authHttpInterceptorFn` to attach tokens.
+
+---
+
+### Q23: How do you integrate Angular with Docker?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Dockerfile:**
+
+```dockerfile
+# Stage 1: Build
+FROM node:18 as build
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Stage 2: Serve
+FROM nginx:alpine
+COPY --from=build /app/dist/my-app /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+```
+
+---
+
+### Q24: How do you integrate Internationalization (i18n)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Native Angular i18n:**
+
+1.  **Mark Text:** `<h1 i18n>Hello</h1>`
+2.  **Extract:** `ng extract-i18n` -> generates `messages.xlf`.
+3.  **Translate:** Create `messages.fr.xlf`.
+4.  **Build:** `ng build --localize` to generate bundles for each locale.
+
+---
+
+### Q25: How do you integrate `ngx-translate` for dynamic i18n?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Setup:**
+
+1.  **Install:** `npm install @ngx-translate/core @ngx-translate/http-loader`
+2.  **Loader:**
+```typescript
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+```
+3.  **Usage:**
+```typescript
+translate.setDefaultLang('en');
+translate.use('fr');
+```
+```html
+<h1 translate>HELLO</h1>
+```
+
+---
+
+### Q26: How do you integrate Sentry for error tracking?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Integration:**
+
+1.  **Install:** `npm install @sentry/angular-ivy @sentry/browser`
+2.  **Init:**
+```typescript
+Sentry.init({
+  dsn: "https://examplePublicKey@o0.ingest.sentry.io/0",
+  integrations: [
+    new Sentry.BrowserTracing({
+      routingInstrumentation: Sentry.routingInstrumentation,
+    }),
+  ],
+});
+```
+3.  **ErrorHandler:** Provide `Sentry.createErrorHandler()`.
+
+---
+
+### Q27: How do you integrate Prettier and ESLint?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Setup:**
+
+1.  **Install:** `npm install -D eslint prettier eslint-config-prettier`
+2.  **ESLint Config:**
+```json
+{
+  "extends": ["plugin:@angular-eslint/recommended", "prettier"]
+}
+```
+3.  **Prettier Config:** `.prettierrc`
+4.  **Scripts:** Add `"lint": "eslint ."` and `"format": "prettier --write ."`.
+
+---
+
+### Q28: How do you integrate Husky for git hooks?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Integration:**
+
+1.  **Install:** `npx husky-init && npm install`
+2.  **Configure Hook:** Edit `.husky/pre-commit`:
+```bash
+npm run lint
+npm test
+```
+3.  **Result:** Runs lint and tests before every commit.
+
+---
+
+### Q29: How do you integrate a mock server (JSON Server)?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Steps:**
+
+1.  **Install:** `npm install -g json-server`
+2.  **Data:** Create `db.json`.
+3.  **Run:** `json-server --watch db.json`
+4.  **Angular:** Point `HttpClient` to `http://localhost:3000/...`.
+
+---
+
+### Q30: How do you integrate Keycloak for IAM?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Using `keycloak-angular`:**
+
+1.  **Install:** `npm install keycloak-angular keycloak-js`
+2.  **Init Factory:**
+```typescript
+function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
+    keycloak.init({
+      config: {
+        url: 'http://localhost:8080/auth',
+        realm: 'myrealm',
+        clientId: 'myclient'
+      },
+      initOptions: {
+        onLoad: 'check-sso',
+        silentCheckSsoRedirectUri: window.location.origin + '/assets/silent-check-sso.html'
+      }
+    });
+}
+```
+
+---
+
+### Q31: How do you integrate AG Grid?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Steps:**
+
+1.  **Install:** `npm install ag-grid-angular ag-grid-community`
+2.  **Import:** `AgGridModule`
+3.  **Styles:** Import `ag-grid.css` and theme in `styles.css`.
+4.  **Template:**
+```html
+<ag-grid-angular
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="colDefs">
+</ag-grid-angular>
+```
+
+---
+
+### Q32: How do you integrate RxJS Operators for HTTP retry strategies?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Integration:**
+
+Use `retryWhen` or `retry` with `delay`:
+```typescript
+http.get('/api/data').pipe(
+  retry({
+    count: 3,
+    delay: (error, retryCount) => timer(retryCount * 1000)
+  })
+);
+```
+
+---
+
+### Q33: How do you integrate Web Workers in Angular?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**CLI Command:**
+`ng generate web-worker app`
+
+**Result:**
+1.  Creates `app.worker.ts`.
+2.  Updates `angular.json` with web worker config.
+3.  **Usage:**
+```typescript
+const worker = new Worker(new URL('./app.worker', import.meta.url));
+worker.onmessage = ({ data }) => {
+  console.log('From Worker:', data);
+};
+worker.postMessage('hello');
+```
+
+---
+
+### Q34: How do you integrate Service Workers (PWA)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Command:**
+`ng add @angular/pwa`
+
+**What it does:**
+1.  Adds `service-worker.js` build step.
+2.  Creates `ngsw-config.json` for caching strategies.
+3.  Adds `manifest.webmanifest`.
+4.  Registers SW in `app.config.ts`/`AppModule`.
+
+---
+
+### Q35: How do you integrate Module Federation (Micro-frontends)?
+
+**Difficulty: Expert**
+
+**Answer:**
+**Using `@angular-architects/module-federation`:**
+
+1.  **Install:** `ng add @angular-architects/module-federation`
+2.  **Config:** `webpack.config.js` generated.
+3.  **Expose:**
+```javascript
+exposes: {
+  './Component': './src/app/my.component.ts',
+},
+```
+4.  **Remotes:** Define remote apps in config.
+
+---
+
+### Q36: How do you integrate Angular Universal (SSR)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Command (Angular <17):**
+`ng add @nguniversal/express-engine`
+
+**Command (Angular 17+):**
+`ng add @angular/ssr`
+
+**Result:**
+1.  Creates `server.ts`.
+2.  Updates `angular.json` with `server` target.
+3.  Enables Hydration in `app.config.ts` (`provideClientHydration()`).
+
+---
+
+### Q37: How do you integrate a Virtual Scroller (CDK)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `@angular/cdk/scrolling`:**
+
+1.  **Import:** `ScrollingModule`
+2.  **Template:**
+```html
+<cdk-virtual-scroll-viewport itemSize="50" class="viewport">
+  <div *cdkVirtualFor="let item of items" class="item">
+    {{item}}
+  </div>
+</cdk-virtual-scroll-viewport>
+```
+
+---
+
+### Q38: How do you integrate Drag and Drop (CDK)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `@angular/cdk/drag-drop`:**
+
+1.  **Import:** `DragDropModule`
+2.  **Template:**
+```html
+<div cdkDropList (cdkDropListDropped)="drop($event)">
+  <div *ngFor="let item of items" cdkDrag>{{item}}</div>
+</div>
+```
+3.  **Handler:**
+```typescript
+drop(event: CdkDragDrop<string[]>) {
+  moveItemInArray(this.items, event.previousIndex, event.currentIndex);
+}
+```
+
+---
+
+### Q39: How do you integrate Lottie Animations?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using `ngx-lottie`:**
+
+1.  **Install:** `npm install ngx-lottie lottie-web`
+2.  **Config:** Provide `playerFactory`.
+3.  **Template:**
+```html
+<ng-lottie [options]="options"></ng-lottie>
+```
+
+---
+
+### Q40: How do you integrate Markdown rendering?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using `ngx-markdown`:**
+
+1.  **Install:** `npm install ngx-markdown`
+2.  **Import:** `MarkdownModule.forRoot()`
+3.  **Usage:**
+```html
+<markdown [data]="markdownString"></markdown>
+<!-- or -->
+<markdown src="assets/readme.md"></markdown>
+```
+
+---
+
+### Q41: How do you integrate a Date Picker (Material)?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Components:**
+`MatDatepickerModule`, `MatNativeDateModule`
+
+**Usage:**
+```html
+<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+```
+
+---
+
+### Q42: How do you integrate Form Validation (Reactive)?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Integration:**
+
+1.  **Import:** `ReactiveFormsModule`
+2.  **Control:**
+```typescript
+email = new FormControl('', [Validators.required, Validators.email]);
+```
+3.  **Template:**
+```html
+<input [formControl]="email">
+<div *ngIf="email.invalid && email.touched">Invalid Email</div>
+```
+
+---
+
+### Q43: How do you integrate File Upload?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Basic Integration:**
+
+1.  **Input:** `<input type="file" (change)="onFileSelected($event)">`
+2.  **Handler:**
+```typescript
+onFileSelected(event: any) {
+  const file: File = event.target.files[0];
+  const formData = new FormData();
+  formData.append('file', file);
+  this.http.post('/upload', formData).subscribe();
+}
+```
+
+---
+
+### Q44: How do you integrate JWT Handling?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `auth0/angular-jwt` (optional) or manual:**
+
+**Manual:**
+1.  **Store:** `localStorage.setItem('token', token)`
+2.  **Interceptor:**
+```typescript
+intercept(req, next) {
+  const token = localStorage.getItem('token');
+  if (token) {
+    const cloned = req.clone({
+      headers: req.headers.set('Authorization', `Bearer ${token}`)
+    });
+    return next.handle(cloned);
+  }
+  return next.handle(req);
+}
+```
+
+---
+
+### Q45: How do you integrate FontAwesome?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using `@fortawesome/angular-fontawesome`:**
+
+1.  **Install:** `npm install @fortawesome/angular-fontawesome @fortawesome/free-solid-svg-icons`
+2.  **Import:** `FontAwesomeModule`
+3.  **Icon:**
+```typescript
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+icon = faCoffee;
+```
+4.  **Template:** `<fa-icon [icon]="icon"></fa-icon>`
+
+---
+
+### Q46: How do you integrate Google Analytics 4 (GA4)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Integration:**
+
+1.  **Script:** Add GTAG script to `index.html`.
+2.  **Router Events:**
+```typescript
+constructor(private router: Router) {
+  this.router.events.subscribe(event => {
+    if (event instanceof NavigationEnd) {
+      gtag('config', 'G-XXXXX', { 'page_path': event.urlAfterRedirects });
+    }
+  });
+}
+```
+
+---
+
+### Q47: How do you integrate Hotjar?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Steps:**
+
+1.  **Script:** Add Hotjar tracking code to `<head>` in `index.html`.
+2.  **Alternative:** Use `ngx-hotjar` wrapper for more control (identify users, trigger events).
+
+---
+
+### Q48: How do you integrate Bootstrap 5?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Steps:**
+
+1.  **Install:** `npm install bootstrap`
+2.  **Styles:** Add `node_modules/bootstrap/dist/css/bootstrap.min.css` to `angular.json` styles array.
+3.  **Scripts:** Add `node_modules/bootstrap/dist/js/bootstrap.bundle.min.js` to scripts array (if needing JS components).
+4.  **Alternative:** Use `ng-bootstrap` or `ngx-bootstrap` for Angular native components.
+
+---
+
+### Q49: How do you integrate PrimeNG?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Steps:**
+
+1.  **Install:** `npm install primeng primeicons`
+2.  **Styles:** Add theme, layout, and primeicons css to `angular.json`.
+3.  **Animations:** Ensure `BrowserAnimationsModule` is imported.
+4.  **Import:** Import specific modules (e.g., `ButtonModule`) in component/module.
+
+---
+
+### Q50: How do you integrate Lodash?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Integration:**
+
+1.  **Install:** `npm install lodash @types/lodash`
+2.  **Import:**
+```typescript
+import * as _ from 'lodash';
+// or
+import { cloneDeep } from 'lodash';
+```
+3.  **Optimization:** Use `lodash-es` for better tree-shaking.
+
+---
+
+### Q51: How do you integrate Moment.js (or Day.js)?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Day.js (Recommended over Moment):**
+
+1.  **Install:** `npm install dayjs`
+2.  **Usage:**
+```typescript
+import dayjs from 'dayjs';
+const now = dayjs().format();
+```
+3.  **Pipe:** Create a `DatePipe` using Day.js for templates.
+
+---
+
+### Q52: How do you integrate PDF generation (`jspdf`)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Steps:**
+
+1.  **Install:** `npm install jspdf`
+2.  **Usage:**
+```typescript
+import { jsPDF } from 'jspdf';
+
+downloadPDF() {
+  const doc = new jsPDF();
+  doc.text("Hello world!", 10, 10);
+  doc.save("a4.pdf");
+}
+```
+
+---
+
+### Q53: How do you integrate Excel export (`xlsx`)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Steps:**
+
+1.  **Install:** `npm install xlsx`
+2.  **Usage:**
+```typescript
+import * as XLSX from 'xlsx';
+
+exportExcel() {
+  const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.data);
+  const wb: XLSX.WorkBook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+  XLSX.writeFile(wb, 'data.xlsx');
+}
+```
+
+---
+
+### Q54: How do you integrate Clipboard copy?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using CDK Clipboard:**
+
+1.  **Import:** `ClipboardModule` from `@angular/cdk/clipboard`.
+2.  **Template:**
+```html
+<button [cdkCopyToClipboard]="value">Copy</button>
+```
+
+---
+
+### Q55: How do you integrate QR Code generation?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using `angularx-qrcode`:**
+
+1.  **Install:** `npm install angularx-qrcode`
+2.  **Template:**
+```html
+<qrcode [qrdata]="'https://example.com'" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+```
+
+---
+
+### Q56: How do you integrate Toast Notifications (`ngx-toastr`)?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Steps:**
+
+1.  **Install:** `npm install ngx-toastr`
+2.  **Config:** Provide `provideToastr()`.
+3.  **Styles:** Import CSS.
+4.  **Usage:**
+```typescript
+constructor(private toastr: ToastrService) {}
+showSuccess() {
+  this.toastr.success('Hello world!', 'Toastr fun!');
+}
+```
+
+---
+
+### Q57: How do you integrate Loading Spinner (Overlay)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Integration:**
+
+1.  **Service:** Create `LoaderService` with `Subject<boolean>`.
+2.  **Interceptor:** Set `isLoading = true` on request, `false` on finalize.
+3.  **Component:** Subscribe to `isLoading` and show/hide Spinner (can use CDK Overlay for global blocking).
+
+---
+
+### Q58: How do you integrate Environment Variables?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Steps:**
+
+1.  **Files:** `environment.ts`, `environment.prod.ts`.
+2.  **Build:** `angular.json` "fileReplacements".
+3.  **Usage:**
+```typescript
+import { environment } from './environments/environment';
+if (environment.production) { ... }
+```
+
+---
+
+### Q59: How do you integrate Custom Web Elements?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Steps:**
+
+1.  **Schema:** Add `CUSTOM_ELEMENTS_SCHEMA` to module/component schemas.
+2.  **Script:** Load web element JS.
+3.  **Template:** `<my-custom-element [prop]="val"></my-custom-element>`.
+
+---
+
+### Q60: How do you integrate Angular with Electron?
+
+**Difficulty: Expert**
+
+**Answer:**
+**Steps:**
+
+1.  **Setup:** Install `electron`.
+2.  **Main Process:** Create `main.js`.
+3.  **Build:** Build Angular to `dist/`.
+4.  **Load:** Electron loads `dist/index.html`.
+5.  **IPC:** Use `ipcRenderer` to communicate between Angular and Electron Main process.
+
+---
+
+### Q61: How do you integrate Angular with Tauri?
+
+**Difficulty: Expert**
+
+**Answer:**
+**Steps:**
+
+1.  **Init:** `npm create tauri-app` (select Angular).
+2.  **Build:** Configure `tauri.conf.json` to point to Angular dist.
+3.  **Dev:** Run `tauri dev`.
+4.  **API:** Use `@tauri-apps/api` to access OS features.
+
+---
+
+### Q62: How do you integrate Angular with Ionic?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Steps:**
+
+1.  **Command:** `ionic start myApp tabs --type=angular`
+2.  **Components:** Use `IonHeader`, `IonContent`, etc.
+3.  **Capacitor:** Use Capacitor plugins for native device access.
+
+---
+
+### Q63: How do you integrate Push Notifications?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Using SW:**
+
+1.  **Enable PWA:** `ng add @angular/pwa`
+2.  **Service:** `SwPush` from `@angular/service-worker`.
+3.  **Request:** `swPush.requestSubscription({ serverPublicKey: '...' })`.
+4.  **Listen:** `swPush.messages.subscribe(...)`.
+
+---
+
+### Q64: How do you integrate Biometric Auth (WebAuthn)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Integration:**
+
+1.  **Browser API:** `navigator.credentials.create()` (Registration) and `navigator.credentials.get()` (Login).
+2.  **Backend:** Verify signatures.
+3.  **Angular:** Wrap in a service, handle errors gracefully.
+
+---
+
+### Q65: How do you integrate Voice Recognition (Web Speech API)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Integration:**
+
+1.  **Types:** `npm install @types/dom-speech-recognition`
+2.  **Service:**
+```typescript
+const recognition = new (window as any).webkitSpeechRecognition();
+recognition.onresult = (event) => {
+  this.zone.run(() => {
+    this.transcript = event.results[0][0].transcript;
+  });
+};
+recognition.start();
+```
+
+---
+
+### Q66: How do you integrate Text-to-Speech?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Integration:**
+
+```typescript
+speak(text: string) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  window.speechSynthesis.speak(utterance);
+}
+```
+
+---
+
+### Q67: How do you integrate Drag and Drop File Upload?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Steps:**
+
+1.  **Directive:** Create `DndDirective`.
+2.  **Events:** Listen to `dragover`, `dragleave`, `drop`.
+3.  **Prevent Default:** `event.preventDefault()`, `event.stopPropagation()`.
+4.  **Emit:** Emit `files` from `event.dataTransfer.files`.
+
+---
+
+### Q68: How do you integrate Infinite Scroll?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `ngx-infinite-scroll`:**
+
+1.  **Install:** `npm install ngx-infinite-scroll`
+2.  **Template:**
+```html
+<div infiniteScroll (scrolled)="onScroll()">
+  ...items
+</div>
+```
+3.  **Logic:** Load more data when `onScroll` triggers.
+
+---
+
+### Q69: How do you integrate Skeleton Loading?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using `ngx-skeleton-loader`:**
+
+1.  **Install:** `npm install ngx-skeleton-loader`
+2.  **Template:**
+```html
+<div *ngIf="loading; else content">
+  <ngx-skeleton-loader count="5"></ngx-skeleton-loader>
+</div>
+<ng-template #content>...</ng-template>
+```
+
+---
+
+### Q70: How do you integrate Image Cropping?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `ngx-image-cropper`:**
+
+1.  **Install:** `npm install ngx-image-cropper`
+2.  **Template:**
+```html
+<image-cropper
+    [imageChangedEvent]="imageChangedEvent"
+    [maintainAspectRatio]="true"
+    (imageCropped)="imageCropped($event)">
+</image-cropper>
+```
+
+---
+
+### Q71: How do you integrate PDF Viewer?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `ng2-pdf-viewer`:**
+
+1.  **Install:** `npm install ng2-pdf-viewer`
+2.  **Template:**
+```html
+<pdf-viewer [src]="pdfSrc"
+            [render-text]="true"
+            style="display: block;"></pdf-viewer>
+```
+
+---
+
+### Q72: How do you integrate Video Player?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Native:**
+`<video controls src="...">`
+
+**Custom (plyr, video.js):**
+1.  Install library.
+2.  Initialize player on `ngAfterViewInit`.
+3.  Destroy on `ngOnDestroy`.
+
+---
+
+### Q73: How do you integrate Rich Text Editor (WYSIWYG)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `ngx-editor` or Quill:**
+
+**Quill:**
+1.  **Install:** `npm install ngx-quill quill`
+2.  **Template:**
+```html
+<quill-editor [(ngModel)]="content"></quill-editor>
+```
+
+---
+
+### Q74: How do you integrate Code Highlighting?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `ngx-highlightjs`:**
+
+1.  **Install:** `npm install ngx-highlightjs`
+2.  **Config:** Provide languages.
+3.  **Template:**
+```html
+<pre><code [highlight]="code"></code></pre>
+```
+
+---
+
+### Q75: How do you integrate Cookie Handling?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using `ngx-cookie-service`:**
+
+1.  **Install:** `npm install ngx-cookie-service`
+2.  **Usage:**
+```typescript
+constructor(private cookieService: CookieService) {}
+set() { this.cookieService.set('Test', 'Hello World'); }
+get() { return this.cookieService.get('Test'); }
+```
+
+---
+
+### Q76: How do you integrate LocalStorage/SessionStorage?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Native API:**
+
+```typescript
+localStorage.setItem('key', 'value');
+const val = localStorage.getItem('key');
+```
+
+**Abstraction:** Wrap in a service to handle SSR (check `isPlatformBrowser`).
+
+---
+
+### Q77: How do you integrate Key Bindings (Hotkeys)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**HostListener:**
+
+```typescript
+@HostListener('window:keydown.control.z', ['$event'])
+handleUndo(event: KeyboardEvent) {
+  event.preventDefault();
+  this.undo();
+}
+```
+
+---
+
+### Q78: How do you integrate Screen/Device Detection?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using CDK Layout:**
+
+1.  **Import:** `LayoutModule`
+2.  **Usage:**
+```typescript
+breakpointObserver.observe([Breakpoints.Handset])
+  .subscribe(result => {
+    this.isHandset = result.matches;
+  });
+```
+
+---
+
+### Q79: How do you integrate FullCalendar?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Steps:**
+
+1.  **Install:** `@fullcalendar/angular @fullcalendar/daygrid`
+2.  **Template:**
+```html
+<full-calendar [options]="calendarOptions"></full-calendar>
+```
+3.  **Config:** `calendarOptions` object with plugins and events.
+
+---
+
+### Q80: How do you integrate Tooltips?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using Material Tooltip:**
+
+```html
+<button mat-button matTooltip="Info message">Action</button>
+```
+
+**Using Bootstrap:** Add `data-bs-toggle="tooltip"`. Initialized via JS.
+
+---
+
+### Q81: How do you integrate Popovers?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using CDK Overlay:**
+Create flexible floating panels.
+
+**Using Library:** `ngb-popover` (ng-bootstrap)
+`<button [ngbPopover]="content">Click me</button>`
+
+---
+
+### Q82: How do you integrate Modals/Dialogs?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using Material Dialog:**
+
+1.  **Open:**
+```typescript
+dialog.open(MyDialogComponent, {
+  data: { name: 'Angular' }
+});
+```
+2.  **Component:** Inject `MAT_DIALOG_DATA` to access data.
+
+---
+
+### Q83: How do you integrate Side Navigation (Drawer)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using Material Sidenav:**
+
+```html
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened>Sidenav</mat-sidenav>
+  <mat-sidenav-content>Main content</mat-sidenav-content>
+</mat-sidenav-container>
+```
+
+---
+
+### Q84: How do you integrate Tabs?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using Material Tabs:**
+
+```html
+<mat-tab-group>
+  <mat-tab label="First"> Content 1 </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+</mat-tab-group>
+```
+
+---
+
+### Q85: How do you integrate Stepper?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using Material Stepper:**
+
+```html
+<mat-stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">...</form>
+  </mat-step>
+  <mat-step>Done</mat-step>
+</mat-stepper>
+```
+
+---
+
+### Q86: How do you integrate Tree View?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using Material Tree:**
+
+1.  **DataSource:** Create `FlatTreeControl` and `DataSource`.
+2.  **Template:** `<mat-tree [dataSource]="dataSource" ...>`
+3.  **Nodes:** Define templates for leaf nodes and expandable nodes.
+
+---
+
+### Q87: How do you integrate Autocomplete?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using Material Autocomplete:**
+
+1.  **Input:** `<input [matAutocomplete]="auto">`
+2.  **Dropdown:** `<mat-autocomplete #auto="matAutocomplete">`
+3.  **Filter:** Filter options based on input value change.
+
+---
+
+### Q88: How do you integrate Slider?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using Material Slider:**
+
+```html
+<mat-slider min="1" max="100" step="1">
+  <input matSliderThumb [(ngModel)]="value">
+</mat-slider>
+```
+
+---
+
+### Q89: How do you integrate Toggle Switch?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using Material Slide Toggle:**
+
+```html
+<mat-slide-toggle [(ngModel)]="isChecked">Enable Feature</mat-slide-toggle>
+```
+
+---
+
+### Q90: How do you integrate Badge?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Using Material Badge:**
+
+```html
+<span matBadge="4" matBadgeOverlap="false">Text with badge</span>
+```
+
+---
+
+### Q91: How do you integrate Progress Bar/Spinner?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Material:**
+`<mat-progress-bar mode="indeterminate"></mat-progress-bar>`
+`<mat-progress-spinner mode="indeterminate"></mat-progress-spinner>`
+
+---
+
+### Q92: How do you integrate Snackbar/Toast?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Material:**
+```typescript
+snackBar.open('Message archived', 'Undo', {
+  duration: 3000
+});
+```
+
+---
+
+### Q93: How do you integrate Bottom Sheet?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Material:**
+```typescript
+bottomSheet.open(BottomSheetOverviewExampleSheet);
+```
+
+---
+
+### Q94: How do you integrate Expansion Panel (Accordion)?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Material:**
+```html
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Title</mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>Content</p>
+  </mat-expansion-panel>
+</mat-accordion>
+```
+
+---
+
+### Q95: How do you integrate Divider?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Material:**
+`<mat-divider></mat-divider>`
+Or CSS `border-bottom`.
+
+---
+
+### Q96: How do you integrate Grid List?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Material:**
+```html
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile>1</mat-grid-tile>
+  <mat-grid-tile>2</mat-grid-tile>
+</mat-grid-list>
+```
+
+---
+
+### Q97: How do you integrate Virtual Keyboard?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Custom Implementation:**
+1.  Create component with buttons.
+2.  On click, append char to focused input.
+3.  Handle Shift/Caps states.
+
+---
+
+### Q98: How do you integrate Signature Pad?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Using `angular2-signaturepad`:**
+
+1.  **Install:** `npm install angular2-signaturepad`
+2.  **Template:** `<signature-pad [options]="options"></signature-pad>`
+3.  **Data:** `signaturePad.toDataURL()`.
+
+---
+
+### Q99: How do you integrate Barcode Scanner?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Using `ngx-scanner` (Webcam):**
+Scans QR/Barcodes from camera.
+
+**Using Hardware Scanner:**
+Listen to global `keypress` events (scanners usually emulate keyboard input).
+
+---
+
+### Q100: How do you integrate Geolocation?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Native API:**
+
+```typescript
+navigator.geolocation.getCurrentPosition((position) => {
+  console.log(position.coords.latitude, position.coords.longitude);
+});
+```
+
+---
+
+### Q101: How do you integrate Vibration?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Native API:**
+`navigator.vibrate(200);` // Vibrate for 200ms
+
+---
+
+### Q102: How do you integrate Battery Status?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Native API:**
+
+```typescript
+(navigator as any).getBattery().then((battery: any) => {
+  console.log(battery.level);
+});
+```
+
+---
+
+### Q103: How do you integrate Network Status Detection?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Native:** `window.navigator.onLine`.
+
+**Events:**
+```typescript
+window.addEventListener('offline', () => { ... });
+window.addEventListener('online', () => { ... });
+```
+
+---
+
+### Q104: How do you integrate Page Visibility API?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Usage:** Detect when user switches tab.
+```typescript
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    // Pause video/polling
+  }
+});
+```
+
+---
+
+### Q105: How do you integrate Fullscreen API?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Usage:**
+`elem.requestFullscreen();`
+`document.exitFullscreen();`
+
+---
+
+### Q106: How do you integrate Picture-in-Picture?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Usage:**
+`videoElement.requestPictureInPicture();`
+
+---
+
+### Q107: How do you integrate Share API (Web Share)?
+
+**Difficulty: Beginner**
+
+**Answer:**
+**Usage:**
+```typescript
+if (navigator.share) {
+  navigator.share({
+    title: 'Web Fundamentals',
+    text: 'Check out Web Fundamentals — it rocks!',
+    url: 'https://developers.google.com/web',
+  });
+}
+```
+
+---
+
+### Q108: How do you integrate Payment Request API?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Usage:**
+Native browser UI for payments (Apple Pay/Google Pay).
+```typescript
+const request = new PaymentRequest(methods, details, options);
+request.show().then(response => ...);
+```
+
+---
+
+### Q109: How do you integrate Bluetooth (Web Bluetooth)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Usage:**
+Connect to BLE devices.
+```typescript
+navigator.bluetooth.requestDevice({ filters: [...] })
+  .then(device => device.gatt.connect())
+```
+

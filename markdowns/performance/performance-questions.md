@@ -2,39 +2,157 @@
 
 ## Table of Contents
 
-- [Performance Optimization Interview Questions](#performance-optimization-interview-questions)
-  - [Table of Contents](#table-of-contents)
-    - [Q14: How do you optimize images and implement lazy loading for better performance?](#q14-how-do-you-optimize-images-and-implement-lazy-loading-for-better-performance)
-    - [Q15: How do you optimize JavaScript performance and bundle size?](#q15-how-do-you-optimize-javascript-performance-and-bundle-size)
-    - [Q16: How do you implement Web Workers for performance optimization?](#q16-how-do-you-implement-web-workers-for-performance-optimization)
-    - [Q17: How do you implement comprehensive performance monitoring and analytics?](#q17-how-do-you-implement-comprehensive-performance-monitoring-and-analytics)
-    - [Q18: What are advanced performance optimization techniques and best practices?](#q18-what-are-advanced-performance-optimization-techniques-and-best-practices)
-    - [Q19: How do you implement comprehensive performance testing and measurement strategies?](#q19-how-do-you-implement-comprehensive-performance-testing-and-measurement-strategies)
-    - [Q20: How do you optimize performance for mobile devices and Progressive Web Apps (PWAs)?](#q20-how-do-you-optimize-performance-for-mobile-devices-and-progressive-web-apps-pwas)
-  - [Web Performance Fundamentals](#web-performance-fundamentals)
-    - [Q1: What are the key metrics for measuring web performance?](#q1-what-are-the-key-metrics-for-measuring-web-performance)
-  - [Core Web Vitals](#core-web-vitals)
-    - [Q2: How do you optimize Core Web Vitals?](#q2-how-do-you-optimize-core-web-vitals)
-    - [Q13: How do you implement effective caching strategies for frontend performance?](#q13-how-do-you-implement-effective-caching-strategies-for-frontend-performance)
-  - [Loading Performance](#loading-performance)
-    - [Q3: How do you optimize page loading performance?](#q3-how-do-you-optimize-page-loading-performance)
-  - [Runtime Performance](#runtime-performance)
-    - [Q4: How do you optimize JavaScript runtime performance?](#q4-how-do-you-optimize-javascript-runtime-performance)
-  - [Memory Management](#memory-management)
-    - [Q5: How do you prevent memory leaks in web applications?](#q5-how-do-you-prevent-memory-leaks-in-web-applications)
-  - [Advanced Performance Optimization](#advanced-performance-optimization)
-    - [Q6: How do you implement advanced performance optimization strategies?](#q6-how-do-you-implement-advanced-performance-optimization-strategies)
-    - [Q7: How do you implement advanced performance monitoring and real-time optimization?](#q7-how-do-you-implement-advanced-performance-monitoring-and-real-time-optimization)
-    - [Q8: How do you implement comprehensive performance monitoring and analytics?](#q8-how-do-you-implement-comprehensive-performance-monitoring-and-analytics)
-    - [Q9: How do you implement advanced performance optimization for modern web applications?](#q9-how-do-you-implement-advanced-performance-optimization-for-modern-web-applications)
-    - [Q10: How do you implement advanced caching strategies and service worker optimization?](#q10-how-do-you-implement-advanced-caching-strategies-and-service-worker-optimization)
-    - [Q11: How would you implement advanced performance monitoring and optimization for modern web applications?](#q11-how-would-you-implement-advanced-performance-monitoring-and-optimization-for-modern-web-applications)
-    - [Q12: How would you implement advanced caching strategies and edge optimization for global performance?](#q12-how-would-you-implement-advanced-caching-strategies-and-edge-optimization-for-global-performance)
+1. [Q1: How do you optimize images and implement lazy loading for better performance?](#q1-how-do-you-optimize-images-and-implement-lazy-loading-for-better-performance)
+2. [Q2: How do you optimize JavaScript performance and bundle size?](#q2-how-do-you-optimize-javascript-performance-and-bundle-size)
+3. [Q3: How do you implement Web Workers for performance optimization?](#q3-how-do-you-implement-web-workers-for-performance-optimization)
+4. [Q4: How do you implement comprehensive performance monitoring and analytics?](#q4-how-do-you-implement-comprehensive-performance-monitoring-and-analytics)
+5. [Q5: What are advanced performance optimization techniques and best practices?](#q5-what-are-advanced-performance-optimization-techniques-and-best-practices)
+6. [Q6: How do you implement comprehensive performance testing and measurement strategies?](#q6-how-do-you-implement-comprehensive-performance-testing-and-measurement-strategies)
+7. [Q7: How do you optimize performance for mobile devices and Progressive Web Apps (PWAs)?](#q7-how-do-you-optimize-performance-for-mobile-devices-and-progressive-web-apps-pwas)
+8. [Q8: What are the key metrics for measuring web performance?](#q8-what-are-the-key-metrics-for-measuring-web-performance)
+9. [Q9: How do you optimize Core Web Vitals?](#q9-how-do-you-optimize-core-web-vitals)
+10. [Q10: How do you implement effective caching strategies for frontend performance?](#q10-how-do-you-implement-effective-caching-strategies-for-frontend-performance)
+11. [Q11: How do you optimize page loading performance?](#q11-how-do-you-optimize-page-loading-performance)
+12. [Q12: How do you optimize JavaScript runtime performance?](#q12-how-do-you-optimize-javascript-runtime-performance)
+13. [Q13: How do you prevent memory leaks in web applications?](#q13-how-do-you-prevent-memory-leaks-in-web-applications)
+14. [Q14: How do you implement advanced performance optimization strategies?](#q14-how-do-you-implement-advanced-performance-optimization-strategies)
+15. [Q15: How do you implement advanced performance monitoring and real-time optimization?](#q15-how-do-you-implement-advanced-performance-monitoring-and-real-time-optimization)
+16. [Q16: How do you implement comprehensive performance monitoring and analytics?](#q16-how-do-you-implement-comprehensive-performance-monitoring-and-analytics)
+17. [Q17: How do you implement advanced performance optimization for modern web applications?](#q17-how-do-you-implement-advanced-performance-optimization-for-modern-web-applications)
+18. [Q18: How do you implement advanced caching strategies and service worker optimization?](#q18-how-do-you-implement-advanced-caching-strategies-and-service-worker-optimization)
+19. [Q19: How would you implement advanced performance monitoring and optimization for modern web applications?](#q19-how-would-you-implement-advanced-performance-monitoring-and-optimization-for-modern-web-applications)
+20. [Q20: How would you implement advanced caching strategies and edge optimization for global performance?](#q20-how-would-you-implement-advanced-caching-strategies-and-edge-optimization-for-global-performance)
+21. [Q21: What is the Critical Rendering Path?](#q21-what-is-the-critical-rendering-path)
+22. [Q22: What is the difference between Reflow and Repaint?](#q22-what-is-the-difference-between-reflow-and-repaint)
+23. [Q23: What is Tree Shaking?](#q23-what-is-tree-shaking)
+24. [Q24: What is Code Splitting?](#q24-what-is-code-splitting)
+25. [Q25: What is the difference between `async` and `defer` attributes on script tags?](#q25-what-is-the-difference-between-`async`-and-`defer`-attributes-on-script-tags)
+26. [Q26: What is DNS Prefetching?](#q26-what-is-dns-prefetching)
+27. [Q27: What is Minification?](#q27-what-is-minification)
+28. [Q28: What is Gzip and Brotli compression?](#q28-what-is-gzip-and-brotli-compression)
+29. [Q29: What is a CDN (Content Delivery Network) and how does it improve performance?](#q29-what-is-a-cdn-content-delivery-network-and-how-does-it-improve-performance)
+30. [Q30: What is Layout Thrashing?](#q30-what-is-layout-thrashing)
+31. [Q31: What is the use of `requestAnimationFrame`?](#q31-what-is-the-use-of-`requestanimationframe`)
+32. [Q32: What are Web Workers?](#q32-what-are-web-workers)
+33. [Q33: What is the difference between HTTP/1.1, HTTP/2, and HTTP/3?](#q33-what-is-the-difference-between-http-11,-http-2,-and-http-3)
+34. [Q34: What is Debouncing vs Throttling?](#q34-what-is-debouncing-vs-throttling)
+35. [Q35: What is Virtualization (Windowing) in lists?](#q35-what-is-virtualization-windowing-in-lists)
+36. [Q36: What is Preconnect?](#q36-what-is-preconnect)
+37. [Q37: What is Prefetch vs Prerender?](#q37-what-is-prefetch-vs-prerender)
+38. [Q38: How do you optimize fonts?](#q38-how-do-you-optimize-fonts)
+39. [Q39: What is Lighthouse?](#q39-what-is-lighthouse)
+40. [Q40: What is the difference between `localStorage` and `sessionStorage`?](#q40-what-is-the-difference-between-`localstorage`-and-`sessionstorage`)
+41. [Q41: What is a Service Worker?](#q41-what-is-a-service-worker)
+42. [Q42: What are the different Service Worker caching strategies?](#q42-what-are-the-different-service-worker-caching-strategies)
+43. [Q43: What is Memoization?](#q43-what-is-memoization)
+44. [Q44: What is Time to First Byte (TTFB)?](#q44-what-is-time-to-first-byte-ttfb)
+45. [Q45: What is First Contentful Paint (FCP)?](#q45-what-is-first-contentful-paint-fcp)
+46. [Q46: What is Largest Contentful Paint (LCP)?](#q46-what-is-largest-contentful-paint-lcp)
+47. [Q47: What is Cumulative Layout Shift (CLS)?](#q47-what-is-cumulative-layout-shift-cls)
+48. [Q48: What is First Input Delay (FID) / Interaction to Next Paint (INP)?](#q48-what-is-first-input-delay-fid-interaction-to-next-paint-inp)
+49. [Q49: What is the N+1 problem?](#q49-what-is-the-n+1-problem)
+50. [Q50: What is Database Indexing?](#q50-what-is-database-indexing)
+51. [Q51: What is Connection Pooling?](#q51-what-is-connection-pooling)
+52. [Q52: What is the difference between Server-Side Rendering (SSR) and Client-Side Rendering (CSR)?](#q52-what-is-the-difference-between-server-side-rendering-ssr-and-client-side-rendering-csr)
+53. [Q53: What is Static Site Generation (SSG)?](#q53-what-is-static-site-generation-ssg)
+54. [Q54: What is Incremental Static Regeneration (ISR)?](#q54-what-is-incremental-static-regeneration-isr)
+55. [Q55: What is Edge Computing?](#q55-what-is-edge-computing)
+56. [Q56: What is Compression middleware?](#q56-what-is-compression-middleware)
+57. [Q57: How do you optimize a React application?](#q57-how-do-you-optimize-a-react-application)
+58. [Q58: What is the purpose of `rel="noopener noreferrer"`?](#q58-what-is-the-purpose-of-`rel="noopener-noreferrer"`)
+59. [Q59: What is `will-change` CSS property?](#q59-what-is-`will-change`-css-property)
+60. [Q60: What are CSS Sprites?](#q60-what-are-css-sprites)
+61. [Q61: What is the Performance API?](#q61-what-is-the-performance-api)
+62. [Q62: How do you detect Memory Leaks in JS?](#q62-how-do-you-detect-memory-leaks-in-js)
+63. [Q63: What is Garbage Collection (GC)?](#q63-what-is-garbage-collection-gc)
+64. [Q64: What is Sharding (Database)?](#q64-what-is-sharding-database)
+65. [Q65: What is Load Balancing?](#q65-what-is-load-balancing)
+66. [Q66: What is caching?](#q66-what-is-caching)
+67. [Q67: What are ETag headers?](#q67-what-are-etag-headers)
+68. [Q68: What is the `Cache-Control` header?](#q68-what-is-the-`cache-control`-header)
+69. [Q69: What is GPU Acceleration?](#q69-what-is-gpu-acceleration)
+70. [Q70: What is the difference between TCP and UDP?](#q70-what-is-the-difference-between-tcp-and-udp)
+71. [Q71: What is QUIC?](#q71-what-is-quic)
+72. [Q72: How do you optimize Third-Party Scripts?](#q72-how-do-you-optimize-third-party-scripts)
+73. [Q73: What is Adaptive Loading?](#q73-what-is-adaptive-loading)
+74. [Q74: What is Hydration?](#q74-what-is-hydration)
+75. [Q75: What is Resumability (Qwik)?](#q75-what-is-resumability-qwik)
+76. [Q76: What are Web Vitals?](#q76-what-are-web-vitals)
+77. [Q77: What is Flash of Unstyled Content (FOUC)?](#q77-what-is-flash-of-unstyled-content-fouc)
+78. [Q78: What is DOM Recycling?](#q78-what-is-dom-recycling)
+79. [Q79: What is `documentFragment`?](#q79-what-is-`documentfragment`)
+80. [Q80: What is the difference between `<img>` and CSS background image?](#q80-what-is-the-difference-between-`img`-and-css-background-image)
+81. [Q81: What is the `picture` element?](#q81-what-is-the-`picture`-element)
+82. [Q82: What is `srcset`?](#q82-what-is-`srcset`)
+83. [Q83: What is a Web Socket?](#q83-what-is-a-web-socket)
+84. [Q84: What is Server-Sent Events (SSE)?](#q84-what-is-server-sent-events-sse)
+85. [Q85: What is Headless Browser testing?](#q85-what-is-headless-browser-testing)
+86. [Q86: What is Dead Code Elimination?](#q86-what-is-dead-code-elimination)
+87. [Q87: What is Hot Module Replacement (HMR)?](#q87-what-is-hot-module-replacement-hmr)
+88. [Q88: What is Scope Hoisting?](#q88-what-is-scope-hoisting)
+89. [Q89: What is Preloading?](#q89-what-is-preloading)
+90. [Q90: What is Lazy Loading?](#q90-what-is-lazy-loading)
+91. [Q91: What is a CDN Edge Worker?](#q91-what-is-a-cdn-edge-worker)
+92. [Q92: How does `transform: translate3d(0,0,0)` improve performance?](#q92-how-does-`transform:-translate3d0,0,0`-improve-performance)
+93. [Q93: What is the `inert` attribute?](#q93-what-is-the-`inert`-attribute)
+94. [Q94: What is the `content-visibility` property?](#q94-what-is-the-`content-visibility`-property)
+95. [Q95: What is Binary protocol?](#q95-what-is-binary-protocol)
+96. [Q96: What is Multiplexing in HTTP/2?](#q96-what-is-multiplexing-in-http-2)
+97. [Q97: What is Header Compression (HPACK)?](#q97-what-is-header-compression-hpack)
+98. [Q98: What is Server Push?](#q98-what-is-server-push)
+99. [Q99: What is the difference between vertical and horizontal scaling?](#q99-what-is-the-difference-between-vertical-and-horizontal-scaling)
+100. [Q100: What is a Reverse Proxy?](#q100-what-is-a-reverse-proxy)
+101. [Q101: What is Interaction to Next Paint (INP)?](#q101-what-is-interaction-to-next-paint-inp)
+102. [Q102: What is the difference between FID and INP?](#q102-what-is-the-difference-between-fid-and-inp)
+103. [Q103: What is the `will-change` property?](#q103-what-is-the-`will-change`-property)
+104. [Q104: What is CSS Containment?](#q104-what-is-css-containment)
+105. [Q105: What is the difference between HTTP/2 and HTTP/3?](#q105-what-is-the-difference-between-http-2-and-http-3)
+106. [Q106: What is the `fetchpriority` attribute?](#q106-what-is-the-`fetchpriority`-attribute)
+107. [Q107: What is Early Hints (HTTP 103)?](#q107-what-is-early-hints-http-103)
+108. [Q108: What is a Performance Budget?](#q108-what-is-a-performance-budget)
+109. [Q109: What is RUM (Real User Monitoring)?](#q109-what-is-rum-real-user-monitoring)
+110. [Q110: What is Synthetic Monitoring?](#q110-what-is-synthetic-monitoring)
+111. [Q111: What is the `ResizeObserver` API?](#q111-what-is-the-`resizeobserver`-api)
+112. [Q112: What is the `IntersectionObserver` API?](#q112-what-is-the-`intersectionobserver`-api)
+113. [Q113: What is the `MutationObserver` API?](#q113-what-is-the-`mutationobserver`-api)
+114. [Q114: What is the `PerformanceObserver` API?](#q114-what-is-the-`performanceobserver`-api)
+115. [Q115: What are Passive Event Listeners?](#q115-what-are-passive-event-listeners)
+116. [Q116: What is OffscreenCanvas?](#q116-what-is-offscreencanvas)
+117. [Q117: What is the difference between `Zopfli` and `Brotli`?](#q117-what-is-the-difference-between-`zopfli`-and-`brotli`)
+118. [Q118: What is `stale-while-revalidate`?](#q118-what-is-`stale-while-revalidate`)
+119. [Q119: What is Islands Architecture?](#q119-what-is-islands-architecture)
+120. [Q120: What is Resumability?](#q120-what-is-resumability)
+121. [Q121: What is Speculative Parsing?](#q121-what-is-speculative-parsing)
+122. [Q122: What are Detached DOM Nodes?](#q122-what-are-detached-dom-nodes)
+123. [Q123: What is the `WeakMap` and `WeakSet`?](#q123-what-is-the-`weakmap`-and-`weakset`)
+124. [Q124: What is the `Save-Data` header?](#q124-what-is-the-`save-data`-header)
+125. [Q125: What is Client Hints?](#q125-what-is-client-hints)
+126. [Q126: What is `requestIdleCallback`?](#q126-what-is-`requestidlecallback`)
+127. [Q127: What is TLS 1.3?](#q127-what-is-tls-13)
+128. [Q128: What is the N+1 Query Problem?](#q128-what-is-the-n+1-query-problem)
+129. [Q129: What is Sharding?](#q129-what-is-sharding)
+130. [Q130: What is Hardware Acceleration?](#q130-what-is-hardware-acceleration)
+131. [Q131: What is the `device-memory` header?](#q131-what-is-the-`device-memory`-header)
+132. [Q132: What is the `NetworkInformation` API?](#q132-what-is-the-`networkinformation`-api)
+133. [Q133: What is Paint Timing API?](#q133-what-is-paint-timing-api)
+134. [Q134: What is User Timing API?](#q134-what-is-user-timing-api)
+135. [Q135: What is Server Timing API?](#q135-what-is-server-timing-api)
+136. [Q136: What is `rel='modulepreload'`?](#q136-what-is-`rel=modulepreload`)
+137. [Q137: What is the difference between `loading='lazy'` and `IntersectionObserver`?](#q137-what-is-the-difference-between-`loading=lazy`-and-`intersectionobserver`)
+138. [Q138: What is a Flame Chart?](#q138-what-is-a-flame-chart)
+139. [Q139: What is Time to Interactive (TTI)?](#q139-what-is-time-to-interactive-tti)
+140. [Q140: What is Total Blocking Time (TBT)?](#q140-what-is-total-blocking-time-tbt)
+141. [Q141: What is Speed Index?](#q141-what-is-speed-index)
+142. [Q142: What is WebAssembly (Wasm)?](#q142-what-is-webassembly-wasm)
+143. [Q143: What is the `bfcache` (Back/Forward Cache)?](#q143-what-is-the-`bfcache`-back-forward-cache)
 
 ---
 
-### Q14: How do you optimize images and implement lazy loading for better performance?
+### Q1: How do you optimize images and implement lazy loading for better performance?
 
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Image optimization and lazy loading are critical for reducing initial page load times and improving Core Web Vitals, especially LCP (Largest Contentful Paint).
 
@@ -863,8 +981,13 @@ iframe[data-src].loaded {
 
 ---
 
-### Q15: How do you optimize JavaScript performance and bundle size?
+---
 
+### Q2: How do you optimize JavaScript performance and bundle size?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 JavaScript optimization involves reducing bundle sizes, improving execution performance, and implementing efficient loading strategies to enhance overall application performance.
 
@@ -1664,8 +1787,13 @@ module.exports = {
 
 ---
 
-### Q16: How do you implement Web Workers for performance optimization?
+---
 
+### Q3: How do you implement Web Workers for performance optimization?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Web Workers enable running JavaScript in background threads, preventing main thread blocking and improving application responsiveness for CPU-intensive tasks.
 
@@ -2533,8 +2661,13 @@ new PerformanceWorker();
 
 ---
 
-### Q17: How do you implement comprehensive performance monitoring and analytics?
+---
 
+### Q4: How do you implement comprehensive performance monitoring and analytics?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Comprehensive performance monitoring involves tracking multiple metrics, analyzing user experience patterns, and implementing real-time alerting systems to maintain optimal application performance.
 
@@ -3355,8 +3488,13 @@ window.addEventListener("beforeunload", () => {
 
 ---
 
-### Q18: What are advanced performance optimization techniques and best practices?
+---
 
+### Q5: What are advanced performance optimization techniques and best practices?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Advanced performance optimization involves implementing sophisticated techniques like resource prioritization, critical path optimization, advanced caching strategies, and performance budgets to achieve optimal user experience.
 
@@ -4394,8 +4532,13 @@ console.log("Performance Optimization Report:", report);
 
 ---
 
-### Q19: How do you implement comprehensive performance testing and measurement strategies?
+---
 
+### Q6: How do you implement comprehensive performance testing and measurement strategies?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Comprehensive performance testing involves automated testing, continuous monitoring, synthetic testing, real user monitoring (RUM), and performance regression detection to ensure optimal application performance across different conditions.
 
@@ -5394,8 +5537,13 @@ console.log("LCP Trends (14 days):", lcpTrends);
 
 ---
 
-### Q20: How do you optimize performance for mobile devices and Progressive Web Apps (PWAs)?
+---
 
+### Q7: How do you optimize performance for mobile devices and Progressive Web Apps (PWAs)?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Mobile performance optimization requires specific strategies for limited resources, network conditions, and PWA features like service workers, offline functionality, and app-like experiences while maintaining optimal performance.
 
@@ -6434,8 +6582,13 @@ console.log("Mobile Performance Report:", performanceReport);
 
 ## Web Performance Fundamentals
 
-### Q1: What are the key metrics for measuring web performance?
+---
 
+### Q8: What are the key metrics for measuring web performance?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Web performance is measured through various metrics that assess different aspects of user experience.
 
@@ -6574,8 +6727,13 @@ window.addEventListener("load", () => {
 
 ## Core Web Vitals
 
-### Q2: How do you optimize Core Web Vitals?
+---
 
+### Q9: How do you optimize Core Web Vitals?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Core Web Vitals are essential metrics that measure real-world user experience.
 
@@ -6799,8 +6957,13 @@ class LayoutStabilizer {
 
 ---
 
-### Q13: How do you implement effective caching strategies for frontend performance?
+---
 
+### Q10: How do you implement effective caching strategies for frontend performance?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Caching strategies are crucial for improving load times, reducing server load, and enhancing user experience through faster subsequent visits.
 
@@ -7762,8 +7925,13 @@ function loadImageWithoutShift(src, container) {
 
 ## Loading Performance
 
-### Q3: How do you optimize page loading performance?
+---
 
+### Q11: How do you optimize page loading performance?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Loading performance optimization involves reducing the time it takes for a page to become usable.
 
@@ -8120,8 +8288,13 @@ class CacheStrategy {
 
 ## Runtime Performance
 
-### Q4: How do you optimize JavaScript runtime performance?
+---
 
+### Q12: How do you optimize JavaScript runtime performance?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Runtime performance optimization focuses on making the application responsive during user interactions.
 
@@ -8356,8 +8529,13 @@ delegator.on(
 
 ## Memory Management
 
-### Q5: How do you prevent memory leaks in web applications?
+---
 
+### Q13: How do you prevent memory leaks in web applications?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Memory leaks can cause performance degradation and crashes. Proper memory management is crucial.
 
@@ -8675,8 +8853,13 @@ This comprehensive performance guide covers all essential optimization technique
 
 ## Advanced Performance Optimization
 
-### Q6: How do you implement advanced performance optimization strategies?
+---
 
+### Q14: How do you implement advanced performance optimization strategies?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Advanced performance optimization involves sophisticated techniques for resource management, rendering optimization, and intelligent caching strategies.
 
@@ -9728,8 +9911,13 @@ fetch("/api/user/profile")
   .finally(() => apiTimer());
 ```
 
-### Q7: How do you implement advanced performance monitoring and real-time optimization?
+---
 
+### Q15: How do you implement advanced performance monitoring and real-time optimization?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Advanced performance monitoring involves real-time metrics collection, intelligent alerting, and automatic optimization based on performance data.
 
@@ -10260,8 +10448,13 @@ interface CacheStats {
 }
 ```
 
-### Q8: How do you implement comprehensive performance monitoring and analytics?
+---
 
+### Q16: How do you implement comprehensive performance monitoring and analytics?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Comprehensive performance monitoring requires real-time metrics collection, intelligent alerting, and detailed analytics for optimization insights.
 
@@ -10866,10 +11059,13 @@ performanceMonitor.recordCustomMetric("user.actions", 1, "counter");
 
 ---
 
-### Q9: How do you implement advanced performance optimization for modern web applications?
+---
+
+### Q17: How do you implement advanced performance optimization for modern web applications?
 
 **Difficulty: Expert**
 
+**Answer:**
 **Answer:**
 Modern web applications require sophisticated performance optimization strategies that leverage cutting-edge browser APIs, advanced bundling techniques, and intelligent resource management.
 
@@ -11360,10 +11556,13 @@ console.log("Current adaptive settings:", settings);
 
 ---
 
-### Q10: How do you implement advanced caching strategies and service worker optimization?
+---
+
+### Q18: How do you implement advanced caching strategies and service worker optimization?
 
 **Difficulty: Expert**
 
+**Answer:**
 **Answer:**
 Advanced caching strategies involve sophisticated service worker implementations, intelligent cache management, and adaptive caching based on user behavior and network conditions.
 
@@ -11691,8 +11890,13 @@ async function handleBackgroundSync() {
 }
 ```
 
-### Q11: How would you implement advanced performance monitoring and optimization for modern web applications?
+---
 
+### Q19: How would you implement advanced performance monitoring and optimization for modern web applications?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Advanced performance monitoring involves real-time tracking, automated optimization, and predictive performance management to ensure optimal user experience.
 
@@ -12100,8 +12304,13 @@ export class PerformancePredictor {
 }
 ```
 
-### Q12: How would you implement advanced caching strategies and edge optimization for global performance?
+---
 
+### Q20: How would you implement advanced caching strategies and edge optimization for global performance?
+
+**Difficulty: Medium**
+
+**Answer:**
 **Answer:**
 Advanced caching strategies involve multi-layered caching, intelligent cache invalidation, and edge computing optimization to deliver optimal performance globally.
 
@@ -12549,3 +12758,1213 @@ export class AdaptivePerformanceManager {
 ```
 
 This advanced performance guide now includes sophisticated resource management, virtual scrolling, intelligent caching strategies, comprehensive performance monitoring with real-time analytics and alerting capabilities, advanced bundle optimization, predictive module loading, intelligent service worker caching strategies, edge computing optimization, and adaptive performance management based on device capabilities and network conditions.
+
+---
+
+### Q21: What is the Critical Rendering Path?
+
+**Difficulty: Medium**
+
+**Answer:**
+The Critical Rendering Path is the sequence of steps the browser goes through to convert the HTML, CSS, and JavaScript into pixels on the screen.
+Steps:
+1. DOM Construction (HTML -> DOM).
+2. CSSOM Construction (CSS -> CSSOM).
+3. Render Tree Construction (DOM + CSSOM).
+4. Layout (Geometry calculation).
+5. Paint (Filling pixels).
+Optimization involves minimizing the time spent in these steps.
+
+---
+
+### Q22: What is the difference between Reflow and Repaint?
+
+**Difficulty: Medium**
+
+**Answer:**
+- **Reflow (Layout):** Happens when the geometry of the page changes (width, height, position). It is expensive because the browser has to calculate the positions of all elements.
+- **Repaint:** Happens when visibility changes (color, background) but geometry doesn't. Less expensive than Reflow.
+**Optimization:** Avoid layout thrashing, batch DOM updates, use `transform` and `opacity` for animations (triggers Composite only).
+
+---
+
+### Q23: What is Tree Shaking?
+
+**Difficulty: Medium**
+
+**Answer:**
+Tree Shaking is a term commonly used in the JavaScript context for dead-code elimination. It relies on the static structure of ES2015 module syntax (`import` and `export`). Build tools like Webpack or Rollup detect unused exports and remove them from the final bundle.
+
+---
+
+### Q24: What is Code Splitting?
+
+**Difficulty: Medium**
+
+**Answer:**
+Code Splitting is a feature supported by bundlers like Webpack that allows you to split your code into various bundles which can then be loaded on demand or in parallel.
+Types:
+- **Route-based:** Load code only for the current page.
+- **Component-based:** Lazy load heavy components (modals, charts).
+
+---
+
+### Q25: What is the difference between `async` and `defer` attributes on script tags?
+
+**Difficulty: Easy**
+
+**Answer:**
+- **Normal:** Parsing pauses, script fetches and executes, parsing resumes.
+- **`async`:** Script fetches in parallel with parsing. Executes as soon as it's ready (pausing parsing). Execution order not guaranteed.
+- **`defer`:** Script fetches in parallel. Executes only after HTML parsing is complete. Execution order preserved.
+
+---
+
+### Q26: What is DNS Prefetching?
+
+**Difficulty: Easy**
+
+**Answer:**
+DNS Prefetching allows the browser to resolve domain names (perform DNS lookups) for links that the user might click on or resources that will be loaded, in the background.
+```html
+<link rel="dns-prefetch" href="//example.com">
+```
+
+---
+
+### Q27: What is Minification?
+
+**Difficulty: Easy**
+
+**Answer:**
+Minification is the process of removing unnecessary characters from source code (whitespace, comments, newlines) and renaming variables to shorter names without changing functionality. It reduces file size and improves load time.
+
+---
+
+### Q28: What is Gzip and Brotli compression?
+
+**Difficulty: Medium**
+
+**Answer:**
+They are compression algorithms used to reduce the size of files sent from the server to the client.
+- **Gzip:** Standard, widely supported.
+- **Brotli:** Newer, offers better compression ratios than Gzip, supported by most modern browsers.
+
+---
+
+### Q29: What is a CDN (Content Delivery Network) and how does it improve performance?
+
+**Difficulty: Medium**
+
+**Answer:**
+A CDN is a geographically distributed group of servers which work together to provide fast delivery of Internet content.
+Benefits:
+- Reduced latency (server closer to user).
+- Offloads traffic from origin server.
+- Caching of static assets.
+
+---
+
+### Q30: What is Layout Thrashing?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Layout Thrashing occurs when JavaScript violently reads and writes to the DOM, causing the browser to recalculate the layout repeatedly within a single frame.
+Example: Reading an element's `offsetWidth` immediately after setting its `width` forces a synchronous layout.
+
+---
+
+### Q31: What is the use of `requestAnimationFrame`?
+
+**Difficulty: Medium**
+
+**Answer:**
+`requestAnimationFrame` tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint. It is more efficient than `setTimeout` or `setInterval` because it pauses when the tab is inactive and syncs with the monitor's refresh rate (usually 60Hz).
+
+---
+
+### Q32: What are Web Workers?
+
+**Difficulty: Medium**
+
+**Answer:**
+Web Workers provide a simple means for web content to run scripts in background threads. The worker thread can perform tasks without interfering with the user interface (main thread). Great for heavy computations.
+
+---
+
+### Q33: What is the difference between HTTP/1.1, HTTP/2, and HTTP/3?
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **HTTP/1.1:** Text-based, one request per connection (head-of-line blocking).
+- **HTTP/2:** Binary, Multiplexing (multiple requests over one connection), Header Compression, Server Push.
+- **HTTP/3:** Based on QUIC (UDP). Solves TCP head-of-line blocking, faster connection setup, better mobility.
+
+---
+
+### Q34: What is Debouncing vs Throttling?
+
+**Difficulty: Medium**
+
+**Answer:**
+- **Debounce:** Ensures a function is not called until a certain amount of time has passed since the last time it was invoked. (e.g., Search input).
+- **Throttle:** Ensures a function is called at most once in a specified time period. (e.g., Scroll event).
+
+---
+
+### Q35: What is Virtualization (Windowing) in lists?
+
+**Difficulty: Medium**
+
+**Answer:**
+A technique to render only the items currently visible in the viewport (plus a small buffer) instead of the entire list. This significantly improves performance for large lists (1000+ items). Libraries: `react-window`, `react-virtualized`.
+
+---
+
+### Q36: What is Preconnect?
+
+**Difficulty: Medium**
+
+**Answer:**
+`preconnect` allows the browser to set up early connections before an HTTP request is actually sent to the server. This includes DNS lookups, TLS negotiations, and TCP handshakes.
+```html
+<link rel="preconnect" href="https://example.com">
+```
+
+---
+
+### Q37: What is Prefetch vs Prerender?
+
+**Difficulty: Medium**
+
+**Answer:**
+- **Prefetch:** Downloads a resource (like a script or image) that might be needed for the *next* navigation. stored in cache.
+- **Prerender:** Downloads and renders an entire page in the background (like in a hidden tab). Instant load when user clicks. High resource usage.
+
+---
+
+### Q38: How do you optimize fonts?
+
+**Difficulty: Medium**
+
+**Answer:**
+- Use `WOFF2` format (best compression).
+- Subset fonts (remove unused characters).
+- Preload critical fonts.
+- Use `font-display: swap` to show fallback text immediately (avoids FOIT - Flash of Invisible Text).
+
+---
+
+### Q39: What is Lighthouse?
+
+**Difficulty: Easy**
+
+**Answer:**
+An open-source, automated tool for improving the quality of web pages. It provides audits for performance, accessibility, progressive web apps, SEO, and more.
+
+---
+
+### Q40: What is the difference between `localStorage` and `sessionStorage`?
+
+**Difficulty: Easy**
+
+**Answer:**
+- **localStorage:** Persists even when the browser is closed and reopened. Cleared only explicitly.
+- **sessionStorage:** Persists only for the duration of the page session. Cleared when the tab/window is closed.
+
+---
+
+### Q41: What is a Service Worker?
+
+**Difficulty: Medium**
+
+**Answer:**
+A script that your browser runs in the background, separate from a web page. It enables features like push notifications and background sync. Most importantly, it acts as a network proxy, allowing you to control how network requests are handled (caching strategies for offline support).
+
+---
+
+### Q42: What are the different Service Worker caching strategies?
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **Cache First:** Check cache; if missing, go to network. (Images, fonts).
+- **Network First:** Go to network; if fails, go to cache. (API data).
+- **Stale-While-Revalidate:** Return cached content immediately, then update cache from network in background.
+- **Cache Only:** Only serve from cache.
+- **Network Only:** Only serve from network.
+
+---
+
+### Q43: What is Memoization?
+
+**Difficulty: Medium**
+
+**Answer:**
+An optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+---
+
+### Q44: What is Time to First Byte (TTFB)?
+
+**Difficulty: Medium**
+
+**Answer:**
+The time it takes for a client to receive the first byte of data from the web server after making a request. It indicates server responsiveness.
+
+---
+
+### Q45: What is First Contentful Paint (FCP)?
+
+**Difficulty: Medium**
+
+**Answer:**
+Measures the time from when the page starts loading to when any part of the page's content is rendered on the screen.
+
+---
+
+### Q46: What is Largest Contentful Paint (LCP)?
+
+**Difficulty: Medium**
+
+**Answer:**
+Measures loading performance. It marks the point in the page load timeline when the page's main content has likely loaded. Good LCP is < 2.5 sec.
+
+---
+
+### Q47: What is Cumulative Layout Shift (CLS)?
+
+**Difficulty: Medium**
+
+**Answer:**
+Measures visual stability. It quantifies how much elements move around on the page during loading. Good CLS is < 0.1.
+
+---
+
+### Q48: What is First Input Delay (FID) / Interaction to Next Paint (INP)?
+
+**Difficulty: Medium**
+
+**Answer:**
+Measures interactivity. FID measures the time from when a user first interacts (click) to the time the browser is able to begin processing event handlers. INP is replacing FID as a more comprehensive metric.
+
+---
+
+### Q49: What is the N+1 problem?
+
+**Difficulty: Medium**
+
+**Answer:**
+A database performance issue where the application makes one query to fetch a list of N records, and then N additional queries to fetch related data for each record.
+Solution: Use JOINs or "Eager Loading" (fetching all data in one or two queries).
+
+---
+
+### Q50: What is Database Indexing?
+
+**Difficulty: Medium**
+
+**Answer:**
+An index is a data structure (like a B-Tree) that improves the speed of data retrieval operations on a database table at the cost of additional writes and storage space. Without an index, the database must scan every row (full table scan).
+
+---
+
+### Q51: What is Connection Pooling?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A cache of database connections maintained so that the connections can be reused when future requests to the database are required. Opening a new connection is expensive; pooling saves this overhead.
+
+---
+
+### Q52: What is the difference between Server-Side Rendering (SSR) and Client-Side Rendering (CSR)?
+
+**Difficulty: Medium**
+
+**Answer:**
+- **SSR:** HTML is generated on the server. Better SEO, faster First Paint. Slower TTFB, higher server load.
+- **CSR:** Browser downloads empty HTML + JS, then JS builds the UI. Slower initial load, faster subsequent navigation, cheaper hosting.
+
+---
+
+### Q53: What is Static Site Generation (SSG)?
+
+**Difficulty: Medium**
+
+**Answer:**
+HTML pages are generated at build time. They are static files served via CDN.
+Pros: Fastest performance, secure, cheap.
+Cons: Build time increases with page count, data can be stale (needs rebuild or ISR).
+
+---
+
+### Q54: What is Incremental Static Regeneration (ISR)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A pattern (popularized by Next.js) that allows you to update static pages after you've built your site. You can create or update static pages on a per-page basis, without rebuilding the entire site.
+
+---
+
+### Q55: What is Edge Computing?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Running computation closer to the user (at the "edge" of the network, e.g., CDN nodes) rather than in a centralized data center. Reduces latency.
+
+---
+
+### Q56: What is Compression middleware?
+
+**Difficulty: Easy**
+
+**Answer:**
+Middleware in a web server (like Express or Nginx) that compresses the response body (using gzip/brotli) before sending it to the client.
+
+---
+
+### Q57: How do you optimize a React application?
+
+**Difficulty: Medium**
+
+**Answer:**
+- `React.memo` to prevent unnecessary re-renders.
+- `useCallback` and `useMemo` to cache functions and values.
+- Virtualization for long lists.
+- Code splitting with `React.lazy` and `Suspense`.
+- optimizing state structure (colocation).
+
+---
+
+### Q58: What is the purpose of `rel="noopener noreferrer"`?
+
+**Difficulty: Easy**
+
+**Answer:**
+Security and Performance. When using `target="_blank"`, the new page gets access to the `window.opener` object. `noopener` prevents this (security). It also prevents the new page from running on the same thread as the original page (performance).
+
+---
+
+### Q59: What is `will-change` CSS property?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Hints to the browser that an element is expected to change. This allows the browser to set up optimizations (like creating a new layer) ahead of time. Use sparingly as it consumes memory.
+
+---
+
+### Q60: What are CSS Sprites?
+
+**Difficulty: Easy**
+
+**Answer:**
+Combining multiple small images (icons) into a single large image. Reduces the number of HTTP requests. CSS `background-position` is used to show the correct part.
+
+---
+
+### Q61: What is the Performance API?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A set of standards used to measure the performance of web applications. Includes User Timing API (`performance.mark`, `performance.measure`), Navigation Timing API, and Resource Timing API.
+
+---
+
+### Q62: How do you detect Memory Leaks in JS?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Using Chrome DevTools Memory Tab:
+- **Heap Snapshot:** Compare snapshots to see objects that are not being GC'd.
+- **Allocation Instrumentation on Timeline:** See memory spikes.
+
+---
+
+### Q63: What is Garbage Collection (GC)?
+
+**Difficulty: Medium**
+
+**Answer:**
+Automatic memory management. The JS engine (like V8) reclaims memory occupied by objects that are no longer reachable from the root (global object, stack). Algorithm: Mark-and-Sweep.
+
+---
+
+### Q64: What is Sharding (Database)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Partitioning a database horizontally across multiple machines. Each machine (shard) holds a subset of the data. Improves scalability and write throughput.
+
+---
+
+### Q65: What is Load Balancing?
+
+**Difficulty: Easy**
+
+**Answer:**
+Distributing incoming network traffic across multiple servers to ensure no single server bears too much load. Improves responsiveness and availability.
+
+---
+
+### Q66: What is caching?
+
+**Difficulty: Easy**
+
+**Answer:**
+Storing copies of data in a temporary storage location (cache) so that future requests for that data can be served faster.
+
+---
+
+### Q67: What are ETag headers?
+
+**Difficulty: Medium**
+
+**Answer:**
+An ETag (Entity Tag) is a unique identifier for a specific version of a resource.
+1. Client requests resource. Server sends ETag.
+2. Client requests again with `If-None-Match: ETag`.
+3. If unchanged, Server returns `304 Not Modified` (empty body). Saves bandwidth.
+
+---
+
+### Q68: What is the `Cache-Control` header?
+
+**Difficulty: Medium**
+
+**Answer:**
+Directives for caching mechanisms in both requests and responses.
+- `max-age=<seconds>`
+- `no-cache` (must revalidate)
+- `no-store` (don't cache anything)
+- `public` / `private`
+
+---
+
+### Q69: What is GPU Acceleration?
+
+**Difficulty: Medium**
+
+**Answer:**
+Offloading graphics computations (like 3D transforms, transitions, video decoding) from the CPU to the GPU. Triggered by CSS properties like `transform: translateZ(0)` or `will-change`.
+
+---
+
+### Q70: What is the difference between TCP and UDP?
+
+**Difficulty: Medium**
+
+**Answer:**
+- **TCP:** Reliable, ordered, error-checked delivery. Connection-oriented. (Web, Email).
+- **UDP:** Unreliable, unordered, no guarantee. Connectionless. Faster. (Streaming, VoIP, Gaming).
+
+---
+
+### Q71: What is QUIC?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A transport layer network protocol designed by Google. It improves performance of connection-oriented web applications over UDP. It is the foundation of HTTP/3.
+
+---
+
+### Q72: How do you optimize Third-Party Scripts?
+
+**Difficulty: Medium**
+
+**Answer:**
+- Load them with `async` or `defer`.
+- Self-host if possible.
+- Use a Tag Manager.
+- Lazy load them (e.g., load chat widget only on scroll or interaction).
+
+---
+
+### Q73: What is Adaptive Loading?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Delivering different experiences to users based on their device capabilities and network conditions (using `navigator.connection.saveData`, `navigator.hardwareConcurrency`).
+E.g., serving low-res images on slow 3G.
+
+---
+
+### Q74: What is Hydration?
+
+**Difficulty: Medium**
+
+**Answer:**
+The process of using client-side JavaScript to add application state and interactivity to server-rendered HTML. The HTML is "dry" (static) until JS "hydrates" it.
+
+---
+
+### Q75: What is Resumability (Qwik)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+An alternative to Hydration. The framework serializes the event listeners and application state into the HTML. The client can resume execution exactly where the server left off without re-executing all JS.
+
+---
+
+### Q76: What are Web Vitals?
+
+**Difficulty: Easy**
+
+**Answer:**
+An initiative by Google to provide unified guidance for quality signals that are essential to delivering a great user experience on the web.
+
+---
+
+### Q77: What is Flash of Unstyled Content (FOUC)?
+
+**Difficulty: Easy**
+
+**Answer:**
+When a web page appears briefly with the browser's default styles prior to loading an external CSS stylesheet. Avoid by putting CSS in `<head>`.
+
+---
+
+### Q78: What is DOM Recycling?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Reusing DOM nodes instead of creating new ones. Used in virtualization libraries to keep the DOM size constant while scrolling through a large list.
+
+---
+
+### Q79: What is `documentFragment`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A lightweight container for DOM nodes. Changes to the fragment don't affect the document or trigger reflow. You can append children to it and then append the fragment to the DOM in one go.
+
+---
+
+### Q80: What is the difference between `<img>` and CSS background image?
+
+**Difficulty: Easy**
+
+**Answer:**
+- `<img>`: Semantic content. Indexed by SEO. Printed by default.
+- CSS Background: Decorative. Not indexed. Not printed by default. Can use sprites.
+
+---
+
+### Q81: What is the `picture` element?
+
+**Difficulty: Medium**
+
+**Answer:**
+An HTML element used for Art Direction (different images for different layouts) and format switching (serving WebP to supported browsers).
+```html
+<picture>
+  <source srcset="img.webp" type="image/webp">
+  <img src="img.jpg">
+</picture>
+```
+
+---
+
+### Q82: What is `srcset`?
+
+**Difficulty: Medium**
+
+**Answer:**
+An attribute on `<img>` tag that allows you to define a set of images and let the browser decide which one to download based on screen resolution (DPR) and width.
+
+---
+
+### Q83: What is a Web Socket?
+
+**Difficulty: Medium**
+
+**Answer:**
+A protocol that enables two-way persistent communication between a client and a server. Better for real-time apps (chat) than polling.
+
+---
+
+### Q84: What is Server-Sent Events (SSE)?
+
+**Difficulty: Medium**
+
+**Answer:**
+A standard allowing servers to push data to web pages over HTTP. One-way (Server -> Client). Good for news feeds, stock tickers.
+
+---
+
+### Q85: What is Headless Browser testing?
+
+**Difficulty: Medium**
+
+**Answer:**
+Running a browser without a graphical user interface. Used for automated testing (Puppeteer, Selenium, Playwright) and performance audits.
+
+---
+
+### Q86: What is Dead Code Elimination?
+
+**Difficulty: Medium**
+
+**Answer:**
+Removing code that is never executed. Minifiers (UglifyJS, Terser) do this. Tree Shaking is a form of dead code elimination.
+
+---
+
+### Q87: What is Hot Module Replacement (HMR)?
+
+**Difficulty: Medium**
+
+**Answer:**
+A feature in bundlers (Webpack, Vite) that exchanges, adds, or removes modules while an application is running, without a full reload. Speeds up development.
+
+---
+
+### Q88: What is Scope Hoisting?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A Webpack optimization that detects where import/export chains can be flattened into a single scope. It reduces function declaration overhead and bundle size.
+
+---
+
+### Q89: What is Preloading?
+
+**Difficulty: Medium**
+
+**Answer:**
+`rel="preload"`. Tells the browser to download a resource as soon as possible because it will be needed for the current page (e.g., hero image, main font). High priority.
+
+---
+
+### Q90: What is Lazy Loading?
+
+**Difficulty: Easy**
+
+**Answer:**
+Deferring loading of non-critical resources (images, videos, scripts) until they are needed (e.g., when they scroll into view).
+
+---
+
+### Q91: What is a CDN Edge Worker?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Small scripts (JS/Wasm) running on CDN edge nodes. They can intercept requests, modify responses, auth, or A/B test without hitting the origin server.
+
+---
+
+### Q92: How does `transform: translate3d(0,0,0)` improve performance?
+
+**Difficulty: Medium**
+
+**Answer:**
+It forces the browser to promote the element to its own Composite Layer (GPU acceleration). Useful for smooth animations.
+
+---
+
+### Q93: What is the `inert` attribute?
+
+**Difficulty: Medium**
+
+**Answer:**
+An HTML attribute that tells the browser to ignore user input events for the element and its descendants. Useful for performance (browser ignores part of DOM) and accessibility (modals).
+
+---
+
+### Q94: What is the `content-visibility` property?
+
+**Difficulty: Advanced**
+
+**Answer:**
+CSS property that enables the browser to skip rendering work for an element until it is needed (e.g., off-screen).
+`content-visibility: auto;`
+
+---
+
+### Q95: What is Binary protocol?
+
+**Difficulty: Medium**
+
+**Answer:**
+Protocols that transmit data in binary format (0s and 1s) rather than text. HTTP/2 and HTTP/3 are binary. More efficient to parse, less error-prone.
+
+---
+
+### Q96: What is Multiplexing in HTTP/2?
+
+**Difficulty: Medium**
+
+**Answer:**
+Sending multiple requests and responses in parallel over a single TCP connection. Eliminates head-of-line blocking of HTTP/1.1.
+
+---
+
+### Q97: What is Header Compression (HPACK)?
+
+**Difficulty: Medium**
+
+**Answer:**
+HTTP/2 feature that compresses headers. Since headers (cookies, user-agent) are often repetitive and large, this saves significant bandwidth.
+
+---
+
+### Q98: What is Server Push?
+
+**Difficulty: Advanced**
+
+**Answer:**
+HTTP/2 feature where the server sends resources to the client before the client asks for them (e.g., sending style.css along with index.html).
+
+---
+
+### Q99: What is the difference between vertical and horizontal scaling?
+
+**Difficulty: Easy**
+
+**Answer:**
+- **Vertical:** Adding more power (CPU, RAM) to an existing machine.
+- **Horizontal:** Adding more machines to the pool. Better for long-term growth and reliability.
+
+---
+
+### Q100: What is a Reverse Proxy?
+
+**Difficulty: Medium**
+
+**Answer:**
+A server that sits in front of web servers and forwards client requests to those web servers. Used for load balancing, security, caching, and SSL termination. (Nginx, HAProxy).
+
+---
+
+### Q101: What is Interaction to Next Paint (INP)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+INP is a Core Web Vital metric that assesses a page's overall responsiveness to user interactions. It observes the latency of all click, tap, and keyboard interactions that occur throughout the lifespan of a user's visit to a page.
+
+It replaces First Input Delay (FID). A good INP score is ≤ 200 milliseconds.
+
+---
+
+### Q102: What is the difference between FID and INP?
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **FID (First Input Delay):** Measures the delay of the *first* interaction only. It measures the time from interaction to when the browser *starts* processing event handlers.
+- **INP (Interaction to Next Paint):** Measures *all* interactions throughout the page lifecycle and reports the worst (or near-worst) latency. It includes input delay, processing time, and presentation delay (time to paint).
+
+---
+
+### Q103: What is the `will-change` property?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+`will-change` hints to the browser that an element is expected to change. This allows the browser to set up optimizations (like creating a new compositing layer) ahead of time.
+
+**Caution:** Use sparingly. Overuse can cause excessive memory usage.
+
+```css
+.box {
+  will-change: transform, opacity;
+}
+```
+
+---
+
+### Q104: What is CSS Containment?
+
+**Difficulty: Advanced**
+
+**Answer:**
+The `contain` property allows you to indicate that an element and its contents are, as much as possible, independent of the rest of the document tree. This allows the browser to recalculate layout, style, paint, size, or any combination of them for a limited part of the DOM, not the entire page.
+
+Values: `layout`, `paint`, `size`, `style`, `strict`, `content`.
+
+---
+
+### Q105: What is the difference between HTTP/2 and HTTP/3?
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **HTTP/2:** Uses TCP. Solves head-of-line blocking at the request level (multiplexing) but suffers from TCP head-of-line blocking (if one packet is lost, all streams wait).
+- **HTTP/3:** Uses QUIC (over UDP). Solves TCP head-of-line blocking. Each stream is independent; packet loss in one stream doesn't affect others. Faster connection establishment (0-RTT).
+
+---
+
+### Q106: What is the `fetchpriority` attribute?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+The `fetchpriority` attribute allows you to signal the relative priority of a resource to the browser.
+
+```html
+<img src="hero.jpg" fetchpriority="high">
+<script src="analytics.js" fetchpriority="low"></script>
+```
+
+---
+
+### Q107: What is Early Hints (HTTP 103)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+An HTTP status code (103 Early Hints) that allows the server to send a preliminary response with headers (like `Link: <...>; rel=preload`) before the final response is ready. This lets the browser start fetching critical resources while the server is still thinking.
+
+---
+
+### Q108: What is a Performance Budget?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A set of limits imposed on metrics that affect site performance. This could be limits on the size of JavaScript bundles, the number of HTTP requests, or timing metrics like LCP or TTI. CI/CD tools can enforce these budgets.
+
+---
+
+### Q109: What is RUM (Real User Monitoring)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+RUM captures performance data from actual users visiting your site. It reflects real-world conditions (device, network, location).
+Tools: Google Analytics, Sentry, New Relic, Datadog.
+
+---
+
+### Q110: What is Synthetic Monitoring?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Simulates user interactions in a controlled environment (lab data) to measure performance. Useful for catching regressions before deployment.
+Tools: Lighthouse CI, WebPageTest.
+
+---
+
+### Q111: What is the `ResizeObserver` API?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Observes changes to an Element's content rect or border box. More performant than attaching a `resize` listener to the window and calculating dimensions.
+
+---
+
+### Q112: What is the `IntersectionObserver` API?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Observes changes in the intersection of a target element with an ancestor element or the viewport. Essential for lazy loading images and infinite scrolling.
+
+---
+
+### Q113: What is the `MutationObserver` API?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Observes changes to the DOM tree (nodes added/removed, attributes changed).
+
+---
+
+### Q114: What is the `PerformanceObserver` API?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Used to subscribe to performance events (like 'longtask', 'navigation', 'resource', 'paint') in the browser to gather metrics programmatically.
+
+---
+
+### Q115: What are Passive Event Listeners?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Marking a touch or wheel event listener as `passive: true` tells the browser that the handler will not call `preventDefault()`. This allows the browser to scroll the page immediately without waiting for the listener to finish, improving scroll performance.
+
+```javascript
+document.addEventListener('touchstart', handler, { passive: true });
+```
+
+---
+
+### Q116: What is OffscreenCanvas?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Allows canvas rendering to be decoupled from the DOM and run in a Web Worker. This prevents complex canvas operations from blocking the main thread.
+
+---
+
+### Q117: What is the difference between `Zopfli` and `Brotli`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **Zopfli:** A highly efficient DEFLATE (gzip) encoder. Compatible with all gzip decoders. Slower compression, better ratio than standard gzip.
+- **Brotli:** A newer compression algorithm (by Google) that offers better compression ratios than gzip/Zopfli. Supported by most modern browsers.
+
+---
+
+### Q118: What is `stale-while-revalidate`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A Cache-Control directive that tells the cache to serve the stale (cached) response immediately while simultaneously revalidating it with the server in the background for future use.
+
+`Cache-Control: max-age=600, stale-while-revalidate=30`
+
+---
+
+### Q119: What is Islands Architecture?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A pattern (popularized by Astro) where the page is mostly static HTML (rendered on server) with isolated "islands" of interactivity (hydrated components). This drastically reduces the amount of JavaScript sent to the client.
+
+---
+
+### Q120: What is Resumability?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A concept (popularized by Qwik) where the framework serializes the application state and event listeners into the HTML. The client "resumes" execution where the server left off, without needing to re-run initialization logic (hydration) for the entire tree.
+
+---
+
+### Q121: What is Speculative Parsing?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Browser optimization where the HTML parser looks ahead for external resources (scripts, styles, images) and starts downloading them in the background while the main parser is still processing the HTML.
+
+---
+
+### Q122: What are Detached DOM Nodes?
+
+**Difficulty: Advanced**
+
+**Answer:**
+DOM nodes that have been removed from the DOM tree but are still referenced by JavaScript. This prevents them from being garbage collected, causing memory leaks.
+
+---
+
+### Q123: What is the `WeakMap` and `WeakSet`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Collections that hold "weak" references to objects. If the object is not referenced anywhere else, it can be garbage collected even if it is in the WeakMap/WeakSet. Useful for caching data associated with DOM elements without causing memory leaks.
+
+---
+
+### Q124: What is the `Save-Data` header?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A request header (`Save-Data: on`) sent by the browser when the user has enabled "Data Saver" mode. The server can respond with lighter images, fewer fonts, or disabled autoplay.
+
+---
+
+### Q125: What is Client Hints?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A set of HTTP request headers that provide information about the client (device memory, network effective type, viewport width, etc.) proactively, allowing the server to optimize content delivery (Content Negotiation).
+
+---
+
+### Q126: What is `requestIdleCallback`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A window method that queues a function to be called during a browser's idle periods. This enables developers to perform background and low priority work on the main thread without impacting latency-critical events like animation and input response.
+
+---
+
+### Q127: What is TLS 1.3?
+
+**Difficulty: Advanced**
+
+**Answer:**
+The latest version of the Transport Layer Security protocol. It improves performance by reducing the handshake latency (1-RTT instead of 2-RTT) and improves security by removing obsolete cryptographic algorithms.
+
+---
+
+### Q128: What is the N+1 Query Problem?
+
+**Difficulty: Backend/Intermediate**
+
+**Answer:**
+A performance anti-pattern where the application makes one query to fetch a list of records (N) and then makes an additional query for each record to fetch related data (+1). This results in N+1 database calls.
+**Solution:** Eager loading (JOINs).
+
+---
+
+### Q129: What is Sharding?
+
+**Difficulty: Backend/Advanced**
+
+**Answer:**
+A type of database partitioning that separates very large databases into smaller, faster, more easily managed parts called data shards. Each shard is held on a separate database server instance.
+
+---
+
+### Q130: What is Hardware Acceleration?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Using the computer's hardware (GPU) to perform some functions more efficiently than is possible in software running on the CPU. In CSS, properties like `transform` and `opacity` can trigger GPU acceleration.
+
+---
+
+### Q131: What is the `device-memory` header?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A Client Hint header that indicates the approximate amount of RAM the client device has (e.g., 0.5, 1, 2, 4, 8 GB). Useful for serving lighter versions of the app to low-memory devices.
+
+---
+
+### Q132: What is the `NetworkInformation` API?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Provides information about the system's connection type (wifi, cellular) and effective bandwidth (`effectiveType`: '4g', '3g', '2g', 'slow-2g').
+
+---
+
+### Q133: What is Paint Timing API?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Provides metrics on when the page starts rendering.
+- **FP (First Paint):** When the browser renders anything different from the navigation state.
+- **FCP (First Contentful Paint):** When the browser renders the first bit of content (text, image).
+
+---
+
+### Q134: What is User Timing API?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Allows developers to create custom performance metrics by marking timestamps (`performance.mark()`) and measuring the duration between them (`performance.measure()`).
+
+---
+
+### Q135: What is Server Timing API?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Allows the server to pass timing metrics about the request-response cycle (e.g., database query time) to the browser via response headers. These can be viewed in the DevTools Network tab.
+
+---
+
+### Q136: What is `rel='modulepreload'`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A link type that tells the browser to preemptively fetch a JavaScript module script. It works like `preload` but specifically for ES modules, handling the module dependency graph.
+
+---
+
+### Q137: What is the difference between `loading='lazy'` and `IntersectionObserver`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+- **`loading='lazy'`:** Native HTML attribute for images and iframes. Simple to use but offers less control (thresholds are browser-defined).
+- **`IntersectionObserver`:** JavaScript API. More code but offers full control over when loading triggers (margins, thresholds) and works for any element (not just img/iframe).
+
+---
+
+### Q138: What is a Flame Chart?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A visualization of the call stack over time. It helps identify which functions are taking the most time to execute and how deep the call stack is. Available in Chrome DevTools Performance panel.
+
+---
+
+### Q139: What is Time to Interactive (TTI)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A metric that measures how long it takes for the page to become fully interactive (FCP occurred, event handlers registered, and main thread is idle).
+
+---
+
+### Q140: What is Total Blocking Time (TBT)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Measures the total amount of time between FCP and TTI where the main thread was blocked for long enough to prevent input responsiveness (tasks > 50ms).
+
+---
+
+### Q141: What is Speed Index?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Measures how quickly content is visually displayed during page load. It computes a score based on the visual progression of the page load.
+
+---
+
+### Q142: What is WebAssembly (Wasm)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A binary instruction format for a stack-based virtual machine. It allows code written in languages like C, C++, and Rust to run in web browsers at near-native speed. Great for CPU-intensive tasks (video editing, gaming, image processing).
+
+---
+
+### Q143: What is the `bfcache` (Back/Forward Cache)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+An in-memory cache that stores a complete snapshot of a page (including the JS heap) when the user navigates away. If the user hits Back/Forward, the page is restored instantly.
+

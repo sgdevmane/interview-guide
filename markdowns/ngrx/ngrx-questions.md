@@ -1,55 +1,136 @@
 # NgRx Interview Questions
 
 ## Table of Contents
-- [NgRx Interview Questions](#ngrx-interview-questions)
-  - [Table of Contents](#table-of-contents)
-  - [NgRx Fundamentals](#ngrx-fundamentals)
-    - [Q1: What is NgRx and why would you use it?](#q1-what-is-ngrx-and-why-would-you-use-it)
-  - [Store and State Management](#store-and-state-management)
-    - [Q2: How do you set up NgRx Store in an Angular application?](#q2-how-do-you-set-up-ngrx-store-in-an-angular-application)
-  - [Actions and Action Creators](#actions-and-action-creators)
-    - [Q3: How do you create and use actions in NgRx?](#q3-how-do-you-create-and-use-actions-in-ngrx)
-  - [Reducers](#reducers)
-    - [Q4: How do you create reducers in NgRx?](#q4-how-do-you-create-reducers-in-ngrx)
-  - [Effects](#effects)
-    - [Q5: How do you handle side effects with NgRx Effects?](#q5-how-do-you-handle-side-effects-with-ngrx-effects)
-  - [Selectors](#selectors)
-    - [Q6: How do you create and use selectors in NgRx?](#q6-how-do-you-create-and-use-selectors-in-ngrx)
-  - [Advanced NgRx Patterns](#advanced-ngrx-patterns)
-    - [Q7: How do you implement advanced NgRx patterns for complex state management?](#q7-how-do-you-implement-advanced-ngrx-patterns-for-complex-state-management)
-    - [Q8: How do you implement real-time state synchronization with NgRx?](#q8-how-do-you-implement-real-time-state-synchronization-with-ngrx)
-    - [Q9: How do you implement advanced NgRx patterns for enterprise applications?](#q9-how-do-you-implement-advanced-ngrx-patterns-for-enterprise-applications)
-    - [Q10: How do you implement NgRx with micro-frontend architecture?](#q10-how-do-you-implement-ngrx-with-micro-frontend-architecture)
-    - [Q11: How do you implement NgRx with Angular 15+ Standalone Components and modern architecture?](#q11-how-do-you-implement-ngrx-with-angular-15-standalone-components-and-modern-architecture)
-    - [Q12: How do you implement advanced NgRx testing strategies with modern Angular testing utilities?](#q12-how-do-you-implement-advanced-ngrx-testing-strategies-with-modern-angular-testing-utilities)
-  - [Advanced NgRx Patterns](#advanced-ngrx-patterns-1)
-    - [Q13: How would you implement NgRx Signal Store for modern Angular applications?](#q13-how-would-you-implement-ngrx-signal-store-for-modern-angular-applications)
-    - [Q14: How would you implement advanced NgRx patterns for enterprise applications?](#q14-how-would-you-implement-advanced-ngrx-patterns-for-enterprise-applications)
-    - [Q15: How do you implement comprehensive testing strategies for NgRx applications?](#q15-how-do-you-implement-comprehensive-testing-strategies-for-ngrx-applications)
-  - [NgRx Component Store](#ngrx-component-store)
-    - [Q11: What is NgRx Component Store and how does it differ from the global store?](#q11-what-is-ngrx-component-store-and-how-does-it-differ-from-the-global-store)
-  - [NgRx Data](#ngrx-data)
-    - [Q12: What is NgRx Data and how does it simplify entity management?](#q12-what-is-ngrx-data-and-how-does-it-simplify-entity-management)
-  - [NgRx Performance Optimization](#ngrx-performance-optimization)
-    - [Q13: How do you optimize NgRx performance and prevent common performance issues?](#q13-how-do-you-optimize-ngrx-performance-and-prevent-common-performance-issues)
-  - [NgRx Advanced Patterns](#ngrx-advanced-patterns)
-    - [Q14: What are advanced NgRx patterns for complex state management scenarios?](#q14-what-are-advanced-ngrx-patterns-for-complex-state-management-scenarios)
-  - [NgRx Error Handling and Resilience](#ngrx-error-handling-and-resilience)
-    - [Q15: How do you implement comprehensive error handling and resilience patterns in NgRx?](#q15-how-do-you-implement-comprehensive-error-handling-and-resilience-patterns-in-ngrx)
-  - [NgRx Real-time Updates and WebSocket Integration](#ngrx-real-time-updates-and-websocket-integration)
-    - [Q16: How do you implement real-time updates and WebSocket integration with NgRx?](#q16-how-do-you-implement-real-time-updates-and-websocket-integration-with-ngrx)
-  - [NgRx in Micro-frontends Architecture](#ngrx-in-micro-frontends-architecture)
-    - [Q17: How do you implement NgRx in a micro-frontends architecture with state sharing and isolation?](#q17-how-do-you-implement-ngrx-in-a-micro-frontends-architecture-with-state-sharing-and-isolation)
-  - [NgRx Migration Strategies](#ngrx-migration-strategies)
-    - [Q18: What are the best practices for migrating from legacy state management to NgRx or upgrading NgRx versions?](#q18-what-are-the-best-practices-for-migrating-from-legacy-state-management-to-ngrx-or-upgrading-ngrx-versions)
-  - [NgRx DevTools and Debugging](#ngrx-devtools-and-debugging)
-    - [Q19: How do you effectively use NgRx DevTools for debugging and what are advanced debugging techniques?](#q19-how-do-you-effectively-use-ngrx-devtools-for-debugging-and-what-are-advanced-debugging-techniques)
-  - [NgRx Enterprise Patterns](#ngrx-enterprise-patterns)
-    - [Q20: What are the best practices and patterns for implementing NgRx in large-scale enterprise applications?](#q20-what-are-the-best-practices-and-patterns-for-implementing-ngrx-in-large-scale-enterprise-applications)
+
+- [Q1: What is NgRx and why would you use it?](#q1-what-is-ngrx-and-why-would-you-use-it)
+- [Q2: How do you set up NgRx Store in an Angular application?](#q2-how-do-you-set-up-ngrx-store-in-an-angular-application)
+- [Q3: How do you create and use actions in NgRx?](#q3-how-do-you-create-and-use-actions-in-ngrx)
+- [Q4: How do you create reducers in NgRx?](#q4-how-do-you-create-reducers-in-ngrx)
+- [Q5: How do you handle side effects with NgRx Effects?](#q5-how-do-you-handle-side-effects-with-ngrx-effects)
+- [Q6: How do you create and use selectors in NgRx?](#q6-how-do-you-create-and-use-selectors-in-ngrx)
+- [Q7: How do you implement advanced NgRx patterns for complex state management?](#q7-how-do-you-implement-advanced-ngrx-patterns-for-complex-state-management)
+- [Q8: How do you implement real-time state synchronization with NgRx?](#q8-how-do-you-implement-real-time-state-synchronization-with-ngrx)
+- [Q9: How do you implement advanced NgRx patterns for enterprise applications?](#q9-how-do-you-implement-advanced-ngrx-patterns-for-enterprise-applications)
+- [Q10: How do you implement NgRx with micro-frontend architecture?](#q10-how-do-you-implement-ngrx-with-micro-frontend-architecture)
+- [Q11: How do you implement NgRx with Angular 15+ Standalone Components and modern architecture?](#q11-how-do-you-implement-ngrx-with-angular-15+-standalone-components-and-modern-architecture)
+- [Q12: How do you implement advanced NgRx testing strategies with modern Angular testing utilities?](#q12-how-do-you-implement-advanced-ngrx-testing-strategies-with-modern-angular-testing-utilities)
+- [Q13: How would you implement NgRx Signal Store for modern Angular applications?](#q13-how-would-you-implement-ngrx-signal-store-for-modern-angular-applications)
+- [Q14: How would you implement advanced NgRx patterns for enterprise applications?](#q14-how-would-you-implement-advanced-ngrx-patterns-for-enterprise-applications)
+- [Q15: How do you implement comprehensive testing strategies for NgRx applications?](#q15-how-do-you-implement-comprehensive-testing-strategies-for-ngrx-applications)
+- [Q16: What is NgRx Component Store and how does it differ from the global store?](#q16-what-is-ngrx-component-store-and-how-does-it-differ-from-the-global-store)
+- [Q17: What is NgRx Data and how does it simplify entity management?](#q17-what-is-ngrx-data-and-how-does-it-simplify-entity-management)
+- [Q18: How do you optimize NgRx performance and prevent common performance issues?](#q18-how-do-you-optimize-ngrx-performance-and-prevent-common-performance-issues)
+- [Q19: What are advanced NgRx patterns for complex state management scenarios?](#q19-what-are-advanced-ngrx-patterns-for-complex-state-management-scenarios)
+- [Q20: How do you implement comprehensive error handling and resilience patterns in NgRx?](#q20-how-do-you-implement-comprehensive-error-handling-and-resilience-patterns-in-ngrx)
+- [Q21: How do you implement real-time updates and WebSocket integration with NgRx?](#q21-how-do-you-implement-real-time-updates-and-websocket-integration-with-ngrx)
+- [Q22: How do you implement NgRx in a micro-frontends architecture with state sharing and isolation?](#q22-how-do-you-implement-ngrx-in-a-micro-frontends-architecture-with-state-sharing-and-isolation)
+- [Q23: What are the best practices for migrating from legacy state management to NgRx or upgrading NgRx versions?](#q23-what-are-the-best-practices-for-migrating-from-legacy-state-management-to-ngrx-or-upgrading-ngrx-versions)
+- [Q24: How do you effectively use NgRx DevTools for debugging and what are advanced debugging techniques?](#q24-how-do-you-effectively-use-ngrx-devtools-for-debugging-and-what-are-advanced-debugging-techniques)
+- [Q25: What are the best practices and patterns for implementing NgRx in large-scale enterprise applications?](#q25-what-are-the-best-practices-and-patterns-for-implementing-ngrx-in-large-scale-enterprise-applications)
+- [Q26: What is the Facade Pattern in NgRx and why use it?](#q26-what-is-the-facade-pattern-in-ngrx-and-why-use-it)
+- [Q27: Explain NgRx Metareducers and their use cases.](#q27-explain-ngrx-metareducers-and-their-use-cases)
+- [Q28: How do Runtime Checks in NgRx help during development?](#q28-how-do-runtime-checks-in-ngrx-help-during-development)
+- [Q29: What is the difference between concatMap, mergeMap, switchMap, and exhaustMap in NgRx Effects?](#q29-what-is-the-difference-between-concatmap,-mergemap,-switchmap,-and-exhaustmap-in-ngrx-effects)
+- [Q30: How do you handle optimistic updates in NgRx?](#q30-how-do-you-handle-optimistic-updates-in-ngrx)
+- [Q31: What is NgRx Entity and what problem does it solve?](#q31-what-is-ngrx-entity-and-what-problem-does-it-solve)
+- [Q32: How do you unit test NgRx Selectors?](#q32-how-do-you-unit-test-ngrx-selectors)
+- [Q33: How do you unit test NgRx Effects using Marble Testing?](#q33-how-do-you-unit-test-ngrx-effects-using-marble-testing)
+- [Q34: What is the Router Store in NgRx?](#q34-what-is-the-router-store-in-ngrx)
+- [Q35: How do you implement a logout flow that clears the entire state?](#q35-how-do-you-implement-a-logout-flow-that-clears-the-entire-state)
+- [Q36: What is the difference between 'Store' and 'ComponentStore'?](#q36-what-is-the-difference-between-store-and-componentstore)
+- [Q37: How do you manage local UI state in NgRx?](#q37-how-do-you-manage-local-ui-state-in-ngrx)
+- [Q38: Explain the concept of 'Selectors with Props'.](#q38-explain-the-concept-of-selectors-with-props)
+- [Q39: How can you prevent state mutation in NgRx?](#q39-how-can-you-prevent-state-mutation-in-ngrx)
+- [Q40: What is NgRx SignalStore?](#q40-what-is-ngrx-signalstore)
+- [Q41: How do you handle error handling in NgRx Effects?](#q41-how-do-you-handle-error-handling-in-ngrx-effects)
+- [Q42: What are 'Feature States' and how do you lazy load them?](#q42-what-are-feature-states-and-how-do-you-lazy-load-them)
+- [Q43: What is the difference between 'Action' and 'Action Creator'?](#q43-what-is-the-difference-between-action-and-action-creator)
+- [Q44: How do you use NgRx for Form Handling?](#q44-how-do-you-use-ngrx-for-form-handling)
+- [Q45: How do you debug NgRx applications?](#q45-how-do-you-debug-ngrx-applications)
+- [Q46: What is the 'Container/Presentational' component pattern in NgRx context?](#q46-what-is-the-container-presentational-component-pattern-in-ngrx-context)
+- [Q47: How do you handle multiple dependent API calls in an Effect?](#q47-how-do-you-handle-multiple-dependent-api-calls-in-an-effect)
+- [Q48: What is 'Action Hygiene'?](#q48-what-is-action-hygiene)
+- [Q49: How to implement undo/redo functionality with NgRx?](#q49-how-to-implement-undo-redo-functionality-with-ngrx)
+- [Q50: What is the difference between `createSelector` and `store.select`?](#q50-what-is-the-difference-between-`createselector`-and-`storeselect`)
+- [Q51: How do you handle file uploads in NgRx?](#q51-how-do-you-handle-file-uploads-in-ngrx)
+- [Q52: Can you use NgRx with React or other frameworks?](#q52-can-you-use-ngrx-with-react-or-other-frameworks)
+- [Q53: What is `ngrx-data`?](#q53-what-is-`ngrx-data`)
+- [Q54: How do you persist NgRx state to LocalStorage?](#q54-how-do-you-persist-ngrx-state-to-localstorage)
+- [Q55: What is the role of `EffectsModule.forRoot()` vs `forFeature()`?](#q55-what-is-the-role-of-`effectsmoduleforroot`-vs-`forfeature`)
+- [Q56: How to handle WebSocket data streams in NgRx?](#q56-how-to-handle-websocket-data-streams-in-ngrx)
+- [Q57: Why is `OnPush` change detection recommended with NgRx?](#q57-why-is-`onpush`-change-detection-recommended-with-ngrx)
+- [Q58: What is the difference between Imperative and Reactive state management?](#q58-what-is-the-difference-between-imperative-and-reactive-state-management)
+- [Q59: How do you mock the Store in Unit Tests?](#q59-how-do-you-mock-the-store-in-unit-tests)
+- [Q60: What is the 'Smart' vs 'Dumb' component pattern?](#q60-what-is-the-smart-vs-dumb-component-pattern)
+- [Q61: How do you handle Race Conditions in Effects?](#q61-how-do-you-handle-race-conditions-in-effects)
+- [Q62: What is the difference between `props` and payload in Actions?](#q62-what-is-the-difference-between-`props`-and-payload-in-actions)
+- [Q63: How to handle complex derived state?](#q63-how-to-handle-complex-derived-state)
+- [Q64: What is normalization in State Management?](#q64-what-is-normalization-in-state-management)
+- [Q65: How do you use `ngrx-schematics`?](#q65-how-do-you-use-`ngrx-schematics`)
+- [Q66: What is the `createFeature` function?](#q66-what-is-the-`createfeature`-function)
+- [Q67: How do you handle authentication token refresh with NgRx?](#q67-how-do-you-handle-authentication-token-refresh-with-ngrx)
+- [Q68: What are the downsides of NgRx?](#q68-what-are-the-downsides-of-ngrx)
+- [Q69: When should you NOT use NgRx?](#q69-when-should-you-not-use-ngrx)
+- [Q70: How do you access the Store in a Service?](#q70-how-do-you-access-the-store-in-a-service)
+- [Q71: What is `router-store` serialization?](#q71-what-is-`router-store`-serialization)
+- [Q72: How do you test a Reducer?](#q72-how-do-you-test-a-reducer)
+- [Q73: What is the `StoreDevtoolsModule` 'maxAge' option?](#q73-what-is-the-`storedevtoolsmodule`-maxage-option)
+- [Q74: How do you handle loading spinners with NgRx?](#q74-how-do-you-handle-loading-spinners-with-ngrx)
+- [Q75: What is the difference between `dispatch` and `next`?](#q75-what-is-the-difference-between-`dispatch`-and-`next`)
+- [Q76: How do you combine multiple selectors?](#q76-how-do-you-combine-multiple-selectors)
+- [Q77: What is 'State Hydration'?](#q77-what-is-state-hydration)
+- [Q78: How do you secure specific actions?](#q78-how-do-you-secure-specific-actions)
+- [Q79: What is the `ofType` operator?](#q79-what-is-the-`oftype`-operator)
+- [Q80: How do you implement Pagination with NgRx?](#q80-how-do-you-implement-pagination-with-ngrx)
+- [Q81: What is 'Optimistic Concurrency Control'?](#q81-what-is-optimistic-concurrency-control)
+- [Q82: How do you use `ngrx-let` directive?](#q82-how-do-you-use-`ngrx-let`-directive)
+- [Q83: What is `ngrx-push` pipe?](#q83-what-is-`ngrx-push`-pipe)
+- [Q84: How to handle 'Cancel' actions in Effects?](#q84-how-to-handle-cancel-actions-in-effects)
+- [Q85: What is the `OnInitEffects` interface?](#q85-what-is-the-`oniniteffects`-interface)
+- [Q86: How do you store Date objects in NgRx?](#q86-how-do-you-store-date-objects-in-ngrx)
+- [Q87: How do you handle 'Global Error Handling' with NgRx?](#q87-how-do-you-handle-global-error-handling-with-ngrx)
+- [Q88: What is `createActionGroup`?](#q88-what-is-`createactiongroup`)
+- [Q89: How do you reset a specific feature state?](#q89-how-do-you-reset-a-specific-feature-state)
+- [Q90: Can Effects dispatch multiple actions?](#q90-can-effects-dispatch-multiple-actions)
+- [Q91: What is the difference between `Effect` (decorator) and `createEffect`?](#q91-what-is-the-difference-between-`effect`-decorator-and-`createeffect`)
+- [Q92: How to use NgRx with Standalone Components?](#q92-how-to-use-ngrx-with-standalone-components)
+- [Q93: How do you handle partial updates (Patch)?](#q93-how-do-you-handle-partial-updates-patch)
+- [Q94: What is a 'Functional Effect'?](#q94-what-is-a-functional-effect)
+- [Q95: How do you test Observables in NgRx without Marbles?](#q95-how-do-you-test-observables-in-ngrx-without-marbles)
+- [Q96: What is the Repository Pattern with NgRx?](#q96-what-is-the-repository-pattern-with-ngrx)
+- [Q97: How do you handle deep cloning in Reducers?](#q97-how-do-you-handle-deep-cloning-in-reducers)
+- [Q98: What is 'Duck Pattern' or 'Redux Ducks'?](#q98-what-is-duck-pattern-or-redux-ducks)
+- [Q99: How do you deal with large initial state?](#q99-how-do-you-deal-with-large-initial-state)
+- [Q100: What is `selectSignal`?](#q100-what-is-`selectsignal`)
+- [Q101: How to implement 'User Typing' feature with NgRx?](#q101-how-to-implement-user-typing-feature-with-ngrx)
+- [Q102: How to implement 'Pull to Refresh' with NgRx?](#q102-how-to-implement-pull-to-refresh-with-ngrx)
+- [Q103: How to implement 'Infinite Scroll' with NgRx?](#q103-how-to-implement-infinite-scroll-with-ngrx)
+- [Q104: How to handle multiple environments in NgRx?](#q104-how-to-handle-multiple-environments-in-ngrx)
+- [Q105: What is the role of `reducerFactory`?](#q105-what-is-the-role-of-`reducerfactory`)
+- [Q106: How to debug 'Actions not triggering Reducer'?](#q106-how-to-debug-actions-not-triggering-reducer)
+- [Q107: How to debug 'Effects not triggering'?](#q107-how-to-debug-effects-not-triggering)
+- [Q108: What is `provideState`?](#q108-what-is-`providestate`)
+- [Q109: What is `provideEffects`?](#q109-what-is-`provideeffects`)
+- [Q110: How to share state between Angular Elements (Web Components)?](#q110-how-to-share-state-between-angular-elements-web-components)
+- [Q111: How to handle cross-tab communication with NgRx?](#q111-how-to-handle-cross-tab-communication-with-ngrx)
+- [Q112: What is `ngrx-store-freeze`?](#q112-what-is-`ngrx-store-freeze`)
+- [Q113: How to handle Form Array with NgRx?](#q113-how-to-handle-form-array-with-ngrx)
+- [Q114: How to implement Undo for specific feature only?](#q114-how-to-implement-undo-for-specific-feature-only)
+- [Q115: How to use NgRx with GraphQL?](#q115-how-to-use-ngrx-with-graphql)
+- [Q116: What is the `On` function signature?](#q116-what-is-the-`on`-function-signature)
+- [Q117: How to testing Effects that use `combineLatest`?](#q117-how-to-testing-effects-that-use-`combinelatest`)
+- [Q118: What is the difference between `store.dispatch` and `effect`?](#q118-what-is-the-difference-between-`storedispatch`-and-`effect`)
+- [Q119: How to optimize large lists in NgRx?](#q119-how-to-optimize-large-lists-in-ngrx)
+- [Q120: How to handle 'Session Timeout'?](#q120-how-to-handle-session-timeout)
+- [Q121: What is `ROOT_EFFECTS_INIT`?](#q121-what-is-`root_effects_init`)
+- [Q122: What is `UPDATE` action in Entity?](#q122-what-is-`update`-action-in-entity)
+- [Q123: How to implement 'Select All' functionality?](#q123-how-to-implement-select-all-functionality)
+- [Q124: How to handle 'Network Offline'?](#q124-how-to-handle-network-offline)
+- [Q125: What is the benefit of 'Selectors' over 'Getters'?](#q125-what-is-the-benefit-of-selectors-over-getters)
 
 ---
 
-## NgRx Fundamentals
+# NgRx Interview Questions
 
 ### Q1: What is NgRx and why would you use it?
 
@@ -118,8 +199,6 @@ const selectUsersLoading = (state: AppState) => state.users.loading;
 - Large team collaboration
 
 ---
-
-## Store and State Management
 
 ### Q2: How do you set up NgRx Store in an Angular application?
 
@@ -223,8 +302,6 @@ export class LazyFeatureModule {}
 ```
 
 ---
-
-## Actions and Action Creators
 
 ### Q3: How do you create and use actions in NgRx?
 
@@ -392,8 +469,6 @@ export type UserActionsUnion = typeof all;
 ```
 
 ---
-
-## Reducers
 
 ### Q4: How do you create reducers in NgRx?
 
@@ -601,8 +676,6 @@ export const reducers: ActionReducerMap<AppState> = {
 ```
 
 ---
-
-## Effects
 
 ### Q5: How do you handle side effects with NgRx Effects?
 
@@ -863,8 +936,6 @@ describe('UserEffects', () => {
 ```
 
 ---
-
-## Selectors
 
 ### Q6: How do you create and use selectors in NgRx?
 
@@ -1127,8 +1198,6 @@ export const selectUsersSortedByName = createSelector(
 This comprehensive NgRx guide covers all essential concepts from basic setup to advanced patterns, providing practical examples for state management in Angular applications.
 
 ---
-
-## Advanced NgRx Patterns
 
 ### Q7: How do you implement advanced NgRx patterns for complex state management?
 
@@ -3585,8 +3654,6 @@ describe('UserManagementComponent', () => {
 });
 ```
 
-## Advanced NgRx Patterns
-
 ### Q13: How would you implement NgRx Signal Store for modern Angular applications?
 
 **Answer:**
@@ -4345,9 +4412,7 @@ This comprehensive testing strategy ensures robust, maintainable NgRx applicatio
 
 ---
 
-## NgRx Component Store
-
-### Q11: What is NgRx Component Store and how does it differ from the global store?
+### Q16: What is NgRx Component Store and how does it differ from the global store?
 
 **Answer:**
 NgRx Component Store is a standalone library that provides local state management for Angular components, offering an alternative to the global NgRx store for component-specific state.
@@ -4856,9 +4921,7 @@ Component Store is ideal for local state management while the global store handl
 
 ---
 
-## NgRx Data
-
-### Q12: What is NgRx Data and how does it simplify entity management?
+### Q17: What is NgRx Data and how does it simplify entity management?
 
 **Answer:**
 NgRx Data is an extension library that provides automated entity management for NgRx applications, reducing boilerplate code for common CRUD operations and entity state management.
@@ -5456,9 +5519,7 @@ NgRx Data significantly simplifies entity management while maintaining the benef
 
 ---
 
-## NgRx Performance Optimization
-
-### Q13: How do you optimize NgRx performance and prevent common performance issues?
+### Q18: How do you optimize NgRx performance and prevent common performance issues?
 
 **Answer:**
 NgRx performance optimization involves strategic selector design, efficient state structure, proper subscription management, and leveraging Angular's change detection optimizations.
@@ -6105,9 +6166,7 @@ These optimizations ensure NgRx applications remain performant even with complex
 
 ---
 
-## NgRx Advanced Patterns
-
-### Q14: What are advanced NgRx patterns for complex state management scenarios?
+### Q19: What are advanced NgRx patterns for complex state management scenarios?
 
 **Answer:**
 Advanced NgRx patterns help manage complex state scenarios including feature composition, dynamic state, cross-feature communication, and sophisticated data flows.
@@ -6680,9 +6739,7 @@ These advanced patterns enable sophisticated state management for complex applic
 
 ---
 
-## NgRx Error Handling and Resilience
-
-### Q15: How do you implement comprehensive error handling and resilience patterns in NgRx?
+### Q20: How do you implement comprehensive error handling and resilience patterns in NgRx?
 
 **Answer:**
 Robust error handling in NgRx involves multiple layers of error management, graceful degradation, retry mechanisms, and user-friendly error reporting.
@@ -7497,9 +7554,7 @@ These comprehensive error handling and resilience patterns ensure your NgRx appl
 
 ---
 
-## NgRx Real-time Updates and WebSocket Integration
-
-### Q16: How do you implement real-time updates and WebSocket integration with NgRx?
+### Q21: How do you implement real-time updates and WebSocket integration with NgRx?
 
 **Answer:**
 Integrating real-time updates with NgRx involves managing WebSocket connections, handling real-time data streams, and maintaining synchronization between local and remote state.
@@ -8327,9 +8382,7 @@ This comprehensive WebSocket integration with NgRx provides real-time capabiliti
 
 ---
 
-## NgRx in Micro-frontends Architecture
-
-### Q17: How do you implement NgRx in a micro-frontends architecture with state sharing and isolation?
+### Q22: How do you implement NgRx in a micro-frontends architecture with state sharing and isolation?
 
 **Answer:**
 Implementing NgRx in micro-frontends requires careful consideration of state isolation, shared state management, and communication between different micro-frontend applications.
@@ -9021,9 +9074,7 @@ This architecture provides flexible state management for micro-frontends with co
 
 ---
 
-## NgRx Migration Strategies
-
-### Q18: What are the best practices for migrating from legacy state management to NgRx or upgrading NgRx versions?
+### Q23: What are the best practices for migrating from legacy state management to NgRx or upgrading NgRx versions?
 
 **Answer:**
 Migrating to NgRx or upgrading NgRx versions requires careful planning, incremental implementation, and proper testing strategies to ensure smooth transitions.
@@ -9649,9 +9700,7 @@ This comprehensive migration strategy provides tools and services for both legac
 
 ---
 
-## NgRx DevTools and Debugging
-
-### Q19: How do you effectively use NgRx DevTools for debugging and what are advanced debugging techniques?
+### Q24: How do you effectively use NgRx DevTools for debugging and what are advanced debugging techniques?
 
 **Answer:**
 NgRx DevTools provide powerful debugging capabilities for state management, action tracking, time-travel debugging, and performance monitoring.
@@ -10444,9 +10493,7 @@ These advanced debugging tools provide comprehensive state inspection, action re
 
 ---
 
-## NgRx Enterprise Patterns
-
-### Q20: What are the best practices and patterns for implementing NgRx in large-scale enterprise applications?
+### Q25: What are the best practices and patterns for implementing NgRx in large-scale enterprise applications?
 
 **Answer:**
 Enterprise NgRx applications require sophisticated patterns for scalability, maintainability, team collaboration, and performance optimization.
@@ -11187,3 +11234,1474 @@ export class StatePersistenceService {
 ```
 
 These enterprise patterns provide comprehensive solutions for large-scale NgRx applications including advanced state architecture, feature management, effects handling, and state persistence with encryption and compression capabilities.
+
+### Q26: What is the Facade Pattern in NgRx and why use it?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+The Facade Pattern in NgRx acts as an abstraction layer between the component and the store. It hides the complexity of dispatching actions and selecting state.
+
+**Benefits:**
+- **Decoupling:** Components don't depend directly on the Store, Actions, or Selectors.
+- **Simplified API:** Components just call methods on the Facade.
+- **Reusability:** Logic in the Facade can be reused across components.
+- **Testability:** Facades are easier to mock than the Store.
+
+**Example:**
+```typescript
+@Injectable({ providedIn: 'root' })
+export class UserFacade {
+  users$ = this.store.select(selectAllUsers);
+  loading$ = this.store.select(selectUserLoading);
+
+  constructor(private store: Store) {}
+
+  loadUsers() {
+    this.store.dispatch(UserActions.loadUsers());
+  }
+
+  addUser(user: User) {
+    this.store.dispatch(UserActions.addUser({ user }));
+  }
+}
+```
+
+---
+
+### Q27: Explain NgRx Metareducers and their use cases.
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Metareducers are higher-order reducers: they are functions that accept a reducer and return a new reducer. They act like middleware for reducers, allowing you to intercept actions and state changes before they reach the actual reducers.
+
+**Use Cases:**
+- **Logging:** Log every action and state change (like `store-devtools`).
+- **Hydration:** Load state from `localStorage` on startup.
+- **Clear State:** Reset the entire state on logout.
+
+**Example (Logger):**
+```typescript
+export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
+  return function(state, action) {
+    console.log('state', state);
+    console.log('action', action);
+    return reducer(state, action);
+  };
+}
+
+export const metaReducers: MetaReducer<AppState>[] = [debug];
+```
+
+---
+
+### Q28: How do Runtime Checks in NgRx help during development?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+NgRx Runtime Checks help enforce immutability and serializability in your state and actions. They are configured in the `StoreModule.forRoot` method.
+
+**Checks Available:**
+- `strictStateImmutability`: Throws if state is mutated directly.
+- `strictActionImmutability`: Throws if action payload is mutated.
+- `strictStateSerializability`: Ensures state is serializable (no Functions/Promises).
+- `strictActionSerializability`: Ensures actions are serializable.
+
+**Configuration:**
+```typescript
+StoreModule.forRoot(reducers, {
+  runtimeChecks: {
+    strictStateImmutability: true,
+    strictActionImmutability: true,
+    strictStateSerializability: true,
+    strictActionSerializability: true,
+  },
+})
+```
+
+---
+
+### Q29: What is the difference between concatMap, mergeMap, switchMap, and exhaustMap in NgRx Effects?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+These RxJS flattening operators handle observable streams differently, which is crucial for Effects:
+
+- **mergeMap:** Handles all requests in parallel. Good for deletions (delete multiple items at once). **Risk:** Race conditions if order matters.
+- **concatMap:** Queues requests, executing them one by one. Order is preserved. Good for creating items where order matters. **Risk:** Can be slow if one request hangs.
+- **switchMap:** Cancels the previous inner observable if a new one arrives. Good for read operations (search typeahead). **Risk:** Previous requests are cancelled.
+- **exhaustMap:** Ignores new requests until the current one completes. Good for non-idempotent operations like login (ignore extra clicks).
+
+**Usage:**
+- `switchMap` for **Reads** (Load Users).
+- `concatMap` for **Writes** (Update/Create) where order matters.
+- `mergeMap` for **Deletes** or parallel writes.
+- `exhaustMap` for **Auth/Submit** buttons.
+
+---
+
+### Q30: How do you handle optimistic updates in NgRx?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Optimistic updates update the UI state *before* the server confirms the change, providing a snappier user experience. If the server fails, the change is rolled back.
+
+**Steps:**
+1. **Action:** Dispatch `Update` action.
+2. **Reducer:** Immediately update the state in the store.
+3. **Effect:** Call API.
+   - **Success:** Dispatch `UpdateSuccess` (often no state change needed if data matches).
+   - **Failure:** Dispatch `UpdateFailure` which reverts the state change in the reducer.
+
+**Example Reducer:**
+```typescript
+on(Actions.updateItem, (state, { item }) => ({
+  ...state,
+  items: state.items.map(i => i.id === item.id ? item : i) // Optimistic update
+})),
+on(Actions.updateItemFailure, (state, { originalItem }) => ({
+  ...state,
+  items: state.items.map(i => i.id === originalItem.id ? originalItem : i) // Revert
+}))
+```
+
+---
+
+### Q31: What is NgRx Entity and what problem does it solve?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+NgRx Entity provides an API to manipulate and query entity collections. It standardizes the way you store collections of objects, reducing boilerplate.
+
+**Problem Solved:**
+- Instead of arrays, it uses a Dictionary (Map) structure (`{ ids: [], entities: {} }`) for O(1) access.
+- Provides helper methods for common operations: `addOne`, `addAll`, `updateOne`, `removeOne`.
+
+**Example:**
+```typescript
+export const adapter = createEntityAdapter<User>();
+export const initialState = adapter.getInitialState();
+
+export const userReducer = createReducer(
+  initialState,
+  on(UserActions.addUser, (state, { user }) => adapter.addOne(user, state)),
+  on(UserActions.deleteUser, (state, { id }) => adapter.removeOne(id, state))
+);
+```
+
+---
+
+### Q32: How do you unit test NgRx Selectors?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Selectors are pure functions, making them the easiest part of NgRx to test. You simply call the projector function with a mock state.
+
+**Projector Testing:**
+Every selector created with `createSelector` has a `.projector` property which is the pure function itself.
+
+**Example:**
+```typescript
+// selector.ts
+export const selectUserCount = createSelector(
+  selectUsers,
+  (users) => users.length
+);
+
+// selector.spec.ts
+it('should select user count', () => {
+  const users = [{ id: 1 }, { id: 2 }];
+  const result = selectUserCount.projector(users);
+  expect(result).toBe(2);
+});
+```
+
+---
+
+### Q33: How do you unit test NgRx Effects using Marble Testing?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Marble testing allows you to test asynchronous RxJS streams synchronously by defining the timing of events with a string syntax.
+
+**Key Symbols:**
+- `-`: Time frame (10ms).
+- `a`: Emitted value.
+- `|`: Completion.
+- `#`: Error.
+
+**Example:**
+```typescript
+it('should return loadSuccess on success', () => {
+  const action = loadUsers();
+  const completion = loadUsersSuccess({ users: [] });
+
+  actions$ = hot('-a', { a: action });
+  const response = cold('-b|', { b: [] });
+  userService.getUsers.and.returnValue(response);
+
+  const expected = cold('--c', { c: completion });
+  expect(effects.loadUsers$).toBeObservable(expected);
+});
+```
+
+---
+
+### Q34: What is the Router Store in NgRx?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+`@ngrx/router-store` binds the Angular Router state to the NgRx Store. It allows you to dispatch router actions (time-travel debugging for routes) and select route params/data from the store.
+
+**Benefits:**
+- Route changes dispatch actions (traceable in DevTools).
+- Access route params in Selectors (combine route ID with entity data).
+
+**Example Selector:**
+```typescript
+export const selectSelectedUser = createSelector(
+  selectUserEntities,
+  selectRouteParam('id'),
+  (users, id) => users[id]
+);
+```
+
+---
+
+### Q35: How do you implement a logout flow that clears the entire state?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+To clear the entire state on logout, you can use a **Metareducer**. When the `Logout` action is dispatched, the metareducer can return `undefined` (or initial state) to reset the store.
+
+**Example:**
+```typescript
+export function clearState(reducer: ActionReducer<AppState>): ActionReducer<AppState> {
+  return function(state, action) {
+    if (action.type === '[Auth] Logout') {
+      state = undefined; // Reducers will return their initial state
+    }
+    return reducer(state, action);
+  };
+}
+```
+
+---
+
+### Q36: What is the difference between 'Store' and 'ComponentStore'?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+- **Global Store (`@ngrx/store`):**
+  - Single source of truth for the whole app.
+  - Best for shared state (User, Config, Cache).
+  - Uses Actions, Reducers, Effects.
+  - High boilerplate.
+
+- **ComponentStore (`@ngrx/component-store`):**
+  - Independent state for a specific component/feature.
+  - Clean API (no actions/reducers, just methods).
+  - Best for local component state or complex isolated features.
+  - Lower boilerplate.
+
+**Use Global Store for:** Shared data.
+**Use ComponentStore for:** Complex local UI state (Pagination, Filters).
+
+---
+
+### Q37: How do you manage local UI state in NgRx?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+For local UI state (like form open/close, tab selection) that doesn't need to be shared:
+
+1. **Component Property:** Just use a variable in the component.
+2. **ComponentStore:** If the logic is complex.
+3. **Global Store:** ONLY if the state needs to persist across routes or be accessed by other features.
+
+**Anti-pattern:** Putting *everything* (like `isDropdownOpen`) in the Global Store.
+
+---
+
+### Q38: Explain the concept of 'Selectors with Props'.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Sometimes you need to select data based on a parameter (like an ID). Note that `createSelector` does not accept arguments directly at call time in the `select()` method in recent NgRx versions without a factory or props.
+
+**Pattern:**
+```typescript
+export const selectUserById = (props: { id: string }) => createSelector(
+  selectUserEntities,
+  (entities) => entities[props.id]
+);
+
+// Usage
+store.select(selectUserById({ id: '123' }));
+```
+*Note: This creates a new selector instance every time. For memoization with props, it's better to rely on data in the store (like `selectedId`) or use third-party libraries if needed.*
+
+---
+
+### Q39: How can you prevent state mutation in NgRx?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+State in NgRx must be immutable.
+
+1. **Spread Operator:** Use `...state` to copy.
+2. **Runtime Checks:** Enable `strictStateImmutability` in `StoreModule`.
+3. **Libraries:** Use `Immer` (via `ngrx-immer`) to write mutable-style code that produces immutable state safely.
+4. **Linter:** Use `eslint-plugin-ngrx`.
+
+---
+
+### Q40: What is NgRx SignalStore?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+NgRx SignalStore is a new state management solution introduced to align with Angular Signals. It offers a functional, signal-based approach to state.
+
+**Key Features:**
+- **Signals Native:** Exposes state as Signals.
+- **Modular:** Extensions for entities, HTTP, etc.
+- **Lightweight:** No reducers/actions boilerplate.
+
+**Example:**
+```typescript
+export const UserStore = signalStore(
+  withState({ users: [], loading: false }),
+  withMethods((store, service = inject(UserService)) => ({
+    async loadUsers() {
+      patchState(store, { loading: true });
+      const users = await lastValueFrom(service.getUsers());
+      patchState(store, { users, loading: false });
+    }
+  }))
+);
+```
+
+---
+
+### Q41: How do you handle error handling in NgRx Effects?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Errors in Effects must be caught effectively, or they will **complete** the effect stream (killing it).
+
+**Correct Pattern:** Use `catchError` within the **inner** observable (inside `switchMap`/`mergeMap`).
+
+**Example:**
+```typescript
+load$ = createEffect(() => actions$.pipe(
+  ofType(load),
+  switchMap(() => service.get().pipe(
+    map(data => success({ data })),
+    catchError(error => of(failure({ error }))) // Correct: Returns action, stream stays alive
+  ))
+));
+```
+
+**Incorrect Pattern:** Placing `catchError` after `switchMap` will terminate the effect on error.
+
+---
+
+### Q42: What are 'Feature States' and how do you lazy load them?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Feature States allow you to slice your state into chunks that correspond to feature modules.
+
+**Lazy Loading:**
+When a lazy-loaded module is initialized, `StoreModule.forFeature('featureName', reducer)` injects that slice into the global state dynamically.
+
+**Structure:**
+```
+Root State
+├── Layout
+├── Auth
+└── Products (Lazy Loaded Feature)
+```
+
+---
+
+### Q43: What is the difference between 'Action' and 'Action Creator'?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+- **Action:** The actual object dispatched to the store. It has a `type` and optional payload.
+  - `{ type: '[User] Load', id: 1 }`
+- **Action Creator:** A function that returns the Action object.
+  - `const loadUser = createAction('[User] Load', props<{id: number}>());`
+
+Using creators provides type safety and reduces typo errors compared to string literals.
+
+---
+
+### Q44: How do you use NgRx for Form Handling?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Handling forms in Redux can be verbose (dispatching on every keystroke).
+
+**Approaches:**
+1. **Local State:** Keep form state local, dispatch only on Submit. (Recommended for simple forms).
+2. **NgRx Forms:** Libraries like `ngrx-forms` bind state to forms.
+3. **Update on Blur:** Dispatch actions only when fields lose focus to reduce noise.
+
+---
+
+### Q45: How do you debug NgRx applications?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+1. **Redux DevTools Extension:** The standard tool. Shows action log, state diffs, and allows time travel.
+2. **Logging Metareducer:** Console log actions/state.
+3. **RxJS Tap:** Use `tap` in Effects to log flow.
+4. **Selectors:** Check if selectors are recomputing too often.
+
+---
+
+### Q46: What is the 'Container/Presentational' component pattern in NgRx context?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+- **Smart (Container) Components:**
+  - Interact with the Store (dispatch actions, select state).
+  - Pass data down via `Input`.
+  - Listen to events via `Output`.
+- **Dumb (Presentational) Components:**
+  - Pure UI.
+  - No dependency on NgRx/Store.
+  - Receive data via `@Input()`.
+  - Emit events via `@Output()`.
+
+**Benefit:** Decouples UI from State Management, making UI components reusable and easier to test.
+
+---
+
+### Q47: How do you handle multiple dependent API calls in an Effect?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Use RxJS higher-order mapping operators (`switchMap`, `mergeMap`) nested or chained.
+
+**Example:**
+```typescript
+effect$ = createEffect(() => actions$.pipe(
+  ofType(loginSuccess),
+  switchMap(action => 
+    // Call 1
+    this.profileService.getProfile(action.token).pipe(
+      // Call 2 (dependent on profile)
+      concatMap(profile => 
+        this.settingsService.getSettings(profile.id).pipe(
+          map(settings => loadDataSuccess({ profile, settings }))
+        )
+      )
+    )
+  )
+));
+```
+
+---
+
+### Q48: What is 'Action Hygiene'?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Action Hygiene refers to writing good, descriptive actions.
+
+**Best Practices:**
+- **Source-Event-Command:** `[Source] Event` vs `[Source] Command`.
+- **Unique Types:** Ensure types are unique.
+- **Don't Reuse Actions:** Avoid generic actions like `setData`. Use `[User] Load Success` and `[Product] Load Success` separately.
+- **Describe Event, Not Setter:** Use `[Page] User Clicked Submit` instead of `[Store] Set Loading True`. Let the reducer decide what that means (setting loading true).
+
+---
+
+### Q49: How to implement undo/redo functionality with NgRx?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+You can implement a higher-order reducer (metareducer) that keeps a history of past states.
+
+**Logic:**
+1. Maintain `past`, `present`, `future` arrays in the wrapper state.
+2. On `UNDO` action: Move `present` to `future`, pop from `past` to `present`.
+3. On `REDO` action: Move `present` to `past`, pop from `future` to `present`.
+4. On other actions: Push `present` to `past`, clear `future`, update `present`.
+
+---
+
+### Q50: What is the difference between `createSelector` and `store.select`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+- **`createSelector`:** A utility to define a memoized selector function. It combines other selectors. It does NOT access the store directly.
+- **`store.select`:** An Observable operator or method that takes a selector (or path) and emits the slice of state from the Store stream.
+
+**Analogy:** `createSelector` is the SQL Query definition. `store.select` is executing that query against the database.
+
+---
+
+### Q51: How do you handle file uploads in NgRx?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+1. **Action:** `uploadFile({ file: File })`.
+2. **Effect:** Listens to action, calls Service with `FormData`.
+3. **Progress:** Service can report progress events. Effect can dispatch `uploadProgress({ progress })` actions.
+4. **Reducer:** Updates `uploadProgress` state for UI bar.
+
+*Note: Dispatching many progress actions (e.g., 100 for 1-100%) can cause performance issues. Consider throttling.*
+
+---
+
+### Q52: Can you use NgRx with React or other frameworks?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+NgRx is specifically built for Angular (relying on RxJS and Angular's DI).
+- **React:** Uses Redux, MobX, Zustand, or Context.
+- **Vue:** Uses Vuex or Pinia.
+
+However, the *concepts* (Redux pattern, RxJS) are universal. There is a library `ngrx-w` (rare) but generally, NgRx is Angular-exclusive.
+
+---
+
+### Q53: What is `ngrx-data`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+`@ngrx/data` is a library built on top of Store/Effects/Entity that automates the creation of actions, reducers, effects, and dispatchers for standard REST entities.
+
+**Benefit:** Zero boilerplate for standard CRUD. You just define the Entity Metadata and the API endpoint pattern.
+
+---
+
+### Q54: How do you persist NgRx state to LocalStorage?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Use a **Metareducer** that:
+1. On INIT/UPDATE: Merges state from LocalStorage into the initial state.
+2. On any action: Saves the new state (or slice of state) to LocalStorage.
+
+*Libraries like `ngrx-store-localstorage` simplify this.*
+
+---
+
+### Q55: What is the role of `EffectsModule.forRoot()` vs `forFeature()`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+- **`forRoot([])`:** Registers the `EffectsModule` provider and runs root effects. Must be called once in `AppModule`.
+- **`forFeature([Effect])`:** Registers feature-specific effects. Used in Feature Modules. These effects start running when the module is loaded.
+
+---
+
+### Q56: How to handle WebSocket data streams in NgRx?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+1. **Effect:** Connects to WebSocket.
+2. **Stream:** The Effect listens to the WS Observable.
+3. **Dispatch:** For every incoming WS message, the Effect maps it to an Action (e.g., `socketMessageReceived`).
+4. **Cleanup:** Ensure the Effect closes the WS connection on destroy or logout.
+
+---
+
+### Q57: Why is `OnPush` change detection recommended with NgRx?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+NgRx promotes immutability. When state changes, the object reference changes.
+`ChangeDetectionStrategy.OnPush` relies on reference checks (`prev !== curr`) to decide whether to re-render.
+Using NgRx + `async` pipe + OnPush results in highly performant apps that only re-render strictly when data changes.
+
+---
+
+### Q58: What is the difference between Imperative and Reactive state management?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+- **Imperative:** calling methods to change state (`service.users = [...]`). Harder to trace.
+- **Reactive (NgRx):** Dispatching events (`loadUsers`). The system reacts. The sender doesn't know *who* handles it or *how*. Easier to decouple and scale.
+
+---
+
+### Q59: How do you mock the Store in Unit Tests?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Use `provideMockStore` from `@ngrx/store/testing`.
+
+```typescript
+TestBed.configureTestingModule({
+  providers: [
+    provideMockStore({ 
+      initialState: { users: [] },
+      selectors: [
+        { selector: selectAllUsers, value: [{id: 1}] }
+      ]
+    })
+  ]
+});
+```
+
+---
+
+### Q60: What is the 'Smart' vs 'Dumb' component pattern?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+(Duplicate concept of Container/Presentational).
+- **Smart:** Knows about the Store.
+- **Dumb:** Only knows `@Input` and `@Output`.
+
+---
+
+### Q61: How do you handle Race Conditions in Effects?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+RxJS operators solve this:
+- **switchMap:** Cancels old request. Solves "search typeahead" race (only want latest).
+- **concatMap:** Queues requests. Solves "save order" race (save A then save B).
+
+---
+
+### Q62: What is the difference between `props` and payload in Actions?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+- Old NgRx (Pre-8): Classes with a `payload` property.
+- Modern NgRx: `createAction` uses `props<{ ... }>()`.
+
+They are effectively the same (data carrier), but `props` is the modern, functional API way.
+
+---
+
+### Q63: How to handle complex derived state?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Use **Selectors**. Selectors can compose other selectors.
+If you need `ActiveUsers` (derived from `Users` and `Filter`), create a selector that takes both.
+This keeps the Reducer simple (normalized data) and puts logic in Selectors (view data).
+
+---
+
+### Q64: What is normalization in State Management?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Normalization means storing data like a database:
+- No duplicates.
+- References by ID.
+- Flattened structure (no deep nesting).
+
+**Example:**
+Instead of `[{ id: 1, name: 'A', posts: [{id: 10}] }]`,
+Store: `users: { 1: {id: 1, posts: [10]} }`, `posts: { 10: {...} }`.
+
+---
+
+### Q65: How do you use `ngrx-schematics`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+NgRx Schematics allow generating boilerplate via CLI.
+`ng generate @ngrx/schematics:store State --root --module app.module.ts`
+`ng generate @ngrx/schematics:feature Feature --module feature.module.ts`
+
+---
+
+### Q66: What is the `createFeature` function?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Introduced in recent NgRx versions to reduce boilerplate.
+It automatically generates selectors for the feature state properties.
+
+```typescript
+const userFeature = createFeature({
+  name: 'user',
+  reducer: userReducer
+});
+// Automatically gives: userFeature.selectUsers, userFeature.selectLoading
+```
+
+---
+
+### Q67: How do you handle authentication token refresh with NgRx?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+In an Interceptor or Effect:
+1. Catch 401 error.
+2. Dispatch `RefreshToken` action.
+3. Effect calls refresh API.
+   - Success: Dispatch `RefreshTokenSuccess` (updates token), retry original request.
+   - Failure: Dispatch `Logout`.
+
+---
+
+### Q68: What are the downsides of NgRx?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+- **Boilerplate:** Lots of files (Actions, Reducers, Effects, Selectors).
+- **Complexity:** Steep learning curve (RxJS knowledge required).
+- **Indirection:** Harder to follow flow ("Where did this change come from?").
+
+---
+
+### Q69: When should you NOT use NgRx?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+- Small, simple applications.
+- Apps with little shared state.
+- When team is not comfortable with RxJS.
+- Static content sites.
+
+---
+
+### Q70: How do you access the Store in a Service?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+You can inject `Store` into a Service just like a Component.
+However, Services are usually consumed *by* Effects.
+If a Service needs state, pass it as an argument from the Effect/Component, rather than injecting Store into the Service (avoids circular deps and tight coupling).
+
+---
+
+### Q71: What is `router-store` serialization?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+By default, Angular Router state is complex and not serializable.
+`@ngrx/router-store` allows providing a `RouterStateSerializer` to distill the router state into just what you need (url, params, queryParams) for the Redux DevTools.
+
+---
+
+### Q72: How do you test a Reducer?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+Reducers are pure functions.
+1. Define `initialState`.
+2. Call reducer with `initialState` and an `Action`.
+3. Assert the return value matches expected new state.
+
+```typescript
+const result = reducer(initialState, action);
+expect(result.loading).toBe(true);
+```
+
+---
+
+### Q73: What is the `StoreDevtoolsModule` 'maxAge' option?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+`maxAge` limits the number of actions kept in history (e.g., 25). This saves memory and performance in the DevTools. Old actions fall off the history.
+
+---
+
+### Q74: How do you handle loading spinners with NgRx?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+1. State has `loading: boolean`.
+2. Action `Load`: Reducer sets `loading = true`.
+3. Action `Success/Fail`: Reducer sets `loading = false`.
+4. Component selects `selectLoading` and passes to `*ngIf` or `<spinner>`.
+
+---
+
+### Q75: What is the difference between `dispatch` and `next`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+- `store.dispatch(action)`: Sends an action to the NgRx Store.
+- `subject.next(value)`: Emits a value in a standard RxJS Subject.
+
+---
+
+### Q76: How do you combine multiple selectors?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+```typescript
+export const selectViewModel = createSelector(
+  selectUser,
+  selectCart,
+  (user, cart) => ({ user, cart })
+);
+```
+This is useful to provide a single Observable to the component template (`vm$ | async`).
+
+---
+
+### Q77: What is 'State Hydration'?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Hydration is the process of restoring state from storage (localStorage, server) into the memory (Store) on application startup.
+Usually handled by a Metareducer that checks storage on `INIT`.
+
+---
+
+### Q78: How do you secure specific actions?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Actions are just messages. Security should be enforced at:
+1. **Guards:** Prevent navigating to the page that dispatches the action.
+2. **Effects/Service:** The API call will fail (403) if unauthorized.
+3. **Reducer:** You could check role in reducer, but logic usually belongs in Effects/Backend.
+
+---
+
+### Q79: What is the `ofType` operator?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+`ofType` is an NgRx operator used in Effects to filter the stream of all actions down to just the specific action types you care about.
+`actions$.pipe(ofType(UserActions.load))`
+
+---
+
+### Q80: How do you implement Pagination with NgRx?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+State: `{ items: [], page: 1, total: 100 }`.
+Action: `loadPage({ page: 2 })`.
+Effect: Triggers API call with `?page=2`.
+Selector: `selectCurrentPageItems` (if caching all) or just `selectItems`.
+
+---
+
+### Q81: What is 'Optimistic Concurrency Control'?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Handling conflicts when multiple users edit data.
+In NgRx:
+1. Send `version` or `timestamp` with update action.
+2. Backend checks version.
+3. If conflict (409), Effect dispatches `UpdateConflict` action.
+4. UI prompts user to reload or overwrite.
+
+---
+
+### Q82: How do you use `ngrx-let` directive?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+`*ngrxLet` (from `@ngrx/component`) is a better `*ngIf` + `async`.
+- Handles falsy values (0, false) correctly (unlike `*ngIf` which hides them).
+- Binds to a context variable.
+
+```html
+<div *ngrxLet="users$ as users">
+  {{ users.length }}
+</div>
+```
+
+---
+
+### Q83: What is `ngrx-push` pipe?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+`ngrxPush` is a replacement for the `async` pipe.
+- Works in zoneless applications (doesn't rely on Zone.js).
+- More performant change detection scheduling.
+
+---
+
+### Q84: How to handle 'Cancel' actions in Effects?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Use `takeUntil` operator in the effect pipe.
+
+```typescript
+load$ = createEffect(() => actions$.pipe(
+  ofType(load),
+  switchMap(() => service.get().pipe(
+    takeUntil(actions$.pipe(ofType(cancelLoad)))
+  ))
+));
+```
+
+---
+
+### Q85: What is the `OnInitEffects` interface?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+An interface that Effects classes can implement. It forces a `ngrxOnInitEffects` method which returns an Action. This action is dispatched immediately when the Effect class is registered.
+Useful for pre-loading data without Component dispatch.
+
+---
+
+### Q86: How do you store Date objects in NgRx?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+It is best practice to store Dates as **strings (ISO format)** or **numbers (timestamp)** in the Store to ensure serializability.
+Convert to `Date` object in the Selector or Pipe for display.
+
+---
+
+### Q87: How do you handle 'Global Error Handling' with NgRx?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Create a shared `Errors` feature state.
+All Effects catch errors and dispatch a `GlobalError({ message })` action.
+The Error Reducer adds it to state.
+The App Component listens to `selectLastError` and shows a Toast/Snackbar.
+
+---
+
+### Q88: What is `createActionGroup`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+New in NgRx 14+. Reduces boilerplate for defining multiple related actions.
+
+```typescript
+export const UserActions = createActionGroup({
+  source: 'User API',
+  events: {
+    'Load Users': emptyProps(),
+    'Load Users Success': props<{ users: User[] }>(),
+    'Load Users Failure': props<{ error: string }>(),
+  }
+});
+```
+
+---
+
+### Q89: How do you reset a specific feature state?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Handle a `Reset` action in the feature reducer that returns `initialState`.
+
+```typescript
+on(resetAction, () => initialState)
+```
+
+---
+
+### Q90: Can Effects dispatch multiple actions?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Yes.
+1. Return an array of actions (with `switchMap` returning `from([act1, act2])`).
+2. Or dispatch one action that triggers other effects.
+
+---
+
+### Q91: What is the difference between `Effect` (decorator) and `createEffect`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+- `@Effect()`: Old, deprecated syntax (Class property decorator).
+- `createEffect()`: Modern syntax. Better type safety and no decorator metadata issues.
+
+---
+
+### Q92: How to use NgRx with Standalone Components?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Bootstrap the store in `app.config.ts` (or `main.ts`):
+
+```typescript
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideStore(reducers),
+    provideEffects([AppEffects]),
+    provideStoreDevtools()
+  ]
+});
+```
+
+---
+
+### Q93: How do you handle partial updates (Patch)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Action: `updateUser({ update: Partial<User> })`.
+Reducer: `...state, user: { ...state.user, ...update }`.
+
+---
+
+### Q94: What is a 'Functional Effect'?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+Functional Effects (NgRx 15+) allow writing effects as pure functions without Classes/Injectable.
+
+```typescript
+export const loadUsers = createEffect(
+  (actions$ = inject(Actions), service = inject(UserService)) => 
+    actions$.pipe(...)
+, { functional: true });
+```
+
+---
+
+### Q95: How do you test Observables in NgRx without Marbles?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Use `subscribe` and `done` callback (Jasmine/Jest).
+
+```typescript
+it('should get data', (done) => {
+  store.select(selectData).subscribe(data => {
+    expect(data).toBeTruthy();
+    done();
+  });
+});
+```
+
+---
+
+### Q96: What is the Repository Pattern with NgRx?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Repository Pattern usually replaces the Service layer.
+Effect -> Repository -> API.
+The Repository abstracts the data source (API vs LocalStorage vs Cache).
+
+---
+
+### Q97: How do you handle deep cloning in Reducers?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Manual spread `...` is shallow.
+For deep updates:
+1. `...state, nested: { ...state.nested, prop: 1 }` (Manual nesting).
+2. `immer`: Allows `state.nested.prop = 1` mutation syntax that compiles to immutable update.
+
+---
+
+### Q98: What is 'Duck Pattern' or 'Redux Ducks'?
+
+**Difficulty: Beginner**
+
+**Answer:**
+
+A file structure pattern where Actions, Reducers, and Selectors for a feature are bundled in a single file (often `feature.ts` or `ducks/feature.ts`) instead of separate files.
+NgRx usually prefers separate files, but Ducks is valid for small features.
+
+---
+
+### Q99: How do you deal with large initial state?
+
+**Difficulty: Advanced**
+
+**Answer:**
+
+If `initialState` is huge, app startup slows.
+Solution:
+- Lazy load feature states.
+- Initialize with `null` and load data asynchronously.
+
+---
+
+### Q100: What is `selectSignal`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+
+Method to get a Signal from the store instead of an Observable.
+`const user = store.selectSignal(selectUser);`
+Useful for using state in template without `async` pipe (Angular 17+).
+
+---
+
+### Q101: How to implement 'User Typing' feature with NgRx?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Dispatch 'Typing' action on input. Effect debounces and sends to socket.
+
+---
+
+### Q102: How to implement 'Pull to Refresh' with NgRx?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Dispatch 'Refresh' action. Effect calls API. Reducer clears old data and sets loading.
+
+---
+
+### Q103: How to implement 'Infinite Scroll' with NgRx?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Dispatch 'LoadMore' action. Effect calls API with offset/page. Reducer appends new items to existing array.
+
+---
+
+### Q104: How to handle multiple environments in NgRx?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use `environment.ts` to configure `StoreDevtools` (logOnly in prod) or API URLs in Effects.
+
+---
+
+### Q105: What is the role of `reducerFactory`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Internal function that combines reducers. Can be overridden to provide custom root meta-reducer logic.
+
+---
+
+### Q106: How to debug 'Actions not triggering Reducer'?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Check if Action Type string matches exactly. Check if Reducer is registered in Module.
+
+---
+
+### Q107: How to debug 'Effects not triggering'?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Check if `EffectsModule` is imported. Check if Effect class is decorated or registered.
+
+---
+
+### Q108: What is `provideState`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Standalone API to register a feature state without NgModules.
+
+---
+
+### Q109: What is `provideEffects`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Standalone API to register effects without NgModules.
+
+---
+
+### Q110: How to share state between Angular Elements (Web Components)?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Store must be in the host or shared via a global window object/service, as Elements have isolated injectors.
+
+---
+
+### Q111: How to handle cross-tab communication with NgRx?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Listen to `storage` event in a Metareducer or Effect to sync state changes from other tabs.
+
+---
+
+### Q112: What is `ngrx-store-freeze`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Old library to prevent state mutation. Replaced by built-in Runtime Checks.
+
+---
+
+### Q113: How to handle Form Array with NgRx?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Store data as array. Component builds FormArray from selector. Updates dispatch actions with index.
+
+---
+
+### Q114: How to implement Undo for specific feature only?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Implement undo logic in that feature's reducer (keeping past/future arrays for that feature only).
+
+---
+
+### Q115: How to use NgRx with GraphQL?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Effects call Apollo Client methods instead of HTTP Client. Actions map to Query/Mutation results.
+
+---
+
+### Q116: What is the `On` function signature?
+
+**Difficulty: Beginner**
+
+**Answer:**
+`on(ActionCreator, (state, props) => newState)`.
+
+---
+
+### Q117: How to testing Effects that use `combineLatest`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Mock multiple source observables in the test setup.
+
+---
+
+### Q118: What is the difference between `store.dispatch` and `effect`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Dispatch triggers the process. Effect handles the side-effect (process) and dispatches result.
+
+---
+
+### Q119: How to optimize large lists in NgRx?
+
+**Difficulty: Performance**
+
+**Answer:**
+Use `@ngrx/entity`. Use `trackBy` in template. Use Virtual Scroll.
+
+---
+
+### Q120: How to handle 'Session Timeout'?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Effect catches 401, dispatches `SessionTimeout`. Reducer clears user. Effect redirects to login.
+
+---
+
+### Q121: What is `ROOT_EFFECTS_INIT`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Action dispatched automatically by NgRx when root effects are initialized. Hook for startup logic.
+
+---
+
+### Q122: What is `UPDATE` action in Entity?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Action created by `adapter.updateOne`. Updates specific fields of an entity.
+
+---
+
+### Q123: How to implement 'Select All' functionality?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Action `SelectAll`. Reducer sets `selected: true` for all items (or adds all IDs to set).
+
+---
+
+### Q124: How to handle 'Network Offline'?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Listen to `window:offline`. Dispatch `AppOffline`. Reducer updates UI state.
+
+---
+
+### Q125: What is the benefit of 'Selectors' over 'Getters'?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Selectors are memoized (cached). Getters re-run every change detection cycle.
+
+---

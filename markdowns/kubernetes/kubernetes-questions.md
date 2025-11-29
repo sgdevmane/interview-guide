@@ -1,6 +1,5 @@
 # Kubernetes Interview Questions
 
-## Table of Contents
 1. [What is Kubernetes and explain its architecture?](#q1-what-is-kubernetes-and-explain-its-architecture)
 2. [Explain Kubernetes Pods and their lifecycle management?](#q2-explain-kubernetes-pods-and-their-lifecycle-management)
 3. [What are Kubernetes Services and how do they enable service discovery?](#q3-what-are-kubernetes-services-and-how-do-they-enable-service-discovery)
@@ -20,9 +19,8 @@
 
 ---
 
-## Kubernetes Fundamentals
 
-## Q1: What is Kubernetes and explain its architecture?
+### Q1: What is Kubernetes and explain its architecture?
 **Difficulty: Medium**
 
 **Answer:**
@@ -548,7 +546,7 @@ kubectl api-versions
 7. **Load Balancing**: Automatic traffic distribution
 8. **Rolling Updates**: Zero-downtime deployments
 
-## Q2: Explain Kubernetes Pods and their lifecycle management?
+### Q2: Explain Kubernetes Pods and their lifecycle management?
 **Difficulty: Medium**
 
 **Answer:**
@@ -1183,7 +1181,7 @@ spec:
 7. **Logging**: Log to stdout/stderr for centralized collection
 8. **Configuration**: Use ConfigMaps and Secrets for configuration
 
-## Q3: What are Kubernetes Services and how do they enable service discovery?
+### Q3: What are Kubernetes Services and how do they enable service discovery?
 **Difficulty: Medium**
 
 **Answer:**
@@ -1942,7 +1940,7 @@ spec:
       version: v2.0
 ```
 
-## Q4: How do you manage configuration and secrets in Kubernetes?
+### Q4: How do you manage configuration and secrets in Kubernetes?
 **Difficulty: Medium**
 
 **Answer:**
@@ -2686,7 +2684,7 @@ spec:
       property: password
 ```
 
-## Q5: What are Kubernetes Deployments and how do they manage application rollouts?
+### Q5: What are Kubernetes Deployments and how do they manage application rollouts?
 **Difficulty: Medium**
 
 **Answer:**
@@ -3531,7 +3529,7 @@ if __name__ == "__main__":
 9. **Automation**: Automate deployment processes with CI/CD
 10. **Documentation**: Document deployment procedures and rollback plans
 
-## Q6: How do you implement persistent storage in Kubernetes using Persistent Volumes and Persistent Volume Claims?
+### Q6: How do you implement persistent storage in Kubernetes using Persistent Volumes and Persistent Volume Claims?
 **Difficulty: Medium-Hard**
 
 **Answer:**
@@ -4437,7 +4435,7 @@ if __name__ == "__main__":
 9. **Disaster Recovery**: Plan for cross-region storage replication
 10. **Resource Limits**: Set appropriate storage quotas and limits
 
-## Q7: How do you implement networking and ingress in Kubernetes?
+### Q7: How do you implement networking and ingress in Kubernetes?
 **Difficulty: Medium-Hard**
 
 **Answer:**
@@ -5503,7 +5501,7 @@ if __name__ == "__main__":
 9. **Load Balancing**: Configure appropriate load balancing algorithms
 10. **Disaster Recovery**: Plan for ingress controller high availability
 
-## Q8: How do you implement monitoring and observability in Kubernetes?
+### Q8: How do you implement monitoring and observability in Kubernetes?
 **Difficulty: Medium-Hard**
 
 **Answer:**
@@ -6782,7 +6780,7 @@ if __name__ == "__main__":
 9. **Security**: Secure monitoring infrastructure and data
 10. **Documentation**: Document monitoring setup and runbooks
 
-## Q9: How do you implement security in Kubernetes clusters?
+### Q9: How do you implement security in Kubernetes clusters?
 **Difficulty: Hard**
 
 **Answer:**
@@ -7899,7 +7897,7 @@ if __name__ == "__main__":
 9. **Regular Updates**: Keep Kubernetes and components updated
 10. **Security Monitoring**: Implement continuous security monitoring
 
-## Q10: How do you implement autoscaling in Kubernetes?
+### Q10: How do you implement autoscaling in Kubernetes?
 **Difficulty: Medium**
 
 **Answer:**
@@ -9066,7 +9064,7 @@ if __name__ == "__main__":
 9. **Resource Limits**: Set appropriate limits to prevent resource exhaustion
 10. **Regular Review**: Regularly review and optimize autoscaling configurations
 
-## Q11: How do you implement CI/CD pipelines for Kubernetes applications?
+### Q11: How do you implement CI/CD pipelines for Kubernetes applications?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -10590,7 +10588,7 @@ if __name__ == "__main__":
 9. **Infrastructure as Code**: Manage infrastructure using IaC tools
 10. **Compliance**: Implement compliance checks and audit trails
 
-## Q12: How do you implement disaster recovery and backup strategies for Kubernetes clusters?
+### Q12: How do you implement disaster recovery and backup strategies for Kubernetes clusters?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -11660,7 +11658,7 @@ if __name__ == "__main__":
 9. **Communication Plan**: Establish clear communication channels during disasters
 10. **Post-Incident Review**: Conduct thorough post-incident analysis
 
-## Q13: How do you implement and manage Kubernetes operators and custom resources?
+### Q13: How do you implement and manage Kubernetes operators and custom resources?
 **Difficulty: Expert**
 
 **Answer:**
@@ -12824,7 +12822,7 @@ spec:
 9. **Logging**: Provide detailed logging for debugging
 10. **Documentation**: Document custom resources and operator behavior
 
-## Q14: How do you implement multi-cluster Kubernetes management and federation?
+### Q14: How do you implement multi-cluster Kubernetes management and federation?
 **Difficulty: Expert**
 
 **Answer:**
@@ -15355,7 +15353,7 @@ func getEnv(key, defaultValue string) string {
 
 ---
 
-## Q15: How do you implement resource management and optimization in Kubernetes?
+### Q15: How do you implement resource management and optimization in Kubernetes?
 
 **Difficulty: Advanced**
 
@@ -15853,7 +15851,7 @@ spec:
 
 ---
 
-## Q16: How do you implement advanced Kubernetes troubleshooting and debugging?
+### Q16: How do you implement advanced Kubernetes troubleshooting and debugging?
 
 **Difficulty: Expert**
 
@@ -16544,9 +16542,8 @@ kubectl describe limitrange -n <namespace>
 
 ---
 
-## Service Mesh and Istio
 
-## Q17: How do you implement and manage a service mesh with Istio in Kubernetes?
+### Q17: How do you implement and manage a service mesh with Istio in Kubernetes?
 **Difficulty: Expert**
 
 **Answer:**
@@ -17017,9 +17014,8 @@ spec:
 
 ---
 
-## GitOps and ArgoCD
 
-## Q18: How do you implement GitOps workflows with ArgoCD in Kubernetes?
+### Q18: How do you implement GitOps workflows with ArgoCD in Kubernetes?
 **Difficulty: Expert**
 
 **Answer:**
@@ -17703,9 +17699,8 @@ jobs:
 
 ---
 
-## Advanced Networking and CNI
 
-## Q19: How do you implement advanced networking patterns and CNI plugins in Kubernetes?
+### Q19: How do you implement advanced networking patterns and CNI plugins in Kubernetes?
 **Difficulty: Expert**
 
 **Answer:**
@@ -18315,9 +18310,8 @@ kubectl exec -it <pod-name> -- tcpdump -i eth0 -n
 
 ---
 
-## Performance Optimization and Tuning
 
-## Q20: How do you optimize Kubernetes cluster performance and implement advanced tuning strategies?
+### Q20: How do you optimize Kubernetes cluster performance and implement advanced tuning strategies?
 **Difficulty: Expert**
 
 **Answer:**
@@ -19084,3 +19078,772 @@ data:
 8. **Image Optimization**: Use multi-stage builds and optimize container images
 
 ---
+
+### Q17: What is a StatefulSet and when should you use it?
+**Difficulty: Medium**
+
+**Answer:**
+A StatefulSet is a workload API object used to manage stateful applications. Unlike Deployments, it maintains a sticky identity for each of its Pods. These pods are created from the same spec, but are not interchangeable: each has a persistent identifier that it maintains across any rescheduling.
+
+Use cases:
+- Stable, unique network identifiers (e.g., `web-0`, `web-1`).
+- Stable, persistent storage.
+- Ordered, graceful deployment and scaling.
+- Ordered, automated rolling updates.
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  serviceName: "nginx"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: k8s.gcr.io/nginx-slim:0.8
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+```
+
+### Q18: What is a DaemonSet?
+**Difficulty: Medium**
+
+**Answer:**
+A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
+
+Common uses:
+- Running a cluster storage daemon on every node (e.g., `glusterd`, `ceph`).
+- Running a logs collection daemon on every node (e.g., `fluentd`, `logstash`).
+- Running a node monitoring daemon on every node (e.g., `Prometheus Node Exporter`).
+
+### Q19: Explain the difference between a Liveness Probe and a Readiness Probe.
+**Difficulty: Medium**
+
+**Answer:**
+- **Liveness Probe:** Indicates whether the container is running. If the liveness probe fails, the kubelet kills the container, and the container is subjected to its restart policy. Use this to recover from deadlock situations.
+- **Readiness Probe:** Indicates whether the container is ready to service requests. If the readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod. Use this to signal that the container is busy starting up (loading data, configuration files).
+
+```yaml
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 3
+  periodSeconds: 3
+readinessProbe:
+  httpGet:
+    path: /ready
+    port: 8080
+  initialDelaySeconds: 5
+  periodSeconds: 5
+```
+
+### Q20: What are Taints and Tolerations?
+**Difficulty: Advanced**
+
+**Answer:**
+Taints and Tolerations work together to ensure that pods are not scheduled onto inappropriate nodes.
+- **Taint:** Applied to a Node. It marks the node so that the scheduler does not schedule pods onto it unless the pod has a matching toleration.
+- **Toleration:** Applied to a Pod. It allows (but does not require) the pod to schedule onto nodes with matching taints.
+
+Example: Taint a node for dedicated hardware (GPU).
+```bash
+kubectl taint nodes node1 key=value:NoSchedule
+```
+Pod toleration:
+```yaml
+tolerations:
+- key: "key"
+  operator: "Equal"
+  value: "value"
+  effect: "NoSchedule"
+```
+
+### Q21: What is a Job and a CronJob in Kubernetes?
+**Difficulty: Easy**
+
+**Answer:**
+- **Job:** Creates one or more Pods and ensures that a specified number of them successfully terminate. It is used for one-off tasks like database migrations or batch processing.
+- **CronJob:** Creates Jobs on a repeating schedule (like a cron line in Linux). It is useful for periodic tasks like backups or report generation.
+
+```yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
+```
+
+### Q22: What is Ingress and how is it different from a Service?
+**Difficulty: Medium**
+
+**Answer:**
+- **Service:** Exposes an application running on a set of Pods as a network service. Types include ClusterIP (internal), NodePort (exposes on node IP), and LoadBalancer (cloud provider LB).
+- **Ingress:** An API object that manages external access to the services in a cluster, typically HTTP. Ingress can provide load balancing, SSL termination, and name-based virtual hosting. It requires an Ingress Controller (like Nginx or Traefik) to function.
+
+Ingress is essentially a smart router that sits in front of services.
+
+### Q23: What is a Network Policy?
+**Difficulty: Advanced**
+
+**Answer:**
+A Network Policy is a specification of how groups of pods are allowed to communicate with each other and other network endpoints. By default, pods are non-isolated; they accept traffic from any source. NetworkPolicies allow you to restrict traffic.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: test-network-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          role: frontend
+    ports:
+    - protocol: TCP
+      port: 6379
+```
+
+### Q24: Explain RBAC (Role-Based Access Control) in Kubernetes.
+**Difficulty: Advanced**
+
+**Answer:**
+RBAC is a method of regulating access to computer or network resources based on the roles of individual users within your organization.
+Key concepts:
+- **Role:** Sets permissions within a specific namespace.
+- **ClusterRole:** Sets permissions cluster-wide.
+- **RoleBinding:** Grants the permissions defined in a Role to a user or set of users within a specific namespace.
+- **ClusterRoleBinding:** Grants permissions cluster-wide.
+
+### Q25: What is a Service Account?
+**Difficulty: Medium**
+
+**Answer:**
+A Service Account provides an identity for processes that run in a Pod. When you create a pod, if you do not specify a service account, it is automatically assigned the `default` service account in the same namespace. Pods use this account to authenticate with the API server.
+
+### Q26: What is Helm?
+**Difficulty: Easy**
+
+**Answer:**
+Helm is a package manager for Kubernetes. It allows you to define, install, and upgrade even the most complex Kubernetes applications.
+- **Chart:** A collection of files that describe a related set of Kubernetes resources.
+- **Release:** A running instance of a chart.
+- **Repository:** A place where charts can be collected and shared.
+
+### Q27: What is a Custom Resource Definition (CRD)?
+**Difficulty: Advanced**
+
+**Answer:**
+A CRD allows you to define your own API objects in Kubernetes. It extends the Kubernetes API to include custom resources, which can then be managed via `kubectl` just like built-in resources (Pods, Services). CRDs are often used in conjunction with **Operators** (custom controllers) to manage the lifecycle of complex applications.
+
+### Q28: What is etcd and what is its role in Kubernetes?
+**Difficulty: Medium**
+
+**Answer:**
+etcd is a consistent and highly-available key value store used as Kubernetes' backing store for all cluster data. It stores the configuration data, state, and metadata of the cluster. Since it is the source of truth, backing up etcd is critical for disaster recovery.
+
+### Q29: How do you perform a rolling update in Kubernetes?
+**Difficulty: Easy**
+
+**Answer:**
+A rolling update allows Deployments' updates to take place with zero downtime by incrementally updating Pods instances with new ones.
+You can trigger it by updating the image of the deployment:
+```bash
+kubectl set image deployment/my-app my-app-container=my-app:v2
+```
+You can verify the status:
+```bash
+kubectl rollout status deployment/my-app
+```
+And rollback if needed:
+```bash
+kubectl rollout undo deployment/my-app
+```
+
+### Q30: What is a Headless Service?
+**Difficulty: Medium**
+
+**Answer:**
+A Headless Service is a service with `spec.clusterIP` set to `None`. It does not allocate a ClusterIP or perform load balancing. Instead, it returns the IP addresses of the associated Pods directly via DNS records. This is often used for StatefulSets where you need to discover individual pods.
+
+### Q31: What is the difference between `kubectl apply` and `kubectl create`?
+**Difficulty: Easy**
+
+**Answer:**
+- `kubectl create`: Imperative command. Creates a new resource. Fails if the resource already exists.
+- `kubectl apply`: Declarative command. Applies a configuration to a resource. Creates it if it doesn't exist, or updates it if it does (calculating the diff). Ideally used for managing configuration files in GitOps.
+
+### Q32: What is a Sidecar container?
+**Difficulty: Medium**
+
+**Answer:**
+A Sidecar container is a helper container that runs alongside the main container in the same Pod. They share the same network, storage, and lifecycle.
+Common uses:
+- Log shipping (e.g., reading logs from a shared volume and sending them to a central server).
+- Proxying (e.g., service mesh sidecars like Envoy).
+- Config watching/reloading.
+
+### Q33: What is the Horizontal Pod Autoscaler (HPA)?
+**Difficulty: Medium**
+
+**Answer:**
+HPA automatically scales the number of Pods in a replication controller, deployment, replica set, or stateful set based on observed CPU utilization (or custom metrics).
+
+```yaml
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: php-apache
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
+```
+
+### Q34: What is the Cluster Autoscaler?
+**Difficulty: Medium**
+
+**Answer:**
+The Cluster Autoscaler automatically adjusts the size of the Kubernetes cluster (number of nodes) when one of the following conditions is true:
+- There are pods that failed to run in the cluster due to insufficient resources (adds nodes).
+- There are nodes in the cluster that have been underutilized for an extended period of time and their pods can be placed on other existing nodes (removes nodes).
+
+### Q35: What is a Pod Disruption Budget (PDB)?
+**Difficulty: Advanced**
+
+**Answer:**
+A PDB limits the number of pods of a replicated application that are down simultaneously from voluntary disruptions (like draining a node for maintenance). It ensures high availability during cluster maintenance.
+
+```yaml
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: zk-pdb
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: zookeeper
+```
+
+### Q36: Explain the difference between `emptyDir`, `hostPath`, and `PersistentVolume`.
+**Difficulty: Medium**
+
+**Answer:**
+- `emptyDir`: Created when a Pod is assigned to a Node. Exists as long as that Pod is running on that node. Data is lost if the Pod is removed. Good for temporary data/cache.
+- `hostPath`: Mounts a file or directory from the host node's filesystem into the Pod. Security risk; binds pod to a specific node.
+- `PersistentVolume (PV)`: A piece of storage in the cluster that has been provisioned by an administrator or dynamically using Storage Classes. Independent of the lifecycle of any individual Pod.
+
+### Q37: What is a StorageClass?
+**Difficulty: Medium**
+
+**Answer:**
+A StorageClass provides a way for administrators to describe the "classes" of storage they offer (e.g., fast-ssd, standard-hdd). It enables **Dynamic Provisioning**: when a user creates a PersistentVolumeClaim (PVC), a PV is automatically provisioned based on the StorageClass.
+
+### Q38: What are Init Containers?
+**Difficulty: Medium**
+
+**Answer:**
+Init Containers are specialized containers that run before app containers in a Pod. They can contain utilities or setup scripts not present in an app image. They must run to completion successfully before the app containers start.
+Use cases:
+- Waiting for a service (DB) to be ready.
+- Seeding data.
+- Setting up permissions.
+
+### Q39: What is the Downward API?
+**Difficulty: Advanced**
+
+**Answer:**
+The Downward API allows containers to consume information about themselves or the cluster without coupling to the Kubernetes client or API server.
+Information available:
+- Pod name, namespace, IP.
+- Resource limits/requests (CPU, memory).
+- Labels and annotations.
+Exposed via environment variables or files in a volume.
+
+### Q40: What is a Static Pod?
+**Difficulty: Advanced**
+
+**Answer:**
+Static Pods are managed directly by the kubelet daemon on a specific node, without the API server observing them. The kubelet watches a directory (e.g., `/etc/kubernetes/manifests`) and creates a pod for each YAML file found there. They are used to bootstrap the control plane components (kube-apiserver, etcd) themselves.
+
+### Q41: What are Kubernetes Operators?
+**Difficulty: Advanced**
+
+**Answer:**
+Operators are software extensions to Kubernetes that make use of custom resources to manage applications and their components. They follow the Kubernetes principles, notably the control loop. An Operator "knows" how to manage a complex application (like a database cluster) - how to upgrade it, backup it, and recover it.
+
+### Q42: Explain the concept of "Service Mesh" in Kubernetes context.
+**Difficulty: Advanced**
+
+**Answer:**
+A Service Mesh is a dedicated infrastructure layer for handling service-to-service communication. It's typically implemented as a sidecar proxy (like Envoy) next to each service.
+Features:
+- Traffic management (canary releases, mirroring).
+- Security (mTLS between services).
+- Observability (tracing, metrics).
+Popular meshes: Istio, Linkerd.
+
+### Q43: What is a Container Runtime Interface (CRI)?
+**Difficulty: Advanced**
+
+**Answer:**
+CRI is a plugin interface which enables the kubelet to use a wide variety of container runtimes, without the need to recompile. It decoupled Kubernetes from Docker. Examples: `containerd`, `CRI-O`.
+
+### Q44: How do you debug a Pod that is in `CrashLoopBackOff` state?
+**Difficulty: Medium**
+
+**Answer:**
+1. Check the logs: `kubectl logs <pod-name>` (and `kubectl logs <pod-name> --previous`).
+2. Describe the pod: `kubectl describe pod <pod-name>` to check events.
+3. Check exit code in `kubectl get pod <pod-name> -o yaml`.
+4. Common causes: App crashing, missing env vars, config errors, liveness probe failing.
+
+### Q45: How do you debug a Pod that is in `ImagePullBackOff` state?
+**Difficulty: Easy**
+
+**Answer:**
+This means Kubernetes cannot pull the container image.
+Causes:
+- Invalid image name or tag.
+- Image doesn't exist in the registry.
+- Authentication failure (missing or incorrect `imagePullSecrets` for private registry).
+- Network connectivity issues from the node to the registry.
+
+### Q46: What is the difference between `nodeSelector` and `Node Affinity`?
+**Difficulty: Medium**
+
+**Answer:**
+- `nodeSelector`: Simple, hard constraint. "Run this pod on a node with label X=Y".
+- `Node Affinity`: More expressive.
+  - Supports logical operators (In, NotIn, Exists, etc.).
+  - Supports "soft" (preferred) and "hard" (required) rules.
+  - Can match against multiple labels.
+
+### Q47: What is `kubectl drain` used for?
+**Difficulty: Medium**
+
+**Answer:**
+`kubectl drain <node-name>` is used to safely evict all pods from a node before performing maintenance (like kernel upgrades or rebooting). It cordons the node (marks unschedulable) and then deletes the pods (which the controller recreates elsewhere).
+
+### Q48: What is `kubectl cordon`?
+**Difficulty: Easy**
+
+**Answer:**
+`kubectl cordon <node-name>` marks a node as unschedulable. No new pods will be scheduled on it, but existing pods continue to run. This is often the first step before draining a node.
+
+### Q49: What are LimitRanges?
+**Difficulty: Advanced**
+
+**Answer:**
+A LimitRange is a policy to constrain resource allocations (to Pods or Containers) in a Namespace.
+It can:
+- Enforce minimum and maximum compute resources per Pod/Container.
+- Enforce minimum and maximum storage request per PVC.
+- Set default request/limit for containers that don't specify them.
+
+### Q50: What are Resource Quotas?
+**Difficulty: Medium**
+
+**Answer:**
+A ResourceQuota provides constraints that limit aggregate resource consumption per Namespace. It can limit the total amount of compute resources (CPU, RAM) and the total number of objects (pods, services, secrets) that can be created in a namespace.
+
+### Q51: What is the Kubernetes API Server?
+**Difficulty: Medium**
+
+**Answer:**
+The API Server (`kube-apiserver`) is the front end for the Kubernetes control plane. It exposes the Kubernetes API. It validates and configures data for the api objects which include pods, services, replicationcontrollers, and others. It is the only component that communicates directly with etcd.
+
+### Q52: What is the Kubernetes Scheduler?
+**Difficulty: Medium**
+
+**Answer:**
+The Scheduler (`kube-scheduler`) watches for newly created Pods that have no Node assigned. It selects a node for them to run on based on resource availability, constraints, affinity/anti-affinity specs, and taints/tolerations.
+
+### Q53: What is the Kubernetes Controller Manager?
+**Difficulty: Medium**
+
+**Answer:**
+It runs controller processes. Logically, each controller is a separate process, but to reduce complexity, they are all compiled into a single binary and run in a single process. Examples: Node Controller, Job Controller, Endpoints Controller, Service Account & Token Controllers.
+
+### Q54: What is Kubelet?
+**Difficulty: Medium**
+
+**Answer:**
+An agent that runs on each node in the cluster. It makes sure that containers are running in a Pod. It communicates with the API server and manages the lifecycle of the pods assigned to its node.
+
+### Q55: What is Kube-proxy?
+**Difficulty: Medium**
+
+**Answer:**
+A network proxy that runs on each node in your cluster. It maintains network rules on nodes. These rules allow network communication to your Pods from network sessions inside or outside of your cluster. It implements the Service abstraction (load balancing).
+
+### Q56: How does DNS work in Kubernetes?
+**Difficulty: Medium**
+
+**Answer:**
+Kubernetes runs a DNS server (CoreDNS) as a Service inside the cluster. Every Service gets a DNS name. Pods can reach Services by name.
+Format: `service-name.namespace.svc.cluster.local`.
+Pods also get DNS records (optional).
+
+### Q57: What is a Secret in Kubernetes?
+**Difficulty: Easy**
+
+**Answer:**
+A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Using Secrets means you don't need to include confidential data in your application code. Secrets are stored base64 encoded in etcd (encryption at rest is recommended).
+
+### Q58: What is a ConfigMap?
+**Difficulty: Easy**
+
+**Answer:**
+A ConfigMap is an API object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume.
+
+### Q59: What is the difference between `ReplicationController` and `ReplicaSet`?
+**Difficulty: Medium**
+
+**Answer:**
+`ReplicaSet` is the next-generation `ReplicationController`. The main difference is the selector support. `ReplicationController` only supports equality-based selector (`env=prod`), while `ReplicaSet` supports set-based selector (`env in (prod, qa)`). `ReplicaSets` are rarely used directly; usually used via Deployments.
+
+### Q60: What is GitOps?
+**Difficulty: Medium**
+
+**Answer:**
+GitOps is a set of practices to manage infrastructure and application configurations using Git. Git is the single source of truth. Changes to infrastructure are made via Pull Requests. An agent (like ArgoCD or Flux) in the cluster synchronizes the state of the cluster to match the state in Git.
+
+### Q61: What is a Vertical Pod Autoscaler (VPA)?
+**Difficulty: Advanced**
+
+**Answer:**
+VPA automatically sets resource requests and limits for containers in pods based on usage. It can resize CPU and memory reservations for running pods (requires restarting them in many configurations, though in-place updates are being developed).
+
+### Q62: What is Container Network Interface (CNI)?
+**Difficulty: Advanced**
+
+**Answer:**
+CNI consists of a specification and libraries for writing plugins to configure network interfaces in Linux containers, along with a number of supported plugins. Kubernetes uses CNI plugins (like Calico, Flannel, Weave) to manage networking (IP assignment, routing) for Pods.
+
+### Q63: What is Container Storage Interface (CSI)?
+**Difficulty: Advanced**
+
+**Answer:**
+CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Container Orchestration Systems (COs) like Kubernetes. It allows third-party storage providers to deploy and update plugins without having to touch the core Kubernetes code.
+
+### Q64: How do you secure a Kubernetes cluster?
+**Difficulty: Advanced**
+
+**Answer:**
+- Enable RBAC and least privilege.
+- Use Network Policies to restrict traffic.
+- Secure etcd (encryption at rest, restricted access).
+- Use Pod Security Standards (PSS) / Pod Security Admission (PSA) to restrict privileged containers.
+- Regularly update Kubernetes.
+- Scan images for vulnerabilities.
+- Use distinct Service Accounts.
+- Audit logging.
+
+### Q65: What is the purpose of `/var/lib/kubelet`?
+**Difficulty: Advanced**
+
+**Answer:**
+This directory stores data for the Kubelet agent, including the state of pods, volumes, plugins, and checkpoints.
+
+### Q66: What happens when a Master Node (Control Plane) fails?
+**Difficulty: Medium**
+
+**Answer:**
+If the control plane is down (single master):
+- Existing pods continue to run (data plane is independent).
+- You cannot deploy new pods, scale up/down, or update resources.
+- `kubectl` commands will fail.
+- Self-healing (restarting failed pods) stops.
+HA clusters use multiple control plane nodes with a load balancer and etcd cluster to prevent this.
+
+### Q67: What is a "Pause Container" (Infra Container)?
+**Difficulty: Advanced**
+
+**Answer:**
+The pause container is the first container launched in a Pod. Its sole purpose is to hold the network namespace and IPC namespace for the Pod. All other user containers join these namespaces. It's why `localhost` works between containers in a pod.
+
+### Q68: How can you check resource consumption of Pods?
+**Difficulty: Easy**
+
+**Answer:**
+Using the Metrics Server:
+```bash
+kubectl top pod
+kubectl top node
+```
+For detailed historical data, you need a monitoring solution like Prometheus + Grafana.
+
+### Q69: What is the `default` namespace?
+**Difficulty: Easy**
+
+**Answer:**
+The namespace that is used when no other namespace is specified in the command or yaml.
+
+### Q70: What is `kubeadm`?
+**Difficulty: Medium**
+
+**Answer:**
+A tool built to provide `kubeadm init` and `kubeadm join` as best-practice "fast paths" for creating Kubernetes clusters. It bootstraps a minimum viable cluster.
+
+### Q71: What is `Minikube`?
+**Difficulty: Easy**
+
+**Answer:**
+A tool that runs a single-node Kubernetes cluster in a virtual machine on your personal computer. Great for learning and local development.
+
+### Q72: What is `Kind` (Kubernetes in Docker)?
+**Difficulty: Easy**
+
+**Answer:**
+A tool for running local Kubernetes clusters using Docker container "nodes". It's faster and more lightweight than Minikube.
+
+### Q73: What is a Finalizer?
+**Difficulty: Advanced**
+
+**Answer:**
+Finalizers are namespaced keys that tell Kubernetes to wait until specific conditions are met before fully deleting resources marked for deletion. E.g., `kubernetes.io/pvc-protection` prevents deleting a PVC that is still mounted by a Pod.
+
+### Q74: What is Garbage Collection in Kubernetes?
+**Difficulty: Advanced**
+
+**Answer:**
+Kubernetes garbage collection cleans up resources like:
+- Terminated pods.
+- Completed Jobs.
+- Objects without owners (orphans).
+- Unused containers and images.
+
+### Q75: What is the "Record" flag (`--record`) in kubectl?
+**Difficulty: Easy**
+
+**Answer:**
+(Deprecated/Discouraged) It was used to record the command that caused a change in the rollout history. It is being replaced by better auditing and GitOps practices.
+
+### Q76: How do you rollback a deployment?
+**Difficulty: Easy**
+
+**Answer:**
+```bash
+kubectl rollout undo deployment/my-deployment
+# To a specific revision
+kubectl rollout undo deployment/my-deployment --to-revision=2
+```
+
+### Q77: What is `kubectl proxy`?
+**Difficulty: Medium**
+
+**Answer:**
+It creates a proxy server or application-level gateway between localhost and the Kubernetes API Server. It allows you to access the API securely from your local machine without dealing with authentication tokens manually.
+
+### Q78: What is `kubectl port-forward`?
+**Difficulty: Easy**
+
+**Answer:**
+Forwards one or more local ports to a pod. Useful for debugging/connecting to a service locally without exposing it via Ingress/NodePort.
+```bash
+kubectl port-forward svc/my-service 8080:80
+```
+
+### Q79: What is the difference between `ReadWriteOnce`, `ReadOnlyMany`, and `ReadWriteMany`?
+**Difficulty: Medium**
+
+**Answer:**
+Access Modes for PersistentVolumes:
+- `ReadWriteOnce` (RWO): Mounted as read-write by a single node.
+- `ReadOnlyMany` (ROX): Mounted as read-only by many nodes.
+- `ReadWriteMany` (RWX): Mounted as read-write by many nodes (requires shared storage like NFS, CephFS).
+
+### Q80: What is a Multi-Container Pod?
+**Difficulty: Easy**
+
+**Answer:**
+A Pod that runs more than one container. They share networking (IP), storage (Volumes), and lifecycle.
+Patterns: Sidecar, Ambassador, Adapter.
+
+### Q81: What is an Ambassador container pattern?
+**Difficulty: Advanced**
+
+**Answer:**
+A proxy container that proxies network connection to the outside world. Example: An ambassador container that connects to a database with different credentials depending on the environment, while the main app just connects to "localhost".
+
+### Q82: What is an Adapter container pattern?
+**Difficulty: Advanced**
+
+**Answer:**
+Used to standardize and normalize output. Example: Transforming logs from the main application into a standard format expected by the monitoring system.
+
+### Q83: What is a "Node"?
+**Difficulty: Easy**
+
+**Answer:**
+A worker machine in Kubernetes (virtual or physical). Contains Kubelet, Kube-proxy, and container runtime.
+
+### Q84: What is a "Cluster"?
+**Difficulty: Easy**
+
+**Answer:**
+A set of nodes grouped together. Includes at least one master node (control plane) and worker nodes.
+
+### Q85: What is `kubectl cp`?
+**Difficulty: Easy**
+
+**Answer:**
+Command to copy files and directories to and from containers.
+```bash
+kubectl cp /tmp/foo <pod-name>:/tmp/bar
+```
+
+### Q86: What is a "Manifest"?
+**Difficulty: Easy**
+
+**Answer:**
+A YAML or JSON file that describes a Kubernetes object (Pod, Deployment, Service, etc.).
+
+### Q87: What is "Self-Healing" in Kubernetes?
+**Difficulty: Medium**
+
+**Answer:**
+The ability of the cluster to restart containers that fail, replace and reschedule containers when nodes die, kill containers that don't respond to user-defined health checks, and not advertise them to clients until they are ready to serve.
+
+### Q88: What is the difference between imperative and declarative management?
+**Difficulty: Medium**
+
+**Answer:**
+- **Imperative:** Commands tell the system *what to do* step-by-step (`kubectl run`, `kubectl expose`, `kubectl scale`). Good for quick fixes/testing.
+- **Declarative:** Config files define the *desired state* (`kubectl apply -f file.yaml`). The system figures out how to reach that state. Best for production/GitOps.
+
+### Q89: What is `PodSecurityPolicy` (PSP)?
+**Difficulty: Advanced**
+
+**Answer:**
+(Deprecated in v1.21, removed in v1.25) Was a cluster-level resource that controlled security sensitive aspects of the pod specification (running as root, host network, etc.). Replaced by **Pod Security Admission (PSA)** and **Pod Security Standards (PSS)**.
+
+### Q90: How do you view the logs of a previously crashed container?
+**Difficulty: Easy**
+
+**Answer:**
+```bash
+kubectl logs <pod-name> --previous
+```
+
+### Q91: What is `kubectl edit`?
+**Difficulty: Easy**
+
+**Answer:**
+Opens the live configuration of a resource in the default editor. Changes are applied immediately upon save/exit. Good for debugging, risky for production (no version control).
+
+### Q92: What is the role of `cloud-controller-manager`?
+**Difficulty: Advanced**
+
+**Answer:**
+Embeds cloud-specific control logic. It links your cluster into your cloud provider's API (AWS, Azure, GCP) to manage LoadBalancers, Volumes, and Nodes.
+
+### Q93: What is "Bin Packing"?
+**Difficulty: Medium**
+
+**Answer:**
+The process by which the scheduler places pods onto nodes in the most efficient way to maximize resource usage (CPU/Memory), effectively "packing" them tight.
+
+### Q94: What is `kubectl explain`?
+**Difficulty: Easy**
+
+**Answer:**
+Documentation tool. It describes the fields of a resource.
+```bash
+kubectl explain pod.spec.containers
+```
+
+### Q95: What is the `System` namespace (`kube-system`)?
+**Difficulty: Easy**
+
+**Answer:**
+The namespace for objects created by the Kubernetes system (API server, DNS, etc.). Usually, you shouldn't modify things here.
+
+### Q96: What is `kubectl auth can-i`?
+**Difficulty: Medium**
+
+**Answer:**
+Checks if the current user (or a service account) has permission to perform an action.
+```bash
+kubectl auth can-i create deployments --namespace dev
+```
+
+### Q97: How do you force delete a Pod?
+**Difficulty: Medium**
+
+**Answer:**
+```bash
+kubectl delete pod <pod-name> --grace-period=0 --force
+```
+Use with caution; can leave state inconsistencies.
+
+### Q98: What is a "Volume" in Kubernetes vs Docker Volume?
+**Difficulty: Medium**
+
+**Answer:**
+A Docker volume is a directory on disk or in another container. A Kubernetes Volume has an explicit lifetime - usually the same as the Pod that encloses it. Kubernetes supports many types of volumes (cloud disk, nfs, configmap, secret, emptyDir).
+
+### Q99: What is `kubectl get events`?
+**Difficulty: Easy**
+
+**Answer:**
+Lists recent events in the namespace. Very useful for troubleshooting why pods aren't starting or are crashing.
+
+### Q100: What is the future of Kubernetes?
+**Difficulty: General**
+
+**Answer:**
+Trends include:
+- **Serverless Kubernetes:** (GKE Autopilot, AWS Fargate).
+- **Edge Computing:** (K3s, MicroK8s running on edge devices).
+- **GitOps:** Standardizing deployment.
+- **Security:** Supply chain security, SBOMs.
+- **Multi-cluster management:** KubeFed, etc.
+

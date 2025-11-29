@@ -1,28 +1,170 @@
 # Flutter Interview Questions
 
-A comprehensive collection of Flutter interview questions covering fundamentals, advanced concepts, state management, performance optimization, and best practices.
-
 ## Table of Contents
-1. [Flutter Fundamentals](#q1-what-is-flutter-and-what-are-its-key-features)
-2. [Dart Programming](#q2-explain-dart-programming-language-features-for-flutter-development)
-3. [Widgets and UI](#q3-explain-the-difference-between-stateless-and-stateful-widgets)
-4. [State Management](#q4-how-do-you-implement-state-management-in-flutter)
-5. [Navigation and Routing](#q5-how-do-you-implement-navigation-in-flutter-applications)
-6. [Animations](#q6-how-do-you-implement-animations-in-flutter)
-7. [Networking and APIs](#q7-how-do-you-handle-http-requests-and-api-integration-in-flutter)
-8. [Local Storage](#q8-how-do-you-implement-local-storage-and-data-persistence-in-flutter)
-9. [Testing](#q9-how-do-you-implement-testing-in-flutter-applications)
-10. [Performance Optimization](#q10-how-do-you-implement-performance-optimization-in-flutter-applications)
-11. [Platform Integration](#q11-how-do-you-implement-platform-specific-code-in-flutter)
-12. [Custom Widgets](#q12-how-do-you-create-custom-widgets-and-reusable-components)
-13. [Responsive Design](#q13-how-do-you-implement-responsive-design-in-flutter)
-14. [Error Handling](#q14-how-do-you-implement-error-handling-and-exception-management)
-15. [Security](#q15-how-do-you-implement-security-best-practices-in-flutter)
-16. [Deployment](#q16-how-do-you-build-and-deploy-flutter-applications)
-17. [Advanced Patterns](#q17-how-do-you-implement-advanced-flutter-patterns-and-architecture)
-18. [Internationalization](#q18-how-do-you-implement-internationalization-and-localization)
-19. [Accessibility](#q19-how-do-you-implement-accessibility-features-in-flutter)
-20. [App Architecture](#q20-what-are-the-best-practices-for-flutter-app-architecture-and-design-patterns)
+
+1. [Q1: What is Flutter and what are its key features?](#q1-what-is-flutter-and-what-are-its-key-features)
+2. [Q2: Explain Dart programming language features for Flutter development.](#q2-explain-dart-programming-language-features-for-flutter-development)
+3. [Q3: Explain the difference between Stateless and Stateful widgets.](#q3-explain-the-difference-between-stateless-and-stateful-widgets)
+4. [Q4: What are the different state management approaches in Flutter?](#q4-what-are-the-different-state-management-approaches-in-flutter)
+5. [Q5: How do you handle navigation in Flutter applications?](#q5-how-do-you-handle-navigation-in-flutter-applications)
+6. [Q6: How do you implement animations in Flutter?](#q6-how-do-you-implement-animations-in-flutter)
+7. [Q7: How do you handle networking and HTTP requests in Flutter?](#q7-how-do-you-handle-networking-and-http-requests-in-flutter)
+8. [Q8: How do you implement local storage and data persistence in Flutter?](#q8-how-do-you-implement-local-storage-and-data-persistence-in-flutter)
+9. [Q9: How do you implement testing in Flutter (Unit, Widget, and Integration tests)?](#q9-how-do-you-implement-testing-in-flutter-unit,-widget,-and-integration-tests)
+10. [Q10: How do you implement performance optimization in Flutter applications?](#q10-how-do-you-implement-performance-optimization-in-flutter-applications)
+11. [Q11: How do you optimize performance in Flutter applications?](#q11-how-do-you-optimize-performance-in-flutter-applications)
+12. [Q12: How do you implement platform integration and native functionality in Flutter?](#q12-how-do-you-implement-platform-integration-and-native-functionality-in-flutter)
+13. [Q13: How do you create custom widgets and implement widget composition in Flutter?](#q13-how-do-you-create-custom-widgets-and-implement-widget-composition-in-flutter)
+14. [Q14: How do you implement responsive design and adaptive layouts in Flutter?](#q14-how-do-you-implement-responsive-design-and-adaptive-layouts-in-flutter)
+15. [Q15: How do you handle errors and exceptions in Flutter applications?](#q15-how-do-you-handle-errors-and-exceptions-in-flutter-applications)
+16. [Q16: What are the security best practices for Flutter applications?](#q16-what-are-the-security-best-practices-for-flutter-applications)
+17. [Q17: How do you deploy Flutter applications and optimize them for app stores?](#q17-how-do-you-deploy-flutter-applications-and-optimize-them-for-app-stores)
+18. [Q18: What are advanced Flutter patterns and architecture approaches?](#q18-what-are-advanced-flutter-patterns-and-architecture-approaches)
+19. [Q19: How do you implement internationalization (i18n) and localization (l10n) in Flutter?](#q19-how-do-you-implement-internationalization-i18n-and-localization-l10n-in-flutter)
+20. [Q20: How do you implement accessibility features in Flutter?](#q20-how-do-you-implement-accessibility-features-in-flutter)
+21. [Q21: What are the best practices for Flutter app architecture and design patterns?](#q21-what-are-the-best-practices-for-flutter-app-architecture-and-design-patterns)
+22. [Q22: What is the difference between `Hot Reload` and `Hot Restart`?](#q22-what-is-the-difference-between-`hot-reload`-and-`hot-restart`)
+23. [Q23: What is a `Future` in Dart?](#q23-what-is-a-`future`-in-dart)
+24. [Q24: What is `Stream` in Dart?](#q24-what-is-`stream`-in-dart)
+25. [Q25: What are Keys in Flutter and when should you use them?](#q25-what-are-keys-in-flutter-and-when-should-you-use-them)
+26. [Q26: Explain the difference between `main()` and `runApp()`.](#q26-explain-the-difference-between-`main`-and-`runapp`)
+27. [Q27: What is `BuildContext`?](#q27-what-is-`buildcontext`)
+28. [Q28: What is the `SafeArea` widget?](#q28-what-is-the-`safearea`-widget)
+29. [Q29: How do you handle JSON serialization in Flutter?](#q29-how-do-you-handle-json-serialization-in-flutter)
+30. [Q30: What are Mixins in Dart?](#q30-what-are-mixins-in-dart)
+31. [Q31: What is the difference between `const` and `final` in Dart?](#q31-what-is-the-difference-between-`const`-and-`final`-in-dart)
+32. [Q32: What is `InheritedWidget`?](#q32-what-is-`inheritedwidget`)
+33. [Q33: What is the Lifecycle of a StatefulWidget?](#q33-what-is-the-lifecycle-of-a-statefulwidget)
+34. [Q34: What is `Isolate` in Dart?](#q34-what-is-`isolate`-in-dart)
+35. [Q35: What is the difference between `Expanded` and `Flexible`?](#q35-what-is-the-difference-between-`expanded`-and-`flexible`)
+36. [Q36: How do you detect platform (iOS vs Android) in Flutter?](#q36-how-do-you-detect-platform-ios-vs-android-in-flutter)
+37. [Q37: What is `pubspec.yaml`?](#q37-what-is-`pubspecyaml`)
+38. [Q38: What is the `SizedBox` widget?](#q38-what-is-the-`sizedbox`-widget)
+39. [Q39: What is `Navigator.pushNamed`?](#q39-what-is-`navigatorpushnamed`)
+40. [Q40: What is the BLoC pattern?](#q40-what-is-the-bloc-pattern)
+41. [Q41: What is `Riverpod`?](#q41-what-is-`riverpod`)
+42. [Q42: What is the difference between `package` and `plugin` in Flutter?](#q42-what-is-the-difference-between-`package`-and-`plugin`-in-flutter)
+43. [Q43: How do you optimize scrolling performance in Flutter?](#q43-how-do-you-optimize-scrolling-performance-in-flutter)
+44. [Q44: What is `Flutter Doctor`?](#q44-what-is-`flutter-doctor`)
+45. [Q45: What are `GlobalKeys` used for?](#q45-what-are-`globalkeys`-used-for)
+46. [Q46: What is `await` keyword?](#q46-what-is-`await`-keyword)
+47. [Q47: What is `Null Safety` in Dart?](#q47-what-is-`null-safety`-in-dart)
+48. [Q48: What is `GetX`?](#q48-what-is-`getx`)
+49. [Q49: What is `ThemeData`?](#q49-what-is-`themedata`)
+50. [Q50: What is the `Stack` widget?](#q50-what-is-the-`stack`-widget)
+51. [Q51: What is `Hero` animation?](#q51-what-is-`hero`-animation)
+52. [Q52: What is `ClipRRect`?](#q52-what-is-`cliprrect`)
+53. [Q53: What is `LayoutBuilder`?](#q53-what-is-`layoutbuilder`)
+54. [Q54: What is `Wrap` widget?](#q54-what-is-`wrap`-widget)
+55. [Q55: What is the purpose of `resizeToAvoidBottomInset`?](#q55-what-is-the-purpose-of-`resizetoavoidbottominset`)
+56. [Q56: What is `Spacer`?](#q56-what-is-`spacer`)
+57. [Q57: What is `SingleChildScrollView`?](#q57-what-is-`singlechildscrollview`)
+58. [Q58: What is `StreamBuilder`?](#q58-what-is-`streambuilder`)
+59. [Q59: What is `FutureBuilder`?](#q59-what-is-`futurebuilder`)
+60. [Q60: How do you implement Dark Mode in Flutter?](#q60-how-do-you-implement-dark-mode-in-flutter)
+61. [Q61: What is `Semantics` widget?](#q61-what-is-`semantics`-widget)
+62. [Q62: What is `CustomPainter`?](#q62-what-is-`custompainter`)
+63. [Q63: What is `Profile` mode?](#q63-what-is-`profile`-mode)
+64. [Q64: What is `AOT` vs `JIT` compilation?](#q64-what-is-`aot`-vs-`jit`-compilation)
+65. [Q65: What is `WidgetsBindingObserver`?](#q65-what-is-`widgetsbindingobserver`)
+66. [Q66: What is `ModalRoute`?](#q66-what-is-`modalroute`)
+67. [Q67: How do you pass data between screens?](#q67-how-do-you-pass-data-between-screens)
+68. [Q68: What is `flutter_bloc`?](#q68-what-is-`flutter_bloc`)
+69. [Q69: What is `equatable` package?](#q69-what-is-`equatable`-package)
+70. [Q70: What is `freezed` package?](#q70-what-is-`freezed`-package)
+71. [Q71: What is `Draggable` and `DragTarget`?](#q71-what-is-`draggable`-and-`dragtarget`)
+72. [Q72: What is `ShaderMask`?](#q72-what-is-`shadermask`)
+73. [Q73: What is `BackdropFilter`?](#q73-what-is-`backdropfilter`)
+74. [Q74: What is `PreferredSizeWidget`?](#q74-what-is-`preferredsizewidget`)
+75. [Q75: What is `MethodChannel`?](#q75-what-is-`methodchannel`)
+76. [Q76: What is `FittedBox`?](#q76-what-is-`fittedbox`)
+77. [Q77: What is `InteractiveViewer`?](#q77-what-is-`interactiveviewer`)
+78. [Q78: What is `ValueListenableBuilder`?](#q78-what-is-`valuelistenablebuilder`)
+79. [Q79: What is `ChangeNotifier`?](#q79-what-is-`changenotifier`)
+80. [Q80: What is `PageStorage`?](#q80-what-is-`pagestorage`)
+81. [Q81: What is `Offstage` widget?](#q81-what-is-`offstage`-widget)
+82. [Q82: What is the difference between `mainAxisAlignment` and `crossAxisAlignment`?](#q82-what-is-the-difference-between-`mainaxisalignment`-and-`crossaxisalignment`)
+83. [Q83: What is `Sliver`?](#q83-what-is-`sliver`)
+84. [Q84: What is `SliverAppBar`?](#q84-what-is-`sliverappbar`)
+85. [Q85: What is `Visibility` widget?](#q85-what-is-`visibility`-widget)
+86. [Q86: What is `IndexedStack`?](#q86-what-is-`indexedstack`)
+87. [Q87: What is `Cupertino` widgets?](#q87-what-is-`cupertino`-widgets)
+88. [Q88: What is `MaterialApp`?](#q88-what-is-`materialapp`)
+89. [Q89: What is `debugPrint`?](#q89-what-is-`debugprint`)
+90. [Q90: How do you add fonts in Flutter?](#q90-how-do-you-add-fonts-in-flutter)
+91. [Q91: What is `AspectRatio` widget?](#q91-what-is-`aspectratio`-widget)
+92. [Q92: What is `FractionallySizedBox`?](#q92-what-is-`fractionallysizedbox`)
+93. [Q93: What is `DataTable`?](#q93-what-is-`datatable`)
+94. [Q94: What is `RefreshIndicator`?](#q94-what-is-`refreshindicator`)
+95. [Q95: What is `Dismissible`?](#q95-what-is-`dismissible`)
+96. [Q96: What is `WillPopScope` (or `PopScope`)?](#q96-what-is-`willpopscope`-or-`popscope`)
+97. [Q97: What is `ReorderableListView`?](#q97-what-is-`reorderablelistview`)
+98. [Q98: What is `ScrollController`?](#q98-what-is-`scrollcontroller`)
+99. [Q99: What is `NotificationListener`?](#q99-what-is-`notificationlistener`)
+100. [Q100: What is `RendererBinding`?](#q100-what-is-`rendererbinding`)
+101. [Q101: What is the future of Flutter?](#q101-what-is-the-future-of-flutter)
+102. [Q102: What is the `BuildContext`?](#q102-what-is-the-`buildcontext`)
+103. [Q103: Explain the Widget Lifecycle in Flutter.](#q103-explain-the-widget-lifecycle-in-flutter)
+104. [Q104: What are Keys in Flutter and when to use them?](#q104-what-are-keys-in-flutter-and-when-to-use-them)
+105. [Q105: What is an `InheritedWidget`?](#q105-what-is-an-`inheritedwidget`)
+106. [Q106: Explain the difference between `StreamBuilder` and `FutureBuilder`.](#q106-explain-the-difference-between-`streambuilder`-and-`futurebuilder`)
+107. [Q107: What are Isolates?](#q107-what-are-isolates)
+108. [Q108: What is the difference between `main()` and `runApp()`?](#q108-what-is-the-difference-between-`main`-and-`runapp`)
+109. [Q109: What is Tree Shaking in Flutter?](#q109-what-is-tree-shaking-in-flutter)
+110. [Q110: What is a `Sliver`?](#q110-what-is-a-`sliver`)
+111. [Q111: Explain the difference between `const` and `final` in Dart.](#q111-explain-the-difference-between-`const`-and-`final`-in-dart)
+112. [Q112: What is `setState`?](#q112-what-is-`setstate`)
+113. [Q113: What is `Provider`?](#q113-what-is-`provider`)
+114. [Q114: What is BLoC pattern?](#q114-what-is-bloc-pattern)
+115. [Q115: What is GetX?](#q115-what-is-getx)
+116. [Q116: What are Mixins?](#q116-what-are-mixins)
+117. [Q117: What are Extensions?](#q117-what-are-extensions)
+118. [Q118: What is Null Safety?](#q118-what-is-null-safety)
+119. [Q119: What is the RenderObject?](#q119-what-is-the-renderobject)
+120. [Q120: What is `MediaQuery`?](#q120-what-is-`mediaquery`)
+121. [Q121: What is a `CustomPainter`?](#q121-what-is-a-`custompainter`)
+122. [Q122: What are Hero Animations?](#q122-what-are-hero-animations)
+123. [Q123: What is `SafeArea`?](#q123-what-is-`safearea`)
+124. [Q124: What is `Expanded` vs `Flexible`?](#q124-what-is-`expanded`-vs-`flexible`)
+125. [Q125: What is `Stack` and `Positioned`?](#q125-what-is-`stack`-and-`positioned`)
+126. [Q126: What is `async` and `await`?](#q126-what-is-`async`-and-`await`)
+127. [Q127: What is `vsync`?](#q127-what-is-`vsync`)
+128. [Q128: What is `GetIt`?](#q128-what-is-`getit`)
+129. [Q129: What is `freezed`?](#q129-what-is-`freezed`)
+130. [Q130: What is `json_serializable`?](#q130-what-is-`json_serializable`)
+131. [Q131: What is `Hive`?](#q131-what-is-`hive`)
+132. [Q132: What is `Navigator 2.0`?](#q132-what-is-`navigator-20`)
+133. [Q133: What are Golden Tests?](#q133-what-are-golden-tests)
+134. [Q134: What is `Overlay`?](#q134-what-is-`overlay`)
+135. [Q135: What is `RepaintBoundary`?](#q135-what-is-`repaintboundary`)
+136. [Q136: What is `AbsorbPointer` vs `IgnorePointer`?](#q136-what-is-`absorbpointer`-vs-`ignorepointer`)
+137. [Q137: What is `WillPopScope`?](#q137-what-is-`willpopscope`)
+138. [Q138: What is `PopScope`?](#q138-what-is-`popscope`)
+139. [Q139: What is `Wrap`?](#q139-what-is-`wrap`)
+140. [Q140: What is `CircularProgressIndicator` vs `LinearProgressIndicator`?](#q140-what-is-`circularprogressindicator`-vs-`linearprogressindicator`)
+141. [Q141: What is `Scaffold`?](#q141-what-is-`scaffold`)
+142. [Q142: What is `DefaultTabController`?](#q142-what-is-`defaulttabcontroller`)
+143. [Q143: What is `Form` and `TextFormField`?](#q143-what-is-`form`-and-`textformfield`)
+144. [Q144: What is `GlobalKey` used for in Forms?](#q144-what-is-`globalkey`-used-for-in-forms)
+145. [Q145: What is `showDialog`?](#q145-what-is-`showdialog`)
+146. [Q146: What is `showModalBottomSheet`?](#q146-what-is-`showmodalbottomsheet`)
+147. [Q147: What is `OverlayEntry`?](#q147-what-is-`overlayentry`)
+148. [Q148: What is `RawKeyboardListener`?](#q148-what-is-`rawkeyboardlistener`)
+149. [Q149: What is `Shortcuts` and `Actions`?](#q149-what-is-`shortcuts`-and-`actions`)
+150. [Q150: What is `FocusNode`?](#q150-what-is-`focusnode`)
+151. [Q151: What is `Offstage`?](#q151-what-is-`offstage`)
+152. [Q152: What is `Ticker`?](#q152-what-is-`ticker`)
+153. [Q153: What is `Tween`?](#q153-what-is-`tween`)
+154. [Q154: What is `AnimationController`?](#q154-what-is-`animationcontroller`)
+155. [Q155: What is `AnimatedBuilder`?](#q155-what-is-`animatedbuilder`)
+156. [Q156: What is `Transform`?](#q156-what-is-`transform`)
+157. [Q157: What is `Opacity` vs `AnimatedOpacity`?](#q157-what-is-`opacity`-vs-`animatedopacity`)
+158. [Q158: What is `Visibility`?](#q158-what-is-`visibility`)
+159. [Q159: What is `BoxDecoration`?](#q159-what-is-`boxdecoration`)
+160. [Q160: What is `Gradient`?](#q160-what-is-`gradient`)
+161. [Q161: What is `AssetImage` vs `NetworkImage`?](#q161-what-is-`assetimage`-vs-`networkimage`)
+
+---
 
 ### Q1: What is Flutter and what are its key features?
 
@@ -166,6 +308,8 @@ class WidgetTreeExample extends StatelessWidget {
   }
 }
 ```
+
+---
 
 ---
 
@@ -427,6 +571,8 @@ Dart uses automatic garbage collection, eliminating manual memory management con
 
 ---
 
+---
+
 ### Q3: Explain the difference between Stateless and Stateful widgets.
 
 **Answer:**
@@ -666,6 +812,8 @@ class _LifecycleExampleState extends State<LifecycleExample> {
 **When to Use:**
 - **Stateless**: Static text, icons, layouts that don't change
 - **Stateful**: Forms, animations, counters, any interactive UI
+
+---
 
 ---
 
@@ -996,6 +1144,8 @@ class UserProfile {
   }
 }
 ```
+
+---
 
 ---
 
@@ -1990,6 +2140,8 @@ class SelectionScreen extends StatelessWidget {
 
 ---
 
+---
+
 ### Q6: How do you implement animations in Flutter?
 
 **Answer:**
@@ -2398,6 +2550,8 @@ class _CustomAnimationExampleState extends State<CustomAnimationExample>
 - Use appropriate curves for natural-feeling animations
 - Consider performance impact of complex animations
 - Test animations on different devices and screen sizes
+
+---
 
 ---
 
@@ -3290,6 +3444,8 @@ class _UserListScreenState extends State<UserListScreen> {
   }
 }
 ```
+
+---
 
 ### Q8: How do you implement local storage and data persistence in Flutter?
 
@@ -4559,6 +4715,8 @@ class AuthTokenManager {
 }
 ```
 
+---
+
 ### Q9: How do you implement testing in Flutter (Unit, Widget, and Integration tests)?
 
 **Answer:**
@@ -5215,6 +5373,8 @@ Testing in Flutter ensures code reliability, maintainability, and helps catch bu
 
 ---
 
+---
+
 ### Q10: How do you implement performance optimization in Flutter applications?
 
 **Answer:**
@@ -5739,7 +5899,9 @@ flutter test integration_test/
 flutter test integration_test/ -d chrome
 ```
 
-### Q10: How do you optimize performance in Flutter applications?
+---
+
+### Q11: How do you optimize performance in Flutter applications?
 
 **Answer:**
 Flutter performance optimization involves multiple strategies across different aspects of the application, from widget management to memory usage and rendering optimization.
@@ -6341,7 +6503,9 @@ class PerformanceBestPractices {
 }
 ```
 
-### Q11: How do you implement platform integration and native functionality in Flutter?
+---
+
+### Q12: How do you implement platform integration and native functionality in Flutter?
 
 **Answer:**
 Flutter provides several ways to integrate with platform-specific functionality through platform channels, plugins, and native code integration.
@@ -7043,7 +7207,9 @@ class PlatformSpecificWidget extends StatelessWidget {
 }
 ```
 
-### Q12: How do you create custom widgets and implement widget composition in Flutter?
+---
+
+### Q13: How do you create custom widgets and implement widget composition in Flutter?
 
 **Answer:**
 Custom widgets in Flutter allow you to create reusable, composable UI components that encapsulate specific functionality and styling. Widget composition is a fundamental concept in Flutter for building complex UIs from simpler components.
@@ -7823,7 +7989,9 @@ class _LoadingExampleWidgetState extends State<LoadingExampleWidget>
 }
 ```
 
-### Q13: How do you implement responsive design and adaptive layouts in Flutter?
+---
+
+### Q14: How do you implement responsive design and adaptive layouts in Flutter?
 
 **Answer:**
 Responsive design in Flutter involves creating layouts that adapt to different screen sizes, orientations, and device types. Flutter provides several tools and techniques to build adaptive UIs that work well across phones, tablets, and desktop platforms.
@@ -8592,7 +8760,9 @@ class AdaptiveWidget extends StatelessWidget {
 }
 ```
 
-### Q14: How do you handle errors and exceptions in Flutter applications?
+---
+
+### Q15: How do you handle errors and exceptions in Flutter applications?
 
 **Answer:**
 Error handling in Flutter is crucial for creating robust applications that gracefully handle unexpected situations. Flutter provides several mechanisms for catching, handling, and reporting errors at different levels of the application.
@@ -9354,7 +9524,9 @@ class DefaultErrorWidget extends StatelessWidget {
 }
 ```
 
-### Q15: What are the security best practices for Flutter applications?
+---
+
+### Q16: What are the security best practices for Flutter applications?
 
 **Answer:**
 Security is crucial for Flutter applications, especially when handling sensitive data, user authentication, and network communications. Here are comprehensive security best practices and implementations.
@@ -10125,7 +10297,9 @@ class SecurityChecker {
 9. **Error Handling**: Don't expose sensitive information in error messages
 10. **Regular Updates**: Keep dependencies updated and monitor for security vulnerabilities
 
-### Q16: How do you deploy Flutter applications and optimize them for app stores?
+---
+
+### Q17: How do you deploy Flutter applications and optimize them for app stores?
 
 **Answer:**
 Deploying Flutter applications involves building, optimizing, and publishing apps to various platforms. Here's a comprehensive guide covering deployment strategies, optimization techniques, and app store requirements.
@@ -10971,7 +11145,9 @@ class PerformanceOptimizer {
 - [ ] Plan for updates and maintenance
 - [ ] Analyze user acquisition metrics
 
-### Q17: What are advanced Flutter patterns and architecture approaches?
+---
+
+### Q18: What are advanced Flutter patterns and architecture approaches?
 
 **Answer:**
 Advanced Flutter patterns and architecture approaches help build scalable, maintainable, and testable applications. Here's a comprehensive guide covering various architectural patterns, design patterns, and advanced techniques.
@@ -11909,7 +12085,9 @@ class CreateUserCommand implements Command {
 - Maintain clear boundaries between layers
 - Document architectural decisions and patterns used
 
-### Q18: How do you implement internationalization (i18n) and localization (l10n) in Flutter?
+---
+
+### Q19: How do you implement internationalization (i18n) and localization (l10n) in Flutter?
 
 **Answer:**
 Internationalization (i18n) and localization (l10n) in Flutter enable your app to support multiple languages and regions. Here's a comprehensive guide covering setup, implementation, and best practices.
@@ -12758,7 +12936,9 @@ void main() {
 9. **Use professional translation services** for production apps
 10. **Keep translation keys descriptive** and organized
 
-### Q19: How do you implement accessibility features in Flutter?
+---
+
+### Q20: How do you implement accessibility features in Flutter?
 
 **Answer:**
 Accessibility in Flutter ensures your app is usable by people with disabilities. Flutter provides comprehensive accessibility support through semantic widgets, screen reader compatibility, and various accessibility features.
@@ -13727,7 +13907,9 @@ class AccessibilityService {
 9. **Use descriptive error messages** and validation feedback
 10. **Test accessibility** with automated tools and real users
 
-### Q20: What are the best practices for Flutter app architecture and design patterns?
+---
+
+### Q21: What are the best practices for Flutter app architecture and design patterns?
 
 **Answer:**
 Flutter app architecture is crucial for building maintainable, scalable, and testable applications. Here are the best practices and design patterns for Flutter development.
@@ -14954,3 +15136,1368 @@ void main() {
 8. **Code Organization**: Feature-based folder structure
 9. **Type Safety**: Strong typing with Dart's type system
 10. **Performance**: Efficient data flow and minimal rebuilds
+
+---
+
+### Q22: What is the difference between `Hot Reload` and `Hot Restart`?
+
+**Difficulty: Easy**
+
+**Answer:**
+- **Hot Reload:** Maintains the app state while updating the code. It quickly compiles the new code file and sends it to the Dart Virtual Machine (VM). Great for UI tweaks.
+- **Hot Restart:** Destroys the app state and rebuilds the app from scratch. It takes longer but is necessary when you change app initialization logic or add new assets.
+
+---
+
+### Q23: What is a `Future` in Dart?
+
+**Difficulty: Easy**
+
+**Answer:**
+A `Future` represents a potential value or error that will be available at some time in the future. It is used for asynchronous operations (like fetching data from the internet). It is similar to a Promise in JavaScript.
+
+---
+
+### Q24: What is `Stream` in Dart?
+
+**Difficulty: Medium**
+
+**Answer:**
+A `Stream` provides a way to receive a sequence of events (data or errors). It is an asynchronous iterable. You can listen to a stream to get data as it arrives.
+- **Single-subscription streams:** Can only be listened to once.
+- **Broadcast streams:** Can be listened to by multiple subscribers.
+
+---
+
+### Q25: What are Keys in Flutter and when should you use them?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Keys are IDs for Widgets. They are used to preserve the state of StatefulWidgets when they are moved around in the widget tree.
+- **ValueKey:** Identifies by a value (e.g., ID).
+- **ObjectKey:** Identifies by an object reference.
+- **UniqueKey:** Unique every time.
+- **GlobalKey:** Allows access to the state of a widget from anywhere in the app (expensive, use sparingly).
+
+---
+
+### Q26: Explain the difference between `main()` and `runApp()`.
+
+**Difficulty: Easy**
+
+**Answer:**
+- `main()`: The entry point of the Dart program. It initializes the program.
+- `runApp()`: A Flutter function called inside `main()`. It takes the root widget and attaches it to the screen.
+
+---
+
+### Q27: What is `BuildContext`?
+
+**Difficulty: Medium**
+
+**Answer:**
+`BuildContext` is a handle to the location of a widget in the widget tree. Each widget has its own `BuildContext`, which becomes the parent of the widget returned by the `build` method. It is used to locate widgets and access data up the tree (like `Theme.of(context)`).
+
+---
+
+### Q28: What is the `SafeArea` widget?
+
+**Difficulty: Easy**
+
+**Answer:**
+`SafeArea` is a widget that insets its child by sufficient padding to avoid intrusions by the operating system (like the notch on the iPhone X, the status bar, or the home indicator).
+
+---
+
+### Q29: How do you handle JSON serialization in Flutter?
+
+**Difficulty: Medium**
+
+**Answer:**
+Flutter doesn't support runtime reflection (like Gson or Jackson in Java) due to tree shaking.
+Two approaches:
+1. **Manual Serialization:** Writing `fromJson` and `toJson` methods manually.
+2. **Code Generation:** Using libraries like `json_serializable` and `build_runner` to auto-generate serialization code.
+
+---
+
+### Q30: What are Mixins in Dart?
+
+**Difficulty: Medium**
+
+**Answer:**
+Mixins are a way of reusing a class's code in multiple class hierarchies.
+```dart
+mixin Musical {
+  bool canPlayPiano = false;
+  void playPiano() {
+    if (canPlayPiano) {
+      print('Playing piano');
+    }
+  }
+}
+
+class Musician extends Performer with Musical { ... }
+```
+
+---
+
+### Q31: What is the difference between `const` and `final` in Dart?
+
+**Difficulty: Easy**
+
+**Answer:**
+- **final:** Initialized at runtime. Value cannot be changed once set.
+- **const:** Initialized at compile-time. Value must be known before the program runs. All `const` variables are implicitly `final`.
+
+---
+
+### Q32: What is `InheritedWidget`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+`InheritedWidget` is a base class for widgets that efficiently propagate information down the tree. It allows descendant widgets to access data from an ancestor without passing it through every layer (prop drilling). `Provider` is a wrapper around `InheritedWidget`.
+
+---
+
+### Q33: What is the Lifecycle of a StatefulWidget?
+
+**Difficulty: Advanced**
+
+**Answer:**
+1. `createState()`
+2. `initState()`: Called once when the state is inserted into the tree.
+3. `didChangeDependencies()`: Called when a dependency changes (e.g., InheritedWidget).
+4. `build()`: Renders the UI.
+5. `didUpdateWidget()`: Called when the parent widget changes and reconfigures this widget.
+6. `setState()`: Triggers a rebuild.
+7. `deactivate()`: State object is removed from the tree.
+8. `dispose()`: State object is permanently removed.
+
+---
+
+### Q34: What is `Isolate` in Dart?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Dart is single-threaded. An `Isolate` is a separate execution thread that has its own memory and event loop. Isolates do not share memory; they communicate by passing messages. Used for heavy computation to avoid blocking the main UI thread.
+
+---
+
+### Q35: What is the difference between `Expanded` and `Flexible`?
+
+**Difficulty: Medium**
+
+**Answer:**
+- **Expanded:** Forces the child to fill the available space. (Equivalent to `Flexible` with `fit: FlexFit.tight`).
+- **Flexible:** Allows the child to be smaller than the available space if it doesn't need it all, but it can also expand. (Default `fit: FlexFit.loose`).
+
+---
+
+### Q36: How do you detect platform (iOS vs Android) in Flutter?
+
+**Difficulty: Easy**
+
+**Answer:**
+Using the `dart:io` library:
+```dart
+import 'dart:io' show Platform;
+
+if (Platform.isAndroid) {
+  // Android-specific code
+} else if (Platform.isIOS) {
+  // iOS-specific code
+}
+```
+
+---
+
+### Q37: What is `pubspec.yaml`?
+
+**Difficulty: Easy**
+
+**Answer:**
+The configuration file for a Flutter project. It defines:
+- Project name, version, description.
+- Dependencies (libraries).
+- Dev dependencies (testing, build tools).
+- Assets (images, fonts).
+
+---
+
+### Q38: What is the `SizedBox` widget?
+
+**Difficulty: Easy**
+
+**Answer:**
+A box with a specified size.
+Uses:
+- Adding fixed spacing between widgets.
+- Constraining the size of a child widget.
+
+---
+
+### Q39: What is `Navigator.pushNamed`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A named route navigation method. Instead of passing the route object (MaterialPageRoute), you pass the name of the route (string) defined in the `routes` table of `MaterialApp`.
+```dart
+Navigator.pushNamed(context, '/details');
+```
+
+---
+
+### Q40: What is the BLoC pattern?
+
+**Difficulty: Advanced**
+
+**Answer:**
+BLoC (Business Logic Component) is a state management pattern designed to separate business logic from UI. It uses `Streams` for inputs (Events) and outputs (States).
+Widgets send Events -> BLoC processes -> BLoC emits States -> UI rebuilds.
+
+---
+
+### Q41: What is `Riverpod`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A reactive caching and data-binding framework. It is considered a rewrite of `Provider` to solve its limitations (like depending on the widget tree). It is compile-safe and testable.
+
+---
+
+### Q42: What is the difference between `package` and `plugin` in Flutter?
+
+**Difficulty: Medium**
+
+**Answer:**
+- **Package:** Contains only Dart code (e.g., `http`, `fl_chart`).
+- **Plugin:** Contains Dart code AND native platform code (Kotlin/Java for Android, Swift/Obj-C for iOS) to access device features (e.g., `camera`, `geolocator`).
+
+---
+
+### Q43: How do you optimize scrolling performance in Flutter?
+
+**Difficulty: Medium**
+
+**Answer:**
+- Use `const` constructors for list items.
+- Use `ListView.builder` instead of `ListView` for long lists (lazy loading).
+- Avoid heavy computations in the `build` method.
+- Use `RepaintBoundary` to isolate list items.
+
+---
+
+### Q44: What is `Flutter Doctor`?
+
+**Difficulty: Easy**
+
+**Answer:**
+A command-line tool (`flutter doctor`) that checks your environment and displays a report of the status of your Flutter installation (SDK, Android Studio, Xcode, connected devices).
+
+---
+
+### Q45: What are `GlobalKeys` used for?
+
+**Difficulty: Advanced**
+
+**Answer:**
+- Accessing the state of a StatefulWidget from outside (e.g., validating a form: `_formKey.currentState.validate()`).
+- Preserving state when moving a widget to a different part of the tree.
+- Identifying elements for testing.
+
+---
+
+### Q46: What is `await` keyword?
+
+**Difficulty: Easy**
+
+**Answer:**
+Used inside an `async` function to wait for a `Future` to complete. It pauses the execution of the function until the Future returns a value or throws an error.
+
+---
+
+### Q47: What is `Null Safety` in Dart?
+
+**Difficulty: Medium**
+
+**Answer:**
+A feature (introduced in Dart 2.12) that prevents null reference errors. By default, types are non-nullable (`String name`). You must explicitly mark them as nullable (`String? name`) if they can hold a null value.
+
+---
+
+### Q48: What is `GetX`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A micro-framework for Flutter that combines State Management, Dependency Injection, and Route Management. It is known for being lightweight and concise, though some argue it deviates from standard Flutter patterns.
+
+---
+
+### Q49: What is `ThemeData`?
+
+**Difficulty: Easy**
+
+**Answer:**
+A class that holds the color and typography values for a material design theme. It allows you to configure the look and feel of your app globally.
+
+---
+
+### Q50: What is the `Stack` widget?
+
+**Difficulty: Easy**
+
+**Answer:**
+A widget that positions its children relative to the edges of its box. It allows you to overlay widgets on top of each other. Useful for placing text over an image.
+
+---
+
+### Q51: What is `Hero` animation?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that flies between two screens. It animates a widget from one route to another (e.g., a thumbnail image in a list expanding to a full-screen image on the details page).
+
+---
+
+### Q52: What is `ClipRRect`?
+
+**Difficulty: Easy**
+
+**Answer:**
+A widget that clips its child using a rounded rectangle. Commonly used to give images rounded corners.
+
+---
+
+### Q53: What is `LayoutBuilder`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that builds a widget tree that can depend on the parent widget's size. It provides the `BoxConstraints` of the parent, allowing you to build responsive layouts.
+
+---
+
+### Q54: What is `Wrap` widget?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that displays its children in multiple horizontal or vertical runs. Unlike `Row` or `Column`, it doesn't overflow; it wraps to the next line.
+
+---
+
+### Q55: What is the purpose of `resizeToAvoidBottomInset`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A property on `Scaffold`. If true (default), the body is resized when the keyboard opens to avoid being obscured. If false, the body stays the same size and the keyboard covers it.
+
+---
+
+### Q56: What is `Spacer`?
+
+**Difficulty: Easy**
+
+**Answer:**
+A widget that takes up any available space between widgets in a `Row` or `Column`. It is essentially an `Expanded` with an empty child.
+
+---
+
+### Q57: What is `SingleChildScrollView`?
+
+**Difficulty: Easy**
+
+**Answer:**
+A box in which a single widget can be scrolled. Useful when you have a column of content that might exceed the screen height on smaller devices.
+
+---
+
+### Q58: What is `StreamBuilder`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that builds itself based on the latest snapshot of interaction with a Stream. It automatically listens to the stream and rebuilds when new data arrives.
+
+---
+
+### Q59: What is `FutureBuilder`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that builds itself based on the latest snapshot of interaction with a Future. Useful for loading data once (like an HTTP request) and showing a loading spinner, error, or data.
+
+---
+
+### Q60: How do you implement Dark Mode in Flutter?
+
+**Difficulty: Easy**
+
+**Answer:**
+Define `theme` (light) and `darkTheme` (dark) in `MaterialApp`.
+Then control `themeMode` (System, Light, Dark).
+```dart
+MaterialApp(
+  theme: ThemeData.light(),
+  darkTheme: ThemeData.dark(),
+  themeMode: ThemeMode.system,
+);
+```
+
+---
+
+### Q61: What is `Semantics` widget?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A widget that annotates the widget tree with a description of the meaning of the widgets. It is used by accessibility tools (screen readers like TalkBack/VoiceOver).
+
+---
+
+### Q62: What is `CustomPainter`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A class that allows you to draw custom graphics on the canvas. You implement `paint()` and `shouldRepaint()`. Used for complex, custom UI designs that aren't possible with standard widgets.
+
+---
+
+### Q63: What is `Profile` mode?
+
+**Difficulty: Medium**
+
+**Answer:**
+A build mode used for analyzing performance. It compiles with some optimizations but keeps tracing enabled. (Debug -> Profile -> Release).
+
+---
+
+### Q64: What is `AOT` vs `JIT` compilation?
+
+**Difficulty: Medium**
+
+**Answer:**
+- **JIT (Just-In-Time):** Used during development (Debug mode). Enables Hot Reload.
+- **AOT (Ahead-Of-Time):** Used for production (Release mode). Compiles to native machine code for faster startup and performance.
+
+---
+
+### Q65: What is `WidgetsBindingObserver`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+An interface for observing the state of the application (lifecycle).
+Methods like `didChangeAppLifecycleState(AppLifecycleState state)` allow you to detect when the app goes to background or comes to foreground.
+
+---
+
+### Q66: What is `ModalRoute`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A route that blocks interaction with the previous route (like a dialog or a new page). `ModalRoute.of(context)` allows you to access arguments passed to the route.
+
+---
+
+### Q67: How do you pass data between screens?
+
+**Difficulty: Easy**
+
+**Answer:**
+1. **Constructor:** Pass data to the widget's constructor.
+2. **Route Settings:** Pass arguments via `Navigator.pushNamed(..., arguments: data)`.
+
+---
+
+### Q68: What is `flutter_bloc`?
+
+**Difficulty: Medium**
+
+**Answer:**
+The official package for implementing the BLoC pattern. It provides widgets like `BlocProvider`, `BlocBuilder`, and `BlocListener` to integrate BLoCs into the widget tree.
+
+---
+
+### Q69: What is `equatable` package?
+
+**Difficulty: Medium**
+
+**Answer:**
+A package that simplifies value equality comparisons. It overrides `==` and `hashCode` so you don't have to. Very useful in BLoC states to determine if the state has actually changed.
+
+---
+
+### Q70: What is `freezed` package?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A code generation package for data classes. It provides immutable objects, copyWith, union types (sealed classes), and pattern matching.
+
+---
+
+### Q71: What is `Draggable` and `DragTarget`?
+
+**Difficulty: Medium**
+
+**Answer:**
+Widgets used to implement Drag and Drop functionality. `Draggable` is the widget you move, `DragTarget` is the widget that accepts the dropped item.
+
+---
+
+### Q72: What is `ShaderMask`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A widget that applies a mask generated by a shader to its child. Used for effects like gradient text.
+
+---
+
+### Q73: What is `BackdropFilter`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that applies a filter to the existing painted content and then paints the child. Commonly used to create a blur effect (glassmorphism) behind a dialog or overlay.
+
+---
+
+### Q74: What is `PreferredSizeWidget`?
+
+**Difficulty: Medium**
+
+**Answer:**
+An interface that widgets implement to announce their preferred size. `AppBar` implements this. If you create a custom app bar, you usually implement this interface.
+
+---
+
+### Q75: What is `MethodChannel`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A mechanism for communicating with platform-specific code (Android/iOS). It allows you to call native methods from Dart and vice-versa.
+
+---
+
+### Q76: What is `FittedBox`?
+
+**Difficulty: Medium**
+
+**Answer:**
+Scales and positions its child within itself according to fit. Useful for scaling text or images to fit a specific container size without overflowing.
+
+---
+
+### Q77: What is `InteractiveViewer`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that enables pan and zoom interactions with its child. Useful for image galleries or maps.
+
+---
+
+### Q78: What is `ValueListenableBuilder`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that listens to a `ValueListenable` (like `ValueNotifier`) and rebuilds when the value changes. More efficient than `setState` for local state changes.
+
+---
+
+### Q79: What is `ChangeNotifier`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A class in the Flutter foundation that provides change notification to its listeners. Used in the Provider pattern. You call `notifyListeners()` to update widgets.
+
+---
+
+### Q80: What is `PageStorage`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A mechanism to persist the state of a widget (like scroll position) when it is destroyed and recreated (e.g., switching tabs in a BottomNavigationBar). `PageStorageKey` is used to identify the bucket.
+
+---
+
+### Q81: What is `Offstage` widget?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that lays out its child as if it was in the tree, but without painting anything, without the child being available for hit testing, and without taking up any room in the parent.
+
+---
+
+### Q82: What is the difference between `mainAxisAlignment` and `crossAxisAlignment`?
+
+**Difficulty: Easy**
+
+**Answer:**
+- **Row:** Main is Horizontal, Cross is Vertical.
+- **Column:** Main is Vertical, Cross is Horizontal.
+
+---
+
+### Q83: What is `Sliver`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A portion of a scrollable area. Slivers are specialized widgets that produce render objects that participate in the sliver protocol (custom scrolling effects). Used in `CustomScrollView`.
+Examples: `SliverAppBar`, `SliverList`, `SliverGrid`.
+
+---
+
+### Q84: What is `SliverAppBar`?
+
+**Difficulty: Medium**
+
+**Answer:**
+An app bar that integrates with a `CustomScrollView`. It can expand, contract, and float as the user scrolls.
+
+---
+
+### Q85: What is `Visibility` widget?
+
+**Difficulty: Easy**
+
+**Answer:**
+A widget that controls the visibility of its child. It can hide the child but keep the space (`maintainSize: true`) or remove it completely (default).
+
+---
+
+### Q86: What is `IndexedStack`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A Stack that shows a single child from a list of children. The other children are maintained in the tree but not visible. Useful for BottomNavigationBar to preserve state of tabs.
+
+---
+
+### Q87: What is `Cupertino` widgets?
+
+**Difficulty: Easy**
+
+**Answer:**
+A set of widgets that implement the current iOS design language. (e.g., `CupertinoButton`, `CupertinoSwitch`).
+
+---
+
+### Q88: What is `MaterialApp`?
+
+**Difficulty: Easy**
+
+**Answer:**
+A convenience widget that wraps a number of widgets that are commonly required for material design applications. It builds upon a `WidgetsApp` by adding material-design specific functionality (Navigator, Theme, etc.).
+
+---
+
+### Q89: What is `debugPrint`?
+
+**Difficulty: Easy**
+
+**Answer:**
+A wrapper around `print` that throttles the output to avoid dropping messages in the Android system log (logcat). Recommended over `print` in Flutter.
+
+---
+
+### Q90: How do you add fonts in Flutter?
+
+**Difficulty: Easy**
+
+**Answer:**
+1. Add font files to a directory (e.g., `assets/fonts`).
+2. Declare them in `pubspec.yaml` under `flutter: fonts:`.
+3. Use them in `TextStyle(fontFamily: 'MyFont')`.
+
+---
+
+### Q91: What is `AspectRatio` widget?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that attempts to size the child to a specific aspect ratio.
+
+---
+
+### Q92: What is `FractionallySizedBox`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that sizes its child to a fraction of the total available space. Useful for percentage-based layouts.
+
+---
+
+### Q93: What is `DataTable`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A material design data table widget. It displays data in rows and columns.
+
+---
+
+### Q94: What is `RefreshIndicator`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that supports the Material "swipe to refresh" idiom. It wraps a scrollable widget.
+
+---
+
+### Q95: What is `Dismissible`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that can be dismissed by dragging in the indicated direction. Commonly used in lists to swipe-to-delete items.
+
+---
+
+### Q96: What is `WillPopScope` (or `PopScope`)?
+
+**Difficulty: Medium**
+
+**Answer:**
+A widget that registers a callback to veto attempts by the user to dismiss the enclosing ModalRoute (e.g., pressing the Back button). Useful for "Are you sure you want to exit?" dialogs.
+
+---
+
+### Q97: What is `ReorderableListView`?
+
+**Difficulty: Medium**
+
+**Answer:**
+A list view that allows the user to interactively reorder the list items by dragging.
+
+---
+
+### Q98: What is `ScrollController`?
+
+**Difficulty: Medium**
+
+**Answer:**
+Controls a scrollable widget. It lets you read the current scroll offset and programmatically scroll to a position.
+
+---
+
+### Q99: What is `NotificationListener`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A widget that listens for notifications bubbling up the tree. Useful for listening to scroll events (`ScrollNotification`) without a controller.
+
+---
+
+### Q100: What is `RendererBinding`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+The glue between the render tree and the Flutter engine. It manages the pipeline of producing a new frame (Layout, Paint, Composite).
+
+---
+
+### Q101: What is the future of Flutter?
+
+**Difficulty: General**
+
+**Answer:**
+Flutter is expanding beyond mobile to become a universal UI toolkit. Stable support for Web, Windows, macOS, and Linux. Integration with embedded devices. Impeller (new rendering engine) for jank-free performance.
+
+---
+
+### Q102: What is the `BuildContext`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+`BuildContext` is a handle to the location of a widget in the widget tree. It provides access to the `Theme`, `MediaQuery`, and `Navigator` via `of(context)` methods. It essentially tells the widget where it is and allows it to interact with its ancestors.
+
+---
+
+### Q103: Explain the Widget Lifecycle in Flutter.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+For `StatefulWidget`:
+1.  `createState()`: Creates the State object.
+2.  `initState()`: Called once when the state is inserted into the tree. Good for initialization.
+3.  `didChangeDependencies()`: Called when a dependency changes (e.g., InheritedWidget).
+4.  `build()`: Builds the UI. Called frequently.
+5.  `didUpdateWidget()`: Called when the parent widget changes and passes new properties.
+6.  `setState()`: Triggers a rebuild.
+7.  `deactivate()`: State is removed from the tree (can be reinserted).
+8.  `dispose()`: State is permanently removed. Good for cleanup (streams, controllers).
+
+---
+
+### Q104: What are Keys in Flutter and when to use them?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Keys control how widgets are replaced in the widget tree. They are primarily used to preserve the state of StatefulWidgets when they move around in the widget tree (e.g., in a list).
+
+**Types:**
+- **ValueKey**: Uses a simple value (string/int) for identification.
+- **ObjectKey**: Uses an object instance for identification.
+- **UniqueKey**: Generates a unique key every time.
+- **GlobalKey**: Allows access to a widget's state from anywhere in the app. Expensive.
+
+---
+
+### Q105: What is an `InheritedWidget`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A base class for widgets that efficiently propagate information down the tree. When an InheritedWidget rebuilds, its descendants that depend on it are rebuilt. It is the foundation for `Provider` and `Theme.of(context)`.
+
+---
+
+### Q106: Explain the difference between `StreamBuilder` and `FutureBuilder`.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+- **FutureBuilder**: Builds itself based on the latest snapshot of interaction with a `Future`. Used for one-time async operations (e.g., HTTP call).
+- **StreamBuilder**: Builds itself based on the latest snapshot of interaction with a `Stream`. Used for continuous async events (e.g., WebSocket, Firebase auth state).
+
+---
+
+### Q107: What are Isolates?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Dart is single-threaded. To perform heavy computations without blocking the UI thread (jank), you use Isolates. Each Isolate has its own memory heap and event loop. They communicate via message passing (ports).
+
+---
+
+### Q108: What is the difference between `main()` and `runApp()`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **`main()`**: The entry point of the Dart application.
+- **`runApp()`**: A Flutter function that takes a Widget and makes it the root of the widget tree.
+
+---
+
+### Q109: What is Tree Shaking in Flutter?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+An optimization process during build where unused code (dead code) is removed from the final binary. This reduces the app size.
+
+---
+
+### Q110: What is a `Sliver`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A portion of a scrollable area. Slivers are widgets that produce RenderObjects that slice the viewport. Used for custom scroll effects (e.g., `SliverAppBar`, `SliverList`, `SliverGrid`) inside a `CustomScrollView`.
+
+---
+
+### Q111: Explain the difference between `const` and `final` in Dart.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **`final`**: Runtime constant. Value is determined when the program runs and can be set only once.
+- **`const`**: Compile-time constant. Value must be known before the program runs.
+
+---
+
+### Q112: What is `setState`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+A method available in `State` class. It notifies the framework that the internal state of this object has changed, which causes the framework to schedule a build for this State object.
+
+---
+
+### Q113: What is `Provider`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A popular state management library (wrapper around InheritedWidget). It allows you to expose a value (model) to the widget tree and allows descendants to listen to changes.
+
+---
+
+### Q114: What is BLoC pattern?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**B**usiness **Lo**gic **C**omponent. A pattern that separates business logic from UI. It uses Streams: Input (Events) -> BLoC -> Output (States).
+
+---
+
+### Q115: What is GetX?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A micro-framework that provides State Management, Dependency Injection, and Route Management. It is known for its simplicity and less boilerplate, but controversial for not following standard Flutter patterns (using BuildContext).
+
+---
+
+### Q116: What are Mixins?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A way of reusing a class's code in multiple class hierarchies.
+`class A with B { ... }`
+
+---
+
+### Q117: What are Extensions?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A way to add functionality to existing libraries (even those you don't own) without modifying them or creating a subclass.
+```dart
+extension StringParsing on String {
+  int parseInt() {
+    return int.parse(this);
+  }
+}
+```
+
+---
+
+### Q118: What is Null Safety?
+
+**Difficulty: Beginner**
+
+**Answer:**
+A feature in Dart that guarantees that variables cannot contain `null` unless explicitly declared as nullable (`String?`). It prevents runtime null reference errors.
+
+---
+
+### Q119: What is the RenderObject?
+
+**Difficulty: Advanced**
+
+**Answer:**
+RenderObjects handle the actual painting, layout, and hit testing.
+Hierarchy: Widget (Configuration) -> Element (Lifecycle) -> RenderObject (Painting).
+
+---
+
+### Q120: What is `MediaQuery`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Provides information about the size, orientation, and other properties of the screen (viewport).
+
+---
+
+### Q121: What is a `CustomPainter`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A class used to draw custom graphics on a canvas. You override `paint()` and `shouldRepaint()`.
+
+---
+
+### Q122: What are Hero Animations?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A shared element transition. A widget "flies" from one screen to another. Both widgets must share the same `tag`.
+
+---
+
+### Q123: What is `SafeArea`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+A widget that insets its child by sufficient padding to avoid intrusions by the operating system (notches, status bars, home indicators).
+
+---
+
+### Q124: What is `Expanded` vs `Flexible`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+- **`Expanded`**: Forces the child to fill the available space (`flex: 1` by default). It is strict.
+- **`Flexible`**: Allows the child to fill the available space but doesn't force it. It can be smaller than the available space.
+
+---
+
+### Q125: What is `Stack` and `Positioned`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+`Stack` allows you to overlay widgets on top of each other. `Positioned` is used inside a Stack to position children relative to the Stack's edges.
+
+---
+
+### Q126: What is `async` and `await`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Keywords for asynchronous programming. `async` marks a function as asynchronous (returns a Future). `await` pauses execution until the Future completes.
+
+---
+
+### Q127: What is `vsync`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Vertical Sync. It prevents screen tearing. In Flutter animations, `TickerProvider` (usually `SingleTickerProviderStateMixin`) provides `vsync` to synchronize animations with the screen refresh rate.
+
+---
+
+### Q128: What is `GetIt`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A Service Locator for Dart. Used for Dependency Injection (DI) to access services (API, Database) from anywhere in the app without passing context.
+
+---
+
+### Q129: What is `freezed`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A code generation package for data classes. It provides immutable objects, `copyWith`, `toString`, `==` override, and unions/pattern matching.
+
+---
+
+### Q130: What is `json_serializable`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+A package that generates code for converting Dart objects to/from JSON.
+
+---
+
+### Q131: What is `Hive`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A lightweight and blazing fast key-value database written in pure Dart. Supports offline storage.
+
+---
+
+### Q132: What is `Navigator 2.0`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A declarative API for routing. Instead of pushing/popping (imperative), you define the stack of pages based on the app state. Key classes: `Router`, `Page`, `RouterDelegate`, `RouteInformationParser`.
+
+---
+
+### Q133: What are Golden Tests?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Visual regression tests. They render a widget and compare it pixel-by-pixel against a "golden" image file (baseline).
+
+---
+
+### Q134: What is `Overlay`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A Stack of entries that can be managed independently. It floats above everything else. Used for Tooltips, Dropdowns, and Toasts.
+
+---
+
+### Q135: What is `RepaintBoundary`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A widget that isolates its child from the parent's repaint layer. If the child repaints, the parent doesn't need to, and vice versa. Useful for performance optimization.
+
+---
+
+### Q136: What is `AbsorbPointer` vs `IgnorePointer`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+- **`AbsorbPointer`**: Absorbs the touch event. The widget itself receives the event, but children don't. The event stops there.
+- **`IgnorePointer`**: Ignores the touch event. The event passes through the widget to the widget below it.
+
+---
+
+### Q137: What is `WillPopScope`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A widget that registers a callback to veto attempts by the user to dismiss the enclosing `ModalRoute` (e.g., pressing the Android Back button).
+*Note: Deprecated in favor of `PopScope`.*
+
+---
+
+### Q138: What is `PopScope`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Replaces `WillPopScope`. Manages system back gestures.
+
+---
+
+### Q139: What is `Wrap`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+A widget that displays its children in multiple horizontal or vertical runs. Like a `Row` or `Column` but wraps to the next line if there isn't enough space.
+
+---
+
+### Q140: What is `CircularProgressIndicator` vs `LinearProgressIndicator`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Material Design progress indicators. Circular is a spinner, Linear is a bar.
+
+---
+
+### Q141: What is `Scaffold`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Implements the basic Material Design visual layout structure. Provides APIs for showing Drawers, SnackBars, and BottomSheets.
+
+---
+
+### Q142: What is `DefaultTabController`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+An inherited widget that provides a TabController to its descendants (TabBar, TabBarView).
+
+---
+
+### Q143: What is `Form` and `TextFormField`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Used for form validation. `Form` acts as a container that aggregates the validation of multiple `TextFormField` widgets.
+
+---
+
+### Q144: What is `GlobalKey` used for in Forms?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+To access the `FormState` to call `validate()` or `save()` methods.
+`final _formKey = GlobalKey<FormState>();`
+
+---
+
+### Q145: What is `showDialog`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+A function that displays a Material dialog above the current contents of the app.
+
+---
+
+### Q146: What is `showModalBottomSheet`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+A function that shows a modal material design bottom sheet.
+
+---
+
+### Q147: What is `OverlayEntry`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A place in an Overlay that can contain a widget.
+
+---
+
+### Q148: What is `RawKeyboardListener`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A widget that calls a callback whenever the user presses or releases a key.
+
+---
+
+### Q149: What is `Shortcuts` and `Actions`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A system for mapping key combinations to intents and intents to actions. Used for keyboard shortcuts.
+
+---
+
+### Q150: What is `FocusNode`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+An object that can be used to obtain keyboard focus and to handle keyboard events.
+
+---
+
+### Q151: What is `Offstage`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A widget that lays the child out as if it was in the tree, but without painting anything, without making the child available for hit testing, and without taking up any room in the parent.
+
+---
+
+### Q152: What is `Ticker`?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A class that calls a callback once per animation frame.
+
+---
+
+### Q153: What is `Tween`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A linear interpolation between a beginning and ending value.
+
+---
+
+### Q154: What is `AnimationController`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A special Animation object that generates a new value whenever the hardware is ready for a new frame. It manages the animation (forward, reverse, stop).
+
+---
+
+### Q155: What is `AnimatedBuilder`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A widget useful for building animations. It separates the widget tree construction from the animation object.
+
+---
+
+### Q156: What is `Transform`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A widget that applies a transformation (rotate, scale, translate) to its child.
+
+---
+
+### Q157: What is `Opacity` vs `AnimatedOpacity`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+`Opacity` makes a child partially transparent. `AnimatedOpacity` animates the change in opacity automatically.
+
+---
+
+### Q158: What is `Visibility`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Whether to show or hide a child.
+
+---
+
+### Q159: What is `BoxDecoration`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+An immutable description of how to paint a box (background color, border, shadow, gradient, image). Used in `Container`.
+
+---
+
+### Q160: What is `Gradient`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+LinearGradient, RadialGradient, SweepGradient.
+
+---
+
+### Q161: What is `AssetImage` vs `NetworkImage`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **`AssetImage`**: Loads image from the app's assets bundle (local).
+- **`NetworkImage`**: Loads image from a URL.
+

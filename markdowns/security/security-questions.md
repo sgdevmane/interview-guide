@@ -1,6 +1,5 @@
 # Web Security Interview Questions
 
-## Table of Contents
 
 1. [What are the OWASP Top 10 security vulnerabilities?](#q1-what-are-the-owasp-top-10-security-vulnerabilities)
 2. [How do you implement secure authentication and authorization?](#q2-how-do-you-implement-secure-authentication-and-authorization)
@@ -12,7 +11,6 @@
 
 ---
 
-## Security Fundamentals
 
 ### Q1: What are the OWASP Top 10 security vulnerabilities?
 
@@ -1054,7 +1052,6 @@ This security guide provides comprehensive protection against XSS and other comm
 
 ---
 
-## Advanced Security Patterns
 
 ### Q4: How do you implement advanced authentication and authorization patterns?
 
@@ -8485,3 +8482,654 @@ class SecurityBestPractices {
 
 ---
 ```
+
+### Q8: What is Cross-Site Request Forgery (CSRF) and how do you prevent it?
+**Difficulty: Medium**
+
+**Answer:**
+CSRF is an attack that forces an end user to execute unwanted actions on a web application in which they are currently authenticated.
+Prevention:
+- **Anti-CSRF Tokens:** Include a unique, unpredictable token in hidden form fields or headers (e.g., `X-XSRF-TOKEN`). The server validates this token for every state-changing request.
+- **SameSite Cookie Attribute:** Set `SameSite=Strict` or `SameSite=Lax` on session cookies to prevent the browser from sending cookies with cross-site requests.
+
+### Q9: Explain the difference between Authentication and Authorization.
+**Difficulty: Easy**
+
+**Answer:**
+- **Authentication (AuthN):** Verifying *who* a user is (e.g., login with username/password, MFA). "Are you who you say you are?"
+- **Authorization (AuthZ):** Verifying *what* a user is allowed to do (e.g., permissions, roles). "Can you access this resource?"
+
+### Q10: What is Content Security Policy (CSP)?
+**Difficulty: Medium**
+
+**Answer:**
+CSP is an HTTP response header that allows site administrators to declare approved sources of content that browsers are allowed to load on that page. It effectively prevents XSS attacks by restricting where scripts, styles, and images can be loaded from.
+
+Example:
+```http
+Content-Security-Policy: default-src 'self'; script-src 'self' https://apis.google.com
+```
+
+### Q11: What is Cross-Origin Resource Sharing (CORS)?
+**Difficulty: Medium**
+
+**Answer:**
+CORS is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. By default, browsers restrict cross-origin HTTP requests initiated from scripts (Same-Origin Policy).
+
+### Q12: How does HTTPS work?
+**Difficulty: Medium**
+
+**Answer:**
+HTTPS (HTTP Secure) uses TLS (Transport Layer Security) to encrypt communications.
+1. **Handshake:** Client and server exchange "hello" messages, server sends its certificate (containing public key).
+2. **Verification:** Client verifies the certificate against trusted CAs.
+3. **Key Exchange:** Client generates a session key, encrypts it with server's public key, and sends it. Server decrypts it with private key.
+4. **Encrypted Communication:** Both parties use the symmetric session key to encrypt/decrypt data.
+
+### Q13: What is Hashing vs Encryption vs Encoding?
+**Difficulty: Easy**
+
+**Answer:**
+- **Encoding:** Reversible transformation of data formats (e.g., Base64). Not for security.
+- **Encryption:** Reversible transformation of data using a key (e.g., AES, RSA). Ensures confidentiality.
+- **Hashing:** One-way transformation of data into a fixed-size string (digest) (e.g., SHA-256, bcrypt). Used for password storage and integrity checks.
+
+### Q14: Why should you salt passwords?
+**Difficulty: Medium**
+
+**Answer:**
+Salting adds a unique, random string (salt) to each password before hashing. This prevents:
+- **Rainbow Table Attacks:** Attackers cannot use pre-computed tables of hashes.
+- **Identical Hashes:** Two users with the same password will have different hashes.
+
+### Q15: What is SQL Injection (SQLi) and how do you prevent it?
+**Difficulty: Medium**
+
+**Answer:**
+SQLi occurs when untrusted user input is concatenated directly into a SQL query, allowing an attacker to manipulate the query structure.
+Prevention:
+- **Prepared Statements (Parameterized Queries):** Separate code from data. The database treats input as data, not executable code.
+- **Input Validation:** Allow-list validation.
+- **ORM:** Most ORMs use parameterized queries by default.
+
+```sql
+-- Vulnerable
+SELECT * FROM users WHERE name = ' + userName + ';
+
+-- Secure (Java PreparedStatement)
+String query = "SELECT * FROM users WHERE name = ?";
+pstmt.setString(1, userName);
+```
+
+### Q16: What is JWT (JSON Web Token) and what are its pros/cons?
+**Difficulty: Medium**
+
+**Answer:**
+JWT is a compact, URL-safe means of representing claims to be transferred between two parties.
+Structure: `Header.Payload.Signature`.
+- **Pros:** Stateless (server doesn't need to store session), good for mobile/microservices.
+- **Cons:** Cannot be easily revoked (need short expiration + refresh tokens or blocklist), payload size can be large.
+
+### Q17: Where should you store JWTs on the frontend?
+**Difficulty: Medium**
+
+**Answer:**
+- **LocalStorage:** Vulnerable to XSS (scripts can read it). Easy to implement.
+- **HttpOnly Cookie:** Immune to XSS (scripts can't read it), but vulnerable to CSRF (need CSRF protection).
+**Best Practice:** HttpOnly Cookie is generally safer for web apps.
+
+### Q18: What is Clickjacking and how do you prevent it?
+**Difficulty: Medium**
+
+**Answer:**
+Clickjacking occurs when an attacker uses transparent iframes to trick a user into clicking on a button or link on another page when they intended to click on the top-level page.
+Prevention:
+- **X-Frame-Options Header:** `DENY` or `SAMEORIGIN`.
+- **CSP:** `frame-ancestors` directive.
+
+### Q19: What is Man-in-the-Middle (MitM) attack?
+**Difficulty: Easy**
+
+**Answer:**
+An attack where the attacker secretly relays and possibly alters the communications between two parties who believe they are directly communicating with each other. Prevention involves using HTTPS/TLS and verifying certificates.
+
+### Q20: What is HTTP Strict Transport Security (HSTS)?
+**Difficulty: Advanced**
+
+**Answer:**
+HSTS is a web security policy mechanism that forces web browsers to interact with websites only using HTTPS connections (and never HTTP). It prevents protocol downgrade attacks and cookie hijacking.
+Header: `Strict-Transport-Security: max-age=31536000; includeSubDomains`.
+
+### Q21: What is OAuth 2.0?
+**Difficulty: Advanced**
+
+**Answer:**
+OAuth 2.0 is an authorization framework that enables applications to obtain limited access to user accounts on an HTTP service (like Google, Facebook, GitHub). It delegates authentication to the service provider.
+Roles: Resource Owner (User), Client (App), Resource Server (API), Authorization Server.
+
+### Q22: What is OpenID Connect (OIDC)?
+**Difficulty: Advanced**
+
+**Answer:**
+OIDC is an identity layer on top of the OAuth 2.0 protocol. While OAuth 2.0 is for authorization, OIDC is for authentication. It allows clients to verify the identity of the End-User based on the authentication performed by an Authorization Server. It uses ID Tokens (JWTs).
+
+### Q23: What is Server-Side Request Forgery (SSRF)?
+**Difficulty: Advanced**
+
+**Answer:**
+SSRF is a vulnerability where an attacker induces the server-side application to make requests to an unintended location. This can be used to access internal services behind a firewall (e.g., cloud metadata services like AWS `169.254.169.254`).
+
+### Q24: What is XML External Entity (XXE) attack?
+**Difficulty: Advanced**
+
+**Answer:**
+XXE is an attack against an application that parses XML input. If the XML parser is weakly configured, it can process external entities defined in the XML, leading to disclosure of confidential data, denial of service, or SSRF.
+Prevention: Disable DTDs (Document Type Definitions) and external entity processing in the XML parser.
+
+### Q25: What is a Replay Attack?
+**Difficulty: Medium**
+
+**Answer:**
+A replay attack occurs when valid data transmission is maliciously or fraudulently repeated or delayed.
+Prevention: Use timestamps, nonces (number used once), or session tokens that expire after use.
+
+### Q26: What is DOM-based XSS?
+**Difficulty: Medium**
+
+**Answer:**
+DOM-based XSS occurs when an application contains client-side JavaScript that processes data from an untrusted source in an unsafe way, usually by writing the data to the DOM.
+Example:
+```javascript
+// Vulnerable
+document.getElementById('content').innerHTML = location.hash.substring(1);
+```
+
+### Q27: What is "Security through Obscurity"?
+**Difficulty: Easy**
+
+**Answer:**
+Relying on secrecy of design or implementation as the main method of providing security. It is generally considered bad practice because once the secret is discovered, the security is compromised.
+
+### Q28: What is the Principle of Least Privilege?
+**Difficulty: Easy**
+
+**Answer:**
+A security concept in which a user, program, or process is given only those privileges which are essential to perform its intended function.
+
+### Q29: What is a Web Application Firewall (WAF)?
+**Difficulty: Medium**
+
+**Answer:**
+A WAF protects web applications by filtering and monitoring HTTP traffic between a web application and the Internet. It typically protects against attacks such as CSRF, XSS, SQL injection, and others.
+
+### Q30: What is 2FA/MFA and why is it important?
+**Difficulty: Easy**
+
+**Answer:**
+Two-Factor Authentication (2FA) or Multi-Factor Authentication (MFA) requires the user to provide two or more verification factors to gain access.
+Factors:
+1. Something you know (Password).
+2. Something you have (Phone, Hardware Key).
+3. Something you are (Biometrics).
+It significantly reduces the risk of compromised passwords.
+
+### Q31: What is a Denial of Service (DoS) vs Distributed Denial of Service (DDoS)?
+**Difficulty: Easy**
+
+**Answer:**
+- **DoS:** An attack meant to shut down a machine or network, making it inaccessible to its intended users, usually from a single source.
+- **DDoS:** Uses multiple compromised systems (botnet) to target a single system, making it much harder to block.
+
+### Q32: How do you secure an API?
+**Difficulty: Medium**
+
+**Answer:**
+- Use HTTPS.
+- Use Authentication (API Keys, OAuth, JWT).
+- Implement Rate Limiting and Throttling to prevent abuse.
+- Validate all input.
+- Use proper HTTP methods (GET, POST, PUT, DELETE).
+- Remove sensitive info from error messages.
+
+### Q33: What is Directory Traversal (Path Traversal)?
+**Difficulty: Medium**
+
+**Answer:**
+An attack that aims to access files and directories that are stored outside the web root folder.
+Example: `http://example.com/get-file?filename=../../../../etc/passwd`
+Prevention: Validate filenames, use `basename()`, run with restricted permissions.
+
+### Q34: What are Insecure Direct Object References (IDOR)?
+**Difficulty: Medium**
+
+**Answer:**
+Occurs when an application provides direct access to objects based on user-supplied input.
+Example: `http://example.com/account?id=1234`. If I change `1234` to `1235` and see another user's account, that's IDOR.
+Prevention: Access control checks before returning data.
+
+### Q35: What is Deserialization Vulnerability?
+**Difficulty: Advanced**
+
+**Answer:**
+Insecure deserialization occurs when untrusted data is used to abuse the logic of an application, inflict a DoS attack, or even execute arbitrary code upon it being deserialized.
+Prevention: Do not accept serialized objects from untrusted sources. Use serialization formats like JSON instead of native serialization (e.g., Java Serialization, Python Pickle) where possible.
+
+### Q36: What are Security Headers?
+**Difficulty: Medium**
+
+**Answer:**
+HTTP headers that tell the browser how to behave to prevent attacks.
+- `Content-Security-Policy`
+- `X-Content-Type-Options: nosniff` (Prevents MIME sniffing)
+- `X-Frame-Options`
+- `Strict-Transport-Security`
+- `Referrer-Policy`
+- `Permissions-Policy`
+
+### Q37: What is "Input Validation" vs "Output Encoding"?
+**Difficulty: Medium**
+
+**Answer:**
+- **Input Validation:** Checking if the input meets the expected format (e.g., is it an email?). Performed when data is received.
+- **Output Encoding:** Converting data into a safe format for the context where it will be displayed (e.g., converting `<` to `&lt;` for HTML). Prevents XSS.
+
+### Q38: What is a Zero Day Vulnerability?
+**Difficulty: Easy**
+
+**Answer:**
+A vulnerability in software that is unknown to the vendor or has no patch available. The term "zero day" refers to the fact that the developers have had zero days to fix it.
+
+### Q39: What is "Defense in Depth"?
+**Difficulty: Easy**
+
+**Answer:**
+A layered security approach. If one layer fails, others stand in the way.
+Example: WAF -> Load Balancer -> App Authentication -> Database Permissions -> Encrypted Storage.
+
+### Q40: What is a Honeypot?
+**Difficulty: Medium**
+
+**Answer:**
+A decoy computer system or network trap that is set up to attract potential attackers. It allows security teams to monitor attack behavior and distract attackers from real assets.
+
+### Q41: What is Typosquatting (URL Hijacking)?
+**Difficulty: Easy**
+
+**Answer:**
+A form of cybersquatting which relies on mistakes such as typographical errors made by Internet users when inputting a website address into a web browser (e.g., `gogle.com` instead of `google.com`).
+
+### Q42: What is Dependency Confusion?
+**Difficulty: Advanced**
+
+**Answer:**
+A supply chain attack where an attacker registers a package with the same name as an internal private package on a public repository (npm, PyPI) but with a higher version number. Build systems might pull the malicious public package instead of the private one.
+
+### Q43: What is Secret Management?
+**Difficulty: Medium**
+
+**Answer:**
+The practice of securely storing and accessing sensitive information like API keys, passwords, and certificates. Tools like HashiCorp Vault, AWS Secrets Manager, or Kubernetes Secrets should be used instead of hardcoding secrets in code or env files.
+
+### Q44: What is WebAuthn?
+**Difficulty: Advanced**
+
+**Answer:**
+A web standard for passwordless authentication. It allows users to log in using biometrics, mobile devices, or FIDO security keys. It uses public-key cryptography and is resistant to phishing.
+
+### Q45: What is a Buffer Overflow?
+**Difficulty: Medium**
+
+**Answer:**
+An anomaly where a program, while writing data to a buffer, overruns the buffer's boundary and overwrites adjacent memory locations. Can lead to crashes or code execution. Less common in managed languages (Java, JS, Python) but critical in C/C++.
+
+### Q46: What is a Timing Attack?
+**Difficulty: Advanced**
+
+**Answer:**
+A side-channel attack where the attacker attempts to compromise a cryptosystem by analyzing the time taken to execute cryptographic algorithms.
+Prevention: Use constant-time comparison functions (e.g., `crypto.timingSafeEqual` in Node.js).
+
+### Q47: What is Subresource Integrity (SRI)?
+**Difficulty: Medium**
+
+**Answer:**
+A security feature that enables browsers to verify that resources they fetch (for example, from a CDN) are delivered without unexpected manipulation.
+```html
+<script src="https://example.com/example-framework.js"
+        integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
+        crossorigin="anonymous"></script>
+```
+
+### Q48: What is "Salt" and "Pepper" in password hashing?
+**Difficulty: Medium**
+
+**Answer:**
+- **Salt:** Random data stored with the hash in the DB. Unique per user.
+- **Pepper:** A secret key stored separately from the DB (e.g., in env vars or HSM). Added to the password before hashing. If the DB is stolen, hashes are still secure without the pepper.
+
+### Q49: What is Pen Testing (Penetration Testing)?
+**Difficulty: Easy**
+
+**Answer:**
+A simulated cyberattack against your computer system to check for exploitable vulnerabilities. Can be White Box (full knowledge), Black Box (no knowledge), or Gray Box.
+
+### Q50: What is SAST vs DAST?
+**Difficulty: Medium**
+
+**Answer:**
+- **SAST (Static Application Security Testing):** Analyzes source code for vulnerabilities without running the app. (White box).
+- **DAST (Dynamic Application Security Testing):** Analyzes the running application from the outside. (Black box).
+
+### Q51: What is Ransomware?
+**Difficulty: Easy**
+
+**Answer:**
+Malware that encrypts the victim's data and demands payment (ransom) for the decryption key.
+
+### Q52: What is Phishing?
+**Difficulty: Easy**
+
+**Answer:**
+A social engineering attack where attackers deceive users into revealing sensitive information or installing malware, often via email impersonating a trusted entity.
+
+### Q53: What is DevSecOps?
+**Difficulty: Medium**
+
+**Answer:**
+Integrating security practices into the DevOps process. "Shifting left" security—addressing security early in the development lifecycle rather than at the end.
+
+### Q54: What is the difference between HTTP GET and POST regarding security?
+**Difficulty: Easy**
+
+**Answer:**
+GET parameters are included in the URL, which means they are logged in browser history, proxy logs, and server access logs. Sensitive data (passwords) should NEVER be sent via GET. POST sends data in the body.
+
+### Q55: What is "Credential Stuffing"?
+**Difficulty: Medium**
+
+**Answer:**
+A cyberattack where stolen account credentials (username/password pairs) from one breach are automatically injected into other websites to gain access to user accounts. Relies on password reuse.
+
+### Q56: What is a Logic Bomb?
+**Difficulty: Easy**
+
+**Answer:**
+A piece of code intentionally inserted into a software system that will set off a malicious function when specified conditions are met (e.g., a specific date).
+
+### Q57: What is a Rootkit?
+**Difficulty: Medium**
+
+**Answer:**
+A collection of computer software, typically malicious, designed to enable access to a computer or an area of its software that is not otherwise allowed (for example, to an unauthorized user) and often masks its existence or the existence of other software.
+
+### Q58: What is GDPR (General Data Protection Regulation)?
+**Difficulty: Easy**
+
+**Answer:**
+A regulation in EU law on data protection and privacy. Key concepts: Right to be forgotten, data portability, consent, data minimization, privacy by design.
+
+### Q59: What is PII (Personally Identifiable Information)?
+**Difficulty: Easy**
+
+**Answer:**
+Any representation of information that permits the identity of an individual to whom the information applies to be reasonably inferred by either direct or indirect means (Name, SSN, Email, IP address, etc.).
+
+### Q60: What is "Privacy by Design"?
+**Difficulty: Medium**
+
+**Answer:**
+An approach to systems engineering which takes privacy into account throughout the whole engineering process, not just as an add-on.
+
+### Q61: What is "Secure by Default"?
+**Difficulty: Medium**
+
+**Answer:**
+The concept that software should be secure "out of the box" with the default configuration. Users shouldn't have to be security experts to make the product safe.
+
+### Q62: What is "Certificate Pinning" (SSL Pinning)?
+**Difficulty: Advanced**
+
+**Answer:**
+A technique used in mobile applications to prevent MitM attacks. The app is hardcoded to trust only a specific certificate or public key, rejecting any other certificate even if it is issued by a trusted CA.
+
+### Q63: What is a "Side-Channel Attack"?
+**Difficulty: Advanced**
+
+**Answer:**
+An attack based on information gained from the implementation of a computer system, rather than weaknesses in the implemented algorithm itself (e.g., power consumption, electromagnetic leaks, sound, timing).
+
+### Q64: What is the "Same-Origin Policy" (SOP)?
+**Difficulty: Medium**
+
+**Answer:**
+A critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin. It helps isolate potentially malicious documents, reducing possible attack vectors.
+
+### Q65: What is "Session Fixation"?
+**Difficulty: Medium**
+
+**Answer:**
+An attack where the attacker sets a user's session ID to one known to the attacker. When the user logs in, the session ID remains the same, allowing the attacker to hijack the session.
+Prevention: Regenerate session ID upon login.
+
+### Q66: What is a "Null Byte Injection"?
+**Difficulty: Advanced**
+
+**Answer:**
+An exploit technique used to bypass sanity checking filters in web infrastructure by adding a null byte character (`%00`) to a URL or input. Older languages (C-based) interpret this as a string terminator.
+
+### Q67: What is "Fuzzing" (Fuzz Testing)?
+**Difficulty: Medium**
+
+**Answer:**
+A quality assurance technique used to discover coding errors and security loopholes in software, operating systems, or networks by inputting massive amounts of random data, called fuzz, to the system in an attempt to make it crash.
+
+### Q68: What is the difference between Symmetric and Asymmetric encryption?
+**Difficulty: Easy**
+
+**Answer:**
+- **Symmetric:** Uses the same key for encryption and decryption (faster, key exchange is risky). E.g., AES.
+- **Asymmetric:** Uses a pair of keys (public and private). Public encrypts, private decrypts (slower, safer key exchange). E.g., RSA, ECC.
+
+### Q69: What is Perfect Forward Secrecy (PFS)?
+**Difficulty: Advanced**
+
+**Answer:**
+A feature of specific key agreement protocols that gives assurances that your session keys will not be compromised even if the private key of the server is compromised in the future. It generates a unique session key for every session.
+
+### Q70: What is a "Bastion Host" (Jump Box)?
+**Difficulty: Medium**
+
+**Answer:**
+A special-purpose computer on a network specifically designed and configured to withstand attacks. It is the single point of entry to access a private network from the internet (e.g., SSH access to private subnets).
+
+### Q71: What is "Shoulder Surfing"?
+**Difficulty: Easy**
+
+**Answer:**
+A direct observation technique, such as looking over someone's shoulder, to get information (passwords, PINs).
+
+### Q72: What is "Social Engineering"?
+**Difficulty: Easy**
+
+**Answer:**
+The psychological manipulation of people into performing actions or divulging confidential information. It relies on human error rather than software vulnerabilities.
+
+### Q73: What is "Whaling"?
+**Difficulty: Easy**
+
+**Answer:**
+A specific form of phishing that's targeted at high-profile business executives and managers (the "big fish").
+
+### Q74: What is "Vishing"?
+**Difficulty: Easy**
+
+**Answer:**
+Voice Phishing. Using telephone systems to steal confidential information.
+
+### Q75: What is "Smishing"?
+**Difficulty: Easy**
+
+**Answer:**
+SMS Phishing. Using text messages to trick users.
+
+### Q76: What is a "Dictionary Attack"?
+**Difficulty: Easy**
+
+**Answer:**
+An attempted illegal entry to a computer system that uses a dictionary headword list to generate possible passwords.
+
+### Q77: What is "Brute Force Attack"?
+**Difficulty: Easy**
+
+**Answer:**
+A trial and error method used to obtain information such as a user password or personal identification number (PIN). It tries every possible combination.
+
+### Q78: What is "Keylogging"?
+**Difficulty: Easy**
+
+**Answer:**
+The action of recording (logging) the keys struck on a keyboard, typically covertly, so that the person using the keyboard is unaware that their actions are being monitored.
+
+### Q79: What is a "Botnet"?
+**Difficulty: Easy**
+
+**Answer:**
+A network of private computers infected with malicious software and controlled as a group without the owners' knowledge, often used to send spam or launch DDoS attacks.
+
+### Q80: What is "Cryptojacking"?
+**Difficulty: Medium**
+
+**Answer:**
+The unauthorized use of someone else’s computer to mine cryptocurrency.
+
+### Q81: What is the "CIA Triad"?
+**Difficulty: Easy**
+
+**Answer:**
+A model designed to guide policies for information security within an organization.
+- **Confidentiality:** Data is accessed only by authorized parties.
+- **Integrity:** Data is reliable and accurate.
+- **Availability:** Data is accessible when needed.
+
+### Q82: What is "Non-Repudiation"?
+**Difficulty: Medium**
+
+**Answer:**
+Assurance that the sender of information is provided with proof of delivery and the recipient is provided with proof of the sender's identity, so neither can later deny having processed the information. Digital Signatures provide this.
+
+### Q83: What is "Data Masking"?
+**Difficulty: Medium**
+
+**Answer:**
+The process of hiding original data with modified content (characters or other data) to protect sensitive information.
+
+### Q84: What is "Tokenization" in payments?
+**Difficulty: Medium**
+
+**Answer:**
+The process of replacing sensitive data (like credit card numbers) with unique identification symbols (tokens) that retain all the essential information about the data without compromising its security.
+
+### Q85: What is PCI-DSS?
+**Difficulty: Medium**
+
+**Answer:**
+Payment Card Industry Data Security Standard. A set of security standards designed to ensure that all companies that accept, process, store or transmit credit card information maintain a secure environment.
+
+### Q86: What is "Air Gapping"?
+**Difficulty: Medium**
+
+**Answer:**
+A network security measure employed on one or more computers to ensure that a secure computer network is physically isolated from unsecured networks, such as the public Internet or an unsecured local area network.
+
+### Q87: What is "Shadow IT"?
+**Difficulty: Medium**
+
+**Answer:**
+Information technology (IT) systems built and used within organizations without explicit approval, known to the IT department. It poses security risks due to lack of oversight.
+
+### Q88: What is "Bring Your Own Device" (BYOD) risk?
+**Difficulty: Easy**
+
+**Answer:**
+Employees using personal devices for work. Risks include data leakage, lost/stolen devices, and malware from personal use affecting corporate networks.
+
+### Q89: What is "Endpoint Security"?
+**Difficulty: Medium**
+
+**Answer:**
+The practice of securing endpoints or entry points of end-user devices such as desktops, laptops, and mobile devices from being exploited by malicious actors and campaigns.
+
+### Q90: What is "Network Segmentation"?
+**Difficulty: Medium**
+
+**Answer:**
+Splitting a computer network into smaller parts (segments/subnets). It improves security by limiting lateral movement of attackers and improving performance.
+
+### Q91: What is a "Jump Server"?
+**Difficulty: Medium**
+
+**Answer:**
+(Same as Bastion Host). A hardened server used to access and manage devices in a separate security zone.
+
+### Q92: What is "Port Scanning"?
+**Difficulty: Easy**
+
+**Answer:**
+A method used by attackers (or admins) to send packets to specific ports on a host and analyze responses to identify open ports and services running.
+
+### Q93: What is "Packet Sniffing"?
+**Difficulty: Medium**
+
+**Answer:**
+The practice of gathering, collecting, and logging some or all packets that pass through a computer network.
+
+### Q94: What is "Spoofing"?
+**Difficulty: Easy**
+
+**Answer:**
+A situation in which a person or program successfully identifies as another by falsifying data (IP spoofing, Email spoofing, DNS spoofing).
+
+### Q95: What is "Blue Team" vs "Red Team"?
+**Difficulty: Easy**
+
+**Answer:**
+- **Red Team:** Attackers (Ethical Hackers). They try to break in.
+- **Blue Team:** Defenders (Security Ops). They try to detect and block the Red Team.
+- **Purple Team:** Collaboration between Red and Blue to maximize learning.
+
+### Q96: What is "Threat Modeling"?
+**Difficulty: Medium**
+
+**Answer:**
+A structured approach for identifying and prioritizing potential threats to a system, and determining the value that potential mitigations would have in reducing or neutralizing those threats. (e.g., STRIDE model).
+
+### Q97: What is the STRIDE model?
+**Difficulty: Medium**
+
+**Answer:**
+A threat modeling methodology:
+- **S**poofing
+- **T**ampering
+- **R**epudiation
+- **I**nformation Disclosure
+- **D**enial of Service
+- **E**levation of Privilege
+
+### Q98: What is "Form Jacking"?
+**Difficulty: Medium**
+
+**Answer:**
+A type of cyber attack where hackers inject malicious JavaScript code into a website's payment form to steal credit card details. (e.g., Magecart attacks).
+
+### Q99: What is "Click Farm"?
+**Difficulty: Easy**
+
+**Answer:**
+An undercover operation in which people are paid to click on links or ads to generate fraudulent traffic or likes.
+
+### Q100: What is "Dark Web"?
+**Difficulty: Easy**
+
+**Answer:**
+A part of the internet that isn't indexed by search engines and requires specific software (like Tor) to access. Often associated with illegal activities, but also used for privacy and avoiding censorship.
+
