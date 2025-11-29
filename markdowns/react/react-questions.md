@@ -76,6 +76,33 @@
 73. [Q73: What is `React.memo()` and how is it different from `useMemo()`?](#q73-what-is-reactmemo-and-how-is-it-different-from-usememo)
 74. [Q74: What is the difference between `useMemo` and `useCallback`?](#q74-what-is-the-difference-between-usememo-and-usecallback)
 75. [Q75: What are custom hooks, and why would you create one?](#q75-what-are-custom-hooks-and-why-would-you-create-one)
+76. [Q76: What is the `useId` hook?](#q76-what-is-the-useid-hook)
+77. [Q77: What is the `useTransition` hook?](#q77-what-is-the-usetransition-hook)
+78. [Q78: What is the `useDeferredValue` hook?](#q78-what-is-the-usedeferredvalue-hook)
+79. [Q79: What is the `useSyncExternalStore` hook?](#q79-what-is-the-usesyncexternalstore-hook)
+80. [Q80: What is the `useInsertionEffect` hook?](#q80-what-is-the-useinsertioneffect-hook)
+81. [Q81: What are React Server Actions?](#q81-what-are-react-server-actions)
+82. [Q82: What is React Suspense for Data Fetching?](#q82-what-is-react-suspense-for-data-fetching)
+83. [Q83: How do you optimize Context API performance?](#q83-how-do-you-optimize-context-api-performance)
+84. [Q84: What is the React Profiler API?](#q84-what-is-the-react-profiler-api)
+85. [Q85: What is React Fiber?](#q85-what-is-react-fiber)
+86. [Q86: What are the new features in React 19?](#q86-what-are-the-new-features-in-react-19)
+87. [Q87: What is the React Compiler (React Forget)?](#q87-what-is-the-react-compiler-react-forget)
+88. [Q88: What is the `use` hook in React 19?](#q88-what-is-the-use-hook-in-react-19)
+89. [Q89: How do you handle form submission with Server Actions?](#q89-how-do-you-handle-form-submission-with-server-actions)
+90. [Q90: What is the difference between `Tainted` and `Untainted` data in Server Components?](#q90-what-is-the-difference-between-tainted-and-untainted-data-in-server-components)
+91. [Q91: How do you implement a custom `ErrorBoundary`?](#q91-how-do-you-implement-a-custom-errorboundary)
+92. [Q92: What is the difference between `remounting` and `re-rendering`?](#q92-what-is-the-difference-between-remounting-and-re-rendering)
+93. [Q93: How do you debug React performance issues?](#q93-how-do-you-debug-react-performance-issues)
+94. [Q94: What is the "Flash of Unstyled Content" (FOUC) in React SSR and how to fix it?](#q94-what-is-the-flash-of-unstyled-content-fouc-in-react-ssr-and-how-to-fix-it)
+95. [Q95: How do you handle metadata (SEO) in React?](#q95-how-do-you-handle-metadata-seo-in-react)
+96. [Q96: What is the difference between `Next.js` and `Create React App` (CRA)?](#q96-what-is-the-difference-between-nextjs-and-create-react-app-cra)
+97. [Q97: How do you implement Infinite Scroll in React?](#q97-how-do-you-implement-infinite-scroll-in-react)
+98. [Q98: What is the "key" prop and why is index a bad key?](#q98-what-is-the-key-prop-and-why-is-index-a-bad-key)
+99. [Q99: How do you prevent re-renders in React Context consumers?](#q99-how-do-you-prevent-re-renders-in-react-context-consumers)
+100. [Q100: What is the future of React?](#q100-what-is-the-future-of-react)
+  
+  ---
 
 ---
 
@@ -6647,6 +6674,288 @@ function ProductList({ products, searchTerm, sortBy }) {
     </div>
   );
 }
+
+// Client Component for interactivity
+function InteractiveButton({ userId }) {
+  return <button onClick={() => console.log(userId)}>Interact</button>;
+}
+
+export default UserProfile;
+```
+
+### Q76: What is the `useId` hook?
+**Difficulty: Medium**
+
+**Answer:**
+`useId` is a hook introduced in React 18 to generate unique IDs that are stable across the server and client. This is crucial for accessibility (linking labels to inputs) in SSR applications to prevent hydration mismatches.
+
+```jsx
+const id = useId();
+return (
+  <>
+    <label htmlFor={id}>Password:</label>
+    <input id={id} type="password" />
+  </>
+);
+```
+
+### Q77: What is the `useTransition` hook?
+**Difficulty: Advanced**
+
+**Answer:**
+`useTransition` allows you to mark a state update as a "transition" (low priority). This tells React that the update can be interrupted by more urgent updates (like typing). It prevents the UI from freezing during expensive renders.
+
+```jsx
+const [isPending, startTransition] = useTransition();
+
+const handleChange = (e) => {
+  const value = e.target.value;
+  // Urgent: Update input field immediately
+  setInputValue(value);
+  
+  // Low Priority: Filter list based on input
+  startTransition(() => {
+    setSearchQuery(value);
+  });
+};
+```
+
+### Q78: What is the `useDeferredValue` hook?
+**Difficulty: Advanced**
+
+**Answer:**
+`useDeferredValue` accepts a value and returns a new copy of the value that will defer to more urgent updates. It is similar to `useTransition` but for values instead of state setters. Useful for debouncing or deferring expensive renders based on a fast-changing value.
+
+```jsx
+const deferredQuery = useDeferredValue(query);
+// The list will render with the old query value while the new one is processed
+return <SlowList query={deferredQuery} />;
+```
+
+### Q79: What is the `useSyncExternalStore` hook?
+**Difficulty: Advanced**
+
+**Answer:**
+`useSyncExternalStore` is a hook intended for library authors (like Redux or Zustand) to subscribe to external stores. It ensures that the store updates are synchronous and consistent, preventing tearing issues in concurrent rendering.
+
+### Q80: What is the `useInsertionEffect` hook?
+**Difficulty: Advanced**
+
+**Answer:**
+`useInsertionEffect` is a hook intended for CSS-in-JS libraries. It runs synchronously before DOM mutations, allowing libraries to inject `<style>` tags before the layout is calculated, preventing performance issues.
+
+### Q81: What are React Server Actions?
+**Difficulty: Advanced**
+
+**Answer:**
+Server Actions (React 19 / Next.js) allow you to write functions that run on the server but can be called directly from Client Components. They abstract away the API layer (fetch calls), allowing you to mutate data directly.
+
+```jsx
+// Server Component
+async function createPost(formData) {
+  'use server';
+  await db.post.create({ content: formData.get('content') });
+}
+
+// Client Component
+<form action={createPost}>
+  <input name="content" />
+  <button type="submit">Post</button>
+</form>
+```
+
+### Q82: What is React Suspense for Data Fetching?
+**Difficulty: Advanced**
+
+**Answer:**
+Suspense allows you to declaratively "wait" for asynchronous operations (like data fetching) to complete before rendering a component. It displays a fallback UI (like a spinner) while waiting.
+
+```jsx
+<Suspense fallback={<Spinner />}>
+  <UserProfile />
+</Suspense>
+```
+
+### Q83: How do you optimize Context API performance?
+**Difficulty: Advanced**
+
+**Answer:**
+Context can cause unnecessary re-renders if the value object is recreated on every render.
+1.  **Split Context**: Separate state and dispatch (e.g., `ThemeContext` and `ThemeDispatchContext`).
+2.  **Memoize Value**: Use `useMemo` to memoize the context value.
+3.  **Children Prop**: Pass children as a prop to the Provider component so they don't re-render when the Provider's parent re-renders.
+
+### Q84: What is the React Profiler API?
+**Difficulty: Advanced**
+
+**Answer:**
+The Profiler API measures how often a React application renders and what the "cost" of rendering is. It helps identify slow parts of an application.
+
+```jsx
+<Profiler id="Navigation" onRender={callback}>
+  <Navigation />
+</Profiler>
+```
+
+### Q85: What is React Fiber?
+**Difficulty: Advanced**
+
+**Answer:**
+React Fiber is the reimplementation of React's core reconciliation algorithm (introduced in v16). Its main goal is to enable **incremental rendering**: the ability to split rendering work into chunks and spread it out over multiple frames, allowing React to pause and resume work to keep the UI responsive.
+
+### Q86: What are the new features in React 19?
+**Difficulty: Medium**
+
+**Answer:**
+Key features expected in React 19 include:
+1.  **React Compiler (React Forget)**: Auto-memoization.
+2.  **Actions**: First-class support for data mutations.
+3.  **`use` Hook**: For reading promises and context.
+4.  **Directives**: `'use client'` and `'use server'`.
+5.  **Document Metadata**: Built-in support for `<title>`, `<meta>`.
+
+### Q87: What is the React Compiler (React Forget)?
+**Difficulty: Advanced**
+
+**Answer:**
+The React Compiler is an automatic optimization tool that automatically memoizes components and hooks. It eliminates the need for manual `useMemo` and `useCallback`, making React code simpler and more performant by default.
+
+### Q88: What is the `use` hook in React 19?
+**Difficulty: Medium**
+
+**Answer:**
+The `use` API allows you to read the value of a resource (like a Promise or Context) inside a component or hook. Unlike `useContext`, `use` can be called conditionally (inside `if` statements or loops).
+
+```jsx
+const data = use(fetchDataPromise);
+```
+
+### Q89: How do you handle form submission with Server Actions?
+**Difficulty: Medium**
+
+**Answer:**
+You can pass a Server Action function to the `action` prop of a `<form>`.
+For more complex cases (validation, pending state), use the `useFormStatus` and `useFormState` hooks.
+
+```jsx
+const { pending } = useFormStatus();
+return <button disabled={pending}>Submit</button>;
+```
+
+### Q90: What is the difference between `Tainted` and `Untainted` data in Server Components?
+**Difficulty: Advanced**
+
+**Answer:**
+React provides experimental APIs (`experimental_taintObjectReference`, `experimental_taintUniqueValue`) to mark sensitive data (like API keys or user tokens) as "tainted". If you accidentally try to pass this tainted data to a Client Component, React will throw an error at build time or runtime, preventing security leaks.
+
+### Q91: How do you implement a custom `ErrorBoundary`?
+**Difficulty: Medium**
+
+**Answer:**
+Error Boundaries must be Class Components that implement `static getDerivedStateFromError()` and/or `componentDidCatch()`.
+
+```jsx
+class ErrorBoundary extends React.Component {
+  state = { hasError: false };
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    logErrorToService(error, info);
+  }
+
+  render() {
+    if (this.state.hasError) return <h1>Something went wrong.</h1>;
+    return this.props.children;
+  }
+}
+```
+
+### Q92: What is the difference between `remounting` and `re-rendering`?
+**Difficulty: Easy**
+
+**Answer:**
+*   **Re-rendering**: React calls the component function again, diffs the result, and updates the DOM if needed. State is preserved.
+*   **Remounting**: React destroys the component instance (and its DOM nodes) and creates a new one from scratch. State is reset. This happens when a component's `key` changes or its position in the tree changes.
+
+### Q93: How do you debug React performance issues?
+**Difficulty: Medium**
+
+**Answer:**
+1.  **React DevTools Profiler**: Visualize renders and identify why a component rendered.
+2.  **Chrome Performance Tab**: Analyze JS execution time.
+3.  **Highlight Updates**: Enable "Highlight updates when components render" in DevTools.
+4.  **Why Did You Render**: Use a library like `@welldone-software/why-did-you-render` to log unnecessary re-renders.
+
+### Q94: What is the "Flash of Unstyled Content" (FOUC) in React SSR and how to fix it?
+**Difficulty: Medium**
+
+**Answer:**
+FOUC happens when the HTML is rendered before the CSS is loaded.
+**Fix**:
+*   **CSS-in-JS**: Use a registry to collect styles during server rendering and inject them into the `<head>` of the HTML response.
+*   **Tailwind/CSS Modules**: Ensure critical CSS is inlined or loaded in the `<head>`.
+
+### Q95: How do you handle metadata (SEO) in React?
+**Difficulty: Easy**
+
+**Answer:**
+Traditionally, use libraries like `react-helmet`.
+In modern frameworks (Next.js) or React 19, use built-in metadata support:
+
+```jsx
+export const metadata = {
+  title: 'My Page',
+  description: 'Page description',
+};
+```
+
+### Q96: What is the difference between `Next.js` and `Create React App` (CRA)?
+**Difficulty: Easy**
+
+**Answer:**
+*   **CRA**: Client-side rendering (CSR) only. Good for SPAs behind a login. Deprecated/Legacy.
+*   **Next.js**: Full-stack framework. Supports SSR, SSG, ISR, Server Components, API routes, and automatic routing. Recommended for most new projects.
+
+### Q97: How do you implement Infinite Scroll in React?
+**Difficulty: Medium**
+
+**Answer:**
+Use the `IntersectionObserver` API. Create a "sentinel" element at the bottom of the list. When it comes into view, fetch the next page of data.
+Libraries like `react-intersection-observer` or `tanstack-query` (infinite query) simplify this.
+
+### Q98: What is the "key" prop and why is index a bad key?
+**Difficulty: Easy**
+
+**Answer:**
+The `key` prop helps React identify which items have changed, are added, or are removed.
+Using `index` as a key is bad if the list can be reordered, filtered, or items inserted/removed from the top. It can cause:
+1.  Performance issues (unnecessary re-renders).
+2.  Bugs with component state (state linked to index 0 stays at index 0 even if the item changed).
+Always use a unique ID (e.g., `item.id`).
+
+### Q99: How do you prevent re-renders in React Context consumers?
+**Difficulty: Advanced**
+
+**Answer:**
+If a Context Provider's value changes, ALL consumers re-render.
+To prevent this:
+1.  Split the context into smaller contexts.
+2.  Use `useMemo` for the value.
+3.  Use a state management library (Zustand, Redux) that supports **selectors**, allowing components to subscribe only to a slice of the state.
+
+### Q100: What is the future of React?
+**Difficulty: Easy**
+
+**Answer:**
+The future of React is **Server-First**.
+1.  **Server Components** as the default.
+2.  **Full-stack capabilities** integrated into the framework.
+3.  **AI-assisted coding** (React Compiler).
+4.  **Better Performance** via automatic optimizations and smaller bundles (less client-side JS).
+
 ```
 
 **3. useCallback - Function Memoization:**

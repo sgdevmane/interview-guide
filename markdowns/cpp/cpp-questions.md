@@ -42,6 +42,68 @@
     - [Q37: What is the difference between `const` and `constexpr`?](#q37-what-is-the-difference-between-const-and-constexpr)
     - [Q38: What is copy elision and Return Value Optimization (RVO)?](#q38-what-is-copy-elision-and-return-value-optimization-rvo)
     - [Q39: What are C++ Atomics and why are they important?](#q39-what-are-c-atomics-and-why-are-they-important)
+    - [Q40: What are Ranges in C++20?](#q40-what-are-ranges-in-c20)
+    - [Q41: What is `std::span` (C++20)?](#q41-what-is-stdspan-c20)
+    - [Q42: What is the difference between `consteval` and `constexpr`?](#q42-what-is-the-difference-between-consteval-and-constexpr)
+    - [Q43: What is `constinit` (C++20)?](#q43-what-is-constinit-c20)
+    - [Q44: What is `std::jthread` (C++20)?](#q44-what-is-stdjthread-c20)
+    - [Q45: How do you create a thread in C++?](#q45-how-do-you-create-a-thread-in-c)
+    - [Q46: What is a Mutex and how do you use it?](#q46-what-is-a-mutex-and-how-do-you-use-it)
+    - [Q47: What is a Condition Variable?](#q47-what-is-a-condition-variable)
+    - [Q48: What is `std::future` and `std::promise`?](#q48-what-is-stdfuture-and-stdpromise)
+    - [Q49: What is `std::async`?](#q49-what-is-stdasync)
+    - [Q50: What is `std::atomic`?](#q50-what-is-stdatomic)
+    - [Q51: What is the "Static Initialization Order Fiasco"?](#q51-what-is-the-static-initialization-order-fiasco)
+    - [Q52: What is Placement New?](#q52-what-is-placement-new)
+    - [Q53: What is Undefined Behavior (UB)?](#q53-what-is-undefined-behavior-ub)
+    - [Q54: What is RTTI (Run-Time Type Information)?](#q54-what-is-rtti-run-time-type-information)
+    - [Q55: What is `dynamic_cast` used for?](#q55-what-is-dynamic_cast-used-for)
+    - [Q56: What is `static_cast` used for?](#q56-what-is-static_cast-used-for)
+    - [Q57: What is `reinterpret_cast`?](#q57-what-is-reinterpret_cast)
+    - [Q58: What is `const_cast`?](#q58-what-is-const_cast)
+    - [Q59: What is a Functor?](#q59-what-is-a-functor)
+    - [Q60: What is Object Slicing?](#q60-what-is-object-slicing)
+    - [Q61: What is the Pimpl Idiom (Pointer to Implementation)?](#q61-what-is-the-pimpl-idiom-pointer-to-implementation)
+    - [Q62: What is Inline Namespace?](#q62-what-is-inline-namespace)
+    - [Q63: What is Argument Dependent Lookup (ADL) or Koenig Lookup?](#q63-what-is-argument-dependent-lookup-adl-or-koenig-lookup)
+    - [Q64: What is the difference between `struct` and `class` inheritance default?](#q64-what-is-the-difference-between-struct-and-class-inheritance-default)
+    - [Q65: What is a VTable (Virtual Table)?](#q65-what-is-a-vtable-virtual-table)
+    - [Q66: What is a pure virtual function?](#q66-what-is-a-pure-virtual-function)
+    - [Q67: What is the difference between Overloading and Overriding?](#q67-what-is-the-difference-between-overloading-and-overriding)
+    - [Q68: What is the `override` keyword?](#q68-what-is-the-override-keyword)
+    - [Q69: What is the `final` keyword?](#q69-what-is-the-final-keyword)
+    - [Q70: What is Constructor Delegation?](#q70-what-is-constructor-delegation)
+    - [Q71: What are Initializer Lists?](#q71-what-are-initializer-lists)
+    - [Q72: What is Uniform Initialization?](#q72-what-is-uniform-initialization)
+    - [Q73: What is Copy Elision?](#q73-what-is-copy-elision)
+    - [Q74: What is `std::move`?](#q74-what-is-stdmove)
+    - [Q75: What is `std::forward`?](#q75-what-is-stdforward)
+    - [Q76: What is a Memory Leak?](#q76-what-is-a-memory-leak)
+    - [Q77: What is a Dangling Pointer?](#q77-what-is-a-dangling-pointer)
+    - [Q78: What is the difference between `size_t` and `int`?](#q78-what-is-the-difference-between-size_t-and-int)
+    - [Q79: What is `nullptr`?](#q79-what-is-nullptr)
+    - [Q80: What is the difference between `++i` and `i++`?](#q80-what-is-the-difference-between-i-and-i)
+    - [Q81: What is `std::function`?](#q81-what-is-stdfunction)
+    - [Q82: What is `std::bind`?](#q82-what-is-stdbind)
+    - [Q83: What is the difference between Stack and Heap allocation?](#q83-what-is-the-difference-between-stack-and-heap-allocation)
+    - [Q84: What is Padding and Alignment?](#q84-what-is-padding-and-alignment)
+    - [Q85: What is `std::allocator`?](#q85-what-is-stdallocator)
+    - [Q86: What is a Weak Pointer (`std::weak_ptr`)?](#q86-what-is-a-weak-pointer-stdweak_ptr)
+    - [Q87: How do you implement a Singleton in C++?](#q87-how-do-you-implement-a-singleton-in-c)
+    - [Q88: What is the Observer Pattern?](#q88-what-is-the-observer-pattern)
+    - [Q89: What is the Factory Method Pattern?](#q89-what-is-the-factory-method-pattern)
+    - [Q90: What is `std::filesystem` (C++17)?](#q90-what-is-stdfilesystem-c17)
+    - [Q91: What is the difference between `std::set` and `std::unordered_set`?](#q91-what-is-the-difference-between-stdset-and-stdunordered_set)
+    - [Q92: What is `std::map::operator[]` vs `std::map::at()`?](#q92-what-is-stdmapoperator-vs-stdmapat)
+    - [Q93: How do you optimize C++ code?](#q93-how-do-you-optimize-c-code)
+    - [Q94: What is LTO (Link Time Optimization)?](#q94-what-is-lto-link-time-optimization)
+    - [Q95: What is `std::bitset`?](#q95-what-is-stdbitset)
+    - [Q96: What is `std::tuple`?](#q96-what-is-stdtuple)
+    - [Q97: What is `std::optional::value_or`?](#q97-what-is-stdoptionalvalue_or)
+    - [Q98: What is the Rule of Zero?](#q98-what-is-the-rule-of-zero)
+    - [Q99: What is `std::thread::hardware_concurrency()`?](#q99-what-is-stdthreadhardware_concurrency)
+    - [Q100: What is the future of C++?](#q100-what-is-the-future-of-c)
+
 
 ---
 
@@ -1204,3 +1266,438 @@ int main() {
 ```
 
 If we had used a plain `int` for the counter, the final result would likely be incorrect because the `++` operation is not atomic (it involves a read, a modify, and a write, which can be interrupted). By using `std::atomic<int>`, we guarantee that each increment is an indivisible operation, and the final count will be correct (100,000).
+### Q40: What are Ranges in C++20?
+**Difficulty: Advanced**
+
+**Answer:**
+The Ranges library (`std::ranges`) provides a new way to handle sequences of elements. It allows composing algorithms using the pipe operator (`|`) and provides lazy evaluation (views).
+```cpp
+#include <vector>
+#include <ranges>
+#include <iostream>
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 4, 5, 6};
+    auto result = nums | std::views::filter([](int n){ return n % 2 == 0; })
+                       | std::views::transform([](int n){ return n * n; });
+    
+    for (int n : result) std::cout << n << " "; // 4 16 36
+}
+```
+
+### Q41: What is `std::span` (C++20)?
+**Difficulty: Medium**
+
+**Answer:**
+`std::span` is a non-owning view over a contiguous sequence of objects (like an array or vector). It is lightweight and provides bounds safety. It replaces passing pointer + size pairs to functions.
+
+### Q42: What is the difference between `consteval` and `constexpr`?
+**Difficulty: Advanced**
+
+**Answer:**
+- `constexpr`: Can be evaluated at compile-time OR runtime.
+- `consteval` (C++20): MUST be evaluated at compile-time (immediate function). If it cannot be evaluated at compile-time, it's a compilation error.
+
+### Q43: What is `constinit` (C++20)?
+**Difficulty: Advanced**
+
+**Answer:**
+Ensures that a variable is initialized at compile-time (static initialization) to avoid the "static initialization order fiasco". It does not imply `const` (the variable can be modified later).
+
+### Q44: What is `std::jthread` (C++20)?
+**Difficulty: Medium**
+
+**Answer:**
+A joining thread. Unlike `std::thread`, it automatically joins upon destruction (RAII compliant) and supports stop tokens for cooperative cancellation.
+
+### Q45: How do you create a thread in C++?
+**Difficulty: Medium**
+
+**Answer:**
+Using `std::thread`.
+```cpp
+#include <thread>
+#include <iostream>
+
+void task() { std::cout << "Thread running\n"; }
+
+int main() {
+    std::thread t(task);
+    t.join(); // Wait for thread to finish
+}
+```
+
+### Q46: What is a Mutex and how do you use it?
+**Difficulty: Medium**
+
+**Answer:**
+A Mutex (`std::mutex`) prevents data races by ensuring only one thread accesses a shared resource at a time. Use `std::lock_guard` or `std::unique_lock` for RAII locking.
+
+### Q47: What is a Condition Variable?
+**Difficulty: Advanced**
+
+**Answer:**
+`std::condition_variable` allows threads to wait for a certain condition to become true. It works with a mutex to block a thread until notified by another thread.
+
+### Q48: What is `std::future` and `std::promise`?
+**Difficulty: Advanced**
+
+**Answer:**
+- `std::promise`: Used to set a value (or exception) in one thread.
+- `std::future`: Used to retrieve that value in another thread.
+They provide a mechanism for passing data between threads.
+
+### Q49: What is `std::async`?
+**Difficulty: Medium**
+
+**Answer:**
+A high-level interface for running tasks asynchronously. It returns a `std::future` holding the result. It can run the task in a new thread (`std::launch::async`) or lazily (`std::launch::deferred`).
+
+### Q50: What is `std::atomic`?
+**Difficulty: Advanced**
+
+**Answer:**
+Provides atomic operations on variables, allowing lock-free concurrency. Operations on atomic types are thread-safe and do not cause data races.
+
+### Q51: What is the "Static Initialization Order Fiasco"?
+**Difficulty: Advanced**
+
+**Answer:**
+The undefined order in which static variables in different translation units are initialized. If one static variable depends on another in a different file, it might access uninitialized memory.
+
+### Q52: What is Placement New?
+**Difficulty: Advanced**
+
+**Answer:**
+A version of the `new` operator that constructs an object in a pre-allocated memory buffer.
+```cpp
+char buffer[sizeof(MyClass)];
+MyClass* p = new (buffer) MyClass();
+```
+You must manually call the destructor: `p->~MyClass()`.
+
+### Q53: What is Undefined Behavior (UB)?
+**Difficulty: Medium**
+
+**Answer:**
+Behavior for which the C++ standard imposes no requirements. The program might crash, produce wrong results, or appear to work. Examples: dereferencing null pointers, signed integer overflow, accessing out-of-bounds array.
+
+### Q54: What is RTTI (Run-Time Type Information)?
+**Difficulty: Medium**
+
+**Answer:**
+Allows the type of an object to be determined during program execution. Used by `dynamic_cast` and `typeid`.
+
+### Q55: What is `dynamic_cast` used for?
+**Difficulty: Medium**
+
+**Answer:**
+Safely converts pointers/references of a base class to a derived class (downcasting) at runtime. Requires the base class to have at least one virtual function. Returns `nullptr` (for pointers) or throws `std::bad_cast` (for references) on failure.
+
+### Q56: What is `static_cast` used for?
+**Difficulty: Medium**
+
+**Answer:**
+Performs compile-time type conversions (e.g., `int` to `float`, pointer upcasting). No runtime check. Faster but less safe than `dynamic_cast`.
+
+### Q57: What is `reinterpret_cast`?
+**Difficulty: Advanced**
+
+**Answer:**
+Reinterprets the bit pattern of the operand. Used for low-level casts (e.g., pointer to integer). Extremely dangerous and often leads to UB if not used correctly.
+
+### Q58: What is `const_cast`?
+**Difficulty: Medium**
+
+**Answer:**
+Adds or removes `const` (or `volatile`) qualification from a variable. Useful when interfacing with legacy APIs that don't use `const`.
+
+### Q59: What is a Functor?
+**Difficulty: Medium**
+
+**Answer:**
+A class or struct that overloads the function call operator `operator()`. Instances can be called like functions. Precursor to lambdas.
+
+### Q60: What is Object Slicing?
+**Difficulty: Medium**
+
+**Answer:**
+Occurs when a derived class object is assigned to a base class object (by value). The derived part is "sliced off", and only the base part is copied.
+
+### Q61: What is the Pimpl Idiom (Pointer to Implementation)?
+**Difficulty: Advanced**
+
+**Answer:**
+A technique to hide implementation details by moving private members to a separate class, accessed via a pointer. Reduces compile dependencies and compilation times.
+
+### Q62: What is Inline Namespace?
+**Difficulty: Advanced**
+
+**Answer:**
+A namespace whose members are visible in the enclosing namespace as if they were declared there directly. Used for versioning libraries (e.g., `namespace v1`).
+
+### Q63: What is Argument Dependent Lookup (ADL) or Koenig Lookup?
+**Difficulty: Advanced**
+
+**Answer:**
+A rule that allows the compiler to look up functions in the namespaces of the arguments types. This is why you can call `std::swap(obj1, obj2)` without `std::` if `obj1` is in a namespace that defines `swap`.
+
+### Q64: What is the difference between `struct` and `class` inheritance default?
+**Difficulty: Easy**
+
+**Answer:**
+- `struct`: Default inheritance is `public`.
+- `class`: Default inheritance is `private`.
+
+### Q65: What is a VTable (Virtual Table)?
+**Difficulty: Advanced**
+
+**Answer:**
+A lookup table used by compilers to support dynamic dispatch (virtual functions). Each class with virtual functions has a VTable containing function pointers. Objects contain a pointer (vptr) to this table.
+
+### Q66: What is a pure virtual function?
+**Difficulty: Medium**
+
+**Answer:**
+A virtual function with no implementation in the base class, declared with `= 0`. Makes the class abstract (cannot be instantiated).
+```cpp
+virtual void draw() = 0;
+```
+
+### Q67: What is the difference between Overloading and Overriding?
+**Difficulty: Easy**
+
+**Answer:**
+- **Overloading:** Same function name, different parameters (compile-time polymorphism).
+- **Overriding:** Redefining a base class virtual function in a derived class (runtime polymorphism).
+
+### Q68: What is the `override` keyword?
+**Difficulty: Easy**
+
+**Answer:**
+Ensures that a function in a derived class actually overrides a virtual function in the base class. Compiler error if signatures don't match.
+
+### Q69: What is the `final` keyword?
+**Difficulty: Easy**
+
+**Answer:**
+Prevents a class from being inherited or a virtual function from being overridden further.
+
+### Q70: What is Constructor Delegation?
+**Difficulty: Medium**
+
+**Answer:**
+Calling one constructor from another within the same class to avoid code duplication.
+```cpp
+class A {
+    int x, y;
+    A() : A(0, 0) {} // Delegates to target constructor
+    A(int a, int b) : x(a), y(b) {}
+};
+```
+
+### Q71: What are Initializer Lists?
+**Difficulty: Easy**
+
+**Answer:**
+`std::initializer_list<T>` allows functions (and constructors) to accept a brace-enclosed list of values.
+```cpp
+std::vector<int> v = {1, 2, 3};
+```
+
+### Q72: What is Uniform Initialization?
+**Difficulty: Medium**
+
+**Answer:**
+Using braces `{}` to initialize objects. It prevents narrowing conversions and resolves the "Most Vexing Parse".
+
+### Q73: What is Copy Elision?
+**Difficulty: Advanced**
+
+**Answer:**
+An optimization where the compiler omits the copy/move constructor call when returning an object by value (RVO/NRVO). Guaranteed in C++17.
+
+### Q74: What is `std::move`?
+**Difficulty: Medium**
+
+**Answer:**
+It essentially casts an lvalue to an rvalue reference (`T&&`), enabling move semantics (invoking the move constructor/assignment). It does *not* move anything itself.
+
+### Q75: What is `std::forward`?
+**Difficulty: Advanced**
+
+**Answer:**
+Used in templates to forward arguments to another function while preserving their value category (lvalue stays lvalue, rvalue stays rvalue). Essential for perfect forwarding.
+
+### Q76: What is a Memory Leak?
+**Difficulty: Easy**
+
+**Answer:**
+Failure to deallocate dynamically allocated memory (`new` without `delete`).
+
+### Q77: What is a Dangling Pointer?
+**Difficulty: Easy**
+
+**Answer:**
+A pointer that points to memory that has already been freed. Dereferencing it leads to undefined behavior.
+
+### Q78: What is the difference between `size_t` and `int`?
+**Difficulty: Easy**
+
+**Answer:**
+`size_t` is an unsigned integer type guaranteed to be large enough to represent the size of any object in bytes. `int` is signed and its size is platform-dependent (usually 32-bit).
+
+### Q79: What is `nullptr`?
+**Difficulty: Easy**
+
+**Answer:**
+A type-safe null pointer constant introduced in C++11. Replaces `NULL` (which is just integer 0).
+
+### Q80: What is the difference between `++i` and `i++`?
+**Difficulty: Easy**
+
+**Answer:**
+- `++i` (Pre-increment): Increments then returns the new value. More efficient for non-primitive types (avoids copy).
+- `i++` (Post-increment): Returns the old value then increments.
+
+### Q81: What is `std::function`?
+**Difficulty: Medium**
+
+**Answer:**
+A general-purpose polymorphic function wrapper. It can store any callable target (function, lambda, functor, bind expression).
+
+### Q82: What is `std::bind`?
+**Difficulty: Medium**
+
+**Answer:**
+Used to bind arguments to a function, creating a new callable. Largely superseded by lambdas.
+
+### Q83: What is the difference between Stack and Heap allocation?
+**Difficulty: Medium**
+
+**Answer:**
+- **Stack:** Automatic allocation/deallocation. Fast. Limited size. Variables strictly scoped.
+- **Heap:** Dynamic allocation (`new`). Slower. Larger size. User manages lifetime.
+
+### Q84: What is Padding and Alignment?
+**Difficulty: Advanced**
+
+**Answer:**
+Compilers insert padding bytes between structure members to ensure they align with memory addresses conducive to CPU access (e.g., 4-byte integers on 4-byte boundaries).
+
+### Q85: What is `std::allocator`?
+**Difficulty: Advanced**
+
+**Answer:**
+Encapsulates memory allocation and deallocation strategies. STL containers use allocators to manage memory.
+
+### Q86: What is a Weak Pointer (`std::weak_ptr`)?
+**Difficulty: Medium**
+
+**Answer:**
+A smart pointer that holds a non-owning reference to an object managed by `std::shared_ptr`. It does not increase the reference count. Used to break reference cycles.
+
+### Q87: How do you implement a Singleton in C++?
+**Difficulty: Medium**
+
+**Answer:**
+Wait for C++11 (Meyers Singleton):
+```cpp
+class Singleton {
+public:
+    static Singleton& getInstance() {
+        static Singleton instance; // Thread-safe in C++11
+        return instance;
+    }
+    Singleton(const Singleton&) = delete;
+    void operator=(const Singleton&) = delete;
+private:
+    Singleton() {}
+};
+```
+
+### Q88: What is the Observer Pattern?
+**Difficulty: Medium**
+
+**Answer:**
+A behavioral pattern where an object (subject) maintains a list of dependents (observers) and notifies them of state changes.
+
+### Q89: What is the Factory Method Pattern?
+**Difficulty: Medium**
+
+**Answer:**
+A creational pattern that defines an interface for creating an object but lets subclasses decide which class to instantiate.
+
+### Q90: What is `std::filesystem` (C++17)?
+**Difficulty: Medium**
+
+**Answer:**
+A library for performing operations on file systems and their components (paths, files, directories).
+```cpp
+if (std::filesystem::exists("file.txt")) { ... }
+```
+
+### Q91: What is the difference between `std::set` and `std::unordered_set`?
+**Difficulty: Medium**
+
+**Answer:**
+- `std::set`: Sorted (Balanced BST). O(log n) operations.
+- `std::unordered_set`: Unsorted (Hash Table). O(1) average operations.
+
+### Q92: What is `std::map::operator[]` vs `std::map::at()`?
+**Difficulty: Medium**
+
+**Answer:**
+- `[]`: Returns reference. Inserts a default-constructed element if key not found.
+- `at()`: Returns reference. Throws `std::out_of_range` if key not found.
+
+### Q93: How do you optimize C++ code?
+**Difficulty: Advanced**
+
+**Answer:**
+Profile first! Use appropriate algorithms/data structures. Minimize copies (move semantics). Use `constexpr`. optimize cache usage (data locality). Enable compiler optimizations (`-O3`).
+
+### Q94: What is LTO (Link Time Optimization)?
+**Difficulty: Advanced**
+
+**Answer:**
+Optimization performed by the linker across translation units. Allows inlining functions defined in different `.cpp` files.
+
+### Q95: What is `std::bitset`?
+**Difficulty: Medium**
+
+**Answer:**
+A container for a fixed-size sequence of bits. Space-efficient.
+
+### Q96: What is `std::tuple`?
+**Difficulty: Medium**
+
+**Answer:**
+A fixed-size collection of heterogeneous values. Generalization of `std::pair`.
+```cpp
+auto t = std::make_tuple(1, "Hello", 3.14);
+```
+
+### Q97: What is `std::optional::value_or`?
+**Difficulty: Easy**
+
+**Answer:**
+Returns the contained value if present, otherwise returns the provided default value.
+
+### Q98: What is the Rule of Zero?
+**Difficulty: Advanced**
+
+**Answer:**
+Classes that have custom destructors, copy/move constructors or assignment operators should deal exclusively with ownership. Other classes should not have custom destructors, copy/move constructors or assignment operators. Use smart pointers and standard containers to manage resources.
+
+### Q99: What is `std::thread::hardware_concurrency()`?
+**Difficulty: Medium**
+
+**Answer:**
+Returns an estimate of the number of concurrent threads supported by the implementation (e.g., number of CPU cores).
+
+### Q100: What is the future of C++?
+**Difficulty: Easy**
+
+**Answer:**
+C++ continues to evolve (C++23, C++26) focusing on safety (Profiles), concurrency (Executors), reflection, and pattern matching. It remains the industry standard for high-performance computing, game engines, and systems programming.

@@ -791,4 +791,10 @@ The compiler can usually deduce the type of variables, so you don't need to writ
 **Difficulty: Advanced**
 
 **Answer:**
-A type that has no values. It indicates that a function will never return (e.g., `panic!`, `loop {}`, `std::process::exit`).
+The never type `!` represents the type of computations which will never resolve to any value at all. For example, the `exit` function `fn exit(code: i32) -> !` returns the never type. `!` can be coerced into any other type. This is useful in `match` arms:
+```rust
+let x: i32 = match input {
+    Ok(v) => v,
+    Err(_) => panic!("Error!"), // panic! returns !, so this is valid
+};
+```

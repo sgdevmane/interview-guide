@@ -63,6 +63,46 @@
 58. [Q58: What is lazy loading in Angular and how do you implement it?](#q58-what-is-lazy-loading-in-angular-and-how-do-you-implement-it)
 59. [Q59: What is the difference between RouterModule.forRoot() and RouterModule.forChild()?](#q59-what-is-the-difference-between-routermoduleforroot-and-routermoduleforchild)
 60. [Q60: How do you make an HTTP request in Angular?](#q60-how-do-you-make-an-http-request-in-angular)
+61. [Q61: What is the difference between `mergeMap`, `switchMap`, `concatMap`, and `exhaustMap`?](#q61-what-is-the-difference-between-mergemap-switchmap-concatmap-and-exhaustmap)
+62. [Q62: How do you handle errors in RxJS Observables?](#q62-how-do-you-handle-errors-in-rxjs-observables)
+63. [Q63: What are Angular Standalone Components?](#q63-what-are-angular-standalone-components)
+64. [Q64: How do you migrate an existing application to Standalone Components?](#q64-how-do-you-migrate-an-existing-application-to-standalone-components)
+65. [Q65: What is the `inject()` function in Angular?](#q65-what-is-the-inject-function-in-angular)
+66. [Q66: What are Functional Route Guards?](#q66-what-are-functional-route-guards)
+67. [Q67: What are Functional Interceptors?](#q67-what-are-functional-interceptors)
+68. [Q68: Explain the new Control Flow syntax (`@if`, `@for`, `@switch`) in Angular 17.](#q68-explain-the-new-control-flow-syntax-if-for-switch-in-angular-17)
+69. [Q69: What are Deferrable Views (`@defer`)?](#q69-what-are-deferrable-views-defer)
+70. [Q70: What is Angular Hydration?](#q70-what-is-angular-hydration)
+71. [Q71: How does Angular Signals differ from Zone.js change detection?](#q71-how-does-angular-signals-differ-from-zonejs-change-detection)
+72. [Q72: How do you create a computed Signal?](#q72-how-do-you-create-a-computed-signal)
+73. [Q73: What is a Signal Effect?](#q73-what-is-a-signal-effect)
+74. [Q74: What is the difference between `input()` signal and `@Input()` decorator?](#q74-what-is-the-difference-between-input-signal-and-input-decorator)
+75. [Q75: How do you test Angular Signals?](#q75-how-do-you-test-angular-signals)
+76. [Q76: What is the purpose of `ngZone`?](#q76-what-is-the-purpose-of-ngzone)
+77. [Q77: How do you run code outside of Angular's Zone?](#q77-how-do-you-run-code-outside-of-angulars-zone)
+78. [Q78: What is Zoneless Angular?](#q78-what-is-zoneless-angular)
+79. [Q79: How do you optimize Angular bundle size?](#q79-how-do-you-optimize-angular-bundle-size)
+80. [Q80: What is Tree Shaking in Angular?](#q80-what-is-tree-shaking-in-angular)
+81. [Q81: How do you implement a Custom Form Control (ControlValueAccessor)?](#q81-how-do-you-implement-a-custom-form-control-controlvalueaccessor)
+82. [Q82: What is the difference between `FormControl`, `FormGroup`, and `FormArray`?](#q82-what-is-the-difference-between-formcontrol-formgroup-and-formarray)
+83. [Q83: How do you handle dynamic forms in Angular?](#q83-how-do-you-handle-dynamic-forms-in-angular)
+84. [Q84: What is Content Projection with `select`?](#q84-what-is-content-projection-with-select)
+85. [Q85: How do you create a Dynamic Component programmatically?](#q85-how-do-you-create-a-dynamic-component-programmatically)
+86. [Q86: What are Angular Elements (Web Components)?](#q86-what-are-angular-elements-web-components)
+87. [Q87: How do you implement Internationalization (i18n) in Angular?](#q87-how-do-you-implement-internationalization-i18n-in-angular)
+88. [Q88: What is the difference between JIT and AOT compilation?](#q88-what-is-the-difference-between-jit-and-aot-compilation)
+89. [Q89: How do you protect against XSS in Angular?](#q89-how-do-you-protect-against-xss-in-angular)
+90. [Q90: What is the `DomSanitizer`?](#q90-what-is-the-domsanitizer)
+91. [Q91: How do you implement a PWA with Angular?](#q91-how-do-you-implement-a-pwa-with-angular)
+92. [Q92: What are Service Workers in Angular?](#q92-what-are-service-workers-in-angular)
+93. [Q93: How do you optimize images in Angular using `NgOptimizedImage`?](#q93-how-do-you-optimize-images-in-angular-using-ngoptimizedimage)
+94. [Q94: What is the difference between `TestBed` and `ComponentFixture`?](#q94-what-is-the-difference-between-testbed-and-componentfixture)
+95. [Q95: How do you mock services in Angular tests?](#q95-how-do-you-mock-services-in-angular-tests)
+96. [Q96: What is the difference between shallow and deep integration testing?](#q96-what-is-the-difference-between-shallow-and-deep-integration-testing)
+97. [Q97: How do you test asynchronous code in Angular (fakeAsync, tick)?](#q97-how-do-you-test-asynchronous-code-in-angular-fakeasync-tick)
+98. [Q98: What are the best practices for Angular folder structure?](#q98-what-are-the-best-practices-for-angular-folder-structure)
+99. [Q99: How do you implement the Facade Pattern in Angular?](#q99-how-do-you-implement-the-facade-pattern-in-angular)
+100. [Q100: What is the future of Angular (Roadmap)?](#q100-what-is-the-future-of-angular-roadmap)
 
 ---
 
@@ -15118,3 +15158,500 @@ export class MyComponent implements OnInit {
 ```
 
 In this example, the `DataService` makes a GET request to the API, and the `MyComponent` subscribes to the `Observable` to receive the data.
+
+### Q61: What is the difference between `mergeMap`, `switchMap`, `concatMap`, and `exhaustMap`?
+**Difficulty: Advanced**
+
+**Answer:**
+These are higher-order mapping operators in RxJS used to handle inner observables (e.g., HTTP requests triggered by user actions).
+
+1.  **`mergeMap` (FlatMap)**: Subscribes to every inner observable concurrently. Best for "fire and forget" actions where order doesn't matter (e.g., deleting multiple items).
+2.  **`switchMap`**: Unsubscribes from the previous inner observable when a new one arrives. Best for search typeaheads (cancels previous request if user types again).
+3.  **`concatMap`**: Subscribes to inner observables in order, waiting for one to complete before starting the next. Best for operations where order matters (e.g., update then delete).
+4.  **`exhaustMap`**: Ignores new inner observables while the current one is still active. Best for preventing double-clicks (e.g., login button).
+
+### Q62: How do you handle errors in RxJS Observables?
+**Difficulty: Medium**
+
+**Answer:**
+Errors in RxJS can be handled using the `catchError` operator.
+
+```typescript
+import { catchError } from 'rxjs/operators';
+import { of, throwError } from 'rxjs';
+
+this.http.get('/api/data').pipe(
+  catchError(error => {
+    console.error('Error occurred:', error);
+    // Return a fallback value
+    return of([]);
+    // OR re-throw the error
+    // return throwError(() => new Error('Custom error'));
+  })
+).subscribe();
+```
+
+### Q63: What are Angular Standalone Components?
+**Difficulty: Medium**
+
+**Answer:**
+Standalone Components (introduced in Angular 14) allow you to create components, directives, and pipes without declaring them in an `NgModule`. They simplify the learning curve and boilerplate.
+
+```typescript
+@Component({
+  standalone: true,
+  selector: 'app-standalone',
+  imports: [CommonModule, MatButtonModule], // Import dependencies directly
+  template: `<h1>I am standalone!</h1>`
+})
+export class StandaloneComponent {}
+```
+
+### Q64: How do you migrate an existing application to Standalone Components?
+**Difficulty: Advanced**
+
+**Answer:**
+Angular provides a schematic to automate the migration:
+`ng generate @angular/core:standalone`
+
+Steps:
+1.  Convert components, directives, and pipes to `standalone: true`.
+2.  Remove `NgModule` declarations.
+3.  Bootstrap the application using `bootstrapApplication` instead of `platformBrowserDynamic().bootstrapModule()`.
+
+### Q65: What is the `inject()` function in Angular?
+**Difficulty: Medium**
+
+**Answer:**
+The `inject()` function allows you to inject dependencies into functions, components, or services without using the constructor. It can be used in field initializers or factory functions.
+
+```typescript
+import { inject } from '@angular/core';
+
+export class UserComponent {
+  private http = inject(HttpClient); // No constructor needed
+  
+  users$ = this.http.get('/api/users');
+}
+```
+
+### Q66: What are Functional Route Guards?
+**Difficulty: Medium**
+
+**Answer:**
+Functional Route Guards (Angular 14+) replace class-based guards. They are simpler and more composable.
+
+```typescript
+// app.routes.ts
+export const routes: Routes = [
+  {
+    path: 'admin',
+    canActivate: [() => inject(AuthService).isAdmin()]
+  }
+];
+```
+
+### Q67: What are Functional Interceptors?
+**Difficulty: Medium**
+
+**Answer:**
+Functional Interceptors replace class-based `HttpInterceptor`. They are defined as functions and registered in `provideHttpClient`.
+
+```typescript
+// auth.interceptor.ts
+export const authInterceptor: HttpInterceptorFn = (req, next) => {
+  const authToken = inject(AuthService).getToken();
+  const authReq = req.clone({
+    setHeaders: { Authorization: `Bearer ${authToken}` }
+  });
+  return next(authReq);
+};
+
+// app.config.ts
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideHttpClient(withInterceptors([authInterceptor]))
+  ]
+};
+```
+
+### Q68: Explain the new Control Flow syntax (`@if`, `@for`, `@switch`) in Angular 17.
+**Difficulty: Medium**
+
+**Answer:**
+The new built-in control flow syntax replaces `*ngIf`, `*ngFor`, and `ngSwitch`. It is built into the template engine, offering better performance and readability.
+
+```html
+<!-- @if -->
+@if (isLoggedIn) {
+  <user-profile />
+} @else {
+  <login-form />
+}
+
+<!-- @for -->
+@for (user of users; track user.id) {
+  <user-card [user]="user" />
+} @empty {
+  <p>No users found.</p>
+}
+
+<!-- @switch -->
+@switch (status) {
+  @case ('active') { <span class="green">Active</span> }
+  @case ('inactive') { <span class="red">Inactive</span> }
+  @default { <span>Unknown</span> }
+}
+```
+
+### Q69: What are Deferrable Views (`@defer`)?
+**Difficulty: Advanced**
+
+**Answer:**
+`@defer` allows you to lazy load content within a component template. It postpones the loading of dependencies (components, directives, pipes) until a specific trigger occurs.
+
+```html
+@defer (on viewport) {
+  <heavy-chart-component />
+} @placeholder {
+  <p>Loading chart...</p>
+} @loading {
+  <spinner />
+} @error {
+  <p>Failed to load chart.</p>
+}
+```
+
+### Q70: What is Angular Hydration?
+**Difficulty: Advanced**
+
+**Answer:**
+Hydration (Angular 16+) is the process where the client-side Angular application "wakes up" the static HTML rendered by the server (SSR). Instead of destroying and re-rendering the DOM, Angular reuses the existing DOM nodes and attaches event listeners, improving performance (LCP/CLS).
+
+### Q71: How does Angular Signals differ from Zone.js change detection?
+**Difficulty: Advanced**
+
+**Answer:**
+*   **Zone.js**: Detects *when* something happened (click, timer, HTTP) but not *what* changed. It triggers a check of the entire component tree (top-down).
+*   **Signals**: Tracks dependencies granularly. When a signal changes, only the specific consumers (templates, computed values) are notified. This enables fine-grained reactivity and will eventually allow "Zoneless" applications where change detection is local.
+
+### Q72: How do you create a computed Signal?
+**Difficulty: Medium**
+
+**Answer:**
+Computed signals derive their value from other signals. They update only when their dependencies change and are memoized.
+
+```typescript
+import { signal, computed } from '@angular/core';
+
+const firstName = signal('John');
+const lastName = signal('Doe');
+
+const fullName = computed(() => `${firstName()} ${lastName()}`);
+```
+
+### Q73: What is a Signal Effect?
+**Difficulty: Medium**
+
+**Answer:**
+Effects are operations that run whenever one or more signal dependencies change. They are used for side effects (logging, manual DOM manipulation, syncing with external APIs).
+
+```typescript
+import { effect } from '@angular/core';
+
+effect(() => {
+  console.log(`The user is now: ${fullName()}`);
+});
+```
+
+### Q74: What is the difference between `input()` signal and `@Input()` decorator?
+**Difficulty: Medium**
+
+**Answer:**
+`input()` (Angular 17.1+) creates a signal-based input.
+*   **`@Input()`**: Updates the class property. Requires `ngOnChanges` to react to changes.
+*   **`input()`**: Returns a signal. You can use `computed` or `effect` to react to changes automatically.
+
+```typescript
+// Signal Input
+userId = input.required<string>();
+user$ = computed(() => this.userService.getUser(this.userId()));
+```
+
+### Q75: How do you test Angular Signals?
+**Difficulty: Medium**
+
+**Answer:**
+Testing signals is straightforward because they are synchronous.
+```typescript
+it('should compute full name', () => {
+  component.firstName.set('Jane');
+  expect(component.fullName()).toBe('Jane Doe');
+});
+```
+For effects, you may need `TestBed.flushEffects()` to force execution.
+
+### Q76: What is the purpose of `ngZone`?
+**Difficulty: Advanced**
+
+**Answer:**
+`NgZone` is a service that wraps `Zone.js`. It allows Angular to automatically trigger change detection when async operations (setTimeout, Promise, DOM events) complete inside the Angular zone.
+
+### Q77: How do you run code outside of Angular's Zone?
+**Difficulty: Medium**
+
+**Answer:**
+Use `ngZone.runOutsideAngular()` to prevent high-frequency events (like scroll or mousemove) from triggering unnecessary change detection cycles.
+
+```typescript
+this.ngZone.runOutsideAngular(() => {
+  window.addEventListener('scroll', this.onScroll);
+});
+```
+
+### Q78: What is Zoneless Angular?
+**Difficulty: Advanced**
+
+**Answer:**
+Zoneless Angular is an experimental feature (Angular 18+) that removes the dependency on `Zone.js`. Instead of automatic global change detection, it relies on Signals and explicit notifications (`ChangeDetectorRef.markForCheck()`) to trigger updates. This reduces bundle size and improves performance.
+
+### Q79: How do you optimize Angular bundle size?
+**Difficulty: Medium**
+
+**Answer:**
+1.  **Lazy Loading**: Load modules/components only when needed.
+2.  **Tree Shaking**: Remove unused code.
+3.  **Standalone Components**: Remove unnecessary NgModules.
+4.  **Compression**: Use Gzip/Brotli.
+5.  **Budgeting**: Set bundle size limits in `angular.json`.
+6.  **Deferrable Views**: Lazy load parts of a template.
+
+### Q80: What is Tree Shaking in Angular?
+**Difficulty: Medium**
+
+**Answer:**
+Tree shaking is a build optimization step (usually by Webpack or esbuild) that removes unused code from the final bundle. Angular's static analysis and Ivy compiler make tree shaking more effective by generating code that is easier for tools to analyze.
+
+### Q81: How do you implement a Custom Form Control (ControlValueAccessor)?
+**Difficulty: Advanced**
+
+**Answer:**
+To make a custom component work with `[(ngModel)]` or Reactive Forms, implement the `ControlValueAccessor` interface.
+
+```typescript
+@Component({
+  providers: [{
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => MyInput),
+    multi: true
+  }]
+})
+export class MyInput implements ControlValueAccessor {
+  writeValue(value: any): void { /* update view */ }
+  registerOnChange(fn: any): void { /* save callback */ }
+  registerOnTouched(fn: any): void { /* save callback */ }
+}
+```
+
+### Q82: What is the difference between `FormControl`, `FormGroup`, and `FormArray`?
+**Difficulty: Easy**
+
+**Answer:**
+*   **`FormControl`**: Tracks the value and validity of an individual form control (input, select).
+*   **`FormGroup`**: Tracks the value and validity of a collection of form controls (e.g., a form with name and email).
+*   **`FormArray`**: Tracks the value and validity of an array of form controls (e.g., a dynamic list of phone numbers).
+
+### Q83: How do you handle dynamic forms in Angular?
+**Difficulty: Medium**
+
+**Answer:**
+Use `FormArray` to manage a dynamic list of controls. You can push or remove controls from the array programmatically.
+Alternatively, use a metadata-driven approach where you generate form controls based on a JSON configuration.
+
+### Q84: What is Content Projection with `select`?
+**Difficulty: Medium**
+
+**Answer:**
+You can project content into specific slots using the `select` attribute on `<ng-content>`.
+```html
+<!-- Child -->
+<ng-content select="[header]"></ng-content>
+<ng-content select="[body]"></ng-content>
+
+<!-- Parent -->
+<div header>Header Content</div>
+<div body>Body Content</div>
+```
+
+### Q85: How do you create a Dynamic Component programmatically?
+**Difficulty: Advanced**
+
+**Answer:**
+Use `ViewContainerRef.createComponent()`.
+
+```typescript
+@ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef;
+
+loadComponent() {
+  this.container.clear();
+  const componentRef = this.container.createComponent(MyComponent);
+  componentRef.instance.data = 'Some Data';
+}
+```
+
+### Q86: What are Angular Elements (Web Components)?
+**Difficulty: Advanced**
+
+**Answer:**
+Angular Elements (`@angular/elements`) allow you to package Angular components as standard Web Components (Custom Elements). These can be used in any web application (React, Vue, or vanilla JS) independent of the Angular framework.
+
+### Q87: How do you implement Internationalization (i18n) in Angular?
+**Difficulty: Medium**
+
+**Answer:**
+Angular has built-in i18n support.
+1.  Mark text with `i18n` attribute: `<h1 i18n>Hello</h1>`.
+2.  Extract translation strings: `ng extract-i18n`.
+3.  Create translation files (`messages.fr.xlf`).
+4.  Build for each locale.
+
+### Q88: What is the difference between JIT and AOT compilation?
+**Difficulty: Medium**
+
+**Answer:**
+*   **JIT (Just-in-Time)**: Compiles the application in the browser at runtime. Slower startup, larger bundle (includes compiler). Used in development (historically).
+*   **AOT (Ahead-of-Time)**: Compiles the application at build time. Faster startup, smaller bundle, detects template errors early. Standard for production (and development in recent versions).
+
+### Q89: How do you protect against XSS in Angular?
+**Difficulty: Medium**
+
+**Answer:**
+Angular treats all values as untrusted by default. It automatically sanitizes values binding to the DOM (removing `<script>` tags).
+Avoid accessing the DOM directly (`ElementRef.nativeElement`).
+Use `DomSanitizer` carefully only when you explicitly trust the content.
+
+### Q90: What is the `DomSanitizer`?
+**Difficulty: Medium**
+
+**Answer:**
+`DomSanitizer` is a service that allows you to mark a value as safe, bypassing Angular's security checks. Use `bypassSecurityTrustHtml`, `bypassSecurityTrustUrl`, etc.
+**Warning:** Using this incorrectly creates security vulnerabilities.
+
+### Q91: How do you implement a PWA with Angular?
+**Difficulty: Medium**
+
+**Answer:**
+Run `ng add @angular/pwa`.
+This adds:
+1.  `manifest.webmanifest` (icons, name).
+2.  `ngsw-config.json` (caching strategy).
+3.  Service Worker registration in `app.module.ts`.
+4.  Icons.
+
+### Q92: What are Service Workers in Angular?
+**Difficulty: Medium**
+
+**Answer:**
+Angular Service Worker (`@angular/service-worker`) is a script that runs in the background, acting as a network proxy. It enables:
+*   Offline support (caching).
+*   Fast loading (App Shell).
+*   Push notifications.
+
+### Q93: How do you optimize images in Angular using `NgOptimizedImage`?
+**Difficulty: Medium**
+
+**Answer:**
+Use the `ngSrc` directive (Angular 14.2+).
+```html
+<img ngSrc="cat.jpg" width="400" height="200" priority>
+```
+Features:
+*   Automatic lazy loading.
+*   Priority loading for LCP images (`priority` attribute).
+*   Automatic `srcset` generation (if using a CDN loader).
+*   Enforces width/height to prevent Layout Shift.
+
+### Q94: What is the difference between `TestBed` and `ComponentFixture`?
+**Difficulty: Medium**
+
+**Answer:**
+*   **`TestBed`**: The main utility for configuring and initializing the environment for unit testing (like an NgModule).
+*   **`ComponentFixture`**: A wrapper around a component instance and its template. It provides access to the component instance (`fixture.componentInstance`) and the DOM (`fixture.nativeElement`), and allows triggering change detection (`fixture.detectChanges()`).
+
+### Q95: How do you mock services in Angular tests?
+**Difficulty: Medium**
+
+**Answer:**
+Use `jasmine.createSpyObj` or a mock class.
+
+```typescript
+const authServiceSpy = jasmine.createSpyObj('AuthService', ['login']);
+authServiceSpy.login.and.returnValue(of(true));
+
+TestBed.configureTestingModule({
+  providers: [{ provide: AuthService, useValue: authServiceSpy }]
+});
+```
+
+### Q96: What is the difference between shallow and deep integration testing?
+**Difficulty: Advanced**
+
+**Answer:**
+*   **Shallow Testing**: Tests a single component in isolation, mocking its child components (using `NO_ERRORS_SCHEMA` or mock children).
+*   **Deep Testing**: Tests a component and its children together, verifying their integration.
+
+### Q97: How do you test asynchronous code in Angular (fakeAsync, tick)?
+**Difficulty: Advanced**
+
+**Answer:**
+*   **`fakeAsync`**: Wraps the test in a zone that allows you to simulate the passage of time linearly.
+*   **`tick(1000)`**: Simulates the passage of 1000ms inside a `fakeAsync` block.
+*   **`flush()`**: Flushes all pending microtasks.
+
+```typescript
+it('should wait', fakeAsync(() => {
+  component.startTimer();
+  tick(1000);
+  expect(component.time).toBe(1);
+}));
+```
+
+### Q98: What are the best practices for Angular folder structure?
+**Difficulty: Easy**
+
+**Answer:**
+*   **Feature Modules**: Group by feature (e.g., `users/`, `products/`).
+*   **Shared Module**: Reusable components/pipes (e.g., `shared/`).
+*   **Core Module**: Singleton services (e.g., `core/`).
+*   **SCAM (Single Component Angular Module)** or **Standalone Components**: One file per component.
+*   Use specific file extensions: `.component.ts`, `.service.ts`, `.model.ts`.
+
+### Q99: How do you implement the Facade Pattern in Angular?
+**Difficulty: Advanced**
+
+**Answer:**
+The Facade Pattern hides the complexity of state management (e.g., NgRx) behind a service. Components interact with the Facade, which delegates to the Store. This decouples components from the state management library.
+
+```typescript
+@Injectable()
+export class UserFacade {
+  users$ = this.store.select(selectUsers);
+  
+  constructor(private store: Store) {}
+  
+  loadUsers() {
+    this.store.dispatch(loadUsers());
+  }
+}
+```
+
+### Q100: What is the future of Angular (Roadmap)?
+**Difficulty: Easy**
+
+**Answer:**
+The future of Angular focuses on:
+1.  **Zoneless Applications**: Removing Zone.js dependency.
+2.  **Signal-based Reactivity**: Fully adopting Signals for change detection.
+3.  **Hydration & SSR**: improving server-side rendering performance (Partial Hydration).
+4.  **DX Improvements**: Better CLI, faster builds (esbuild), and simplified APIs.
+ to receive the data.

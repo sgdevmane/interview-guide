@@ -253,3 +253,591 @@ val items: List<String> = _items
 **Answer:**
 -   `List`: An immutable, read-only list.
 -   `MutableList`: A list that can be modified (add, remove, update elements).
+### Q21: What are Data Classes?
+**Difficulty: Easy**
+
+**Answer:**
+Classes whose main purpose is to hold data. Kotlin generates `equals()`, `hashCode()`, `toString()`, `copy()`, and `componentN()` functions automatically.
+```kotlin
+data class User(val name: String, val age: Int)
+```
+
+### Q22: What is the `sealed` class?
+**Difficulty: Medium**
+
+**Answer:**
+A class that restricts class hierarchies. All subclasses must be known at compile time. Useful for representing restricted class hierarchies (like an `Result` type or UI states).
+```kotlin
+sealed class Result
+data class Success(val data: String) : Result()
+object Error : Result()
+```
+
+### Q23: What are Object Declarations (`object`)?
+**Difficulty: Easy**
+
+**Answer:**
+Defines a singleton class.
+```kotlin
+object Database {
+    val name = "MainDB"
+}
+```
+
+### Q24: What are Companion Objects?
+**Difficulty: Medium**
+
+**Answer:**
+An object scoped to an instance of a class. It is used to hold static members (like factory methods or constants).
+```kotlin
+class MyClass {
+    companion object {
+        fun create(): MyClass = MyClass()
+    }
+}
+```
+
+### Q25: What are Extension Functions?
+**Difficulty: Medium**
+
+**Answer:**
+Ability to extend a class with new functionality without inheriting from it.
+```kotlin
+fun String.addExclamation() = this + "!"
+```
+
+### Q26: What are Higher-Order Functions?
+**Difficulty: Medium**
+
+**Answer:**
+Functions that take other functions as parameters or return a function.
+```kotlin
+fun operate(x: Int, op: (Int) -> Int): Int = op(x)
+```
+
+### Q27: What is a Lambda Expression?
+**Difficulty: Easy**
+
+**Answer:**
+A function literal, i.e., a function that is not declared but passed immediately as an expression.
+```kotlin
+val sum = { x: Int, y: Int -> x + y }
+```
+
+### Q28: What is the `it` keyword?
+**Difficulty: Easy**
+
+**Answer:**
+The implicit name of a single parameter in a lambda expression.
+```kotlin
+list.map { it * 2 }
+```
+
+### Q29: What are Coroutines?
+**Difficulty: Advanced**
+
+**Answer:**
+Lightweight threads that allow writing asynchronous, non-blocking code in a sequential style. They are suspendable computations.
+
+### Q30: What is a `suspend` function?
+**Difficulty: Medium**
+
+**Answer:**
+A function that can be paused and resumed. It can only be called from a coroutine or another suspend function.
+
+### Q31: What is `launch` vs `async`?
+**Difficulty: Medium**
+
+**Answer:**
+- `launch`: Starts a new coroutine and doesn't return a result (returns `Job`). "Fire and forget".
+- `async`: Starts a new coroutine and returns a result (returns `Deferred<T>`). You can call `.await()` on it.
+
+### Q32: What is `Dispatchers` in Coroutines?
+**Difficulty: Medium**
+
+**Answer:**
+Determines what thread or thread pool the coroutine runs on.
+- `Dispatchers.Main`: UI thread.
+- `Dispatchers.IO`: I/O operations (network, disk).
+- `Dispatchers.Default`: CPU-intensive tasks.
+
+### Q33: What is `withContext`?
+**Difficulty: Medium**
+
+**Answer:**
+Used to switch the context (dispatcher) of a coroutine. It suspends until the block completes.
+```kotlin
+withContext(Dispatchers.IO) { ... }
+```
+
+### Q34: What is Flow?
+**Difficulty: Advanced**
+
+**Answer:**
+A cold asynchronous data stream that sequentially emits values and completes normally or with an exception. Similar to RxJava Observables.
+
+### Q35: What is `StateFlow` vs `SharedFlow`?
+**Difficulty: Advanced**
+
+**Answer:**
+- `StateFlow`: A state-holder observable flow that emits the current and new state updates to its collectors. Has an initial value. Hot flow.
+- `SharedFlow`: A hot flow that emits values to all consumers that collect from it. Highly configurable (replay, buffer).
+
+### Q36: What is the difference between `val` and `const val`?
+**Difficulty: Easy**
+
+**Answer:**
+- `val`: Read-only variable. Value is determined at runtime.
+- `const val`: Compile-time constant. Must be top-level or in an object.
+
+### Q37: What is `lateinit`?
+**Difficulty: Medium**
+
+**Answer:**
+Allows initializing a non-null property later. Used mostly for dependency injection or unit testing. Throws exception if accessed before initialization.
+
+### Q38: What is `by lazy`?
+**Difficulty: Medium**
+
+**Answer:**
+Delegate for lazy initialization. The value is computed only on the first access and cached for subsequent accesses.
+```kotlin
+val heavy by lazy { loadHeavyResource() }
+```
+
+### Q39: What is Delegation?
+**Difficulty: Medium**
+
+**Answer:**
+A design pattern where an object handles a request by delegating it to a second object (the delegate). Kotlin supports Class Delegation (`by` clause) and Property Delegation.
+
+### Q40: What are Scope Functions?
+**Difficulty: Medium**
+
+**Answer:**
+Functions that execute a block of code within the context of an object. `let`, `run`, `with`, `apply`, `also`.
+
+### Q41: Explain `let` vs `run` vs `apply` vs `also` vs `with`.
+**Difficulty: Advanced**
+
+**Answer:**
+| Function | Object Reference | Return Value | Use Case |
+| :--- | :--- | :--- | :--- |
+| `let` | `it` | Lambda result | Null checks, mapping |
+| `run` | `this` | Lambda result | Configuring and computing |
+| `with` | `this` | Lambda result | Calling methods on object |
+| `apply` | `this` | Object itself | Object configuration |
+| `also` | `it` | Object itself | Side effects (logging) |
+
+### Q42: What is Destructuring Declarations?
+**Difficulty: Easy**
+
+**Answer:**
+Unpacking a single object into multiple variables.
+```kotlin
+val (name, age) = user
+```
+
+### Q43: What is Operator Overloading?
+**Difficulty: Medium**
+
+**Answer:**
+Providing implementations for a predefined set of operators (like `+`, `-`, `*`) using functions with the `operator` modifier.
+
+### Q44: What is Infix Notation?
+**Difficulty: Easy**
+
+**Answer:**
+Calling a function without the dot and parentheses.
+```kotlin
+infix fun Int.times(str: String) = str.repeat(this)
+2 times "Bye "
+```
+
+### Q45: What is `inline` function?
+**Difficulty: Advanced**
+
+**Answer:**
+Instructs the compiler to copy the function's code into the call site. Reduces overhead for higher-order functions (lambdas).
+
+### Q46: What is `reified` type parameter?
+**Difficulty: Advanced**
+
+**Answer:**
+Allows accessing the type passed as a parameter at runtime in inline functions.
+```kotlin
+inline fun <reified T> isType(value: Any) = value is T
+```
+
+### Q47: What is `open` keyword?
+**Difficulty: Easy**
+
+**Answer:**
+Classes and methods in Kotlin are `final` by default. `open` allows them to be inherited or overridden.
+
+### Q48: What is `internal` visibility modifier?
+**Difficulty: Easy**
+
+**Answer:**
+Visible only within the same module (e.g., Gradle module, IntelliJ module).
+
+### Q49: What is the difference between `==` and `===`?
+**Difficulty: Easy**
+
+**Answer:**
+- `==`: Structural equality (calls `equals()`).
+- `===`: Referential equality (checks if references point to the same object).
+
+### Q50: What is Platform Type?
+**Difficulty: Medium**
+
+**Answer:**
+Types returned from Java code (`T!`). Kotlin doesn't know if it's nullable or non-nullable, so it relaxes null-safety checks.
+
+### Q51: What is Elvis Operator (`?:`)?
+**Difficulty: Easy**
+
+**Answer:**
+Returns the left expression if not null, otherwise returns the right expression.
+```kotlin
+val l = b?.length ?: -1
+```
+
+### Q52: What is Safe Call Operator (`?.`)?
+**Difficulty: Easy**
+
+**Answer:**
+Executes the call only if the reference is not null, otherwise returns null.
+
+### Q53: What is `Nothing` type?
+**Difficulty: Advanced**
+
+**Answer:**
+A type that has no values. Used to represent a function that never returns (e.g., throws an exception). Subtype of all types.
+
+### Q54: What is Type Alias?
+**Difficulty: Easy**
+
+**Answer:**
+Provides alternative names for existing types.
+```kotlin
+typealias NodeSet = Set<Network.Node>
+```
+
+### Q55: What is Smart Cast?
+**Difficulty: Medium**
+
+**Answer:**
+Compiler automatically casts a variable to a target type if it has been checked.
+```kotlin
+if (x is String) {
+    print(x.length) // x is automatically cast to String
+}
+```
+
+### Q56: What is `tailrec`?
+**Difficulty: Medium**
+
+**Answer:**
+Tail recursion optimization. Compiler optimizes recursive calls to a loop to prevent stack overflow.
+
+### Q57: What are Sealed Interfaces (Kotlin 1.5)?
+**Difficulty: Advanced**
+
+**Answer:**
+Similar to sealed classes but for interfaces. All implementations must be known at compile time.
+
+### Q58: What is `value class` (Inline Class)?
+**Difficulty: Advanced**
+
+**Answer:**
+Wraps a single value but is inlined at compile time (represented by the underlying value) to avoid allocation overhead.
+```kotlin
+@JvmInline value class Password(val s: String)
+```
+
+### Q59: What is Functional Interface (SAM)?
+**Difficulty: Medium**
+
+**Answer:**
+Single Abstract Method interface.
+```kotlin
+fun interface Predicate {
+    fun accept(i: Int): Boolean
+}
+```
+
+### Q60: What is Context Receiver (Kotlin 1.6.20+)?
+**Difficulty: Advanced**
+
+**Answer:**
+Allows a function to require multiple receivers (contexts) to be present in the scope.
+```kotlin
+context(View, CoroutineScope)
+fun setup() { ... }
+```
+
+### Q61: What is KMP (Kotlin Multiplatform)?
+**Difficulty: Medium**
+
+**Answer:**
+Technology that allows sharing code between platforms (Android, iOS, Web, Desktop) while writing platform-specific code where necessary.
+
+### Q62: What is Ktor?
+**Difficulty: Medium**
+
+**Answer:**
+An asynchronous framework for creating microservices, web applications, and clients in Kotlin.
+
+### Q63: What is `expect` and `actual` in KMP?
+**Difficulty: Advanced**
+
+**Answer:**
+- `expect`: Declaration in common code (interface-like).
+- `actual`: Implementation in platform-specific code.
+
+### Q64: What is Gradle Kotlin DSL?
+**Difficulty: Medium**
+
+**Answer:**
+Writing Gradle build scripts using Kotlin (`build.gradle.kts`) instead of Groovy. Provides better IDE support (autocomplete, refactoring).
+
+### Q65: What is `Sequence` in Kotlin?
+**Difficulty: Advanced**
+
+**Answer:**
+Lazily evaluated collection. Operations are performed one-by-one on elements (vertical) rather than creating intermediate collections (horizontal). Good for large data sets.
+
+### Q66: What is `@JvmStatic`?
+**Difficulty: Medium**
+
+**Answer:**
+Tells the compiler to generate an additional static method in the compiled Java class. Useful for Java interoperability.
+
+### Q67: What is `@JvmOverloads`?
+**Difficulty: Medium**
+
+**Answer:**
+Generates multiple overloads for Java callers for a Kotlin function with default parameter values.
+
+### Q68: What is `@JvmField`?
+**Difficulty: Medium**
+
+**Answer:**
+Instructs the compiler not to generate getters/setters for a property and expose it as a public field.
+
+### Q69: What is `@Volatile` in Kotlin?
+**Difficulty: Medium**
+
+**Answer:**
+Equivalent to Java's `volatile`. Ensures visibility of changes across threads.
+
+### Q70: What is `@Synchronized` in Kotlin?
+**Difficulty: Medium**
+
+**Answer:**
+Equivalent to Java's `synchronized` method modifier.
+
+### Q71: How do you create a custom Getter/Setter?
+**Difficulty: Easy**
+
+**Answer:**
+```kotlin
+var stringRepresentation: String
+    get() = this.toString()
+    set(value) {
+        setDataFromString(value)
+    }
+```
+
+### Q72: What is the `check` function?
+**Difficulty: Easy**
+
+**Answer:**
+Throws `IllegalStateException` if the condition is false.
+```kotlin
+check(isValid) { "State is invalid" }
+```
+
+### Q73: What is the `require` function?
+**Difficulty: Easy**
+
+**Answer:**
+Throws `IllegalArgumentException` if the condition is false. Used for argument validation.
+```kotlin
+require(x > 0) { "x must be positive" }
+```
+
+### Q74: What is `TODO()`?
+**Difficulty: Easy**
+
+**Answer:**
+A function that throws `NotImplementedError`. Used as a placeholder.
+
+### Q75: What is `Repeatable` annotation?
+**Difficulty: Medium**
+
+**Answer:**
+Allows an annotation to be applied multiple times to the same element.
+
+### Q76: What is Variance (Covariance/Contravariance)?
+**Difficulty: Advanced**
+
+**Answer:**
+- `out` (Covariant): Producer. `List<out T>`. Can read T, cannot write.
+- `in` (Contravariant): Consumer. `Comparable<in T>`. Can write T, cannot read.
+
+### Q77: What is Star Projection (`*`)?
+**Difficulty: Advanced**
+
+**Answer:**
+Used when you don't know or don't care about the specific type argument. `List<*>` is similar to Java's `List<?>`.
+
+### Q78: What is Contract (Kotlin Contracts)?
+**Difficulty: Advanced**
+
+**Answer:**
+Allows functions to describe their behavior to the compiler (e.g., "this function returns only if argument is not null", or "this lambda is invoked exactly once"). Helps with smart casts.
+
+### Q79: What is `buildString`?
+**Difficulty: Easy**
+
+**Answer:**
+A utility function to build a string using `StringBuilder`.
+```kotlin
+val s = buildString {
+    append("Hello")
+    append(" World")
+}
+```
+
+### Q80: What is `use` function?
+**Difficulty: Medium**
+
+**Answer:**
+Executes a block on a Closeable resource and closes it afterwards (try-with-resources equivalent).
+
+### Q81: What is `measureTimeMillis`?
+**Difficulty: Easy**
+
+**Answer:**
+Executes a block and returns the elapsed time in milliseconds.
+
+### Q82: What is `Crossinline`?
+**Difficulty: Advanced**
+
+**Answer:**
+Used in inline functions to forbid non-local returns in a lambda parameter.
+
+### Q83: What is `Noinline`?
+**Difficulty: Advanced**
+
+**Answer:**
+Used in inline functions to prevent a specific lambda parameter from being inlined.
+
+### Q84: What is the difference between `fold` and `reduce`?
+**Difficulty: Medium**
+
+**Answer:**
+- `fold`: Takes an initial value.
+- `reduce`: Uses the first element as the initial value. Throws exception on empty collection.
+
+### Q85: What is `associateBy`?
+**Difficulty: Medium**
+
+**Answer:**
+Creates a Map from a collection using a key selector.
+
+### Q86: What is `groupBy`?
+**Difficulty: Medium**
+
+**Answer:**
+Groups elements of the original collection by the key returned by the given selector function. Returns `Map<K, List<V>>`.
+
+### Q87: What is `partition`?
+**Difficulty: Medium**
+
+**Answer:**
+Splits the original collection into pair of lists, where first list contains elements for which predicate yielded true, while second list contains elements for which predicate yielded false.
+
+### Q88: What is `flatMap`?
+**Difficulty: Medium**
+
+**Answer:**
+Transforms each element into a collection and then flattens these collections into a single list.
+
+### Q89: What is `zip`?
+**Difficulty: Medium**
+
+**Answer:**
+Merges two collections into a list of pairs.
+
+### Q90: What is `distinct`?
+**Difficulty: Easy**
+
+**Answer:**
+Returns a list containing only distinct elements from the given collection.
+
+### Q91: What is `any`, `all`, `none`?
+**Difficulty: Easy**
+
+**Answer:**
+- `any`: True if at least one element matches.
+- `all`: True if all elements match.
+- `none`: True if no elements match.
+
+### Q92: What is `find` vs `first`?
+**Difficulty: Medium**
+
+**Answer:**
+- `find`: Returns the first matching element or null.
+- `first`: Returns the first matching element or throws `NoSuchElementException`.
+
+### Q93: What is `chunked`?
+**Difficulty: Easy**
+
+**Answer:**
+Splits this collection into a list of lists each not exceeding the given size.
+
+### Q94: What is `windowed`?
+**Difficulty: Medium**
+
+**Answer:**
+Returns a snapshot (window) of the collection of a given size, sliding by a given step.
+
+### Q95: What is `coerceIn`?
+**Difficulty: Easy**
+
+**Answer:**
+Ensures a value is within a specified range.
+
+### Q96: What is `takeIf` and `takeUnless`?
+**Difficulty: Medium**
+
+**Answer:**
+- `takeIf`: Returns object if predicate matches, else null.
+- `takeUnless`: Returns object if predicate does NOT match, else null.
+
+### Q97: What is `MutableSharedFlow`?
+**Difficulty: Advanced**
+
+**Answer:**
+A mutable implementation of SharedFlow that allows emitting values.
+
+### Q98: What is `Job` in Coroutines?
+**Difficulty: Medium**
+
+**Answer:**
+A background job. Conceptually, it is a cancellable thing with a lifecycle that culminates in its completion.
+
+### Q99: What is `SupervisorJob`?
+**Difficulty: Advanced**
+
+**Answer:**
+A job where children can fail independently of each other. A failure of a child does not cancel the parent or other children.
+
+### Q100: What is the future of Kotlin?
+**Difficulty: Easy**
+
+**Answer:**
+Kotlin is becoming a true multiplatform language (KMP). Google is "Kotlin First" for Android. Server-side Kotlin is growing (Ktor, Spring Boot). Kotlin 2.0 (K2 compiler) brings significant performance improvements.
