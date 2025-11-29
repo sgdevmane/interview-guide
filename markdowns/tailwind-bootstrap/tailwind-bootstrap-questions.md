@@ -1,24 +1,117 @@
 # Tailwind CSS & Bootstrap Interview Questions
 
-A comprehensive collection of interview questions covering Tailwind CSS, Bootstrap, and their comparison for modern web development.
-
 ## Table of Contents
 
-1. [What is Tailwind CSS and how does it differ from traditional CSS frameworks?](#1-what-is-tailwind-css-and-how-does-it-differ-from-traditional-css-frameworks)
-2. [How do you implement responsive design with Tailwind CSS?](#2-how-do-you-implement-responsive-design-with-tailwind-css)
-3. [How do you create custom components and reusable styles in Tailwind?](#3-how-do-you-create-custom-components-and-reusable-styles-in-tailwind)
-4. [What is Bootstrap and what are its key features?](#4-what-is-bootstrap-and-what-are-its-key-features)
-5. [How do you create responsive layouts with Bootstrap's grid system?](#5-how-do-you-create-responsive-layouts-with-bootstraps-grid-system)
-6. [How do you customize Bootstrap components and themes?](#6-how-do-you-customize-bootstrap-components-and-themes)
-7. [When should you choose Tailwind CSS over Bootstrap and vice versa?](#7-when-should-you-choose-tailwind-css-over-bootstrap-and-vice-versa)
-8. [How do you migrate from Bootstrap to Tailwind CSS?](#8-how-do-you-migrate-from-bootstrap-to-tailwind-css)
-9. [How do you optimize performance in Tailwind CSS and Bootstrap?](#9-how-do-you-optimize-performance-in-tailwind-css-and-bootstrap)
+1. [Q1: What is Tailwind CSS and how does it differ from traditional CSS frameworks?](#q1-what-is-tailwind-css-and-how-does-it-differ-from-traditional-css-frameworks)
+2. [Q2: How do you implement responsive design with Tailwind CSS?](#q2-how-do-you-implement-responsive-design-with-tailwind-css)
+3. [Q3: How do you create custom components and reusable styles in Tailwind?](#q3-how-do-you-create-custom-components-and-reusable-styles-in-tailwind)
+4. [Q4: What is Bootstrap and what are its key features?](#q4-what-is-bootstrap-and-what-are-its-key-features)
+5. [Q5: How do you create responsive layouts with Bootstrap's grid system?](#q5-how-do-you-create-responsive-layouts-with-bootstraps-grid-system)
+6. [Q6: How do you customize Bootstrap components and themes?](#q6-how-do-you-customize-bootstrap-components-and-themes)
+7. [Q7: When should you choose Tailwind CSS over Bootstrap and vice versa?](#q7-when-should-you-choose-tailwind-css-over-bootstrap-and-vice-versa)
+8. [Q8: How do you migrate from Bootstrap to Tailwind CSS?](#q8-how-do-you-migrate-from-bootstrap-to-tailwind-css)
+9. [Q9: How do you optimize performance in Tailwind CSS and Bootstrap?](#q9-how-do-you-optimize-performance-in-tailwind-css-and-bootstrap)
+10. [Q10: How do you install Tailwind CSS?](#q10-how-do-you-install-tailwind-css)
+11. [Q11: What is the JIT (Just-in-Time) mode in Tailwind?](#q11-what-is-the-jit-just-in-time-mode-in-tailwind)
+12. [Q12: How do you handle hover, focus, and other states in Tailwind?](#q12-how-do-you-handle-hover-focus-and-other-states-in-tailwind)
+13. [Q13: What is `@apply` directive?](#q13-what-is-apply-directive)
+14. [Q14: How do you customize the default theme in Tailwind?](#q14-how-do-you-customize-the-default-theme-in-tailwind)
+15. [Q15: What is "Dark Mode" in Tailwind?](#q15-what-is-dark-mode-in-tailwind)
+16. [Q16: What are "Arbitrary Values" in Tailwind?](#q16-what-are-arbitrary-values-in-tailwind)
+17. [Q17: What is the Bootstrap Grid System?](#q17-what-is-the-bootstrap-grid-system)
+18. [Q18: What are Bootstrap Breakpoints?](#q18-what-are-bootstrap-breakpoints)
+19. [Q19: How do you override Bootstrap variables?](#q19-how-do-you-override-bootstrap-variables)
+20. [Q20: What is the difference between `.container` and `.container-fluid`?](#q20-what-is-the-difference-between-container-and-container-fluid)
+21. [Q21: What are Bootstrap Utilities?](#q21-what-are-bootstrap-utilities)
+22. [Q22: How to remove unused CSS in Bootstrap?](#q22-how-to-remove-unused-css-in-bootstrap)
+23. [Q23: What is the difference between Bootstrap 4 and 5?](#q23-what-is-the-difference-between-bootstrap-4-and-5)
+24. [Q24: Can you use Tailwind and Bootstrap together?](#q24-can-you-use-tailwind-and-bootstrap-together)
+25. [Q25: How do you create a responsive navbar in Bootstrap?](#q25-how-do-you-create-a-responsive-navbar-in-bootstrap)
+26. [Q26: How do you center a div horizontally and vertically in Tailwind?](#q26-how-do-you-center-a-div-horizontally-and-vertically-in-tailwind)
+27. [Q27: How do you center a div horizontally and vertically in Bootstrap?](#q27-how-do-you-center-a-div-horizontally-and-vertically-in-bootstrap)
+28. [Q28: What are Tailwind Plugins?](#q28-what-are-tailwind-plugins)
+29. [Q29: How does Tailwind handle specificity?](#q29-how-does-tailwind-handle-specificity)
+30. [Q30: What is `container` class in Tailwind?](#q30-what-is-container-class-in-tailwind)
+31. [Q31: How to make a fixed navbar in Tailwind?](#q31-how-to-make-a-fixed-navbar-in-tailwind)
+32. [Q32: What is the difference between `m-4` and `p-4`?](#q32-what-is-the-difference-between-m-4-and-p-4)
+33. [Q33: What is the spacing scale in Tailwind?](#q33-what-is-the-spacing-scale-in-tailwind)
+34. [Q34: How do you implement a Modal in Bootstrap?](#q34-how-do-you-implement-a-modal-in-bootstrap)
+35. [Q35: How do you implement a Modal in Tailwind?](#q35-how-do-you-implement-a-modal-in-tailwind)
+36. [Q36: What is Headless UI?](#q36-what-is-headless-ui)
+37. [Q37: What is DaisyUI?](#q37-what-is-daisyui)
+38. [Q38: What is the `@layer` directive?](#q38-what-is-the-layer-directive)
+39. [Q39: How do you hide an element on mobile but show on desktop in Tailwind?](#q39-how-do-you-hide-an-element-on-mobile-but-show-on-desktop-in-tailwind)
+40. [Q40: How do you hide an element on mobile but show on desktop in Bootstrap?](#q40-how-do-you-hide-an-element-on-mobile-but-show-on-desktop-in-bootstrap)
+41. [Q41: What is the config file for Bootstrap?](#q41-what-is-the-config-file-for-bootstrap)
+42. [Q42: What is `prose` class in Tailwind?](#q42-what-is-prose-class-in-tailwind)
+43. [Q43: How do you make an image responsive in Bootstrap?](#q43-how-do-you-make-an-image-responsive-in-bootstrap)
+44. [Q44: How do you make an image responsive in Tailwind?](#q44-how-do-you-make-an-image-responsive-in-tailwind)
+45. [Q45: What is the difference between `flex` and `inline-flex`?](#q45-what-is-the-difference-between-flex-and-inline-flex)
+46. [Q46: How do you add a custom font in Tailwind?](#q46-how-do-you-add-a-custom-font-in-tailwind)
+47. [Q47: What is the "ring" utility in Tailwind?](#q47-what-is-the-ring-utility-in-tailwind)
+48. [Q48: How do you reset styles in Tailwind?](#q48-how-do-you-reset-styles-in-tailwind)
+49. [Q49: How do you use CSS Grid in Tailwind?](#q49-how-do-you-use-css-grid-in-tailwind)
+50. [Q50: How do you create a sticky footer?](#q50-how-do-you-create-a-sticky-footer)
+51. [Q51: What is `sr-only`?](#q51-what-is-sr-only)
+52. [Q52: How do you apply styles to children in Tailwind?](#q52-how-do-you-apply-styles-to-children-in-tailwind)
+53. [Q53: What is the difference between `space-x-{n}` and `gap-{n}`?](#q53-what-is-the-difference-between-space-x-n-and-gap-n)
+54. [Q54: How do you rotate an element in Tailwind?](#q54-how-do-you-rotate-an-element-in-tailwind)
+55. [Q55: How do you add a tooltip in Bootstrap?](#q55-how-do-you-add-a-tooltip-in-bootstrap)
+56. [Q56: How do you add a tooltip in Tailwind?](#q56-how-do-you-add-a-tooltip-in-tailwind)
+57. [Q57: What is the `peer` modifier in Tailwind?](#q57-what-is-the-peer-modifier-in-tailwind)
+58. [Q58: What are Bootstrap "Cards"?](#q58-what-are-bootstrap-cards)
+59. [Q59: How do you handle text truncation in Tailwind?](#q59-how-do-you-handle-text-truncation-in-tailwind)
+60. [Q60: What is "Reboot" in Bootstrap?](#q60-what-is-reboot-in-bootstrap)
+61. [Q61: How do you use gradients in Tailwind?](#q61-how-do-you-use-gradients-in-tailwind)
+62. [Q62: What is the `important` modifier in Tailwind?](#q62-what-is-the-important-modifier-in-tailwind)
+63. [Q63: How do you create a drop shadow in Tailwind?](#q63-how-do-you-create-a-drop-shadow-in-tailwind)
+64. [Q64: How do you create a drop shadow in Bootstrap?](#q64-how-do-you-create-a-drop-shadow-in-bootstrap)
+65. [Q65: What is the difference between `visible` and `invisible` in Tailwind?](#q65-what-is-the-difference-between-visible-and-invisible-in-tailwind)
+66. [Q66: How do you animate elements in Tailwind?](#q66-how-do-you-animate-elements-in-tailwind)
+67. [Q67: What is a "Gutters" in Bootstrap?](#q67-what-is-a-gutters-in-bootstrap)
+68. [Q68: How do you change the gutter size in Bootstrap 5?](#q68-how-do-you-change-the-gutter-size-in-bootstrap-5)
+69. [Q69: What is RTL support?](#q69-what-is-rtl-support)
+70. [Q70: How do you use "Divide" utilities in Tailwind?](#q70-how-do-you-use-divide-utilities-in-tailwind)
+71. [Q71: What is the `screens` configuration in Tailwind?](#q71-what-is-the-screens-configuration-in-tailwind)
+72. [Q72: How do you style the placeholder text in Tailwind?](#q72-how-do-you-style-the-placeholder-text-in-tailwind)
+73. [Q73: How do you implement a specific aspect ratio?](#q73-how-do-you-implement-a-specific-aspect-ratio)
+74. [Q74: What is the `presets` option in Tailwind config?](#q74-what-is-the-presets-option-in-tailwind-config)
+75. [Q75: How do you apply a blur filter in Tailwind?](#q75-how-do-you-apply-a-blur-filter-in-tailwind)
+76. [Q76: What is the difference between `w-screen` and `w-full`?](#q76-what-is-the-difference-between-w-screen-and-w-full)
+77. [Q77: How do you disable preflight in Tailwind?](#q77-how-do-you-disable-preflight-in-tailwind)
+78. [Q78: What is `list-none`?](#q78-what-is-list-none)
+79. [Q79: How do you make a table in Bootstrap?](#q79-how-do-you-make-a-table-in-bootstrap)
+80. [Q80: How do you make a table in Tailwind?](#q80-how-do-you-make-a-table-in-tailwind)
+81. [Q81: What is `object-cover`?](#q81-what-is-object-cover)
+82. [Q82: What is `inset-0`?](#q82-what-is-inset-0)
+83. [Q83: How do you handle z-index in Tailwind?](#q83-how-do-you-handle-z-index-in-tailwind)
+84. [Q84: What is the `cursor-pointer` class?](#q84-what-is-the-cursor-pointer-class)
+85. [Q85: How do you select the first child in Tailwind?](#q85-how-do-you-select-the-first-child-in-tailwind)
+86. [Q86: How do you select the last child in Tailwind?](#q86-how-do-you-select-the-last-child-in-tailwind)
+87. [Q87: What is `odd` and `even` modifiers?](#q87-what-is-odd-and-even-modifiers)
+88. [Q88: How do you create a transition in Tailwind?](#q88-how-do-you-create-a-transition-in-tailwind)
+89. [Q89: What is `outline-none` vs `focus:outline-none`?](#q89-what-is-outline-none-vs-focusoutline-none)
+90. [Q90: What is `select-none`?](#q90-what-is-select-none)
+91. [Q91: How do you make an element full height of the screen?](#q91-how-do-you-make-an-element-full-height-of-the-screen)
+92. [Q92: What is `max-w-prose`?](#q92-what-is-max-w-prose)
+93. [Q93: How do you debug layout issues in Tailwind?](#q93-how-do-you-debug-layout-issues-in-tailwind)
+94. [Q94: What is `flex-grow` and `flex-shrink`?](#q94-what-is-flex-grow-and-flex-shrink)
+95. [Q95: How do you apply styles only on print?](#q95-how-do-you-apply-styles-only-on-print)
+96. [Q96: What is `snap-x` and `snap-y`?](#q96-what-is-snap-x-and-snap-y)
+97. [Q97: How do you use variables in arbitrary values?](#q97-how-do-you-use-variables-in-arbitrary-values)
+98. [Q98: What is the `accent-{color}` utility?](#q98-what-is-the-accent-color-utility)
+99. [Q99: How do you capitalize text?](#q99-how-do-you-capitalize-text)
+100. [Q100: Which is better for rapid prototyping?](#q100-which-is-better-for-rapid-prototyping)
 
 ---
 
-## Tailwind CSS Fundamentals
 
-### 1. What is Tailwind CSS and how does it differ from traditional CSS frameworks?
+A comprehensive collection of interview questions covering Tailwind CSS, Bootstrap, and their comparison for modern web development.
+
+---
+
+
+### Q1: What is Tailwind CSS and how does it differ from traditional CSS frameworks?
 
 **Answer:**
 Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom designs directly in your markup, rather than providing pre-designed components.
@@ -118,7 +211,7 @@ module.exports = {
 }
 ```
 
-### 2. How do you implement responsive design with Tailwind CSS?
+### Q2: How do you implement responsive design with Tailwind CSS?
 
 **Answer:**
 Tailwind uses a mobile-first responsive design approach with breakpoint prefixes.
@@ -227,7 +320,7 @@ module.exports = {
 }
 ```
 
-### 3. How do you create custom components and reusable styles in Tailwind?
+### Q3: How do you create custom components and reusable styles in Tailwind?
 
 **Answer:**
 Tailwind provides several approaches for creating reusable components and custom styles.
@@ -460,9 +553,8 @@ const Select = React.forwardRef(({ className, children, error, ...props }, ref) 
 
 ---
 
-## Bootstrap Fundamentals
 
-### 4. What is Bootstrap and what are its key features?
+### Q4: What is Bootstrap and what are its key features?
 
 **Answer:**
 Bootstrap is a popular CSS framework that provides pre-designed components, responsive grid system, and utility classes for rapid web development.
@@ -665,7 +757,7 @@ $grid-breakpoints: (
 }
 ```
 
-### 5. How do you create responsive layouts with Bootstrap's grid system?
+### Q5: How do you create responsive layouts with Bootstrap's grid system?
 
 **Answer:**
 Bootstrap's grid system uses a 12-column layout with containers, rows, and columns that automatically adjust based on screen size.
@@ -866,7 +958,7 @@ Bootstrap's grid system uses a 12-column layout with containers, rows, and colum
 </div>
 ```
 
-### 6. How do you customize Bootstrap components and themes?
+### Q6: How do you customize Bootstrap components and themes?
 
 **Answer:**
 Bootstrap can be customized through Sass variables, custom CSS, and by creating custom component variants.
@@ -1361,9 +1453,8 @@ These examples show how to extensively customize Bootstrap through Sass variable
 
 ---
 
-## Framework Comparison
 
-### 7. When should you choose Tailwind CSS over Bootstrap and vice versa?
+### Q7: When should you choose Tailwind CSS over Bootstrap and vice versa?
 
 **Answer:**
 The choice between Tailwind CSS and Bootstrap depends on project requirements, team preferences, and development approach.
@@ -1487,7 +1578,7 @@ The choice between Tailwind CSS and Bootstrap depends on project requirements, t
 | **File Size** | ~10KB (purged) | ~150KB+ (full) |
 | **Browser Support** | Modern browsers | Wider browser support |
 
-### 8. How do you migrate from Bootstrap to Tailwind CSS?
+### Q8: How do you migrate from Bootstrap to Tailwind CSS?
 
 **Answer:**
 Migrating from Bootstrap to Tailwind requires a systematic approach to replace component-based classes with utility classes.
@@ -1846,7 +1937,7 @@ function migrateBootstrapComponents(content) {
 }
 ```
 
-### 9. How do you optimize performance in Tailwind CSS and Bootstrap?
+### Q9: How do you optimize performance in Tailwind CSS and Bootstrap?
 
 **Answer:**
 Both frameworks offer different approaches to performance optimization, focusing on bundle size reduction and efficient CSS delivery.
@@ -2160,7 +2251,6 @@ window.addEventListener('load', measurePerformance)
 **Optimization Checklist:**
 
 ```markdown
-## Tailwind CSS Optimization
 - ✅ Enable JIT mode
 - ✅ Configure content paths correctly
 - ✅ Use PurgeCSS in production
@@ -2170,7 +2260,6 @@ window.addEventListener('load', measurePerformance)
 - ✅ Enable gzip compression
 - ✅ Use CDN for static assets
 
-## Bootstrap Optimization
 - ✅ Create custom builds with only needed components
 - ✅ Tree-shake JavaScript modules
 - ✅ Use Sass variables for customization
@@ -2182,3 +2271,790 @@ window.addEventListener('load', measurePerformance)
 ```
 
 These optimization strategies can significantly reduce bundle sizes and improve page load times for both frameworks.
+
+### Q10: How do you install Tailwind CSS?
+**Difficulty: Beginner**
+
+**Answer:**
+The recommended way is via npm.
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+This creates `tailwind.config.js` and `postcss.config.js`. You then configure the `content` paths in the config file.
+
+### Q11: What is the JIT (Just-in-Time) mode in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+JIT mode is a compiler engine that generates your styles on-demand as you author your templates, rather than generating everything in advance.
+- **Advantages:**
+  - Lightning fast build times.
+  - Every variant is enabled out of the box.
+  - Generate arbitrary styles without writing custom CSS.
+  - Identical CSS in development and production.
+  - Enabled by default in Tailwind CSS v3.
+
+### Q12: How do you handle hover, focus, and other states in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+Prefix the utility class with the state name followed by a colon.
+
+```html
+<button class="bg-blue-500 hover:bg-blue-700 focus:ring-2 focus:ring-blue-600">
+  Click me
+</button>
+```
+
+### Q13: What is `@apply` directive?
+**Difficulty: Intermediate**
+
+**Answer:**
+`@apply` allows you to extract common utility patterns into custom CSS classes. Useful for avoiding repetition or when you need to support 3rd-party libraries that expect specific class names.
+
+```css
+.btn {
+  @apply py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700;
+}
+```
+
+### Q14: How do you customize the default theme in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Modify the `theme` section in `tailwind.config.js`.
+- **Extend:** Adds to existing defaults.
+- **Override:** Replaces existing defaults.
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'brand-blue': '#1976d2',
+      }
+    }
+  }
+}
+```
+
+### Q15: What is "Dark Mode" in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Tailwind includes a `dark` variant that lets you style your site differently when dark mode is enabled.
+It can be based on the system preference (`media` strategy) or a CSS class (`class` strategy).
+
+```html
+<!-- class strategy configured -->
+<div class="bg-white dark:bg-gray-800">
+  <h1 class="text-gray-900 dark:text-white">Hello</h1>
+</div>
+```
+
+### Q16: What are "Arbitrary Values" in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Allows you to use specific values that aren't part of your design system using square bracket notation.
+
+```html
+<div class="top-[117px]">
+  <div class="w-[32rem]"></div>
+</div>
+```
+
+### Q17: What is the Bootstrap Grid System?
+**Difficulty: Beginner**
+
+**Answer:**
+It's a responsive, mobile-first system built with flexbox (and grid in v5) that scales up to 12 columns.
+- `.container` (centered container)
+- `.row` (wrapper for columns)
+- `.col-{breakpoint}-{number}` (column classes)
+
+```html
+<div class="row">
+  <div class="col-md-6">Half width on medium+</div>
+  <div class="col-md-6">Half width on medium+</div>
+</div>
+```
+
+### Q18: What are Bootstrap Breakpoints?
+**Difficulty: Beginner**
+
+**Answer:**
+- `xs`: <576px
+- `sm`: ≥576px
+- `md`: ≥768px
+- `lg`: ≥992px
+- `xl`: ≥1200px
+- `xxl`: ≥1400px (Bootstrap 5)
+
+### Q19: How do you override Bootstrap variables?
+**Difficulty: Intermediate**
+
+**Answer:**
+Since Bootstrap 4/5 uses SASS, you can override default variables in your custom SCSS file *before* importing Bootstrap.
+
+```scss
+// custom.scss
+$primary: #my-custom-color;
+@import "bootstrap/scss/bootstrap";
+```
+
+### Q20: What is the difference between `.container` and `.container-fluid`?
+**Difficulty: Beginner**
+
+**Answer:**
+- `.container`: Fixed width container that changes max-width at each breakpoint.
+- `.container-fluid`: Full width container (100% width) spanning the entire viewport width.
+
+### Q21: What are Bootstrap Utilities?
+**Difficulty: Beginner**
+
+**Answer:**
+Bootstrap includes utility classes for common CSS properties (similar to Tailwind, but less exhaustive).
+- Spacing: `m-1` (margin), `p-2` (padding).
+- Colors: `text-primary`, `bg-success`.
+- Display: `d-flex`, `d-none`.
+- Flexbox: `justify-content-center`, `align-items-center`.
+
+### Q22: How to remove unused CSS in Bootstrap?
+**Difficulty: Advanced**
+
+**Answer:**
+Using PurgeCSS. You configure PurgeCSS to scan your HTML/JS files and remove any CSS selectors from the final bundle that are not used. (Tailwind does this automatically via its JIT engine).
+
+### Q23: What is the difference between Bootstrap 4 and 5?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **jQuery:** Removed in v5 (uses vanilla JS).
+- **IE Support:** Dropped IE10/11 support in v5.
+- **Grid:** Added `xxl` breakpoint.
+- **Utilities API:** Added a utility API to generate utility classes.
+- **RFS:** Enabled responsive font sizes by default.
+
+### Q24: Can you use Tailwind and Bootstrap together?
+**Difficulty: Intermediate**
+
+**Answer:**
+Yes, but not recommended due to potential class name conflicts (e.g., `hidden`, `flex`, `text-center`) and file size bloat. If you must, you can prefix Tailwind classes (e.g., `tw-flex`) in `tailwind.config.js`.
+
+### Q25: How do you create a responsive navbar in Bootstrap?
+**Difficulty: Beginner**
+
+**Answer:**
+Using the `.navbar` component with `.navbar-expand-{breakpoint}`.
+
+```html
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+       <!-- links -->
+    </div>
+  </div>
+</nav>
+```
+
+### Q26: How do you center a div horizontally and vertically in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+```html
+<div class="flex items-center justify-center h-screen">
+  <div>Centered Content</div>
+</div>
+```
+
+### Q27: How do you center a div horizontally and vertically in Bootstrap?
+**Difficulty: Beginner**
+
+**Answer:**
+```html
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div>Centered Content</div>
+</div>
+```
+
+### Q28: What are Tailwind Plugins?
+**Difficulty: Advanced**
+
+**Answer:**
+Plugins allow you to register new styles for Tailwind to inject into the user's stylesheet using JavaScript.
+Official plugins: `@tailwindcss/forms`, `@tailwindcss/typography`, `@tailwindcss/aspect-ratio`.
+
+### Q29: How does Tailwind handle specificity?
+**Difficulty: Advanced**
+
+**Answer:**
+Tailwind utilities are generated in a specific order so that later classes override earlier ones if they target the same property (and have same specificity). But generally, utilities have low specificity (single class).
+Important: The order of classes in the HTML attribute *does not matter*; the order in the generated CSS file matters.
+
+### Q30: What is `container` class in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+The `.container` class sets the `max-width` of an element to match the `min-width` of the current breakpoint. Unlike Bootstrap, it does not center itself automatically; you need `mx-auto`.
+
+```html
+<div class="container mx-auto">
+```
+
+### Q31: How to make a fixed navbar in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+```html
+<nav class="fixed top-0 w-full z-50 bg-white shadow">
+  <!-- content -->
+</nav>
+```
+
+### Q32: What is the difference between `m-4` and `p-4`?
+**Difficulty: Beginner**
+
+**Answer:**
+- `m-4`: Sets `margin: 1rem;` (assuming default spacing scale).
+- `p-4`: Sets `padding: 1rem;`.
+
+### Q33: What is the spacing scale in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+By default, 1 unit = 0.25rem (4px).
+- `1` = 0.25rem (4px)
+- `4` = 1rem (16px)
+- `8` = 2rem (32px)
+
+### Q34: How do you implement a Modal in Bootstrap?
+**Difficulty: Intermediate**
+
+**Answer:**
+Bootstrap has a built-in Modal component requiring specific HTML structure and data attributes (`data-bs-toggle="modal"`, `data-bs-target="#id"`).
+
+### Q35: How do you implement a Modal in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Tailwind doesn't provide a JS modal component. You build the UI with utilities (overlay, centered box) and manage the state (open/close) with your JS framework (React/Vue) or vanilla JS. Headless UI is often used for accessible logic.
+
+### Q36: What is Headless UI?
+**Difficulty: Intermediate**
+
+**Answer:**
+A library of completely unstyled, fully accessible UI components (Menu, Listbox, Switch, Dialog, etc.) designed to integrate beautifully with Tailwind CSS. Developed by Tailwind Labs.
+
+### Q37: What is DaisyUI?
+**Difficulty: Beginner**
+
+**Answer:**
+A popular component library for Tailwind CSS. It adds component classes (like `.btn`, `.card`) to Tailwind, similar to Bootstrap's approach but built on top of Tailwind utilities.
+
+### Q38: What is the `@layer` directive?
+**Difficulty: Intermediate**
+
+**Answer:**
+Used to tell Tailwind which "bucket" a set of custom styles belongs to. Valid layers: `base`, `components`, `utilities`.
+This helps with controlling CSS declaration order and purging.
+
+```css
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+  }
+}
+```
+
+### Q39: How do you hide an element on mobile but show on desktop in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+```html
+<div class="hidden md:block">
+  Visible on medium screens and up
+</div>
+```
+
+### Q40: How do you hide an element on mobile but show on desktop in Bootstrap?
+**Difficulty: Beginner**
+
+**Answer:**
+```html
+<div class="d-none d-md-block">
+  Visible on medium screens and up
+</div>
+```
+
+### Q41: What is the config file for Bootstrap?
+**Difficulty: Beginner**
+
+**Answer:**
+Bootstrap doesn't have a config file like Tailwind. Customization is done via SCSS variables in your build process.
+
+### Q42: What is `prose` class in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+It comes from the official `@tailwindcss/typography` plugin. It provides a set of sensible typographic defaults to vanilla HTML content (like from a Markdown file or CMS).
+
+```html
+<article class="prose lg:prose-xl">
+  {{ markdownContent }}
+</article>
+```
+
+### Q43: How do you make an image responsive in Bootstrap?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `.img-fluid` (applies `max-width: 100%; height: auto;`).
+
+### Q44: How do you make an image responsive in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `w-full` or `max-w-full` and `h-auto`.
+
+### Q45: What is the difference between `flex` and `inline-flex`?
+**Difficulty: Beginner**
+
+**Answer:**
+- `flex`: The container behaves like a block element (takes full width).
+- `inline-flex`: The container behaves like an inline element (takes only necessary width).
+
+### Q46: How do you add a custom font in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+1. Import the font in CSS.
+2. Add it to `tailwind.config.js`.
+
+```javascript
+// tailwind.config.js
+theme: {
+  extend: {
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+    }
+  }
+}
+```
+
+### Q47: What is the "ring" utility in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+It creates outline rings using box-shadows. Useful for focus states or borders that don't affect layout.
+`ring-2`, `ring-blue-500`.
+
+### Q48: How do you reset styles in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Tailwind includes "Preflight", an opinionated set of base styles (built on top of modern-normalize) that smooths over cross-browser inconsistencies. It removes margins, unstyles headings, etc.
+
+### Q49: How do you use CSS Grid in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `grid`: `display: grid`
+- `grid-cols-{n}`: `grid-template-columns: repeat(n, minmax(0, 1fr))`
+- `gap-{n}`: `gap: {n}`
+
+```html
+<div class="grid grid-cols-3 gap-4">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+```
+
+### Q50: How do you create a sticky footer?
+**Difficulty: Intermediate**
+
+**Answer:**
+Flexbox approach:
+- Body/Wrapper: `flex flex-col min-h-screen`
+- Main content: `flex-grow`
+
+```html
+<div class="flex flex-col min-h-screen">
+  <header>...</header>
+  <main class="flex-grow">...</main>
+  <footer>...</footer>
+</div>
+```
+
+### Q51: What is `sr-only`?
+**Difficulty: Beginner**
+
+**Answer:**
+A utility class (Screen Reader Only) that visually hides an element but keeps it accessible to screen readers. Available in both Bootstrap (`.visually-hidden` in v5) and Tailwind.
+
+### Q52: How do you apply styles to children in Tailwind?
+**Difficulty: Advanced**
+
+**Answer:**
+Using the arbitrary variant syntax `[&>selector]`.
+
+```html
+<ul class="[&>li]:text-blue-500">
+  <li>Item 1</li>
+  <li>Item 2</li>
+</ul>
+```
+
+### Q53: What is the difference between `space-x-{n}` and `gap-{n}`?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `space-x-{n}`: Adds margin-left to all children except the first. (Used before flex gap was widely supported).
+- `gap-{n}`: Uses the native CSS `gap` property (flexbox/grid). Preferred modern approach.
+
+### Q54: How do you rotate an element in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+`rotate-{degrees}`.
+`<div class="rotate-45"></div>`
+
+### Q55: How do you add a tooltip in Bootstrap?
+**Difficulty: Intermediate**
+
+**Answer:**
+Requires enabling via JS. Add `data-bs-toggle="tooltip"` and `title="Tooltip text"`.
+
+### Q56: How do you add a tooltip in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Tailwind is CSS-only. You can use the `group` modifier for a CSS-only tooltip, or use a library like Tippy.js or Headless UI.
+
+```html
+<div class="group relative">
+  <button>Hover me</button>
+  <div class="hidden group-hover:block absolute bottom-full">Tooltip</div>
+</div>
+```
+
+### Q57: What is the `peer` modifier in Tailwind?
+**Difficulty: Advanced**
+
+**Answer:**
+Similar to `group`, but allows you to style an element based on the state of a sibling element.
+
+```html
+<input type="email" class="peer"/>
+<p class="invisible peer-invalid:visible text-red-500">Invalid email</p>
+```
+
+### Q58: What are Bootstrap "Cards"?
+**Difficulty: Beginner**
+
+**Answer:**
+A flexible and extensible content container. Includes options for headers and footers, a wide variety of content, contextual background colors, and powerful display options.
+
+### Q59: How do you handle text truncation in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+- `truncate`: Adds `overflow: hidden`, `text-overflow: ellipsis`, `white-space: nowrap`.
+- `line-clamp-{n}`: (Plugin in v3.3+) Limits text to n lines.
+
+### Q60: What is "Reboot" in Bootstrap?
+**Difficulty: Intermediate**
+
+**Answer:**
+Reboot is a collection of element-specific CSS changes in a single file to provide an elegant, consistent, and simple baseline to build upon. (Bootstrap's version of normalize.css).
+
+### Q61: How do you use gradients in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+`bg-gradient-to-{direction} from-{color} to-{color}`.
+
+```html
+<div class="bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+```
+
+### Q62: What is the `important` modifier in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+Prefix a utility with `!` to add `!important`.
+`!mt-4` -> `margin-top: 1rem !important;`
+
+### Q63: How do you create a drop shadow in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+`shadow`, `shadow-md`, `shadow-lg`, `shadow-xl`.
+
+### Q64: How do you create a drop shadow in Bootstrap?
+**Difficulty: Beginner**
+
+**Answer:**
+`shadow`, `shadow-sm`, `shadow-lg`, `shadow-none`.
+
+### Q65: What is the difference between `visible` and `invisible` in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+- `visible`: `visibility: visible`
+- `invisible`: `visibility: hidden` (Element still takes up space, unlike `hidden` which is `display: none`).
+
+### Q66: How do you animate elements in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Tailwind provides basic animations: `animate-spin`, `animate-ping`, `animate-pulse`, `animate-bounce`. You can extend these in `tailwind.config.js`.
+
+### Q67: What is a "Gutters" in Bootstrap?
+**Difficulty: Intermediate**
+
+**Answer:**
+Gutters are the padding between your columns, used to responsively space and align content in the Bootstrap grid system.
+
+### Q68: How do you change the gutter size in Bootstrap 5?
+**Difficulty: Intermediate**
+
+**Answer:**
+Use `g-{n}`, `gx-{n}`, or `gy-{n}` classes on the `.row`.
+
+```html
+<div class="row g-3">...</div>
+```
+
+### Q69: What is RTL support?
+**Difficulty: Intermediate**
+
+**Answer:**
+Support for Right-To-Left languages (Arabic, Hebrew).
+- **Bootstrap 5:** Built-in RTL support (via RTLCSS).
+- **Tailwind:** Use `rtl` and `ltr` modifiers (e.g., `rtl:ml-4`).
+
+### Q70: How do you use "Divide" utilities in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Adds borders between child elements.
+`divide-y`, `divide-x`.
+
+```html
+<div class="divide-y divide-gray-200">
+  <div>Item 1</div>
+  <div>Item 2</div>
+</div>
+```
+
+### Q71: What is the `screens` configuration in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Defines the responsive breakpoints.
+
+```javascript
+screens: {
+  'tablet': '640px',
+  'laptop': '1024px',
+}
+```
+
+### Q72: How do you style the placeholder text in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+`placeholder-{color}`.
+`<input class="placeholder-gray-500" />`
+
+### Q73: How do you implement a specific aspect ratio?
+**Difficulty: Intermediate**
+
+**Answer:**
+`aspect-{ratio}`.
+`<div class="aspect-video">16/9</div>`
+`<div class="aspect-square">1/1</div>`
+
+### Q74: What is the `presets` option in Tailwind config?
+**Difficulty: Advanced**
+
+**Answer:**
+Allows you to specify your own base configuration instead of the default Tailwind config. Useful for multi-project teams sharing a design system.
+
+### Q75: How do you apply a blur filter in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+`blur-{amount}`.
+`<div class="blur-sm"></div>` (backdrop-blur for background).
+
+### Q76: What is the difference between `w-screen` and `w-full`?
+**Difficulty: Beginner**
+
+**Answer:**
+- `w-full`: Width is 100% of the **parent** container.
+- `w-screen`: Width is 100vw (viewport width).
+
+### Q77: How do you disable preflight in Tailwind?
+**Difficulty: Advanced**
+
+**Answer:**
+In `tailwind.config.js`: `corePlugins: { preflight: false }`.
+
+### Q78: What is `list-none`?
+**Difficulty: Beginner**
+
+**Answer:**
+Removes default list styling (bullets/numbers). `list-style-type: none`.
+
+### Q79: How do you make a table in Bootstrap?
+**Difficulty: Beginner**
+
+**Answer:**
+Add `.table` class to `<table>`. Optional: `.table-striped`, `.table-hover`.
+
+### Q80: How do you make a table in Tailwind?
+**Difficulty: Intermediate**
+
+**Answer:**
+Tailwind doesn't have a table component class. You style the `table`, `th`, `td` elements using utilities (borders, padding, text alignment) or use a plugin.
+
+### Q81: What is `object-cover`?
+**Difficulty: Beginner**
+
+**Answer:**
+CSS `object-fit: cover`. The image keeps its aspect ratio and fills the given dimension. The image will be clipped to fit.
+
+### Q82: What is `inset-0`?
+**Difficulty: Beginner**
+
+**Answer:**
+Sets `top: 0`, `right: 0`, `bottom: 0`, `left: 0`. Useful for full-covering absolute elements.
+
+### Q83: How do you handle z-index in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+`z-0`, `z-10`, `z-20`, `z-30`, `z-40`, `z-50`, `z-auto`.
+
+### Q84: What is the `cursor-pointer` class?
+**Difficulty: Beginner**
+
+**Answer:**
+Sets `cursor: pointer`. Used for clickable elements.
+
+### Q85: How do you select the first child in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+`first:mt-0` (Target the element when it is the first child).
+
+### Q86: How do you select the last child in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+`last:mb-0`.
+
+### Q87: What is `odd` and `even` modifiers?
+**Difficulty: Beginner**
+
+**Answer:**
+Target odd or even children. Useful for table striping.
+`odd:bg-white even:bg-gray-100`.
+
+### Q88: How do you create a transition in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+`transition`, `transition-all`, `transition-colors`, etc. Combined with `duration-{time}` and `ease-{timing}`.
+
+```html
+<button class="transition duration-300 ease-in-out hover:bg-red-500">
+```
+
+### Q89: What is `outline-none` vs `focus:outline-none`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Removes the default browser focus ring. Important: Always replace it with a custom focus style (like `focus:ring`) for accessibility.
+
+### Q90: What is `select-none`?
+**Difficulty: Beginner**
+
+**Answer:**
+`user-select: none`. Prevents the user from selecting the text.
+
+### Q91: How do you make an element full height of the screen?
+**Difficulty: Beginner**
+
+**Answer:**
+`h-screen` (100vh).
+
+### Q92: What is `max-w-prose`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Sets the max-width to the optimal reading width (approx 65 chars).
+
+### Q93: How do you debug layout issues in Tailwind?
+**Difficulty: Beginner**
+
+**Answer:**
+- Use browser dev tools.
+- Add temporary borders: `border border-red-500`.
+- Use a plugin like `tailwindcss-debug-screens`.
+
+### Q94: What is `flex-grow` and `flex-shrink`?
+**Difficulty: Beginner**
+
+**Answer:**
+- `grow` (`flex-grow: 1`): Item expands to fill space.
+- `shrink` (`flex-shrink: 1`): Item shrinks if necessary.
+
+### Q95: How do you apply styles only on print?
+**Difficulty: Intermediate**
+
+**Answer:**
+`print:hidden`, `print:block`.
+
+### Q96: What is `snap-x` and `snap-y`?
+**Difficulty: Advanced**
+
+**Answer:**
+CSS Scroll Snap utilities. Controls how strict the snapping points are.
+
+### Q97: How do you use variables in arbitrary values?
+**Difficulty: Advanced**
+
+**Answer:**
+`<div class="bg-[--my-color]">`.
+
+### Q98: What is the `accent-{color}` utility?
+**Difficulty: Beginner**
+
+**Answer:**
+Sets the `accent-color` property. Controls the color of form controls like checkboxes and radio buttons.
+
+### Q99: How do you capitalize text?
+**Difficulty: Beginner**
+
+**Answer:**
+- `uppercase`: ALL CAPS
+- `lowercase`: all lowercase
+- `capitalize`: First Letter Of Each Word
+
+### Q100: Which is better for rapid prototyping?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Bootstrap:** Faster if you are okay with the default look. You get a navbar, card, and modal instantly.
+- **Tailwind:** Faster if you need a custom design from the start. You don't spend time fighting default styles.

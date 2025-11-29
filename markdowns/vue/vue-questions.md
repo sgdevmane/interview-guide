@@ -1,6 +1,7 @@
 # Vue.js Interview Questions
 
 ## Table of Contents
+
 1. [Q1: What is Vue.js and what are its key features?](#q1-what-is-vuejs-and-what-are-its-key-features)
 2. [Q2: Explain the difference between Options API and Composition API.](#q2-explain-the-difference-between-options-api-and-composition-api)
 3. [Q3: What are Vue directives and how do you create custom directives?](#q3-what-are-vue-directives-and-how-do-you-create-custom-directives)
@@ -21,10 +22,92 @@
 18. [Q18: How do you implement Vue.js with modern development tools and workflows?](#q18-how-do-you-implement-vuejs-with-modern-development-tools-and-workflows)
 19. [Q19: How do you implement Vue.js with internationalization (i18n) and accessibility?](#q19-how-do-you-implement-vuejs-with-internationalization-i18n-and-accessibility)
 20. [Q20: How do you implement Vue.js enterprise patterns and architecture?](#q20-how-do-you-implement-vuejs-enterprise-patterns-and-architecture)
+21. [Q21: What is the Vue instance?](#q21-what-is-the-vue-instance)
+22. [Q22: What are lifecycle hooks in Vue?](#q22-what-are-lifecycle-hooks-in-vue)
+23. [Q23: Explain the difference between `v-show` and `v-if`.](#q23-explain-the-difference-between-v-show-and-v-if)
+24. [Q24: What are computed properties?](#q24-what-are-computed-properties)
+25. [Q25: What is the difference between Computed properties and Watchers?](#q25-what-is-the-difference-between-computed-properties-and-watchers)
+26. [Q26: How do you pass data from parent to child?](#q26-how-do-you-pass-data-from-parent-to-child)
+27. [Q27: How do you pass data from child to parent?](#q27-how-do-you-pass-data-from-child-to-parent)
+28. [Q28: What is `v-model`?](#q28-what-is-v-model)
+29. [Q29: What are Slots?](#q29-what-are-slots)
+30. [Q30: What is the Composition API?](#q30-what-is-the-composition-api)
+31. [Q31: What is `ref` vs `reactive`?](#q31-what-is-ref-vs-reactive)
+32. [Q32: What is `provide` and `inject`?](#q32-what-is-provide-and-inject)
+33. [Q33: What is `nextTick`?](#q33-what-is-nexttick)
+34. [Q34: What is a Mixin?](#q34-what-is-a-mixin)
+35. [Q35: What are Dynamic Components?](#q35-what-are-dynamic-components)
+36. [Q36: What is `keep-alive`?](#q36-what-is-keep-alive)
+37. [Q37: What are Modifiers in Vue?](#q37-what-are-modifiers-in-vue)
+38. [Q38: How does Vue reactivity work (Vue 2 vs Vue 3)?](#q38-how-does-vue-reactivity-work-vue-2-vs-vue-3)
+39. [Q39: What is `scoped` CSS?](#q39-what-is-scoped-css)
+40. [Q40: What is Vuex (and Pinia)?](#q40-what-is-vuex-and-pinia)
+41. [Q41: What are async components?](#q41-what-are-async-components)
+42. [Q42: What is the `key` attribute used for?](#q42-what-is-the-key-attribute-used-for)
+43. [Q43: Can you use JSX with Vue?](#q43-can-you-use-jsx-with-vue)
+44. [Q44: What is `v-bind`?](#q44-what-is-v-bind)
+45. [Q45: What is `v-on`?](#q45-what-is-v-on)
+46. [Q46: What is `v-html`?](#q46-what-is-v-html)
+47. [Q47: What is `v-once`?](#q47-what-is-v-once)
+48. [Q48: How do you force a component to re-render?](#q48-how-do-you-force-a-component-to-re-render)
+49. [Q49: What is the Virtual DOM?](#q49-what-is-the-virtual-dom)
+50. [Q50: What are "Props"?](#q50-what-are-props)
+51. [Q51: What is Prop Validation?](#q51-what-is-prop-validation)
+52. [Q52: What is the difference between one-way data flow and two-way data binding?](#q52-what-is-the-difference-between-one-way-data-flow-and-two-way-data-binding)
+53. [Q53: What is `toRefs`?](#q53-what-is-torefs)
+54. [Q54: What is `watchEffect`?](#q54-what-is-watcheffect)
+55. [Q55: How do you handle errors in Vue?](#q55-how-do-you-handle-errors-in-vue)
+56. [Q56: What is Teleport?](#q56-what-is-teleport)
+57. [Q57: What is Suspense?](#q57-what-is-suspense)
+58. [Q58: What are Fragments in Vue 3?](#q58-what-are-fragments-in-vue-3)
+59. [Q59: What is custom directive?](#q59-what-is-custom-directive)
+60. [Q60: How do you structure a large Vue application?](#q60-how-do-you-structure-a-large-vue-application)
+61. [Q61: What is Vue CLI vs Vite?](#q61-what-is-vue-cli-vs-vite)
+62. [Q62: What is HMR (Hot Module Replacement)?](#q62-what-is-hmr-hot-module-replacement)
+63. [Q63: How do you use Vue with TypeScript?](#q63-how-do-you-use-vue-with-typescript)
+64. [Q64: What is `defineEmits`?](#q64-what-is-defineemits)
+65. [Q65: What is `defineExpose`?](#q65-what-is-defineexpose)
+66. [Q66: What are composables?](#q66-what-are-composables)
+67. [Q67: How do you test Vue components?](#q67-how-do-you-test-vue-components)
+68. [Q68: What is `shallowRef`?](#q68-what-is-shallowref)
+69. [Q69: What is `triggerRef`?](#q69-what-is-triggerref)
+70. [Q70: What is `customRef`?](#q70-what-is-customref)
+71. [Q71: How does routing work in Vue?](#q71-how-does-routing-work-in-vue)
+72. [Q72: What are Navigation Guards?](#q72-what-are-navigation-guards)
+73. [Q73: What is Lazy Loading Routes?](#q73-what-is-lazy-loading-routes)
+74. [Q74: What is the difference between hash mode and history mode?](#q74-what-is-the-difference-between-hash-mode-and-history-mode)
+75. [Q75: How do you animate transitions in Vue?](#q75-how-do-you-animate-transitions-in-vue)
+76. [Q76: What is `<TransitionGroup>`?](#q76-what-is-transitiongroup)
+77. [Q77: How do you optimize a Vue app?](#q77-how-do-you-optimize-a-vue-app)
+78. [Q78: What is Nuxt.js?](#q78-what-is-nuxtjs)
+79. [Q79: What is the difference between `watch` deep option and `reactive`?](#q79-what-is-the-difference-between-watch-deep-option-and-reactive)
+80. [Q80: What is the `setup` attribute?](#q80-what-is-the-setup-attribute)
+81. [Q81: Can you have multiple root nodes in Vue 2?](#q81-can-you-have-multiple-root-nodes-in-vue-2)
+82. [Q82: What is `v-memo` (Vue 3.2+)?](#q82-what-is-v-memo-vue-32)
+83. [Q83: How to use Global Properties?](#q83-how-to-use-global-properties)
+84. [Q84: What is the difference between `$attrs` and props?](#q84-what-is-the-difference-between-attrs-and-props)
+85. [Q85: How to disable Attribute Inheritance?](#q85-how-to-disable-attribute-inheritance)
+86. [Q86: What are "functional components" in Vue?](#q86-what-are-functional-components-in-vue)
+87. [Q87: How to access the DOM element in Vue?](#q87-how-to-access-the-dom-element-in-vue)
+88. [Q88: What is hydration?](#q88-what-is-hydration)
+89. [Q89: What is the `serverPrefetch` hook?](#q89-what-is-the-serverprefetch-hook)
+90. [Q90: How to create a plugin in Vue?](#q90-how-to-create-a-plugin-in-vue)
+91. [Q91: What is `Vue.nextTick` used for in testing?](#q91-what-is-vuenexttick-used-for-in-testing)
+92. [Q92: How to handle circular dependencies between components?](#q92-how-to-handle-circular-dependencies-between-components)
+93. [Q93: What is `v-cloak`?](#q93-what-is-v-cloak)
+94. [Q94: What is the difference between `method` and `computed` regarding caching?](#q94-what-is-the-difference-between-method-and-computed-regarding-caching)
+95. [Q95: How to make a variable reactive outside of a component?](#q95-how-to-make-a-variable-reactive-outside-of-a-component)
+96. [Q96: What is `effectScope`?](#q96-what-is-effectscope)
+97. [Q97: How to use CSS Modules in Vue?](#q97-how-to-use-css-modules-in-vue)
+98. [Q98: What is `v-pre`?](#q98-what-is-v-pre)
+99. [Q99: How to dynamic arguments in directives?](#q99-how-to-dynamic-arguments-in-directives)
+100. [Q100: What is the future of Vue?](#q100-what-is-the-future-of-vue)
 
 ---
 
-## Vue.js Fundamentals
+
+---
+
 
 ### Q1: What is Vue.js and what are its key features?
 **Difficulty: Easy**
@@ -602,7 +685,6 @@ export default {
 
 ---
 
-## Components and Templates
 
 ### Q3: What are Vue directives and how do you create custom directives?
 **Difficulty: Medium**
@@ -971,7 +1053,6 @@ app.directive('my-directive', {
 
 ---
 
-## Reactivity System
 
 ### Q4: How do you implement Vue 3 reactivity system and what are the key differences from Vue 2?
 **Difficulty: Medium**
@@ -1269,7 +1350,6 @@ const updateMultiple = async () => {
 
 ---
 
-## Vue Router
 
 ### Q5: How do you implement Vue Router for SPA navigation and what are the advanced routing patterns?
 **Difficulty: Medium**
@@ -1746,7 +1826,6 @@ const routes = [
 
 ---
 
-## State Management
 
 ### Q6: How do you implement state management with Pinia (Vue 3) and what are the differences from Vuex?
 **Difficulty: Medium**
@@ -2277,7 +2356,6 @@ export function useWebSocket(url) {
 
 ---
 
-## Performance Optimization
 
 ### Q8: How do you implement Vue.js performance optimization techniques?
 **Difficulty: Hard**
@@ -2888,7 +2966,6 @@ export function usePerformanceMonitor() {
 
 ---
 
-## Testing
 
 ### Q9: How do you implement testing in Vue.js applications?
 **Difficulty: Medium**
@@ -3468,7 +3545,6 @@ test.describe('User Management', () => {
 
 ---
 
-## Advanced Vue Features
 
 ### Q10: How do you implement Vue 3 Teleport and Suspense features?
 **Difficulty: Medium**
@@ -4045,7 +4121,6 @@ export function useAsyncData(key, fetcher) {
 
 ---
 
-## Server-Side Rendering
 
 ### Q11: How do you implement Server-Side Rendering (SSR) with Vue.js?
 **Difficulty: Advanced**
@@ -4622,7 +4697,6 @@ export const useProductStore = defineStore('products', () => {
 
 ---
 
-## Advanced Vue Patterns
 
 ### Q12: How do you implement advanced Vue.js patterns and best practices?
 **Difficulty: Advanced**
@@ -5217,7 +5291,6 @@ const { state: users, isLoading, error, execute: refetchUsers } = useAsyncState(
 
 ---
 
-## TypeScript Integration
 
 ### Q13: How do you implement Vue.js with TypeScript?
 **Difficulty: Intermediate**
@@ -5899,7 +5972,6 @@ export default router
 
 ---
 
-## Deployment
 
 ### Q14: How do you deploy Vue.js applications?
 **Difficulty: Intermediate**
@@ -6344,7 +6416,6 @@ export default defineConfig({
 
 ---
 
-## Vue 3 Migration
 
 ### Q15: How do you migrate from Vue 2 to Vue 3?
 **Difficulty: Advanced**
@@ -6795,7 +6866,6 @@ const price = ref(29.99)
 **7. Migration Checklist:**
 
 ```markdown
-## Vue 3 Migration Checklist
 
 ### Dependencies
 - [ ] Update Vue to 3.x
@@ -6903,7 +6973,6 @@ export default {
 
 ---
 
-## Micro-frontends
 
 ### Q16: How do you implement micro-frontends with Vue.js?
 **Difficulty: Advanced**
@@ -8388,7 +8457,6 @@ export function useToast() {
 
 ---
 
-## Modern Development Tools
 
 ### Q18: How do you implement Vue.js with modern development tools and workflows?
 **Difficulty: Advanced**
@@ -8919,7 +8987,6 @@ VITE_ENABLE_ANALYTICS=true
 
 ---
 
-## Internationalization and Accessibility
 
 ### Q19: How do you implement Vue.js with internationalization (i18n) and accessibility?
 **Difficulty: Advanced**
@@ -9971,7 +10038,6 @@ const announceToScreenReader = (message) => {
 
 ---
 
-## Enterprise Patterns
 
 ### Q20: How do you implement Vue.js enterprise patterns and architecture?
 **Difficulty: Expert**
@@ -12021,3 +12087,734 @@ const myDirective = {
 ---
 
 This comprehensive guide covers Vue.js fundamentals with detailed explanations and practical examples, focusing on real-world usage patterns and best practices.
+
+### Q21: What is the Vue instance?
+**Difficulty: Beginner**
+
+**Answer:**
+In Vue 2, every Vue application starts by creating a new Vue instance with the `Vue` function: `var vm = new Vue({ ... })`. In Vue 3, we use `createApp`: `const app = createApp({ ... })`. This instance is the root of the application.
+
+```javascript
+// Vue 3
+import { createApp } from 'vue';
+const app = createApp({
+  data() {
+    return { count: 0 }
+  }
+});
+app.mount('#app');
+```
+
+### Q22: What are lifecycle hooks in Vue?
+**Difficulty: Beginner**
+
+**Answer:**
+Lifecycle hooks are functions that give you the opportunity to add your own code at specific stages of a component's initialization.
+Common hooks:
+- `beforeCreate` / `created`
+- `beforeMount` / `mounted`
+- `beforeUpdate` / `updated`
+- `beforeUnmount` / `unmounted` (Vue 3) or `beforeDestroy` / `destroyed` (Vue 2)
+
+### Q23: Explain the difference between `v-show` and `v-if`.
+**Difficulty: Beginner**
+
+**Answer:**
+- `v-if`: Real conditional rendering. The element is not in the DOM if the condition is false. Higher toggle cost.
+- `v-show`: The element is always rendered in the DOM, but toggles the CSS `display` property. Higher initial render cost.
+
+Use `v-show` if you need to toggle something very often, and `v-if` if the condition is unlikely to change at runtime.
+
+### Q24: What are computed properties?
+**Difficulty: Beginner**
+
+**Answer:**
+Computed properties are cached based on their reactive dependencies. A computed property will only re-evaluate when some of its reactive dependencies have changed.
+
+```javascript
+computed: {
+  fullName() {
+    return this.firstName + ' ' + this.lastName;
+  }
+}
+```
+
+### Q25: What is the difference between Computed properties and Watchers?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Computed:** Declarative, synchronous, pure functions, cached. Used for deriving data.
+- **Watchers:** Imperative, allows side effects (async calls), not cached. Used for reacting to data changes (e.g., API calls when ID changes).
+
+### Q26: How do you pass data from parent to child?
+**Difficulty: Beginner**
+
+**Answer:**
+Using `props`.
+
+```vue
+<!-- Parent -->
+<ChildComponent :message="parentMessage" />
+
+<!-- Child -->
+<script setup>
+defineProps(['message']);
+</script>
+```
+
+### Q27: How do you pass data from child to parent?
+**Difficulty: Beginner**
+
+**Answer:**
+Using events (`$emit`).
+
+```vue
+<!-- Child -->
+<button @click="$emit('increase', 1)">Add</button>
+
+<!-- Parent -->
+<ChildComponent @increase="count += $event" />
+```
+
+### Q28: What is `v-model`?
+**Difficulty: Beginner**
+
+**Answer:**
+`v-model` creates two-way data binding on form input, textarea, and select elements. It's syntax sugar for updating data on user input events.
+
+```html
+<input v-model="searchText" />
+<!-- is essentially -->
+<input
+  :value="searchText"
+  @input="searchText = $event.target.value"
+/>
+```
+
+### Q29: What are Slots?
+**Difficulty: Intermediate**
+
+**Answer:**
+Slots allow you to compose components by injecting content from a parent into a child component's template.
+- **Default Slot:** `<slot></slot>`
+- **Named Slots:** `<slot name="header"></slot>`
+- **Scoped Slots:** Passing data from child back to the slot content.
+
+### Q30: What is the Composition API?
+**Difficulty: Intermediate**
+
+**Answer:**
+Introduced in Vue 3, it allows grouping logical concerns together (using `setup`, `ref`, `reactive`) instead of organizing by options (`data`, `methods`, `computed`). It improves code reuse and organization in large components.
+
+```javascript
+import { ref, onMounted } from 'vue';
+
+export default {
+  setup() {
+    const count = ref(0);
+    function increment() { count.value++ }
+    return { count, increment };
+  }
+}
+```
+
+### Q31: What is `ref` vs `reactive`?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `ref`: Takes an inner value and returns a reactive and mutable ref object with a single property `.value`. Works with primitives and objects.
+- `reactive`: Takes an object and returns a reactive proxy of the original. Deep reactivity. Works only with objects/arrays.
+
+### Q32: What is `provide` and `inject`?
+**Difficulty: Intermediate**
+
+**Answer:**
+They allow passing data through the component hierarchy without prop drilling (passing props down manually at every level).
+
+```javascript
+// Ancestor
+provide('theme', 'dark');
+
+// Descendant
+const theme = inject('theme');
+```
+
+### Q33: What is `nextTick`?
+**Difficulty: Advanced**
+
+**Answer:**
+`nextTick` allows you to execute code after the next DOM update cycle. Vue updates the DOM asynchronously; `nextTick` waits until that update is finished.
+
+```javascript
+this.message = 'new value';
+// DOM not updated yet
+this.$nextTick(() => {
+  // DOM updated
+});
+```
+
+### Q34: What is a Mixin?
+**Difficulty: Intermediate**
+
+**Answer:**
+Mixins are a flexible way to distribute reusable functionalities for Vue components. A mixin object can contain any component options.
+**Note:** Mixins are considered "harmful" in Vue 3 (naming collisions, implicit dependencies) and Composition API composables are preferred.
+
+### Q35: What are Dynamic Components?
+**Difficulty: Intermediate**
+
+**Answer:**
+You can switch between components dynamically using the `<component>` element and the `is` attribute.
+
+```html
+<component :is="currentComponent"></component>
+```
+
+### Q36: What is `keep-alive`?
+**Difficulty: Intermediate**
+
+**Answer:**
+`keep-alive` is a wrapper component that caches inactive component instances without destroying them. Useful for tab interfaces.
+
+```html
+<keep-alive>
+  <component :is="view"></component>
+</keep-alive>
+```
+
+### Q37: What are Modifiers in Vue?
+**Difficulty: Beginner**
+
+**Answer:**
+Modifiers are special postfixes denoted by a dot.
+- Event modifiers: `.stop`, `.prevent`, `.capture`, `.self`.
+- Key modifiers: `.enter`, `.tab`, `.delete`.
+- Input modifiers: `.lazy`, `.number`, `.trim`.
+
+```html
+<form @submit.prevent="onSubmit">...</form>
+```
+
+### Q38: How does Vue reactivity work (Vue 2 vs Vue 3)?
+**Difficulty: Advanced**
+
+**Answer:**
+- **Vue 2:** Uses `Object.defineProperty` to convert data properties to getters/setters. Cannot detect property addition/deletion or array index setting.
+- **Vue 3:** Uses ES6 `Proxy` to wrap the object. Can detect property addition, deletion, and array changes.
+
+### Q39: What is `scoped` CSS?
+**Difficulty: Beginner**
+
+**Answer:**
+When a `<style>` tag has the `scoped` attribute, its CSS will apply only to elements of the current component. Vue adds a unique data attribute (e.g., `data-v-f3f3eg9`) to elements to achieve this.
+
+### Q40: What is Vuex (and Pinia)?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Vuex:** The official state management library for Vue 2 (and 3). Centralized store for all components.
+- **Pinia:** The new official state management library for Vue 3. Lighter, modular, better TypeScript support, no mutations (only actions).
+
+### Q41: What are async components?
+**Difficulty: Intermediate**
+
+**Answer:**
+Async components are loaded only when they are needed (lazy loading), splitting the app into smaller chunks.
+
+```javascript
+import { defineAsyncComponent } from 'vue';
+const AsyncComp = defineAsyncComponent(() =>
+  import('./components/MyComponent.vue')
+);
+```
+
+### Q42: What is the `key` attribute used for?
+**Difficulty: Intermediate**
+
+**Answer:**
+The `key` special attribute is primarily used as a hint for Vue's virtual DOM algorithm to identify VNodes when comparing the new list of nodes against the old list. It helps Vue reorder elements instead of patching them in place. Essential for `v-for`.
+
+### Q43: Can you use JSX with Vue?
+**Difficulty: Intermediate**
+
+**Answer:**
+Yes. While templates are default, you can write render functions using JSX. Requires a plugin (`@vitejs/plugin-vue-jsx`).
+
+### Q44: What is `v-bind`?
+**Difficulty: Beginner**
+
+**Answer:**
+Used to bind one or more attributes, or a component prop to an expression. Shortcut is `:`.
+
+```html
+<img :src="imageSrc" />
+```
+
+### Q45: What is `v-on`?
+**Difficulty: Beginner**
+
+**Answer:**
+Attaches event listeners that invoke methods. Shortcut is `@`.
+
+```html
+<button @click="doSomething">Click me</button>
+```
+
+### Q46: What is `v-html`?
+**Difficulty: Beginner**
+
+**Answer:**
+Updates the element's `innerHTML`. Note: Be careful with XSS attacks.
+
+### Q47: What is `v-once`?
+**Difficulty: Beginner**
+
+**Answer:**
+Render the element and component once only. On subsequent re-renders, the element/component and all its children will be treated as static content and skipped.
+
+### Q48: How do you force a component to re-render?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  The best way is to change the `key` prop.
+2.  Use `v-if` to toggle it off and on.
+3.  (Avoid) `$forceUpdate()`.
+
+### Q49: What is the Virtual DOM?
+**Difficulty: Intermediate**
+
+**Answer:**
+A lightweight JavaScript object representation of the actual DOM. Vue modifies the Virtual DOM first, computes the difference (diff), and then updates the real DOM efficiently.
+
+### Q50: What are "Props"?
+**Difficulty: Beginner**
+
+**Answer:**
+Custom attributes you can register on a component. When a value is passed to a prop attribute, it becomes a property on that component instance.
+
+### Q51: What is Prop Validation?
+**Difficulty: Beginner**
+
+**Answer:**
+You can specify requirements for the props your component receives (type, required, default value, validator function).
+
+```javascript
+props: {
+  age: {
+    type: Number,
+    required: true,
+    validator: (value) => value >= 0
+  }
+}
+```
+
+### Q52: What is the difference between one-way data flow and two-way data binding?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **One-way:** Data flows down (parent to child). Props are read-only in the child. Ensures data traceability.
+- **Two-way:** `v-model` allows child to update parent's data. Useful for form inputs.
+
+### Q53: What is `toRefs`?
+**Difficulty: Intermediate**
+
+**Answer:**
+A utility in Composition API to convert a reactive object to a plain object where each property is a ref pointing to the original property. Useful when destructurering props.
+
+```javascript
+const props = defineProps(['title']);
+const { title } = toRefs(props);
+```
+
+### Q54: What is `watchEffect`?
+**Difficulty: Intermediate**
+
+**Answer:**
+It runs a function immediately while creating a reactive tracking of its dependencies, and re-runs it whenever the dependencies change. Automatic dependency tracking (unlike `watch` where you specify the source).
+
+### Q55: How do you handle errors in Vue?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `errorCaptured` lifecycle hook (in parent components).
+- `app.config.errorHandler` (global).
+
+### Q56: What is Teleport?
+**Difficulty: Intermediate**
+
+**Answer:**
+Allows you to transport a part of a component's template to a DOM node that exists outside the DOM hierarchy of that component (e.g., modals attached to `body`).
+
+```html
+<Teleport to="body">
+  <div class="modal">...</div>
+</Teleport>
+```
+
+### Q57: What is Suspense?
+**Difficulty: Advanced**
+
+**Answer:**
+A built-in component for orchestrating async dependencies in a component tree. It renders a fallback content while waiting for nested async components to resolve.
+
+```html
+<Suspense>
+  <template #default>
+    <AsyncComponent />
+  </template>
+  <template #fallback>
+    Loading...
+  </template>
+</Suspense>
+```
+
+### Q58: What are Fragments in Vue 3?
+**Difficulty: Beginner**
+
+**Answer:**
+In Vue 2, components required a single root element. Vue 3 supports multi-root components (Fragments).
+
+```html
+<!-- Vue 3 Valid -->
+<template>
+  <header>...</header>
+  <main>...</main>
+  <footer>...</footer>
+</template>
+```
+
+### Q59: What is custom directive?
+**Difficulty: Intermediate**
+
+**Answer:**
+Allows direct low-level DOM access.
+
+```javascript
+const vFocus = {
+  mounted: (el) => el.focus()
+}
+```
+
+### Q60: How do you structure a large Vue application?
+**Difficulty: Advanced**
+
+**Answer:**
+- Feature-based folder structure (grouping by domain/feature).
+- Shared components (UI kit).
+- Services/API layer.
+- Store (Pinia) modules.
+- Layouts.
+
+### Q61: What is Vue CLI vs Vite?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Vue CLI:** Webpack-based, older standard. Slower builds.
+- **Vite:** Native ES modules based, extremely fast dev server and HMR. The new standard build tool for Vue.
+
+### Q62: What is HMR (Hot Module Replacement)?
+**Difficulty: Intermediate**
+
+**Answer:**
+Allows modules to be exchanged, added, or removed while an application is running, without a full reload. Preserves application state.
+
+### Q63: How do you use Vue with TypeScript?
+**Difficulty: Intermediate**
+
+**Answer:**
+Vue 3 is written in TypeScript. Use `<script setup lang="ts">`. Define props/emits with types.
+
+```typescript
+defineProps<{ msg: string }>();
+```
+
+### Q64: What is `defineEmits`?
+**Difficulty: Beginner**
+
+**Answer:**
+A compiler macro used in `<script setup>` to declare the events a component can emit.
+
+```javascript
+const emit = defineEmits(['change', 'delete']);
+```
+
+### Q65: What is `defineExpose`?
+**Difficulty: Advanced**
+
+**Answer:**
+Used in `<script setup>` to explicitly expose properties to the parent component (via template refs). By default, `<script setup>` components are closed.
+
+### Q66: What are composables?
+**Difficulty: Intermediate**
+
+**Answer:**
+Functions that leverage the Composition API to encapsulate and reuse stateful logic. (Equivalent to React Custom Hooks).
+
+```javascript
+export function useMouse() {
+  const x = ref(0);
+  const y = ref(0);
+  // ... logic
+  return { x, y };
+}
+```
+
+### Q67: How do you test Vue components?
+**Difficulty: Intermediate**
+
+**Answer:**
+Use **Vue Test Utils** along with a test runner like **Vitest** or **Jest**.
+- **Unit Testing:** Testing individual components/functions.
+- **E2E Testing:** Cypress or Playwright.
+
+### Q68: What is `shallowRef`?
+**Difficulty: Advanced**
+
+**Answer:**
+Creates a ref that tracks its own `.value` mutation but doesn't make its value deeply reactive. Useful for large immutable data structures or integration with external state managers.
+
+### Q69: What is `triggerRef`?
+**Difficulty: Advanced**
+
+**Answer:**
+Manually trigger an effect for a `shallowRef`.
+
+### Q70: What is `customRef`?
+**Difficulty: Advanced**
+
+**Answer:**
+Creates a customized ref with explicit control over dependency tracking and update triggering. Useful for debounced refs.
+
+### Q71: How does routing work in Vue?
+**Difficulty: Beginner**
+
+**Answer:**
+Using **Vue Router**. It maps URLs to components.
+- `<router-view>`: Renders the matched component.
+- `<router-link>`: Declarative navigation.
+
+### Q72: What are Navigation Guards?
+**Difficulty: Intermediate**
+
+**Answer:**
+Hooks to protect routes or execute logic before navigation.
+- Global: `router.beforeEach`
+- Per-route: `beforeEnter`
+- In-component: `beforeRouteEnter`, `beforeRouteLeave`.
+
+### Q73: What is Lazy Loading Routes?
+**Difficulty: Intermediate**
+
+**Answer:**
+Loading route components only when the user navigates to them.
+
+```javascript
+const routes = [
+  { path: '/about', component: () => import('./About.vue') }
+];
+```
+
+### Q74: What is the difference between hash mode and history mode?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Hash mode:** Uses URL hash (`#`). Supported by all browsers, no server config needed.
+- **History mode:** Uses HTML5 History API. Cleaner URLs (`/user/id`). Requires server configuration to fallback to `index.html` on 404.
+
+### Q75: How do you animate transitions in Vue?
+**Difficulty: Intermediate**
+
+**Answer:**
+Wrap the element in `<Transition>` component and define CSS classes (`v-enter-active`, `v-leave-active`, etc.).
+
+### Q76: What is `<TransitionGroup>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Used for animating lists (v-for). Renders a real element (default `<span>`).
+
+### Q77: How do you optimize a Vue app?
+**Difficulty: Advanced**
+
+**Answer:**
+1.  Code splitting (Lazy loading routes/components).
+2.  Virtual scrolling for long lists.
+3.  `v-show` instead of `v-if` for frequent toggles.
+4.  `shallowRef` for large static data.
+5.  `v-once` for static content.
+6.  Debounce user input.
+
+### Q78: What is Nuxt.js?
+**Difficulty: Intermediate**
+
+**Answer:**
+A meta-framework built on top of Vue.js. It provides SSR (Server-Side Rendering), SSG (Static Site Generation), file-system routing, and auto-imports out of the box.
+
+### Q79: What is the difference between `watch` deep option and `reactive`?
+**Difficulty: Intermediate**
+
+**Answer:**
+`reactive` makes an object deeply reactive by default. `watch` is shallow by default; you need `{ deep: true }` to watch nested properties of a ref or reactive object.
+
+### Q80: What is the `setup` attribute?
+**Difficulty: Beginner**
+
+**Answer:**
+`<script setup>` is a compile-time syntactic sugar for using Composition API inside Single File Components (SFCs). It is more concise and provides better runtime performance.
+
+### Q81: Can you have multiple root nodes in Vue 2?
+**Difficulty: Beginner**
+
+**Answer:**
+No. Vue 2 components must have exactly one root element. Vue 3 supports fragments (multiple roots).
+
+### Q82: What is `v-memo` (Vue 3.2+)?
+**Difficulty: Advanced**
+
+**Answer:**
+Memoizes a sub-tree of the template. It accepts an array of dependencies. If dependencies haven't changed, the sub-tree is skipped during re-render. Similar to React's `useMemo` but for templates.
+
+```html
+<div v-memo="[valueA, valueB]">...</div>
+```
+
+### Q83: How to use Global Properties?
+**Difficulty: Intermediate**
+
+**Answer:**
+In Vue 3: `app.config.globalProperties`.
+In Vue 2: `Vue.prototype`.
+Useful for exposing global libraries (like axios or moment).
+
+### Q84: What is the difference between `$attrs` and props?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Props:** Explicitly declared attributes.
+- **$attrs:** Attributes passed to the component but not declared as props (e.g., `class`, `style`, `id`). By default, they fall through to the root element.
+
+### Q85: How to disable Attribute Inheritance?
+**Difficulty: Advanced**
+
+**Answer:**
+Set `inheritAttrs: false` in component options. Then manually bind `$attrs` where needed.
+
+### Q86: What are "functional components" in Vue?
+**Difficulty: Advanced**
+
+**Answer:**
+Stateless, instance-less components. In Vue 2, defined with `functional: true`. In Vue 3, functional components are just plain functions. They are rarely needed in Vue 3 due to performance improvements in stateful components.
+
+### Q87: How to access the DOM element in Vue?
+**Difficulty: Beginner**
+
+**Answer:**
+Use the `ref` attribute.
+
+```html
+<input ref="inputRef" />
+```
+In Composition API:
+```javascript
+const inputRef = ref(null);
+onMounted(() => inputRef.value.focus());
+```
+
+### Q88: What is hydration?
+**Difficulty: Advanced**
+
+**Answer:**
+Hydration is the process where the client-side Vue app takes over the static HTML sent by the server (SSR), attaches event listeners, and makes it interactive.
+
+### Q89: What is the `serverPrefetch` hook?
+**Difficulty: Advanced**
+
+**Answer:**
+A lifecycle hook used in SSR. It allows a component to fetch data asynchronously on the server before rendering.
+
+### Q90: How to create a plugin in Vue?
+**Difficulty: Advanced**
+
+**Answer:**
+A plugin is an object with an `install` method.
+
+```javascript
+const myPlugin = {
+  install(app, options) {
+    app.component('MyComponent', MyComponent);
+    app.directive('my-directive', {});
+  }
+}
+app.use(myPlugin);
+```
+
+### Q91: What is `Vue.nextTick` used for in testing?
+**Difficulty: Intermediate**
+
+**Answer:**
+To wait for the DOM to update after a state change before making assertions.
+
+### Q92: How to handle circular dependencies between components?
+**Difficulty: Advanced**
+
+**Answer:**
+- Register components globally.
+- Or use async import: `components: { TreeFolderContents: defineAsyncComponent(() => import('./TreeFolderContents.vue')) }`.
+
+### Q93: What is `v-cloak`?
+**Difficulty: Beginner**
+
+**Answer:**
+Used to hide uncompiled Mustache bindings `{{}}` until the Vue instance is ready. Used with CSS `[v-cloak] { display: none }`.
+
+### Q94: What is the difference between `method` and `computed` regarding caching?
+**Difficulty: Beginner**
+
+**Answer:**
+Computed properties are cached based on dependencies. Methods are evaluated every time a re-render happens.
+
+### Q95: How to make a variable reactive outside of a component?
+**Difficulty: Intermediate**
+
+**Answer:**
+Use `reactive` or `ref` from 'vue' and import it where needed. This creates a shared state (simple store pattern).
+
+### Q96: What is `effectScope`?
+**Difficulty: Advanced**
+
+**Answer:**
+Advanced API for managing side effects. It allows collecting multiple effects (computed, watch, watchEffect) into a scope that can be disposed of together.
+
+### Q97: How to use CSS Modules in Vue?
+**Difficulty: Intermediate**
+
+**Answer:**
+Use `<style module>`.
+
+```html
+<style module>
+.red { color: red; }
+</style>
+<template>
+  <p :class="$style.red">Red text</p>
+</template>
+```
+
+### Q98: What is `v-pre`?
+**Difficulty: Beginner**
+
+**Answer:**
+Skips compilation for this element and all its children. Useful for displaying raw mustache tags.
+
+### Q99: How to dynamic arguments in directives?
+**Difficulty: Intermediate**
+
+**Answer:**
+`<a v-bind:[attributeName]="url"> ... </a>`
+`<a v-on:[eventName]="doSomething"> ... </a>`
+
+### Q100: What is the future of Vue?
+**Difficulty: Beginner**
+
+**Answer:**
+Vue 3 is the current stable version (default). Vapor Mode (experimental) is being developed to explore a compilation strategy that doesn't rely on the Virtual DOM, aiming for even higher performance.

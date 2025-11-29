@@ -1,40 +1,109 @@
 # Database Interview Questions
 
 ## Table of Contents
-1. [SQL Fundamentals](#sql-fundamentals)
-2. [Database Design](#database-design)
-3. [NoSQL Databases](#nosql-databases)
-4. [Performance Optimization](#performance-optimization)
-5. [Transactions and ACID](#transactions-and-acid)
-6. [Database Security](#database-security)
-7. [Replication and Scaling](#replication-and-scaling)
-8. [Advanced Topics](#advanced-topics)
 
-### Questions List
-1. [Q1: Explain the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN with examples](#q1-explain-the-difference-between-inner-join-left-join-right-join-and-full-outer-join-with-examples)
-2. [Q2: Write a complex SQL query that demonstrates window functions, CTEs, and subqueries](#q2-write-a-complex-sql-query-that-demonstrates-window-functions-ctes-and-subqueries)
-3. [Q3: Design a normalized database schema for an e-commerce platform and explain the normalization process](#q3-design-a-normalized-database-schema-for-an-e-commerce-platform-and-explain-the-normalization-process)
-4. [Q4: Compare MongoDB, Redis, and Cassandra. When would you use each?](#q4-compare-mongodb-redis-and-cassandra-when-would-you-use-each)
-5. [Q5: Design a database schema for a social media platform with posts, comments, likes, and followers](#q5-design-a-database-schema-for-a-social-media-platform-with-posts-comments-likes-and-followers)
-6. [Q6: Explain database indexing strategies and when to use different types of indexes](#q6-explain-database-indexing-strategies-and-when-to-use-different-types-of-indexes)
-7. [Q7: Explain database transactions, ACID properties, and isolation levels with practical examples](#q7-explain-database-transactions-acid-properties-and-isolation-levels-with-practical-examples)
-8. [Q8: How do you implement database sharding and partitioning strategies for large-scale applications?](#q8-how-do-you-implement-database-sharding-and-partitioning-strategies-for-large-scale-applications)
-9. [Q9: How do you implement database backup, recovery, and disaster recovery strategies?](#q9-how-do-you-implement-database-backup-recovery-and-disaster-recovery-strategies)
-10. [Q10: How do you implement database security best practices and access control?](#q10-how-do-you-implement-database-security-best-practices-and-access-control)
-11. [Q11: How do you implement database replication and high availability strategies?](#q11-how-do-you-implement-database-replication-and-high-availability-strategies)
-12. [Q12: How do you implement database performance monitoring and optimization?](#q12-how-do-you-implement-database-performance-monitoring-and-optimization)
-13. [Q13: How do you implement database connection pooling and manage database connections efficiently?](#q13-how-do-you-implement-database-connection-pooling-and-manage-database-connections-efficiently)
-14. [Q14: How do you implement database migration strategies and version control for database schemas?](#q14-how-do-you-implement-database-migration-strategies-and-version-control-for-database-schemas)
-15. [Q15: How do you implement database caching strategies and optimize cache performance?](#q15-how-do-you-implement-database-caching-strategies-and-optimize-cache-performance)
-16. [Q16: How do you implement database query optimization and explain query execution plans?](#q16-how-do-you-implement-database-query-optimization-and-explain-query-execution-plans)
-17. [Q17: How do you implement database concurrency control and handle deadlocks?](#q17-how-do-you-implement-database-concurrency-control-and-handle-deadlocks)
-18. [Q18: How do you implement database monitoring, alerting, and performance tuning?](#q18-how-do-you-implement-database-monitoring-alerting-and-performance-tuning)
-19. [Q19: How do you design and implement data warehousing solutions and ETL processes?](#q19-how-do-you-design-and-implement-data-warehousing-solutions-and-etl-processes)
-20. [Q20: How do you implement database cloud migration and modern database architectures?](#q20-how-do-you-implement-database-cloud-migration-and-modern-database-architectures)
+- [### Q1: Explain the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN with examples.](\#-q1-explain-the-difference-between-inner-join-left-join-right-join-and-full-outer-join-with-examples)
+- [### Q2: Write a complex SQL query that demonstrates window functions, CTEs, and subqueries.](\#-q2-write-a-complex-sql-query-that-demonstrates-window-functions-ctes-and-subqueries)
+- [### Q3: Design a normalized database schema for an e-commerce platform and explain the normalization process.](\#-q3-design-a-normalized-database-schema-for-an-e-commerce-platform-and-explain-the-normalization-process)
+- [### Q4: Compare MongoDB, Redis, and Cassandra. When would you use each?](\#-q4-compare-mongodb-redis-and-cassandra-when-would-you-use-each)
+- [### Q5: Design a database schema for a social media platform with posts, comments, likes, and followers.](\#-q5-design-a-database-schema-for-a-social-media-platform-with-posts-comments-likes-and-followers)
+- [### Q6: Explain database indexing strategies and when to use different types of indexes.](\#-q6-explain-database-indexing-strategies-and-when-to-use-different-types-of-indexes)
+- [### Q7: Explain database transactions, ACID properties, and isolation levels with practical examples.](\#-q7-explain-database-transactions-acid-properties-and-isolation-levels-with-practical-examples)
+- [### Q8: How do you implement database sharding and partitioning strategies for large-scale applications?](\#-q8-how-do-you-implement-database-sharding-and-partitioning-strategies-for-large-scale-applications)
+- [### Q9: How do you implement database backup, recovery, and disaster recovery strategies?](\#-q9-how-do-you-implement-database-backup-recovery-and-disaster-recovery-strategies)
+- [### Q10: How do you implement database security best practices and access control?](\#-q10-how-do-you-implement-database-security-best-practices-and-access-control)
+- [### Q11: How do you implement database replication and high availability strategies?](\#-q11-how-do-you-implement-database-replication-and-high-availability-strategies)
+- [### Q12: How do you implement database performance monitoring and optimization?](\#-q12-how-do-you-implement-database-performance-monitoring-and-optimization)
+- [### Q13: How do you implement database connection pooling and manage database connections efficiently?](\#-q13-how-do-you-implement-database-connection-pooling-and-manage-database-connections-efficiently)
+- [### Q14: How do you implement database migration strategies and version control for database schemas?](\#-q14-how-do-you-implement-database-migration-strategies-and-version-control-for-database-schemas)
+- [### Q15: How do you implement database caching strategies and optimize cache performance?](\#-q15-how-do-you-implement-database-caching-strategies-and-optimize-cache-performance)
+- [### Q16: How do you implement database query optimization and explain query execution plans?](\#-q16-how-do-you-implement-database-query-optimization-and-explain-query-execution-plans)
+- [### Q17: How do you implement database concurrency control and handle deadlocks?](\#-q17-how-do-you-implement-database-concurrency-control-and-handle-deadlocks)
+- [### Q18: How do you implement database monitoring, alerting, and performance tuning?](\#-q18-how-do-you-implement-database-monitoring-alerting-and-performance-tuning)
+- [### Q19: How do you design and implement data warehousing solutions and ETL processes?](\#-q19-how-do-you-design-and-implement-data-warehousing-solutions-and-etl-processes)
+- [### Q20: How do you implement database cloud migration and modern database architectures?](\#-q20-how-do-you-implement-database-cloud-migration-and-modern-database-architectures)
+- [### Q21: Normalization vs. Denormalization.](\#-q21-normalization-vs-denormalization)
+- [### Q22: SQL vs. NoSQL Databases.](\#-q22-sql-vs-nosql-databases)
+- [### Q23: Stored Procedures vs. Functions in SQL.](\#-q23-stored-procedures-vs-functions-in-sql)
+- [### Q24: Explain Database Triggers.](\#-q24-explain-database-triggers)
+- [### Q25: Views vs. Materialized Views.](\#-q25-views-vs-materialized-views)
+- [### Q26: UNION vs. UNION ALL.](\#-q26-union-vs-union-all)
+- [### Q27: Order of Execution in SQL (SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY).](\#-q27-order-of-execution-in-sql-select-from-where-group-by-having-order-by)
+- [### Q28: Primary Key vs. Unique Key.](\#-q28-primary-key-vs-unique-key)
+- [### Q29: Foreign Key and Referential Integrity.](\#-q29-foreign-key-and-referential-integrity)
+- [### Q30: Clustered vs. Non-Clustered Index.](\#-q30-clustered-vs-non-clustered-index)
+- [### Q31: DROP vs. TRUNCATE vs. DELETE.](\#-q31-drop-vs-truncate-vs-delete)
+- [### Q32: Explain Database Normalization (1NF, 2NF, 3NF).](\#-q32-explain-database-normalization-1nf-2nf-3nf)
+- [### Q33: When to Denormalize?](\#-q33-when-to-denormalize)
+- [### Q34: Explain ACID Properties.](\#-q34-explain-acid-properties)
+- [### Q35: Transaction Isolation Levels.](\#-q35-transaction-isolation-levels)
+- [### Q36: Dirty Read vs. Non-Repeatable Read vs. Phantom Read.](\#-q36-dirty-read-vs-non-repeatable-read-vs-phantom-read)
+- [### Q37: Pessimistic vs. Optimistic Locking.](\#-q37-pessimistic-vs-optimistic-locking)
+- [### Q38: What is a Deadlock and how to handle it?](\#-q38-what-is-a-deadlock-and-how-to-handle-it)
+- [### Q39: What is a Database Cursor?](\#-q39-what-is-a-database-cursor)
+- [### Q40: SQL Injection and Prevention.](\#-q40-sql-injection-and-prevention)
+- [### Q41: Explain the CAP Theorem.](\#-q41-explain-the-cap-theorem)
+- [### Q42: BASE Properties vs. ACID.](\#-q42-base-properties-vs-acid)
+- [### Q43: Vertical Scaling vs. Horizontal Scaling (Sharding).](\#-q43-vertical-scaling-vs-horizontal-scaling-sharding)
+- [### Q44: Database Replication Types.](\#-q44-database-replication-types)
+- [### Q45: Master-Slave vs. Multi-Master Replication.](\#-q45-master-slave-vs-multi-master-replication)
+- [### Q46: What is Consistent Hashing?](\#-q46-what-is-consistent-hashing)
+- [### Q47: Connection Pooling.](\#-q47-connection-pooling)
+- [### Q48: The N+1 Select Problem.](\#-q48-the-n1-select-problem)
+- [### Q49: Database Migration Tools.](\#-q49-database-migration-tools)
+- [### Q50: Time Series Databases.](\#-q50-time-series-databases)
+- [### Q51: Graph Databases.](\#-q51-graph-databases)
+- [### Q52: Columnar vs. Row-based Databases.](\#-q52-columnar-vs-row-based-databases)
+- [### Q53: Document Databases (MongoDB).](\#-q53-document-databases-mongodb)
+- [### Q54: Redis and Memcached.](\#-q54-redis-and-memcached)
+- [### Q55: Redis Data Types.](\#-q55-redis-data-types)
+- [### Q56: Redis Persistence (RDB vs. AOF).](\#-q56-redis-persistence-rdb-vs-aof)
+- [### Q57: Explain Plan / Query Execution Plan.](\#-q57-explain-plan--query-execution-plan)
+- [### Q58: B-Tree Index.](\#-q58-b-tree-index)
+- [### Q59: Hash Index.](\#-q59-hash-index)
+- [### Q60: Bloom Filters in Databases.](\#-q60-bloom-filters-in-databases)
+- [### Q61: What is the difference between Database Partitioning and Sharding?](\#-q61-what-is-the-difference-between-database-partitioning-and-sharding)
+- [### Q62: Explain the CAP Theorem.](\#-q62-explain-the-cap-theorem)
+- [### Q63: What is BASE in NoSQL databases?](\#-q63-what-is-base-in-nosql-databases)
+- [### Q64: Explain the four Database Isolation Levels.](\#-q64-explain-the-four-database-isolation-levels)
+- [### Q65: What is a Phantom Read vs. a Dirty Read?](\#-q65-what-is-a-phantom-read-vs-a-dirty-read)
+- [### Q66: Optimistic vs. Pessimistic Locking.](\#-q66-optimistic-vs-pessimistic-locking)
+- [### Q67: What is a Deadlock and how to resolve it?](\#-q67-what-is-a-deadlock-and-how-to-resolve-it)
+- [### Q68: What is MVCC?](\#-q68-what-is-mvcc)
+- [### Q69: Row-oriented vs. Column-oriented Databases.](\#-q69-row-oriented-vs-column-oriented-databases)
+- [### Q70: What is the difference between OLTP and OLAP?](\#-q70-what-is-the-difference-between-oltp-and-olap)
+- [### Q71: ETL vs. ELT.](\#-q71-etl-vs-elt)
+- [### Q72: Star Schema vs. Snowflake Schema.](\#-q72-star-schema-vs-snowflake-schema)
+- [### Q73: What is the N+1 Select Problem?](\#-q73-what-is-the-n1-select-problem)
+- [### Q74: Stored Procedures: Pros and Cons.](\#-q74-stored-procedures-pros-and-cons)
+- [### Q75: What are Database Triggers?](\#-q75-what-are-database-triggers)
+- [### Q76: Views vs. Materialized Views.](\#-q76-views-vs-materialized-views)
+- [### Q77: What is a Database Cursor?](\#-q77-what-is-a-database-cursor)
+- [### Q78: How to prevent SQL Injection?](\#-q78-how-to-prevent-sql-injection)
+- [### Q79: Explain B-Tree vs. Hash Index.](\#-q79-explain-b-tree-vs-hash-index)
+- [### Q80: Clustered vs. Non-Clustered Index.](\#-q80-clustered-vs-non-clustered-index)
+- [### Q81: What is a Composite Index and the "Leftmost Prefix" rule?](\#-q81-what-is-a-composite-index-and-the-leftmost-prefix-rule)
+- [### Q82: How do you analyze query performance?](\#-q82-how-do-you-analyze-query-performance)
+- [### Q83: What is Connection Pooling?](\#-q83-what-is-connection-pooling)
+- [### Q84: Vertical Scaling vs. Horizontal Scaling (Databases).](\#-q84-vertical-scaling-vs-horizontal-scaling-databases)
+- [### Q85: Synchronous vs. Asynchronous Replication.](\#-q85-synchronous-vs-asynchronous-replication)
+- [### Q86: Explain Consistent Hashing.](\#-q86-explain-consistent-hashing)
+- [### Q87: Document Store vs. Key-Value Store.](\#-q87-document-store-vs-key-value-store)
+- [### Q88: What is a Bloom Filter?](\#-q88-what-is-a-bloom-filter)
+- [### Q89: Database Normalization Forms (1NF, 2NF, 3NF).](\#-q89-database-normalization-forms-1nf-2nf-3nf)
+- [### Q90: What is a Write-Ahead Log (WAL)?](\#-q90-what-is-a-write-ahead-log-wal)
+- [### Q91: Redis Persistence: RDB vs. AOF.](\#-q91-redis-persistence-rdb-vs-aof)
+- [### Q92: What is the Gossip Protocol?](\#-q92-what-is-the-gossip-protocol)
+- [### Q93: Time Series Database (TSDB) use cases.](\#-q93-time-series-database-tsdb-use-cases)
+- [### Q94: Graph Database use cases.](\#-q94-graph-database-use-cases)
+- [### Q95: Blue/Green Deployment for Databases.](\#-q95-bluegreen-deployment-for-databases)
+- [### Q96: What is Database Throttling?](\#-q96-what-is-database-throttling)
+- [### Q97: Difference between 'WHERE' and 'HAVING' clauses.](\#-q97-difference-between-where-and-having-clauses)
+- [### Q98: Explain 'UNION' vs. 'UNION ALL'.](\#-q98-explain-union-vs-union-all)
+- [### Q99: What is a Polyglot Persistence?](\#-q99-what-is-a-polyglot-persistence)
+- [### Q100: What is CDC (Change Data Capture)?](\#-q100-what-is-cdc-change-data-capture)
 
 ---
-
-## SQL Fundamentals
 
 ### Q1: Explain the difference between INNER JOIN, LEFT JOIN, RIGHT JOIN, and FULL OUTER JOIN with examples.
 **Difficulty: Medium**
@@ -268,6 +337,2227 @@ ORDER BY e1.salary DESC;
 ---
 
 ## Transactions and ACID
+
+### Q2: Write a complex SQL query that demonstrates window functions, CTEs, and subqueries.
+**Difficulty: Hard**
+
+**Answer:**
+Here's a comprehensive example that analyzes employee performance, salary trends, and department rankings using advanced SQL features.
+
+**Complex SQL Query with Advanced Features:**
+
+```sql
+-- === COMPREHENSIVE EMPLOYEE ANALYTICS QUERY ===
+-- This query demonstrates CTEs, window functions, subqueries, and advanced SQL techniques
+
+-- Additional sample data for more complex analysis
+CREATE TABLE performance_reviews (
+    id INT PRIMARY KEY,
+    employee_id INT,
+    review_date DATE,
+    score DECIMAL(3,2), -- Score from 1.00 to 5.00
+    reviewer_id INT,
+    comments TEXT,
+    FOREIGN KEY (employee_id) REFERENCES employees(id)
+);
+
+CREATE TABLE salary_history (
+    id INT PRIMARY KEY,
+    employee_id INT,
+    salary DECIMAL(10,2),
+    effective_date DATE,
+    reason VARCHAR(100),
+    FOREIGN KEY (employee_id) REFERENCES employees(id)
+);
+
+INSERT INTO performance_reviews (id, employee_id, review_date, score, reviewer_id, comments) VALUES
+(1, 1, '2023-01-15', 4.5, 2, 'Excellent technical leadership'),
+(2, 1, '2022-01-15', 4.2, 2, 'Strong performance, good team collaboration'),
+(3, 2, '2023-02-01', 3.8, 1, 'Good marketing campaigns, room for improvement'),
+(4, 2, '2022-02-01', 3.5, 1, 'Solid performance'),
+(5, 3, '2023-01-30', 4.0, 4, 'Excellent sales results'),
+(6, 4, '2023-03-01', 4.3, 1, 'Outstanding HR initiatives'),
+(7, 5, '2023-02-15', 3.9, 1, 'Good technical skills'),
+(8, 6, '2023-02-20', 3.7, 2, 'Creative content, meets expectations'),
+(9, 8, '2023-01-20', 4.1, 1, 'Strong backend development skills');
+
+INSERT INTO salary_history (id, employee_id, salary, effective_date, reason) VALUES
+(1, 1, 85000.00, '2020-01-15', 'Initial hire'),
+(2, 1, 90000.00, '2021-01-15', 'Annual raise'),
+(3, 1, 95000.00, '2022-01-15', 'Promotion to Senior'),
+(4, 2, 70000.00, '2019-03-20', 'Initial hire'),
+(5, 2, 75000.00, '2021-03-20', 'Annual raise'),
+(6, 3, 75000.00, '2021-06-10', 'Initial hire'),
+(7, 3, 80000.00, '2022-06-10', 'Annual raise'),
+(8, 4, 60000.00, '2018-11-05', 'Initial hire'),
+(9, 4, 65000.00, '2020-11-05', 'Annual raise'),
+(10, 5, 80000.00, '2020-09-12', 'Initial hire'),
+(11, 5, 85000.00, '2022-09-12', 'Annual raise'),
+(12, 6, 65000.00, '2021-02-28', 'Initial hire'),
+(13, 6, 70000.00, '2022-02-28', 'Annual raise'),
+(14, 8, 75000.00, '2019-08-15', 'Initial hire'),
+(15, 8, 78000.00, '2021-08-15', 'Annual raise');
+
+-- === MAIN COMPLEX QUERY ===
+
+WITH 
+-- CTE 1: Calculate employee tenure and salary growth
+employee_metrics AS (
+    SELECT 
+        e.id,
+        e.name,
+        e.department_id,
+        e.salary AS current_salary,
+        e.hire_date,
+        EXTRACT(YEAR FROM AGE(CURRENT_DATE, e.hire_date)) AS tenure_years,
+        
+        -- Salary growth calculation
+        (
+            SELECT sh_first.salary 
+            FROM salary_history sh_first 
+            WHERE sh_first.employee_id = e.id 
+            ORDER BY sh_first.effective_date ASC 
+            LIMIT 1
+        ) AS starting_salary,
+        
+        -- Calculate salary growth percentage
+        CASE 
+            WHEN (
+                SELECT sh_first.salary 
+                FROM salary_history sh_first 
+                WHERE sh_first.employee_id = e.id 
+                ORDER BY sh_first.effective_date ASC 
+                LIMIT 1
+            ) > 0 THEN
+                ROUND(
+                    ((e.salary - (
+                        SELECT sh_first.salary 
+                        FROM salary_history sh_first 
+                        WHERE sh_first.employee_id = e.id 
+                        ORDER BY sh_first.effective_date ASC 
+                        LIMIT 1
+                    )) / (
+                        SELECT sh_first.salary 
+                        FROM salary_history sh_first 
+                        WHERE sh_first.employee_id = e.id 
+                        ORDER BY sh_first.effective_date ASC 
+                        LIMIT 1
+                    )) * 100, 2
+                )
+            ELSE 0
+        END AS salary_growth_percent
+    FROM employees e
+    WHERE e.department_id IS NOT NULL
+),
+
+-- CTE 2: Performance metrics
+performance_metrics AS (
+    SELECT 
+        pr.employee_id,
+        COUNT(*) AS review_count,
+        AVG(pr.score) AS avg_performance_score,
+        MAX(pr.score) AS best_score,
+        MIN(pr.score) AS worst_score,
+        
+        -- Latest performance score
+        (
+            SELECT pr_latest.score
+            FROM performance_reviews pr_latest
+            WHERE pr_latest.employee_id = pr.employee_id
+            ORDER BY pr_latest.review_date DESC
+            LIMIT 1
+        ) AS latest_score,
+        
+        -- Performance trend (comparing latest vs first review)
+        CASE 
+            WHEN COUNT(*) > 1 THEN
+                (
+                    SELECT pr_latest.score
+                    FROM performance_reviews pr_latest
+                    WHERE pr_latest.employee_id = pr.employee_id
+                    ORDER BY pr_latest.review_date DESC
+                    LIMIT 1
+                ) - (
+                    SELECT pr_first.score
+                    FROM performance_reviews pr_first
+                    WHERE pr_first.employee_id = pr.employee_id
+                    ORDER BY pr_first.review_date ASC
+                    LIMIT 1
+                )
+            ELSE 0
+        END AS performance_trend
+    FROM performance_reviews pr
+    GROUP BY pr.employee_id
+),
+
+-- CTE 3: Project involvement metrics
+project_metrics AS (
+    SELECT 
+        ep.employee_id,
+        COUNT(DISTINCT ep.project_id) AS project_count,
+        SUM(ep.hours_allocated) AS total_hours_allocated,
+        AVG(p.budget) AS avg_project_budget,
+        
+        -- Project roles
+        STRING_AGG(DISTINCT ep.role, ', ' ORDER BY ep.role) AS project_roles,
+        
+        -- High-budget project involvement
+        COUNT(CASE WHEN p.budget > 100000 THEN 1 END) AS high_budget_projects
+    FROM employee_projects ep
+    INNER JOIN projects p ON ep.project_id = p.id
+    GROUP BY ep.employee_id
+),
+
+-- CTE 4: Department statistics
+department_stats AS (
+    SELECT 
+        d.id AS department_id,
+        d.name AS department_name,
+        COUNT(e.id) AS employee_count,
+        AVG(e.salary) AS dept_avg_salary,
+        STDDEV(e.salary) AS dept_salary_stddev,
+        MIN(e.salary) AS dept_min_salary,
+        MAX(e.salary) AS dept_max_salary,
+        
+        -- Department performance average
+        (
+            SELECT AVG(pr.score)
+            FROM performance_reviews pr
+            INNER JOIN employees e_pr ON pr.employee_id = e_pr.id
+            WHERE e_pr.department_id = d.id
+        ) AS dept_avg_performance
+    FROM departments d
+    LEFT JOIN employees e ON d.id = e.department_id
+    GROUP BY d.id, d.name
+),
+
+-- CTE 5: Salary percentiles by department
+salary_percentiles AS (
+    SELECT 
+        e.id AS employee_id,
+        e.department_id,
+        PERCENT_RANK() OVER (
+            PARTITION BY e.department_id 
+            ORDER BY e.salary
+        ) AS salary_percentile_in_dept,
+        PERCENT_RANK() OVER (
+            ORDER BY e.salary
+        ) AS salary_percentile_overall
+    FROM employees e
+    WHERE e.department_id IS NOT NULL
+)
+
+-- === MAIN SELECT WITH WINDOW FUNCTIONS ===
+SELECT 
+    -- Employee basic info
+    em.name AS employee_name,
+    ds.department_name,
+    em.current_salary,
+    em.tenure_years,
+    
+    -- Salary analysis
+    em.starting_salary,
+    em.salary_growth_percent,
+    ROUND(sp.salary_percentile_in_dept * 100, 1) AS salary_percentile_in_dept,
+    ROUND(sp.salary_percentile_overall * 100, 1) AS salary_percentile_overall,
+    
+    -- Performance metrics
+    COALESCE(pm.avg_performance_score, 0) AS avg_performance_score,
+    COALESCE(pm.latest_score, 0) AS latest_performance_score,
+    COALESCE(pm.performance_trend, 0) AS performance_trend,
+    COALESCE(pm.review_count, 0) AS review_count,
+    
+    -- Project involvement
+    COALESCE(prm.project_count, 0) AS project_count,
+    COALESCE(prm.total_hours_allocated, 0) AS total_hours_allocated,
+    COALESCE(prm.high_budget_projects, 0) AS high_budget_projects,
+    COALESCE(prm.project_roles, 'No projects') AS project_roles,
+    
+    -- Department context
+    ds.employee_count AS dept_employee_count,
+    ROUND(ds.dept_avg_salary, 2) AS dept_avg_salary,
+    ROUND(ds.dept_avg_performance, 2) AS dept_avg_performance,
+    
+    -- Window functions for ranking and analysis
+    RANK() OVER (
+        PARTITION BY em.department_id 
+        ORDER BY em.current_salary DESC
+    ) AS salary_rank_in_dept,
+    
+    RANK() OVER (
+        ORDER BY COALESCE(pm.avg_performance_score, 0) DESC
+    ) AS performance_rank_overall,
+    
+    DENSE_RANK() OVER (
+        PARTITION BY em.department_id 
+        ORDER BY COALESCE(pm.avg_performance_score, 0) DESC
+    ) AS performance_rank_in_dept,
+    
+    -- Moving averages and lag functions
+    AVG(em.current_salary) OVER (
+        PARTITION BY em.department_id 
+        ORDER BY em.hire_date 
+        ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
+    ) AS salary_moving_avg,
+    
+    LAG(em.current_salary, 1) OVER (
+        PARTITION BY em.department_id 
+        ORDER BY em.hire_date
+    ) AS prev_hire_salary,
+    
+    LEAD(em.current_salary, 1) OVER (
+        PARTITION BY em.department_id 
+        ORDER BY em.hire_date
+    ) AS next_hire_salary,
+    
+    -- Cumulative statistics
+    SUM(em.current_salary) OVER (
+        PARTITION BY em.department_id 
+        ORDER BY em.hire_date 
+        ROWS UNBOUNDED PRECEDING
+    ) AS cumulative_dept_salary_cost,
+    
+    -- Performance vs salary efficiency
+    CASE 
+        WHEN COALESCE(pm.avg_performance_score, 0) > 0 THEN
+            ROUND(em.current_salary / COALESCE(pm.avg_performance_score, 1), 2)
+        ELSE NULL
+    END AS salary_per_performance_point,
+    
+    -- Employee value score (composite metric)
+    ROUND(
+        (
+            COALESCE(pm.avg_performance_score, 2.5) * 0.4 +
+            (COALESCE(prm.project_count, 0) * 0.5) * 0.3 +
+            (em.tenure_years * 0.2) * 0.2 +
+            (CASE WHEN em.salary_growth_percent > 20 THEN 1 ELSE 0 END) * 0.1
+        ) * 20, 2
+    ) AS employee_value_score,
+    
+    -- Quartile analysis
+    NTILE(4) OVER (
+        ORDER BY em.current_salary
+    ) AS salary_quartile,
+    
+    NTILE(4) OVER (
+        ORDER BY COALESCE(pm.avg_performance_score, 0)
+    ) AS performance_quartile,
+    
+    -- Department comparison
+    em.current_salary - ds.dept_avg_salary AS salary_vs_dept_avg,
+    
+    CASE 
+        WHEN em.current_salary > ds.dept_avg_salary + ds.dept_salary_stddev THEN 'Above Average'
+        WHEN em.current_salary < ds.dept_avg_salary - ds.dept_salary_stddev THEN 'Below Average'
+        ELSE 'Average'
+    END AS salary_category,
+    
+    -- Risk indicators
+    CASE 
+        WHEN COALESCE(pm.performance_trend, 0) < -0.5 THEN 'Performance Declining'
+        WHEN COALESCE(pm.latest_score, 0) < 3.0 THEN 'Low Performance'
+        WHEN em.tenure_years > 5 AND em.salary_growth_percent < 10 THEN 'Potential Flight Risk'
+        WHEN COALESCE(prm.project_count, 0) = 0 THEN 'Underutilized'
+        ELSE 'Stable'
+    END AS risk_indicator
+
+FROM employee_metrics em
+INNER JOIN department_stats ds ON em.department_id = ds.department_id
+LEFT JOIN performance_metrics pm ON em.id = pm.employee_id
+LEFT JOIN project_metrics prm ON em.id = prm.employee_id
+INNER JOIN salary_percentiles sp ON em.id = sp.employee_id
+
+-- Filter for active employees with performance data
+WHERE em.tenure_years >= 0
+
+-- Order by composite value score
+ORDER BY employee_value_score DESC, em.current_salary DESC;
+
+-- === ADDITIONAL ANALYTICAL QUERIES ===
+
+-- Top performers by department
+WITH top_performers AS (
+    SELECT 
+        e.name,
+        d.name AS department,
+        AVG(pr.score) AS avg_score,
+        RANK() OVER (PARTITION BY d.id ORDER BY AVG(pr.score) DESC) AS dept_rank
+    FROM employees e
+    INNER JOIN departments d ON e.department_id = d.id
+    INNER JOIN performance_reviews pr ON e.id = pr.employee_id
+    GROUP BY e.id, e.name, d.id, d.name
+)
+SELECT *
+FROM top_performers
+WHERE dept_rank <= 2;
+
+-- Salary growth analysis
+WITH salary_growth_analysis AS (
+    SELECT 
+        e.name,
+        d.name AS department,
+        sh_first.salary AS starting_salary,
+        e.salary AS current_salary,
+        ROUND(
+            ((e.salary - sh_first.salary) / sh_first.salary) * 100, 2
+        ) AS growth_percent,
+        EXTRACT(YEAR FROM AGE(CURRENT_DATE, e.hire_date)) AS tenure_years
+    FROM employees e
+    INNER JOIN departments d ON e.department_id = d.id
+    INNER JOIN (
+        SELECT 
+            employee_id,
+            salary,
+            ROW_NUMBER() OVER (PARTITION BY employee_id ORDER BY effective_date ASC) AS rn
+        FROM salary_history
+    ) sh_first ON e.id = sh_first.employee_id AND sh_first.rn = 1
+    WHERE EXTRACT(YEAR FROM AGE(CURRENT_DATE, e.hire_date)) > 0
+)
+SELECT 
+    *,
+    ROUND(growth_percent / tenure_years, 2) AS annual_growth_rate,
+    CASE 
+        WHEN growth_percent > 30 THEN 'High Growth'
+        WHEN growth_percent > 15 THEN 'Moderate Growth'
+        WHEN growth_percent > 0 THEN 'Low Growth'
+        ELSE 'No Growth'
+    END AS growth_category
+FROM salary_growth_analysis
+ORDER BY growth_percent DESC;
+
+-- Department efficiency analysis
+SELECT 
+    d.name AS department_name,
+    COUNT(e.id) AS employee_count,
+    ROUND(AVG(e.salary), 2) AS avg_salary,
+    ROUND(AVG(pr.score), 2) AS avg_performance,
+    COUNT(p.id) AS project_count,
+    ROUND(SUM(p.budget), 2) AS total_project_budget,
+    
+    -- Efficiency metrics
+    ROUND(SUM(p.budget) / COUNT(e.id), 2) AS budget_per_employee,
+    ROUND(AVG(e.salary) / AVG(pr.score), 2) AS salary_per_performance_point,
+    
+    -- Department score
+    ROUND(
+        (AVG(pr.score) * 0.4 + 
+         (COUNT(p.id) / COUNT(e.id)) * 0.3 + 
+         (SUM(p.budget) / SUM(e.salary)) * 0.3) * 20, 2
+    ) AS department_efficiency_score
+    
+FROM departments d
+LEFT JOIN employees e ON d.id = e.department_id
+LEFT JOIN performance_reviews pr ON e.id = pr.employee_id
+LEFT JOIN projects p ON d.id = p.department_id
+GROUP BY d.id, d.name
+HAVING COUNT(e.id) > 0
+ORDER BY department_efficiency_score DESC;
+```
+
+**Key Advanced SQL Features Demonstrated:**
+
+1. **Common Table Expressions (CTEs)**: Multiple CTEs for modular query building
+2. **Window Functions**: RANK(), DENSE_RANK(), NTILE(), LAG(), LEAD(), moving averages
+3. **Subqueries**: Correlated and non-correlated subqueries
+4. **Aggregate Functions**: Advanced aggregations with CASE statements
+5. **String Functions**: STRING_AGG for concatenation
+6. **Date Functions**: AGE(), EXTRACT() for temporal analysis
+7. **Statistical Functions**: STDDEV(), PERCENT_RANK()
+8. **Conditional Logic**: Complex CASE statements
+9. **Performance Analysis**: Query optimization techniques
+
+---
+
+## Database Design
+
+### Q3: Design a normalized database schema for an e-commerce platform and explain the normalization process.
+**Difficulty: Hard**
+
+**Answer:**
+I'll design a comprehensive e-commerce database schema following normalization principles from 1NF to 3NF, with additional considerations for performance and scalability.
+
+**Complete E-commerce Database Schema:**
+
+```sql
+-- === E-COMMERCE DATABASE SCHEMA ===
+-- Normalized design following 1NF, 2NF, 3NF principles
+-- with performance optimizations and business logic
+
+-- === CORE ENTITY TABLES ===
+
+-- Users table (customers and administrators)
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20),
+    date_of_birth DATE,
+    gender CHAR(1) CHECK (gender IN ('M', 'F', 'O')),
+    is_active BOOLEAN DEFAULT TRUE,
+    is_verified BOOLEAN DEFAULT FALSE,
+    user_type VARCHAR(20) DEFAULT 'customer' CHECK (user_type IN ('customer', 'admin', 'vendor')),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    last_login_at TIMESTAMP WITH TIME ZONE,
+    
+    -- Indexes for performance
+    CONSTRAINT users_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
+);
+
+-- User addresses (1:N relationship with users)
+CREATE TABLE user_addresses (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    address_type VARCHAR(20) DEFAULT 'shipping' CHECK (address_type IN ('shipping', 'billing', 'both')),
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    company VARCHAR(100),
+    address_line_1 VARCHAR(255) NOT NULL,
+    address_line_2 VARCHAR(255),
+    city VARCHAR(100) NOT NULL,
+    state_province VARCHAR(100) NOT NULL,
+    postal_code VARCHAR(20) NOT NULL,
+    country_code CHAR(2) NOT NULL,
+    is_default BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Categories table (hierarchical structure)
+CREATE TABLE categories (
+    id BIGSERIAL PRIMARY KEY,
+    parent_id BIGINT REFERENCES categories(id) ON DELETE SET NULL,
+    name VARCHAR(100) NOT NULL,
+    slug VARCHAR(100) UNIQUE NOT NULL,
+    description TEXT,
+    image_url VARCHAR(500),
+    is_active BOOLEAN DEFAULT TRUE,
+    sort_order INTEGER DEFAULT 0,
+    meta_title VARCHAR(255),
+    meta_description TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Prevent self-referencing and circular references
+    CONSTRAINT categories_no_self_reference CHECK (id != parent_id)
+);
+
+-- Brands table
+CREATE TABLE brands (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL,
+    slug VARCHAR(100) UNIQUE NOT NULL,
+    description TEXT,
+    logo_url VARCHAR(500),
+    website_url VARCHAR(500),
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Products table
+CREATE TABLE products (
+    id BIGSERIAL PRIMARY KEY,
+    sku VARCHAR(100) UNIQUE NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    short_description TEXT,
+    long_description TEXT,
+    brand_id BIGINT REFERENCES brands(id) ON DELETE SET NULL,
+    
+    -- Product status and visibility
+    status VARCHAR(20) DEFAULT 'draft' CHECK (status IN ('draft', 'active', 'inactive', 'discontinued')),
+    visibility VARCHAR(20) DEFAULT 'visible' CHECK (visibility IN ('visible', 'hidden', 'catalog_only')),
+    
+    -- Pricing
+    base_price DECIMAL(10,2) NOT NULL CHECK (base_price >= 0),
+    sale_price DECIMAL(10,2) CHECK (sale_price >= 0 AND sale_price <= base_price),
+    cost_price DECIMAL(10,2) CHECK (cost_price >= 0),
+    
+    -- Inventory
+    track_inventory BOOLEAN DEFAULT TRUE,
+    stock_quantity INTEGER DEFAULT 0 CHECK (stock_quantity >= 0),
+    low_stock_threshold INTEGER DEFAULT 10,
+    
+    -- Physical attributes
+    weight DECIMAL(8,3) CHECK (weight >= 0), -- in kg
+    length DECIMAL(8,2) CHECK (length >= 0), -- in cm
+    width DECIMAL(8,2) CHECK (width >= 0),   -- in cm
+    height DECIMAL(8,2) CHECK (height >= 0), -- in cm
+    
+    -- SEO and metadata
+    meta_title VARCHAR(255),
+    meta_description TEXT,
+    meta_keywords TEXT,
+    
+    -- Timestamps
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    published_at TIMESTAMP WITH TIME ZONE
+);
+
+-- Product categories (M:N relationship)
+CREATE TABLE product_categories (
+    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    category_id BIGINT NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+    is_primary BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    PRIMARY KEY (product_id, category_id)
+);
+
+-- Product images
+CREATE TABLE product_images (
+    id BIGSERIAL PRIMARY KEY,
+    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    image_url VARCHAR(500) NOT NULL,
+    alt_text VARCHAR(255),
+    sort_order INTEGER DEFAULT 0,
+    is_primary BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Product attributes (for variations like size, color, etc.)
+CREATE TABLE product_attributes (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL,
+    slug VARCHAR(100) UNIQUE NOT NULL,
+    type VARCHAR(20) DEFAULT 'text' CHECK (type IN ('text', 'number', 'boolean', 'select', 'multiselect')),
+    is_required BOOLEAN DEFAULT FALSE,
+    is_variation BOOLEAN DEFAULT FALSE, -- Used for product variations
+    sort_order INTEGER DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Product attribute values
+CREATE TABLE product_attribute_values (
+    id BIGSERIAL PRIMARY KEY,
+    attribute_id BIGINT NOT NULL REFERENCES product_attributes(id) ON DELETE CASCADE,
+    value VARCHAR(255) NOT NULL,
+    sort_order INTEGER DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    UNIQUE(attribute_id, value)
+);
+
+-- Product attribute assignments
+CREATE TABLE product_attribute_assignments (
+    id BIGSERIAL PRIMARY KEY,
+    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    attribute_id BIGINT NOT NULL REFERENCES product_attributes(id) ON DELETE CASCADE,
+    attribute_value_id BIGINT REFERENCES product_attribute_values(id) ON DELETE CASCADE,
+    custom_value TEXT, -- For custom values not in predefined list
+    
+    UNIQUE(product_id, attribute_id, attribute_value_id),
+    
+    -- Either use predefined value or custom value, not both
+    CONSTRAINT check_value_assignment CHECK (
+        (attribute_value_id IS NOT NULL AND custom_value IS NULL) OR
+        (attribute_value_id IS NULL AND custom_value IS NOT NULL)
+    )
+);
+
+-- Product variations (for products with different sizes, colors, etc.)
+CREATE TABLE product_variations (
+    id BIGSERIAL PRIMARY KEY,
+    parent_product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    sku VARCHAR(100) UNIQUE NOT NULL,
+    
+    -- Pricing (can override parent product pricing)
+    price DECIMAL(10,2) CHECK (price >= 0),
+    sale_price DECIMAL(10,2) CHECK (sale_price >= 0 AND sale_price <= price),
+    
+    -- Inventory
+    stock_quantity INTEGER DEFAULT 0 CHECK (stock_quantity >= 0),
+    
+    -- Physical attributes (can override parent)
+    weight DECIMAL(8,3) CHECK (weight >= 0),
+    length DECIMAL(8,2) CHECK (length >= 0),
+    width DECIMAL(8,2) CHECK (width >= 0),
+    height DECIMAL(8,2) CHECK (height >= 0),
+    
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Variation attribute values (what makes this variation unique)
+CREATE TABLE variation_attribute_values (
+    variation_id BIGINT NOT NULL REFERENCES product_variations(id) ON DELETE CASCADE,
+    attribute_id BIGINT NOT NULL REFERENCES product_attributes(id) ON DELETE CASCADE,
+    attribute_value_id BIGINT NOT NULL REFERENCES product_attribute_values(id) ON DELETE CASCADE,
+    
+    PRIMARY KEY (variation_id, attribute_id),
+    
+    -- Only variation attributes allowed
+    CONSTRAINT check_variation_attribute 
+        FOREIGN KEY (attribute_id) REFERENCES product_attributes(id)
+        CHECK (attribute_id IN (SELECT id FROM product_attributes WHERE is_variation = TRUE))
+);
+
+-- === SHOPPING CART AND ORDERS ===
+
+-- Shopping cart
+CREATE TABLE shopping_carts (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT REFERENCES users(id) ON DELETE CASCADE,
+    session_id VARCHAR(255), -- For guest users
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Either user_id or session_id must be present
+    CONSTRAINT check_cart_owner CHECK (
+        (user_id IS NOT NULL AND session_id IS NULL) OR
+        (user_id IS NULL AND session_id IS NOT NULL)
+    )
+);
+
+-- Cart items
+CREATE TABLE cart_items (
+    id BIGSERIAL PRIMARY KEY,
+    cart_id BIGINT NOT NULL REFERENCES shopping_carts(id) ON DELETE CASCADE,
+    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    variation_id BIGINT REFERENCES product_variations(id) ON DELETE CASCADE,
+    quantity INTEGER NOT NULL CHECK (quantity > 0),
+    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price >= 0),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    UNIQUE(cart_id, product_id, variation_id)
+);
+
+-- Orders
+CREATE TABLE orders (
+    id BIGSERIAL PRIMARY KEY,
+    order_number VARCHAR(50) UNIQUE NOT NULL,
+    user_id BIGINT REFERENCES users(id) ON DELETE SET NULL,
+    
+    -- Order status
+    status VARCHAR(20) DEFAULT 'pending' CHECK (status IN (
+        'pending', 'confirmed', 'processing', 'shipped', 
+        'delivered', 'cancelled', 'refunded', 'returned'
+    )),
+    
+    -- Pricing
+    subtotal DECIMAL(10,2) NOT NULL CHECK (subtotal >= 0),
+    tax_amount DECIMAL(10,2) DEFAULT 0 CHECK (tax_amount >= 0),
+    shipping_amount DECIMAL(10,2) DEFAULT 0 CHECK (shipping_amount >= 0),
+    discount_amount DECIMAL(10,2) DEFAULT 0 CHECK (discount_amount >= 0),
+    total_amount DECIMAL(10,2) NOT NULL CHECK (total_amount >= 0),
+    
+    -- Addresses (denormalized for historical accuracy)
+    billing_first_name VARCHAR(100) NOT NULL,
+    billing_last_name VARCHAR(100) NOT NULL,
+    billing_company VARCHAR(100),
+    billing_address_line_1 VARCHAR(255) NOT NULL,
+    billing_address_line_2 VARCHAR(255),
+    billing_city VARCHAR(100) NOT NULL,
+    billing_state_province VARCHAR(100) NOT NULL,
+    billing_postal_code VARCHAR(20) NOT NULL,
+    billing_country_code CHAR(2) NOT NULL,
+    
+    shipping_first_name VARCHAR(100) NOT NULL,
+    shipping_last_name VARCHAR(100) NOT NULL,
+    shipping_company VARCHAR(100),
+    shipping_address_line_1 VARCHAR(255) NOT NULL,
+    shipping_address_line_2 VARCHAR(255),
+    shipping_city VARCHAR(100) NOT NULL,
+    shipping_state_province VARCHAR(100) NOT NULL,
+    shipping_postal_code VARCHAR(20) NOT NULL,
+    shipping_country_code CHAR(2) NOT NULL,
+    
+    -- Contact information
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(20),
+    
+    -- Order notes
+    customer_notes TEXT,
+    admin_notes TEXT,
+    
+    -- Timestamps
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    shipped_at TIMESTAMP WITH TIME ZONE,
+    delivered_at TIMESTAMP WITH TIME ZONE
+);
+
+-- Order items
+CREATE TABLE order_items (
+    id BIGSERIAL PRIMARY KEY,
+    order_id BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE RESTRICT,
+    variation_id BIGINT REFERENCES product_variations(id) ON DELETE RESTRICT,
+    
+    -- Product details at time of order (denormalized for historical accuracy)
+    product_sku VARCHAR(100) NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    variation_attributes JSONB, -- Store variation details
+    
+    quantity INTEGER NOT NULL CHECK (quantity > 0),
+    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price >= 0),
+    total_price DECIMAL(10,2) NOT NULL CHECK (total_price >= 0),
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- === PAYMENT AND SHIPPING ===
+
+-- Payment methods
+CREATE TABLE payment_methods (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL,
+    code VARCHAR(50) UNIQUE NOT NULL,
+    description TEXT,
+    is_active BOOLEAN DEFAULT TRUE,
+    sort_order INTEGER DEFAULT 0,
+    configuration JSONB, -- Store payment gateway configuration
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Payments
+CREATE TABLE payments (
+    id BIGSERIAL PRIMARY KEY,
+    order_id BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    payment_method_id BIGINT NOT NULL REFERENCES payment_methods(id),
+    
+    -- Payment details
+    transaction_id VARCHAR(255),
+    gateway_transaction_id VARCHAR(255),
+    amount DECIMAL(10,2) NOT NULL CHECK (amount > 0),
+    currency_code CHAR(3) DEFAULT 'USD',
+    
+    status VARCHAR(20) DEFAULT 'pending' CHECK (status IN (
+        'pending', 'processing', 'completed', 'failed', 'cancelled', 'refunded'
+    )),
+    
+    -- Gateway response
+    gateway_response JSONB,
+    failure_reason TEXT,
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    processed_at TIMESTAMP WITH TIME ZONE
+);
+
+-- Shipping methods
+CREATE TABLE shipping_methods (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    code VARCHAR(50) UNIQUE NOT NULL,
+    description TEXT,
+    base_cost DECIMAL(10,2) DEFAULT 0 CHECK (base_cost >= 0),
+    cost_per_kg DECIMAL(10,2) DEFAULT 0 CHECK (cost_per_kg >= 0),
+    free_shipping_threshold DECIMAL(10,2),
+    estimated_days_min INTEGER CHECK (estimated_days_min >= 0),
+    estimated_days_max INTEGER CHECK (estimated_days_max >= estimated_days_min),
+    is_active BOOLEAN DEFAULT TRUE,
+    sort_order INTEGER DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Order shipments
+CREATE TABLE order_shipments (
+    id BIGSERIAL PRIMARY KEY,
+    order_id BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    shipping_method_id BIGINT NOT NULL REFERENCES shipping_methods(id),
+    
+    tracking_number VARCHAR(255),
+    carrier VARCHAR(100),
+    shipping_cost DECIMAL(10,2) NOT NULL CHECK (shipping_cost >= 0),
+    
+    status VARCHAR(20) DEFAULT 'pending' CHECK (status IN (
+        'pending', 'processing', 'shipped', 'in_transit', 'delivered', 'returned'
+    )),
+    
+    shipped_at TIMESTAMP WITH TIME ZONE,
+    delivered_at TIMESTAMP WITH TIME ZONE,
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- === DISCOUNTS AND PROMOTIONS ===
+
+-- Discount codes/coupons
+CREATE TABLE discount_codes (
+    id BIGSERIAL PRIMARY KEY,
+    code VARCHAR(50) UNIQUE NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    
+    -- Discount type and value
+    discount_type VARCHAR(20) NOT NULL CHECK (discount_type IN ('percentage', 'fixed_amount', 'free_shipping')),
+    discount_value DECIMAL(10,2) NOT NULL CHECK (discount_value >= 0),
+    
+    -- Usage limits
+    usage_limit INTEGER, -- Total usage limit
+    usage_limit_per_customer INTEGER,
+    used_count INTEGER DEFAULT 0,
+    
+    -- Conditions
+    minimum_order_amount DECIMAL(10,2),
+    maximum_discount_amount DECIMAL(10,2),
+    
+    -- Validity
+    starts_at TIMESTAMP WITH TIME ZONE,
+    expires_at TIMESTAMP WITH TIME ZONE,
+    is_active BOOLEAN DEFAULT TRUE,
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Discount code usage tracking
+CREATE TABLE discount_code_usage (
+    id BIGSERIAL PRIMARY KEY,
+    discount_code_id BIGINT NOT NULL REFERENCES discount_codes(id) ON DELETE CASCADE,
+    order_id BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+    user_id BIGINT REFERENCES users(id) ON DELETE SET NULL,
+    discount_amount DECIMAL(10,2) NOT NULL CHECK (discount_amount >= 0),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    UNIQUE(discount_code_id, order_id)
+);
+
+-- === REVIEWS AND RATINGS ===
+
+-- Product reviews
+CREATE TABLE product_reviews (
+    id BIGSERIAL PRIMARY KEY,
+    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    order_item_id BIGINT REFERENCES order_items(id) ON DELETE SET NULL,
+    
+    rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5),
+    title VARCHAR(255),
+    review_text TEXT,
+    
+    -- Review status
+    status VARCHAR(20) DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
+    
+    -- Helpful votes
+    helpful_votes INTEGER DEFAULT 0,
+    total_votes INTEGER DEFAULT 0,
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    -- One review per user per product
+    UNIQUE(product_id, user_id)
+);
+
+-- === INVENTORY MANAGEMENT ===
+
+-- Inventory transactions (for tracking stock changes)
+CREATE TABLE inventory_transactions (
+    id BIGSERIAL PRIMARY KEY,
+    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
+    variation_id BIGINT REFERENCES product_variations(id) ON DELETE CASCADE,
+    
+    transaction_type VARCHAR(20) NOT NULL CHECK (transaction_type IN (
+        'purchase', 'sale', 'return', 'adjustment', 'damage', 'theft'
+    )),
+    
+    quantity_change INTEGER NOT NULL, -- Positive for increase, negative for decrease
+    quantity_after INTEGER NOT NULL CHECK (quantity_after >= 0),
+    
+    reference_type VARCHAR(50), -- 'order', 'purchase_order', 'manual', etc.
+    reference_id BIGINT,
+    
+    notes TEXT,
+    created_by BIGINT REFERENCES users(id),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- === INDEXES FOR PERFORMANCE ===
+
+-- User indexes
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_users_type_active ON users(user_type, is_active);
+CREATE INDEX idx_users_created_at ON users(created_at);
+
+-- Address indexes
+CREATE INDEX idx_user_addresses_user_id ON user_addresses(user_id);
+CREATE INDEX idx_user_addresses_default ON user_addresses(user_id, is_default);
+
+-- Category indexes
+CREATE INDEX idx_categories_parent_id ON categories(parent_id);
+CREATE INDEX idx_categories_slug ON categories(slug);
+CREATE INDEX idx_categories_active ON categories(is_active);
+
+-- Product indexes
+CREATE INDEX idx_products_sku ON products(sku);
+CREATE INDEX idx_products_slug ON products(slug);
+CREATE INDEX idx_products_brand_id ON products(brand_id);
+CREATE INDEX idx_products_status ON products(status);
+CREATE INDEX idx_products_price ON products(base_price, sale_price);
+CREATE INDEX idx_products_stock ON products(stock_quantity);
+CREATE INDEX idx_products_created_at ON products(created_at);
+
+-- Product category indexes
+CREATE INDEX idx_product_categories_product_id ON product_categories(product_id);
+CREATE INDEX idx_product_categories_category_id ON product_categories(category_id);
+CREATE INDEX idx_product_categories_primary ON product_categories(category_id, is_primary);
+
+-- Order indexes
+CREATE INDEX idx_orders_user_id ON orders(user_id);
+CREATE INDEX idx_orders_status ON orders(status);
+CREATE INDEX idx_orders_created_at ON orders(created_at);
+CREATE INDEX idx_orders_total ON orders(total_amount);
+
+-- Order items indexes
+CREATE INDEX idx_order_items_order_id ON order_items(order_id);
+CREATE INDEX idx_order_items_product_id ON order_items(product_id);
+
+-- Cart indexes
+CREATE INDEX idx_shopping_carts_user_id ON shopping_carts(user_id);
+CREATE INDEX idx_shopping_carts_session_id ON shopping_carts(session_id);
+CREATE INDEX idx_cart_items_cart_id ON cart_items(cart_id);
+
+-- Review indexes
+CREATE INDEX idx_product_reviews_product_id ON product_reviews(product_id);
+CREATE INDEX idx_product_reviews_user_id ON product_reviews(user_id);
+CREATE INDEX idx_product_reviews_rating ON product_reviews(rating);
+CREATE INDEX idx_product_reviews_status ON product_reviews(status);
+```
+
+**Normalization Process Explanation:**
+
+**1st Normal Form (1NF):**
+- All tables have primary keys
+- No repeating groups or arrays in columns
+- Each cell contains atomic values
+- Example: Instead of storing multiple addresses in one field, we created separate `user_addresses` table
+
+**2nd Normal Form (2NF):**
+- Meets 1NF requirements
+- No partial dependencies on composite keys
+- Example: In `product_categories` table, both `product_id` and `category_id` are needed to determine `is_primary`
+
+**3rd Normal Form (3NF):**
+- Meets 2NF requirements
+- No transitive dependencies
+- Example: Product brand information is in separate `brands` table, not duplicated in `products`
+
+**Denormalization for Performance:**
+- Order addresses are denormalized for historical accuracy
+- Product details in `order_items` for historical pricing
+- Review aggregates could be cached in `products` table
+
+---
+
+## NoSQL Databases
+
+### Q4: Compare MongoDB, Redis, and Cassandra. When would you use each?
+**Difficulty: Medium**
+
+**Answer:**
+Each NoSQL database serves different use cases based on data model, consistency requirements, and performance characteristics.
+
+**MongoDB (Document Database):**
+
+```javascript
+// MongoDB Examples
+
+// === DOCUMENT STRUCTURE ===
+// User document with embedded data
+{
+  _id: ObjectId("507f1f77bcf86cd799439011"),
+  email: "john.doe@example.com",
+  profile: {
+    firstName: "John",
+    lastName: "Doe",
+    dateOfBirth: ISODate("1990-05-15"),
+    preferences: {
+      newsletter: true,
+      notifications: {
+        email: true,
+        sms: false,
+        push: true
+      }
+    }
+  },
+  addresses: [
+    {
+      type: "home",
+      street: "123 Main St",
+      city: "New York",
+      zipCode: "10001",
+      isDefault: true
+    },
+    {
+      type: "work",
+      street: "456 Business Ave",
+      city: "New York",
+      zipCode: "10002",
+      isDefault: false
+    }
+  ],
+  orders: [
+    {
+      orderId: ObjectId("507f1f77bcf86cd799439012"),
+      date: ISODate("2023-01-15"),
+      total: 299.99,
+      status: "delivered"
+    }
+  ],
+  createdAt: ISODate("2023-01-01"),
+  lastLogin: ISODate("2023-12-01")
+}
+
+// === MONGODB OPERATIONS ===
+
+// Complex aggregation pipeline
+db.users.aggregate([
+  // Match active users from last 30 days
+  {
+    $match: {
+      lastLogin: { $gte: new Date(Date.now() - 30*24*60*60*1000) },
+      "profile.preferences.newsletter": true
+    }
+  },
+  
+  // Unwind orders array
+  { $unwind: "$orders" },
+  
+  // Group by user and calculate metrics
+  {
+    $group: {
+      _id: "$_id",
+      email: { $first: "$email" },
+      firstName: { $first: "$profile.firstName" },
+      totalOrders: { $sum: 1 },
+      totalSpent: { $sum: "$orders.total" },
+      avgOrderValue: { $avg: "$orders.total" },
+      lastOrderDate: { $max: "$orders.date" }
+    }
+  },
+  
+  // Filter high-value customers
+  {
+    $match: {
+      totalSpent: { $gte: 1000 }
+    }
+  },
+  
+  // Sort by total spent
+  { $sort: { totalSpent: -1 } },
+  
+  // Add customer segment
+  {
+    $addFields: {
+      segment: {
+        $switch: {
+          branches: [
+            { case: { $gte: ["$totalSpent", 5000] }, then: "VIP" },
+            { case: { $gte: ["$totalSpent", 2000] }, then: "Premium" },
+            { case: { $gte: ["$totalSpent", 1000] }, then: "Gold" }
+          ],
+          default: "Standard"
+        }
+      }
+    }
+  }
+]);
+
+// Geospatial queries
+db.stores.createIndex({ location: "2dsphere" });
+
+db.stores.find({
+  location: {
+    $near: {
+      $geometry: {
+        type: "Point",
+        coordinates: [-73.9857, 40.7484] // NYC coordinates
+      },
+      $maxDistance: 5000 // 5km radius
+    }
+  }
+});
+
+// Text search with scoring
+db.products.createIndex({ 
+  name: "text", 
+  description: "text", 
+  tags: "text" 
+});
+
+db.products.find(
+  { $text: { $search: "wireless bluetooth headphones" } },
+  { score: { $meta: "textScore" } }
+).sort({ score: { $meta: "textScore" } });
+
+// Change streams for real-time updates
+const changeStream = db.orders.watch([
+  {
+    $match: {
+      "fullDocument.status": "pending",
+      "operationType": "insert"
+    }
+  }
+]);
+
+changeStream.on('change', (change) => {
+  console.log('New order:', change.fullDocument);
+  // Trigger notification, inventory update, etc.
+});
+```
+
+**Redis (Key-Value Store):**
+
+```javascript
+// Redis Examples
+
+// === CACHING STRATEGIES ===
+
+// Cache-aside pattern
+async function getUser(userId) {
+  const cacheKey = `user:${userId}`;
+  
+  // Try cache first
+  let user = await redis.get(cacheKey);
+  if (user) {
+    return JSON.parse(user);
+  }
+  
+  // Cache miss - fetch from database
+  user = await database.users.findById(userId);
+  
+  // Store in cache with TTL
+  await redis.setex(cacheKey, 3600, JSON.stringify(user));
+  
+  return user;
+}
+
+// Write-through cache
+async function updateUser(userId, userData) {
+  // Update database
+  const user = await database.users.update(userId, userData);
+  
+  // Update cache
+  const cacheKey = `user:${userId}`;
+  await redis.setex(cacheKey, 3600, JSON.stringify(user));
+  
+  return user;
+}
+
+// === SESSION MANAGEMENT ===
+
+// Store session data
+async function createSession(userId, sessionData) {
+  const sessionId = generateSessionId();
+  const sessionKey = `session:${sessionId}`;
+  
+  await redis.hmset(sessionKey, {
+    userId: userId,
+    createdAt: Date.now(),
+    lastAccess: Date.now(),
+    ipAddress: sessionData.ipAddress,
+    userAgent: sessionData.userAgent
+  });
+  
+  // Set expiration
+  await redis.expire(sessionKey, 86400); // 24 hours
+  
+  return sessionId;
+}
+
+// === REAL-TIME FEATURES ===
+
+// Pub/Sub for real-time notifications
+const publisher = redis.createClient();
+const subscriber = redis.createClient();
+
+// Publish notification
+async function sendNotification(userId, message) {
+  await publisher.publish(`user:${userId}:notifications`, JSON.stringify({
+    type: 'info',
+    message: message,
+    timestamp: Date.now()
+  }));
+}
+
+// Subscribe to notifications
+subscriber.subscribe('user:*:notifications');
+subscriber.on('message', (channel, message) => {
+  const userId = channel.split(':')[1];
+  const notification = JSON.parse(message);
+  
+  // Send to WebSocket, email, etc.
+  sendToWebSocket(userId, notification);
+});
+
+// === RATE LIMITING ===
+
+// Sliding window rate limiter
+async function checkRateLimit(userId, limit = 100, window = 3600) {
+  const key = `rate_limit:${userId}`;
+  const now = Date.now();
+  const windowStart = now - (window * 1000);
+  
+  // Remove old entries
+  await redis.zremrangebyscore(key, 0, windowStart);
+  
+  // Count current requests
+  const currentCount = await redis.zcard(key);
+  
+  if (currentCount >= limit) {
+    return { allowed: false, remaining: 0 };
+  }
+  
+  // Add current request
+  await redis.zadd(key, now, `${now}-${Math.random()}`);
+  await redis.expire(key, window);
+  
+  return { 
+    allowed: true, 
+    remaining: limit - currentCount - 1 
+  };
+}
+
+// === LEADERBOARDS ===
+
+// Game leaderboard with sorted sets
+async function updateScore(userId, score) {
+  await redis.zadd('leaderboard:global', score, userId);
+  
+  // Weekly leaderboard
+  const weekKey = `leaderboard:week:${getWeekNumber()}`;
+  await redis.zadd(weekKey, score, userId);
+  await redis.expire(weekKey, 604800); // 1 week
+}
+
+// Get top players
+async function getTopPlayers(count = 10) {
+  return await redis.zrevrange('leaderboard:global', 0, count - 1, 'WITHSCORES');
+}
+
+// Get user rank
+async function getUserRank(userId) {
+  const rank = await redis.zrevrank('leaderboard:global', userId);
+  const score = await redis.zscore('leaderboard:global', userId);
+  
+  return { rank: rank + 1, score };
+}
+
+// === DISTRIBUTED LOCKS ===
+
+// Implement distributed lock with Redis
+class RedisLock {
+  constructor(redis, key, ttl = 10000) {
+    this.redis = redis;
+    this.key = `lock:${key}`;
+    this.ttl = ttl;
+    this.lockValue = `${Date.now()}-${Math.random()}`;
+  }
+  
+  async acquire() {
+    const result = await this.redis.set(
+      this.key, 
+      this.lockValue, 
+      'PX', 
+      this.ttl, 
+      'NX'
+    );
+    
+    return result === 'OK';
+  }
+  
+  async release() {
+    const script = `
+      if redis.call('GET', KEYS[1]) == ARGV[1] then
+        return redis.call('DEL', KEYS[1])
+      else
+        return 0
+      end
+    `;
+    
+    return await this.redis.eval(script, 1, this.key, this.lockValue);
+  }
+}
+
+// Usage
+async function processPayment(orderId) {
+  const lock = new RedisLock(redis, `payment:${orderId}`);
+  
+  if (await lock.acquire()) {
+    try {
+      // Process payment logic
+      await processPaymentLogic(orderId);
+    } finally {
+      await lock.release();
+    }
+  } else {
+    throw new Error('Payment already being processed');
+  }
+}
+```
+
+**Cassandra (Wide-Column Store):**
+
+```sql
+-- Cassandra CQL Examples
+
+-- === KEYSPACE AND TABLE DESIGN ===
+
+-- Create keyspace with replication
+CREATE KEYSPACE ecommerce 
+WITH REPLICATION = {
+  'class': 'NetworkTopologyStrategy',
+  'datacenter1': 3,
+  'datacenter2': 2
+};
+
+USE ecommerce;
+
+-- Time-series data for user activity
+CREATE TABLE user_activity (
+    user_id UUID,
+    activity_date DATE,
+    activity_time TIMESTAMP,
+    activity_type TEXT,
+    page_url TEXT,
+    session_id UUID,
+    ip_address INET,
+    user_agent TEXT,
+    PRIMARY KEY ((user_id, activity_date), activity_time)
+) WITH CLUSTERING ORDER BY (activity_time DESC)
+  AND compaction = {'class': 'TimeWindowCompactionStrategy'}
+  AND default_time_to_live = 2592000; -- 30 days
+
+-- Product catalog with denormalized data
+CREATE TABLE products_by_category (
+    category_id UUID,
+    product_id UUID,
+    product_name TEXT,
+    brand TEXT,
+    price DECIMAL,
+    rating FLOAT,
+    review_count INT,
+    image_urls LIST<TEXT>,
+    attributes MAP<TEXT, TEXT>,
+    created_at TIMESTAMP,
+    PRIMARY KEY (category_id, price, product_id)
+) WITH CLUSTERING ORDER BY (price ASC, product_id ASC);
+
+-- Order history partitioned by user and time
+CREATE TABLE user_orders (
+    user_id UUID,
+    order_month TEXT, -- YYYY-MM format
+    order_id UUID,
+    order_date TIMESTAMP,
+    total_amount DECIMAL,
+    status TEXT,
+    items LIST<FROZEN<order_item>>,
+    shipping_address FROZEN<address>,
+    PRIMARY KEY ((user_id, order_month), order_date, order_id)
+) WITH CLUSTERING ORDER BY (order_date DESC, order_id ASC);
+
+-- User-defined types
+CREATE TYPE order_item (
+    product_id UUID,
+    product_name TEXT,
+    quantity INT,
+    unit_price DECIMAL
+);
+
+CREATE TYPE address (
+    street TEXT,
+    city TEXT,
+    state TEXT,
+    zip_code TEXT,
+    country TEXT
+);
+
+-- === QUERY PATTERNS ===
+
+-- Insert user activity (optimized for writes)
+INSERT INTO user_activity (
+    user_id, activity_date, activity_time, 
+    activity_type, page_url, session_id
+) VALUES (
+    550e8400-e29b-41d4-a716-446655440000,
+    '2023-12-01',
+    '2023-12-01 10:30:00',
+    'page_view',
+    '/products/electronics',
+    550e8400-e29b-41d4-a716-446655440001
+);
+
+-- Query user activity for a specific day
+SELECT * FROM user_activity 
+WHERE user_id = 550e8400-e29b-41d4-a716-446655440000 
+  AND activity_date = '2023-12-01'
+ORDER BY activity_time DESC;
+
+-- Query products by category with price range
+SELECT * FROM products_by_category 
+WHERE category_id = 550e8400-e29b-41d4-a716-446655440002
+  AND price >= 100 AND price <= 500
+LIMIT 20;
+
+-- Get user orders for specific month
+SELECT * FROM user_orders 
+WHERE user_id = 550e8400-e29b-41d4-a716-446655440000 
+  AND order_month = '2023-12'
+ORDER BY order_date DESC;
+
+-- === MATERIALIZED VIEWS ===
+
+-- Create materialized view for product search by brand
+CREATE MATERIALIZED VIEW products_by_brand AS
+SELECT category_id, brand, product_id, product_name, price, rating
+FROM products_by_category
+WHERE category_id IS NOT NULL 
+  AND brand IS NOT NULL 
+  AND product_id IS NOT NULL
+PRIMARY KEY (brand, rating, product_id);
+
+-- === BATCH OPERATIONS ===
+
+-- Batch insert for better performance
+BEGIN BATCH
+  INSERT INTO user_activity (...) VALUES (...);
+  INSERT INTO user_activity (...) VALUES (...);
+  INSERT INTO user_activity (...) VALUES (...);
+APPLY BATCH;
+
+-- === COUNTERS ===
+
+-- Counter table for statistics
+CREATE TABLE product_stats (
+    product_id UUID PRIMARY KEY,
+    view_count COUNTER,
+    purchase_count COUNTER,
+    wishlist_count COUNTER
+);
+
+-- Update counters
+UPDATE product_stats 
+SET view_count = view_count + 1 
+WHERE product_id = 550e8400-e29b-41d4-a716-446655440003;
+```
+
+**When to Use Each Database:**
+
+**MongoDB:**
+- ✅ **Use When:**
+  - Complex, nested data structures
+  - Rapid application development
+  - Flexible schema requirements
+  - Rich query capabilities needed
+  - ACID transactions required (4.0+)
+  - Geospatial queries
+  - Full-text search
+
+- ❌ **Avoid When:**
+  - High-frequency, simple key-value operations
+  - Extremely high write throughput
+  - Strong consistency across multiple documents
+
+**Redis:**
+- ✅ **Use When:**
+  - Caching and session storage
+  - Real-time analytics
+  - Pub/Sub messaging
+  - Rate limiting
+  - Leaderboards and counters
+  - Distributed locks
+  - Sub-millisecond latency required
+
+- ❌ **Avoid When:**
+  - Primary data storage for large datasets
+  - Complex queries needed
+  - Data persistence is critical (use Redis Cluster/Sentinel)
+
+**Cassandra:**
+- ✅ **Use When:**
+  - Massive write-heavy workloads
+  - Time-series data
+  - High availability requirements
+  - Linear scalability needed
+  - Multi-datacenter deployment
+  - IoT data ingestion
+  - Event logging
+
+- ❌ **Avoid When:**
+  - Complex joins required
+  - ACID transactions needed
+  - Small datasets
+  - Ad-hoc queries common
+
+---
+
+### Q5: Design a database schema for a social media platform with posts, comments, likes, and followers.
+**Difficulty: Hard**
+
+**Answer:**
+I'll design both SQL and NoSQL schemas for a social media platform, considering scalability, performance, and different access patterns.
+
+**SQL Schema (PostgreSQL):**
+
+```sql
+-- === SOCIAL MEDIA PLATFORM DATABASE SCHEMA ===
+
+-- Users table
+CREATE TABLE users (
+    id BIGSERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    bio TEXT,
+    avatar_url VARCHAR(500),
+    cover_photo_url VARCHAR(500),
+    
+    -- Profile settings
+    is_private BOOLEAN DEFAULT FALSE,
+    is_verified BOOLEAN DEFAULT FALSE,
+    is_active BOOLEAN DEFAULT TRUE,
+    
+    -- Location
+    location VARCHAR(255),
+    timezone VARCHAR(50),
+    
+    -- Counts (denormalized for performance)
+    followers_count INTEGER DEFAULT 0,
+    following_count INTEGER DEFAULT 0,
+    posts_count INTEGER DEFAULT 0,
+    
+    -- Timestamps
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    last_active_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Constraints
+    CONSTRAINT users_username_check CHECK (username ~* '^[a-zA-Z0-9_]{3,50}$'),
+    CONSTRAINT users_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
+);
+
+-- Posts table
+CREATE TABLE posts (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    content TEXT,
+    
+    -- Post type and visibility
+    post_type VARCHAR(20) DEFAULT 'text' CHECK (post_type IN ('text', 'image', 'video', 'link', 'poll')),
+    visibility VARCHAR(20) DEFAULT 'public' CHECK (visibility IN ('public', 'followers', 'private')),
+    
+    -- Media and metadata
+    media_urls JSONB, -- Array of media URLs
+    link_preview JSONB, -- Link metadata
+    location JSONB, -- Geolocation data
+    
+    -- Engagement metrics (denormalized)
+    likes_count INTEGER DEFAULT 0,
+    comments_count INTEGER DEFAULT 0,
+    shares_count INTEGER DEFAULT 0,
+    
+    -- Moderation
+    is_deleted BOOLEAN DEFAULT FALSE,
+    is_reported BOOLEAN DEFAULT FALSE,
+    
+    -- Timestamps
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Full-text search
+    search_vector TSVECTOR
+);
+
+-- Comments table (supports nested comments)
+CREATE TABLE comments (
+    id BIGSERIAL PRIMARY KEY,
+    post_id BIGINT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    parent_comment_id BIGINT REFERENCES comments(id) ON DELETE CASCADE,
+    
+    content TEXT NOT NULL,
+    
+    -- Engagement
+    likes_count INTEGER DEFAULT 0,
+    replies_count INTEGER DEFAULT 0,
+    
+    -- Hierarchy and ordering
+    depth INTEGER DEFAULT 0,
+    path LTREE, -- For efficient hierarchical queries
+    
+    -- Moderation
+    is_deleted BOOLEAN DEFAULT FALSE,
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    CONSTRAINT comments_depth_check CHECK (depth >= 0 AND depth <= 5)
+);
+
+-- Likes table (for posts and comments)
+CREATE TABLE likes (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    
+    -- Polymorphic relationship
+    likeable_type VARCHAR(20) NOT NULL CHECK (likeable_type IN ('post', 'comment')),
+    likeable_id BIGINT NOT NULL,
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Unique constraint to prevent duplicate likes
+    UNIQUE(user_id, likeable_type, likeable_id)
+);
+
+-- Follows table (user relationships)
+CREATE TABLE follows (
+    id BIGSERIAL PRIMARY KEY,
+    follower_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    following_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    
+    -- Follow status
+    status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'pending', 'blocked')),
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    -- Prevent self-following and duplicate follows
+    CONSTRAINT follows_no_self_follow CHECK (follower_id != following_id),
+    UNIQUE(follower_id, following_id)
+);
+
+-- Hashtags table
+CREATE TABLE hashtags (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100) UNIQUE NOT NULL,
+    usage_count INTEGER DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Post hashtags (M:N relationship)
+CREATE TABLE post_hashtags (
+    post_id BIGINT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+    hashtag_id BIGINT NOT NULL REFERENCES hashtags(id) ON DELETE CASCADE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    PRIMARY KEY (post_id, hashtag_id)
+);
+
+-- User mentions in posts
+CREATE TABLE post_mentions (
+    id BIGSERIAL PRIMARY KEY,
+    post_id BIGINT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+    mentioned_user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    position_start INTEGER NOT NULL,
+    position_end INTEGER NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    UNIQUE(post_id, mentioned_user_id)
+);
+
+-- Notifications table
+CREATE TABLE notifications (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    actor_id BIGINT REFERENCES users(id) ON DELETE CASCADE,
+    
+    notification_type VARCHAR(50) NOT NULL CHECK (notification_type IN (
+        'like_post', 'like_comment', 'comment_post', 'reply_comment',
+        'follow_request', 'follow_accepted', 'mention', 'share'
+    )),
+    
+    -- Reference to the object that triggered the notification
+    object_type VARCHAR(20) CHECK (object_type IN ('post', 'comment', 'user')),
+    object_id BIGINT,
+    
+    message TEXT,
+    is_read BOOLEAN DEFAULT FALSE,
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- User feed cache (for performance)
+CREATE TABLE user_feeds (
+    id BIGSERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    post_id BIGINT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+    
+    -- Feed ranking score
+    score FLOAT DEFAULT 0,
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    
+    UNIQUE(user_id, post_id)
+);
+
+-- === INDEXES FOR PERFORMANCE ===
+
+-- User indexes
+CREATE INDEX idx_users_username ON users(username);
+CREATE INDEX idx_users_email ON users(email);
+CREATE INDEX idx_users_active ON users(is_active, last_active_at);
+
+-- Post indexes
+CREATE INDEX idx_posts_user_id ON posts(user_id, created_at DESC);
+CREATE INDEX idx_posts_created_at ON posts(created_at DESC);
+CREATE INDEX idx_posts_visibility ON posts(visibility, created_at DESC);
+CREATE INDEX idx_posts_search ON posts USING GIN(search_vector);
+CREATE INDEX idx_posts_location ON posts USING GIN(location);
+
+-- Comment indexes
+CREATE INDEX idx_comments_post_id ON comments(post_id, created_at);
+CREATE INDEX idx_comments_user_id ON comments(user_id);
+CREATE INDEX idx_comments_parent ON comments(parent_comment_id);
+CREATE INDEX idx_comments_path ON comments USING GIST(path);
+
+-- Like indexes
+CREATE INDEX idx_likes_user_id ON likes(user_id);
+CREATE INDEX idx_likes_likeable ON likes(likeable_type, likeable_id);
+
+-- Follow indexes
+CREATE INDEX idx_follows_follower ON follows(follower_id, status);
+CREATE INDEX idx_follows_following ON follows(following_id, status);
+
+-- Notification indexes
+CREATE INDEX idx_notifications_user_id ON notifications(user_id, is_read, created_at DESC);
+
+-- Feed indexes
+CREATE INDEX idx_user_feeds_user_score ON user_feeds(user_id, score DESC);
+
+-- === TRIGGERS AND FUNCTIONS ===
+
+-- Update search vector for posts
+CREATE OR REPLACE FUNCTION update_post_search_vector()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.search_vector := to_tsvector('english', COALESCE(NEW.content, ''));
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER posts_search_vector_update
+    BEFORE INSERT OR UPDATE ON posts
+    FOR EACH ROW EXECUTE FUNCTION update_post_search_vector();
+
+-- Update counts when likes are added/removed
+CREATE OR REPLACE FUNCTION update_like_counts()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF TG_OP = 'INSERT' THEN
+        IF NEW.likeable_type = 'post' THEN
+            UPDATE posts SET likes_count = likes_count + 1 WHERE id = NEW.likeable_id;
+        ELSIF NEW.likeable_type = 'comment' THEN
+            UPDATE comments SET likes_count = likes_count + 1 WHERE id = NEW.likeable_id;
+        END IF;
+        RETURN NEW;
+    ELSIF TG_OP = 'DELETE' THEN
+        IF OLD.likeable_type = 'post' THEN
+            UPDATE posts SET likes_count = likes_count - 1 WHERE id = OLD.likeable_id;
+        ELSIF OLD.likeable_type = 'comment' THEN
+            UPDATE comments SET likes_count = likes_count - 1 WHERE id = OLD.likeable_id;
+        END IF;
+        RETURN OLD;
+    END IF;
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER likes_count_update
+    AFTER INSERT OR DELETE ON likes
+    FOR EACH ROW EXECUTE FUNCTION update_like_counts();
+
+-- Update follow counts
+CREATE OR REPLACE FUNCTION update_follow_counts()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF TG_OP = 'INSERT' AND NEW.status = 'active' THEN
+        UPDATE users SET following_count = following_count + 1 WHERE id = NEW.follower_id;
+        UPDATE users SET followers_count = followers_count + 1 WHERE id = NEW.following_id;
+        RETURN NEW;
+    ELSIF TG_OP = 'DELETE' AND OLD.status = 'active' THEN
+        UPDATE users SET following_count = following_count - 1 WHERE id = OLD.follower_id;
+        UPDATE users SET followers_count = followers_count - 1 WHERE id = OLD.following_id;
+        RETURN OLD;
+    ELSIF TG_OP = 'UPDATE' THEN
+        IF OLD.status = 'active' AND NEW.status != 'active' THEN
+            UPDATE users SET following_count = following_count - 1 WHERE id = NEW.follower_id;
+            UPDATE users SET followers_count = followers_count - 1 WHERE id = NEW.following_id;
+        ELSIF OLD.status != 'active' AND NEW.status = 'active' THEN
+            UPDATE users SET following_count = following_count + 1 WHERE id = NEW.follower_id;
+            UPDATE users SET followers_count = followers_count + 1 WHERE id = NEW.following_id;
+        END IF;
+        RETURN NEW;
+    END IF;
+    RETURN NULL;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER follows_count_update
+    AFTER INSERT OR UPDATE OR DELETE ON follows
+    FOR EACH ROW EXECUTE FUNCTION update_follow_counts();
+```
+
+**Key Design Decisions:**
+
+1. **Denormalized Counts**: Store like/comment/follow counts directly for performance
+2. **Polymorphic Likes**: Single table for both post and comment likes
+3. **Hierarchical Comments**: Using LTREE for efficient nested comment queries
+4. **Feed Caching**: Pre-computed user feeds for timeline performance
+5. **Full-text Search**: PostgreSQL's built-in search capabilities
+6. **Soft Deletes**: Mark content as deleted rather than hard delete
+
+---
+
+## Performance Optimization
+
+### Q6: Explain database indexing strategies and when to use different types of indexes.
+**Difficulty: Medium**
+
+**Answer:**
+Database indexes are crucial for query performance. Different index types serve different purposes and have specific use cases.
+
+**Index Types and Strategies:**
+
+```sql
+-- === B-TREE INDEXES (Most Common) ===
+
+-- Single column index
+CREATE INDEX idx_users_email ON users(email);
+
+-- Composite index (order matters!)
+CREATE INDEX idx_orders_user_date ON orders(user_id, created_at DESC);
+
+-- Partial index (with WHERE clause)
+CREATE INDEX idx_active_users ON users(last_login_at) 
+WHERE is_active = TRUE;
+
+-- Functional index
+CREATE INDEX idx_users_email_lower ON users(LOWER(email));
+
+-- === HASH INDEXES ===
+-- Only for equality comparisons
+CREATE INDEX idx_sessions_token ON user_sessions USING HASH(session_token);
+
+-- === GIN INDEXES (Generalized Inverted Index) ===
+-- For JSONB, arrays, full-text search
+CREATE INDEX idx_products_attributes ON products USING GIN(attributes);
+CREATE INDEX idx_posts_tags ON posts USING GIN(tags);
+CREATE INDEX idx_posts_search ON posts USING GIN(to_tsvector('english', content));
+
+-- === GIST INDEXES (Generalized Search Tree) ===
+-- For geometric data, ranges, full-text search
+CREATE INDEX idx_stores_location ON stores USING GIST(location);
+CREATE INDEX idx_events_daterange ON events USING GIST(date_range);
+
+-- === BRIN INDEXES (Block Range Index) ===
+-- For very large tables with natural ordering
+CREATE INDEX idx_logs_timestamp ON application_logs USING BRIN(created_at);
+
+-- === SP-GIST INDEXES ===
+-- For non-balanced data structures
+CREATE INDEX idx_ip_addresses ON access_logs USING SPGIST(ip_address inet_ops);
+```
+
+**Comprehensive Indexing Strategy Example:**
+
+```sql
+-- === E-COMMERCE INDEXING STRATEGY ===
+
+-- Products table with various index types
+CREATE TABLE products (
+    id BIGSERIAL PRIMARY KEY,
+    sku VARCHAR(100) UNIQUE NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    category_id BIGINT,
+    brand_id BIGINT,
+    price DECIMAL(10,2),
+    sale_price DECIMAL(10,2),
+    stock_quantity INTEGER,
+    attributes JSONB,
+    tags TEXT[],
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE
+);
+
+-- === PRIMARY ACCESS PATTERNS AND INDEXES ===
+
+-- 1. Product lookup by SKU (exact match)
+CREATE UNIQUE INDEX idx_products_sku ON products(sku);
+
+-- 2. Category browsing with sorting
+CREATE INDEX idx_products_category_price ON products(category_id, price) 
+WHERE is_active = TRUE;
+
+CREATE INDEX idx_products_category_created ON products(category_id, created_at DESC) 
+WHERE is_active = TRUE;
+
+-- 3. Brand filtering
+CREATE INDEX idx_products_brand_price ON products(brand_id, price) 
+WHERE is_active = TRUE;
+
+-- 4. Price range queries
+CREATE INDEX idx_products_price_range ON products(price, sale_price) 
+WHERE is_active = TRUE;
+
+-- 5. Stock management
+CREATE INDEX idx_products_low_stock ON products(stock_quantity) 
+WHERE is_active = TRUE AND stock_quantity < 10;
+
+-- 6. Full-text search
+CREATE INDEX idx_products_search ON products 
+USING GIN(to_tsvector('english', name || ' ' || COALESCE(description, '')));
+
+-- 7. JSONB attribute queries
+CREATE INDEX idx_products_attributes ON products USING GIN(attributes);
+
+-- 8. Array tag searches
+CREATE INDEX idx_products_tags ON products USING GIN(tags);
+
+-- 9. Recent products
+CREATE INDEX idx_products_recent ON products(created_at DESC) 
+WHERE is_active = TRUE;
+
+-- === QUERY OPTIMIZATION EXAMPLES ===
+
+-- Efficient category browsing with price sorting
+EXPLAIN (ANALYZE, BUFFERS) 
+SELECT id, name, price, sale_price
+FROM products 
+WHERE category_id = 123 
+  AND is_active = TRUE 
+  AND price BETWEEN 50 AND 200
+ORDER BY price ASC
+LIMIT 20;
+
+-- Multi-column search with proper index usage
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT p.id, p.name, p.price, b.name as brand_name
+FROM products p
+JOIN brands b ON p.brand_id = b.id
+WHERE p.category_id = 123
+  AND p.brand_id IN (1, 2, 3)
+  AND p.price <= 500
+  AND p.is_active = TRUE
+ORDER BY p.created_at DESC
+LIMIT 20;
+
+-- JSONB attribute filtering
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT id, name, attributes
+FROM products
+WHERE attributes @> '{"color": "red", "size": "large"}'
+  AND is_active = TRUE;
+
+-- Full-text search with ranking
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT 
+    id, 
+    name, 
+    ts_rank(to_tsvector('english', name || ' ' || COALESCE(description, '')), 
+             plainto_tsquery('english', 'wireless bluetooth headphones')) as rank
+FROM products
+WHERE to_tsvector('english', name || ' ' || COALESCE(description, '')) 
+      @@ plainto_tsquery('english', 'wireless bluetooth headphones')
+  AND is_active = TRUE
+ORDER BY rank DESC, created_at DESC
+LIMIT 20;
+
+-- === INDEX MAINTENANCE AND MONITORING ===
+
+-- Monitor index usage
+SELECT 
+    schemaname,
+    tablename,
+    indexname,
+    idx_tup_read,
+    idx_tup_fetch,
+    idx_scan,
+    ROUND(idx_tup_read::NUMERIC / NULLIF(idx_scan, 0), 2) as avg_tuples_per_scan
+FROM pg_stat_user_indexes
+WHERE schemaname = 'public'
+ORDER BY idx_scan DESC;
+
+-- Find unused indexes
+SELECT 
+    schemaname,
+    tablename,
+    indexname,
+    pg_size_pretty(pg_relation_size(indexrelid)) as size
+FROM pg_stat_user_indexes
+WHERE idx_scan = 0
+  AND schemaname = 'public'
+ORDER BY pg_relation_size(indexrelid) DESC;
+
+-- Index bloat analysis
+WITH index_bloat AS (
+    SELECT 
+        schemaname,
+        tablename,
+        indexname,
+        pg_size_pretty(pg_relation_size(indexrelid)) as size,
+        ROUND(
+            CASE WHEN pg_relation_size(indexrelid) > 0 
+            THEN (pg_relation_size(indexrelid) - 
+                  pg_relation_size(indexrelid, 'main'))::NUMERIC / 
+                 pg_relation_size(indexrelid) * 100
+            ELSE 0 END, 2
+        ) as bloat_percent
+    FROM pg_stat_user_indexes
+    WHERE schemaname = 'public'
+)
+SELECT *
+FROM index_bloat
+WHERE bloat_percent > 20
+ORDER BY bloat_percent DESC;
+
+-- === INDEX OPTIMIZATION STRATEGIES ===
+
+-- 1. Covering indexes (include additional columns)
+CREATE INDEX idx_orders_user_status_covering 
+ON orders(user_id, status) 
+INCLUDE (total_amount, created_at);
+
+-- 2. Expression indexes for computed values
+CREATE INDEX idx_orders_total_with_tax 
+ON orders((total_amount + tax_amount));
+
+-- 3. Conditional indexes for specific use cases
+CREATE INDEX idx_orders_pending 
+ON orders(created_at) 
+WHERE status = 'pending';
+
+CREATE INDEX idx_products_on_sale 
+ON products(category_id, sale_price) 
+WHERE sale_price IS NOT NULL AND sale_price < price;
+
+-- 4. Multi-column indexes with proper column order
+-- Rule: Most selective columns first, then sort columns
+CREATE INDEX idx_order_items_analysis 
+ON order_items(product_id, created_at DESC, quantity);
+
+-- === ADVANCED INDEXING TECHNIQUES ===
+
+-- Partial unique indexes
+CREATE UNIQUE INDEX idx_users_email_active 
+ON users(email) 
+WHERE is_active = TRUE;
+
+-- Functional indexes for case-insensitive searches
+CREATE INDEX idx_users_username_lower 
+ON users(LOWER(username));
+
+-- Trigram indexes for fuzzy text search
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+CREATE INDEX idx_products_name_trgm 
+ON products USING GIN(name gin_trgm_ops);
+
+-- Query using trigram similarity
+SELECT name, similarity(name, 'iPhone') as sim
+FROM products
+WHERE name % 'iPhone'
+ORDER BY sim DESC;
+
+-- === INDEX MAINTENANCE PROCEDURES ===
+
+-- Reindex specific index
+REINDEX INDEX idx_products_category_price;
+
+-- Reindex entire table
+REINDEX TABLE products;
+
+-- Analyze table statistics
+ANALYZE products;
+
+-- Update statistics for specific columns
+ANALYZE products(category_id, price, created_at);
+
+-- === MONITORING QUERIES ===
+
+-- Check index hit ratio
+SELECT 
+    sum(idx_blks_hit) as idx_hit,
+    sum(idx_blks_read) as idx_read,
+    ROUND(
+        sum(idx_blks_hit)::NUMERIC / 
+        NULLIF(sum(idx_blks_hit) + sum(idx_blks_read), 0) * 100, 2
+    ) as hit_ratio
+FROM pg_statio_user_indexes;
+
+-- Table and index sizes
+SELECT 
+    schemaname,
+    tablename,
+    pg_size_pretty(pg_total_relation_size(schemaname||'.'||tablename)) as total_size,
+    pg_size_pretty(pg_relation_size(schemaname||'.'||tablename)) as table_size,
+    pg_size_pretty(
+        pg_total_relation_size(schemaname||'.'||tablename) - 
+        pg_relation_size(schemaname||'.'||tablename)
+    ) as index_size
+FROM pg_tables
+WHERE schemaname = 'public'
+ORDER BY pg_total_relation_size(schemaname||'.'||tablename) DESC;
+
+-- Slow queries that might need indexes
+SELECT 
+    query,
+    calls,
+    total_time,
+    mean_time,
+    rows
+FROM pg_stat_statements
+WHERE mean_time > 100  -- queries taking more than 100ms on average
+ORDER BY mean_time DESC
+LIMIT 10;
+```
+
+**Index Selection Guidelines:**
+
+**B-Tree Indexes (Default):**
+- ✅ Equality and range queries
+- ✅ Sorting operations
+- ✅ Most common use case
+- ❌ Pattern matching with leading wildcards
+
+**Hash Indexes:**
+- ✅ Equality comparisons only
+- ✅ Faster than B-tree for equality
+- ❌ No range queries
+- ❌ Not WAL-logged (until PostgreSQL 10)
+
+**GIN Indexes:**
+- ✅ JSONB queries
+- ✅ Array operations
+- ✅ Full-text search
+- ❌ Large storage overhead
+- ❌ Slower updates
+
+**GIST Indexes:**
+- ✅ Geometric data
+- ✅ Range types
+- ✅ Custom data types
+- ❌ Larger than B-tree
+- ❌ More complex maintenance
+
+**BRIN Indexes:**
+- ✅ Very large tables
+- ✅ Naturally ordered data
+- ✅ Minimal storage overhead
+- ❌ Only effective with correlation
+- ❌ Limited query types
+
+**Best Practices:**
+
+1. **Index Column Order**: Most selective first, then sort columns
+2. **Partial Indexes**: Use WHERE clauses for filtered queries
+3. **Covering Indexes**: Include frequently accessed columns
+4. **Monitor Usage**: Remove unused indexes
+5. **Regular Maintenance**: REINDEX and ANALYZE regularly
+6. **Query Analysis**: Use EXPLAIN ANALYZE to verify index usage
+
+---
+
+---
 
 ### Q7: Explain database transactions, ACID properties, and isolation levels with practical examples.
 **Difficulty: Advanced**
@@ -6066,2418 +8356,6 @@ print(json.dumps(report, indent=2))
 
 ## Database Design
 
-### Q2: Write a complex SQL query that demonstrates window functions, CTEs, and subqueries. 
-    d.name AS department_name,
-    COUNT(e.id) AS employee_count,
-    AVG(e.salary) AS avg_salary,
-    COUNT(p.id) AS project_count,
-    SUM(p.budget) AS total_project_budget
-FROM departments d
-LEFT JOIN employees e ON d.id = e.department_id
-LEFT JOIN projects p ON d.id = p.department_id
-GROUP BY d.id, d.name
-HAVING COUNT(e.id) > 0  -- Only departments with employees
-ORDER BY avg_salary DESC;
-
--- Self JOIN - Find employees who earn more than their department's average
-SELECT 
-    e1.name AS employee_name,
-    e1.salary,
-    dept_avg.avg_salary,
-    d.name AS department_name
-FROM employees e1
-INNER JOIN departments d ON e1.department_id = d.id
-INNER JOIN (
-    SELECT 
-        department_id,
-        AVG(salary) AS avg_salary
-    FROM employees
-    WHERE department_id IS NOT NULL
-    GROUP BY department_id
-) dept_avg ON e1.department_id = dept_avg.department_id
-WHERE e1.salary > dept_avg.avg_salary
-ORDER BY e1.salary DESC;
-
--- Subquery with EXISTS
-SELECT 
-    e.name AS employee_name,
-    e.salary,
-    d.name AS department_name
-FROM employees e
-INNER JOIN departments d ON e.department_id = d.id
-WHERE EXISTS (
-    SELECT 1
-    FROM employee_projects ep
-    INNER JOIN projects p ON ep.project_id = p.id
-    WHERE ep.employee_id = e.id
-    AND p.budget > 100000
-)
-ORDER BY e.salary DESC;
-
--- Window functions with JOINs
-SELECT 
-    e.name AS employee_name,
-    d.name AS department_name,
-    e.salary,
-    AVG(e.salary) OVER (PARTITION BY d.id) AS dept_avg_salary,
-    RANK() OVER (PARTITION BY d.id ORDER BY e.salary DESC) AS salary_rank_in_dept,
-    ROW_NUMBER() OVER (ORDER BY e.salary DESC) AS overall_salary_rank
-FROM employees e
-INNER JOIN departments d ON e.department_id = d.id
-ORDER BY e.salary DESC;
-
--- Recursive CTE for hierarchical data (PostgreSQL/SQL Server)
-/*
-WITH RECURSIVE employee_hierarchy AS (
-    -- Base case: top-level managers (no manager)
-    SELECT 
-        id,
-        name,
-        manager_id,
-        0 AS level,
-        CAST(name AS VARCHAR(1000)) AS hierarchy_path
-    FROM employees
-    WHERE manager_id IS NULL
-    
-    UNION ALL
-    
-    -- Recursive case: employees with managers
-    SELECT 
-        e.id,
-        e.name,
-        e.manager_id,
-        eh.level + 1,
-        CAST(eh.hierarchy_path || ' -> ' || e.name AS VARCHAR(1000))
-    FROM employees e
-    INNER JOIN employee_hierarchy eh ON e.manager_id = eh.id
-)
-SELECT 
-    REPEAT('  ', level) || name AS indented_name,
-    level,
-    hierarchy_path
-FROM employee_hierarchy
-ORDER BY hierarchy_path;
-*/
-```
-
-**Performance Considerations:**
-
-```sql
--- === INDEXING FOR JOIN PERFORMANCE ===
-
--- Create indexes on foreign key columns
-CREATE INDEX idx_employees_department_id ON employees(department_id);
-CREATE INDEX idx_projects_department_id ON projects(department_id);
-CREATE INDEX idx_employee_projects_employee_id ON employee_projects(employee_id);
-CREATE INDEX idx_employee_projects_project_id ON employee_projects(project_id);
-
--- Composite indexes for complex queries
-CREATE INDEX idx_employees_dept_salary ON employees(department_id, salary DESC);
-CREATE INDEX idx_projects_dept_dates ON projects(department_id, start_date, end_date);
-
--- === QUERY OPTIMIZATION TECHNIQUES ===
-
--- Use EXPLAIN to analyze query execution plans
-EXPLAIN (ANALYZE, BUFFERS) 
-SELECT 
-    e.name,
-    d.name,
-    COUNT(ep.project_id) as project_count
-FROM employees e
-INNER JOIN departments d ON e.department_id = d.id
-LEFT JOIN employee_projects ep ON e.id = ep.employee_id
-GROUP BY e.id, e.name, d.name
-HAVING COUNT(ep.project_id) > 1;
-
--- Optimize with proper WHERE clause placement
--- BAD: Filter after JOIN
-SELECT e.name, d.name
-FROM employees e
-INNER JOIN departments d ON e.department_id = d.id
-WHERE e.salary > 80000;
-
--- GOOD: Filter before JOIN when possible
-SELECT e.name, d.name
-FROM (
-    SELECT id, name, department_id
-    FROM employees
-    WHERE salary > 80000
-) e
-INNER JOIN departments d ON e.department_id = d.id;
-
--- Use appropriate JOIN order (smaller table first)
--- Database optimizer usually handles this, but be aware
-
--- === COMMON JOIN PITFALLS ===
-
--- 1. Cartesian Product (missing JOIN condition)
--- BAD:
-SELECT e.name, d.name
-FROM employees e, departments d;  -- Returns 8 * 5 = 40 rows!
-
--- GOOD:
-SELECT e.name, d.name
-FROM employees e
-INNER JOIN departments d ON e.department_id = d.id;
-
--- 2. Duplicate rows with improper GROUP BY
--- BAD:
-SELECT 
-    e.name,
-    COUNT(ep.project_id)
-FROM employees e
-LEFT JOIN employee_projects ep ON e.id = ep.employee_id;
--- Missing GROUP BY causes error or unexpected results
-
--- GOOD:
-SELECT 
-    e.name,
-    COUNT(ep.project_id)
-FROM employees e
-LEFT JOIN employee_projects ep ON e.id = ep.employee_id
-GROUP BY e.id, e.name;
-
--- 3. NULL handling in JOINs
--- Be careful with NULL values in JOIN conditions
-SELECT 
-    e.name,
-    COALESCE(d.name, 'No Department') AS department
-FROM employees e
-LEFT JOIN departments d ON e.department_id = d.id;
-```
-
-**Key Differences:**
-
-1. **INNER JOIN**: Only matching records from both tables
-2. **LEFT JOIN**: All records from left table + matching from right
-3. **RIGHT JOIN**: All records from right table + matching from left
-4. **FULL OUTER JOIN**: All records from both tables
-5. **CROSS JOIN**: Cartesian product of both tables
-6. **SELF JOIN**: Table joined with itself
-
----
-
-### Q2: Write a complex SQL query that demonstrates window functions, CTEs, and subqueries.
-**Difficulty: Hard**
-
-**Answer:**
-Here's a comprehensive example that analyzes employee performance, salary trends, and department rankings using advanced SQL features.
-
-**Complex SQL Query with Advanced Features:**
-
-```sql
--- === COMPREHENSIVE EMPLOYEE ANALYTICS QUERY ===
--- This query demonstrates CTEs, window functions, subqueries, and advanced SQL techniques
-
--- Additional sample data for more complex analysis
-CREATE TABLE performance_reviews (
-    id INT PRIMARY KEY,
-    employee_id INT,
-    review_date DATE,
-    score DECIMAL(3,2), -- Score from 1.00 to 5.00
-    reviewer_id INT,
-    comments TEXT,
-    FOREIGN KEY (employee_id) REFERENCES employees(id)
-);
-
-CREATE TABLE salary_history (
-    id INT PRIMARY KEY,
-    employee_id INT,
-    salary DECIMAL(10,2),
-    effective_date DATE,
-    reason VARCHAR(100),
-    FOREIGN KEY (employee_id) REFERENCES employees(id)
-);
-
-INSERT INTO performance_reviews (id, employee_id, review_date, score, reviewer_id, comments) VALUES
-(1, 1, '2023-01-15', 4.5, 2, 'Excellent technical leadership'),
-(2, 1, '2022-01-15', 4.2, 2, 'Strong performance, good team collaboration'),
-(3, 2, '2023-02-01', 3.8, 1, 'Good marketing campaigns, room for improvement'),
-(4, 2, '2022-02-01', 3.5, 1, 'Solid performance'),
-(5, 3, '2023-01-30', 4.0, 4, 'Excellent sales results'),
-(6, 4, '2023-03-01', 4.3, 1, 'Outstanding HR initiatives'),
-(7, 5, '2023-02-15', 3.9, 1, 'Good technical skills'),
-(8, 6, '2023-02-20', 3.7, 2, 'Creative content, meets expectations'),
-(9, 8, '2023-01-20', 4.1, 1, 'Strong backend development skills');
-
-INSERT INTO salary_history (id, employee_id, salary, effective_date, reason) VALUES
-(1, 1, 85000.00, '2020-01-15', 'Initial hire'),
-(2, 1, 90000.00, '2021-01-15', 'Annual raise'),
-(3, 1, 95000.00, '2022-01-15', 'Promotion to Senior'),
-(4, 2, 70000.00, '2019-03-20', 'Initial hire'),
-(5, 2, 75000.00, '2021-03-20', 'Annual raise'),
-(6, 3, 75000.00, '2021-06-10', 'Initial hire'),
-(7, 3, 80000.00, '2022-06-10', 'Annual raise'),
-(8, 4, 60000.00, '2018-11-05', 'Initial hire'),
-(9, 4, 65000.00, '2020-11-05', 'Annual raise'),
-(10, 5, 80000.00, '2020-09-12', 'Initial hire'),
-(11, 5, 85000.00, '2022-09-12', 'Annual raise'),
-(12, 6, 65000.00, '2021-02-28', 'Initial hire'),
-(13, 6, 70000.00, '2022-02-28', 'Annual raise'),
-(14, 8, 75000.00, '2019-08-15', 'Initial hire'),
-(15, 8, 78000.00, '2021-08-15', 'Annual raise');
-
--- === MAIN COMPLEX QUERY ===
-
-WITH 
--- CTE 1: Calculate employee tenure and salary growth
-employee_metrics AS (
-    SELECT 
-        e.id,
-        e.name,
-        e.department_id,
-        e.salary AS current_salary,
-        e.hire_date,
-        EXTRACT(YEAR FROM AGE(CURRENT_DATE, e.hire_date)) AS tenure_years,
-        
-        -- Salary growth calculation
-        (
-            SELECT sh_first.salary 
-            FROM salary_history sh_first 
-            WHERE sh_first.employee_id = e.id 
-            ORDER BY sh_first.effective_date ASC 
-            LIMIT 1
-        ) AS starting_salary,
-        
-        -- Calculate salary growth percentage
-        CASE 
-            WHEN (
-                SELECT sh_first.salary 
-                FROM salary_history sh_first 
-                WHERE sh_first.employee_id = e.id 
-                ORDER BY sh_first.effective_date ASC 
-                LIMIT 1
-            ) > 0 THEN
-                ROUND(
-                    ((e.salary - (
-                        SELECT sh_first.salary 
-                        FROM salary_history sh_first 
-                        WHERE sh_first.employee_id = e.id 
-                        ORDER BY sh_first.effective_date ASC 
-                        LIMIT 1
-                    )) / (
-                        SELECT sh_first.salary 
-                        FROM salary_history sh_first 
-                        WHERE sh_first.employee_id = e.id 
-                        ORDER BY sh_first.effective_date ASC 
-                        LIMIT 1
-                    )) * 100, 2
-                )
-            ELSE 0
-        END AS salary_growth_percent
-    FROM employees e
-    WHERE e.department_id IS NOT NULL
-),
-
--- CTE 2: Performance metrics
-performance_metrics AS (
-    SELECT 
-        pr.employee_id,
-        COUNT(*) AS review_count,
-        AVG(pr.score) AS avg_performance_score,
-        MAX(pr.score) AS best_score,
-        MIN(pr.score) AS worst_score,
-        
-        -- Latest performance score
-        (
-            SELECT pr_latest.score
-            FROM performance_reviews pr_latest
-            WHERE pr_latest.employee_id = pr.employee_id
-            ORDER BY pr_latest.review_date DESC
-            LIMIT 1
-        ) AS latest_score,
-        
-        -- Performance trend (comparing latest vs first review)
-        CASE 
-            WHEN COUNT(*) > 1 THEN
-                (
-                    SELECT pr_latest.score
-                    FROM performance_reviews pr_latest
-                    WHERE pr_latest.employee_id = pr.employee_id
-                    ORDER BY pr_latest.review_date DESC
-                    LIMIT 1
-                ) - (
-                    SELECT pr_first.score
-                    FROM performance_reviews pr_first
-                    WHERE pr_first.employee_id = pr.employee_id
-                    ORDER BY pr_first.review_date ASC
-                    LIMIT 1
-                )
-            ELSE 0
-        END AS performance_trend
-    FROM performance_reviews pr
-    GROUP BY pr.employee_id
-),
-
--- CTE 3: Project involvement metrics
-project_metrics AS (
-    SELECT 
-        ep.employee_id,
-        COUNT(DISTINCT ep.project_id) AS project_count,
-        SUM(ep.hours_allocated) AS total_hours_allocated,
-        AVG(p.budget) AS avg_project_budget,
-        
-        -- Project roles
-        STRING_AGG(DISTINCT ep.role, ', ' ORDER BY ep.role) AS project_roles,
-        
-        -- High-budget project involvement
-        COUNT(CASE WHEN p.budget > 100000 THEN 1 END) AS high_budget_projects
-    FROM employee_projects ep
-    INNER JOIN projects p ON ep.project_id = p.id
-    GROUP BY ep.employee_id
-),
-
--- CTE 4: Department statistics
-department_stats AS (
-    SELECT 
-        d.id AS department_id,
-        d.name AS department_name,
-        COUNT(e.id) AS employee_count,
-        AVG(e.salary) AS dept_avg_salary,
-        STDDEV(e.salary) AS dept_salary_stddev,
-        MIN(e.salary) AS dept_min_salary,
-        MAX(e.salary) AS dept_max_salary,
-        
-        -- Department performance average
-        (
-            SELECT AVG(pr.score)
-            FROM performance_reviews pr
-            INNER JOIN employees e_pr ON pr.employee_id = e_pr.id
-            WHERE e_pr.department_id = d.id
-        ) AS dept_avg_performance
-    FROM departments d
-    LEFT JOIN employees e ON d.id = e.department_id
-    GROUP BY d.id, d.name
-),
-
--- CTE 5: Salary percentiles by department
-salary_percentiles AS (
-    SELECT 
-        e.id AS employee_id,
-        e.department_id,
-        PERCENT_RANK() OVER (
-            PARTITION BY e.department_id 
-            ORDER BY e.salary
-        ) AS salary_percentile_in_dept,
-        PERCENT_RANK() OVER (
-            ORDER BY e.salary
-        ) AS salary_percentile_overall
-    FROM employees e
-    WHERE e.department_id IS NOT NULL
-)
-
--- === MAIN SELECT WITH WINDOW FUNCTIONS ===
-SELECT 
-    -- Employee basic info
-    em.name AS employee_name,
-    ds.department_name,
-    em.current_salary,
-    em.tenure_years,
-    
-    -- Salary analysis
-    em.starting_salary,
-    em.salary_growth_percent,
-    ROUND(sp.salary_percentile_in_dept * 100, 1) AS salary_percentile_in_dept,
-    ROUND(sp.salary_percentile_overall * 100, 1) AS salary_percentile_overall,
-    
-    -- Performance metrics
-    COALESCE(pm.avg_performance_score, 0) AS avg_performance_score,
-    COALESCE(pm.latest_score, 0) AS latest_performance_score,
-    COALESCE(pm.performance_trend, 0) AS performance_trend,
-    COALESCE(pm.review_count, 0) AS review_count,
-    
-    -- Project involvement
-    COALESCE(prm.project_count, 0) AS project_count,
-    COALESCE(prm.total_hours_allocated, 0) AS total_hours_allocated,
-    COALESCE(prm.high_budget_projects, 0) AS high_budget_projects,
-    COALESCE(prm.project_roles, 'No projects') AS project_roles,
-    
-    -- Department context
-    ds.employee_count AS dept_employee_count,
-    ROUND(ds.dept_avg_salary, 2) AS dept_avg_salary,
-    ROUND(ds.dept_avg_performance, 2) AS dept_avg_performance,
-    
-    -- Window functions for ranking and analysis
-    RANK() OVER (
-        PARTITION BY em.department_id 
-        ORDER BY em.current_salary DESC
-    ) AS salary_rank_in_dept,
-    
-    RANK() OVER (
-        ORDER BY COALESCE(pm.avg_performance_score, 0) DESC
-    ) AS performance_rank_overall,
-    
-    DENSE_RANK() OVER (
-        PARTITION BY em.department_id 
-        ORDER BY COALESCE(pm.avg_performance_score, 0) DESC
-    ) AS performance_rank_in_dept,
-    
-    -- Moving averages and lag functions
-    AVG(em.current_salary) OVER (
-        PARTITION BY em.department_id 
-        ORDER BY em.hire_date 
-        ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING
-    ) AS salary_moving_avg,
-    
-    LAG(em.current_salary, 1) OVER (
-        PARTITION BY em.department_id 
-        ORDER BY em.hire_date
-    ) AS prev_hire_salary,
-    
-    LEAD(em.current_salary, 1) OVER (
-        PARTITION BY em.department_id 
-        ORDER BY em.hire_date
-    ) AS next_hire_salary,
-    
-    -- Cumulative statistics
-    SUM(em.current_salary) OVER (
-        PARTITION BY em.department_id 
-        ORDER BY em.hire_date 
-        ROWS UNBOUNDED PRECEDING
-    ) AS cumulative_dept_salary_cost,
-    
-    -- Performance vs salary efficiency
-    CASE 
-        WHEN COALESCE(pm.avg_performance_score, 0) > 0 THEN
-            ROUND(em.current_salary / COALESCE(pm.avg_performance_score, 1), 2)
-        ELSE NULL
-    END AS salary_per_performance_point,
-    
-    -- Employee value score (composite metric)
-    ROUND(
-        (
-            COALESCE(pm.avg_performance_score, 2.5) * 0.4 +
-            (COALESCE(prm.project_count, 0) * 0.5) * 0.3 +
-            (em.tenure_years * 0.2) * 0.2 +
-            (CASE WHEN em.salary_growth_percent > 20 THEN 1 ELSE 0 END) * 0.1
-        ) * 20, 2
-    ) AS employee_value_score,
-    
-    -- Quartile analysis
-    NTILE(4) OVER (
-        ORDER BY em.current_salary
-    ) AS salary_quartile,
-    
-    NTILE(4) OVER (
-        ORDER BY COALESCE(pm.avg_performance_score, 0)
-    ) AS performance_quartile,
-    
-    -- Department comparison
-    em.current_salary - ds.dept_avg_salary AS salary_vs_dept_avg,
-    
-    CASE 
-        WHEN em.current_salary > ds.dept_avg_salary + ds.dept_salary_stddev THEN 'Above Average'
-        WHEN em.current_salary < ds.dept_avg_salary - ds.dept_salary_stddev THEN 'Below Average'
-        ELSE 'Average'
-    END AS salary_category,
-    
-    -- Risk indicators
-    CASE 
-        WHEN COALESCE(pm.performance_trend, 0) < -0.5 THEN 'Performance Declining'
-        WHEN COALESCE(pm.latest_score, 0) < 3.0 THEN 'Low Performance'
-        WHEN em.tenure_years > 5 AND em.salary_growth_percent < 10 THEN 'Potential Flight Risk'
-        WHEN COALESCE(prm.project_count, 0) = 0 THEN 'Underutilized'
-        ELSE 'Stable'
-    END AS risk_indicator
-
-FROM employee_metrics em
-INNER JOIN department_stats ds ON em.department_id = ds.department_id
-LEFT JOIN performance_metrics pm ON em.id = pm.employee_id
-LEFT JOIN project_metrics prm ON em.id = prm.employee_id
-INNER JOIN salary_percentiles sp ON em.id = sp.employee_id
-
--- Filter for active employees with performance data
-WHERE em.tenure_years >= 0
-
--- Order by composite value score
-ORDER BY employee_value_score DESC, em.current_salary DESC;
-
--- === ADDITIONAL ANALYTICAL QUERIES ===
-
--- Top performers by department
-WITH top_performers AS (
-    SELECT 
-        e.name,
-        d.name AS department,
-        AVG(pr.score) AS avg_score,
-        RANK() OVER (PARTITION BY d.id ORDER BY AVG(pr.score) DESC) AS dept_rank
-    FROM employees e
-    INNER JOIN departments d ON e.department_id = d.id
-    INNER JOIN performance_reviews pr ON e.id = pr.employee_id
-    GROUP BY e.id, e.name, d.id, d.name
-)
-SELECT *
-FROM top_performers
-WHERE dept_rank <= 2;
-
--- Salary growth analysis
-WITH salary_growth_analysis AS (
-    SELECT 
-        e.name,
-        d.name AS department,
-        sh_first.salary AS starting_salary,
-        e.salary AS current_salary,
-        ROUND(
-            ((e.salary - sh_first.salary) / sh_first.salary) * 100, 2
-        ) AS growth_percent,
-        EXTRACT(YEAR FROM AGE(CURRENT_DATE, e.hire_date)) AS tenure_years
-    FROM employees e
-    INNER JOIN departments d ON e.department_id = d.id
-    INNER JOIN (
-        SELECT 
-            employee_id,
-            salary,
-            ROW_NUMBER() OVER (PARTITION BY employee_id ORDER BY effective_date ASC) AS rn
-        FROM salary_history
-    ) sh_first ON e.id = sh_first.employee_id AND sh_first.rn = 1
-    WHERE EXTRACT(YEAR FROM AGE(CURRENT_DATE, e.hire_date)) > 0
-)
-SELECT 
-    *,
-    ROUND(growth_percent / tenure_years, 2) AS annual_growth_rate,
-    CASE 
-        WHEN growth_percent > 30 THEN 'High Growth'
-        WHEN growth_percent > 15 THEN 'Moderate Growth'
-        WHEN growth_percent > 0 THEN 'Low Growth'
-        ELSE 'No Growth'
-    END AS growth_category
-FROM salary_growth_analysis
-ORDER BY growth_percent DESC;
-
--- Department efficiency analysis
-SELECT 
-    d.name AS department_name,
-    COUNT(e.id) AS employee_count,
-    ROUND(AVG(e.salary), 2) AS avg_salary,
-    ROUND(AVG(pr.score), 2) AS avg_performance,
-    COUNT(p.id) AS project_count,
-    ROUND(SUM(p.budget), 2) AS total_project_budget,
-    
-    -- Efficiency metrics
-    ROUND(SUM(p.budget) / COUNT(e.id), 2) AS budget_per_employee,
-    ROUND(AVG(e.salary) / AVG(pr.score), 2) AS salary_per_performance_point,
-    
-    -- Department score
-    ROUND(
-        (AVG(pr.score) * 0.4 + 
-         (COUNT(p.id) / COUNT(e.id)) * 0.3 + 
-         (SUM(p.budget) / SUM(e.salary)) * 0.3) * 20, 2
-    ) AS department_efficiency_score
-    
-FROM departments d
-LEFT JOIN employees e ON d.id = e.department_id
-LEFT JOIN performance_reviews pr ON e.id = pr.employee_id
-LEFT JOIN projects p ON d.id = p.department_id
-GROUP BY d.id, d.name
-HAVING COUNT(e.id) > 0
-ORDER BY department_efficiency_score DESC;
-```
-
-**Key Advanced SQL Features Demonstrated:**
-
-1. **Common Table Expressions (CTEs)**: Multiple CTEs for modular query building
-2. **Window Functions**: RANK(), DENSE_RANK(), NTILE(), LAG(), LEAD(), moving averages
-3. **Subqueries**: Correlated and non-correlated subqueries
-4. **Aggregate Functions**: Advanced aggregations with CASE statements
-5. **String Functions**: STRING_AGG for concatenation
-6. **Date Functions**: AGE(), EXTRACT() for temporal analysis
-7. **Statistical Functions**: STDDEV(), PERCENT_RANK()
-8. **Conditional Logic**: Complex CASE statements
-9. **Performance Analysis**: Query optimization techniques
-
----
-
-## Database Design
-
-### Q3: Design a normalized database schema for an e-commerce platform and explain the normalization process.
-**Difficulty: Hard**
-
-**Answer:**
-I'll design a comprehensive e-commerce database schema following normalization principles from 1NF to 3NF, with additional considerations for performance and scalability.
-
-**Complete E-commerce Database Schema:**
-
-```sql
--- === E-COMMERCE DATABASE SCHEMA ===
--- Normalized design following 1NF, 2NF, 3NF principles
--- with performance optimizations and business logic
-
--- === CORE ENTITY TABLES ===
-
--- Users table (customers and administrators)
-CREATE TABLE users (
-    id BIGSERIAL PRIMARY KEY,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    phone VARCHAR(20),
-    date_of_birth DATE,
-    gender CHAR(1) CHECK (gender IN ('M', 'F', 'O')),
-    is_active BOOLEAN DEFAULT TRUE,
-    is_verified BOOLEAN DEFAULT FALSE,
-    user_type VARCHAR(20) DEFAULT 'customer' CHECK (user_type IN ('customer', 'admin', 'vendor')),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    last_login_at TIMESTAMP WITH TIME ZONE,
-    
-    -- Indexes for performance
-    CONSTRAINT users_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
-);
-
--- User addresses (1:N relationship with users)
-CREATE TABLE user_addresses (
-    id BIGSERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    address_type VARCHAR(20) DEFAULT 'shipping' CHECK (address_type IN ('shipping', 'billing', 'both')),
-    first_name VARCHAR(100) NOT NULL,
-    last_name VARCHAR(100) NOT NULL,
-    company VARCHAR(100),
-    address_line_1 VARCHAR(255) NOT NULL,
-    address_line_2 VARCHAR(255),
-    city VARCHAR(100) NOT NULL,
-    state_province VARCHAR(100) NOT NULL,
-    postal_code VARCHAR(20) NOT NULL,
-    country_code CHAR(2) NOT NULL,
-    is_default BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Categories table (hierarchical structure)
-CREATE TABLE categories (
-    id BIGSERIAL PRIMARY KEY,
-    parent_id BIGINT REFERENCES categories(id) ON DELETE SET NULL,
-    name VARCHAR(100) NOT NULL,
-    slug VARCHAR(100) UNIQUE NOT NULL,
-    description TEXT,
-    image_url VARCHAR(500),
-    is_active BOOLEAN DEFAULT TRUE,
-    sort_order INTEGER DEFAULT 0,
-    meta_title VARCHAR(255),
-    meta_description TEXT,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    -- Prevent self-referencing and circular references
-    CONSTRAINT categories_no_self_reference CHECK (id != parent_id)
-);
-
--- Brands table
-CREATE TABLE brands (
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL,
-    slug VARCHAR(100) UNIQUE NOT NULL,
-    description TEXT,
-    logo_url VARCHAR(500),
-    website_url VARCHAR(500),
-    is_active BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Products table
-CREATE TABLE products (
-    id BIGSERIAL PRIMARY KEY,
-    sku VARCHAR(100) UNIQUE NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    slug VARCHAR(255) UNIQUE NOT NULL,
-    short_description TEXT,
-    long_description TEXT,
-    brand_id BIGINT REFERENCES brands(id) ON DELETE SET NULL,
-    
-    -- Product status and visibility
-    status VARCHAR(20) DEFAULT 'draft' CHECK (status IN ('draft', 'active', 'inactive', 'discontinued')),
-    visibility VARCHAR(20) DEFAULT 'visible' CHECK (visibility IN ('visible', 'hidden', 'catalog_only')),
-    
-    -- Pricing
-    base_price DECIMAL(10,2) NOT NULL CHECK (base_price >= 0),
-    sale_price DECIMAL(10,2) CHECK (sale_price >= 0 AND sale_price <= base_price),
-    cost_price DECIMAL(10,2) CHECK (cost_price >= 0),
-    
-    -- Inventory
-    track_inventory BOOLEAN DEFAULT TRUE,
-    stock_quantity INTEGER DEFAULT 0 CHECK (stock_quantity >= 0),
-    low_stock_threshold INTEGER DEFAULT 10,
-    
-    -- Physical attributes
-    weight DECIMAL(8,3) CHECK (weight >= 0), -- in kg
-    length DECIMAL(8,2) CHECK (length >= 0), -- in cm
-    width DECIMAL(8,2) CHECK (width >= 0),   -- in cm
-    height DECIMAL(8,2) CHECK (height >= 0), -- in cm
-    
-    -- SEO and metadata
-    meta_title VARCHAR(255),
-    meta_description TEXT,
-    meta_keywords TEXT,
-    
-    -- Timestamps
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    published_at TIMESTAMP WITH TIME ZONE
-);
-
--- Product categories (M:N relationship)
-CREATE TABLE product_categories (
-    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-    category_id BIGINT NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
-    is_primary BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    PRIMARY KEY (product_id, category_id)
-);
-
--- Product images
-CREATE TABLE product_images (
-    id BIGSERIAL PRIMARY KEY,
-    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-    image_url VARCHAR(500) NOT NULL,
-    alt_text VARCHAR(255),
-    sort_order INTEGER DEFAULT 0,
-    is_primary BOOLEAN DEFAULT FALSE,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Product attributes (for variations like size, color, etc.)
-CREATE TABLE product_attributes (
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL,
-    slug VARCHAR(100) UNIQUE NOT NULL,
-    type VARCHAR(20) DEFAULT 'text' CHECK (type IN ('text', 'number', 'boolean', 'select', 'multiselect')),
-    is_required BOOLEAN DEFAULT FALSE,
-    is_variation BOOLEAN DEFAULT FALSE, -- Used for product variations
-    sort_order INTEGER DEFAULT 0,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Product attribute values
-CREATE TABLE product_attribute_values (
-    id BIGSERIAL PRIMARY KEY,
-    attribute_id BIGINT NOT NULL REFERENCES product_attributes(id) ON DELETE CASCADE,
-    value VARCHAR(255) NOT NULL,
-    sort_order INTEGER DEFAULT 0,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    UNIQUE(attribute_id, value)
-);
-
--- Product attribute assignments
-CREATE TABLE product_attribute_assignments (
-    id BIGSERIAL PRIMARY KEY,
-    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-    attribute_id BIGINT NOT NULL REFERENCES product_attributes(id) ON DELETE CASCADE,
-    attribute_value_id BIGINT REFERENCES product_attribute_values(id) ON DELETE CASCADE,
-    custom_value TEXT, -- For custom values not in predefined list
-    
-    UNIQUE(product_id, attribute_id, attribute_value_id),
-    
-    -- Either use predefined value or custom value, not both
-    CONSTRAINT check_value_assignment CHECK (
-        (attribute_value_id IS NOT NULL AND custom_value IS NULL) OR
-        (attribute_value_id IS NULL AND custom_value IS NOT NULL)
-    )
-);
-
--- Product variations (for products with different sizes, colors, etc.)
-CREATE TABLE product_variations (
-    id BIGSERIAL PRIMARY KEY,
-    parent_product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-    sku VARCHAR(100) UNIQUE NOT NULL,
-    
-    -- Pricing (can override parent product pricing)
-    price DECIMAL(10,2) CHECK (price >= 0),
-    sale_price DECIMAL(10,2) CHECK (sale_price >= 0 AND sale_price <= price),
-    
-    -- Inventory
-    stock_quantity INTEGER DEFAULT 0 CHECK (stock_quantity >= 0),
-    
-    -- Physical attributes (can override parent)
-    weight DECIMAL(8,3) CHECK (weight >= 0),
-    length DECIMAL(8,2) CHECK (length >= 0),
-    width DECIMAL(8,2) CHECK (width >= 0),
-    height DECIMAL(8,2) CHECK (height >= 0),
-    
-    is_active BOOLEAN DEFAULT TRUE,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Variation attribute values (what makes this variation unique)
-CREATE TABLE variation_attribute_values (
-    variation_id BIGINT NOT NULL REFERENCES product_variations(id) ON DELETE CASCADE,
-    attribute_id BIGINT NOT NULL REFERENCES product_attributes(id) ON DELETE CASCADE,
-    attribute_value_id BIGINT NOT NULL REFERENCES product_attribute_values(id) ON DELETE CASCADE,
-    
-    PRIMARY KEY (variation_id, attribute_id),
-    
-    -- Only variation attributes allowed
-    CONSTRAINT check_variation_attribute 
-        FOREIGN KEY (attribute_id) REFERENCES product_attributes(id)
-        CHECK (attribute_id IN (SELECT id FROM product_attributes WHERE is_variation = TRUE))
-);
-
--- === SHOPPING CART AND ORDERS ===
-
--- Shopping cart
-CREATE TABLE shopping_carts (
-    id BIGSERIAL PRIMARY KEY,
-    user_id BIGINT REFERENCES users(id) ON DELETE CASCADE,
-    session_id VARCHAR(255), -- For guest users
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    -- Either user_id or session_id must be present
-    CONSTRAINT check_cart_owner CHECK (
-        (user_id IS NOT NULL AND session_id IS NULL) OR
-        (user_id IS NULL AND session_id IS NOT NULL)
-    )
-);
-
--- Cart items
-CREATE TABLE cart_items (
-    id BIGSERIAL PRIMARY KEY,
-    cart_id BIGINT NOT NULL REFERENCES shopping_carts(id) ON DELETE CASCADE,
-    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-    variation_id BIGINT REFERENCES product_variations(id) ON DELETE CASCADE,
-    quantity INTEGER NOT NULL CHECK (quantity > 0),
-    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price >= 0),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    UNIQUE(cart_id, product_id, variation_id)
-);
-
--- Orders
-CREATE TABLE orders (
-    id BIGSERIAL PRIMARY KEY,
-    order_number VARCHAR(50) UNIQUE NOT NULL,
-    user_id BIGINT REFERENCES users(id) ON DELETE SET NULL,
-    
-    -- Order status
-    status VARCHAR(20) DEFAULT 'pending' CHECK (status IN (
-        'pending', 'confirmed', 'processing', 'shipped', 
-        'delivered', 'cancelled', 'refunded', 'returned'
-    )),
-    
-    -- Pricing
-    subtotal DECIMAL(10,2) NOT NULL CHECK (subtotal >= 0),
-    tax_amount DECIMAL(10,2) DEFAULT 0 CHECK (tax_amount >= 0),
-    shipping_amount DECIMAL(10,2) DEFAULT 0 CHECK (shipping_amount >= 0),
-    discount_amount DECIMAL(10,2) DEFAULT 0 CHECK (discount_amount >= 0),
-    total_amount DECIMAL(10,2) NOT NULL CHECK (total_amount >= 0),
-    
-    -- Addresses (denormalized for historical accuracy)
-    billing_first_name VARCHAR(100) NOT NULL,
-    billing_last_name VARCHAR(100) NOT NULL,
-    billing_company VARCHAR(100),
-    billing_address_line_1 VARCHAR(255) NOT NULL,
-    billing_address_line_2 VARCHAR(255),
-    billing_city VARCHAR(100) NOT NULL,
-    billing_state_province VARCHAR(100) NOT NULL,
-    billing_postal_code VARCHAR(20) NOT NULL,
-    billing_country_code CHAR(2) NOT NULL,
-    
-    shipping_first_name VARCHAR(100) NOT NULL,
-    shipping_last_name VARCHAR(100) NOT NULL,
-    shipping_company VARCHAR(100),
-    shipping_address_line_1 VARCHAR(255) NOT NULL,
-    shipping_address_line_2 VARCHAR(255),
-    shipping_city VARCHAR(100) NOT NULL,
-    shipping_state_province VARCHAR(100) NOT NULL,
-    shipping_postal_code VARCHAR(20) NOT NULL,
-    shipping_country_code CHAR(2) NOT NULL,
-    
-    -- Contact information
-    email VARCHAR(255) NOT NULL,
-    phone VARCHAR(20),
-    
-    -- Order notes
-    customer_notes TEXT,
-    admin_notes TEXT,
-    
-    -- Timestamps
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    shipped_at TIMESTAMP WITH TIME ZONE,
-    delivered_at TIMESTAMP WITH TIME ZONE
-);
-
--- Order items
-CREATE TABLE order_items (
-    id BIGSERIAL PRIMARY KEY,
-    order_id BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE RESTRICT,
-    variation_id BIGINT REFERENCES product_variations(id) ON DELETE RESTRICT,
-    
-    -- Product details at time of order (denormalized for historical accuracy)
-    product_sku VARCHAR(100) NOT NULL,
-    product_name VARCHAR(255) NOT NULL,
-    variation_attributes JSONB, -- Store variation details
-    
-    quantity INTEGER NOT NULL CHECK (quantity > 0),
-    unit_price DECIMAL(10,2) NOT NULL CHECK (unit_price >= 0),
-    total_price DECIMAL(10,2) NOT NULL CHECK (total_price >= 0),
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- === PAYMENT AND SHIPPING ===
-
--- Payment methods
-CREATE TABLE payment_methods (
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL,
-    code VARCHAR(50) UNIQUE NOT NULL,
-    description TEXT,
-    is_active BOOLEAN DEFAULT TRUE,
-    sort_order INTEGER DEFAULT 0,
-    configuration JSONB, -- Store payment gateway configuration
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Payments
-CREATE TABLE payments (
-    id BIGSERIAL PRIMARY KEY,
-    order_id BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-    payment_method_id BIGINT NOT NULL REFERENCES payment_methods(id),
-    
-    -- Payment details
-    transaction_id VARCHAR(255),
-    gateway_transaction_id VARCHAR(255),
-    amount DECIMAL(10,2) NOT NULL CHECK (amount > 0),
-    currency_code CHAR(3) DEFAULT 'USD',
-    
-    status VARCHAR(20) DEFAULT 'pending' CHECK (status IN (
-        'pending', 'processing', 'completed', 'failed', 'cancelled', 'refunded'
-    )),
-    
-    -- Gateway response
-    gateway_response JSONB,
-    failure_reason TEXT,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    processed_at TIMESTAMP WITH TIME ZONE
-);
-
--- Shipping methods
-CREATE TABLE shipping_methods (
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    code VARCHAR(50) UNIQUE NOT NULL,
-    description TEXT,
-    base_cost DECIMAL(10,2) DEFAULT 0 CHECK (base_cost >= 0),
-    cost_per_kg DECIMAL(10,2) DEFAULT 0 CHECK (cost_per_kg >= 0),
-    free_shipping_threshold DECIMAL(10,2),
-    estimated_days_min INTEGER CHECK (estimated_days_min >= 0),
-    estimated_days_max INTEGER CHECK (estimated_days_max >= estimated_days_min),
-    is_active BOOLEAN DEFAULT TRUE,
-    sort_order INTEGER DEFAULT 0,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Order shipments
-CREATE TABLE order_shipments (
-    id BIGSERIAL PRIMARY KEY,
-    order_id BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-    shipping_method_id BIGINT NOT NULL REFERENCES shipping_methods(id),
-    
-    tracking_number VARCHAR(255),
-    carrier VARCHAR(100),
-    shipping_cost DECIMAL(10,2) NOT NULL CHECK (shipping_cost >= 0),
-    
-    status VARCHAR(20) DEFAULT 'pending' CHECK (status IN (
-        'pending', 'processing', 'shipped', 'in_transit', 'delivered', 'returned'
-    )),
-    
-    shipped_at TIMESTAMP WITH TIME ZONE,
-    delivered_at TIMESTAMP WITH TIME ZONE,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- === DISCOUNTS AND PROMOTIONS ===
-
--- Discount codes/coupons
-CREATE TABLE discount_codes (
-    id BIGSERIAL PRIMARY KEY,
-    code VARCHAR(50) UNIQUE NOT NULL,
-    name VARCHAR(100) NOT NULL,
-    description TEXT,
-    
-    -- Discount type and value
-    discount_type VARCHAR(20) NOT NULL CHECK (discount_type IN ('percentage', 'fixed_amount', 'free_shipping')),
-    discount_value DECIMAL(10,2) NOT NULL CHECK (discount_value >= 0),
-    
-    -- Usage limits
-    usage_limit INTEGER, -- Total usage limit
-    usage_limit_per_customer INTEGER,
-    used_count INTEGER DEFAULT 0,
-    
-    -- Conditions
-    minimum_order_amount DECIMAL(10,2),
-    maximum_discount_amount DECIMAL(10,2),
-    
-    -- Validity
-    starts_at TIMESTAMP WITH TIME ZONE,
-    expires_at TIMESTAMP WITH TIME ZONE,
-    is_active BOOLEAN DEFAULT TRUE,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Discount code usage tracking
-CREATE TABLE discount_code_usage (
-    id BIGSERIAL PRIMARY KEY,
-    discount_code_id BIGINT NOT NULL REFERENCES discount_codes(id) ON DELETE CASCADE,
-    order_id BIGINT NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
-    user_id BIGINT REFERENCES users(id) ON DELETE SET NULL,
-    discount_amount DECIMAL(10,2) NOT NULL CHECK (discount_amount >= 0),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    UNIQUE(discount_code_id, order_id)
-);
-
--- === REVIEWS AND RATINGS ===
-
--- Product reviews
-CREATE TABLE product_reviews (
-    id BIGSERIAL PRIMARY KEY,
-    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    order_item_id BIGINT REFERENCES order_items(id) ON DELETE SET NULL,
-    
-    rating INTEGER NOT NULL CHECK (rating >= 1 AND rating <= 5),
-    title VARCHAR(255),
-    review_text TEXT,
-    
-    -- Review status
-    status VARCHAR(20) DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
-    
-    -- Helpful votes
-    helpful_votes INTEGER DEFAULT 0,
-    total_votes INTEGER DEFAULT 0,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    -- One review per user per product
-    UNIQUE(product_id, user_id)
-);
-
--- === INVENTORY MANAGEMENT ===
-
--- Inventory transactions (for tracking stock changes)
-CREATE TABLE inventory_transactions (
-    id BIGSERIAL PRIMARY KEY,
-    product_id BIGINT NOT NULL REFERENCES products(id) ON DELETE CASCADE,
-    variation_id BIGINT REFERENCES product_variations(id) ON DELETE CASCADE,
-    
-    transaction_type VARCHAR(20) NOT NULL CHECK (transaction_type IN (
-        'purchase', 'sale', 'return', 'adjustment', 'damage', 'theft'
-    )),
-    
-    quantity_change INTEGER NOT NULL, -- Positive for increase, negative for decrease
-    quantity_after INTEGER NOT NULL CHECK (quantity_after >= 0),
-    
-    reference_type VARCHAR(50), -- 'order', 'purchase_order', 'manual', etc.
-    reference_id BIGINT,
-    
-    notes TEXT,
-    created_by BIGINT REFERENCES users(id),
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- === INDEXES FOR PERFORMANCE ===
-
--- User indexes
-CREATE INDEX idx_users_email ON users(email);
-CREATE INDEX idx_users_type_active ON users(user_type, is_active);
-CREATE INDEX idx_users_created_at ON users(created_at);
-
--- Address indexes
-CREATE INDEX idx_user_addresses_user_id ON user_addresses(user_id);
-CREATE INDEX idx_user_addresses_default ON user_addresses(user_id, is_default);
-
--- Category indexes
-CREATE INDEX idx_categories_parent_id ON categories(parent_id);
-CREATE INDEX idx_categories_slug ON categories(slug);
-CREATE INDEX idx_categories_active ON categories(is_active);
-
--- Product indexes
-CREATE INDEX idx_products_sku ON products(sku);
-CREATE INDEX idx_products_slug ON products(slug);
-CREATE INDEX idx_products_brand_id ON products(brand_id);
-CREATE INDEX idx_products_status ON products(status);
-CREATE INDEX idx_products_price ON products(base_price, sale_price);
-CREATE INDEX idx_products_stock ON products(stock_quantity);
-CREATE INDEX idx_products_created_at ON products(created_at);
-
--- Product category indexes
-CREATE INDEX idx_product_categories_product_id ON product_categories(product_id);
-CREATE INDEX idx_product_categories_category_id ON product_categories(category_id);
-CREATE INDEX idx_product_categories_primary ON product_categories(category_id, is_primary);
-
--- Order indexes
-CREATE INDEX idx_orders_user_id ON orders(user_id);
-CREATE INDEX idx_orders_status ON orders(status);
-CREATE INDEX idx_orders_created_at ON orders(created_at);
-CREATE INDEX idx_orders_total ON orders(total_amount);
-
--- Order items indexes
-CREATE INDEX idx_order_items_order_id ON order_items(order_id);
-CREATE INDEX idx_order_items_product_id ON order_items(product_id);
-
--- Cart indexes
-CREATE INDEX idx_shopping_carts_user_id ON shopping_carts(user_id);
-CREATE INDEX idx_shopping_carts_session_id ON shopping_carts(session_id);
-CREATE INDEX idx_cart_items_cart_id ON cart_items(cart_id);
-
--- Review indexes
-CREATE INDEX idx_product_reviews_product_id ON product_reviews(product_id);
-CREATE INDEX idx_product_reviews_user_id ON product_reviews(user_id);
-CREATE INDEX idx_product_reviews_rating ON product_reviews(rating);
-CREATE INDEX idx_product_reviews_status ON product_reviews(status);
-```
-
-**Normalization Process Explanation:**
-
-**1st Normal Form (1NF):**
-- All tables have primary keys
-- No repeating groups or arrays in columns
-- Each cell contains atomic values
-- Example: Instead of storing multiple addresses in one field, we created separate `user_addresses` table
-
-**2nd Normal Form (2NF):**
-- Meets 1NF requirements
-- No partial dependencies on composite keys
-- Example: In `product_categories` table, both `product_id` and `category_id` are needed to determine `is_primary`
-
-**3rd Normal Form (3NF):**
-- Meets 2NF requirements
-- No transitive dependencies
-- Example: Product brand information is in separate `brands` table, not duplicated in `products`
-
-**Denormalization for Performance:**
-- Order addresses are denormalized for historical accuracy
-- Product details in `order_items` for historical pricing
-- Review aggregates could be cached in `products` table
-
----
-
-## NoSQL Databases
-
-### Q4: Compare MongoDB, Redis, and Cassandra. When would you use each?
-**Difficulty: Medium**
-
-**Answer:**
-Each NoSQL database serves different use cases based on data model, consistency requirements, and performance characteristics.
-
-**MongoDB (Document Database):**
-
-```javascript
-// MongoDB Examples
-
-// === DOCUMENT STRUCTURE ===
-// User document with embedded data
-{
-  _id: ObjectId("507f1f77bcf86cd799439011"),
-  email: "john.doe@example.com",
-  profile: {
-    firstName: "John",
-    lastName: "Doe",
-    dateOfBirth: ISODate("1990-05-15"),
-    preferences: {
-      newsletter: true,
-      notifications: {
-        email: true,
-        sms: false,
-        push: true
-      }
-    }
-  },
-  addresses: [
-    {
-      type: "home",
-      street: "123 Main St",
-      city: "New York",
-      zipCode: "10001",
-      isDefault: true
-    },
-    {
-      type: "work",
-      street: "456 Business Ave",
-      city: "New York",
-      zipCode: "10002",
-      isDefault: false
-    }
-  ],
-  orders: [
-    {
-      orderId: ObjectId("507f1f77bcf86cd799439012"),
-      date: ISODate("2023-01-15"),
-      total: 299.99,
-      status: "delivered"
-    }
-  ],
-  createdAt: ISODate("2023-01-01"),
-  lastLogin: ISODate("2023-12-01")
-}
-
-// === MONGODB OPERATIONS ===
-
-// Complex aggregation pipeline
-db.users.aggregate([
-  // Match active users from last 30 days
-  {
-    $match: {
-      lastLogin: { $gte: new Date(Date.now() - 30*24*60*60*1000) },
-      "profile.preferences.newsletter": true
-    }
-  },
-  
-  // Unwind orders array
-  { $unwind: "$orders" },
-  
-  // Group by user and calculate metrics
-  {
-    $group: {
-      _id: "$_id",
-      email: { $first: "$email" },
-      firstName: { $first: "$profile.firstName" },
-      totalOrders: { $sum: 1 },
-      totalSpent: { $sum: "$orders.total" },
-      avgOrderValue: { $avg: "$orders.total" },
-      lastOrderDate: { $max: "$orders.date" }
-    }
-  },
-  
-  // Filter high-value customers
-  {
-    $match: {
-      totalSpent: { $gte: 1000 }
-    }
-  },
-  
-  // Sort by total spent
-  { $sort: { totalSpent: -1 } },
-  
-  // Add customer segment
-  {
-    $addFields: {
-      segment: {
-        $switch: {
-          branches: [
-            { case: { $gte: ["$totalSpent", 5000] }, then: "VIP" },
-            { case: { $gte: ["$totalSpent", 2000] }, then: "Premium" },
-            { case: { $gte: ["$totalSpent", 1000] }, then: "Gold" }
-          ],
-          default: "Standard"
-        }
-      }
-    }
-  }
-]);
-
-// Geospatial queries
-db.stores.createIndex({ location: "2dsphere" });
-
-db.stores.find({
-  location: {
-    $near: {
-      $geometry: {
-        type: "Point",
-        coordinates: [-73.9857, 40.7484] // NYC coordinates
-      },
-      $maxDistance: 5000 // 5km radius
-    }
-  }
-});
-
-// Text search with scoring
-db.products.createIndex({ 
-  name: "text", 
-  description: "text", 
-  tags: "text" 
-});
-
-db.products.find(
-  { $text: { $search: "wireless bluetooth headphones" } },
-  { score: { $meta: "textScore" } }
-).sort({ score: { $meta: "textScore" } });
-
-// Change streams for real-time updates
-const changeStream = db.orders.watch([
-  {
-    $match: {
-      "fullDocument.status": "pending",
-      "operationType": "insert"
-    }
-  }
-]);
-
-changeStream.on('change', (change) => {
-  console.log('New order:', change.fullDocument);
-  // Trigger notification, inventory update, etc.
-});
-```
-
-**Redis (Key-Value Store):**
-
-```javascript
-// Redis Examples
-
-// === CACHING STRATEGIES ===
-
-// Cache-aside pattern
-async function getUser(userId) {
-  const cacheKey = `user:${userId}`;
-  
-  // Try cache first
-  let user = await redis.get(cacheKey);
-  if (user) {
-    return JSON.parse(user);
-  }
-  
-  // Cache miss - fetch from database
-  user = await database.users.findById(userId);
-  
-  // Store in cache with TTL
-  await redis.setex(cacheKey, 3600, JSON.stringify(user));
-  
-  return user;
-}
-
-// Write-through cache
-async function updateUser(userId, userData) {
-  // Update database
-  const user = await database.users.update(userId, userData);
-  
-  // Update cache
-  const cacheKey = `user:${userId}`;
-  await redis.setex(cacheKey, 3600, JSON.stringify(user));
-  
-  return user;
-}
-
-// === SESSION MANAGEMENT ===
-
-// Store session data
-async function createSession(userId, sessionData) {
-  const sessionId = generateSessionId();
-  const sessionKey = `session:${sessionId}`;
-  
-  await redis.hmset(sessionKey, {
-    userId: userId,
-    createdAt: Date.now(),
-    lastAccess: Date.now(),
-    ipAddress: sessionData.ipAddress,
-    userAgent: sessionData.userAgent
-  });
-  
-  // Set expiration
-  await redis.expire(sessionKey, 86400); // 24 hours
-  
-  return sessionId;
-}
-
-// === REAL-TIME FEATURES ===
-
-// Pub/Sub for real-time notifications
-const publisher = redis.createClient();
-const subscriber = redis.createClient();
-
-// Publish notification
-async function sendNotification(userId, message) {
-  await publisher.publish(`user:${userId}:notifications`, JSON.stringify({
-    type: 'info',
-    message: message,
-    timestamp: Date.now()
-  }));
-}
-
-// Subscribe to notifications
-subscriber.subscribe('user:*:notifications');
-subscriber.on('message', (channel, message) => {
-  const userId = channel.split(':')[1];
-  const notification = JSON.parse(message);
-  
-  // Send to WebSocket, email, etc.
-  sendToWebSocket(userId, notification);
-});
-
-// === RATE LIMITING ===
-
-// Sliding window rate limiter
-async function checkRateLimit(userId, limit = 100, window = 3600) {
-  const key = `rate_limit:${userId}`;
-  const now = Date.now();
-  const windowStart = now - (window * 1000);
-  
-  // Remove old entries
-  await redis.zremrangebyscore(key, 0, windowStart);
-  
-  // Count current requests
-  const currentCount = await redis.zcard(key);
-  
-  if (currentCount >= limit) {
-    return { allowed: false, remaining: 0 };
-  }
-  
-  // Add current request
-  await redis.zadd(key, now, `${now}-${Math.random()}`);
-  await redis.expire(key, window);
-  
-  return { 
-    allowed: true, 
-    remaining: limit - currentCount - 1 
-  };
-}
-
-// === LEADERBOARDS ===
-
-// Game leaderboard with sorted sets
-async function updateScore(userId, score) {
-  await redis.zadd('leaderboard:global', score, userId);
-  
-  // Weekly leaderboard
-  const weekKey = `leaderboard:week:${getWeekNumber()}`;
-  await redis.zadd(weekKey, score, userId);
-  await redis.expire(weekKey, 604800); // 1 week
-}
-
-// Get top players
-async function getTopPlayers(count = 10) {
-  return await redis.zrevrange('leaderboard:global', 0, count - 1, 'WITHSCORES');
-}
-
-// Get user rank
-async function getUserRank(userId) {
-  const rank = await redis.zrevrank('leaderboard:global', userId);
-  const score = await redis.zscore('leaderboard:global', userId);
-  
-  return { rank: rank + 1, score };
-}
-
-// === DISTRIBUTED LOCKS ===
-
-// Implement distributed lock with Redis
-class RedisLock {
-  constructor(redis, key, ttl = 10000) {
-    this.redis = redis;
-    this.key = `lock:${key}`;
-    this.ttl = ttl;
-    this.lockValue = `${Date.now()}-${Math.random()}`;
-  }
-  
-  async acquire() {
-    const result = await this.redis.set(
-      this.key, 
-      this.lockValue, 
-      'PX', 
-      this.ttl, 
-      'NX'
-    );
-    
-    return result === 'OK';
-  }
-  
-  async release() {
-    const script = `
-      if redis.call('GET', KEYS[1]) == ARGV[1] then
-        return redis.call('DEL', KEYS[1])
-      else
-        return 0
-      end
-    `;
-    
-    return await this.redis.eval(script, 1, this.key, this.lockValue);
-  }
-}
-
-// Usage
-async function processPayment(orderId) {
-  const lock = new RedisLock(redis, `payment:${orderId}`);
-  
-  if (await lock.acquire()) {
-    try {
-      // Process payment logic
-      await processPaymentLogic(orderId);
-    } finally {
-      await lock.release();
-    }
-  } else {
-    throw new Error('Payment already being processed');
-  }
-}
-```
-
-**Cassandra (Wide-Column Store):**
-
-```sql
--- Cassandra CQL Examples
-
--- === KEYSPACE AND TABLE DESIGN ===
-
--- Create keyspace with replication
-CREATE KEYSPACE ecommerce 
-WITH REPLICATION = {
-  'class': 'NetworkTopologyStrategy',
-  'datacenter1': 3,
-  'datacenter2': 2
-};
-
-USE ecommerce;
-
--- Time-series data for user activity
-CREATE TABLE user_activity (
-    user_id UUID,
-    activity_date DATE,
-    activity_time TIMESTAMP,
-    activity_type TEXT,
-    page_url TEXT,
-    session_id UUID,
-    ip_address INET,
-    user_agent TEXT,
-    PRIMARY KEY ((user_id, activity_date), activity_time)
-) WITH CLUSTERING ORDER BY (activity_time DESC)
-  AND compaction = {'class': 'TimeWindowCompactionStrategy'}
-  AND default_time_to_live = 2592000; -- 30 days
-
--- Product catalog with denormalized data
-CREATE TABLE products_by_category (
-    category_id UUID,
-    product_id UUID,
-    product_name TEXT,
-    brand TEXT,
-    price DECIMAL,
-    rating FLOAT,
-    review_count INT,
-    image_urls LIST<TEXT>,
-    attributes MAP<TEXT, TEXT>,
-    created_at TIMESTAMP,
-    PRIMARY KEY (category_id, price, product_id)
-) WITH CLUSTERING ORDER BY (price ASC, product_id ASC);
-
--- Order history partitioned by user and time
-CREATE TABLE user_orders (
-    user_id UUID,
-    order_month TEXT, -- YYYY-MM format
-    order_id UUID,
-    order_date TIMESTAMP,
-    total_amount DECIMAL,
-    status TEXT,
-    items LIST<FROZEN<order_item>>,
-    shipping_address FROZEN<address>,
-    PRIMARY KEY ((user_id, order_month), order_date, order_id)
-) WITH CLUSTERING ORDER BY (order_date DESC, order_id ASC);
-
--- User-defined types
-CREATE TYPE order_item (
-    product_id UUID,
-    product_name TEXT,
-    quantity INT,
-    unit_price DECIMAL
-);
-
-CREATE TYPE address (
-    street TEXT,
-    city TEXT,
-    state TEXT,
-    zip_code TEXT,
-    country TEXT
-);
-
--- === QUERY PATTERNS ===
-
--- Insert user activity (optimized for writes)
-INSERT INTO user_activity (
-    user_id, activity_date, activity_time, 
-    activity_type, page_url, session_id
-) VALUES (
-    550e8400-e29b-41d4-a716-446655440000,
-    '2023-12-01',
-    '2023-12-01 10:30:00',
-    'page_view',
-    '/products/electronics',
-    550e8400-e29b-41d4-a716-446655440001
-);
-
--- Query user activity for a specific day
-SELECT * FROM user_activity 
-WHERE user_id = 550e8400-e29b-41d4-a716-446655440000 
-  AND activity_date = '2023-12-01'
-ORDER BY activity_time DESC;
-
--- Query products by category with price range
-SELECT * FROM products_by_category 
-WHERE category_id = 550e8400-e29b-41d4-a716-446655440002
-  AND price >= 100 AND price <= 500
-LIMIT 20;
-
--- Get user orders for specific month
-SELECT * FROM user_orders 
-WHERE user_id = 550e8400-e29b-41d4-a716-446655440000 
-  AND order_month = '2023-12'
-ORDER BY order_date DESC;
-
--- === MATERIALIZED VIEWS ===
-
--- Create materialized view for product search by brand
-CREATE MATERIALIZED VIEW products_by_brand AS
-SELECT category_id, brand, product_id, product_name, price, rating
-FROM products_by_category
-WHERE category_id IS NOT NULL 
-  AND brand IS NOT NULL 
-  AND product_id IS NOT NULL
-PRIMARY KEY (brand, rating, product_id);
-
--- === BATCH OPERATIONS ===
-
--- Batch insert for better performance
-BEGIN BATCH
-  INSERT INTO user_activity (...) VALUES (...);
-  INSERT INTO user_activity (...) VALUES (...);
-  INSERT INTO user_activity (...) VALUES (...);
-APPLY BATCH;
-
--- === COUNTERS ===
-
--- Counter table for statistics
-CREATE TABLE product_stats (
-    product_id UUID PRIMARY KEY,
-    view_count COUNTER,
-    purchase_count COUNTER,
-    wishlist_count COUNTER
-);
-
--- Update counters
-UPDATE product_stats 
-SET view_count = view_count + 1 
-WHERE product_id = 550e8400-e29b-41d4-a716-446655440003;
-```
-
-**When to Use Each Database:**
-
-**MongoDB:**
-- ✅ **Use When:**
-  - Complex, nested data structures
-  - Rapid application development
-  - Flexible schema requirements
-  - Rich query capabilities needed
-  - ACID transactions required (4.0+)
-  - Geospatial queries
-  - Full-text search
-
-- ❌ **Avoid When:**
-  - High-frequency, simple key-value operations
-  - Extremely high write throughput
-  - Strong consistency across multiple documents
-
-**Redis:**
-- ✅ **Use When:**
-  - Caching and session storage
-  - Real-time analytics
-  - Pub/Sub messaging
-  - Rate limiting
-  - Leaderboards and counters
-  - Distributed locks
-  - Sub-millisecond latency required
-
-- ❌ **Avoid When:**
-  - Primary data storage for large datasets
-  - Complex queries needed
-  - Data persistence is critical (use Redis Cluster/Sentinel)
-
-**Cassandra:**
-- ✅ **Use When:**
-  - Massive write-heavy workloads
-  - Time-series data
-  - High availability requirements
-  - Linear scalability needed
-  - Multi-datacenter deployment
-  - IoT data ingestion
-  - Event logging
-
-- ❌ **Avoid When:**
-  - Complex joins required
-  - ACID transactions needed
-  - Small datasets
-  - Ad-hoc queries common
-
----
-
-### Q5: Design a database schema for a social media platform with posts, comments, likes, and followers.
-**Difficulty: Hard**
-
-**Answer:**
-I'll design both SQL and NoSQL schemas for a social media platform, considering scalability, performance, and different access patterns.
-
-**SQL Schema (PostgreSQL):**
-
-```sql
--- === SOCIAL MEDIA PLATFORM DATABASE SCHEMA ===
-
--- Users table
-CREATE TABLE users (
-    id BIGSERIAL PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password_hash VARCHAR(255) NOT NULL,
-    first_name VARCHAR(100),
-    last_name VARCHAR(100),
-    bio TEXT,
-    avatar_url VARCHAR(500),
-    cover_photo_url VARCHAR(500),
-    
-    -- Profile settings
-    is_private BOOLEAN DEFAULT FALSE,
-    is_verified BOOLEAN DEFAULT FALSE,
-    is_active BOOLEAN DEFAULT TRUE,
-    
-    -- Location
-    location VARCHAR(255),
-    timezone VARCHAR(50),
-    
-    -- Counts (denormalized for performance)
-    followers_count INTEGER DEFAULT 0,
-    following_count INTEGER DEFAULT 0,
-    posts_count INTEGER DEFAULT 0,
-    
-    -- Timestamps
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    last_active_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    -- Constraints
-    CONSTRAINT users_username_check CHECK (username ~* '^[a-zA-Z0-9_]{3,50}$'),
-    CONSTRAINT users_email_check CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$')
-);
-
--- Posts table
-CREATE TABLE posts (
-    id BIGSERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    content TEXT,
-    
-    -- Post type and visibility
-    post_type VARCHAR(20) DEFAULT 'text' CHECK (post_type IN ('text', 'image', 'video', 'link', 'poll')),
-    visibility VARCHAR(20) DEFAULT 'public' CHECK (visibility IN ('public', 'followers', 'private')),
-    
-    -- Media and metadata
-    media_urls JSONB, -- Array of media URLs
-    link_preview JSONB, -- Link metadata
-    location JSONB, -- Geolocation data
-    
-    -- Engagement metrics (denormalized)
-    likes_count INTEGER DEFAULT 0,
-    comments_count INTEGER DEFAULT 0,
-    shares_count INTEGER DEFAULT 0,
-    
-    -- Moderation
-    is_deleted BOOLEAN DEFAULT FALSE,
-    is_reported BOOLEAN DEFAULT FALSE,
-    
-    -- Timestamps
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    -- Full-text search
-    search_vector TSVECTOR
-);
-
--- Comments table (supports nested comments)
-CREATE TABLE comments (
-    id BIGSERIAL PRIMARY KEY,
-    post_id BIGINT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
-    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    parent_comment_id BIGINT REFERENCES comments(id) ON DELETE CASCADE,
-    
-    content TEXT NOT NULL,
-    
-    -- Engagement
-    likes_count INTEGER DEFAULT 0,
-    replies_count INTEGER DEFAULT 0,
-    
-    -- Hierarchy and ordering
-    depth INTEGER DEFAULT 0,
-    path LTREE, -- For efficient hierarchical queries
-    
-    -- Moderation
-    is_deleted BOOLEAN DEFAULT FALSE,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    CONSTRAINT comments_depth_check CHECK (depth >= 0 AND depth <= 5)
-);
-
--- Likes table (for posts and comments)
-CREATE TABLE likes (
-    id BIGSERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    
-    -- Polymorphic relationship
-    likeable_type VARCHAR(20) NOT NULL CHECK (likeable_type IN ('post', 'comment')),
-    likeable_id BIGINT NOT NULL,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    -- Unique constraint to prevent duplicate likes
-    UNIQUE(user_id, likeable_type, likeable_id)
-);
-
--- Follows table (user relationships)
-CREATE TABLE follows (
-    id BIGSERIAL PRIMARY KEY,
-    follower_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    following_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    
-    -- Follow status
-    status VARCHAR(20) DEFAULT 'active' CHECK (status IN ('active', 'pending', 'blocked')),
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    -- Prevent self-following and duplicate follows
-    CONSTRAINT follows_no_self_follow CHECK (follower_id != following_id),
-    UNIQUE(follower_id, following_id)
-);
-
--- Hashtags table
-CREATE TABLE hashtags (
-    id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(100) UNIQUE NOT NULL,
-    usage_count INTEGER DEFAULT 0,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- Post hashtags (M:N relationship)
-CREATE TABLE post_hashtags (
-    post_id BIGINT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
-    hashtag_id BIGINT NOT NULL REFERENCES hashtags(id) ON DELETE CASCADE,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    PRIMARY KEY (post_id, hashtag_id)
-);
-
--- User mentions in posts
-CREATE TABLE post_mentions (
-    id BIGSERIAL PRIMARY KEY,
-    post_id BIGINT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
-    mentioned_user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    position_start INTEGER NOT NULL,
-    position_end INTEGER NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    UNIQUE(post_id, mentioned_user_id)
-);
-
--- Notifications table
-CREATE TABLE notifications (
-    id BIGSERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    actor_id BIGINT REFERENCES users(id) ON DELETE CASCADE,
-    
-    notification_type VARCHAR(50) NOT NULL CHECK (notification_type IN (
-        'like_post', 'like_comment', 'comment_post', 'reply_comment',
-        'follow_request', 'follow_accepted', 'mention', 'share'
-    )),
-    
-    -- Reference to the object that triggered the notification
-    object_type VARCHAR(20) CHECK (object_type IN ('post', 'comment', 'user')),
-    object_id BIGINT,
-    
-    message TEXT,
-    is_read BOOLEAN DEFAULT FALSE,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-);
-
--- User feed cache (for performance)
-CREATE TABLE user_feeds (
-    id BIGSERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    post_id BIGINT NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
-    
-    -- Feed ranking score
-    score FLOAT DEFAULT 0,
-    
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    
-    UNIQUE(user_id, post_id)
-);
-
--- === INDEXES FOR PERFORMANCE ===
-
--- User indexes
-CREATE INDEX idx_users_username ON users(username);
-CREATE INDEX idx_users_email ON users(email);
-CREATE INDEX idx_users_active ON users(is_active, last_active_at);
-
--- Post indexes
-CREATE INDEX idx_posts_user_id ON posts(user_id, created_at DESC);
-CREATE INDEX idx_posts_created_at ON posts(created_at DESC);
-CREATE INDEX idx_posts_visibility ON posts(visibility, created_at DESC);
-CREATE INDEX idx_posts_search ON posts USING GIN(search_vector);
-CREATE INDEX idx_posts_location ON posts USING GIN(location);
-
--- Comment indexes
-CREATE INDEX idx_comments_post_id ON comments(post_id, created_at);
-CREATE INDEX idx_comments_user_id ON comments(user_id);
-CREATE INDEX idx_comments_parent ON comments(parent_comment_id);
-CREATE INDEX idx_comments_path ON comments USING GIST(path);
-
--- Like indexes
-CREATE INDEX idx_likes_user_id ON likes(user_id);
-CREATE INDEX idx_likes_likeable ON likes(likeable_type, likeable_id);
-
--- Follow indexes
-CREATE INDEX idx_follows_follower ON follows(follower_id, status);
-CREATE INDEX idx_follows_following ON follows(following_id, status);
-
--- Notification indexes
-CREATE INDEX idx_notifications_user_id ON notifications(user_id, is_read, created_at DESC);
-
--- Feed indexes
-CREATE INDEX idx_user_feeds_user_score ON user_feeds(user_id, score DESC);
-
--- === TRIGGERS AND FUNCTIONS ===
-
--- Update search vector for posts
-CREATE OR REPLACE FUNCTION update_post_search_vector()
-RETURNS TRIGGER AS $$
-BEGIN
-    NEW.search_vector := to_tsvector('english', COALESCE(NEW.content, ''));
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER posts_search_vector_update
-    BEFORE INSERT OR UPDATE ON posts
-    FOR EACH ROW EXECUTE FUNCTION update_post_search_vector();
-
--- Update counts when likes are added/removed
-CREATE OR REPLACE FUNCTION update_like_counts()
-RETURNS TRIGGER AS $$
-BEGIN
-    IF TG_OP = 'INSERT' THEN
-        IF NEW.likeable_type = 'post' THEN
-            UPDATE posts SET likes_count = likes_count + 1 WHERE id = NEW.likeable_id;
-        ELSIF NEW.likeable_type = 'comment' THEN
-            UPDATE comments SET likes_count = likes_count + 1 WHERE id = NEW.likeable_id;
-        END IF;
-        RETURN NEW;
-    ELSIF TG_OP = 'DELETE' THEN
-        IF OLD.likeable_type = 'post' THEN
-            UPDATE posts SET likes_count = likes_count - 1 WHERE id = OLD.likeable_id;
-        ELSIF OLD.likeable_type = 'comment' THEN
-            UPDATE comments SET likes_count = likes_count - 1 WHERE id = OLD.likeable_id;
-        END IF;
-        RETURN OLD;
-    END IF;
-    RETURN NULL;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER likes_count_update
-    AFTER INSERT OR DELETE ON likes
-    FOR EACH ROW EXECUTE FUNCTION update_like_counts();
-
--- Update follow counts
-CREATE OR REPLACE FUNCTION update_follow_counts()
-RETURNS TRIGGER AS $$
-BEGIN
-    IF TG_OP = 'INSERT' AND NEW.status = 'active' THEN
-        UPDATE users SET following_count = following_count + 1 WHERE id = NEW.follower_id;
-        UPDATE users SET followers_count = followers_count + 1 WHERE id = NEW.following_id;
-        RETURN NEW;
-    ELSIF TG_OP = 'DELETE' AND OLD.status = 'active' THEN
-        UPDATE users SET following_count = following_count - 1 WHERE id = OLD.follower_id;
-        UPDATE users SET followers_count = followers_count - 1 WHERE id = OLD.following_id;
-        RETURN OLD;
-    ELSIF TG_OP = 'UPDATE' THEN
-        IF OLD.status = 'active' AND NEW.status != 'active' THEN
-            UPDATE users SET following_count = following_count - 1 WHERE id = NEW.follower_id;
-            UPDATE users SET followers_count = followers_count - 1 WHERE id = NEW.following_id;
-        ELSIF OLD.status != 'active' AND NEW.status = 'active' THEN
-            UPDATE users SET following_count = following_count + 1 WHERE id = NEW.follower_id;
-            UPDATE users SET followers_count = followers_count + 1 WHERE id = NEW.following_id;
-        END IF;
-        RETURN NEW;
-    END IF;
-    RETURN NULL;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE TRIGGER follows_count_update
-    AFTER INSERT OR UPDATE OR DELETE ON follows
-    FOR EACH ROW EXECUTE FUNCTION update_follow_counts();
-```
-
-**Key Design Decisions:**
-
-1. **Denormalized Counts**: Store like/comment/follow counts directly for performance
-2. **Polymorphic Likes**: Single table for both post and comment likes
-3. **Hierarchical Comments**: Using LTREE for efficient nested comment queries
-4. **Feed Caching**: Pre-computed user feeds for timeline performance
-5. **Full-text Search**: PostgreSQL's built-in search capabilities
-6. **Soft Deletes**: Mark content as deleted rather than hard delete
-
----
-
-## Performance Optimization
-
-### Q6: Explain database indexing strategies and when to use different types of indexes.
-**Difficulty: Medium**
-
-**Answer:**
-Database indexes are crucial for query performance. Different index types serve different purposes and have specific use cases.
-
-**Index Types and Strategies:**
-
-```sql
--- === B-TREE INDEXES (Most Common) ===
-
--- Single column index
-CREATE INDEX idx_users_email ON users(email);
-
--- Composite index (order matters!)
-CREATE INDEX idx_orders_user_date ON orders(user_id, created_at DESC);
-
--- Partial index (with WHERE clause)
-CREATE INDEX idx_active_users ON users(last_login_at) 
-WHERE is_active = TRUE;
-
--- Functional index
-CREATE INDEX idx_users_email_lower ON users(LOWER(email));
-
--- === HASH INDEXES ===
--- Only for equality comparisons
-CREATE INDEX idx_sessions_token ON user_sessions USING HASH(session_token);
-
--- === GIN INDEXES (Generalized Inverted Index) ===
--- For JSONB, arrays, full-text search
-CREATE INDEX idx_products_attributes ON products USING GIN(attributes);
-CREATE INDEX idx_posts_tags ON posts USING GIN(tags);
-CREATE INDEX idx_posts_search ON posts USING GIN(to_tsvector('english', content));
-
--- === GIST INDEXES (Generalized Search Tree) ===
--- For geometric data, ranges, full-text search
-CREATE INDEX idx_stores_location ON stores USING GIST(location);
-CREATE INDEX idx_events_daterange ON events USING GIST(date_range);
-
--- === BRIN INDEXES (Block Range Index) ===
--- For very large tables with natural ordering
-CREATE INDEX idx_logs_timestamp ON application_logs USING BRIN(created_at);
-
--- === SP-GIST INDEXES ===
--- For non-balanced data structures
-CREATE INDEX idx_ip_addresses ON access_logs USING SPGIST(ip_address inet_ops);
-```
-
-**Comprehensive Indexing Strategy Example:**
-
-```sql
--- === E-COMMERCE INDEXING STRATEGY ===
-
--- Products table with various index types
-CREATE TABLE products (
-    id BIGSERIAL PRIMARY KEY,
-    sku VARCHAR(100) UNIQUE NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    category_id BIGINT,
-    brand_id BIGINT,
-    price DECIMAL(10,2),
-    sale_price DECIMAL(10,2),
-    stock_quantity INTEGER,
-    attributes JSONB,
-    tags TEXT[],
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    is_active BOOLEAN DEFAULT TRUE
-);
-
--- === PRIMARY ACCESS PATTERNS AND INDEXES ===
-
--- 1. Product lookup by SKU (exact match)
-CREATE UNIQUE INDEX idx_products_sku ON products(sku);
-
--- 2. Category browsing with sorting
-CREATE INDEX idx_products_category_price ON products(category_id, price) 
-WHERE is_active = TRUE;
-
-CREATE INDEX idx_products_category_created ON products(category_id, created_at DESC) 
-WHERE is_active = TRUE;
-
--- 3. Brand filtering
-CREATE INDEX idx_products_brand_price ON products(brand_id, price) 
-WHERE is_active = TRUE;
-
--- 4. Price range queries
-CREATE INDEX idx_products_price_range ON products(price, sale_price) 
-WHERE is_active = TRUE;
-
--- 5. Stock management
-CREATE INDEX idx_products_low_stock ON products(stock_quantity) 
-WHERE is_active = TRUE AND stock_quantity < 10;
-
--- 6. Full-text search
-CREATE INDEX idx_products_search ON products 
-USING GIN(to_tsvector('english', name || ' ' || COALESCE(description, '')));
-
--- 7. JSONB attribute queries
-CREATE INDEX idx_products_attributes ON products USING GIN(attributes);
-
--- 8. Array tag searches
-CREATE INDEX idx_products_tags ON products USING GIN(tags);
-
--- 9. Recent products
-CREATE INDEX idx_products_recent ON products(created_at DESC) 
-WHERE is_active = TRUE;
-
--- === QUERY OPTIMIZATION EXAMPLES ===
-
--- Efficient category browsing with price sorting
-EXPLAIN (ANALYZE, BUFFERS) 
-SELECT id, name, price, sale_price
-FROM products 
-WHERE category_id = 123 
-  AND is_active = TRUE 
-  AND price BETWEEN 50 AND 200
-ORDER BY price ASC
-LIMIT 20;
-
--- Multi-column search with proper index usage
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT p.id, p.name, p.price, b.name as brand_name
-FROM products p
-JOIN brands b ON p.brand_id = b.id
-WHERE p.category_id = 123
-  AND p.brand_id IN (1, 2, 3)
-  AND p.price <= 500
-  AND p.is_active = TRUE
-ORDER BY p.created_at DESC
-LIMIT 20;
-
--- JSONB attribute filtering
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT id, name, attributes
-FROM products
-WHERE attributes @> '{"color": "red", "size": "large"}'
-  AND is_active = TRUE;
-
--- Full-text search with ranking
-EXPLAIN (ANALYZE, BUFFERS)
-SELECT 
-    id, 
-    name, 
-    ts_rank(to_tsvector('english', name || ' ' || COALESCE(description, '')), 
-             plainto_tsquery('english', 'wireless bluetooth headphones')) as rank
-FROM products
-WHERE to_tsvector('english', name || ' ' || COALESCE(description, '')) 
-      @@ plainto_tsquery('english', 'wireless bluetooth headphones')
-  AND is_active = TRUE
-ORDER BY rank DESC, created_at DESC
-LIMIT 20;
-
--- === INDEX MAINTENANCE AND MONITORING ===
-
--- Monitor index usage
-SELECT 
-    schemaname,
-    tablename,
-    indexname,
-    idx_tup_read,
-    idx_tup_fetch,
-    idx_scan,
-    ROUND(idx_tup_read::NUMERIC / NULLIF(idx_scan, 0), 2) as avg_tuples_per_scan
-FROM pg_stat_user_indexes
-WHERE schemaname = 'public'
-ORDER BY idx_scan DESC;
-
--- Find unused indexes
-SELECT 
-    schemaname,
-    tablename,
-    indexname,
-    pg_size_pretty(pg_relation_size(indexrelid)) as size
-FROM pg_stat_user_indexes
-WHERE idx_scan = 0
-  AND schemaname = 'public'
-ORDER BY pg_relation_size(indexrelid) DESC;
-
--- Index bloat analysis
-WITH index_bloat AS (
-    SELECT 
-        schemaname,
-        tablename,
-        indexname,
-        pg_size_pretty(pg_relation_size(indexrelid)) as size,
-        ROUND(
-            CASE WHEN pg_relation_size(indexrelid) > 0 
-            THEN (pg_relation_size(indexrelid) - 
-                  pg_relation_size(indexrelid, 'main'))::NUMERIC / 
-                 pg_relation_size(indexrelid) * 100
-            ELSE 0 END, 2
-        ) as bloat_percent
-    FROM pg_stat_user_indexes
-    WHERE schemaname = 'public'
-)
-SELECT *
-FROM index_bloat
-WHERE bloat_percent > 20
-ORDER BY bloat_percent DESC;
-
--- === INDEX OPTIMIZATION STRATEGIES ===
-
--- 1. Covering indexes (include additional columns)
-CREATE INDEX idx_orders_user_status_covering 
-ON orders(user_id, status) 
-INCLUDE (total_amount, created_at);
-
--- 2. Expression indexes for computed values
-CREATE INDEX idx_orders_total_with_tax 
-ON orders((total_amount + tax_amount));
-
--- 3. Conditional indexes for specific use cases
-CREATE INDEX idx_orders_pending 
-ON orders(created_at) 
-WHERE status = 'pending';
-
-CREATE INDEX idx_products_on_sale 
-ON products(category_id, sale_price) 
-WHERE sale_price IS NOT NULL AND sale_price < price;
-
--- 4. Multi-column indexes with proper column order
--- Rule: Most selective columns first, then sort columns
-CREATE INDEX idx_order_items_analysis 
-ON order_items(product_id, created_at DESC, quantity);
-
--- === ADVANCED INDEXING TECHNIQUES ===
-
--- Partial unique indexes
-CREATE UNIQUE INDEX idx_users_email_active 
-ON users(email) 
-WHERE is_active = TRUE;
-
--- Functional indexes for case-insensitive searches
-CREATE INDEX idx_users_username_lower 
-ON users(LOWER(username));
-
--- Trigram indexes for fuzzy text search
-CREATE EXTENSION IF NOT EXISTS pg_trgm;
-CREATE INDEX idx_products_name_trgm 
-ON products USING GIN(name gin_trgm_ops);
-
--- Query using trigram similarity
-SELECT name, similarity(name, 'iPhone') as sim
-FROM products
-WHERE name % 'iPhone'
-ORDER BY sim DESC;
-
--- === INDEX MAINTENANCE PROCEDURES ===
-
--- Reindex specific index
-REINDEX INDEX idx_products_category_price;
-
--- Reindex entire table
-REINDEX TABLE products;
-
--- Analyze table statistics
-ANALYZE products;
-
--- Update statistics for specific columns
-ANALYZE products(category_id, price, created_at);
-
--- === MONITORING QUERIES ===
-
--- Check index hit ratio
-SELECT 
-    sum(idx_blks_hit) as idx_hit,
-    sum(idx_blks_read) as idx_read,
-    ROUND(
-        sum(idx_blks_hit)::NUMERIC / 
-        NULLIF(sum(idx_blks_hit) + sum(idx_blks_read), 0) * 100, 2
-    ) as hit_ratio
-FROM pg_statio_user_indexes;
-
--- Table and index sizes
-SELECT 
-    schemaname,
-    tablename,
-    pg_size_pretty(pg_total_relation_size(schemaname||'.'||tablename)) as total_size,
-    pg_size_pretty(pg_relation_size(schemaname||'.'||tablename)) as table_size,
-    pg_size_pretty(
-        pg_total_relation_size(schemaname||'.'||tablename) - 
-        pg_relation_size(schemaname||'.'||tablename)
-    ) as index_size
-FROM pg_tables
-WHERE schemaname = 'public'
-ORDER BY pg_total_relation_size(schemaname||'.'||tablename) DESC;
-
--- Slow queries that might need indexes
-SELECT 
-    query,
-    calls,
-    total_time,
-    mean_time,
-    rows
-FROM pg_stat_statements
-WHERE mean_time > 100  -- queries taking more than 100ms on average
-ORDER BY mean_time DESC
-LIMIT 10;
-```
-
-**Index Selection Guidelines:**
-
-**B-Tree Indexes (Default):**
-- ✅ Equality and range queries
-- ✅ Sorting operations
-- ✅ Most common use case
-- ❌ Pattern matching with leading wildcards
-
-**Hash Indexes:**
-- ✅ Equality comparisons only
-- ✅ Faster than B-tree for equality
-- ❌ No range queries
-- ❌ Not WAL-logged (until PostgreSQL 10)
-
-**GIN Indexes:**
-- ✅ JSONB queries
-- ✅ Array operations
-- ✅ Full-text search
-- ❌ Large storage overhead
-- ❌ Slower updates
-
-**GIST Indexes:**
-- ✅ Geometric data
-- ✅ Range types
-- ✅ Custom data types
-- ❌ Larger than B-tree
-- ❌ More complex maintenance
-
-**BRIN Indexes:**
-- ✅ Very large tables
-- ✅ Naturally ordered data
-- ✅ Minimal storage overhead
-- ❌ Only effective with correlation
-- ❌ Limited query types
-
-**Best Practices:**
-
-1. **Index Column Order**: Most selective first, then sort columns
-2. **Partial Indexes**: Use WHERE clauses for filtered queries
-3. **Covering Indexes**: Include frequently accessed columns
-4. **Monitor Usage**: Remove unused indexes
-5. **Regular Maintenance**: REINDEX and ANALYZE regularly
-6. **Query Analysis**: Use EXPLAIN ANALYZE to verify index usage
-
----
-
----
-
 ### Q19: How do you design and implement data warehousing solutions and ETL processes?
 **Difficulty: Expert**
 
@@ -10080,3 +9958,1063 @@ resource "aws_iam_role_policy_attachment" "rds_monitoring_policy" {
 ---
 
 This comprehensive database guide covers SQL fundamentals, complex queries, database design, NoSQL comparisons, performance optimization strategies, data warehousing, ETL processes, and modern cloud migration approaches essential for database interviews.
+### Q21: Normalization vs. Denormalization.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Normalization:**
+    *   **Goal:** Reduce data redundancy and improve data integrity.
+    *   **Technique:** Organize data into multiple related tables (1NF, 2NF, 3NF).
+    *   **Pros:** Smaller database size, easy updates (update in one place).
+    *   **Cons:** Slower reads (requires JOINs).
+*   **Denormalization:**
+    *   **Goal:** Improve read performance.
+    *   **Technique:** Add redundant data to a table to avoid joins.
+    *   **Pros:** Faster reads (fewer joins).
+    *   **Cons:** Larger database size, complex updates (must update multiple places), risk of data inconsistency.
+
+### Q22: SQL vs. NoSQL Databases.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **SQL (Relational):**
+    *   **Structure:** Structured data (tables, rows, columns).
+    *   **Schema:** Pre-defined (schema-on-write).
+    *   **Scalability:** Vertical (scale-up).
+    *   **ACID:** Strong ACID properties.
+    *   **Examples:** MySQL, PostgreSQL, Oracle.
+*   **NoSQL (Non-Relational):**
+    *   **Structure:** Unstructured/Semi-structured (documents, key-values, graphs).
+    *   **Schema:** Dynamic (schema-on-read).
+    *   **Scalability:** Horizontal (scale-out/sharding).
+    *   **Consistency:** Often BASE (Eventual Consistency).
+    *   **Examples:** MongoDB, Cassandra, Redis.
+
+### Q23: Stored Procedures vs. Functions in SQL.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Both are pre-compiled collections of SQL statements, but they differ in usage.
+
+**Stored Procedure:**
+- Can return zero, one, or multiple values (using OUT parameters).
+- Can execute transactions (COMMIT/ROLLBACK).
+- Called using `CALL` or `EXEC`.
+- Cannot be used in a SELECT statement.
+
+**Function:**
+- Must return a single value (or a table).
+- Cannot execute transactions.
+- Can be used in SELECT/WHERE/HAVING clauses.
+- Generally used for computations.
+
+**Code Example (MySQL):**
+
+```sql
+-- Function
+CREATE FUNCTION add_tax(price DECIMAL(10,2)) RETURNS DECIMAL(10,2)
+BEGIN
+    RETURN price * 1.1;
+END;
+
+SELECT name, add_tax(price) FROM products;
+
+-- Procedure
+CREATE PROCEDURE update_prices(IN percentage DECIMAL(5,2))
+BEGIN
+    UPDATE products SET price = price * (1 + percentage);
+END;
+
+CALL update_prices(0.05);
+```
+
+---
+
+### Q24: Explain Database Triggers.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A trigger is a set of SQL statements that automatically executes (fires) in response to certain events on a particular table (INSERT, UPDATE, DELETE).
+
+**Types:**
+- **BEFORE:** Executes before the change is applied (good for validation).
+- **AFTER:** Executes after the change is applied (good for auditing/logging).
+
+**Code Example:**
+
+```sql
+CREATE TRIGGER before_employee_update
+BEFORE UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    IF NEW.salary < 0 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Salary cannot be negative';
+    END IF;
+END;
+```
+
+---
+
+### Q25: Views vs. Materialized Views.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**View (Virtual Table):**
+- A saved query.
+- Does not store data physically.
+- Data is fetched from underlying tables every time the view is queried.
+- Always up-to-date.
+
+**Materialized View:**
+- Stores the result of the query physically on disk.
+- Must be refreshed (manually or periodically) to get updated data.
+- **Performance:** Much faster for complex queries (aggregations, joins) because data is pre-computed.
+
+---
+
+### Q26: UNION vs. UNION ALL.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **UNION:** Combines result sets of two or more SELECT statements and **removes duplicate rows**. Slower because it performs a distinct check.
+- **UNION ALL:** Combines result sets **including duplicates**. Faster.
+
+**Code Example:**
+
+```sql
+SELECT name FROM table1
+UNION ALL
+SELECT name FROM table2;
+```
+
+---
+
+### Q27: Order of Execution in SQL (SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY).
+
+**Difficulty: Beginner**
+
+**Answer:**
+The logical processing order is different from the written syntax:
+1. **FROM / JOIN**: Determine the data source.
+2. **WHERE**: Filter rows.
+3. **GROUP BY**: Group rows.
+4. **HAVING**: Filter groups.
+5. **SELECT**: Select columns.
+6. **DISTINCT**: Remove duplicates.
+7. **ORDER BY**: Sort results.
+8. **LIMIT / OFFSET**: Limit rows.
+
+---
+
+### Q28: Primary Key vs. Unique Key.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **Primary Key:**
+  - Uniquely identifies a record.
+  - Cannot be NULL.
+  - Only one per table.
+  - Automatically creates a clustered index (usually).
+- **Unique Key:**
+  - Ensures uniqueness of values in a column.
+  - Can contain NULL values (usually one NULL allowed, depending on DB).
+  - Multiple allowed per table.
+
+---
+
+### Q29: Foreign Key and Referential Integrity.
+
+**Difficulty: Beginner**
+
+**Answer:**
+A **Foreign Key** is a field that links to the Primary Key of another table. **Referential Integrity** ensures that the relationship remains valid (e.g., you cannot delete a parent record if child records exist, unless `ON DELETE CASCADE` is set).
+
+**Code Example:**
+
+```sql
+CREATE TABLE orders (
+    id INT PRIMARY KEY,
+    user_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+```
+
+---
+
+### Q30: Clustered vs. Non-Clustered Index.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **Clustered Index:**
+  - Determines the physical order of data in the table.
+  - The leaf nodes contain the actual data pages.
+  - Only one per table (usually the Primary Key).
+  - Faster for range queries.
+- **Non-Clustered Index:**
+  - Stored separately from the data.
+  - The leaf nodes contain pointers to the data rows.
+  - Multiple allowed per table.
+  - Good for lookups on non-primary key columns.
+
+---
+
+### Q31: DROP vs. TRUNCATE vs. DELETE.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **DELETE:** DML command. Removes rows one by one. Can use WHERE clause. Can be rolled back. Triggers fire. Slower.
+- **TRUNCATE:** DDL command. Removes all rows by deallocating pages. Cannot use WHERE. Cannot be rolled back (in some DBs). Triggers do not fire. Faster.
+- **DROP:** DDL command. Removes the entire table structure and data.
+
+---
+
+### Q32: Explain Database Normalization (1NF, 2NF, 3NF).
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Process of organizing data to reduce redundancy and improve integrity.
+- **1NF (First Normal Form):** Atomic values (no arrays/lists in a cell), unique column names.
+- **2NF:** 1NF + No partial dependency (all non-key attributes depend on the *whole* primary key). Relevant for composite keys.
+- **3NF:** 2NF + No transitive dependency (non-key attributes depend only on the primary key, not on other non-key attributes).
+
+---
+
+### Q33: When to Denormalize?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Denormalization involves adding redundancy to a normalized schema to optimize read performance.
+- **Use Case:** Heavy read workloads, reporting, data warehousing.
+- **Trade-off:** Faster reads vs. slower writes (update anomalies) and increased storage.
+
+---
+
+### Q34: Explain ACID Properties.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Guarantees for reliable database transactions.
+- **Atomicity:** All or nothing. If one part fails, the entire transaction fails.
+- **Consistency:** Transaction brings DB from one valid state to another (respecting constraints).
+- **Isolation:** Concurrent transactions do not interfere with each other.
+- **Durability:** Once committed, changes are permanent even if power fails.
+
+---
+
+### Q35: Transaction Isolation Levels.
+
+**Difficulty: Advanced**
+
+**Answer:**
+Defines how/when changes made by one transaction become visible to others.
+1. **Read Uncommitted:** Lowest level. Dirty reads allowed.
+2. **Read Committed:** No dirty reads. Non-repeatable reads possible. (Default in Postgres, SQL Server).
+3. **Repeatable Read:** No dirty or non-repeatable reads. Phantom reads possible. (Default in MySQL).
+4. **Serializable:** Highest level. Transactions execute sequentially. No concurrency anomalies.
+
+---
+
+### Q36: Dirty Read vs. Non-Repeatable Read vs. Phantom Read.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **Dirty Read:** Reading uncommitted data from another transaction.
+- **Non-Repeatable Read:** Reading the same row twice yields different data (because another transaction updated it).
+- **Phantom Read:** Running the same query twice yields a different set of rows (because another transaction inserted/deleted rows).
+
+---
+
+### Q37: Pessimistic vs. Optimistic Locking.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **Pessimistic Locking:** Assume conflict will happen. Lock the record as soon as you read it (`SELECT ... FOR UPDATE`). Prevents others from accessing it. High contention.
+- **Optimistic Locking:** Assume conflict is rare. Don't lock. Check version/timestamp upon update. If changed, fail and retry. Better for high concurrency.
+
+---
+
+### Q38: What is a Deadlock and how to handle it?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A situation where two transactions are waiting for each other to release locks, blocking both forever.
+
+**Handling:**
+- **Prevention:** Access resources in the same order in all transactions.
+- **Detection:** DB kills one transaction (victim) to let the other proceed.
+- **Retry Logic:** Application catches the deadlock error and retries the transaction.
+
+---
+
+### Q39: What is a Database Cursor?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A control structure that enables traversal over the records in a database. It allows you to process rows one by one.
+- **Implicit Cursor:** Automatically created for DML statements.
+- **Explicit Cursor:** Defined by the programmer.
+
+**Performance Note:** Avoid cursors if set-based operations (SQL) can achieve the result, as cursors are generally slower.
+
+---
+
+### Q40: SQL Injection and Prevention.
+
+**Difficulty: Beginner**
+
+**Answer:**
+An attack where malicious SQL code is inserted into input fields to manipulate the database.
+
+**Prevention:**
+- **Parameterized Queries (Prepared Statements):** The database treats input as data, not executable code.
+- **Input Validation/Sanitization.**
+- **ORM:** Most ORMs handle this automatically.
+
+**Code Example (Python/Psychopg2):**
+
+```python
+# VULNERABLE
+cursor.execute("SELECT * FROM users WHERE name = '" + user_input + "'")
+
+# SAFE
+cursor.execute("SELECT * FROM users WHERE name = %s", (user_input,))
+```
+
+---
+
+### Q41: Explain the CAP Theorem.
+
+**Difficulty: Advanced**
+
+**Answer:**
+In a distributed data store, you can only guarantee two out of three:
+- **Consistency (C):** Every read receives the most recent write or an error.
+- **Availability (A):** Every request receives a (non-error) response, without the guarantee that it contains the most recent write.
+- **Partition Tolerance (P):** The system continues to operate despite an arbitrary number of messages being dropped/delayed by the network.
+
+**Note:** Since network partitions (P) are inevitable, you usually choose between CP (Consistency) and AP (Availability).
+
+---
+
+### Q42: BASE Properties vs. ACID.
+
+**Difficulty: Advanced**
+
+**Answer:**
+NoSQL databases often follow BASE (AP systems):
+- **Basically Available:** System guarantees availability.
+- **Soft state:** State may change over time, even without input (due to eventual consistency).
+- **Eventual consistency:** System will eventually become consistent once input stops.
+
+---
+
+### Q43: Vertical Scaling vs. Horizontal Scaling (Sharding).
+
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Vertical Scaling (Scale Up):** Adding more power (CPU, RAM) to a single server. Easy but has a hardware limit.
+- **Horizontal Scaling (Scale Out):** Adding more servers.
+  - **Sharding:** Distributing data across multiple servers (shards) based on a shard key (e.g., user_id % 3). Unlimited scaling but complex to manage (joins across shards are hard).
+
+---
+
+### Q44: Database Replication Types.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **Synchronous:** Write is committed only after it is replicated to all replicas. High consistency, lower write availability/latency.
+- **Asynchronous:** Write is committed locally, then replicated in background. High availability, risk of data loss if master fails before replication.
+
+---
+
+### Q45: Master-Slave vs. Multi-Master Replication.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **Master-Slave:** One Master (Writes/Reads), Multiple Slaves (Reads only). Simple, good for read-heavy loads. Single point of failure for writes.
+- **Multi-Master:** Multiple nodes accept writes. High availability for writes. Complex conflict resolution needed.
+
+---
+
+### Q46: What is Consistent Hashing?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A technique used in distributed systems (like DynamoDB, Cassandra) to distribute data across nodes. It minimizes data movement when nodes are added or removed. Only `k/n` keys need to be remapped (where k is total keys, n is nodes).
+
+---
+
+### Q47: Connection Pooling.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Creating a database connection is expensive (handshake, authentication). A Connection Pool maintains a cache of open connections that can be reused.
+- Reduces latency.
+- Limits the maximum number of connections to the DB (preventing overload).
+
+---
+
+### Q48: The N+1 Select Problem.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Occurs when an application makes one query to fetch the parent records (N) and then N queries to fetch child records for each parent.
+- **Fix:** Use JOINs or "Eager Loading" (fetch all data in 1 or 2 queries).
+
+---
+
+### Q49: Database Migration Tools.
+
+**Difficulty: DevOps**
+
+**Answer:**
+Tools like **Flyway** or **Liquibase** manage database schema changes (version control for DB).
+- Ensure all environments (Dev, Test, Prod) have the same schema version.
+- Apply scripts (migrations) in a strict order.
+
+---
+
+### Q50: Time Series Databases.
+
+**Difficulty: Advanced**
+
+**Answer:**
+Optimized for handling time-stamped data (IoT, metrics, logs).
+- **Examples:** InfluxDB, TimescaleDB, Prometheus.
+- **Features:** High write throughput, efficient compression, downsampling, time-based queries.
+
+---
+
+### Q51: Graph Databases.
+
+**Difficulty: Advanced**
+
+**Answer:**
+Designed to treat relationships as first-class citizens. Data is stored as nodes and edges.
+- **Examples:** Neo4j, Amazon Neptune.
+- **Use Cases:** Social networks, recommendation engines, fraud detection.
+- **Query Language:** Cypher, Gremlin.
+
+---
+
+### Q52: Columnar vs. Row-based Databases.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **Row-based (MySQL, Postgres):** Stores data row by row. Good for OLTP (transactional) workloads where you access whole records.
+- **Columnar (Cassandra, Redshift, BigQuery):** Stores data column by column. Good for OLAP (analytical) workloads where you aggregate specific columns over many rows (e.g., "Average Salary"). Better compression.
+
+---
+
+### Q53: Document Databases (MongoDB).
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Stores data in JSON-like documents (BSON). Schema-less (flexible).
+- **Pros:** fast development, maps directly to objects in code, horizontal scaling.
+- **Cons:** No joins (usually), transactions are limited (historically).
+
+---
+
+### Q54: Redis and Memcached.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+In-memory key-value stores used for caching.
+- **Memcached:** Simple, multithreaded, string keys/values only.
+- **Redis:** Single-threaded (mostly), supports complex data structures (Lists, Sets, Hashes), persistence, Pub/Sub.
+
+---
+
+### Q55: Redis Data Types.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+1. **String:** Basic key-value.
+2. **List:** Linked list (Push/Pop). Good for queues.
+3. **Set:** Unique strings. Good for tagging.
+4. **Sorted Set (ZSet):** Unique strings with scores. Good for leaderboards.
+5. **Hash:** Map of fields and values. Good for objects.
+
+---
+
+### Q56: Redis Persistence (RDB vs. AOF).
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **RDB (Redis Database):** Periodic snapshots of the dataset. Faster startup, compact. Data loss possible between snapshots.
+- **AOF (Append Only File):** Logs every write operation. Higher durability, larger file size, slower startup.
+
+---
+
+### Q57: Explain Plan / Query Execution Plan.
+
+**Difficulty: Advanced**
+
+**Answer:**
+A report generated by the DB optimizer showing how it will execute a query.
+- **Check for:** Full Table Scans (bad), Index Seeks/Scans (good), Join algorithms used (Nested Loop, Hash Join).
+- **Usage:** `EXPLAIN SELECT ...`
+
+---
+
+### Q58: B-Tree Index.
+
+**Difficulty: Advanced**
+
+**Answer:**
+The default index type in most DBs. Balanced Tree structure.
+- **Time Complexity:** O(log n) for search, insert, delete.
+- **Good for:** Equality (`=`) and Range queries (`<`, `>`, `BETWEEN`).
+
+---
+
+### Q59: Hash Index.
+
+**Difficulty: Advanced**
+
+**Answer:**
+Uses a hash table.
+- **Time Complexity:** O(1) for search.
+- **Limitation:** Only supports equality queries (`=`, `IN`). Cannot be used for range queries or sorting.
+
+---
+
+### Q60: Bloom Filters in Databases.
+
+**Difficulty: Expert**
+
+**Answer:**
+A probabilistic data structure used to test whether an element is a member of a set.
+- **Returns:** "Possibly in set" or "Definitely not in set".
+- **Usage:** Used by Cassandra/HBase to avoid reading disk files (SSTables) if the key doesn't exist. Saves I/O.
+
+
+### Q61: What is the difference between Database Partitioning and Sharding?
+**Difficulty: Advanced**
+
+**Answer:**
+Both are methods to split data into smaller subsets, but they operate at different levels.
+
+1.  **Partitioning:**
+    *   **Level:** Single database instance (logical splitting).
+    *   **Mechanism:** Splits a table into smaller pieces (partitions) based on a key (e.g., date ranges, list of values, hash).
+    *   **Storage:** Partitions may be stored on different files/disks but are managed by the same database engine instance.
+    *   **Purpose:** Improves manageability and query performance (partition pruning).
+
+2.  **Sharding (Horizontal Partitioning):**
+    *   **Level:** Multiple database instances (physical splitting).
+    *   **Mechanism:** Distributes data across multiple physical servers (shards).
+    *   **Storage:** Each shard is an independent database.
+    *   **Purpose:** Horizontal scaling (scaling out) to handle massive data and throughput.
+
+### Q62: Explain the CAP Theorem.
+**Difficulty: Intermediate**
+
+**Answer:**
+The CAP theorem states that a distributed data store can only guarantee two out of the following three properties simultaneously:
+
+1.  **Consistency (C):** Every read receives the most recent write or an error. All nodes see the same data at the same time.
+2.  **Availability (A):** Every request receives a (non-error) response, without the guarantee that it contains the most recent write.
+3.  **Partition Tolerance (P):** The system continues to operate despite an arbitrary number of messages being dropped or delayed by the network between nodes.
+
+**Trade-offs:**
+*   **CP (Consistency + Partition Tolerance):** If a partition occurs, the system may reject writes to preserve consistency (e.g., MongoDB by default).
+*   **AP (Availability + Partition Tolerance):** If a partition occurs, the system accepts writes/reads but data might be stale (e.g., Cassandra, DynamoDB).
+*   **CA:** Not possible in a distributed system over a network, as partitions are inevitable.
+
+### Q63: What is BASE in NoSQL databases?
+**Difficulty: Intermediate**
+
+**Answer:**
+BASE is an acronym for the consistency model used in many NoSQL systems, prioritizing availability over immediate consistency (unlike ACID).
+
+*   **Basically Available:** The system guarantees availability; there will be a response to any request (data may be stale).
+*   **Soft state:** The state of the system may change over time, even without input (due to eventual consistency).
+*   **Eventual consistency:** The system will eventually become consistent once it stops receiving input. Updates propagate to all nodes given enough time.
+
+### Q64: Explain the four Database Isolation Levels.
+**Difficulty: Advanced**
+
+**Answer:**
+Isolation levels define the degree to which a transaction must be isolated from data modifications made by other transactions.
+
+1.  **Read Uncommitted:**
+    *   Transactions can read data modified by others that hasn't been committed yet.
+    *   **Problem:** Dirty Reads.
+    *   **Performance:** Highest.
+
+2.  **Read Committed:**
+    *   Transactions can only read committed data.
+    *   **Problem:** Non-repeatable Reads (reading the same row twice might yield different results if another transaction commits an update in between).
+    *   **Default for:** PostgreSQL, Oracle, SQL Server.
+
+3.  **Repeatable Read:**
+    *   Ensures that if a transaction reads a row twice, it gets the same data.
+    *   **Problem:** Phantom Reads (new rows matching a criteria might appear).
+    *   **Default for:** MySQL (InnoDB).
+
+4.  **Serializable:**
+    *   Highest isolation. Transactions are executed as if they were serial (one after another).
+    *   **Problem:** None (prevents Dirty, Non-repeatable, and Phantom reads).
+    *   **Performance:** Lowest (high locking/blocking).
+
+### Q65: What is a Phantom Read vs. a Dirty Read?
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Dirty Read:** Reading data that has been written by another transaction but **not yet committed**. If that transaction rolls back, the read data is invalid.
+*   **Phantom Read:** Occurs when a transaction executes a query twice (e.g., `SELECT * FROM orders WHERE value > 100`) and retrieves a **different set of rows** the second time because another transaction inserted or deleted rows matching the condition.
+*   **Non-repeatable Read:** Occurs when reading the **same specific row** twice results in different values because another transaction updated that row.
+
+### Q66: Optimistic vs. Pessimistic Locking.
+**Difficulty: Advanced**
+
+**Answer:**
+*   **Pessimistic Locking:**
+    *   **Concept:** Assume conflicts will happen. Lock the record as soon as it is selected for update.
+    *   **Mechanism:** Uses database locks (`SELECT ... FOR UPDATE`). Other transactions wait until the lock is released.
+    *   **Use Case:** High contention environments where conflicts are frequent. Prevents conflicts but reduces concurrency.
+
+*   **Optimistic Locking:**
+    *   **Concept:** Assume conflicts are rare. Don't lock the record when reading.
+    *   **Mechanism:** Check if the data has changed when trying to update. Usually implemented using a `version` column or timestamp.
+    *   **Example:** `UPDATE table SET col=val, version=2 WHERE id=1 AND version=1`. If 0 rows affected, someone else updated it; handle the failure (retry/error).
+    *   **Use Case:** Low contention (web apps), high concurrency required.
+
+### Q67: What is a Deadlock and how to resolve it?
+**Difficulty: Intermediate**
+
+**Answer:**
+A **Deadlock** occurs when two or more transactions are waiting for each other to release locks, forming a cycle. Neither can proceed.
+
+**Example:**
+*   Transaction A locks Row 1, wants Row 2.
+*   Transaction B locks Row 2, wants Row 1.
+
+**Resolution/Prevention:**
+1.  **Timeouts:** Database kills a transaction if it waits too long.
+2.  **Deadlock Detection:** Database engine detects the cycle and kills one transaction (victim) to let the other proceed.
+3.  **Consistent Ordering:** Always access resources in the same order (e.g., always lock User then Account) to prevent cycles.
+4.  **Keep Transactions Short:** Reduce the window for conflicts.
+
+### Q68: What is MVCC?
+**Difficulty: Advanced**
+
+**Answer:**
+**MVCC (Multi-Version Concurrency Control)** is a method used by databases (PostgreSQL, MySQL/InnoDB, Oracle) to handle concurrency without extensive locking.
+
+*   **Mechanism:** Instead of overwriting data immediately, the database keeps multiple versions of a row.
+*   **Reads:** Readers see a "snapshot" of the database as it existed at the start of their transaction. They don't block writers.
+*   **Writes:** Writers create a new version of the row. They don't block readers.
+*   **Benefit:** Increases concurrency (Reads don't block Writes, Writes don't block Reads).
+
+### Q69: Row-oriented vs. Column-oriented Databases.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Row-oriented (e.g., MySQL, PostgreSQL):**
+    *   Stores data row by row.
+    *   **Best for:** OLTP (Online Transaction Processing). Writing a new record is fast (append to end). Retrieving all columns for a specific user is fast.
+    *   **Inefficient for:** Aggregating a single column over millions of rows (must read full rows).
+
+*   **Column-oriented (e.g., Cassandra, Redshift, BigQuery):**
+    *   Stores data column by column.
+    *   **Best for:** OLAP (Online Analytical Processing). Calculating `AVG(salary)` is very fast because only the salary blocks are read. Compression is highly efficient (similar data types).
+    *   **Inefficient for:** Writing individual records (requires updating multiple column files).
+
+### Q70: What is the difference between OLTP and OLAP?
+**Difficulty: Beginner**
+
+**Answer:**
+*   **OLTP (Online Transaction Processing):**
+    *   **Focus:** Day-to-day operations (insert, update, delete).
+    *   **Queries:** Simple, fast, small data volume per query.
+    *   **Data:** Current, highly normalized (3NF).
+    *   **Users:** Front-end applications, customers.
+    *   **Example:** MySQL, PostgreSQL, Oracle.
+
+*   **OLAP (Online Analytical Processing):**
+    *   **Focus:** Analysis, reporting, decision making.
+    *   **Queries:** Complex aggregations, historical data, large volume.
+    *   **Data:** Historical, denormalized (Star/Snowflake schema).
+    *   **Users:** Data analysts, business intelligence.
+    *   **Example:** Snowflake, Amazon Redshift, Google BigQuery.
+
+### Q71: ETL vs. ELT.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **ETL (Extract, Transform, Load):**
+    *   Data is extracted from sources, transformed (cleaned, aggregated) on a separate processing server, and then loaded into the target Data Warehouse.
+    *   **Legacy approach** when storage/compute was expensive.
+
+*   **ELT (Extract, Load, Transform):**
+    *   Data is extracted and loaded immediately into the Data Warehouse (raw). Transformation happens *inside* the warehouse using its compute power.
+    *   **Modern approach** (e.g., with Snowflake/BigQuery) leveraging scalable cloud compute. Faster loading.
+
+### Q72: Star Schema vs. Snowflake Schema.
+**Difficulty: Intermediate**
+
+**Answer:**
+Both are data modeling techniques for Data Warehouses involving a central Fact Table connected to Dimension Tables.
+
+*   **Star Schema:**
+    *   Dimension tables are **denormalized**.
+    *   Simpler queries (fewer joins).
+    *   Data redundancy in dimensions.
+    *   Faster performance typically.
+
+*   **Snowflake Schema:**
+    *   Dimension tables are **normalized** (split into sub-dimensions).
+    *   Example: `Product` dimension splits into `Product` -> `Category` -> `Brand`.
+    *   More complex queries (more joins).
+    *   Less redundancy, easier maintenance.
+
+### Q73: What is the N+1 Select Problem?
+**Difficulty: Intermediate**
+
+**Answer:**
+A performance issue often seen in ORMs (Object-Relational Mappers).
+
+*   **Scenario:** You fetch a list of `N` parents (e.g., Authors) and then iterate over them to fetch their children (e.g., Books).
+*   **Queries:**
+    1.  `SELECT * FROM authors` (1 query)
+    2.  Loop through authors: `SELECT * FROM books WHERE author_id = ?` (N queries).
+*   **Total:** N + 1 queries.
+*   **Solution:** Use **Eager Loading** (e.g., `JOIN` or `IN` clause). `SELECT * FROM books WHERE author_id IN (ids...)`.
+
+### Q74: Stored Procedures: Pros and Cons.
+**Difficulty: Intermediate**
+
+**Answer:**
+Code stored and executed inside the database.
+
+**Pros:**
+*   **Performance:** Pre-compiled, reduced network traffic (send name/params only).
+*   **Security:** Can grant execute permission without giving table access.
+*   **Centralized Logic:** Logic shared across multiple applications.
+
+**Cons:**
+*   **Maintenance:** Harder to version control, debug, and test compared to application code.
+*   **Portability:** Database vendor-specific (PL/SQL vs T-SQL). Hard to switch databases.
+*   **Resource Usage:** Consumes DB server CPU/RAM.
+
+### Q75: What are Database Triggers?
+**Difficulty: Beginner**
+
+**Answer:**
+A Trigger is a stored procedure that automatically executes ("fires") in response to specific events on a table (INSERT, UPDATE, DELETE).
+
+**Use Cases:**
+*   Auditing (logging changes to a history table).
+*   Enforcing complex integrity constraints.
+*   Updating derived data (e.g., updating `total_count` when a row is inserted).
+
+**Downsides:**
+*   Hidden logic (hard to debug side effects).
+*   Can slow down write operations.
+
+### Q76: Views vs. Materialized Views.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **View (Virtual Table):**
+    *   A saved SQL query.
+    *   Does **not** store data physically.
+    *   Calculated on-the-fly every time it's accessed.
+    *   Data is always real-time.
+
+*   **Materialized View:**
+    *   Executing the query and **storing the result physically** on disk.
+    *   **Performance:** Much faster for complex queries (pre-computed).
+    *   **Freshness:** Data is only as fresh as the last refresh. Needs to be refreshed (manually or periodically).
+
+### Q77: What is a Database Cursor?
+**Difficulty: Advanced**
+
+**Answer:**
+A Cursor is a database object used to retrieve and manipulate data row-by-row.
+*   SQL is set-based (operates on all matching rows at once). Cursors allow imperative, procedural processing (looping through rows).
+*   **Usage:** Often used in Stored Procedures.
+*   **Performance:** Generally slower than set-based operations. Avoid if possible.
+
+### Q78: How to prevent SQL Injection?
+**Difficulty: Beginner**
+
+**Answer:**
+SQL Injection occurs when untrusted input is concatenated directly into a SQL query string.
+
+**Prevention:**
+1.  **Prepared Statements (Parameterized Queries):** The database treats inputs as data, not executable code.
+    *   *Bad:* `query = "SELECT * FROM users WHERE name = '" + userInput + "'"`
+    *   *Good:* `query = "SELECT * FROM users WHERE name = ?"; db.execute(query, userInput)`
+2.  **Input Validation/Sanitization:** Ensure input matches expected format.
+3.  **Principle of Least Privilege:** Limit database user permissions.
+
+### Q79: Explain B-Tree vs. Hash Index.
+**Difficulty: Advanced**
+
+**Answer:**
+*   **B-Tree (Balanced Tree):**
+    *   Default index type for most DBs.
+    *   Data stored in a sorted tree structure.
+    *   **Supports:** Exact match (`=`), Range queries (`>`, `<`, `BETWEEN`), Sorting (`ORDER BY`), Prefix matching (`LIKE 'A%'`).
+    *   Time complexity: O(log N).
+
+*   **Hash Index:**
+    *   Uses a hash table.
+    *   **Supports:** Only exact equality (`=`, `IN`).
+    *   **Does NOT support:** Ranges or Sorting.
+    *   Time complexity: O(1) (average).
+
+### Q80: Clustered vs. Non-Clustered Index.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Clustered Index:**
+    *   Determines the **physical order** of data on the disk.
+    *   Only **one** per table (usually the Primary Key).
+    *   The leaf nodes contain the actual data pages.
+    *   Retrieval is fastest.
+
+*   **Non-Clustered Index:**
+    *   Stored separately from the data rows.
+    *   Contains the indexed value and a pointer (or PK) to the actual data row.
+    *   Multiple allowed per table.
+    *   Slower than clustered (requires an extra lookup step).
+
+### Q81: What is a Composite Index and the "Leftmost Prefix" rule?
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Composite Index:** An index on multiple columns (e.g., `INDEX(lastname, firstname)`).
+*   **Leftmost Prefix Rule:** The index can only be used if the query filters on the leftmost columns of the index definition without skipping.
+    *   Index: `(A, B, C)`
+    *   Query `WHERE A=1 AND B=2`: **Uses Index**.
+    *   Query `WHERE A=1`: **Uses Index**.
+    *   Query `WHERE B=2`: **Does NOT use Index** (skipped A).
+    *   Query `WHERE A=1 AND C=3`: **Uses Index partially** (only for A).
+
+### Q82: How do you analyze query performance?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **EXPLAIN / EXPLAIN ANALYZE:** Use this command to see the **Query Execution Plan**.
+    *   Check for **Full Table Scans** (bad for large tables).
+    *   Check if indexes are being used.
+    *   Check join methods (Nested Loop vs Hash Join).
+2.  **Slow Query Log:** Enable logging for queries taking longer than X seconds.
+3.  **Check Statistics:** Ensure DB statistics are up to date (for the optimizer to make good decisions).
+4.  **Analyze Locks:** Check for lock contention.
+
+### Q83: What is Connection Pooling?
+**Difficulty: Intermediate**
+
+**Answer:**
+Creating a new database connection is expensive (network handshake, authentication).
+*   **Connection Pool:** A cache of database connections maintained so that the connections can be reused when future requests to the database are required.
+*   **Mechanism:** App requests connection -> Pool gives existing idle connection. App closes connection -> Connection returns to Pool (not actually closed).
+*   **Benefit:** Reduces latency and CPU load on the database.
+
+### Q84: Vertical Scaling vs. Horizontal Scaling (Databases).
+**Difficulty: Beginner**
+
+**Answer:**
+*   **Vertical Scaling (Scale Up):**
+    *   Add more resources (CPU, RAM, SSD) to the **single** database server.
+    *   **Pros:** Simple, no code changes.
+    *   **Cons:** Expensive, hardware limits (ceiling), single point of failure.
+*   **Horizontal Scaling (Scale Out):**
+    *   Add more servers.
+    *   **Read Scaling:** Read Replicas.
+    *   **Write Scaling:** Sharding (partitioning data across nodes).
+    *   **Pros:** Unlimited scale, redundancy.
+    *   **Cons:** Complex management, consistency challenges (CAP theorem).
+
+### Q85: Synchronous vs. Asynchronous Replication.
+**Difficulty: Advanced**
+
+**Answer:**
+*   **Synchronous:**
+    *   Write is committed on Primary AND Replica before confirming to client.
+    *   **Pros:** Zero data loss (RPO = 0). Strong consistency.
+    *   **Cons:** Higher latency (waits for slowest node). If replica fails, write fails (reduced availability).
+
+*   **Asynchronous:**
+    *   Write is committed on Primary and confirmed immediately. Data is sent to Replica in background.
+    *   **Pros:** Low latency. High availability.
+    *   **Cons:** Potential data loss if Primary fails before data reaches Replica (RPO > 0). Eventual consistency.
+
+### Q86: Explain Consistent Hashing.
+**Difficulty: Advanced**
+
+**Answer:**
+A technique used in distributed systems (sharding, caching) to distribute keys across nodes.
+*   **Problem with Modulo Hashing (`key % N`):** If you add/remove a node, N changes, and nearly ALL keys must be remapped.
+*   **Consistent Hashing:** Maps both keys and nodes to a "ring" (0-360 degrees).
+    *   A key is assigned to the next node found moving clockwise on the ring.
+    *   **Benefit:** Adding/removing a node only affects the keys in its immediate neighborhood (minimal data movement).
+
+### Q87: Document Store vs. Key-Value Store.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Key-Value (e.g., Redis, DynamoDB):**
+    *   Data is opaque blobs identified by a key.
+    *   Database doesn't know/care what's inside the value.
+    *   Fastest lookups by key. No queries on value content.
+*   **Document Store (e.g., MongoDB, CouchDB):**
+    *   Data is stored as structured documents (JSON/BSON).
+    *   Database understands the structure.
+    *   Allows **querying** and **indexing** fields *inside* the document (e.g., `find users where address.city = 'NY'`).
+
+### Q88: What is a Bloom Filter?
+**Difficulty: Advanced**
+
+**Answer:**
+A probabilistic data structure used to test whether an element is a member of a set.
+*   **Properties:**
+    *   Returns either "Possibly in set" or "Definitely not in set".
+    *   **False Positives:** Possible (says yes, but actually no).
+    *   **False Negatives:** Impossible (if it says no, it's definitely no).
+*   **Use Case:** Quickly check if a row exists in a disk file (SSTable) before doing an expensive disk read. Heavily used in Cassandra and HBase.
+
+### Q89: Database Normalization Forms (1NF, 2NF, 3NF).
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **1NF (First Normal Form):** Atomicity. Columns contain atomic values (no lists/arrays). Unique rows.
+*   **2NF (Second Normal Form):** 1NF + No Partial Dependency. All non-key attributes must depend on the *whole* primary key (not just part of a composite key).
+*   **3NF (Third Normal Form):** 2NF + No Transitive Dependency. Non-key attributes must depend *only* on the Primary Key (not on other non-key attributes). "The key, the whole key, and nothing but the key."
+
+### Q90: What is a Write-Ahead Log (WAL)?
+**Difficulty: Advanced**
+
+**Answer:**
+A standard method for ensuring data integrity (Atomicity and Durability).
+*   **Mechanism:** All modifications are written to a log file (WAL) on disk *before* they are applied to the actual data pages.
+*   **Purpose:** If the database crashes, it can replay the WAL to recover lost transactions that were in memory but not yet flushed to data files.
+
+### Q91: Redis Persistence: RDB vs. AOF.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **RDB (Redis Database):**
+    *   Snapshots the dataset at specified intervals (e.g., every 5 mins).
+    *   **Pros:** Compact files, faster restart.
+    *   **Cons:** Data loss of the last interval if crash occurs.
+*   **AOF (Append Only File):**
+    *   Logs every write operation received by the server.
+    *   **Pros:** Higher durability (can sync every second or every query).
+    *   **Cons:** Larger file size, slower restart (must replay log).
+
+### Q92: What is the Gossip Protocol?
+**Difficulty: Advanced**
+
+**Answer:**
+A peer-to-peer communication protocol used in distributed systems (like Cassandra, DynamoDB) to disseminate state information.
+*   **Mechanism:** Each node periodically picks a random node and exchanges information about itself and other nodes it knows.
+*   **Result:** Information spreads like a virus (epidemic) across the cluster.
+*   **Use:** Failure detection, membership management, maintaining cluster metadata without a central master.
+
+### Q93: Time Series Database (TSDB) use cases.
+**Difficulty: Beginner**
+
+**Answer:**
+Optimized for handling time-stamped data (streams).
+*   **Examples:** InfluxDB, Prometheus, TimescaleDB.
+*   **Characteristics:** High write throughput, efficient storage (compression of similar values over time), fast time-range queries.
+*   **Use Cases:** IoT sensor data, server metrics (CPU/RAM usage), stock market prices, application logs.
+
+### Q94: Graph Database use cases.
+**Difficulty: Beginner**
+
+**Answer:**
+Optimized for data with highly connected relationships.
+*   **Examples:** Neo4j, Amazon Neptune.
+*   **Model:** Nodes (entities) and Edges (relationships).
+*   **Performance:** Constant time for traversing relationships (index-free adjacency), unlike SQL joins which get slower with data size.
+*   **Use Cases:** Social networks (friends of friends), Recommendation engines, Fraud detection rings, Knowledge graphs.
+
+### Q95: Blue/Green Deployment for Databases.
+**Difficulty: Advanced**
+
+**Answer:**
+A technique to reduce downtime during migration/upgrades.
+1.  **Blue:** Current production database.
+2.  **Green:** New database version/schema.
+3.  **Sync:** Setup replication from Blue to Green.
+4.  **Cutover:** Once in sync, switch app connection to Green.
+5.  **Rollback:** Keep Blue running briefly in case Green fails.
+*   *Challenge:* Handling schema changes that are not backward compatible.
+
+### Q96: What is Database Throttling?
+**Difficulty: Intermediate**
+
+**Answer:**
+Intentionally limiting the number of requests a database accepts to prevent it from being overwhelmed (and crashing).
+*   **Mechanism:** Reject requests if CPU > 90% or active connections > limit.
+*   **Client side:** Exponential backoff (retry later).
+
+### Q97: Difference between 'WHERE' and 'HAVING' clauses.
+**Difficulty: Beginner**
+
+**Answer:**
+*   **WHERE:** Filters rows **before** grouping/aggregation. Cannot use aggregate functions.
+    *   `SELECT dept, sum(salary) FROM emp WHERE salary > 1000 GROUP BY dept`
+*   **HAVING:** Filters groups **after** grouping/aggregation. Used with aggregate functions.
+    *   `SELECT dept, sum(salary) FROM emp GROUP BY dept HAVING sum(salary) > 10000`
+
+### Q98: Explain 'UNION' vs. 'UNION ALL'.
+**Difficulty: Beginner**
+
+**Answer:**
+*   **UNION:** Combines result sets of two queries and **removes duplicates**. Slower (needs to sort/distinct).
+*   **UNION ALL:** Combines result sets including duplicates. **Faster** (just appends).
+
+### Q99: What is a Polyglot Persistence?
+**Difficulty: Intermediate**
+
+**Answer:**
+The practice of using different data storage technologies to handle different data storage needs within the same application.
+*   **Example:**
+    *   **PostgreSQL:** For transactional data (User profiles, Orders).
+    *   **Redis:** For session caching and real-time leaderboards.
+    *   **Elasticsearch:** For full-text search capability.
+    *   **S3:** For storing image/video blobs.
+*   **Benefit:** Using the "right tool for the job".
+
+### Q100: What is CDC (Change Data Capture)?
+**Difficulty: Advanced**
+
+**Answer:**
+A design pattern to identify and capture changes made to data in a database and deliver those changes in real-time to a downstream process or system.
+*   **Mechanism:** Often reads the database Transaction Log (WAL).
+*   **Tools:** Debezium, Kafka Connect.
+*   **Use Cases:** Replicating data to a Data Warehouse, invalidating caches, triggering event-driven microservices upon DB updates.

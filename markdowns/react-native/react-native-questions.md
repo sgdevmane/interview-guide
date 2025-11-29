@@ -1,48 +1,111 @@
 # React Native Interview Questions and Answers
 
 ## Table of Contents
-- [React Native Interview Questions and Answers](#react-native-interview-questions-and-answers)
-  - [Table of Contents](#table-of-contents)
-  - [React Native Fundamentals](#react-native-fundamentals)
-    - [1. What is React Native and how does it differ from React?](#1-what-is-react-native-and-how-does-it-differ-from-react)
-    - [2. How do you handle styling in React Native?](#2-how-do-you-handle-styling-in-react-native)
-    - [3. How do you manage component lifecycle in React Native?](#3-how-do-you-manage-component-lifecycle-in-react-native)
-    - [4. How do you handle forms and user input in React Native?](#4-how-do-you-handle-forms-and-user-input-in-react-native)
-  - [Navigation](#navigation)
-    - [5. How do you implement navigation in React Native?](#5-how-do-you-implement-navigation-in-react-native)
-  - [State Management](#state-management)
-    - [6. How do you manage state in React Native applications?](#6-how-do-you-manage-state-in-react-native-applications)
-    - [7. How do you handle data persistence in React Native?](#7-how-do-you-handle-data-persistence-in-react-native)
-  - [Native Modules and APIs](#native-modules-and-apis)
-    - [8. How do you access native device features in React Native?](#8-how-do-you-access-native-device-features-in-react-native)
-  - [Performance Optimization](#performance-optimization)
-    - [9. How do you optimize performance in React Native applications?](#9-how-do-you-optimize-performance-in-react-native-applications)
-    - [10. How do you test React Native applications?](#10-how-do-you-test-react-native-applications)
-  - [Deployment and Build Configuration](#deployment-and-build-configuration)
-    - [11. How do you configure and deploy React Native applications for different platforms?](#11-how-do-you-configure-and-deploy-react-native-applications-for-different-platforms)
-    - [12. How do you handle different screen sizes and orientations in React Native?](#12-how-do-you-handle-different-screen-sizes-and-orientations-in-react-native)
-  - [Animation and Gestures](#animation-and-gestures)
-    - [13. How do you implement complex animations and gesture handling in React Native?](#13-how-do-you-implement-complex-animations-and-gesture-handling-in-react-native)
-  - [Offline Capabilities and Caching](#offline-capabilities-and-caching)
-    - [14. How do you implement offline capabilities and advanced caching strategies in React Native?](#14-how-do-you-implement-offline-capabilities-and-advanced-caching-strategies-in-react-native)
-  - [Security and Authentication](#security-and-authentication)
-    - [15. How do you implement comprehensive security and authentication in React Native?](#15-how-do-you-implement-comprehensive-security-and-authentication-in-react-native)
-  - [Code Splitting and Lazy Loading](#code-splitting-and-lazy-loading)
-    - [16. How do you implement code splitting and lazy loading in React Native?](#16-how-do-you-implement-code-splitting-and-lazy-loading-in-react-native)
-  - [Accessibility (a11y)](#accessibility-a11y)
-    - [17. How do you implement comprehensive accessibility features in React Native?](#17-how-do-you-implement-comprehensive-accessibility-features-in-react-native)
-  - [Background Tasks and Services](#background-tasks-and-services)
-    - [18. How do you implement background tasks and services in React Native?](#18-how-do-you-implement-background-tasks-and-services-in-react-native)
-  - [Camera and Media](#camera-and-media)
-    - [19. How do you implement advanced camera and media features in React Native?](#19-how-do-you-implement-advanced-camera-and-media-features-in-react-native)
-  - [Maps and Location Services](#maps-and-location-services)
-    - [20. How do you implement advanced maps and location services in React Native?](#20-how-do-you-implement-advanced-maps-and-location-services-in-react-native)
+
+- [Q1: What is React Native and how does it differ from React?](#q1-what-is-react-native-and-how-does-it-differ-from-react)
+- [Q2: How do you handle styling in React Native?](#q2-how-do-you-handle-styling-in-react-native)
+- [Q3: How do you manage component lifecycle in React Native?](#q3-how-do-you-manage-component-lifecycle-in-react-native)
+- [Q4: How do you handle forms and user input in React Native?](#q4-how-do-you-handle-forms-and-user-input-in-react-native)
+- [Q5: How do you implement navigation in React Native?](#q5-how-do-you-implement-navigation-in-react-native)
+- [Q6: How do you manage state in React Native applications?](#q6-how-do-you-manage-state-in-react-native-applications)
+- [Q7: How do you handle data persistence in React Native?](#q7-how-do-you-handle-data-persistence-in-react-native)
+- [Q8: How do you access native device features in React Native?](#q8-how-do-you-access-native-device-features-in-react-native)
+- [Q9: How do you optimize performance in React Native applications?](#q9-how-do-you-optimize-performance-in-react-native-applications)
+- [Q10: How do you test React Native applications?](#q10-how-do-you-test-react-native-applications)
+- [Q11: How do you configure and deploy React Native applications for different platforms?](#q11-how-do-you-configure-and-deploy-react-native-applications-for-different-platforms)
+- [Q12: How do you handle different screen sizes and orientations in React Native?](#q12-how-do-you-handle-different-screen-sizes-and-orientations-in-react-native)
+- [Q13: How do you implement complex animations and gesture handling in React Native?](#q13-how-do-you-implement-complex-animations-and-gesture-handling-in-react-native)
+- [Q14: How do you implement offline capabilities and advanced caching strategies in React Native?](#q14-how-do-you-implement-offline-capabilities-and-advanced-caching-strategies-in-react-native)
+- [Q15: How do you implement comprehensive security and authentication in React Native?](#q15-how-do-you-implement-comprehensive-security-and-authentication-in-react-native)
+- [Q16: How do you implement code splitting and lazy loading in React Native?](#q16-how-do-you-implement-code-splitting-and-lazy-loading-in-react-native)
+- [Q17: How do you implement comprehensive accessibility features in React Native?](#q17-how-do-you-implement-comprehensive-accessibility-features-in-react-native)
+- [Q18: How do you implement background tasks and services in React Native?](#q18-how-do-you-implement-background-tasks-and-services-in-react-native)
+- [Q19: How do you implement advanced camera and media features in React Native?](#q19-how-do-you-implement-advanced-camera-and-media-features-in-react-native)
+- [Q20: How do you implement advanced maps and location services in React Native?](#q20-how-do-you-implement-advanced-maps-and-location-services-in-react-native)
+- [Q21: What is the difference between ScrollView and FlatList?](#q21-what-is-the-difference-between-scrollview-and-flatlist)
+- [Q22: How do you optimize FlatList performance?](#q22-how-do-you-optimize-flatlist-performance)
+- [Q23: What is the "Bridge" in React Native?](#q23-what-is-the-bridge-in-react-native)
+- [Q24: Explain the difference between `StyleSheet.create` and plain objects for styling.](#q24-explain-the-difference-between-stylesheetcreate-and-plain-objects-for-styling)
+- [Q25: How do you handle platform-specific code?](#q25-how-do-you-handle-platform-specific-code)
+- [Q26: What is Fast Refresh?](#q26-what-is-fast-refresh)
+- [Q27: How do you debug React Native apps?](#q27-how-do-you-debug-react-native-apps)
+- [Q28: What is Hermes?](#q28-what-is-hermes)
+- [Q29: Explain the concept of "Props Drilling" and how to avoid it.](#q29-explain-the-concept-of-props-drilling-and-how-to-avoid-it)
+- [Q30: What is `SafeAreaView`?](#q30-what-is-safeareaview)
+- [Q31: How do you handle images in React Native?](#q31-how-do-you-handle-images-in-react-native)
+- [Q32: What is the purpose of `key` prop in lists?](#q32-what-is-the-purpose-of-key-prop-in-lists)
+- [Q33: Functional vs Class Components in React Native.](#q33-functional-vs-class-components-in-react-native)
+- [Q34: What are Hooks? Name common ones.](#q34-what-are-hooks-name-common-ones)
+- [Q35: How does `useEffect` work?](#q35-how-does-useeffect-work)
+- [Q36: What is Redux?](#q36-what-is-redux)
+- [Q37: Context API vs Redux.](#q37-context-api-vs-redux)
+- [Q38: How to make a network request in React Native?](#q38-how-to-make-a-network-request-in-react-native)
+- [Q39: What is AsyncStorage?](#q39-what-is-asyncstorage)
+- [Q40: How do you implement Navigation?](#q40-how-do-you-implement-navigation)
+- [Q41: What are Higher-Order Components (HOC)?](#q41-what-are-higher-order-components-hoc)
+- [Q42: What is strict mode in React?](#q42-what-is-strict-mode-in-react)
+- [Q43: How do you handle deep linking in React Native?](#q43-how-do-you-handle-deep-linking-in-react-native)
+- [Q44: Explain `StyleSheet.absoluteFillObject`.](#q44-explain-stylesheetabsolutefillobject)
+- [Q45: What is the difference between `justifyContent` and `alignItems`?](#q45-what-is-the-difference-between-justifycontent-and-alignitems)
+- [Q46: How do you handle touch gestures?](#q46-how-do-you-handle-touch-gestures)
+- [Q47: What is `Pressable`?](#q47-what-is-pressable)
+- [Q48: Explain the difference between Shadow DOM and Virtual DOM.](#q48-explain-the-difference-between-shadow-dom-and-virtual-dom)
+- [Q49: How do you animate components in React Native?](#q49-how-do-you-animate-components-in-react-native)
+- [Q50: What is the "New Architecture" in React Native?](#q50-what-is-the-new-architecture-in-react-native)
+- [Q51: How do you optimize React Native app size?](#q51-how-do-you-optimize-react-native-app-size)
+- [Q52: What is `React.memo`?](#q52-what-is-reactmemo)
+- [Q53: `useCallback` vs `useMemo`.](#q53-usecallback-vs-usememo)
+- [Q54: How do you implement Dark Mode?](#q54-how-do-you-implement-dark-mode)
+- [Q55: What are "Native Modules"?](#q55-what-are-native-modules)
+- [Q56: How do you test React Native apps?](#q56-how-do-you-test-react-native-apps)
+- [Q57: What is `keyboardAvoidingView`?](#q57-what-is-keyboardavoidingview)
+- [Q58: Difference between `dependencies` and `devDependencies`.](#q58-difference-between-dependencies-and-devdependencies)
+- [Q59: What is a "Pure Component"?](#q59-what-is-a-pure-component)
+- [Q60: Explain "Reconciliation".](#q60-explain-reconciliation)
+- [Q61: How to use SVGs in React Native?](#q61-how-to-use-svgs-in-react-native)
+- [Q62: What is `Modal` in React Native?](#q62-what-is-modal-in-react-native)
+- [Q63: How do you handle fonts in React Native?](#q63-how-do-you-handle-fonts-in-react-native)
+- [Q64: What is `RefreshControl`?](#q64-what-is-refreshcontrol)
+- [Q65: How do you create a custom Hook?](#q65-how-do-you-create-a-custom-hook)
+- [Q66: What is "Over the Air" (OTA) updates?](#q66-what-is-over-the-air-ota-updates)
+- [Q67: Explain `flex: 1`.](#q67-explain-flex-1)
+- [Q68: What is `StatusBar`?](#q68-what-is-statusbar)
+- [Q69: How to detect App State changes (background/foreground)?](#q69-how-to-detect-app-state-changes-backgroundforeground)
+- [Q70: What is the difference between `px` and `dp`?](#q70-what-is-the-difference-between-px-and-dp)
+- [Q71: How to implement Push Notifications?](#q71-how-to-implement-push-notifications)
+- [Q72: How to handle permissions in React Native?](#q72-how-to-handle-permissions-in-react-native)
+- [Q73: What is "Memoization"?](#q73-what-is-memoization)
+- [Q74: How to debug performance issues with the "Spy" or Profiler?](#q74-how-to-debug-performance-issues-with-the-spy-or-profiler)
+- [Q75: What is `ActivityIndicator`?](#q75-what-is-activityindicator)
+- [Q76: Difference between `yarn` and `npm`.](#q76-difference-between-yarn-and-npm)
+- [Q77: How to upgrade React Native version?](#q77-how-to-upgrade-react-native-version)
+- [Q78: What is "Linking"?](#q78-what-is-linking)
+- [Q79: How to use TypeScript with React Native?](#q79-how-to-use-typescript-with-react-native)
+- [Q80: What is a "Bundle"?](#q80-what-is-a-bundle)
+- [Q81: Explain `ImageBackground`.](#q81-explain-imagebackground)
+- [Q82: How to implement "Infinite Scroll"?](#q82-how-to-implement-infinite-scroll)
+- [Q83: What is `Dimensions` API?](#q83-what-is-dimensions-api)
+- [Q84: How to handle orientation changes?](#q84-how-to-handle-orientation-changes)
+- [Q85: What is `PixelRatio`?](#q85-what-is-pixelratio)
+- [Q86: How to store sensitive data (tokens)?](#q86-how-to-store-sensitive-data-tokens)
+- [Q87: What is CocoaPods?](#q87-what-is-cocoapods)
+- [Q88: What is Gradle?](#q88-what-is-gradle)
+- [Q89: Explain `InteractionManager`.](#q89-explain-interactionmanager)
+- [Q90: What is `Switch` component?](#q90-what-is-switch-component)
+- [Q91: How to handle "Notch" on newer iPhones?](#q91-how-to-handle-notch-on-newer-iphones)
+- [Q92: What is `AccessibilityInfo`?](#q92-what-is-accessibilityinfo)
+- [Q93: How to share content to other apps?](#q93-how-to-share-content-to-other-apps)
+- [Q94: What is `TextInput` props for keyboard?](#q94-what-is-textinput-props-for-keyboard)
+- [Q95: How to render HTML in React Native?](#q95-how-to-render-html-in-react-native)
+- [Q96: What is `Alert`?](#q96-what-is-alert)
+- [Q97: How to optimize Android build speed?](#q97-how-to-optimize-android-build-speed)
+- [Q98: What is "Flipper"?](#q98-what-is-flipper)
+- [Q99: How to handle multiple environments (Dev, Staging, Prod)?](#q99-how-to-handle-multiple-environments-dev-staging-prod)
+- [Q100: What is the future of React Native?](#q100-what-is-the-future-of-react-native)
 
 ---
 
-## React Native Fundamentals
-
-### 1. What is React Native and how does it differ from React?
+### Q1: What is React Native and how does it differ from React?
 
 **Answer:**
 React Native is a framework for building mobile applications using React and JavaScript. It allows developers to create native mobile apps for iOS and Android using a single codebase.
@@ -159,7 +222,7 @@ const NewArchitecture = {
 }
 ```
 
-### 2. How do you handle styling in React Native?
+### Q2: How do you handle styling in React Native?
 
 **Answer:**
 React Native uses a StyleSheet API that's similar to CSS but with some differences. Styles are written in JavaScript objects and use camelCase property names.
@@ -370,7 +433,7 @@ const StyledComponentExample = () => {
 }
 ```
 
-### 3. How do you manage component lifecycle in React Native?
+### Q3: How do you manage component lifecycle in React Native?
 
 **Answer:**
 React Native uses the same lifecycle methods as React, but with additional considerations for mobile app states and native events.
@@ -648,7 +711,7 @@ const AppStateManager = {
 }
 ```
 
-### 4. How do you handle forms and user input in React Native?
+### Q4: How do you handle forms and user input in React Native?
 
 **Answer:**
 React Native provides several components for handling user input, with TextInput being the primary component for text-based input.
@@ -1104,9 +1167,7 @@ This comprehensive form handling example demonstrates validation, focus manageme
 
 ---
 
-## Navigation
-
-### 5. How do you implement navigation in React Native?
+### Q5: How do you implement navigation in React Native?
 
 **Answer:**
 React Native uses React Navigation library for handling navigation between screens. It provides various navigation patterns including stack, tab, and drawer navigation.
@@ -1568,9 +1629,7 @@ This comprehensive navigation example covers stack navigation, tab navigation, d
 
 ---
 
-## State Management
-
-### 6. How do you manage state in React Native applications?
+### Q6: How do you manage state in React Native applications?
 
 **Answer:**
 React Native applications can use various state management solutions depending on the complexity and requirements. Here are the most common approaches:
@@ -2153,7 +2212,7 @@ const authenticateUser = async (credentials) => {
 }
 ```
 
-### 7. How do you handle data persistence in React Native?
+### Q7: How do you handle data persistence in React Native?
 
 **Answer:**
 Data persistence in React Native can be achieved through various storage solutions depending on the type and complexity of data.
@@ -2640,9 +2699,7 @@ const StorageHookExample = () => {
 
 ---
 
-## Native Modules and APIs
-
-### 8. How do you access native device features in React Native?
+### Q8: How do you access native device features in React Native?
 
 **Answer:**
 React Native provides built-in APIs for common device features and allows creating custom native modules for platform-specific functionality.
@@ -3330,9 +3387,7 @@ This comprehensive example demonstrates how to access various native device feat
 
 ---
 
-## Performance Optimization
-
-### 9. How do you optimize performance in React Native applications?
+### Q9: How do you optimize performance in React Native applications?
 
 **Answer:**
 Performance optimization in React Native involves multiple strategies including component optimization, memory management, bundle optimization, and native performance improvements.
@@ -3792,7 +3847,7 @@ const styles = StyleSheet.create({
 })
 ```
 
-### 10. How do you test React Native applications?
+### Q10: How do you test React Native applications?
 
 **Answer:**
 Testing React Native applications involves unit testing, integration testing, component testing, and end-to-end testing using various tools and frameworks.
@@ -4387,9 +4442,7 @@ This comprehensive testing setup covers unit testing, component testing, integra
 
 ---
 
-## Deployment and Build Configuration
-
-### 11. How do you configure and deploy React Native applications for different platforms?
+### Q11: How do you configure and deploy React Native applications for different platforms?
 
 **Answer:**
 Deploying React Native applications involves configuring build settings, managing certificates, setting up CI/CD pipelines, and distributing to app stores.
@@ -4935,7 +4988,7 @@ class PerformanceMonitor {
 export default PerformanceMonitor
 ```
 
-### 12. How do you handle different screen sizes and orientations in React Native?
+### Q12: How do you handle different screen sizes and orientations in React Native?
 
 **Answer:**
 Handling different screen sizes and orientations requires responsive design techniques, dimension detection, and adaptive layouts.
@@ -5436,9 +5489,7 @@ This comprehensive guide covers deployment configuration, build processes, CI/CD
 
 ---
 
-## Animation and Gestures
-
-### 13. How do you implement complex animations and gesture handling in React Native?
+### Q13: How do you implement complex animations and gesture handling in React Native?
 
 **Answer:**
 React Native provides multiple animation APIs including Animated API, LayoutAnimation, and react-native-reanimated for complex animations and gesture handling.
@@ -5990,9 +6041,7 @@ This comprehensive guide covers basic to advanced animation techniques, gesture 
 
 ---
 
-## Offline Capabilities and Caching
-
-### 14. How do you implement offline capabilities and advanced caching strategies in React Native?
+### Q14: How do you implement offline capabilities and advanced caching strategies in React Native?
 
 **Answer:**
 Implementing offline capabilities requires network detection, data synchronization, local storage, and cache management strategies.
@@ -6653,9 +6702,7 @@ This comprehensive guide covers network monitoring, advanced caching with TTL an
 
 ---
 
-## Security and Authentication
-
-### 15. How do you implement comprehensive security and authentication in React Native?
+### Q15: How do you implement comprehensive security and authentication in React Native?
 
 **Answer:**
 Security in React Native involves secure storage, authentication flows, API security, biometric authentication, and protection against common vulnerabilities.
@@ -7451,9 +7498,7 @@ This comprehensive guide covers secure storage with Keychain and encryption, bio
 
 ---
 
-## Code Splitting and Lazy Loading
-
-### 16. How do you implement code splitting and lazy loading in React Native?
+### Q16: How do you implement code splitting and lazy loading in React Native?
 
 **Answer:**
 Code splitting and lazy loading in React Native help reduce bundle size, improve app startup time, and optimize memory usage through dynamic imports and component-level splitting.
@@ -8114,9 +8159,7 @@ This comprehensive guide covers React.lazy and Suspense implementation, dynamic 
 
 ---
 
-## Accessibility (a11y)
-
-### 17. How do you implement comprehensive accessibility features in React Native?
+### Q17: How do you implement comprehensive accessibility features in React Native?
 
 **Answer:**
 Accessibility in React Native ensures your app is usable by people with disabilities through screen readers, voice control, and other assistive technologies.
@@ -8850,9 +8893,7 @@ This comprehensive guide covers basic accessibility props, advanced accessibilit
 
 ---
 
-## Background Tasks and Services
-
-### 18. How do you implement background tasks and services in React Native?
+### Q18: How do you implement background tasks and services in React Native?
 
 **Answer:**
 Background tasks in React Native allow your app to perform operations when it's not in the foreground, such as data synchronization, location tracking, or push notifications.
@@ -9725,9 +9766,7 @@ This comprehensive guide covers app state management, background location tracki
 
 ---
 
-## Camera and Media
-
-### 19. How do you implement advanced camera and media features in React Native?
+### Q19: How do you implement advanced camera and media features in React Native?
 
 **Answer:**
 Advanced camera and media features in React Native include camera capture, video recording, image processing, media gallery access, and real-time filters.
@@ -10671,9 +10710,7 @@ This comprehensive guide covers advanced camera implementation, media gallery ma
 
 ---
 
-## Maps and Location Services
-
-### 20. How do you implement advanced maps and location services in React Native?
+### Q20: How do you implement advanced maps and location services in React Native?
 
 **Answer:**
 Advanced maps and location services in React Native include interactive maps, real-time location tracking, geofencing, route planning, and custom map overlays.
@@ -11870,3 +11907,814 @@ export {
 This comprehensive guide covers advanced map implementation, location services management, route planning, geofencing, and custom hooks for implementing robust maps and location services in React Native applications.
 
 ---
+
+### Q21: What is the difference between ScrollView and FlatList?
+**Difficulty: Beginner**
+
+**Answer:**
+*   **ScrollView:**
+    *   Renders all its children at once.
+    *   Good for small lists or static content.
+    *   Performance issues with large lists (high memory usage).
+*   **FlatList:**
+    *   Lazily renders items (only renders items currently visible on screen + buffer).
+    *   Recycles views (virtualization).
+    *   Essential for long, dynamic lists.
+    *   Supports features like `onEndReached` (pagination), `ListHeaderComponent`, `ListFooterComponent`.
+
+### Q22: How do you optimize FlatList performance?
+**Difficulty: Advanced**
+
+**Answer:**
+1.  **`getItemLayout`:** If items have fixed height, use this to skip measurement calculation.
+2.  **`keyExtractor`:** Provide unique keys to avoid re-rendering.
+3.  **`initialNumToRender`:** Render only enough items to fill the screen initially.
+4.  **`maxToRenderPerBatch` / `windowSize`:** Tune these to control rendering frequency/memory.
+5.  **`removeClippedSubviews`:** Unmount components that are off-screen (Android mainly).
+6.  **PureComponent/React.memo:** Wrap renderItem components to prevent unnecessary re-renders.
+
+### Q23: What is the "Bridge" in React Native?
+**Difficulty: Advanced**
+
+**Answer:**
+The Bridge is the communication mechanism between the JavaScript thread (where your React code runs) and the Native thread (Main/UI thread).
+*   **Asynchronous:** Communication is async, serialized as JSON strings.
+*   **Bottleneck:** Passing large data or frequent updates across the bridge can cause performance issues (dropped frames).
+*   *Note:* The New Architecture (Fabric/TurboModules) replaces the Bridge with JSI (JavaScript Interface) for direct synchronous communication.
+
+### Q24: Explain the difference between `StyleSheet.create` and plain objects for styling.
+**Difficulty: Beginner**
+
+**Answer:**
+*   **`StyleSheet.create`:**
+    *   Validates styles at compile time (throws errors for invalid properties).
+    *   Optimizes styles by sending IDs across the bridge instead of full objects (in older RN versions, though less relevant now).
+    *   Better performance and type safety.
+*   **Plain Objects:**
+    *   No validation.
+    *   Created on every render if defined inline (causing re-renders).
+
+### Q25: How do you handle platform-specific code?
+**Difficulty: Beginner**
+
+**Answer:**
+1.  **`Platform.OS`:**
+    ```javascript
+    import { Platform } from 'react-native';
+    const styles = { height: Platform.OS === 'ios' ? 200 : 100 };
+    ```
+2.  **`Platform.select`:**
+    ```javascript
+    const containerStyles = Platform.select({
+      ios: { backgroundColor: 'red' },
+      android: { backgroundColor: 'blue' },
+      default: { backgroundColor: 'green' }
+    });
+    ```
+3.  **File extensions:**
+    *   `MyComponent.ios.js`
+    *   `MyComponent.android.js`
+    *   React Native automatically imports the correct file based on the platform.
+
+### Q26: What is Fast Refresh?
+**Difficulty: Beginner**
+
+**Answer:**
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components.
+*   It preserves component state (like `useState`) while reloading the code.
+*   It handles syntax errors gracefully (shows an error overlay, dismisses it when fixed).
+*   Combines the best of "Hot Reloading" and "Live Reloading".
+
+### Q27: How do you debug React Native apps?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **React Native Dev Menu:** (Shake device or Cmd+D/Cmd+M) -> Reload, Debug, Inspector.
+2.  **Console Logs:** `console.log()` appears in the terminal (Metro bundler) or debugger.
+3.  **React DevTools:** For inspecting component hierarchy and state/props.
+4.  **Flipper:** A platform debugging tool (inspect network, layout, databases, logs) - *Note: Deprecated in recent versions in favor of Chrome DevTools / React Native DevTools.*
+5.  **Chrome DevTools:** For JS debugging (breakpoints).
+
+### Q28: What is Hermes?
+**Difficulty: Intermediate**
+
+**Answer:**
+Hermes is an open-source JavaScript engine optimized for React Native (created by Meta).
+*   **Benefits:**
+    *   **Faster App Launch:** Pre-compiles JS into bytecode at build time.
+    *   **Smaller APK/Bundle size:** Bytecode is smaller than source JS.
+    *   **Reduced Memory Usage:** More efficient garbage collection.
+*   Enabled by default in newer React Native versions.
+
+### Q29: Explain the concept of "Props Drilling" and how to avoid it.
+**Difficulty: Intermediate**
+
+**Answer:**
+**Props Drilling** is passing data from a parent component down to a deep child component through multiple intermediate components that don't need the data.
+**Solutions:**
+1.  **Context API:** Provide data at a high level and consume it directly in the child.
+2.  **State Management Libraries:** Redux, Zustand, MobX, Recoil.
+3.  **Component Composition:** Pass components as children or props.
+
+### Q30: What is `SafeAreaView`?
+**Difficulty: Beginner**
+
+**Answer:**
+`SafeAreaView` is a component used to render content within the safe area boundaries of a device.
+*   It avoids overlapping with physical notches, status bars, and home indicators (especially on iPhone X+).
+*   Only works on iOS (use plain View or standard padding on Android, or `react-native-safe-area-context` for cross-platform support).
+
+### Q31: How do you handle images in React Native?
+**Difficulty: Beginner**
+
+**Answer:**
+Using the `<Image />` component.
+1.  **Local Images:** `source={require('./image.png')}`. Packaged with the app.
+2.  **Network Images:** `source={{ uri: 'https://...' }}`. Requires `style` with width/height.
+3.  **Base64:** `source={{ uri: 'data:image/png;base64,...' }}`.
+
+### Q32: What is the purpose of `key` prop in lists?
+**Difficulty: Beginner**
+
+**Answer:**
+The `key` prop is a special string attribute you need to include when creating lists of elements.
+*   **Purpose:** Helps React identify which items have changed, are added, or are removed.
+*   **Performance:** crucial for efficient DOM/Native updates.
+*   **Rule:** Keys must be unique among siblings and stable (don't use array index if list can be reordered).
+
+### Q33: Functional vs Class Components in React Native.
+**Difficulty: Beginner**
+
+**Answer:**
+*   **Class Components:**
+    *   Extend `React.Component`.
+    *   Use `this.state` and `this.setState`.
+    *   Use Lifecycle methods (`componentDidMount`, etc.).
+    *   Older style.
+*   **Functional Components:**
+    *   Plain JavaScript functions.
+    *   Use **Hooks** (`useState`, `useEffect`) for state and lifecycle.
+    *   More concise, easier to test, no `this` binding issues.
+    *   **Recommended** for modern React Native development.
+
+### Q34: What are Hooks? Name common ones.
+**Difficulty: Beginner**
+
+**Answer:**
+Hooks let you use state and other React features without writing a class.
+*   `useState`: Manage local state.
+*   `useEffect`: Handle side effects (API calls, subscriptions).
+*   `useContext`: Access Context.
+*   `useRef`: Persist values across renders without re-rendering (or access DOM/Native refs).
+*   `useMemo`: Memoize expensive calculations.
+*   `useCallback`: Memoize functions to prevent re-creation on render.
+
+### Q35: How does `useEffect` work?
+**Difficulty: Intermediate**
+
+**Answer:**
+`useEffect(callback, dependencyArray)`
+*   Runs the `callback` after render.
+*   **No dependency array:** Runs after *every* render.
+*   **Empty array `[]`:** Runs only *once* (on mount), similar to `componentDidMount`.
+*   **`[prop, state]`:** Runs when `prop` or `state` changes.
+*   **Cleanup:** Return a function from the callback to run cleanup (like `componentWillUnmount`).
+
+### Q36: What is Redux?
+**Difficulty: Intermediate**
+
+**Answer:**
+A predictable state container for JavaScript apps.
+*   **Store:** Single source of truth for app state.
+*   **Actions:** Plain objects describing *what* happened (`type`, `payload`).
+*   **Reducers:** Pure functions that take current state and action, and return *new* state.
+*   **Dispatch:** Method to send actions to the store.
+
+### Q37: Context API vs Redux.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Context API:**
+    *   Built-in to React.
+    *   Good for low-frequency updates (theme, auth user, locale).
+    *   Simpler setup.
+    *   Can have performance issues if not optimized (re-renders all consumers).
+*   **Redux:**
+    *   External library.
+    *   Good for complex state, high-frequency updates, strict separation of concerns.
+    *   DevTools support (time travel debugging).
+    *   Middleware support (Thunk, Saga).
+
+### Q38: How to make a network request in React Native?
+**Difficulty: Beginner**
+
+**Answer:**
+Use the **Fetch API** (built-in) or **Axios** (library).
+
+```javascript
+// Fetch Example
+useEffect(() => {
+  fetch('https://api.example.com/data')
+    .then(response => response.json())
+    .then(json => setData(json))
+    .catch(error => console.error(error));
+}, []);
+```
+
+### Q39: What is AsyncStorage?
+**Difficulty: Beginner**
+
+**Answer:**
+*   A simple, unencrypted, asynchronous, persistent, key-value storage system that is global to the app.
+*   Used for storing small amounts of data (user preferences, tokens).
+*   *Note:* Deprecated in core, use `@react-native-async-storage/async-storage`.
+*   **Not secure** for sensitive data (passwords). Use `react-native-keychain` or `react-native-encrypted-storage` for secrets.
+
+### Q40: How do you implement Navigation?
+**Difficulty: Beginner**
+
+**Answer:**
+React Native doesn't have a built-in router. The standard library is **React Navigation**.
+*   **Stack Navigator:** Screens transition like a stack of cards (push/pop).
+*   **Tab Navigator:** Bottom or top tabs.
+*   **Drawer Navigator:** Side menu.
+
+```javascript
+<NavigationContainer>
+  <Stack.Navigator>
+    <Stack.Screen name="Home" component={HomeScreen} />
+    <Stack.Screen name="Details" component={DetailsScreen} />
+  </Stack.Navigator>
+</NavigationContainer>
+```
+
+### Q41: What are Higher-Order Components (HOC)?
+**Difficulty: Advanced**
+
+**Answer:**
+A function that takes a component and returns a new component.
+*   Used for reusing component logic (e.g., logging, styling, auth protection).
+*   Example: `connect()` in Redux, `withNavigation` in React Navigation.
+
+### Q42: What is strict mode in React?
+**Difficulty: Intermediate**
+
+**Answer:**
+`<React.StrictMode>` is a tool for highlighting potential problems in an application.
+*   It activates additional checks and warnings for its descendants.
+*   **Double Invocation:** In development, it invokes render phases twice to detect side effects.
+*   Checks for unsafe lifecycles, legacy API usage, etc.
+
+### Q43: How do you handle deep linking in React Native?
+**Difficulty: Advanced**
+
+**Answer:**
+Deep linking allows opening your app from a URL (e.g., `myapp://profile/1`).
+1.  **Configuration:**
+    *   **iOS:** Configure `Info.plist` (URL Types) and `AppDelegate.m`.
+    *   **Android:** Configure `AndroidManifest.xml` (Intent Filters).
+2.  **Handling:**
+    *   `Linking.addEventListener('url', callback)`: Listen for incoming links.
+    *   `Linking.getInitialURL()`: Check if app was launched via a link.
+    *   **React Navigation:** Configure the `linking` prop in `NavigationContainer` to automatically map URLs to screens.
+
+### Q44: Explain `StyleSheet.absoluteFillObject`.
+**Difficulty: Intermediate**
+
+**Answer:**
+A helper constant provided by StyleSheet.
+*   It is equivalent to:
+    ```javascript
+    {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      bottom: 0
+    }
+    ```
+*   Used to make a view fill its parent completely (e.g., background image, overlay).
+
+### Q45: What is the difference between `justifyContent` and `alignItems`?
+**Difficulty: Beginner**
+
+**Answer:**
+Flexbox concepts:
+*   **`justifyContent`:** Aligns children along the **main axis** (default: vertical/column in RN).
+    *   Options: `flex-start`, `center`, `flex-end`, `space-between`, `space-around`.
+*   **`alignItems`:** Aligns children along the **cross axis** (default: horizontal/row in RN).
+    *   Options: `stretch`, `flex-start`, `center`, `flex-end`.
+
+### Q46: How do you handle touch gestures?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **Touchable Components:** `TouchableOpacity`, `TouchableHighlight`, `Pressable` (modern).
+2.  **Gesture Responder System:** Low-level API (`onStartShouldSetResponder`, `onPanResponderMove`).
+3.  **React Native Gesture Handler:** Library (from Expo/Software Mansion) for native-driven gestures (smoother).
+4.  **PanResponder:** Built-in for complex multi-touch gestures (drag and drop).
+
+### Q47: What is `Pressable`?
+**Difficulty: Beginner**
+
+**Answer:**
+A newer component (introduced in RN 0.63) to replace Touchable components.
+*   Offers more control over interaction state.
+*   `style` prop can be a function receiving state: `style={({ pressed }) => ({ opacity: pressed ? 0.5 : 1 })}`.
+*   Supports hover, blur, focus events (web/desktop compatibility).
+
+### Q48: Explain the difference between Shadow DOM and Virtual DOM.
+**Difficulty: Advanced**
+
+**Answer:**
+*   **Virtual DOM:** A lightweight copy of the DOM kept in memory by React. React compares the new Virtual DOM with the previous one (diffing) and updates the real DOM/Native Views only where changes occurred.
+*   **Shadow DOM:** A browser technology (Web Components) for scoping CSS and HTML variables. **Not relevant to React Native**.
+
+### Q49: How do you animate components in React Native?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **`Animated` API:** Built-in.
+    *   `Animated.Value` for state.
+    *   `Animated.timing`, `spring`, `decay`.
+    *   Use `useNativeDriver: true` to offload animation to the native thread (smoother).
+2.  **LayoutAnimation:** Global animation for next layout change.
+3.  **React Native Reanimated:** Third-party library for high-performance, gesture-based animations running on the UI thread.
+
+### Q50: What is the "New Architecture" in React Native?
+**Difficulty: Expert**
+
+**Answer:**
+A re-architecture of React Native internals (rolling out since 2022).
+1.  **JSI (JavaScript Interface):** Direct communication between C++ and JS (no bridge serialization).
+2.  **Fabric:** New rendering system. C++ based, synchronous layout, concurrent rendering support.
+3.  **TurboModules:** Lazy loading of native modules (load only when needed).
+4.  **Codegen:** Automates type safety between JS and Native.
+
+### Q51: How do you optimize React Native app size?
+**Difficulty: Advanced**
+
+**Answer:**
+1.  **Enable ProGuard/R8 (Android):** Minifies and obfuscates Java/Kotlin code.
+2.  **Enable Hermes:** Compiles JS to bytecode (smaller than text).
+3.  **Optimize Assets:** Compress images, use SVGs, delete unused fonts.
+4.  **Split APKs (Android):** Generate separate APKs for different CPU architectures (ABI splits).
+5.  **Remove unused libraries.**
+
+### Q52: What is `React.memo`?
+**Difficulty: Intermediate**
+
+**Answer:**
+A Higher-Order Component for functional components.
+*   It memoizes the component: React skips rendering the component if its props have not changed.
+*   Performance optimization to prevent unnecessary re-renders.
+*   Can provide a custom comparison function: `React.memo(Component, arePropsEqual)`.
+
+### Q53: `useCallback` vs `useMemo`.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **`useMemo`:** Memoizes a **value** (result of a function). Use it to avoid expensive calculations on every render.
+    *   `const val = useMemo(() => computeExpensive(a, b), [a, b])`
+*   **`useCallback`:** Memoizes a **function definition**. Use it to prevent passing a new function reference to child components (which would break `React.memo` in the child).
+    *   `const fn = useCallback(() => doSomething(a), [a])`
+
+### Q54: How do you implement Dark Mode?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **`useColorScheme` Hook:** Returns 'light' or 'dark'.
+    ```javascript
+    import { useColorScheme } from 'react-native';
+    const scheme = useColorScheme();
+    const styles = scheme === 'dark' ? darkStyles : lightStyles;
+    ```
+2.  **Navigation:** Pass theme to `NavigationContainer`.
+3.  **Theme Context:** Create a custom Context to toggle and persist user preference.
+
+### Q55: What are "Native Modules"?
+**Difficulty: Advanced**
+
+**Answer:**
+Code written in native languages (Java/Kotlin for Android, Obj-C/Swift for iOS) that can be called from JavaScript.
+*   Used when React Native doesn't support a platform API out-of-the-box (e.g., Bluetooth, specific sensors, SDKs).
+*   Requires writing a bridge/interface to expose native methods to JS.
+
+### Q56: How do you test React Native apps?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **Unit Testing:** **Jest**. Test JS logic, functions, reducers.
+2.  **Component Testing:** **React Native Testing Library**. Test component rendering and user interactions (press, type).
+3.  **End-to-End (E2E) Testing:** **Detox** or **Appium**. Test the full app running on a simulator/device (login -> scroll -> logout).
+
+### Q57: What is `keyboardAvoidingView`?
+**Difficulty: Beginner**
+
+**Answer:**
+A component that automatically adjusts its position (padding/height) when the virtual keyboard appears, preventing it from covering focused input fields.
+*   Props: `behavior` ('padding', 'height', 'position'). Note: behavior often varies between iOS and Android.
+
+### Q58: Difference between `dependencies` and `devDependencies`.
+**Difficulty: Beginner**
+
+**Answer:**
+*   **`dependencies`:** Libraries required for the app to run in production (e.g., `react`, `react-native`, `axios`).
+*   **`devDependencies`:** Libraries needed only for development/build (e.g., `jest`, `eslint`, `typescript`, `metro`).
+
+### Q59: What is a "Pure Component"?
+**Difficulty: Intermediate**
+
+**Answer:**
+A component that renders the same output for the same state and props.
+*   In Class components: `React.PureComponent` (implements `shouldComponentUpdate` with shallow comparison).
+*   In Functional components: `React.memo(Component)`.
+
+### Q60: Explain "Reconciliation".
+**Difficulty: Expert**
+
+**Answer:**
+The process by which React updates the UI.
+1.  Render creates a tree of React elements (Virtual DOM).
+2.  React compares (diffs) this tree with the previous one.
+3.  It determines the minimum number of operations needed to update the real DOM/Native UI.
+4.  It applies those updates.
+
+### Q61: How to use SVGs in React Native?
+**Difficulty: Intermediate**
+
+**Answer:**
+React Native doesn't support SVG directly.
+*   Use library: `react-native-svg`.
+*   Use transformer: `react-native-svg-transformer` to import `.svg` files as components.
+    ```javascript
+    import Logo from './logo.svg';
+    <Logo width={120} height={40} />
+    ```
+
+### Q62: What is `Modal` in React Native?
+**Difficulty: Beginner**
+
+**Answer:**
+A basic component to present content above an enclosing view.
+*   Covers the entire screen by default.
+*   Props: `animationType` ('slide', 'fade', 'none'), `transparent`, `visible`.
+
+### Q63: How do you handle fonts in React Native?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  Add font files (`.ttf` or `.otf`) to `assets/fonts`.
+2.  Create `react-native.config.js` to link assets.
+3.  Run `npx react-native-asset` (or `react-native link` in older versions).
+4.  Use in style: `fontFamily: 'FontName'`.
+*   *Note:* Font name is the *PostScript name* on iOS and *filename* on Android, usually best to match them.
+
+### Q64: What is `RefreshControl`?
+**Difficulty: Beginner**
+
+**Answer:**
+A component used inside a ScrollView or FlatList to add "Pull to Refresh" functionality.
+```javascript
+<ScrollView
+  refreshControl={
+    <RefreshControl refreshing={loading} onRefresh={onRefresh} />
+  }
+>
+  ...
+</ScrollView>
+```
+
+### Q65: How do you create a custom Hook?
+**Difficulty: Intermediate**
+
+**Answer:**
+Create a function starting with `use` that calls other hooks.
+```javascript
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch(url).then(r => r.json()).then(setData);
+  }, [url]);
+  return data;
+}
+```
+
+### Q66: What is "Over the Air" (OTA) updates?
+**Difficulty: Advanced**
+
+**Answer:**
+A way to update the JavaScript bundle and assets of a deployed app without going through the App Store/Play Store review process.
+*   **Tools:** Microsoft CodePush, Expo Updates.
+*   **Limit:** Cannot update native code (Java/Swift changes) or add new permissions.
+
+### Q67: Explain `flex: 1`.
+**Difficulty: Beginner**
+
+**Answer:**
+*   `flex: 1` tells a component to fill all available space in its parent container along the main axis.
+*   If multiple siblings have `flex: 1`, they share space equally.
+*   If one has `flex: 2` and another `flex: 1`, the first takes 2/3 and second takes 1/3.
+
+### Q68: What is `StatusBar`?
+**Difficulty: Beginner**
+
+**Answer:**
+A component to control the app status bar (top bar with time, battery).
+*   Control color (`backgroundColor`), visibility (`hidden`), and text style (`barStyle`: 'default', 'light-content', 'dark-content').
+
+### Q69: How to detect App State changes (background/foreground)?
+**Difficulty: Intermediate**
+
+**Answer:**
+Use `AppState` API.
+```javascript
+useEffect(() => {
+  const subscription = AppState.addEventListener('change', nextAppState => {
+    if (nextAppState === 'active') {
+      console.log('App has come to the foreground!');
+    }
+  });
+  return () => subscription.remove();
+}, []);
+```
+
+### Q70: What is the difference between `px` and `dp`?
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **px (Pixels):** Physical pixels on the screen.
+*   **dp (Density-independent Pixels) / pt (Points):** React Native uses these units (without suffix) in styles.
+*   RN automatically scales `dp` to physical pixels based on device pixel density (`PixelRatio`).
+*   `width: 100` means 100 logical points, which might be 200px (@2x) or 300px (@3x).
+
+### Q71: How to implement Push Notifications?
+**Difficulty: Advanced**
+
+**Answer:**
+Requires native configuration and a backend service.
+1.  **Services:** Firebase Cloud Messaging (FCM) for Android, APNs for iOS.
+2.  **Libraries:** `react-native-firebase` (most popular), `react-native-push-notification`, Expo Notifications.
+3.  **Flow:** App requests permission -> Gets Device Token -> Sends to Backend -> Backend calls FCM/APNs -> Device receives notification.
+
+### Q72: How to handle permissions in React Native?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **Android:** Add uses-permission to `AndroidManifest.xml`. Request at runtime using `PermissionsAndroid` API.
+2.  **iOS:** Add usage description keys to `Info.plist`.
+3.  **Library:** `react-native-permissions` provides a unified cross-platform API for checking and requesting permissions (Camera, Location, etc.).
+
+### Q73: What is "Memoization"?
+**Difficulty: Intermediate**
+
+**Answer:**
+An optimization technique used primarily to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+*   In React: `useMemo`, `useCallback`, `React.memo`.
+
+### Q74: How to debug performance issues with the "Spy" or Profiler?
+**Difficulty: Advanced**
+
+**Answer:**
+*   **React DevTools Profiler:** Records rendering performance. Shows which components rendered and how long they took. Identifies "Cascading Updates" or unnecessary renders.
+*   **Performance Monitor (Perf Monitor):** Built-in overlay (in Dev Menu). Shows FPS (UI and JS thread), RAM usage. Dropping below 60FPS indicates jank.
+
+### Q75: What is `ActivityIndicator`?
+**Difficulty: Beginner**
+
+**Answer:**
+A built-in component to display a circular loading spinner.
+*   `size`: 'small' or 'large'.
+*   `color`: Spinner color.
+
+### Q76: Difference between `yarn` and `npm`.
+**Difficulty: Beginner**
+
+**Answer:**
+Both are package managers for JavaScript.
+*   **npm:** Default with Node.js.
+*   **yarn:** Created by Facebook. historically faster, better caching, workspaces support.
+*   **Difference:** Mainly in lock file format (`package-lock.json` vs `yarn.lock`) and some CLI commands. React Native often defaults to Yarn.
+
+### Q77: How to upgrade React Native version?
+**Difficulty: Advanced**
+
+**Answer:**
+1.  **React Native Upgrade Helper:** Web tool. Select current and target version. It shows diff of native files to change manually.
+2.  **`npx react-native upgrade`:** CLI tool (automates some parts but often conflicts).
+3.  **Manual:** Update `package.json`, then carefully update `android/build.gradle`, `ios/Podfile`, etc.
+
+### Q78: What is "Linking"?
+**Difficulty: Intermediate**
+
+**Answer:**
+API to handle deep links (incoming) and open external apps (outgoing).
+*   `Linking.openURL('https://google.com')` (Browser)
+*   `Linking.openURL('tel:+123456789')` (Phone)
+*   `Linking.openURL('mailto:support@example.com')` (Email)
+
+### Q79: How to use TypeScript with React Native?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  Initialize: `npx react-native init MyApp --template react-native-template-typescript`.
+2.  Existing project: Add `typescript`, `@types/react`, `@types/react-native`. Create `tsconfig.json`.
+3.  Rename files from `.js` to `.tsx` (components) or `.ts` (logic).
+
+### Q80: What is a "Bundle"?
+**Difficulty: Intermediate**
+
+**Answer:**
+The single JavaScript file containing your entire app's code and dependencies.
+*   The **Metro Bundler** creates this file.
+*   In Debug: Bundle is served from localhost.
+*   In Release: Bundle is generated and saved into the app binary (IPA/APK).
+
+### Q81: Explain `ImageBackground`.
+**Difficulty: Beginner**
+
+**Answer:**
+A wrapper around `<Image>` that allows you to nest children inside it.
+*   Commonly used for background images.
+*   It's essentially an Image with `position: absolute` and a View on top.
+
+### Q82: How to implement "Infinite Scroll"?
+**Difficulty: Intermediate**
+
+**Answer:**
+Using `FlatList`.
+1.  `onEndReached`: Callback when user scrolls near end.
+2.  `onEndReachedThreshold`: How far from end to trigger (e.g., 0.5 = half screen length).
+3.  Inside callback: Fetch next page of data and append to state list.
+
+### Q83: What is `Dimensions` API?
+**Difficulty: Beginner**
+
+**Answer:**
+To get device screen width and height.
+```javascript
+import { Dimensions } from 'react-native';
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+```
+*   *Note:* `useWindowDimensions()` hook is preferred as it updates on rotation automatically.
+
+### Q84: How to handle orientation changes?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **Configuration:** Lock orientation in `AndroidManifest.xml` / Xcode if you don't want support.
+2.  **Responsive:** Use `useWindowDimensions()` or Flexbox (`flex: 1`) to adapt layout.
+3.  **Listener:** `Dimensions.addEventListener('change', callback)`.
+
+### Q85: What is `PixelRatio`?
+**Difficulty: Advanced**
+
+**Answer:**
+API to access the pixel density of the device.
+*   `PixelRatio.get()`: Returns 1 (mdpi), 2 (xhdpi/Retina), 3 (xxhdpi), etc.
+*   Used for fetching correctly sized images manually if needed.
+
+### Q86: How to store sensitive data (tokens)?
+**Difficulty: Intermediate**
+
+**Answer:**
+**Never** use AsyncStorage.
+*   **iOS:** Keychain Services.
+*   **Android:** Encrypted SharedPreferences / Keystore.
+*   **Library:** `react-native-keychain` or `react-native-encrypted-storage`.
+
+### Q87: What is CocoaPods?
+**Difficulty: Intermediate**
+
+**Answer:**
+Dependency manager for Swift and Objective-C Cocoa projects (iOS).
+*   React Native uses it to install native dependencies for iOS.
+*   `cd ios && pod install`.
+
+### Q88: What is Gradle?
+**Difficulty: Intermediate**
+
+**Answer:**
+Build automation tool for Android.
+*   React Native uses it to compile Java/Kotlin code and bundle the Android app.
+*   Configuration files: `build.gradle` (Project and App levels).
+
+### Q89: Explain `InteractionManager`.
+**Difficulty: Advanced**
+
+**Answer:**
+Allows you to schedule long-running work after an interaction/animation has finished.
+```javascript
+InteractionManager.runAfterInteractions(() => {
+  // expensive task
+});
+```
+*   Ensures animations (like navigation transitions) run smoothly without JS thread blocking.
+
+### Q90: What is `Switch` component?
+**Difficulty: Beginner**
+
+**Answer:**
+A boolean input component (Toggle).
+*   Props: `value` (bool), `onValueChange` (function), `trackColor`, `thumbColor`.
+*   Renders native switch (UISwitch on iOS, Switch on Android).
+
+### Q91: How to handle "Notch" on newer iPhones?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `SafeAreaView`.
+*   It automatically adds padding to top/bottom to avoid the notch and home indicator.
+
+### Q92: What is `AccessibilityInfo`?
+**Difficulty: Advanced**
+
+**Answer:**
+API to query screen reader status (VoiceOver/TalkBack).
+*   `AccessibilityInfo.isScreenReaderEnabled()`.
+*   Can listen for changes to adapt UI for visually impaired users.
+
+### Q93: How to share content to other apps?
+**Difficulty: Beginner**
+
+**Answer:**
+Use the `Share` API.
+```javascript
+Share.share({
+  message: 'Check out this app!',
+  url: 'https://myapp.com',
+  title: 'App Title'
+});
+```
+*   Opens the native share sheet.
+
+### Q94: What is `TextInput` props for keyboard?
+**Difficulty: Beginner**
+
+**Answer:**
+*   `keyboardType`: 'default', 'numeric', 'email-address', 'phone-pad'.
+*   `returnKeyType`: 'done', 'next', 'search', 'send'.
+*   `secureTextEntry`: true (for passwords).
+*   `autoCapitalize`: 'none', 'sentences', 'words', 'characters'.
+
+### Q95: How to render HTML in React Native?
+**Difficulty: Intermediate**
+
+**Answer:**
+React Native does not render HTML natively (no WebView by default).
+1.  **`react-native-webview`:** Embed a full browser engine.
+2.  **`react-native-render-html`:** Parses HTML and renders it as native Views/Texts (lighter weight).
+
+### Q96: What is `Alert`?
+**Difficulty: Beginner**
+
+**Answer:**
+API to launch an alert dialog with title, message, and buttons.
+```javascript
+Alert.alert(
+  "Title",
+  "Message",
+  [
+    { text: "Cancel", style: "cancel" },
+    { text: "OK", onPress: () => console.log("OK Pressed") }
+  ]
+);
+```
+
+### Q97: How to optimize Android build speed?
+**Difficulty: Advanced**
+
+**Answer:**
+1.  Enable **Gradle Daemon**.
+2.  Increase **Heap Size** (`org.gradle.jvmargs`).
+3.  Enable **incremental compilation**.
+4.  Use a newer JDK.
+
+### Q98: What is "Flipper"?
+**Difficulty: Intermediate**
+
+**Answer:**
+A debugging platform for mobile apps.
+*   Inspect layout.
+*   Inspect network requests.
+*   View logs.
+*   Inspect local databases.
+*   React Native integrates with Flipper out of the box (though transitioning away in 0.73+).
+
+### Q99: How to handle multiple environments (Dev, Staging, Prod)?
+**Difficulty: Advanced**
+
+**Answer:**
+1.  **`react-native-config`:** Reads `.env` files and exposes variables to JS and Native code.
+2.  **Build Types/Schemes:** Configure Xcode Schemes and Android Build Types (debug, release, staging) to load different config files.
+
+### Q100: What is the future of React Native?
+**Difficulty: General**
+
+**Answer:**
+*   **New Architecture:** Fully enabled by default.
+*   **Static Hermes:** Further performance gains.
+*   **Web Alignment:** Closer parity with web standards (CSS, Event Loop).
+*   **Server Components:** Exploration of RSC for React Native.
+*   **Cross-platform expansion:** TV, macOS, Windows, visionOS.

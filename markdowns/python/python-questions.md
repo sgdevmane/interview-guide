@@ -18,6 +18,90 @@
 14. [Q14: How do you implement effective error handling and exception management in Python web applications?](#q14-how-do-you-implement-effective-error-handling-and-exception-management-in-python-web-applications)
 15. [Q15: Explain Python deployment strategies and containerization for web applications.](#q15-explain-python-deployment-strategies-and-containerization-for-web-applications)
 16. [Q16: How do you implement performance optimization and profiling in Python web applications?](#q16-how-do-you-implement-performance-optimization-and-profiling-in-python-web-applications)
+17. [Q17: Compare Flask and Django frameworks.](#q17-compare-flask-and-django-frameworks)
+18. [Q18: Explain the difference between Iterators and Generators in Python.](#q18-explain-the-difference-between-iterators-and-generators-in-python)
+19. [Q19: What are Metaclasses in Python and when should you use them?](#q19-what-are-metaclasses-in-python-and-when-should-you-use-them)
+20. [Q20: Explain the difference between Deep Copy and Shallow Copy.](#q20-explain-the-difference-between-deep-copy-and-shallow-copy)
+21. [Q21: Compare List vs. Tuple in Python.](#q21-compare-list-vs-tuple-in-python)
+22. [Q22: What are Lambda functions and where are they used?](#q22-what-are-lambda-functions-and-where-are-they-used)
+23. [Q23: Explain `*args` and `**kwargs`.](#q23-explain-args-and-kwargs)
+24. [Q24: How does Python's Method Resolution Order (MRO) work?](#q24-how-does-pythons-method-resolution-order-mro-work)
+25. [Q25: Difference between `@staticmethod` and `@classmethod`.](#q25-difference-between-staticmethod-and-classmethod)
+26. [Q26: What is the difference between `__init__` and `__new__`?](#q26-what-is-the-difference-between-__init__-and-__new__)
+27. [Q27: Explain Pickling and Unpickling.](#q27-explain-pickling-and-unpickling)
+28. [Q28: What is Monkey Patching?](#q28-what-is-monkey-patching)
+29. [Q29: Explain the `collections` module and its common types.](#q29-explain-the-collections-module-and-its-common-types)
+30. [Q30: Why use Virtual Environments?](#q30-why-use-virtual-environments)
+31. [Q31: Threading vs. Multiprocessing in Python.](#q31-threading-vs-multiprocessing-in-python)
+32. [Q32: How does the `with` statement work?](#q32-how-does-the-with-statement-work)
+33. [Q33: Explain `functools.wraps`.](#q33-explain-functoolswraps)
+34. [Q34: Difference between `is` and `==`.](#q34-difference-between-is-and-)
+35. [Q35: Explain the `else` clause in loops (`for`/`while`).](#q35-explain-the-else-clause-in-loops-forwhile)
+36. [Q36: What are Pytest Fixtures?](#q36-what-are-pytest-fixtures)
+37. [Q37: How do you mock dependencies in Python?](#q37-how-do-you-mock-dependencies-in-python)
+38. [Q38: WSGI vs. ASGI.](#q38-wsgi-vs-asgi)
+39. [Q39: What makes FastAPI different from Flask?](#q39-what-makes-fastapi-different-from-flask)
+40. [Q40: Explain Pydantic.](#q40-explain-pydantic)
+41. [Q41: SQLAlchemy Core vs. ORM.](#q41-sqlalchemy-core-vs-orm)
+42. [Q42: What is the N+1 problem and how do you solve it?](#q42-what-is-the-n1-problem-and-how-do-you-solve-it)
+43. [Q43: What is Celery used for?](#q43-what-is-celery-used-for)
+44. [Q44: What is Introspection in Python?](#q44-what-is-introspection-in-python)
+45. [Q45: Explain List, Dictionary, and Set Comprehensions.](#q45-explain-list-dictionary-and-set-comprehensions)
+46. [Q46: What is the `__call__` method?](#q46-what-is-the-__call__-method)
+47. [Q47: Difference between a Module and a Package.](#q47-difference-between-a-module-and-a-package)
+48. [Q48: How do you handle missing data in Pandas?](#q48-how-do-you-handle-missing-data-in-pandas)
+49. [Q49: What are Jupyter Notebooks?](#q49-what-are-jupyter-notebooks)
+50. [Q50: How do you Dockerize a Python application?](#q50-how-do-you-dockerize-a-python-application)
+51. [Q51: What is CI/CD and how is it used with Python?](#q51-what-is-cicd-and-how-is-it-used-with-python)
+52. [Q52: Singleton Pattern in Python.](#q52-singleton-pattern-in-python)
+53. [Q53: Factory Pattern in Python.](#q53-factory-pattern-in-python)
+54. [Q54: Observer Pattern in Python.](#q54-observer-pattern-in-python)
+55. [Q55: Dependency Injection in Python.](#q55-dependency-injection-in-python)
+56. [Q56: Explain the `requests` library.](#q56-explain-the-requests-library)
+57. [Q57: JSON handling in Python.](#q57-json-handling-in-python)
+58. [Q58: Explain `enumerate` and `zip`.](#q58-explain-enumerate-and-zip)
+59. [Q59: Explain `any()` and `all()`.](#q59-explain-any-and-all)
+60. [Q60: Difference between `global` and `nonlocal`.](#q60-difference-between-global-and-nonlocal)
+61. [Q61: What are `__slots__` and why use them?](#q61-what-are-__slots__-and-why-use-them)
+62. [Q62: Explain Mixins in Python.](#q62-explain-mixins-in-python)
+63. [Q63: What is Duck Typing?](#q63-what-is-duck-typing)
+64. [Q64: Explain Type Hinting, Generics, Union, and Optional.](#q64-explain-type-hinting-generics-union-and-optional)
+65. [Q65: What are Dataclasses?](#q65-what-are-dataclasses)
+66. [Q66: Explain `functools.partial`.](#q66-explain-functoolspartial)
+67. [Q67: Explain the `itertools` module (cycle, count, repeat).](#q67-explain-the-itertools-module-cycle-count-repeat)
+68. [Q68: usage of `itertools.groupby`.](#q68-usage-of-itertoolsgroupby)
+69. [Q69: What is `itertools.chain`?](#q69-what-is-itertoolschain)
+70. [Q70: Explain the `contextlib` module.](#q70-explain-the-contextlib-module)
+71. [Q71: What is the `atexit` module?](#q71-what-is-the-atexit-module)
+72. [Q72: Difference between `__str__` and `__repr__`.](#q72-difference-between-__str__-and-__repr__)
+73. [Q73: Explain `__getitem__` and `__setitem__`.](#q73-explain-__getitem__-and-__setitem__)
+74. [Q74: Explain `__getattr__` vs `__getattribute__`.](#q74-explain-__getattr__-vs-__getattribute__)
+75. [Q75: Explain Property Decorators (`@property`).](#q75-explain-property-decorators-property)
+76. [Q76: What are Abstract Base Classes (ABC)?](#q76-what-are-abstract-base-classes-abc)
+77. [Q77: Explain `super()`.](#q77-explain-super)
+78. [Q78: `isinstance()` vs `type()`.](#q78-isinstance-vs-type)
+79. [Q79: What is the Walrus Operator (`:=`)?](#q79-what-is-the-walrus-operator-)
+80. [Q80: Positional-only parameters (`/`).](#q80-positional-only-parameters-)
+81. [Q81: Explain f-strings.](#q81-explain-f-strings)
+82. [Q82: Structural Pattern Matching (`match` / `case`).](#q82-structural-pattern-matching-match-case)
+83. [Q83: `async` for loops and context managers.](#q83-async-for-loops-and-context-managers)
+84. [Q84: `asyncio.gather` vs `asyncio.wait`.](#q84-asynciogather-vs-asynciowait)
+85. [Q85: What is `asyncio.create_task`?](#q85-what-is-asynciocreate_task)
+86. [Q86: Explain the `heapq` module.](#q86-explain-the-heapq-module)
+87. [Q87: Explain the `bisect` module.](#q87-explain-the-bisect-module)
+88. [Q88: Explain the `timeit` module.](#q88-explain-the-timeit-module)
+89. [Q89: Advanced Logging Configuration.](#q89-advanced-logging-configuration)
+90. [Q90: Explain the `argparse` module.](#q90-explain-the-argparse-module)
+91. [Q91: `os` vs `pathlib`.](#q91-os-vs-pathlib)
+92. [Q92: Handling Dates and Times (`datetime`).](#q92-handling-dates-and-times-datetime)
+93. [Q93: File I/O Modes.](#q93-file-io-modes)
+94. [Q94: Exception Hierarchy.](#q94-exception-hierarchy)
+95. [Q95: Custom Exceptions.](#q95-custom-exceptions)
+96. [Q96: `try`...`except`...`else`...`finally`.](#q96-tryexceptelsefinally)
+97. [Q97: The `assert` statement.](#q97-the-assert-statement)
+98. [Q98: Common Anti-Patterns.](#q98-common-anti-patterns)
+99. [Q99: Python 2 vs Python 3.](#q99-python-2-vs-python-3)
+100. [Q100: The Zen of Python.](#q100-the-zen-of-python)
 
 ---
 
@@ -12483,3 +12567,2039 @@ jobs:
 ```
 
 ---
+
+### Q17: Compare Flask and Django frameworks.
+
+**Difficulty: Beginner**
+
+**Answer:**
+Flask and Django are two of the most popular Python web frameworks, but they follow different philosophies.
+
+**Django:**
+- **"Batteries-included":** Comes with built-in ORM, authentication, admin panel, forms, etc.
+- **Opinionated:** Follows a specific directory structure and way of doing things.
+- **Monolithic:** Best for large, complex applications where standard features are needed out of the box.
+- **Learning Curve:** Steeper due to many built-in concepts.
+
+**Flask:**
+- **Microframework:** Minimalistic core; features like ORM, authentication, etc., are added via extensions.
+- **Unopinionated:** Flexible project structure; developers choose their tools (e.g., SQLAlchemy vs. Peewee).
+- **Lightweight:** Best for microservices, small to medium apps, or when you need granular control.
+- **Learning Curve:** Easier to start, but requires making more architectural decisions.
+
+**Code Example (Hello World):**
+
+**Flask:**
+```python
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return "Hello from Flask!"
+
+if __name__ == '__main__':
+    app.run()
+```
+
+**Django (views.py):**
+```python
+from django.http import HttpResponse
+
+def hello(request):
+    return HttpResponse("Hello from Django!")
+```
+
+---
+
+### Q18: Explain the difference between Iterators and Generators in Python.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Both are used for iteration, but they differ in implementation and memory usage.
+
+**Iterator:**
+- An object that implements `__iter__()` and `__next__()` methods.
+- Stores the entire state or collection in memory (unless custom-built to be lazy).
+- More verbose to implement (requires a class).
+
+**Generator:**
+- A special type of function that returns an iterator using the `yield` keyword.
+- **Lazy Evaluation:** Generates values on the fly, one by one, consuming minimal memory.
+- Simpler syntax.
+
+**Code Example:**
+
+```python
+# Iterator Class
+class CountIterator:
+    def __init__(self, limit):
+        self.limit = limit
+        self.count = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.count < self.limit:
+            x = self.count
+            self.count += 1
+            return x
+        else:
+            raise StopIteration
+
+# Generator Function
+def count_generator(limit):
+    count = 0
+    while count < limit:
+        yield count
+        count += 1
+
+# Usage
+print(list(count_generator(5)))  # [0, 1, 2, 3, 4]
+```
+
+---
+
+### Q19: What are Metaclasses in Python and when should you use them?
+
+**Difficulty: Expert**
+
+**Answer:**
+A metaclass is "a class of a class". Just as a class defines the behavior of an instance, a metaclass defines the behavior of a class (how it's created, registered, etc.). Python's default metaclass is `type`.
+
+**Key Uses:**
+- **Validation:** Check if a class is defined correctly (e.g., checking for required methods).
+- **Registration:** Automatically register subclasses (used in ORMs and plugins).
+- **Modification:** Modify class attributes or methods at creation time.
+
+**Code Example:**
+
+```python
+class Meta(type):
+    def __new__(cls, name, bases, dct):
+        print(f"Creating class {name}")
+        if 'class_id' not in dct:
+            raise TypeError(f"Class {name} must have a 'class_id' attribute")
+        return super().__new__(cls, name, bases, dct)
+
+class Base(metaclass=Meta):
+    class_id = 0
+
+class Derived(Base):
+    class_id = 1
+    # If class_id was missing, this would raise TypeError at definition time
+```
+
+---
+
+### Q20: Explain the difference between Deep Copy and Shallow Copy.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Shallow Copy:**
+- Creates a new object but inserts references into it to the objects found in the original.
+- Changes to mutable items in the copy *will* affect the original.
+- Created using `copy.copy()`, slicing `[:]`, or `list()`.
+
+**Deep Copy:**
+- Creates a new object and recursively copies the objects found in the original.
+- Changes to the copy *do not* affect the original.
+- Created using `copy.deepcopy()`.
+
+**Code Example:**
+
+```python
+import copy
+
+original = [[1, 2], [3, 4]]
+shallow = copy.copy(original)
+deep = copy.deepcopy(original)
+
+shallow[0][0] = 99
+deep[1][0] = 88
+
+print(original) # [[99, 2], [3, 4]] - Affected by shallow copy
+print(shallow)  # [[99, 2], [3, 4]]
+print(deep)     # [[1, 2], [88, 4]] - Independent
+```
+
+---
+
+### Q21: Compare List vs. Tuple in Python.
+
+**Difficulty: Beginner**
+
+**Answer:**
+**List:**
+- **Mutable:** Can be changed after creation (add, remove, modify elements).
+- **Syntax:** Square brackets `[]`.
+- **Performance:** Slightly slower due to memory overhead for mutability.
+- **Use Case:** Collections where data might change.
+
+**Tuple:**
+- **Immutable:** Cannot be changed after creation.
+- **Syntax:** Parentheses `()`.
+- **Performance:** Faster and consumes less memory.
+- **Hashable:** Can be used as dictionary keys (if elements are also immutable).
+- **Use Case:** Fixed collections, returning multiple values from functions.
+
+**Code Example:**
+
+```python
+my_list = [1, 2, 3]
+my_list[0] = 10 # Allowed
+
+my_tuple = (1, 2, 3)
+# my_tuple[0] = 10 # Raises TypeError
+```
+
+---
+
+### Q22: What are Lambda functions and where are they used?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Lambda functions are small, anonymous functions defined with the `lambda` keyword. They can take any number of arguments but can only have one expression.
+
+**Characteristics:**
+- Syntactic sugar for a regular function.
+- Automatically returns the result of the expression.
+- Often used with `map()`, `filter()`, `sorted()`, or as callbacks.
+
+**Code Example:**
+
+```python
+# Regular function
+def add(x, y):
+    return x + y
+
+# Lambda equivalent
+add_lambda = lambda x, y: x + y
+
+# Usage in sorting
+points = [(1, 2), (3, 1), (5, 0)]
+sorted_points = sorted(points, key=lambda p: p[1]) # Sort by y-coordinate
+print(sorted_points) # [(5, 0), (3, 1), (1, 2)]
+```
+
+---
+
+### Q23: Explain `*args` and `**kwargs`.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+They allow functions to accept a variable number of arguments.
+
+- **`*args` (Non-Keyword Arguments):** Collects extra positional arguments into a tuple.
+- **`**kwargs` (Keyword Arguments):** Collects extra keyword arguments into a dictionary.
+
+**Code Example:**
+
+```python
+def func(required, *args, **kwargs):
+    print(f"Required: {required}")
+    print(f"Args: {args}")
+    print(f"Kwargs: {kwargs}")
+
+func("Hello", 1, 2, 3, key="value", user="admin")
+# Output:
+# Required: Hello
+# Args: (1, 2, 3)
+# Kwargs: {'key': 'value', 'user': 'admin'}
+```
+
+---
+
+### Q24: How does Python's Method Resolution Order (MRO) work?
+
+**Difficulty: Expert**
+
+**Answer:**
+MRO determines the order in which Python looks for methods in a hierarchy of classes, especially with multiple inheritance. Python uses the **C3 Linearization** algorithm.
+
+- You can check the MRO of a class using `ClassName.__mro__` or `ClassName.mro()`.
+- It ensures that subclasses appear before base classes and keeps the order of base classes as defined.
+
+**Code Example:**
+
+```python
+class A:
+    def speak(self): print("A")
+
+class B(A):
+    def speak(self): print("B")
+
+class C(A):
+    def speak(self): print("C")
+
+class D(B, C):
+    pass
+
+d = D()
+d.speak() # Output: B (searches D -> B -> C -> A)
+print(D.__mro__)
+# (<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>)
+```
+
+---
+
+### Q25: Difference between `@staticmethod` and `@classmethod`.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**`@staticmethod`:**
+- Does not take `self` or `cls` as the first argument.
+- Behaves like a regular function but belongs to the class namespace.
+- Cannot access class or instance state.
+
+**`@classmethod`:**
+- Takes `cls` as the first argument.
+- Can access class attributes and modify class state.
+- Often used for factory methods.
+
+**Code Example:**
+
+```python
+class MyClass:
+    count = 0
+
+    @classmethod
+    def increment_count(cls):
+        cls.count += 1
+
+    @staticmethod
+    def is_valid(x):
+        return x > 0
+
+MyClass.increment_count()
+print(MyClass.count) # 1
+print(MyClass.is_valid(5)) # True
+```
+
+---
+
+### Q26: What is the difference between `__init__` and `__new__`?
+
+**Difficulty: Expert**
+
+**Answer:**
+- **`__new__`**: The first step of instance creation. It is a static method that creates the object and returns it. It takes `cls` as the first argument. Used when subclassing immutable types (like `str`, `int`, `tuple`) or implementing Singletons.
+- **`__init__`**: The initialization step. It gets the object created by `__new__` and initializes its attributes. It takes `self` as the first argument.
+
+**Code Example:**
+
+```python
+class PositiveInt(int):
+    def __new__(cls, value):
+        if value < 0:
+            raise ValueError("Must be positive")
+        return super().__new__(cls, value)
+
+x = PositiveInt(5)
+# y = PositiveInt(-5) # Raises ValueError
+```
+
+---
+
+### Q27: Explain Pickling and Unpickling.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+The `pickle` module implements binary protocols for serializing and de-serializing a Python object structure.
+
+- **Pickling:** Converting a Python object hierarchy into a byte stream.
+- **Unpickling:** Converting a byte stream back into an object hierarchy.
+- **Warning:** Never unpickle data received from an untrusted source, as it can execute arbitrary code.
+
+**Code Example:**
+
+```python
+import pickle
+
+data = {'a': 1, 'b': 2}
+
+# Pickle
+with open('data.pkl', 'wb') as f:
+    pickle.dump(data, f)
+
+# Unpickle
+with open('data.pkl', 'rb') as f:
+    loaded_data = pickle.load(f)
+
+print(loaded_data)
+```
+
+---
+
+### Q28: What is Monkey Patching?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Monkey patching is the dynamic replacement of attributes or methods at runtime. It is often used in testing (mocking) or to hot-fix bugs in third-party libraries without changing their source code.
+
+**Code Example:**
+
+```python
+class MyClass:
+    def method(self):
+        return "Original"
+
+def new_method(self):
+    return "Patched"
+
+# Monkey Patching
+MyClass.method = new_method
+
+obj = MyClass()
+print(obj.method()) # "Patched"
+```
+
+---
+
+### Q29: Explain the `collections` module and its common types.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+The `collections` module provides specialized container datatypes providing alternatives to Python's general purpose built-in containers (`dict`, `list`, `set`, and `tuple`).
+
+**Common Types:**
+- **`namedtuple()`:** Factory for creating tuple subclasses with named fields.
+- **`deque`:** List-like container with fast appends and pops on either end.
+- **`Counter`:** Dict subclass for counting hashable objects.
+- **`defaultdict`:** Dict subclass that calls a factory function to supply missing values.
+- **`OrderedDict`:** Dict subclass that remembers the order entries were added (less relevant in Python 3.7+ where dicts are ordered).
+
+**Code Example:**
+
+```python
+from collections import Counter, defaultdict
+
+# Counter
+cnt = Counter(['a', 'b', 'c', 'a', 'b', 'b'])
+print(cnt) # Counter({'b': 3, 'a': 2, 'c': 1})
+
+# defaultdict
+d = defaultdict(int)
+d['key'] += 1 # No KeyError, initializes to 0
+print(d['key']) # 1
+```
+
+---
+
+### Q30: Why use Virtual Environments?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Virtual environments (created via `venv`, `virtualenv`, `poetry`, etc.) create isolated spaces for Python projects.
+
+**Benefits:**
+- **Dependency Isolation:** Each project can have its own dependencies, regardless of what other projects have.
+- **Version Conflict Avoidance:** Project A can use Lib v1.0 while Project B uses Lib v2.0.
+- **Clean System Python:** Avoids installing packages globally, keeping the system Python installation clean and stable.
+
+**Command Example:**
+
+```bash
+python3 -m venv myenv
+source myenv/bin/activate
+pip install requests
+```
+
+---
+
+### Q31: Threading vs. Multiprocessing in Python.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **Threading:**
+  - Uses the `threading` module.
+  - Runs in a single process; threads share memory.
+  - Limited by the GIL (Global Interpreter Lock); only one thread executes Python bytecode at a time.
+  - **Best for:** I/O-bound tasks (network requests, file I/O).
+
+- **Multiprocessing:**
+  - Uses the `multiprocessing` module.
+  - Spawns separate processes; each has its own memory space and GIL.
+  - **Best for:** CPU-bound tasks (heavy calculations, data processing).
+
+**Code Example:**
+
+```python
+import multiprocessing
+import threading
+import time
+
+def cpu_bound():
+    sum(i * i for i in range(10000000))
+
+# Multiprocessing is faster for this
+if __name__ == '__main__':
+    p = multiprocessing.Process(target=cpu_bound)
+    p.start()
+    p.join()
+```
+
+---
+
+### Q32: How does the `with` statement work?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+The `with` statement simplifies exception handling and resource management by encapsulating common preparation and cleanup tasks. It relies on **Context Managers** which implement `__enter__` and `__exit__` methods.
+
+**Benefits:**
+- Automatically closes files or releases locks, even if exceptions occur.
+- Cleaner, more readable code.
+
+**Code Example:**
+
+```python
+# Without 'with'
+f = open('file.txt', 'w')
+try:
+    f.write('hello')
+finally:
+    f.close()
+
+# With 'with'
+with open('file.txt', 'w') as f:
+    f.write('hello')
+# File is automatically closed here
+```
+
+---
+
+### Q33: Explain `functools.wraps`.
+
+**Difficulty: Advanced**
+
+**Answer:**
+When creating decorators, the decorated function loses its original metadata (`__name__`, `__doc__`, etc.) and takes on the metadata of the wrapper function. `functools.wraps` is a decorator used inside your custom decorator to copy this metadata back to the wrapper.
+
+**Code Example:**
+
+```python
+from functools import wraps
+
+def my_decorator(f):
+    @wraps(f)
+    def wrapper(*args, **kwargs):
+        """Wrapper docstring"""
+        return f(*args, **kwargs)
+    return wrapper
+
+@my_decorator
+def example():
+    """Original docstring"""
+    pass
+
+print(example.__name__) # "example" (without @wraps, it would be "wrapper")
+print(example.__doc__)  # "Original docstring"
+```
+
+---
+
+### Q34: Difference between `is` and `==`.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **`==` (Equality):** Checks if the **values** of two objects are equal. Calls `__eq__`.
+- **`is` (Identity):** Checks if two references point to the **same object** in memory. Checks memory address (`id()`).
+
+**Code Example:**
+
+```python
+a = [1, 2, 3]
+b = [1, 2, 3]
+c = a
+
+print(a == b) # True (values are same)
+print(a is b) # False (different objects in memory)
+print(a is c) # True (same object)
+```
+
+---
+
+### Q35: Explain the `else` clause in loops (`for`/`while`).
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A `for` or `while` loop can have an `else` block.
+- The `else` block executes **only if the loop completes normally** (i.e., it was not terminated by a `break` statement).
+- It does NOT execute if the loop was broken out of.
+
+**Code Example:**
+
+```python
+for n in range(2, 10):
+    for x in range(2, n):
+        if n % x == 0:
+            print(f"{n} equals {x} * {n//x}")
+            break
+    else:
+        # Executed if no break occurred in the inner loop
+        print(f"{n} is a prime number")
+```
+
+---
+
+### Q36: What are Pytest Fixtures?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Fixtures are functions in Pytest that provide a fixed baseline for tests. They are used for setup and teardown logic (e.g., database connections, test data creation).
+
+**Features:**
+- **Reusability:** Can be shared across multiple tests.
+- **Scope:** Can be scoped to function, class, module, or session.
+- **Dependency Injection:** Tests request fixtures by name as arguments.
+
+**Code Example:**
+
+```python
+import pytest
+
+@pytest.fixture
+def sample_data():
+    return {"key": "value"}
+
+def test_data(sample_data):
+    assert sample_data["key"] == "value"
+```
+
+---
+
+### Q37: How do you mock dependencies in Python?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+The `unittest.mock` library allows you to replace parts of your system under test with mock objects and make assertions about how they have been used.
+
+**Common Tools:**
+- `Mock` and `MagicMock`: Create fake objects.
+- `patch`: Decorator/context manager to replace objects during the test scope.
+
+**Code Example:**
+
+```python
+from unittest.mock import patch
+import my_module
+
+# Assume my_module.get_data makes an API call
+@patch('my_module.get_data')
+def test_process_data(mock_get_data):
+    mock_get_data.return_value = {'result': 'success'}
+    
+    result = my_module.process_data()
+    
+    assert result == 'success'
+    mock_get_data.assert_called_once()
+```
+
+---
+
+### Q38: WSGI vs. ASGI.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **WSGI (Web Server Gateway Interface):**
+  - The synchronous standard for Python web applications (Django, Flask).
+  - Handles one request at a time per thread.
+  - Blocking I/O.
+
+- **ASGI (Asynchronous Server Gateway Interface):**
+  - The spiritual successor to WSGI, designed for asynchronous apps (FastAPI, Django Channels).
+  - Supports `async`/`await`.
+  - Handles WebSockets, HTTP2, and long-polling.
+  - Non-blocking I/O.
+
+**Summary:** Use ASGI for modern, high-concurrency, or real-time applications.
+
+---
+
+### Q39: What makes FastAPI different from Flask?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+FastAPI is a modern web framework for building APIs with Python 3.6+ types.
+
+**Key Differences:**
+- **Performance:** Built on Starlette (ASGI) and Pydantic; extremely fast (on par with NodeJS and Go).
+- **Data Validation:** Automatic validation using Pydantic models.
+- **Async Support:** Native `async`/`await` support.
+- **Documentation:** Automatically generates interactive API docs (Swagger UI, ReDoc).
+- **Type Hints:** heavily relies on Python type hints.
+
+**Code Example:**
+
+```python
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Item(BaseModel):
+    name: str
+    price: float
+
+@app.post("/items/")
+async def create_item(item: Item):
+    return item
+```
+
+---
+
+### Q40: Explain Pydantic.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Pydantic is a data validation and settings management library using Python type annotations. It enforces type hints at runtime and provides user-friendly errors when data is invalid.
+
+**Code Example:**
+
+```python
+from pydantic import BaseModel, ValidationError
+
+class User(BaseModel):
+    id: int
+    name: str = 'John Doe'
+
+try:
+    user = User(id='123') # '123' cast to int 123
+    print(user)
+    
+    bad_user = User(id='abc') # Raises ValidationError
+except ValidationError as e:
+    print(e)
+```
+
+---
+
+### Q41: SQLAlchemy Core vs. ORM.
+
+**Difficulty: Advanced**
+
+**Answer:**
+SQLAlchemy provides two distinct modes of usage:
+
+**Core:**
+- SQL Expression Language.
+- Provides a schema-centric view.
+- You write Python constructs that represent SQL statements.
+- Closer to raw SQL, faster, more explicit control.
+
+**ORM (Object Relational Mapper):**
+- Domain-centric view.
+- Maps Python classes to database tables.
+- Provides the Unit of Work pattern.
+- Higher abstraction, automates many tasks, but can hide performance pitfalls (like N+1).
+
+**Code Example:**
+
+```python
+# Core
+stmt = select(user_table).where(user_table.c.name == 'ed')
+
+# ORM
+user = session.query(User).filter_by(name='ed').first()
+```
+
+---
+
+### Q42: What is the N+1 problem and how do you solve it?
+
+**Difficulty: Advanced**
+
+**Answer:**
+The N+1 problem occurs when an application makes 1 query to fetch N objects, and then N additional queries to fetch related data for each object.
+
+**Example:** Fetching 10 authors, then iterating through them to access their books (if lazy loading is on) results in 11 queries.
+
+**Solution:** Use Eager Loading (joining tables in the initial query).
+- **Django:** `select_related` (JOIN) or `prefetch_related` (separate query + Python join).
+- **SQLAlchemy:** `joinedload` or `subqueryload`.
+
+**Code Example (Django):**
+
+```python
+# N+1 Problem
+authors = Author.objects.all()
+for author in authors:
+    print(author.books.all()) # Triggers query per author
+
+# Solution
+authors = Author.objects.prefetch_related('books')
+```
+
+---
+
+### Q43: What is Celery used for?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Celery is an asynchronous task queue/job queue based on distributed message passing. It is used to offload time-consuming tasks from the main web request-response cycle.
+
+**Use Cases:**
+- Sending emails.
+- Processing images/videos.
+- Generating reports.
+- Periodic tasks (cron jobs).
+
+**Architecture:** Producer (Web App) -> Broker (Redis/RabbitMQ) -> Consumer (Celery Worker).
+
+---
+
+### Q44: What is Introspection in Python?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Introspection is the ability of a program to examine the type or properties of an object at runtime.
+
+**Functions:**
+- `type(obj)`: Returns the type of an object.
+- `id(obj)`: Returns the unique identifier.
+- `dir(obj)`: Returns a list of attributes and methods.
+- `hasattr()`, `getattr()`, `setattr()`: Access attributes dynamically.
+- `inspect` module: Provides advanced introspection capabilities (getting source code, arguments, etc.).
+
+---
+
+### Q45: Explain List, Dictionary, and Set Comprehensions.
+
+**Difficulty: Beginner**
+
+**Answer:**
+Comprehensions provide a concise way to create lists, dictionaries, or sets based on existing iterables.
+
+**Code Example:**
+
+```python
+# List Comprehension
+squares = [x**2 for x in range(5)] # [0, 1, 4, 9, 16]
+
+# Dict Comprehension
+square_dict = {x: x**2 for x in range(5)} # {0: 0, 1: 1, ...}
+
+# Set Comprehension
+even_set = {x for x in [1, 2, 2, 3, 4] if x % 2 == 0} # {2, 4}
+```
+
+---
+
+### Q46: What is the `__call__` method?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+The `__call__` method enables Python instances to behave like functions and be called directly.
+
+**Code Example:**
+
+```python
+class Multiplier:
+    def __init__(self, factor):
+        self.factor = factor
+
+    def __call__(self, x):
+        return x * self.factor
+
+double = Multiplier(2)
+print(double(5)) # 10 (Calls double.__call__(5))
+```
+
+---
+
+### Q47: Difference between a Module and a Package.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **Module:** A single file containing Python code (e.g., `my_script.py`). It can define functions, classes, and variables.
+- **Package:** A directory containing multiple modules and a special `__init__.py` file (optional in Python 3.3+ but recommended). It allows for a hierarchical structuring of the module namespace using dot notation (e.g., `mypackage.submodule`).
+
+---
+
+### Q48: How do you handle missing data in Pandas?
+
+**Difficulty: Data Science/Web**
+
+**Answer:**
+Pandas provides several methods to handle `NaN` (Not a Number) or `None` values.
+
+**Methods:**
+- `df.isnull()` / `df.notnull()`: Check for missing values.
+- `df.dropna()`: Remove rows/columns with missing data.
+- `df.fillna(value)`: Replace missing values with a specific value (e.g., mean, 0).
+- `df.interpolate()`: Fill based on surrounding values.
+
+**Code Example:**
+
+```python
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame({'A': [1, np.nan, 3]})
+df_filled = df.fillna(0)
+```
+
+---
+
+### Q49: What are Jupyter Notebooks?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text.
+
+**Uses:**
+- Data cleaning and transformation.
+- Numerical simulation.
+- Statistical modeling.
+- Data visualization.
+- Machine learning.
+- Prototyping code snippets.
+
+---
+
+### Q50: How do you Dockerize a Python application?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+To Dockerize a Python app, you create a `Dockerfile` that defines the environment.
+
+**Example Dockerfile:**
+
+```dockerfile
+# Base image
+FROM python:3.9-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy requirements
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy app code
+COPY . .
+
+# Expose port
+EXPOSE 5000
+
+# Command to run
+CMD ["python", "app.py"]
+```
+
+---
+
+### Q51: What is CI/CD and how is it used with Python?
+
+**Difficulty: DevOps**
+
+**Answer:**
+**CI (Continuous Integration):** Automatically running tests and checks whenever code is pushed (e.g., GitHub Actions running `pytest` and `flake8`).
+**CD (Continuous Deployment/Delivery):** Automatically deploying the application to servers (e.g., Heroku, AWS) after tests pass.
+
+**Tools:** GitHub Actions, Jenkins, GitLab CI, CircleCI.
+
+---
+
+### Q52: Singleton Pattern in Python.
+
+**Difficulty: Advanced**
+
+**Answer:**
+Ensures a class has only one instance and provides a global point of access to it.
+
+**Implementation (using `__new__`):**
+
+```python
+class Singleton:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super(Singleton, cls).__new__(cls)
+        return cls._instance
+
+s1 = Singleton()
+s2 = Singleton()
+print(s1 is s2) # True
+```
+
+---
+
+### Q53: Factory Pattern in Python.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Creates objects without specifying the exact class of object that will be created.
+
+**Code Example:**
+
+```python
+class Dog:
+    def speak(self): return "Woof"
+
+class Cat:
+    def speak(self): return "Meow"
+
+def get_pet(pet_type):
+    pets = dict(dog=Dog(), cat=Cat())
+    return pets.get(pet_type, None)
+
+print(get_pet("dog").speak())
+```
+
+---
+
+### Q54: Observer Pattern in Python.
+
+**Difficulty: Advanced**
+
+**Answer:**
+Defines a one-to-many dependency where when one object changes state, all its dependents are notified automatically.
+
+**Code Example:**
+
+```python
+class Subject:
+    def __init__(self):
+        self._observers = []
+    
+    def attach(self, observer):
+        self._observers.append(observer)
+    
+    def notify(self, message):
+        for observer in self._observers:
+            observer.update(message)
+
+class Observer:
+    def update(self, message):
+        print(f"Received: {message}")
+
+sub = Subject()
+obs = Observer()
+sub.attach(obs)
+sub.notify("Hello")
+```
+
+---
+
+### Q55: Dependency Injection in Python.
+
+**Difficulty: Advanced**
+
+**Answer:**
+A design pattern where an object receives other objects that it depends on. It decouples the creation of dependencies from their usage.
+
+**Code Example:**
+
+```python
+class Service:
+    def action(self):
+        return "Done"
+
+class Client:
+    def __init__(self, service): # Injection via constructor
+        self.service = service
+    
+    def do_work(self):
+        return self.service.action()
+
+svc = Service()
+client = Client(svc)
+```
+
+---
+
+### Q56: Explain the `requests` library.
+
+**Difficulty: Beginner**
+
+**Answer:**
+`requests` is the de facto standard HTTP library for Python. It abstracts the complexities of making HTTP requests behind a simple API.
+
+**Code Example:**
+
+```python
+import requests
+
+response = requests.get('https://api.github.com')
+if response.status_code == 200:
+    data = response.json()
+    print(data)
+```
+
+---
+
+### Q57: JSON handling in Python.
+
+**Difficulty: Beginner**
+
+**Answer:**
+Python's built-in `json` module handles JSON data.
+- `json.dumps(obj)`: Serialize Python object to JSON string.
+- `json.loads(str)`: Deserialize JSON string to Python object.
+- `json.dump(obj, file)`: Write JSON to file.
+- `json.load(file)`: Read JSON from file.
+
+**Code Example:**
+
+```python
+import json
+
+data = {"name": "Alice", "age": 30}
+json_str = json.dumps(data)
+parsed = json.loads(json_str)
+```
+
+---
+
+### Q58: Explain `enumerate` and `zip`.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **`enumerate(iterable)`:** Returns an iterator yielding pairs of (index, item).
+- **`zip(*iterables)`:** Aggregates elements from each of the iterables.
+
+**Code Example:**
+
+```python
+names = ['Alice', 'Bob']
+ages = [25, 30]
+
+# Enumerate
+for i, name in enumerate(names):
+    print(f"{i}: {name}")
+
+# Zip
+for name, age in zip(names, ages):
+    print(f"{name} is {age}")
+```
+
+---
+
+### Q59: Explain `any()` and `all()`.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **`any(iterable)`**: Returns `True` if *at least one* element in the iterable is truthy.
+- **`all(iterable)`**: Returns `True` if *all* elements in the iterable are truthy.
+
+**Code Example:**
+
+```python
+print(any([False, True, False])) # True
+print(all([True, True, True]))   # True
+print(all([True, False]))        # False
+```
+
+---
+
+### Q60: Difference between `global` and `nonlocal`.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+- **`global`**: Declares that a variable inside a function refers to a variable in the global scope (module level).
+- **`nonlocal`**: Declares that a variable inside a nested function refers to a variable in the nearest enclosing scope (excluding global).
+
+**Code Example:**
+
+```python
+x = 0
+def outer():
+    x = 1
+    def inner():
+        nonlocal x
+        x = 2
+    inner()
+    print(x) # 2 (modified by inner)
+
+outer()
+```
+
+
+### Q61: What are `__slots__` and why use them?
+
+**Difficulty: Advanced**
+
+**Answer:**
+By default, Python objects store instance attributes in a dictionary `__dict__`, which consumes significant memory. `__slots__` tells Python to allocate space for a fixed set of attributes, preventing the creation of `__dict__`.
+
+**Benefits:**
+- Reduced memory usage (significant for millions of objects).
+- Faster attribute access.
+- Prevents adding new attributes at runtime.
+
+**Code Example:**
+
+```python
+class Point:
+    __slots__ = ['x', 'y']
+    
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+p = Point(1, 2)
+# p.z = 3 # Raises AttributeError
+```
+
+---
+
+### Q62: Explain Mixins in Python.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+A Mixin is a class designed to provide specific functionality to other classes through multiple inheritance, but is not meant to stand alone.
+
+**Code Example:**
+
+```python
+class JsonMixin:
+    def to_json(self):
+        import json
+        return json.dumps(self.__dict__)
+
+class User(JsonMixin):
+    def __init__(self, name):
+        self.name = name
+
+u = User("Alice")
+print(u.to_json()) # {"name": "Alice"}
+```
+
+---
+
+### Q63: What is Duck Typing?
+
+**Difficulty: Beginner**
+
+**Answer:**
+"If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck."
+Python doesn't check types; it checks for the presence of methods or attributes.
+
+**Code Example:**
+
+```python
+class Duck:
+    def quack(self): print("Quack")
+
+class Person:
+    def quack(self): print("I'm quacking like a duck")
+
+def make_it_quack(obj):
+    obj.quack()
+
+make_it_quack(Duck())
+make_it_quack(Person()) # Works because Person has quack()
+```
+
+---
+
+### Q64: Explain Type Hinting, Generics, Union, and Optional.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Type hinting (introduced in Python 3.5) helps with code readability and static analysis.
+
+- **`List[int]`**: A list of integers.
+- **`Union[int, str]`**: Can be an int or a str.
+- **`Optional[int]`**: Can be an int or `None` (Same as `Union[int, None]`).
+
+**Code Example:**
+
+```python
+from typing import List, Union, Optional
+
+def process_items(items: List[int]) -> Optional[int]:
+    if not items:
+        return None
+    return sum(items)
+
+def display(value: Union[int, str]):
+    print(value)
+```
+
+---
+
+### Q65: What are Dataclasses?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Introduced in Python 3.7, `@dataclass` automatically generates special methods like `__init__`, `__repr__`, and `__eq__` for classes that primarily store data.
+
+**Code Example:**
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class InventoryItem:
+    name: str
+    price: float
+    quantity: int = 0
+
+item = InventoryItem("Apple", 1.5, 10)
+print(item) # InventoryItem(name='Apple', price=1.5, quantity=10)
+```
+
+---
+
+### Q66: Explain `functools.partial`.
+
+**Difficulty: Advanced**
+
+**Answer:**
+`partial` allows you to fix a certain number of arguments of a function and generate a new function.
+
+**Code Example:**
+
+```python
+from functools import partial
+
+def multiply(x, y):
+    return x * y
+
+double = partial(multiply, 2)
+print(double(4)) # 8
+```
+
+---
+
+### Q67: Explain the `itertools` module (cycle, count, repeat).
+
+**Difficulty: Intermediate**
+
+**Answer:**
+`itertools` provides functions for efficient looping.
+
+- **`count(start, step)`**: Infinite counter.
+- **`cycle(iterable)`**: Cycles through an iterable infinitely.
+- **`repeat(elem, n)`**: Repeats an element n times.
+
+**Code Example:**
+
+```python
+import itertools
+
+counter = itertools.count(10)
+print(next(counter)) # 10
+print(next(counter)) # 11
+```
+
+---
+
+### Q68: usage of `itertools.groupby`.
+
+**Difficulty: Advanced**
+
+**Answer:**
+Groups consecutive elements in an iterable that have the same key. **Note:** The input iterable must be sorted by the key function for `groupby` to work as expected.
+
+**Code Example:**
+
+```python
+from itertools import groupby
+
+data = [('a', 1), ('a', 2), ('b', 3), ('b', 4)]
+for key, group in groupby(data, key=lambda x: x[0]):
+    print(key, list(group))
+# a [('a', 1), ('a', 2)]
+# b [('b', 3), ('b', 4)]
+```
+
+---
+
+### Q69: What is `itertools.chain`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Combines multiple iterables into a single iterator.
+
+**Code Example:**
+
+```python
+from itertools import chain
+
+list1 = [1, 2]
+list2 = [3, 4]
+combined = list(chain(list1, list2))
+print(combined) # [1, 2, 3, 4]
+```
+
+---
+
+### Q70: Explain the `contextlib` module.
+
+**Difficulty: Advanced**
+
+**Answer:**
+Utilities for `with`-statement contexts. The `@contextmanager` decorator allows you to define a context manager using a generator function instead of a class.
+
+**Code Example:**
+
+```python
+from contextlib import contextmanager
+
+@contextmanager
+def my_context():
+    print("Entering")
+    yield "value"
+    print("Exiting")
+
+with my_context() as val:
+    print(val)
+```
+
+---
+
+### Q71: What is the `atexit` module?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Allows you to register functions to be executed upon normal program termination.
+
+**Code Example:**
+
+```python
+import atexit
+
+def goodbye():
+    print("Goodbye!")
+
+atexit.register(goodbye)
+```
+
+---
+
+### Q72: Difference between `__str__` and `__repr__`.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **`__str__`**: Computes the "informal" or nicely printable string representation of an object. Used by `print()` and `str()`. Intended for end-users.
+- **`__repr__`**: Computes the "official" string representation. Used by the debugger and `repr()`. Intended for developers. Ideally, `eval(repr(obj)) == obj`.
+
+**Code Example:**
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x, self.y = x, y
+    
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+    
+    def __repr__(self):
+        return f"Point(x={self.x}, y={self.y})"
+
+p = Point(1, 2)
+print(str(p))  # Point(1, 2)
+print(repr(p)) # Point(x=1, y=2)
+```
+
+---
+
+### Q73: Explain `__getitem__` and `__setitem__`.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+These magic methods allow instances to use square bracket notation `[]` for accessing and setting values, like lists or dictionaries.
+
+**Code Example:**
+
+```python
+class MyList:
+    def __init__(self):
+        self.data = {}
+    
+    def __getitem__(self, key):
+        return self.data.get(key)
+    
+    def __setitem__(self, key, value):
+        self.data[key] = value
+
+obj = MyList()
+obj['key'] = 'value'
+print(obj['key'])
+```
+
+---
+
+### Q74: Explain `__getattr__` vs `__getattribute__`.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **`__getattribute__`**: Called for **every** attribute access.
+- **`__getattr__`**: Called **only** when attribute lookup fails (i.e., the attribute is not found).
+
+**Code Example:**
+
+```python
+class A:
+    def __getattr__(self, name):
+        return f"{name} not found"
+
+a = A()
+a.exists = 1
+print(a.exists) # 1
+print(a.missing) # "missing not found"
+```
+
+---
+
+### Q75: Explain Property Decorators (`@property`).
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Allows you to define methods that can be accessed like attributes. Useful for adding logic (validation) to attribute access/modification without breaking the API.
+
+**Code Example:**
+
+```python
+class Circle:
+    def __init__(self, radius):
+        self._radius = radius
+
+    @property
+    def radius(self):
+        return self._radius
+
+    @radius.setter
+    def radius(self, value):
+        if value < 0:
+            raise ValueError("Radius cannot be negative")
+        self._radius = value
+
+c = Circle(5)
+c.radius = 10
+# c.radius = -5 # Raises ValueError
+```
+
+---
+
+### Q76: What are Abstract Base Classes (ABC)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+ABCs define a common API for a set of subclasses. They cannot be instantiated and often contain abstract methods that subclasses *must* implement.
+
+**Code Example:**
+
+```python
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass
+
+class Dog(Animal):
+    def sound(self):
+        return "Woof"
+
+# a = Animal() # Raises TypeError
+d = Dog()
+```
+
+---
+
+### Q77: Explain `super()`.
+
+**Difficulty: Beginner**
+
+**Answer:**
+`super()` returns a temporary object of the superclass that allows you to call its methods. It is commonly used in `__init__` to ensure the parent class is initialized correctly.
+
+**Code Example:**
+
+```python
+class Parent:
+    def __init__(self):
+        print("Parent init")
+
+class Child(Parent):
+    def __init__(self):
+        super().__init__()
+        print("Child init")
+```
+
+---
+
+### Q78: `isinstance()` vs `type()`.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **`isinstance(obj, Class)`**: Checks if an object is an instance of `Class` **or any of its subclasses**. (Preferred).
+- **`type(obj) == Class`**: Checks if an object is exactly an instance of `Class` (ignoring inheritance).
+
+---
+
+### Q79: What is the Walrus Operator (`:=`)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Introduced in Python 3.8, it assigns values to variables as part of a larger expression.
+
+**Code Example:**
+
+```python
+# Without walrus
+data = input("Enter data: ")
+while data != "quit":
+    print(data)
+    data = input("Enter data: ")
+
+# With walrus
+while (data := input("Enter data: ")) != "quit":
+    print(data)
+```
+
+---
+
+### Q80: Positional-only parameters (`/`).
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Introduced in Python 3.8, arguments before `/` must be specified by position, not by keyword.
+
+**Code Example:**
+
+```python
+def func(a, b, /, c):
+    print(a, b, c)
+
+func(1, 2, c=3) # Valid
+# func(a=1, b=2, c=3) # Invalid
+```
+
+---
+
+### Q81: Explain f-strings.
+
+**Difficulty: Beginner**
+
+**Answer:**
+Introduced in Python 3.6, f-strings provide a fast and readable way to embed expressions inside string literals.
+
+**Code Example:**
+
+```python
+name = "Alice"
+age = 30
+print(f"{name} is {age} years old")
+print(f"{2 + 2 = }") # Python 3.8+ feature: "2 + 2 = 4"
+```
+
+---
+
+### Q82: Structural Pattern Matching (`match` / `case`).
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Introduced in Python 3.10, it works like a powerful `switch` statement, allowing matching against data structures.
+
+**Code Example:**
+
+```python
+def http_error(status):
+    match status:
+        case 400:
+            return "Bad request"
+        case 404:
+            return "Not found"
+        case _:
+            return "Something's wrong with the internet"
+```
+
+---
+
+### Q83: `async` for loops and context managers.
+
+**Difficulty: Advanced**
+
+**Answer:**
+Python supports asynchronous iteration (`__aiter__`, `__anext__`) and context managers (`__aenter__`, `__aexit__`).
+
+**Code Example:**
+
+```python
+import asyncio
+
+async def async_gen():
+    yield 1
+    yield 2
+
+async def main():
+    async for i in async_gen():
+        print(i)
+
+# asyncio.run(main())
+```
+
+---
+
+### Q84: `asyncio.gather` vs `asyncio.wait`.
+
+**Difficulty: Advanced**
+
+**Answer:**
+- **`gather`**: Runs awaitables concurrently and returns an aggregated list of results. If one fails, it propagates the exception immediately (unless `return_exceptions=True`).
+- **`wait`**: Returns a set of `done` and `pending` tasks. More granular control (e.g., `FIRST_COMPLETED`).
+
+---
+
+### Q85: What is `asyncio.create_task`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+It wraps a coroutine into a `Task` and schedules its execution on the event loop. It allows you to run coroutines concurrently.
+
+**Code Example:**
+
+```python
+import asyncio
+
+async def task_func():
+    await asyncio.sleep(1)
+    print("Task done")
+
+async def main():
+    task = asyncio.create_task(task_func())
+    print("Task scheduled")
+    await task
+
+# asyncio.run(main())
+```
+
+---
+
+### Q86: Explain the `heapq` module.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Provides an implementation of the heap queue algorithm (priority queue). It uses a min-heap by default.
+
+**Code Example:**
+
+```python
+import heapq
+
+h = []
+heapq.heappush(h, 5)
+heapq.heappush(h, 1)
+heapq.heappush(h, 10)
+
+print(heapq.heappop(h)) # 1 (Smallest element)
+```
+
+---
+
+### Q87: Explain the `bisect` module.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Provides support for maintaining a list in sorted order without having to sort the list after each insertion.
+
+**Code Example:**
+
+```python
+import bisect
+
+a = [1, 2, 4, 5]
+bisect.insort(a, 3)
+print(a) # [1, 2, 3, 4, 5]
+```
+
+---
+
+### Q88: Explain the `timeit` module.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Used to measure the execution time of small code snippets. It avoids common pitfalls in measuring execution time.
+
+**Code Example:**
+
+```python
+import timeit
+
+print(timeit.timeit('"-".join(str(n) for n in range(100))', number=10000))
+```
+
+---
+
+### Q89: Advanced Logging Configuration.
+
+**Difficulty: DevOps**
+
+**Answer:**
+Python's `logging` module supports multiple handlers (file, console, email), formatters, and filters.
+
+**Code Example:**
+
+```python
+import logging
+
+logger = logging.getLogger('my_app')
+logger.setLevel(logging.DEBUG)
+
+fh = logging.FileHandler('spam.log')
+fh.setLevel(logging.DEBUG)
+
+ch = logging.StreamHandler()
+ch.setLevel(logging.ERROR)
+
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+
+logger.addHandler(fh)
+logger.addHandler(ch)
+```
+
+---
+
+### Q90: Explain the `argparse` module.
+
+**Difficulty: Beginner**
+
+**Answer:**
+The recommended command-line parsing module in Python.
+
+**Code Example:**
+
+```python
+import argparse
+
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('integers', metavar='N', type=int, nargs='+',
+                    help='an integer for the accumulator')
+parser.add_argument('--sum', dest='accumulate', action='store_const',
+                    const=sum, default=max,
+                    help='sum the integers (default: find the max)')
+
+args = parser.parse_args()
+print(args.accumulate(args.integers))
+```
+
+---
+
+### Q91: `os` vs `pathlib`.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+- **`os.path`**: String-based file path manipulation.
+- **`pathlib`**: Object-oriented file system paths (introduced in Python 3.4). `pathlib` is generally preferred for modern Python code.
+
+**Code Example:**
+
+```python
+from pathlib import Path
+
+p = Path('.')
+for x in p.iterdir():
+    if x.is_dir():
+        print(x)
+```
+
+---
+
+### Q92: Handling Dates and Times (`datetime`).
+
+**Difficulty: Beginner**
+
+**Answer:**
+The `datetime` module supplies classes for manipulating dates and times.
+
+**Code Example:**
+
+```python
+from datetime import datetime, timedelta
+
+now = datetime.now()
+tomorrow = now + timedelta(days=1)
+print(tomorrow.strftime("%Y-%m-%d"))
+```
+
+---
+
+### Q93: File I/O Modes.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- `'r'`: Read (default).
+- `'w'`: Write (truncates).
+- `'a'`: Append.
+- `'r+'`: Read and Write.
+- `'b'`: Binary mode (e.g., `'rb'`, `'wb'`).
+
+---
+
+### Q94: Exception Hierarchy.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+All exceptions inherit from `BaseException`.
+- `BaseException`
+  - `SystemExit`
+  - `KeyboardInterrupt`
+  - `Exception` (User-defined exceptions should inherit from this)
+    - `ArithmeticError`
+    - `LookupError`
+    - `ValueError`
+    - ...
+
+---
+
+### Q95: Custom Exceptions.
+
+**Difficulty: Beginner**
+
+**Answer:**
+You can define your own exceptions by creating a new class that inherits from `Exception`.
+
+**Code Example:**
+
+```python
+class MyError(Exception):
+    def __init__(self, message):
+        self.message = message
+
+try:
+    raise MyError("Something went wrong")
+except MyError as e:
+    print(e.message)
+```
+
+---
+
+### Q96: `try`...`except`...`else`...`finally`.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+- **`try`**: Block of code to test for errors.
+- **`except`**: Block to handle the error.
+- **`else`**: Block executed if no error occurred.
+- **`finally`**: Block executed regardless of the result (cleanup).
+
+**Code Example:**
+
+```python
+try:
+    print("Try")
+except:
+    print("Except")
+else:
+    print("Else")
+finally:
+    print("Finally")
+```
+
+---
+
+### Q97: The `assert` statement.
+
+**Difficulty: Beginner**
+
+**Answer:**
+Used for debugging purposes. If the condition is false, it raises `AssertionError`.
+
+**Code Example:**
+
+```python
+x = 10
+assert x > 0, "x must be positive"
+```
+
+---
+
+### Q98: Common Anti-Patterns.
+
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Mutable Default Arguments:** `def func(a=[]): ...` (The list is shared across calls).
+- **Broad Exception Catching:** `except Exception:` (Catches everything, hiding bugs).
+- **Not using `with`:** Manually opening/closing files.
+
+---
+
+### Q99: Python 2 vs Python 3.
+
+**Difficulty: Beginner**
+
+**Answer:**
+- **Print:** `print "Hello"` (2) vs `print("Hello")` (3).
+- **Division:** `3/2 = 1` (2) vs `3/2 = 1.5` (3).
+- **Strings:** ASCII by default (2) vs Unicode by default (3).
+- **Range:** `range()` returns list (2) vs iterator (3).
+
+---
+
+### Q100: The Zen of Python.
+
+**Difficulty: Beginner**
+
+**Answer:**
+A collection of 19 "guiding principles" for writing computer programs in Python.
+
+**Access:** `import this`
+
+**Key Aphorisms:**
+- Beautiful is better than ugly.
+- Explicit is better than implicit.
+- Simple is better than complex.
+- Readability counts.
+

@@ -1,94 +1,113 @@
 # HTML Interview Questions
 
 ## Table of Contents
+
 1. [Q1: What is HTML and how does it work?](#q1-what-is-html-and-how-does-it-work)
 2. [Q2: What are HTML5 semantic elements and why are they important?](#q2-what-are-html5-semantic-elements-and-why-are-they-important)
 3. [Q3: What are the different HTML5 input types and form elements?](#q3-what-are-the-different-html5-input-types-and-form-elements)
 4. [Q4: What are some important HTML5 APIs?](#q4-what-are-some-important-html5-apis)
-5. [Q5: How do you make HTML accessible?](#q5-how-do-you-make-html-accessible)
-6. [Q6: What are important HTML elements for SEO?](#q6-what-are-important-html-elements-for-seo)
-7. [Q7: How do you optimize HTML for performance?](#q7-how-do-you-optimize-html-for-performance)
-8. [Q8: How do you work with HTML5 audio and video elements?](#q8-how-do-you-work-with-html5-audio-and-video-elements)
-9. [Q9: What are HTML coding best practices?](#q9-what-are-html-coding-best-practices)
-10. [Q10: Explain HTML5 Web Components and their implementation.](#q10-explain-html5-web-components-and-their-implementation)
-11. [Q11: Explain HTML5 Performance Optimization techniques.](#q11-explain-html5-performance-optimization-techniques)
-12. [Q12: Explain HTML5 Accessibility (a11y) best practices.](#q12-explain-html5-accessibility-a11y-best-practices)
-13. [Q13: Explain HTML5 Progressive Web App (PWA) implementation.](#q13-explain-html5-progressive-web-app-pwa-implementation)
-14. [Q14: Explain HTML5 Security best practices.](#q14-explain-html5-security-best-practices)
-15. [Q15: What are the latest HTML features and how do you implement modern web standards?](#q15-what-are-the-latest-html-features-and-how-do-you-implement-modern-web-standards)
-16. [Q16: How do you create and implement custom Web Components?](#q16-how-do-you-create-and-implement-custom-web-components)
-17. [Q17: How do you implement advanced Progressive Web App (PWA) features?](#q17-how-do-you-implement-advanced-progressive-web-app-pwa-features)
-18. [Q18: How do you implement advanced HTML5 Web APIs and modern browser features?](#q18-how-do-you-implement-advanced-html5-web-apis-and-modern-browser-features)
-19. [Q19: How do you implement advanced HTML5 accessibility and inclusive design patterns?](#q19-how-do-you-implement-advanced-html5-accessibility-and-inclusive-design-patterns)
-20. [Q20: How do you implement advanced Web Components with Shadow DOM and modern HTML5 features?](#q20-how-do-you-implement-advanced-web-components-with-shadow-dom-and-modern-html5-features)
-21. [Q21: How do you implement Progressive Web App (PWA) features with advanced caching strategies and offline functionality?](#q21-how-do-you-implement-progressive-web-app-pwa-features-with-advanced-caching-strategies-and-offline-functionality)
-22. [Q22: How do you work with HTML5 Canvas API for graphics and animations?](#q22-how-do-you-work-with-html5-canvas-api-for-graphics-and-animations)
-23. [Q23: How do you implement HTML5 Drag and Drop functionality?](#q23-how-do-you-implement-html5-drag-and-drop-functionality)
-24. [Q24: How do you work with Web Storage API (localStorage and sessionStorage)?](#q24-how-do-you-work-with-web-storage-api-localstorage-and-sessionstorage)
-25. [Q25: How do you implement WebSockets for real-time communication?](#q25-how-do-you-implement-websockets-for-real-time-communication)
-26. [Q26: What is the difference between `<div>` and `<span>`?](#q26-what-is-the-difference-between-div-and-span)
-27. [Q27: What is the purpose of the `<head>` section in an HTML document?](#q27-what-is-the-purpose-of-the-head-section-in-an-html-document)
-28. [Q28: What are the different types of lists in HTML?](#q28-what-are-the-different-types-of-lists-in-html)
-29. [Q29: How do you embed audio and video in a webpage?](#q29-how-do-you-embed-audio-and-video-in-a-webpage)
-30. [Q30: What is an `<iframe>` and when should you use it?](#q30-what-is-an-iframe-and-when-should-you-use-it)
-31. [Q31: What is the difference between `id` and `class` attributes?](#q31-what-is-the-difference-between-id-and-class-attributes)
-32. [Q32: What are `data-*` attributes and how are they used?](#q32-what-are-data-attributes-and-how-are-they-used)
-33. [Q33: What is the purpose of the `alt` attribute on an `<img>` tag?](#q33-what-is-the-purpose-of-the-alt-attribute-on-an-img-tag)
-34. [Q34: How do you create a hyperlink in HTML?](#q34-how-do-you-create-a-hyperlink-in-html)
-35. [Q35: What are HTML entities and why are they used?](#q35-what-are-html-entities-and-why-are-they-used)
-36. [Q36: What is the difference between `<script>`, `<script async>`, and `<script defer>`?](#q36-what-is-the-difference-between-script-script-async-and-script-defer)
-37. [Q37: What is CORS and why is it important?](#q37-what-is-cors-and-why-is-it-important)
-38. [Q38: What is the difference between `localStorage` and `sessionStorage`?](#q38-what-is-the-difference-between-localstorage-and-sessionstorage)
-39. [Q39: What is the difference between `<canvas>` and `<svg>`?](#q39-what-is-the-difference-between-canvas-and-svg)
-40. [Q40: How do you create responsive images in HTML?](#q40-how-do-you-create-responsive-images-in-html)
-41. [Q41: What is the purpose of the `<meta>` tag in HTML?](#q41-what-is-the-purpose-of-the-meta-tag-in-html)
-42. [Q42: What is the purpose of the `rel` attribute on a `link` tag?](#q42-what-is-the-purpose-of-the-rel-attribute-on-a-link-tag)
-43. [Q43: What are Web Workers and what are they used for?](#q43-what-are-web-workers-and-what-are-they-used-for)
-44. [Q44: What are Server-Sent Events (SSE)?](#q44-what-are-server-sent-events-sse)
-45. [Q45: Explain the `defer` attribute in a `<script>` tag.](#q45-explain-the-defer-attribute-in-a-script-tag)
-46. [Q46: What is the difference between block and inline elements?](#q46-what-is-the-difference-between-block-and-inline-elements)
-47. [Q47: What is the purpose of the `box-sizing` property in CSS?](#q47-what-is-the-purpose-of-the-box-sizing-property-in-css)
-48. [Q48: What is CSS Specificity and how is it calculated?](#q48-what-is-css-specificity-and-how-is-it-calculated)
-49. [Q49: What is the difference between `em` and `rem` units in CSS?](#q49-what-is-the-difference-between-em-and-rem-units-in-css)
-50. [Q50: What is CSS Flexbox and what are its key features?](#q50-what-is-css-flexbox-and-what-are-its-key-features)
-51. [Q51: What is the difference between `<em>` and `<strong>` tags?](#q51-what-is-the-difference-between-em-and-strong-tags)
-52. [Q52: What is the purpose of the `DOCTYPE` declaration?](#q52-what-is-the-purpose-of-the-doctype-declaration)
-53. [Q53: What is the difference between an `id` and a `class`?](#q53-what-is-the-difference-between-an-id-and-a-class)
-54. [Q54: What are `data-*` attributes and why are they used?](#q54-what-are-data--attributes-and-why-are-they-used)
-55. [Q55: What is the difference between block and inline elements?](#q55-what-is-the-difference-between-block-and-inline-elements)
-56. [Q56: What is the CSS Box Model?](#q56-what-is-the-css-box-model)
-57. [Q57: What is CSS Specificity and how is it calculated?](#q57-what-is-css-specificity-and-how-is-it-calculated)
-58. [Q58: What is the difference between `display: none;` and `visibility: hidden;`?](#q58-what-is-the-difference-between-display-none-and-visibility-hidden)
-59. [Q59: What are the different values for the CSS `position` property?](#q59-what-are-the-different-values-for-the-css-position-property)
-60. [Q60: What is CSS Flexbox?](#q60-what-is-css-flexbox)
-61. [Q61: What is CSS Grid?](#q61-what-is-css-grid)
-62. [Q62: What is the difference between CSS Flexbox and Grid?](#q62-what-is-the-difference-between-css-flexbox-and-grid)
-63. [Q63: What is responsive web design and how are media queries used?](#q63-what-is-responsive-web-design-and-how-are-media-queries-used)
-64. [Q64: What are CSS preprocessors and why are they useful?](#q64-what-are-css-preprocessors-and-why-are-they-useful)
-65. [Q65: What is the difference between `px`, `em`, and `rem` units?](#q65-what-is-the-difference-between-px-em-and-rem-units)
-66. [Q66: What is the `z-index` property and how does stacking context work?](#q66-what-is-the-z-index-property-and-how-does-stacking-context-work)
-67. [Q67: What are pseudo-classes and pseudo-elements in CSS?](#q67-what-are-pseudo-classes-and-pseudo-elements-in-css)
-68. [Q68: What is the difference between `==` and `===` in JavaScript?](#q68-what-is-the-difference-between-and-in-javascript)
-69. [Q69: What is hoisting in JavaScript?](#q69-what-is-hoisting-in-javascript)
-70. [Q70: What is the difference between `null` and `undefined` in JavaScript?](#q70-what-is-the-difference-between-null-and-undefined-in-javascript)
-71. [Q71: What is a closure in JavaScript?](#q71-what-is-a-closure-in-javascript)
-72. [Q72: Explain the `this` keyword in JavaScript.](#q72-explain-the-this-keyword-in-javascript)
-73. [Q73: What is prototypal inheritance in JavaScript?](#q73-what-is-prototypal-inheritance-in-javascript)
-74. [Q74: What is the difference between Promises and Callbacks?](#q74-what-is-the-difference-between-promises-and-callbacks)
-75. [Q75: What is `async/await` and how does it work?](#q75-what-is-asyncawait-and-how-does-it-work)
-76. [Q76: What is the Event Loop in JavaScript?](#q76-what-is-the-event-loop-in-javascript)
-77. [Q77: What are the differences between `var`, `let`, and `const`?](#q77-what-are-the-differences-between-var-let-and-const)
-78. [Q78: What are arrow functions and how do they differ from regular functions?](#q78-what-are-arrow-functions-and-how-do-they-differ-from-regular-functions)
-79. [Q79: What is the difference between the spread and rest operators?](#q79-what-is-the-difference-between-the-spread-and-rest-operators)
-80. [Q80: Explain the array methods `map`, `filter`, and `reduce`.](#q80-explain-the-array-methods-map-filter-and-reduce)
-81. [Q81: What is the difference between a shallow copy and a deep copy of an object?](#q81-what-is-the-difference-between-a-shallow-copy-and-a-deep-copy-of-an-object)
-82. [Q82: What is event delegation in JavaScript?](#q82-what-is-event-delegation-in-javascript)
-83. [Q83: What are the differences between `localStorage`, `sessionStorage`, and Cookies?](#q83-what-are-the-differences-between-localstorage-sessionstorage-and-cookies)
-84. [Q84: What are debouncing and throttling in JavaScript?](#q84-what-are-debouncing-and-throttling-in-javascript)
+5. [Q5: What is the difference between `<div>` and `<span>`?](#q5-what-is-the-difference-between-div-and-span)
+6. [Q6: What is the purpose of the `<head>` section in an HTML document?](#q6-what-is-the-purpose-of-the-head-section-in-an-html-document)
+7. [Q7: What are the different types of lists in HTML?](#q7-what-are-the-different-types-of-lists-in-html)
+8. [Q8: How do you embed audio and video in a webpage?](#q8-how-do-you-embed-audio-and-video-in-a-webpage)
+9. [Q9: What is an `<iframe>` and when should you use it?](#q9-what-is-an-iframe-and-when-should-you-use-it)
+10. [Q10: What is the difference between `id` and `class` attributes?](#q10-what-is-the-difference-between-id-and-class-attributes)
+11. [Q11: What are `data-*` attributes and how are they used?](#q11-what-are-data--attributes-and-how-are-they-used)
+12. [Q12: What is the purpose of the `alt` attribute on an `<img>` tag?](#q12-what-is-the-purpose-of-the-alt-attribute-on-an-img-tag)
+13. [Q13: How do you create a hyperlink in HTML?](#q13-how-do-you-create-a-hyperlink-in-html)
+14. [Q14: What are HTML entities and why are they used?](#q14-what-are-html-entities-and-why-are-they-used)
+15. [Q15: What is the difference between `<script>`, `<script async>`, and `<script defer>`?](#q15-what-is-the-difference-between-script-script-async-and-script-defer)
+16. [Q16: What is CORS and why is it important?](#q16-what-is-cors-and-why-is-it-important)
+17. [Q17: What is the difference between `localStorage` and `sessionStorage`?](#q17-what-is-the-difference-between-localstorage-and-sessionstorage)
+18. [Q18: What is the difference between `<canvas>` and `<svg>`?](#q18-what-is-the-difference-between-canvas-and-svg)
+19. [Q19: How do you create responsive images in HTML?](#q19-how-do-you-create-responsive-images-in-html)
+20. [Q20: What is the purpose of the `<meta>` tag in HTML?](#q20-what-is-the-purpose-of-the-meta-tag-in-html)
+21. [Q21: What is the purpose of the `rel` attribute on a `link` tag?](#q21-what-is-the-purpose-of-the-rel-attribute-on-a-link-tag)
+22. [Q22: What are Web Workers and what are they used for?](#q22-what-are-web-workers-and-what-are-they-used-for)
+23. [Q23: What are Server-Sent Events (SSE)?](#q23-what-are-server-sent-events-sse)
+24. [Q24: Explain the `defer` attribute in a `<script>` tag.](#q24-explain-the-defer-attribute-in-a-script-tag)
+25. [Q25: What is the difference between block and inline elements?](#q25-what-is-the-difference-between-block-and-inline-elements)
+26. [Q26: What is the purpose of the `box-sizing` property in CSS?](#q26-what-is-the-purpose-of-the-box-sizing-property-in-css)
+27. [Q27: What is CSS Specificity and how is it calculated?](#q27-what-is-css-specificity-and-how-is-it-calculated)
+28. [Q28: What is the difference between `em` and `rem` units in CSS?](#q28-what-is-the-difference-between-em-and-rem-units-in-css)
+29. [Q29: What is CSS Flexbox and what are its key features?](#q29-what-is-css-flexbox-and-what-are-its-key-features)
+30. [Q30: How do you make HTML accessible?](#q30-how-do-you-make-html-accessible)
+31. [Q31: What are important HTML elements for SEO?](#q31-what-are-important-html-elements-for-seo)
+32. [Q32: How do you optimize HTML for performance?](#q32-how-do-you-optimize-html-for-performance)
+33. [Q33: How do you work with HTML5 audio and video elements?](#q33-how-do-you-work-with-html5-audio-and-video-elements)
+34. [Q34: What are HTML coding best practices?](#q34-what-are-html-coding-best-practices)
+35. [Q35: Explain HTML5 Web Components and their implementation.](#q35-explain-html5-web-components-and-their-implementation)
+36. [Q36: Explain HTML5 Performance Optimization techniques.](#q36-explain-html5-performance-optimization-techniques)
+37. [Q37: Explain HTML5 Accessibility (a11y) best practices.](#q37-explain-html5-accessibility-a11y-best-practices)
+38. [Q38: Explain HTML5 Progressive Web App (PWA) implementation.](#q38-explain-html5-progressive-web-app-pwa-implementation)
+39. [Q39: Explain HTML5 Security best practices.](#q39-explain-html5-security-best-practices)
+40. [Q40: What are the latest HTML features and how do you implement modern web standards?](#q40-what-are-the-latest-html-features-and-how-do-you-implement-modern-web-standards)
+41. [Q41: How do you create and implement custom Web Components?](#q41-how-do-you-create-and-implement-custom-web-components)
+42. [Q42: How do you implement advanced Progressive Web App (PWA) features?](#q42-how-do-you-implement-advanced-progressive-web-app-pwa-features)
+43. [Q43: How do you implement advanced HTML5 Web APIs and modern browser features?](#q43-how-do-you-implement-advanced-html5-web-apis-and-modern-browser-features)
+44. [Q44: How do you implement advanced HTML5 accessibility and inclusive design patterns?](#q44-how-do-you-implement-advanced-html5-accessibility-and-inclusive-design-patterns)
+45. [Q45: How do you implement advanced Web Components with Shadow DOM and modern HTML5 features?](#q45-how-do-you-implement-advanced-web-components-with-shadow-dom-and-modern-html5-features)
+46. [Q46: How do you implement Progressive Web App (PWA) features with advanced caching strategies and offline functionality?](#q46-how-do-you-implement-progressive-web-app-pwa-features-with-advanced-caching-strategies-and-offline-functionality)
+47. [Q47: How do you work with HTML5 Canvas API for graphics and animations?](#q47-how-do-you-work-with-html5-canvas-api-for-graphics-and-animations)
+48. [Q48: How do you implement HTML5 Drag and Drop functionality?](#q48-how-do-you-implement-html5-drag-and-drop-functionality)
+49. [Q49: How do you work with Web Storage API (localStorage and sessionStorage)?](#q49-how-do-you-work-with-web-storage-api-localstorage-and-sessionstorage)
+50. [Q50: What is the difference between `<em>` and `<strong>` tags?](#q50-what-is-the-difference-between-em-and-strong-tags)
+51. [Q51: What is the purpose of the `DOCTYPE` declaration?](#q51-what-is-the-purpose-of-the-doctype-declaration)
+52. [Q52: What is the difference between an `id` and a `class`?](#q52-what-is-the-difference-between-an-id-and-a-class)
+53. [Q53: What are `data-*` attributes and why are they used?](#q53-what-are-data--attributes-and-why-are-they-used)
+54. [Q54: What is the difference between block and inline elements?](#q54-what-is-the-difference-between-block-and-inline-elements)
+55. [Q55: What is the CSS Box Model?](#q55-what-is-the-css-box-model)
+56. [Q56: What is CSS Specificity and how is it calculated?](#q56-what-is-css-specificity-and-how-is-it-calculated)
+57. [Q57: What is the difference between `display: none;` and `visibility: hidden;`?](#q57-what-is-the-difference-between-display-none-and-visibility-hidden)
+58. [Q58: What are the different values for the CSS `position` property?](#q58-what-are-the-different-values-for-the-css-position-property)
+59. [Q59: What is CSS Flexbox?](#q59-what-is-css-flexbox)
+60. [Q60: What is CSS Grid?](#q60-what-is-css-grid)
+61. [Q61: What is the difference between CSS Flexbox and Grid?](#q61-what-is-the-difference-between-css-flexbox-and-grid)
+62. [Q62: What is responsive web design and how are media queries used?](#q62-what-is-responsive-web-design-and-how-are-media-queries-used)
+63. [Q63: What are CSS preprocessors and why are they useful?](#q63-what-are-css-preprocessors-and-why-are-they-useful)
+64. [Q64: What is the difference between `px`, `em`, and `rem` units?](#q64-what-is-the-difference-between-px-em-and-rem-units)
+65. [Q65: What is the `z-index` property and how does stacking context work?](#q65-what-is-the-z-index-property-and-how-does-stacking-context-work)
+66. [Q66: What are pseudo-classes and pseudo-elements in CSS?](#q66-what-are-pseudo-classes-and-pseudo-elements-in-css)
+67. [Q67: What is the difference between `==` and `===` in JavaScript?](#q67-what-is-the-difference-between-and-in-javascript)
+68. [Q68: What is hoisting in JavaScript?](#q68-what-is-hoisting-in-javascript)
+69. [Q69: What is the difference between `null` and `undefined` in JavaScript?](#q69-what-is-the-difference-between-null-and-undefined-in-javascript)
+70. [Q70: What is a closure in JavaScript?](#q70-what-is-a-closure-in-javascript)
+71. [Q71: Explain the `this` keyword in JavaScript.](#q71-explain-the-this-keyword-in-javascript)
+72. [Q72: What is prototypal inheritance in JavaScript?](#q72-what-is-prototypal-inheritance-in-javascript)
+73. [Q73: What is the difference between Promises and Callbacks?](#q73-what-is-the-difference-between-promises-and-callbacks)
+74. [Q74: What is `async/await` and how does it work?](#q74-what-is-asyncawait-and-how-does-it-work)
+75. [Q75: What is the Event Loop in JavaScript?](#q75-what-is-the-event-loop-in-javascript)
+76. [Q76: What are the differences between `var`, `let`, and `const`?](#q76-what-are-the-differences-between-var-let-and-const)
+77. [Q77: What are arrow functions and how do they differ from regular functions?](#q77-what-are-arrow-functions-and-how-do-they-differ-from-regular-functions)
+78. [Q78: What is the difference between the spread and rest operators?](#q78-what-is-the-difference-between-the-spread-and-rest-operators)
+79. [Q79: Explain the array methods `map`, `filter`, and `reduce`.](#q79-explain-the-array-methods-map-filter-and-reduce)
+80. [Q80: What is the difference between a shallow copy and a deep copy of an object?](#q80-what-is-the-difference-between-a-shallow-copy-and-a-deep-copy-of-an-object)
+81. [Q81: What is event delegation in JavaScript?](#q81-what-is-event-delegation-in-javascript)
+82. [Q82: What are the differences between `localStorage`, `sessionStorage`, and Cookies?](#q82-what-are-the-differences-between-localstorage-sessionstorage-and-cookies)
+83. [Q83: What are debouncing and throttling in JavaScript?](#q83-what-are-debouncing-and-throttling-in-javascript)
+85. [Q85: What is the Shadow DOM?](#q85-what-is-the-shadow-dom)
+86. [Q86: What are "Void Elements" in HTML?](#q86-what-are-void-elements-in-html)
+87. [Q87: What is the purpose of the `<template>` tag?](#q87-what-is-the-purpose-of-the-template-tag)
+88. [Q88: What is the difference between `<link>` and `<a>` tags?](#q88-what-is-the-difference-between-link-and-a-tags)
+89. [Q89: What are Microdata in HTML?](#q89-what-are-microdata-in-html)
+90. [Q90: What is the `contenteditable` attribute?](#q90-what-is-the-contenteditable-attribute)
+91. [Q91: What is the difference between SVG and Canvas?](#q91-what-is-the-difference-between-svg-and-canvas)
+92. [Q92: What is the purpose of the `autocomplete` attribute?](#q92-what-is-the-purpose-of-the-autocomplete-attribute)
+93. [Q93: How do you specify the language of the page content?](#q93-how-do-you-specify-the-language-of-the-page-content)
+94. [Q94: What is the `<noscript>` tag?](#q94-what-is-the-noscript-tag)
+95. [Q95: What is the purpose of the `download` attribute on an anchor tag?](#q95-what-is-the-purpose-of-the-download-attribute-on-an-anchor-tag)
+96. [Q96: What are the new form input types introduced in HTML5?](#q96-what-are-the-new-form-input-types-introduced-in-html5)
+97. [Q97: What is the `<figure>` and `<figcaption>` element?](#q97-what-is-the-figure-and-figcaption-element)
+98. [Q98: What is the difference between `<b>` and `<strong>`?](#q98-what-is-the-difference-between-b-and-strong)
+99. [Q99: What is the difference between `<i>` and `<em>`?](#q99-what-is-the-difference-between-i-and-em)
+100. [Q100: What is the purpose of the `hidden` attribute?](#q100-what-is-the-purpose-of-the-hidden-attribute)
+101. [Q101: What is the `details` and `summary` element?](#q101-what-is-the-details-and-summary-element)
 
 ---
 
-## HTML Fundamentals
+
+---
+
 
 ### Q1: What is HTML and how does it work?
 
@@ -155,7 +174,6 @@ HTML (HyperText Markup Language) is the standard markup language for creating we
 
 ---
 
-## HTML5 Semantic Elements
 
 ### Q2: What are HTML5 semantic elements and why are they important?
 
@@ -276,7 +294,6 @@ Semantic elements provide meaning to the structure of web content, making it mor
 
 ---
 
-## Forms and Input Elements
 
 ### Q3: What are the different HTML5 input types and form elements?
 
@@ -421,7 +438,6 @@ HTML5 introduced many new input types and form features for better user experien
 
 ---
 
-## HTML5 APIs
 
 ### Q4: What are some important HTML5 APIs?
 
@@ -560,7 +576,7 @@ function drop(ev) {
 
 ---
 
-### Q26: What is the difference between `<div>` and `<span>`?
+### Q5: What is the difference between `<div>` and `<span>`?
 
 **Answer:**
 Both `<div>` and `<span>` are generic HTML elements used to group content. The key difference lies in their display behavior and semantic purpose.
@@ -595,7 +611,7 @@ Both `<div>` and `<span>` are generic HTML elements used to group content. The k
 
 ---
 
-### Q27: What is the purpose of the `<head>` section in an HTML document?
+### Q6: What is the purpose of the `<head>` section in an HTML document?
 
 **Answer:**
 The `<head>` section of an HTML document contains machine-readable information (metadata) about the page. It is not displayed in the browser's main content area, but it provides essential information for the browser, search engines, and other web services.
@@ -649,7 +665,7 @@ The `<head>` section of an HTML document contains machine-readable information (
 
 ---
 
-### Q28: What are the different types of lists in HTML?
+### Q7: What are the different types of lists in HTML?
 
 **Answer:**
 HTML provides three main types of lists to structure content: ordered lists, unordered lists, and description lists.
@@ -715,7 +731,7 @@ Lists can also be nested inside one another to create hierarchical structures.
 
 ---
 
-### Q29: How do you embed audio and video in a webpage?
+### Q8: How do you embed audio and video in a webpage?
 
 **Answer:**
 HTML5 introduced the `<audio>` and `<video>` elements to natively embed media content in a webpage without requiring plugins like Flash.
@@ -759,7 +775,7 @@ The `<video>` element is used for embedding video content.
 
 ---
 
-### Q30: What is an `<iframe>` and when should you use it?
+### Q9: What is an `<iframe>` and when should you use it?
 
 **Answer:**
 An `<iframe>` (Inline Frame) is an HTML element that allows you to embed another HTML document within the current one. This is useful for including content from other sources, such as maps, videos, or advertisements.
@@ -794,7 +810,7 @@ This example allows the iframe to run scripts and access its own origin but bloc
 
 ---
 
-### Q31: What is the difference between `id` and `class` attributes?
+### Q10: What is the difference between `id` and `class` attributes?
 
 **Answer:**
 Both `id` and `class` are global attributes used to apply identifiers to HTML elements, but they serve different purposes.
@@ -862,7 +878,7 @@ Both `id` and `class` are global attributes used to apply identifiers to HTML el
 
 ---
 
-### Q32: What are `data-*` attributes and how are they used?
+### Q11: What are `data-*` attributes and how are they used?
 
 **Answer:**
 `data-*` attributes are a way to store custom data private to the page or application, for which there are no more appropriate attributes or elements. They are intended to store data that is primarily used by scripts.
@@ -919,7 +935,7 @@ You can also use `data-*` attributes in CSS for styling, using attribute selecto
 
 ---
 
-### Q33: What is the purpose of the `alt` attribute on an `<img>` tag?
+### Q12: What is the purpose of the `alt` attribute on an `<img>` tag?
 
 **Answer:**
 The `alt` attribute (alternative text) on an `<img>` tag provides a textual alternative to the image. It serves several important purposes:
@@ -956,7 +972,7 @@ The `alt` attribute (alternative text) on an `<img>` tag provides a textual alte
 
 ---
 
-### Q34: How do you create a hyperlink in HTML?
+### Q13: How do you create a hyperlink in HTML?
 
 **Answer:**
 Hyperlinks are created using the `<a>` (anchor) tag. The `href` attribute is the most important attribute of the `<a>` tag, as it specifies the destination of the link.
@@ -1015,7 +1031,7 @@ Creates a link that initiates a phone call on mobile devices.
 
 ---
 
-### Q35: What are HTML entities and why are they used?
+### Q14: What are HTML entities and why are they used?
 
 **Answer:**
 HTML entities are used to display reserved characters that have a special meaning in HTML (like `<` and `>`), or characters that are not present on a standard keyboard.
@@ -1056,7 +1072,7 @@ An entity consists of an ampersand (`&`), an entity name or number, and a semico
 
 ---
 
-### Q36: What is the difference between `<script>`, `<script async>`, and `<script defer>`?
+### Q15: What is the difference between `<script>`, `<script async>`, and `<script defer>`?
 
 **Answer:**
 These attributes control how an external JavaScript file is downloaded and executed, which significantly impacts page load performance.
@@ -1108,7 +1124,7 @@ Use `defer` for scripts that need the full DOM and/or depend on other scripts. T
 
 ---
 
-### Q37: What is CORS and why is it important?
+### Q16: What is CORS and why is it important?
 
 **Answer:**
 CORS (Cross-Origin Resource Sharing) is a security mechanism that allows a web page from one origin (domain, protocol, or port) to request resources from a different origin. It is a crucial part of the modern web, enabling complex applications that fetch data from various APIs.
@@ -1143,7 +1159,7 @@ For requests that can modify data (e.g., `PUT`, `DELETE`) or have custom headers
 
 ---
 
-### Q38: What is the difference between `localStorage` and `sessionStorage`?
+### Q17: What is the difference between `localStorage` and `sessionStorage`?
 
 **Answer:**
 Both `localStorage` and `sessionStorage` are part of the Web Storage API, which allows browsers to store key/value pairs locally on the user's computer. They provide a way to store data on the client-side that persists across page reloads.
@@ -1200,7 +1216,7 @@ const step1Data = sessionStorage.getItem('formStep1Data');
 
 ---
 
-### Q39: What is the difference between `<canvas>` and `<svg>`?
+### Q18: What is the difference between `<canvas>` and `<svg>`?
 
 **Answer:**
 Both `<canvas>` and `<svg>` are used to draw graphics on a web page, but they work in fundamentally different ways and are suited for different tasks.
@@ -1255,7 +1271,7 @@ Both `<canvas>` and `<svg>` are used to draw graphics on a web page, but they wo
 
 ---
 
-### Q40: How do you create responsive images in HTML?
+### Q19: How do you create responsive images in HTML?
 
 **Answer:**
 Responsive images are crucial for performance and user experience, ensuring that the browser loads the most appropriate image for the user's device and screen size. There are two main approaches:
@@ -1308,7 +1324,7 @@ This technique is used when you need to show completely different images at diff
 
 ---
 
-### Q41: What is the purpose of the `<meta>` tag in HTML?
+### Q20: What is the purpose of the `<meta>` tag in HTML?
 
 **Answer:**
 The `<meta>` tag, placed inside the `<head>` section, provides metadata about the HTML document. Metadata is data (information) about data; it is not displayed on the page but is machine-parsable. It is used by browsers, search engines, and other web services.
@@ -1362,7 +1378,7 @@ This tag is essential for responsive web design, telling the browser how to cont
 
 ---
 
-### Q42: What is the purpose of the `rel` attribute on a `link` tag?
+### Q21: What is the purpose of the `rel` attribute on a `link` tag?
 
 **Answer:**
 The `rel` attribute on a `<link>` tag specifies the relationship between the current document and the linked resource. It is a required attribute and is crucial for the browser to understand how to handle the linked file.
@@ -1419,7 +1435,7 @@ Specifies the preferred or "canonical" URL for a page that has multiple versions
 
 ---
 
-### Q43: What are Web Workers and what are they used for?
+### Q22: What are Web Workers and what are they used for?
 
 **Answer:**
 Web Workers are a simple means for web content to run scripts in background threads. The worker thread can perform tasks without interfering with the user interface. A worker can send and receive messages from the main thread that created it.
@@ -1479,7 +1495,7 @@ self.onmessage = function(e) {
 
 ---
 
-### Q44: What are Server-Sent Events (SSE)?
+### Q23: What are Server-Sent Events (SSE)?
 
 **Answer:**
 Server-Sent Events (SSE) is a technology that enables a server to push data to a client asynchronously once an initial client connection has been established. It provides a one-way communication channel from the server to the client over a single, long-lived HTTP connection.
@@ -1552,7 +1568,7 @@ app.get('/sse-endpoint', (req, res) => {
 
 ---
 
-### Q45: Explain the `defer` attribute in a `<script>` tag.
+### Q24: Explain the `defer` attribute in a `<script>` tag.
 
 **Answer:**
 The `defer` attribute is a boolean attribute for the `<script>` tag that tells the browser to execute the script file after the HTML document has been fully parsed, but before the `DOMContentLoaded` event is fired.
@@ -1611,7 +1627,7 @@ In this example, `library.js` is guaranteed to execute before `main.js`, and bot
 
 ---
 
-### Q46: What is the difference between block and inline elements?
+### Q25: What is the difference between block and inline elements?
 
 **Answer:**
 In HTML, elements are generally categorized as either **block-level** or **inline-level**. This distinction defines how the element behaves in the page layout and what kind of content it can hold.
@@ -1676,7 +1692,7 @@ Inline-level elements are used for smaller pieces of content within a block-leve
 
 ---
 
-### Q47: What is the purpose of the `box-sizing` property in CSS?
+### Q26: What is the purpose of the `box-sizing` property in CSS?
 
 **Answer:**
 The `box-sizing` property in CSS defines how the `width` and `height` of an element are calculated. It determines whether the element's padding and border are included in the total width and height.
@@ -1754,7 +1770,7 @@ This ensures that all elements use the more manageable `border-box` model, simpl
 
 ---
 
-### Q48: What is CSS Specificity and how is it calculated?
+### Q27: What is CSS Specificity and how is it calculated?
 
 **Answer:**
 CSS Specificity is the set of rules browsers use to determine which CSS style declaration should be applied to an element when multiple, conflicting declarations exist. The more specific a selector is, the higher its precedence, meaning its styles will override those from less specific selectors.
@@ -1823,7 +1839,7 @@ If two selectors have the same specificity, the one that appears later in the CS
 
 ---
 
-### Q49: What is the difference between `em` and `rem` units in CSS?
+### Q28: What is the difference between `em` and `rem` units in CSS?
 
 **Answer:**
 `em` and `rem` are relative length units in CSS, meaning they scale based on the font size of other elements. They are essential for creating scalable and responsive designs, but they have a key difference in what they are relative to.
@@ -1897,7 +1913,7 @@ The `rem` unit is relative only to the `font-size` of the **root element** (the 
 
 ---
 
-### Q50: What is CSS Flexbox and what are its key features?
+### Q29: What is CSS Flexbox and what are its key features?
 
 **Answer:**
 CSS Flexbox (Flexible Box Layout) is a one-dimensional layout model that provides an efficient way to arrange, align, and distribute space among items in a container, even when their size is unknown or dynamic. It is the ideal tool for creating responsive layouts and positioning elements within a container.
@@ -2011,9 +2027,8 @@ Flexbox simplifies many layout challenges that were once difficult with traditio
 
 ---
 
-## Accessibility (a11y)
 
-### Q5: How do you make HTML accessible?
+### Q30: How do you make HTML accessible?
 
 **Answer:**
 Accessibility ensures web content is usable by people with disabilities.
@@ -2176,9 +2191,8 @@ Accessibility ensures web content is usable by people with disabilities.
 
 ---
 
-## SEO and Meta Tags
 
-### Q6: What are important HTML elements for SEO?
+### Q31: What are important HTML elements for SEO?
 
 **Answer:**
 Proper HTML structure and meta tags are crucial for search engine optimization.
@@ -2341,9 +2355,8 @@ Proper HTML structure and meta tags are crucial for search engine optimization.
 
 ---
 
-## HTML Performance
 
-### Q7: How do you optimize HTML for performance?
+### Q32: How do you optimize HTML for performance?
 
 **Answer:**
 HTML performance optimization involves reducing load times and improving rendering speed.
@@ -2453,9 +2466,8 @@ Content-Type: text/html; charset=utf-8
 
 ---
 
-## HTML5 Media Elements
 
-### Q8: How do you work with HTML5 audio and video elements?
+### Q33: How do you work with HTML5 audio and video elements?
 
 **Answer:**
 HTML5 provides native support for audio and video without plugins.
@@ -2617,9 +2629,8 @@ video.addEventListener('timeupdate', () => {
 
 ---
 
-## HTML Best Practices
 
-### Q9: What are HTML coding best practices?
+### Q34: What are HTML coding best practices?
 
 **Answer:**
 Following best practices ensures maintainable, accessible, and performant HTML.
@@ -2750,9 +2761,8 @@ This comprehensive HTML guide covers all essential topics from basic structure t
 
 ---
 
-## Advanced HTML Concepts
 
-### Q10: Explain HTML5 Web Components and their implementation.
+### Q35: Explain HTML5 Web Components and their implementation.
 **Difficulty: Hard**
 
 **Answer:**
@@ -3058,7 +3068,7 @@ input.addEventListener('input', (event) => {
 
 ---
 
-### Q11: Explain HTML5 Performance Optimization techniques.
+### Q36: Explain HTML5 Performance Optimization techniques.
 **Difficulty: Medium**
 
 **Answer:**
@@ -3328,7 +3338,7 @@ window.addEventListener('load', () => {
 
 ---
 
-### Q12: Explain HTML5 Accessibility (a11y) best practices.
+### Q37: Explain HTML5 Accessibility (a11y) best practices.
 **Difficulty: Medium**
 
 **Answer:**
@@ -3749,7 +3759,7 @@ document.querySelectorAll('.tabs').forEach(tabs => {
 
 ---
 
-### Q13: Explain HTML5 Progressive Web App (PWA) implementation.
+### Q38: Explain HTML5 Progressive Web App (PWA) implementation.
 **Difficulty: Hard**
 
 **Answer:**
@@ -4109,7 +4119,7 @@ function doBackgroundSync() {
 
 ---
 
-### Q14: Explain HTML5 Security best practices.
+### Q39: Explain HTML5 Security best practices.
 **Difficulty: Medium**
 
 **Answer:**
@@ -4483,9 +4493,8 @@ This comprehensive HTML guide now covers fundamental concepts through advanced m
 
 ---
 
-## Modern HTML Features and Web Standards
 
-### Q15: What are the latest HTML features and how do you implement modern web standards?
+### Q40: What are the latest HTML features and how do you implement modern web standards?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -5111,9 +5120,8 @@ This enhanced HTML guide now includes cutting-edge web standards, modern HTML fe
 
 ---
 
-## Modern HTML5 Advanced Features and Web Components
 
-### Q16: How do you create and implement custom Web Components?
+### Q41: How do you create and implement custom Web Components?
 **Difficulty: Expert**
 
 **Answer:**
@@ -5839,7 +5847,7 @@ customElements.define('data-table', DataTable);
 ></data-table>
 ```
 
-### Q17: How do you implement advanced Progressive Web App (PWA) features?
+### Q42: How do you implement advanced Progressive Web App (PWA) features?
 **Difficulty: Expert**
 
 **Answer:**
@@ -6645,7 +6653,7 @@ window.pwaManager = pwaManager;
 
 ---
 
-### Q18: How do you implement advanced HTML5 Web APIs and modern browser features?
+### Q43: How do you implement advanced HTML5 Web APIs and modern browser features?
 **Difficulty: Expert**
 
 **Answer:**
@@ -6981,7 +6989,7 @@ Modern HTML5 applications leverage sophisticated Web APIs for enhanced user expe
 
 ---
 
-### Q19: How do you implement advanced HTML5 accessibility and inclusive design patterns?
+### Q44: How do you implement advanced HTML5 accessibility and inclusive design patterns?
 **Difficulty: Expert**
 
 **Answer:**
@@ -7326,7 +7334,7 @@ Advanced accessibility involves sophisticated ARIA patterns, inclusive design pr
 
 ---
 
-### Q20: How do you implement advanced Web Components with Shadow DOM and modern HTML5 features?
+### Q45: How do you implement advanced Web Components with Shadow DOM and modern HTML5 features?
 
 **Answer:**
 Web Components provide a way to create reusable, encapsulated HTML elements using native browser APIs. They combine Custom Elements, Shadow DOM, HTML Templates, and ES Modules for powerful component architecture.
@@ -8097,7 +8105,7 @@ Web Components provide a way to create reusable, encapsulated HTML elements usin
 
 ---
 
-### Q21: How do you implement Progressive Web App (PWA) features with advanced caching strategies and offline functionality?
+### Q46: How do you implement Progressive Web App (PWA) features with advanced caching strategies and offline functionality?
 
 **Answer:**
 Progressive Web Apps combine the best of web and mobile apps, providing app-like experiences with advanced caching, offline functionality, push notifications, and native device integration.
@@ -8958,7 +8966,7 @@ self.addEventListener('notificationclick', (event) => {
 
 This comprehensive enhancement adds cutting-edge web components, advanced PWA capabilities, sophisticated caching strategies, push notifications, offline functionality, modern web standards, advanced Web APIs, performance monitoring, accessibility patterns, and inclusive design principles that represent the current state of HTML5 and web development.
 
-### Q22: How do you work with HTML5 Canvas API for graphics and animations?
+### Q47: How do you work with HTML5 Canvas API for graphics and animations?
 
 **Answer:**
 The HTML5 Canvas API provides a powerful way to draw graphics, create animations, and manipulate images directly in the browser without plugins. It offers a resolution-dependent bitmap canvas that can be used to render graphs, game graphics, art, or other visual images on the fly.
@@ -9492,7 +9500,7 @@ function loadShader(gl, type, source) {
    - Remove event listeners when appropriate
    - Be mindful of large image manipulations
 
-### Q23: How do you implement HTML5 Drag and Drop functionality?
+### Q48: How do you implement HTML5 Drag and Drop functionality?
 
 **Answer:**
 HTML5 Drag and Drop (DnD) API allows users to drag and drop elements within a web application, providing a more intuitive and interactive user experience. It's built into the browser and doesn't require external libraries.
@@ -10136,7 +10144,7 @@ enhanceAccessibility();
    - Provide clear feedback when drops are invalid
    - Implement undo functionality for accidental drops
 
-### Q24: How do you work with Web Storage API (localStorage and sessionStorage)?
+### Q49: How do you work with Web Storage API (localStorage and sessionStorage)?
 
 **Answer:**
 The Web Storage API provides mechanisms for storing key-value pairs in a web browser. It offers two storage objects with similar APIs but different behaviors:
@@ -10750,7 +10758,7 @@ self.addEventListener('install', (event) => {
 
 ---
 
-### Q51: What is the difference between `<em>` and `<strong>` tags?
+### Q50: What is the difference between `<em>` and `<strong>` tags?
 
 **Answer:**
 
@@ -10803,7 +10811,7 @@ The `<b>` (bold) and `<i>` (italic) tags are purely presentational. They tell th
 
 ---
 
-### Q52: What is the purpose of the `DOCTYPE` declaration?
+### Q51: What is the purpose of the `DOCTYPE` declaration?
 
 **Answer:**
 
@@ -10850,7 +10858,7 @@ Fortunately, with HTML5, we only need to remember the simple version.
 
 ---
 
-### Q53: What is the difference between an `id` and a `class`?
+### Q52: What is the difference between an `id` and a `class`?
 
 **Answer:**
 
@@ -10940,7 +10948,7 @@ The `id` and `class` attributes are both used to apply identifiers to HTML eleme
 
 ---
 
-### Q54: What are `data-*` attributes and why are they used?
+### Q53: What are `data-*` attributes and why are they used?
 
 **Answer:**
 
@@ -11036,7 +11044,7 @@ In summary, `data-*` attributes provide a powerful and standard-compliant way to
 
 ---
 
-### Q55: What is the difference between block and inline elements?
+### Q54: What is the difference between block and inline elements?
 
 **Answer:**
 
@@ -11121,7 +11129,7 @@ You can change the default display behavior of any element using the CSS `displa
 
 ---
 
-### Q56: What is the CSS Box Model?
+### Q55: What is the CSS Box Model?
 
 **Answer:**
 
@@ -11206,7 +11214,7 @@ This setup ensures that all elements use the more manageable `border-box` model,
 
 ---
 
-### Q57: What is CSS Specificity and how is it calculated?
+### Q56: What is CSS Specificity and how is it calculated?
 
 **Answer:**
 
@@ -11304,7 +11312,7 @@ p {
 
 ---
 
-### Q58: What is the difference between `display: none;` and `visibility: hidden;`?
+### Q57: What is the difference between `display: none;` and `visibility: hidden;`?
 
 **Answer:**
 
@@ -11363,7 +11371,7 @@ In summary, use `display: none;` when you want to completely remove an element f
 
 ---
 
-### Q59: What are the different values for the CSS `position` property?
+### Q58: What are the different values for the CSS `position` property?
 
 **Answer:**
 
@@ -11455,7 +11463,7 @@ The CSS `position` property determines the positioning method used for an elemen
 
 ---
 
-### Q60: What is CSS Flexbox?
+### Q59: What is CSS Flexbox?
 
 **Answer:**
 
@@ -11538,7 +11546,7 @@ Flexbox is ideal for component layouts and small-scale designs, while CSS Grid i
 
 ---
 
-### Q61: What is CSS Grid?
+### Q60: What is CSS Grid?
 
 **Answer:**
 
@@ -11632,7 +11640,7 @@ CSS Grid is powerful for overall page layouts, while Flexbox excels at aligning 
 
 ---
 
-### Q62: What is the difference between CSS Flexbox and Grid?
+### Q61: What is the difference between CSS Flexbox and Grid?
 
 **Answer:**
 
@@ -11697,7 +11705,7 @@ This approach leverages the strengths of both models, resulting in clean, mainta
 
 ---
 
-### Q63: What is responsive web design and how are media queries used?
+### Q62: What is responsive web design and how are media queries used?
 
 **Answer:**
 
@@ -11778,7 +11786,7 @@ Without this tag, mobile browsers will render the page at a typical desktop scre
 
 ---
 
-### Q64: What are CSS preprocessors and why are they useful?
+### Q63: What are CSS preprocessors and why are they useful?
 
 **Answer:**
 
@@ -11873,7 +11881,7 @@ Because browsers don't understand preprocessor syntax, you need a **compiler** t
 
 ---
 
-### Q65: What is the difference between `px`, `em`, and `rem` units?
+### Q64: What is the difference between `px`, `em`, and `rem` units?
 
 **Answer:**
 
@@ -11939,7 +11947,7 @@ html {
 
 ---
 
-### Q66: What is the `z-index` property and how does stacking context work?
+### Q65: What is the `z-index` property and how does stacking context work?
 
 **Answer:**
 
@@ -12000,7 +12008,7 @@ Even though `child-1` has a much higher `z-index` (999) than `child-2` (1), **`p
 
 ---
 
-### Q67: What are pseudo-classes and pseudo-elements in CSS?
+### Q66: What are pseudo-classes and pseudo-elements in CSS?
 
 **Answer:**
 
@@ -12095,7 +12103,7 @@ p::first-letter {
 
 ---
 
-### Q68: What is the difference between `==` and `===` in JavaScript?
+### Q67: What is the difference between `==` and `===` in JavaScript?
 
 **Answer:**
 
@@ -12159,7 +12167,7 @@ The only time you might consider using `==` is when you specifically need to che
 
 ---
 
-### Q69: What is hoisting in JavaScript?
+### Q68: What is hoisting in JavaScript?
 
 **Answer:**
 
@@ -12251,7 +12259,7 @@ var notHoisted = function() {
 
 ---
 
-### Q70: What is the difference between `null` and `undefined` in JavaScript?
+### Q69: What is the difference between `null` and `undefined` in JavaScript?
 
 **Answer:**
 
@@ -12330,7 +12338,7 @@ console.log(null === undefined); // false
 
 ---
 
-### Q71: What is a closure in JavaScript?
+### Q70: What is a closure in JavaScript?
 
 **Answer:**
 
@@ -12412,7 +12420,7 @@ A closure is a function that remembers the variables from the scope where it was
 
 ---
 
-### Q72: Explain the `this` keyword in JavaScript.
+### Q71: Explain the `this` keyword in JavaScript.
 
 **Answer:**
 
@@ -12541,7 +12549,7 @@ If a regular function were used inside `forEach`, `this` would refer to the glob
 
 ---
 
-### Q73: What is prototypal inheritance in JavaScript?
+### Q72: What is prototypal inheritance in JavaScript?
 
 **Answer:**
 
@@ -12659,7 +12667,7 @@ console.log(myDog.name); // Outputs: "Rex"
 
 ---
 
-### Q74: What is the difference between Promises and Callbacks?
+### Q73: What is the difference between Promises and Callbacks?
 
 **Answer:**
 
@@ -12779,7 +12787,7 @@ fetchData('https://api.example.com/data')
 
 ---
 
-### Q75: What is `async/await` and how does it work?
+### Q74: What is `async/await` and how does it work?
 
 **Answer:**
 
@@ -12887,7 +12895,7 @@ async function fetchAndProcess() {
 
 ---
 
-### Q76: What is the Event Loop in JavaScript?
+### Q75: What is the Event Loop in JavaScript?
 
 **Answer:**
 
@@ -12955,7 +12963,7 @@ The Event Loop is the reason JavaScript can be non-blocking. It orchestrates the
 
 ---
 
-### Q77: What are the differences between `var`, `let`, and `const`?
+### Q76: What are the differences between `var`, `let`, and `const`?
 
 **Answer:**
 
@@ -13051,7 +13059,7 @@ obj.key = 'new value'; // This is allowed
 
 ---
 
-### Q78: What are arrow functions and how do they differ from regular functions?
+### Q77: What are arrow functions and how do they differ from regular functions?
 
 **Answer:**
 
@@ -13154,7 +13162,7 @@ const square = x => x * x;
 
 ---
 
-### Q79: What is the difference between the spread and rest operators?
+### Q78: What is the difference between the spread and rest operators?
 
 **Answer:**
 
@@ -13247,7 +13255,7 @@ The spread operator is used to **expand an iterable** (like an array or string) 
 
 ---
 
-### Q80: Explain the array methods `map`, `filter`, and `reduce`.
+### Q79: Explain the array methods `map`, `filter`, and `reduce`.
 
 **Answer:**
 
@@ -13367,7 +13375,7 @@ const groupedByAge = people.reduce((acc, person) => {
 
 ---
 
-### Q81: What is the difference between a shallow copy and a deep copy of an object?
+### Q80: What is the difference between a shallow copy and a deep copy of an object?
 
 **Answer:**
 
@@ -13462,7 +13470,7 @@ console.log(deepCopy.greet); // undefined (Function was lost)
 
 ---
 
-### Q82: What is event delegation in JavaScript?
+### Q81: What is event delegation in JavaScript?
 
 **Answer:**
 
@@ -13545,7 +13553,7 @@ Event delegation is a memory-efficient and flexible pattern for handling events 
 
 ---
 
-### Q83: What are the differences between `localStorage`, `sessionStorage`, and Cookies?
+### Q82: What are the differences between `localStorage`, `sessionStorage`, and Cookies?
 
 **Answer:**
 
@@ -13629,7 +13637,7 @@ const data = sessionStorage.getItem('formData');
 
 ---
 
-### Q84: What are debouncing and throttling in JavaScript?
+### Q83: What are debouncing and throttling in JavaScript?
 
 **Answer:**
 
@@ -13714,4 +13722,164 @@ window.addEventListener('scroll', throttledScroll);
 
 *   Use **debounce** when you only care about the final state of an event series (e.g., final input value, final window size).
 *   Use **throttle** when you want to handle an event at a regular, controlled rate during a continuous series of events (e.g., scrolling, dragging).
+```
+
+### Q85: What is the Shadow DOM?
+**Difficulty: Advanced**
+
+**Answer:**
+The Shadow DOM is a web standard that offers component style and markup encapsulation. It is a critical piece of the Web Components story. It allows hidden DOM trees to be attached to elements in the regular DOM tree.
+
+```javascript
+// Create a shadow root
+const host = document.querySelector('#host');
+const shadow = host.attachShadow({mode: 'open'});
+shadow.innerHTML = '<p>I am in the shadow DOM!</p>';
+```
+
+### Q86: What are "Void Elements" in HTML?
+**Difficulty: Beginner**
+
+**Answer:**
+Void elements are elements that cannot have any child nodes (i.e., nested elements or text nodes). They are self-closing in XHTML, but in HTML5, the closing slash is optional.
+Examples: `<br>`, `<hr>`, `<img>`, `<input>`, `<link>`, `<meta>`.
+
+### Q87: What is the purpose of the `<template>` tag?
+**Difficulty: Intermediate**
+
+**Answer:**
+The `<template>` tag is used to hold client-side content that will not be rendered when the page loads but may be instantiated subsequently during runtime using JavaScript.
+
+```html
+<template id="my-template">
+  <div class="content">This is hidden content</div>
+</template>
+```
+
+### Q88: What is the difference between `<link>` and `<a>` tags?
+**Difficulty: Beginner**
+
+**Answer:**
+- `<a>` (Anchor): Defines a hyperlink to another page or a location within the same page. It is clickable by the user.
+- `<link>`: Defines a relationship between the current document and an external resource (like CSS files, favicons). It is typically placed in the `<head>` and is not clickable.
+
+### Q89: What are Microdata in HTML?
+**Difficulty: Advanced**
+
+**Answer:**
+Microdata is a specification to nest metadata within existing content on web pages. Search engines (like Google) use it to understand the content better (Schema.org).
+
+```html
+<div itemscope itemtype="http://schema.org/Person">
+  <span itemprop="name">John Doe</span>
+</div>
+```
+
+### Q90: What is the `contenteditable` attribute?
+**Difficulty: Intermediate**
+
+**Answer:**
+The `contenteditable` attribute specifies whether the content of an element is editable or not.
+
+```html
+<div contenteditable="true">
+  This text can be edited by the user.
+</div>
+```
+
+### Q91: What is the difference between SVG and Canvas?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **SVG (Scalable Vector Graphics):** Vector-based, XML format. Each shape is a DOM element. Good for logos, icons, and scalability. Event handlers can be attached to individual shapes.
+- **Canvas:** Raster-based (pixels). Drawn via JavaScript. Good for high-performance games or complex animations with many moving parts. No DOM nodes for individual shapes.
+
+### Q92: What is the purpose of the `autocomplete` attribute?
+**Difficulty: Beginner**
+
+**Answer:**
+The `autocomplete` attribute specifies whether a form or an input field should have autocomplete on or off. When on, the browser automatically complete values based on values that the user has entered before.
+
+### Q93: How do you specify the language of the page content?
+**Difficulty: Beginner**
+
+**Answer:**
+Using the `lang` attribute on the `<html>` tag. This is important for accessibility (screen readers) and SEO.
+
+```html
+<html lang="en">
+```
+
+### Q94: What is the `<noscript>` tag?
+**Difficulty: Beginner**
+
+**Answer:**
+The `<noscript>` tag defines an alternate content to be displayed to users that have disabled scripts in their browser or have a browser that doesn't support script.
+
+### Q95: What is the purpose of the `download` attribute on an anchor tag?
+**Difficulty: Intermediate**
+
+**Answer:**
+The `download` attribute instructs the browser to download the URL instead of navigating to it, so the user will be prompted to save it as a local file.
+
+```html
+<a href="/images/logo.png" download="my-logo.png">Download Logo</a>
+```
+
+### Q96: What are the new form input types introduced in HTML5?
+**Difficulty: Beginner**
+
+**Answer:**
+HTML5 introduced several new input types for better mobile support and validation:
+`color`, `date`, `datetime-local`, `email`, `month`, `number`, `range`, `search`, `tel`, `time`, `url`, `week`.
+
+### Q97: What is the `<figure>` and `<figcaption>` element?
+**Difficulty: Beginner**
+
+**Answer:**
+- `<figure>`: Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+- `<figcaption>`: Defines a caption for a `<figure>` element.
+
+```html
+<figure>
+  <img src="pic.jpg" alt="My Picture">
+  <figcaption>Fig.1 - My Picture</figcaption>
+</figure>
+```
+
+### Q98: What is the difference between `<b>` and `<strong>`?
+**Difficulty: Beginner**
+
+**Answer:**
+- `<b>`: Stylistic. Brings attention to the element without indicating importance (Bold).
+- `<strong>`: Semantic. Indicates that its contents have strong importance, seriousness, or urgency. Browsers typically render it in bold.
+
+### Q99: What is the difference between `<i>` and `<em>`?
+**Difficulty: Beginner**
+
+**Answer:**
+- `<i>`: Stylistic. Represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, taxonomical designations, etc. (Italic).
+- `<em>`: Semantic. Indicates emphasis of its contents. Browsers typically render it in italic.
+
+### Q100: What is the purpose of the `hidden` attribute?
+**Difficulty: Beginner**
+
+**Answer:**
+The `hidden` attribute is a boolean attribute. When present, it specifies that an element is not yet, or is no longer, relevant. Browsers will not render elements with the hidden attribute specified.
+
+```html
+<p hidden>This paragraph should be hidden.</p>
+```
+
+### Q101: What is the `details` and `summary` element?
+**Difficulty: Intermediate**
+
+**Answer:**
+The `<details>` tag specifies additional details that the user can view or hide on demand. The `<summary>` tag defines a visible heading for the `<details>` element.
+
+```html
+<details>
+  <summary>Click to open</summary>
+  <p>Hidden content here...</p>
+</details>
 ```

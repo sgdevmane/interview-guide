@@ -22,10 +22,92 @@
 18. [Q18: How do you implement TypeScript 5.0+ const assertions and satisfies operator for advanced type safety?](#q18-how-do-you-implement-typescript-50-const-assertions-and-satisfies-operator-for-advanced-type-safety)
 19. [Q19: How do you implement advanced TypeScript 5.0+ decorators and metadata reflection for enterprise applications?](#q19-how-do-you-implement-advanced-typescript-50-decorators-and-metadata-reflection-for-enterprise-applications)
 20. [Q20: How do you use TypeScript with React for type-safe component development?](#q20-how-do-you-use-typescript-with-react-for-type-safe-component-development)
+21. [Q21: What is the difference between `interface` and `type` alias?](#q21-what-is-the-difference-between-interface-and-type-alias)
+22. [Q22: Explain the `unknown` type vs `any` type.](#q22-explain-the-unknown-type-vs-any-type)
+23. [Q23: What are Type Guards and how do you create a user-defined type guard?](#q23-what-are-type-guards-and-how-do-you-create-a-user-defined-type-guard)
+24. [Q24: Explain the `never` type and when it is used.](#q24-explain-the-never-type-and-when-it-is-used)
+25. [Q25: What is the `keyof` operator?](#q25-what-is-the-keyof-operator)
+26. [Q26: What is the purpose of `namespace` in TypeScript?](#q26-what-is-the-purpose-of-namespace-in-typescript)
+27. [Q27: Explain `readonly` modifier in interfaces and classes.](#q27-explain-readonly-modifier-in-interfaces-and-classes)
+28. [Q28: What is a Tuple type?](#q28-what-is-a-tuple-type)
+29. [Q29: What are Enums in TypeScript?](#q29-what-are-enums-in-typescript)
+30. [Q30: Explain "Declaration Merging".](#q30-explain-declaration-merging)
+31. [Q31: What is the `infer` keyword in conditional types?](#q31-what-is-the-infer-keyword-in-conditional-types)
+32. [Q32: How do you make all properties of an interface optional?](#q32-how-do-you-make-all-properties-of-an-interface-optional)
+33. [Q33: How do you make all properties of an interface required?](#q33-how-do-you-make-all-properties-of-an-interface-required)
+34. [Q34: What is `Pick<T, K>`?](#q34-what-is-pickt-k)
+35. [Q35: What is `Omit<T, K>`?](#q35-what-is-omitt-k)
+36. [Q36: What is `Record<K, T>`?](#q36-what-is-recordk-t)
+37. [Q37: What is the purpose of `Exclude<T, U>`?](#q37-what-is-the-purpose-of-excludet-u)
+38. [Q38: What is `Extract<T, U>`?](#q38-what-is-extractt-u)
+39. [Q39: What is `NonNullable<T>`?](#q39-what-is-nonnullablet)
+40. [Q40: Explain Abstract Classes in TypeScript.](#q40-explain-abstract-classes-in-typescript)
+41. [Q41: What is the `declare` keyword used for?](#q41-what-is-the-declare-keyword-used-for)
+42. [Q42: What are Ambient Modules?](#q42-what-are-ambient-modules)
+43. [Q43: How do you use `this` parameters in callbacks?](#q43-how-do-you-use-this-parameters-in-callbacks)
+44. [Q44: What is the `satisfies` operator (TypeScript 4.9+)?](#q44-what-is-the-satisfies-operator-typescript-49)
+45. [Q45: What are Const Assertions (`as const`)?](#q45-what-are-const-assertions-as-const)
+46. [Q46: Explain Module Resolution in TypeScript.](#q46-explain-module-resolution-in-typescript)
+47. [Q47: What is a `tsconfig.json` file?](#q47-what-is-a-tsconfigjson-file)
+48. [Q48: What is "Strict Mode" in TypeScript?](#q48-what-is-strict-mode-in-typescript)
+49. [Q49: How to debug TypeScript code?](#q49-how-to-debug-typescript-code)
+50. [Q50: What is the difference between `internal` and `external` modules?](#q50-what-is-the-difference-between-internal-and-external-modules)
+51. [Q51: How do you handle "Window" object properties in TypeScript?](#q51-how-do-you-handle-window-object-properties-in-typescript)
+52. [Q52: What are Generic Constraints?](#q52-what-are-generic-constraints)
+53. [Q53: What is `ReturnType<T>`?](#q53-what-is-returntypet)
+54. [Q54: What is `InstanceType<T>`?](#q54-what-is-instancetypet)
+55. [Q55: How to allow dynamic keys in an object?](#q55-how-to-allow-dynamic-keys-in-an-object)
+56. [Q56: What is the difference between `null` and `undefined` in TypeScript?](#q56-what-is-the-difference-between-null-and-undefined-in-typescript)
+57. [Q57: What is the `void` type?](#q57-what-is-the-void-type)
+58. [Q58: What is the `object` type (non-primitive)?](#q58-what-is-the-object-type-non-primitive)
+59. [Q59: What are Triple-Slash Directives?](#q59-what-are-triple-slash-directives)
+60. [Q60: How to use Mixins in TypeScript?](#q60-how-to-use-mixins-in-typescript)
+61. [Q61: What is `ThisType<T>`?](#q61-what-is-thistypet)
+62. [Q62: What is the `override` keyword?](#q62-what-is-the-override-keyword)
+63. [Q63: Explain "DefinitelyTyped".](#q63-explain-definitelytyped)
+64. [Q64: How to migrate a JavaScript project to TypeScript?](#q64-how-to-migrate-a-javascript-project-to-typescript)
+65. [Q65: What is `Parameters<T>`?](#q65-what-is-parameterst)
+66. [Q66: What is `ConstructorParameters<T>`?](#q66-what-is-constructorparameterst)
+67. [Q67: Explain `import type` vs `import`.](#q67-explain-import-type-vs-import)
+68. [Q68: What is the `using` keyword (Resource Management)?](#q68-what-is-the-using-keyword-resource-management)
+69. [Q69: How to create a global type definition?](#q69-how-to-create-a-global-type-definition)
+70. [Q70: What is the difference between `private` and `#` (private fields)?](#q70-what-is-the-difference-between-private-and-private-fields)
+71. [Q71: What is `Awaited<T>`?](#q71-what-is-awaitedt)
+72. [Q72: What are Template Literal Types?](#q72-what-are-template-literal-types)
+73. [Q73: What is Variance (Covariance vs Contravariance)?](#q73-what-is-variance-covariance-vs-contravariance)
+74. [Q74: How to handle "Circular Dependencies" in types?](#q74-how-to-handle-circular-dependencies-in-types)
+75. [Q75: What is `Capitalize<StringType>`?](#q75-what-is-capitalizestringtype)
+76. [Q76: What is `Uncapitalize<StringType>`?](#q76-what-is-uncapitalizestringtype)
+77. [Q77: What is `Uppercase<StringType>`?](#q77-what-is-uppercasestringtype)
+78. [Q78: What is `Lowercase<StringType>`?](#q78-what-is-lowercasestringtype)
+79. [Q79: Explain the `!.` (Non-null assertion operator).](#q79-explain-the-non-null-assertion-operator)
+80. [Q80: What is `emitDecoratorMetadata`?](#q80-what-is-emitdecoratormetadata)
+81. [Q81: What is `skipLibCheck`?](#q81-what-is-skiplibcheck)
+82. [Q82: What is `incremental` build?](#q82-what-is-incremental-build)
+83. [Q83: How to check for exact string matches in switch case?](#q83-how-to-check-for-exact-string-matches-in-switch-case)
+84. [Q84: What is `export =` and `import = require()`?](#q84-what-is-export-and-import-require)
+85. [Q85: What is the `?` operator in interfaces?](#q85-what-is-the-operator-in-interfaces)
+86. [Q86: How to define a Function Overload?](#q86-how-to-define-a-function-overload)
+87. [Q87: What is `esModuleInterop`?](#q87-what-is-esmoduleinterop)
+88. [Q88: What are "Branded Types" (or Nominal Typing simulation)?](#q88-what-are-branded-types-or-nominal-typing-simulation)
+89. [Q89: How to ignore specific lines from type checking?](#q89-how-to-ignore-specific-lines-from-type-checking)
+90. [Q90: What is `stripInternal`?](#q90-what-is-stripinternal)
+91. [Q91: How to use a class as an interface?](#q91-how-to-use-a-class-as-an-interface)
+92. [Q92: What is `noImplicitAny`?](#q92-what-is-noimplicitany)
+93. [Q93: What is `noImplicitReturns`?](#q93-what-is-noimplicitreturns)
+94. [Q94: What is `noUnusedLocals` and `noUnusedParameters`?](#q94-what-is-nounusedlocals-and-nounusedparameters)
+95. [Q95: How to restrict the value of a string to a specific set?](#q95-how-to-restrict-the-value-of-a-string-to-a-specific-set)
+96. [Q96: What is the `ReadonlyArray<T>` type?](#q96-what-is-the-readonlyarrayt-type)
+97. [Q97: How to assert a type without validation (Type Assertion)?](#q97-how-to-assert-a-type-without-validation-type-assertion)
+98. [Q98: What is `CompositeProject` (Project References)?](#q98-what-is-compositeproject-project-references)
+99. [Q99: How do you handle JSON imports in TypeScript?](#q99-how-do-you-handle-json-imports-in-typescript)
+100. [Q100: What is `preserveConstEnums`?](#q100-what-is-preserveconstenums)
 
 ---
 
-## TypeScript Fundamentals
+
+---
+
 
 ### Q1: What is TypeScript and what are its key benefits?
 
@@ -214,7 +296,6 @@ interface Configuration {
 
 ---
 
-## Type System
 
 ### Q3: Explain TypeScript's structural typing system.
 
@@ -484,7 +565,6 @@ type UserWithRequiredEmail = RequiredFields<UserProfile, 'email'>;
 
 ---
 
-## Advanced Types
 
 ### Q5: Explain conditional types and their practical applications.
 
@@ -850,7 +930,6 @@ class UserBuilder implements Builder<User> {
 
 ---
 
-## Utility Types
 
 ### Q7: Explain the built-in utility types and create advanced custom ones.
 
@@ -1092,7 +1171,6 @@ getUserById(userId); // OK
 
 ---
 
-## Generics
 
 ### Q8: Explain TypeScript generics with advanced patterns and constraints.
 
@@ -1477,7 +1555,6 @@ console.log(errors); // ['Invalid email format']
 
 ---
 
-## Modern TypeScript Features
 
 ### Q9: Explain template literal types and their advanced use cases.
 
@@ -1740,7 +1817,6 @@ getUserById(userId); // OK
 
 ---
 
-## Decorators
 
 ### Q10: Explain TypeScript decorators and their practical applications.
 
@@ -2013,7 +2089,6 @@ class UserService {
 
 ---
 
-## Best Practices
 
 ### Q11: What are TypeScript best practices for large-scale applications?
 
@@ -2391,7 +2466,6 @@ interface AuditService {
 
 ---
 
-## Performance Optimization
 
 ### Q12: How do you optimize TypeScript compilation and runtime performance?
 
@@ -2660,7 +2734,6 @@ class DataProcessor<T> {
 
 ---
 
-## Modern TypeScript Features
 
 ### Q13: What are the latest TypeScript features and how do you use them?
 
@@ -2896,7 +2969,6 @@ This comprehensive TypeScript guide covers all essential concepts from basic typ
 
 ---
 
-## Advanced TypeScript 5.0+ Features and Patterns
 
 ### Q14: How do you implement advanced type manipulation and metaprogramming in TypeScript?
 **Difficulty: Expert**
@@ -5033,3 +5105,979 @@ const todoReducer = (state = initialState, action: TodoActionTypes): TodoState =
 - Use type guards for runtime type checking
 
 By following these patterns and practices, you can build robust, type-safe React applications that leverage TypeScript's powerful type system to catch errors at compile time rather than runtime.
+
+### Q21: What is the difference between `interface` and `type` alias?
+**Difficulty: Intermediate**
+
+**Answer:**
+Both `interface` and `type` can be used to describe the shape of an object or a function signature, but there are key differences.
+
+- **Interface:**
+  - Can be merged (declaration merging).
+  - Better error messages in some cases.
+  - Primarily for defining object shapes.
+  - Can `extend` other interfaces or classes.
+
+- **Type Alias:**
+  - Can represent primitive types, union types, intersection types, tuples, etc.
+  - Cannot be merged (no declaration merging).
+  - More flexible for complex type manipulations.
+
+```typescript
+// Interface merging
+interface User {
+  name: string;
+}
+interface User {
+  age: number;
+}
+const user: User = { name: "John", age: 30 }; // Valid
+
+// Type alias cannot be merged
+type Product = { name: string };
+// type Product = { price: number }; // Error: Duplicate identifier 'Product'.
+```
+
+### Q22: Explain the `unknown` type vs `any` type.
+**Difficulty: Intermediate**
+
+**Answer:**
+`any` allows you to do anything with the variable, effectively disabling type checking. `unknown` is the type-safe counterpart of `any`. You must narrow down the type of an `unknown` variable before performing operations on it.
+
+```typescript
+let valAny: any = 10;
+valAny.foo(); // No error at compile time (runtime error likely)
+
+let valUnknown: unknown = 10;
+// valUnknown.foo(); // Error: Object is of type 'unknown'.
+
+if (typeof valUnknown === 'number') {
+  console.log(valUnknown.toFixed(2)); // Valid after narrowing
+}
+```
+
+### Q23: What are Type Guards and how do you create a user-defined type guard?
+**Difficulty: Intermediate**
+
+**Answer:**
+Type Guards are expressions that perform a runtime check that guarantees the type in some scope. User-defined type guards are functions that return a type predicate (`parameterName is Type`).
+
+```typescript
+interface Bird {
+  fly(): void;
+  layEggs(): void;
+}
+
+interface Fish {
+  swim(): void;
+  layEggs(): void;
+}
+
+function isFish(pet: Bird | Fish): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
+
+function move(pet: Bird | Fish) {
+  if (isFish(pet)) {
+    pet.swim(); // TypeScript knows pet is Fish here
+  } else {
+    pet.fly(); // TypeScript knows pet is Bird here
+  }
+}
+```
+
+### Q24: Explain the `never` type and when it is used.
+**Difficulty: Intermediate**
+
+**Answer:**
+The `never` type represents values that never occur. It is used for:
+1.  Functions that never return (e.g., throw an error or infinite loop).
+2.  Exhaustiveness checks in switch statements (ensuring all cases are handled).
+
+```typescript
+function error(message: string): never {
+  throw new Error(message);
+}
+
+type Shape = "circle" | "square";
+
+function getArea(shape: Shape) {
+  switch (shape) {
+    case "circle":
+      return Math.PI; // Simplified
+    case "square":
+      return 1;
+    default:
+      const _exhaustiveCheck: never = shape;
+      return _exhaustiveCheck;
+  }
+}
+```
+
+### Q25: What is the `keyof` operator?
+**Difficulty: Beginner**
+
+**Answer:**
+The `keyof` operator takes an object type and produces a string or numeric literal union of its keys.
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+type PersonKeys = keyof Person; // "name" | "age"
+
+function getProperty<T, K extends keyof T>(obj: T, key: K) {
+  return obj[key];
+}
+```
+
+### Q26: What is the purpose of `namespace` in TypeScript?
+**Difficulty: Intermediate**
+
+**Answer:**
+Namespaces are a way to organize code and prevent global scope pollution in TypeScript (and JavaScript). They are largely replaced by ES Modules (`import`/`export`) in modern development but are still useful for grouping related utilities or type definitions, especially for external libraries.
+
+```typescript
+namespace Validation {
+  export interface StringValidator {
+    isAcceptable(s: string): boolean;
+  }
+  export const numberRegexp = /^[0-9]+$/;
+}
+
+// Usage
+/// <reference path="Validation.ts" />
+// let validators: { [s: string]: Validation.StringValidator; } = {};
+```
+
+### Q27: Explain `readonly` modifier in interfaces and classes.
+**Difficulty: Beginner**
+
+**Answer:**
+The `readonly` modifier makes a property immutable after its initialization. It can only be assigned in the declaration or in the constructor.
+
+```typescript
+class Car {
+  readonly make: string;
+  constructor(make: string) {
+    this.make = make;
+  }
+  
+  changeMake() {
+    // this.make = "Honda"; // Error: Cannot assign to 'make' because it is a read-only property.
+  }
+}
+
+interface Point {
+  readonly x: number;
+  readonly y: number;
+}
+```
+
+### Q28: What is a Tuple type?
+**Difficulty: Beginner**
+
+**Answer:**
+A tuple is an array with a fixed number of elements whose types are known, but need not be the same.
+
+```typescript
+let x: [string, number];
+x = ["hello", 10]; // OK
+// x = [10, "hello"]; // Error
+```
+
+### Q29: What are Enums in TypeScript?
+**Difficulty: Beginner**
+
+**Answer:**
+Enums allow declaring a set of named constants. TypeScript supports numeric and string-based enums.
+
+```typescript
+enum Direction {
+  Up = 1,
+  Down, // 2
+  Left, // 3
+  Right // 4
+}
+
+enum Response {
+  No = 0,
+  Yes = "YES",
+}
+```
+
+### Q30: Explain "Declaration Merging".
+**Difficulty: Advanced**
+
+**Answer:**
+Declaration merging is when the compiler merges two or more separate declarations declared with the same name into a single definition. This is most common with interfaces.
+
+```typescript
+interface Box {
+  height: number;
+  width: number;
+}
+
+interface Box {
+  scale: number;
+}
+
+let box: Box = { height: 5, width: 6, scale: 10 }; // Box has all 3 properties
+```
+
+### Q31: What is the `infer` keyword in conditional types?
+**Difficulty: Advanced**
+
+**Answer:**
+The `infer` keyword is used within the `extends` clause of a conditional type to deduce (infer) a type variable that can be used in the true branch.
+
+```typescript
+type ReturnType<T> = T extends (...args: any[]) => infer R ? R : any;
+
+function getUser() {
+  return { name: "Alice", age: 25 };
+}
+
+type User = ReturnType<typeof getUser>; // { name: string; age: number; }
+```
+
+### Q32: How do you make all properties of an interface optional?
+**Difficulty: Beginner**
+
+**Answer:**
+Use the `Partial<T>` utility type.
+
+```typescript
+interface Todo {
+  title: string;
+  description: string;
+}
+
+function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+  return { ...todo, ...fieldsToUpdate };
+}
+```
+
+### Q33: How do you make all properties of an interface required?
+**Difficulty: Beginner**
+
+**Answer:**
+Use the `Required<T>` utility type. It is the opposite of `Partial`.
+
+```typescript
+interface Props {
+  a?: number;
+  b?: string;
+}
+
+const obj: Required<Props> = { a: 5, b: "hello" }; // Both a and b must be present
+```
+
+### Q34: What is `Pick<T, K>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+`Pick` constructs a type by picking the set of properties `K` from `T`.
+
+```typescript
+interface Todo {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+
+type TodoPreview = Pick<Todo, "title" | "completed">;
+// { title: string; completed: boolean; }
+```
+
+### Q35: What is `Omit<T, K>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+`Omit` constructs a type by picking all properties from `T` and then removing `K`.
+
+```typescript
+interface Todo {
+  title: string;
+  description: string;
+  completed: boolean;
+}
+
+type TodoInfo = Omit<Todo, "completed">;
+// { title: string; description: string; }
+```
+
+### Q36: What is `Record<K, T>`?
+**Difficulty: Beginner**
+
+**Answer:**
+`Record` constructs an object type whose property keys are `K` and whose property values are `T`. It is useful for mapping properties of one type to another.
+
+```typescript
+interface PageInfo {
+  title: string;
+}
+
+type Page = "home" | "about" | "contact";
+
+const nav: Record<Page, PageInfo> = {
+  about: { title: "about" },
+  contact: { title: "contact" },
+  home: { title: "home" },
+};
+```
+
+### Q37: What is the purpose of `Exclude<T, U>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+`Exclude` constructs a type by excluding from `T` all union members that are assignable to `U`.
+
+```typescript
+type T0 = Exclude<"a" | "b" | "c", "a">; // "b" | "c"
+```
+
+### Q38: What is `Extract<T, U>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+`Extract` constructs a type by extracting from `T` all union members that are assignable to `U`.
+
+```typescript
+type T0 = Extract<"a" | "b" | "c", "a" | "f">; // "a"
+```
+
+### Q39: What is `NonNullable<T>`?
+**Difficulty: Beginner**
+
+**Answer:**
+`NonNullable` constructs a type by excluding `null` and `undefined` from `T`.
+
+```typescript
+type T0 = NonNullable<string | number | undefined>; // string | number
+```
+
+### Q40: Explain Abstract Classes in TypeScript.
+**Difficulty: Intermediate**
+
+**Answer:**
+Abstract classes are base classes from which other classes may be derived. They may not be instantiated directly. Unlike an interface, an abstract class may contain implementation details for its members.
+
+```typescript
+abstract class Animal {
+  abstract makeSound(): void;
+  move(): void {
+    console.log("roaming the earth...");
+  }
+}
+
+class Dog extends Animal {
+  makeSound() {
+    console.log("woof");
+  }
+}
+// const a = new Animal(); // Error
+const d = new Dog(); // OK
+```
+
+### Q41: What is the `declare` keyword used for?
+**Difficulty: Intermediate**
+
+**Answer:**
+The `declare` keyword is used to tell the compiler that a variable, function, class, or namespace exists, but its implementation is defined elsewhere (e.g., in an external JS library). It is often used in `.d.ts` files.
+
+```typescript
+declare var myLibrary: any;
+myLibrary.someFunction(); // Compiles fine, assumes myLibrary exists at runtime
+```
+
+### Q42: What are Ambient Modules?
+**Difficulty: Advanced**
+
+**Answer:**
+Ambient modules are used to declare the shape of a library in a declaration file (`.d.ts`).
+
+```typescript
+// my-lib.d.ts
+declare module "my-lib" {
+  export function doSomething(): void;
+}
+
+// main.ts
+import { doSomething } from "my-lib";
+```
+
+### Q43: How do you use `this` parameters in callbacks?
+**Difficulty: Advanced**
+
+**Answer:**
+You can provide a fake `this` parameter as the first argument in a function declaration to type the `this` context.
+
+```typescript
+interface UIElement {
+  addClickListener(onclick: (this: void, e: Event) => void): void;
+}
+// Prevents using 'this' inside the callback if it's not expected
+```
+
+### Q44: What is the `satisfies` operator (TypeScript 4.9+)?
+**Difficulty: Intermediate**
+
+**Answer:**
+The `satisfies` operator allows validating that an expression matches some type, without changing the resulting type of that expression. This preserves specific types while ensuring conformance.
+
+```typescript
+type Colors = "red" | "green" | "blue";
+type RGB = [number, number, number];
+
+const palette = {
+  red: [255, 0, 0],
+  green: "#00ff00",
+  blue: [0, 0, 255]
+} satisfies Record<Colors, string | RGB>;
+
+// palette.red is still [number, number, number], not string | RGB
+const redComponent = palette.red[0]; // OK
+```
+
+### Q45: What are Const Assertions (`as const`)?
+**Difficulty: Intermediate**
+
+**Answer:**
+Const assertions tell the compiler that the expression is to be inferred as the most specific literal type possible, arrays become `readonly` tuples, and objects get `readonly` properties.
+
+```typescript
+const args = [8, 5] as const; // readonly [8, 5]
+const angle = 90; // number
+const direction = "up" as const; // "up" type
+```
+
+### Q46: Explain Module Resolution in TypeScript.
+**Difficulty: Advanced**
+
+**Answer:**
+Module resolution is the process the compiler uses to figure out what an import refers to.
+- **Classic:** Used in TypeScript before 1.6.
+- **Node:** Mimics Node.js module resolution mechanism (checking `node_modules`, `package.json` types, etc.).
+
+Configured in `tsconfig.json` via `"moduleResolution"`.
+
+### Q47: What is a `tsconfig.json` file?
+**Difficulty: Beginner**
+
+**Answer:**
+The `tsconfig.json` file marks the root of a TypeScript project. It specifies the root files and the compiler options required to compile the project.
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true
+  }
+}
+```
+
+### Q48: What is "Strict Mode" in TypeScript?
+**Difficulty: Beginner**
+
+**Answer:**
+Setting `"strict": true` in `tsconfig.json` enables a family of strict type-checking options (like `noImplicitAny`, `strictNullChecks`, `strictFunctionTypes`, etc.) to provide stronger guarantees of program correctness.
+
+### Q49: How to debug TypeScript code?
+**Difficulty: Beginner**
+
+**Answer:**
+TypeScript compiles to JavaScript. To debug TypeScript directly in browsers or VS Code, you need **Source Maps**. Enable `"sourceMap": true` in `tsconfig.json`. This maps the running JavaScript back to the original TypeScript source.
+
+### Q50: What is the difference between `internal` and `external` modules?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Internal Modules:** Now called **Namespaces**. Used to organize code within a file or across files using reference tags.
+- **External Modules:** Now simply called **Modules**. Load dependencies using `import` and `export`. Preferred in modern development.
+
+### Q51: How do you handle "Window" object properties in TypeScript?
+**Difficulty: Intermediate**
+
+**Answer:**
+You can extend the global `Window` interface using declaration merging.
+
+```typescript
+// global.d.ts
+interface Window {
+  myCustomProperty: string;
+}
+
+// main.ts
+window.myCustomProperty = "hello";
+```
+
+### Q52: What are Generic Constraints?
+**Difficulty: Intermediate**
+
+**Answer:**
+Constraints allow you to restrict the types that can be passed to a generic parameter using the `extends` keyword.
+
+```typescript
+interface Lengthwise {
+  length: number;
+}
+
+function loggingIdentity<T extends Lengthwise>(arg: T): T {
+  console.log(arg.length); // Now we know it has a .length property
+  return arg;
+}
+```
+
+### Q53: What is `ReturnType<T>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+A utility type that obtains the return type of a function type.
+
+```typescript
+type T0 = ReturnType<() => string>; // string
+```
+
+### Q54: What is `InstanceType<T>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Obtains the instance type of a constructor function type.
+
+```typescript
+class C {
+  x = 0;
+  y = 0;
+}
+type T0 = InstanceType<typeof C>; // C
+```
+
+### Q55: How to allow dynamic keys in an object?
+**Difficulty: Beginner**
+
+**Answer:**
+Use an index signature.
+
+```typescript
+interface StringArray {
+  [index: number]: string;
+}
+
+interface Dictionary {
+  [key: string]: any;
+}
+```
+
+### Q56: What is the difference between `null` and `undefined` in TypeScript?
+**Difficulty: Beginner**
+
+**Answer:**
+- `undefined`: Variable has been declared but not assigned a value.
+- `null`: Intentional absence of any object value.
+With `strictNullChecks`, they are distinct types and cannot be assigned to other types (except `any` and `unknown`) unless explicitly allowed (e.g., `string | null`).
+
+### Q57: What is the `void` type?
+**Difficulty: Beginner**
+
+**Answer:**
+`void` is the absence of having any type. It is commonly used as the return type of functions that do not return a value.
+
+### Q58: What is the `object` type (non-primitive)?
+**Difficulty: Intermediate**
+
+**Answer:**
+`object` represents any non-primitive type (i.e., anything that is not `number`, `string`, `boolean`, `symbol`, `null`, or `undefined`).
+
+### Q59: What are Triple-Slash Directives?
+**Difficulty: Advanced**
+
+**Answer:**
+They are single-line comments containing a single XML tag. They are used as compiler directives.
+e.g., `/// <reference path="..." />` serves as a declaration of dependency between files.
+
+### Q60: How to use Mixins in TypeScript?
+**Difficulty: Advanced**
+
+**Answer:**
+Mixins allow you to compose classes from reusable components.
+
+```typescript
+function Disposable<T extends new (...args: any[]) => {}>(Base: T) {
+  return class extends Base {
+    isDisposed: boolean = false;
+    dispose() {
+      this.isDisposed = true;
+    }
+  };
+}
+
+class MyClass { /* ... */ }
+const MyDisposableClass = Disposable(MyClass);
+```
+
+### Q61: What is `ThisType<T>`?
+**Difficulty: Advanced**
+
+**Answer:**
+A marker utility type used to control `this` type in object literals. It serves as a marker for a contextual `this` type. Note: Requires `noImplicitThis`.
+
+### Q62: What is the `override` keyword?
+**Difficulty: Beginner**
+
+**Answer:**
+Introduced in TS 4.3, it explicitly indicates that a method in a subclass is intended to override a method in the base class. If the method does not exist in the base class, the compiler throws an error.
+
+```typescript
+class Base {
+  greet() {}
+}
+class Derived extends Base {
+  override greet() {}
+}
+```
+
+### Q63: Explain "DefinitelyTyped".
+**Difficulty: Beginner**
+
+**Answer:**
+DefinitelyTyped is a repository for high-quality TypeScript type definitions (`@types` packages) for libraries that are written in plain JavaScript.
+
+### Q64: How to migrate a JavaScript project to TypeScript?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  Add `tsconfig.json`.
+2.  Change `.js` to `.ts`.
+3.  Allow implicit any (initially) or `allowJs: true`.
+4.  Fix compilation errors.
+5.  Add third-party type definitions (`@types/`).
+6.  Enable strict mode gradually.
+
+### Q65: What is `Parameters<T>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Constructs a tuple type from the types used in the parameters of a function type `T`.
+
+```typescript
+type T1 = Parameters<(s: string) => void>; // [s: string]
+```
+
+### Q66: What is `ConstructorParameters<T>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Constructs a tuple or array type from the types of a constructor function type `T`.
+
+### Q67: Explain `import type` vs `import`.
+**Difficulty: Intermediate**
+
+**Answer:**
+`import type` ensures that the imported symbol is only used for type checking and is completely erased during compilation. This helps with bundle size and circular dependencies.
+
+```typescript
+import type { SomeType } from './module';
+```
+
+### Q68: What is the `using` keyword (Resource Management)?
+**Difficulty: Advanced**
+
+**Answer:**
+TypeScript 5.2 introduced the `using` keyword for explicit resource management (based on the TC39 proposal). It allows objects to define a `Symbol.dispose` method which is called automatically when the variable goes out of scope.
+
+```typescript
+{
+  using file = openFile();
+  // file is used
+} // file.Symbol.dispose() is called here
+```
+
+### Q69: How to create a global type definition?
+**Difficulty: Intermediate**
+
+**Answer:**
+Create a `.d.ts` file and use `declare global`.
+
+```typescript
+export {};
+declare global {
+  interface String {
+    fancyFormat(): string;
+  }
+}
+```
+
+### Q70: What is the difference between `private` and `#` (private fields)?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `private`: TypeScript-only. Only checked at compile time. Accessible at runtime.
+- `#` (Private Fields): JavaScript feature (ECMAScript). Truly private at runtime.
+
+```typescript
+class A {
+  private x = 10;
+  #y = 20;
+}
+```
+
+### Q71: What is `Awaited<T>`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Released in TS 4.5, it models the operation of `await`. It recursively unwraps Promises.
+
+```typescript
+type A = Awaited<Promise<string>>; // string
+```
+
+### Q72: What are Template Literal Types?
+**Difficulty: Intermediate**
+
+**Answer:**
+They build on string literal types and have the ability to expand into many strings via unions.
+
+```typescript
+type World = "world";
+type Greeting = `hello ${World}`; // "hello world"
+```
+
+### Q73: What is Variance (Covariance vs Contravariance)?
+**Difficulty: Advanced**
+
+**Answer:**
+It refers to how subtypes of complex types relate to subtypes of their components.
+- **Covariant:** Return types.
+- **Contravariant:** Function arguments (with `strictFunctionTypes`).
+- **Bivariant:** Method arguments (historically).
+
+### Q74: How to handle "Circular Dependencies" in types?
+**Difficulty: Advanced**
+
+**Answer:**
+Interfaces support recursive definitions naturally. For type aliases, you can also define recursive types.
+
+```typescript
+type Json = string | number | boolean | null | { [property: string]: Json } | Json[];
+```
+
+### Q75: What is `Capitalize<StringType>`?
+**Difficulty: Beginner**
+
+**Answer:**
+Intrinsic string manipulation type that converts the first character to uppercase.
+
+### Q76: What is `Uncapitalize<StringType>`?
+**Difficulty: Beginner**
+
+**Answer:**
+Converts first character to lowercase.
+
+### Q77: What is `Uppercase<StringType>`?
+**Difficulty: Beginner**
+
+**Answer:**
+Converts entire string to uppercase.
+
+### Q78: What is `Lowercase<StringType>`?
+**Difficulty: Beginner**
+
+**Answer:**
+Converts entire string to lowercase.
+
+### Q79: Explain the `!.` (Non-null assertion operator).
+**Difficulty: Beginner**
+
+**Answer:**
+It tells the compiler that the operand is non-null and non-undefined in contexts where the type checker is unable to conclude that fact.
+
+```typescript
+function liveDangerously(x?: number | null) {
+  console.log(x!.toFixed());
+}
+```
+
+### Q80: What is `emitDecoratorMetadata`?
+**Difficulty: Advanced**
+
+**Answer:**
+A compiler option that emits design-type metadata for decorated declarations in source. Used heavily by libraries like `Reflect-metadata` for Dependency Injection (e.g., in Angular or NestJS).
+
+### Q81: What is `skipLibCheck`?
+**Difficulty: Beginner**
+
+**Answer:**
+A compiler option that skips type checking of declaration files (`.d.ts`). This can speed up compilation and ignore errors in library types that you cannot fix.
+
+### Q82: What is `incremental` build?
+**Difficulty: Intermediate**
+
+**Answer:**
+Setting `"incremental": true` allows TypeScript to save information about the project graph from the last compilation to a file on disk. This makes subsequent compilations faster.
+
+### Q83: How to check for exact string matches in switch case?
+**Difficulty: Beginner**
+
+**Answer:**
+TypeScript automatically narrows literal types in switch cases.
+
+```typescript
+type Status = "open" | "closed";
+function check(s: Status) {
+  switch (s) {
+    case "open": break;
+    case "closed": break;
+    // case "pending": // Error
+  }
+}
+```
+
+### Q84: What is `export =` and `import = require()`?
+**Difficulty: Intermediate**
+
+**Answer:**
+TypeScript specific syntax for modeling CommonJS and AMD exports.
+`export = MyClass;`
+`import MyClass = require('./MyClass');`
+
+### Q85: What is the `?` operator in interfaces?
+**Difficulty: Beginner**
+
+**Answer:**
+Marks a property as optional.
+
+### Q86: How to define a Function Overload?
+**Difficulty: Intermediate**
+
+**Answer:**
+You provide multiple function signatures followed by a single implementation signature.
+
+```typescript
+function makeDate(timestamp: number): Date;
+function makeDate(m: number, d: number, y: number): Date;
+function makeDate(mOrTimestamp: number, d?: number, y?: number): Date {
+  if (d !== undefined && y !== undefined) {
+    return new Date(y, mOrTimestamp, d);
+  } else {
+    return new Date(mOrTimestamp);
+  }
+}
+```
+
+### Q87: What is `esModuleInterop`?
+**Difficulty: Intermediate**
+
+**Answer:**
+A compiler option that enables interoperability between CommonJS and ES Modules. It allows default imports from CommonJS modules (`import React from 'react'` instead of `import * as React from 'react'`).
+
+### Q88: What are "Branded Types" (or Nominal Typing simulation)?
+**Difficulty: Advanced**
+
+**Answer:**
+Since TS is structural, `type USD = number` and `type EUR = number` are compatible. To make them distinct (Nominal), you can use branding.
+
+```typescript
+type USD = number & { __brand: "USD" };
+type EUR = number & { __brand: "EUR" };
+
+let u = 10 as USD;
+let e = 10 as EUR;
+// u = e; // Error
+```
+
+### Q89: How to ignore specific lines from type checking?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `// @ts-ignore` (suppress error on next line) or `// @ts-expect-error` (expect error on next line, error if no error).
+
+### Q90: What is `stripInternal`?
+**Difficulty: Advanced**
+
+**Answer:**
+Do not emit declarations for code that has `/** @internal */` JSDoc annotation.
+
+### Q91: How to use a class as an interface?
+**Difficulty: Intermediate**
+
+**Answer:**
+A class declaration creates two things: a type representing instances of the class and a constructor function. You can use the class as an interface.
+
+```typescript
+class Point {
+  x: number;
+  y: number;
+}
+interface Point3d extends Point {
+  z: number;
+}
+```
+
+### Q92: What is `noImplicitAny`?
+**Difficulty: Beginner**
+
+**Answer:**
+Raises an error on expressions and declarations with an implied `any` type.
+
+### Q93: What is `noImplicitReturns`?
+**Difficulty: Beginner**
+
+**Answer:**
+Raises an error when not all code paths in a function return a value.
+
+### Q94: What is `noUnusedLocals` and `noUnusedParameters`?
+**Difficulty: Beginner**
+
+**Answer:**
+Checks for unused local variables and function parameters, respectively.
+
+### Q95: How to restrict the value of a string to a specific set?
+**Difficulty: Beginner**
+
+**Answer:**
+Use String Literal Unions.
+`type Alignment = "left" | "right" | "center";`
+
+### Q96: What is the `ReadonlyArray<T>` type?
+**Difficulty: Beginner**
+
+**Answer:**
+An array where you cannot mutate the contents.
+
+```typescript
+const a: ReadonlyArray<string> = ["a", "b"];
+// a.push("c"); // Error
+```
+
+### Q97: How to assert a type without validation (Type Assertion)?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `as Type` or `<Type>variable`.
+
+```typescript
+let someValue: unknown = "this is a string";
+let strLength: number = (someValue as string).length;
+```
+
+### Q98: What is `CompositeProject` (Project References)?
+**Difficulty: Advanced**
+
+**Answer:**
+Project references allow you to structure your TypeScript programs into smaller pieces. It helps with build times and logical separation. Enabled via `"composite": true` in `tsconfig.json`.
+
+### Q99: How do you handle JSON imports in TypeScript?
+**Difficulty: Beginner**
+
+**Answer:**
+Enable `"resolveJsonModule": true` in `tsconfig.json`. This allows importing `.json` files as objects.
+
+### Q100: What is `preserveConstEnums`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Normally `const enum` is erased during compilation and usages are inlined. `preserveConstEnums: true` keeps the enum definition in the generated JavaScript code while still allowing inlining.

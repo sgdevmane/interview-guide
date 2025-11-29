@@ -1,6 +1,7 @@
 # Docker & DevOps Interview Questions
 
 ## Table of Contents
+
 1. [Q1: What is Docker and how does it differ from virtual machines?](#q1-what-is-docker-and-how-does-it-differ-from-virtual-machines)
 2. [Q2: Explain Docker networking and how containers communicate.](#q2-explain-docker-networking-and-how-containers-communicate)
 3. [Q3: How do you create and optimize Dockerfiles for production?](#q3-how-do-you-create-and-optimize-dockerfiles-for-production)
@@ -8,23 +9,105 @@
 5. [Q5: How do you implement Docker security best practices?](#q5-how-do-you-implement-docker-security-best-practices)
 6. [Q6: How do you implement Docker container orchestration and scaling?](#q6-how-do-you-implement-docker-container-orchestration-and-scaling)
 7. [Q7: How do you implement Docker monitoring and logging?](#q7-how-do-you-implement-docker-monitoring-and-logging)
-8. [Q9: How do you troubleshoot Docker container issues?](#q9-how-do-you-troubleshoot-docker-container-issues)
-9. [Q10: How do you optimize Docker performance and resource usage?](#q10-how-do-you-optimize-docker-performance-and-resource-usage)
-10. [Q11: How do you implement Docker Swarm for container orchestration?](#q11-how-do-you-implement-docker-swarm-for-container-orchestration)
-11. [Q12: How do you integrate Docker with Kubernetes?](#q12-how-do-you-integrate-docker-with-kubernetes)
-12. [Q13: How do you implement Docker multi-platform builds and deployment?](#q13-how-do-you-implement-docker-multi-platform-builds-and-deployment)
-13. [Q14: How do you implement Docker enterprise patterns and best practices?](#q14-how-do-you-implement-docker-enterprise-patterns-and-best-practices)
-14. [Q15: How do you implement Docker development workflows and debugging?](#q15-how-do-you-implement-docker-development-workflows-and-debugging)
-15. [Q16: How do you implement Docker container backup and disaster recovery?](#q16-how-do-you-implement-docker-container-backup-and-disaster-recovery)
-16. [Q17: How do you implement Docker image optimization and security scanning?](#q17-how-do-you-implement-docker-image-optimization-and-security-scanning)
-17. [Q15: How do you implement Docker CI/CD integration?](#q15-how-do-you-implement-docker-cicd-integration)
+8. [Q8: How do you troubleshoot Docker container issues?](#q8-how-do-you-troubleshoot-docker-container-issues)
+9. [Q9: How do you optimize Docker performance and resource usage?](#q9-how-do-you-optimize-docker-performance-and-resource-usage)
+10. [Q10: How do you implement Docker Swarm for container orchestration?](#q10-how-do-you-implement-docker-swarm-for-container-orchestration)
+11. [Q11: How do you integrate Docker with Kubernetes?](#q11-how-do-you-integrate-docker-with-kubernetes)
+12. [Q12: How do you implement Docker multi-platform builds and deployment?](#q12-how-do-you-implement-docker-multi-platform-builds-and-deployment)
+13. [Q13: How do you implement Docker enterprise patterns and best practices?](#q13-how-do-you-implement-docker-enterprise-patterns-and-best-practices)
+14. [Q14: How do you implement Docker development workflows and debugging?](#q14-how-do-you-implement-docker-development-workflows-and-debugging)
+15. [Q15: How do you implement Docker container backup and disaster recovery?](#q15-how-do-you-implement-docker-container-backup-and-disaster-recovery)
+16. [Q16: How do you implement Docker image optimization and security scanning?](#q16-how-do-you-implement-docker-image-optimization-and-security-scanning)
+17. [Q17: How do you implement Docker CI/CD integration?](#q17-how-do-you-implement-docker-cicd-integration)
 18. [Q18: How do you implement Docker in production environments with high availability and scalability?](#q18-how-do-you-implement-docker-in-production-environments-with-high-availability-and-scalability)
 19. [Q19: How do you implement Docker registry management and image lifecycle?](#q19-how-do-you-implement-docker-registry-management-and-image-lifecycle)
 20. [Q20: How do you implement Docker ecosystem integration with modern DevOps tools?](#q20-how-do-you-implement-docker-ecosystem-integration-with-modern-devops-tools)
+21. [Q21: What is the difference between `COPY` and `ADD` in a Dockerfile?](#q21-what-is-the-difference-between-copy-and-add-in-a-dockerfile)
+22. [Q22: What is a "dangling image"?](#q22-what-is-a-dangling-image)
+23. [Q23: Explain the Docker "build context".](#q23-explain-the-docker-build-context)
+24. [Q24: What is the purpose of `.dockerignore`?](#q24-what-is-the-purpose-of-dockerignore)
+25. [Q25: How do you minimize Docker image size?](#q25-how-do-you-minimize-docker-image-size)
+26. [Q26: What is the difference between `CMD` and `ENTRYPOINT`?](#q26-what-is-the-difference-between-cmd-and-entrypoint)
+27. [Q27: How do you expose a port in Docker?](#q27-how-do-you-expose-a-port-in-docker)
+28. [Q28: What is a Docker Volume?](#q28-what-is-a-docker-volume)
+29. [Q29: What is a Bind Mount?](#q29-what-is-a-bind-mount)
+30. [Q30: What is Docker Compose?](#q30-what-is-docker-compose)
+31. [Q31: How do you check container logs?](#q31-how-do-you-check-container-logs)
+32. [Q32: How do you access a running container's shell?](#q32-how-do-you-access-a-running-containers-shell)
+33. [Q33: What is the difference between `docker run`, `docker start`, and `docker create`?](#q33-what-is-the-difference-between-docker-run-docker-start-and-docker-create)
+34. [Q34: Explain Docker Networking modes.](#q34-explain-docker-networking-modes)
+35. [Q35: How do you clean up unused Docker resources?](#q35-how-do-you-clean-up-unused-docker-resources)
+36. [Q36: What is a Docker Registry?](#q36-what-is-a-docker-registry)
+37. [Q37: How do you restart a container automatically?](#q37-how-do-you-restart-a-container-automatically)
+38. [Q38: What is the difference between `ENTRYPOINT` exec form and shell form?](#q38-what-is-the-difference-between-entrypoint-exec-form-and-shell-form)
+39. [Q39: How do you link containers (legacy vs modern)?](#q39-how-do-you-link-containers-legacy-vs-modern)
+40. [Q40: What is a multi-stage build?](#q40-what-is-a-multi-stage-build)
+41. [Q41: How do you pass environment variables to a container?](#q41-how-do-you-pass-environment-variables-to-a-container)
+42. [Q42: What is the "PID 1 zombie reaping problem" in Docker?](#q42-what-is-the-pid-1-zombie-reaping-problem-in-docker)
+43. [Q43: How do you upgrade Docker on a Linux system?](#q43-how-do-you-upgrade-docker-on-a-linux-system)
+44. [Q44: What is Docker Swarm?](#q44-what-is-docker-swarm)
+45. [Q45: How do you limit container resources (CPU/Memory)?](#q45-how-do-you-limit-container-resources-cpumemory)
+46. [Q46: What is the difference between an Image and a Container?](#q46-what-is-the-difference-between-an-image-and-a-container)
+47. [Q47: How do you share data between containers?](#q47-how-do-you-share-data-between-containers)
+48. [Q48: What happens when a container crashes?](#q48-what-happens-when-a-container-crashes)
+49. [Q49: Can you run Docker inside Docker (DinD)?](#q49-can-you-run-docker-inside-docker-dind)
+50. [Q50: What is `.docker/config.json`?](#q50-what-is-dockerconfigjson)
+51. [Q51: How do you debug a build failure?](#q51-how-do-you-debug-a-build-failure)
+52. [Q52: What is the `ONBUILD` instruction?](#q52-what-is-the-onbuild-instruction)
+53. [Q53: How to check Docker version?](#q53-how-to-check-docker-version)
+54. [Q54: What is the Docker daemon?](#q54-what-is-the-docker-daemon)
+55. [Q55: How do you stop all running containers?](#q55-how-do-you-stop-all-running-containers)
+56. [Q56: How do you remove all stopped containers?](#q56-how-do-you-remove-all-stopped-containers)
+57. [Q57: What is the default network driver?](#q57-what-is-the-default-network-driver)
+58. [Q58: How do you create a custom bridge network?](#q58-how-do-you-create-a-custom-bridge-network)
+59. [Q59: What is `docker inspect`?](#q59-what-is-docker-inspect)
+60. [Q60: How do you copy a file from a container to the host?](#q60-how-do-you-copy-a-file-from-a-container-to-the-host)
+61. [Q61: What is the `HEALTHCHECK` instruction?](#q61-what-is-the-healthcheck-instruction)
+62. [Q62: What is the difference between `docker pull` and `docker load`?](#q62-what-is-the-difference-between-docker-pull-and-docker-load)
+63. [Q63: What is `docker save`?](#q63-what-is-docker-save)
+64. [Q64: How do you tag an image?](#q64-how-do-you-tag-an-image)
+65. [Q65: What is a "Layer" in Docker?](#q65-what-is-a-layer-in-docker)
+66. [Q66: What is the Writable Layer?](#q66-what-is-the-writable-layer)
+67. [Q67: How does Docker achieve isolation?](#q67-how-does-docker-achieve-isolation)
+68. [Q68: How does Docker limit resources?](#q68-how-does-docker-limit-resources)
+69. [Q69: What is `docker diff`?](#q69-what-is-docker-diff)
+70. [Q70: How do you run a container in detached mode?](#q70-how-do-you-run-a-container-in-detached-mode)
+71. [Q71: What is the role of `containerd`?](#q71-what-is-the-role-of-containerd)
+72. [Q72: What is `runc`?](#q72-what-is-runc)
+73. [Q73: How do you view the history of an image?](#q73-how-do-you-view-the-history-of-an-image)
+74. [Q74: What is the difference between `LABEL` and `ENV`?](#q74-what-is-the-difference-between-label-and-env)
+75. [Q75: How do you format `docker ps` output?](#q75-how-do-you-format-docker-ps-output)
+76. [Q76: How to change the default Docker logging driver?](#q76-how-to-change-the-default-docker-logging-driver)
+77. [Q77: How do you perform a "clean build" (no cache)?](#q77-how-do-you-perform-a-clean-build-no-cache)
+78. [Q78: What is the scratch image?](#q78-what-is-the-scratch-image)
+79. [Q79: How do you handle secrets in Docker?](#q79-how-do-you-handle-secrets-in-docker)
+80. [Q80: How do you optimize Docker for CI/CD?](#q80-how-do-you-optimize-docker-for-cicd)
+81. [Q81: What is the difference between `CMD ["param"]` and `CMD param`?](#q81-what-is-the-difference-between-cmd-param-and-cmd-param)
+82. [Q82: How do you scan images for vulnerabilities?](#q82-how-do-you-scan-images-for-vulnerabilities)
+83. [Q83: What is `docker-compose.override.yml`?](#q83-what-is-docker-composeoverrideyml)
+84. [Q84: How do you run a command in a running container as root?](#q84-how-do-you-run-a-command-in-a-running-container-as-root)
+85. [Q85: What is the `STOPSIGNAL` instruction?](#q85-what-is-the-stopsignal-instruction)
+86. [Q86: How do you keep a container running (e.g., for debugging)?](#q86-how-do-you-keep-a-container-running-eg-for-debugging)
+87. [Q87: What is the Docker CLI context?](#q87-what-is-the-docker-cli-context)
+88. [Q88: How do you backup a Docker Volume?](#q88-how-do-you-backup-a-docker-volume)
+89. [Q89: How do you restore a Docker Volume?](#q89-how-do-you-restore-a-docker-volume)
+90. [Q90: What is "Copy-on-Write" (CoW)?](#q90-what-is-copy-on-write-cow)
+91. [Q91: Which storage drivers are available?](#q91-which-storage-drivers-are-available)
+92. [Q92: How do you limit network bandwidth for a container?](#q92-how-do-you-limit-network-bandwidth-for-a-container)
+93. [Q93: How do you create a Docker image from a container?](#q93-how-do-you-create-a-docker-image-from-a-container)
+94. [Q94: How do you flatten a Docker image?](#q94-how-do-you-flatten-a-docker-image)
+95. [Q95: What is `ARG` in Dockerfile?](#q95-what-is-arg-in-dockerfile)
+96. [Q96: What is the difference between `ARG` and `ENV`?](#q96-what-is-the-difference-between-arg-and-env)
+97. [Q97: How do you run a GUI application in Docker?](#q97-how-do-you-run-a-gui-application-in-docker)
+98. [Q98: What is "Privileged Mode"?](#q98-what-is-privileged-mode)
+99. [Q99: How do you view resource usage stats of containers?](#q99-how-do-you-view-resource-usage-stats-of-containers)
+100. [Q100: What is the OCI (Open Container Initiative)?](#q100-what-is-the-oci-open-container-initiative)
 
 ---
 
-## Docker Fundamentals
+
+---
+
 
 ### Q1: What is Docker and how does it differ from virtual machines?
 **Difficulty: Easy**
@@ -1731,7 +1814,6 @@ echo -e "\n${GREEN}Security audit completed${NC}"
 ```markdown
 # Docker Security Checklist
 
-## Image Security
 - [ ] Use official base images from trusted registries
 - [ ] Pin specific image versions (avoid 'latest' tag)
 - [ ] Regularly update base images and dependencies
@@ -1741,7 +1823,6 @@ echo -e "\n${GREEN}Security audit completed${NC}"
 - [ ] Sign images with Docker Content Trust
 - [ ] Use minimal base images (Alpine, Distroless)
 
-## Container Security
 - [ ] Run containers as non-root user
 - [ ] Use read-only root filesystem
 - [ ] Drop all capabilities and add only required ones
@@ -1751,7 +1832,6 @@ echo -e "\n${GREEN}Security audit completed${NC}"
 - [ ] Use user namespace remapping
 - [ ] Implement proper health checks
 
-## Network Security
 - [ ] Use custom bridge networks instead of default
 - [ ] Disable inter-container communication when not needed
 - [ ] Use network segmentation
@@ -1760,7 +1840,6 @@ echo -e "\n${GREEN}Security audit completed${NC}"
 - [ ] Use TLS for service communication
 - [ ] Regularly audit network configurations
 
-## Host Security
 - [ ] Keep Docker daemon updated
 - [ ] Configure Docker daemon securely
 - [ ] Use TLS for Docker daemon API
@@ -1769,7 +1848,6 @@ echo -e "\n${GREEN}Security audit completed${NC}"
 - [ ] Use rootless Docker when possible
 - [ ] Regular security updates for host OS
 
-## Secrets Management
 - [ ] Never embed secrets in images
 - [ ] Use Docker secrets or external secret management
 - [ ] Rotate secrets regularly
@@ -1777,7 +1855,6 @@ echo -e "\n${GREEN}Security audit completed${NC}"
 - [ ] Use environment variables carefully
 - [ ] Implement proper secret encryption
 
-## Monitoring and Compliance
 - [ ] Implement container runtime security monitoring
 - [ ] Use security scanning in CI/CD pipeline
 - [ ] Regular security audits and penetration testing
@@ -2661,7 +2738,7 @@ echo "All health checks passed!"
 
 ---
 
-### Q9: How do you troubleshoot Docker container issues?
+### Q8: How do you troubleshoot Docker container issues?
 **Difficulty: Medium**
 
 **Answer:**
@@ -3091,7 +3168,7 @@ fi
 
 ---
 
-### Q10: How do you optimize Docker performance and resource usage?
+### Q9: How do you optimize Docker performance and resource usage?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -3617,7 +3694,7 @@ req.end();
 
 ---
 
-### Q11: How do you implement Docker Swarm for container orchestration?
+### Q10: How do you implement Docker Swarm for container orchestration?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -4228,7 +4305,7 @@ echo "Access Prometheus at: http://localhost:9090"
 
 ---
 
-### Q12: How do you integrate Docker with Kubernetes?
+### Q11: How do you integrate Docker with Kubernetes?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -4875,7 +4952,7 @@ esac
 
 ---
 
-### Q13: How do you implement Docker multi-platform builds and deployment?
+### Q12: How do you implement Docker multi-platform builds and deployment?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -5448,7 +5525,7 @@ networks:
 
 ---
 
-### Q14: How do you implement Docker enterprise patterns and best practices?
+### Q13: How do you implement Docker enterprise patterns and best practices?
 **Difficulty: Expert**
 
 **Answer:**
@@ -6344,7 +6421,7 @@ esac
 
 ---
 
-### Q15: How do you implement Docker development workflows and debugging?
+### Q14: How do you implement Docker development workflows and debugging?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -6950,7 +7027,7 @@ esac
 
 ---
 
-### Q16: How do you implement Docker container backup and disaster recovery?
+### Q15: How do you implement Docker container backup and disaster recovery?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -7764,7 +7841,7 @@ networks:
 
 ---
 
-### Q17: How do you implement Docker image optimization and security scanning?
+### Q16: How do you implement Docker image optimization and security scanning?
 **Difficulty: Advanced**
 
 **Answer:**
@@ -8197,19 +8274,16 @@ generate_report() {
 **Date:** $(date)  
 **Optimization Level:** $OPTIMIZATION_LEVEL
 
-## Image Analysis
 
 \`\`\`
 $(docker images "$image" --format "table {{.Repository}}\t{{.Tag}}\t{{.Size}}\t{{.CreatedAt}}")
 \`\`\`
 
-## Layer Analysis
 
 \`\`\`
 $(docker history "$image" --format "table {{.CreatedBy}}\t{{.Size}}" | head -10)
 \`\`\`
 
-## Security Scan Results
 
 $(if [ -f "security-report-$(date +%Y%m%d).json" ]; then
     echo "Trivy scan results saved to: security-report-$(date +%Y%m%d).json"
@@ -8217,7 +8291,6 @@ else
     echo "No security scan results available"
 fi)
 
-## Optimization Recommendations
 
 1. **Multi-stage builds**: Use multi-stage builds to reduce final image size
 2. **Base image**: Consider using Alpine or distroless base images
@@ -8225,7 +8298,6 @@ fi)
 4. **Layer optimization**: Combine RUN commands to reduce layers
 5. **Security**: Regular security scanning and updates
 
-## Performance Metrics
 
 - **Image Size**: $(docker images "$image" --format "{{.Size}}")
 - **Layers**: $(docker history "$image" --quiet | wc -l)
@@ -8520,7 +8592,7 @@ process.on('SIGTERM', () => {
 
 ---
 
-### Q15: How do you implement Docker CI/CD integration?
+### Q17: How do you implement Docker CI/CD integration?
 **Difficulty: Medium**
 
 **Answer:**
@@ -10751,3 +10823,719 @@ output "ecr_repository_url" {
 ---
 
 This comprehensive Docker guide covers fundamental concepts, practical examples, and real-world scenarios for containerization and orchestration in modern web development.
+
+### Q21: What is the difference between `COPY` and `ADD` in a Dockerfile?
+**Difficulty: Beginner**
+
+**Answer:**
+Both commands copy files from the host into the container image.
+- `COPY`: Copies local files or directories. Preferred for explicit local file copying.
+- `ADD`: Has additional features:
+  - Can copy from a URL.
+  - Automatically extracts local tar archives (tar, gzip, bzip2, etc.) into the destination.
+
+```dockerfile
+# Recommended
+COPY package.json .
+
+# Use ADD only if you need extraction or remote URL
+ADD https://example.com/file.tar.gz .
+```
+
+### Q22: What is a "dangling image"?
+**Difficulty: Beginner**
+
+**Answer:**
+A dangling image is an image layer that is no longer associated with a tagged image. They usually appear as `<none>:<none>` when running `docker images`. They occur when you build a new image with the same tag as an existing one, leaving the old one "dangling".
+
+```bash
+# List dangling images
+docker images -f "dangling=true"
+
+# Remove dangling images
+docker image prune
+```
+
+### Q23: Explain the Docker "build context".
+**Difficulty: Intermediate**
+
+**Answer:**
+The build context is the set of files located in the specified path or URL when running `docker build`. Docker client sends the entire context to the Docker daemon before building. Large contexts can slow down builds.
+
+```bash
+# The '.' specifies the current directory as the build context
+docker build -t myapp .
+```
+**Best Practice:** Use `.dockerignore` to exclude unnecessary files (node_modules, .git) from the context.
+
+### Q24: What is the purpose of `.dockerignore`?
+**Difficulty: Beginner**
+
+**Answer:**
+It works like `.gitignore`. It tells Docker which files and directories to exclude from the build context. This reduces build time, image size, and prevents secrets from being accidentally added to the image.
+
+```text
+# .dockerignore
+node_modules
+.git
+.env
+docker-compose.yml
+```
+
+### Q25: How do you minimize Docker image size?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **Use Alpine images:** Base images like `node:alpine` are much smaller.
+2.  **Multi-stage builds:** Compile in one stage, copy only artifacts to the final stage.
+3.  **Combine RUN commands:** Reduces the number of layers (though less critical with modern Docker).
+4.  **Remove cache:** Clean up package manager caches (e.g., `apt-get clean`).
+5.  **Use `.dockerignore`:** Exclude unnecessary files.
+
+```dockerfile
+FROM golang:1.19-alpine AS builder
+WORKDIR /app
+COPY . .
+RUN go build -o main .
+
+FROM alpine:latest
+WORKDIR /root/
+COPY --from=builder /app/main .
+CMD ["./main"]
+```
+
+### Q26: What is the difference between `CMD` and `ENTRYPOINT`?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `ENTRYPOINT`: Defines the executable to run. Arguments passed to `docker run` are appended to it.
+- `CMD`: Provides default arguments for the `ENTRYPOINT`. If `ENTRYPOINT` is not set, `CMD` specifies the command to run. `CMD` can be overridden by `docker run` arguments.
+
+```dockerfile
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+
+# docker run myimage -> runs "python app.py"
+# docker run myimage script.py -> runs "python script.py"
+```
+
+### Q27: How do you expose a port in Docker?
+**Difficulty: Beginner**
+
+**Answer:**
+- In `Dockerfile`: `EXPOSE 80` (Documentation only, does not publish port).
+- In `docker run`: Use `-p` flag to publish ports.
+
+```bash
+# Map host port 8080 to container port 80
+docker run -p 8080:80 myapp
+```
+
+### Q28: What is a Docker Volume?
+**Difficulty: Beginner**
+
+**Answer:**
+Volumes are the preferred mechanism for persisting data generated by and used by Docker containers. They are completely managed by Docker and exist outside the container's lifecycle.
+
+```bash
+# Create a volume
+docker volume create my_data
+
+# Mount volume
+docker run -v my_data:/var/lib/mysql mysql
+```
+
+### Q29: What is a Bind Mount?
+**Difficulty: Intermediate**
+
+**Answer:**
+A bind mount maps a file or directory on the host machine to a file or directory in the container. It relies on the host's filesystem structure.
+
+```bash
+# Mount current directory to /app in container
+docker run -v $(pwd):/app myapp
+```
+
+### Q30: What is Docker Compose?
+**Difficulty: Beginner**
+
+**Answer:**
+Docker Compose is a tool for defining and running multi-container Docker applications. It uses a YAML file to configure the application's services, networks, and volumes.
+
+```yaml
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+  redis:
+    image: "redis:alpine"
+```
+
+### Q31: How do you check container logs?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `docker logs`.
+
+```bash
+docker logs <container_id>
+docker logs -f <container_id> # Follow logs
+```
+
+### Q32: How do you access a running container's shell?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `docker exec`.
+
+```bash
+docker exec -it <container_id> /bin/bash
+# Or for alpine
+docker exec -it <container_id> sh
+```
+
+### Q33: What is the difference between `docker run`, `docker start`, and `docker create`?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `docker create`: Creates a container from an image but does not start it.
+- `docker start`: Starts an existing (stopped) container.
+- `docker run`: Creates **and** starts a container (combination of create + start).
+
+### Q34: Explain Docker Networking modes.
+**Difficulty: Advanced**
+
+**Answer:**
+1.  **Bridge (default):** Containers talk via a private bridge network. Requires port mapping for external access.
+2.  **Host:** Container shares the host's networking namespace. No isolation.
+3.  **None:** No networking.
+4.  **Overlay:** For multi-host networking (Swarm/Kubernetes).
+5.  **Macvlan:** Assigns a MAC address to the container, making it appear as a physical device.
+
+### Q35: How do you clean up unused Docker resources?
+**Difficulty: Beginner**
+
+**Answer:**
+Use the `prune` commands.
+
+```bash
+docker system prune       # Remove unused data
+docker image prune        # Remove dangling images
+docker container prune    # Remove stopped containers
+docker volume prune       # Remove unused volumes
+docker network prune      # Remove unused networks
+```
+
+### Q36: What is a Docker Registry?
+**Difficulty: Beginner**
+
+**Answer:**
+A storage and distribution system for named Docker images. Docker Hub is the default public registry. You can also host private registries (e.g., Docker Registry, AWS ECR, Google GCR).
+
+### Q37: How do you restart a container automatically?
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the `--restart` policy.
+- `no`: Do not restart (default).
+- `on-failure`: Restart only if the container exits with a non-zero exit status.
+- `always`: Always restart.
+- `unless-stopped`: Restart unless explicitly stopped.
+
+```bash
+docker run -d --restart always myapp
+```
+
+### Q38: What is the difference between `ENTRYPOINT` exec form and shell form?
+**Difficulty: Advanced**
+
+**Answer:**
+- **Exec form:** `ENTRYPOINT ["executable", "param1"]`. Does not invoke a command shell. Preferred. PID 1 is the executable.
+- **Shell form:** `ENTRYPOINT command param1`. Executed as `/bin/sh -c`. PID 1 is the shell, which might not pass signals (SIGTERM) correctly to the child process.
+
+### Q39: How do you link containers (legacy vs modern)?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Legacy:** `--link` flag. Deprecated.
+- **Modern:** User-defined bridges (Docker networks). Containers on the same user-defined network can resolve each other by name.
+
+```bash
+docker network create mynet
+docker run --net mynet --name db mongo
+docker run --net mynet --name app myapp # app can ping db
+```
+
+### Q40: What is a multi-stage build?
+**Difficulty: Intermediate**
+
+**Answer:**
+A feature in Dockerfiles (version 17.05+) that allows you to use multiple `FROM` instructions. You can copy artifacts from one stage to another, leaving behind all the build tools and intermediate files in the final image.
+
+### Q41: How do you pass environment variables to a container?
+**Difficulty: Beginner**
+
+**Answer:**
+- `-e` flag in `docker run`.
+- `--env-file` to pass a file.
+- `ENV` instruction in Dockerfile (sets default).
+
+```bash
+docker run -e MY_VAR=production myapp
+```
+
+### Q42: What is the "PID 1 zombie reaping problem" in Docker?
+**Difficulty: Advanced**
+
+**Answer:**
+If the process running as PID 1 (entrypoint) doesn't handle signals or reap zombie processes (child processes that have terminated), the container can accumulate zombies and eventually exhaust system resources.
+**Solution:** Use `tini` (built into Docker via `--init`) or a proper init process like `dumb-init`.
+
+```bash
+docker run --init myapp
+```
+
+### Q43: How do you upgrade Docker on a Linux system?
+**Difficulty: Beginner**
+
+**Answer:**
+Usually via the package manager (`apt-get`, `yum`).
+`sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io`
+
+### Q44: What is Docker Swarm?
+**Difficulty: Intermediate**
+
+**Answer:**
+Docker's native clustering and orchestration tool. It turns a pool of Docker hosts into a single virtual Docker host. It is simpler than Kubernetes but less feature-rich.
+
+### Q45: How do you limit container resources (CPU/Memory)?
+**Difficulty: Intermediate**
+
+**Answer:**
+Use flags in `docker run`.
+
+```bash
+# Limit memory to 512MB and CPU to 0.5 cores
+docker run --memory="512m" --cpus="0.5" myapp
+```
+
+### Q46: What is the difference between an Image and a Container?
+**Difficulty: Beginner**
+
+**Answer:**
+- **Image:** A read-only template with instructions for creating a Docker container (like a Class in OOP).
+- **Container:** A runnable instance of an image (like an Object in OOP).
+
+### Q47: How do you share data between containers?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  Mount the same **Volume** to both containers.
+2.  Use **Volumes** from another container using `--volumes-from` (deprecated/legacy).
+3.  **Bind Mounts** to a shared host directory.
+
+### Q48: What happens when a container crashes?
+**Difficulty: Beginner**
+
+**Answer:**
+It stops. The data in the writable layer is preserved (until the container is removed), but the process is gone. If a restart policy is set, Docker may attempt to restart it.
+
+### Q49: Can you run Docker inside Docker (DinD)?
+**Difficulty: Advanced**
+
+**Answer:**
+Yes, but it's generally not recommended due to security (requires privileged mode) and filesystem issues (overlayfs on overlayfs).
+**Better Alternative:** Docker outside of Docker (DooD) - mounting the host's docker socket (`/var/run/docker.sock`) into the container.
+
+### Q50: What is `.docker/config.json`?
+**Difficulty: Intermediate**
+
+**Answer:**
+It stores client configuration, including authentication credentials (auths) for registries when you run `docker login`.
+
+### Q51: How do you debug a build failure?
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  Check the build logs.
+2.  Run a container from the last successfully built layer (image ID) and try running the failing command manually.
+
+### Q52: What is the `ONBUILD` instruction?
+**Difficulty: Advanced**
+
+**Answer:**
+It adds a trigger instruction to the image that will be executed at a later time, when the image is used as the base for another build.
+
+```dockerfile
+ONBUILD ADD . /app/src
+ONBUILD RUN /usr/local/bin/python-build --dir /app/src
+```
+
+### Q53: How to check Docker version?
+**Difficulty: Beginner**
+
+**Answer:**
+`docker --version` (client version) or `docker version` (client and server details).
+
+### Q54: What is the Docker daemon?
+**Difficulty: Beginner**
+
+**Answer:**
+`dockerd` is the background service running on the host that manages building, running, and distributing Docker containers.
+
+### Q55: How do you stop all running containers?
+**Difficulty: Intermediate**
+
+**Answer:**
+```bash
+docker stop $(docker ps -q)
+```
+
+### Q56: How do you remove all stopped containers?
+**Difficulty: Intermediate**
+
+**Answer:**
+```bash
+docker rm $(docker ps -a -q)
+# OR
+docker container prune
+```
+
+### Q57: What is the default network driver?
+**Difficulty: Beginner**
+
+**Answer:**
+`bridge`.
+
+### Q58: How do you create a custom bridge network?
+**Difficulty: Beginner**
+
+**Answer:**
+```bash
+docker network create my-net
+```
+
+### Q59: What is `docker inspect`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Returns low-level information on Docker objects (containers, images, volumes, networks) in JSON format.
+
+```bash
+docker inspect mycontainer
+```
+
+### Q60: How do you copy a file from a container to the host?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `docker cp`.
+
+```bash
+docker cp <container_id>:/path/to/file /host/path
+```
+
+### Q61: What is the `HEALTHCHECK` instruction?
+**Difficulty: Intermediate**
+
+**Answer:**
+It tells Docker how to test a container to check that it is still working.
+
+```dockerfile
+HEALTHCHECK --interval=5m --timeout=3s   CMD curl -f http://localhost/ || exit 1
+```
+
+### Q62: What is the difference between `docker pull` and `docker load`?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `docker pull`: Downloads an image from a registry.
+- `docker load`: Loads an image from a tar archive (created by `docker save`).
+
+### Q63: What is `docker save`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Saves one or more images to a tar archive (streamed to stdout by default).
+
+```bash
+docker save myimage > myimage.tar
+```
+
+### Q64: How do you tag an image?
+**Difficulty: Beginner**
+
+**Answer:**
+`docker tag source_image:tag target_image:tag`
+
+```bash
+docker tag myapp:latest myregistry.com/myapp:v1.0
+```
+
+### Q65: What is a "Layer" in Docker?
+**Difficulty: Advanced**
+
+**Answer:**
+Each instruction in a Dockerfile creates a read-only layer. Layers are stacked. When you change a Dockerfile and rebuild, Docker only rebuilds the changed layer and those after it (caching).
+
+### Q66: What is the Writable Layer?
+**Difficulty: Advanced**
+
+**Answer:**
+When a container is started, a thin writable layer (Container layer) is added on top of the underlying image layers. All changes made to the running container (writing new files, modifying existing ones, deleting files) happen in this thin writable layer.
+
+### Q67: How does Docker achieve isolation?
+**Difficulty: Advanced**
+
+**Answer:**
+It uses Linux kernel namespaces:
+- **PID:** Process isolation.
+- **NET:** Network isolation.
+- **IPC:** Inter-Process Communication isolation.
+- **MNT:** Mount points isolation.
+- **UTS:** Hostname isolation.
+- **USER:** User ID isolation.
+
+### Q68: How does Docker limit resources?
+**Difficulty: Advanced**
+
+**Answer:**
+It uses Linux **cgroups** (Control Groups) to limit, account for, and isolate the resource usage (CPU, memory, disk I/O, network) of a collection of processes.
+
+### Q69: What is `docker diff`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Inspect changes to files or directories on a container's filesystem.
+A: Added, C: Changed, D: Deleted.
+
+### Q70: How do you run a container in detached mode?
+**Difficulty: Beginner**
+
+**Answer:**
+Use the `-d` flag.
+`docker run -d nginx`
+
+### Q71: What is the role of `containerd`?
+**Difficulty: Advanced**
+
+**Answer:**
+`containerd` is the industry-standard container runtime that manages the complete container lifecycle (image transfer, storage, execution, supervision, networking). Docker uses it internally.
+
+### Q72: What is `runc`?
+**Difficulty: Advanced**
+
+**Answer:**
+`runc` is a CLI tool for spawning and running containers according to the OCI specification. It is the low-level component that actually creates the container.
+
+### Q73: How do you view the history of an image?
+**Difficulty: Intermediate**
+
+**Answer:**
+`docker history <image_name>` shows the layers and commands that created the image.
+
+### Q74: What is the difference between `LABEL` and `ENV`?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `ENV`: Sets environment variables available to the running container and build instructions.
+- `LABEL`: Adds metadata to an image (maintainer, version, description). Not available as env vars.
+
+### Q75: How do you format `docker ps` output?
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the `--format` flag with a Go template.
+
+```bash
+docker ps --format "{{.ID}}: {{.Image}} - {{.Status}}"
+```
+
+### Q76: How to change the default Docker logging driver?
+**Difficulty: Advanced**
+
+**Answer:**
+Configure `"log-driver"` in `/etc/docker/daemon.json`. Default is `json-file`. Others: `syslog`, `journald`, `gelf`, `fluentd`, `awslogs`, `splunk`.
+
+### Q77: How do you perform a "clean build" (no cache)?
+**Difficulty: Beginner**
+
+**Answer:**
+`docker build --no-cache -t myapp .`
+
+### Q78: What is the scratch image?
+**Difficulty: Intermediate**
+
+**Answer:**
+`scratch` is a reserved empty image, useful for building super minimal images (e.g., for Go or Rust binaries that are statically linked).
+
+```dockerfile
+FROM scratch
+COPY mybinary /
+CMD ["/mybinary"]
+```
+
+### Q79: How do you handle secrets in Docker?
+**Difficulty: Intermediate**
+
+**Answer:**
+- **Docker Swarm:** Has native Secrets management (`docker secret create`).
+- **Docker Compose:** Can use secrets support.
+- **Environment Variables:** Not recommended for sensitive data.
+- **Mounting volumes:** Mounting secret files at runtime.
+
+### Q80: How do you optimize Docker for CI/CD?
+**Difficulty: Advanced**
+
+**Answer:**
+- Use Docker layer caching (pull previous image before build to use as cache source: `--cache-from`).
+- Use multi-stage builds to keep artifacts small.
+- Use specific tags (not latest).
+
+### Q81: What is the difference between `CMD ["param"]` and `CMD param`?
+**Difficulty: Advanced**
+
+**Answer:**
+- JSON Array format (`["param"]`): Does **not** invoke a shell.
+- String format (`param`): Invokes a shell (`/bin/sh -c`).
+
+### Q82: How do you scan images for vulnerabilities?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `docker scan <image>` (uses Snyk).
+- Use tools like Trivy, Clair, or Anchore in CI/CD pipelines.
+
+### Q83: What is `docker-compose.override.yml`?
+**Difficulty: Intermediate**
+
+**Answer:**
+By default, Docker Compose reads `docker-compose.yml` and then `docker-compose.override.yml` (if it exists) to override/merge configurations. Useful for local development overrides.
+
+### Q84: How do you run a command in a running container as root?
+**Difficulty: Intermediate**
+
+**Answer:**
+`docker exec -u 0 -it <container> bash`
+
+### Q85: What is the `STOPSIGNAL` instruction?
+**Difficulty: Advanced**
+
+**Answer:**
+Sets the system call signal that will be sent to the container to exit. Default is `SIGTERM`.
+
+```dockerfile
+STOPSIGNAL SIGKILL
+```
+
+### Q86: How do you keep a container running (e.g., for debugging)?
+**Difficulty: Beginner**
+
+**Answer:**
+Set the entrypoint or command to a long-running process like `sleep infinity` or `tail -f /dev/null`.
+
+### Q87: What is the Docker CLI context?
+**Difficulty: Intermediate**
+
+**Answer:**
+Docker Contexts allow you to manage multiple Docker environments (e.g., local, remote SSH, cloud) and switch between them.
+`docker context use my-remote-docker`
+
+### Q88: How do you backup a Docker Volume?
+**Difficulty: Intermediate**
+
+**Answer:**
+Run a temporary container mounting the volume and a host directory, then tar the volume contents.
+
+```bash
+docker run --rm -v my_volume:/data -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /data
+```
+
+### Q89: How do you restore a Docker Volume?
+**Difficulty: Intermediate**
+
+**Answer:**
+Similar to backup, but untar.
+
+```bash
+docker run --rm -v my_volume:/data -v $(pwd):/backup ubuntu bash -c "cd /data && tar xvf /backup/backup.tar --strip 1"
+```
+
+### Q90: What is "Copy-on-Write" (CoW)?
+**Difficulty: Advanced**
+
+**Answer:**
+Docker uses CoW strategy for storage drivers. If a file exists in a lower layer and needs to be modified, it is copied up to the writable layer first. Subsequent reads come from the writable layer.
+
+### Q91: Which storage drivers are available?
+**Difficulty: Advanced**
+
+**Answer:**
+`overlay2` (preferred for Linux), `fuse-overlayfs`, `btrfs`, `zfs`, `vfs`, `devicemapper` (deprecated), `aufs` (deprecated).
+
+### Q92: How do you limit network bandwidth for a container?
+**Difficulty: Advanced**
+
+**Answer:**
+Docker doesn't support this natively with flags directly, but you can use `tc` (traffic control) inside the container or on the host interface associated with the container. Or use Traffic Control plugins.
+
+### Q93: How do you create a Docker image from a container?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `docker commit`.
+`docker commit <container_id> mynewimage`
+(Generally discouraged in favor of Dockerfiles for reproducibility).
+
+### Q94: How do you flatten a Docker image?
+**Difficulty: Advanced**
+
+**Answer:**
+Export the container filesystem and import it back as a single layer image.
+`docker export <container> | docker import - myflattenedimage`
+Note: Loses history and metadata (ENTRYPOINT, CMD, etc.).
+
+### Q95: What is `ARG` in Dockerfile?
+**Difficulty: Intermediate**
+
+**Answer:**
+Defines a variable that users can pass at build-time to the builder with the `docker build` command using `--build-arg <varname>=<value>`.
+
+```dockerfile
+ARG VERSION=latest
+FROM busybox:$VERSION
+```
+
+### Q96: What is the difference between `ARG` and `ENV`?
+**Difficulty: Intermediate**
+
+**Answer:**
+- `ARG`: Available only during build time. Not persisted in the final image.
+- `ENV`: Available during build time AND run time. Persisted in the image.
+
+### Q97: How do you run a GUI application in Docker?
+**Difficulty: Advanced**
+
+**Answer:**
+You need to share the X11 socket with the container.
+`docker run -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix my-gui-app`
+
+### Q98: What is "Privileged Mode"?
+**Difficulty: Advanced**
+
+**Answer:**
+`--privileged` gives all capabilities to the container, and it also lifts all the limitations enforced by the device cgroup controller. It allows the container to do almost everything the host can do (e.g., manipulate network stack, access devices). **Security Risk.**
+
+### Q99: How do you view resource usage stats of containers?
+**Difficulty: Beginner**
+
+**Answer:**
+`docker stats` gives a live stream of container resource usage (CPU, Mem, Net I/O, Block I/O).
+
+### Q100: What is the OCI (Open Container Initiative)?
+**Difficulty: Advanced**
+
+**Answer:**
+An open governance structure for creating open industry standards around container formats and runtimes. Docker donated its container format and runtime (`runc`) to OCI.

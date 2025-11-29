@@ -1,34 +1,116 @@
 # Next.js Interview Questions & Answers
 
 ## Table of Contents
-1. [1. What is Next.js and what are its key features?](#1-what-is-nextjs-and-what-are-its-key-features)
-2. [2. Explain the difference between pages and components in Next.js](#2-explain-the-difference-between-pages-and-components-in-nextjs)
-3. [3. How does Next.js handle CSS and styling?](#3-how-does-nextjs-handle-css-and-styling)
-4. [4. What is the purpose of _app.js and _document.js?](#4-what-is-the-purpose-of-_appjs-and-_documentjs)
-5. [5. How does file-based routing work in Next.js?](#5-how-does-file-based-routing-work-in-nextjs)
-6. [6. Explain the Next.js Link component and its benefits](#6-explain-the-nextjs-link-component-and-its-benefits)
-7. [7. How do you handle nested routes and layouts in Next.js?](#7-how-do-you-handle-nested-routes-and-layouts-in-nextjs)
-8. [8. How do API routes work in Next.js?](#8-how-do-api-routes-work-in-nextjs)
-9. [9. How do you implement middleware in Next.js?](#9-how-do-you-implement-middleware-in-nextjs)
-10. [10. Explain the differences between SSR, SSG, and ISR in Next.js](#10-explain-the-differences-between-ssr-ssg-and-isr-in-nextjs)
-11. [11. How do you implement internationalization (i18n) in Next.js?](#11-how-do-you-implement-internationalization-i18n-in-nextjs)
-12. [12. How do you handle errors in Next.js?](#12-how-do-you-handle-errors-in-nextjs)
-13. [13. What are the different caching strategies in Next.js?](#13-what-are-the-different-caching-strategies-in-nextjs)
-14. [14. What are the deployment options for Next.js applications?](#14-what-are-the-deployment-options-for-nextjs-applications)
-15. [15. How can you optimize performance in a Next.js application?](#15-how-can-you-optimize-performance-in-a-nextjs-application)
-16. [16. How do you use TypeScript with Next.js?](#16-how-do-you-use-typescript-with-nextjs)
-17. [17. What are the best practices for testing Next.js applications?](#17-what-are-the-best-practices-for-testing-nextjs-applications)
-18. [18. How do you integrate a headless CMS with Next.js?](#18-how-do-you-integrate-a-headless-cms-with-nextjs)
-19. [19. How do you implement and use middleware in Next.js?](#19-how-do-you-implement-and-use-middleware-in-nextjs)
-20. [20. How do you implement code splitting and lazy loading in Next.js?](#20-how-do-you-implement-code-splitting-and-lazy-loading-in-nextjs)
-21. [21. How do you implement authentication in Next.js?](#21-how-do-you-implement-authentication-in-nextjs)
-22. [22. How do you optimize images in Next.js?](#22-how-do-you-optimize-images-in-nextjs)
+
+- [Q1: What is Next.js and what are its key features?](#q1-what-is-nextjs-and-what-are-its-key-features)
+- [Q2: Explain the difference between pages and components in Next.js](#q2-explain-the-difference-between-pages-and-components-in-nextjs)
+- [Q3: How does Next.js handle CSS and styling?](#q3-how-does-nextjs-handle-css-and-styling)
+- [Q4: What is the purpose of _app.js and _document.js?](#q4-what-is-the-purpose-of-_appjs-and-_documentjs)
+- [Q5: How does file-based routing work in Next.js?](#q5-how-does-file-based-routing-work-in-nextjs)
+- [Q6: Explain the Next.js Link component and its benefits](#q6-explain-the-nextjs-link-component-and-its-benefits)
+- [Q7: How do you handle nested routes and layouts in Next.js?](#q7-how-do-you-handle-nested-routes-and-layouts-in-nextjs)
+- [Q8: How do API routes work in Next.js?](#q8-how-do-api-routes-work-in-nextjs)
+- [Q9: How do you implement middleware in Next.js?](#q9-how-do-you-implement-middleware-in-nextjs)
+- [Q10: Explain the differences between SSR, SSG, and ISR in Next.js](#q10-explain-the-differences-between-ssr-ssg-and-isr-in-nextjs)
+- [Q11: How do you implement internationalization (i18n) in Next.js?](#q11-how-do-you-implement-internationalization-i18n-in-nextjs)
+- [Q12: How do you handle errors in Next.js?](#q12-how-do-you-handle-errors-in-nextjs)
+- [Q13: What are the different caching strategies in Next.js?](#q13-what-are-the-different-caching-strategies-in-nextjs)
+- [Q14: What are the deployment options for Next.js applications?](#q14-what-are-the-deployment-options-for-nextjs-applications)
+- [Q15: How can you optimize performance in a Next.js application?](#q15-how-can-you-optimize-performance-in-a-nextjs-application)
+- [Q16: How do you use TypeScript with Next.js?](#q16-how-do-you-use-typescript-with-nextjs)
+- [Q17: What are the best practices for testing Next.js applications?](#q17-what-are-the-best-practices-for-testing-nextjs-applications)
+- [Q18: How do you integrate a headless CMS with Next.js?](#q18-how-do-you-integrate-a-headless-cms-with-nextjs)
+- [Q19: How do you implement and use middleware in Next.js?](#q19-how-do-you-implement-and-use-middleware-in-nextjs)
+- [Q20: How do you implement code splitting and lazy loading in Next.js?](#q20-how-do-you-implement-code-splitting-and-lazy-loading-in-nextjs)
+- [Q21: How do you implement authentication in Next.js?](#q21-how-do-you-implement-authentication-in-nextjs)
+- [Q22: How do you optimize images in Next.js?](#q22-how-do-you-optimize-images-in-nextjs)
+- [Q18: What is the App Router?](#q18-what-is-the-app-router)
+- [Q19: Server Components vs Client Components.](#q19-server-components-vs-client-components)
+- [Q20: How to fetch data in App Router?](#q20-how-to-fetch-data-in-app-router)
+- [Q21: What is `next/image`?](#q21-what-is-nextimage)
+- [Q22: What is `getStaticProps`?](#q22-what-is-getstaticprops)
+- [Q23: What is `getServerSideProps`?](#q23-what-is-getserversideprops)
+- [Q24: What is ISR (Incremental Static Regeneration)?](#q24-what-is-isr-incremental-static-regeneration)
+- [Q25: Dynamic Routes in Next.js.](#q25-dynamic-routes-in-nextjs)
+- [Q26: What is `generateStaticParams`?](#q26-what-is-generatestaticparams)
+- [Q27: Explain `layout.js` in App Router.](#q27-explain-layoutjs-in-app-router)
+- [Q28: What is `template.js`?](#q28-what-is-templatejs)
+- [Q29: How to handle 404 errors?](#q29-how-to-handle-404-errors)
+- [Q30: What are Route Handlers?](#q30-what-are-route-handlers)
+- [Q31: How to use Environment Variables?](#q31-how-to-use-environment-variables)
+- [Q32: What is `next/font`?](#q32-what-is-nextfont)
+- [Q33: What is `next/script`?](#q33-what-is-nextscript)
+- [Q34: How to implement SEO in Next.js?](#q34-how-to-implement-seo-in-nextjs)
+- [Q35: What is Middleware in Next.js?](#q35-what-is-middleware-in-nextjs)
+- [Q36: Catch-all Routes.](#q36-catch-all-routes)
+- [Q37: What is `loading.js`?](#q37-what-is-loadingjs)
+- [Q38: Streaming in Next.js.](#q38-streaming-in-nextjs)
+- [Q39: Server Actions.](#q39-server-actions)
+- [Q40: Image Optimization: `loader`.](#q40-image-optimization-loader)
+- [Q41: Difference between `redirect` and `rewrite`.](#q41-difference-between-redirect-and-rewrite)
+- [Q42: What is TurboPack?](#q42-what-is-turbopack)
+- [Q43: Explain "Hydration" in context of Next.js.](#q43-explain-hydration-in-context-of-nextjs)
+- [Q44: How to disable SSR for a component?](#q44-how-to-disable-ssr-for-a-component)
+- [Q45: What is the Edge Runtime?](#q45-what-is-the-edge-runtime)
+- [Q46: How to optimize fonts?](#q46-how-to-optimize-fonts)
+- [Q47: What is `generateMetadata`?](#q47-what-is-generatemetadata)
+- [Q48: Parallel Routes.](#q48-parallel-routes)
+- [Q49: Intercepting Routes.](#q49-intercepting-routes)
+- [Q50: What is `next.config.js`?](#q50-what-is-nextconfigjs)
+- [Q51: Static Exports (`output: 'export'`).](#q51-static-exports-output-export)
+- [Q52: How to add Global CSS?](#q52-how-to-add-global-css)
+- [Q53: CSS Modules in Next.js.](#q53-css-modules-in-nextjs)
+- [Q54: How to use SASS/SCSS?](#q54-how-to-use-sassscss)
+- [Q55: Absolute Imports.](#q55-absolute-imports)
+- [Q56: Fast Refresh in Next.js.](#q56-fast-refresh-in-nextjs)
+- [Q57: Custom 500 Page.](#q57-custom-500-page)
+- [Q58: How to handle authentication?](#q58-how-to-handle-authentication)
+- [Q59: What is Vercel?](#q59-what-is-vercel)
+- [Q60: Pre-rendering types summary.](#q60-pre-rendering-types-summary)
+- [Q61: `usePathname` and `useSearchParams`.](#q61-usepathname-and-usesearchparams)
+- [Q62: Shallow Routing.](#q62-shallow-routing)
+- [Q63: `next/link` prefetching.](#q63-nextlink-prefetching)
+- [Q64: What is `process.cwd()` used for?](#q64-what-is-processcwd-used-for)
+- [Q65: Draft Mode.](#q65-draft-mode)
+- [Q66: Bundle Analysis.](#q66-bundle-analysis)
+- [Q67: How to implement Sitemap?](#q67-how-to-implement-sitemap)
+- [Q68: How to implement Robots.txt?](#q68-how-to-implement-robotstxt)
+- [Q69: Open Graph (OG) Image Generation.](#q69-open-graph-og-image-generation)
+- [Q70: `export const revalidate`.](#q70-export-const-revalidate)
+- [Q71: `export const dynamic`.](#q71-export-const-dynamic)
+- [Q72: Multi-Zone Support.](#q72-multi-zone-support)
+- [Q73: AMP Support.](#q73-amp-support)
+- [Q74: Web Vitals.](#q74-web-vitals)
+- [Q75: Custom Document.](#q75-custom-document)
+- [Q76: Custom App.](#q76-custom-app)
+- [Q77: API Routes vs Route Handlers.](#q77-api-routes-vs-route-handlers)
+- [Q78: Middleware Matcher.](#q78-middleware-matcher)
+- [Q79: Edge vs Node.js Runtime.](#q79-edge-vs-nodejs-runtime)
+- [Q80: Partial Prerendering (PPR).](#q80-partial-prerendering-ppr)
+- [Q81: `cookies()` and `headers()` functions.](#q81-cookies-and-headers-functions)
+- [Q82: How to manage global state in Next.js?](#q82-how-to-manage-global-state-in-nextjs)
+- [Q83: Cross-Origin Resource Sharing (CORS) in API Routes.](#q83-cross-origin-resource-sharing-cors-in-api-routes)
+- [Q84: `next/navigation` vs `next/router`.](#q84-nextnavigation-vs-nextrouter)
+- [Q85: Viewport Metadata.](#q85-viewport-metadata)
+- [Q86: Accessibility (ESLint).](#q86-accessibility-eslint)
+- [Q87: Content Security Policy (CSP).](#q87-content-security-policy-csp)
+- [Q88: React Server Actions security.](#q88-react-server-actions-security)
+- [Q89: How to handle large lists?](#q89-how-to-handle-large-lists)
+- [Q90: Styling: Tailwind CSS.](#q90-styling-tailwind-css)
+- [Q91: Difference between `public/` and `app/` (assets).](#q91-difference-between-public-and-app-assets)
+- [Q92: `transpilePackages`.](#q92-transpilepackages)
+- [Q93: `standalone` output.](#q93-standalone-output)
+- [Q94: How to use jQuery in Next.js?](#q94-how-to-use-jquery-in-nextjs)
+- [Q95: Suspense for Data Fetching.](#q95-suspense-for-data-fetching)
+- [Q96: `cache()` function (React).](#q96-cache-function-react)
+- [Q97: `unstable_noStore`.](#q97-unstable_nostore)
+- [Q98: React Strict Mode in Next.js.](#q98-react-strict-mode-in-nextjs)
+- [Q99: Next.js Commerce.](#q99-nextjs-commerce)
+- [Q100: Why choose Next.js over Create React App (CRA)?](#q100-why-choose-nextjs-over-create-react-app-cra)
 
 ---
 
-## Next.js Fundamentals
-
-### 1. What is Next.js and what are its key features?
+### Q1: What is Next.js and what are its key features?
 
 **Answer:**
 Next.js is a React framework that provides additional structure, features, and optimizations for React applications.
@@ -71,7 +153,7 @@ export default function Home() {
 }
 ```
 
-### 2. Explain the difference between pages and components in Next.js
+### Q2: Explain the difference between pages and components in Next.js
 
 **Answer:**
 **Pages** are React components that represent routes and are placed in the `pages` directory. **Components** are reusable UI elements that can be used across multiple pages.
@@ -115,7 +197,7 @@ export default function UserCard({ name, role }) {
 }
 ```
 
-### 3. How does Next.js handle CSS and styling?
+### Q3: How does Next.js handle CSS and styling?
 
 **Answer:**
 Next.js supports multiple styling approaches:
@@ -186,7 +268,7 @@ module.exports = {
 }
 ```
 
-### 4. What is the purpose of _app.js and _document.js?
+### Q4: What is the purpose of _app.js and _document.js?
 
 **Answer:**
 
@@ -262,9 +344,7 @@ export default function Document() {
 
 ---
 
-## Routing & Navigation
-
-### 5. How does file-based routing work in Next.js?
+### Q5: How does file-based routing work in Next.js?
 
 **Answer:**
 Next.js uses the file system for routing. Files in the `pages` directory automatically become routes.
@@ -330,7 +410,7 @@ export default function CatchAll() {
 }
 ```
 
-### 6. Explain the Next.js Link component and its benefits
+### Q6: Explain the Next.js Link component and its benefits
 
 **Answer:**
 The `Link` component enables client-side navigation between pages with prefetching and performance optimizations.
@@ -420,7 +500,7 @@ export function LoginForm() {
 }
 ```
 
-### 7. How do you handle nested routes and layouts in Next.js?
+### Q7: How do you handle nested routes and layouts in Next.js?
 
 **Answer:**
 Next.js supports nested routes through file structure and nested layouts through component composition.
@@ -586,9 +666,7 @@ export default function SettingsLayout({ children }) {
 
 ---
 
-## API Routes & Server-Side
-
-### 8. How do API routes work in Next.js?
+### Q8: How do API routes work in Next.js?
 
 **Answer:**
 API routes provide a solution to build APIs with Next.js. Files in `pages/api` are treated as API endpoints.
@@ -809,7 +887,7 @@ export default async function handler(req, res) {
 }
 ```
 
-### 9. How do you implement middleware in Next.js?
+### Q9: How do you implement middleware in Next.js?
 
 **Answer:**
 Next.js 12+ supports middleware that runs before requests are completed, allowing you to modify responses, redirect, rewrite, or set headers.
@@ -972,9 +1050,7 @@ export function withRateLimit(limit = 10, windowMs = 60000) {
 
 ---
 
-## SSR, SSG & ISR
-
-### 10. Explain the differences between SSR, SSG, and ISR in Next.js
+### Q10: Explain the differences between SSR, SSG, and ISR in Next.js
 
 **Answer:**
 
@@ -1026,7 +1102,7 @@ export async function getStaticProps() {
   )
 }
 
-### 11. How do you implement internationalization (i18n) in Next.js?
+### Q11: How do you implement internationalization (i18n) in Next.js?
 
 **Answer:**
 Next.js provides built-in support for internationalization (i18n) through its configuration options. There are two main approaches to implementing i18n in Next.js:
@@ -1180,7 +1256,7 @@ export default function FormattedDate({ date }) {
 }
 ```
 
-### 12. How do you handle errors in Next.js?
+### Q12: How do you handle errors in Next.js?
 
 **Answer:**
 Error handling is a critical aspect of building robust Next.js applications. Next.js provides several ways to handle errors at different levels of your application:
@@ -1428,7 +1504,7 @@ function Profile() {
 }
 ```
 
-### 13. What are the different caching strategies in Next.js?
+### Q13: What are the different caching strategies in Next.js?
 
 **Answer:**
 Next.js offers several caching strategies to optimize performance and reduce server load. Here's a comprehensive overview of caching approaches in Next.js:
@@ -1766,7 +1842,7 @@ module.exports = {
 }
 ```
 
-### 14. What are the deployment options for Next.js applications?
+### Q14: What are the deployment options for Next.js applications?
 
 **Answer:**
 Next.js applications can be deployed in various ways depending on your requirements, budget, and infrastructure preferences. Here are the main deployment options for Next.js applications:
@@ -2199,7 +2275,7 @@ web: npm start
 
 Each deployment option has its own trade-offs in terms of cost, complexity, scalability, and feature support. The best choice depends on your specific requirements, team expertise, and budget constraints.
 
-### 15. How can you optimize performance in a Next.js application?
+### Q15: How can you optimize performance in a Next.js application?
 
 **Answer:**
 Optimizing performance in Next.js applications involves several strategies across different aspects of your application. Here's a comprehensive guide to Next.js performance optimization:
@@ -2783,7 +2859,7 @@ function VirtualizedList({ items }) {
 
 By implementing these optimization techniques, you can significantly improve the performance of your Next.js application, resulting in better user experience, higher engagement, and improved search engine rankings.
 
-### 16. How do you use TypeScript with Next.js?
+### Q16: How do you use TypeScript with Next.js?
 
 **Answer:**
 Next.js has built-in TypeScript support, making it easy to integrate TypeScript into your Next.js projects. Here's a comprehensive guide on using TypeScript with Next.js:
@@ -3429,7 +3505,7 @@ export default config
 
 By following these practices, you can leverage TypeScript's type system to build more robust Next.js applications with fewer runtime errors and improved developer experience.
 
-### 17. What are the best practices for testing Next.js applications?
+### Q17: What are the best practices for testing Next.js applications?
 
 **Answer:**
 Testing is a crucial part of developing robust Next.js applications. Here's a comprehensive guide to testing strategies and best practices for Next.js:
@@ -4145,7 +4221,7 @@ describe('UserList Component', () => {
 
 By implementing these testing strategies, you can ensure your Next.js application is robust, reliable, and maintainable as it grows in complexity.
 
-### 18. How do you integrate a headless CMS with Next.js?
+### Q18: How do you integrate a headless CMS with Next.js?
 
 **Answer:**
 Integrating a headless CMS with Next.js provides a powerful combination for content management and frontend development. Here's a comprehensive guide on integrating various headless CMS platforms with Next.js:
@@ -5086,7 +5162,7 @@ const BlogPostPage: React.FC<BlogPostProps> = ({ post, preview }) => {
 
 By following these integration patterns, you can build powerful, content-driven Next.js applications with your preferred headless CMS platform.
 
-### 19. How do you implement and use middleware in Next.js?
+### Q19: How do you implement and use middleware in Next.js?
 
 **Answer:**
 
@@ -5687,7 +5763,7 @@ export function ImageGallery({ images }) {
   )
 }
 
-### 20. How do you implement code splitting and lazy loading in Next.js?
+### Q20: How do you implement code splitting and lazy loading in Next.js?
 
 **Answer:**
 Next.js provides automatic code splitting and several ways to implement lazy loading for optimal performance.
@@ -5734,9 +5810,7 @@ export default function Dashboard({ user }) {
 
 ---
 
-## Advanced Patterns
-
-### 21. How do you implement authentication in Next.js?
+### Q21: How do you implement authentication in Next.js?
 
 **Answer:**
 Next.js supports various authentication patterns including session-based, JWT, and OAuth.
@@ -6138,9 +6212,7 @@ export async function getServerSideProps(context) {
 
 ---
 
-## Performance & Optimization
-
-### 22. How do you optimize images in Next.js?
+### Q22: How do you optimize images in Next.js?
 
 **Answer:**
 Next.js provides the `Image` component with automatic optimization, lazy loading, and responsive images.
@@ -6164,3 +6236,749 @@ export default function ImageExample() {
         priority // Load immediately for above-the-fold content
         placeholder="blur"
         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+R
+
+### Q18: What is the App Router?
+**Difficulty: Intermediate**
+
+**Answer:**
+The new routing paradigm introduced in Next.js 13 (stable in 13.4).
+*   **Structure:** Uses a folder-based hierarchy inside an `app/` directory.
+*   **Features:** Built-in support for React Server Components, nested layouts, loading states, error handling, and streaming.
+*   **Files:** `page.js`, `layout.js`, `template.js`, `loading.js`, `error.js`, `not-found.js`.
+
+### Q19: Server Components vs Client Components.
+**Difficulty: Advanced**
+
+**Answer:**
+*   **Server Components (Default in App Router):**
+    *   Render on the server.
+    *   Can directly access database/fs.
+    *   Zero bundle size (code not sent to client).
+    *   Cannot use hooks (`useState`, `useEffect`) or event listeners.
+*   **Client Components:**
+    *   Render on client (and pre-rendered on server).
+    *   Marked with `'use client'` directive.
+    *   Can use hooks and interactivity.
+    *   Hydrated on the browser.
+
+### Q20: How to fetch data in App Router?
+**Difficulty: Intermediate**
+
+**Answer:**
+You can use standard `fetch` directly in Server Components.
+```javascript
+async function getData() {
+  const res = await fetch('https://api.example.com/data');
+  return res.json();
+}
+
+export default async function Page() {
+  const data = await getData();
+  return <main>{data.title}</main>;
+}
+```
+`fetch` is extended by Next.js to support caching and revalidation.
+
+### Q21: What is `next/image`?
+**Difficulty: Beginner**
+
+**Answer:**
+An optimized Image component extending the HTML `<img>` element.
+*   **Features:**
+    *   Automatic resizing and formatting (WebP/AVIF).
+    *   Lazy loading (default).
+    *   Visual stability (prevents layout shift).
+    *   Asset flexibility (remote images).
+
+### Q22: What is `getStaticProps`?
+**Difficulty: Intermediate**
+
+**Answer:**
+(Pages Router) A function used to fetch data at **build time**.
+*   Used for Static Site Generation (SSG).
+*   The data is baked into the HTML.
+*   Great for SEO and performance.
+*   *Note:* In App Router, replaced by simple async components or `generateStaticParams`.
+
+### Q23: What is `getServerSideProps`?
+**Difficulty: Intermediate**
+
+**Answer:**
+(Pages Router) A function used to fetch data on **every request**.
+*   Used for Server-Side Rendering (SSR).
+*   Slower than SSG (TTFB depends on data fetch).
+*   Good for highly dynamic data that changes constantly.
+*   *Note:* In App Router, replaced by `dynamic = 'force-dynamic'` or `no-store` fetch.
+
+### Q24: What is ISR (Incremental Static Regeneration)?
+**Difficulty: Advanced**
+
+**Answer:**
+Allows you to create or update static pages *after* you’ve built your site.
+*   You can retain the benefits of static generation (performance) while scaling to millions of pages.
+*   **Mechanism:** Define a `revalidate` time (in seconds).
+*   Next.js will serve the old page, then regenerate it in the background for the next visitor.
+
+### Q25: Dynamic Routes in Next.js.
+**Difficulty: Beginner**
+
+**Answer:**
+Routes that support dynamic parameters.
+*   **Syntax:** File name wrapped in brackets, e.g., `pages/posts/[id].js` or `app/posts/[id]/page.js`.
+*   **Access:**
+    *   **Pages Router:** `useRouter().query.id` or context in `getStaticProps`.
+    *   **App Router:** `params` prop passed to the page component.
+
+### Q26: What is `generateStaticParams`?
+**Difficulty: Advanced**
+
+**Answer:**
+(App Router) The equivalent of `getStaticPaths`.
+*   Used in combination with dynamic routes to statically generate routes at build time.
+*   Returns an array of objects representing the dynamic params.
+
+### Q27: Explain `layout.js` in App Router.
+**Difficulty: Beginner**
+
+**Answer:**
+A UI that is shared between multiple routes.
+*   On navigation, layouts preserve state, remain interactive, and do not re-render.
+*   Can be nested.
+*   **Root Layout:** Required in `app/`, defines `<html>` and `<body>`.
+
+### Q28: What is `template.js`?
+**Difficulty: Advanced**
+
+**Answer:**
+Similar to a Layout, but creates a **new instance** for each of its children on navigation.
+*   State is reset.
+*   Effects are re-executed.
+*   Useful for features that rely on `useEffect` (e.g., page view tracking) or animation libraries (Framer Motion) that need to see a new component mount.
+
+### Q29: How to handle 404 errors?
+**Difficulty: Beginner**
+
+**Answer:**
+*   **Pages Router:** Create `pages/404.js`.
+*   **App Router:** Create `not-found.js` file in the route segment. You can also invoke `notFound()` function programmatically.
+
+### Q30: What are Route Handlers?
+**Difficulty: Intermediate**
+
+**Answer:**
+(App Router) Replacement for API Routes (`pages/api`).
+*   Defined in `route.js` (or `route.ts`).
+*   Export HTTP method functions: `GET`, `POST`, `PUT`, `DELETE`, etc.
+*   Can be Static or Dynamic.
+```javascript
+export async function GET(request) {
+  return Response.json({ data: 'Hello' });
+}
+```
+
+### Q31: How to use Environment Variables?
+**Difficulty: Beginner**
+
+**Answer:**
+*   Define in `.env.local`.
+*   **Server-side:** Access via `process.env.MY_SECRET`.
+*   **Client-side:** Must prefix with `NEXT_PUBLIC_` (e.g., `NEXT_PUBLIC_ANALYTICS_ID`).
+
+### Q32: What is `next/font`?
+**Difficulty: Intermediate**
+
+**Answer:**
+A built-in font optimization system.
+*   Downloads Google Fonts at build time and hosts them with your other static assets.
+*   **Zero layout shift:** Uses `size-adjust` property.
+*   **Privacy:** No requests sent to Google by the browser.
+
+### Q33: What is `next/script`?
+**Difficulty: Intermediate**
+
+**Answer:**
+An optimized Script component.
+*   Allows you to load third-party scripts (Analytics, Ads) efficiently.
+*   **Strategies:**
+    *   `beforeInteractive`: Load before hydration (critical).
+    *   `afterInteractive`: Load after hydration (default).
+    *   `lazyOnload`: Load during idle time.
+    *   `worker`: Load in a web worker (experimental).
+
+### Q34: How to implement SEO in Next.js?
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Pages Router:** `<Head>` component.
+*   **App Router:** Metadata API.
+    *   Export a `metadata` object or `generateMetadata` function in `page.js` or `layout.js`.
+    ```javascript
+    export const metadata = {
+      title: 'My App',
+      description: 'Best app ever',
+    };
+    ```
+
+### Q35: What is Middleware in Next.js?
+**Difficulty: Advanced**
+
+**Answer:**
+Code that runs **before** a request is completed.
+*   Defined in `middleware.js` at root.
+*   Uses the Edge Runtime (limited Node.js APIs, fast startup).
+*   **Use Cases:** Authentication, Redirects, Rewrites, A/B Testing, Bot protection.
+
+### Q36: Catch-all Routes.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   `[...slug]`: Matches `posts/a`, `posts/a/b`, but NOT `posts` (empty).
+*   `[[...slug]]`: Optional catch-all. Matches `posts`, `posts/a`, `posts/a/b`.
+
+### Q37: What is `loading.js`?
+**Difficulty: Beginner**
+
+**Answer:**
+(App Router) An instant loading state built on React Suspense.
+*   Automatically wraps the page content in a Suspense boundary.
+*   Shows the loading UI immediately while the route segment's content loads.
+
+### Q38: Streaming in Next.js.
+**Difficulty: Advanced**
+
+**Answer:**
+Allows breaking down the page's HTML into smaller chunks and sending them to the client as soon as they are ready.
+*   **Benefit:** Faster Time To First Byte (TTFB) and First Contentful Paint (FCP).
+*   Implemented via Suspense boundaries. Parts of the UI (e.g., sidebar) can appear while the main content is still fetching.
+
+### Q39: Server Actions.
+**Difficulty: Advanced**
+
+**Answer:**
+Alpha/Beta feature to call server-side functions directly from client components.
+*   Eliminates need for creating API endpoints for simple mutations.
+*   Mark function with `'use server'`.
+```javascript
+async function createPost(formData) {
+  'use server'
+  await db.post.create(...)
+}
+// In form
+<form action={createPost}>...</form>
+```
+
+### Q40: Image Optimization: `loader`.
+**Difficulty: Advanced**
+
+**Answer:**
+A function that generates the URLs for your images.
+*   If you use a custom CDN (Cloudinary, Imgix) instead of the default Vercel Image Optimization, you define a loader in `next.config.js` or prop.
+
+### Q41: Difference between `redirect` and `rewrite`.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Redirect:** Changes the URL in the browser address bar. Tells search engines resource moved (307/308 status).
+*   **Rewrite:** Shows content from a different URL but keeps the browser URL the same. Proxy-like behavior.
+
+### Q42: What is TurboPack?
+**Difficulty: Intermediate**
+
+**Answer:**
+An incremental bundler optimized for JavaScript and TypeScript, written in Rust.
+*   Successor to Webpack.
+*   Claims to be 700x faster than Webpack.
+*   Currently in beta (used via `next dev --turbo`).
+
+### Q43: Explain "Hydration" in context of Next.js.
+**Difficulty: Intermediate**
+
+**Answer:**
+The process where JavaScript attaches to the HTML generated by the server.
+*   The server sends HTML (for fast First Paint).
+*   The browser loads JS bundles.
+*   React "hydrates" the DOM (attaches event listeners) to make it interactive.
+
+### Q44: How to disable SSR for a component?
+**Difficulty: Intermediate**
+
+**Answer:**
+Use dynamic import with `ssr: false`.
+```javascript
+import dynamic from 'next/dynamic'
+const NoSSRComponent = dynamic(() => import('../components/Map'), {
+  ssr: false,
+})
+```
+Useful for components that rely on `window` or browser-specific APIs not available on server.
+
+### Q45: What is the Edge Runtime?
+**Difficulty: Advanced**
+
+**Answer:**
+A lightweight runtime based on standard Web APIs (like Fetch, Request, Response).
+*   Used by Middleware and Edge API Routes.
+*   **Pros:** Extremely fast startup (low cold starts), runs closer to user (CDN edge).
+*   **Cons:** Cannot use Node.js APIs (fs, child_process) or modules relying on them.
+
+### Q46: How to optimize fonts?
+**Difficulty: Beginner**
+
+**Answer:**
+Use `next/font/google` or `next/font/local`.
+*   Next.js downloads the font file at build time.
+*   Self-hosts it (no external requests).
+*   Uses `variable` fonts for performance.
+
+### Q47: What is `generateMetadata`?
+**Difficulty: Intermediate**
+
+**Answer:**
+Async function to fetch metadata for a page dynamically.
+```javascript
+export async function generateMetadata({ params }) {
+  const product = await getProduct(params.id)
+  return { title: product.name }
+}
+```
+
+### Q48: Parallel Routes.
+**Difficulty: Advanced**
+
+**Answer:**
+Allows rendering one or more pages in the same layout simultaneously.
+*   **Syntax:** Named "slots" using `@folder` convention (e.g., `@team`, `@analytics`).
+*   Passed as props to the layout.
+*   Useful for dashboards with complex split views.
+
+### Q49: Intercepting Routes.
+**Difficulty: Expert**
+
+**Answer:**
+Allows loading a route from another part of your application within the current layout.
+*   **Syntax:** `(.)folder`, `(..)folder`.
+*   **Use Case:** Clicking a photo in a feed opens it in a modal (overlay) while keeping the feed visible behind it. But reloading the page shows the photo as a standalone page.
+
+### Q50: What is `next.config.js`?
+**Difficulty: Beginner**
+
+**Answer:**
+Configuration file for Next.js.
+*   **Usage:**
+    *   Define environment variables.
+    *   Configure redirects/rewrites.
+    *   Configure image domains.
+    *   Enable experimental features.
+    *   Customize Webpack config.
+
+### Q51: Static Exports (`output: 'export'`).
+**Difficulty: Intermediate**
+
+**Answer:**
+Builds the Next.js app as static HTML/CSS/JS files (SPA style).
+*   **Pros:** Can host on any static server (Nginx, S3, GitHub Pages). No Node.js server required.
+*   **Cons:** Lose features requiring server (SSR, ISR, API Routes, Middleware, Image Optimization).
+
+### Q52: How to add Global CSS?
+**Difficulty: Beginner**
+
+**Answer:**
+*   **Pages Router:** Import only in `_app.js`.
+*   **App Router:** Import in the root `layout.js`.
+
+### Q53: CSS Modules in Next.js.
+**Difficulty: Beginner**
+
+**Answer:**
+Supported out of the box.
+*   Create files like `Button.module.css`.
+*   Import: `import styles from './Button.module.css'`.
+*   Use: `<button className={styles.error}>`.
+*   **Benefit:** Locally scoped class names (avoids collision).
+
+### Q54: How to use SASS/SCSS?
+**Difficulty: Beginner**
+
+**Answer:**
+1.  Install sass: `npm install sass`.
+2.  Rename `.css` files to `.scss`.
+3.  Next.js compiles them automatically.
+
+### Q55: Absolute Imports.
+**Difficulty: Beginner**
+
+**Answer:**
+Configure `jsconfig.json` or `tsconfig.json`:
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"]
+    }
+  }
+}
+```
+Allows `import Button from '@/components/Button'` instead of `../../components/Button`.
+
+### Q56: Fast Refresh in Next.js.
+**Difficulty: Beginner**
+
+**Answer:**
+Same as React Native. Instant feedback on edits without losing component state. Enabled by default in dev mode.
+
+### Q57: Custom 500 Page.
+**Difficulty: Intermediate**
+
+**Answer:**
+Create `pages/500.js` (Pages router) or `error.js` (App router) to handle server-side exceptions gracefully.
+
+### Q58: How to handle authentication?
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **NextAuth.js (Auth.js):** Most popular library. Supports OAuth, Email, Credentials. Works with Edge runtime.
+*   **Manual:** HttpOnly cookies + JWT. Middleware to protect routes.
+
+### Q59: What is Vercel?
+**Difficulty: Beginner**
+
+**Answer:**
+The company behind Next.js.
+*   Provides a cloud platform optimized for Next.js (Serverless/Edge deployment).
+*   Features: Zero config deployment, Preview deployments, Analytics, Speed Insights.
+
+### Q60: Pre-rendering types summary.
+**Difficulty: Intermediate**
+
+**Answer:**
+1.  **Static Generation (SG):** HTML generated at build time.
+2.  **Server-Side Rendering (SSR):** HTML generated on each request.
+3.  **Client-Side Rendering (CSR):** Browser renders content via JS.
+
+### Q61: `usePathname` and `useSearchParams`.
+**Difficulty: Intermediate**
+
+**Answer:**
+Hooks for App Router (Client Components) to access URL data.
+*   `useRouter` is used mainly for programmatic navigation (`router.push`).
+*   `usePathname`: Get current path.
+*   `useSearchParams`: Get query strings.
+
+### Q62: Shallow Routing.
+**Difficulty: Advanced**
+
+**Answer:**
+(Pages Router) Changing the URL without running data fetching methods (`getStaticProps` / `getServerSideProps`).
+*   `router.push('/?counter=10', undefined, { shallow: true })`.
+*   Useful for filtering/sorting lists without reloading page data.
+
+### Q63: `next/link` prefetching.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   By default, `<Link>` prefetches the page in the background when it enters the viewport.
+*   Makes navigation feel instant.
+*   Can be disabled: `prefetch={false}`.
+
+### Q64: What is `process.cwd()` used for?
+**Difficulty: Advanced**
+
+**Answer:**
+To get the current working directory in server-side code.
+*   Essential when reading files from the filesystem (e.g., reading markdown files for a blog) to ensure correct path resolution in both dev and production (Vercel).
+
+### Q65: Draft Mode.
+**Difficulty: Advanced**
+
+**Answer:**
+Allows you to switch from Static Generation to dynamic rendering for specific requests.
+*   **Use Case:** CMS Preview. Content editors want to see unpublished changes immediately, bypassing build time generation.
+
+### Q66: Bundle Analysis.
+**Difficulty: Advanced**
+
+**Answer:**
+Use `@next/bundle-analyzer`.
+*   Visualizes the size of webpack output files.
+*   Helps identify large dependencies to trim down bundle size.
+
+### Q67: How to implement Sitemap?
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **App Router:** Add `sitemap.js` (or `.ts`) in `app/` directory.
+    *   Export a default function that returns an array of URLs.
+*   **Manual:** Create script to generate `public/sitemap.xml` during build.
+
+### Q68: How to implement Robots.txt?
+**Difficulty: Beginner**
+
+**Answer:**
+*   **App Router:** Add `robots.js` (or `.ts`) in `app/` directory.
+*   **Manual:** Add `public/robots.txt`.
+
+### Q69: Open Graph (OG) Image Generation.
+**Difficulty: Advanced**
+
+**Answer:**
+*   **ImageResponse:** API to generate dynamic images using JSX (HTML/CSS).
+*   `app/opengraph-image.js`: File convention to auto-generate OG images for routes.
+*   Powered by `satori` (Vercel's library to convert HTML/CSS to SVG).
+
+### Q70: `export const revalidate`.
+**Difficulty: Intermediate**
+
+**Answer:**
+Route Segment Config option in App Router.
+*   `export const revalidate = 3600` (in page.js or layout.js).
+*   Sets the default revalidation time for all fetch requests in that segment (ISR).
+
+### Q71: `export const dynamic`.
+**Difficulty: Intermediate**
+
+**Answer:**
+Route Segment Config.
+*   `'auto'` (default): Cache as much as possible.
+*   `'force-dynamic'`: Disable caching (SSR). Equivalent to `getServerSideProps`.
+*   `'force-static'`: Force static generation.
+*   `'error'`: Fail if dynamic functions (headers, cookies) are used.
+
+### Q72: Multi-Zone Support.
+**Difficulty: Expert**
+
+**Answer:**
+Merging multiple Next.js apps into a single URL space.
+*   Example: Main app on `example.com`, Blog app on `example.com/blog`.
+*   Handled via `rewrites` in `next.config.js`.
+
+### Q73: AMP Support.
+**Difficulty: Advanced**
+
+**Answer:**
+Accelerated Mobile Pages.
+*   Next.js had built-in AMP support (`export const config = { amp: true }`).
+*   *Note:* AMP is declining in popularity; Core Web Vitals are the new standard.
+
+### Q74: Web Vitals.
+**Difficulty: Intermediate**
+
+**Answer:**
+Next.js includes a `useReportWebVitals` hook (or `export function reportWebVitals`) to measure performance metrics:
+*   LCP (Largest Contentful Paint)
+*   FID (First Input Delay) / INP (Interaction to Next Paint)
+*   CLS (Cumulative Layout Shift)
+
+### Q75: Custom Document.
+**Difficulty: Advanced**
+
+**Answer:**
+(Pages Router) `pages/_document.js`.
+*   Used to augment the `<html>` and `<body>` tags.
+*   Commonly used to add `lang` attribute, load fonts (legacy way), or inject critical CSS for CSS-in-JS libraries (styled-components).
+*   **Not** rendered on client transitions.
+
+### Q76: Custom App.
+**Difficulty: Advanced**
+
+**Answer:**
+(Pages Router) `pages/_app.js`.
+*   Initializes pages.
+*   Persists layout between page changes.
+*   Keeps state when navigating pages.
+*   Global CSS import location.
+
+### Q77: API Routes vs Route Handlers.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **API Routes:** `pages/api/*`. Request/Response are Node.js-like (req, res).
+*   **Route Handlers:** `app/api/*`. Request/Response use standard Web Fetch API (`NextRequest`, `NextResponse`).
+
+### Q78: Middleware Matcher.
+**Difficulty: Intermediate**
+
+**Answer:**
+Config export in `middleware.js` to filter which paths the middleware runs on.
+```javascript
+export const config = {
+  matcher: ['/about/:path*', '/dashboard/:path*'],
+}
+```
+Prevents unnecessary execution on static assets.
+
+### Q79: Edge vs Node.js Runtime.
+**Difficulty: Advanced**
+
+**Answer:**
+*   **Node.js:** Full Node.js API access. Slower cold start. Regional.
+*   **Edge:** Limited API (Web Standards). Instant cold start. Global distribution.
+*   You can choose runtime per page/route: `export const runtime = 'edge'`.
+
+### Q80: Partial Prerendering (PPR).
+**Difficulty: Expert**
+
+**Answer:**
+Experimental feature (Next.js 14).
+*   Combines static and dynamic rendering in the *same* response.
+*   A static shell is served immediately (fast TTFB).
+*   Dynamic holes (Suspense) are streamed in parallel.
+
+### Q81: `cookies()` and `headers()` functions.
+**Difficulty: Intermediate**
+
+**Answer:**
+Server-side helpers in App Router.
+*   `cookies().get('name')`: Read cookies.
+*   `headers().get('user-agent')`: Read headers.
+*   Using these opts the route into **Dynamic Rendering** (because output depends on request).
+
+### Q82: How to manage global state in Next.js?
+**Difficulty: Intermediate**
+
+**Answer:**
+Same as React.
+*   Zustand, Redux, Context.
+*   *Caveat:* Since Next.js has server components, stores are usually initialized in a Client Component wrapper (Provider) near the root.
+
+### Q83: Cross-Origin Resource Sharing (CORS) in API Routes.
+**Difficulty: Intermediate**
+
+**Answer:**
+Must be handled manually in the API route handler.
+*   Set headers: `res.setHeader('Access-Control-Allow-Origin', '*')`.
+*   Or use middleware to apply headers globally.
+
+### Q84: `next/navigation` vs `next/router`.
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **`next/router`:** Used in Pages Router (`useRouter`).
+*   **`next/navigation`:** Used in App Router (`useRouter`, `usePathname`, `useSearchParams`, `redirect`, `notFound`).
+
+### Q85: Viewport Metadata.
+**Difficulty: Beginner**
+
+**Answer:**
+(App Router) `export const viewport` in `layout.js` or `page.js`.
+*   Configure theme color, width, initial scale.
+*   Separated from `metadata` object in Next.js 14.
+
+### Q86: Accessibility (ESLint).
+**Difficulty: Beginner**
+
+**Answer:**
+Next.js includes `eslint-plugin-jsx-a11y` by default.
+*   Warns about missing `alt` text on images, `aria-*` attributes, etc. during build.
+
+### Q87: Content Security Policy (CSP).
+**Difficulty: Advanced**
+
+**Answer:**
+Security layer to prevent XSS.
+*   Best implemented in Middleware.
+*   Add `Content-Security-Policy` header to response.
+*   Next.js supports Nonces for inline scripts (`next/script`).
+
+### Q88: React Server Actions security.
+**Difficulty: Advanced**
+
+**Answer:**
+Since Server Actions are public API endpoints under the hood:
+*   Must validate authentication and authorization inside the action.
+*   Must validate input (Zod).
+*   Treat arguments as untrusted user input.
+
+### Q89: How to handle large lists?
+**Difficulty: Intermediate**
+
+**Answer:**
+*   **Virtualization:** Use `react-window` or `react-virtuoso` (Client Components).
+*   **Pagination:** Cursor-based or Offset-based using URL search params.
+
+### Q90: Styling: Tailwind CSS.
+**Difficulty: Beginner**
+
+**Answer:**
+First-class citizen in Next.js.
+*   `npx create-next-app --tailwind`.
+*   Next.js automates PostCSS configuration.
+
+### Q91: Difference between `public/` and `app/` (assets).
+**Difficulty: Beginner**
+
+**Answer:**
+*   **`public/`:** Static files served from root URL (`/robot.png`). Not processed by Webpack.
+*   **`app/` (colocation):** You can put images inside route folders, but they are not served directly unless imported in JS.
+
+### Q92: `transpilePackages`.
+**Difficulty: Advanced**
+
+**Answer:**
+Config in `next.config.js`.
+*   List of npm packages that should be transpiled by Next.js (SWC/Babel).
+*   Necessary for ESM-only packages or internal monorepo UI libraries that ship untranspiled source.
+
+### Q93: `standalone` output.
+**Difficulty: Advanced**
+
+**Answer:**
+`output: 'standalone'` in `next.config.js`.
+*   Creates a minimal folder structure containing only necessary files (node_modules subset) to run the app.
+*   Drastically reduces Docker image size (e.g., from 1GB to 100MB).
+
+### Q94: How to use jQuery in Next.js?
+**Difficulty: Beginner**
+
+**Answer:**
+Discouraged. But if needed:
+*   Use `useEffect` to ensure it runs only on client.
+*   Or `next/script` with strategy `beforeInteractive`.
+
+### Q95: Suspense for Data Fetching.
+**Difficulty: Advanced**
+
+**Answer:**
+(App Router) Wrap async component in `<Suspense fallback={<Loading />}>`.
+*   React renders fallback.
+*   Starts fetching data.
+*   When data resolves, swaps fallback with component.
+
+### Q96: `cache()` function (React).
+**Difficulty: Advanced**
+
+**Answer:**
+Used to deduplicate data fetches *per request*.
+*   If you call `getUser()` in Layout and Page, `cache(getUser)` ensures the DB query runs only once per request.
+*   Different from Next.js Data Cache (which persists across requests).
+
+### Q97: `unstable_noStore`.
+**Difficulty: Intermediate**
+
+**Answer:**
+Function to opt-out of static rendering.
+*   `import { unstable_noStore as noStore } from 'next/cache';`
+*   `noStore();` inside a component makes it dynamic.
+
+### Q98: React Strict Mode in Next.js.
+**Difficulty: Beginner**
+
+**Answer:**
+Enabled by default (`reactStrictMode: true` in config).
+*   Helps identify unsafe lifecycles and legacy patterns.
+*   Renders twice in development.
+
+### Q99: Next.js Commerce.
+**Difficulty: General**
+
+**Answer:**
+An all-in-one starter kit for high-performance e-commerce sites.
+*   Integrates with Shopify, BigCommerce, etc.
+*   Demonstrates best practices (Edge, ISR, Image Opt).
+
+### Q100: Why choose Next.js over Create React App (CRA)?
+**Difficulty: General**
+
+**Answer:**
+*   **CRA:** CSR only. Bad SEO. Slow initial load. Deprecated (React docs recommend frameworks).
+*   **Next.js:** SSR/SSG (Great SEO). Routing built-in. API Routes. Optimizations (Image/Font). Production ready.
