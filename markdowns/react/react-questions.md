@@ -30,56 +30,56 @@
 48. [What does React Strict Mode do?](#q48-what-does-react-strict-mode-do) <span class="beginner">Beginner</span>
 49. [How does Event Delegation work in React?](#q49-how-does-event-delegation-work-in-react) <span class="advanced">Advanced</span>
 50. [What is the React Reconciler?](#q50-what-is-the-react-reconciler) <span class="expert">Expert</span>
-51. [How do you handle React state management in large scale applications?](#q51-how-do-you-handle-react-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-52. [How do you perform React data validation in microservices?](#q52-how-do-you-perform-react-data-validation-in-microservices) <span class="beginner">Beginner</span>
-53. [How do you automate React deployment for mobile devices?](#q53-how-do-you-automate-react-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-54. [How do you handle React concurrency issues in legacy systems?](#q54-how-do-you-handle-react-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-55. [How do you implement React caching in cloud infrastructure?](#q55-how-do-you-implement-react-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-56. [How do you manage React configuration for real-time systems?](#q56-how-do-you-manage-react-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-57. [How do you handle React internationalization (i18n) in distributed systems?](#q57-how-do-you-handle-react-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-58. [How do you ensure React accessibility (a11y) in high-traffic sites?](#q58-how-do-you-ensure-react-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-59. [How do you optimize React network requests in embedded systems?](#q59-how-do-you-optimize-react-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-60. [How do you handle React performance optimization for production environments?](#q60-how-do-you-handle-react-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-61. [What are the security implications of React in large scale applications?](#q61-what-are-the-security-implications-of-react-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug React memory leaks in microservices?](#q62-how-do-you-debug-react-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for React code organization in mobile devices?](#q63-best-practices-for-react-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement React error handling for legacy systems?](#q64-how-do-you-implement-react-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test React functionality in cloud infrastructure?](#q65-how-do-you-test-react-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle React state management in real-time systems?](#q66-how-do-you-handle-react-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform React data validation in distributed systems?](#q67-how-do-you-perform-react-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate React deployment for high-traffic sites?](#q68-how-do-you-automate-react-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle React concurrency issues in embedded systems?](#q69-how-do-you-handle-react-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement React caching in production environments?](#q70-how-do-you-implement-react-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage React configuration for large scale applications?](#q71-how-do-you-manage-react-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle React internationalization (i18n) in microservices?](#q72-how-do-you-handle-react-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure React accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-react-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize React network requests in legacy systems?](#q74-how-do-you-optimize-react-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle React performance optimization for cloud infrastructure?](#q75-how-do-you-handle-react-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of React in real-time systems?](#q76-what-are-the-security-implications-of-react-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug React memory leaks in distributed systems?](#q77-how-do-you-debug-react-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for React code organization in high-traffic sites?](#q78-best-practices-for-react-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement React error handling for embedded systems?](#q79-how-do-you-implement-react-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test React functionality in production environments?](#q80-how-do-you-test-react-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle React state management in large scale applications?](#q81-how-do-you-handle-react-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform React data validation in microservices?](#q82-how-do-you-perform-react-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate React deployment for mobile devices?](#q83-how-do-you-automate-react-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle React concurrency issues in legacy systems?](#q84-how-do-you-handle-react-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement React caching in cloud infrastructure?](#q85-how-do-you-implement-react-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage React configuration for real-time systems?](#q86-how-do-you-manage-react-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle React internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-react-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure React accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-react-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize React network requests in embedded systems?](#q89-how-do-you-optimize-react-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle React performance optimization for production environments?](#q90-how-do-you-handle-react-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of React in large scale applications?](#q91-what-are-the-security-implications-of-react-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug React memory leaks in microservices?](#q92-how-do-you-debug-react-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for React code organization in mobile devices?](#q93-best-practices-for-react-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement React error handling for legacy systems?](#q94-how-do-you-implement-react-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test React functionality in cloud infrastructure?](#q95-how-do-you-test-react-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle React state management in real-time systems?](#q96-how-do-you-handle-react-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform React data validation in distributed systems?](#q97-how-do-you-perform-react-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate React deployment for high-traffic sites?](#q98-how-do-you-automate-react-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle React concurrency issues in embedded systems?](#q99-how-do-you-handle-react-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement React caching in production environments?](#q100-how-do-you-implement-react-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+51. [How does React Fiber improve performance?](#q51-how-does-react-fiber-improve-performance) <span class="advanced">Advanced</span>
+52. [What is the difference between `useMemo` and `useCallback`?](#q52-what-is-the-difference-between-usememo-and-usecallback) <span class="intermediate">Intermediate</span>
+53. [How do you implement an Error Boundary?](#q53-how-do-you-implement-an-error-boundary) <span class="intermediate">Intermediate</span>
+54. [What is the purpose of `useLayoutEffect`?](#q54-what-is-the-purpose-of-uselayouteffect) <span class="advanced">Advanced</span>
+55. [How do you use React Portals?](#q55-how-do-you-use-react-portals) <span class="intermediate">Intermediate</span>
+56. [What is Suspense for Data Fetching?](#q56-what-is-suspense-for-data-fetching) <span class="advanced">Advanced</span>
+57. [How do you prevent prop drilling?](#q57-how-do-you-prevent-prop-drilling) <span class="beginner">Beginner</span>
+58. [What is `forwardRef` used for?](#q58-what-is-forwardref-used-for) <span class="intermediate">Intermediate</span>
+59. [How do Custom Hooks share logic?](#q59-how-do-custom-hooks-share-logic) <span class="beginner">Beginner</span>
+60. [Difference between Controlled and Uncontrolled inputs?](#q60-difference-between-controlled-and-uncontrolled-inputs) <span class="beginner">Beginner</span>
+61. [How do you optimize a large list in React?](#q61-how-do-you-optimize-a-large-list-in-react) <span class="intermediate">Intermediate</span>
+62. [What is the key prop and why is it important?](#q62-what-is-the-key-prop-and-why-is-it-important) <span class="beginner">Beginner</span>
+63. [How do you handle side effects in React?](#q63-how-do-you-handle-side-effects-in-react) <span class="beginner">Beginner</span>
+64. [What is Higher-Order Component (HOC)?](#q64-what-is-higher-order-component-hoc) <span class="advanced">Advanced</span>
+65. [How does `setState` batch updates?](#q65-how-does-setstate-batch-updates) <span class="advanced">Advanced</span>
+66. [What is the Rules of Hooks?](#q66-what-is-the-rules-of-hooks) <span class="beginner">Beginner</span>
+67. [How do you test a React component?](#q67-how-do-you-test-a-react-component) <span class="intermediate">Intermediate</span>
+68. [What is Code Splitting?](#q68-what-is-code-splitting) <span class="intermediate">Intermediate</span>
+69. [How do you handle forms in React?](#q69-how-do-you-handle-forms-in-react) <span class="beginner">Beginner</span>
+70. [What is Reconciliation?](#q70-what-is-reconciliation) <span class="advanced">Advanced</span>
+71. [How do you force a re-render?](#q71-how-do-you-force-a-re-render) <span class="intermediate">Intermediate</span>
+72. [What is Strict Mode?](#q72-what-is-strict-mode) <span class="beginner">Beginner</span>
+73. [How do you use Context API effectively?](#q73-how-do-you-use-context-api-effectively) <span class="intermediate">Intermediate</span>
+74. [What is Hydration?](#q74-what-is-hydration) <span class="advanced">Advanced</span>
+75. [How do you implement dark mode?](#q75-how-do-you-implement-dark-mode) <span class="intermediate">Intermediate</span>
+76. [What is prop types?](#q76-what-is-prop-types) <span class="beginner">Beginner</span>
+77. [How do you optimize Context re-renders?](#q77-how-do-you-optimize-context-re-renders) <span class="advanced">Advanced</span>
+78. [React Server Components vs Client Components?](#q78-react-server-components-vs-client-components) <span class="advanced">Advanced</span>
+79. [How do you handle images in React?](#q79-how-do-you-handle-images-in-react) <span class="beginner">Beginner</span>
+80. [What is the Virtual DOM?](#q80-what-is-the-virtual-dom) <span class="beginner">Beginner</span>
+81. [How do you implement authentication in React?](#q81-how-do-you-implement-authentication-in-react) <span class="intermediate">Intermediate</span>
+82. [How do you handle multiple environments?](#q82-how-do-you-handle-multiple-environments) <span class="intermediate">Intermediate</span>
+83. [How do you debug performance issues?](#q83-how-do-you-debug-performance-issues) <span class="intermediate">Intermediate</span>
+84. [What is Render Props pattern?](#q84-what-is-render-props-pattern) <span class="intermediate">Intermediate</span>
+85. [How do you create a compound component?](#q85-how-do-you-create-a-compound-component) <span class="advanced">Advanced</span>
+86. [How do you manage global state without Redux?](#q86-how-do-you-manage-global-state-without-redux) <span class="intermediate">Intermediate</span>
+87. [How do you implement infinite scroll?](#q87-how-do-you-implement-infinite-scroll) <span class="intermediate">Intermediate</span>
+88. [How do you secure React apps?](#q88-how-do-you-secure-react-apps) <span class="intermediate">Intermediate</span>
+89. [How do you unit test hooks?](#q89-how-do-you-unit-test-hooks) <span class="intermediate">Intermediate</span>
+90. [What is `flushSync`?](#q90-what-is-flushsync) <span class="advanced">Advanced</span>
+91. [How do you handle race conditions in useEffect?](#q91-how-do-you-handle-race-conditions-in-useeffect) <span class="advanced">Advanced</span>
+92. [What is `dangerouslySetInnerHTML`?](#q92-what-is-dangerouslysetinnerhtml) <span class="beginner">Beginner</span>
+93. [How do you implement drag and drop?](#q93-how-do-you-implement-drag-and-drop) <span class="intermediate">Intermediate</span>
+94. [How do you handle file uploads in React?](#q94-how-do-you-handle-file-uploads-in-react) <span class="intermediate">Intermediate</span>
+95. [How do you implement a carousel?](#q95-how-do-you-implement-a-carousel) <span class="intermediate">Intermediate</span>
+96. [How do you mock API calls in tests?](#q96-how-do-you-mock-api-calls-in-tests) <span class="intermediate">Intermediate</span>
+97. [What is `React.memo`?](#q97-what-is-react.memo) <span class="beginner">Beginner</span>
+98. [How do you implement a tooltip?](#q98-how-do-you-implement-a-tooltip) <span class="intermediate">Intermediate</span>
+99. [How do you handle window resize events?](#q99-how-do-you-handle-window-resize-events) <span class="intermediate">Intermediate</span>
+100. [How do you implement A/B testing?](#q100-how-do-you-implement-ab-testing) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1898,238 +1898,22 @@ The Reconciler is the engine that diffs the Virtual DOM. React Fiber is the curr
 ---
 
 
-### Q51: How do you handle React state management in large scale applications?
+
+### Q51: How does React Fiber improve performance?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Fiber allows React to split rendering work into chunks and pause it to prioritize updates like user input. It uses a linked list tree traversal.
 
 **Code Example**:
 ```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q52: How do you perform React data validation in microservices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: How do you automate React deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you handle React concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How do you implement React caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: How do you manage React configuration for real-time systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q57: How do you handle React internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: How do you ensure React accessibility (a11y) in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q59: How do you optimize React network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: How do you handle React performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// React logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q61: What are the security implications of React in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q62: How do you debug React memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: Best practices for React code organization in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q64: How do you implement React error handling for legacy systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await ReactOperation();
-} catch (e) {
-  logger.error(e);
+// Conceptual Fiber Node
+{
+  stateNode: {},
+  child: FiberNode,
+  sibling: FiberNode,
+  return: FiberNode
 }
 ```
 
@@ -2137,256 +1921,36 @@ try {
 
 ---
 
-### Q65: How do you test React functionality in cloud infrastructure?
+### Q52: What is the difference between `useMemo` and `useCallback`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Write unit tests for logic and integration tests for flows.
+`useMemo` caches the *result* of a function. `useCallback` caches the *function definition* itself.
 
 **Code Example**:
 ```javascript
-test('React works', () => {
-  expect(React()).toBe(true);
-});
+const memoizedValue = useMemo(() => compute(a, b), [a, b]);
+const memoizedCallback = useCallback(() => doSomething(a, b), [a, b]);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q66: How do you handle React state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q67: How do you perform React data validation in distributed systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q68: How do you automate React deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you handle React concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you implement React caching in production environments?
+### Q53: How do you implement an Error Boundary?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Class component with `static getDerivedStateFromError` and `componentDidCatch`. Hooks don't support this yet.
 
 **Code Example**:
 ```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q71: How do you manage React configuration for large scale applications?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q72: How do you handle React internationalization (i18n) in microservices?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: How do you ensure React accessibility (a11y) in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q74: How do you optimize React network requests in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you handle React performance optimization for cloud infrastructure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// React logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: What are the security implications of React in real-time systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: How do you debug React memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: Best practices for React code organization in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q79: How do you implement React error handling for embedded systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await ReactOperation();
-} catch (e) {
-  logger.error(e);
+class ErrorBoundary extends React.Component {
+  static getDerivedStateFromError(error) { return { hasError: true }; }
+  componentDidCatch(error, info) { logError(error, info); }
+  render() { return this.state.hasError ? <h1>Error</h1> : this.props.children; }
 }
 ```
 
@@ -2394,256 +1958,113 @@ try {
 
 ---
 
-### Q80: How do you test React functionality in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('React works', () => {
-  expect(React()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q81: How do you handle React state management in large scale applications?
+### Q54: What is the purpose of `useLayoutEffect`?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Fires synchronously after all DOM mutations. Use it to read layout from the DOM and re-render synchronously (prevent flickering).
 
 **Code Example**:
 ```javascript
-const [state, setState] = useState(initial);
+useLayoutEffect(() => {
+  const rect = ref.current.getBoundingClientRect();
+  setHeight(rect.height);
+}, []);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you perform React data validation in microservices?
+### Q55: How do you use React Portals?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Render children into a DOM node that exists outside the DOM hierarchy of the parent component (e.g., Modals).
+
+**Code Example**:
+```javascript
+return ReactDOM.createPortal(
+  <div className="modal">{children}</div>,
+  document.getElementById('modal-root')
+);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: What is Suspense for Data Fetching?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Allows components to 'wait' for something before rendering. Used with `React.lazy` or concurrent data fetching.
+
+**Code Example**:
+```javascript
+<Suspense fallback={<Spinner />}>
+  <ProfileDetails />
+</Suspense>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q57: How do you prevent prop drilling?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Use Context API, Composition (passing components as props), or State Management libraries.
 
 **Code Example**:
 ```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
+// Context approach
+const UserContext = createContext();
+<UserContext.Provider value={user}><App /></UserContext.Provider>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you automate React deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you handle React concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: How do you implement React caching in cloud infrastructure?
+### Q58: What is `forwardRef` used for?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Forwarding a ref through a component to one of its children. Useful for reusable UI components.
 
 **Code Example**:
 ```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+const FancyButton = React.forwardRef((props, ref) => (
+  <button ref={ref} className="fancy-button">
+    {props.children}
+  </button>
+));
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q86: How do you manage React configuration for real-time systems?
+### Q59: How do Custom Hooks share logic?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+They extract component logic into reusable functions. They can call other hooks.
 
 **Code Example**:
 ```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q87: How do you handle React internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q88: How do you ensure React accessibility (a11y) in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q89: How do you optimize React network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you handle React performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// React logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: What are the security implications of React in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: How do you debug React memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: Best practices for React code organization in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q94: How do you implement React error handling for legacy systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await ReactOperation();
-} catch (e) {
-  logger.error(e);
+function useWindowSize() {
+  const [size, setSize] = useState(window.innerWidth);
+  useEffect(() => { /* listener */ }, []);
+  return size;
 }
 ```
 
@@ -2651,103 +2072,695 @@ try {
 
 ---
 
-### Q95: How do you test React functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('React works', () => {
-  expect(React()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q96: How do you handle React state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q97: How do you perform React data validation in distributed systems?
+### Q60: Difference between Controlled and Uncontrolled inputs?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Controlled: React state drives the input value. Uncontrolled: DOM drives the value, accessed via ref.
 
 **Code Example**:
 ```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
+// Controlled
+<input value={val} onChange={e => setVal(e.target.value)} />
+// Uncontrolled
+<input ref={inputRef} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you automate React deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q99: How do you handle React concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q100: How do you implement React caching in production environments?
+### Q61: How do you optimize a large list in React?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Virtualization (Windowing). Only render items currently in view.
 
 **Code Example**:
 ```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+import { FixedSizeList } from 'react-window';
+<FixedSizeList height={500} itemCount={1000} itemSize={35} ... />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q62: What is the key prop and why is it important?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Helps React identify which items have changed, are added, or are removed. Must be unique among siblings.
+
+**Code Example**:
+```javascript
+items.map(item => <li key={item.id}>{item.name}</li>)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q63: How do you handle side effects in React?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `useEffect` hook.
+
+**Code Example**:
+```javascript
+useEffect(() => {
+  const id = setInterval(tick, 1000);
+  return () => clearInterval(id);
+}, []);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q64: What is Higher-Order Component (HOC)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+A function that takes a component and returns a new component. Used for cross-cutting concerns.
+
+**Code Example**:
+```javascript
+function withLogging(WrappedComponent) {
+  return (props) => {
+    useEffect(() => console.log('Mounted'), []);
+    return <WrappedComponent {...props} />;
+  };
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q65: How does `setState` batch updates?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+React batches multiple state updates into a single re-render for performance. In React 18, this is automatic even in promises/timeouts.
+
+**Code Example**:
+```javascript
+handleClick() {
+  setCount(c => c + 1);
+  setFlag(f => !f);
+  // Re-renders once
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q66: What is the Rules of Hooks?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Only call Hooks at the top level. Only call Hooks from React functions.
+
+**Code Example**:
+```javascript
+// ❌ Bad: inside condition
+if (condition) useEffect(...)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q67: How do you test a React component?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use React Testing Library (RTL). Test behavior, not implementation.
+
+**Code Example**:
+```javascript
+render(<App />);
+fireEvent.click(screen.getByText('Submit'));
+expect(screen.getByText('Success')).toBeInTheDocument();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q68: What is Code Splitting?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Splitting bundle into smaller chunks to load on demand. Use `React.lazy` and dynamic `import()`.
+
+**Code Example**:
+```javascript
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q69: How do you handle forms in React?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use local state or libraries like React Hook Form or Formik.
+
+**Code Example**:
+```javascript
+const { register, handleSubmit } = useForm();
+<form onSubmit={handleSubmit(onSubmit)}>
+  <input {...register("firstName")} />
+</form>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q70: What is Reconciliation?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+The process through which React updates the DOM. It compares the new element tree with the most recent one.
+
+**Code Example**:
+```javascript
+// Diffing algorithm uses heuristics (type check, key check) to be O(n)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q71: How do you force a re-render?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Update state (dummy state) or use `useReducer`.
+
+**Code Example**:
+```javascript
+const [, forceUpdate] = useReducer(x => x + 1, 0);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q72: What is Strict Mode?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+A tool for highlighting potential problems in an application. It activates additional checks and warnings.
+
+**Code Example**:
+```javascript
+<React.StrictMode><App /></React.StrictMode>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q73: How do you use Context API effectively?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Split contexts to avoid unnecessary re-renders. Place providers close to where they are needed.
+
+**Code Example**:
+```javascript
+const DispatchContext = createContext(null);
+const StateContext = createContext(null);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q74: What is Hydration?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Attaching event listeners to the server-rendered HTML on the client side.
+
+**Code Example**:
+```javascript
+hydrateRoot(document.getElementById('root'), <App />);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q75: How do you implement dark mode?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use Context to store theme state and a ThemeProvider (styled-components or MUI).
+
+**Code Example**:
+```javascript
+const theme = isDark ? darkTheme : lightTheme;
+<ThemeProvider theme={theme}>...</ThemeProvider>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q76: What is prop types?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Runtime type checking for React props.
+
+**Code Example**:
+```javascript
+MyComponent.propTypes = { name: PropTypes.string.isRequired };
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q77: How do you optimize Context re-renders?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Memoize the value passed to the Provider.
+
+**Code Example**:
+```javascript
+const value = useMemo(() => ({ state, dispatch }), [state]);
+<Ctx.Provider value={value}>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q78: React Server Components vs Client Components?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Server Components render on server, zero bundle size. Client Components render on client, have interactivity.
+
+**Code Example**:
+```javascript
+// Server Component (default in Next.js app dir)
+async function Page() { const data = await db.query(); return <div>{data}</div> }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q79: How do you handle images in React?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Import them or use `img` tag. In frameworks like Next.js, use `Image` component for optimization.
+
+**Code Example**:
+```javascript
+<img src={logo} alt="Logo" />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q80: What is the Virtual DOM?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+A lightweight copy of the actual DOM in memory. React syncs VDOM with Real DOM.
+
+**Code Example**:
+```javascript
+// VDOM is a JavaScript object representation
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q81: How do you implement authentication in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Store token (localStorage/cookie), use Context for auth state, and Protected Routes.
+
+**Code Example**:
+```javascript
+const PrivateRoute = ({ children }) => auth ? children : <Navigate to="/login" />;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q82: How do you handle multiple environments?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `.env` files (`REACT_APP_` or `VITE_`).
+
+**Code Example**:
+```javascript
+const apiUrl = process.env.REACT_APP_API_URL;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q83: How do you debug performance issues?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use React DevTools Profiler tab.
+
+**Code Example**:
+```javascript
+// Record interaction, view commit chart
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q84: What is Render Props pattern?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Sharing code between components using a prop whose value is a function.
+
+**Code Example**:
+```javascript
+<DataProvider render={data => <h1>{data.title}</h1>} />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: How do you create a compound component?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Components that work together (e.g., Select, Select.Option).
+
+**Code Example**:
+```javascript
+const Select = ({ children }) => <Provider>{children}</Provider>;
+Select.Option = Option;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q86: How do you manage global state without Redux?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Context API + useReducer, or libraries like Zustand/Recoil.
+
+**Code Example**:
+```javascript
+const useStore = create(set => ({ count: 0, inc: () => set(s => ({ count: s.count + 1 })) }));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q87: How do you implement infinite scroll?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Intersection Observer API to detect when bottom is reached.
+
+**Code Example**:
+```javascript
+const observer = new IntersectionObserver(entries => { if(entries[0].isIntersecting) loadMore(); });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q88: How do you secure React apps?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Prevent XSS (React escapes by default), avoid `dangerouslySetInnerHTML`, secure headers.
+
+**Code Example**:
+```javascript
+// Don't do this unless sanitized
+<div dangerouslySetInnerHTML={{__html: userContent}} />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: How do you unit test hooks?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `renderHook` from testing library.
+
+**Code Example**:
+```javascript
+const { result } = renderHook(() => useCounter());
+act(() => result.current.increment());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: What is `flushSync`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Forces React to flush pending updates synchronously.
+
+**Code Example**:
+```javascript
+flushSync(() => { setCount(count + 1); });
+// DOM is updated immediately here
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: How do you handle race conditions in useEffect?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use a boolean flag or AbortController.
+
+**Code Example**:
+```javascript
+useEffect(() => {
+  let ignore = false;
+  fetchData().then(res => { if (!ignore) setData(res); });
+  return () => { ignore = true; };
+}, []);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: What is `dangerouslySetInnerHTML`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+React's replacement for `innerHTML`. Risky for XSS.
+
+**Code Example**:
+```javascript
+<div dangerouslySetInnerHTML={{ __html: '<b>Bold</b>' }} />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: How do you implement drag and drop?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use HTML5 Drag and Drop API or libraries like `dnd-kit` or `react-beautiful-dnd`.
+
+**Code Example**:
+```javascript
+<div draggable onDragStart={...}>Item</div>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: How do you handle file uploads in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `input type='file'` and `FormData`.
+
+**Code Example**:
+```javascript
+const formData = new FormData();
+formData.append('file', fileInput.files[0]);
+fetch('/upload', { method: 'POST', body: formData });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: How do you implement a carousel?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Manage active index state and transform styles.
+
+**Code Example**:
+```javascript
+<div style={{ transform: `translateX(-${activeIndex * 100}%)` }}>...</div>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: How do you mock API calls in tests?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `jest.mock` or `msw` (Mock Service Worker).
+
+**Code Example**:
+```javascript
+server.use(rest.get('/api/user', (req, res, ctx) => res(ctx.json({ name: 'John' }))));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: What is `React.memo`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+HOC to memoize functional components based on props comparison.
+
+**Code Example**:
+```javascript
+const MyComponent = React.memo(function MyComponent(props) { ... });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: How do you implement a tooltip?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+State for visibility and position calculation (or use libraries like Tippy.js).
+
+**Code Example**:
+```javascript
+{show && <div style={{ top, left }}>Tooltip</div>}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: How do you handle window resize events?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Add event listener in `useEffect`.
+
+**Code Example**:
+```javascript
+useEffect(() => {
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: How do you implement A/B testing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Conditionally render components based on user bucket/flag.
+
+**Code Example**:
+```javascript
+{variant === 'A' ? <NewFeature /> : <OldFeature />}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

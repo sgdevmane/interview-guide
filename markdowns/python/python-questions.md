@@ -60,56 +60,56 @@
 48. [How do you use Single Dispatch for function overloading?](#q48-how-do-you-use-single-dispatch-for-function-overloading) <span class="intermediate">Intermediate</span>
 49. [How do you use WeakRef to manage memory?](#q49-how-do-you-use-weakref-to-manage-memory) <span class="advanced">Advanced</span>
 50. [How do you validate data using Pydantic?](#q50-how-do-you-validate-data-using-pydantic) <span class="intermediate">Intermediate</span>
-51. [How do you implement Dependency Injection in FastAPI?](#q51-how-do-you-implement-dependency-injection-in-fastapi) <span class="intermediate">Intermediate</span>
-52. [How do you make concurrent HTTP requests with Aiohttp?](#q52-how-do-you-make-concurrent-http-requests-with-aiohttp) <span class="intermediate">Intermediate</span>
-53. [How do you group and aggregate data in Pandas?](#q53-how-do-you-group-and-aggregate-data-in-pandas) <span class="beginner">Beginner</span>
-54. [How do you create a Machine Learning Pipeline with Scikit-learn?](#q54-how-do-you-create-a-machine-learning-pipeline-with-scikit-learn) <span class="intermediate">Intermediate</span>
-55. [How do you scrape a website using Beautiful Soup?](#q55-how-do-you-scrape-a-website-using-beautiful-soup) <span class="intermediate">Intermediate</span>
-56. [How do you create a command-line interface (CLI) with Click?](#q56-how-do-you-create-a-command-line-interface-cli-with-click) <span class="intermediate">Intermediate</span>
-57. [How do you use Loguru for better logging?](#q57-how-do-you-use-loguru-for-better-logging) <span class="beginner">Beginner</span>
-58. [How do you use Python's bisect module for binary search?](#q58-how-do-you-use-pythons-bisect-module-for-binary-search) <span class="intermediate">Intermediate</span>
-59. [How do you profile a Python script to find bottlenecks?](#q59-how-do-you-profile-a-python-script-to-find-bottlenecks) <span class="advanced">Advanced</span>
-60. [How do you implement a Context Manager as a Class?](#q60-how-do-you-implement-a-context-manager-as-a-class) <span class="intermediate">Intermediate</span>
-61. [How do you use pathlib for modern file path handling?](#q61-how-do-you-use-pathlib-for-modern-file-path-handling) <span class="beginner">Beginner</span>
-62. [How do you use the secrets module for secure random generation?](#q62-how-do-you-use-the-secrets-module-for-secure-random-generation) <span class="intermediate">Intermediate</span>
-63. [How do you format dates and numbers using f-strings?](#q63-how-do-you-format-dates-and-numbers-using-f-strings) <span class="beginner">Beginner</span>
-64. [How do you use collections.deque for efficient queues?](#q64-how-do-you-use-collections.deque-for-efficient-queues) <span class="intermediate">Intermediate</span>
-65. [How do you use asyncio.Queue for producer-consumer patterns?](#q65-how-do-you-use-asyncio.queue-for-producer-consumer-patterns) <span class="advanced">Advanced</span>
-66. [How do you use operator.itemgetter for sorting?](#q66-how-do-you-use-operator.itemgetter-for-sorting) <span class="intermediate">Intermediate</span>
-67. [How do you use contextlib.suppress to ignore exceptions?](#q67-how-do-you-use-contextlib.suppress-to-ignore-exceptions) <span class="intermediate">Intermediate</span>
-68. [How do you use enum.Enum for defining constants?](#q68-how-do-you-use-enum.enum-for-defining-constants) <span class="beginner">Beginner</span>
-69. [How do you use typing.Optional vs Union[T, None]?](#q69-how-do-you-use-typing.optional-vs-union[t-none]) <span class="intermediate">Intermediate</span>
-70. [How do you use the inspect module to introspect code?](#q70-how-do-you-use-the-inspect-module-to-introspect-code) <span class="advanced">Advanced</span>
-71. [How do you manage Python configuration for large scale applications?](#q71-how-do-you-manage-python-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle Python internationalization (i18n) in microservices?](#q72-how-do-you-handle-python-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure Python accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-python-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize Python network requests in legacy systems?](#q74-how-do-you-optimize-python-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle Python performance optimization for cloud infrastructure?](#q75-how-do-you-handle-python-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of Python in real-time systems?](#q76-what-are-the-security-implications-of-python-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug Python memory leaks in distributed systems?](#q77-how-do-you-debug-python-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for Python code organization in high-traffic sites?](#q78-best-practices-for-python-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement Python error handling for embedded systems?](#q79-how-do-you-implement-python-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test Python functionality in production environments?](#q80-how-do-you-test-python-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle Python state management in large scale applications?](#q81-how-do-you-handle-python-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform Python data validation in microservices?](#q82-how-do-you-perform-python-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate Python deployment for mobile devices?](#q83-how-do-you-automate-python-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle Python concurrency issues in legacy systems?](#q84-how-do-you-handle-python-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement Python caching in cloud infrastructure?](#q85-how-do-you-implement-python-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage Python configuration for real-time systems?](#q86-how-do-you-manage-python-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle Python internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-python-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure Python accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-python-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize Python network requests in embedded systems?](#q89-how-do-you-optimize-python-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle Python performance optimization for production environments?](#q90-how-do-you-handle-python-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of Python in large scale applications?](#q91-what-are-the-security-implications-of-python-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug Python memory leaks in microservices?](#q92-how-do-you-debug-python-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for Python code organization in mobile devices?](#q93-best-practices-for-python-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement Python error handling for legacy systems?](#q94-how-do-you-implement-python-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test Python functionality in cloud infrastructure?](#q95-how-do-you-test-python-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle Python state management in real-time systems?](#q96-how-do-you-handle-python-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform Python data validation in distributed systems?](#q97-how-do-you-perform-python-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate Python deployment for high-traffic sites?](#q98-how-do-you-automate-python-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle Python concurrency issues in embedded systems?](#q99-how-do-you-handle-python-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement Python caching in production environments?](#q100-how-do-you-implement-python-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+51. [How does the GIL (Global Interpreter Lock) affect concurrency?](#q51-how-does-the-gil-global-interpreter-lock-affect-concurrency) <span class="advanced">Advanced</span>
+52. [What are Python Decorators?](#q52-what-are-python-decorators) <span class="intermediate">Intermediate</span>
+53. [Difference between `__new__` and `__init__`?](#q53-difference-between-__new__-and-__init__) <span class="advanced">Advanced</span>
+54. [How do Generators work?](#q54-how-do-generators-work) <span class="intermediate">Intermediate</span>
+55. [What are Context Managers?](#q55-what-are-context-managers) <span class="intermediate">Intermediate</span>
+56. [Difference between `deepcopy` and `shallow copy`?](#q56-difference-between-deepcopy-and-shallow-copy) <span class="beginner">Beginner</span>
+57. [How does Python memory management work?](#q57-how-does-python-memory-management-work) <span class="advanced">Advanced</span>
+58. [What are Metaclasses?](#q58-what-are-metaclasses) <span class="advanced">Advanced</span>
+59. [How do you use `asyncio`?](#q59-how-do-you-use-asyncio) <span class="intermediate">Intermediate</span>
+60. [What is `*args` and `**kwargs`?](#q60-what-is-*args-and-**kwargs) <span class="beginner">Beginner</span>
+61. [How do you implement a Singleton in Python?](#q61-how-do-you-implement-a-singleton-in-python) <span class="intermediate">Intermediate</span>
+62. [What are Python descriptors?](#q62-what-are-python-descriptors) <span class="advanced">Advanced</span>
+63. [Difference between `is` and `==`?](#q63-difference-between-is-and-==) <span class="beginner">Beginner</span>
+64. [How do you manage dependencies?](#q64-how-do-you-manage-dependencies) <span class="beginner">Beginner</span>
+65. [What is the `with` statement for?](#q65-what-is-the-with-statement-for) <span class="intermediate">Intermediate</span>
+66. [How do you profile Python code?](#q66-how-do-you-profile-python-code) <span class="intermediate">Intermediate</span>
+67. [What are list comprehensions?](#q67-what-are-list-comprehensions) <span class="beginner">Beginner</span>
+68. [How do you create a virtual environment?](#q68-how-do-you-create-a-virtual-environment) <span class="beginner">Beginner</span>
+69. [What is `__name__ == '__main__'`?](#q69-what-is-__name__-==-__main__) <span class="beginner">Beginner</span>
+70. [How do you handle exceptions?](#q70-how-do-you-handle-exceptions) <span class="beginner">Beginner</span>
+71. [What is Method Resolution Order (MRO)?](#q71-what-is-method-resolution-order-mro) <span class="advanced">Advanced</span>
+72. [How do you implement unit tests?](#q72-how-do-you-implement-unit-tests) <span class="intermediate">Intermediate</span>
+73. [What are Type Hints?](#q73-what-are-type-hints) <span class="intermediate">Intermediate</span>
+74. [How do you use `slots`?](#q74-how-do-you-use-slots) <span class="advanced">Advanced</span>
+75. [What is the difference between `staticmethod` and `classmethod`?](#q75-what-is-the-difference-between-staticmethod-and-classmethod) <span class="intermediate">Intermediate</span>
+76. [How do you parse JSON?](#q76-how-do-you-parse-json) <span class="beginner">Beginner</span>
+77. [How do you make HTTP requests?](#q77-how-do-you-make-http-requests) <span class="beginner">Beginner</span>
+78. [What is a lambda function?](#q78-what-is-a-lambda-function) <span class="beginner">Beginner</span>
+79. [How do you copy a file?](#q79-how-do-you-copy-a-file) <span class="beginner">Beginner</span>
+80. [How do you handle command line arguments?](#q80-how-do-you-handle-command-line-arguments) <span class="beginner">Beginner</span>
+81. [What is the `logging` module?](#q81-what-is-the-logging-module) <span class="intermediate">Intermediate</span>
+82. [How do you connect to a database?](#q82-how-do-you-connect-to-a-database) <span class="intermediate">Intermediate</span>
+83. [What is `functools`?](#q83-what-is-functools) <span class="intermediate">Intermediate</span>
+84. [How do you implement multithreading?](#q84-how-do-you-implement-multithreading) <span class="intermediate">Intermediate</span>
+85. [How do you implement multiprocessing?](#q85-how-do-you-implement-multiprocessing) <span class="intermediate">Intermediate</span>
+86. [What is a deque?](#q86-what-is-a-deque) <span class="intermediate">Intermediate</span>
+87. [How do you sort a dictionary by value?](#q87-how-do-you-sort-a-dictionary-by-value) <span class="intermediate">Intermediate</span>
+88. [What is `zip`?](#q88-what-is-zip) <span class="beginner">Beginner</span>
+89. [How do you read a CSV file?](#q89-how-do-you-read-a-csv-file) <span class="beginner">Beginner</span>
+90. [What is `pickling`?](#q90-what-is-pickling) <span class="intermediate">Intermediate</span>
+91. [How do you document code?](#q91-how-do-you-document-code) <span class="beginner">Beginner</span>
+92. [What is `pdb`?](#q92-what-is-pdb) <span class="intermediate">Intermediate</span>
+93. [How do you use `enumerate`?](#q93-how-do-you-use-enumerate) <span class="beginner">Beginner</span>
+94. [What is the `collections` module?](#q94-what-is-the-collections-module) <span class="intermediate">Intermediate</span>
+95. [How do you implement a property?](#q95-how-do-you-implement-a-property) <span class="intermediate">Intermediate</span>
+96. [What is `itertools`?](#q96-what-is-itertools) <span class="intermediate">Intermediate</span>
+97. [How do you execute shell commands?](#q97-how-do-you-execute-shell-commands) <span class="intermediate">Intermediate</span>
+98. [What is `virtualenv`?](#q98-what-is-virtualenv) <span class="beginner">Beginner</span>
+99. [How do you install packages?](#q99-how-do-you-install-packages) <span class="beginner">Beginner</span>
+100. [What is `pylint`?](#q100-what-is-pylint) <span class="beginner">Beginner</span>
 
 ---
 
@@ -1330,324 +1330,155 @@ print(user.id) # 123 (int)
 
 ---
 
-### Q51: How do you implement Dependency Injection in FastAPI?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `Depends`. It declares a dependency that FastAPI resolves and injects into your path operation. It supports nested dependencies and caching.
-
-**Code Example:**
-```python
-def get_db():
-    db = Session()
-    try: yield db
-    finally: db.close()
-
-@app.get("/users")
-def read_users(db: Session = Depends(get_db)):
-    return db.query(User).all()
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q52: How do you make concurrent HTTP requests with Aiohttp?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `aiohttp.ClientSession` within an `async` function. Combine with `asyncio.gather` to fire multiple requests simultaneously.
-
-**Code Example:**
-```python
-async with aiohttp.ClientSession() as session:
-    tasks = [session.get(url) for url in urls]
-    responses = await asyncio.gather(*tasks)
-    for resp in responses:
-        print(resp.status)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: How do you group and aggregate data in Pandas?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Use `.groupby()` followed by an aggregation function like `.sum()`, `.mean()`, or `.agg()` for multiple metrics.
-
-**Code Example:**
-```python
-df.groupby('Category').agg({
-    'Sales': 'sum',
-    'Profit': 'mean'
-})
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you create a Machine Learning Pipeline with Scikit-learn?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `Pipeline` to chain preprocessing steps (scalers, encoders) and the model. This ensures the same transformations are applied to train and test data.
-
-**Code Example:**
-```python
-pipe = Pipeline([
-    ('scaler', StandardScaler()),
-    ('svc', SVC())
-])
-pipe.fit(X_train, y_train)
-pipe.score(X_test, y_test)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How do you scrape a website using Beautiful Soup?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Fetch the page with `requests`, then parse the HTML with `BeautifulSoup`. Use `.find()` or `.select()` to extract elements.
-
-**Code Example:**
-```python
-page = requests.get(url)
-soup = BeautifulSoup(page.content, 'html.parser')
-title = soup.find('h1').text
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: How do you create a command-line interface (CLI) with Click?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Decorate functions with `@click.command()` and `@click.option()`. Click handles argument parsing and help generation automatically.
-
-**Code Example:**
-```python
-@click.command()
-@click.option('--count', default=1, help='Number of greetings.')
-def hello(count):
-    for _ in range(count):
-        click.echo('Hello!')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q57: How do you use Loguru for better logging?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-`Loguru` simplifies logging. No configuration boilerplate is needed. It supports rotation, compression, and colorized output out of the box.
-
-**Code Example:**
-```python
-from loguru import logger
-
-logger.add("file.log", rotation="500 MB")
-logger.info("Information message")
-logger.error("Something went wrong")
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: How do you use Python's bisect module for binary search?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`bisect` provides support for maintaining a list in sorted order without having to sort the list after each insertion.
-
-**Code Example:**
-```python
-import bisect
-
-scores = [10, 20, 30, 40]
-bisect.insort(scores, 25)
-# scores is now [10, 20, 25, 30, 40]
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q59: How do you profile a Python script to find bottlenecks?
+### Q51: How does the GIL (Global Interpreter Lock) affect concurrency?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use `cProfile`. It provides deterministic profiling of Python programs, showing how much time is spent in each function.
+**Strategy**:
+Prevents multiple native threads from executing Python bytecodes at once. Limits CPU-bound tasks to single core.
 
-**Code Example:**
-```python
-python -m cProfile -o output.pstats myscript.py
-# Visualize with snakeviz
-# snakeviz output.pstats
+**Code Example**:
+```javascript
+// Use multiprocessing for CPU-bound tasks to bypass GIL
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q60: How do you implement a Context Manager as a Class?
+### Q52: What are Python Decorators?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Define `__enter__` and `__exit__` methods. `__enter__` returns the resource, and `__exit__` handles cleanup and exceptions.
+**Strategy**:
+Functions that modify other functions. Syntactic sugar for `func = decorator(func)`.
 
-**Code Example:**
-```python
-class FileManager:
-    def __init__(self, name):
-        self.name = name
-
-    def __enter__(self):
-        self.f = open(self.name, 'w')
-        return self.f
-
-    def __exit__(self, type, value, traceback):
-        self.f.close()
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
-
----
-
-### Q61: How do you use pathlib for modern file path handling?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-`pathlib` offers an object-oriented approach to filesystem paths, replacing `os.path`. It makes path manipulation more readable and cross-platform.
-
-**Code Example:**
-```python
-from pathlib import Path
-
-path = Path("data") / "file.txt"
-path.write_text("Hello")
-
-if path.exists():
-    print(path.read_text())
+**Code Example**:
+```javascript
+def log(func):
+    def wrapper():
+        print('Call')
+        func()
+    return wrapper
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q62: How do you use the secrets module for secure random generation?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `secrets` instead of `random` for generating passwords, tokens, or keys, as it uses the OS's CSPRNG.
-
-**Code Example:**
-```python
-import secrets
-
-token = secrets.token_hex(16)
-password = secrets.choice("abcdef123456")
-
-print(f"Secure Token: {token}")
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: How do you format dates and numbers using f-strings?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-F-strings support format specifiers inside the curly braces, allowing you to format dates, floating-point numbers, and padding directly.
-
-**Code Example:**
-```python
-import datetime
-
-now = datetime.datetime.now()
-pi = 3.14159
-
-print(f"Date: {now:%Y-%m-%d}")
-print(f"Pi: {pi:.2f}")
-print(f"Pad: {42:05d}") # 00042
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q64: How do you use collections.deque for efficient queues?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`deque` (double-ended queue) allows O(1) appends and pops from both ends, making it faster than a list for queue operations.
-
-**Code Example:**
-```python
-from collections import deque
-
-d = deque([1, 2, 3])
-d.appendleft(0)
-d.pop()
-
-print(d) # deque([0, 1, 2])
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q65: How do you use asyncio.Queue for producer-consumer patterns?
+### Q53: Difference between `__new__` and `__init__`?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use `asyncio.Queue` to safely exchange data between async tasks (producers and consumers) without locking.
+**Strategy**:
+`__new__` creates the instance (static method). `__init__` initializes it. `__new__` is used for immutable types.
 
-**Code Example:**
-```python
-import asyncio
+**Code Example**:
+```javascript
+def __new__(cls): return super().__new__(cls)
+```
 
-async def worker(queue):
-    while True:
-        item = await queue.get()
-        print(f"Processed {item}")
-        queue.task_done()
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+---
+
+### Q54: How do Generators work?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Functions that `yield` values one by one. They maintain state and are memory efficient.
+
+**Code Example**:
+```javascript
+def gen():
+    yield 1
+    yield 2
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q55: What are Context Managers?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Objects that define runtime context (setup/teardown). Used with `with` statement.
+
+**Code Example**:
+```javascript
+with open('file.txt') as f:
+    data = f.read()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: Difference between `deepcopy` and `shallow copy`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Shallow copy stores references to objects. Deep copy recursively copies objects.
+
+**Code Example**:
+```javascript
+import copy
+new_list = copy.deepcopy(old_list)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q57: How does Python memory management work?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Reference counting + Cyclic Garbage Collector.
+
+**Code Example**:
+```javascript
+// sys.getrefcount(obj)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q58: What are Metaclasses?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Classes of classes. They define how a class behaves. `type` is the default metaclass.
+
+**Code Example**:
+```javascript
+class MyMeta(type): pass
+class MyClass(metaclass=MyMeta): pass
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q59: How do you use `asyncio`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Library for writing concurrent code using async/await syntax.
+
+**Code Example**:
+```javascript
 async def main():
-    queue = asyncio.Queue()
-    asyncio.create_task(worker(queue))
-    
-    await queue.put(1)
-    await queue.put(2)
-    await queue.join() # Wait for completion
-
+    await asyncio.sleep(1)
 asyncio.run(main())
 ```
 
@@ -1655,627 +1486,667 @@ asyncio.run(main())
 
 ---
 
-### Q66: How do you use operator.itemgetter for sorting?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`operator.itemgetter` creates a callable that fetches an item from its operand. It's faster and cleaner than a lambda for sorting by a specific key.
-
-**Code Example:**
-```python
-from operator import itemgetter
-
-data = [{'name': 'B', 'age': 20}, {'name': 'A', 'age': 30}]
-sorted_data = sorted(data, key=itemgetter('name'))
-
-print(sorted_data)
-# [{'name': 'A', 'age': 30}, {'name': 'B', 'age': 20}]
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q67: How do you use contextlib.suppress to ignore exceptions?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`contextlib.suppress` is a context manager that suppresses specified exceptions, avoiding verbose `try-except-pass` blocks.
-
-**Code Example:**
-```python
-import os
-from contextlib import suppress
-
-with suppress(FileNotFoundError):
-    os.remove("non_existent_file.txt")
-    
-# Execution continues without error
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q68: How do you use enum.Enum for defining constants?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Use `Enum` to define a set of symbolic names bound to unique, constant values. It improves code readability and type safety.
-
-**Code Example:**
-```python
-from enum import Enum, auto
-
-class Status(Enum):
-    PENDING = auto()
-    RUNNING = auto()
-    COMPLETED = auto()
-
-state = Status.RUNNING
-if state == Status.RUNNING:
-    print("It is running")
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you use typing.Optional vs Union[T, None]?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`Optional[T]` is an alias for `Union[T, None]`. It indicates that a value can be of type T or None. In Python 3.10+, you can also use `T | None`.
-
-**Code Example:**
-```python
-from typing import Optional
-
-def find_user(user_id: int) -> Optional[str]:
-    if user_id == 1:
-        return "Alice"
-    return None
-
-# Python 3.10+
-# def find_user(user_id: int) -> str | None: ...
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you use the inspect module to introspect code?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-The `inspect` module allows you to examine live objects, retrieve source code, check function signatures, and inspect the stack.
-
-**Code Example:**
-```python
-import inspect
-
-def func(a: int, b: str = "default"):
-    pass
-
-sig = inspect.signature(func)
-print(sig.parameters['a'].annotation) # <class 'int'>
-print(inspect.getsource(func))
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-### Q71: How do you manage Python configuration for large scale applications?
+### Q60: What is `*args` and `**kwargs`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Variable length arguments. `*args` is tuple, `**kwargs` is dictionary.
 
 **Code Example**:
-```python
-const config = process.env.CONFIG || 'default';
+```javascript
+def func(*args, **kwargs): print(args, kwargs)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you handle Python internationalization (i18n) in microservices?
+### Q61: How do you implement a Singleton in Python?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use i18n libraries. Extract strings to resource files.
+Override `__new__` or use a decorator.
 
 **Code Example**:
-```python
-t('welcome_message')
+```javascript
+class Singleton:
+    _instance = None
+    def __new__(cls):
+        if not cls._instance:
+            cls._instance = super().__new__(cls)
+        return cls._instance
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you ensure Python accessibility (a11y) in mobile devices?
+### Q62: What are Python descriptors?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Objects that define `__get__`, `__set__`, or `__delete__`. Basis for properties.
+
+**Code Example**:
+```javascript
+class Descriptor:
+    def __get__(self, obj, objtype): return 10
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q63: Difference between `is` and `==`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+`is` checks identity (memory address). `==` checks equality (value).
 
 **Code Example**:
-```python
-<button aria-label="Close">X</button>
+```javascript
+a = [1]; b = [1]
+a == b # True
+a is b # False
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you optimize Python network requests in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```python
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you handle Python performance optimization for cloud infrastructure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```python
-const start = performance.now();
-// Python logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: What are the security implications of Python in real-time systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```python
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: How do you debug Python memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```python
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: Best practices for Python code organization in high-traffic sites?
+### Q64: How do you manage dependencies?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Use `pip`, `requirements.txt`, or `poetry`/`pipenv`.
 
 **Code Example**:
-```python
-// Single responsibility
-function doOneThing() { ... }
+```javascript
+pip install -r requirements.txt
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you implement Python error handling for embedded systems?
+### Q65: What is the `with` statement for?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+Ensures cleanup (like closing files) even if errors occur.
 
 **Code Example**:
-```python
-try {
-  await PythonOperation();
-} catch (e) {
-  logger.error(e);
-}
+```javascript
+with open('file') as f: pass
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q80: How do you test Python functionality in production environments?
+### Q66: How do you profile Python code?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Write unit tests for logic and integration tests for flows.
+Use `cProfile` module.
 
 **Code Example**:
-```python
-test('Python works', () => {
-  expect(Python()).toBe(true);
-});
+```javascript
+python -m cProfile script.py
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you handle Python state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```python
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q82: How do you perform Python data validation in microservices?
+### Q67: What are list comprehensions?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Concise way to create lists.
 
 **Code Example**:
-```python
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```javascript
+[x**2 for x in range(10)]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you automate Python deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```python
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you handle Python concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```python
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: How do you implement Python caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches.
-
-**Code Example**:
-```python
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q86: How do you manage Python configuration for real-time systems?
+### Q68: How do you create a virtual environment?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use `venv` module.
 
 **Code Example**:
-```python
-const config = process.env.CONFIG || 'default';
+```javascript
+python -m venv venv
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle Python internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```python
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q88: How do you ensure Python accessibility (a11y) in high-traffic sites?
+### Q69: What is `__name__ == '__main__'`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Checks if script is run directly or imported.
 
 **Code Example**:
-```python
-<button aria-label="Close">X</button>
+```javascript
+if __name__ == '__main__': main()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you optimize Python network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```python
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you handle Python performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```python
-const start = performance.now();
-// Python logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: What are the security implications of Python in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```python
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: How do you debug Python memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```python
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: Best practices for Python code organization in mobile devices?
+### Q70: How do you handle exceptions?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Use `try-except-else-finally`.
 
 **Code Example**:
-```python
-// Single responsibility
-function doOneThing() { ... }
+```javascript
+try: 1/0
+except ZeroDivisionError: pass
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you implement Python error handling for legacy systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```python
-try {
-  await PythonOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q95: How do you test Python functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```python
-test('Python works', () => {
-  expect(Python()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q96: How do you handle Python state management in real-time systems?
+### Q71: What is Method Resolution Order (MRO)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Order in which base classes are searched. Python uses C3 Linearization.
 
 **Code Example**:
-```python
-const [state, setState] = useState(initial);
+```javascript
+ClassName.mro()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you perform Python data validation in distributed systems?
+### Q72: How do you implement unit tests?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `unittest` or `pytest`.
+
+**Code Example**:
+```javascript
+def test_sum(): assert sum([1, 2]) == 3
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q73: What are Type Hints?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Annotations for static type checking (mypy).
+
+**Code Example**:
+```javascript
+def greeting(name: str) -> str: ...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q74: How do you use `slots`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Restricts attribute creation to save memory.
+
+**Code Example**:
+```javascript
+class Point: __slots__ = ['x', 'y']
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q75: What is the difference between `staticmethod` and `classmethod`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`classmethod` takes `cls` as first arg. `staticmethod` takes nothing special.
+
+**Code Example**:
+```javascript
+@classmethod
+def create(cls): return cls()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q76: How do you parse JSON?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Use `json` module.
 
 **Code Example**:
-```python
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```javascript
+import json; d = json.loads(s)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you automate Python deployment for high-traffic sites?
+### Q77: How do you make HTTP requests?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use `requests` library.
 
 **Code Example**:
-```python
-steps:
-  - run: npm test
-  - run: docker build
+```javascript
+requests.get('https://api.com')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you handle Python concurrency issues in embedded systems?
+### Q78: What is a lambda function?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Anonymous inline function.
 
 **Code Example**:
-```python
-await mutex.runExclusive(async () => {
-  // critical section
-});
+```javascript
+add = lambda x, y: x + y
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q100: How do you implement Python caching in production environments?
+### Q79: How do you copy a file?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `shutil` module.
+
+**Code Example**:
+```javascript
+shutil.copy('src', 'dst')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q80: How do you handle command line arguments?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `argparse`.
+
+**Code Example**:
+```javascript
+parser = argparse.ArgumentParser()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q81: What is the `logging` module?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Standard way to log events.
 
 **Code Example**:
-```python
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+```javascript
+logging.warning('Watch out!')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q82: How do you connect to a database?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `sqlite3` or SQLAlchemy.
+
+**Code Example**:
+```javascript
+engine = create_engine('sqlite:///:memory:')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q83: What is `functools`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Higher-order functions like `partial`, `reduce`.
+
+**Code Example**:
+```javascript
+partial(func, arg1)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q84: How do you implement multithreading?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `threading` module.
+
+**Code Example**:
+```javascript
+t = threading.Thread(target=func); t.start()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: How do you implement multiprocessing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `multiprocessing` module.
+
+**Code Example**:
+```javascript
+p = multiprocessing.Process(target=func); p.start()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q86: What is a deque?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Double-ended queue from `collections`.
+
+**Code Example**:
+```javascript
+d = deque([1, 2]); d.appendleft(0)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q87: How do you sort a dictionary by value?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `sorted` with key.
+
+**Code Example**:
+```javascript
+sorted(d.items(), key=lambda x: x[1])
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q88: What is `zip`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Aggregates elements from iterables.
+
+**Code Example**:
+```javascript
+zip([1,2], ['a','b'])
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: How do you read a CSV file?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `csv` module or pandas.
+
+**Code Example**:
+```javascript
+csv.reader(file)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: What is `pickling`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Serializing objects.
+
+**Code Example**:
+```javascript
+pickle.dumps(obj)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: How do you document code?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use Docstrings.
+
+**Code Example**:
+```javascript
+def func(): """Docstring"""
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: What is `pdb`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Python Debugger.
+
+**Code Example**:
+```javascript
+import pdb; pdb.set_trace()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: How do you use `enumerate`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Get index and value.
+
+**Code Example**:
+```javascript
+for i, v in enumerate(list): ...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: What is the `collections` module?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Specialized container datatypes (Counter, defaultdict).
+
+**Code Example**:
+```javascript
+c = Counter('abracadabra')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: How do you implement a property?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `@property` decorator.
+
+**Code Example**:
+```javascript
+@property
+def x(self): return self._x
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: What is `itertools`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Iterator building blocks.
+
+**Code Example**:
+```javascript
+itertools.cycle('ABCD')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: How do you execute shell commands?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `subprocess`.
+
+**Code Example**:
+```javascript
+subprocess.run(['ls', '-l'])
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: What is `virtualenv`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Tool to create isolated environments.
+
+**Code Example**:
+```javascript
+virtualenv myenv
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: How do you install packages?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `pip`.
+
+**Code Example**:
+```javascript
+pip install package_name
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: What is `pylint`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Static code analyzer.
+
+**Code Example**:
+```javascript
+pylint script.py
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

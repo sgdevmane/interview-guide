@@ -60,56 +60,56 @@
 48. [Best practices for Node.js code organization in high-traffic sites?](#q48-best-practices-for-node.js-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
 49. [How do you implement Node.js error handling for embedded systems?](#q49-how-do-you-implement-node.js-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
 50. [How do you test Node.js functionality in production environments?](#q50-how-do-you-test-node.js-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-51. [How do you handle Node.js state management in large scale applications?](#q51-how-do-you-handle-node.js-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-52. [How do you perform Node.js data validation in microservices?](#q52-how-do-you-perform-node.js-data-validation-in-microservices) <span class="beginner">Beginner</span>
-53. [How do you automate Node.js deployment for mobile devices?](#q53-how-do-you-automate-node.js-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-54. [How do you handle Node.js concurrency issues in legacy systems?](#q54-how-do-you-handle-node.js-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-55. [How do you implement Node.js caching in cloud infrastructure?](#q55-how-do-you-implement-node.js-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-56. [How do you manage Node.js configuration for real-time systems?](#q56-how-do-you-manage-node.js-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-57. [How do you handle Node.js internationalization (i18n) in distributed systems?](#q57-how-do-you-handle-node.js-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-58. [How do you ensure Node.js accessibility (a11y) in high-traffic sites?](#q58-how-do-you-ensure-node.js-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-59. [How do you optimize Node.js network requests in embedded systems?](#q59-how-do-you-optimize-node.js-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-60. [How do you handle Node.js performance optimization for production environments?](#q60-how-do-you-handle-node.js-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-61. [What are the security implications of Node.js in large scale applications?](#q61-what-are-the-security-implications-of-node.js-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug Node.js memory leaks in microservices?](#q62-how-do-you-debug-node.js-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for Node.js code organization in mobile devices?](#q63-best-practices-for-node.js-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement Node.js error handling for legacy systems?](#q64-how-do-you-implement-node.js-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test Node.js functionality in cloud infrastructure?](#q65-how-do-you-test-node.js-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle Node.js state management in real-time systems?](#q66-how-do-you-handle-node.js-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform Node.js data validation in distributed systems?](#q67-how-do-you-perform-node.js-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate Node.js deployment for high-traffic sites?](#q68-how-do-you-automate-node.js-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle Node.js concurrency issues in embedded systems?](#q69-how-do-you-handle-node.js-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement Node.js caching in production environments?](#q70-how-do-you-implement-node.js-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage Node.js configuration for large scale applications?](#q71-how-do-you-manage-node.js-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle Node.js internationalization (i18n) in microservices?](#q72-how-do-you-handle-node.js-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure Node.js accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-node.js-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize Node.js network requests in legacy systems?](#q74-how-do-you-optimize-node.js-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle Node.js performance optimization for cloud infrastructure?](#q75-how-do-you-handle-node.js-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of Node.js in real-time systems?](#q76-what-are-the-security-implications-of-node.js-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug Node.js memory leaks in distributed systems?](#q77-how-do-you-debug-node.js-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for Node.js code organization in high-traffic sites?](#q78-best-practices-for-node.js-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement Node.js error handling for embedded systems?](#q79-how-do-you-implement-node.js-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test Node.js functionality in production environments?](#q80-how-do-you-test-node.js-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle Node.js state management in large scale applications?](#q81-how-do-you-handle-node.js-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform Node.js data validation in microservices?](#q82-how-do-you-perform-node.js-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate Node.js deployment for mobile devices?](#q83-how-do-you-automate-node.js-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle Node.js concurrency issues in legacy systems?](#q84-how-do-you-handle-node.js-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement Node.js caching in cloud infrastructure?](#q85-how-do-you-implement-node.js-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage Node.js configuration for real-time systems?](#q86-how-do-you-manage-node.js-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle Node.js internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-node.js-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure Node.js accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-node.js-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize Node.js network requests in embedded systems?](#q89-how-do-you-optimize-node.js-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle Node.js performance optimization for production environments?](#q90-how-do-you-handle-node.js-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of Node.js in large scale applications?](#q91-what-are-the-security-implications-of-node.js-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug Node.js memory leaks in microservices?](#q92-how-do-you-debug-node.js-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for Node.js code organization in mobile devices?](#q93-best-practices-for-node.js-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement Node.js error handling for legacy systems?](#q94-how-do-you-implement-node.js-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test Node.js functionality in cloud infrastructure?](#q95-how-do-you-test-node.js-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle Node.js state management in real-time systems?](#q96-how-do-you-handle-node.js-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform Node.js data validation in distributed systems?](#q97-how-do-you-perform-node.js-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate Node.js deployment for high-traffic sites?](#q98-how-do-you-automate-node.js-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle Node.js concurrency issues in embedded systems?](#q99-how-do-you-handle-node.js-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement Node.js caching in production environments?](#q100-how-do-you-implement-node.js-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+51. [Explain the Node.js Event Loop phases.](#q51-explain-the-node.js-event-loop-phases.) <span class="advanced">Advanced</span>
+52. [Difference between `process.nextTick` and `setImmediate`?](#q52-difference-between-process.nexttick-and-setimmediate) <span class="intermediate">Intermediate</span>
+53. [How do Worker Threads differ from Cluster module?](#q53-how-do-worker-threads-differ-from-cluster-module) <span class="advanced">Advanced</span>
+54. [How do you handle Backpressure in Streams?](#q54-how-do-you-handle-backpressure-in-streams) <span class="advanced">Advanced</span>
+55. [How do you debug a memory leak in Node.js?](#q55-how-do-you-debug-a-memory-leak-in-node.js) <span class="advanced">Advanced</span>
+56. [What is the Buffer class?](#q56-what-is-the-buffer-class) <span class="beginner">Beginner</span>
+57. [How do you implement a custom Transform stream?](#q57-how-do-you-implement-a-custom-transform-stream) <span class="advanced">Advanced</span>
+58. [How do you handle uncaught exceptions?](#q58-how-do-you-handle-uncaught-exceptions) <span class="intermediate">Intermediate</span>
+59. [What is libuv?](#q59-what-is-libuv) <span class="advanced">Advanced</span>
+60. [How do you secure a Node.js app?](#q60-how-do-you-secure-a-node.js-app) <span class="intermediate">Intermediate</span>
+61. [Difference between `spawn` and `exec`?](#q61-difference-between-spawn-and-exec) <span class="intermediate">Intermediate</span>
+62. [How do you implement a graceful shutdown?](#q62-how-do-you-implement-a-graceful-shutdown) <span class="intermediate">Intermediate</span>
+63. [How do you use `util.promisify`?](#q63-how-do-you-use-util.promisify) <span class="beginner">Beginner</span>
+64. [What is middleware in Express?](#q64-what-is-middleware-in-express) <span class="beginner">Beginner</span>
+65. [How do you handle file uploads in Node?](#q65-how-do-you-handle-file-uploads-in-node) <span class="intermediate">Intermediate</span>
+66. [How do you implement JWT authentication?](#q66-how-do-you-implement-jwt-authentication) <span class="intermediate">Intermediate</span>
+67. [How do you optimize Node.js performance?](#q67-how-do-you-optimize-node.js-performance) <span class="advanced">Advanced</span>
+68. [What is the purpose of `package-lock.json`?](#q68-what-is-the-purpose-of-package-lock.json) <span class="beginner">Beginner</span>
+69. [How do you implement logging?](#q69-how-do-you-implement-logging) <span class="intermediate">Intermediate</span>
+70. [How do you use Environment Variables?](#q70-how-do-you-use-environment-variables) <span class="beginner">Beginner</span>
+71. [How do you handle CORS?](#q71-how-do-you-handle-cors) <span class="beginner">Beginner</span>
+72. [How do you make an HTTP request?](#q72-how-do-you-make-an-http-request) <span class="beginner">Beginner</span>
+73. [What is the Cluster module?](#q73-what-is-the-cluster-module) <span class="advanced">Advanced</span>
+74. [How do you implement API rate limiting?](#q74-how-do-you-implement-api-rate-limiting) <span class="intermediate">Intermediate</span>
+75. [How do you parse JSON?](#q75-how-do-you-parse-json) <span class="beginner">Beginner</span>
+76. [How do you implement a WebSocket server?](#q76-how-do-you-implement-a-websocket-server) <span class="intermediate">Intermediate</span>
+77. [What is REPL?](#q77-what-is-repl) <span class="beginner">Beginner</span>
+78. [How do you profile a Node app?](#q78-how-do-you-profile-a-node-app) <span class="advanced">Advanced</span>
+79. [How do you manage configuration?](#q79-how-do-you-manage-configuration) <span class="intermediate">Intermediate</span>
+80. [How do you schedule tasks?](#q80-how-do-you-schedule-tasks) <span class="intermediate">Intermediate</span>
+81. [How do you write unit tests?](#q81-how-do-you-write-unit-tests) <span class="beginner">Beginner</span>
+82. [How do you handle large JSON payloads?](#q82-how-do-you-handle-large-json-payloads) <span class="intermediate">Intermediate</span>
+83. [How do you use async/await with callbacks?](#q83-how-do-you-use-asyncawait-with-callbacks) <span class="intermediate">Intermediate</span>
+84. [What is `require.resolve`?](#q84-what-is-require.resolve) <span class="advanced">Advanced</span>
+85. [How do you implement a health check endpoint?](#q85-how-do-you-implement-a-health-check-endpoint) <span class="beginner">Beginner</span>
+86. [How do you compress HTTP responses?](#q86-how-do-you-compress-http-responses) <span class="beginner">Beginner</span>
+87. [How do you protect against NoSQL Injection?](#q87-how-do-you-protect-against-nosql-injection) <span class="intermediate">Intermediate</span>
+88. [How do you implement role-based access control?](#q88-how-do-you-implement-role-based-access-control) <span class="intermediate">Intermediate</span>
+89. [How do you use `EventEmitter`?](#q89-how-do-you-use-eventemitter) <span class="beginner">Beginner</span>
+90. [How do you debug async code?](#q90-how-do-you-debug-async-code) <span class="intermediate">Intermediate</span>
+91. [How do you serve static files?](#q91-how-do-you-serve-static-files) <span class="beginner">Beginner</span>
+92. [How do you implement request validation?](#q92-how-do-you-implement-request-validation) <span class="intermediate">Intermediate</span>
+93. [How do you mock dependencies in tests?](#q93-how-do-you-mock-dependencies-in-tests) <span class="intermediate">Intermediate</span>
+94. [How do you handle timezones?](#q94-how-do-you-handle-timezones) <span class="intermediate">Intermediate</span>
+95. [How do you implement hot reload?](#q95-how-do-you-implement-hot-reload) <span class="beginner">Beginner</span>
+96. [How do you use MongoDB with Node?](#q96-how-do-you-use-mongodb-with-node) <span class="beginner">Beginner</span>
+97. [How do you implement redis caching?](#q97-how-do-you-implement-redis-caching) <span class="intermediate">Intermediate</span>
+98. [How do you handle sticky sessions?](#q98-how-do-you-handle-sticky-sessions) <span class="advanced">Advanced</span>
+99. [How do you implement OAuth?](#q99-how-do-you-implement-oauth) <span class="intermediate">Intermediate</span>
+100. [How do you parse command line arguments?](#q100-how-do-you-parse-command-line-arguments) <span class="beginner">Beginner</span>
 
 ---
 
@@ -1825,238 +1825,68 @@ test('Node.js works', () => {
 
 ---
 
-### Q51: How do you handle Node.js state management in large scale applications?
+
+### Q51: Explain the Node.js Event Loop phases.
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Timers (setTimeout), Pending Callbacks (I/O), Idle/Prepare, Poll (new I/O), Check (setImmediate), Close Callbacks.
 
 **Code Example**:
 ```javascript
-const [state, setState] = useState(initial);
+// Phases execute in specific order, with NextTick queue processed between them.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you perform Node.js data validation in microservices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: How do you automate Node.js deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you handle Node.js concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How do you implement Node.js caching in cloud infrastructure?
+### Q52: Difference between `process.nextTick` and `setImmediate`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+`nextTick` fires immediately after current operation (before IO). `setImmediate` fires in the Check phase (after IO).
 
 **Code Example**:
 ```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+process.nextTick(() => console.log('NextTick'));
+setImmediate(() => console.log('Immediate'));
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you manage Node.js configuration for real-time systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q57: How do you handle Node.js internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: How do you ensure Node.js accessibility (a11y) in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q59: How do you optimize Node.js network requests in embedded systems?
+### Q53: How do Worker Threads differ from Cluster module?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Cluster uses processes (separate memory). Worker Threads use threads (shared memory instance). Threads are lighter.
 
 **Code Example**:
 ```javascript
-debounce(() => fetch(), 300);
+const { Worker } = require('worker_threads');
+new Worker('./worker.js');
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q60: How do you handle Node.js performance optimization for production environments?
+### Q54: How do you handle Backpressure in Streams?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
+Listen for 'drain' event or use `pipe()` which handles it automatically.
 
 **Code Example**:
 ```javascript
-const start = performance.now();
-// Node.js logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q61: What are the security implications of Node.js in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q62: How do you debug Node.js memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: Best practices for Node.js code organization in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q64: How do you implement Node.js error handling for legacy systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await Node.jsOperation();
-} catch (e) {
-  logger.error(e);
+if (!stream.write(chunk)) {
+  stream.once('drain', writeMore);
 }
 ```
 
@@ -2064,256 +1894,54 @@ try {
 
 ---
 
-### Q65: How do you test Node.js functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('Node.js works', () => {
-  expect(Node.js()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q66: How do you handle Node.js state management in real-time systems?
+### Q55: How do you debug a memory leak in Node.js?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Use `--inspect` and Chrome DevTools, or `heapdump`. Look for Retained Size.
 
 **Code Example**:
 ```javascript
-const [state, setState] = useState(initial);
+const heapdump = require('heapdump');
+heapdump.writeSnapshot('/var/local/' + Date.now() + '.heapsnapshot');
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you perform Node.js data validation in distributed systems?
+### Q56: What is the Buffer class?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Used to handle binary data. Fixed-size chunk of memory.
 
 **Code Example**:
 ```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
+const buf = Buffer.from('Hello');
+console.log(buf.toString('hex'));
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you automate Node.js deployment for high-traffic sites?
+### Q57: How do you implement a custom Transform stream?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Extend `Transform` class and implement `_transform` method.
 
 **Code Example**:
 ```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you handle Node.js concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you implement Node.js caching in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q71: How do you manage Node.js configuration for large scale applications?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q72: How do you handle Node.js internationalization (i18n) in microservices?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: How do you ensure Node.js accessibility (a11y) in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q74: How do you optimize Node.js network requests in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you handle Node.js performance optimization for cloud infrastructure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// Node.js logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: What are the security implications of Node.js in real-time systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: How do you debug Node.js memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: Best practices for Node.js code organization in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q79: How do you implement Node.js error handling for embedded systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await Node.jsOperation();
-} catch (e) {
-  logger.error(e);
+class MyTransform extends Transform {
+  _transform(chunk, enc, cb) {
+    this.push(chunk.toString().toUpperCase());
+    cb();
+  }
 }
 ```
 
@@ -2321,17 +1949,18 @@ try {
 
 ---
 
-### Q80: How do you test Node.js functionality in production environments?
+### Q58: How do you handle uncaught exceptions?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Write unit tests for logic and integration tests for flows.
+Listen to `uncaughtException`. Note: Process is in unstable state, should restart.
 
 **Code Example**:
 ```javascript
-test('Node.js works', () => {
-  expect(Node.js()).toBe(true);
+process.on('uncaughtException', (err) => {
+  console.error(err);
+  process.exit(1);
 });
 ```
 
@@ -2339,67 +1968,69 @@ test('Node.js works', () => {
 
 ---
 
-### Q81: How do you handle Node.js state management in large scale applications?
+### Q59: What is libuv?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+C library that provides asynchronous I/O (Event Loop, Thread Pool) for Node.js.
 
 **Code Example**:
 ```javascript
-const [state, setState] = useState(initial);
+// Handles file system, DNS, network, etc.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you perform Node.js data validation in microservices?
+### Q60: How do you secure a Node.js app?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Helmet (headers), Rate Limiting, Data Validation, CORS config.
 
 **Code Example**:
 ```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
+app.use(helmet());
+app.use(rateLimit({ windowMs: 15*60*1000, max: 100 }));
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you automate Node.js deployment for mobile devices?
+### Q61: Difference between `spawn` and `exec`?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+`spawn` returns a stream (good for large data). `exec` buffers output (good for small output).
 
 **Code Example**:
 ```javascript
-steps:
-  - run: npm test
-  - run: docker build
+const { spawn } = require('child_process');
+const ls = spawn('ls', ['-lh', '/usr']);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q84: How do you handle Node.js concurrency issues in legacy systems?
+### Q62: How do you implement a graceful shutdown?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Listen for SIGTERM/SIGINT. Close server and DB connections.
 
 **Code Example**:
 ```javascript
-await mutex.runExclusive(async () => {
-  // critical section
+process.on('SIGTERM', () => {
+  server.close(() => {
+    db.disconnect();
+  });
 });
 ```
 
@@ -2407,188 +2038,35 @@ await mutex.runExclusive(async () => {
 
 ---
 
-### Q85: How do you implement Node.js caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q86: How do you manage Node.js configuration for real-time systems?
+### Q63: How do you use `util.promisify`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Converts callback-based functions to Promise-based.
 
 **Code Example**:
 ```javascript
-const config = process.env.CONFIG || 'default';
+const readFile = util.promisify(fs.readFile);
+await readFile('file.txt');
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle Node.js internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q88: How do you ensure Node.js accessibility (a11y) in high-traffic sites?
+### Q64: What is middleware in Express?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Function that has access to req, res, and next.
 
 **Code Example**:
 ```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q89: How do you optimize Node.js network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you handle Node.js performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// Node.js logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: What are the security implications of Node.js in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: How do you debug Node.js memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: Best practices for Node.js code organization in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q94: How do you implement Node.js error handling for legacy systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await Node.jsOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q95: How do you test Node.js functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('Node.js works', () => {
-  expect(Node.js()).toBe(true);
+app.use((req, res, next) => {
+  console.log('Time:', Date.now());
+  next();
 });
 ```
 
@@ -2596,85 +2074,583 @@ test('Node.js works', () => {
 
 ---
 
-### Q96: How do you handle Node.js state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q97: How do you perform Node.js data validation in distributed systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q98: How do you automate Node.js deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q99: How do you handle Node.js concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q100: How do you implement Node.js caching in production environments?
+### Q65: How do you handle file uploads in Node?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use `multer` or `busboy` to parse multipart/form-data.
 
 **Code Example**:
 ```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+const upload = multer({ dest: 'uploads/' });
+app.post('/profile', upload.single('avatar'), ...);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q66: How do you implement JWT authentication?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Sign token on login. Verify token in middleware.
+
+**Code Example**:
+```javascript
+const token = jwt.sign({ id: user.id }, 'secret');
+const decoded = jwt.verify(token, 'secret');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q67: How do you optimize Node.js performance?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use caching (Redis), clustering, gzip compression, efficient DB queries.
+
+**Code Example**:
+```javascript
+app.use(compression());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q68: What is the purpose of `package-lock.json`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Locks dependency versions to ensure consistent installs.
+
+**Code Example**:
+```javascript
+// Committed to git
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q69: How do you implement logging?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use Winston or Bunyan. Log to stdout/file with levels.
+
+**Code Example**:
+```javascript
+logger.info('User logged in', { userId });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q70: How do you use Environment Variables?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `dotenv` package.
+
+**Code Example**:
+```javascript
+require('dotenv').config();
+console.log(process.env.DB_HOST);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q71: How do you handle CORS?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `cors` middleware.
+
+**Code Example**:
+```javascript
+app.use(cors({ origin: 'http://example.com' }));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q72: How do you make an HTTP request?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `axios`, `node-fetch`, or built-in `http`/`https` module.
+
+**Code Example**:
+```javascript
+const res = await axios.get('https://api.com');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q73: What is the Cluster module?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Allows creating child processes (workers) that share server ports to utilize multi-core systems.
+
+**Code Example**:
+```javascript
+if (cluster.isMaster) { cluster.fork(); }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q74: How do you implement API rate limiting?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `express-rate-limit` or Redis-based limiter.
+
+**Code Example**:
+```javascript
+const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q75: How do you parse JSON?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `JSON.parse()` (try-catch for safety) or `express.json()` middleware.
+
+**Code Example**:
+```javascript
+app.use(express.json());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q76: How do you implement a WebSocket server?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `ws` or `socket.io`.
+
+**Code Example**:
+```javascript
+const wss = new WebSocket.Server({ port: 8080 });
+wss.on('connection', ws => ws.send('hello'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q77: What is REPL?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Read-Eval-Print Loop. Interactive shell.
+
+**Code Example**:
+```javascript
+$ node
+> 1 + 1
+2
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q78: How do you profile a Node app?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use `node --prof` or `clinic.js`.
+
+**Code Example**:
+```javascript
+$ clinic doctor -- node server.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q79: How do you manage configuration?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `config` module or `dotenv`.
+
+**Code Example**:
+```javascript
+const dbConfig = config.get('Customer.dbConfig');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q80: How do you schedule tasks?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `node-cron` or `agenda`.
+
+**Code Example**:
+```javascript
+cron.schedule('* * * * *', () => console.log('Running task'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q81: How do you write unit tests?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use Jest, Mocha, or Tape.
+
+**Code Example**:
+```javascript
+test('adds 1 + 2', () => { expect(sum(1, 2)).toBe(3); });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q82: How do you handle large JSON payloads?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Stream parsing with `JSONStream`.
+
+**Code Example**:
+```javascript
+fs.createReadStream('big.json').pipe(JSONStream.parse('*'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q83: How do you use async/await with callbacks?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Wrap in Promise.
+
+**Code Example**:
+```javascript
+await new Promise((resolve) => fn(resolve));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q84: What is `require.resolve`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Returns the path of the module without loading it.
+
+**Code Example**:
+```javascript
+const path = require.resolve('lodash');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: How do you implement a health check endpoint?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Return 200 OK.
+
+**Code Example**:
+```javascript
+app.get('/health', (req, res) => res.status(200).send('OK'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q86: How do you compress HTTP responses?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `compression` middleware.
+
+**Code Example**:
+```javascript
+app.use(compression());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q87: How do you protect against NoSQL Injection?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Sanitize inputs, avoid passing user input directly to query objects.
+
+**Code Example**:
+```javascript
+// Bad: find({ $where: req.body.code })
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q88: How do you implement role-based access control?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Middleware to check user role.
+
+**Code Example**:
+```javascript
+if (!req.user.roles.includes('admin')) return res.sendStatus(403);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: How do you use `EventEmitter`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Extend or instantiate `EventEmitter`.
+
+**Code Example**:
+```javascript
+const myEmitter = new EventEmitter();
+myEmitter.on('event', () => console.log('fired'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: How do you debug async code?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `async_hooks` or long stack traces.
+
+**Code Example**:
+```javascript
+// Async hooks track lifetime of async resources
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: How do you serve static files?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `express.static`.
+
+**Code Example**:
+```javascript
+app.use(express.static('public'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: How do you implement request validation?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `express-validator` or `joi`.
+
+**Code Example**:
+```javascript
+body('email').isEmail()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: How do you mock dependencies in tests?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `proxyquire` or Jest mocks.
+
+**Code Example**:
+```javascript
+jest.mock('axios');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: How do you handle timezones?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `moment-timezone` or `luxon`.
+
+**Code Example**:
+```javascript
+DateTime.now().setZone('America/New_York');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: How do you implement hot reload?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `nodemon`.
+
+**Code Example**:
+```javascript
+$ nodemon server.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: How do you use MongoDB with Node?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `mongoose` or native driver.
+
+**Code Example**:
+```javascript
+mongoose.connect(uri);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: How do you implement redis caching?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Check cache, if miss, fetch DB and set cache.
+
+**Code Example**:
+```javascript
+const val = await redis.get(key);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: How do you handle sticky sessions?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Configure load balancer (Nginx) or use shared store (Redis).
+
+**Code Example**:
+```javascript
+// ip_hash in nginx
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: How do you implement OAuth?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `passport.js` strategies.
+
+**Code Example**:
+```javascript
+passport.use(new GoogleStrategy(...));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: How do you parse command line arguments?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `yargs` or `commander`.
+
+**Code Example**:
+```javascript
+const argv = yargs.argv;
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

@@ -80,56 +80,56 @@
 48. [How do you implement Promise.race from scratch?](#q48-how-do-you-implement-promise.race-from-scratch) <span class="advanced">Advanced</span>
 49. [How do you make an object iterable (usable in for...of)?](#q49-how-do-you-make-an-object-iterable-usable-in-for...of) <span class="advanced">Advanced</span>
 50. [How can you flatten a nested array of arbitrary depth?](#q50-how-can-you-flatten-a-nested-array-of-arbitrary-depth) <span class="intermediate">Intermediate</span>
-51. [How do you handle JavaScript state management in large scale applications?](#q51-how-do-you-handle-javascript-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-52. [How do you perform JavaScript data validation in microservices?](#q52-how-do-you-perform-javascript-data-validation-in-microservices) <span class="beginner">Beginner</span>
-53. [How do you automate JavaScript deployment for mobile devices?](#q53-how-do-you-automate-javascript-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-54. [How do you handle JavaScript concurrency issues in legacy systems?](#q54-how-do-you-handle-javascript-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-55. [How do you implement JavaScript caching in cloud infrastructure?](#q55-how-do-you-implement-javascript-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-56. [How do you manage JavaScript configuration for real-time systems?](#q56-how-do-you-manage-javascript-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-57. [How do you handle JavaScript internationalization (i18n) in distributed systems?](#q57-how-do-you-handle-javascript-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-58. [How do you ensure JavaScript accessibility (a11y) in high-traffic sites?](#q58-how-do-you-ensure-javascript-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-59. [How do you optimize JavaScript network requests in embedded systems?](#q59-how-do-you-optimize-javascript-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-60. [How do you handle JavaScript performance optimization for production environments?](#q60-how-do-you-handle-javascript-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-61. [What are the security implications of JavaScript in large scale applications?](#q61-what-are-the-security-implications-of-javascript-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug JavaScript memory leaks in microservices?](#q62-how-do-you-debug-javascript-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for JavaScript code organization in mobile devices?](#q63-best-practices-for-javascript-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement JavaScript error handling for legacy systems?](#q64-how-do-you-implement-javascript-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test JavaScript functionality in cloud infrastructure?](#q65-how-do-you-test-javascript-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle JavaScript state management in real-time systems?](#q66-how-do-you-handle-javascript-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform JavaScript data validation in distributed systems?](#q67-how-do-you-perform-javascript-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate JavaScript deployment for high-traffic sites?](#q68-how-do-you-automate-javascript-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle JavaScript concurrency issues in embedded systems?](#q69-how-do-you-handle-javascript-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement JavaScript caching in production environments?](#q70-how-do-you-implement-javascript-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage JavaScript configuration for large scale applications?](#q71-how-do-you-manage-javascript-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle JavaScript internationalization (i18n) in microservices?](#q72-how-do-you-handle-javascript-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure JavaScript accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-javascript-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize JavaScript network requests in legacy systems?](#q74-how-do-you-optimize-javascript-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle JavaScript performance optimization for cloud infrastructure?](#q75-how-do-you-handle-javascript-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of JavaScript in real-time systems?](#q76-what-are-the-security-implications-of-javascript-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug JavaScript memory leaks in distributed systems?](#q77-how-do-you-debug-javascript-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for JavaScript code organization in high-traffic sites?](#q78-best-practices-for-javascript-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement JavaScript error handling for embedded systems?](#q79-how-do-you-implement-javascript-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test JavaScript functionality in production environments?](#q80-how-do-you-test-javascript-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle JavaScript state management in large scale applications?](#q81-how-do-you-handle-javascript-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform JavaScript data validation in microservices?](#q82-how-do-you-perform-javascript-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate JavaScript deployment for mobile devices?](#q83-how-do-you-automate-javascript-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle JavaScript concurrency issues in legacy systems?](#q84-how-do-you-handle-javascript-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement JavaScript caching in cloud infrastructure?](#q85-how-do-you-implement-javascript-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage JavaScript configuration for real-time systems?](#q86-how-do-you-manage-javascript-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle JavaScript internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-javascript-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure JavaScript accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-javascript-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize JavaScript network requests in embedded systems?](#q89-how-do-you-optimize-javascript-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle JavaScript performance optimization for production environments?](#q90-how-do-you-handle-javascript-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of JavaScript in large scale applications?](#q91-what-are-the-security-implications-of-javascript-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug JavaScript memory leaks in microservices?](#q92-how-do-you-debug-javascript-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for JavaScript code organization in mobile devices?](#q93-best-practices-for-javascript-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement JavaScript error handling for legacy systems?](#q94-how-do-you-implement-javascript-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test JavaScript functionality in cloud infrastructure?](#q95-how-do-you-test-javascript-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle JavaScript state management in real-time systems?](#q96-how-do-you-handle-javascript-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform JavaScript data validation in distributed systems?](#q97-how-do-you-perform-javascript-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate JavaScript deployment for high-traffic sites?](#q98-how-do-you-automate-javascript-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle JavaScript concurrency issues in embedded systems?](#q99-how-do-you-handle-javascript-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement JavaScript caching in production environments?](#q100-how-do-you-implement-javascript-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+51. [How does the Event Loop work?](#q51-how-does-the-event-loop-work) <span class="advanced">Advanced</span>
+52. [What is a Closure?](#q52-what-is-a-closure) <span class="intermediate">Intermediate</span>
+53. [Difference between `var`, `let`, and `const`?](#q53-difference-between-var-let-and-const) <span class="beginner">Beginner</span>
+54. [What is `this` keyword?](#q54-what-is-this-keyword) <span class="intermediate">Intermediate</span>
+55. [How does Prototypal Inheritance work?](#q55-how-does-prototypal-inheritance-work) <span class="advanced">Advanced</span>
+56. [What is a Promise?](#q56-what-is-a-promise) <span class="beginner">Beginner</span>
+57. [How does `async/await` work?](#q57-how-does-asyncawait-work) <span class="intermediate">Intermediate</span>
+58. [What is Hoisting?](#q58-what-is-hoisting) <span class="intermediate">Intermediate</span>
+59. [Difference between `null` and `undefined`?](#q59-difference-between-null-and-undefined) <span class="beginner">Beginner</span>
+60. [What is Event Bubbling vs Capturing?](#q60-what-is-event-bubbling-vs-capturing) <span class="intermediate">Intermediate</span>
+61. [How do you implement a deep clone?](#q61-how-do-you-implement-a-deep-clone) <span class="intermediate">Intermediate</span>
+62. [What is a Generator function?](#q62-what-is-a-generator-function) <span class="advanced">Advanced</span>
+63. [What is the Proxy object?](#q63-what-is-the-proxy-object) <span class="advanced">Advanced</span>
+64. [Difference between `==` and `===`?](#q64-difference-between-==-and-===) <span class="beginner">Beginner</span>
+65. [What is `bind`, `call`, and `apply`?](#q65-what-is-bind-call-and-apply) <span class="intermediate">Intermediate</span>
+66. [What is a WeakMap?](#q66-what-is-a-weakmap) <span class="advanced">Advanced</span>
+67. [How do you handle errors in Promises?](#q67-how-do-you-handle-errors-in-promises) <span class="intermediate">Intermediate</span>
+68. [What is Currying?](#q68-what-is-currying) <span class="intermediate">Intermediate</span>
+69. [What is the Temporal Dead Zone (TDZ)?](#q69-what-is-the-temporal-dead-zone-tdz) <span class="advanced">Advanced</span>
+70. [What is a Polyfill?](#q70-what-is-a-polyfill) <span class="beginner">Beginner</span>
+71. [How do you debounce a function?](#q71-how-do-you-debounce-a-function) <span class="intermediate">Intermediate</span>
+72. [How do you throttle a function?](#q72-how-do-you-throttle-a-function) <span class="intermediate">Intermediate</span>
+73. [What is the `module` pattern?](#q73-what-is-the-module-pattern) <span class="intermediate">Intermediate</span>
+74. [What is `localStorage` vs `sessionStorage`?](#q74-what-is-localstorage-vs-sessionstorage) <span class="beginner">Beginner</span>
+75. [How do you check array equality?](#q75-how-do-you-check-array-equality) <span class="intermediate">Intermediate</span>
+76. [What is `Symbol`?](#q76-what-is-symbol) <span class="intermediate">Intermediate</span>
+77. [What is `Reflect` API?](#q77-what-is-reflect-api) <span class="advanced">Advanced</span>
+78. [How do you flatten an array?](#q78-how-do-you-flatten-an-array) <span class="beginner">Beginner</span>
+79. [What is strict mode?](#q79-what-is-strict-mode) <span class="beginner">Beginner</span>
+80. [How do you implement a Set?](#q80-how-do-you-implement-a-set) <span class="beginner">Beginner</span>
+81. [What is `Intl` API?](#q81-what-is-intl-api) <span class="intermediate">Intermediate</span>
+82. [How do you detect browser vs node?](#q82-how-do-you-detect-browser-vs-node) <span class="beginner">Beginner</span>
+83. [What is an IIFE?](#q83-what-is-an-iife) <span class="beginner">Beginner</span>
+84. [How do you remove duplicates from array?](#q84-how-do-you-remove-duplicates-from-array) <span class="beginner">Beginner</span>
+85. [What is Object.freeze?](#q85-what-is-object.freeze) <span class="intermediate">Intermediate</span>
+86. [What is `requestAnimationFrame`?](#q86-what-is-requestanimationframe) <span class="intermediate">Intermediate</span>
+87. [How do you stop event propagation?](#q87-how-do-you-stop-event-propagation) <span class="beginner">Beginner</span>
+88. [What is `Promise.all`?](#q88-what-is-promise.all) <span class="intermediate">Intermediate</span>
+89. [What is `Promise.race`?](#q89-what-is-promise.race) <span class="intermediate">Intermediate</span>
+90. [What is `BigInt`?](#q90-what-is-bigint) <span class="beginner">Beginner</span>
+91. [How do you merge objects?](#q91-how-do-you-merge-objects) <span class="beginner">Beginner</span>
+92. [What is Optional Chaining?](#q92-what-is-optional-chaining) <span class="beginner">Beginner</span>
+93. [What is Nullish Coalescing?](#q93-what-is-nullish-coalescing) <span class="beginner">Beginner</span>
+94. [How do you iterate object keys?](#q94-how-do-you-iterate-object-keys) <span class="beginner">Beginner</span>
+95. [What is `globalThis`?](#q95-what-is-globalthis) <span class="beginner">Beginner</span>
+96. [How do you parse URL parameters?](#q96-how-do-you-parse-url-parameters) <span class="beginner">Beginner</span>
+97. [What is the difference between `slice` and `splice`?](#q97-what-is-the-difference-between-slice-and-splice) <span class="beginner">Beginner</span>
+98. [How do you copy to clipboard?](#q98-how-do-you-copy-to-clipboard) <span class="intermediate">Intermediate</span>
+99. [What is a service worker?](#q99-what-is-a-service-worker) <span class="advanced">Advanced</span>
+100. [How do you check for NaN?](#q100-how-do-you-check-for-nan) <span class="beginner">Beginner</span>
 
 ---
 
@@ -2095,856 +2095,803 @@ console.log(flatten(nested)); // [1, 2, 3, 4, 5]
 ---
 
 
-### Q51: How do you handle JavaScript state management in large scale applications?
+
+### Q51: How does the Event Loop work?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Call Stack -> Microtasks (Promises) -> Macrotasks (setTimeout) -> Render.
 
 **Code Example**:
 ```javascript
-const [state, setState] = useState(initial);
+Promise.resolve().then(() => console.log('Micro'));
+setTimeout(() => console.log('Macro'), 0);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you perform JavaScript data validation in microservices?
+### Q52: What is a Closure?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Function bundled with its lexical environment. Accesses outer variables.
+
+**Code Example**:
+```javascript
+function outer() { let x = 10; return () => x; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q53: Difference between `var`, `let`, and `const`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+`var`: function scope, hoisted. `let`/`const`: block scope, TDZ. `const`: immutable reference.
 
 **Code Example**:
 ```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
+const x = 1;
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q53: How do you automate JavaScript deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you handle JavaScript concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How do you implement JavaScript caching in cloud infrastructure?
+### Q54: What is `this` keyword?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Refers to the object executing the function. Depends on call site.
 
 **Code Example**:
 ```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+obj.method() // this = obj
+func() // this = global/undefined
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you manage JavaScript configuration for real-time systems?
+### Q55: How does Prototypal Inheritance work?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Objects inherit from other objects via `__proto__` chain.
+
+**Code Example**:
+```javascript
+function Dog() {}; Dog.prototype = Object.create(Animal.prototype);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: What is a Promise?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Object representing eventual completion of async operation.
 
 **Code Example**:
 ```javascript
-const config = process.env.CONFIG || 'default';
+new Promise((res, rej) => { ... })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you handle JavaScript internationalization (i18n) in distributed systems?
+### Q57: How does `async/await` work?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use i18n libraries. Extract strings to resource files.
+Syntactic sugar over Promises/Generators.
 
 **Code Example**:
 ```javascript
-t('welcome_message')
+async function() { await promise; }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q58: How do you ensure JavaScript accessibility (a11y) in high-traffic sites?
+### Q58: What is Hoisting?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Declarations moved to top of scope. `var` initialized undefined, `let`/`const` uninitialized.
+
+**Code Example**:
+```javascript
+console.log(a); var a = 1;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q59: Difference between `null` and `undefined`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+`undefined`: variable declared but no value. `null`: intentional absence of value.
 
 **Code Example**:
 ```javascript
-<button aria-label="Close">X</button>
+typeof null // 'object'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you optimize JavaScript network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: How do you handle JavaScript performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// JavaScript logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q61: What are the security implications of JavaScript in large scale applications?
+### Q60: What is Event Bubbling vs Capturing?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
+Bubbling: Target -> Root. Capturing: Root -> Target.
 
 **Code Example**:
 ```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
+elem.addEventListener('click', fn, { capture: true })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q62: How do you debug JavaScript memory leaks in microservices?
+### Q61: How do you implement a deep clone?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `structuredClone()` or recursion.
+
+**Code Example**:
+```javascript
+const copy = structuredClone(original);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q62: What is a Generator function?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
+Function that can be paused and resumed (`yield`).
 
 **Code Example**:
 ```javascript
-// Check listeners
-process.on('exit', () => cleanup());
+function* gen() { yield 1; }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: Best practices for JavaScript code organization in mobile devices?
+### Q63: What is the Proxy object?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Intercepts operations on objects (get, set).
+
+**Code Example**:
+```javascript
+new Proxy(target, { get: (obj, prop) => ... })
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q64: Difference between `==` and `===`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+`===` checks type and value. `==` does type coercion.
 
 **Code Example**:
 ```javascript
-// Single responsibility
-function doOneThing() { ... }
+1 == '1' // true
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you implement JavaScript error handling for legacy systems?
+### Q65: What is `bind`, `call`, and `apply`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+Methods to set `this` context explicitly.
 
 **Code Example**:
 ```javascript
-try {
-  await JavaScriptOperation();
-} catch (e) {
-  logger.error(e);
-}
+fn.call(ctx, arg1); fn.apply(ctx, [args]); fn.bind(ctx);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you test JavaScript functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('JavaScript works', () => {
-  expect(JavaScript()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q66: How do you handle JavaScript state management in real-time systems?
+### Q66: What is a WeakMap?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Map with weak keys (objects only). Garbage collected if key is unreachable.
 
 **Code Example**:
 ```javascript
-const [state, setState] = useState(initial);
+const wm = new WeakMap();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you perform JavaScript data validation in distributed systems?
+### Q67: How do you handle errors in Promises?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `.catch()` or `try/catch` in async/await.
+
+**Code Example**:
+```javascript
+p.then().catch(err => ...);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q68: What is Currying?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Transforming function `f(a,b)` into `f(a)(b)`.
+
+**Code Example**:
+```javascript
+const add = a => b => a + b;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q69: What is the Temporal Dead Zone (TDZ)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Time between entering scope and `let`/`const` declaration.
+
+**Code Example**:
+```javascript
+{ console.log(x); let x; } // ReferenceError
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q70: What is a Polyfill?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Code to provide modern functionality on older browsers.
 
 **Code Example**:
 ```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
+if (!Array.prototype.map) { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you automate JavaScript deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you handle JavaScript concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you implement JavaScript caching in production environments?
+### Q71: How do you debounce a function?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Delay execution until time elapses since last call.
 
 **Code Example**:
 ```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+function debounce(fn, delay) { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you manage JavaScript configuration for large scale applications?
+### Q72: How do you throttle a function?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Limit execution to once per time interval.
+
+**Code Example**:
+```javascript
+function throttle(fn, limit) { ... }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q73: What is the `module` pattern?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Encapsulating private members using closures (IIFE).
+
+**Code Example**:
+```javascript
+const mod = (() => { let p = 1; return { get: () => p }; })();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q74: What is `localStorage` vs `sessionStorage`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Local: persists. Session: clears on tab close.
 
 **Code Example**:
 ```javascript
-const config = process.env.CONFIG || 'default';
+localStorage.setItem('key', 'val');
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you handle JavaScript internationalization (i18n) in microservices?
+### Q75: How do you check array equality?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use i18n libraries. Extract strings to resource files.
+Loop or JSON.stringify (simple cases).
 
 **Code Example**:
 ```javascript
-t('welcome_message')
+JSON.stringify(a) === JSON.stringify(b)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you ensure JavaScript accessibility (a11y) in mobile devices?
+### Q76: What is `Symbol`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Unique primitive type. Used for object keys.
+
+**Code Example**:
+```javascript
+const sym = Symbol('desc');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q77: What is `Reflect` API?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Methods for interceptable JavaScript operations.
+
+**Code Example**:
+```javascript
+Reflect.get(target, prop)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q78: How do you flatten an array?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use `flat()`.
 
 **Code Example**:
 ```javascript
-<button aria-label="Close">X</button>
+arr.flat(Infinity)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you optimize JavaScript network requests in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you handle JavaScript performance optimization for cloud infrastructure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// JavaScript logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: What are the security implications of JavaScript in real-time systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: How do you debug JavaScript memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: Best practices for JavaScript code organization in high-traffic sites?
+### Q79: What is strict mode?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Enforces stricter parsing and error handling.
 
 **Code Example**:
 ```javascript
-// Single responsibility
-function doOneThing() { ... }
+'use strict';
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you implement JavaScript error handling for embedded systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await JavaScriptOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q80: How do you test JavaScript functionality in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('JavaScript works', () => {
-  expect(JavaScript()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q81: How do you handle JavaScript state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q82: How do you perform JavaScript data validation in microservices?
+### Q80: How do you implement a Set?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Use `Set` object for unique values.
 
 **Code Example**:
 ```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
+new Set([1, 2, 2])
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you automate JavaScript deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you handle JavaScript concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: How do you implement JavaScript caching in cloud infrastructure?
+### Q81: What is `Intl` API?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Internationalization helper.
 
 **Code Example**:
 ```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+new Intl.NumberFormat().format(1000)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q86: How do you manage JavaScript configuration for real-time systems?
+### Q82: How do you detect browser vs node?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Check `typeof window` or `typeof process`.
 
 **Code Example**:
 ```javascript
-const config = process.env.CONFIG || 'default';
+typeof window !== 'undefined'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle JavaScript internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q88: How do you ensure JavaScript accessibility (a11y) in high-traffic sites?
+### Q83: What is an IIFE?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Immediately Invoked Function Expression.
 
 **Code Example**:
 ```javascript
-<button aria-label="Close">X</button>
+(() => { ... })()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you optimize JavaScript network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you handle JavaScript performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// JavaScript logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: What are the security implications of JavaScript in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: How do you debug JavaScript memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: Best practices for JavaScript code organization in mobile devices?
+### Q84: How do you remove duplicates from array?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Use Set.
 
 **Code Example**:
 ```javascript
-// Single responsibility
-function doOneThing() { ... }
+[...new Set(arr)]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you implement JavaScript error handling for legacy systems?
+### Q85: What is Object.freeze?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+Prevents modification of object.
 
 **Code Example**:
 ```javascript
-try {
-  await JavaScriptOperation();
-} catch (e) {
-  logger.error(e);
-}
+Object.freeze(obj)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you test JavaScript functionality in cloud infrastructure?
+### Q86: What is `requestAnimationFrame`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Write unit tests for logic and integration tests for flows.
+Schedule function for next repaint.
 
 **Code Example**:
 ```javascript
-test('JavaScript works', () => {
-  expect(JavaScript()).toBe(true);
-});
+requestAnimationFrame(draw)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q96: How do you handle JavaScript state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q97: How do you perform JavaScript data validation in distributed systems?
+### Q87: How do you stop event propagation?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+`e.stopPropagation()`.
 
 **Code Example**:
 ```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
+elem.onclick = e => e.stopPropagation()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you automate JavaScript deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q99: How do you handle JavaScript concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q100: How do you implement JavaScript caching in production environments?
+### Q88: What is `Promise.all`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Wait for all promises to resolve.
 
 **Code Example**:
 ```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+Promise.all([p1, p2])
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: What is `Promise.race`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Wait for first promise to settle.
+
+**Code Example**:
+```javascript
+Promise.race([p1, p2])
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: What is `BigInt`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Arbitrary precision integers.
+
+**Code Example**:
+```javascript
+const n = 123n;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: How do you merge objects?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Spread operator or `Object.assign`.
+
+**Code Example**:
+```javascript
+{ ...obj1, ...obj2 }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: What is Optional Chaining?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Safe property access.
+
+**Code Example**:
+```javascript
+obj?.prop
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: What is Nullish Coalescing?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Default value for null/undefined.
+
+**Code Example**:
+```javascript
+x ?? 'default'
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: How do you iterate object keys?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`Object.keys`, `Object.values`, `for...in`.
+
+**Code Example**:
+```javascript
+for (let k in obj) ...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: What is `globalThis`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Universal global scope.
+
+**Code Example**:
+```javascript
+console.log(globalThis)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: How do you parse URL parameters?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `URLSearchParams`.
+
+**Code Example**:
+```javascript
+new URLSearchParams(window.location.search)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: What is the difference between `slice` and `splice`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`slice` returns new array. `splice` modifies in-place.
+
+**Code Example**:
+```javascript
+arr.slice(0, 1)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: How do you copy to clipboard?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use Clipboard API.
+
+**Code Example**:
+```javascript
+navigator.clipboard.writeText('text')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: What is a service worker?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Script running in background (PWA).
+
+**Code Example**:
+```javascript
+navigator.serviceWorker.register('sw.js')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: How do you check for NaN?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`Number.isNaN()`.
+
+**Code Example**:
+```javascript
+Number.isNaN(NaN)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

@@ -60,56 +60,56 @@
 48. [How do you serve private content via CloudFront?](#q48-how-do-you-serve-private-content-via-cloudfront) <span class="advanced">Advanced</span>
 49. [How do you mount a shared file system to multiple EC2 instances?](#q49-how-do-you-mount-a-shared-file-system-to-multiple-ec2-instances) <span class="beginner">Beginner</span>
 50. [How do you create a private connection between your on-premises data center and VPC?](#q50-how-do-you-create-a-private-connection-between-your-on-premises-data-center-and-vpc) <span class="intermediate">Intermediate</span>
-51. [How do you implement Blue/Green deployment with ECS CodeDeploy?](#q51-how-do-you-implement-bluegreen-deployment-with-ecs-codedeploy) <span class="advanced">Advanced</span>
-52. [How do you use AWS Backup to automate cross-region backups?](#q52-how-do-you-use-aws-backup-to-automate-cross-region-backups) <span class="intermediate">Intermediate</span>
-53. [How do you use AWS X-Ray for distributed tracing?](#q53-how-do-you-use-aws-x-ray-for-distributed-tracing) <span class="intermediate">Intermediate</span>
-54. [How do you use AWS Organizations to manage multiple accounts?](#q54-how-do-you-use-aws-organizations-to-manage-multiple-accounts) <span class="intermediate">Intermediate</span>
-55. [How do you use S3 Object Lambda to modify data on retrieval?](#q55-how-do-you-use-s3-object-lambda-to-modify-data-on-retrieval) <span class="advanced">Advanced</span>
-56. [How do you use Athena to analyze VPC Flow Logs?](#q56-how-do-you-use-athena-to-analyze-vpc-flow-logs) <span class="intermediate">Intermediate</span>
-57. [How do you use Kinesis Data Firehose to transform and load data?](#q57-how-do-you-use-kinesis-data-firehose-to-transform-and-load-data) <span class="intermediate">Intermediate</span>
-58. [How do you use Amazon Macie to discover sensitive data?](#q58-how-do-you-use-amazon-macie-to-discover-sensitive-data) <span class="beginner">Beginner</span>
-59. [How do you use SSM Parameter Store Hierarchy?](#q59-how-do-you-use-ssm-parameter-store-hierarchy) <span class="intermediate">Intermediate</span>
-60. [How do you use AWS WAF to block SQL Injection attacks?](#q60-how-do-you-use-aws-waf-to-block-sql-injection-attacks) <span class="intermediate">Intermediate</span>
-61. [What are the security implications of AWS in large scale applications?](#q61-what-are-the-security-implications-of-aws-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug AWS memory leaks in microservices?](#q62-how-do-you-debug-aws-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for AWS code organization in mobile devices?](#q63-best-practices-for-aws-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement AWS error handling for legacy systems?](#q64-how-do-you-implement-aws-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test AWS functionality in cloud infrastructure?](#q65-how-do-you-test-aws-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle AWS state management in real-time systems?](#q66-how-do-you-handle-aws-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform AWS data validation in distributed systems?](#q67-how-do-you-perform-aws-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate AWS deployment for high-traffic sites?](#q68-how-do-you-automate-aws-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle AWS concurrency issues in embedded systems?](#q69-how-do-you-handle-aws-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement AWS caching in production environments?](#q70-how-do-you-implement-aws-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage AWS configuration for large scale applications?](#q71-how-do-you-manage-aws-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle AWS internationalization (i18n) in microservices?](#q72-how-do-you-handle-aws-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure AWS accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-aws-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize AWS network requests in legacy systems?](#q74-how-do-you-optimize-aws-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle AWS performance optimization for cloud infrastructure?](#q75-how-do-you-handle-aws-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of AWS in real-time systems?](#q76-what-are-the-security-implications-of-aws-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug AWS memory leaks in distributed systems?](#q77-how-do-you-debug-aws-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for AWS code organization in high-traffic sites?](#q78-best-practices-for-aws-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement AWS error handling for embedded systems?](#q79-how-do-you-implement-aws-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test AWS functionality in production environments?](#q80-how-do-you-test-aws-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle AWS state management in large scale applications?](#q81-how-do-you-handle-aws-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform AWS data validation in microservices?](#q82-how-do-you-perform-aws-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate AWS deployment for mobile devices?](#q83-how-do-you-automate-aws-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle AWS concurrency issues in legacy systems?](#q84-how-do-you-handle-aws-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement AWS caching in cloud infrastructure?](#q85-how-do-you-implement-aws-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage AWS configuration for real-time systems?](#q86-how-do-you-manage-aws-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle AWS internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-aws-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure AWS accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-aws-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize AWS network requests in embedded systems?](#q89-how-do-you-optimize-aws-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle AWS performance optimization for production environments?](#q90-how-do-you-handle-aws-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of AWS in large scale applications?](#q91-what-are-the-security-implications-of-aws-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug AWS memory leaks in microservices?](#q92-how-do-you-debug-aws-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for AWS code organization in mobile devices?](#q93-best-practices-for-aws-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement AWS error handling for legacy systems?](#q94-how-do-you-implement-aws-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test AWS functionality in cloud infrastructure?](#q95-how-do-you-test-aws-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle AWS state management in real-time systems?](#q96-how-do-you-handle-aws-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform AWS data validation in distributed systems?](#q97-how-do-you-perform-aws-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate AWS deployment for high-traffic sites?](#q98-how-do-you-automate-aws-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle AWS concurrency issues in embedded systems?](#q99-how-do-you-handle-aws-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement AWS caching in production environments?](#q100-how-do-you-implement-aws-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+51. [Difference between EC2 and Lambda?](#q51-difference-between-ec2-and-lambda) <span class="beginner">Beginner</span>
+52. [What is VPC Peering?](#q52-what-is-vpc-peering) <span class="intermediate">Intermediate</span>
+53. [How do you handle Lambda Cold Starts?](#q53-how-do-you-handle-lambda-cold-starts) <span class="intermediate">Intermediate</span>
+54. [S3 Consistency Model?](#q54-s3-consistency-model) <span class="advanced">Advanced</span>
+55. [DynamoDB GSI vs LSI?](#q55-dynamodb-gsi-vs-lsi) <span class="advanced">Advanced</span>
+56. [IAM Roles vs Policies?](#q56-iam-roles-vs-policies) <span class="beginner">Beginner</span>
+57. [How do you secure S3 buckets?](#q57-how-do-you-secure-s3-buckets) <span class="intermediate">Intermediate</span>
+58. [What is CloudFront?](#q58-what-is-cloudfront) <span class="beginner">Beginner</span>
+59. [ECS vs EKS?](#q59-ecs-vs-eks) <span class="intermediate">Intermediate</span>
+60. [How do you monitor AWS resources?](#q60-how-do-you-monitor-aws-resources) <span class="beginner">Beginner</span>
+61. [What is Auto Scaling?](#q61-what-is-auto-scaling) <span class="beginner">Beginner</span>
+62. [How do you decouple services?](#q62-how-do-you-decouple-services) <span class="intermediate">Intermediate</span>
+63. [What is Route 53?](#q63-what-is-route-53) <span class="beginner">Beginner</span>
+64. [How do you manage infrastructure as code?](#q64-how-do-you-manage-infrastructure-as-code) <span class="intermediate">Intermediate</span>
+65. [What is RDS Multi-AZ?](#q65-what-is-rds-multi-az) <span class="intermediate">Intermediate</span>
+66. [Difference between SQS Standard and FIFO?](#q66-difference-between-sqs-standard-and-fifo) <span class="intermediate">Intermediate</span>
+67. [What is API Gateway?](#q67-what-is-api-gateway) <span class="beginner">Beginner</span>
+68. [How do you optimize AWS costs?](#q68-how-do-you-optimize-aws-costs) <span class="intermediate">Intermediate</span>
+69. [What is Elastic Beanstalk?](#q69-what-is-elastic-beanstalk) <span class="beginner">Beginner</span>
+70. [How do you implement Distributed Tracing?](#q70-how-do-you-implement-distributed-tracing) <span class="advanced">Advanced</span>
+71. [What is Secrets Manager?](#q71-what-is-secrets-manager) <span class="intermediate">Intermediate</span>
+72. [What is Transit Gateway?](#q72-what-is-transit-gateway) <span class="advanced">Advanced</span>
+73. [How do you secure data at rest?](#q73-how-do-you-secure-data-at-rest) <span class="beginner">Beginner</span>
+74. [What is Aurora?](#q74-what-is-aurora) <span class="intermediate">Intermediate</span>
+75. [What is Cognito?](#q75-what-is-cognito) <span class="intermediate">Intermediate</span>
+76. [How do you use Spot Instances?](#q76-how-do-you-use-spot-instances) <span class="intermediate">Intermediate</span>
+77. [What is Glacier?](#q77-what-is-glacier) <span class="beginner">Beginner</span>
+78. [What is WAF?](#q78-what-is-waf) <span class="intermediate">Intermediate</span>
+79. [How do you connect on-prem to VPC?](#q79-how-do-you-connect-on-prem-to-vpc) <span class="intermediate">Intermediate</span>
+80. [What is Kinesis?](#q80-what-is-kinesis) <span class="intermediate">Intermediate</span>
+81. [Difference between NACL and Security Group?](#q81-difference-between-nacl-and-security-group) <span class="advanced">Advanced</span>
+82. [What is CloudTrail?](#q82-what-is-cloudtrail) <span class="beginner">Beginner</span>
+83. [How do you share AMI?](#q83-how-do-you-share-ami) <span class="beginner">Beginner</span>
+84. [What is EFS?](#q84-what-is-efs) <span class="intermediate">Intermediate</span>
+85. [How do you implement Blue/Green deployment?](#q85-how-do-you-implement-bluegreen-deployment) <span class="intermediate">Intermediate</span>
+86. [What is Step Functions?](#q86-what-is-step-functions) <span class="intermediate">Intermediate</span>
+87. [How do you host a static website?](#q87-how-do-you-host-a-static-website) <span class="beginner">Beginner</span>
+88. [What is Global Accelerator?](#q88-what-is-global-accelerator) <span class="advanced">Advanced</span>
+89. [How do you access private EC2?](#q89-how-do-you-access-private-ec2) <span class="intermediate">Intermediate</span>
+90. [What is Organizations?](#q90-what-is-organizations) <span class="intermediate">Intermediate</span>
+91. [How do you implement caching in API Gateway?](#q91-how-do-you-implement-caching-in-api-gateway) <span class="intermediate">Intermediate</span>
+92. [What is Fargate?](#q92-what-is-fargate) <span class="intermediate">Intermediate</span>
+93. [How do you validate CloudFormation?](#q93-how-do-you-validate-cloudformation) <span class="beginner">Beginner</span>
+94. [What is Athena?](#q94-what-is-athena) <span class="intermediate">Intermediate</span>
+95. [How do you restrict S3 access by IP?](#q95-how-do-you-restrict-s3-access-by-ip) <span class="intermediate">Intermediate</span>
+96. [What is Transfer Family?](#q96-what-is-transfer-family) <span class="intermediate">Intermediate</span>
+97. [How do you handle DDOS?](#q97-how-do-you-handle-ddos) <span class="intermediate">Intermediate</span>
+98. [What is EventBridge?](#q98-what-is-eventbridge) <span class="intermediate">Intermediate</span>
+99. [How do you copy S3 objects cross-region?](#q99-how-do-you-copy-s3-objects-cross-region) <span class="intermediate">Intermediate</span>
+100. [What is AppSync?](#q100-what-is-appsync) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1362,928 +1362,801 @@ resource "aws_vpn_connection" "main" {
 
 ---
 
-### Q51: How do you implement Blue/Green deployment with ECS CodeDeploy?
 
-**Difficulty**: Advanced
-
-**Strategy:**
-Use CodeDeploy with ECS. Define a `TaskSet` and a Load Balancer. CodeDeploy shifts traffic from the Blue target group to the Green target group gradually.
-
-**Code Example:**
-```yaml
-# appspec.yaml
-version: 0.0
-Resources:
-  - TargetService:
-      Type: AWS::ECS::Service
-      Properties:
-        TaskDefinition: "arn:aws:ecs:..."
-        LoadBalancerInfo:
-          ContainerName: "my-app"
-          ContainerPort: 80
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q52: How do you use AWS Backup to automate cross-region backups?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Create a Backup Plan in AWS Backup. Add a rule to copy recovery points to a destination vault in another region for DR compliance.
-
-**Code Example:**
-```bash
-# Terraform
-resource "aws_backup_plan" "example" {
-  name = "cross-region-backup"
-  rule {
-    rule_name = "daily"
-    target_vault_name = aws_backup_vault.primary.name
-    schedule = "cron(0 12 * * ? *)"
-    copy_action {
-      destination_vault_arn = aws_backup_vault.secondary.arn
-    }
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: How do you use AWS X-Ray for distributed tracing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Instrument your application using the X-Ray SDK. Enable X-Ray tracing on Lambda or ECS. It visualizes the service map and latency bottlenecks.
-
-**Code Example:**
-```bash
-from aws_xray_sdk.core import xray_recorder
-
-@xray_recorder.capture('process_record')
-def process_record(record):
-    # ... logic
-    pass
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you use AWS Organizations to manage multiple accounts?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use AWS Organizations to consolidate billing, apply Service Control Policies (SCPs) to restrict actions across accounts, and automate account creation.
-
-**Code Example:**
-```bash
-# SCP to deny leaving the organization
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Deny",
-      "Action": ["organizations:LeaveOrganization"],
-      "Resource": "*"
-    }
-  ]
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How do you use S3 Object Lambda to modify data on retrieval?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-S3 Object Lambda allows you to add your own code to S3 GET requests. Use it to redact PII, resize images, or convert data formats on the fly.
-
-**Code Example:**
-```bash
-def lambda_handler(event, context):
-    # Get original object
-    response = requests.get(event['inputS3Url'])
-    original_data = response.text
-    
-    # Modify
-    transformed_data = original_data.upper()
-    
-    # Write back
-    s3.write_get_object_response(
-        RequestRoute=event['outputRoute'],
-        RequestToken=event['outputToken'],
-        Body=transformed_data
-    )
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: How do you use Athena to analyze VPC Flow Logs?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Publish VPC Flow Logs to S3. Create an Athena table mapped to the S3 path. Run SQL queries to troubleshoot connectivity or detect threats.
-
-**Code Example:**
-```bash
-SELECT interface_id, srcaddr, dstaddr, action, count(*) as count
-FROM vpc_flow_logs
-WHERE action = 'REJECT'
-GROUP BY interface_id, srcaddr, dstaddr, action
-ORDER BY count DESC
-LIMIT 10;
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q57: How do you use Kinesis Data Firehose to transform and load data?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Firehose delivers streaming data to destinations like S3, Redshift, or OpenSearch. It can transform data using Lambda (e.g., JSON to Parquet) before delivery.
-
-**Code Example:**
-```bash
-# Terraform
-resource "aws_kinesis_firehose_delivery_stream" "extended_s3_stream" {
-  name        = "terraform-kinesis-firehose-extended-s3-test-stream"
-  destination = "extended_s3"
-
-  extended_s3_configuration {
-    role_arn   = aws_iam_role.firehose_role.arn
-    bucket_arn = aws_s3_bucket.bucket.arn
-    processing_configuration {
-      enabled = "true"
-      processors {
-        type = "Lambda"
-        parameters {
-          parameter_name  = "LambdaArn"
-          parameter_value = aws_lambda_function.lambda_processor.arn
-        }
-      }
-    }
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: How do you use Amazon Macie to discover sensitive data?
+### Q51: Difference between EC2 and Lambda?
 
 **Difficulty**: Beginner
 
-**Strategy:**
-Enable Macie on your S3 buckets. It uses ML to automatically classify and discover sensitive data (PII, keys) and generates findings.
+**Strategy**:
+EC2: Virtual servers (manage OS). Lambda: Serverless (run code only).
 
-**Code Example:**
-```bash
-aws macie2 create-classification-job     --job-type ONE_TIME     --name "FindPII"     --s3-job-definition BucketDefinitions=[{AccountId=123456789012,Buckets=[my-bucket]}]
+**Code Example**:
+```javascript
+// Lambda handles scaling automatically
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you use SSM Parameter Store Hierarchy?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Organize parameters using paths (e.g., `/dev/db/password`, `/prod/db/password`). You can then retrieve all parameters under a path recursively.
-
-**Code Example:**
-```bash
-aws ssm get-parameters-by-path     --path "/prod/service-a/"     --recursive     --with-decryption
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: How do you use AWS WAF to block SQL Injection attacks?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the AWS Managed Ruleset `AWSManagedRulesSQLiRuleSet` in your Web ACL. It contains pre-configured rules to detect common SQL injection patterns.
-
-**Code Example:**
-```bash
-{
-  "Name": "AWS-AWSManagedRulesSQLiRuleSet",
-  "Priority": 0,
-  "Statement": {
-    "ManagedRuleGroupStatement": {
-      "VendorName": "AWS",
-      "Name": "AWSManagedRulesSQLiRuleSet"
-    }
-  },
-  "OverrideAction": { "None": {} },
-  "VisibilityConfig": { ... }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-### Q61: What are the security implications of AWS in large scale applications?
+### Q52: What is VPC Peering?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
+Connecting two VPCs to route traffic privately.
 
 **Code Example**:
-```bash
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
+```javascript
+// Enable communication between services in different VPCs
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q62: How do you debug AWS memory leaks in microservices?
+### Q53: How do you handle Lambda Cold Starts?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Provisioned Concurrency or keep warm scripts.
+
+**Code Example**:
+```javascript
+// Provisioned Concurrency keeps instances initialized
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q54: S3 Consistency Model?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
+Strong consistency for PUTs of new objects and overwrites.
 
 **Code Example**:
-```bash
-// Check listeners
-process.on('exit', () => cleanup());
+```javascript
+// Read after write is consistent
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: Best practices for AWS code organization in mobile devices?
+### Q55: DynamoDB GSI vs LSI?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+LSI: Created at table creation, shares partition key. GSI: Created anytime, different keys.
+
+**Code Example**:
+```javascript
+// GSI allows flexible query patterns
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: IAM Roles vs Policies?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Policy: Permissions document. Role: Identity that can be assumed.
 
 **Code Example**:
-```bash
-// Single responsibility
-function doOneThing() { ... }
+```javascript
+// Attach Policy to Role, Role to EC2
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you implement AWS error handling for legacy systems?
+### Q57: How do you secure S3 buckets?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+Block Public Access, Bucket Policies, KMS Encryption.
 
 **Code Example**:
-```bash
-try {
-  await AWSOperation();
-} catch (e) {
-  logger.error(e);
-}
+```javascript
+"BlockPublicAcls": true
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you test AWS functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```bash
-test('AWS works', () => {
-  expect(AWS()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q66: How do you handle AWS state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```bash
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q67: How do you perform AWS data validation in distributed systems?
+### Q58: What is CloudFront?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+CDN for low latency delivery.
 
 **Code Example**:
-```bash
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```javascript
+// Caches content at Edge Locations
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you automate AWS deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```bash
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you handle AWS concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```bash
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you implement AWS caching in production environments?
+### Q59: ECS vs EKS?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+ECS: AWS native container orchestration. EKS: Managed Kubernetes.
 
 **Code Example**:
-```bash
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+```javascript
+// EKS allows standard K8s tooling
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you manage AWS configuration for large scale applications?
+### Q60: How do you monitor AWS resources?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+CloudWatch (Logs, Metrics, Alarms).
 
 **Code Example**:
-```bash
-const config = process.env.CONFIG || 'default';
+```javascript
+// Set alarm for high CPU
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you handle AWS internationalization (i18n) in microservices?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```bash
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: How do you ensure AWS accessibility (a11y) in mobile devices?
+### Q61: What is Auto Scaling?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Adjusting capacity based on load.
 
 **Code Example**:
-```bash
-<button aria-label="Close">X</button>
+```javascript
+// Scale out EC2 when CPU > 70%
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you optimize AWS network requests in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```bash
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you handle AWS performance optimization for cloud infrastructure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```bash
-const start = performance.now();
-// AWS logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: What are the security implications of AWS in real-time systems?
+### Q62: How do you decouple services?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
+Use SQS (Queue) or SNS (Pub/Sub).
 
 **Code Example**:
-```bash
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
+```javascript
+// Service A -> SQS -> Service B
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q77: How do you debug AWS memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```bash
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: Best practices for AWS code organization in high-traffic sites?
+### Q63: What is Route 53?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+DNS Web Service.
 
 **Code Example**:
-```bash
-// Single responsibility
-function doOneThing() { ... }
+```javascript
+// Routing policies: Simple, Weighted, Latency
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you implement AWS error handling for embedded systems?
+### Q64: How do you manage infrastructure as code?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+CloudFormation, Terraform, or CDK.
 
 **Code Example**:
-```bash
-try {
-  await AWSOperation();
-} catch (e) {
-  logger.error(e);
-}
+```javascript
+// CDK allows defining infra in TypeScript
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q80: How do you test AWS functionality in production environments?
+### Q65: What is RDS Multi-AZ?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Write unit tests for logic and integration tests for flows.
+Synchronous replication to standby for failover.
 
 **Code Example**:
-```bash
-test('AWS works', () => {
-  expect(AWS()).toBe(true);
-});
+```javascript
+// High Availability
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you handle AWS state management in large scale applications?
+### Q66: Difference between SQS Standard and FIFO?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Standard: At-least-once, best-effort order. FIFO: Exactly-once, strict order.
 
 **Code Example**:
-```bash
-const [state, setState] = useState(initial);
+```javascript
+// FIFO for banking transactions
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you perform AWS data validation in microservices?
+### Q67: What is API Gateway?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Entry point for APIs. Handles throttling, auth.
 
 **Code Example**:
-```bash
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```javascript
+// Triggers Lambda
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you automate AWS deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```bash
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you handle AWS concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```bash
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: How do you implement AWS caching in cloud infrastructure?
+### Q68: How do you optimize AWS costs?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Reserved Instances, Spot Instances, S3 Lifecycle policies.
 
 **Code Example**:
-```bash
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+```javascript
+// Move old data to Glacier
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q86: How do you manage AWS configuration for real-time systems?
+### Q69: What is Elastic Beanstalk?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+PaaS for deploying apps.
 
 **Code Example**:
-```bash
-const config = process.env.CONFIG || 'default';
+```javascript
+// Handles deployment, scaling, balancing
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle AWS internationalization (i18n) in distributed systems?
+### Q70: How do you implement Distributed Tracing?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+X-Ray.
+
+**Code Example**:
+```javascript
+// Trace requests across microservices
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q71: What is Secrets Manager?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use i18n libraries. Extract strings to resource files.
+Rotates and manages secrets.
 
 **Code Example**:
-```bash
-t('welcome_message')
+```javascript
+// Fetch DB password at runtime
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q88: How do you ensure AWS accessibility (a11y) in high-traffic sites?
+### Q72: What is Transit Gateway?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Hub to connect VPCs and on-prem networks.
+
+**Code Example**:
+```javascript
+// Simplifies network topology
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q73: How do you secure data at rest?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+KMS (Key Management Service).
 
 **Code Example**:
-```bash
-<button aria-label="Close">X</button>
+```javascript
+// Encrypt EBS volumes
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you optimize AWS network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```bash
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you handle AWS performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```bash
-const start = performance.now();
-// AWS logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: What are the security implications of AWS in large scale applications?
+### Q74: What is Aurora?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
+Cloud-native relational DB (MySQL/PG compatible).
 
 **Code Example**:
-```bash
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
+```javascript
+// 3x faster than standard Postgres
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q92: How do you debug AWS memory leaks in microservices?
+### Q75: What is Cognito?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
+User identity and authentication service.
 
 **Code Example**:
-```bash
-// Check listeners
-process.on('exit', () => cleanup());
+```javascript
+// User Pools for sign-up/sign-in
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: Best practices for AWS code organization in mobile devices?
+### Q76: How do you use Spot Instances?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Bid for unused capacity. Handle interruptions.
+
+**Code Example**:
+```javascript
+// Stateless workloads
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q77: What is Glacier?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Low-cost archive storage.
 
 **Code Example**:
-```bash
-// Single responsibility
-function doOneThing() { ... }
+```javascript
+// Retrieval times: minutes to hours
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you implement AWS error handling for legacy systems?
+### Q78: What is WAF?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+Web Application Firewall.
 
 **Code Example**:
-```bash
-try {
-  await AWSOperation();
-} catch (e) {
-  logger.error(e);
-}
+```javascript
+// Protect against SQLi, XSS
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you test AWS functionality in cloud infrastructure?
+### Q79: How do you connect on-prem to VPC?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Write unit tests for logic and integration tests for flows.
+VPN or Direct Connect.
 
 **Code Example**:
-```bash
-test('AWS works', () => {
-  expect(AWS()).toBe(true);
-});
+```javascript
+// Direct Connect for dedicated line
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q96: How do you handle AWS state management in real-time systems?
+### Q80: What is Kinesis?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Real-time data streaming.
+
+**Code Example**:
+```javascript
+// Ingest logs, clickstreams
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q81: Difference between NACL and Security Group?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+SG: Stateful, Instance level. NACL: Stateless, Subnet level.
 
 **Code Example**:
-```bash
-const [state, setState] = useState(initial);
+```javascript
+// SG allow return traffic automatically
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you perform AWS data validation in distributed systems?
+### Q82: What is CloudTrail?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Auditing service. Logs API calls.
 
 **Code Example**:
-```bash
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```javascript
+// Who did what and when
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you automate AWS deployment for high-traffic sites?
+### Q83: How do you share AMI?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Modify permissions to share with account ID.
 
 **Code Example**:
-```bash
-steps:
-  - run: npm test
-  - run: docker build
+```javascript
+// Cross-account deployment
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you handle AWS concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```bash
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q100: How do you implement AWS caching in production environments?
+### Q84: What is EFS?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Elastic File System (NFS). Shared storage.
 
 **Code Example**:
-```bash
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+```javascript
+// Mount on multiple EC2s
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: How do you implement Blue/Green deployment?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Route 53 weighted routing or CodeDeploy.
+
+**Code Example**:
+```javascript
+// Zero downtime
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q86: What is Step Functions?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Serverless workflow orchestration.
+
+**Code Example**:
+```javascript
+// Chain Lambdas together
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q87: How do you host a static website?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+S3 Bucket + Static Website Hosting.
+
+**Code Example**:
+```javascript
+// Index document: index.html
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q88: What is Global Accelerator?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Static IP entry point, traffic over AWS backbone.
+
+**Code Example**:
+```javascript
+// Improved performance
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: How do you access private EC2?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Bastion Host or SSM Session Manager.
+
+**Code Example**:
+```javascript
+// SSM requires no open inbound ports
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: What is Organizations?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Manage multiple AWS accounts.
+
+**Code Example**:
+```javascript
+// Consolidated billing
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: How do you implement caching in API Gateway?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Enable Stage caching.
+
+**Code Example**:
+```javascript
+// Reduce calls to backend
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: What is Fargate?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Serverless compute for containers.
+
+**Code Example**:
+```javascript
+// No EC2 management
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: How do you validate CloudFormation?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+validate-template command.
+
+**Code Example**:
+```javascript
+$ aws cloudformation validate-template
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: What is Athena?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Query S3 data using SQL.
+
+**Code Example**:
+```javascript
+// Serverless query
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: How do you restrict S3 access by IP?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Bucket Policy with Condition IpAddress.
+
+**Code Example**:
+```javascript
+// Deny if not corporate VPN
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: What is Transfer Family?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+SFTP/FTPS support.
+
+**Code Example**:
+```javascript
+// Migrate legacy workflows
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: How do you handle DDOS?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Shield Standard/Advanced + CloudFront + WAF.
+
+**Code Example**:
+```javascript
+// AWS Shield
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: What is EventBridge?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Serverless event bus.
+
+**Code Example**:
+```javascript
+// Decouple SaaS apps
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: How do you copy S3 objects cross-region?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Cross-Region Replication (CRR).
+
+**Code Example**:
+```javascript
+// Disaster recovery
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: What is AppSync?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Managed GraphQL service.
+
+**Code Example**:
+```javascript
+// Real-time updates
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
