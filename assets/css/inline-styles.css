@@ -1073,12 +1073,13 @@ pre[class*="language-"] code[class*="language-"] {
     var(--primary-light) 0%,
     var(--primary-color) 100%
   ); */
-  transform: scale(1.05);
-  box-shadow: var(--shadow-xl), 0 0 20px rgba(229, 57, 53, 0.4);
+  /* transform: scale(1.05); */
+  /* box-shadow: var(--shadow-xl), 0 0 20px rgba(229, 57, 53, 0.4); */
+  opacity: 0.8;
 }
 
 .mobile-menu-btn.active {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
 }
 
 .mobile-menu-btn.active svg {
@@ -1090,7 +1091,7 @@ pre[class*="language-"] code[class*="language-"] {
 }
 
 .mobile-menu-btn:hover::before {
-  opacity: 1;
+  opacity: 0;
 }
 
 .mobile-menu-btn:active {
@@ -1105,6 +1106,8 @@ pre[class*="language-"] code[class*="language-"] {
 
 #desktop-sidebar {
   display: block;
+  width: 300px;
+  flex-shrink: 0;
 }
 
 #mobile-sidebar {

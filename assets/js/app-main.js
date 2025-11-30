@@ -28,10 +28,10 @@ class InterviewGuideApp {
       item.addEventListener("click", (e) => {
         const file = e.target.closest(".nav-item").dataset.file;
         const topicName = this.getTopicNameFromFile(file);
-        
+
         // Update URL without triggering page reload
-        history.pushState({ file }, '', `/${topicName}`);
-        
+        history.pushState({ file }, "", `/${topicName}`);
+
         this.loadContent(file);
 
         // Close sidebar on mobile after selection
@@ -81,7 +81,7 @@ class InterviewGuideApp {
       const sidebar = document.querySelector(".sidebar");
       const overlay = document.getElementById("sidebarOverlay");
       const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-      
+
       console.log("mobileMenuBtn clicked");
       sidebar.classList.add("active");
       overlay.classList.add("active");
@@ -230,18 +230,20 @@ class InterviewGuideApp {
    */
   setupRouting() {
     // Handle browser back/forward buttons
-    window.addEventListener('popstate', (event) => {
+    window.addEventListener("popstate", (event) => {
       // Don't handle popstate if we're navigating from TOC
       if (this.isNavigatingFromTOC) {
         return;
       }
-      
+
       if (event.state && event.state.file) {
         // If there's a scroll target, handle it after content loads
         if (event.state.scrollTarget) {
           this.loadContent(event.state.file).then(() => {
             setTimeout(() => {
-              const targetElement = document.getElementById(event.state.scrollTarget);
+              const targetElement = document.getElementById(
+                event.state.scrollTarget
+              );
               if (targetElement) {
                 this.smoothScrollToElement(targetElement);
               }
@@ -255,18 +257,18 @@ class InterviewGuideApp {
         this.handleDirectURLAccess();
       }
     });
-    
+
     // Handle hash changes for direct hash navigation
-    window.addEventListener('hashchange', (event) => {
+    window.addEventListener("hashchange", (event) => {
       // Don't handle hashchange if we're navigating from TOC
       if (this.isNavigatingFromTOC) {
         return;
       }
-      
+
       const hash = window.location.hash.substring(1);
       if (hash) {
         setTimeout(() => {
-          const targetElement = this.findTargetElement(hash, '');
+          const targetElement = this.findTargetElement(hash, "");
           if (targetElement) {
             this.smoothScrollToElement(targetElement);
           }
@@ -282,11 +284,11 @@ class InterviewGuideApp {
    */
   getTopicNameFromFile(filePath) {
     // Extract topic from path like 'markdowns/react/react-questions.md' -> 'react'
-    const pathParts = filePath.split('/');
+    const pathParts = filePath.split("/");
     if (pathParts.length >= 2) {
       return pathParts[pathParts.length - 2]; // Get the folder name
     }
-    return 'home';
+    return "home";
   }
 
   /**
@@ -295,43 +297,47 @@ class InterviewGuideApp {
   handleDirectURLAccess() {
     const path = window.location.pathname;
     const hash = window.location.hash.substring(1);
-    
-    if (path === '/' || path === '') {
+
+    if (path === "/" || path === "" || path.endsWith("/dashboard.html")) {
       // Load default content
-      this.loadContent("markdowns/javascript/javascript-questions.md").then(() => {
-        // Handle hash if present
-        if (hash) {
-          setTimeout(() => {
-            const targetElement = this.findTargetElement(hash, '');
-            if (targetElement) {
-              this.smoothScrollToElement(targetElement);
-            }
-          }, 500);
+      this.loadContent("markdowns/javascript/javascript-questions.md").then(
+        () => {
+          // Handle hash if present
+          if (hash) {
+            setTimeout(() => {
+              const targetElement = this.findTargetElement(hash, "");
+              if (targetElement) {
+                this.smoothScrollToElement(targetElement);
+              }
+            }, 500);
+          }
         }
-      });
+      );
       return;
     }
 
     // Remove leading slash and get topic name
     const topicName = path.substring(1);
     const filePath = `markdowns/${topicName}/${topicName}-questions.md`;
-    
+
     // Check if the file exists by trying to load it
-    this.loadContent(filePath).then(() => {
-      // Handle hash if present
-      if (hash) {
-        setTimeout(() => {
-          const targetElement = this.findTargetElement(hash, '');
-          if (targetElement) {
-            this.smoothScrollToElement(targetElement);
-          }
-        }, 500);
-      }
-    }).catch(() => {
-      // If file doesn't exist, load default
-      console.warn(`Topic '${topicName}' not found, loading default content`);
-      this.loadContent("markdowns/javascript/javascript-questions.md");
-    });
+    this.loadContent(filePath)
+      .then(() => {
+        // Handle hash if present
+        if (hash) {
+          setTimeout(() => {
+            const targetElement = this.findTargetElement(hash, "");
+            if (targetElement) {
+              this.smoothScrollToElement(targetElement);
+            }
+          }, 500);
+        }
+      })
+      .catch(() => {
+        // If file doesn't exist, load default
+        console.warn(`Topic '${topicName}' not found, loading default content`);
+        this.loadContent("markdowns/javascript/javascript-questions.md");
+      });
   }
 
   async loadContent(filePath) {
@@ -361,16 +367,16 @@ class InterviewGuideApp {
       this.renderMarkdown(content);
       this.currentFile = filePath;
       this.buildSearchIndex(content, filePath);
-      
+
       // Update URL state if not navigating from TOC
       if (!this.isNavigatingFromTOC) {
         const topicName = this.getTopicNameFromFile(filePath);
         const newURL = `/${topicName}`;
         if (window.location.pathname !== newURL) {
-          history.replaceState({ file: filePath }, '', newURL);
+          history.replaceState({ file: filePath }, "", newURL);
         }
       }
-      
+
       console.log(`Content rendering completed for: ${filePath}`);
     } catch (error) {
       console.error(`Error loading content from ${filePath}:`, error);
@@ -485,20 +491,22 @@ class InterviewGuideApp {
 
   assignHeadingIds() {
     // Assign unique IDs to all headings for TOC navigation
-    const headings = document.querySelectorAll('.markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4, .markdown-content h5, .markdown-content h6');
+    const headings = document.querySelectorAll(
+      ".markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4, .markdown-content h5, .markdown-content h6"
+    );
     const usedIds = new Set();
-    
+
     headings.forEach((heading) => {
       if (!heading.id) {
         // Create a slug from the heading text
         let slug = heading.textContent
           .toLowerCase()
           .trim()
-          .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
-          .replace(/\s+/g, '-') // Replace spaces with hyphens
-          .replace(/-+/g, '-') // Replace multiple hyphens with single
-          .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
-        
+          .replace(/[^a-z0-9\s-]/g, "") // Remove special characters
+          .replace(/\s+/g, "-") // Replace spaces with hyphens
+          .replace(/-+/g, "-") // Replace multiple hyphens with single
+          .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+
         // Ensure uniqueness
         let finalId = slug;
         let counter = 1;
@@ -506,7 +514,7 @@ class InterviewGuideApp {
           finalId = `${slug}-${counter}`;
           counter++;
         }
-        
+
         heading.id = finalId;
         usedIds.add(finalId);
       }
@@ -516,7 +524,10 @@ class InterviewGuideApp {
   generateTOC() {
     // Check if markdown already contains a TOC
     const existingTOC = document.querySelector(".markdown-content h3");
-    if (existingTOC && existingTOC.textContent.toLowerCase().includes("table of contents")) {
+    if (
+      existingTOC &&
+      existingTOC.textContent.toLowerCase().includes("table of contents")
+    ) {
       // Enhance existing TOC with smooth scrolling
       this.enhanceExistingTOC();
       return;
@@ -534,8 +545,12 @@ class InterviewGuideApp {
     const ul = toc.querySelector("ul");
 
     headings.forEach((heading, index) => {
-      const id = `heading-${index}`;
-      heading.id = id;
+      // Use existing ID if available (assigned by assignHeadingIds), otherwise generate one
+      let id = heading.id;
+      if (!id) {
+        id = `heading-${index}`;
+        heading.id = id;
+      }
 
       const li = document.createElement("li");
       const a = document.createElement("a");
@@ -545,19 +560,24 @@ class InterviewGuideApp {
 
       a.addEventListener("click", (e) => {
         e.preventDefault();
-        
+
         // Set flag to indicate navigation from TOC
         this.isNavigatingFromTOC = true;
-        
+
         // Scroll to the target element with offset
-        const yOffset = -20;
-        const y = heading.getBoundingClientRect().top + window.pageYOffset + yOffset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-        
-        // Update URL hash without triggering popstate
-        const currentPath = window.location.pathname;
-        history.replaceState(history.state, '', `${currentPath}#${id}`);
-        
+        try {
+          const yOffset = -80; // Increased offset to match smoothScrollToElement
+          const y =
+            heading.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: y, behavior: "smooth" });
+
+          // Update URL hash without triggering popstate
+          const currentPath = window.location.pathname;
+          history.replaceState(history.state, "", `${currentPath}#${id}`);
+        } catch (error) {
+          console.error("Error scrolling to heading:", error);
+        }
+
         // Reset the flag after a short delay
         setTimeout(() => {
           this.isNavigatingFromTOC = false;
@@ -578,69 +598,84 @@ class InterviewGuideApp {
 
   enhanceExistingTOC() {
     // Remove any existing TOC event listeners to prevent conflicts
-    const existingTocLinks = document.querySelectorAll(".markdown-content a[href^='#']");
-    existingTocLinks.forEach(link => {
+    const existingTocLinks = document.querySelectorAll(
+      ".markdown-content a[href^='#']"
+    );
+    existingTocLinks.forEach((link) => {
       // Clone the link to remove all event listeners
       const newLink = link.cloneNode(true);
       link.parentNode.replaceChild(newLink, link);
     });
-    
+
     // Find all links in the existing TOC and add smooth scrolling
-    const tocLinks = document.querySelectorAll(".markdown-content a[href^='#']");
+    const tocLinks = document.querySelectorAll(
+      ".markdown-content a[href^='#']"
+    );
     console.log(`Found ${tocLinks.length} TOC links to enhance`);
-    
+
     tocLinks.forEach((link, index) => {
       // Add a unique identifier to track this link
-      link.setAttribute('data-toc-link', index);
-      
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        console.log('TOC link clicked:', link.textContent, link.href);
-        
-        // Set flag to indicate navigation from TOC
-        this.isNavigatingFromTOC = true;
-        
-        const targetId = link.getAttribute('href').substring(1);
-        console.log('Looking for target:', targetId);
-        
-        // Try multiple strategies to find the target element
-        let targetElement = this.findTargetElement(targetId, link.textContent);
-        
-        if (targetElement) {
-          console.log('Target element found:', targetElement);
-          
-          // Scroll to the target element with smooth behavior
-          this.smoothScrollToElement(targetElement);
-          
-          // Update URL hash without triggering popstate or page reload
-          const currentPath = window.location.pathname;
-          const newURL = `${currentPath}#${targetId}`;
-          
-          // Use replaceState to avoid triggering popstate event
-          history.replaceState({ 
-            file: this.currentFile, 
-            scrollTarget: targetId 
-          }, '', newURL);
-          
-          console.log('URL updated to:', newURL);
-        } else {
-          console.warn(`Target element not found for: ${targetId}`);
-          // Try to find any heading with similar text
-          this.fallbackScrollToText(link.textContent);
-        }
-        
-        // Reset the flag after scrolling is complete
-        setTimeout(() => {
-          this.isNavigatingFromTOC = false;
-        }, 1000);
-        
-        return false; // Prevent any default behavior
-      }, { capture: true }); // Use capture phase to handle event first
+      link.setAttribute("data-toc-link", index);
+
+      link.addEventListener(
+        "click",
+        (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          console.log("TOC link clicked:", link.textContent, link.href);
+
+          // Set flag to indicate navigation from TOC
+          this.isNavigatingFromTOC = true;
+
+          const targetId = link.getAttribute("href").substring(1);
+          console.log("Looking for target:", targetId);
+
+          // Try multiple strategies to find the target element
+          let targetElement = this.findTargetElement(
+            targetId,
+            link.textContent
+          );
+
+          if (targetElement) {
+            console.log("Target element found:", targetElement);
+
+            // Scroll to the target element with smooth behavior
+            this.smoothScrollToElement(targetElement);
+
+            // Update URL hash without triggering popstate or page reload
+            const currentPath = window.location.pathname;
+            const newURL = `${currentPath}#${targetId}`;
+
+            // Use replaceState to avoid triggering popstate event
+            history.replaceState(
+              {
+                file: this.currentFile,
+                scrollTarget: targetId,
+              },
+              "",
+              newURL
+            );
+
+            console.log("URL updated to:", newURL);
+          } else {
+            console.warn(`Target element not found for: ${targetId}`);
+            // Try to find any heading with similar text
+            this.fallbackScrollToText(link.textContent);
+          }
+
+          // Reset the flag after scrolling is complete
+          setTimeout(() => {
+            this.isNavigatingFromTOC = false;
+          }, 1000);
+
+          return false; // Prevent any default behavior
+        },
+        { capture: true }
+      ); // Use capture phase to handle event first
     });
   }
-  
+
   /**
    * Find target element using multiple strategies
    * @param {string} targetId - The target ID to find
@@ -651,39 +686,46 @@ class InterviewGuideApp {
     // Strategy 1: Direct ID match
     let targetElement = document.getElementById(targetId);
     if (targetElement) return targetElement;
-    
+
     // Strategy 2: Name attribute match
     targetElement = document.querySelector(`[name="${targetId}"]`);
     if (targetElement) return targetElement;
-    
+
     // Strategy 3: Find by text content matching
-    const headings = document.querySelectorAll('.markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4, .markdown-content h5, .markdown-content h6');
+    const headings = document.querySelectorAll(
+      ".markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4, .markdown-content h5, .markdown-content h6"
+    );
     const linkTextLower = linkText.toLowerCase().trim();
-    
+
     for (const heading of headings) {
       const headingText = heading.textContent.toLowerCase().trim();
-      
+
       // Direct text match
       if (headingText === linkTextLower) {
         return heading;
       }
-      
+
       // Try slug-style matching
-      const headingSlug = headingText.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-      const targetSlug = targetId.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+      const headingSlug = headingText
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+      const targetSlug = targetId
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
       if (headingSlug === targetSlug) {
         return heading;
       }
-      
+
       // Try partial text matching (if link text is contained in heading)
       if (headingText.includes(linkTextLower) && linkTextLower.length > 3) {
         return heading;
       }
     }
-    
+
     return null;
   }
-  
+
   /**
    * Smooth scroll to an element with proper offset
    * @param {HTMLElement} element - The element to scroll to
@@ -693,37 +735,37 @@ class InterviewGuideApp {
     const yOffset = -80; // Increased offset for better visibility
     const elementTop = element.getBoundingClientRect().top;
     const offsetPosition = elementTop + window.pageYOffset + yOffset;
-    
+
     // Scroll with smooth behavior
     window.scrollTo({
       top: offsetPosition,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
-    
+
     // Add a visual highlight to the target element
-    element.style.transition = 'background-color 0.3s ease';
-    element.style.backgroundColor = '#fff3cd';
-    
+    element.style.transition = "background-color 0.3s ease";
+    element.style.backgroundColor = "#fff3cd";
+
     setTimeout(() => {
-      element.style.backgroundColor = '';
+      element.style.backgroundColor = "";
       setTimeout(() => {
-        element.style.transition = '';
+        element.style.transition = "";
       }, 300);
     }, 1500);
   }
-  
+
   /**
    * Fallback method to scroll to text when ID-based scrolling fails
    * @param {string} text - The text to search for
    */
   fallbackScrollToText(text) {
-    const allElements = document.querySelectorAll('.markdown-content *');
+    const allElements = document.querySelectorAll(".markdown-content *");
     const searchText = text.toLowerCase().trim();
-    
+
     for (const element of allElements) {
       if (element.textContent.toLowerCase().includes(searchText)) {
         this.smoothScrollToElement(element);
-        console.log('Fallback scroll to element containing:', searchText);
+        console.log("Fallback scroll to element containing:", searchText);
         break;
       }
     }
@@ -921,7 +963,7 @@ class InterviewGuideApp {
     const children = element.childNodes;
     let currentY = y;
     let currentX = x;
-    
+
     for (let child of children) {
       if (child.nodeType === Node.TEXT_NODE) {
         const text = child.textContent.trim();
@@ -934,7 +976,7 @@ class InterviewGuideApp {
           }
         }
       } else if (child.nodeType === Node.ELEMENT_NODE) {
-        if (child.tagName === 'STRONG' || child.tagName === 'B') {
+        if (child.tagName === "STRONG" || child.tagName === "B") {
           doc.setFont("helvetica", "bold");
           const text = child.textContent.trim();
           if (text) {
@@ -959,7 +1001,7 @@ class InterviewGuideApp {
         }
       }
     }
-    
+
     return currentY;
   }
 
@@ -992,25 +1034,27 @@ class InterviewGuideApp {
   async exportWithStyling(contentArea, loadingEl) {
     try {
       // Check if html2canvas is available
-      if (typeof html2canvas === 'undefined') {
-        console.warn('html2canvas not available, falling back to text-based export');
+      if (typeof html2canvas === "undefined") {
+        console.warn(
+          "html2canvas not available, falling back to text-based export"
+        );
         this.exportTextBasedPDF(contentArea, loadingEl);
         return;
       }
 
       const { jsPDF } = window.jspdf;
-      
+
       // Clone content area to avoid modifying original
       const clonedContent = contentArea.cloneNode(true);
-      
+
       // Remove generated TOC if it exists to avoid duplication
-      const generatedTOC = clonedContent.querySelector('.generated-toc');
+      const generatedTOC = clonedContent.querySelector(".generated-toc");
       if (generatedTOC) {
         generatedTOC.remove();
       }
-      
+
       // Create a temporary container with proper styling
-      const tempContainer = document.createElement('div');
+      const tempContainer = document.createElement("div");
       tempContainer.style.cssText = `
         position: absolute;
         top: -9999px;
@@ -1022,17 +1066,17 @@ class InterviewGuideApp {
         line-height: 1.6;
         color: #333;
       `;
-      
+
       // Apply content styling
       clonedContent.style.cssText = `
         width: 100%;
         background: white;
         color: #333;
       `;
-      
+
       // Enhance styling for better PDF appearance
-      const headings = clonedContent.querySelectorAll('h1, h2, h3, h4, h5, h6');
-      headings.forEach(heading => {
+      const headings = clonedContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
+      headings.forEach((heading) => {
         heading.style.cssText += `
           color: #2c3e50;
           margin-top: 24px;
@@ -1040,9 +1084,9 @@ class InterviewGuideApp {
           font-weight: bold;
         `;
       });
-      
-      const codeBlocks = clonedContent.querySelectorAll('pre, code');
-      codeBlocks.forEach(code => {
+
+      const codeBlocks = clonedContent.querySelectorAll("pre, code");
+      codeBlocks.forEach((code) => {
         code.style.cssText += `
           background: #f8f9fa;
           border: 1px solid #e9ecef;
@@ -1053,67 +1097,66 @@ class InterviewGuideApp {
           color: #495057;
         `;
       });
-      
-      const paragraphs = clonedContent.querySelectorAll('p');
-      paragraphs.forEach(p => {
+
+      const paragraphs = clonedContent.querySelectorAll("p");
+      paragraphs.forEach((p) => {
         p.style.cssText += `
           margin-bottom: 16px;
           line-height: 1.6;
         `;
       });
-      
+
       tempContainer.appendChild(clonedContent);
       document.body.appendChild(tempContainer);
-      
+
       // Generate canvas from the styled content
       const canvas = await html2canvas(tempContainer, {
         scale: 2,
         useCORS: true,
         allowTaint: true,
-        backgroundColor: '#ffffff',
+        backgroundColor: "#ffffff",
         width: 800,
-        height: tempContainer.scrollHeight
+        height: tempContainer.scrollHeight,
       });
-      
+
       // Remove temporary container
       document.body.removeChild(tempContainer);
-      
+
       // Create PDF
-      const imgData = canvas.toDataURL('image/png');
+      const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF({
-        orientation: 'portrait',
-        unit: 'mm',
-        format: 'a4'
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
       });
-      
+
       const imgWidth = 210; // A4 width in mm
       const pageHeight = 295; // A4 height in mm
       const imgHeight = (canvas.height * imgWidth) / canvas.width;
       let heightLeft = imgHeight;
       let position = 0;
-      
+
       // Add first page
-      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
       heightLeft -= pageHeight;
-      
+
       // Add additional pages if needed
       while (heightLeft >= 0) {
         position = heightLeft - imgHeight;
         pdf.addPage();
-        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
-      
+
       // Get current file name for the PDF
       const fileName = this.currentFile
         ? this.currentFile.split("/").pop().replace(".md", "")
         : "interview-guide";
-      
+
       // Save the PDF
       pdf.save(`${fileName}.pdf`);
-      
     } catch (error) {
-      console.error('Error generating styled PDF:', error);
+      console.error("Error generating styled PDF:", error);
       // Fallback to text-based export
       this.exportTextBasedPDF(contentArea, loadingEl);
     } finally {
@@ -1140,7 +1183,7 @@ class InterviewGuideApp {
           format: "a4",
           compress: true,
           precision: 2,
-          userUnit: 1.0
+          userUnit: 1.0,
         });
 
         // A4 dimensions in mm
@@ -1171,9 +1214,9 @@ class InterviewGuideApp {
 
         // Clone content area to avoid modifying original
         const clonedContent = contentArea.cloneNode(true);
-        
+
         // Remove generated TOC if it exists to avoid duplication
-        const generatedTOC = clonedContent.querySelector('.generated-toc');
+        const generatedTOC = clonedContent.querySelector(".generated-toc");
         if (generatedTOC) {
           generatedTOC.remove();
         }
@@ -1231,11 +1274,20 @@ class InterviewGuideApp {
               doc.setFontSize(11);
               doc.setFont("helvetica", "normal");
               doc.setTextColor(0, 0, 0); // Black for body text
-              
+
               // Handle special formatting for strong/bold text
-              if (element.querySelector('strong') || element.querySelector('b')) {
+              if (
+                element.querySelector("strong") ||
+                element.querySelector("b")
+              ) {
                 // Process mixed content with bold
-                this.processMixedContent(doc, element, margin, yPosition, contentWidth);
+                this.processMixedContent(
+                  doc,
+                  element,
+                  margin,
+                  yPosition,
+                  contentWidth
+                );
                 const lineCount = Math.ceil(text.length / 80); // Rough estimate
                 yPosition += lineCount * 5 + 3;
               } else {
@@ -1256,7 +1308,7 @@ class InterviewGuideApp {
               doc.setFontSize(9);
               doc.setFont("courier", "normal");
               doc.setTextColor(0, 0, 0);
-              
+
               // Enhanced code block styling
               const codeLines = text.split("\n");
               const lineHeight = 4;
@@ -1272,12 +1324,19 @@ class InterviewGuideApp {
               doc.setFillColor(248, 249, 250); // Light gray background
               doc.setDrawColor(220, 220, 220); // Border color
               doc.setLineWidth(0.5);
-              doc.rect(margin, yPosition - padding, contentWidth, codeHeight, "FD");
+              doc.rect(
+                margin,
+                yPosition - padding,
+                contentWidth,
+                codeHeight,
+                "FD"
+              );
 
               // Add code content
               doc.setTextColor(33, 37, 41); // Dark text for code
               for (let codeLine of codeLines) {
-                if (codeLine.trim()) { // Only render non-empty lines
+                if (codeLine.trim()) {
+                  // Only render non-empty lines
                   doc.text(codeLine, margin + 2, yPosition);
                 }
                 yPosition += lineHeight;
@@ -1297,7 +1356,10 @@ class InterviewGuideApp {
                 const bullet = tagName === "UL" ? "•" : `${liIndex + 1}.`;
                 const liText = li.textContent.trim();
                 const fullText = `${bullet} ${liText}`;
-                const liLines = doc.splitTextToSize(fullText, contentWidth - 15);
+                const liLines = doc.splitTextToSize(
+                  fullText,
+                  contentWidth - 15
+                );
 
                 liLines.forEach((line, lineIndex) => {
                   if (yPosition > pageHeight - margin - 15) {
@@ -1344,27 +1406,23 @@ class InterviewGuideApp {
           doc.setFontSize(8);
           doc.setFont("helvetica", "normal");
           doc.setTextColor(128, 128, 128);
-          
+
           // Add page number
           doc.text(
             `Page ${i} of ${pageCount}`,
             pageWidth - margin - 25,
             pageHeight - 8
           );
-          
+
           // Add generation date on first page
           if (i === 1) {
             const now = new Date();
-            const dateStr = now.toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
+            const dateStr = now.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
             });
-            doc.text(
-              `Generated on ${dateStr}`,
-              margin,
-              pageHeight - 8
-            );
+            doc.text(`Generated on ${dateStr}`, margin, pageHeight - 8);
           }
         }
 

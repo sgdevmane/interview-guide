@@ -151,12 +151,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(
+        /* background: linear-gradient(
           135deg,
           var(--bg-primary) 0%,
           var(--bg-secondary) 50%,
           var(--secondary) 100%
-        );
+        ); */
         animation: fadeInUp 1s ease-out;
       }
 
@@ -1106,64 +1106,42 @@
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#features">Features</a></li>
-          <li>
-          <div class="feature-card">
-            <div class="feature-icon">🚀</div>
-            <h3 class="feature-title">Comprehensive Coverage</h3>
-            <p class="feature-description">
-              Over 1000+ questions covering React, Angular, JavaScript,
-              TypeScript, Node.js, Python, and more technologies.
-            </p>
-          </div>
+          <li><a href="dashboard.html" class="cta-button">Go to Dashboard</a></li>
+        </ul>
+      </div>
+    </nav>
 
-          <div class="feature-card">
-            <div class="feature-icon">💡</div>
-            <h3 class="feature-title">Real Interview Questions</h3>
-            <p class="feature-description">
-              Curated from actual interviews at top tech companies like Google,
-              Facebook, Amazon, and Microsoft.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">📱</div>
-            <h3 class="feature-title">Mobile Optimized</h3>
-            <p class="feature-description">
-              Study anywhere, anytime with our responsive design that works
-              perfectly on all devices.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3 class="feature-title">Structured Learning</h3>
-            <p class="feature-description">
-              Organized by technology and difficulty level to help you progress
-              systematically.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">⚡</div>
-            <h3 class="feature-title">Fast & Efficient</h3>
-            <p class="feature-description">
-              Quick search, syntax highlighting, and export features to maximize
-              your study efficiency.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="feature-icon">🔄</div>
-            <h3 class="feature-title">Regular Updates</h3>
-            <p class="feature-description">
-              Content is regularly updated with new questions and latest
-              technology trends.
-            </p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="carousel">
+        <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
+          <div class="carousel-content">
+            <!-- Content here -->
           </div>
         </div>
-<div class="container" style="margin-top: 4rem;">
-  <h2 class="section-title">Explore All Topics</h2>
-  <div class="features-grid">
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
+      </div>
+
+      <div class="hero-content">
+        <h1 class="hero-title">Master Your Tech Interview</h1>
+        <p class="hero-subtitle">
+          The most comprehensive, interactive, and up-to-date guide for
+          developers. Ace your next interview with confidence.
+        </p>
+        <div class="hero-buttons">
+          <a href="dashboard.html" class="btn-primary">Start Learning</a>
+          <a href="#topics" class="btn-secondary">Explore Topics</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topics Grid Section -->
+    <section class="features" id="topics">
+      <div class="container">
+        <h2 class="section-title">Explore All Topics</h2>
+        <p class="section-subtitle">Comprehensive interview questions across all major technologies</p>
+        <div class="features-grid">
     <a href="/markdowns/angular/angular-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
       <div class="feature-icon">🅰️</div>
       <h3 class="feature-title">Angular</h3>
@@ -1313,6 +1291,46 @@
       <div class="feature-icon">📦</div>
       <h3 class="feature-title">Webpack/Vite</h3>
       <p class="feature-description">Comprehensive interview questions and answers for Webpack/Vite.</p>
+    </a>
+    <a href="/markdowns/algorithms/algorithms-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🧮</div>
+      <h3 class="feature-title">Algorithms</h3>
+      <p class="feature-description">Data Structures & Algorithms</p>
+    </a>
+    <a href="/markdowns/git/git-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🌳</div>
+      <h3 class="feature-title">Git</h3>
+      <p class="feature-description">Version Control with Git</p>
+    </a>
+    <a href="/markdowns/graphql/graphql-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🕸️</div>
+      <h3 class="feature-title">GraphQL</h3>
+      <p class="feature-description">GraphQL API Development</p>
+    </a>
+    <a href="/markdowns/testing/jest-mocha-enzyme-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🧪</div>
+      <h3 class="feature-title">Jest/Mocha</h3>
+      <p class="feature-description">Testing with Jest, Mocha, Enzyme</p>
+    </a>
+    <a href="/markdowns/linux/linux-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🐧</div>
+      <h3 class="feature-title">Linux</h3>
+      <p class="feature-description">Linux Commands & Scripting</p>
+    </a>
+    <a href="/markdowns/material-radix-ui/material-radix-ui-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🎨</div>
+      <h3 class="feature-title">Material/Radix</h3>
+      <p class="feature-description">UI Libraries: MUI & Radix</p>
+    </a>
+    <a href="/markdowns/svelte/svelte-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🔥</div>
+      <h3 class="feature-title">Svelte</h3>
+      <p class="feature-description">Svelte Framework</p>
+    </a>
+    <a href="/markdowns/system-design/system-design-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🏗️</div>
+      <h3 class="feature-title">System Design</h3>
+      <p class="feature-description">Scalable System Architecture</p>
     </a>
   </div>
 </div>
@@ -1494,46 +1512,7 @@
           <a href="#" aria-label="LinkedIn">💼</a>
           <a href="#" aria-label="GitHub">🐙</a>
           <a href="#" aria-label="Discord">💬</a>
-    <a href="/markdowns/algorithms/algorithms-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🧮</div>
-      <h3 class="feature-title">Algorithms</h3>
-      <p class="feature-description">Data Structures & Algorithms</p>
-    </a>
-    <a href="/markdowns/git/git-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🌳</div>
-      <h3 class="feature-title">Git</h3>
-      <p class="feature-description">Version Control with Git</p>
-    </a>
-    <a href="/markdowns/graphql/graphql-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🕸️</div>
-      <h3 class="feature-title">GraphQL</h3>
-      <p class="feature-description">GraphQL API Development</p>
-    </a>
-    <a href="/markdowns/testing/jest-mocha-enzyme-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🧪</div>
-      <h3 class="feature-title">Jest/Mocha</h3>
-      <p class="feature-description">Testing with Jest, Mocha, Enzyme</p>
-    </a>
-    <a href="/markdowns/linux/linux-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🐧</div>
-      <h3 class="feature-title">Linux</h3>
-      <p class="feature-description">Linux Commands & Scripting</p>
-    </a>
-    <a href="/markdowns/material-radix-ui/material-radix-ui-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🎨</div>
-      <h3 class="feature-title">Material/Radix</h3>
-      <p class="feature-description">UI Libraries: MUI & Radix</p>
-    </a>
-    <a href="/markdowns/svelte/svelte-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🔥</div>
-      <h3 class="feature-title">Svelte</h3>
-      <p class="feature-description">Svelte Framework</p>
-    </a>
-    <a href="/markdowns/system-design/system-design-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🏗️</div>
-      <h3 class="feature-title">System Design</h3>
-      <p class="feature-description">Scalable System Architecture</p>
-    </a>
+
 
         </div>
         <div class="footer-bottom">

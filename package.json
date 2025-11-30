@@ -5,7 +5,7 @@
   "scripts": {
     "start": "http-server . -p 8080 -c-1",
     "build": "echo 'Static site: no build required. Copying assets...' && mkdir -p dist && cp -r *.html assets markdowns dist/",
-    "docker-deploy": "docker build -t tech-interview-guide . && docker run -d -p 8080:80 tech-interview-guide"
+    "deploy:docker": "docker build -t tech-interview-guide . && docker run -d -p 8080:80 tech-interview-guide"
   },
   "keywords": [
     "interview",
