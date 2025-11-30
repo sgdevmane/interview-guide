@@ -2,2155 +2,309 @@
 
 ## Table of Contents
 
-1. [How do you find a file by name?](#q1-how-do-you-find-a-file-by-name) <span class="beginner">Beginner</span>
-2. [How do you check disk space usage?](#q2-how-do-you-check-disk-space-usage) <span class="beginner">Beginner</span>
-3. [How do you change file permissions?](#q3-how-do-you-change-file-permissions) <span class="beginner">Beginner</span>
-4. [How do you check running processes?](#q4-how-do-you-check-running-processes) <span class="beginner">Beginner</span>
-5. [How do you follow the tail of a log file?](#q5-how-do-you-follow-the-tail-of-a-log-file) <span class="beginner">Beginner</span>
-6. [How do you archive and compress a directory?](#q6-how-do-you-archive-and-compress-a-directory) <span class="intermediate">Intermediate</span>
-7. [How do you check listening ports?](#q7-how-do-you-check-listening-ports) <span class="intermediate">Intermediate</span>
-8. [How do you search for a string inside files recursively?](#q8-how-do-you-search-for-a-string-inside-files-recursively) <span class="intermediate">Intermediate</span>
-9. [How do you kill a process by name?](#q9-how-do-you-kill-a-process-by-name) <span class="intermediate">Intermediate</span>
-10. [How do you set an environment variable for the session?](#q10-how-do-you-set-an-environment-variable-for-the-session) <span class="beginner">Beginner</span>
-11. [How do you handle Optimization in Linux (Scenario 1)?](#q11-how-do-you-handle-optimization-in-linux-scenario-1) <span class="intermediate">Intermediate</span>
-12. [How do you handle Security in Linux (Scenario 2)?](#q12-how-do-you-handle-security-in-linux-scenario-2) <span class="intermediate">Intermediate</span>
-13. [How do you handle Scalability in Linux (Scenario 3)?](#q13-how-do-you-handle-scalability-in-linux-scenario-3) <span class="intermediate">Intermediate</span>
-14. [How do you handle Debugging in Linux (Scenario 4)?](#q14-how-do-you-handle-debugging-in-linux-scenario-4) <span class="intermediate">Intermediate</span>
-15. [How do you handle Configuration in Linux (Scenario 5)?](#q15-how-do-you-handle-configuration-in-linux-scenario-5) <span class="intermediate">Intermediate</span>
-16. [How do you handle Best Practices in Linux (Scenario 6)?](#q16-how-do-you-handle-best-practices-in-linux-scenario-6) <span class="intermediate">Intermediate</span>
-17. [How do you handle Edge Cases in Linux (Scenario 7)?](#q17-how-do-you-handle-edge-cases-in-linux-scenario-7) <span class="intermediate">Intermediate</span>
-18. [How do you handle Automation in Linux (Scenario 8)?](#q18-how-do-you-handle-automation-in-linux-scenario-8) <span class="intermediate">Intermediate</span>
-19. [How do you handle Optimization in Linux (Scenario 9)?](#q19-how-do-you-handle-optimization-in-linux-scenario-9) <span class="intermediate">Intermediate</span>
-20. [How do you handle Security in Linux (Scenario 10)?](#q20-how-do-you-handle-security-in-linux-scenario-10) <span class="intermediate">Intermediate</span>
-21. [How do you handle Scalability in Linux (Scenario 11)?](#q21-how-do-you-handle-scalability-in-linux-scenario-11) <span class="intermediate">Intermediate</span>
-22. [How do you handle Debugging in Linux (Scenario 12)?](#q22-how-do-you-handle-debugging-in-linux-scenario-12) <span class="intermediate">Intermediate</span>
-23. [How do you handle Configuration in Linux (Scenario 13)?](#q23-how-do-you-handle-configuration-in-linux-scenario-13) <span class="intermediate">Intermediate</span>
-24. [How do you handle Best Practices in Linux (Scenario 14)?](#q24-how-do-you-handle-best-practices-in-linux-scenario-14) <span class="intermediate">Intermediate</span>
-25. [How do you handle Edge Cases in Linux (Scenario 15)?](#q25-how-do-you-handle-edge-cases-in-linux-scenario-15) <span class="intermediate">Intermediate</span>
-26. [How do you handle Automation in Linux (Scenario 16)?](#q26-how-do-you-handle-automation-in-linux-scenario-16) <span class="intermediate">Intermediate</span>
-27. [How do you handle Optimization in Linux (Scenario 17)?](#q27-how-do-you-handle-optimization-in-linux-scenario-17) <span class="intermediate">Intermediate</span>
-28. [How do you handle Security in Linux (Scenario 18)?](#q28-how-do-you-handle-security-in-linux-scenario-18) <span class="intermediate">Intermediate</span>
-29. [How do you handle Scalability in Linux (Scenario 19)?](#q29-how-do-you-handle-scalability-in-linux-scenario-19) <span class="intermediate">Intermediate</span>
-30. [How do you handle Debugging in Linux (Scenario 20)?](#q30-how-do-you-handle-debugging-in-linux-scenario-20) <span class="intermediate">Intermediate</span>
-31. [How do you handle Configuration in Linux (Scenario 21)?](#q31-how-do-you-handle-configuration-in-linux-scenario-21) <span class="intermediate">Intermediate</span>
-32. [How do you handle Best Practices in Linux (Scenario 22)?](#q32-how-do-you-handle-best-practices-in-linux-scenario-22) <span class="intermediate">Intermediate</span>
-33. [How do you handle Edge Cases in Linux (Scenario 23)?](#q33-how-do-you-handle-edge-cases-in-linux-scenario-23) <span class="intermediate">Intermediate</span>
-34. [How do you handle Automation in Linux (Scenario 24)?](#q34-how-do-you-handle-automation-in-linux-scenario-24) <span class="intermediate">Intermediate</span>
-35. [How do you handle Optimization in Linux (Scenario 25)?](#q35-how-do-you-handle-optimization-in-linux-scenario-25) <span class="intermediate">Intermediate</span>
-36. [How do you handle Security in Linux (Scenario 26)?](#q36-how-do-you-handle-security-in-linux-scenario-26) <span class="intermediate">Intermediate</span>
-37. [How do you handle Scalability in Linux (Scenario 27)?](#q37-how-do-you-handle-scalability-in-linux-scenario-27) <span class="intermediate">Intermediate</span>
-38. [How do you handle Debugging in Linux (Scenario 28)?](#q38-how-do-you-handle-debugging-in-linux-scenario-28) <span class="intermediate">Intermediate</span>
-39. [How do you handle Configuration in Linux (Scenario 29)?](#q39-how-do-you-handle-configuration-in-linux-scenario-29) <span class="intermediate">Intermediate</span>
-40. [How do you handle Best Practices in Linux (Scenario 30)?](#q40-how-do-you-handle-best-practices-in-linux-scenario-30) <span class="intermediate">Intermediate</span>
-41. [How do you handle Edge Cases in Linux (Scenario 31)?](#q41-how-do-you-handle-edge-cases-in-linux-scenario-31) <span class="intermediate">Intermediate</span>
-42. [How do you handle Automation in Linux (Scenario 32)?](#q42-how-do-you-handle-automation-in-linux-scenario-32) <span class="intermediate">Intermediate</span>
-43. [How do you handle Optimization in Linux (Scenario 33)?](#q43-how-do-you-handle-optimization-in-linux-scenario-33) <span class="intermediate">Intermediate</span>
-44. [How do you handle Security in Linux (Scenario 34)?](#q44-how-do-you-handle-security-in-linux-scenario-34) <span class="intermediate">Intermediate</span>
-45. [How do you handle Scalability in Linux (Scenario 35)?](#q45-how-do-you-handle-scalability-in-linux-scenario-35) <span class="intermediate">Intermediate</span>
-46. [How do you handle Debugging in Linux (Scenario 36)?](#q46-how-do-you-handle-debugging-in-linux-scenario-36) <span class="intermediate">Intermediate</span>
-47. [How do you handle Configuration in Linux (Scenario 37)?](#q47-how-do-you-handle-configuration-in-linux-scenario-37) <span class="intermediate">Intermediate</span>
-48. [How do you handle Best Practices in Linux (Scenario 38)?](#q48-how-do-you-handle-best-practices-in-linux-scenario-38) <span class="intermediate">Intermediate</span>
-49. [How do you handle Edge Cases in Linux (Scenario 39)?](#q49-how-do-you-handle-edge-cases-in-linux-scenario-39) <span class="intermediate">Intermediate</span>
-50. [How do you handle Automation in Linux (Scenario 40)?](#q50-how-do-you-handle-automation-in-linux-scenario-40) <span class="intermediate">Intermediate</span>
-51. [How do you handle Optimization in Linux (Scenario 41)?](#q51-how-do-you-handle-optimization-in-linux-scenario-41) <span class="intermediate">Intermediate</span>
-52. [How do you handle Security in Linux (Scenario 42)?](#q52-how-do-you-handle-security-in-linux-scenario-42) <span class="intermediate">Intermediate</span>
-53. [How do you handle Scalability in Linux (Scenario 43)?](#q53-how-do-you-handle-scalability-in-linux-scenario-43) <span class="intermediate">Intermediate</span>
-54. [How do you handle Debugging in Linux (Scenario 44)?](#q54-how-do-you-handle-debugging-in-linux-scenario-44) <span class="intermediate">Intermediate</span>
-55. [How do you handle Configuration in Linux (Scenario 45)?](#q55-how-do-you-handle-configuration-in-linux-scenario-45) <span class="intermediate">Intermediate</span>
-56. [How do you handle Best Practices in Linux (Scenario 46)?](#q56-how-do-you-handle-best-practices-in-linux-scenario-46) <span class="intermediate">Intermediate</span>
-57. [How do you handle Edge Cases in Linux (Scenario 47)?](#q57-how-do-you-handle-edge-cases-in-linux-scenario-47) <span class="intermediate">Intermediate</span>
-58. [How do you handle Automation in Linux (Scenario 48)?](#q58-how-do-you-handle-automation-in-linux-scenario-48) <span class="intermediate">Intermediate</span>
-59. [How do you handle Optimization in Linux (Scenario 49)?](#q59-how-do-you-handle-optimization-in-linux-scenario-49) <span class="intermediate">Intermediate</span>
-60. [How do you handle Security in Linux (Scenario 50)?](#q60-how-do-you-handle-security-in-linux-scenario-50) <span class="intermediate">Intermediate</span>
-61. [How do you handle Scalability in Linux (Scenario 51)?](#q61-how-do-you-handle-scalability-in-linux-scenario-51) <span class="intermediate">Intermediate</span>
-62. [How do you handle Debugging in Linux (Scenario 52)?](#q62-how-do-you-handle-debugging-in-linux-scenario-52) <span class="intermediate">Intermediate</span>
-63. [How do you handle Configuration in Linux (Scenario 53)?](#q63-how-do-you-handle-configuration-in-linux-scenario-53) <span class="intermediate">Intermediate</span>
-64. [How do you handle Best Practices in Linux (Scenario 54)?](#q64-how-do-you-handle-best-practices-in-linux-scenario-54) <span class="intermediate">Intermediate</span>
-65. [How do you handle Edge Cases in Linux (Scenario 55)?](#q65-how-do-you-handle-edge-cases-in-linux-scenario-55) <span class="intermediate">Intermediate</span>
-66. [How do you handle Automation in Linux (Scenario 56)?](#q66-how-do-you-handle-automation-in-linux-scenario-56) <span class="intermediate">Intermediate</span>
-67. [How do you handle Optimization in Linux (Scenario 57)?](#q67-how-do-you-handle-optimization-in-linux-scenario-57) <span class="intermediate">Intermediate</span>
-68. [How do you handle Security in Linux (Scenario 58)?](#q68-how-do-you-handle-security-in-linux-scenario-58) <span class="intermediate">Intermediate</span>
-69. [How do you handle Scalability in Linux (Scenario 59)?](#q69-how-do-you-handle-scalability-in-linux-scenario-59) <span class="intermediate">Intermediate</span>
-70. [How do you handle Debugging in Linux (Scenario 60)?](#q70-how-do-you-handle-debugging-in-linux-scenario-60) <span class="intermediate">Intermediate</span>
-71. [How do you handle Configuration in Linux (Scenario 61)?](#q71-how-do-you-handle-configuration-in-linux-scenario-61) <span class="intermediate">Intermediate</span>
-72. [How do you handle Best Practices in Linux (Scenario 62)?](#q72-how-do-you-handle-best-practices-in-linux-scenario-62) <span class="intermediate">Intermediate</span>
-73. [How do you handle Edge Cases in Linux (Scenario 63)?](#q73-how-do-you-handle-edge-cases-in-linux-scenario-63) <span class="intermediate">Intermediate</span>
-74. [How do you handle Automation in Linux (Scenario 64)?](#q74-how-do-you-handle-automation-in-linux-scenario-64) <span class="intermediate">Intermediate</span>
-75. [How do you handle Optimization in Linux (Scenario 65)?](#q75-how-do-you-handle-optimization-in-linux-scenario-65) <span class="intermediate">Intermediate</span>
-76. [How do you handle Security in Linux (Scenario 66)?](#q76-how-do-you-handle-security-in-linux-scenario-66) <span class="intermediate">Intermediate</span>
-77. [How do you handle Scalability in Linux (Scenario 67)?](#q77-how-do-you-handle-scalability-in-linux-scenario-67) <span class="intermediate">Intermediate</span>
-78. [How do you handle Debugging in Linux (Scenario 68)?](#q78-how-do-you-handle-debugging-in-linux-scenario-68) <span class="intermediate">Intermediate</span>
-79. [How do you handle Configuration in Linux (Scenario 69)?](#q79-how-do-you-handle-configuration-in-linux-scenario-69) <span class="intermediate">Intermediate</span>
-80. [How do you handle Best Practices in Linux (Scenario 70)?](#q80-how-do-you-handle-best-practices-in-linux-scenario-70) <span class="intermediate">Intermediate</span>
-81. [How do you handle Edge Cases in Linux (Scenario 71)?](#q81-how-do-you-handle-edge-cases-in-linux-scenario-71) <span class="intermediate">Intermediate</span>
-82. [How do you handle Automation in Linux (Scenario 72)?](#q82-how-do-you-handle-automation-in-linux-scenario-72) <span class="intermediate">Intermediate</span>
-83. [How do you handle Optimization in Linux (Scenario 73)?](#q83-how-do-you-handle-optimization-in-linux-scenario-73) <span class="intermediate">Intermediate</span>
-84. [How do you handle Security in Linux (Scenario 74)?](#q84-how-do-you-handle-security-in-linux-scenario-74) <span class="intermediate">Intermediate</span>
-85. [How do you handle Scalability in Linux (Scenario 75)?](#q85-how-do-you-handle-scalability-in-linux-scenario-75) <span class="intermediate">Intermediate</span>
-86. [How do you handle Debugging in Linux (Scenario 76)?](#q86-how-do-you-handle-debugging-in-linux-scenario-76) <span class="intermediate">Intermediate</span>
-87. [How do you handle Configuration in Linux (Scenario 77)?](#q87-how-do-you-handle-configuration-in-linux-scenario-77) <span class="intermediate">Intermediate</span>
-88. [How do you handle Best Practices in Linux (Scenario 78)?](#q88-how-do-you-handle-best-practices-in-linux-scenario-78) <span class="intermediate">Intermediate</span>
-89. [How do you handle Edge Cases in Linux (Scenario 79)?](#q89-how-do-you-handle-edge-cases-in-linux-scenario-79) <span class="intermediate">Intermediate</span>
-90. [How do you handle Automation in Linux (Scenario 80)?](#q90-how-do-you-handle-automation-in-linux-scenario-80) <span class="intermediate">Intermediate</span>
-91. [How do you handle Optimization in Linux (Scenario 81)?](#q91-how-do-you-handle-optimization-in-linux-scenario-81) <span class="intermediate">Intermediate</span>
-92. [How do you handle Security in Linux (Scenario 82)?](#q92-how-do-you-handle-security-in-linux-scenario-82) <span class="intermediate">Intermediate</span>
-93. [How do you handle Scalability in Linux (Scenario 83)?](#q93-how-do-you-handle-scalability-in-linux-scenario-83) <span class="intermediate">Intermediate</span>
-94. [How do you handle Debugging in Linux (Scenario 84)?](#q94-how-do-you-handle-debugging-in-linux-scenario-84) <span class="intermediate">Intermediate</span>
-95. [How do you handle Configuration in Linux (Scenario 85)?](#q95-how-do-you-handle-configuration-in-linux-scenario-85) <span class="intermediate">Intermediate</span>
-96. [How do you handle Best Practices in Linux (Scenario 86)?](#q96-how-do-you-handle-best-practices-in-linux-scenario-86) <span class="intermediate">Intermediate</span>
-97. [How do you handle Edge Cases in Linux (Scenario 87)?](#q97-how-do-you-handle-edge-cases-in-linux-scenario-87) <span class="intermediate">Intermediate</span>
-98. [How do you handle Automation in Linux (Scenario 88)?](#q98-how-do-you-handle-automation-in-linux-scenario-88) <span class="intermediate">Intermediate</span>
-99. [How do you handle Optimization in Linux (Scenario 89)?](#q99-how-do-you-handle-optimization-in-linux-scenario-89) <span class="intermediate">Intermediate</span>
-100. [How do you handle Security in Linux (Scenario 90)?](#q100-how-do-you-handle-security-in-linux-scenario-90) <span class="intermediate">Intermediate</span>
-
----
-
-### Q1: How do you find a file by name?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use `find` command.
-
-**Code Example**:
-```javascript
-find /var/www -name "*.log"
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q2: How do you check disk space usage?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use `df -h`.
-
-**Code Example**:
-```javascript
-df -h
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q3: How do you change file permissions?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use `chmod`.
-
-**Code Example**:
-```javascript
-chmod 755 script.sh  # rwxr-xr-x
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q4: How do you check running processes?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use `ps aux` or `top` or `htop`.
-
-**Code Example**:
-```javascript
-ps aux | grep node
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q5: How do you follow the tail of a log file?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use `tail -f`.
-
-**Code Example**:
-```javascript
-tail -f /var/log/syslog
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q6: How do you archive and compress a directory?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use `tar -czvf`.
-
-**Code Example**:
-```javascript
-tar -czvf backup.tar.gz /path/to/dir
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q7: How do you check listening ports?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use `netstat -tulpn` or `ss -tulpn`.
-
-**Code Example**:
-```javascript
-netstat -tulpn | grep :80
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q8: How do you search for a string inside files recursively?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use `grep -r`.
-
-**Code Example**:
-```javascript
-grep -r "TODO" ./src
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q9: How do you kill a process by name?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use `pkill` or `killall`.
-
-**Code Example**:
-```javascript
-pkill -f node
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q10: How do you set an environment variable for the session?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use `export`.
-
-**Code Example**:
-```javascript
-export NODE_ENV=production
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q11: How do you handle Optimization in Linux (Scenario 1)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q12: How do you handle Security in Linux (Scenario 2)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q13: How do you handle Scalability in Linux (Scenario 3)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q14: How do you handle Debugging in Linux (Scenario 4)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q15: How do you handle Configuration in Linux (Scenario 5)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q16: How do you handle Best Practices in Linux (Scenario 6)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q17: How do you handle Edge Cases in Linux (Scenario 7)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q18: How do you handle Automation in Linux (Scenario 8)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q19: How do you handle Optimization in Linux (Scenario 9)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q20: How do you handle Security in Linux (Scenario 10)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q21: How do you handle Scalability in Linux (Scenario 11)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q22: How do you handle Debugging in Linux (Scenario 12)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q23: How do you handle Configuration in Linux (Scenario 13)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q24: How do you handle Best Practices in Linux (Scenario 14)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q25: How do you handle Edge Cases in Linux (Scenario 15)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q26: How do you handle Automation in Linux (Scenario 16)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q27: How do you handle Optimization in Linux (Scenario 17)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q28: How do you handle Security in Linux (Scenario 18)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q29: How do you handle Scalability in Linux (Scenario 19)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q30: How do you handle Debugging in Linux (Scenario 20)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q31: How do you handle Configuration in Linux (Scenario 21)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q32: How do you handle Best Practices in Linux (Scenario 22)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q33: How do you handle Edge Cases in Linux (Scenario 23)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q34: How do you handle Automation in Linux (Scenario 24)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q35: How do you handle Optimization in Linux (Scenario 25)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q36: How do you handle Security in Linux (Scenario 26)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q37: How do you handle Scalability in Linux (Scenario 27)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q38: How do you handle Debugging in Linux (Scenario 28)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q39: How do you handle Configuration in Linux (Scenario 29)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q40: How do you handle Best Practices in Linux (Scenario 30)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q41: How do you handle Edge Cases in Linux (Scenario 31)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q42: How do you handle Automation in Linux (Scenario 32)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q43: How do you handle Optimization in Linux (Scenario 33)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q44: How do you handle Security in Linux (Scenario 34)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q45: How do you handle Scalability in Linux (Scenario 35)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q46: How do you handle Debugging in Linux (Scenario 36)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q47: How do you handle Configuration in Linux (Scenario 37)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q48: How do you handle Best Practices in Linux (Scenario 38)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q49: How do you handle Edge Cases in Linux (Scenario 39)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q50: How do you handle Automation in Linux (Scenario 40)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q51: How do you handle Optimization in Linux (Scenario 41)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q52: How do you handle Security in Linux (Scenario 42)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: How do you handle Scalability in Linux (Scenario 43)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you handle Debugging in Linux (Scenario 44)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How do you handle Configuration in Linux (Scenario 45)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: How do you handle Best Practices in Linux (Scenario 46)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q57: How do you handle Edge Cases in Linux (Scenario 47)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: How do you handle Automation in Linux (Scenario 48)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q59: How do you handle Optimization in Linux (Scenario 49)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: How do you handle Security in Linux (Scenario 50)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q61: How do you handle Scalability in Linux (Scenario 51)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q62: How do you handle Debugging in Linux (Scenario 52)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: How do you handle Configuration in Linux (Scenario 53)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q64: How do you handle Best Practices in Linux (Scenario 54)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q65: How do you handle Edge Cases in Linux (Scenario 55)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q66: How do you handle Automation in Linux (Scenario 56)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q67: How do you handle Optimization in Linux (Scenario 57)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q68: How do you handle Security in Linux (Scenario 58)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you handle Scalability in Linux (Scenario 59)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you handle Debugging in Linux (Scenario 60)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q71: How do you handle Configuration in Linux (Scenario 61)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q72: How do you handle Best Practices in Linux (Scenario 62)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: How do you handle Edge Cases in Linux (Scenario 63)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q74: How do you handle Automation in Linux (Scenario 64)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you handle Optimization in Linux (Scenario 65)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: How do you handle Security in Linux (Scenario 66)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: How do you handle Scalability in Linux (Scenario 67)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: How do you handle Debugging in Linux (Scenario 68)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q79: How do you handle Configuration in Linux (Scenario 69)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q80: How do you handle Best Practices in Linux (Scenario 70)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q81: How do you handle Edge Cases in Linux (Scenario 71)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q82: How do you handle Automation in Linux (Scenario 72)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q83: How do you handle Optimization in Linux (Scenario 73)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you handle Security in Linux (Scenario 74)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: How do you handle Scalability in Linux (Scenario 75)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q86: How do you handle Debugging in Linux (Scenario 76)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q87: How do you handle Configuration in Linux (Scenario 77)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q88: How do you handle Best Practices in Linux (Scenario 78)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q89: How do you handle Edge Cases in Linux (Scenario 79)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you handle Automation in Linux (Scenario 80)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: How do you handle Optimization in Linux (Scenario 81)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: How do you handle Security in Linux (Scenario 82)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: How do you handle Scalability in Linux (Scenario 83)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q94: How do you handle Debugging in Linux (Scenario 84)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q95: How do you handle Configuration in Linux (Scenario 85)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q96: How do you handle Best Practices in Linux (Scenario 86)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q97: How do you handle Edge Cases in Linux (Scenario 87)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q98: How do you handle Automation in Linux (Scenario 88)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q99: How do you handle Optimization in Linux (Scenario 89)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q100: How do you handle Security in Linux (Scenario 90)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+1. [How do you check disk space and usage?](#q1-how-do-you-check-disk-space-and-usage) <span class="beginner">Beginner</span>
+2. [Explain file permissions (chmod)?](#q2-explain-file-permissions-chmod) <span class="beginner">Beginner</span>
+3. [How to find a file by name or content?](#q3-how-to-find-a-file-by-name-or-content) <span class="intermediate">Intermediate</span>
+4. [What is `grep` and how do you use it?](#q4-what-is-grep-and-how-do-you-use-it) <span class="beginner">Beginner</span>
+5. [How to check running processes and kill them?](#q5-how-to-check-running-processes-and-kill-them) <span class="intermediate">Intermediate</span>
+6. [Difference between Soft Link and Hard Link?](#q6-difference-between-soft-link-and-hard-link) <span class="intermediate">Intermediate</span>
+7. [How to check listening ports (netstat/ss)?](#q7-how-to-check-listening-ports-netstatss) <span class="intermediate">Intermediate</span>
+8. [Explain `cron` and `crontab`?](#q8-explain-cron-and-crontab) <span class="intermediate">Intermediate</span>
+9. [What is the difference between Process and Thread?](#q9-what-is-the-difference-between-process-and-thread) <span class="advanced">Advanced</span>
+10. [How do you check memory usage (free/top)?](#q10-how-do-you-check-memory-usage-freetop) <span class="beginner">Beginner</span>
+11. [What is SSH and how does it work?](#q11-what-is-ssh-and-how-does-it-work) <span class="advanced">Advanced</span>
+12. [Explain standard streams (stdin, stdout, stderr)?](#q12-explain-standard-streams-stdin-stdout-stderr) <span class="intermediate">Intermediate</span>
+13. [How to view the end of a log file in real-time?](#q13-how-to-view-the-end-of-a-log-file-in-real-time) <span class="beginner">Beginner</span>
+14. [What is a Daemon?](#q14-what-is-a-daemon) <span class="intermediate">Intermediate</span>
+15. [How to change the owner of a file (chown)?](#q15-how-to-change-the-owner-of-a-file-chown) <span class="beginner">Beginner</span>
+16. [What is the `/proc` filesystem?](#q16-what-is-the-proc-filesystem) <span class="advanced">Advanced</span>
+17. [How to compress and extract files (tar)?](#q17-how-to-compress-and-extract-files-tar) <span class="beginner">Beginner</span>
+18. [What is `systemd`?](#q18-what-is-systemd) <span class="advanced">Advanced</span>
+19. [How to check IP address and Network Interface info?](#q19-how-to-check-ip-address-and-network-interface-info) <span class="beginner">Beginner</span>
+20. [Explain the Linux Boot Process?](#q20-explain-the-linux-boot-process) <span class="advanced">Advanced</span>
+
+---
+
+<div id="q1-how-do-you-check-disk-space-and-usage" class="question">
+  1. How do you check disk space and usage?
+  <span class="difficulty beginner">Beginner</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><code>df -h</code>: Displays <strong>free disk space</strong> for all mounted filesystems in a human-readable format (GB/MB).</li>
+    <li><code>du -sh <directory></code>: Displays <strong>disk usage</strong> of a specific directory (summary).</li>
+  </ul>
+</div>
+
+<div id="q2-explain-file-permissions-chmod" class="question">
+  2. Explain file permissions (chmod)?
+  <span class="difficulty beginner">Beginner</span>
+</div>
+
+<div class="answer">
+  <p>Linux permissions are Read (r=4), Write (w=2), Execute (x=1). They are set for Owner, Group, and Others.</p>
+  <ul>
+    <li><code>chmod 755 file</code>: Owner(rwx=7), Group(rx=5), Others(rx=5).</li>
+    <li><code>chmod +x script.sh</code>: Adds execute permission for everyone.</li>
+  </ul>
+</div>
+
+<div id="q3-how-to-find-a-file-by-name-or-content" class="question">
+  3. How to find a file by name or content?
+  <span class="difficulty intermediate">Intermediate</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><strong>By Name:</strong> <code>find /path -name "filename.txt"</code></li>
+    <li><strong>By Content:</strong> <code>grep -r "search_string" /path/to/search</code></li>
+  </ul>
+</div>
+
+<div id="q4-what-is-grep-and-how-do-you-use-it" class="question">
+  4. What is `grep` and how do you use it?
+  <span class="difficulty beginner">Beginner</span>
+</div>
+
+<div class="answer">
+  <p><code>grep</code> searches for patterns in files.</p>
+  <ul>
+    <li><code>grep "error" log.txt</code>: Search for "error" in log.txt.</li>
+    <li><code>grep -i "error" log.txt</code>: Case-insensitive search.</li>
+    <li><code>grep -v "info" log.txt</code>: Invert match (show lines NOT containing "info").</li>
+  </ul>
+</div>
+
+<div id="q5-how-to-check-running-processes-and-kill-them" class="question">
+  5. How to check running processes and kill them?
+  <span class="difficulty intermediate">Intermediate</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><code>ps aux</code>: Lists all running processes.</li>
+    <li><code>top</code> or <code>htop</code>: Real-time view of processes.</li>
+    <li><code>kill <PID></code>: Sends SIGTERM to process ID.</li>
+    <li><code>kill -9 <PID></code>: Forcefully kills the process (SIGKILL).</li>
+  </ul>
+</div>
+
+<div id="q6-difference-between-soft-link-and-hard-link" class="question">
+  6. Difference between Soft Link and Hard Link?
+  <span class="difficulty intermediate">Intermediate</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><strong>Soft Link (Symbolic Link):</strong> Points to the file path (like a shortcut). If original file is deleted, the link breaks. Can cross filesystems.
+      <br><code>ln -s original linkname</code></li>
+    <li><strong>Hard Link:</strong> Points to the inode (physical data). If original file is deleted, the content remains accessible via the link. Cannot cross filesystems.
+      <br><code>ln original linkname</code></li>
+  </ul>
+</div>
+
+<div id="q7-how-to-check-listening-ports-netstatss" class="question">
+  7. How to check listening ports (netstat/ss)?
+  <span class="difficulty intermediate">Intermediate</span>
+</div>
+
+<div class="answer">
+  <p>Modern systems use <code>ss</code>, older ones use <code>netstat</code>.</p>
+  <ul>
+    <li><code>ss -tulpn</code>:
+      <ul>
+        <li><code>-t</code>: TCP</li>
+        <li><code>-u</code>: UDP</li>
+        <li><code>-l</code>: Listening sockets</li>
+        <li><code>-p</code>: Show process using the port</li>
+        <li><code>-n</code>: Numeric (don't resolve hostnames)</li>
+      </ul>
+    </li>
+    <li><code>netstat -tulpn</code>: Similar flags.</li>
+  </ul>
+</div>
+
+<div id="q8-explain-cron-and-crontab" class="question">
+  8. Explain `cron` and `crontab`?
+  <span class="difficulty intermediate">Intermediate</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><strong>cron:</strong> The daemon that executes scheduled commands.</li>
+    <li><strong>crontab:</strong> The file where users define schedules.</li>
+    <li>Format: <code>* * * * * command_to_run</code>
+      <br>(Minute, Hour, Day of Month, Month, Day of Week).</li>
+    <li>Example: <code>0 2 * * * /backup.sh</code> runs every day at 2:00 AM.</li>
+  </ul>
+</div>
+
+<div id="q9-what-is-the-difference-between-process-and-thread" class="question">
+  9. What is the difference between Process and Thread?
+  <span class="difficulty advanced">Advanced</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><strong>Process:</strong> An instance of a program in execution. Has its own memory space (heap, stack, globals). Heavyweight context switching.</li>
+    <li><strong>Thread:</strong> A segment of a process. Threads share the memory space of the parent process. Lightweight context switching.</li>
+  </ul>
+</div>
+
+<div id="q10-how-do-you-check-memory-usage-freetop" class="question">
+  10. How do you check memory usage (free/top)?
+  <span class="difficulty beginner">Beginner</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><code>free -h</code>: Shows total, used, and free RAM/Swap in human-readable format.</li>
+    <li><code>vmstat</code>: Reports virtual memory statistics.</li>
+    <li><code>cat /proc/meminfo</code>: Detailed memory info.</li>
+  </ul>
+</div>
+
+<div id="q11-what-is-ssh-and-how-does-it-work" class="question">
+  11. What is SSH and how does it work?
+  <span class="difficulty advanced">Advanced</span>
+</div>
+
+<div class="answer">
+  <p><strong>SSH (Secure Shell)</strong> is a protocol for secure remote login.</p>
+  <ul>
+    <li>Uses <strong>Public Key Cryptography</strong> for authentication.</li>
+    <li><strong>Handshake:</strong> Client and Server agree on encryption parameters.</li>
+    <li><strong>Authentication:</strong> Client proves identity using private key (or password).</li>
+    <li><strong>Session:</strong> All data transferred is encrypted.</li>
+    <li>Default port: 22.</li>
+  </ul>
+</div>
+
+<div id="q12-explain-standard-streams-stdin-stdout-stderr" class="question">
+  12. Explain standard streams (stdin, stdout, stderr)?
+  <span class="difficulty intermediate">Intermediate</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><strong>stdin (0):</strong> Standard Input. Data fed into a program (keyboard or pipe).</li>
+    <li><strong>stdout (1):</strong> Standard Output. Where the program prints normal data (terminal).</li>
+    <li><strong>stderr (2):</strong> Standard Error. Where the program prints error messages.</li>
+    <li><strong>Redirection:</strong>
+      <ul>
+        <li><code>> file</code>: Redirect stdout to file.</li>
+        <li><code>2> file</code>: Redirect stderr to file.</li>
+        <li><code>|</code> (Pipe): Pass stdout of one command to stdin of another.</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<div id="q13-how-to-view-the-end-of-a-log-file-in-real-time" class="question">
+  13. How to view the end of a log file in real-time?
+  <span class="difficulty beginner">Beginner</span>
+</div>
+
+<div class="answer">
+  <pre><code class="language-bash">tail -f /var/log/syslog</code></pre>
+  <p>The <code>-f</code> (follow) flag keeps the stream open and prints new lines as they are added to the file.</p>
+</div>
+
+<div id="q14-what-is-a-daemon" class="question">
+  14. What is a Daemon?
+  <span class="difficulty intermediate">Intermediate</span>
+</div>
+
+<div class="answer">
+  <p>A <strong>Daemon</strong> is a background process that runs without direct user interaction.</p>
+  <ul>
+    <li>Usually starts at boot time.</li>
+    <li>Ends with the letter 'd' (e.g., <code>httpd</code>, <code>sshd</code>, <code>mysqld</code>).</li>
+    <li>Managed by init systems like <code>systemd</code> or <code>System V</code>.</li>
+  </ul>
+</div>
+
+<div id="q15-how-to-change-the-owner-of-a-file-chown" class="question">
+  15. How to change the owner of a file (chown)?
+  <span class="difficulty beginner">Beginner</span>
+</div>
+
+<div class="answer">
+  <pre><code class="language-bash">chown user:group filename</code></pre>
+  <p>Example: <code>chown mctavish:developers project.js</code> changes owner to 'mctavish' and group to 'developers'.</p>
+</div>
+
+<div id="q16-what-is-the-proc-filesystem" class="question">
+  16. What is the `/proc` filesystem?
+  <span class="difficulty advanced">Advanced</span>
+</div>
+
+<div class="answer">
+  <p><code>/proc</code> is a virtual filesystem (not on disk, but in memory) that contains information about running processes and the kernel.</p>
+  <ul>
+    <li><code>/proc/cpuinfo</code>: CPU details.</li>
+    <li><code>/proc/meminfo</code>: Memory usage.</li>
+    <li><code>/proc/[PID]/</code>: Info about a specific process (e.g., <code>/proc/1/cmdline</code>).</li>
+  </ul>
+</div>
+
+<div id="q17-how-to-compress-and-extract-files-tar" class="question">
+  17. How to compress and extract files (tar)?
+  <span class="difficulty beginner">Beginner</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><strong>Compress (Create Archive):</strong>
+      <br><code>tar -czvf archive.tar.gz /path/to/directory</code>
+      <br>(c: create, z: gzip, v: verbose, f: file)
+    </li>
+    <li><strong>Extract:</strong>
+      <br><code>tar -xzvf archive.tar.gz</code>
+      <br>(x: extract)
+    </li>
+  </ul>
+</div>
+
+<div id="q18-what-is-systemd" class="question">
+  18. What is `systemd`?
+  <span class="difficulty advanced">Advanced</span>
+</div>
+
+<div class="answer">
+  <p><code>systemd</code> is the standard init system and service manager for most Linux distributions.</p>
+  <ul>
+    <li>It is the first process started (PID 1).</li>
+    <li>It manages services (<code>systemctl start nginx</code>).</li>
+    <li>It handles parallel startup of system components.</li>
+    <li>It manages logs via <code>journald</code>.</li>
+  </ul>
+</div>
+
+<div id="q19-how-to-check-ip-address-and-network-interface-info" class="question">
+  19. How to check IP address and Network Interface info?
+  <span class="difficulty beginner">Beginner</span>
+</div>
+
+<div class="answer">
+  <ul>
+    <li><code>ip addr show</code> (or just <code>ip a</code>): Modern command.</li>
+    <li><code>ifconfig</code>: Deprecated but common legacy command.</li>
+    <li><code>hostname -I</code>: Shows just the IP address.</li>
+  </ul>
+</div>
+
+<div id="q20-explain-the-linux-boot-process" class="question">
+  20. Explain the Linux Boot Process?
+  <span class="difficulty advanced">Advanced</span>
+</div>
+
+<div class="answer">
+  <ol>
+    <li><strong>BIOS/UEFI:</strong> Performs POST (Power On Self Test) and loads the Bootloader.</li>
+    <li><strong>Bootloader (GRUB):</strong> Loads the Kernel into memory.</li>
+    <li><strong>Kernel:</strong> Initializes hardware and mounts the root filesystem.</li>
+    <li><strong>Init System (systemd):</strong> Starts services and user space (PID 1).</li>
+  </ol>
+</div>
