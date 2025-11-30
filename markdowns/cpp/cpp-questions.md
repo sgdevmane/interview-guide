@@ -1,119 +1,56 @@
-## Table of Contents
-| No. | Question | Difficulty |
-| --- | -------- | ---------- |
-| 1 | [How do you prevent memory leaks in Modern C++ using RAII?](#how-do-you-prevent-memory-leaks-in-modern-c++-using-raii) | Beginner |
-| 2 | [How do you implement Move Semantics to optimize performance when returning large objects?](#how-do-you-implement-move-semantics-to-optimize-performance-when-returning-large-objects) | Intermediate |
-| 3 | [How do you resolve circular dependencies when using `std::shared_ptr`?](#how-do-you-resolve-circular-dependencies-when-using-std::shared_ptr) | Intermediate |
-| 4 | [How do you use `std::async` to run a task asynchronously and retrieve the result?](#how-do-you-use-std::async-to-run-a-task-asynchronously-and-retrieve-the-result) | Intermediate |
-| 5 | [How do you use `if constexpr` to optimize template code at compile time?](#how-do-you-use-if-constexpr-to-optimize-template-code-at-compile-time) | Advanced |
-| 6 | [How do you ensure thread safety when accessing a shared variable without using heavy mutexes?](#how-do-you-ensure-thread-safety-when-accessing-a-shared-variable-without-using-heavy-mutexes) | Advanced |
-| 7 | [How do you implement Perfect Forwarding in a template function?](#how-do-you-implement-perfect-forwarding-in-a-template-function) | Advanced |
-| 8 | [How do you handle multiple return values from a function efficiently?](#how-do-you-handle-multiple-return-values-from-a-function-efficiently) | Intermediate |
-| 9 | [How do you avoid Virtual Function overhead (dynamic dispatch) when polymorphism is needed?](#how-do-you-avoid-virtual-function-overhead-dynamic-dispatch-when-polymorphism-is-needed) | Expert |
-| 10 | [How do you use `std::variant` to create a type-safe union?](#how-do-you-use-std::variant-to-create-a-type-safe-union) | Intermediate |
-| 11 | [How do you prevent 'Object Slicing' when passing derived objects to functions?](#how-do-you-prevent-object-slicing-when-passing-derived-objects-to-functions) | Beginner |
-| 12 | [How do you use `std::optional` to handle values that might not exist?](#how-do-you-use-std::optional-to-handle-values-that-might-not-exist) | Intermediate |
-| 13 | [How do you optimize vector growth to avoid frequent reallocations?](#how-do-you-optimize-vector-growth-to-avoid-frequent-reallocations) | Beginner |
-| 14 | [How do you debug a segmentation fault caused by a dangling pointer?](#how-do-you-debug-a-segmentation-fault-caused-by-a-dangling-pointer) | Intermediate |
-| 15 | [How do you ensure a destructor in a base class allows proper cleanup of derived classes?](#how-do-you-ensure-a-destructor-in-a-base-class-allows-proper-cleanup-of-derived-classes) | Beginner |
-| 16 | [How do you implement Ranges (C++20) for high-performance applications? (Scenario 16)](#how-do-you-implement-ranges-c++20-for-high-performance-applications-scenario-16) | Intermediate |
-| 17 | [How do you implement Concepts (C++20) for high-performance applications? (Scenario 17)](#how-do-you-implement-concepts-c++20-for-high-performance-applications-scenario-17) | Intermediate |
-| 18 | [How do you implement Coroutines (C++20) for high-performance applications? (Scenario 18)](#how-do-you-implement-coroutines-c++20-for-high-performance-applications-scenario-18) | Intermediate |
-| 19 | [How do you implement Three-way Comparison for high-performance applications? (Scenario 19)](#how-do-you-implement-three-way-comparison-for-high-performance-applications-scenario-19) | Intermediate |
-| 20 | [How do you implement Design Patterns in C++ for high-performance applications? (Scenario 20)](#how-do-you-implement-design-patterns-in-c++-for-high-performance-applications-scenario-20) | Intermediate |
-| 21 | [How do you implement PIMPL Idiom for high-performance applications? (Scenario 21)](#how-do-you-implement-pimpl-idiom-for-high-performance-applications-scenario-21) | Intermediate |
-| 22 | [How do you implement Singleton Pattern for high-performance applications? (Scenario 22)](#how-do-you-implement-singleton-pattern-for-high-performance-applications-scenario-22) | Intermediate |
-| 23 | [How do you implement Factory Pattern for high-performance applications? (Scenario 23)](#how-do-you-implement-factory-pattern-for-high-performance-applications-scenario-23) | Intermediate |
-| 24 | [How do you implement Observer Pattern for high-performance applications? (Scenario 24)](#how-do-you-implement-observer-pattern-for-high-performance-applications-scenario-24) | Intermediate |
-| 25 | [How do you implement Type Erasure for high-performance applications? (Scenario 25)](#how-do-you-implement-type-erasure-for-high-performance-applications-scenario-25) | Intermediate |
-| 26 | [How do you implement Metaprogramming for high-performance applications? (Scenario 26)](#how-do-you-implement-metaprogramming-for-high-performance-applications-scenario-26) | Intermediate |
-| 27 | [How do you implement Signal Handling for high-performance applications? (Scenario 27)](#how-do-you-implement-signal-handling-for-high-performance-applications-scenario-27) | Intermediate |
-| 28 | [How do you implement Lambda Expressions for high-performance applications? (Scenario 28)](#how-do-you-implement-lambda-expressions-for-high-performance-applications-scenario-28) | Intermediate |
-| 29 | [How do you implement Function Objects for high-performance applications? (Scenario 29)](#how-do-you-implement-function-objects-for-high-performance-applications-scenario-29) | Intermediate |
-| 30 | [How do you implement STL Algorithms for high-performance applications? (Scenario 30)](#how-do-you-implement-stl-algorithms-for-high-performance-applications-scenario-30) | Intermediate |
-| 31 | [How do you implement Iterators for high-performance applications? (Scenario 31)](#how-do-you-implement-iterators-for-high-performance-applications-scenario-31) | Intermediate |
-| 32 | [How do you implement Constexpr for high-performance applications? (Scenario 32)](#how-do-you-implement-constexpr-for-high-performance-applications-scenario-32) | Intermediate |
-| 33 | [How do you implement Memory Alignment for high-performance applications? (Scenario 33)](#how-do-you-implement-memory-alignment-for-high-performance-applications-scenario-33) | Intermediate |
-| 34 | [How do you implement Custom Allocators for high-performance applications? (Scenario 34)](#how-do-you-implement-custom-allocators-for-high-performance-applications-scenario-34) | Intermediate |
-| 35 | [How do you implement Concurrency for high-performance applications? (Scenario 35)](#how-do-you-implement-concurrency-for-high-performance-applications-scenario-35) | Intermediate |
-| 36 | [How do you implement Condition Variables for high-performance applications? (Scenario 36)](#how-do-you-implement-condition-variables-for-high-performance-applications-scenario-36) | Intermediate |
-| 37 | [How do you implement Semaphores for high-performance applications? (Scenario 37)](#how-do-you-implement-semaphores-for-high-performance-applications-scenario-37) | Intermediate |
-| 38 | [How do you implement Thread Pools for high-performance applications? (Scenario 38)](#how-do-you-implement-thread-pools-for-high-performance-applications-scenario-38) | Intermediate |
-| 39 | [How do you implement Exception Handling for high-performance applications? (Scenario 39)](#how-do-you-implement-exception-handling-for-high-performance-applications-scenario-39) | Intermediate |
-| 40 | [How do you implement Noexcept for high-performance applications? (Scenario 40)](#how-do-you-implement-noexcept-for-high-performance-applications-scenario-40) | Intermediate |
-| 41 | [How do you implement Rvalue References for high-performance applications? (Scenario 41)](#how-do-you-implement-rvalue-references-for-high-performance-applications-scenario-41) | Intermediate |
-| 42 | [How do you implement Fold Expressions for high-performance applications? (Scenario 42)](#how-do-you-implement-fold-expressions-for-high-performance-applications-scenario-42) | Intermediate |
-| 43 | [How do you implement Modules (C++20) for high-performance applications? (Scenario 43)](#how-do-you-implement-modules-c++20-for-high-performance-applications-scenario-43) | Intermediate |
-| 44 | [How do you implement Ranges (C++20) for high-performance applications? (Scenario 44)](#how-do-you-implement-ranges-c++20-for-high-performance-applications-scenario-44) | Intermediate |
-| 45 | [How do you implement Concepts (C++20) for high-performance applications? (Scenario 45)](#how-do-you-implement-concepts-c++20-for-high-performance-applications-scenario-45) | Intermediate |
-| 46 | [How do you implement Coroutines (C++20) for high-performance applications? (Scenario 46)](#how-do-you-implement-coroutines-c++20-for-high-performance-applications-scenario-46) | Intermediate |
-| 47 | [How do you implement Three-way Comparison for high-performance applications? (Scenario 47)](#how-do-you-implement-three-way-comparison-for-high-performance-applications-scenario-47) | Intermediate |
-| 48 | [How do you implement Design Patterns in C++ for high-performance applications? (Scenario 48)](#how-do-you-implement-design-patterns-in-c++-for-high-performance-applications-scenario-48) | Intermediate |
-| 49 | [How do you implement PIMPL Idiom for high-performance applications? (Scenario 49)](#how-do-you-implement-pimpl-idiom-for-high-performance-applications-scenario-49) | Intermediate |
-| 50 | [How do you implement Singleton Pattern for high-performance applications? (Scenario 50)](#how-do-you-implement-singleton-pattern-for-high-performance-applications-scenario-50) | Intermediate |
-| 51 | [How do you implement Factory Pattern for high-performance applications? (Scenario 51)](#how-do-you-implement-factory-pattern-for-high-performance-applications-scenario-51) | Intermediate |
-| 52 | [How do you implement Observer Pattern for high-performance applications? (Scenario 52)](#how-do-you-implement-observer-pattern-for-high-performance-applications-scenario-52) | Intermediate |
-| 53 | [How do you implement Type Erasure for high-performance applications? (Scenario 53)](#how-do-you-implement-type-erasure-for-high-performance-applications-scenario-53) | Intermediate |
-| 54 | [How do you implement Metaprogramming for high-performance applications? (Scenario 54)](#how-do-you-implement-metaprogramming-for-high-performance-applications-scenario-54) | Intermediate |
-| 55 | [How do you implement Signal Handling for high-performance applications? (Scenario 55)](#how-do-you-implement-signal-handling-for-high-performance-applications-scenario-55) | Intermediate |
-| 56 | [How do you implement Lambda Expressions for high-performance applications? (Scenario 56)](#how-do-you-implement-lambda-expressions-for-high-performance-applications-scenario-56) | Intermediate |
-| 57 | [How do you implement Function Objects for high-performance applications? (Scenario 57)](#how-do-you-implement-function-objects-for-high-performance-applications-scenario-57) | Intermediate |
-| 58 | [How do you implement STL Algorithms for high-performance applications? (Scenario 58)](#how-do-you-implement-stl-algorithms-for-high-performance-applications-scenario-58) | Intermediate |
-| 59 | [How do you implement Iterators for high-performance applications? (Scenario 59)](#how-do-you-implement-iterators-for-high-performance-applications-scenario-59) | Intermediate |
-| 60 | [How do you implement Constexpr for high-performance applications? (Scenario 60)](#how-do-you-implement-constexpr-for-high-performance-applications-scenario-60) | Intermediate |
-| 61 | [How do you implement Memory Alignment for high-performance applications? (Scenario 61)](#how-do-you-implement-memory-alignment-for-high-performance-applications-scenario-61) | Intermediate |
-| 62 | [How do you implement Custom Allocators for high-performance applications? (Scenario 62)](#how-do-you-implement-custom-allocators-for-high-performance-applications-scenario-62) | Intermediate |
-| 63 | [How do you implement Concurrency for high-performance applications? (Scenario 63)](#how-do-you-implement-concurrency-for-high-performance-applications-scenario-63) | Intermediate |
-| 64 | [How do you implement Condition Variables for high-performance applications? (Scenario 64)](#how-do-you-implement-condition-variables-for-high-performance-applications-scenario-64) | Intermediate |
-| 65 | [How do you implement Semaphores for high-performance applications? (Scenario 65)](#how-do-you-implement-semaphores-for-high-performance-applications-scenario-65) | Intermediate |
-| 66 | [How do you implement Thread Pools for high-performance applications? (Scenario 66)](#how-do-you-implement-thread-pools-for-high-performance-applications-scenario-66) | Intermediate |
-| 67 | [How do you implement Exception Handling for high-performance applications? (Scenario 67)](#how-do-you-implement-exception-handling-for-high-performance-applications-scenario-67) | Intermediate |
-| 68 | [How do you implement Noexcept for high-performance applications? (Scenario 68)](#how-do-you-implement-noexcept-for-high-performance-applications-scenario-68) | Intermediate |
-| 69 | [How do you implement Rvalue References for high-performance applications? (Scenario 69)](#how-do-you-implement-rvalue-references-for-high-performance-applications-scenario-69) | Intermediate |
-| 70 | [How do you implement Fold Expressions for high-performance applications? (Scenario 70)](#how-do-you-implement-fold-expressions-for-high-performance-applications-scenario-70) | Intermediate |
-| 71 | [How do you implement Modules (C++20) for high-performance applications? (Scenario 71)](#how-do-you-implement-modules-c++20-for-high-performance-applications-scenario-71) | Intermediate |
-| 72 | [How do you implement Ranges (C++20) for high-performance applications? (Scenario 72)](#how-do-you-implement-ranges-c++20-for-high-performance-applications-scenario-72) | Intermediate |
-| 73 | [How do you implement Concepts (C++20) for high-performance applications? (Scenario 73)](#how-do-you-implement-concepts-c++20-for-high-performance-applications-scenario-73) | Intermediate |
-| 74 | [How do you implement Coroutines (C++20) for high-performance applications? (Scenario 74)](#how-do-you-implement-coroutines-c++20-for-high-performance-applications-scenario-74) | Intermediate |
-| 75 | [How do you implement Three-way Comparison for high-performance applications? (Scenario 75)](#how-do-you-implement-three-way-comparison-for-high-performance-applications-scenario-75) | Intermediate |
-| 76 | [How do you implement Design Patterns in C++ for high-performance applications? (Scenario 76)](#how-do-you-implement-design-patterns-in-c++-for-high-performance-applications-scenario-76) | Intermediate |
-| 77 | [How do you implement PIMPL Idiom for high-performance applications? (Scenario 77)](#how-do-you-implement-pimpl-idiom-for-high-performance-applications-scenario-77) | Intermediate |
-| 78 | [How do you implement Singleton Pattern for high-performance applications? (Scenario 78)](#how-do-you-implement-singleton-pattern-for-high-performance-applications-scenario-78) | Intermediate |
-| 79 | [How do you implement Factory Pattern for high-performance applications? (Scenario 79)](#how-do-you-implement-factory-pattern-for-high-performance-applications-scenario-79) | Intermediate |
-| 80 | [How do you implement Observer Pattern for high-performance applications? (Scenario 80)](#how-do-you-implement-observer-pattern-for-high-performance-applications-scenario-80) | Intermediate |
-| 81 | [How do you implement Type Erasure for high-performance applications? (Scenario 81)](#how-do-you-implement-type-erasure-for-high-performance-applications-scenario-81) | Intermediate |
-| 82 | [How do you implement Metaprogramming for high-performance applications? (Scenario 82)](#how-do-you-implement-metaprogramming-for-high-performance-applications-scenario-82) | Intermediate |
-| 83 | [How do you implement Signal Handling for high-performance applications? (Scenario 83)](#how-do-you-implement-signal-handling-for-high-performance-applications-scenario-83) | Intermediate |
-| 84 | [How do you implement Lambda Expressions for high-performance applications? (Scenario 84)](#how-do-you-implement-lambda-expressions-for-high-performance-applications-scenario-84) | Intermediate |
-| 85 | [How do you implement Function Objects for high-performance applications? (Scenario 85)](#how-do-you-implement-function-objects-for-high-performance-applications-scenario-85) | Intermediate |
-| 86 | [How do you implement STL Algorithms for high-performance applications? (Scenario 86)](#how-do-you-implement-stl-algorithms-for-high-performance-applications-scenario-86) | Intermediate |
-| 87 | [How do you implement Iterators for high-performance applications? (Scenario 87)](#how-do-you-implement-iterators-for-high-performance-applications-scenario-87) | Intermediate |
-| 88 | [How do you implement Constexpr for high-performance applications? (Scenario 88)](#how-do-you-implement-constexpr-for-high-performance-applications-scenario-88) | Intermediate |
-| 89 | [How do you implement Memory Alignment for high-performance applications? (Scenario 89)](#how-do-you-implement-memory-alignment-for-high-performance-applications-scenario-89) | Intermediate |
-| 90 | [How do you implement Custom Allocators for high-performance applications? (Scenario 90)](#how-do-you-implement-custom-allocators-for-high-performance-applications-scenario-90) | Intermediate |
-| 91 | [How do you implement Concurrency for high-performance applications? (Scenario 91)](#how-do-you-implement-concurrency-for-high-performance-applications-scenario-91) | Intermediate |
-| 92 | [How do you implement Condition Variables for high-performance applications? (Scenario 92)](#how-do-you-implement-condition-variables-for-high-performance-applications-scenario-92) | Intermediate |
-| 93 | [How do you implement Semaphores for high-performance applications? (Scenario 93)](#how-do-you-implement-semaphores-for-high-performance-applications-scenario-93) | Intermediate |
-| 94 | [How do you implement Thread Pools for high-performance applications? (Scenario 94)](#how-do-you-implement-thread-pools-for-high-performance-applications-scenario-94) | Intermediate |
-| 95 | [How do you implement Exception Handling for high-performance applications? (Scenario 95)](#how-do-you-implement-exception-handling-for-high-performance-applications-scenario-95) | Intermediate |
-| 96 | [How do you implement Noexcept for high-performance applications? (Scenario 96)](#how-do-you-implement-noexcept-for-high-performance-applications-scenario-96) | Intermediate |
-| 97 | [How do you implement Rvalue References for high-performance applications? (Scenario 97)](#how-do-you-implement-rvalue-references-for-high-performance-applications-scenario-97) | Intermediate |
-| 98 | [How do you implement Fold Expressions for high-performance applications? (Scenario 98)](#how-do-you-implement-fold-expressions-for-high-performance-applications-scenario-98) | Intermediate |
-| 99 | [How do you implement Modules (C++20) for high-performance applications? (Scenario 99)](#how-do-you-implement-modules-c++20-for-high-performance-applications-scenario-99) | Intermediate |
-| 100 | [How do you implement Ranges (C++20) for high-performance applications? (Scenario 100)](#how-do-you-implement-ranges-c++20-for-high-performance-applications-scenario-100) | Intermediate |
-| 101 | [How do you implement Concepts (C++20) for high-performance applications? (Scenario 101)](#how-do-you-implement-concepts-c++20-for-high-performance-applications-scenario-101) | Intermediate |
-| 102 | [How do you implement Coroutines (C++20) for high-performance applications? (Scenario 102)](#how-do-you-implement-coroutines-c++20-for-high-performance-applications-scenario-102) | Intermediate |
-| 103 | [How do you implement Three-way Comparison for high-performance applications? (Scenario 103)](#how-do-you-implement-three-way-comparison-for-high-performance-applications-scenario-103) | Intermediate |
-| 104 | [How do you implement Design Patterns in C++ for high-performance applications? (Scenario 104)](#how-do-you-implement-design-patterns-in-c++-for-high-performance-applications-scenario-104) | Intermediate |
-| 105 | [How do you implement PIMPL Idiom for high-performance applications? (Scenario 105)](#how-do-you-implement-pimpl-idiom-for-high-performance-applications-scenario-105) | Intermediate |
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>C++ Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
 
 ---
 
-### 1. How do you prevent memory leaks in Modern C++ using RAII?
+## Table of Contents
+
+1. [How do you prevent memory leaks in Modern C++ using RAII?](#q1-how-do-you-prevent-memory-leaks-in-modern-c++-using-raii) <span class="beginner">Beginner</span>
+2. [How do you implement Move Semantics to optimize performance when returning large objects?](#q2-how-do-you-implement-move-semantics-to-optimize-performance-when-returning-large-objects) <span class="intermediate">Intermediate</span>
+3. [How do you resolve circular dependencies when using `std::shared_ptr`?](#q3-how-do-you-resolve-circular-dependencies-when-using-std::shared_ptr) <span class="intermediate">Intermediate</span>
+4. [How do you use `std::async` to run a task asynchronously and retrieve the result?](#q4-how-do-you-use-std::async-to-run-a-task-asynchronously-and-retrieve-the-result) <span class="intermediate">Intermediate</span>
+5. [How do you use `if constexpr` to optimize template code at compile time?](#q5-how-do-you-use-if-constexpr-to-optimize-template-code-at-compile-time) <span class="advanced">Advanced</span>
+6. [How do you ensure thread safety when accessing a shared variable without using heavy mutexes?](#q6-how-do-you-ensure-thread-safety-when-accessing-a-shared-variable-without-using-heavy-mutexes) <span class="advanced">Advanced</span>
+7. [How do you implement Perfect Forwarding in a template function?](#q7-how-do-you-implement-perfect-forwarding-in-a-template-function) <span class="advanced">Advanced</span>
+8. [How do you handle multiple return values from a function efficiently?](#q8-how-do-you-handle-multiple-return-values-from-a-function-efficiently) <span class="intermediate">Intermediate</span>
+9. [How do you avoid Virtual Function overhead (dynamic dispatch) when polymorphism is needed?](#q9-how-do-you-avoid-virtual-function-overhead-dynamic-dispatch-when-polymorphism-is-needed) <span class="expert">Expert</span>
+10. [How do you use `std::variant` to create a type-safe union?](#q10-how-do-you-use-std::variant-to-create-a-type-safe-union) <span class="intermediate">Intermediate</span>
+11. [How do you prevent 'Object Slicing' when passing derived objects to functions?](#q11-how-do-you-prevent-object-slicing-when-passing-derived-objects-to-functions) <span class="beginner">Beginner</span>
+12. [How do you use `std::optional` to handle values that might not exist?](#q12-how-do-you-use-std::optional-to-handle-values-that-might-not-exist) <span class="intermediate">Intermediate</span>
+13. [How do you optimize vector growth to avoid frequent reallocations?](#q13-how-do-you-optimize-vector-growth-to-avoid-frequent-reallocations) <span class="beginner">Beginner</span>
+14. [How do you debug a segmentation fault caused by a dangling pointer?](#q14-how-do-you-debug-a-segmentation-fault-caused-by-a-dangling-pointer) <span class="intermediate">Intermediate</span>
+15. [How do you ensure a destructor in a base class allows proper cleanup of derived classes?](#q15-how-do-you-ensure-a-destructor-in-a-base-class-allows-proper-cleanup-of-derived-classes) <span class="beginner">Beginner</span>
+16. [What is the difference between std::unique_ptr and std::shared_ptr?](#q16-what-is-the-difference-between-std::unique_ptr-and-std::shared_ptr) <span class="intermediate">Intermediate</span>
+17. [When should you choose std::map over std::unordered_map?](#q17-when-should-you-choose-std::map-over-std::unordered_map) <span class="intermediate">Intermediate</span>
+18. [How does const_cast work and when should you avoid it?](#q18-how-does-const_cast-work-and-when-should-you-avoid-it) <span class="intermediate">Intermediate</span>
+19. [What is the purpose of the volatile keyword?](#q19-what-is-the-purpose-of-the-volatile-keyword) <span class="advanced">Advanced</span>
+20. [How do you use a custom deleter with std::unique_ptr?](#q20-how-do-you-use-a-custom-deleter-with-std::unique_ptr) <span class="advanced">Advanced</span>
+21. [What is Template Specialization?](#q21-what-is-template-specialization) <span class="intermediate">Intermediate</span>
+22. [How does SFINAE work?](#q22-how-does-sfinae-work) <span class="advanced">Advanced</span>
+23. [What does std::move actually do?](#q23-what-does-std::move-actually-do) <span class="intermediate">Intermediate</span>
+24. [When should you use std::function over function pointers?](#q24-when-should-you-use-std::function-over-function-pointers) <span class="intermediate">Intermediate</span>
+25. [How do lambda captures work?](#q25-how-do-lambda-captures-work) <span class="beginner">Beginner</span>
+26. [What are Structured Bindings (C++17)?](#q26-what-are-structured-bindings-c++17) <span class="beginner">Beginner</span>
+27. [Why use std::string_view (C++17)?](#q27-why-use-std::string_view-c++17) <span class="intermediate">Intermediate</span>
+28. [What is the difference between constexpr and consteval (C++20)?](#q28-what-is-the-difference-between-constexpr-and-consteval-c++20) <span class="intermediate">Intermediate</span>
+29. [What is Uniform Initialization?](#q29-what-is-uniform-initialization) <span class="beginner">Beginner</span>
+30. [Why are Virtual Destructors important?](#q30-why-are-virtual-destructors-important) <span class="intermediate">Intermediate</span>
+
+---
+
+### Q1: How do you prevent memory leaks in Modern C++ using RAII?
 
 **Difficulty**: Beginner
 
 **Strategy:**
+**Difficulty**: Beginner
+
+
 Avoid manual `new`/`delete`. Use **Smart Pointers** (`std::unique_ptr`, `std::shared_ptr`) and stack allocation. RAII ensures resources are released when the object goes out of scope.
 
 **Code Example:**
@@ -130,15 +67,18 @@ void process() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 2. How do you implement Move Semantics to optimize performance when returning large objects?
+### Q2: How do you implement Move Semantics to optimize performance when returning large objects?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
+**Difficulty**: Intermediate
+
+
 Implement a **Move Constructor** and **Move Assignment Operator**. Use `std::move` to cast an lvalue to an rvalue, allowing resources (like pointers) to be "stolen" rather than copied.
 
 **Code Example:**
@@ -158,15 +98,18 @@ Buffer createBuffer() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 3. How do you resolve circular dependencies when using `std::shared_ptr`?
+### Q3: How do you resolve circular dependencies when using `std::shared_ptr`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
+**Difficulty**: Intermediate
+
+
 Use `std::weak_ptr` for one of the references. A weak pointer does not increase the reference count, preventing the cycle that keeps objects alive forever.
 
 **Code Example:**
@@ -182,15 +125,18 @@ void link(std::shared_ptr<Node> a, std::shared_ptr<Node> b) {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 4. How do you use `std::async` to run a task asynchronously and retrieve the result?
+### Q4: How do you use `std::async` to run a task asynchronously and retrieve the result?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
+**Difficulty**: Intermediate
+
+
 Use `std::async` with the `std::launch::async` policy. It returns a `std::future` which holds the result. Calling `.get()` on the future blocks until the result is ready.
 
 **Code Example:**
@@ -209,15 +155,18 @@ void main() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 5. How do you use `if constexpr` to optimize template code at compile time?
+### Q5: How do you use `if constexpr` to optimize template code at compile time?
 
 **Difficulty**: Advanced
 
 **Strategy:**
+**Difficulty**: Advanced
+
+
 Use `if constexpr` (C++17) to discard branches of code at compile-time based on template arguments. This avoids compilation errors for invalid operations in the discarded branch (like SFINAE but cleaner).
 
 **Code Example:**
@@ -232,15 +181,18 @@ void print(T value) {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 6. How do you ensure thread safety when accessing a shared variable without using heavy mutexes?
+### Q6: How do you ensure thread safety when accessing a shared variable without using heavy mutexes?
 
 **Difficulty**: Advanced
 
 **Strategy:**
+**Difficulty**: Advanced
+
+
 Use `std::atomic<T>` for simple types (integers, pointers). It provides lock-free thread safety for operations like increment, load, and store.
 
 **Code Example:**
@@ -254,15 +206,18 @@ void increment() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 7. How do you implement Perfect Forwarding in a template function?
+### Q7: How do you implement Perfect Forwarding in a template function?
 
 **Difficulty**: Advanced
 
 **Strategy:**
+**Difficulty**: Advanced
+
+
 Use **Universal References** (`T&&`) and `std::forward<T>`. This preserves the value category (lvalue vs rvalue) of the arguments passed to the function.
 
 **Code Example:**
@@ -274,15 +229,18 @@ void wrapper(T&& arg) {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 8. How do you handle multiple return values from a function efficiently?
+### Q8: How do you handle multiple return values from a function efficiently?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
+**Difficulty**: Intermediate
+
+
 Use `std::tuple` or, in C++17, **Structured Binding** with a struct or pair. This avoids output parameters and improves readability.
 
 **Code Example:**
@@ -296,15 +254,18 @@ void main() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 9. How do you avoid Virtual Function overhead (dynamic dispatch) when polymorphism is needed?
+### Q9: How do you avoid Virtual Function overhead (dynamic dispatch) when polymorphism is needed?
 
 **Difficulty**: Expert
 
 **Strategy:**
+**Difficulty**: Expert
+
+
 Use **Static Polymorphism** via CRTP (Curiously Recurring Template Pattern). The derived class is passed as a template argument to the base class, allowing compile-time resolution.
 
 **Code Example:**
@@ -323,15 +284,18 @@ public:
 };
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 10. How do you use `std::variant` to create a type-safe union?
+### Q10: How do you use `std::variant` to create a type-safe union?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
+**Difficulty**: Intermediate
+
+
 `std::variant` (C++17) can hold one of several types. Use `std::visit` or `std::get_if` to access the value safely, handling all possible types.
 
 **Code Example:**
@@ -348,15 +312,18 @@ struct Visitor {
 std::visit(Visitor{}, v);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 11. How do you prevent 'Object Slicing' when passing derived objects to functions?
+### Q11: How do you prevent 'Object Slicing' when passing derived objects to functions?
 
 **Difficulty**: Beginner
 
 **Strategy:**
+**Difficulty**: Beginner
+
+
 Always pass polymorphic objects by **Reference** (`Base&`) or **Pointer** (`Base*`). Passing by value copies only the `Base` part of the object, discarding the `Derived` data.
 
 **Code Example:**
@@ -371,15 +338,18 @@ void process(Base b) { ... }
 void process(const Base& b) { ... }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 12. How do you use `std::optional` to handle values that might not exist?
+### Q12: How do you use `std::optional` to handle values that might not exist?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
+**Difficulty**: Intermediate
+
+
 Return `std::optional<T>` instead of using pointers (`nullptr`) or magic values (e.g., -1) to indicate failure/absence.
 
 **Code Example:**
@@ -397,15 +367,18 @@ void main() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 13. How do you optimize vector growth to avoid frequent reallocations?
+### Q13: How do you optimize vector growth to avoid frequent reallocations?
 
 **Difficulty**: Beginner
 
 **Strategy:**
+**Difficulty**: Beginner
+
+
 Use `reserve(n)` if you know (or can estimate) the number of elements beforehand. This allocates memory once, preventing expensive copy/move operations during growth.
 
 **Code Example:**
@@ -418,15 +391,18 @@ for(int i=0; i<1000; ++i) {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 14. How do you debug a segmentation fault caused by a dangling pointer?
+### Q14: How do you debug a segmentation fault caused by a dangling pointer?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
+**Difficulty**: Intermediate
+
+
 Use tools like **Valgrind** or **AddressSanitizer** (ASan). Compile with `-fsanitize=address` (GCC/Clang) to get detailed reports on use-after-free or out-of-bounds access.
 
 **Code Example (Command):**
@@ -436,15 +412,23 @@ g++ -fsanitize=address -g main.cpp -o main
 # Output will show exact line number of invalid access
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+**Code Example:**
+```cpp
+
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 15. How do you ensure a destructor in a base class allows proper cleanup of derived classes?
+### Q15: How do you ensure a destructor in a base class allows proper cleanup of derived classes?
 
 **Difficulty**: Beginner
 
 **Strategy:**
+**Difficulty**: Beginner
+
+
 Declare the base class destructor as **virtual**. This ensures that when deleting a derived object through a base pointer, the derived destructor is called first.
 
 **Code Example:**
@@ -459,1986 +443,430 @@ class Derived : public Base {
 };
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 16. How do you implement Ranges (C++20) for high-performance applications? (Scenario 16)
+### Q16: What is the difference between std::unique_ptr and std::shared_ptr?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Ranges (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+`std::unique_ptr` represents exclusive ownership (cannot be copied, only moved). `std::shared_ptr` represents shared ownership (reference counted). Use `unique_ptr` by default.
 
 **Code Example:**
 ```cpp
-// Example usage of Ranges (C++20)
-#include <iostream>
-
-void demonstrate16() {
-    // Implementation details for Ranges (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 17. How do you implement Concepts (C++20) for high-performance applications? (Scenario 17)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Concepts (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Concepts (C++20)
-#include <iostream>
-
-void demonstrate17() {
-    // Implementation details for Concepts (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 18. How do you implement Coroutines (C++20) for high-performance applications? (Scenario 18)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Coroutines (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Coroutines (C++20)
-#include <iostream>
-
-void demonstrate18() {
-    // Implementation details for Coroutines (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 19. How do you implement Three-way Comparison for high-performance applications? (Scenario 19)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Three-way Comparison** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Three-way Comparison
-#include <iostream>
-
-void demonstrate19() {
-    // Implementation details for Three-way Comparison
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 20. How do you implement Design Patterns in C++ for high-performance applications? (Scenario 20)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Design Patterns in C++** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Design Patterns in C++
-#include <iostream>
-
-void demonstrate20() {
-    // Implementation details for Design Patterns in C++
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 21. How do you implement PIMPL Idiom for high-performance applications? (Scenario 21)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **PIMPL Idiom** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of PIMPL Idiom
-#include <iostream>
-
-void demonstrate21() {
-    // Implementation details for PIMPL Idiom
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 22. How do you implement Singleton Pattern for high-performance applications? (Scenario 22)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Singleton Pattern** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Singleton Pattern
-#include <iostream>
-
-void demonstrate22() {
-    // Implementation details for Singleton Pattern
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 23. How do you implement Factory Pattern for high-performance applications? (Scenario 23)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Factory Pattern** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Factory Pattern
-#include <iostream>
-
-void demonstrate23() {
-    // Implementation details for Factory Pattern
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 24. How do you implement Observer Pattern for high-performance applications? (Scenario 24)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Observer Pattern** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Observer Pattern
-#include <iostream>
-
-void demonstrate24() {
-    // Implementation details for Observer Pattern
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 25. How do you implement Type Erasure for high-performance applications? (Scenario 25)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Type Erasure** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Type Erasure
-#include <iostream>
-
-void demonstrate25() {
-    // Implementation details for Type Erasure
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 26. How do you implement Metaprogramming for high-performance applications? (Scenario 26)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Metaprogramming** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Metaprogramming
-#include <iostream>
-
-void demonstrate26() {
-    // Implementation details for Metaprogramming
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 27. How do you implement Signal Handling for high-performance applications? (Scenario 27)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Signal Handling** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Signal Handling
-#include <iostream>
-
-void demonstrate27() {
-    // Implementation details for Signal Handling
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 28. How do you implement Lambda Expressions for high-performance applications? (Scenario 28)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Lambda Expressions** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Lambda Expressions
-#include <iostream>
-
-void demonstrate28() {
-    // Implementation details for Lambda Expressions
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 29. How do you implement Function Objects for high-performance applications? (Scenario 29)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Function Objects** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Function Objects
-#include <iostream>
-
-void demonstrate29() {
-    // Implementation details for Function Objects
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 30. How do you implement STL Algorithms for high-performance applications? (Scenario 30)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **STL Algorithms** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of STL Algorithms
-#include <iostream>
-
-void demonstrate30() {
-    // Implementation details for STL Algorithms
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 31. How do you implement Iterators for high-performance applications? (Scenario 31)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Iterators** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Iterators
-#include <iostream>
-
-void demonstrate31() {
-    // Implementation details for Iterators
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 32. How do you implement Constexpr for high-performance applications? (Scenario 32)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Constexpr** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Constexpr
-#include <iostream>
-
-void demonstrate32() {
-    // Implementation details for Constexpr
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 33. How do you implement Memory Alignment for high-performance applications? (Scenario 33)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Memory Alignment** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Memory Alignment
-#include <iostream>
-
-void demonstrate33() {
-    // Implementation details for Memory Alignment
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 34. How do you implement Custom Allocators for high-performance applications? (Scenario 34)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Custom Allocators** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Custom Allocators
-#include <iostream>
-
-void demonstrate34() {
-    // Implementation details for Custom Allocators
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 35. How do you implement Concurrency for high-performance applications? (Scenario 35)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Concurrency** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Concurrency
-#include <iostream>
-
-void demonstrate35() {
-    // Implementation details for Concurrency
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 36. How do you implement Condition Variables for high-performance applications? (Scenario 36)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Condition Variables** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Condition Variables
-#include <iostream>
-
-void demonstrate36() {
-    // Implementation details for Condition Variables
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 37. How do you implement Semaphores for high-performance applications? (Scenario 37)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Semaphores** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Semaphores
-#include <iostream>
-
-void demonstrate37() {
-    // Implementation details for Semaphores
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 38. How do you implement Thread Pools for high-performance applications? (Scenario 38)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Thread Pools** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Thread Pools
-#include <iostream>
-
-void demonstrate38() {
-    // Implementation details for Thread Pools
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 39. How do you implement Exception Handling for high-performance applications? (Scenario 39)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Exception Handling** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Exception Handling
-#include <iostream>
-
-void demonstrate39() {
-    // Implementation details for Exception Handling
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 40. How do you implement Noexcept for high-performance applications? (Scenario 40)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Noexcept** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Noexcept
-#include <iostream>
-
-void demonstrate40() {
-    // Implementation details for Noexcept
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 41. How do you implement Rvalue References for high-performance applications? (Scenario 41)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Rvalue References** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Rvalue References
-#include <iostream>
-
-void demonstrate41() {
-    // Implementation details for Rvalue References
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 42. How do you implement Fold Expressions for high-performance applications? (Scenario 42)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Fold Expressions** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Fold Expressions
-#include <iostream>
-
-void demonstrate42() {
-    // Implementation details for Fold Expressions
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 43. How do you implement Modules (C++20) for high-performance applications? (Scenario 43)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Modules (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Modules (C++20)
-#include <iostream>
-
-void demonstrate43() {
-    // Implementation details for Modules (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 44. How do you implement Ranges (C++20) for high-performance applications? (Scenario 44)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Ranges (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Ranges (C++20)
-#include <iostream>
-
-void demonstrate44() {
-    // Implementation details for Ranges (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 45. How do you implement Concepts (C++20) for high-performance applications? (Scenario 45)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Concepts (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Concepts (C++20)
-#include <iostream>
-
-void demonstrate45() {
-    // Implementation details for Concepts (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 46. How do you implement Coroutines (C++20) for high-performance applications? (Scenario 46)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Coroutines (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Coroutines (C++20)
-#include <iostream>
-
-void demonstrate46() {
-    // Implementation details for Coroutines (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 47. How do you implement Three-way Comparison for high-performance applications? (Scenario 47)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Three-way Comparison** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Three-way Comparison
-#include <iostream>
-
-void demonstrate47() {
-    // Implementation details for Three-way Comparison
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 48. How do you implement Design Patterns in C++ for high-performance applications? (Scenario 48)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Design Patterns in C++** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Design Patterns in C++
-#include <iostream>
-
-void demonstrate48() {
-    // Implementation details for Design Patterns in C++
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 49. How do you implement PIMPL Idiom for high-performance applications? (Scenario 49)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **PIMPL Idiom** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of PIMPL Idiom
-#include <iostream>
-
-void demonstrate49() {
-    // Implementation details for PIMPL Idiom
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 50. How do you implement Singleton Pattern for high-performance applications? (Scenario 50)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Singleton Pattern** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Singleton Pattern
-#include <iostream>
-
-void demonstrate50() {
-    // Implementation details for Singleton Pattern
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 51. How do you implement Factory Pattern for high-performance applications? (Scenario 51)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Factory Pattern** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Factory Pattern
-#include <iostream>
-
-void demonstrate51() {
-    // Implementation details for Factory Pattern
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 52. How do you implement Observer Pattern for high-performance applications? (Scenario 52)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Observer Pattern** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Observer Pattern
-#include <iostream>
-
-void demonstrate52() {
-    // Implementation details for Observer Pattern
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 53. How do you implement Type Erasure for high-performance applications? (Scenario 53)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Type Erasure** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Type Erasure
-#include <iostream>
-
-void demonstrate53() {
-    // Implementation details for Type Erasure
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 54. How do you implement Metaprogramming for high-performance applications? (Scenario 54)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Metaprogramming** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Metaprogramming
-#include <iostream>
-
-void demonstrate54() {
-    // Implementation details for Metaprogramming
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 55. How do you implement Signal Handling for high-performance applications? (Scenario 55)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Signal Handling** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Signal Handling
-#include <iostream>
-
-void demonstrate55() {
-    // Implementation details for Signal Handling
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 56. How do you implement Lambda Expressions for high-performance applications? (Scenario 56)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Lambda Expressions** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Lambda Expressions
-#include <iostream>
-
-void demonstrate56() {
-    // Implementation details for Lambda Expressions
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 57. How do you implement Function Objects for high-performance applications? (Scenario 57)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Function Objects** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Function Objects
-#include <iostream>
-
-void demonstrate57() {
-    // Implementation details for Function Objects
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 58. How do you implement STL Algorithms for high-performance applications? (Scenario 58)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **STL Algorithms** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of STL Algorithms
-#include <iostream>
-
-void demonstrate58() {
-    // Implementation details for STL Algorithms
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 59. How do you implement Iterators for high-performance applications? (Scenario 59)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Iterators** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Iterators
-#include <iostream>
-
-void demonstrate59() {
-    // Implementation details for Iterators
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 60. How do you implement Constexpr for high-performance applications? (Scenario 60)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Constexpr** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Constexpr
-#include <iostream>
-
-void demonstrate60() {
-    // Implementation details for Constexpr
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 61. How do you implement Memory Alignment for high-performance applications? (Scenario 61)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Memory Alignment** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Memory Alignment
-#include <iostream>
-
-void demonstrate61() {
-    // Implementation details for Memory Alignment
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 62. How do you implement Custom Allocators for high-performance applications? (Scenario 62)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Custom Allocators** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Custom Allocators
-#include <iostream>
-
-void demonstrate62() {
-    // Implementation details for Custom Allocators
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 63. How do you implement Concurrency for high-performance applications? (Scenario 63)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Concurrency** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Concurrency
-#include <iostream>
-
-void demonstrate63() {
-    // Implementation details for Concurrency
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 64. How do you implement Condition Variables for high-performance applications? (Scenario 64)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Condition Variables** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Condition Variables
-#include <iostream>
-
-void demonstrate64() {
-    // Implementation details for Condition Variables
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 65. How do you implement Semaphores for high-performance applications? (Scenario 65)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Semaphores** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Semaphores
-#include <iostream>
-
-void demonstrate65() {
-    // Implementation details for Semaphores
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 66. How do you implement Thread Pools for high-performance applications? (Scenario 66)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Thread Pools** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Thread Pools
-#include <iostream>
-
-void demonstrate66() {
-    // Implementation details for Thread Pools
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 67. How do you implement Exception Handling for high-performance applications? (Scenario 67)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Exception Handling** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Exception Handling
-#include <iostream>
-
-void demonstrate67() {
-    // Implementation details for Exception Handling
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 68. How do you implement Noexcept for high-performance applications? (Scenario 68)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Noexcept** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Noexcept
-#include <iostream>
-
-void demonstrate68() {
-    // Implementation details for Noexcept
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 69. How do you implement Rvalue References for high-performance applications? (Scenario 69)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Rvalue References** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Rvalue References
-#include <iostream>
-
-void demonstrate69() {
-    // Implementation details for Rvalue References
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 70. How do you implement Fold Expressions for high-performance applications? (Scenario 70)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Fold Expressions** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Fold Expressions
-#include <iostream>
-
-void demonstrate70() {
-    // Implementation details for Fold Expressions
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 71. How do you implement Modules (C++20) for high-performance applications? (Scenario 71)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Modules (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Modules (C++20)
-#include <iostream>
-
-void demonstrate71() {
-    // Implementation details for Modules (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 72. How do you implement Ranges (C++20) for high-performance applications? (Scenario 72)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Ranges (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Ranges (C++20)
-#include <iostream>
-
-void demonstrate72() {
-    // Implementation details for Ranges (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 73. How do you implement Concepts (C++20) for high-performance applications? (Scenario 73)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Concepts (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Concepts (C++20)
-#include <iostream>
-
-void demonstrate73() {
-    // Implementation details for Concepts (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 74. How do you implement Coroutines (C++20) for high-performance applications? (Scenario 74)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Coroutines (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Coroutines (C++20)
-#include <iostream>
-
-void demonstrate74() {
-    // Implementation details for Coroutines (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 75. How do you implement Three-way Comparison for high-performance applications? (Scenario 75)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Three-way Comparison** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Three-way Comparison
-#include <iostream>
-
-void demonstrate75() {
-    // Implementation details for Three-way Comparison
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 76. How do you implement Design Patterns in C++ for high-performance applications? (Scenario 76)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Design Patterns in C++** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Design Patterns in C++
-#include <iostream>
-
-void demonstrate76() {
-    // Implementation details for Design Patterns in C++
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 77. How do you implement PIMPL Idiom for high-performance applications? (Scenario 77)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **PIMPL Idiom** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of PIMPL Idiom
-#include <iostream>
-
-void demonstrate77() {
-    // Implementation details for PIMPL Idiom
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
+#include <memory>
 
-### 78. How do you implement Singleton Pattern for high-performance applications? (Scenario 78)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Singleton Pattern** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Singleton Pattern
-#include <iostream>
+void example() {
+    std::unique_ptr<int> p1 = std::make_unique<int>(10);
+    // std::unique_ptr<int> p2 = p1; // Error: Copying not allowed
+    std::unique_ptr<int> p2 = std::move(p1); // OK: Ownership transferred
 
-void demonstrate78() {
-    // Implementation details for Singleton Pattern
-    // Focus on zero-overhead abstractions
+    std::shared_ptr<int> s1 = std::make_shared<int>(20);
+    std::shared_ptr<int> s2 = s1; // OK: Reference count increases
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 79. How do you implement Factory Pattern for high-performance applications? (Scenario 79)
+### Q17: When should you choose std::map over std::unordered_map?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Factory Pattern** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+Use `std::map` (Red-Black Tree) when you need ordered keys or range iterations. Use `std::unordered_map` (Hash Table) for O(1) average time complexity lookups when order doesn't matter.
 
 **Code Example:**
 ```cpp
-// Example usage of Factory Pattern
-#include <iostream>
-
-void demonstrate79() {
-    // Implementation details for Factory Pattern
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 80. How do you implement Observer Pattern for high-performance applications? (Scenario 80)
+#include <map>
+#include <unordered_map>
+#include <string>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Observer Pattern** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Observer Pattern
-#include <iostream>
+void example() {
+    std::map<int, std::string> ordered; // Keys sorted by int
+    ordered[2] = "two";
+    ordered[1] = "one"; // Iteration: 1, 2
 
-void demonstrate80() {
-    // Implementation details for Observer Pattern
-    // Focus on zero-overhead abstractions
+    std::unordered_map<int, std::string> unordered; // Order undefined
+    unordered[2] = "two";
+    unordered[1] = "one";
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 81. How do you implement Type Erasure for high-performance applications? (Scenario 81)
+### Q18: How does const_cast work and when should you avoid it?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Type Erasure** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+`const_cast` removes or adds `const` qualification. Modifying a value that was originally declared `const` using `const_cast` invokes undefined behavior. It is mostly used to interface with legacy APIs that are not const-correct.
 
 **Code Example:**
 ```cpp
-// Example usage of Type Erasure
-#include <iostream>
-
-void demonstrate81() {
-    // Implementation details for Type Erasure
-    // Focus on zero-overhead abstractions
+void print(char* str) {
+    // Legacy API that takes non-const char* but doesn't modify it
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 82. How do you implement Metaprogramming for high-performance applications? (Scenario 82)
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Leverage **Metaprogramming** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Metaprogramming
-#include <iostream>
-
-void demonstrate82() {
-    // Implementation details for Metaprogramming
-    // Focus on zero-overhead abstractions
+void example() {
+    const char* msg = "Hello";
+    print(const_cast<char*>(msg)); // Necessary evil
+    
+    const int x = 10;
+    int* px = const_cast<int*>(&x);
+    *px = 20; // Undefined Behavior!
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 83. How do you implement Signal Handling for high-performance applications? (Scenario 83)
+### Q19: What is the purpose of the volatile keyword?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Leverage **Signal Handling** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+`volatile` tells the compiler not to optimize reads/writes to a variable because it may change unexpectedly (e.g., by hardware or signal handler). It does NOT provide thread safety or atomicity.
 
 **Code Example:**
 ```cpp
-// Example usage of Signal Handling
-#include <iostream>
+volatile bool flag = false;
 
-void demonstrate83() {
-    // Implementation details for Signal Handling
-    // Focus on zero-overhead abstractions
+void wait_for_flag() {
+    while (!flag) {
+        // Compiler won't optimize this loop away
+        // or cache 'flag' in a register
+    }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 84. How do you implement Lambda Expressions for high-performance applications? (Scenario 84)
+### Q20: How do you use a custom deleter with std::unique_ptr?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Leverage **Lambda Expressions** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+You can pass a custom deleter (function or struct) as a template argument (and constructor argument) to `std::unique_ptr` to handle resource cleanup other than `delete` (e.g., `fclose`).
 
 **Code Example:**
 ```cpp
-// Example usage of Lambda Expressions
-#include <iostream>
-
-void demonstrate84() {
-    // Implementation details for Lambda Expressions
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
+#include <memory>
+#include <cstdio>
 
-### 85. How do you implement Function Objects for high-performance applications? (Scenario 85)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Function Objects** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Function Objects
-#include <iostream>
+struct FileDeleter {
+    void operator()(FILE* file) const {
+        if (file) fclose(file);
+    }
+};
 
-void demonstrate85() {
-    // Implementation details for Function Objects
-    // Focus on zero-overhead abstractions
+void example() {
+    std::unique_ptr<FILE, FileDeleter> file(fopen("test.txt", "w"));
+    // file will be automatically closed when it goes out of scope
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 86. How do you implement STL Algorithms for high-performance applications? (Scenario 86)
+### Q21: What is Template Specialization?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **STL Algorithms** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+Template specialization allows you to define a different implementation of a template for a specific type. Useful for optimizing for specific types or handling types that behave differently.
 
 **Code Example:**
 ```cpp
-// Example usage of STL Algorithms
 #include <iostream>
 
-void demonstrate86() {
-    // Implementation details for STL Algorithms
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 87. How do you implement Iterators for high-performance applications? (Scenario 87)
-
-**Difficulty**: Intermediate
+template <typename T>
+struct Printer {
+    static void print(T val) { std::cout << "Generic: " << val << "\n"; }
+};
 
-**Strategy:**
-Leverage **Iterators** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Iterators
-#include <iostream>
+// Specialization for char*
+template <>
+struct Printer<const char*> {
+    static void print(const char* val) { std::cout << "String: " << val << "\n"; }
+};
 
-void demonstrate87() {
-    // Implementation details for Iterators
-    // Focus on zero-overhead abstractions
+void example() {
+    Printer<int>::print(42);
+    Printer<const char*>::print("Hello");
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 88. How do you implement Constexpr for high-performance applications? (Scenario 88)
+### Q22: How does SFINAE work?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Leverage **Constexpr** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+SFINAE (Substitution Failure Is Not An Error) allows templates to be discarded from the overload set if type substitution fails, rather than causing a compile error. Used with `std::enable_if`.
 
 **Code Example:**
 ```cpp
-// Example usage of Constexpr
+#include <type_traits>
 #include <iostream>
 
-void demonstrate88() {
-    // Implementation details for Constexpr
-    // Focus on zero-overhead abstractions
+template <typename T>
+typename std::enable_if<std::is_integral<T>::value>::type
+process(T t) {
+    std::cout << "Integral: " << t << "\n";
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
 
----
-
-### 89. How do you implement Memory Alignment for high-performance applications? (Scenario 89)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Memory Alignment** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Memory Alignment
-#include <iostream>
-
-void demonstrate89() {
-    // Implementation details for Memory Alignment
-    // Focus on zero-overhead abstractions
+template <typename T>
+typename std::enable_if<std::is_floating_point<T>::value>::type
+process(T t) {
+    std::cout << "Float: " << t << "\n";
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 90. How do you implement Custom Allocators for high-performance applications? (Scenario 90)
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Custom Allocators** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Custom Allocators
-#include <iostream>
-
-void demonstrate90() {
-    // Implementation details for Custom Allocators
-    // Focus on zero-overhead abstractions
+void example() {
+    process(10);   // Calls Integral version
+    process(3.14); // Calls Float version
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 91. How do you implement Concurrency for high-performance applications? (Scenario 91)
+### Q23: What does std::move actually do?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Concurrency** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+`std::move` casts an lvalue to an rvalue reference (`T&&`), enabling move semantics. It doesn't move anything itself; it just allows the move constructor or move assignment operator to be called.
 
 **Code Example:**
 ```cpp
-// Example usage of Concurrency
-#include <iostream>
+#include <utility>
+#include <vector>
 
-void demonstrate91() {
-    // Implementation details for Concurrency
-    // Focus on zero-overhead abstractions
+void example() {
+    std::vector<int> v1 = {1, 2, 3};
+    std::vector<int> v2 = std::move(v1); 
+    
+    // v1 is now in a valid but unspecified state (likely empty)
+    // v2 owns the data {1, 2, 3}
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 92. How do you implement Condition Variables for high-performance applications? (Scenario 92)
+### Q24: When should you use std::function over function pointers?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Condition Variables** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+Use `std::function` when you need to store any callable target (functions, lambdas, functors, bind expressions). Use function pointers only for C compatibility or extreme performance (avoiding `std::function` overhead).
 
 **Code Example:**
 ```cpp
-// Example usage of Condition Variables
+#include <functional>
 #include <iostream>
-
-void demonstrate92() {
-    // Implementation details for Condition Variables
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 93. How do you implement Semaphores for high-performance applications? (Scenario 93)
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Semaphores** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Semaphores
-#include <iostream>
+void free_func() { std::cout << "Free function\n"; }
 
-void demonstrate93() {
-    // Implementation details for Semaphores
-    // Focus on zero-overhead abstractions
+void example() {
+    std::function<void()> f;
+    
+    f = free_func;
+    f();
+    
+    f = []() { std::cout << "Lambda\n"; };
+    f();
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 94. How do you implement Thread Pools for high-performance applications? (Scenario 94)
+### Q25: How do lambda captures work?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Leverage **Thread Pools** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+`[=]` captures all local variables by value. `[&]` captures all by reference. `[x, &y]` captures `x` by value and `y` by reference. Be careful with lifetimes when capturing by reference.
 
 **Code Example:**
 ```cpp
-// Example usage of Thread Pools
 #include <iostream>
 
-void demonstrate94() {
-    // Implementation details for Thread Pools
-    // Focus on zero-overhead abstractions
+void example() {
+    int x = 10;
+    int y = 20;
+    
+    auto lambda = [x, &y]() {
+        // x is a copy, y is a reference
+        std::cout << x << " " << y << "\n";
+        y = 30; // Modifies outer y
+    };
+    
+    lambda();
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 95. How do you implement Exception Handling for high-performance applications? (Scenario 95)
+### Q26: What are Structured Bindings (C++17)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Leverage **Exception Handling** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+Structured bindings allow you to unpack tuples, pairs, arrays, and structs into individual variables directly.
 
 **Code Example:**
 ```cpp
-// Example usage of Exception Handling
-#include <iostream>
-
-void demonstrate95() {
-    // Implementation details for Exception Handling
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
+#include <tuple>
+#include <map>
 
-### 96. How do you implement Noexcept for high-performance applications? (Scenario 96)
+std::tuple<int, int> get_coords() { return {10, 20}; }
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Noexcept** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Noexcept
-#include <iostream>
-
-void demonstrate96() {
-    // Implementation details for Noexcept
-    // Focus on zero-overhead abstractions
+void example() {
+    auto [x, y] = get_coords();
+    
+    std::map<int, int> m = {{1, 2}};
+    for (const auto& [key, val] : m) {
+        // Use key and val
+    }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 97. How do you implement Rvalue References for high-performance applications? (Scenario 97)
+### Q27: Why use std::string_view (C++17)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Rvalue References** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+`std::string_view` provides a non-owning reference to a string (or part of it). It avoids memory allocation when passing substrings or C-strings to functions.
 
 **Code Example:**
 ```cpp
-// Example usage of Rvalue References
+#include <string_view>
 #include <iostream>
 
-void demonstrate97() {
-    // Implementation details for Rvalue References
-    // Focus on zero-overhead abstractions
+void print(std::string_view sv) {
+    std::cout << sv << "\n";
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 98. How do you implement Fold Expressions for high-performance applications? (Scenario 98)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Fold Expressions** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
-
-**Code Example:**
-```cpp
-// Example usage of Fold Expressions
-#include <iostream>
 
-void demonstrate98() {
-    // Implementation details for Fold Expressions
-    // Focus on zero-overhead abstractions
+void example() {
+    const char* s = "Hello World";
+    print(s); // No allocation (unlike std::string)
+    
+    std::string str = "Hello C++";
+    print(str); // No allocation
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 99. How do you implement Modules (C++20) for high-performance applications? (Scenario 99)
+### Q28: What is the difference between constexpr and consteval (C++20)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Modules (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+`constexpr` functions *can* be evaluated at compile time if arguments are constant expressions, but can also run at runtime. `consteval` (immediate functions) *must* be evaluated at compile time; otherwise, it's a compilation error.
 
 **Code Example:**
 ```cpp
-// Example usage of Modules (C++20)
-#include <iostream>
-
-void demonstrate99() {
-    // Implementation details for Modules (C++20)
-    // Focus on zero-overhead abstractions
+consteval int square(int n) {
+    return n * n;
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 100. How do you implement Ranges (C++20) for high-performance applications? (Scenario 100)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Ranges (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
 
-**Code Example:**
-```cpp
-// Example usage of Ranges (C++20)
-#include <iostream>
-
-void demonstrate100() {
-    // Implementation details for Ranges (C++20)
-    // Focus on zero-overhead abstractions
+void example() {
+    int x = 10;
+    // int y = square(x); // Error: x is not a constant expression
+    constexpr int z = square(10); // OK
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 101. How do you implement Concepts (C++20) for high-performance applications? (Scenario 101)
+### Q29: What is Uniform Initialization?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Leverage **Concepts (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+Uniform initialization uses braces `{}` to initialize objects. It prevents narrowing conversions and can be used for almost all initialization contexts.
 
 **Code Example:**
 ```cpp
-// Example usage of Concepts (C++20)
-#include <iostream>
-
-void demonstrate101() {
-    // Implementation details for Concepts (C++20)
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 102. How do you implement Coroutines (C++20) for high-performance applications? (Scenario 102)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Coroutines (C++20)** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+#include <vector>
 
-**Code Example:**
-```cpp
-// Example usage of Coroutines (C++20)
-#include <iostream>
+class Point {
+    int x, y;
+public:
+    Point(int x, int y) : x(x), y(y) {}
+};
 
-void demonstrate102() {
-    // Implementation details for Coroutines (C++20)
-    // Focus on zero-overhead abstractions
+void example() {
+    int a{5};
+    int b = {10};
+    Point p{1, 2};
+    std::vector<int> v{1, 2, 3, 4};
+    
+    // int c{3.14}; // Error: Narrowing conversion
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 103. How do you implement Three-way Comparison for high-performance applications? (Scenario 103)
+### Q30: Why are Virtual Destructors important?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Three-way Comparison** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+If a class is intended to be used polymorphically (accessed via a base class pointer), its destructor should be `virtual`. This ensures the derived class destructor is called when the object is deleted through the base pointer.
 
 **Code Example:**
 ```cpp
-// Example usage of Three-way Comparison
-#include <iostream>
-
-void demonstrate103() {
-    // Implementation details for Three-way Comparison
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 104. How do you implement Design Patterns in C++ for high-performance applications? (Scenario 104)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Design Patterns in C++** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
+class Base {
+public:
+    virtual ~Base() { /* Cleanup */ }
+};
 
-**Code Example:**
-```cpp
-// Example usage of Design Patterns in C++
-#include <iostream>
+class Derived : public Base {
+    int* ptr;
+public:
+    Derived() { ptr = new int[10]; }
+    ~Derived() { delete[] ptr; } // Won't be called if Base dtor isn't virtual
+};
 
-void demonstrate104() {
-    // Implementation details for Design Patterns in C++
-    // Focus on zero-overhead abstractions
+void example() {
+    Base* b = new Derived();
+    delete b; // Calls ~Derived() then ~Base() correctly
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### 105. How do you implement PIMPL Idiom for high-performance applications? (Scenario 105)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **PIMPL Idiom** to write expressive and efficient code. Ensure that you understand the compile-time vs run-time implications.
 
-**Code Example:**
-```cpp
-// Example usage of PIMPL Idiom
-#include <iostream>
-
-void demonstrate105() {
-    // Implementation details for PIMPL Idiom
-    // Focus on zero-overhead abstractions
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----

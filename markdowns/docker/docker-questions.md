@@ -1,106 +1,46 @@
-# Docker Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/devops-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Docker Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for DevOps engineers</b></p>
+</div>
+
+---
 
 ## Table of Contents
-- [Q1: How do you optimize a Docker image size using multi-stage builds?](#q1-how-do-you-optimize-a-docker-image-size-using-multi-stage-builds)
-- [Q2: How do you secure a Docker container by running it as a non-root user?](#q2-how-do-you-secure-a-docker-container-by-running-it-as-a-non-root-user)
-- [Q3: How do you implement health checks in Docker Compose to ensure dependent services start in order?](#q3-how-do-you-implement-health-checks-in-docker-compose-to-ensure-dependent-services-start-in-order)
-- [Q4: How do you persist database data using Docker Volumes?](#q4-how-do-you-persist-database-data-using-docker-volumes)
-- [Q5: How do you debug a crashing container that exits immediately upon starting?](#q5-how-do-you-debug-a-crashing-container-that-exits-immediately-upon-starting)
-- [Q6: How do you connect two containers on the same host so they can communicate by name?](#q6-how-do-you-connect-two-containers-on-the-same-host-so-they-can-communicate-by-name)
-- [Q7: How do you pass sensitive configuration (secrets) to a Docker container securely?](#q7-how-do-you-pass-sensitive-configuration-secrets-to-a-docker-container-securely)
-- [Q8: How do you speed up Docker builds by leveraging the build cache effectively?](#q8-how-do-you-speed-up-docker-builds-by-leveraging-the-build-cache-effectively)
-- [Q9: How do you limit the memory and CPU usage of a Docker container?](#q9-how-do-you-limit-the-memory-and-cpu-usage-of-a-docker-container)
-- [Q10: How do you export and import a Docker image to transfer it between air-gapped systems?](#q10-how-do-you-export-and-import-a-docker-image-to-transfer-it-between-air-gapped-systems)
-- [Q11: How do you mount a local configuration file into a container to override defaults?](#q11-how-do-you-mount-a-local-configuration-file-into-a-container-to-override-defaults)
-- [Q12: How do you prevent a Docker container from accumulating large log files?](#q12-how-do-you-prevent-a-docker-container-from-accumulating-large-log-files)
-- [Q13: How do you execute a command inside a running container?](#q13-how-do-you-execute-a-command-inside-a-running-container)
-- [Q14: How do you clean up unused Docker resources (images, containers, networks, volumes)?](#q14-how-do-you-clean-up-unused-docker-resources-images-containers-networks-volumes)
-- [Q15: How do you run a container that automatically restarts on failure?](#q15-how-do-you-run-a-container-that-automatically-restarts-on-failure)
-- [Q16: How do you manage Networking in Docker for bridge, host, and overlay networks?](#q16-how-do-you-manage-networking-in-docker-for-bridge-host-and-overlay-networks)
-- [Q17: How do you manage Volumes in Docker for managing persistent data?](#q17-how-do-you-manage-volumes-in-docker-for-managing-persistent-data)
-- [Q18: How do you manage Bind Mounts in Docker for development environment syncing?](#q18-how-do-you-manage-bind-mounts-in-docker-for-development-environment-syncing)
-- [Q19: How do you manage Entrypoint vs CMD in Docker for container startup commands?](#q19-how-do-you-manage-entrypoint-vs-cmd-in-docker-for-container-startup-commands)
-- [Q20: How do you manage Docker Ignore in Docker for excluding files from build context?](#q20-how-do-you-manage-docker-ignore-in-docker-for-excluding-files-from-build-context)
-- [Q21: How do you manage Image Tagging in Docker for versioning and releasing?](#q21-how-do-you-manage-image-tagging-in-docker-for-versioning-and-releasing)
-- [Q22: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?](#q22-how-do-you-manage-registry-in-docker-for-pushing-and-pulling-from-docker-hubecr)
-- [Q23: How do you manage Environment Variables in Docker for runtime configuration?](#q23-how-do-you-manage-environment-variables-in-docker-for-runtime-configuration)
-- [Q24: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?](#q24-how-do-you-manage-multi-architecture-builds-in-docker-for-building-for-arm-and-amd64)
-- [Q25: How do you manage Docker Compose Profiles in Docker for conditional service execution?](#q25-how-do-you-manage-docker-compose-profiles-in-docker-for-conditional-service-execution)
-- [Q26: How do you manage Wait-for-it scripts in Docker for handling service dependencies?](#q26-how-do-you-manage-wait-for-it-scripts-in-docker-for-handling-service-dependencies)
-- [Q27: How do you manage Privileged Mode in Docker for accessing host devices?](#q27-how-do-you-manage-privileged-mode-in-docker-for-accessing-host-devices)
-- [Q28: How do you manage Read-only Filesystem in Docker for enhancing container security?](#q28-how-do-you-manage-read-only-filesystem-in-docker-for-enhancing-container-security)
-- [Q29: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?](#q29-how-do-you-manage-capabilities-in-docker-for-fine-grained-permissions-adddrop)
-- [Q30: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?](#q30-how-do-you-manage-logging-drivers-in-docker-for-syslog-splunk-and-json-file)
-- [Q31: How do you manage Docker Context in Docker for managing remote docker daemons?](#q31-how-do-you-manage-docker-context-in-docker-for-managing-remote-docker-daemons)
-- [Q32: How do you manage Init Process in Docker for handling PID 1 and signals?](#q32-how-do-you-manage-init-process-in-docker-for-handling-pid-1-and-signals)
-- [Q33: How do you manage Networking in Docker for bridge, host, and overlay networks?](#q33-how-do-you-manage-networking-in-docker-for-bridge-host-and-overlay-networks)
-- [Q34: How do you manage Volumes in Docker for managing persistent data?](#q34-how-do-you-manage-volumes-in-docker-for-managing-persistent-data)
-- [Q35: How do you manage Bind Mounts in Docker for development environment syncing?](#q35-how-do-you-manage-bind-mounts-in-docker-for-development-environment-syncing)
-- [Q36: How do you manage Entrypoint vs CMD in Docker for container startup commands?](#q36-how-do-you-manage-entrypoint-vs-cmd-in-docker-for-container-startup-commands)
-- [Q37: How do you manage Docker Ignore in Docker for excluding files from build context?](#q37-how-do-you-manage-docker-ignore-in-docker-for-excluding-files-from-build-context)
-- [Q38: How do you manage Image Tagging in Docker for versioning and releasing?](#q38-how-do-you-manage-image-tagging-in-docker-for-versioning-and-releasing)
-- [Q39: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?](#q39-how-do-you-manage-registry-in-docker-for-pushing-and-pulling-from-docker-hubecr)
-- [Q40: How do you manage Environment Variables in Docker for runtime configuration?](#q40-how-do-you-manage-environment-variables-in-docker-for-runtime-configuration)
-- [Q41: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?](#q41-how-do-you-manage-multi-architecture-builds-in-docker-for-building-for-arm-and-amd64)
-- [Q42: How do you manage Docker Compose Profiles in Docker for conditional service execution?](#q42-how-do-you-manage-docker-compose-profiles-in-docker-for-conditional-service-execution)
-- [Q43: How do you manage Wait-for-it scripts in Docker for handling service dependencies?](#q43-how-do-you-manage-wait-for-it-scripts-in-docker-for-handling-service-dependencies)
-- [Q44: How do you manage Privileged Mode in Docker for accessing host devices?](#q44-how-do-you-manage-privileged-mode-in-docker-for-accessing-host-devices)
-- [Q45: How do you manage Read-only Filesystem in Docker for enhancing container security?](#q45-how-do-you-manage-read-only-filesystem-in-docker-for-enhancing-container-security)
-- [Q46: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?](#q46-how-do-you-manage-capabilities-in-docker-for-fine-grained-permissions-adddrop)
-- [Q47: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?](#q47-how-do-you-manage-logging-drivers-in-docker-for-syslog-splunk-and-json-file)
-- [Q48: How do you manage Docker Context in Docker for managing remote docker daemons?](#q48-how-do-you-manage-docker-context-in-docker-for-managing-remote-docker-daemons)
-- [Q49: How do you manage Init Process in Docker for handling PID 1 and signals?](#q49-how-do-you-manage-init-process-in-docker-for-handling-pid-1-and-signals)
-- [Q50: How do you manage Networking in Docker for bridge, host, and overlay networks?](#q50-how-do-you-manage-networking-in-docker-for-bridge-host-and-overlay-networks)
-- [Q51: How do you manage Volumes in Docker for managing persistent data?](#q51-how-do-you-manage-volumes-in-docker-for-managing-persistent-data)
-- [Q52: How do you manage Bind Mounts in Docker for development environment syncing?](#q52-how-do-you-manage-bind-mounts-in-docker-for-development-environment-syncing)
-- [Q53: How do you manage Entrypoint vs CMD in Docker for container startup commands?](#q53-how-do-you-manage-entrypoint-vs-cmd-in-docker-for-container-startup-commands)
-- [Q54: How do you manage Docker Ignore in Docker for excluding files from build context?](#q54-how-do-you-manage-docker-ignore-in-docker-for-excluding-files-from-build-context)
-- [Q55: How do you manage Image Tagging in Docker for versioning and releasing?](#q55-how-do-you-manage-image-tagging-in-docker-for-versioning-and-releasing)
-- [Q56: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?](#q56-how-do-you-manage-registry-in-docker-for-pushing-and-pulling-from-docker-hubecr)
-- [Q57: How do you manage Environment Variables in Docker for runtime configuration?](#q57-how-do-you-manage-environment-variables-in-docker-for-runtime-configuration)
-- [Q58: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?](#q58-how-do-you-manage-multi-architecture-builds-in-docker-for-building-for-arm-and-amd64)
-- [Q59: How do you manage Docker Compose Profiles in Docker for conditional service execution?](#q59-how-do-you-manage-docker-compose-profiles-in-docker-for-conditional-service-execution)
-- [Q60: How do you manage Wait-for-it scripts in Docker for handling service dependencies?](#q60-how-do-you-manage-wait-for-it-scripts-in-docker-for-handling-service-dependencies)
-- [Q61: How do you manage Privileged Mode in Docker for accessing host devices?](#q61-how-do-you-manage-privileged-mode-in-docker-for-accessing-host-devices)
-- [Q62: How do you manage Read-only Filesystem in Docker for enhancing container security?](#q62-how-do-you-manage-read-only-filesystem-in-docker-for-enhancing-container-security)
-- [Q63: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?](#q63-how-do-you-manage-capabilities-in-docker-for-fine-grained-permissions-adddrop)
-- [Q64: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?](#q64-how-do-you-manage-logging-drivers-in-docker-for-syslog-splunk-and-json-file)
-- [Q65: How do you manage Docker Context in Docker for managing remote docker daemons?](#q65-how-do-you-manage-docker-context-in-docker-for-managing-remote-docker-daemons)
-- [Q66: How do you manage Init Process in Docker for handling PID 1 and signals?](#q66-how-do-you-manage-init-process-in-docker-for-handling-pid-1-and-signals)
-- [Q67: How do you manage Networking in Docker for bridge, host, and overlay networks?](#q67-how-do-you-manage-networking-in-docker-for-bridge-host-and-overlay-networks)
-- [Q68: How do you manage Volumes in Docker for managing persistent data?](#q68-how-do-you-manage-volumes-in-docker-for-managing-persistent-data)
-- [Q69: How do you manage Bind Mounts in Docker for development environment syncing?](#q69-how-do-you-manage-bind-mounts-in-docker-for-development-environment-syncing)
-- [Q70: How do you manage Entrypoint vs CMD in Docker for container startup commands?](#q70-how-do-you-manage-entrypoint-vs-cmd-in-docker-for-container-startup-commands)
-- [Q71: How do you manage Docker Ignore in Docker for excluding files from build context?](#q71-how-do-you-manage-docker-ignore-in-docker-for-excluding-files-from-build-context)
-- [Q72: How do you manage Image Tagging in Docker for versioning and releasing?](#q72-how-do-you-manage-image-tagging-in-docker-for-versioning-and-releasing)
-- [Q73: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?](#q73-how-do-you-manage-registry-in-docker-for-pushing-and-pulling-from-docker-hubecr)
-- [Q74: How do you manage Environment Variables in Docker for runtime configuration?](#q74-how-do-you-manage-environment-variables-in-docker-for-runtime-configuration)
-- [Q75: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?](#q75-how-do-you-manage-multi-architecture-builds-in-docker-for-building-for-arm-and-amd64)
-- [Q76: How do you manage Docker Compose Profiles in Docker for conditional service execution?](#q76-how-do-you-manage-docker-compose-profiles-in-docker-for-conditional-service-execution)
-- [Q77: How do you manage Wait-for-it scripts in Docker for handling service dependencies?](#q77-how-do-you-manage-wait-for-it-scripts-in-docker-for-handling-service-dependencies)
-- [Q78: How do you manage Privileged Mode in Docker for accessing host devices?](#q78-how-do-you-manage-privileged-mode-in-docker-for-accessing-host-devices)
-- [Q79: How do you manage Read-only Filesystem in Docker for enhancing container security?](#q79-how-do-you-manage-read-only-filesystem-in-docker-for-enhancing-container-security)
-- [Q80: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?](#q80-how-do-you-manage-capabilities-in-docker-for-fine-grained-permissions-adddrop)
-- [Q81: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?](#q81-how-do-you-manage-logging-drivers-in-docker-for-syslog-splunk-and-json-file)
-- [Q82: How do you manage Docker Context in Docker for managing remote docker daemons?](#q82-how-do-you-manage-docker-context-in-docker-for-managing-remote-docker-daemons)
-- [Q83: How do you manage Init Process in Docker for handling PID 1 and signals?](#q83-how-do-you-manage-init-process-in-docker-for-handling-pid-1-and-signals)
-- [Q84: How do you manage Networking in Docker for bridge, host, and overlay networks?](#q84-how-do-you-manage-networking-in-docker-for-bridge-host-and-overlay-networks)
-- [Q85: How do you manage Volumes in Docker for managing persistent data?](#q85-how-do-you-manage-volumes-in-docker-for-managing-persistent-data)
-- [Q86: How do you manage Bind Mounts in Docker for development environment syncing?](#q86-how-do-you-manage-bind-mounts-in-docker-for-development-environment-syncing)
-- [Q87: How do you manage Entrypoint vs CMD in Docker for container startup commands?](#q87-how-do-you-manage-entrypoint-vs-cmd-in-docker-for-container-startup-commands)
-- [Q88: How do you manage Docker Ignore in Docker for excluding files from build context?](#q88-how-do-you-manage-docker-ignore-in-docker-for-excluding-files-from-build-context)
-- [Q89: How do you manage Image Tagging in Docker for versioning and releasing?](#q89-how-do-you-manage-image-tagging-in-docker-for-versioning-and-releasing)
-- [Q90: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?](#q90-how-do-you-manage-registry-in-docker-for-pushing-and-pulling-from-docker-hubecr)
-- [Q91: How do you manage Environment Variables in Docker for runtime configuration?](#q91-how-do-you-manage-environment-variables-in-docker-for-runtime-configuration)
-- [Q92: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?](#q92-how-do-you-manage-multi-architecture-builds-in-docker-for-building-for-arm-and-amd64)
-- [Q93: How do you manage Docker Compose Profiles in Docker for conditional service execution?](#q93-how-do-you-manage-docker-compose-profiles-in-docker-for-conditional-service-execution)
-- [Q94: How do you manage Wait-for-it scripts in Docker for handling service dependencies?](#q94-how-do-you-manage-wait-for-it-scripts-in-docker-for-handling-service-dependencies)
-- [Q95: How do you manage Privileged Mode in Docker for accessing host devices?](#q95-how-do-you-manage-privileged-mode-in-docker-for-accessing-host-devices)
-- [Q96: How do you manage Read-only Filesystem in Docker for enhancing container security?](#q96-how-do-you-manage-read-only-filesystem-in-docker-for-enhancing-container-security)
-- [Q97: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?](#q97-how-do-you-manage-capabilities-in-docker-for-fine-grained-permissions-adddrop)
-- [Q98: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?](#q98-how-do-you-manage-logging-drivers-in-docker-for-syslog-splunk-and-json-file)
-- [Q99: How do you manage Docker Context in Docker for managing remote docker daemons?](#q99-how-do-you-manage-docker-context-in-docker-for-managing-remote-docker-daemons)
-- [Q100: How do you manage Init Process in Docker for handling PID 1 and signals?](#q100-how-do-you-manage-init-process-in-docker-for-handling-pid-1-and-signals)
+
+1. [How do you optimize a Docker image size using multi-stage builds?](#q1-how-do-you-optimize-a-docker-image-size-using-multi-stage-builds) <span class="intermediate">Intermediate</span>
+2. [How do you secure a Docker container by running it as a non-root user?](#q2-how-do-you-secure-a-docker-container-by-running-it-as-a-non-root-user) <span class="intermediate">Intermediate</span>
+3. [How do you implement health checks in Docker Compose to ensure dependent services start in order?](#q3-how-do-you-implement-health-checks-in-docker-compose-to-ensure-dependent-services-start-in-order) <span class="intermediate">Intermediate</span>
+4. [How do you persist database data using Docker Volumes?](#q4-how-do-you-persist-database-data-using-docker-volumes) <span class="beginner">Beginner</span>
+5. [How do you debug a crashing container that exits immediately upon starting?](#q5-how-do-you-debug-a-crashing-container-that-exits-immediately-upon-starting) <span class="intermediate">Intermediate</span>
+6. [How do you connect two containers on the same host so they can communicate by name?](#q6-how-do-you-connect-two-containers-on-the-same-host-so-they-can-communicate-by-name) <span class="beginner">Beginner</span>
+7. [How do you pass sensitive configuration (secrets) to a Docker container securely?](#q7-how-do-you-pass-sensitive-configuration-secrets-to-a-docker-container-securely) <span class="advanced">Advanced</span>
+8. [How do you speed up Docker builds by leveraging the build cache effectively?](#q8-how-do-you-speed-up-docker-builds-by-leveraging-the-build-cache-effectively) <span class="intermediate">Intermediate</span>
+9. [How do you limit the memory and CPU usage of a Docker container?](#q9-how-do-you-limit-the-memory-and-cpu-usage-of-a-docker-container) <span class="intermediate">Intermediate</span>
+10. [How do you export and import a Docker image to transfer it between air-gapped systems?](#q10-how-do-you-export-and-import-a-docker-image-to-transfer-it-between-air-gapped-systems) <span class="intermediate">Intermediate</span>
+11. [How do you mount a local configuration file into a container to override defaults?](#q11-how-do-you-mount-a-local-configuration-file-into-a-container-to-override-defaults) <span class="beginner">Beginner</span>
+12. [How do you prevent a Docker container from accumulating large log files?](#q12-how-do-you-prevent-a-docker-container-from-accumulating-large-log-files) <span class="advanced">Advanced</span>
+13. [How do you execute a command inside a running container?](#q13-how-do-you-execute-a-command-inside-a-running-container) <span class="beginner">Beginner</span>
+14. [How do you clean up unused Docker resources (images, containers, networks, volumes)?](#q14-how-do-you-clean-up-unused-docker-resources-images-containers-networks-volumes) <span class="beginner">Beginner</span>
+15. [How do you run a container that automatically restarts on failure?](#q15-how-do-you-run-a-container-that-automatically-restarts-on-failure) <span class="beginner">Beginner</span>
+16. [How do you use `docker buildx` for multi-architecture builds?](#q16-how-do-you-use-docker-buildx-for-multi-architecture-builds) <span class="advanced">Advanced</span>
+17. [How do you speed up builds using BuildKit cache mounts?](#q17-how-do-you-speed-up-builds-using-buildkit-cache-mounts) <span class="advanced">Advanced</span>
+18. [How do you implement a healthcheck in Docker Compose?](#q18-how-do-you-implement-a-healthcheck-in-docker-compose) <span class="intermediate">Intermediate</span>
+19. [How do you secure a container using read-only filesystems?](#q19-how-do-you-secure-a-container-using-read-only-filesystems) <span class="intermediate">Intermediate</span>
+20. [How do you copy files between a container and the host?](#q20-how-do-you-copy-files-between-a-container-and-the-host) <span class="beginner">Beginner</span>
+21. [How do you analyze the contents and layers of an image?](#q21-how-do-you-analyze-the-contents-and-layers-of-an-image) <span class="intermediate">Intermediate</span>
+22. [How do you change the default ENTRYPOINT of an image at runtime?](#q22-how-do-you-change-the-default-entrypoint-of-an-image-at-runtime) <span class="intermediate">Intermediate</span>
+23. [How do you create a Docker network for container communication?](#q23-how-do-you-create-a-docker-network-for-container-communication) <span class="intermediate">Intermediate</span>
+24. [How do you use `.dockerignore` to optimize build context?](#q24-how-do-you-use-dockerignore-to-optimize-build-context) <span class="beginner">Beginner</span>
+25. [How do you mount a specific file as a volume (Bind Mount)?](#q25-how-do-you-mount-a-specific-file-as-a-volume-bind-mount) <span class="beginner">Beginner</span>
+26. [How do you view the logs of a running container in real-time?](#q26-how-do-you-view-the-logs-of-a-running-container-in-real-time) <span class="beginner">Beginner</span>
+27. [How do you inspect a container's IP address and configuration?](#q27-how-do-you-inspect-a-containers-ip-address-and-configuration) <span class="intermediate">Intermediate</span>
+28. [How do you perform a multi-architecture build using Docker Buildx?](#q28-how-do-you-perform-a-multi-architecture-build-using-docker-buildx) <span class="advanced">Advanced</span>
+29. [How do you implement caching for `pip install` or `npm install` in Docker builds?](#q29-how-do-you-implement-caching-for-pip-install-or-npm-install-in-docker-builds) <span class="advanced">Advanced</span>
+
+---
 
 ### Q1: How do you optimize a Docker image size using multi-stage builds?
 
@@ -127,6 +67,8 @@ COPY package*.json ./
 RUN npm install --production
 CMD ["node", "dist/main.js"]
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -156,6 +98,8 @@ USER appuser
 CMD ["python", "app.py"]
 ```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 ---
 
 ### Q3: How do you implement health checks in Docker Compose to ensure dependent services start in order?
@@ -184,6 +128,8 @@ services:
         condition: service_healthy
 ```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 ---
 
 ### Q4: How do you persist database data using Docker Volumes?
@@ -206,6 +152,8 @@ volumes:
   db_data:
 ```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 ---
 
 ### Q5: How do you debug a crashing container that exits immediately upon starting?
@@ -218,10 +166,14 @@ volumes:
 3.  **Override Entrypoint:** Run with a shell to explore the environment.
 
 **Command:**
+
+**Code Example:**
 ```bash
 docker run --rm -it --entrypoint sh my-image
 # Once inside, try running the startup command manually
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -241,6 +193,8 @@ docker run -d --name web --network my-net my-web-app
 # 'web' can now ping 'db'
 ```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 ---
 
 ### Q7: How do you pass sensitive configuration (secrets) to a Docker container securely?
@@ -250,8 +204,8 @@ docker run -d --name web --network my-net my-web-app
 **Strategy:**
 Use Docker Secrets (Swarm) or environment variables via an env file (Compose). For high security in production, use a secrets manager (Vault, AWS Secrets Manager) injected at runtime.
 
-**Code Example (Compose Secrets):**
-```yaml
+**Code Example:**
+```bash
 services:
   web:
     image: my-app
@@ -262,6 +216,8 @@ secrets:
   db_password:
     file: ./secrets/db_password.txt
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -281,6 +237,8 @@ COPY . .              # Re-runs only if source changes
 CMD ["npm", "start"]
 ```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 ---
 
 ### Q9: How do you limit the memory and CPU usage of a Docker container?
@@ -290,13 +248,13 @@ CMD ["npm", "start"]
 **Strategy:**
 Use runtime flags `--memory` and `--cpus` (or equivalent in Compose).
 
-**Code Example:**
-```bash
-docker run -d --memory="512m" --cpus="1.5" nginx
-```
+
+
 
 **Compose:**
-```yaml
+
+**Code Example:**
+```bash
 services:
   web:
     image: nginx
@@ -306,6 +264,8 @@ services:
           cpus: '0.50'
           memory: 512M
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -317,6 +277,8 @@ services:
 Use `docker save` to create a tarball and `docker load` to restore it.
 
 **Commands:**
+
+**Code Example:**
 ```bash
 # Export
 docker save -o my-image.tar my-image:latest
@@ -326,6 +288,8 @@ docker save -o my-image.tar my-image:latest
 # Import
 docker load -i my-image.tar
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -341,6 +305,8 @@ Use a bind mount to map a host file to the container path.
 docker run -d   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro   nginx
 ```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 ---
 
 ### Q12: How do you prevent a Docker container from accumulating large log files?
@@ -350,8 +316,8 @@ docker run -d   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro   nginx
 **Strategy:**
 Configure the logging driver with `max-size` and `max-file` options.
 
-**Code Example (daemon.json or docker-compose):**
-```yaml
+**Code Example:**
+```bash
 services:
   web:
     image: nginx
@@ -361,6 +327,8 @@ services:
         max-size: "10m"
         max-file: "3"
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -372,6 +340,8 @@ services:
 Use `docker exec`. Adding `-it` allows interactive shell access.
 
 **Command:**
+
+**Code Example:**
 ```bash
 # Run a database migration
 docker exec my-container python manage.py migrate
@@ -379,6 +349,8 @@ docker exec my-container python manage.py migrate
 # Open a shell
 docker exec -it my-container /bin/bash
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -390,6 +362,8 @@ docker exec -it my-container /bin/bash
 Use the `docker system prune` command.
 
 **Commands:**
+
+**Code Example:**
 ```bash
 # Basic cleanup (stopped containers, unused networks, dangling images)
 docker system prune
@@ -397,6 +371,8 @@ docker system prune
 # Deep cleanup (includes volumes and all unused images)
 docker system prune -a --volumes
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -408,1291 +384,327 @@ docker system prune -a --volumes
 Use the `--restart` policy.
 
 **Command:**
-```bash
-docker run -d --restart unless-stopped my-app
-```
+
 
 **Compose:**
-```yaml
+
+**Code Example:**
+```bash
 services:
   app:
     restart: always
 ```
 
----
-
-### Q16: How do you manage Networking in Docker for bridge, host, and overlay networks?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Networking to handle bridge, host, and overlay networks effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Networking
-docker run --option value ...
-```
-
----
-
-### Q17: How do you manage Volumes in Docker for managing persistent data?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Volumes to handle managing persistent data effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Volumes
-docker run --option value ...
-```
-
----
-
-### Q18: How do you manage Bind Mounts in Docker for development environment syncing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Bind Mounts to handle development environment syncing effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Bind Mounts
-docker run --option value ...
-```
-
----
-
-### Q19: How do you manage Entrypoint vs CMD in Docker for container startup commands?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Entrypoint vs CMD to handle container startup commands effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Entrypoint vs CMD
-docker run --option value ...
-```
-
----
-
-### Q20: How do you manage Docker Ignore in Docker for excluding files from build context?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Ignore to handle excluding files from build context effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Docker Ignore
-docker run --option value ...
-```
-
----
-
-### Q21: How do you manage Image Tagging in Docker for versioning and releasing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Image Tagging to handle versioning and releasing effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Image Tagging
-docker run --option value ...
-```
-
----
-
-### Q22: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Registry to handle pushing and pulling from Docker Hub/ECR effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Registry
-docker run --option value ...
-```
-
----
-
-### Q23: How do you manage Environment Variables in Docker for runtime configuration?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Environment Variables to handle runtime configuration effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Environment Variables
-docker run --option value ...
-```
-
----
-
-### Q24: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Multi-Architecture Builds to handle building for ARM and AMD64 effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Multi-Architecture Builds
-docker run --option value ...
-```
-
----
-
-### Q25: How do you manage Docker Compose Profiles in Docker for conditional service execution?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Compose Profiles to handle conditional service execution effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Docker Compose Profiles
-docker run --option value ...
-```
-
----
-
-### Q26: How do you manage Wait-for-it scripts in Docker for handling service dependencies?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Wait-for-it scripts to handle handling service dependencies effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Wait-for-it scripts
-docker run --option value ...
-```
-
----
-
-### Q27: How do you manage Privileged Mode in Docker for accessing host devices?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Privileged Mode to handle accessing host devices effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Privileged Mode
-docker run --option value ...
-```
-
----
-
-### Q28: How do you manage Read-only Filesystem in Docker for enhancing container security?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Read-only Filesystem to handle enhancing container security effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Read-only Filesystem
-docker run --option value ...
-```
-
----
-
-### Q29: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Capabilities to handle fine-grained permissions (add/drop) effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Capabilities
-docker run --option value ...
-```
-
----
-
-### Q30: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Logging Drivers to handle syslog, splunk, and json-file effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Logging Drivers
-docker run --option value ...
-```
-
----
-
-### Q31: How do you manage Docker Context in Docker for managing remote docker daemons?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Context to handle managing remote docker daemons effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Docker Context
-docker run --option value ...
-```
-
----
-
-### Q32: How do you manage Init Process in Docker for handling PID 1 and signals?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Init Process to handle handling PID 1 and signals effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Init Process
-docker run --option value ...
-```
-
----
-
-### Q33: How do you manage Networking in Docker for bridge, host, and overlay networks?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Networking to handle bridge, host, and overlay networks effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Networking
-docker run --option value ...
-```
-
----
-
-### Q34: How do you manage Volumes in Docker for managing persistent data?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Volumes to handle managing persistent data effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Volumes
-docker run --option value ...
-```
-
----
-
-### Q35: How do you manage Bind Mounts in Docker for development environment syncing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Bind Mounts to handle development environment syncing effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Bind Mounts
-docker run --option value ...
-```
-
----
-
-### Q36: How do you manage Entrypoint vs CMD in Docker for container startup commands?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Entrypoint vs CMD to handle container startup commands effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Entrypoint vs CMD
-docker run --option value ...
-```
-
----
-
-### Q37: How do you manage Docker Ignore in Docker for excluding files from build context?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Ignore to handle excluding files from build context effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Docker Ignore
-docker run --option value ...
-```
-
----
-
-### Q38: How do you manage Image Tagging in Docker for versioning and releasing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Image Tagging to handle versioning and releasing effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Image Tagging
-docker run --option value ...
-```
-
----
-
-### Q39: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Registry to handle pushing and pulling from Docker Hub/ECR effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Registry
-docker run --option value ...
-```
-
----
-
-### Q40: How do you manage Environment Variables in Docker for runtime configuration?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Environment Variables to handle runtime configuration effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Environment Variables
-docker run --option value ...
-```
-
----
-
-### Q41: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Multi-Architecture Builds to handle building for ARM and AMD64 effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Multi-Architecture Builds
-docker run --option value ...
-```
-
----
-
-### Q42: How do you manage Docker Compose Profiles in Docker for conditional service execution?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Compose Profiles to handle conditional service execution effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Docker Compose Profiles
-docker run --option value ...
-```
-
----
-
-### Q43: How do you manage Wait-for-it scripts in Docker for handling service dependencies?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Wait-for-it scripts to handle handling service dependencies effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Wait-for-it scripts
-docker run --option value ...
-```
-
----
-
-### Q44: How do you manage Privileged Mode in Docker for accessing host devices?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Privileged Mode to handle accessing host devices effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Privileged Mode
-docker run --option value ...
-```
-
----
-
-### Q45: How do you manage Read-only Filesystem in Docker for enhancing container security?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Read-only Filesystem to handle enhancing container security effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Read-only Filesystem
-docker run --option value ...
-```
-
----
-
-### Q46: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Capabilities to handle fine-grained permissions (add/drop) effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Capabilities
-docker run --option value ...
-```
-
----
-
-### Q47: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Logging Drivers to handle syslog, splunk, and json-file effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Logging Drivers
-docker run --option value ...
-```
-
----
-
-### Q48: How do you manage Docker Context in Docker for managing remote docker daemons?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Context to handle managing remote docker daemons effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Docker Context
-docker run --option value ...
-```
-
----
-
-### Q49: How do you manage Init Process in Docker for handling PID 1 and signals?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Init Process to handle handling PID 1 and signals effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Init Process
-docker run --option value ...
-```
-
----
-
-### Q50: How do you manage Networking in Docker for bridge, host, and overlay networks?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Networking to handle bridge, host, and overlay networks effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Networking
-docker run --option value ...
-```
-
----
-
-### Q51: How do you manage Volumes in Docker for managing persistent data?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Volumes to handle managing persistent data effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Volumes
-docker run --option value ...
-```
-
----
-
-### Q52: How do you manage Bind Mounts in Docker for development environment syncing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Bind Mounts to handle development environment syncing effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Bind Mounts
-docker run --option value ...
-```
-
----
-
-### Q53: How do you manage Entrypoint vs CMD in Docker for container startup commands?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Entrypoint vs CMD to handle container startup commands effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Entrypoint vs CMD
-docker run --option value ...
-```
-
----
-
-### Q54: How do you manage Docker Ignore in Docker for excluding files from build context?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Ignore to handle excluding files from build context effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Docker Ignore
-docker run --option value ...
-```
-
----
-
-### Q55: How do you manage Image Tagging in Docker for versioning and releasing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Image Tagging to handle versioning and releasing effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Image Tagging
-docker run --option value ...
-```
-
----
-
-### Q56: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Registry to handle pushing and pulling from Docker Hub/ECR effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Registry
-docker run --option value ...
-```
-
----
-
-### Q57: How do you manage Environment Variables in Docker for runtime configuration?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Environment Variables to handle runtime configuration effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Environment Variables
-docker run --option value ...
-```
-
----
-
-### Q58: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Multi-Architecture Builds to handle building for ARM and AMD64 effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Multi-Architecture Builds
-docker run --option value ...
-```
-
----
-
-### Q59: How do you manage Docker Compose Profiles in Docker for conditional service execution?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Compose Profiles to handle conditional service execution effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Docker Compose Profiles
-docker run --option value ...
-```
-
----
-
-### Q60: How do you manage Wait-for-it scripts in Docker for handling service dependencies?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Wait-for-it scripts to handle handling service dependencies effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Wait-for-it scripts
-docker run --option value ...
-```
-
----
-
-### Q61: How do you manage Privileged Mode in Docker for accessing host devices?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Privileged Mode to handle accessing host devices effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Privileged Mode
-docker run --option value ...
-```
-
----
-
-### Q62: How do you manage Read-only Filesystem in Docker for enhancing container security?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Read-only Filesystem to handle enhancing container security effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Read-only Filesystem
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?
+### Q16: How do you use `docker buildx` for multi-architecture builds?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Configure Capabilities to handle fine-grained permissions (add/drop) effectively. Ensure you follow best practices for security and performance.
+Use `docker buildx` to build images for multiple platforms (e.g., linux/amd64, linux/arm64) simultaneously and push them to a registry.
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Capabilities
-docker run --option value ...
-```
-
----
-
-### Q64: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Logging Drivers to handle syslog, splunk, and json-file effectively. Ensure you follow best practices for security and performance.
+# Create a builder instance
+docker buildx create --use
 
-**Command/Code:**
-```bash
-# Example for Logging Drivers
-docker run --option value ...
+# Build and push for multiple platforms
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t myuser/myimage:latest \
+  --push .
 ```
-
----
-
-### Q65: How do you manage Docker Context in Docker for managing remote docker daemons?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Context to handle managing remote docker daemons effectively. Ensure you follow best practices for security and performance.
 
-**Command/Code:**
-```bash
-# Example for Docker Context
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q66: How do you manage Init Process in Docker for handling PID 1 and signals?
+### Q17: How do you speed up builds using BuildKit cache mounts?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Configure Init Process to handle handling PID 1 and signals effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Init Process
-docker run --option value ...
-```
-
----
+Use `--mount=type=cache` in your Dockerfile to cache directories (like package manager caches) between builds, speeding up dependency installation.
 
-### Q67: How do you manage Networking in Docker for bridge, host, and overlay networks?
+**Code Example:**
+```dockerfile
+# Syntax required for BuildKit
+# syntax=docker/dockerfile:1
 
-**Difficulty**: Intermediate
+FROM golang:1.21
+WORKDIR /app
+COPY go.mod go.sum ./
 
-**Strategy:**
-Configure Networking to handle bridge, host, and overlay networks effectively. Ensure you follow best practices for security and performance.
+# Cache Go modules
+RUN --mount=type=cache,target=/go/pkg/mod \
+    go mod download
 
-**Command/Code:**
-```bash
-# Example for Networking
-docker run --option value ...
+COPY . .
+RUN go build -o main .
 ```
-
----
 
-### Q68: How do you manage Volumes in Docker for managing persistent data?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Volumes to handle managing persistent data effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Volumes
-docker run --option value ...
-```
-
 ---
 
-### Q69: How do you manage Bind Mounts in Docker for development environment syncing?
+### Q18: How do you implement a healthcheck in Docker Compose?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Configure Bind Mounts to handle development environment syncing effectively. Ensure you follow best practices for security and performance.
+Define a `healthcheck` block in your service. Dependent services can use `condition: service_healthy` in `depends_on` to wait for it.
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Bind Mounts
-docker run --option value ...
+services:
+  db:
+    image: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
 ```
-
----
-
-### Q70: How do you manage Entrypoint vs CMD in Docker for container startup commands?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Configure Entrypoint vs CMD to handle container startup commands effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Entrypoint vs CMD
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you manage Docker Ignore in Docker for excluding files from build context?
+### Q19: How do you secure a container using read-only filesystems?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Configure Docker Ignore to handle excluding files from build context effectively. Ensure you follow best practices for security and performance.
+Run the container with `--read-only` to prevent modifications to the container's filesystem. Use volumes for paths that need to be writable.
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Docker Ignore
-docker run --option value ...
+docker run -d \
+  --read-only \
+  --tmpfs /tmp \
+  --tmpfs /run \
+  -v my-data:/var/lib/app/data \
+  my-app:latest
 ```
 
----
-
-### Q72: How do you manage Image Tagging in Docker for versioning and releasing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Image Tagging to handle versioning and releasing effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Image Tagging
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?
+### Q20: How do you copy files between a container and the host?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Configure Registry to handle pushing and pulling from Docker Hub/ECR effectively. Ensure you follow best practices for security and performance.
+Use `docker cp` to copy files/directories from container to host or vice versa. Useful for debugging or extracting logs/artifacts.
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Registry
-docker run --option value ...
-```
-
----
-
-### Q74: How do you manage Environment Variables in Docker for runtime configuration?
-
-**Difficulty**: Intermediate
+# Copy file from container to host
+docker cp my-container:/app/logs.txt ./local-logs.txt
 
-**Strategy:**
-Configure Environment Variables to handle runtime configuration effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Environment Variables
-docker run --option value ...
+# Copy file from host to container
+docker cp ./config.json my-container:/app/config.json
 ```
-
----
-
-### Q75: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Configure Multi-Architecture Builds to handle building for ARM and AMD64 effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Multi-Architecture Builds
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q76: How do you manage Docker Compose Profiles in Docker for conditional service execution?
+### Q21: How do you analyze the contents and layers of an image?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Configure Docker Compose Profiles to handle conditional service execution effectively. Ensure you follow best practices for security and performance.
+Use `docker history` to see the layers and size. For deep analysis, tools like `dive` are excellent.
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Docker Compose Profiles
-docker run --option value ...
-```
-
----
-
-### Q77: How do you manage Wait-for-it scripts in Docker for handling service dependencies?
+# Built-in command
+docker history my-image:latest
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Wait-for-it scripts to handle handling service dependencies effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Wait-for-it scripts
-docker run --option value ...
+# Using dive (if installed)
+dive my-image:latest
 ```
-
----
-
-### Q78: How do you manage Privileged Mode in Docker for accessing host devices?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Privileged Mode to handle accessing host devices effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Privileged Mode
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you manage Read-only Filesystem in Docker for enhancing container security?
+### Q22: How do you change the default ENTRYPOINT of an image at runtime?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Configure Read-only Filesystem to handle enhancing container security effectively. Ensure you follow best practices for security and performance.
+Use the `--entrypoint` flag to override the image's defined entrypoint. Useful for debugging (e.g., starting a shell instead of the app).
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Read-only Filesystem
-docker run --option value ...
-```
-
----
-
-### Q80: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?
-
-**Difficulty**: Intermediate
+# Override entrypoint to run bash
+docker run -it --entrypoint /bin/bash my-app:latest
 
-**Strategy:**
-Configure Capabilities to handle fine-grained permissions (add/drop) effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Capabilities
-docker run --option value ...
+# If the image has no bash, try sh
+docker run -it --entrypoint /bin/sh my-app:latest
 ```
-
----
-
-### Q81: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Configure Logging Drivers to handle syslog, splunk, and json-file effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Logging Drivers
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you manage Docker Context in Docker for managing remote docker daemons?
+### Q23: How do you create a Docker network for container communication?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Configure Docker Context to handle managing remote docker daemons effectively. Ensure you follow best practices for security and performance.
+Create a user-defined bridge network. Containers on the same user-defined network can communicate by container name (DNS resolution).
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Docker Context
-docker run --option value ...
-```
-
----
-
-### Q83: How do you manage Init Process in Docker for handling PID 1 and signals?
+# Create network
+docker network create my-net
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Init Process to handle handling PID 1 and signals effectively. Ensure you follow best practices for security and performance.
+# Connect containers
+docker run -d --name db --network my-net postgres
+docker run -d --name app --network my-net my-app-image
 
-**Command/Code:**
-```bash
-# Example for Init Process
-docker run --option value ...
+# App can now connect to 'db:5432'
 ```
 
----
-
-### Q84: How do you manage Networking in Docker for bridge, host, and overlay networks?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Networking to handle bridge, host, and overlay networks effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Networking
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q85: How do you manage Volumes in Docker for managing persistent data?
+### Q24: How do you use `.dockerignore` to optimize build context?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Configure Volumes to handle managing persistent data effectively. Ensure you follow best practices for security and performance.
+Create a `.dockerignore` file to exclude files (node_modules, git, logs) from being sent to the Docker daemon. This speeds up builds and reduces image size.
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Volumes
-docker run --option value ...
+# .dockerignore
+node_modules
+.git
+.env
+*.log
+dist
+tmp
 ```
-
----
-
-### Q86: How do you manage Bind Mounts in Docker for development environment syncing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Bind Mounts to handle development environment syncing effectively. Ensure you follow best practices for security and performance.
 
-**Command/Code:**
-```bash
-# Example for Bind Mounts
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you manage Entrypoint vs CMD in Docker for container startup commands?
+### Q25: How do you mount a specific file as a volume (Bind Mount)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Configure Entrypoint vs CMD to handle container startup commands effectively. Ensure you follow best practices for security and performance.
+Use `-v /host/path:/container/path` to mount a specific file. This is often used for injecting configuration files.
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Entrypoint vs CMD
-docker run --option value ...
+docker run -d \
+  -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro \
+  nginx:latest
 ```
-
----
-
-### Q88: How do you manage Docker Ignore in Docker for excluding files from build context?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Ignore to handle excluding files from build context effectively. Ensure you follow best practices for security and performance.
 
-**Command/Code:**
-```bash
-# Example for Docker Ignore
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you manage Image Tagging in Docker for versioning and releasing?
+### Q26: How do you view the logs of a running container in real-time?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Configure Image Tagging to handle versioning and releasing effectively. Ensure you follow best practices for security and performance.
+Use `docker logs -f <container_id>` to follow the log output (stdout/stderr).
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Image Tagging
-docker run --option value ...
-```
-
----
-
-### Q90: How do you manage Registry in Docker for pushing and pulling from Docker Hub/ECR?
-
-**Difficulty**: Intermediate
+# Follow logs
+docker logs -f my-container
 
-**Strategy:**
-Configure Registry to handle pushing and pulling from Docker Hub/ECR effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Registry
-docker run --option value ...
+# Show last 100 lines and follow
+docker logs --tail 100 -f my-container
 ```
-
----
-
-### Q91: How do you manage Environment Variables in Docker for runtime configuration?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Configure Environment Variables to handle runtime configuration effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Environment Variables
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q92: How do you manage Multi-Architecture Builds in Docker for building for ARM and AMD64?
+### Q27: How do you inspect a container's IP address and configuration?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Configure Multi-Architecture Builds to handle building for ARM and AMD64 effectively. Ensure you follow best practices for security and performance.
+Use `docker inspect` to get detailed JSON output. You can use `-f` (format) to extract specific fields.
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Multi-Architecture Builds
-docker run --option value ...
-```
-
----
-
-### Q93: How do you manage Docker Compose Profiles in Docker for conditional service execution?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Compose Profiles to handle conditional service execution effectively. Ensure you follow best practices for security and performance.
+# Get full JSON
+docker inspect my-container
 
-**Command/Code:**
-```bash
-# Example for Docker Compose Profiles
-docker run --option value ...
+# Get just the IP address
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' my-container
 ```
-
----
-
-### Q94: How do you manage Wait-for-it scripts in Docker for handling service dependencies?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Wait-for-it scripts to handle handling service dependencies effectively. Ensure you follow best practices for security and performance.
 
-**Command/Code:**
-```bash
-# Example for Wait-for-it scripts
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you manage Privileged Mode in Docker for accessing host devices?
+### Q28: How do you perform a multi-architecture build using Docker Buildx?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Configure Privileged Mode to handle accessing host devices effectively. Ensure you follow best practices for security and performance.
+Use `docker buildx create` to setup a builder, then use `docker buildx build --platform linux/amd64,linux/arm64` to build for multiple architectures and push to a registry.
 
-**Command/Code:**
+**Code Example:**
 ```bash
-# Example for Privileged Mode
-docker run --option value ...
-```
-
----
-
-### Q96: How do you manage Read-only Filesystem in Docker for enhancing container security?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Read-only Filesystem to handle enhancing container security effectively. Ensure you follow best practices for security and performance.
+# Create and use a new builder instance
+docker buildx create --name mybuilder --use
 
-**Command/Code:**
-```bash
-# Example for Read-only Filesystem
-docker run --option value ...
+# Build and push for multiple platforms
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t user/app:latest \
+  --push .
 ```
-
----
-
-### Q97: How do you manage Capabilities in Docker for fine-grained permissions (add/drop)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Capabilities to handle fine-grained permissions (add/drop) effectively. Ensure you follow best practices for security and performance.
 
-**Command/Code:**
-```bash
-# Example for Capabilities
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you manage Logging Drivers in Docker for syslog, splunk, and json-file?
+### Q29: How do you implement caching for `pip install` or `npm install` in Docker builds?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Configure Logging Drivers to handle syslog, splunk, and json-file effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Logging Drivers
-docker run --option value ...
-```
-
----
-
-### Q99: How do you manage Docker Context in Docker for managing remote docker daemons?
+Use BuildKit's cache mounts (`--mount=type=cache`) to persist package directories between builds, speeding up dependency installation.
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Docker Context to handle managing remote docker daemons effectively. Ensure you follow best practices for security and performance.
+**Code Example:**
+```dockerfile
+# Python example
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install -r requirements.txt
 
-**Command/Code:**
-```bash
-# Example for Docker Context
-docker run --option value ...
+# Node example
+RUN --mount=type=cache,target=/root/.npm \
+    npm ci
 ```
 
----
-
-### Q100: How do you manage Init Process in Docker for handling PID 1 and signals?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Configure Init Process to handle handling PID 1 and signals effectively. Ensure you follow best practices for security and performance.
-
-**Command/Code:**
-```bash
-# Example for Init Process
-docker run --option value ...
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

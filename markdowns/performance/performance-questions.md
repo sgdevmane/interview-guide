@@ -26,193 +26,191 @@
 14. [How do you implement 'Resource Hints' (dns-prefetch, preconnect) to speed up third-party API connections?](#q14-how-do-you-implement-resource-hints-dns-prefetch-preconnect-to-speed-up-third-party-api-connections) <span class="intermediate">Intermediate</span>
 15. [How do you optimize CSS delivery to avoid 'Render Blocking' resources?](#q15-how-do-you-optimize-css-delivery-to-avoid-render-blocking-resources) <span class="advanced">Advanced</span>
 16. [How do you minimize main thread work to improve INP?](#q16-how-do-you-minimize-main-thread-work-to-improve-inp) <span class="expert">Expert</span>
-17. [How do you use the Scheduler API (scheduler.yield) to break up long tasks?](#q17-how-do-you-use-the-scheduler-api-scheduleryield-to-break-up-long-tasks) <span class="advanced">Advanced</span>
-18. [How do you optimize font loading using font-display: swap?](#q18-how-do-you-optimize-font-loading-using-font-display-swap) <span class="beginner">Beginner</span>
-19. [How do you prevent Layout Shifts from dynamic ads?](#q19-how-do-you-prevent-layout-shifts-from-dynamic-ads) <span class="intermediate">Intermediate</span>
-20. [How do you use HTTP/2 Server Push (or why avoid it)?](#q20-how-do-you-use-http2-server-push-or-why-avoid-it) <span class="advanced">Advanced</span>
-21. [How do you implement a Service Worker for offline caching?](#q21-how-do-you-implement-a-service-worker-for-offline-caching) <span class="intermediate">Intermediate</span>
-22. [How do you use the Cache API within a Service Worker?](#q22-how-do-you-use-the-cache-api-within-a-service-worker) <span class="intermediate">Intermediate</span>
-23. [How do you configure HTTP Cache-Control headers for static assets?](#q23-how-do-you-configure-http-cache-control-headers-for-static-assets) <span class="intermediate">Intermediate</span>
-24. [How do you use the Vary header to serve different content versions?](#q24-how-do-you-use-the-vary-header-to-serve-different-content-versions) <span class="advanced">Advanced</span>
-25. [How do you implement ETags for conditional requests?](#q25-how-do-you-implement-etags-for-conditional-requests) <span class="intermediate">Intermediate</span>
-26. [How do you optimize SVG assets using SVGO?](#q26-how-do-you-optimize-svg-assets-using-svgo) <span class="beginner">Beginner</span>
-27. [How do you serve responsive images using `srcset` and `sizes`?](#q27-how-do-you-serve-responsive-images-using-srcset-and-sizes) <span class="beginner">Beginner</span>
-28. [How do you use the `<picture>` element for art direction?](#q28-how-do-you-use-the-picture-element-for-art-direction) <span class="beginner">Beginner</span>
-29. [How do you convert images to WebP or AVIF formats?](#q29-how-do-you-convert-images-to-webp-or-avif-formats) <span class="beginner">Beginner</span>
-30. [How do you optimize video delivery using HLS or DASH?](#q30-how-do-you-optimize-video-delivery-using-hls-or-dash) <span class="advanced">Advanced</span>
-31. [How do you use the `poster` attribute for video placeholders?](#q31-how-do-you-use-the-poster-attribute-for-video-placeholders) <span class="beginner">Beginner</span>
-32. [How do you lazy load third-party scripts (Google Analytics, etc.)?](#q32-how-do-you-lazy-load-third-party-scripts-google-analytics-etc) <span class="intermediate">Intermediate</span>
-33. [How do you use the `defer` vs `async` attributes on script tags?](#q33-how-do-you-use-the-defer-vs-async-attributes-on-script-tags) <span class="beginner">Beginner</span>
-34. [How do you optimize Google Fonts performance?](#q34-how-do-you-optimize-google-fonts-performance) <span class="intermediate">Intermediate</span>
-35. [How do you reduce the impact of A/B testing scripts on LCP?](#q35-how-do-you-reduce-the-impact-of-ab-testing-scripts-on-lcp) <span class="advanced">Advanced</span>
-36. [How do you use the Coverage tab in Chrome DevTools to find unused code?](#q36-how-do-you-use-the-coverage-tab-in-chrome-devtools-to-find-unused-code) <span class="intermediate">Intermediate</span>
-37. [How do you use the Performance tab to analyze flame charts?](#q37-how-do-you-use-the-performance-tab-to-analyze-flame-charts) <span class="intermediate">Intermediate</span>
-38. [How do you use the Network tab to debug waterfall requests?](#q38-how-do-you-use-the-network-tab-to-debug-waterfall-requests) <span class="beginner">Beginner</span>
-39. [How do you detect and fix 'forced synchronous layout'?](#q39-how-do-you-detect-and-fix-forced-synchronous-layout) <span class="advanced">Advanced</span>
-40. [How do you use `will-change` CSS property correctly?](#q40-how-do-you-use-will-change-css-property-correctly) <span class="intermediate">Intermediate</span>
-41. [How do you optimize CSS selectors to reduce matching time?](#q41-how-do-you-optimize-css-selectors-to-reduce-matching-time) <span class="advanced">Advanced</span>
-42. [How do you use CSS containment (`contain` property) for rendering performance?](#q42-how-do-you-use-css-containment-contain-property-for-rendering-performance) <span class="expert">Expert</span>
-43. [How do you reduce the complexity of the DOM tree?](#q43-how-do-you-reduce-the-complexity-of-the-dom-tree) <span class="intermediate">Intermediate</span>
-44. [How do you optimize React `re-renders` using `React.memo`?](#q44-how-do-you-optimize-react-re-renders-using-reactmemo) <span class="intermediate">Intermediate</span>
-45. [How do you use `useCallback` to prevent function recreation?](#q45-how-do-you-use-usecallback-to-prevent-function-recreation) <span class="intermediate">Intermediate</span>
-46. [How do you virtualize a large data grid/table?](#q46-how-do-you-virtualize-a-large-data-gridtable) <span class="advanced">Advanced</span>
-47. [How do you optimize list rendering with `key` prop?](#q47-how-do-you-optimize-list-rendering-with-key-prop) <span class="beginner">Beginner</span>
-48. [How do you prevent expensive calculations with `useMemo`?](#q48-how-do-you-prevent-expensive-calculations-with-usememo) <span class="beginner">Beginner</span>
-49. [How do you use React Profiler to identify slow components?](#q49-how-do-you-use-react-profiler-to-identify-slow-components) <span class="intermediate">Intermediate</span>
-50. [How do you code split a React app using route-based chunks?](#q50-how-do-you-code-split-a-react-app-using-route-based-chunks) <span class="intermediate">Intermediate</span>
-51. [How do you prefetch resources on link hover?](#q51-how-do-you-prefetch-resources-on-link-hover) <span class="intermediate">Intermediate</span>
-52. [How do you use the Network Information API to adapt to slow connections?](#q52-how-do-you-use-the-network-information-api-to-adapt-to-slow-connections) <span class="advanced">Advanced</span>
-53. [How do you implement the PRPL pattern?](#q53-how-do-you-implement-the-prpl-pattern) <span class="advanced">Advanced</span>
-54. [How do you optimize hydration in SSR applications?](#q54-how-do-you-optimize-hydration-in-ssr-applications) <span class="advanced">Advanced</span>
-55. [How do you use Selective Hydration in React 18?](#q55-how-do-you-use-selective-hydration-in-react-18) <span class="expert">Expert</span>
-56. [How do you reduce Time to First Byte (TTFB) on the server?](#q56-how-do-you-reduce-time-to-first-byte-ttfb-on-the-server) <span class="intermediate">Intermediate</span>
-57. [How do you configure Gzip or Brotli compression on the server?](#q57-how-do-you-configure-gzip-or-brotli-compression-on-the-server) <span class="beginner">Beginner</span>
-58. [How do you optimize database queries to reduce server response time?](#q58-how-do-you-optimize-database-queries-to-reduce-server-response-time) <span class="intermediate">Intermediate</span>
-59. [How do you use a CDN to serve static assets?](#q59-how-do-you-use-a-cdn-to-serve-static-assets) <span class="beginner">Beginner</span>
-60. [How do you configure HTTP/3 (QUIC) for faster connections?](#q60-how-do-you-configure-http3-quic-for-faster-connections) <span class="advanced">Advanced</span>
-61. [How do you monitor Real User Metrics (RUM) using Vitals library?](#q61-how-do-you-monitor-real-user-metrics-rum-using-vitals-library) <span class="intermediate">Intermediate</span>
-62. [How do you set up a Performance Budget in CI/CD pipeline?](#q62-how-do-you-set-up-a-performance-budget-in-cicd-pipeline) <span class="advanced">Advanced</span>
-63. [How do you use Lighthouse CI to prevent regressions?](#q63-how-do-you-use-lighthouse-ci-to-prevent-regressions) <span class="intermediate">Intermediate</span>
-64. [How do you optimize a Single Page Application (SPA) initial load?](#q64-how-do-you-optimize-a-single-page-application-spa-initial-load) <span class="intermediate">Intermediate</span>
-65. [How do you optimize Next.js Image component usage?](#q65-how-do-you-optimize-nextjs-image-component-usage) <span class="intermediate">Intermediate</span>
-66. [How do you optimize font subsetting to reduce file size?](#q66-how-do-you-optimize-font-subsetting-to-reduce-file-size) <span class="advanced">Advanced</span>
-67. [How do you avoid chain requests (waterfalls) in critical path?](#q67-how-do-you-avoid-chain-requests-waterfalls-in-critical-path) <span class="intermediate">Intermediate</span>
-68. [How do you inline small assets (Base64) to save requests?](#q68-how-do-you-inline-small-assets-base64-to-save-requests) <span class="beginner">Beginner</span>
-69. [How do you use Resource Hints for external domains?](#q69-how-do-you-use-resource-hints-for-external-domains) <span class="intermediate">Intermediate</span>
-70. [How do you optimize the Critical Rendering Path?](#q70-how-do-you-optimize-the-critical-rendering-path) <span class="advanced">Advanced</span>
-71. [How do you reduce the size of JSON API responses?](#q71-how-do-you-reduce-the-size-of-json-api-responses) <span class="intermediate">Intermediate</span>
-72. [How do you use Protocol Buffers instead of JSON for smaller payloads?](#q72-how-do-you-use-protocol-buffers-instead-of-json-for-smaller-payloads) <span class="expert">Expert</span>
-73. [How do you optimize GraphQL queries to fetch only needed fields?](#q73-how-do-you-optimize-graphql-queries-to-fetch-only-needed-fields) <span class="intermediate">Intermediate</span>
-74. [How do you batch multiple API requests into one?](#q74-how-do-you-batch-multiple-api-requests-into-one) <span class="intermediate">Intermediate</span>
-75. [How do you use a skeleton screen to improve perceived performance?](#q75-how-do-you-use-a-skeleton-screen-to-improve-perceived-performance) <span class="beginner">Beginner</span>
-76. [How do you implement optimistic UI updates?](#q76-how-do-you-implement-optimistic-ui-updates) <span class="intermediate">Intermediate</span>
-77. [How do you offload image processing to a serverless function?](#q77-how-do-you-offload-image-processing-to-a-serverless-function) <span class="advanced">Advanced</span>
-78. [How do you use `requestIdleCallback` for low-priority tasks?](#q78-how-do-you-use-requestidlecallback-for-low-priority-tasks) <span class="intermediate">Intermediate</span>
-79. [How do you optimize garbage collection by avoiding object churn?](#q79-how-do-you-optimize-garbage-collection-by-avoiding-object-churn) <span class="expert">Expert</span>
-80. [How do you profile memory usage using Heap Snapshots?](#q80-how-do-you-profile-memory-usage-using-heap-snapshots) <span class="advanced">Advanced</span>
-81. [How do you detect detached DOM nodes causing memory leaks?](#q81-how-do-you-detect-detached-dom-nodes-causing-memory-leaks) <span class="advanced">Advanced</span>
-82. [How do you optimize canvas rendering performance?](#q82-how-do-you-optimize-canvas-rendering-performance) <span class="advanced">Advanced</span>
-83. [How do you use OffscreenCanvas for background rendering?](#q83-how-do-you-use-offscreencanvas-for-background-rendering) <span class="expert">Expert</span>
-84. [How do you optimize WebGL rendering?](#q84-how-do-you-optimize-webgl-rendering) <span class="expert">Expert</span>
-85. [How do you reduce battery usage by pausing background animations?](#q85-how-do-you-reduce-battery-usage-by-pausing-background-animations) <span class="intermediate">Intermediate</span>
-86. [How do you use the Page Visibility API to pause tasks?](#q86-how-do-you-use-the-page-visibility-api-to-pause-tasks) <span class="intermediate">Intermediate</span>
-87. [How do you optimize iframe loading using `loading='lazy'`?](#q87-how-do-you-optimize-iframe-loading-using-loadinglazy) <span class="beginner">Beginner</span>
-88. [How do you isolate third-party widgets in iframes?](#q88-how-do-you-isolate-third-party-widgets-in-iframes) <span class="intermediate">Intermediate</span>
-89. [How do you use the Shadow DOM for style encapsulation/perf?](#q89-how-do-you-use-the-shadow-dom-for-style-encapsulationperf) <span class="advanced">Advanced</span>
-90. [How do you optimize regex patterns to avoid ReDoS?](#q90-how-do-you-optimize-regex-patterns-to-avoid-redos) <span class="advanced">Advanced</span>
-91. [How do you use GPU acceleration for animations?](#q91-how-do-you-use-gpu-acceleration-for-animations) <span class="intermediate">Intermediate</span>
-92. [How do you avoid using `@import` in CSS?](#q92-how-do-you-avoid-using-import-in-css) <span class="beginner">Beginner</span>
-93. [How do you bundle CSS vs splitting CSS optimization trade-offs?](#q93-how-do-you-bundle-css-vs-splitting-css-optimization-trade-offs) <span class="advanced">Advanced</span>
-94. [How do you use the Back/Forward Cache (bfcache)?](#q94-how-do-you-use-the-backforward-cache-bfcache) <span class="intermediate">Intermediate</span>
-95. [How do you optimize touch event listeners with `passive: true`?](#q95-how-do-you-optimize-touch-event-listeners-with-passive-true) <span class="intermediate">Intermediate</span>
-96. [How do you reduce cookie size to lower request overhead?](#q96-how-do-you-reduce-cookie-size-to-lower-request-overhead) <span class="beginner">Beginner</span>
-97. [How do you use domain sharding (legacy) vs HTTP/2 multiplexing?](#q97-how-do-you-use-domain-sharding-legacy-vs-http2-multiplexing) <span class="intermediate">Intermediate</span>
-98. [How do you optimize for low-end devices?](#q98-how-do-you-optimize-for-low-end-devices) <span class="intermediate">Intermediate</span>
-99. [How do you measure TTI (Time to Interactive)?](#q99-how-do-you-measure-tti-time-to-interactive) <span class="intermediate">Intermediate</span>
-100. [How do you measure TBT (Total Blocking Time)?](#q100-how-do-you-measure-tbt-total-blocking-time) <span class="intermediate">Intermediate</span>
-101. [How do you measure Speed Index?](#q101-how-do-you-measure-speed-index) <span class="intermediate">Intermediate</span>
-102. [How do you automate performance testing with Puppeteer/Playwright?](#q102-how-do-you-automate-performance-testing-with-puppeteerplaywright) <span class="advanced">Advanced</span>
-103. [How do you use `content-visibility: auto` to skip rendering off-screen content?](#q103-how-do-you-use-content-visibility-auto-to-skip-rendering-off-screen-content) <span class="intermediate">Intermediate</span>
-104. [How do you optimize string concatenation in tight loops?](#q104-how-do-you-optimize-string-concatenation-in-tight-loops) <span class="beginner">Beginner</span>
-105. [How do you use Bitwise operators for high-perf math (micro-optimization)?](#q105-how-do-you-use-bitwise-operators-for-high-perf-math-micro-optimization) <span class="expert">Expert</span>
-106. [How do you handle Layout Thrashing?](#q106-how-do-you-handle-layout-thrashing) <span class="intermediate">Intermediate</span>
-107. [How do you handle Repaint and Reflow?](#q107-how-do-you-handle-repaint-and-reflow) <span class="intermediate">Intermediate</span>
-108. [How do you handle Composite Layers?](#q108-how-do-you-handle-composite-layers) <span class="intermediate">Intermediate</span>
-109. [How do you handle GPU Acceleration?](#q109-how-do-you-handle-gpu-acceleration) <span class="intermediate">Intermediate</span>
-110. [How do you handle Critical Rendering Path?](#q110-how-do-you-handle-critical-rendering-path) <span class="intermediate">Intermediate</span>
-111. [How do you handle Time to First Byte (TTFB)?](#q111-how-do-you-handle-time-to-first-byte-ttfb) <span class="intermediate">Intermediate</span>
-112. [How do you handle First Contentful Paint (FCP)?](#q112-how-do-you-handle-first-contentful-paint-fcp) <span class="intermediate">Intermediate</span>
-113. [How do you handle Total Blocking Time (TBT)?](#q113-how-do-you-handle-total-blocking-time-tbt) <span class="intermediate">Intermediate</span>
-114. [How do you handle Speed Index?](#q114-how-do-you-handle-speed-index) <span class="intermediate">Intermediate</span>
-115. [How do you handle Cumulative Layout Shift (CLS)?](#q115-how-do-you-handle-cumulative-layout-shift-cls) <span class="intermediate">Intermediate</span>
-116. [How do you handle Largest Contentful Paint (LCP)?](#q116-how-do-you-handle-largest-contentful-paint-lcp) <span class="intermediate">Intermediate</span>
-117. [How do you handle First Input Delay (FID)?](#q117-how-do-you-handle-first-input-delay-fid) <span class="intermediate">Intermediate</span>
-118. [How do you handle Interaction to Next Paint (INP)?](#q118-how-do-you-handle-interaction-to-next-paint-inp) <span class="intermediate">Intermediate</span>
-119. [How do you handle Resource Hints?](#q119-how-do-you-handle-resource-hints) <span class="intermediate">Intermediate</span>
-120. [How do you handle Preload vs Prefetch?](#q120-how-do-you-handle-preload-vs-prefetch) <span class="intermediate">Intermediate</span>
-121. [How do you handle Lazy Loading Images?](#q121-how-do-you-handle-lazy-loading-images) <span class="intermediate">Intermediate</span>
-122. [How do you handle Lazy Loading Components?](#q122-how-do-you-handle-lazy-loading-components) <span class="intermediate">Intermediate</span>
-123. [How do you handle Virtualization?](#q123-how-do-you-handle-virtualization) <span class="intermediate">Intermediate</span>
-124. [How do you handle Debouncing?](#q124-how-do-you-handle-debouncing) <span class="intermediate">Intermediate</span>
-125. [How do you handle Throttling?](#q125-how-do-you-handle-throttling) <span class="intermediate">Intermediate</span>
-126. [How do you handle Memoization?](#q126-how-do-you-handle-memoization) <span class="intermediate">Intermediate</span>
-127. [How do you handle Web Workers?](#q127-how-do-you-handle-web-workers) <span class="intermediate">Intermediate</span>
-128. [How do you handle Service Workers?](#q128-how-do-you-handle-service-workers) <span class="intermediate">Intermediate</span>
-129. [How do you handle Cache Storage?](#q129-how-do-you-handle-cache-storage) <span class="intermediate">Intermediate</span>
-130. [How do you handle IndexedDB?](#q130-how-do-you-handle-indexeddb) <span class="intermediate">Intermediate</span>
-131. [How do you handle Local Storage Performance?](#q131-how-do-you-handle-local-storage-performance) <span class="intermediate">Intermediate</span>
-132. [How do you handle Session Storage?](#q132-how-do-you-handle-session-storage) <span class="intermediate">Intermediate</span>
-133. [How do you handle Cookies Performance?](#q133-how-do-you-handle-cookies-performance) <span class="intermediate">Intermediate</span>
-134. [How do you handle CDN Usage?](#q134-how-do-you-handle-cdn-usage) <span class="intermediate">Intermediate</span>
-135. [How do you handle Compression (Gzip/Brotli)?](#q135-how-do-you-handle-compression-gzipbrotli) <span class="intermediate">Intermediate</span>
-136. [How do you handle Image Optimization?](#q136-how-do-you-handle-image-optimization) <span class="intermediate">Intermediate</span>
-137. [How do you handle WebP Format?](#q137-how-do-you-handle-webp-format) <span class="intermediate">Intermediate</span>
-138. [How do you handle AVIF Format?](#q138-how-do-you-handle-avif-format) <span class="intermediate">Intermediate</span>
-139. [How do you handle Responsive Images?](#q139-how-do-you-handle-responsive-images) <span class="intermediate">Intermediate</span>
-140. [How do you handle Video Optimization?](#q140-how-do-you-handle-video-optimization) <span class="intermediate">Intermediate</span>
-141. [How do you handle Font Loading Strategies?](#q141-how-do-you-handle-font-loading-strategies) <span class="intermediate">Intermediate</span>
-142. [How do you handle CSS Containment?](#q142-how-do-you-handle-css-containment) <span class="intermediate">Intermediate</span>
-143. [How do you handle Will-Change Property?](#q143-how-do-you-handle-will-change-property) <span class="intermediate">Intermediate</span>
-144. [How do you handle Hardware Acceleration?](#q144-how-do-you-handle-hardware-acceleration) <span class="intermediate">Intermediate</span>
-145. [How do you handle Animation Performance?](#q145-how-do-you-handle-animation-performance) <span class="intermediate">Intermediate</span>
-146. [How do you handle React Profiler?](#q146-how-do-you-handle-react-profiler) <span class="intermediate">Intermediate</span>
-147. [How do you handle Chrome DevTools Performance Tab?](#q147-how-do-you-handle-chrome-devtools-performance-tab) <span class="intermediate">Intermediate</span>
-148. [How do you handle Lighthouse Audits?](#q148-how-do-you-handle-lighthouse-audits) <span class="intermediate">Intermediate</span>
-149. [How do you handle Web Vitals?](#q149-how-do-you-handle-web-vitals) <span class="intermediate">Intermediate</span>
-150. [How do you handle Real User Monitoring (RUM)?](#q150-how-do-you-handle-real-user-monitoring-rum) <span class="intermediate">Intermediate</span>
-151. [How do you handle Synthetic Monitoring?](#q151-how-do-you-handle-synthetic-monitoring) <span class="intermediate">Intermediate</span>
-152. [How do you handle Bundle Analysis?](#q152-how-do-you-handle-bundle-analysis) <span class="intermediate">Intermediate</span>
-153. [How do you handle Tree Shaking?](#q153-how-do-you-handle-tree-shaking) <span class="intermediate">Intermediate</span>
-154. [How do you handle Code Splitting?](#q154-how-do-you-handle-code-splitting) <span class="intermediate">Intermediate</span>
-155. [How do you handle Dynamic Imports?](#q155-how-do-you-handle-dynamic-imports) <span class="intermediate">Intermediate</span>
-156. [How do you handle Webpack Optimization?](#q156-how-do-you-handle-webpack-optimization) <span class="intermediate">Intermediate</span>
-157. [How do you handle Vite Optimization?](#q157-how-do-you-handle-vite-optimization) <span class="intermediate">Intermediate</span>
-158. [How do you handle Rollup Optimization?](#q158-how-do-you-handle-rollup-optimization) <span class="intermediate">Intermediate</span>
-159. [How do you handle Browser Caching?](#q159-how-do-you-handle-browser-caching) <span class="intermediate">Intermediate</span>
-160. [How do you handle HTTP/2?](#q160-how-do-you-handle-http2) <span class="intermediate">Intermediate</span>
-161. [How do you handle HTTP/3?](#q161-how-do-you-handle-http3) <span class="intermediate">Intermediate</span>
-162. [How do you handle Keep-Alive?](#q162-how-do-you-handle-keep-alive) <span class="intermediate">Intermediate</span>
-163. [How do you handle Connection Pooling?](#q163-how-do-you-handle-connection-pooling) <span class="intermediate">Intermediate</span>
-164. [How do you handle DNS Prefetching?](#q164-how-do-you-handle-dns-prefetching) <span class="intermediate">Intermediate</span>
-165. [How do you handle Preconnect?](#q165-how-do-you-handle-preconnect) <span class="intermediate">Intermediate</span>
-166. [How do you handle Prerendering?](#q166-how-do-you-handle-prerendering) <span class="intermediate">Intermediate</span>
-167. [How do you handle Server-Side Rendering (SSR)?](#q167-how-do-you-handle-server-side-rendering-ssr) <span class="intermediate">Intermediate</span>
-168. [How do you handle Static Site Generation (SSG)?](#q168-how-do-you-handle-static-site-generation-ssg) <span class="intermediate">Intermediate</span>
-169. [How do you handle Incremental Static Regeneration (ISR)?](#q169-how-do-you-handle-incremental-static-regeneration-isr) <span class="intermediate">Intermediate</span>
-170. [How do you handle Edge Computing?](#q170-how-do-you-handle-edge-computing) <span class="intermediate">Intermediate</span>
-171. [How do you handle Serverless Cold Starts?](#q171-how-do-you-handle-serverless-cold-starts) <span class="intermediate">Intermediate</span>
-172. [How do you handle Database Indexing?](#q172-how-do-you-handle-database-indexing) <span class="intermediate">Intermediate</span>
-173. [How do you handle Query Optimization?](#q173-how-do-you-handle-query-optimization) <span class="intermediate">Intermediate</span>
-174. [How do you handle N+1 Problem?](#q174-how-do-you-handle-n1-problem) <span class="intermediate">Intermediate</span>
-175. [How do you handle Connection Pooling (DB)?](#q175-how-do-you-handle-connection-pooling-db) <span class="intermediate">Intermediate</span>
-176. [How do you handle Caching Strategies (Redis)?](#q176-how-do-you-handle-caching-strategies-redis) <span class="intermediate">Intermediate</span>
-177. [How do you handle Content Delivery Networks?](#q177-how-do-you-handle-content-delivery-networks) <span class="intermediate">Intermediate</span>
-178. [How do you handle Edge Caching?](#q178-how-do-you-handle-edge-caching) <span class="intermediate">Intermediate</span>
-179. [How do you handle Browser Rendering Engine?](#q179-how-do-you-handle-browser-rendering-engine) <span class="intermediate">Intermediate</span>
-180. [How do you handle V8 Engine Optimization?](#q180-how-do-you-handle-v8-engine-optimization) <span class="intermediate">Intermediate</span>
-181. [How do you handle Garbage Collection?](#q181-how-do-you-handle-garbage-collection) <span class="intermediate">Intermediate</span>
-182. [How do you handle Memory Leaks?](#q182-how-do-you-handle-memory-leaks) <span class="intermediate">Intermediate</span>
-183. [How do you handle Heap Snapshots?](#q183-how-do-you-handle-heap-snapshots) <span class="intermediate">Intermediate</span>
-184. [How do you handle Allocation Profiling?](#q184-how-do-you-handle-allocation-profiling) <span class="intermediate">Intermediate</span>
-185. [How do you handle Flame Charts?](#q185-how-do-you-handle-flame-charts) <span class="intermediate">Intermediate</span>
-186. [How do you handle Performance Budget?](#q186-how-do-you-handle-performance-budget) <span class="intermediate">Intermediate</span>
-187. [How do you handle Main Thread Blocking?](#q187-how-do-you-handle-main-thread-blocking) <span class="intermediate">Intermediate</span>
-188. [How do you handle Long Tasks API?](#q188-how-do-you-handle-long-tasks-api) <span class="intermediate">Intermediate</span>
-189. [How do you handle Scheduler API?](#q189-how-do-you-handle-scheduler-api) <span class="intermediate">Intermediate</span>
-190. [How do you handle RequestIdleCallback?](#q190-how-do-you-handle-requestidlecallback) <span class="intermediate">Intermediate</span>
-191. [How do you handle RequestAnimationFrame?](#q191-how-do-you-handle-requestanimationframe) <span class="intermediate">Intermediate</span>
-192. [How do you handle IntersectionObserver?](#q192-how-do-you-handle-intersectionobserver) <span class="intermediate">Intermediate</span>
-193. [How do you handle ResizeObserver?](#q193-how-do-you-handle-resizeobserver) <span class="intermediate">Intermediate</span>
-194. [How do you handle MutationObserver?](#q194-how-do-you-handle-mutationobserver) <span class="intermediate">Intermediate</span>
-195. [How do you handle PerformanceObserver?](#q195-how-do-you-handle-performanceobserver) <span class="intermediate">Intermediate</span>
-196. [How do you handle Network Information API?](#q196-how-do-you-handle-network-information-api) <span class="intermediate">Intermediate</span>
-197. [How do you handle Device Memory API?](#q197-how-do-you-handle-device-memory-api) <span class="intermediate">Intermediate</span>
+17. [How do you optimize font loading using font-display: swap?](#q17-how-do-you-optimize-font-loading-using-font-display-swap) <span class="beginner">Beginner</span>
+18. [How do you prevent Layout Shifts from dynamic ads?](#q18-how-do-you-prevent-layout-shifts-from-dynamic-ads) <span class="intermediate">Intermediate</span>
+19. [How do you implement a Service Worker for offline caching?](#q19-how-do-you-implement-a-service-worker-for-offline-caching) <span class="intermediate">Intermediate</span>
+20. [How do you configure HTTP Cache-Control headers for static assets?](#q20-how-do-you-configure-http-cache-control-headers-for-static-assets) <span class="intermediate">Intermediate</span>
+21. [How do you implement ETags for conditional requests?](#q21-how-do-you-implement-etags-for-conditional-requests) <span class="intermediate">Intermediate</span>
+22. [How do you optimize SVG assets using SVGO?](#q22-how-do-you-optimize-svg-assets-using-svgo) <span class="beginner">Beginner</span>
+23. [How do you serve responsive images using `srcset` and `sizes`?](#q23-how-do-you-serve-responsive-images-using-srcset-and-sizes) <span class="beginner">Beginner</span>
+24. [How do you convert images to WebP or AVIF formats?](#q24-how-do-you-convert-images-to-webp-or-avif-formats) <span class="beginner">Beginner</span>
+25. [How do you optimize video delivery using HLS or DASH?](#q25-how-do-you-optimize-video-delivery-using-hls-or-dash) <span class="advanced">Advanced</span>
+26. [How do you lazy load third-party scripts (Google Analytics, etc.)?](#q26-how-do-you-lazy-load-third-party-scripts-google-analytics-etc) <span class="intermediate">Intermediate</span>
+27. [How do you optimize Google Fonts performance?](#q27-how-do-you-optimize-google-fonts-performance) <span class="intermediate">Intermediate</span>
+28. [How do you reduce the impact of A/B testing scripts on LCP?](#q28-how-do-you-reduce-the-impact-of-ab-testing-scripts-on-lcp) <span class="advanced">Advanced</span>
+29. [How do you detect and fix 'forced synchronous layout'?](#q29-how-do-you-detect-and-fix-forced-synchronous-layout) <span class="advanced">Advanced</span>
+30. [How do you optimize CSS selectors to reduce matching time?](#q30-how-do-you-optimize-css-selectors-to-reduce-matching-time) <span class="advanced">Advanced</span>
+31. [How do you reduce the complexity of the DOM tree?](#q31-how-do-you-reduce-the-complexity-of-the-dom-tree) <span class="intermediate">Intermediate</span>
+32. [How do you optimize React `re-renders` using `React.memo`?](#q32-how-do-you-optimize-react-re-renders-using-reactmemo) <span class="intermediate">Intermediate</span>
+33. [How do you virtualize a large data grid/table?](#q33-how-do-you-virtualize-a-large-data-gridtable) <span class="advanced">Advanced</span>
+34. [How do you optimize list rendering with `key` prop?](#q34-how-do-you-optimize-list-rendering-with-key-prop) <span class="beginner">Beginner</span>
+35. [How do you prevent expensive calculations with `useMemo`?](#q35-how-do-you-prevent-expensive-calculations-with-usememo) <span class="beginner">Beginner</span>
+36. [How do you code split a React app using route-based chunks?](#q36-how-do-you-code-split-a-react-app-using-route-based-chunks) <span class="intermediate">Intermediate</span>
+37. [How do you prefetch resources on link hover?](#q37-how-do-you-prefetch-resources-on-link-hover) <span class="intermediate">Intermediate</span>
+38. [How do you implement the PRPL pattern?](#q38-how-do-you-implement-the-prpl-pattern) <span class="advanced">Advanced</span>
+39. [How do you optimize hydration in SSR applications?](#q39-how-do-you-optimize-hydration-in-ssr-applications) <span class="advanced">Advanced</span>
+40. [How do you reduce Time to First Byte (TTFB) on the server?](#q40-how-do-you-reduce-time-to-first-byte-ttfb-on-the-server) <span class="intermediate">Intermediate</span>
+41. [How do you configure Gzip or Brotli compression on the server?](#q41-how-do-you-configure-gzip-or-brotli-compression-on-the-server) <span class="beginner">Beginner</span>
+42. [How do you optimize database queries to reduce server response time?](#q42-how-do-you-optimize-database-queries-to-reduce-server-response-time) <span class="intermediate">Intermediate</span>
+43. [How do you configure HTTP/3 (QUIC) for faster connections?](#q43-how-do-you-configure-http3-quic-for-faster-connections) <span class="advanced">Advanced</span>
+44. [How do you monitor Real User Metrics (RUM) using Vitals library?](#q44-how-do-you-monitor-real-user-metrics-rum-using-vitals-library) <span class="intermediate">Intermediate</span>
+45. [How do you set up a Performance Budget in CI/CD pipeline?](#q45-how-do-you-set-up-a-performance-budget-in-cicd-pipeline) <span class="advanced">Advanced</span>
+46. [How do you optimize a Single Page Application (SPA) initial load?](#q46-how-do-you-optimize-a-single-page-application-spa-initial-load) <span class="intermediate">Intermediate</span>
+47. [How do you optimize Next.js Image component usage?](#q47-how-do-you-optimize-nextjs-image-component-usage) <span class="intermediate">Intermediate</span>
+48. [How do you optimize font subsetting to reduce file size?](#q48-how-do-you-optimize-font-subsetting-to-reduce-file-size) <span class="advanced">Advanced</span>
+49. [How do you avoid chain requests (waterfalls) in critical path?](#q49-how-do-you-avoid-chain-requests-waterfalls-in-critical-path) <span class="intermediate">Intermediate</span>
+50. [How do you inline small assets (Base64) to save requests?](#q50-how-do-you-inline-small-assets-base64-to-save-requests) <span class="beginner">Beginner</span>
+51. [How do you optimize the Critical Rendering Path?](#q51-how-do-you-optimize-the-critical-rendering-path) <span class="advanced">Advanced</span>
+52. [How do you reduce the size of JSON API responses?](#q52-how-do-you-reduce-the-size-of-json-api-responses) <span class="intermediate">Intermediate</span>
+53. [How do you optimize GraphQL queries to fetch only needed fields?](#q53-how-do-you-optimize-graphql-queries-to-fetch-only-needed-fields) <span class="intermediate">Intermediate</span>
+54. [How do you batch multiple API requests into one?](#q54-how-do-you-batch-multiple-api-requests-into-one) <span class="intermediate">Intermediate</span>
+55. [How do you implement optimistic UI updates?](#q55-how-do-you-implement-optimistic-ui-updates) <span class="intermediate">Intermediate</span>
+56. [How do you offload image processing to a serverless function?](#q56-how-do-you-offload-image-processing-to-a-serverless-function) <span class="advanced">Advanced</span>
+57. [How do you optimize garbage collection by avoiding object churn?](#q57-how-do-you-optimize-garbage-collection-by-avoiding-object-churn) <span class="expert">Expert</span>
+58. [How do you profile memory usage using Heap Snapshots?](#q58-how-do-you-profile-memory-usage-using-heap-snapshots) <span class="advanced">Advanced</span>
+59. [How do you detect detached DOM nodes causing memory leaks?](#q59-how-do-you-detect-detached-dom-nodes-causing-memory-leaks) <span class="advanced">Advanced</span>
+60. [How do you optimize canvas rendering performance?](#q60-how-do-you-optimize-canvas-rendering-performance) <span class="advanced">Advanced</span>
+61. [How do you optimize WebGL rendering?](#q61-how-do-you-optimize-webgl-rendering) <span class="expert">Expert</span>
+62. [How do you reduce battery usage by pausing background animations?](#q62-how-do-you-reduce-battery-usage-by-pausing-background-animations) <span class="intermediate">Intermediate</span>
+63. [How do you optimize iframe loading using `loading='lazy'`?](#q63-how-do-you-optimize-iframe-loading-using-loadinglazy) <span class="beginner">Beginner</span>
+64. [How do you isolate third-party widgets in iframes?](#q64-how-do-you-isolate-third-party-widgets-in-iframes) <span class="intermediate">Intermediate</span>
+65. [How do you optimize regex patterns to avoid ReDoS?](#q65-how-do-you-optimize-regex-patterns-to-avoid-redos) <span class="advanced">Advanced</span>
+66. [How do you avoid using `@import` in CSS?](#q66-how-do-you-avoid-using-import-in-css) <span class="beginner">Beginner</span>
+67. [How do you bundle CSS vs splitting CSS optimization trade-offs?](#q67-how-do-you-bundle-css-vs-splitting-css-optimization-trade-offs) <span class="advanced">Advanced</span>
+68. [How do you optimize touch event listeners with `passive: true`?](#q68-how-do-you-optimize-touch-event-listeners-with-passive-true) <span class="intermediate">Intermediate</span>
+69. [How do you reduce cookie size to lower request overhead?](#q69-how-do-you-reduce-cookie-size-to-lower-request-overhead) <span class="beginner">Beginner</span>
+70. [How do you optimize for low-end devices?](#q70-how-do-you-optimize-for-low-end-devices) <span class="intermediate">Intermediate</span>
+71. [How do you measure TTI (Time to Interactive)?](#q71-how-do-you-measure-tti-time-to-interactive) <span class="intermediate">Intermediate</span>
+72. [How do you measure TBT (Total Blocking Time)?](#q72-how-do-you-measure-tbt-total-blocking-time) <span class="intermediate">Intermediate</span>
+73. [How do you measure Speed Index?](#q73-how-do-you-measure-speed-index) <span class="intermediate">Intermediate</span>
+74. [How do you automate performance testing with Puppeteer/Playwright?](#q74-how-do-you-automate-performance-testing-with-puppeteerplaywright) <span class="advanced">Advanced</span>
+75. [How do you optimize string concatenation in tight loops?](#q75-how-do-you-optimize-string-concatenation-in-tight-loops) <span class="beginner">Beginner</span>
+76. [How do you handle Layout Thrashing?](#q76-how-do-you-handle-layout-thrashing) <span class="intermediate">Intermediate</span>
+77. [How do you handle Repaint and Reflow?](#q77-how-do-you-handle-repaint-and-reflow) <span class="intermediate">Intermediate</span>
+78. [How do you handle Composite Layers?](#q78-how-do-you-handle-composite-layers) <span class="intermediate">Intermediate</span>
+79. [How do you handle GPU Acceleration?](#q79-how-do-you-handle-gpu-acceleration) <span class="intermediate">Intermediate</span>
+80. [How do you handle Critical Rendering Path?](#q80-how-do-you-handle-critical-rendering-path) <span class="intermediate">Intermediate</span>
+81. [How do you handle Time to First Byte (TTFB)?](#q81-how-do-you-handle-time-to-first-byte-ttfb) <span class="intermediate">Intermediate</span>
+82. [How do you handle First Contentful Paint (FCP)?](#q82-how-do-you-handle-first-contentful-paint-fcp) <span class="intermediate">Intermediate</span>
+83. [How do you handle Total Blocking Time (TBT)?](#q83-how-do-you-handle-total-blocking-time-tbt) <span class="intermediate">Intermediate</span>
+84. [How do you handle Speed Index?](#q84-how-do-you-handle-speed-index) <span class="intermediate">Intermediate</span>
+85. [How do you handle Cumulative Layout Shift (CLS)?](#q85-how-do-you-handle-cumulative-layout-shift-cls) <span class="intermediate">Intermediate</span>
+86. [How do you handle Largest Contentful Paint (LCP)?](#q86-how-do-you-handle-largest-contentful-paint-lcp) <span class="intermediate">Intermediate</span>
+87. [How do you handle First Input Delay (FID)?](#q87-how-do-you-handle-first-input-delay-fid) <span class="intermediate">Intermediate</span>
+88. [How do you handle Interaction to Next Paint (INP)?](#q88-how-do-you-handle-interaction-to-next-paint-inp) <span class="intermediate">Intermediate</span>
+89. [How do you handle Resource Hints?](#q89-how-do-you-handle-resource-hints) <span class="intermediate">Intermediate</span>
+90. [How do you handle Preload vs Prefetch?](#q90-how-do-you-handle-preload-vs-prefetch) <span class="intermediate">Intermediate</span>
+91. [How do you handle Lazy Loading Images?](#q91-how-do-you-handle-lazy-loading-images) <span class="intermediate">Intermediate</span>
+92. [How do you handle Lazy Loading Components?](#q92-how-do-you-handle-lazy-loading-components) <span class="intermediate">Intermediate</span>
+93. [How do you handle Virtualization?](#q93-how-do-you-handle-virtualization) <span class="intermediate">Intermediate</span>
+94. [How do you handle Debouncing?](#q94-how-do-you-handle-debouncing) <span class="intermediate">Intermediate</span>
+95. [How do you handle Throttling?](#q95-how-do-you-handle-throttling) <span class="intermediate">Intermediate</span>
+96. [How do you handle Memoization?](#q96-how-do-you-handle-memoization) <span class="intermediate">Intermediate</span>
+97. [How do you handle Web Workers?](#q97-how-do-you-handle-web-workers) <span class="intermediate">Intermediate</span>
+98. [How do you handle Service Workers?](#q98-how-do-you-handle-service-workers) <span class="intermediate">Intermediate</span>
+99. [How do you handle Cache Storage?](#q99-how-do-you-handle-cache-storage) <span class="intermediate">Intermediate</span>
+100. [How do you handle IndexedDB?](#q100-how-do-you-handle-indexeddb) <span class="intermediate">Intermediate</span>
+101. [How do you handle Local Storage Performance?](#q101-how-do-you-handle-local-storage-performance) <span class="intermediate">Intermediate</span>
+102. [How do you handle Session Storage?](#q102-how-do-you-handle-session-storage) <span class="intermediate">Intermediate</span>
+103. [How do you handle Cookies Performance?](#q103-how-do-you-handle-cookies-performance) <span class="intermediate">Intermediate</span>
+104. [How do you handle CDN Usage?](#q104-how-do-you-handle-cdn-usage) <span class="intermediate">Intermediate</span>
+105. [How do you handle Compression (Gzip/Brotli)?](#q105-how-do-you-handle-compression-gzipbrotli) <span class="intermediate">Intermediate</span>
+106. [How do you handle Image Optimization?](#q106-how-do-you-handle-image-optimization) <span class="intermediate">Intermediate</span>
+107. [How do you handle WebP Format?](#q107-how-do-you-handle-webp-format) <span class="intermediate">Intermediate</span>
+108. [How do you handle AVIF Format?](#q108-how-do-you-handle-avif-format) <span class="intermediate">Intermediate</span>
+109. [How do you handle Responsive Images?](#q109-how-do-you-handle-responsive-images) <span class="intermediate">Intermediate</span>
+110. [How do you handle Video Optimization?](#q110-how-do-you-handle-video-optimization) <span class="intermediate">Intermediate</span>
+111. [How do you handle Font Loading Strategies?](#q111-how-do-you-handle-font-loading-strategies) <span class="intermediate">Intermediate</span>
+112. [How do you handle CSS Containment?](#q112-how-do-you-handle-css-containment) <span class="intermediate">Intermediate</span>
+113. [How do you handle Will-Change Property?](#q113-how-do-you-handle-will-change-property) <span class="intermediate">Intermediate</span>
+114. [How do you handle Hardware Acceleration?](#q114-how-do-you-handle-hardware-acceleration) <span class="intermediate">Intermediate</span>
+115. [How do you handle Animation Performance?](#q115-how-do-you-handle-animation-performance) <span class="intermediate">Intermediate</span>
+116. [How do you handle React Profiler?](#q116-how-do-you-handle-react-profiler) <span class="intermediate">Intermediate</span>
+117. [How do you handle Chrome DevTools Performance Tab?](#q117-how-do-you-handle-chrome-devtools-performance-tab) <span class="intermediate">Intermediate</span>
+118. [How do you handle Lighthouse Audits?](#q118-how-do-you-handle-lighthouse-audits) <span class="intermediate">Intermediate</span>
+119. [How do you handle Web Vitals?](#q119-how-do-you-handle-web-vitals) <span class="intermediate">Intermediate</span>
+120. [How do you handle Real User Monitoring (RUM)?](#q120-how-do-you-handle-real-user-monitoring-rum) <span class="intermediate">Intermediate</span>
+121. [How do you handle Synthetic Monitoring?](#q121-how-do-you-handle-synthetic-monitoring) <span class="intermediate">Intermediate</span>
+122. [How do you handle Bundle Analysis?](#q122-how-do-you-handle-bundle-analysis) <span class="intermediate">Intermediate</span>
+123. [How do you handle Tree Shaking?](#q123-how-do-you-handle-tree-shaking) <span class="intermediate">Intermediate</span>
+124. [How do you handle Code Splitting?](#q124-how-do-you-handle-code-splitting) <span class="intermediate">Intermediate</span>
+125. [How do you handle Dynamic Imports?](#q125-how-do-you-handle-dynamic-imports) <span class="intermediate">Intermediate</span>
+126. [How do you handle Webpack Optimization?](#q126-how-do-you-handle-webpack-optimization) <span class="intermediate">Intermediate</span>
+127. [How do you handle Vite Optimization?](#q127-how-do-you-handle-vite-optimization) <span class="intermediate">Intermediate</span>
+128. [How do you handle Rollup Optimization?](#q128-how-do-you-handle-rollup-optimization) <span class="intermediate">Intermediate</span>
+129. [How do you handle Browser Caching?](#q129-how-do-you-handle-browser-caching) <span class="intermediate">Intermediate</span>
+130. [How do you handle HTTP/2?](#q130-how-do-you-handle-http2) <span class="intermediate">Intermediate</span>
+131. [How do you handle HTTP/3?](#q131-how-do-you-handle-http3) <span class="intermediate">Intermediate</span>
+132. [How do you handle Keep-Alive?](#q132-how-do-you-handle-keep-alive) <span class="intermediate">Intermediate</span>
+133. [How do you handle Connection Pooling?](#q133-how-do-you-handle-connection-pooling) <span class="intermediate">Intermediate</span>
+134. [How do you handle DNS Prefetching?](#q134-how-do-you-handle-dns-prefetching) <span class="intermediate">Intermediate</span>
+135. [How do you handle Preconnect?](#q135-how-do-you-handle-preconnect) <span class="intermediate">Intermediate</span>
+136. [How do you handle Prerendering?](#q136-how-do-you-handle-prerendering) <span class="intermediate">Intermediate</span>
+137. [How do you handle Server-Side Rendering (SSR)?](#q137-how-do-you-handle-server-side-rendering-ssr) <span class="intermediate">Intermediate</span>
+138. [How do you handle Static Site Generation (SSG)?](#q138-how-do-you-handle-static-site-generation-ssg) <span class="intermediate">Intermediate</span>
+139. [How do you handle Incremental Static Regeneration (ISR)?](#q139-how-do-you-handle-incremental-static-regeneration-isr) <span class="intermediate">Intermediate</span>
+140. [How do you handle Edge Computing?](#q140-how-do-you-handle-edge-computing) <span class="intermediate">Intermediate</span>
+141. [How do you handle Serverless Cold Starts?](#q141-how-do-you-handle-serverless-cold-starts) <span class="intermediate">Intermediate</span>
+142. [How do you handle Database Indexing?](#q142-how-do-you-handle-database-indexing) <span class="intermediate">Intermediate</span>
+143. [How do you handle Query Optimization?](#q143-how-do-you-handle-query-optimization) <span class="intermediate">Intermediate</span>
+144. [How do you handle N+1 Problem?](#q144-how-do-you-handle-n1-problem) <span class="intermediate">Intermediate</span>
+145. [How do you handle Connection Pooling (DB)?](#q145-how-do-you-handle-connection-pooling-db) <span class="intermediate">Intermediate</span>
+146. [How do you handle Caching Strategies (Redis)?](#q146-how-do-you-handle-caching-strategies-redis) <span class="intermediate">Intermediate</span>
+147. [How do you handle Content Delivery Networks?](#q147-how-do-you-handle-content-delivery-networks) <span class="intermediate">Intermediate</span>
+148. [How do you handle Edge Caching?](#q148-how-do-you-handle-edge-caching) <span class="intermediate">Intermediate</span>
+149. [How do you handle Browser Rendering Engine?](#q149-how-do-you-handle-browser-rendering-engine) <span class="intermediate">Intermediate</span>
+150. [How do you handle V8 Engine Optimization?](#q150-how-do-you-handle-v8-engine-optimization) <span class="intermediate">Intermediate</span>
+151. [How do you handle Garbage Collection?](#q151-how-do-you-handle-garbage-collection) <span class="intermediate">Intermediate</span>
+152. [How do you handle Memory Leaks?](#q152-how-do-you-handle-memory-leaks) <span class="intermediate">Intermediate</span>
+153. [How do you handle Heap Snapshots?](#q153-how-do-you-handle-heap-snapshots) <span class="intermediate">Intermediate</span>
+154. [How do you handle Allocation Profiling?](#q154-how-do-you-handle-allocation-profiling) <span class="intermediate">Intermediate</span>
+155. [How do you handle Flame Charts?](#q155-how-do-you-handle-flame-charts) <span class="intermediate">Intermediate</span>
+156. [How do you handle Performance Budget?](#q156-how-do-you-handle-performance-budget) <span class="intermediate">Intermediate</span>
+157. [How do you handle Main Thread Blocking?](#q157-how-do-you-handle-main-thread-blocking) <span class="intermediate">Intermediate</span>
+158. [How do you handle Long Tasks API?](#q158-how-do-you-handle-long-tasks-api) <span class="intermediate">Intermediate</span>
+159. [How do you handle Scheduler API?](#q159-how-do-you-handle-scheduler-api) <span class="intermediate">Intermediate</span>
+160. [How do you handle RequestIdleCallback?](#q160-how-do-you-handle-requestidlecallback) <span class="intermediate">Intermediate</span>
+161. [How do you handle RequestAnimationFrame?](#q161-how-do-you-handle-requestanimationframe) <span class="intermediate">Intermediate</span>
+162. [How do you handle IntersectionObserver?](#q162-how-do-you-handle-intersectionobserver) <span class="intermediate">Intermediate</span>
+163. [How do you handle ResizeObserver?](#q163-how-do-you-handle-resizeobserver) <span class="intermediate">Intermediate</span>
+164. [How do you handle MutationObserver?](#q164-how-do-you-handle-mutationobserver) <span class="intermediate">Intermediate</span>
+165. [How do you handle PerformanceObserver?](#q165-how-do-you-handle-performanceobserver) <span class="intermediate">Intermediate</span>
+166. [How do you handle Network Information API?](#q166-how-do-you-handle-network-information-api) <span class="intermediate">Intermediate</span>
+167. [How do you handle Device Memory API?](#q167-how-do-you-handle-device-memory-api) <span class="intermediate">Intermediate</span>
+168. [How do you use the Scheduler API (scheduler.yield) to break up long tasks?](#q168-how-do-you-use-the-scheduler-api-scheduleryield-to-break-up-long-tasks) <span class="intermediate">Intermediate</span>
+169. [How do you use HTTP/2 Server Push (or why avoid it)?](#q169-how-do-you-use-http2-server-push-or-why-avoid-it) <span class="intermediate">Intermediate</span>
+170. [How do you use the Cache API within a Service Worker?](#q170-how-do-you-use-the-cache-api-within-a-service-worker) <span class="intermediate">Intermediate</span>
+171. [How do you use the Vary header to serve different content versions?](#q171-how-do-you-use-the-vary-header-to-serve-different-content-versions) <span class="intermediate">Intermediate</span>
+172. [How do you use the `<picture>` element for art direction?](#q172-how-do-you-use-the-picture-element-for-art-direction) <span class="intermediate">Intermediate</span>
+173. [How do you use the `poster` attribute for video placeholders?](#q173-how-do-you-use-the-poster-attribute-for-video-placeholders) <span class="intermediate">Intermediate</span>
+174. [How do you use the `defer` vs `async` attributes on script tags?](#q174-how-do-you-use-the-defer-vs-async-attributes-on-script-tags) <span class="intermediate">Intermediate</span>
+175. [How do you use the Coverage tab in Chrome DevTools to find unused code?](#q175-how-do-you-use-the-coverage-tab-in-chrome-devtools-to-find-unused-code) <span class="intermediate">Intermediate</span>
+176. [How do you use the Performance tab to analyze flame charts?](#q176-how-do-you-use-the-performance-tab-to-analyze-flame-charts) <span class="intermediate">Intermediate</span>
+177. [How do you use the Network tab to debug waterfall requests?](#q177-how-do-you-use-the-network-tab-to-debug-waterfall-requests) <span class="intermediate">Intermediate</span>
+178. [How do you use `will-change` CSS property correctly?](#q178-how-do-you-use-will-change-css-property-correctly) <span class="intermediate">Intermediate</span>
+179. [How do you use CSS containment (`contain` property) for rendering performance?](#q179-how-do-you-use-css-containment-contain-property-for-rendering-performance) <span class="intermediate">Intermediate</span>
+180. [How do you use `useCallback` to prevent function recreation?](#q180-how-do-you-use-usecallback-to-prevent-function-recreation) <span class="intermediate">Intermediate</span>
+181. [How do you use React Profiler to identify slow components?](#q181-how-do-you-use-react-profiler-to-identify-slow-components) <span class="intermediate">Intermediate</span>
+182. [How do you use the Network Information API to adapt to slow connections?](#q182-how-do-you-use-the-network-information-api-to-adapt-to-slow-connections) <span class="intermediate">Intermediate</span>
+183. [How do you use Selective Hydration in React 18?](#q183-how-do-you-use-selective-hydration-in-react-18) <span class="intermediate">Intermediate</span>
+184. [How do you use a CDN to serve static assets?](#q184-how-do-you-use-a-cdn-to-serve-static-assets) <span class="intermediate">Intermediate</span>
+185. [How do you use Lighthouse CI to prevent regressions?](#q185-how-do-you-use-lighthouse-ci-to-prevent-regressions) <span class="intermediate">Intermediate</span>
+186. [How do you use Resource Hints for external domains?](#q186-how-do-you-use-resource-hints-for-external-domains) <span class="intermediate">Intermediate</span>
+187. [How do you use Protocol Buffers instead of JSON for smaller payloads?](#q187-how-do-you-use-protocol-buffers-instead-of-json-for-smaller-payloads) <span class="intermediate">Intermediate</span>
+188. [How do you use a skeleton screen to improve perceived performance?](#q188-how-do-you-use-a-skeleton-screen-to-improve-perceived-performance) <span class="intermediate">Intermediate</span>
+189. [How do you use `requestIdleCallback` for low-priority tasks?](#q189-how-do-you-use-requestidlecallback-for-low-priority-tasks) <span class="intermediate">Intermediate</span>
+190. [How do you use OffscreenCanvas for background rendering?](#q190-how-do-you-use-offscreencanvas-for-background-rendering) <span class="intermediate">Intermediate</span>
+191. [How do you use the Page Visibility API to pause tasks?](#q191-how-do-you-use-the-page-visibility-api-to-pause-tasks) <span class="intermediate">Intermediate</span>
+192. [How do you use the Shadow DOM for style encapsulation/perf?](#q192-how-do-you-use-the-shadow-dom-for-style-encapsulationperf) <span class="intermediate">Intermediate</span>
+193. [How do you use GPU acceleration for animations?](#q193-how-do-you-use-gpu-acceleration-for-animations) <span class="intermediate">Intermediate</span>
+194. [How do you use the Back/Forward Cache (bfcache)?](#q194-how-do-you-use-the-backforward-cache-bfcache) <span class="intermediate">Intermediate</span>
+195. [How do you use domain sharding (legacy) vs HTTP/2 multiplexing?](#q195-how-do-you-use-domain-sharding-legacy-vs-http2-multiplexing) <span class="intermediate">Intermediate</span>
+196. [How do you use `content-visibility: auto` to skip rendering off-screen content?](#q196-how-do-you-use-content-visibility-auto-to-skip-rendering-off-screen-content) <span class="intermediate">Intermediate</span>
+197. [How do you use Bitwise operators for high-perf math (micro-optimization)?](#q197-how-do-you-use-bitwise-operators-for-high-perf-math-micro-optimization) <span class="intermediate">Intermediate</span>
 
 ---
 
 ### Q1: You have a React application with a slow initial load time due to a large bundle. How do you implement 'Route-Based Code Splitting' to fix this?
-
-**Difficulty: Intermediate**
 
 **Solution: `React.lazy` and `Suspense`**
 
@@ -247,8 +245,6 @@ function App() {
 
 ### Q2: Your LCP (Largest Contentful Paint) score is poor because the hero image loads late. How do you use `fetchpriority` and `preload` to optimize it?
 
-**Difficulty: Advanced**
-
 **Solution: Resource Prioritization**
 
 1.  **Preload** the image in `<head>` to start downloading immediately.
@@ -273,8 +269,6 @@ function App() {
 ---
 
 ### Q3: You notice 'Layout Thrashing' in a loop where you read and write DOM properties. How do you refactor this to improve rendering performance?
-
-**Difficulty: Advanced**
 
 **Solution: Batch Reads and Writes**
 
@@ -309,8 +303,6 @@ items.forEach((item, i) => {
 
 ### Q4: How do you implement a 'Virtual List' (Windowing) in React to render 10,000 rows without crashing the browser?
 
-**Difficulty: Expert**
-
 **Solution: `react-window` or `react-virtualized`**
 
 Only render the items currently visible in the viewport.
@@ -339,8 +331,6 @@ const Example = () => (
 ---
 
 ### Q5: You have a heavy calculation running on the main thread that blocks UI interactions. How do you offload this to a Web Worker?
-
-**Difficulty: Intermediate**
 
 **Solution: Web Workers**
 
@@ -371,8 +361,6 @@ worker.postMessage(inputData); // Start task
 
 ### Q6: How do you prevent 'Cumulative Layout Shift' (CLS) caused by images loading without dimensions?
 
-**Difficulty: Beginner**
-
 **Solution: Explicit Dimensions or Aspect Ratio**
 
 Reserve space for the image before it loads.
@@ -396,8 +384,6 @@ img.hero {
 ---
 
 ### Q7: How do you use the `IntersectionObserver` API to lazy load images as they scroll into view?
-
-**Difficulty: Intermediate**
 
 **Solution: IntersectionObserver**
 
@@ -425,8 +411,6 @@ document.querySelectorAll('img[data-src]').forEach(img => {
 
 ### Q8: You are optimizing a search input. How do you implement a 'Debounce' function to reduce the number of API calls?
 
-**Difficulty: Intermediate**
-
 **Solution: Debounce Function**
 
 Delay the execution until the user stops typing for a specified delay.
@@ -453,8 +437,6 @@ const handleSearch = debounce((query) => {
 
 ### Q9: How do you identify and fix a 'Memory Leak' caused by a detached event listener in a React component?
 
-**Difficulty: Intermediate**
-
 **Solution: Cleanup Function in `useEffect`**
 
 Always remove event listeners when the component unmounts.
@@ -477,8 +459,6 @@ useEffect(() => {
 ---
 
 ### Q10: How do you use `requestAnimationFrame` to create smooth, 60fps animations instead of using `setInterval`?
-
-**Difficulty: Intermediate**
 
 **Solution: `requestAnimationFrame` loop**
 
@@ -504,8 +484,6 @@ requestAnimationFrame(animate);
 
 ### Q11: How do you optimize a large React context that causes unnecessary re-renders in consumer components?
 
-**Difficulty: Advanced**
-
 **Solution: Split Context or Memoize Value**
 
 If `value` creates a new object every render, all consumers re-render.
@@ -530,8 +508,6 @@ return (
 
 ### Q12: How do you use the 'Performance API' to measure the execution time of a specific function?
 
-**Difficulty: Beginner**
-
 **Solution: `performance.now()` or `performance.mark()`**
 
 ```javascript
@@ -548,8 +524,6 @@ console.log(`Execution time: ${end - start} ms`);
 ---
 
 ### Q13: How do you configure Webpack to use 'Tree Shaking' to remove unused code from your production bundle?
-
-**Difficulty: Intermediate**
 
 **Solution: ES Modules + Production Mode**
 
@@ -574,8 +548,6 @@ import { useful } from './utils'; // 'useless' function is dropped
 
 ### Q14: How do you implement 'Resource Hints' (dns-prefetch, preconnect) to speed up third-party API connections?
 
-**Difficulty: Intermediate**
-
 **Solution: `<link>` tags in Head**
 
 Establish network handshake early.
@@ -595,8 +567,6 @@ Establish network handshake early.
 ---
 
 ### Q15: How do you optimize CSS delivery to avoid 'Render Blocking' resources?
-
-**Difficulty: Advanced**
 
 **Solution: Critical CSS + Async Loading**
 
@@ -619,8 +589,6 @@ Inline critical CSS for above-the-fold content, load the rest asynchronously.
 
 ### Q16: How do you minimize main thread work to improve INP?
 
-**Difficulty: Expert**
-
 **Answer:**
 
 To minimize main thread work to improve INP, you should use specific performance techniques or APIs appropriate for expert tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
@@ -629,21 +597,7 @@ To minimize main thread work to improve INP, you should use specific performance
 
 ---
 
-### Q17: How do you use the Scheduler API (scheduler.yield) to break up long tasks?
-
-**Difficulty: Advanced**
-
-**Answer:**
-
-To use the Scheduler API (scheduler.yield) to break up long tasks, you should use specific performance techniques or APIs appropriate for advanced tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q18: How do you optimize font loading using font-display: swap?
-
-**Difficulty: Beginner**
+### Q17: How do you optimize font loading using font-display: swap?
 
 **Answer:**
 
@@ -653,9 +607,7 @@ To optimize font loading using font-display: swap, you should use specific perfo
 
 ---
 
-### Q19: How do you prevent Layout Shifts from dynamic ads?
-
-**Difficulty: Intermediate**
+### Q18: How do you prevent Layout Shifts from dynamic ads?
 
 **Answer:**
 
@@ -665,21 +617,7 @@ To prevent Layout Shifts from dynamic ads, you should use specific performance t
 
 ---
 
-### Q20: How do you use HTTP/2 Server Push (or why avoid it)?
-
-**Difficulty: Advanced**
-
-**Answer:**
-
-To use HTTP/2 Server Push (or why avoid it), you should use specific performance techniques or APIs appropriate for advanced tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q21: How do you implement a Service Worker for offline caching?
-
-**Difficulty: Intermediate**
+### Q19: How do you implement a Service Worker for offline caching?
 
 **Answer:**
 
@@ -689,21 +627,7 @@ To implement a Service Worker for offline caching, you should use specific perfo
 
 ---
 
-### Q22: How do you use the Cache API within a Service Worker?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use the Cache API within a Service Worker, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q23: How do you configure HTTP Cache-Control headers for static assets?
-
-**Difficulty: Intermediate**
+### Q20: How do you configure HTTP Cache-Control headers for static assets?
 
 **Answer:**
 
@@ -713,21 +637,7 @@ To configure HTTP Cache-Control headers for static assets, you should use specif
 
 ---
 
-### Q24: How do you use the Vary header to serve different content versions?
-
-**Difficulty: Advanced**
-
-**Answer:**
-
-To use the Vary header to serve different content versions, you should use specific performance techniques or APIs appropriate for advanced tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q25: How do you implement ETags for conditional requests?
-
-**Difficulty: Intermediate**
+### Q21: How do you implement ETags for conditional requests?
 
 **Answer:**
 
@@ -737,9 +647,7 @@ To implement ETags for conditional requests, you should use specific performance
 
 ---
 
-### Q26: How do you optimize SVG assets using SVGO?
-
-**Difficulty: Beginner**
+### Q22: How do you optimize SVG assets using SVGO?
 
 **Answer:**
 
@@ -749,9 +657,7 @@ To optimize SVG assets using SVGO, you should use specific performance technique
 
 ---
 
-### Q27: How do you serve responsive images using `srcset` and `sizes`?
-
-**Difficulty: Beginner**
+### Q23: How do you serve responsive images using `srcset` and `sizes`?
 
 **Answer:**
 
@@ -761,21 +667,7 @@ To serve responsive images using `srcset` and `sizes`, you should use specific p
 
 ---
 
-### Q28: How do you use the `<picture>` element for art direction?
-
-**Difficulty: Beginner**
-
-**Answer:**
-
-To use the `<picture>` element for art direction, you should use specific performance techniques or APIs appropriate for beginner tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q29: How do you convert images to WebP or AVIF formats?
-
-**Difficulty: Beginner**
+### Q24: How do you convert images to WebP or AVIF formats?
 
 **Answer:**
 
@@ -785,9 +677,7 @@ To convert images to WebP or AVIF formats, you should use specific performance t
 
 ---
 
-### Q30: How do you optimize video delivery using HLS or DASH?
-
-**Difficulty: Advanced**
+### Q25: How do you optimize video delivery using HLS or DASH?
 
 **Answer:**
 
@@ -797,21 +687,7 @@ To optimize video delivery using HLS or DASH, you should use specific performanc
 
 ---
 
-### Q31: How do you use the `poster` attribute for video placeholders?
-
-**Difficulty: Beginner**
-
-**Answer:**
-
-To use the `poster` attribute for video placeholders, you should use specific performance techniques or APIs appropriate for beginner tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q32: How do you lazy load third-party scripts (Google Analytics, etc.)?
-
-**Difficulty: Intermediate**
+### Q26: How do you lazy load third-party scripts (Google Analytics, etc.)?
 
 **Answer:**
 
@@ -821,21 +697,7 @@ To lazy load third-party scripts (Google Analytics, etc.), you should use specif
 
 ---
 
-### Q33: How do you use the `defer` vs `async` attributes on script tags?
-
-**Difficulty: Beginner**
-
-**Answer:**
-
-To use the `defer` vs `async` attributes on script tags, you should use specific performance techniques or APIs appropriate for beginner tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q34: How do you optimize Google Fonts performance?
-
-**Difficulty: Intermediate**
+### Q27: How do you optimize Google Fonts performance?
 
 **Answer:**
 
@@ -845,9 +707,7 @@ To optimize Google Fonts performance, you should use specific performance techni
 
 ---
 
-### Q35: How do you reduce the impact of A/B testing scripts on LCP?
-
-**Difficulty: Advanced**
+### Q28: How do you reduce the impact of A/B testing scripts on LCP?
 
 **Answer:**
 
@@ -857,45 +717,7 @@ To reduce the impact of A/B testing scripts on LCP, you should use specific perf
 
 ---
 
-### Q36: How do you use the Coverage tab in Chrome DevTools to find unused code?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use the Coverage tab in Chrome DevTools to find unused code, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q37: How do you use the Performance tab to analyze flame charts?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use the Performance tab to analyze flame charts, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q38: How do you use the Network tab to debug waterfall requests?
-
-**Difficulty: Beginner**
-
-**Answer:**
-
-To use the Network tab to debug waterfall requests, you should use specific performance techniques or APIs appropriate for beginner tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q39: How do you detect and fix 'forced synchronous layout'?
-
-**Difficulty: Advanced**
+### Q29: How do you detect and fix 'forced synchronous layout'?
 
 **Answer:**
 
@@ -905,21 +727,7 @@ To detect and fix 'forced synchronous layout', you should use specific performan
 
 ---
 
-### Q40: How do you use `will-change` CSS property correctly?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use `will-change` CSS property correctly, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q41: How do you optimize CSS selectors to reduce matching time?
-
-**Difficulty: Advanced**
+### Q30: How do you optimize CSS selectors to reduce matching time?
 
 **Answer:**
 
@@ -929,21 +737,7 @@ To optimize CSS selectors to reduce matching time, you should use specific perfo
 
 ---
 
-### Q42: How do you use CSS containment (`contain` property) for rendering performance?
-
-**Difficulty: Expert**
-
-**Answer:**
-
-To use CSS containment (`contain` property) for rendering performance, you should use specific performance techniques or APIs appropriate for expert tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q43: How do you reduce the complexity of the DOM tree?
-
-**Difficulty: Intermediate**
+### Q31: How do you reduce the complexity of the DOM tree?
 
 **Answer:**
 
@@ -953,9 +747,7 @@ To reduce the complexity of the DOM tree, you should use specific performance te
 
 ---
 
-### Q44: How do you optimize React `re-renders` using `React.memo`?
-
-**Difficulty: Intermediate**
+### Q32: How do you optimize React `re-renders` using `React.memo`?
 
 **Answer:**
 
@@ -965,21 +757,7 @@ To optimize React `re-renders` using `React.memo`, you should use specific perfo
 
 ---
 
-### Q45: How do you use `useCallback` to prevent function recreation?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use `useCallback` to prevent function recreation, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q46: How do you virtualize a large data grid/table?
-
-**Difficulty: Advanced**
+### Q33: How do you virtualize a large data grid/table?
 
 **Answer:**
 
@@ -989,9 +767,7 @@ To virtualize a large data grid/table, you should use specific performance techn
 
 ---
 
-### Q47: How do you optimize list rendering with `key` prop?
-
-**Difficulty: Beginner**
+### Q34: How do you optimize list rendering with `key` prop?
 
 **Answer:**
 
@@ -1001,9 +777,7 @@ To optimize list rendering with `key` prop, you should use specific performance 
 
 ---
 
-### Q48: How do you prevent expensive calculations with `useMemo`?
-
-**Difficulty: Beginner**
+### Q35: How do you prevent expensive calculations with `useMemo`?
 
 **Answer:**
 
@@ -1013,21 +787,7 @@ To prevent expensive calculations with `useMemo`, you should use specific perfor
 
 ---
 
-### Q49: How do you use React Profiler to identify slow components?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use React Profiler to identify slow components, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q50: How do you code split a React app using route-based chunks?
-
-**Difficulty: Intermediate**
+### Q36: How do you code split a React app using route-based chunks?
 
 **Answer:**
 
@@ -1037,9 +797,7 @@ To code split a React app using route-based chunks, you should use specific perf
 
 ---
 
-### Q51: How do you prefetch resources on link hover?
-
-**Difficulty: Intermediate**
+### Q37: How do you prefetch resources on link hover?
 
 **Answer:**
 
@@ -1049,21 +807,7 @@ To prefetch resources on link hover, you should use specific performance techniq
 
 ---
 
-### Q52: How do you use the Network Information API to adapt to slow connections?
-
-**Difficulty: Advanced**
-
-**Answer:**
-
-To use the Network Information API to adapt to slow connections, you should use specific performance techniques or APIs appropriate for advanced tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: How do you implement the PRPL pattern?
-
-**Difficulty: Advanced**
+### Q38: How do you implement the PRPL pattern?
 
 **Answer:**
 
@@ -1073,9 +817,7 @@ To implement the PRPL pattern, you should use specific performance techniques or
 
 ---
 
-### Q54: How do you optimize hydration in SSR applications?
-
-**Difficulty: Advanced**
+### Q39: How do you optimize hydration in SSR applications?
 
 **Answer:**
 
@@ -1085,21 +827,7 @@ To optimize hydration in SSR applications, you should use specific performance t
 
 ---
 
-### Q55: How do you use Selective Hydration in React 18?
-
-**Difficulty: Expert**
-
-**Answer:**
-
-To use Selective Hydration in React 18, you should use specific performance techniques or APIs appropriate for expert tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: How do you reduce Time to First Byte (TTFB) on the server?
-
-**Difficulty: Intermediate**
+### Q40: How do you reduce Time to First Byte (TTFB) on the server?
 
 **Answer:**
 
@@ -1109,9 +837,7 @@ To reduce Time to First Byte (TTFB) on the server, you should use specific perfo
 
 ---
 
-### Q57: How do you configure Gzip or Brotli compression on the server?
-
-**Difficulty: Beginner**
+### Q41: How do you configure Gzip or Brotli compression on the server?
 
 **Answer:**
 
@@ -1121,9 +847,7 @@ To configure Gzip or Brotli compression on the server, you should use specific p
 
 ---
 
-### Q58: How do you optimize database queries to reduce server response time?
-
-**Difficulty: Intermediate**
+### Q42: How do you optimize database queries to reduce server response time?
 
 **Answer:**
 
@@ -1133,21 +857,7 @@ To optimize database queries to reduce server response time, you should use spec
 
 ---
 
-### Q59: How do you use a CDN to serve static assets?
-
-**Difficulty: Beginner**
-
-**Answer:**
-
-To use a CDN to serve static assets, you should use specific performance techniques or APIs appropriate for beginner tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: How do you configure HTTP/3 (QUIC) for faster connections?
-
-**Difficulty: Advanced**
+### Q43: How do you configure HTTP/3 (QUIC) for faster connections?
 
 **Answer:**
 
@@ -1157,9 +867,7 @@ To configure HTTP/3 (QUIC) for faster connections, you should use specific perfo
 
 ---
 
-### Q61: How do you monitor Real User Metrics (RUM) using Vitals library?
-
-**Difficulty: Intermediate**
+### Q44: How do you monitor Real User Metrics (RUM) using Vitals library?
 
 **Answer:**
 
@@ -1169,9 +877,7 @@ To monitor Real User Metrics (RUM) using Vitals library, you should use specific
 
 ---
 
-### Q62: How do you set up a Performance Budget in CI/CD pipeline?
-
-**Difficulty: Advanced**
+### Q45: How do you set up a Performance Budget in CI/CD pipeline?
 
 **Answer:**
 
@@ -1181,21 +887,7 @@ To set up a Performance Budget in CI/CD pipeline, you should use specific perfor
 
 ---
 
-### Q63: How do you use Lighthouse CI to prevent regressions?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use Lighthouse CI to prevent regressions, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q64: How do you optimize a Single Page Application (SPA) initial load?
-
-**Difficulty: Intermediate**
+### Q46: How do you optimize a Single Page Application (SPA) initial load?
 
 **Answer:**
 
@@ -1205,9 +897,7 @@ To optimize a Single Page Application (SPA) initial load, you should use specifi
 
 ---
 
-### Q65: How do you optimize Next.js Image component usage?
-
-**Difficulty: Intermediate**
+### Q47: How do you optimize Next.js Image component usage?
 
 **Answer:**
 
@@ -1217,9 +907,7 @@ To optimize Next.js Image component usage, you should use specific performance t
 
 ---
 
-### Q66: How do you optimize font subsetting to reduce file size?
-
-**Difficulty: Advanced**
+### Q48: How do you optimize font subsetting to reduce file size?
 
 **Answer:**
 
@@ -1229,9 +917,7 @@ To optimize font subsetting to reduce file size, you should use specific perform
 
 ---
 
-### Q67: How do you avoid chain requests (waterfalls) in critical path?
-
-**Difficulty: Intermediate**
+### Q49: How do you avoid chain requests (waterfalls) in critical path?
 
 **Answer:**
 
@@ -1241,9 +927,7 @@ To avoid chain requests (waterfalls) in critical path, you should use specific p
 
 ---
 
-### Q68: How do you inline small assets (Base64) to save requests?
-
-**Difficulty: Beginner**
+### Q50: How do you inline small assets (Base64) to save requests?
 
 **Answer:**
 
@@ -1253,21 +937,7 @@ To inline small assets (Base64) to save requests, you should use specific perfor
 
 ---
 
-### Q69: How do you use Resource Hints for external domains?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use Resource Hints for external domains, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you optimize the Critical Rendering Path?
-
-**Difficulty: Advanced**
+### Q51: How do you optimize the Critical Rendering Path?
 
 **Answer:**
 
@@ -1277,9 +947,7 @@ To optimize the Critical Rendering Path, you should use specific performance tec
 
 ---
 
-### Q71: How do you reduce the size of JSON API responses?
-
-**Difficulty: Intermediate**
+### Q52: How do you reduce the size of JSON API responses?
 
 **Answer:**
 
@@ -1289,21 +957,7 @@ To reduce the size of JSON API responses, you should use specific performance te
 
 ---
 
-### Q72: How do you use Protocol Buffers instead of JSON for smaller payloads?
-
-**Difficulty: Expert**
-
-**Answer:**
-
-To use Protocol Buffers instead of JSON for smaller payloads, you should use specific performance techniques or APIs appropriate for expert tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: How do you optimize GraphQL queries to fetch only needed fields?
-
-**Difficulty: Intermediate**
+### Q53: How do you optimize GraphQL queries to fetch only needed fields?
 
 **Answer:**
 
@@ -1313,9 +967,7 @@ To optimize GraphQL queries to fetch only needed fields, you should use specific
 
 ---
 
-### Q74: How do you batch multiple API requests into one?
-
-**Difficulty: Intermediate**
+### Q54: How do you batch multiple API requests into one?
 
 **Answer:**
 
@@ -1325,21 +977,7 @@ To batch multiple API requests into one, you should use specific performance tec
 
 ---
 
-### Q75: How do you use a skeleton screen to improve perceived performance?
-
-**Difficulty: Beginner**
-
-**Answer:**
-
-To use a skeleton screen to improve perceived performance, you should use specific performance techniques or APIs appropriate for beginner tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: How do you implement optimistic UI updates?
-
-**Difficulty: Intermediate**
+### Q55: How do you implement optimistic UI updates?
 
 **Answer:**
 
@@ -1349,9 +987,7 @@ To implement optimistic UI updates, you should use specific performance techniqu
 
 ---
 
-### Q77: How do you offload image processing to a serverless function?
-
-**Difficulty: Advanced**
+### Q56: How do you offload image processing to a serverless function?
 
 **Answer:**
 
@@ -1361,21 +997,7 @@ To offload image processing to a serverless function, you should use specific pe
 
 ---
 
-### Q78: How do you use `requestIdleCallback` for low-priority tasks?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use `requestIdleCallback` for low-priority tasks, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q79: How do you optimize garbage collection by avoiding object churn?
-
-**Difficulty: Expert**
+### Q57: How do you optimize garbage collection by avoiding object churn?
 
 **Answer:**
 
@@ -1385,9 +1007,7 @@ To optimize garbage collection by avoiding object churn, you should use specific
 
 ---
 
-### Q80: How do you profile memory usage using Heap Snapshots?
-
-**Difficulty: Advanced**
+### Q58: How do you profile memory usage using Heap Snapshots?
 
 **Answer:**
 
@@ -1397,9 +1017,7 @@ To profile memory usage using Heap Snapshots, you should use specific performanc
 
 ---
 
-### Q81: How do you detect detached DOM nodes causing memory leaks?
-
-**Difficulty: Advanced**
+### Q59: How do you detect detached DOM nodes causing memory leaks?
 
 **Answer:**
 
@@ -1409,9 +1027,7 @@ To detect detached DOM nodes causing memory leaks, you should use specific perfo
 
 ---
 
-### Q82: How do you optimize canvas rendering performance?
-
-**Difficulty: Advanced**
+### Q60: How do you optimize canvas rendering performance?
 
 **Answer:**
 
@@ -1421,21 +1037,7 @@ To optimize canvas rendering performance, you should use specific performance te
 
 ---
 
-### Q83: How do you use OffscreenCanvas for background rendering?
-
-**Difficulty: Expert**
-
-**Answer:**
-
-To use OffscreenCanvas for background rendering, you should use specific performance techniques or APIs appropriate for expert tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you optimize WebGL rendering?
-
-**Difficulty: Expert**
+### Q61: How do you optimize WebGL rendering?
 
 **Answer:**
 
@@ -1445,9 +1047,7 @@ To optimize WebGL rendering, you should use specific performance techniques or A
 
 ---
 
-### Q85: How do you reduce battery usage by pausing background animations?
-
-**Difficulty: Intermediate**
+### Q62: How do you reduce battery usage by pausing background animations?
 
 **Answer:**
 
@@ -1457,21 +1057,7 @@ To reduce battery usage by pausing background animations, you should use specifi
 
 ---
 
-### Q86: How do you use the Page Visibility API to pause tasks?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use the Page Visibility API to pause tasks, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q87: How do you optimize iframe loading using `loading='lazy'`?
-
-**Difficulty: Beginner**
+### Q63: How do you optimize iframe loading using `loading='lazy'`?
 
 **Answer:**
 
@@ -1481,9 +1067,7 @@ To optimize iframe loading using `loading='lazy'`, you should use specific perfo
 
 ---
 
-### Q88: How do you isolate third-party widgets in iframes?
-
-**Difficulty: Intermediate**
+### Q64: How do you isolate third-party widgets in iframes?
 
 **Answer:**
 
@@ -1493,21 +1077,7 @@ To isolate third-party widgets in iframes, you should use specific performance t
 
 ---
 
-### Q89: How do you use the Shadow DOM for style encapsulation/perf?
-
-**Difficulty: Advanced**
-
-**Answer:**
-
-To use the Shadow DOM for style encapsulation/perf, you should use specific performance techniques or APIs appropriate for advanced tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you optimize regex patterns to avoid ReDoS?
-
-**Difficulty: Advanced**
+### Q65: How do you optimize regex patterns to avoid ReDoS?
 
 **Answer:**
 
@@ -1517,21 +1087,7 @@ To optimize regex patterns to avoid ReDoS, you should use specific performance t
 
 ---
 
-### Q91: How do you use GPU acceleration for animations?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use GPU acceleration for animations, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: How do you avoid using `@import` in CSS?
-
-**Difficulty: Beginner**
+### Q66: How do you avoid using `@import` in CSS?
 
 **Answer:**
 
@@ -1541,9 +1097,7 @@ To avoid using `@import` in CSS, you should use specific performance techniques 
 
 ---
 
-### Q93: How do you bundle CSS vs splitting CSS optimization trade-offs?
-
-**Difficulty: Advanced**
+### Q67: How do you bundle CSS vs splitting CSS optimization trade-offs?
 
 **Answer:**
 
@@ -1553,21 +1107,7 @@ To bundle CSS vs splitting CSS optimization trade-offs, you should use specific 
 
 ---
 
-### Q94: How do you use the Back/Forward Cache (bfcache)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use the Back/Forward Cache (bfcache), you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q95: How do you optimize touch event listeners with `passive: true`?
-
-**Difficulty: Intermediate**
+### Q68: How do you optimize touch event listeners with `passive: true`?
 
 **Answer:**
 
@@ -1577,9 +1117,7 @@ To optimize touch event listeners with `passive: true`, you should use specific 
 
 ---
 
-### Q96: How do you reduce cookie size to lower request overhead?
-
-**Difficulty: Beginner**
+### Q69: How do you reduce cookie size to lower request overhead?
 
 **Answer:**
 
@@ -1589,21 +1127,7 @@ To reduce cookie size to lower request overhead, you should use specific perform
 
 ---
 
-### Q97: How do you use domain sharding (legacy) vs HTTP/2 multiplexing?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use domain sharding (legacy) vs HTTP/2 multiplexing, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q98: How do you optimize for low-end devices?
-
-**Difficulty: Intermediate**
+### Q70: How do you optimize for low-end devices?
 
 **Answer:**
 
@@ -1613,9 +1137,7 @@ To optimize for low-end devices, you should use specific performance techniques 
 
 ---
 
-### Q99: How do you measure TTI (Time to Interactive)?
-
-**Difficulty: Intermediate**
+### Q71: How do you measure TTI (Time to Interactive)?
 
 **Answer:**
 
@@ -1625,9 +1147,7 @@ To measure TTI (Time to Interactive), you should use specific performance techni
 
 ---
 
-### Q100: How do you measure TBT (Total Blocking Time)?
-
-**Difficulty: Intermediate**
+### Q72: How do you measure TBT (Total Blocking Time)?
 
 **Answer:**
 
@@ -1637,9 +1157,7 @@ To measure TBT (Total Blocking Time), you should use specific performance techni
 
 ---
 
-### Q101: How do you measure Speed Index?
-
-**Difficulty: Intermediate**
+### Q73: How do you measure Speed Index?
 
 **Answer:**
 
@@ -1649,9 +1167,7 @@ To measure Speed Index, you should use specific performance techniques or APIs a
 
 ---
 
-### Q102: How do you automate performance testing with Puppeteer/Playwright?
-
-**Difficulty: Advanced**
+### Q74: How do you automate performance testing with Puppeteer/Playwright?
 
 **Answer:**
 
@@ -1661,21 +1177,7 @@ To automate performance testing with Puppeteer/Playwright, you should use specif
 
 ---
 
-### Q103: How do you use `content-visibility: auto` to skip rendering off-screen content?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-
-To use `content-visibility: auto` to skip rendering off-screen content, you should use specific performance techniques or APIs appropriate for intermediate tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q104: How do you optimize string concatenation in tight loops?
-
-**Difficulty: Beginner**
+### Q75: How do you optimize string concatenation in tight loops?
 
 **Answer:**
 
@@ -1685,33 +1187,27 @@ To optimize string concatenation in tight loops, you should use specific perform
 
 ---
 
-### Q105: How do you use Bitwise operators for high-perf math (micro-optimization)?
-
-**Difficulty: Expert**
-
-**Answer:**
-
-To use Bitwise operators for high-perf math (micro-optimization), you should use specific performance techniques or APIs appropriate for expert tasks. Provide a clear code example or configuration snippet demonstrating the optimization.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q106: How do you handle Layout Thrashing?
+### Q76: How do you handle Layout Thrashing?
 
 **Strategy:**
-1. Understand the goal of **Layout Thrashing**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
+Layout thrashing occurs when you read and write to the DOM in a loop, causing the browser to recalculate layout repeatedly. Avoid this by batching DOM reads (measurements) before DOM writes (mutations), or using `requestAnimationFrame`.
 
 **Code Snippet:**
 ```javascript
-// Implementation for Layout Thrashing
-function handleLayoutThrashing() {
-  console.log("Handling Layout Thrashing...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
+// BAD: Causing layout thrashing
+const elements = document.querySelectorAll('.item');
+for (let i = 0; i < elements.length; i++) {
+  const width = elements[i].offsetWidth; // READ
+  elements[i].style.width = (width + 10) + 'px'; // WRITE (invalidates layout)
+}
+
+// GOOD: Batching
+const widths = [];
+for (let i = 0; i < elements.length; i++) {
+  widths.push(elements[i].offsetWidth); // READ
+}
+for (let i = 0; i < elements.length; i++) {
+  elements[i].style.width = (widths[i] + 10) + 'px'; // WRITE
 }
 ```
 
@@ -1719,7 +1215,7 @@ function handleLayoutThrashing() {
 
 ---
 
-### Q107: How do you handle Repaint and Reflow?
+### Q77: How do you handle Repaint and Reflow?
 
 **Strategy:**
 1. Understand the goal of **Repaint and Reflow**.
@@ -1741,7 +1237,7 @@ function handleRepaintandReflow() {
 
 ---
 
-### Q108: How do you handle Composite Layers?
+### Q78: How do you handle Composite Layers?
 
 **Strategy:**
 1. Understand the goal of **Composite Layers**.
@@ -1763,7 +1259,7 @@ function handleCompositeLayers() {
 
 ---
 
-### Q109: How do you handle GPU Acceleration?
+### Q79: How do you handle GPU Acceleration?
 
 **Strategy:**
 1. Understand the goal of **GPU Acceleration**.
@@ -1785,7 +1281,7 @@ function handleGPUAcceleration() {
 
 ---
 
-### Q110: How do you handle Critical Rendering Path?
+### Q80: How do you handle Critical Rendering Path?
 
 **Strategy:**
 1. Understand the goal of **Critical Rendering Path**.
@@ -1807,7 +1303,7 @@ function handleCriticalRenderingPath() {
 
 ---
 
-### Q111: How do you handle Time to First Byte (TTFB)?
+### Q81: How do you handle Time to First Byte (TTFB)?
 
 **Strategy:**
 1. Understand the goal of **Time to First Byte (TTFB)**.
@@ -1829,7 +1325,7 @@ function handleTimetoFirstByteTTFB() {
 
 ---
 
-### Q112: How do you handle First Contentful Paint (FCP)?
+### Q82: How do you handle First Contentful Paint (FCP)?
 
 **Strategy:**
 1. Understand the goal of **First Contentful Paint (FCP)**.
@@ -1851,7 +1347,7 @@ function handleFirstContentfulPaintFCP() {
 
 ---
 
-### Q113: How do you handle Total Blocking Time (TBT)?
+### Q83: How do you handle Total Blocking Time (TBT)?
 
 **Strategy:**
 1. Understand the goal of **Total Blocking Time (TBT)**.
@@ -1873,7 +1369,7 @@ function handleTotalBlockingTimeTBT() {
 
 ---
 
-### Q114: How do you handle Speed Index?
+### Q84: How do you handle Speed Index?
 
 **Strategy:**
 1. Understand the goal of **Speed Index**.
@@ -1895,7 +1391,7 @@ function handleSpeedIndex() {
 
 ---
 
-### Q115: How do you handle Cumulative Layout Shift (CLS)?
+### Q85: How do you handle Cumulative Layout Shift (CLS)?
 
 **Strategy:**
 1. Understand the goal of **Cumulative Layout Shift (CLS)**.
@@ -1917,7 +1413,7 @@ function handleCumulativeLayoutShiftCLS() {
 
 ---
 
-### Q116: How do you handle Largest Contentful Paint (LCP)?
+### Q86: How do you handle Largest Contentful Paint (LCP)?
 
 **Strategy:**
 1. Understand the goal of **Largest Contentful Paint (LCP)**.
@@ -1939,7 +1435,7 @@ function handleLargestContentfulPaintLCP() {
 
 ---
 
-### Q117: How do you handle First Input Delay (FID)?
+### Q87: How do you handle First Input Delay (FID)?
 
 **Strategy:**
 1. Understand the goal of **First Input Delay (FID)**.
@@ -1961,7 +1457,7 @@ function handleFirstInputDelayFID() {
 
 ---
 
-### Q118: How do you handle Interaction to Next Paint (INP)?
+### Q88: How do you handle Interaction to Next Paint (INP)?
 
 **Strategy:**
 1. Understand the goal of **Interaction to Next Paint (INP)**.
@@ -1983,7 +1479,7 @@ function handleInteractiontoNextPaintINP() {
 
 ---
 
-### Q119: How do you handle Resource Hints?
+### Q89: How do you handle Resource Hints?
 
 **Strategy:**
 1. Understand the goal of **Resource Hints**.
@@ -2005,7 +1501,7 @@ function handleResourceHints() {
 
 ---
 
-### Q120: How do you handle Preload vs Prefetch?
+### Q90: How do you handle Preload vs Prefetch?
 
 **Strategy:**
 1. Understand the goal of **Preload vs Prefetch**.
@@ -2027,7 +1523,7 @@ function handlePreloadvsPrefetch() {
 
 ---
 
-### Q121: How do you handle Lazy Loading Images?
+### Q91: How do you handle Lazy Loading Images?
 
 **Strategy:**
 1. Understand the goal of **Lazy Loading Images**.
@@ -2049,7 +1545,7 @@ function handleLazyLoadingImages() {
 
 ---
 
-### Q122: How do you handle Lazy Loading Components?
+### Q92: How do you handle Lazy Loading Components?
 
 **Strategy:**
 1. Understand the goal of **Lazy Loading Components**.
@@ -2071,7 +1567,7 @@ function handleLazyLoadingComponents() {
 
 ---
 
-### Q123: How do you handle Virtualization?
+### Q93: How do you handle Virtualization?
 
 **Strategy:**
 1. Understand the goal of **Virtualization**.
@@ -2093,29 +1589,33 @@ function handleVirtualization() {
 
 ---
 
-### Q124: How do you handle Debouncing?
+### Q94: How do you handle Debouncing?
 
 **Strategy:**
-1. Understand the goal of **Debouncing**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
+Debouncing limits the rate at which a function can fire. It ensures that the function is only called after a certain amount of time has passed since the last time it was invoked. Useful for search inputs.
 
 **Code Snippet:**
 ```javascript
-// Implementation for Debouncing
-function handleDebouncing() {
-  console.log("Handling Debouncing...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
 }
+
+const handleResize = debounce(() => {
+  console.log('Resizing...');
+}, 300);
+
+window.addEventListener('resize', handleResize);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q125: How do you handle Throttling?
+### Q95: How do you handle Throttling?
 
 **Strategy:**
 1. Understand the goal of **Throttling**.
@@ -2137,7 +1637,7 @@ function handleThrottling() {
 
 ---
 
-### Q126: How do you handle Memoization?
+### Q96: How do you handle Memoization?
 
 **Strategy:**
 1. Understand the goal of **Memoization**.
@@ -2159,7 +1659,7 @@ function handleMemoization() {
 
 ---
 
-### Q127: How do you handle Web Workers?
+### Q97: How do you handle Web Workers?
 
 **Strategy:**
 1. Understand the goal of **Web Workers**.
@@ -2181,7 +1681,7 @@ function handleWebWorkers() {
 
 ---
 
-### Q128: How do you handle Service Workers?
+### Q98: How do you handle Service Workers?
 
 **Strategy:**
 1. Understand the goal of **Service Workers**.
@@ -2203,7 +1703,7 @@ function handleServiceWorkers() {
 
 ---
 
-### Q129: How do you handle Cache Storage?
+### Q99: How do you handle Cache Storage?
 
 **Strategy:**
 1. Understand the goal of **Cache Storage**.
@@ -2225,7 +1725,7 @@ function handleCacheStorage() {
 
 ---
 
-### Q130: How do you handle IndexedDB?
+### Q100: How do you handle IndexedDB?
 
 **Strategy:**
 1. Understand the goal of **IndexedDB**.
@@ -2247,7 +1747,7 @@ function handleIndexedDB() {
 
 ---
 
-### Q131: How do you handle Local Storage Performance?
+### Q101: How do you handle Local Storage Performance?
 
 **Strategy:**
 1. Understand the goal of **Local Storage Performance**.
@@ -2269,7 +1769,7 @@ function handleLocalStoragePerformance() {
 
 ---
 
-### Q132: How do you handle Session Storage?
+### Q102: How do you handle Session Storage?
 
 **Strategy:**
 1. Understand the goal of **Session Storage**.
@@ -2291,7 +1791,7 @@ function handleSessionStorage() {
 
 ---
 
-### Q133: How do you handle Cookies Performance?
+### Q103: How do you handle Cookies Performance?
 
 **Strategy:**
 1. Understand the goal of **Cookies Performance**.
@@ -2313,7 +1813,7 @@ function handleCookiesPerformance() {
 
 ---
 
-### Q134: How do you handle CDN Usage?
+### Q104: How do you handle CDN Usage?
 
 **Strategy:**
 1. Understand the goal of **CDN Usage**.
@@ -2335,7 +1835,7 @@ function handleCDNUsage() {
 
 ---
 
-### Q135: How do you handle Compression (Gzip/Brotli)?
+### Q105: How do you handle Compression (Gzip/Brotli)?
 
 **Strategy:**
 1. Understand the goal of **Compression (Gzip/Brotli)**.
@@ -2357,7 +1857,7 @@ function handleCompressionGzipBrotli() {
 
 ---
 
-### Q136: How do you handle Image Optimization?
+### Q106: How do you handle Image Optimization?
 
 **Strategy:**
 1. Understand the goal of **Image Optimization**.
@@ -2379,7 +1879,7 @@ function handleImageOptimization() {
 
 ---
 
-### Q137: How do you handle WebP Format?
+### Q107: How do you handle WebP Format?
 
 **Strategy:**
 1. Understand the goal of **WebP Format**.
@@ -2401,7 +1901,7 @@ function handleWebPFormat() {
 
 ---
 
-### Q138: How do you handle AVIF Format?
+### Q108: How do you handle AVIF Format?
 
 **Strategy:**
 1. Understand the goal of **AVIF Format**.
@@ -2423,7 +1923,7 @@ function handleAVIFFormat() {
 
 ---
 
-### Q139: How do you handle Responsive Images?
+### Q109: How do you handle Responsive Images?
 
 **Strategy:**
 1. Understand the goal of **Responsive Images**.
@@ -2445,7 +1945,7 @@ function handleResponsiveImages() {
 
 ---
 
-### Q140: How do you handle Video Optimization?
+### Q110: How do you handle Video Optimization?
 
 **Strategy:**
 1. Understand the goal of **Video Optimization**.
@@ -2467,7 +1967,7 @@ function handleVideoOptimization() {
 
 ---
 
-### Q141: How do you handle Font Loading Strategies?
+### Q111: How do you handle Font Loading Strategies?
 
 **Strategy:**
 1. Understand the goal of **Font Loading Strategies**.
@@ -2489,7 +1989,7 @@ function handleFontLoadingStrategies() {
 
 ---
 
-### Q142: How do you handle CSS Containment?
+### Q112: How do you handle CSS Containment?
 
 **Strategy:**
 1. Understand the goal of **CSS Containment**.
@@ -2511,7 +2011,7 @@ function handleCSSContainment() {
 
 ---
 
-### Q143: How do you handle Will-Change Property?
+### Q113: How do you handle Will-Change Property?
 
 **Strategy:**
 1. Understand the goal of **Will-Change Property**.
@@ -2533,7 +2033,7 @@ function handleWillChangeProperty() {
 
 ---
 
-### Q144: How do you handle Hardware Acceleration?
+### Q114: How do you handle Hardware Acceleration?
 
 **Strategy:**
 1. Understand the goal of **Hardware Acceleration**.
@@ -2555,7 +2055,7 @@ function handleHardwareAcceleration() {
 
 ---
 
-### Q145: How do you handle Animation Performance?
+### Q115: How do you handle Animation Performance?
 
 **Strategy:**
 1. Understand the goal of **Animation Performance**.
@@ -2577,7 +2077,7 @@ function handleAnimationPerformance() {
 
 ---
 
-### Q146: How do you handle React Profiler?
+### Q116: How do you handle React Profiler?
 
 **Strategy:**
 1. Understand the goal of **React Profiler**.
@@ -2599,7 +2099,7 @@ function handleReactProfiler() {
 
 ---
 
-### Q147: How do you handle Chrome DevTools Performance Tab?
+### Q117: How do you handle Chrome DevTools Performance Tab?
 
 **Strategy:**
 1. Understand the goal of **Chrome DevTools Performance Tab**.
@@ -2621,7 +2121,7 @@ function handleChromeDevToolsPerformanceTab() {
 
 ---
 
-### Q148: How do you handle Lighthouse Audits?
+### Q118: How do you handle Lighthouse Audits?
 
 **Strategy:**
 1. Understand the goal of **Lighthouse Audits**.
@@ -2643,7 +2143,7 @@ function handleLighthouseAudits() {
 
 ---
 
-### Q149: How do you handle Web Vitals?
+### Q119: How do you handle Web Vitals?
 
 **Strategy:**
 1. Understand the goal of **Web Vitals**.
@@ -2665,7 +2165,7 @@ function handleWebVitals() {
 
 ---
 
-### Q150: How do you handle Real User Monitoring (RUM)?
+### Q120: How do you handle Real User Monitoring (RUM)?
 
 **Strategy:**
 1. Understand the goal of **Real User Monitoring (RUM)**.
@@ -2687,7 +2187,7 @@ function handleRealUserMonitoringRUM() {
 
 ---
 
-### Q151: How do you handle Synthetic Monitoring?
+### Q121: How do you handle Synthetic Monitoring?
 
 **Strategy:**
 1. Understand the goal of **Synthetic Monitoring**.
@@ -2709,7 +2209,7 @@ function handleSyntheticMonitoring() {
 
 ---
 
-### Q152: How do you handle Bundle Analysis?
+### Q122: How do you handle Bundle Analysis?
 
 **Strategy:**
 1. Understand the goal of **Bundle Analysis**.
@@ -2731,7 +2231,7 @@ function handleBundleAnalysis() {
 
 ---
 
-### Q153: How do you handle Tree Shaking?
+### Q123: How do you handle Tree Shaking?
 
 **Strategy:**
 1. Understand the goal of **Tree Shaking**.
@@ -2753,7 +2253,7 @@ function handleTreeShaking() {
 
 ---
 
-### Q154: How do you handle Code Splitting?
+### Q124: How do you handle Code Splitting?
 
 **Strategy:**
 1. Understand the goal of **Code Splitting**.
@@ -2775,7 +2275,7 @@ function handleCodeSplitting() {
 
 ---
 
-### Q155: How do you handle Dynamic Imports?
+### Q125: How do you handle Dynamic Imports?
 
 **Strategy:**
 1. Understand the goal of **Dynamic Imports**.
@@ -2797,7 +2297,7 @@ function handleDynamicImports() {
 
 ---
 
-### Q156: How do you handle Webpack Optimization?
+### Q126: How do you handle Webpack Optimization?
 
 **Strategy:**
 1. Understand the goal of **Webpack Optimization**.
@@ -2819,7 +2319,7 @@ function handleWebpackOptimization() {
 
 ---
 
-### Q157: How do you handle Vite Optimization?
+### Q127: How do you handle Vite Optimization?
 
 **Strategy:**
 1. Understand the goal of **Vite Optimization**.
@@ -2841,7 +2341,7 @@ function handleViteOptimization() {
 
 ---
 
-### Q158: How do you handle Rollup Optimization?
+### Q128: How do you handle Rollup Optimization?
 
 **Strategy:**
 1. Understand the goal of **Rollup Optimization**.
@@ -2863,7 +2363,7 @@ function handleRollupOptimization() {
 
 ---
 
-### Q159: How do you handle Browser Caching?
+### Q129: How do you handle Browser Caching?
 
 **Strategy:**
 1. Understand the goal of **Browser Caching**.
@@ -2885,7 +2385,7 @@ function handleBrowserCaching() {
 
 ---
 
-### Q160: How do you handle HTTP/2?
+### Q130: How do you handle HTTP/2?
 
 **Strategy:**
 1. Understand the goal of **HTTP/2**.
@@ -2907,7 +2407,7 @@ function handleHTTP2() {
 
 ---
 
-### Q161: How do you handle HTTP/3?
+### Q131: How do you handle HTTP/3?
 
 **Strategy:**
 1. Understand the goal of **HTTP/3**.
@@ -2929,7 +2429,7 @@ function handleHTTP3() {
 
 ---
 
-### Q162: How do you handle Keep-Alive?
+### Q132: How do you handle Keep-Alive?
 
 **Strategy:**
 1. Understand the goal of **Keep-Alive**.
@@ -2951,7 +2451,7 @@ function handleKeepAlive() {
 
 ---
 
-### Q163: How do you handle Connection Pooling?
+### Q133: How do you handle Connection Pooling?
 
 **Strategy:**
 1. Understand the goal of **Connection Pooling**.
@@ -2973,7 +2473,7 @@ function handleConnectionPooling() {
 
 ---
 
-### Q164: How do you handle DNS Prefetching?
+### Q134: How do you handle DNS Prefetching?
 
 **Strategy:**
 1. Understand the goal of **DNS Prefetching**.
@@ -2995,7 +2495,7 @@ function handleDNSPrefetching() {
 
 ---
 
-### Q165: How do you handle Preconnect?
+### Q135: How do you handle Preconnect?
 
 **Strategy:**
 1. Understand the goal of **Preconnect**.
@@ -3017,7 +2517,7 @@ function handlePreconnect() {
 
 ---
 
-### Q166: How do you handle Prerendering?
+### Q136: How do you handle Prerendering?
 
 **Strategy:**
 1. Understand the goal of **Prerendering**.
@@ -3039,7 +2539,7 @@ function handlePrerendering() {
 
 ---
 
-### Q167: How do you handle Server-Side Rendering (SSR)?
+### Q137: How do you handle Server-Side Rendering (SSR)?
 
 **Strategy:**
 1. Understand the goal of **Server-Side Rendering (SSR)**.
@@ -3061,7 +2561,7 @@ function handleServerSideRenderingSSR() {
 
 ---
 
-### Q168: How do you handle Static Site Generation (SSG)?
+### Q138: How do you handle Static Site Generation (SSG)?
 
 **Strategy:**
 1. Understand the goal of **Static Site Generation (SSG)**.
@@ -3083,7 +2583,7 @@ function handleStaticSiteGenerationSSG() {
 
 ---
 
-### Q169: How do you handle Incremental Static Regeneration (ISR)?
+### Q139: How do you handle Incremental Static Regeneration (ISR)?
 
 **Strategy:**
 1. Understand the goal of **Incremental Static Regeneration (ISR)**.
@@ -3105,7 +2605,7 @@ function handleIncrementalStaticRegenerationISR() {
 
 ---
 
-### Q170: How do you handle Edge Computing?
+### Q140: How do you handle Edge Computing?
 
 **Strategy:**
 1. Understand the goal of **Edge Computing**.
@@ -3127,7 +2627,7 @@ function handleEdgeComputing() {
 
 ---
 
-### Q171: How do you handle Serverless Cold Starts?
+### Q141: How do you handle Serverless Cold Starts?
 
 **Strategy:**
 1. Understand the goal of **Serverless Cold Starts**.
@@ -3149,7 +2649,7 @@ function handleServerlessColdStarts() {
 
 ---
 
-### Q172: How do you handle Database Indexing?
+### Q142: How do you handle Database Indexing?
 
 **Strategy:**
 1. Understand the goal of **Database Indexing**.
@@ -3171,7 +2671,7 @@ function handleDatabaseIndexing() {
 
 ---
 
-### Q173: How do you handle Query Optimization?
+### Q143: How do you handle Query Optimization?
 
 **Strategy:**
 1. Understand the goal of **Query Optimization**.
@@ -3193,7 +2693,7 @@ function handleQueryOptimization() {
 
 ---
 
-### Q174: How do you handle N+1 Problem?
+### Q144: How do you handle N+1 Problem?
 
 **Strategy:**
 1. Understand the goal of **N+1 Problem**.
@@ -3215,7 +2715,7 @@ function handleN1Problem() {
 
 ---
 
-### Q175: How do you handle Connection Pooling (DB)?
+### Q145: How do you handle Connection Pooling (DB)?
 
 **Strategy:**
 1. Understand the goal of **Connection Pooling (DB)**.
@@ -3237,7 +2737,7 @@ function handleConnectionPoolingDB() {
 
 ---
 
-### Q176: How do you handle Caching Strategies (Redis)?
+### Q146: How do you handle Caching Strategies (Redis)?
 
 **Strategy:**
 1. Understand the goal of **Caching Strategies (Redis)**.
@@ -3259,7 +2759,7 @@ function handleCachingStrategiesRedis() {
 
 ---
 
-### Q177: How do you handle Content Delivery Networks?
+### Q147: How do you handle Content Delivery Networks?
 
 **Strategy:**
 1. Understand the goal of **Content Delivery Networks**.
@@ -3281,7 +2781,7 @@ function handleContentDeliveryNetworks() {
 
 ---
 
-### Q178: How do you handle Edge Caching?
+### Q148: How do you handle Edge Caching?
 
 **Strategy:**
 1. Understand the goal of **Edge Caching**.
@@ -3303,7 +2803,7 @@ function handleEdgeCaching() {
 
 ---
 
-### Q179: How do you handle Browser Rendering Engine?
+### Q149: How do you handle Browser Rendering Engine?
 
 **Strategy:**
 1. Understand the goal of **Browser Rendering Engine**.
@@ -3325,7 +2825,7 @@ function handleBrowserRenderingEngine() {
 
 ---
 
-### Q180: How do you handle V8 Engine Optimization?
+### Q150: How do you handle V8 Engine Optimization?
 
 **Strategy:**
 1. Understand the goal of **V8 Engine Optimization**.
@@ -3347,7 +2847,7 @@ function handleV8EngineOptimization() {
 
 ---
 
-### Q181: How do you handle Garbage Collection?
+### Q151: How do you handle Garbage Collection?
 
 **Strategy:**
 1. Understand the goal of **Garbage Collection**.
@@ -3369,7 +2869,7 @@ function handleGarbageCollection() {
 
 ---
 
-### Q182: How do you handle Memory Leaks?
+### Q152: How do you handle Memory Leaks?
 
 **Strategy:**
 1. Understand the goal of **Memory Leaks**.
@@ -3391,7 +2891,7 @@ function handleMemoryLeaks() {
 
 ---
 
-### Q183: How do you handle Heap Snapshots?
+### Q153: How do you handle Heap Snapshots?
 
 **Strategy:**
 1. Understand the goal of **Heap Snapshots**.
@@ -3413,7 +2913,7 @@ function handleHeapSnapshots() {
 
 ---
 
-### Q184: How do you handle Allocation Profiling?
+### Q154: How do you handle Allocation Profiling?
 
 **Strategy:**
 1. Understand the goal of **Allocation Profiling**.
@@ -3435,7 +2935,7 @@ function handleAllocationProfiling() {
 
 ---
 
-### Q185: How do you handle Flame Charts?
+### Q155: How do you handle Flame Charts?
 
 **Strategy:**
 1. Understand the goal of **Flame Charts**.
@@ -3457,7 +2957,7 @@ function handleFlameCharts() {
 
 ---
 
-### Q186: How do you handle Performance Budget?
+### Q156: How do you handle Performance Budget?
 
 **Strategy:**
 1. Understand the goal of **Performance Budget**.
@@ -3479,7 +2979,7 @@ function handlePerformanceBudget() {
 
 ---
 
-### Q187: How do you handle Main Thread Blocking?
+### Q157: How do you handle Main Thread Blocking?
 
 **Strategy:**
 1. Understand the goal of **Main Thread Blocking**.
@@ -3501,7 +3001,7 @@ function handleMainThreadBlocking() {
 
 ---
 
-### Q188: How do you handle Long Tasks API?
+### Q158: How do you handle Long Tasks API?
 
 **Strategy:**
 1. Understand the goal of **Long Tasks API**.
@@ -3523,7 +3023,7 @@ function handleLongTasksAPI() {
 
 ---
 
-### Q189: How do you handle Scheduler API?
+### Q159: How do you handle Scheduler API?
 
 **Strategy:**
 1. Understand the goal of **Scheduler API**.
@@ -3545,7 +3045,7 @@ function handleSchedulerAPI() {
 
 ---
 
-### Q190: How do you handle RequestIdleCallback?
+### Q160: How do you handle RequestIdleCallback?
 
 **Strategy:**
 1. Understand the goal of **RequestIdleCallback**.
@@ -3567,7 +3067,7 @@ function handleRequestIdleCallback() {
 
 ---
 
-### Q191: How do you handle RequestAnimationFrame?
+### Q161: How do you handle RequestAnimationFrame?
 
 **Strategy:**
 1. Understand the goal of **RequestAnimationFrame**.
@@ -3589,7 +3089,7 @@ function handleRequestAnimationFrame() {
 
 ---
 
-### Q192: How do you handle IntersectionObserver?
+### Q162: How do you handle IntersectionObserver?
 
 **Strategy:**
 1. Understand the goal of **IntersectionObserver**.
@@ -3611,7 +3111,7 @@ function handleIntersectionObserver() {
 
 ---
 
-### Q193: How do you handle ResizeObserver?
+### Q163: How do you handle ResizeObserver?
 
 **Strategy:**
 1. Understand the goal of **ResizeObserver**.
@@ -3633,7 +3133,7 @@ function handleResizeObserver() {
 
 ---
 
-### Q194: How do you handle MutationObserver?
+### Q164: How do you handle MutationObserver?
 
 **Strategy:**
 1. Understand the goal of **MutationObserver**.
@@ -3655,7 +3155,7 @@ function handleMutationObserver() {
 
 ---
 
-### Q195: How do you handle PerformanceObserver?
+### Q165: How do you handle PerformanceObserver?
 
 **Strategy:**
 1. Understand the goal of **PerformanceObserver**.
@@ -3677,7 +3177,7 @@ function handlePerformanceObserver() {
 
 ---
 
-### Q196: How do you handle Network Information API?
+### Q166: How do you handle Network Information API?
 
 **Strategy:**
 1. Understand the goal of **Network Information API**.
@@ -3699,7 +3199,7 @@ function handleNetworkInformationAPI() {
 
 ---
 
-### Q197: How do you handle Device Memory API?
+### Q167: How do you handle Device Memory API?
 
 **Strategy:**
 1. Understand the goal of **Device Memory API**.
@@ -3720,3 +3220,754 @@ function handleDeviceMemoryAPI() {
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+
+### Q168: How do you use the Scheduler API (scheduler.yield) to break up long tasks?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Scheduler API (scheduler.yield) to break up long tasks**.
+1. Understand the core concept of use the Scheduler API (scheduler.yield) to break up long tasks.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Scheduler API (scheduler.yield) to break up long tasks
+function demonstrateusetheSchedulerAPIscheduleryieldtobreakuplongtasks() {
+  console.log("Implementing use the Scheduler API (scheduler.yield) to break up long tasks...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q169: How do you use HTTP/2 Server Push (or why avoid it)?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use HTTP/2 Server Push (or why avoid it)**.
+1. Understand the core concept of use HTTP/2 Server Push (or why avoid it).
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use HTTP/2 Server Push (or why avoid it)
+function demonstrateuseHTTP2ServerPushorwhyavoidit() {
+  console.log("Implementing use HTTP/2 Server Push (or why avoid it)...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q170: How do you use the Cache API within a Service Worker?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Cache API within a Service Worker**.
+1. Understand the core concept of use the Cache API within a Service Worker.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Cache API within a Service Worker
+function demonstrateusetheCacheAPIwithinaServiceWorker() {
+  console.log("Implementing use the Cache API within a Service Worker...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q171: How do you use the Vary header to serve different content versions?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Vary header to serve different content versions**.
+1. Understand the core concept of use the Vary header to serve different content versions.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Vary header to serve different content versions
+function demonstrateusetheVaryheadertoservedifferentcontentversions() {
+  console.log("Implementing use the Vary header to serve different content versions...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q172: How do you use the `<picture>` element for art direction?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the `<picture>` element for art direction**.
+1. Understand the core concept of use the `<picture>` element for art direction.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the `<picture>` element for art direction
+function demonstrateusethepictureelementforartdirection() {
+  console.log("Implementing use the `<picture>` element for art direction...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q173: How do you use the `poster` attribute for video placeholders?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the `poster` attribute for video placeholders**.
+1. Understand the core concept of use the `poster` attribute for video placeholders.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the `poster` attribute for video placeholders
+function demonstrateusetheposterattributeforvideoplaceholders() {
+  console.log("Implementing use the `poster` attribute for video placeholders...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q174: How do you use the `defer` vs `async` attributes on script tags?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the `defer` vs `async` attributes on script tags**.
+1. Understand the core concept of use the `defer` vs `async` attributes on script tags.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the `defer` vs `async` attributes on script tags
+function demonstrateusethedefervsasyncattributesonscripttags() {
+  console.log("Implementing use the `defer` vs `async` attributes on script tags...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q175: How do you use the Coverage tab in Chrome DevTools to find unused code?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Coverage tab in Chrome DevTools to find unused code**.
+1. Understand the core concept of use the Coverage tab in Chrome DevTools to find unused code.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Coverage tab in Chrome DevTools to find unused code
+function demonstrateusetheCoveragetabinChromeDevToolstofindunusedcode() {
+  console.log("Implementing use the Coverage tab in Chrome DevTools to find unused code...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q176: How do you use the Performance tab to analyze flame charts?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Performance tab to analyze flame charts**.
+1. Understand the core concept of use the Performance tab to analyze flame charts.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Performance tab to analyze flame charts
+function demonstrateusethePerformancetabtoanalyzeflamecharts() {
+  console.log("Implementing use the Performance tab to analyze flame charts...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q177: How do you use the Network tab to debug waterfall requests?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Network tab to debug waterfall requests**.
+1. Understand the core concept of use the Network tab to debug waterfall requests.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Network tab to debug waterfall requests
+function demonstrateusetheNetworktabtodebugwaterfallrequests() {
+  console.log("Implementing use the Network tab to debug waterfall requests...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q178: How do you use `will-change` CSS property correctly?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use `will-change` CSS property correctly**.
+1. Understand the core concept of use `will-change` CSS property correctly.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use `will-change` CSS property correctly
+function demonstrateusewillchangeCSSpropertycorrectly() {
+  console.log("Implementing use `will-change` CSS property correctly...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q179: How do you use CSS containment (`contain` property) for rendering performance?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use CSS containment (`contain` property) for rendering performance**.
+1. Understand the core concept of use CSS containment (`contain` property) for rendering performance.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use CSS containment (`contain` property) for rendering performance
+function demonstrateuseCSScontainmentcontainpropertyforrenderingperformance() {
+  console.log("Implementing use CSS containment (`contain` property) for rendering performance...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q180: How do you use `useCallback` to prevent function recreation?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use `useCallback` to prevent function recreation**.
+1. Understand the core concept of use `useCallback` to prevent function recreation.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use `useCallback` to prevent function recreation
+function demonstrateuseuseCallbacktopreventfunctionrecreation() {
+  console.log("Implementing use `useCallback` to prevent function recreation...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q181: How do you use React Profiler to identify slow components?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use React Profiler to identify slow components**.
+1. Understand the core concept of use React Profiler to identify slow components.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use React Profiler to identify slow components
+function demonstrateuseReactProfilertoidentifyslowcomponents() {
+  console.log("Implementing use React Profiler to identify slow components...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q182: How do you use the Network Information API to adapt to slow connections?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Network Information API to adapt to slow connections**.
+1. Understand the core concept of use the Network Information API to adapt to slow connections.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Network Information API to adapt to slow connections
+function demonstrateusetheNetworkInformationAPItoadapttoslowconnections() {
+  console.log("Implementing use the Network Information API to adapt to slow connections...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q183: How do you use Selective Hydration in React 18?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use Selective Hydration in React 18**.
+1. Understand the core concept of use Selective Hydration in React 18.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use Selective Hydration in React 18
+function demonstrateuseSelectiveHydrationinReact18() {
+  console.log("Implementing use Selective Hydration in React 18...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q184: How do you use a CDN to serve static assets?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use a CDN to serve static assets**.
+1. Understand the core concept of use a CDN to serve static assets.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use a CDN to serve static assets
+function demonstrateuseaCDNtoservestaticassets() {
+  console.log("Implementing use a CDN to serve static assets...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q185: How do you use Lighthouse CI to prevent regressions?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use Lighthouse CI to prevent regressions**.
+1. Understand the core concept of use Lighthouse CI to prevent regressions.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use Lighthouse CI to prevent regressions
+function demonstrateuseLighthouseCItopreventregressions() {
+  console.log("Implementing use Lighthouse CI to prevent regressions...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q186: How do you use Resource Hints for external domains?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use Resource Hints for external domains**.
+1. Understand the core concept of use Resource Hints for external domains.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use Resource Hints for external domains
+function demonstrateuseResourceHintsforexternaldomains() {
+  console.log("Implementing use Resource Hints for external domains...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q187: How do you use Protocol Buffers instead of JSON for smaller payloads?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use Protocol Buffers instead of JSON for smaller payloads**.
+1. Understand the core concept of use Protocol Buffers instead of JSON for smaller payloads.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use Protocol Buffers instead of JSON for smaller payloads
+function demonstrateuseProtocolBuffersinsteadofJSONforsmallerpayloads() {
+  console.log("Implementing use Protocol Buffers instead of JSON for smaller payloads...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q188: How do you use a skeleton screen to improve perceived performance?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use a skeleton screen to improve perceived performance**.
+1. Understand the core concept of use a skeleton screen to improve perceived performance.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use a skeleton screen to improve perceived performance
+function demonstrateuseaskeletonscreentoimproveperceivedperformance() {
+  console.log("Implementing use a skeleton screen to improve perceived performance...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q189: How do you use `requestIdleCallback` for low-priority tasks?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use `requestIdleCallback` for low-priority tasks**.
+1. Understand the core concept of use `requestIdleCallback` for low-priority tasks.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use `requestIdleCallback` for low-priority tasks
+function demonstrateuserequestIdleCallbackforlowprioritytasks() {
+  console.log("Implementing use `requestIdleCallback` for low-priority tasks...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q190: How do you use OffscreenCanvas for background rendering?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use OffscreenCanvas for background rendering**.
+1. Understand the core concept of use OffscreenCanvas for background rendering.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use OffscreenCanvas for background rendering
+function demonstrateuseOffscreenCanvasforbackgroundrendering() {
+  console.log("Implementing use OffscreenCanvas for background rendering...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q191: How do you use the Page Visibility API to pause tasks?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Page Visibility API to pause tasks**.
+1. Understand the core concept of use the Page Visibility API to pause tasks.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Page Visibility API to pause tasks
+function demonstrateusethePageVisibilityAPItopausetasks() {
+  console.log("Implementing use the Page Visibility API to pause tasks...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q192: How do you use the Shadow DOM for style encapsulation/perf?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Shadow DOM for style encapsulation/perf**.
+1. Understand the core concept of use the Shadow DOM for style encapsulation/perf.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Shadow DOM for style encapsulation/perf
+function demonstrateusetheShadowDOMforstyleencapsulationperf() {
+  console.log("Implementing use the Shadow DOM for style encapsulation/perf...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q193: How do you use GPU acceleration for animations?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use GPU acceleration for animations**.
+1. Understand the core concept of use GPU acceleration for animations.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use GPU acceleration for animations
+function demonstrateuseGPUaccelerationforanimations() {
+  console.log("Implementing use GPU acceleration for animations...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q194: How do you use the Back/Forward Cache (bfcache)?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use the Back/Forward Cache (bfcache)**.
+1. Understand the core concept of use the Back/Forward Cache (bfcache).
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use the Back/Forward Cache (bfcache)
+function demonstrateusetheBackForwardCachebfcache() {
+  console.log("Implementing use the Back/Forward Cache (bfcache)...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q195: How do you use domain sharding (legacy) vs HTTP/2 multiplexing?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use domain sharding (legacy) vs HTTP/2 multiplexing**.
+1. Understand the core concept of use domain sharding (legacy) vs HTTP/2 multiplexing.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use domain sharding (legacy) vs HTTP/2 multiplexing
+function demonstrateusedomainshardinglegacyvsHTTP2multiplexing() {
+  console.log("Implementing use domain sharding (legacy) vs HTTP/2 multiplexing...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q196: How do you use `content-visibility: auto` to skip rendering off-screen content?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use `content-visibility: auto` to skip rendering off-screen content**.
+1. Understand the core concept of use `content-visibility: auto` to skip rendering off-screen content.
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use `content-visibility: auto` to skip rendering off-screen content
+function demonstrateusecontentvisibilityautotoskiprenderingoffscreencontent() {
+  console.log("Implementing use `content-visibility: auto` to skip rendering off-screen content...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q197: How do you use Bitwise operators for high-perf math (micro-optimization)?
+
+
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **use Bitwise operators for high-perf math (micro-optimization)**.
+1. Understand the core concept of use Bitwise operators for high-perf math (micro-optimization).
+2. Apply best practices for Performance environment.
+3. Consider performance and security implications.
+
+**Code Snippet:**
+```javascript
+// Example implementation for use Bitwise operators for high-perf math (micro-optimization)
+function demonstrateuseBitwiseoperatorsforhighperfmathmicrooptimization() {
+  console.log("Implementing use Bitwise operators for high-perf math (micro-optimization)...");
+  // TODO: Add specific logic here
+}
+```
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+

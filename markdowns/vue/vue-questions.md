@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/vue-icon.svg" alt="Interview Guide Logo" width="100" height="100">
   </a>
   <h1>Vue Interview Questions & Answers</h1>
   <p><b>Practical, code-focused questions for developers</b></p>
@@ -12,107 +12,52 @@
 
 1. [You are migrating a Vue 2 app to Vue 3. You notice that reactivity is not working for a new property added to an object. Why does this happen in Vue 2 but works in Vue 3?](#q1-you-are-migrating-a-vue-2-app-to-vue-3-you-notice-that-reactivity-is-not-working-for-a-new-property-added-to-an-object-why-does-this-happen-in-vue-2-but-works-in-vue-3) <span class="intermediate">Intermediate</span>
 2. [When using the Composition API, should you use `ref` or `reactive` for declaring state? What are the trade-offs?](#q2-when-using-the-composition-api-should-you-use-ref-or-reactive-for-declaring-state-what-are-the-trade-offs) <span class="intermediate">Intermediate</span>
-3. [You have a large list of items and `v-if` / `v-for` on the same element. Why is this considered a bad practice and how do you fix it?](#q3-you-have-a-large-list-of-items-and-v-if-v-for-on-the-same-element-why-is-this-considered-a-bad-practice-and-how-do-you-fix-it) <span class="beginner">Beginner</span>
+3. [You have a large list of items and `v-if` / `v-for` on the same element. Why is this considered a bad practice and how do you fix it?](#q3-you-have-a-large-list-of-items-and-v-if--v-for-on-the-same-element-why-is-this-considered-a-bad-practice-and-how-do-you-fix-it) <span class="intermediate">Intermediate</span>
 4. [How do you share logic between components in Vue 3 using Composables?](#q4-how-do-you-share-logic-between-components-in-vue-3-using-composables) <span class="intermediate">Intermediate</span>
-5. [You need to render a modal that is visually separate from the main app layout (e.g., outside `overflow: hidden` containers). How do you achieve this in Vue 3?](#q5-you-need-to-render-a-modal-that-is-visually-separate-from-the-main-app-layout-eg-outside-overflow-hidden-containers-how-do-you-achieve-this-in-vue-3) <span class="intermediate">Intermediate</span>
+5. [You need to render a modal that is visually separate from the main app layout (e.g., outside `overflow: hidden` containers). How do you achieve this in Vue 3?](#q5-you-need-to-render-a-modal-that-is-visually-separate-from-the-main-app-layout-eg-outside-overflow:-hidden-containers-how-do-you-achieve-this-in-vue-3) <span class="intermediate">Intermediate</span>
 6. [How do you ensure the DOM has updated before performing an action using `nextTick`?](#q6-how-do-you-ensure-the-dom-has-updated-before-performing-an-action-using-nexttick) <span class="intermediate">Intermediate</span>
 7. [How do you scope styles to a component effectively using CSS Modules vs Scoped Styles?](#q7-how-do-you-scope-styles-to-a-component-effectively-using-css-modules-vs-scoped-styles) <span class="intermediate">Intermediate</span>
-8. [How do you map Options API lifecycle hooks to Composition API `setup()` hooks?](#q8-how-do-you-map-options-api-lifecycle-hooks-to-composition-api-setup-hooks) <span class="beginner">Beginner</span>
+8. [How do you map Options API lifecycle hooks to Composition API `setup()` hooks?](#q8-how-do-you-map-options-api-lifecycle-hooks-to-composition-api-setup-hooks) <span class="intermediate">Intermediate</span>
 9. [How do you avoid Prop Drilling using Provide/Inject?](#q9-how-do-you-avoid-prop-drilling-using-provideinject) <span class="intermediate">Intermediate</span>
-10. [How do you create a Custom Directive to handle outside clicks?](#q10-how-do-you-create-a-custom-directive-to-handle-outside-clicks) <span class="advanced">Advanced</span>
+10. [How do you create a Custom Directive to handle outside clicks?](#q10-how-do-you-create-a-custom-directive-to-handle-outside-clicks) <span class="intermediate">Intermediate</span>
 11. [How do you optimize performance for a component that renders static content (never changes)?](#q11-how-do-you-optimize-performance-for-a-component-that-renders-static-content-never-changes) <span class="intermediate">Intermediate</span>
 12. [How do you handle asynchronous component loading (Lazy Loading) in Vue Router?](#q12-how-do-you-handle-asynchronous-component-loading-lazy-loading-in-vue-router) <span class="intermediate">Intermediate</span>
 13. [How do you implement two-way binding manually using `v-model` on a custom component?](#q13-how-do-you-implement-two-way-binding-manually-using-v-model-on-a-custom-component) <span class="intermediate">Intermediate</span>
-14. [How would you implement a 'Suspense' feature to handle async dependencies?](#q14-how-would-you-implement-a-suspense-feature-to-handle-async-dependencies) <span class="advanced">Advanced</span>
-15. [Why is mutating a prop directly in a child component an anti-pattern?](#q15-why-is-mutating-a-prop-directly-in-a-child-component-an-anti-pattern) <span class="beginner">Beginner</span>
-16. [How do you handle Vue Instance?](#q16-how-do-you-handle-vue-instance) <span class="intermediate">Intermediate</span>
-17. [How do you handle Template Syntax?](#q17-how-do-you-handle-template-syntax) <span class="intermediate">Intermediate</span>
-18. [How do you handle Reactivity System?](#q18-how-do-you-handle-reactivity-system) <span class="intermediate">Intermediate</span>
-19. [How do you handle Computed Properties?](#q19-how-do-you-handle-computed-properties) <span class="intermediate">Intermediate</span>
-20. [How do you handle Watchers?](#q20-how-do-you-handle-watchers) <span class="intermediate">Intermediate</span>
-21. [How do you handle Class and Style Bindings?](#q21-how-do-you-handle-class-and-style-bindings) <span class="intermediate">Intermediate</span>
-22. [How do you handle Conditional Rendering?](#q22-how-do-you-handle-conditional-rendering) <span class="intermediate">Intermediate</span>
-23. [How do you handle List Rendering?](#q23-how-do-you-handle-list-rendering) <span class="intermediate">Intermediate</span>
-24. [How do you handle Event Handling?](#q24-how-do-you-handle-event-handling) <span class="intermediate">Intermediate</span>
-25. [How do you handle Form Input Bindings?](#q25-how-do-you-handle-form-input-bindings) <span class="intermediate">Intermediate</span>
-26. [How do you handle Components Basics?](#q26-how-do-you-handle-components-basics) <span class="intermediate">Intermediate</span>
-27. [How do you handle Component Registration?](#q27-how-do-you-handle-component-registration) <span class="intermediate">Intermediate</span>
-28. [How do you handle Props?](#q28-how-do-you-handle-props) <span class="intermediate">Intermediate</span>
-29. [How do you handle Events?](#q29-how-do-you-handle-events) <span class="intermediate">Intermediate</span>
-30. [How do you handle Slots?](#q30-how-do-you-handle-slots) <span class="intermediate">Intermediate</span>
-31. [How do you handle Provide / Inject?](#q31-how-do-you-handle-provide-inject) <span class="intermediate">Intermediate</span>
-32. [How do you handle Async Components?](#q32-how-do-you-handle-async-components) <span class="intermediate">Intermediate</span>
-33. [How do you handle Lifecycle Hooks?](#q33-how-do-you-handle-lifecycle-hooks) <span class="intermediate">Intermediate</span>
-34. [How do you handle Template Refs?](#q34-how-do-you-handle-template-refs) <span class="intermediate">Intermediate</span>
-35. [How do you handle Directives?](#q35-how-do-you-handle-directives) <span class="intermediate">Intermediate</span>
-36. [How do you handle Plugins?](#q36-how-do-you-handle-plugins) <span class="intermediate">Intermediate</span>
-37. [How do you handle Transitions?](#q37-how-do-you-handle-transitions) <span class="intermediate">Intermediate</span>
-38. [How do you handle KeepAlive?](#q38-how-do-you-handle-keepalive) <span class="intermediate">Intermediate</span>
-39. [How do you handle Teleport?](#q39-how-do-you-handle-teleport) <span class="intermediate">Intermediate</span>
-40. [How do you handle Suspense?](#q40-how-do-you-handle-suspense) <span class="intermediate">Intermediate</span>
-41. [How do you handle Composition API?](#q41-how-do-you-handle-composition-api) <span class="intermediate">Intermediate</span>
-42. [How do you handle Setup Function?](#q42-how-do-you-handle-setup-function) <span class="intermediate">Intermediate</span>
-43. [How do you handle Ref vs Reactive?](#q43-how-do-you-handle-ref-vs-reactive) <span class="intermediate">Intermediate</span>
-44. [How do you handle Computed vs Watch?](#q44-how-do-you-handle-computed-vs-watch) <span class="intermediate">Intermediate</span>
-45. [How do you handle Lifecycle in Composition API?](#q45-how-do-you-handle-lifecycle-in-composition-api) <span class="intermediate">Intermediate</span>
-46. [How do you handle Provide/Inject in Composition API?](#q46-how-do-you-handle-provideinject-in-composition-api) <span class="intermediate">Intermediate</span>
-47. [How do you handle Composables?](#q47-how-do-you-handle-composables) <span class="intermediate">Intermediate</span>
-48. [How do you handle Reusability?](#q48-how-do-you-handle-reusability) <span class="intermediate">Intermediate</span>
-49. [How do you handle Routing?](#q49-how-do-you-handle-routing) <span class="intermediate">Intermediate</span>
-50. [How do you handle Vue Router?](#q50-how-do-you-handle-vue-router) <span class="intermediate">Intermediate</span>
-51. [How do you handle Dynamic Routes?](#q51-how-do-you-handle-dynamic-routes) <span class="intermediate">Intermediate</span>
-52. [How do you handle Nested Routes?](#q52-how-do-you-handle-nested-routes) <span class="intermediate">Intermediate</span>
-53. [How do you handle Navigation Guards?](#q53-how-do-you-handle-navigation-guards) <span class="intermediate">Intermediate</span>
-54. [How do you handle State Management?](#q54-how-do-you-handle-state-management) <span class="intermediate">Intermediate</span>
-55. [How do you handle Pinia?](#q55-how-do-you-handle-pinia) <span class="intermediate">Intermediate</span>
-56. [How do you handle Vuex?](#q56-how-do-you-handle-vuex) <span class="intermediate">Intermediate</span>
-57. [How do you handle Actions?](#q57-how-do-you-handle-actions) <span class="intermediate">Intermediate</span>
-58. [How do you handle Getters?](#q58-how-do-you-handle-getters) <span class="intermediate">Intermediate</span>
-59. [How do you handle Mutations?](#q59-how-do-you-handle-mutations) <span class="intermediate">Intermediate</span>
-60. [How do you handle Server-Side Rendering?](#q60-how-do-you-handle-server-side-rendering) <span class="intermediate">Intermediate</span>
-61. [How do you handle Nuxt.js?](#q61-how-do-you-handle-nuxtjs) <span class="intermediate">Intermediate</span>
-62. [How do you handle Static Site Generation?](#q62-how-do-you-handle-static-site-generation) <span class="intermediate">Intermediate</span>
-63. [How do you handle Performance Optimization?](#q63-how-do-you-handle-performance-optimization) <span class="intermediate">Intermediate</span>
-64. [How do you handle Lazy Loading?](#q64-how-do-you-handle-lazy-loading) <span class="intermediate">Intermediate</span>
-65. [How do you handle Code Splitting?](#q65-how-do-you-handle-code-splitting) <span class="intermediate">Intermediate</span>
-66. [How do you handle Virtual DOM?](#q66-how-do-you-handle-virtual-dom) <span class="intermediate">Intermediate</span>
-67. [How do you handle Render Functions?](#q67-how-do-you-handle-render-functions) <span class="intermediate">Intermediate</span>
-68. [How do you handle JSX in Vue?](#q68-how-do-you-handle-jsx-in-vue) <span class="intermediate">Intermediate</span>
-69. [How do you handle Custom Directives?](#q69-how-do-you-handle-custom-directives) <span class="intermediate">Intermediate</span>
-70. [How do you handle Filters (Vue 2 vs 3)?](#q70-how-do-you-handle-filters-vue-2-vs-3) <span class="intermediate">Intermediate</span>
-71. [How do you handle Mixins (Deprecation)?](#q71-how-do-you-handle-mixins-deprecation) <span class="intermediate">Intermediate</span>
-72. [How do you handle Teleport?](#q72-how-do-you-handle-teleport) <span class="intermediate">Intermediate</span>
-73. [How do you handle Fragments?](#q73-how-do-you-handle-fragments) <span class="intermediate">Intermediate</span>
-74. [How do you handle Emits Option?](#q74-how-do-you-handle-emits-option) <span class="intermediate">Intermediate</span>
-75. [How do you handle Expose Option?](#q75-how-do-you-handle-expose-option) <span class="intermediate">Intermediate</span>
-76. [How do you handle V-Model Arguments?](#q76-how-do-you-handle-v-model-arguments) <span class="intermediate">Intermediate</span>
-77. [How do you handle Multiple V-Models?](#q77-how-do-you-handle-multiple-v-models) <span class="intermediate">Intermediate</span>
-78. [How do you handle Style Scoping?](#q78-how-do-you-handle-style-scoping) <span class="intermediate">Intermediate</span>
-79. [How do you handle CSS Modules?](#q79-how-do-you-handle-css-modules) <span class="intermediate">Intermediate</span>
-80. [How do you handle SFC (Single File Components)?](#q80-how-do-you-handle-sfc-single-file-components) <span class="intermediate">Intermediate</span>
-81. [How do you handle Tooling?](#q81-how-do-you-handle-tooling) <span class="intermediate">Intermediate</span>
-82. [How do you handle Vite?](#q82-how-do-you-handle-vite) <span class="intermediate">Intermediate</span>
-83. [How do you handle Vue CLI?](#q83-how-do-you-handle-vue-cli) <span class="intermediate">Intermediate</span>
-84. [How do you handle DevTools?](#q84-how-do-you-handle-devtools) <span class="intermediate">Intermediate</span>
-85. [How do you handle Testing?](#q85-how-do-you-handle-testing) <span class="intermediate">Intermediate</span>
-86. [How do you handle Unit Testing?](#q86-how-do-you-handle-unit-testing) <span class="intermediate">Intermediate</span>
-87. [How do you handle Component Testing?](#q87-how-do-you-handle-component-testing) <span class="intermediate">Intermediate</span>
-88. [How do you handle E2E Testing?](#q88-how-do-you-handle-e2e-testing) <span class="intermediate">Intermediate</span>
-89. [How do you handle Vitest?](#q89-how-do-you-handle-vitest) <span class="intermediate">Intermediate</span>
-90. [How do you handle Cypress?](#q90-how-do-you-handle-cypress) <span class="intermediate">Intermediate</span>
-91. [How do you handle Vue Test Utils?](#q91-how-do-you-handle-vue-test-utils) <span class="intermediate">Intermediate</span>
-92. [How do you handle Accessibility?](#q92-how-do-you-handle-accessibility) <span class="intermediate">Intermediate</span>
-93. [How do you handle Internationalization?](#q93-how-do-you-handle-internationalization) <span class="intermediate">Intermediate</span>
-94. [How do you handle Security?](#q94-how-do-you-handle-security) <span class="intermediate">Intermediate</span>
-95. [How do you handle XSS Prevention?](#q95-how-do-you-handle-xss-prevention) <span class="intermediate">Intermediate</span>
+14. [How would you implement a 'Suspense' feature to handle async dependencies?](#q14-how-would-you-implement-a-suspense-feature-to-handle-async-dependencies) <span class="intermediate">Intermediate</span>
+15. [Why is mutating a prop directly in a child component an anti-pattern?](#q15-why-is-mutating-a-prop-directly-in-a-child-component-an-anti-pattern) <span class="intermediate">Intermediate</span>
+16. [How do you use `v-memo` to skip unnecessary updates?](#q16-how-do-you-use-v-memo-to-skip-unnecessary-updates) <span class="advanced">Advanced</span>
+17. [How do you implement a scoped slot to pass data from child to parent?](#q17-how-do-you-implement-a-scoped-slot-to-pass-data-from-child-to-parent) <span class="intermediate">Intermediate</span>
+18. [How do you use `Teleport` to render a modal outside the app root?](#q18-how-do-you-use-teleport-to-render-a-modal-outside-the-app-root) <span class="intermediate">Intermediate</span>
+19. [How do you use `KeepAlive` to cache component instances?](#q19-how-do-you-use-keepalive-to-cache-component-instances) <span class="intermediate">Intermediate</span>
+20. [How do you use `v-once` for static content optimization?](#q20-how-do-you-use-v-once-for-static-content-optimization) <span class="beginner">Beginner</span>
+21. [How do you implement global state management using Pinia?](#q21-how-do-you-implement-global-state-management-using-pinia) <span class="intermediate">Intermediate</span>
+22. [How do you access a Pinia store inside a component?](#q22-how-do-you-access-a-pinia-store-inside-a-component) <span class="intermediate">Intermediate</span>
+23. [How do you implement a navigation guard in Vue Router?](#q23-how-do-you-implement-a-navigation-guard-in-vue-router) <span class="intermediate">Intermediate</span>
+24. [How do you use `watchEffect` vs `watch`?](#q24-how-do-you-use-watcheffect-vs-watch) <span class="intermediate">Intermediate</span>
+25. [How do you handle errors in Vue 3 using `onErrorCaptured`?](#q25-how-do-you-handle-errors-in-vue-3-using-onerrorcaptured) <span class="advanced">Advanced</span>
+26. [How do you use `defineAsyncComponent` for lazy loading?](#q26-how-do-you-use-defineasynccomponent-for-lazy-loading) <span class="intermediate">Intermediate</span>
+27. [How do you implement a custom v-model modifier?](#q27-how-do-you-implement-a-custom-v-model-modifier) <span class="advanced">Advanced</span>
+28. [How do you test a Vue component using Vue Test Utils?](#q28-how-do-you-test-a-vue-component-using-vue-test-utils) <span class="intermediate">Intermediate</span>
+29. [How do you use `provide` and `inject` for dependency injection?](#q29-how-do-you-use-provide-and-inject-for-dependency-injection) <span class="intermediate">Intermediate</span>
+30. [How do you use `shallowRef` vs `ref` for performance?](#q30-how-do-you-use-shallowref-vs-ref-for-performance) <span class="advanced">Advanced</span>
+31. [How do you use `toRef` and `toRefs` to maintain reactivity?](#q31-how-do-you-use-toref-and-torefs-to-maintain-reactivity) <span class="intermediate">Intermediate</span>
+32. [How do you handle multiple root nodes in Vue 3 (Fragments)?](#q32-how-do-you-handle-multiple-root-nodes-in-vue-3-fragments) <span class="beginner">Beginner</span>
+33. [How do you use `Suspense` for async components?](#q33-how-do-you-use-suspense-for-async-components) <span class="advanced">Advanced</span>
+34. [How do you optimize list rendering with `v-for` and `key`?](#q34-how-do-you-optimize-list-rendering-with-v-for-and-key) <span class="beginner">Beginner</span>
+35. [How do you use `style scoped` with `v-html` content (deep selector)?](#q35-how-do-you-use-style-scoped-with-v-html-content-deep-selector) <span class="intermediate">Intermediate</span>
+36. [How do you use dynamic arguments for directives?](#q36-how-do-you-use-dynamic-arguments-for-directives) <span class="intermediate">Intermediate</span>
+37. [How do you create a Global Property in Vue 3?](#q37-how-do-you-create-a-global-property-in-vue-3) <span class="intermediate">Intermediate</span>
+38. [How do you force a component to re-render correctly?](#q38-how-do-you-force-a-component-to-re-render-correctly) <span class="intermediate">Intermediate</span>
+39. [How do you create a generic component with Props (TypeScript)?](#q39-how-do-you-create-a-generic-component-with-props-typescript) <span class="advanced">Advanced</span>
+40. [How do you implement a composable that manages Event Listeners safely?](#q40-how-do-you-implement-a-composable-that-manages-event-listeners-safely) <span class="intermediate">Intermediate</span>
 
 ---
 
 ### Q1: You are migrating a Vue 2 app to Vue 3. You notice that reactivity is not working for a new property added to an object. Why does this happen in Vue 2 but works in Vue 3?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 **Vue 2 (Object.defineProperty):**
 Vue 2 converts properties to getters/setters on initialization. It **cannot detect** property addition or deletion.
 *   `obj.newProp = 123` -> Not reactive.
@@ -123,15 +68,29 @@ Vue 3 wraps the object in a JavaScript Proxy. The proxy intercepts *all* operati
 *   `obj.newProp = 123` -> **Is reactive**.
 *   No need for `Vue.set`.
 
+**Code Example:**
+```javascript
+// Vue 2
+data() { return { obj: {} } }
+mounted() {
+  this.obj.newProp = 123 // ❌ Not reactive
+  this.$set(this.obj, 'newProp', 123) // ✅ Reactive
+}
+
+// Vue 3
+const state = reactive({})
+state.newProp = 123 // ✅ Reactive (Proxy intercepts set)
+```
+
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q2: When using the Composition API, should you use `ref` or `reactive` for declaring state? What are the trade-offs?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 **`ref`:**
 *   **Usage:** `const count = ref(0)`. Access via `count.value`.
 *   **Pros:** Works for primitives (string, number) AND objects. Easy to replace the whole object (`obj.value = newObj`).
@@ -144,29 +103,49 @@ Vue 3 wraps the object in a JavaScript Proxy. The proxy intercepts *all* operati
 
 **Recommendation:** Use `ref` by default for consistency, or `reactive` for grouped state where you don't destructure.
 
+**Code Example:**
+```javascript
+import { ref, reactive, toRefs } from 'vue'
+
+// Ref
+const count = ref(0)
+count.value++
+
+// Reactive
+const state = reactive({ count: 0 })
+state.count++
+
+// Destructuring reactive (loses reactivity)
+const { count: dead } = state
+
+// Fix destructuring
+const { count: alive } = toRefs(state)
+```
+
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q3: You have a large list of items and `v-if` / `v-for` on the same element. Why is this considered a bad practice and how do you fix it?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
-**Problem:**
-In Vue 2, `v-for` has higher priority than `v-if`. The loop runs *first*, then the condition checks every single item.
-If you have 1000 items and hide the list, Vue still iterates 1000 times before hiding them. (In Vue 3, `v-if` has higher priority, but it's still ambiguous/bad style).
+**Strategy:**
+In Vue 2, `v-for` has higher precedence than `v-if`. In Vue 3, `v-if` has higher precedence. Mixing them is confusing and inefficient (iterating over all items just to hide some).
 
-**Fix:**
-1.  **Wrapper:** Move `v-if` to a parent container (template or div).
-2.  **Computed Property:** Filter the list *before* rendering.
+**Fix:** Use a `computed` property to filter the list *before* rendering.
 
-```javascript
-// computed
-const visibleItems = computed(() => items.value.filter(i => i.isActive));
+**Code Example:**
+```html
+<!-- ❌ Bad -->
+<li v-for="item in items" v-if="item.isActive">{{ item.name }}</li>
 
-// template
-<li v-for="item in visibleItems" :key="item.id">...</li>
+<!-- ✅ Good -->
+<li v-for="item in activeItems" :key="item.id">{{ item.name }}</li>
+
+<script setup>
+const activeItems = computed(() => items.value.filter(i => i.isActive))
+</script>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -175,17 +154,12 @@ const visibleItems = computed(() => items.value.filter(i => i.isActive));
 
 ### Q4: How do you share logic between components in Vue 3 using Composables?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-**Composables (Vue 3 Composition API):**
-*   **Concept:** Just a function that returns reactive state/methods.
-*   **Usage:** `const { x, y } = useMouse();`
-*   **Benefits:**
-    1.  **Explicit:** You see exactly what is imported.
-    2.  **Namespace Safe:** You can rename variables on import (`const { x: mouseX } = useMouse()`).
-    3.  **Type Friendly:** Great TypeScript support.
+**Strategy:**
+Composables are functions that encapsulate stateful logic using Composition API (`ref`, `computed`, `onMounted`). They are the Vue 3 replacement for Mixins (which had naming collisions and implicit dependencies).
 
+**Code Example:**
 ```javascript
 // useMouse.js
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -194,9 +168,9 @@ export function useMouse() {
   const x = ref(0)
   const y = ref(0)
 
-  function update(event) {
-    x.value = event.pageX
-    y.value = event.pageY
+  function update(e) {
+    x.value = e.pageX
+    y.value = e.pageY
   }
 
   onMounted(() => window.addEventListener('mousemove', update))
@@ -212,13 +186,12 @@ export function useMouse() {
 
 ### Q5: You need to render a modal that is visually separate from the main app layout (e.g., outside `overflow: hidden` containers). How do you achieve this in Vue 3?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-**Solution: Teleport**
-
+**Strategy:**
 `<Teleport>` allows you to render a component's template part into a DOM node that exists outside the component hierarchy of the Vue app.
 
+**Code Example:**
 ```html
 <template>
   <button @click="open = true">Open Modal</button>
@@ -238,11 +211,12 @@ export function useMouse() {
 
 ### Q6: How do you ensure the DOM has updated before performing an action using `nextTick`?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Vue updates the DOM asynchronously. When you change data, the DOM is not updated immediately. `nextTick` waits for the next DOM update cycle.
 
+**Code Example:**
 ```javascript
 import { nextTick } from 'vue'
 
@@ -264,9 +238,9 @@ async function updateAndFocus() {
 
 ### Q7: How do you scope styles to a component effectively using CSS Modules vs Scoped Styles?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 **Scoped Styles (`<style scoped>`):**
 Vue adds a unique attribute (e.g., `data-v-f3f3eg9`) to elements and selectors.
 *   **Pros:** Easy, zero config.
@@ -277,6 +251,7 @@ Classes are compiled to unique names (e.g., `.red` -> `._red_12345`).
 *   **Pros:** Explicit usage in template (`$style.red`), prevents collisions completely.
 *   **Cons:** Slightly more verbose template syntax.
 
+**Code Example:**
 ```html
 <template>
   <p :class="$style.red">This is red</p>
@@ -295,9 +270,9 @@ Classes are compiled to unique names (e.g., `.red` -> `._red_12345`).
 
 ### Q8: How do you map Options API lifecycle hooks to Composition API `setup()` hooks?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 In `setup()`, lifecycle hooks are imported functions.
 
 *   `beforeCreate` / `created` -> Not needed (just write code in `setup()`).
@@ -309,6 +284,7 @@ In `setup()`, lifecycle hooks are imported functions.
 *   `destroyed` -> `onUnmounted`
 *   `errorCaptured` -> `onErrorCaptured`
 
+**Code Example:**
 ```javascript
 import { onMounted } from 'vue'
 
@@ -325,11 +301,12 @@ setup() {
 
 ### Q9: How do you avoid Prop Drilling using Provide/Inject?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Prop drilling occurs when you pass data through multiple layers of components that don't need it. `provide`/`inject` allows a parent to pass data to *any* descendant.
 
+**Code Example:**
 ```javascript
 // Parent (Provider)
 import { provide, ref } from 'vue'
@@ -352,11 +329,12 @@ setup() {
 
 ### Q10: How do you create a Custom Directive to handle outside clicks?
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Custom directives allow low-level DOM access.
 
+**Code Example:**
 ```javascript
 // v-click-outside directive
 const clickOutside = {
@@ -383,16 +361,16 @@ const clickOutside = {
 
 ### Q11: How do you optimize performance for a component that renders static content (never changes)?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Use `v-once` or `v-memo`.
 
 1.  **`v-once`:** Renders the element/component once and treats it as static content for future updates.
-    ```html
-    <span v-once>This will never change: {{ msg }}</span>
-    ```
+    javascript
 
+**Code Example:**
+```javascript
 2.  **`v-memo` (Vue 3.2+):** Memoize a sub-tree based on dependency array (like React's `useMemo` but for templates).
     ```html
     <div v-memo="[item.id, item.selected]">
@@ -400,17 +378,21 @@ Use `v-once` or `v-memo`.
     </div>
     ```
 
+**Code Example:**
+```
+
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q12: How do you handle asynchronous component loading (Lazy Loading) in Vue Router?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Lazy loading splits the bundle so components are loaded only when the route is visited.
 
+**Code Example:**
 ```javascript
 // router/index.js
 const routes = [
@@ -429,11 +411,12 @@ const routes = [
 
 ### Q13: How do you implement two-way binding manually using `v-model` on a custom component?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 In Vue 3, `v-model` defaults to the `modelValue` prop and `update:modelValue` event.
 
+**Code Example:**
 ```html
 <!-- ChildComponent.vue -->
 <template>
@@ -458,12 +441,13 @@ defineEmits(['update:modelValue'])
 
 ### Q14: How would you implement a 'Suspense' feature to handle async dependencies?
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 `<Suspense>` is an experimental feature (stable in Nuxt 3) that orchestrates async dependencies (like `await` in `setup`).
 
-```html
+**Code Example:**
+```javascript
 <Suspense>
   <!-- Component with async setup() -->
   <template #default>
@@ -483,14 +467,15 @@ defineEmits(['update:modelValue'])
 
 ### Q15: Why is mutating a prop directly in a child component an anti-pattern?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Props are **read-only** (one-way data flow).
 If a child mutates a prop, the change will be overwritten when the parent re-renders, causing bugs.
 
 **Correct Way:** Emit an event to the parent to update the source of truth.
 
+**Code Example:**
 ```javascript
 // Bad
 props.count++
@@ -503,1762 +488,669 @@ emit('update:count', props.count + 1)
 
 ---
 
-### Q16: How do you handle Vue Instance?
+### Q16: How do you use `v-memo` to skip unnecessary updates?
 
-**Strategy:**
-1. Understand the goal of **Vue Instance**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Vue Instance
-function handleVueInstance() {
-  console.log("Handling Vue Instance...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q17: How do you handle Template Syntax?
+**Difficulty**: Advanced
 
 **Strategy:**
-1. Understand the goal of **Template Syntax**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Template Syntax
-function handleTemplateSyntax() {
-  console.log("Handling Template Syntax...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q18: How do you handle Reactivity System?
+`v-memo` is a directive used to memoize a sub-tree of the template. The element and its children will only be re-rendered if one of the values in the dependency array changes. This is useful for optimizing large lists or heavy render trees.
 
-**Strategy:**
-1. Understand the goal of **Reactivity System**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Reactivity System
-function handleReactivitySystem() {
-  console.log("Handling Reactivity System...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+**Code Example:**
+```html
+<template>
+  <div v-for="item in list" :key="item.id" v-memo="[item.id === selectedId]">
+    <p>ID: {{ item.id }} - Selected: {{ item.id === selectedId }}</p>
+    <!-- Heavy rendering logic here -->
+  </div>
+</template>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q19: How do you handle Computed Properties?
-
-**Strategy:**
-1. Understand the goal of **Computed Properties**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Computed Properties
-function handleComputedProperties() {
-  console.log("Handling Computed Properties...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q17: How do you implement a scoped slot to pass data from child to parent?
 
-### Q20: How do you handle Watchers?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Watchers**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Watchers
-function handleWatchers() {
-  console.log("Handling Watchers...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+Scoped slots allow a child component to expose data to the parent's slot content. In the child, use `<slot :data="someData">`. In the parent, use `v-slot="slotProps"` (or `#default="{ data }"`) to access it.
 
-### Q21: How do you handle Class and Style Bindings?
+**Code Example:**
+```html
+<!-- Child.vue -->
+<template>
+  <ul>
+    <li v-for="item in items" :key="item.id">
+      <!-- Expose 'item' to the parent -->
+      <slot :item="item">{{ item.defaultText }}</slot>
+    </li>
+  </ul>
+</template>
 
-**Strategy:**
-1. Understand the goal of **Class and Style Bindings**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Class and Style Bindings
-function handleClassandStyleBindings() {
-  console.log("Handling Class and Style Bindings...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+<!-- Parent.vue -->
+<template>
+  <Child :items="[1, 2, 3]">
+    <template #default="{ item }">
+      <span class="custom">Item {{ item }}</span>
+    </template>
+  </Child>
+</template>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q22: How do you handle Conditional Rendering?
-
-**Strategy:**
-1. Understand the goal of **Conditional Rendering**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Conditional Rendering
-function handleConditionalRendering() {
-  console.log("Handling Conditional Rendering...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q18: How do you use `Teleport` to render a modal outside the app root?
 
-### Q23: How do you handle List Rendering?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **List Rendering**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for List Rendering
-function handleListRendering() {
-  console.log("Handling List Rendering...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+`<Teleport>` allows you to render a component's template logic in a different part of the DOM (e.g., `body`), which is useful for modals, tooltips, and popovers to avoid z-index and overflow issues.
 
-### Q24: How do you handle Event Handling?
+**Code Example:**
+```html
+<template>
+  <button @click="open = true">Open Modal</button>
 
-**Strategy:**
-1. Understand the goal of **Event Handling**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Event Handling
-function handleEventHandling() {
-  console.log("Handling Event Handling...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+  <Teleport to="body">
+    <div v-if="open" class="modal">
+      <p>I am in the body!</p>
+      <button @click="open = false">Close</button>
+    </div>
+  </Teleport>
+</template>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q25: How do you handle Form Input Bindings?
-
-**Strategy:**
-1. Understand the goal of **Form Input Bindings**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Form Input Bindings
-function handleFormInputBindings() {
-  console.log("Handling Form Input Bindings...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q19: How do you use `KeepAlive` to cache component instances?
 
-### Q26: How do you handle Components Basics?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Components Basics**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Components Basics
-function handleComponentsBasics() {
-  console.log("Handling Components Basics...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+Wrap dynamic components with `<KeepAlive>` to cache their state when they are inactive, preventing re-rendering and preserving user input (e.g., form data, scroll position).
 
-### Q27: How do you handle Component Registration?
+**Code Example:**
+```html
+<template>
+  <KeepAlive include="UserProfile">
+    <component :is="currentComponent" />
+  </KeepAlive>
+</template>
 
-**Strategy:**
-1. Understand the goal of **Component Registration**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Component Registration
-function handleComponentRegistration() {
-  console.log("Handling Component Registration...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+<script setup>
+import UserProfile from './UserProfile.vue'
+import Settings from './Settings.vue'
+// UserProfile will be cached, Settings will not (unless included)
+</script>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q28: How do you handle Props?
-
-**Strategy:**
-1. Understand the goal of **Props**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Props
-function handleProps() {
-  console.log("Handling Props...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+### Q20: How do you use `v-once` for static content optimization?
 
-### Q29: How do you handle Events?
+**Difficulty**: Beginner
 
 **Strategy:**
-1. Understand the goal of **Events**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Events
-function handleEvents() {
-  console.log("Handling Events...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+`v-once` renders the element and component once and skips future updates. This is useful for static content that never changes, saving re-render costs.
 
----
-
-### Q30: How do you handle Slots?
-
-**Strategy:**
-1. Understand the goal of **Slots**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Slots
-function handleSlots() {
-  console.log("Handling Slots...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+**Code Example:**
+```html
+<template>
+  <div>
+    <h1>Dynamic: {{ title }}</h1>
+    <div v-once>
+      <h2>Static Section</h2>
+      <p>This content will never update: {{ title }}</p>
+    </div>
+  </div>
+</template>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q31: How do you handle Provide / Inject?
-
-**Strategy:**
-1. Understand the goal of **Provide / Inject**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Provide / Inject
-function handleProvideInject() {
-  console.log("Handling Provide / Inject...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+### Q21: How do you implement global state management using Pinia?
 
-### Q32: How do you handle Async Components?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Async Components**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Async Components
-function handleAsyncComponents() {
-  console.log("Handling Async Components...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+Pinia is the recommended state management library for Vue 3. Define a store using `defineStore`, which returns a composable hook.
 
----
-
-### Q33: How do you handle Lifecycle Hooks?
-
-**Strategy:**
-1. Understand the goal of **Lifecycle Hooks**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+**Code Example:**
 ```javascript
-// Implementation for Lifecycle Hooks
-function handleLifecycleHooks() {
-  console.log("Handling Lifecycle Hooks...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+// stores/counter.js
+import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
 
----
-
-### Q34: How do you handle Template Refs?
+export const useCounterStore = defineStore('counter', () => {
+  const count = ref(0)
+  const doubleCount = computed(() => count.value * 2)
+  function increment() {
+    count.value++
+  }
 
-**Strategy:**
-1. Understand the goal of **Template Refs**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Template Refs
-function handleTemplateRefs() {
-  console.log("Handling Template Refs...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+  return { count, doubleCount, increment }
+})
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q35: How do you handle Directives?
-
-**Strategy:**
-1. Understand the goal of **Directives**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Directives
-function handleDirectives() {
-  console.log("Handling Directives...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+### Q22: How do you access a Pinia store inside a component?
 
-### Q36: How do you handle Plugins?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Plugins**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Plugins
-function handlePlugins() {
-  console.log("Handling Plugins...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+Import the store hook and call it inside `setup()`. You can destruct state/getters using `storeToRefs` to maintain reactivity.
 
----
+**Code Example:**
+```html
+<script setup>
+import { useCounterStore } from '@/stores/counter'
+import { storeToRefs } from 'pinia'
 
-### Q37: How do you handle Transitions?
+const store = useCounterStore()
+// Use actions directly
+const { increment } = store
+// Use state/getters with storeToRefs to keep reactivity
+const { count, doubleCount } = storeToRefs(store)
+</script>
 
-**Strategy:**
-1. Understand the goal of **Transitions**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Transitions
-function handleTransitions() {
-  console.log("Handling Transitions...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+<template>
+  <button @click="increment">Count: {{ count }}</button>
+</template>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q38: How do you handle KeepAlive?
+### Q23: How do you implement a navigation guard in Vue Router?
 
-**Strategy:**
-1. Understand the goal of **KeepAlive**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for KeepAlive
-function handleKeepAlive() {
-  console.log("Handling KeepAlive...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+**Difficulty**: Intermediate
 
-### Q39: How do you handle Teleport?
-
 **Strategy:**
-1. Understand the goal of **Teleport**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Teleport
-function handleTeleport() {
-  console.log("Handling Teleport...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+Use `beforeEach` globally or `beforeEnter` per-route to protect routes (e.g., authentication). Return `true`, `false`, or a route location.
 
-### Q40: How do you handle Suspense?
-
-**Strategy:**
-1. Understand the goal of **Suspense**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+**Code Example:**
 ```javascript
-// Implementation for Suspense
-function handleSuspense() {
-  console.log("Handling Suspense...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+import { createRouter, createWebHistory } from 'vue-router'
 
-### Q41: How do you handle Composition API?
+const router = createRouter({ ... })
 
-**Strategy:**
-1. Understand the goal of **Composition API**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Composition API
-function handleCompositionAPI() {
-  console.log("Handling Composition API...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+router.beforeEach((to, from) => {
+  if (to.meta.requiresAuth && !isAuthenticated()) {
+    // Redirect to login
+    return { name: 'Login' }
+  }
+  // Continue
+  return true
+})
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q42: How do you handle Setup Function?
-
-**Strategy:**
-1. Understand the goal of **Setup Function**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Setup Function
-function handleSetupFunction() {
-  console.log("Handling Setup Function...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q24: How do you use `watchEffect` vs `watch`?
 
-### Q43: How do you handle Ref vs Reactive?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Ref vs Reactive**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Ref vs Reactive
-function handleRefvsReactive() {
-  console.log("Handling Ref vs Reactive...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q44: How do you handle Computed vs Watch?
+`watch` requires explicit sources and allows access to previous values. `watchEffect` automatically tracks dependencies used inside it and runs immediately.
 
-**Strategy:**
-1. Understand the goal of **Computed vs Watch**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+**Code Example:**
 ```javascript
-// Implementation for Computed vs Watch
-function handleComputedvsWatch() {
-  console.log("Handling Computed vs Watch...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+import { ref, watch, watchEffect } from 'vue'
 
----
+const count = ref(0)
 
-### Q45: How do you handle Lifecycle in Composition API?
+// Watch: Lazy (unless immediate: true), explicit source
+watch(count, (newVal, oldVal) => {
+  console.log(`Count changed: ${oldVal} -> ${newVal}`)
+})
 
-**Strategy:**
-1. Understand the goal of **Lifecycle in Composition API**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Lifecycle in Composition API
-function handleLifecycleinCompositionAPI() {
-  console.log("Handling Lifecycle in Composition API...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+// WatchEffect: Immediate, implicit dependency tracking
+watchEffect(() => {
+  console.log(`Current count is: ${count.value}`)
+})
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q46: How do you handle Provide/Inject in Composition API?
-
-**Strategy:**
-1. Understand the goal of **Provide/Inject in Composition API**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Provide/Inject in Composition API
-function handleProvideInjectinCompositionAPI() {
-  console.log("Handling Provide/Inject in Composition API...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q25: How do you handle errors in Vue 3 using `onErrorCaptured`?
 
-### Q47: How do you handle Composables?
+**Difficulty**: Advanced
 
 **Strategy:**
-1. Understand the goal of **Composables**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Composables
-function handleComposables() {
-  console.log("Handling Composables...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+`onErrorCaptured` hook captures errors from descendant components. It can return `false` to stop propagation to global `app.config.errorHandler`.
 
-### Q48: How do you handle Reusability?
+**Code Example:**
+```html
+<script setup>
+import { onErrorCaptured } from 'vue'
 
-**Strategy:**
-1. Understand the goal of **Reusability**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Reusability
-function handleReusability() {
-  console.log("Handling Reusability...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+onErrorCaptured((err, instance, info) => {
+  console.error('Captured error:', err)
+  console.log('Component:', instance)
+  console.log('Info:', info)
+  
+  // Prevent propagation
+  return false
+})
+</script>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q49: How do you handle Routing?
-
-**Strategy:**
-1. Understand the goal of **Routing**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Routing
-function handleRouting() {
-  console.log("Handling Routing...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q26: How do you use `defineAsyncComponent` for lazy loading?
 
-### Q50: How do you handle Vue Router?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Vue Router**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Vue Router
-function handleVueRouter() {
-  console.log("Handling Vue Router...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+Use `defineAsyncComponent` to load components only when they are needed (e.g., rendered). This reduces the initial bundle size.
 
-### Q51: How do you handle Dynamic Routes?
-
-**Strategy:**
-1. Understand the goal of **Dynamic Routes**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+**Code Example:**
 ```javascript
-// Implementation for Dynamic Routes
-function handleDynamicRoutes() {
-  console.log("Handling Dynamic Routes...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+import { defineAsyncComponent } from 'vue'
 
-### Q52: How do you handle Nested Routes?
+const AsyncComp = defineAsyncComponent(() =>
+  import('./components/MyComponent.vue')
+)
 
-**Strategy:**
-1. Understand the goal of **Nested Routes**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Nested Routes
-function handleNestedRoutes() {
-  console.log("Handling Nested Routes...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+// Usage in template is identical to normal components
+// <AsyncComp />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q53: How do you handle Navigation Guards?
-
-**Strategy:**
-1. Understand the goal of **Navigation Guards**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Navigation Guards
-function handleNavigationGuards() {
-  console.log("Handling Navigation Guards...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q27: How do you implement a custom v-model modifier?
 
-### Q54: How do you handle State Management?
+**Difficulty**: Advanced
 
 **Strategy:**
-1. Understand the goal of **State Management**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for State Management
-function handleStateManagement() {
-  console.log("Handling State Management...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+Modifiers added to `v-model` (e.g., `v-model.capitalize`) are passed via the `modelModifiers` prop.
 
----
+**Code Example:**
+```html
+<!-- Parent -->
+<MyInput v-model.capitalize="myText" />
 
-### Q55: How do you handle Pinia?
+<!-- Child (MyInput.vue) -->
+<script setup>
+const props = defineProps({
+  modelValue: String,
+  modelModifiers: { default: () => ({}) }
+})
+const emit = defineEmits(['update:modelValue'])
 
-**Strategy:**
-1. Understand the goal of **Pinia**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Pinia
-function handlePinia() {
-  console.log("Handling Pinia...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
+function emitValue(e) {
+  let value = e.target.value
+  if (props.modelModifiers.capitalize) {
+    value = value.charAt(0).toUpperCase() + value.slice(1)
+  }
+  emit('update:modelValue', value)
 }
+</script>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q56: How do you handle Vuex?
-
-**Strategy:**
-1. Understand the goal of **Vuex**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Vuex
-function handleVuex() {
-  console.log("Handling Vuex...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q28: How do you test a Vue component using Vue Test Utils?
 
-### Q57: How do you handle Actions?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Actions**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Actions
-function handleActions() {
-  console.log("Handling Actions...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: How do you handle Getters?
+Use `mount` to render the component and assertion libraries (like Vitest/Jest) to check output, events, or state.
 
-**Strategy:**
-1. Understand the goal of **Getters**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+**Code Example:**
 ```javascript
-// Implementation for Getters
-function handleGetters() {
-  console.log("Handling Getters...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q59: How do you handle Mutations?
+import { mount } from '@vue/test-utils'
+import Counter from './Counter.vue'
 
-**Strategy:**
-1. Understand the goal of **Mutations**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Mutations
-function handleMutations() {
-  console.log("Handling Mutations...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+test('increments value on click', async () => {
+  const wrapper = mount(Counter)
+  
+  expect(wrapper.text()).toContain('Count: 0')
+  
+  await wrapper.find('button').trigger('click')
+  
+  expect(wrapper.text()).toContain('Count: 1')
+})
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q60: How do you handle Server-Side Rendering?
-
-**Strategy:**
-1. Understand the goal of **Server-Side Rendering**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Server-Side Rendering
-function handleServerSideRendering() {
-  console.log("Handling Server-Side Rendering...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q29: How do you use `provide` and `inject` for dependency injection?
 
-### Q61: How do you handle Nuxt.js?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Nuxt.js**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Nuxt.js
-function handleNuxtjs() {
-  console.log("Handling Nuxt.js...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+`provide` allows an ancestor to provide data/methods, and `inject` allows descendants to consume it, bypassing intermediate components (avoiding prop drilling).
 
-### Q62: How do you handle Static Site Generation?
+**Code Example:**
+```html
+<!-- Ancestor -->
+<script setup>
+import { provide, ref } from 'vue'
+const theme = ref('dark')
+provide('theme', theme)
+</script>
 
-**Strategy:**
-1. Understand the goal of **Static Site Generation**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Static Site Generation
-function handleStaticSiteGeneration() {
-  console.log("Handling Static Site Generation...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+<!-- Descendant (Deeply nested) -->
+<script setup>
+import { inject } from 'vue'
+const theme = inject('theme', 'light') // 'light' is default
+</script>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q63: How do you handle Performance Optimization?
-
-**Strategy:**
-1. Understand the goal of **Performance Optimization**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Performance Optimization
-function handlePerformanceOptimization() {
-  console.log("Handling Performance Optimization...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q30: How do you use `shallowRef` vs `ref` for performance?
 
-### Q64: How do you handle Lazy Loading?
+**Difficulty**: Advanced
 
 **Strategy:**
-1. Understand the goal of **Lazy Loading**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Lazy Loading
-function handleLazyLoading() {
-  console.log("Handling Lazy Loading...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+`ref` makes deep objects reactive. `shallowRef` only tracks the `.value` change, not nested property changes. Use `shallowRef` for large objects where deep reactivity is unnecessary.
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q65: How do you handle Code Splitting?
-
-**Strategy:**
-1. Understand the goal of **Code Splitting**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+**Code Example:**
 ```javascript
-// Implementation for Code Splitting
-function handleCodeSplitting() {
-  console.log("Handling Code Splitting...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+import { shallowRef, triggerRef } from 'vue'
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+const state = shallowRef({ nested: { count: 0 } })
 
----
+// This WON'T trigger updates
+state.value.nested.count++
 
-### Q66: How do you handle Virtual DOM?
+// This WILL trigger updates
+state.value = { nested: { count: 1 } }
 
-**Strategy:**
-1. Understand the goal of **Virtual DOM**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Virtual DOM
-function handleVirtualDOM() {
-  console.log("Handling Virtual DOM...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+// Or force update manually
+triggerRef(state)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q67: How do you handle Render Functions?
-
-**Strategy:**
-1. Understand the goal of **Render Functions**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Render Functions
-function handleRenderFunctions() {
-  console.log("Handling Render Functions...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q31: How do you use `toRef` and `toRefs` to maintain reactivity?
 
-### Q68: How do you handle JSX in Vue?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **JSX in Vue**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for JSX in Vue
-function handleJSXinVue() {
-  console.log("Handling JSX in Vue...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you handle Custom Directives?
+Destructuring a reactive object loses reactivity. Use `toRefs` to convert all properties to refs, or `toRef` for a single property.
 
-**Strategy:**
-1. Understand the goal of **Custom Directives**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+**Code Example:**
 ```javascript
-// Implementation for Custom Directives
-function handleCustomDirectives() {
-  console.log("Handling Custom Directives...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+import { reactive, toRefs } from 'vue'
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+const state = reactive({ foo: 1, bar: 2 })
 
----
+// Bad (loses reactivity):
+// const { foo, bar } = state
 
-### Q70: How do you handle Filters (Vue 2 vs 3)?
+// Good:
+const { foo, bar } = toRefs(state)
 
-**Strategy:**
-1. Understand the goal of **Filters (Vue 2 vs 3)**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Filters (Vue 2 vs 3)
-function handleFiltersVue2vs3() {
-  console.log("Handling Filters (Vue 2 vs 3)...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+foo.value++ // Updates state.foo
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q71: How do you handle Mixins (Deprecation)?
-
-**Strategy:**
-1. Understand the goal of **Mixins (Deprecation)**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Mixins (Deprecation)
-function handleMixinsDeprecation() {
-  console.log("Handling Mixins (Deprecation)...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+### Q32: How do you handle multiple root nodes in Vue 3 (Fragments)?
 
-### Q72: How do you handle Teleport?
+**Difficulty**: Beginner
 
 **Strategy:**
-1. Understand the goal of **Teleport**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Teleport
-function handleTeleport() {
-  console.log("Handling Teleport...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+Vue 3 supports multi-root components (Fragments). However, if you pass attributes (like class/style) to the component, you must explicitly bind them using `$attrs` if there are multiple roots.
 
----
-
-### Q73: How do you handle Fragments?
+**Code Example:**
+```html
+<!-- MyComponent.vue -->
+<template>
+  <header>Header</header>
+  <main v-bind="$attrs">Main Content</main>
+  <footer>Footer</footer>
+</template>
 
-**Strategy:**
-1. Understand the goal of **Fragments**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Fragments
-function handleFragments() {
-  console.log("Handling Fragments...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+<!-- Usage -->
+<MyComponent class="layout-class" /> 
+<!-- 'layout-class' is applied to <main> -->
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q74: How do you handle Emits Option?
-
-**Strategy:**
-1. Understand the goal of **Emits Option**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Emits Option
-function handleEmitsOption() {
-  console.log("Handling Emits Option...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q33: How do you use `Suspense` for async components?
 
-### Q75: How do you handle Expose Option?
+**Difficulty**: Advanced
 
 **Strategy:**
-1. Understand the goal of **Expose Option**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Expose Option
-function handleExposeOption() {
-  console.log("Handling Expose Option...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+`<Suspense>` orchestrates async dependencies (async `setup()`, async components). It has `#default` and `#fallback` slots.
 
-### Q76: How do you handle V-Model Arguments?
+**Code Example:**
+```html
+<template>
+  <Suspense>
+    <!-- Component with async setup() -->
+    <template #default>
+      <AsyncUserList />
+    </template>
 
-**Strategy:**
-1. Understand the goal of **V-Model Arguments**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for V-Model Arguments
-function handleVModelArguments() {
-  console.log("Handling V-Model Arguments...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+    <!-- Loading state -->
+    <template #fallback>
+      <div>Loading users...</div>
+    </template>
+  </Suspense>
+</template>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q77: How do you handle Multiple V-Models?
-
-**Strategy:**
-1. Understand the goal of **Multiple V-Models**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Multiple V-Models
-function handleMultipleVModels() {
-  console.log("Handling Multiple V-Models...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q34: How do you optimize list rendering with `v-for` and `key`?
 
-### Q78: How do you handle Style Scoping?
+**Difficulty**: Beginner
 
 **Strategy:**
-1. Understand the goal of **Style Scoping**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Style Scoping
-function handleStyleScoping() {
-  console.log("Handling Style Scoping...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+Always provide a unique `key` attribute (like an ID) when using `v-for`. This allows Vue to track node identity and optimize DOM updates (reordering instead of recreating).
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q79: How do you handle CSS Modules?
-
-**Strategy:**
-1. Understand the goal of **CSS Modules**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+**Code Example:**
 ```javascript
-// Implementation for CSS Modules
-function handleCSSModules() {
-  console.log("Handling CSS Modules...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+<!-- BAD: using index as key (issues with reordering/deletion) -->
+<div v-for="(item, index) in items" :key="index">...</div>
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q80: How do you handle SFC (Single File Components)?
-
-**Strategy:**
-1. Understand the goal of **SFC (Single File Components)**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for SFC (Single File Components)
-function handleSFCSingleFileComponents() {
-  console.log("Handling SFC (Single File Components)...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+<!-- GOOD: using unique ID -->
+<div v-for="item in items" :key="item.id">...</div>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q81: How do you handle Tooling?
-
-**Strategy:**
-1. Understand the goal of **Tooling**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Tooling
-function handleTooling() {
-  console.log("Handling Tooling...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q35: How do you use `style scoped` with `v-html` content (deep selector)?
 
-### Q82: How do you handle Vite?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Vite**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Vite
-function handleVite() {
-  console.log("Handling Vite...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+Scoped styles don't apply to `v-html` content because it's dynamically injected. Use the deep selector `:deep()` (or `::v-deep`) to target them.
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+**Code Example:**
+```html
+<template>
+  <div class="content" v-html="htmlContent"></div>
+</template>
 
-### Q83: How do you handle Vue CLI?
+<style scoped>
+/* Won't work for v-html content */
+.content p { color: red; }
 
-**Strategy:**
-1. Understand the goal of **Vue CLI**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Vue CLI
-function handleVueCLI() {
-  console.log("Handling Vue CLI...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
+/* Works */
+.content :deep(p) {
+  color: red;
 }
+</style>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q84: How do you handle DevTools?
-
-**Strategy:**
-1. Understand the goal of **DevTools**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for DevTools
-function handleDevTools() {
-  console.log("Handling DevTools...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q36: How do you use dynamic arguments for directives?
 
-### Q85: How do you handle Testing?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **Testing**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Testing
-function handleTesting() {
-  console.log("Handling Testing...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+You can use dynamic arguments in directives by wrapping the argument in square brackets `[]`. This allows you to bind to a dynamic event or attribute name.
 
-### Q86: How do you handle Unit Testing?
+**Code Example:**
+```html
+<template>
+  <!-- Dynamic attribute -->
+  <a v-bind:[attributeName]="url">Link</a>
+  
+  <!-- Dynamic event -->
+  <button v-on:[eventName]="handler">Click Me</button>
+</template>
 
-**Strategy:**
-1. Understand the goal of **Unit Testing**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Unit Testing
-function handleUnitTesting() {
-  console.log("Handling Unit Testing...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+<script setup>
+import { ref } from 'vue'
+const attributeName = ref('href')
+const eventName = ref('click')
+</script>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q87: How do you handle Component Testing?
-
-**Strategy:**
-1. Understand the goal of **Component Testing**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Component Testing
-function handleComponentTesting() {
-  console.log("Handling Component Testing...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
+### Q37: How do you create a Global Property in Vue 3?
 
-### Q88: How do you handle E2E Testing?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **E2E Testing**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for E2E Testing
-function handleE2ETesting() {
-  console.log("Handling E2E Testing...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+Use `app.config.globalProperties` to add global properties accessible in all components (Options API) or via `getCurrentInstance` (Composition API - though Provide/Inject is preferred).
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q89: How do you handle Vitest?
-
-**Strategy:**
-1. Understand the goal of **Vitest**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+**Code Example:**
 ```javascript
-// Implementation for Vitest
-function handleVitest() {
-  console.log("Handling Vitest...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+// main.js
+const app = createApp(App)
+app.config.globalProperties.$http = axios
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you handle Cypress?
+// Component (Options API)
+this.$http.get('/api')
 
-**Strategy:**
-1. Understand the goal of **Cypress**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Cypress
-function handleCypress() {
-  console.log("Handling Cypress...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+// Component (Composition API)
+import { getCurrentInstance } from 'vue'
+const { proxy } = getCurrentInstance()
+proxy.$http.get('/api')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q91: How do you handle Vue Test Utils?
+### Q38: How do you force a component to re-render correctly?
 
-**Strategy:**
-1. Understand the goal of **Vue Test Utils**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Vue Test Utils
-function handleVueTestUtils() {
-  console.log("Handling Vue Test Utils...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+**Difficulty**: Intermediate
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Strategy:**
+The best way to force a re-render is to change the `key` prop of the component. Avoid using `v-if` hacks or `forceUpdate`.
 
----
+**Code Example:**
+```html
+<template>
+  <ComplexComponent :key="componentKey" />
+  <button @click="reload">Reload</button>
+</template>
 
-### Q92: How do you handle Accessibility?
+<script setup>
+import { ref } from 'vue'
+const componentKey = ref(0)
 
-**Strategy:**
-1. Understand the goal of **Accessibility**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Accessibility
-function handleAccessibility() {
-  console.log("Handling Accessibility...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
+function reload() {
+  componentKey.value++
 }
+</script>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: How do you handle Internationalization?
+### Q39: How do you create a generic component with Props (TypeScript)?
 
-**Strategy:**
-1. Understand the goal of **Internationalization**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Internationalization
-function handleInternationalization() {
-  console.log("Handling Internationalization...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
-```
+**Difficulty**: Advanced
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+**Strategy:**
+In `<script setup lang="ts">`, use `defineProps<Props>()` with a generic type parameter. Vue 3.3+ supports `<script setup generic="T">`.
 
-### Q94: How do you handle Security?
+**Code Example:**
+```html
+<script setup lang="ts" generic="T">
+defineProps<{
+  items: T[]
+  selected: T
+}>()
+</script>
 
-**Strategy:**
-1. Understand the goal of **Security**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
-```javascript
-// Implementation for Security
-function handleSecurity() {
-  console.log("Handling Security...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
-}
+<template>
+  <ul>
+    <li v-for="item in items">{{ item }}</li>
+  </ul>
+</template>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+
+### Q40: How do you implement a composable that manages Event Listeners safely?
 
-### Q95: How do you handle XSS Prevention?
+**Difficulty**: Intermediate
 
 **Strategy:**
-1. Understand the goal of **XSS Prevention**.
-2. Implement the solution using best practices.
-3. Ensure code is clean and efficient.
-
-**Code Snippet:**
+Register the event listener in `onMounted` and remove it in `onUnmounted` to prevent memory leaks. Returns a composable function.
+
+**Code Example:**
 ```javascript
-// Implementation for XSS Prevention
-function handleXSSPrevention() {
-  console.log("Handling XSS Prevention...");
-  // Real implementation would go here
-  const result = "Success";
-  return result;
+import { onMounted, onUnmounted } from 'vue'
+
+export function useEventListener(target, event, callback) {
+  onMounted(() => target.addEventListener(event, callback))
+  onUnmounted(() => target.removeEventListener(event, callback))
 }
+
+// Usage
+useEventListener(window, 'resize', handleResize)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+

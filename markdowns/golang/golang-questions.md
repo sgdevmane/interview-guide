@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/golang-icon.svg" alt="Interview Guide Logo" width="100" height="100">
   </a>
   <h1>Golang Interview Questions & Answers</h1>
   <p><b>Practical, code-focused questions for developers</b></p>
@@ -25,109 +25,37 @@
 13. [How do you use `io.Reader` and `io.Writer` to stream data efficiently?](#q13-how-do-you-use-ioreader-and-iowriter-to-stream-data-efficiently) <span class="intermediate">Intermediate</span>
 14. [How do you prevent race conditions using `sync.Mutex`?](#q14-how-do-you-prevent-race-conditions-using-syncmutex) <span class="intermediate">Intermediate</span>
 15. [How do you optimize memory usage with `sync.Pool`?](#q15-how-do-you-optimize-memory-usage-with-syncpool) <span class="intermediate">Intermediate</span>
-16. [How do you implement a custom JSON unmarshaler?](#q16-how-do-you-implement-a-custom-json-unmarshaler) <span class="intermediate">Intermediate</span>
-17. [How do you use the `defer` keyword to ensure resource cleanup?](#q17-how-do-you-use-the-defer-keyword-to-ensure-resource-cleanup) <span class="intermediate">Intermediate</span>
-18. [How do you handle panic and recover in a middleware?](#q18-how-do-you-handle-panic-and-recover-in-a-middleware) <span class="intermediate">Intermediate</span>
-19. [How do you use `atomic` package for lock-free counters?](#q19-how-do-you-use-atomic-package-for-lock-free-counters) <span class="intermediate">Intermediate</span>
-20. [How do you profile a Go application using `pprof`?](#q20-how-do-you-profile-a-go-application-using-pprof) <span class="intermediate">Intermediate</span>
-21. [How do you debug a deadlock using stack traces?](#q21-how-do-you-debug-a-deadlock-using-stack-traces) <span class="intermediate">Intermediate</span>
-22. [How do you use build tags to compile code for specific OS?](#q22-how-do-you-use-build-tags-to-compile-code-for-specific-os) <span class="intermediate">Intermediate</span>
-23. [How do you use `go:embed` to include static assets in the binary?](#q23-how-do-you-use-goembed-to-include-static-assets-in-the-binary) <span class="intermediate">Intermediate</span>
-24. [How do you implement a rate limiter using channels?](#q24-how-do-you-implement-a-rate-limiter-using-channels) <span class="intermediate">Intermediate</span>
+16. [How do you implement a custom JSON Marshaler to hide sensitive fields?](#q16-how-do-you-implement-a-custom-json-marshaler-to-hide-sensitive-fields) <span class="intermediate">Intermediate</span>
+17. [How do you use `sync.Once` to ensure a function runs exactly once?](#q17-how-do-you-use-synconce-to-ensure-a-function-runs-exactly-once) <span class="intermediate">Intermediate</span>
+18. [How do you implement a rate limiter using a Token Bucket algorithm?](#q18-how-do-you-implement-a-rate-limiter-using-a-token-bucket-algorithm) <span class="intermediate">Intermediate</span>
+19. [How do you correctly handle loop variables in Goroutines?](#q19-how-do-you-correctly-handle-loop-variables-in-goroutines) <span class="intermediate">Intermediate</span>
+20. [How do you use `go:embed` to bundle static assets?](#q20-how-do-you-use-go:embed-to-bundle-static-assets) <span class="intermediate">Intermediate</span>
+21. [How do you use `errgroup` to manage parallel tasks with error propagation?](#q21-how-do-you-use-errgroup-to-manage-parallel-tasks-with-error-propagation) <span class="intermediate">Intermediate</span>
+22. [How do you implement atomic counters using `sync/atomic`?](#q22-how-do-you-implement-atomic-counters-using-syncatomic) <span class="intermediate">Intermediate</span>
+23. [How do you benchmark code using `testing.B`?](#q23-how-do-you-benchmark-code-using-testingb) <span class="intermediate">Intermediate</span>
+24. [How do you optimize memory layout by reordering struct fields?](#q24-how-do-you-optimize-memory-layout-by-reordering-struct-fields) <span class="expert">Expert</span>
 25. [How do you use `context.WithValue` to pass request-scoped data?](#q25-how-do-you-use-contextwithvalue-to-pass-request-scoped-data) <span class="intermediate">Intermediate</span>
-26. [How do you implement a custom `http.RoundTripper`?](#q26-how-do-you-implement-a-custom-httproundtripper) <span class="intermediate">Intermediate</span>
-27. [How do you use the `reflect` package to inspect types at runtime?](#q27-how-do-you-use-the-reflect-package-to-inspect-types-at-runtime) <span class="intermediate">Intermediate</span>
-28. [How do you use `unsafe` pointers (and when should you avoid them)?](#q28-how-do-you-use-unsafe-pointers-and-when-should-you-avoid-them) <span class="intermediate">Intermediate</span>
-29. [How do you optimize string concatenation using `strings.Builder`?](#q29-how-do-you-optimize-string-concatenation-using-stringsbuilder) <span class="intermediate">Intermediate</span>
-30. [How do you use `time.Ticker` for periodic tasks?](#q30-how-do-you-use-timeticker-for-periodic-tasks) <span class="intermediate">Intermediate</span>
-31. [How do you implement a priority queue using `container/heap`?](#q31-how-do-you-implement-a-priority-queue-using-containerheap) <span class="intermediate">Intermediate</span>
-32. [How do you use `bufio` for efficient file reading?](#q32-how-do-you-use-bufio-for-efficient-file-reading) <span class="intermediate">Intermediate</span>
-33. [How do you handle signals (SIGTERM) to stop a worker pool?](#q33-how-do-you-handle-signals-sigterm-to-stop-a-worker-pool) <span class="intermediate">Intermediate</span>
-34. [How do you use `errgroup` to manage a group of Goroutines?](#q34-how-do-you-use-errgroup-to-manage-a-group-of-goroutines) <span class="intermediate">Intermediate</span>
-35. [How do you implement a custom `Sort` interface?](#q35-how-do-you-implement-a-custom-sort-interface) <span class="intermediate">Intermediate</span>
-36. [How do you use `go work` for multi-module workspaces?](#q36-how-do-you-use-go-work-for-multi-module-workspaces) <span class="intermediate">Intermediate</span>
-37. [How do you manage dependencies using `go.mod` and `go.sum`?](#q37-how-do-you-manage-dependencies-using-gomod-and-gosum) <span class="intermediate">Intermediate</span>
-38. [How do you use `GOMAXPROCS` to tune concurrency?](#q38-how-do-you-use-gomaxprocs-to-tune-concurrency) <span class="intermediate">Intermediate</span>
-39. [How do you use the `testing/quick` package for property-based testing?](#q39-how-do-you-use-the-testingquick-package-for-property-based-testing) <span class="intermediate">Intermediate</span>
-40. [How do you implement a fan-out/fan-in concurrency pattern?](#q40-how-do-you-implement-a-fan-outfan-in-concurrency-pattern) <span class="intermediate">Intermediate</span>
-41. [How do you use `httptest` to test HTTP handlers?](#q41-how-do-you-use-httptest-to-test-http-handlers) <span class="intermediate">Intermediate</span>
-42. [How do you use `sqlmock` to test database interactions?](#q42-how-do-you-use-sqlmock-to-test-database-interactions) <span class="intermediate">Intermediate</span>
-43. [How do you use `gomock` for interface mocking?](#q43-how-do-you-use-gomock-for-interface-mocking) <span class="intermediate">Intermediate</span>
-44. [How do you optimize struct padding for memory alignment?](#q44-how-do-you-optimize-struct-padding-for-memory-alignment) <span class="intermediate">Intermediate</span>
-45. [How do you use `singleflight` to prevent cache stampedes?](#q45-how-do-you-use-singleflight-to-prevent-cache-stampedes) <span class="intermediate">Intermediate</span>
-46. [How do you use `runtime/trace` to analyze latency?](#q46-how-do-you-use-runtimetrace-to-analyze-latency) <span class="intermediate">Intermediate</span>
-47. [How do you implement a simple circuit breaker pattern?](#q47-how-do-you-implement-a-simple-circuit-breaker-pattern) <span class="intermediate">Intermediate</span>
-48. [How do you use `encoding/gob` for binary serialization?](#q48-how-do-you-use-encodinggob-for-binary-serialization) <span class="intermediate">Intermediate</span>
-49. [How do you use `net/url` to parse and modify URLs?](#q49-how-do-you-use-neturl-to-parse-and-modify-urls) <span class="intermediate">Intermediate</span>
-50. [How do you use `filepath.Walk` (or `WalkDir`) to traverse directories?](#q50-how-do-you-use-filepathwalk-or-walkdir-to-traverse-directories) <span class="intermediate">Intermediate</span>
-51. [How do you use `os/exec` to run external commands?](#q51-how-do-you-use-osexec-to-run-external-commands) <span class="intermediate">Intermediate</span>
-52. [How do you use `plugin` package to load code dynamically?](#q52-how-do-you-use-plugin-package-to-load-code-dynamically) <span class="intermediate">Intermediate</span>
-53. [How do you use `syscall` to interact with low-level OS features?](#q53-how-do-you-use-syscall-to-interact-with-low-level-os-features) <span class="intermediate">Intermediate</span>
-54. [How do you use `image` package to process images?](#q54-how-do-you-use-image-package-to-process-images) <span class="intermediate">Intermediate</span>
-55. [How do you use `compress/gzip` to handle compressed data?](#q55-how-do-you-use-compressgzip-to-handle-compressed-data) <span class="intermediate">Intermediate</span>
-56. [How do you use `crypto/rand` for secure random number generation?](#q56-how-do-you-use-cryptorand-for-secure-random-number-generation) <span class="intermediate">Intermediate</span>
-57. [How do you use `crypto/tls` to configure HTTPS clients?](#q57-how-do-you-use-cryptotls-to-configure-https-clients) <span class="intermediate">Intermediate</span>
-58. [How do you use `html/template` to render secure HTML?](#q58-how-do-you-use-htmltemplate-to-render-secure-html) <span class="intermediate">Intermediate</span>
-59. [How do you use `text/template` for code generation?](#q59-how-do-you-use-texttemplate-for-code-generation) <span class="intermediate">Intermediate</span>
-60. [How do you use `expvar` to expose internal metrics?](#q60-how-do-you-use-expvar-to-expose-internal-metrics) <span class="intermediate">Intermediate</span>
-61. [How do you use `net/http/pprof` for live profiling?](#q61-how-do-you-use-nethttppprof-for-live-profiling) <span class="intermediate">Intermediate</span>
-62. [How do you use `runtime.GC()` manually (and why is it rarely needed)?](#q62-how-do-you-use-runtimegc-manually-and-why-is-it-rarely-needed) <span class="intermediate">Intermediate</span>
-63. [How do you use `runtime.Goexit()` to kill a Goroutine?](#q63-how-do-you-use-runtimegoexit-to-kill-a-goroutine) <span class="intermediate">Intermediate</span>
-64. [How do you use `runtime.NumGoroutine()` for monitoring?](#q64-how-do-you-use-runtimenumgoroutine-for-monitoring) <span class="intermediate">Intermediate</span>
-65. [How do you use `debug.Stack()` to print the current stack?](#q65-how-do-you-use-debugstack-to-print-the-current-stack) <span class="intermediate">Intermediate</span>
-66. [How do you use `debug.BuildInfo()` to get version information?](#q66-how-do-you-use-debugbuildinfo-to-get-version-information) <span class="intermediate">Intermediate</span>
-67. [How do you use `runtime/metrics` to read GC stats?](#q67-how-do-you-use-runtimemetrics-to-read-gc-stats) <span class="intermediate">Intermediate</span>
-68. [How do you use `sync.Cond` for broadcasting signals?](#q68-how-do-you-use-synccond-for-broadcasting-signals) <span class="intermediate">Intermediate</span>
-69. [How do you use `sync.Map` for concurrent map access?](#q69-how-do-you-use-syncmap-for-concurrent-map-access) <span class="intermediate">Intermediate</span>
-70. [How do you use `sync.RWMutex` for read-heavy workloads?](#q70-how-do-you-use-syncrwmutex-for-read-heavy-workloads) <span class="intermediate">Intermediate</span>
-71. [How do you use `atomic.Value` to store arbitrary types atomically?](#q71-how-do-you-use-atomicvalue-to-store-arbitrary-types-atomically) <span class="intermediate">Intermediate</span>
-72. [How do you use `math/big` for high-precision arithmetic?](#q72-how-do-you-use-mathbig-for-high-precision-arithmetic) <span class="intermediate">Intermediate</span>
-73. [How do you use `sort.Search` for binary search?](#q73-how-do-you-use-sortsearch-for-binary-search) <span class="intermediate">Intermediate</span>
-74. [How do you use `index/suffixarray` for substring search?](#q74-how-do-you-use-indexsuffixarray-for-substring-search) <span class="intermediate">Intermediate</span>
-75. [How do you use `archive/zip` to create zip files?](#q75-how-do-you-use-archivezip-to-create-zip-files) <span class="intermediate">Intermediate</span>
-76. [How do you use `archive/tar` to create tar archives?](#q76-how-do-you-use-archivetar-to-create-tar-archives) <span class="intermediate">Intermediate</span>
-77. [How do you use `encoding/csv` to parse CSV files?](#q77-how-do-you-use-encodingcsv-to-parse-csv-files) <span class="intermediate">Intermediate</span>
-78. [How do you use `encoding/xml` to parse XML?](#q78-how-do-you-use-encodingxml-to-parse-xml) <span class="intermediate">Intermediate</span>
-79. [How do you use `encoding/base64` for data encoding?](#q79-how-do-you-use-encodingbase64-for-data-encoding) <span class="intermediate">Intermediate</span>
-80. [How do you use `encoding/hex` for hex encoding?](#q80-how-do-you-use-encodinghex-for-hex-encoding) <span class="intermediate">Intermediate</span>
-81. [How do you use `mime/multipart` for file uploads?](#q81-how-do-you-use-mimemultipart-for-file-uploads) <span class="intermediate">Intermediate</span>
-82. [How do you use `net/mail` to parse email addresses?](#q82-how-do-you-use-netmail-to-parse-email-addresses) <span class="intermediate">Intermediate</span>
-83. [How do you use `net/smtp` to send emails?](#q83-how-do-you-use-netsmtp-to-send-emails) <span class="intermediate">Intermediate</span>
-84. [How do you use `net` package for raw TCP/UDP sockets?](#q84-how-do-you-use-net-package-for-raw-tcpudp-sockets) <span class="intermediate">Intermediate</span>
-85. [How do you use `path/filepath` for cross-platform paths?](#q85-how-do-you-use-pathfilepath-for-cross-platform-paths) <span class="intermediate">Intermediate</span>
-86. [How do you use `regexp` for pattern matching?](#q86-how-do-you-use-regexp-for-pattern-matching) <span class="intermediate">Intermediate</span>
-87. [How do you use `strconv` for efficient string conversions?](#q87-how-do-you-use-strconv-for-efficient-string-conversions) <span class="intermediate">Intermediate</span>
-88. [How do you use `unicode` package for character properties?](#q88-how-do-you-use-unicode-package-for-character-properties) <span class="intermediate">Intermediate</span>
-89. [How do you use `fmt.Scanner` interface for custom scanning?](#q89-how-do-you-use-fmtscanner-interface-for-custom-scanning) <span class="intermediate">Intermediate</span>
-90. [How do you use `fmt.Formatter` interface for custom printing?](#q90-how-do-you-use-fmtformatter-interface-for-custom-printing) <span class="intermediate">Intermediate</span>
-91. [How do you use `flag.Value` interface for custom flags?](#q91-how-do-you-use-flagvalue-interface-for-custom-flags) <span class="intermediate">Intermediate</span>
-92. [How do you use `log/slog` for structured logging (Go 1.21+)?](#q92-how-do-you-use-logslog-for-structured-logging-go-121) <span class="intermediate">Intermediate</span>
-93. [How do you use `cmp` package for comparing structs in tests?](#q93-how-do-you-use-cmp-package-for-comparing-structs-in-tests) <span class="intermediate">Intermediate</span>
-94. [How do you use `fstest` for testing filesystem operations?](#q94-how-do-you-use-fstest-for-testing-filesystem-operations) <span class="intermediate">Intermediate</span>
-95. [How do you use `testing.B` for benchmarking?](#q95-how-do-you-use-testingb-for-benchmarking) <span class="intermediate">Intermediate</span>
-96. [How do you use `testing.F` for fuzzing (Go 1.18+)?](#q96-how-do-you-use-testingf-for-fuzzing-go-118) <span class="intermediate">Intermediate</span>
-97. [How do you use `go doc` to view documentation?](#q97-how-do-you-use-go-doc-to-view-documentation) <span class="intermediate">Intermediate</span>
-98. [How do you use `go vet` to find common errors?](#q98-how-do-you-use-go-vet-to-find-common-errors) <span class="intermediate">Intermediate</span>
-99. [How do you use `go fmt` to format code?](#q99-how-do-you-use-go-fmt-to-format-code) <span class="intermediate">Intermediate</span>
-100. [How do you use `go mod tidy` to clean up dependencies?](#q100-how-do-you-use-go-mod-tidy-to-clean-up-dependencies) <span class="intermediate">Intermediate</span>
-101. [How do you use `go list` to inspect module details?](#q101-how-do-you-use-go-list-to-inspect-module-details) <span class="intermediate">Intermediate</span>
-102. [How do you use `go clean` to remove build artifacts?](#q102-how-do-you-use-go-clean-to-remove-build-artifacts) <span class="intermediate">Intermediate</span>
-103. [How do you use `go install` to install binaries?](#q103-how-do-you-use-go-install-to-install-binaries) <span class="intermediate">Intermediate</span>
-104. [How do you use `go get` to update dependencies?](#q104-how-do-you-use-go-get-to-update-dependencies) <span class="intermediate">Intermediate</span>
-105. [How do you use `go test -race` to detect race conditions?](#q105-how-do-you-use-go-test--race-to-detect-race-conditions) <span class="intermediate">Intermediate</span>
-106. [How do you use `go test -cover` to check code coverage?](#q106-how-do-you-use-go-test--cover-to-check-code-coverage) <span class="intermediate">Intermediate</span>
+26. [How do you implement a simple Fan-Out/Fan-In pattern?](#q26-how-do-you-implement-a-simple-fan-outfan-in-pattern) <span class="intermediate">Intermediate</span>
+27. [How do you use `defer` effectively for cleanup (and avoid common traps)?](#q27-how-do-you-use-defer-effectively-for-cleanup-and-avoid-common-traps) <span class="intermediate">Intermediate</span>
+28. [How do you implement a custom HTTP RoundTripper?](#q28-how-do-you-implement-a-custom-http-roundtripper) <span class="expert">Expert</span>
+29. [How do you use `reflect` to iterate over struct fields?](#q29-how-do-you-use-reflect-to-iterate-over-struct-fields) <span class="expert">Expert</span>
+30. [How do you use `slices` package (Go 1.21+) for common operations?](#q30-how-do-you-use-slices-package-go-121+-for-common-operations) <span class="intermediate">Intermediate</span>
 
 ---
 
 ### Q1: How do you manage Goroutine lifecycles to prevent memory leaks?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 To prevent memory leaks with Goroutines, you must ensure they have a defined exit condition. This is typically achieved using `context.Context` for cancellation or a `done` channel.
 
-**Key Strategy:**
+
 1. Pass a `context` or a signal channel to the Goroutine.
 2. Use a `select` statement to listen for the cancellation signal.
 3. Clean up resources before returning.
 
+**Code Example:**
 ```go
 package main
 
@@ -171,15 +99,19 @@ func main() {
 
 ### Q2: How do you implement the Worker Pool pattern to limit concurrency?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 A Worker Pool limits the number of concurrent tasks to prevent resource exhaustion. It uses a buffered channel to queue jobs and a fixed number of Goroutines to process them.
 
-**Key Strategy:**
+
 1. Create a `jobs` channel and a `results` channel.
 2. Start a fixed number of worker Goroutines.
 3. Send jobs to the `jobs` channel.
 4. Close the `jobs` channel when all jobs are sent.
 5. Collect results.
 
+**Code Example:**
 ```go
 package main
 
@@ -238,13 +170,17 @@ func main() {
 
 ### Q3: How do you handle errors gracefully using custom error types and wrapping?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 In Go, errors are values. Custom error types allow adding context, and `fmt.Errorf` with `%w` allows wrapping errors to preserve the original cause for `errors.Is` and `errors.As` checks.
 
-**Key Strategy:**
+
 1. Define a struct that implements the `error` interface.
 2. Use `fmt.Errorf("context: %w", err)` to wrap lower-level errors.
 3. Use `errors.Is` to check for specific sentinels and `errors.As` to extract custom types.
 
+**Code Example:**
 ```go
 package main
 
@@ -298,13 +234,17 @@ func main() {
 
 ### Q4: How do you implement a thread-safe Singleton in Go?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 The `sync.Once` primitive ensures that a piece of code is executed only once, making it perfect for initializing Singletons lazily and safely in a concurrent environment.
 
-**Key Strategy:**
+
 1. Declare a global variable for the instance.
 2. Declare a `sync.Once` variable.
 3. In the accessor function, use `once.Do(func() { ... })` to initialize the instance.
 
+**Code Example:**
 ```go
 package main
 
@@ -352,13 +292,17 @@ func main() {
 
 ### Q5: How do you use the Functional Options pattern to configure complex structs?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 The Functional Options pattern provides a clean, extensible API for configuring structs with many optional parameters, avoiding massive constructors or nil checks.
 
-**Key Strategy:**
+
 1. Define an `Option` function type.
 2. Create functions that return this `Option` type, modifying the struct.
 3. Create a constructor that accepts a variadic slice of `Option`.
 
+**Code Example:**
 ```go
 package main
 
@@ -422,13 +366,17 @@ func main() {
 
 ### Q6: How do you implement a Graceful Shutdown for an HTTP server?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 Graceful shutdown ensures that the server stops accepting new requests but finishes processing active requests before exiting. This is crucial for data integrity and user experience.
 
-**Key Strategy:**
+
 1. Start the server in a separate Goroutine.
 2. Listen for OS signals (`SIGINT`, `SIGTERM`) using `signal.Notify`.
 3. Call `server.Shutdown(ctx)` when a signal is received.
 
+**Code Example:**
 ```go
 package main
 
@@ -475,13 +423,17 @@ func main() {
 
 ### Q7: How do you test code effectively using Table-Driven Tests?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 Table-driven tests allow you to define test cases as data (structs) and iterate over them, making it easy to add new scenarios and keeping the test logic DRY (Don't Repeat Yourself).
 
-**Key Strategy:**
+
 1. Define a struct containing `name`, `input`, and `expected` fields.
 2. Create a slice of these structs with various test cases.
 3. Iterate over the slice using `t.Run` to execute subtests.
 
+**Code Example:**
 ```go
 package main
 
@@ -520,13 +472,17 @@ func TestAdd(t *testing.T) {
 
 ### Q8: How do you use Generics to create a type-safe Set data structure?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 Go Generics (introduced in Go 1.18) allow you to write data structures that work with any type that satisfies a constraint (e.g., `comparable`).
 
-**Key Strategy:**
+
 1. Define a generic struct `Set[T comparable]`.
 2. Use a `map[T]struct{}` for underlying storage (efficient O(1) lookups).
 3. Implement methods like `Add`, `Remove`, and `Contains`.
 
+**Code Example:**
 ```go
 package main
 
@@ -574,14 +530,18 @@ func main() {
 
 ### Q9: How do you use `sync.WaitGroup` to wait for multiple concurrent operations?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 `sync.WaitGroup` is used to wait for a collection of Goroutines to finish execution. It maintains a counter that is incremented when a Goroutine starts and decremented when it finishes.
 
-**Key Strategy:**
+
 1. Call `wg.Add(1)` before starting a Goroutine.
 2. Pass the `wg` pointer to the Goroutine (or capture via closure).
 3. Call `wg.Done()` inside the Goroutine (usually deferred).
 4. Call `wg.Wait()` in the main thread to block until the counter is zero.
 
+**Code Example:**
 ```go
 package main
 
@@ -618,14 +578,18 @@ func main() {
 
 ### Q10: How do you implement middleware for an HTTP handler?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 Middleware allows you to wrap an `http.Handler` to execute logic before or after the main handler, such as logging, authentication, or panic recovery.
 
-**Key Strategy:**
+
 1. Create a function that takes `http.Handler` and returns `http.Handler`.
 2. Inside the returned handler, perform pre-processing.
 3. Call `next.ServeHTTP(w, r)` to pass control.
 4. Perform post-processing if needed.
 
+**Code Example:**
 ```go
 package main
 
@@ -670,13 +634,17 @@ func main() {
 
 ### Q11: How do you use interfaces for dependency injection to improve testability?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 Dependency Injection (DI) via interfaces allows you to decouple components and swap real implementations with mocks during testing.
 
-**Key Strategy:**
+
 1. Define an interface for the dependency (e.g., `DataStore`).
 2. Have the consumer struct accept the interface, not the concrete type.
 3. In production, pass the real implementation; in tests, pass a mock.
 
+**Code Example:**
 ```go
 package main
 
@@ -728,13 +696,17 @@ func main() {
 
 ### Q12: How do you use the `select` statement to implement a timeout?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 The `select` statement lets a Goroutine wait on multiple communication operations. By including a case for `time.After`, you can enforce a timeout on channel operations.
 
-**Key Strategy:**
+
 1. Define a `select` block.
 2. Add a case for the expected channel operation (receive or send).
 3. Add a case for `<-time.After(duration)` to handle the timeout.
 
+**Code Example:**
 ```go
 package main
 
@@ -768,13 +740,17 @@ func main() {
 
 ### Q13: How do you use `io.Reader` and `io.Writer` to stream data efficiently?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 Go's `io` interfaces allow you to stream data without loading it all into memory. `io.Copy` is a powerful utility that connects a reader to a writer efficiently.
 
-**Key Strategy:**
+
 1. Use `os.Open` to get a file (Reader).
 2. Use `os.Create` or `http.ResponseWriter` as the destination (Writer).
 3. Use `io.Copy(dst, src)` to transfer data in chunks.
 
+**Code Example:**
 ```go
 package main
 
@@ -813,13 +789,17 @@ func main() {
 
 ### Q14: How do you prevent race conditions using `sync.Mutex`?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 Race conditions occur when multiple Goroutines access shared memory concurrently without synchronization. `sync.Mutex` provides a locking mechanism to ensure exclusive access.
 
-**Key Strategy:**
+
 1. Embed or include `sync.Mutex` in the struct holding the shared data.
 2. Call `mu.Lock()` before accessing the data.
 3. Call `mu.Unlock()` (usually deferred) after accessing.
 
+**Code Example:**
 ```go
 package main
 
@@ -868,14 +848,18 @@ func main() {
 
 ### Q15: How do you optimize memory usage with `sync.Pool`?
 
+**Difficulty**: Intermediate
+
+**Strategy:**
 `sync.Pool` caches allocated but unused objects for later reuse, reducing the pressure on the Garbage Collector (GC). It is ideal for frequently allocated, short-lived objects like buffers.
 
-**Key Strategy:**
+
 1. Initialize `sync.Pool` with a `New` function.
 2. Use `pool.Get()` to retrieve an object (type assert it).
 3. Reset the object state.
 4. Use `pool.Put()` to return the object to the pool.
 
+**Code Example:**
 ```go
 package main
 
@@ -916,73 +900,406 @@ func main() {
 
 ---
 
-### Q16: How do you implement a custom JSON unmarshaler?
+### Q16: How do you implement a custom JSON Marshaler to hide sensitive fields?
 
-This is a placeholder answer for practical question #16. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+**Difficulty**: Intermediate
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Strategy:**
+To customize JSON encoding, implement the `json.Marshaler` interface. This is useful for masking sensitive data (PII, passwords) or changing the output format without altering the struct definition.
 
----
+**Code Example:**
+```go
+package main
 
-### Q17: How do you use the `defer` keyword to ensure resource cleanup?
+import (
+	"encoding/json"
+	"fmt"
+)
 
-This is a placeholder answer for practical question #17. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+type User struct {
+	ID       int
+	Username string
+	Password string // Sensitive
+	Email    string
+}
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+// Implement json.Marshaler interface
+func (u User) MarshalJSON() ([]byte, error) {
+	// Create an alias to avoid infinite recursion
+	type Alias User
+	return json.Marshal(&struct {
+		Password string `json:"password"` // Override
+		*Alias
+	}{
+		Password: "***", // Mask password
+		Alias:    (*Alias)(&u),
+	})
+}
 
----
-
-### Q18: How do you handle panic and recover in a middleware?
-
-This is a placeholder answer for practical question #18. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q19: How do you use `atomic` package for lock-free counters?
-
-This is a placeholder answer for practical question #19. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q20: How do you profile a Go application using `pprof`?
-
-This is a placeholder answer for practical question #20. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q21: How do you debug a deadlock using stack traces?
-
-This is a placeholder answer for practical question #21. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q22: How do you use build tags to compile code for specific OS?
-
-This is a placeholder answer for practical question #22. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+func main() {
+	u := User{ID: 1, Username: "alice", Password: "secret123", Email: "alice@example.com"}
+	
+	data, _ := json.MarshalIndent(u, "", "  ")
+	fmt.Println(string(data))
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q23: How do you use `go:embed` to include static assets in the binary?
+### Q17: How do you use `sync.Once` to ensure a function runs exactly once?
 
-This is a placeholder answer for practical question #23. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+**Difficulty**: Intermediate
+
+**Strategy:**
+`sync.Once` is perfect for lazy initialization of global resources (like singletons or config loading) in a thread-safe manner. It guarantees that the `Do` function is called only once, even if invoked concurrently.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+var (
+	config map[string]string
+	once   sync.Once
+)
+
+func loadConfig() {
+	fmt.Println("Loading configuration...")
+	config = map[string]string{
+		"db_host": "localhost",
+		"port":    "5432",
+	}
+}
+
+func GetConfig() map[string]string {
+	once.Do(loadConfig) // Only runs once
+	return config
+}
+
+func main() {
+	var wg sync.WaitGroup
+	
+	// Simulate concurrent access
+	for i := 0; i < 5; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			cfg := GetConfig()
+			fmt.Println("Got config:", cfg["db_host"])
+		}()
+	}
+	
+	wg.Wait()
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q24: How do you implement a rate limiter using channels?
+### Q18: How do you implement a rate limiter using a Token Bucket algorithm?
 
-This is a placeholder answer for practical question #24. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+**Difficulty**: Intermediate
+
+**Strategy:**
+The `golang.org/x/time/rate` package provides a robust token bucket rate limiter. You can use `Wait`, `Allow`, or `Reserve` to control event frequency.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"time"
+
+	"golang.org/x/time/rate"
+)
+
+func main() {
+	// Limit: 5 events per second, burst of 10
+	limiter := rate.NewLimiter(5, 10)
+	ctx := context.Background()
+
+	for i := 0; i < 20; i++ {
+		// Block until a token is available
+		if err := limiter.Wait(ctx); err != nil {
+			fmt.Println("Error:", err)
+			return
+		}
+		fmt.Printf("Processed request %d at %v
+", i, time.Now().Format("15:04:05.000"))
+	}
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q19: How do you correctly handle loop variables in Goroutines?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Prior to Go 1.22, loop variables were reused across iterations. Capturing them in a closure (Goroutine) would often lead to processing the last value for all iterations. The fix was to pass the variable as an argument or redeclare it inside the loop.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func main() {
+	values := []string{"a", "b", "c"}
+	var wg sync.WaitGroup
+
+	for _, v := range values {
+		wg.Add(1)
+		// Correct: Pass 'v' as an argument to the closure
+		go func(val string) {
+			defer wg.Done()
+			fmt.Println(val)
+		}(v)
+		
+		// Alternative (Shadowing):
+		// v := v 
+		// go func() { fmt.Println(v) }()
+	}
+
+	wg.Wait()
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q20: How do you use `go:embed` to bundle static assets?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+The `embed` package (Go 1.16+) allows you to include static files (HTML, SQL, configs) directly into the binary. This simplifies deployment by producing a single executable.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"embed"
+	"fmt"
+	"net/http"
+)
+
+//go:embed index.html
+var content embed.FS
+
+func main() {
+	// Read file content directly
+	data, _ := content.ReadFile("index.html")
+	fmt.Println("HTML Content:", string(data))
+
+	// Serve embedded filesystem
+	http.Handle("/", http.FileServer(http.FS(content)))
+	
+	// In a real scenario: http.ListenAndServe(":8080", nil)
+}
+
+/*
+// index.html
+<html><body><h1>Hello Embed!</h1></body></html>
+*/
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q21: How do you use `errgroup` to manage parallel tasks with error propagation?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`errgroup` (from `golang.org/x/sync/errgroup`) is superior to `WaitGroup` when you need to propagate errors or cancel all tasks if one fails.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"time"
+
+	"golang.org/x/sync/errgroup"
+)
+
+func main() {
+	g, ctx := errgroup.WithContext(context.Background())
+
+	urls := []string{"http://google.com", "http://bad-url", "http://bing.com"}
+
+	for _, url := range urls {
+		url := url // Capture variable
+		g.Go(func() error {
+			// Simulate work
+			if url == "http://bad-url" {
+				return fmt.Errorf("failed to fetch %s", url)
+			}
+			
+			select {
+			case <-ctx.Done():
+				return ctx.Err() // Canceled
+			case <-time.After(100 * time.Millisecond):
+				fmt.Printf("Fetched %s
+", url)
+				return nil
+			}
+		})
+	}
+
+	if err := g.Wait(); err != nil {
+		fmt.Println("Group error:", err)
+	} else {
+		fmt.Println("All fetched successfully")
+	}
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q22: How do you implement atomic counters using `sync/atomic`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+For simple counters, `sync/atomic` is much faster and lighter than `sync.Mutex`. It provides low-level atomic memory primitives.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"sync/atomic"
+)
+
+func main() {
+	var ops atomic.Uint64 // Go 1.19+ type-safe atomic
+	var wg sync.WaitGroup
+
+	for i := 0; i < 50; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for j := 0; j < 1000; j++ {
+				ops.Add(1)
+			}
+		}()
+	}
+
+	wg.Wait()
+	fmt.Println("Ops:", ops.Load())
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q23: How do you benchmark code using `testing.B`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Go has a built-in benchmarking tool. Functions starting with `Benchmark` in `_test.go` files take `*testing.B` and run the code `b.N` times to measure performance.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"strings"
+	"testing"
+)
+
+// Function to benchmark
+func JoinStrings(n int) string {
+	var sb strings.Builder
+	for i := 0; i < n; i++ {
+		sb.WriteString("x")
+	}
+	return sb.String()
+}
+
+// Benchmark function
+func BenchmarkJoinStrings(b *testing.B) {
+	// Run the loop b.N times
+	for i := 0; i < b.N; i++ {
+		JoinStrings(1000)
+	}
+}
+
+// Run with: go test -bench=. -benchmem
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q24: How do you optimize memory layout by reordering struct fields?
+
+**Difficulty**: Expert
+
+**Strategy:**
+Struct fields are aligned in memory based on their size. Ordering fields from largest to smallest (pointers/int64 -> int32 -> bool) can minimize padding and reduce memory usage.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"fmt"
+	"unsafe"
+)
+
+// Bad layout: lots of padding
+type BadStruct struct {
+	isActive bool    // 1 byte + 7 bytes padding
+	id       int64   // 8 bytes
+	score    float64 // 8 bytes
+	flags    int8    // 1 byte + 7 bytes padding
+}
+
+// Optimized layout: minimal padding
+type GoodStruct struct {
+	id       int64   // 8 bytes
+	score    float64 // 8 bytes
+	isActive bool    // 1 byte
+	flags    int8    // 1 byte
+	// + 6 bytes padding at end to align to 8 bytes
+}
+
+func main() {
+	fmt.Printf("BadStruct size: %d
+", unsafe.Sizeof(BadStruct{}))   // 32 bytes
+	fmt.Printf("GoodStruct size: %d
+", unsafe.Sizeof(GoodStruct{})) // 24 bytes
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -990,656 +1307,312 @@ This is a placeholder answer for practical question #24. In a real interview, yo
 
 ### Q25: How do you use `context.WithValue` to pass request-scoped data?
 
-This is a placeholder answer for practical question #25. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+**Difficulty**: Intermediate
+
+**Strategy:**
+`context.WithValue` creates a child context carrying a key-value pair. It's commonly used in middleware to pass user info, trace IDs, or logger instances down the call chain. Use custom types for keys to avoid collisions.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+)
+
+// Define custom type for context key to avoid collisions
+type key int
+
+const (
+	userKey key = iota
+)
+
+func processRequest(ctx context.Context) {
+	// Retrieve value
+	if user, ok := ctx.Value(userKey).(string); ok {
+		fmt.Println("Processing request for:", user)
+	} else {
+		fmt.Println("No user found")
+	}
+}
+
+func main() {
+	ctx := context.Background()
+	
+	// Inject value
+	ctxWithUser := context.WithValue(ctx, userKey, "Alice")
+	
+	processRequest(ctxWithUser)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q26: How do you implement a simple Fan-Out/Fan-In pattern?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Fan-Out starts multiple Goroutines to process work in parallel. Fan-In combines their results into a single channel.
+
+**Code Example:**
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+func producer(nums ...int) <-chan int {
+	out := make(chan int)
+	go func() {
+		for _, n := range nums {
+			out <- n
+		}
+		close(out)
+	}()
+	return out
+}
+
+func worker(in <-chan int) <-chan int {
+	out := make(chan int)
+	go func() {
+		for n := range in {
+			out <- n * n // Square
+		}
+		close(out)
+	}()
+	return out
+}
+
+func merge(cs ...<-chan int) <-chan int {
+	var wg sync.WaitGroup
+	out := make(chan int)
+
+	output := func(c <-chan int) {
+		for n := range c {
+			out <- n
+		}
+		wg.Done()
+	}
+
+	wg.Add(len(cs))
+	for _, c := range cs {
+		go output(c)
+	}
+
+	go func() {
+		wg.Wait()
+		close(out)
+	}()
+	return out
+}
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q26: How do you implement a custom `http.RoundTripper`?
-
-This is a placeholder answer for practical question #26. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q27: How do you use the `reflect` package to inspect types at runtime?
-
-This is a placeholder answer for practical question #27. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q28: How do you use `unsafe` pointers (and when should you avoid them)?
-
-This is a placeholder answer for practical question #28. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q29: How do you optimize string concatenation using `strings.Builder`?
-
-This is a placeholder answer for practical question #29. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q30: How do you use `time.Ticker` for periodic tasks?
-
-This is a placeholder answer for practical question #30. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q31: How do you implement a priority queue using `container/heap`?
-
-This is a placeholder answer for practical question #31. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q32: How do you use `bufio` for efficient file reading?
-
-This is a placeholder answer for practical question #32. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q33: How do you handle signals (SIGTERM) to stop a worker pool?
-
-This is a placeholder answer for practical question #33. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q34: How do you use `errgroup` to manage a group of Goroutines?
-
-This is a placeholder answer for practical question #34. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q35: How do you implement a custom `Sort` interface?
-
-This is a placeholder answer for practical question #35. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q36: How do you use `go work` for multi-module workspaces?
-
-This is a placeholder answer for practical question #36. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q37: How do you manage dependencies using `go.mod` and `go.sum`?
-
-This is a placeholder answer for practical question #37. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q38: How do you use `GOMAXPROCS` to tune concurrency?
-
-This is a placeholder answer for practical question #38. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q39: How do you use the `testing/quick` package for property-based testing?
-
-This is a placeholder answer for practical question #39. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q40: How do you implement a fan-out/fan-in concurrency pattern?
-
-This is a placeholder answer for practical question #40. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q41: How do you use `httptest` to test HTTP handlers?
-
-This is a placeholder answer for practical question #41. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q42: How do you use `sqlmock` to test database interactions?
-
-This is a placeholder answer for practical question #42. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q43: How do you use `gomock` for interface mocking?
-
-This is a placeholder answer for practical question #43. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q44: How do you optimize struct padding for memory alignment?
-
-This is a placeholder answer for practical question #44. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q45: How do you use `singleflight` to prevent cache stampedes?
-
-This is a placeholder answer for practical question #45. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q46: How do you use `runtime/trace` to analyze latency?
-
-This is a placeholder answer for practical question #46. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q47: How do you implement a simple circuit breaker pattern?
-
-This is a placeholder answer for practical question #47. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q48: How do you use `encoding/gob` for binary serialization?
-
-This is a placeholder answer for practical question #48. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q49: How do you use `net/url` to parse and modify URLs?
-
-This is a placeholder answer for practical question #49. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q50: How do you use `filepath.Walk` (or `WalkDir`) to traverse directories?
-
-This is a placeholder answer for practical question #50. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q51: How do you use `os/exec` to run external commands?
-
-This is a placeholder answer for practical question #51. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q52: How do you use `plugin` package to load code dynamically?
-
-This is a placeholder answer for practical question #52. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: How do you use `syscall` to interact with low-level OS features?
-
-This is a placeholder answer for practical question #53. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you use `image` package to process images?
-
-This is a placeholder answer for practical question #54. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How do you use `compress/gzip` to handle compressed data?
-
-This is a placeholder answer for practical question #55. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: How do you use `crypto/rand` for secure random number generation?
-
-This is a placeholder answer for practical question #56. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q57: How do you use `crypto/tls` to configure HTTPS clients?
-
-This is a placeholder answer for practical question #57. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: How do you use `html/template` to render secure HTML?
-
-This is a placeholder answer for practical question #58. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q59: How do you use `text/template` for code generation?
-
-This is a placeholder answer for practical question #59. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: How do you use `expvar` to expose internal metrics?
-
-This is a placeholder answer for practical question #60. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q61: How do you use `net/http/pprof` for live profiling?
-
-This is a placeholder answer for practical question #61. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q62: How do you use `runtime.GC()` manually (and why is it rarely needed)?
-
-This is a placeholder answer for practical question #62. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: How do you use `runtime.Goexit()` to kill a Goroutine?
-
-This is a placeholder answer for practical question #63. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q64: How do you use `runtime.NumGoroutine()` for monitoring?
-
-This is a placeholder answer for practical question #64. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q65: How do you use `debug.Stack()` to print the current stack?
-
-This is a placeholder answer for practical question #65. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q66: How do you use `debug.BuildInfo()` to get version information?
-
-This is a placeholder answer for practical question #66. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q67: How do you use `runtime/metrics` to read GC stats?
-
-This is a placeholder answer for practical question #67. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q68: How do you use `sync.Cond` for broadcasting signals?
-
-This is a placeholder answer for practical question #68. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you use `sync.Map` for concurrent map access?
-
-This is a placeholder answer for practical question #69. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you use `sync.RWMutex` for read-heavy workloads?
-
-This is a placeholder answer for practical question #70. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q71: How do you use `atomic.Value` to store arbitrary types atomically?
-
-This is a placeholder answer for practical question #71. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q72: How do you use `math/big` for high-precision arithmetic?
-
-This is a placeholder answer for practical question #72. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: How do you use `sort.Search` for binary search?
-
-This is a placeholder answer for practical question #73. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q74: How do you use `index/suffixarray` for substring search?
-
-This is a placeholder answer for practical question #74. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you use `archive/zip` to create zip files?
-
-This is a placeholder answer for practical question #75. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: How do you use `archive/tar` to create tar archives?
-
-This is a placeholder answer for practical question #76. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: How do you use `encoding/csv` to parse CSV files?
-
-This is a placeholder answer for practical question #77. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: How do you use `encoding/xml` to parse XML?
-
-This is a placeholder answer for practical question #78. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q79: How do you use `encoding/base64` for data encoding?
-
-This is a placeholder answer for practical question #79. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+func main() {
+	in := producer(1, 2, 3, 4, 5)
+	
+	// Fan-out: 2 workers
+	c1 := worker(in)
+	c2 := worker(in)
+	
+	// Fan-in: merge results
+	for n := range merge(c1, c2) {
+		fmt.Println(n)
+	}
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
 
-### Q80: How do you use `encoding/hex` for hex encoding?
+### Q27: How do you use `defer` effectively for cleanup (and avoid common traps)?
 
-This is a placeholder answer for practical question #80. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+**Difficulty**: Intermediate
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q81: How do you use `mime/multipart` for file uploads?
-
-This is a placeholder answer for practical question #81. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q82: How do you use `net/mail` to parse email addresses?
-
-This is a placeholder answer for practical question #82. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q83: How do you use `net/smtp` to send emails?
-
-This is a placeholder answer for practical question #83. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you use `net` package for raw TCP/UDP sockets?
-
-This is a placeholder answer for practical question #84. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: How do you use `path/filepath` for cross-platform paths?
-
-This is a placeholder answer for practical question #85. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q86: How do you use `regexp` for pattern matching?
-
-This is a placeholder answer for practical question #86. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q87: How do you use `strconv` for efficient string conversions?
-
-This is a placeholder answer for practical question #87. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q88: How do you use `unicode` package for character properties?
-
-This is a placeholder answer for practical question #88. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q89: How do you use `fmt.Scanner` interface for custom scanning?
-
-This is a placeholder answer for practical question #89. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Strategy:**
+`defer` schedules a function call to run when the surrounding function returns. It's vital for closing files/connections. Note that deferred calls arguments are evaluated immediately, but execution happens later.
 
----
-
-### Q90: How do you use `fmt.Formatter` interface for custom printing?
-
-This is a placeholder answer for practical question #90. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: How do you use `flag.Value` interface for custom flags?
-
-This is a placeholder answer for practical question #91. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: How do you use `log/slog` for structured logging (Go 1.21+)?
-
-This is a placeholder answer for practical question #92. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: How do you use `cmp` package for comparing structs in tests?
-
-This is a placeholder answer for practical question #93. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q94: How do you use `fstest` for testing filesystem operations?
-
-This is a placeholder answer for practical question #94. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+**Code Example:**
+```go
+package main
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q95: How do you use `testing.B` for benchmarking?
-
-This is a placeholder answer for practical question #95. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+import (
+	"fmt"
+	"os"
+)
 
----
+func readFile(filename string) {
+	f, err := os.Open(filename)
+	if err != nil {
+		return
+	}
+	// Close immediately when function exits
+	defer f.Close() 
 
-### Q96: How do you use `testing.F` for fuzzing (Go 1.18+)?
+	// Read logic...
+	fmt.Println("Reading file...")
+}
 
-This is a placeholder answer for practical question #96. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+func deferTrap() {
+	for i := 0; i < 3; i++ {
+		// Trap: defer runs at function exit, not loop iteration end
+		// This can exhaust file descriptors in tight loops
+		defer fmt.Println("Deferred:", i) 
+	}
+	fmt.Println("Loop done")
+}
+
+func main() {
+	deferTrap() 
+	// Output: Loop done, Deferred: 2, Deferred: 1, Deferred: 0 (LIFO)
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q97: How do you use `go doc` to view documentation?
-
-This is a placeholder answer for practical question #97. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+### Q28: How do you implement a custom HTTP RoundTripper?
 
----
+**Difficulty**: Expert
 
-### Q98: How do you use `go vet` to find common errors?
+**Strategy:**
+A custom `http.RoundTripper` allows you to intercept and modify requests/responses globally for an `http.Client`. Useful for logging, caching, or adding auth headers.
 
-This is a placeholder answer for practical question #98. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+**Code Example:**
+```go
+package main
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+import (
+	"fmt"
+	"net/http"
+)
 
----
+type AuthTransport struct {
+	Token string
+	Base  http.RoundTripper
+}
 
-### Q99: How do you use `go fmt` to format code?
+func (t *AuthTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+	// Modify Request
+	req.Header.Add("Authorization", "Bearer "+t.Token)
+	
+	// Call base RoundTripper (or DefaultTransport)
+	return t.Base.RoundTrip(req)
+}
 
-This is a placeholder answer for practical question #99. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+func main() {
+	client := &http.Client{
+		Transport: &AuthTransport{
+			Token: "secret-token",
+			Base:  http.DefaultTransport,
+		},
+	}
+	
+	// Request will have Auth header
+	resp, err := client.Get("https://httpbin.org/headers")
+	if err != nil {
+		panic(err)
+	}
+	defer resp.Body.Close()
+	
+	fmt.Println("Status:", resp.Status)
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q100: How do you use `go mod tidy` to clean up dependencies?
+### Q29: How do you use `reflect` to iterate over struct fields?
 
-This is a placeholder answer for practical question #100. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+**Difficulty**: Expert
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+**Strategy:**
+Reflection (`reflect` package) allows runtime inspection of types. It's powerful but slow and unsafe. Use it for serialization, ORMs, or generic tools.
 
-### Q101: How do you use `go list` to inspect module details?
+**Code Example:**
+```go
+package main
 
-This is a placeholder answer for practical question #101. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+import (
+	"fmt"
+	"reflect"
+)
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+type Config struct {
+	Host string `env:"HOST"`
+	Port int    `env:"PORT"`
+}
 
----
+func PrintTags(v interface{}) {
+	val := reflect.ValueOf(v)
+	typ := reflect.TypeOf(v)
 
-### Q102: How do you use `go clean` to remove build artifacts?
+	for i := 0; i < val.NumField(); i++ {
+		field := typ.Field(i)
+		value := val.Field(i)
+		tag := field.Tag.Get("env")
+		
+		fmt.Printf("Field: %s, Value: %v, Tag: %s
+", field.Name, value, tag)
+	}
+}
 
-This is a placeholder answer for practical question #102. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+func main() {
+	c := Config{Host: "localhost", Port: 8080}
+	PrintTags(c)
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q103: How do you use `go install` to install binaries?
+### Q30: How do you use `slices` package (Go 1.21+) for common operations?
 
-This is a placeholder answer for practical question #103. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+**Difficulty**: Intermediate
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Strategy:**
+Go 1.21 introduced the `slices` package for generic slice operations like sorting, searching, and modifying, replacing the need for custom utility functions.
 
----
+**Code Example:**
+```go
+package main
 
-### Q104: How do you use `go get` to update dependencies?
+import (
+	"fmt"
+	"slices"
+)
 
-This is a placeholder answer for practical question #104. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+func main() {
+	nums := []int{5, 2, 9, 1, 5}
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+	// Sort
+	slices.Sort(nums)
+	fmt.Println("Sorted:", nums)
 
----
+	// Binary Search (on sorted slice)
+	idx, found := slices.BinarySearch(nums, 9)
+	fmt.Printf("Found 9 at index %d: %v
+", idx, found)
 
-### Q105: How do you use `go test -race` to detect race conditions?
+	// Compact (remove adjacent duplicates)
+	nums = slices.Compact(nums)
+	fmt.Println("Compact:", nums)
 
-This is a placeholder answer for practical question #105. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+	// Contains
+	hasTwo := slices.Contains(nums, 2)
+	fmt.Println("Has 2:", hasTwo)
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q106: How do you use `go test -cover` to check code coverage?
 
-This is a placeholder answer for practical question #106. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

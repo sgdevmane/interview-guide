@@ -1,115 +1,124 @@
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Java Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
+
 ## Table of Contents
-| No. | Question | Difficulty |
-| --- | -------- | ---------- |
-| 1 | [How do you optimize memory usage by handling String duplicates efficiently?](#how-do-you-optimize-memory-usage-by-handling-string-duplicates-efficiently) | Beginner |
-| 2 | [How do you prevent memory leaks in a Java application?](#how-do-you-prevent-memory-leaks-in-a-java-application) | Intermediate |
-| 3 | [How do you execute tasks asynchronously and get the result later?](#how-do-you-execute-tasks-asynchronously-and-get-the-result-later) | Intermediate |
-| 4 | [How do you handle null safety efficiently in modern Java?](#how-do-you-handle-null-safety-efficiently-in-modern-java) | Beginner |
-| 5 | [How do you ensure thread safety when modifying shared variables?](#how-do-you-ensure-thread-safety-when-modifying-shared-variables) | Intermediate |
-| 6 | [How do you create an immutable class in Java?](#how-do-you-create-an-immutable-class-in-java) | Intermediate |
-| 7 | [How do you process a collection of items in parallel?](#how-do-you-process-a-collection-of-items-in-parallel) | Intermediate |
-| 8 | [How do you implement the Singleton pattern thread-safely?](#how-do-you-implement-the-singleton-pattern-thread-safely) | Intermediate |
-| 9 | [How do you sort a list of objects based on multiple criteria?](#how-do-you-sort-a-list-of-objects-based-on-multiple-criteria) | Beginner |
-| 10 | [How do you handle exceptions in Lambda expressions?](#how-do-you-handle-exceptions-in-lambda-expressions) | Intermediate |
-| 11 | [How do you dynamically access methods or fields at runtime?](#how-do-you-dynamically-access-methods-or-fields-at-runtime) | Advanced |
-| 12 | [How do you ensure a variable's value is always read from main memory?](#how-do-you-ensure-a-variable's-value-is-always-read-from-main-memory) | Advanced |
-| 13 | [How do you filter a list using the Stream API?](#how-do-you-filter-a-list-using-the-stream-api) | Beginner |
-| 14 | [How do you create a fixed-size thread pool?](#how-do-you-create-a-fixed-size-thread-pool) | Intermediate |
-| 15 | [How do you implement a custom annotation?](#how-do-you-implement-a-custom-annotation) | Intermediate |
-| 16 | [How do you implement Spring Boot Starters in a Java application?](#how-do-you-implement-spring-boot-starters-in-a-java-application) | Intermediate |
-| 17 | [How do you implement Spring AOP in a Java application?](#how-do-you-implement-spring-aop-in-a-java-application) | Intermediate |
-| 18 | [How do you implement Maven/Gradle in a Java application?](#how-do-you-implement-maven-gradle-in-a-java-application) | Intermediate |
-| 19 | [How do you implement JUnit 5 in a Java application?](#how-do-you-implement-junit-5-in-a-java-application) | Intermediate |
-| 20 | [How do you implement Mockito in a Java application?](#how-do-you-implement-mockito-in-a-java-application) | Intermediate |
-| 21 | [How do you implement Log4j2 in a Java application?](#how-do-you-implement-log4j2-in-a-java-application) | Intermediate |
-| 22 | [How do you implement Jackson JSON in a Java application?](#how-do-you-implement-jackson-json-in-a-java-application) | Intermediate |
-| 23 | [How do you implement Protobuf in a Java application?](#how-do-you-implement-protobuf-in-a-java-application) | Intermediate |
-| 24 | [How do you implement gRPC in a Java application?](#how-do-you-implement-grpc-in-a-java-application) | Intermediate |
-| 25 | [How do you implement Kafka Consumer in a Java application?](#how-do-you-implement-kafka-consumer-in-a-java-application) | Intermediate |
-| 26 | [How do you implement Redis Cache in a Java application?](#how-do-you-implement-redis-cache-in-a-java-application) | Intermediate |
-| 27 | [How do you implement JDBC Transactions in a Java application?](#how-do-you-implement-jdbc-transactions-in-a-java-application) | Intermediate |
-| 28 | [How do you implement Connection Pooling (HikariCP) in a Java application?](#how-do-you-implement-connection-pooling-hikaricp-in-a-java-application) | Intermediate |
-| 29 | [How do you implement Garbage Collection Tuning (G1GC) in a Java application?](#how-do-you-implement-garbage-collection-tuning-g1gc-in-a-java-application) | Intermediate |
-| 30 | [How do you implement JIT Compiler in a Java application?](#how-do-you-implement-jit-compiler-in-a-java-application) | Intermediate |
-| 31 | [How do you implement ClassLoaders in a Java application?](#how-do-you-implement-classloaders-in-a-java-application) | Intermediate |
-| 32 | [How do you implement JPMS (Modules) in a Java application?](#how-do-you-implement-jpms-modules-in-a-java-application) | Intermediate |
-| 33 | [How do you implement Varargs in a Java application?](#how-do-you-implement-varargs-in-a-java-application) | Intermediate |
-| 34 | [How do you implement Try-With-Resources in a Java application?](#how-do-you-implement-try-with-resources-in-a-java-application) | Intermediate |
-| 35 | [How do you implement Switch Expressions in a Java application?](#how-do-you-implement-switch-expressions-in-a-java-application) | Intermediate |
-| 36 | [How do you implement Text Blocks in a Java application?](#how-do-you-implement-text-blocks-in-a-java-application) | Intermediate |
-| 37 | [How do you implement Pattern Matching for instanceof in a Java application?](#how-do-you-implement-pattern-matching-for-instanceof-in-a-java-application) | Intermediate |
-| 38 | [How do you implement Sealed Classes in a Java application?](#how-do-you-implement-sealed-classes-in-a-java-application) | Intermediate |
-| 39 | [How do you implement Records in a Java application?](#how-do-you-implement-records-in-a-java-application) | Intermediate |
-| 40 | [How do you implement Foreign Function & Memory API in a Java application?](#how-do-you-implement-foreign-function-&-memory-api-in-a-java-application) | Intermediate |
-| 41 | [How do you implement Virtual Threads (Project Loom) in a Java application?](#how-do-you-implement-virtual-threads-project-loom-in-a-java-application) | Intermediate |
-| 42 | [How do you implement Structured Concurrency in a Java application?](#how-do-you-implement-structured-concurrency-in-a-java-application) | Intermediate |
-| 43 | [How do you implement Vector API in a Java application?](#how-do-you-implement-vector-api-in-a-java-application) | Intermediate |
-| 44 | [How do you implement JPA/Hibernate in a Java application?](#how-do-you-implement-jpa-hibernate-in-a-java-application) | Intermediate |
-| 45 | [How do you implement Spring Data JPA in a Java application?](#how-do-you-implement-spring-data-jpa-in-a-java-application) | Intermediate |
-| 46 | [How do you implement Spring Security in a Java application?](#how-do-you-implement-spring-security-in-a-java-application) | Intermediate |
-| 47 | [How do you implement JWT Auth in a Java application?](#how-do-you-implement-jwt-auth-in-a-java-application) | Intermediate |
-| 48 | [How do you implement OAuth2 in a Java application?](#how-do-you-implement-oauth2-in-a-java-application) | Intermediate |
-| 49 | [How do you implement Reactive Streams in a Java application?](#how-do-you-implement-reactive-streams-in-a-java-application) | Advanced |
-| 50 | [How do you implement Project Reactor in a Java application?](#how-do-you-implement-project-reactor-in-a-java-application) | Advanced |
-| 51 | [How do you implement Netty in a Java application?](#how-do-you-implement-netty-in-a-java-application) | Advanced |
-| 52 | [How do you implement Microservices in a Java application?](#how-do-you-implement-microservices-in-a-java-application) | Advanced |
-| 53 | [How do you implement Service Discovery in a Java application?](#how-do-you-implement-service-discovery-in-a-java-application) | Advanced |
-| 54 | [How do you implement Circuit Breaker in a Java application?](#how-do-you-implement-circuit-breaker-in-a-java-application) | Advanced |
-| 55 | [How do you implement API Gateway in a Java application?](#how-do-you-implement-api-gateway-in-a-java-application) | Advanced |
-| 56 | [How do you implement Distributed Tracing in a Java application?](#how-do-you-implement-distributed-tracing-in-a-java-application) | Advanced |
-| 57 | [How do you implement Health Checks in a Java application?](#how-do-you-implement-health-checks-in-a-java-application) | Intermediate |
-| 58 | [How do you implement Prometheus Metrics in a Java application?](#how-do-you-implement-prometheus-metrics-in-a-java-application) | Intermediate |
-| 59 | [How do you implement Dockerizing Java in a Java application?](#how-do-you-implement-dockerizing-java-in-a-java-application) | Intermediate |
-| 60 | [How do you implement Kubernetes Java in a Java application?](#how-do-you-implement-kubernetes-java-in-a-java-application) | Advanced |
-| 61 | [How do you implement GraphQL Java in a Java application?](#how-do-you-implement-graphql-java-in-a-java-application) | Intermediate |
-| 62 | [How do you implement WebSocket in a Java application?](#how-do-you-implement-websocket-in-a-java-application) | Intermediate |
-| 63 | [How do you implement RMI in a Java application?](#how-do-you-implement-rmi-in-a-java-application) | Advanced |
-| 64 | [How do you implement JNDI in a Java application?](#how-do-you-implement-jndi-in-a-java-application) | Advanced |
-| 65 | [How do you implement JMX in a Java application?](#how-do-you-implement-jmx-in-a-java-application) | Advanced |
-| 66 | [How do you implement Serialization in a Java application?](#how-do-you-implement-serialization-in-a-java-application) | Beginner |
-| 67 | [How do you implement Externalization in a Java application?](#how-do-you-implement-externalization-in-a-java-application) | Advanced |
-| 68 | [How do you implement Cloneable in a Java application?](#how-do-you-implement-cloneable-in-a-java-application) | Beginner |
-| 69 | [How do you implement WeakReference in a Java application?](#how-do-you-implement-weakreference-in-a-java-application) | Advanced |
-| 70 | [How do you implement SoftReference in a Java application?](#how-do-you-implement-softreference-in-a-java-application) | Advanced |
-| 71 | [How do you implement PhantomReference in a Java application?](#how-do-you-implement-phantomreference-in-a-java-application) | Advanced |
-| 72 | [How do you implement ThreadLocal in a Java application?](#how-do-you-implement-threadlocal-in-a-java-application) | Advanced |
-| 73 | [How do you implement CompletableFuture in a Java application?](#how-do-you-implement-completablefuture-in-a-java-application) | Intermediate |
-| 74 | [How do you implement CountDownLatch in a Java application?](#how-do-you-implement-countdownlatch-in-a-java-application) | Intermediate |
-| 75 | [How do you implement CyclicBarrier in a Java application?](#how-do-you-implement-cyclicbarrier-in-a-java-application) | Intermediate |
-| 76 | [How do you implement Semaphore in a Java application?](#how-do-you-implement-semaphore-in-a-java-application) | Intermediate |
-| 77 | [How do you implement Phaser in a Java application?](#how-do-you-implement-phaser-in-a-java-application) | Intermediate |
-| 78 | [How do you implement Exchanger in a Java application?](#how-do-you-implement-exchanger-in-a-java-application) | Intermediate |
-| 79 | [How do you implement BlockingQueue in a Java application?](#how-do-you-implement-blockingqueue-in-a-java-application) | Intermediate |
-| 80 | [How do you implement PriorityQueue in a Java application?](#how-do-you-implement-priorityqueue-in-a-java-application) | Beginner |
-| 81 | [How do you implement LinkedList vs ArrayList in a Java application?](#how-do-you-implement-linkedlist-vs-arraylist-in-a-java-application) | Beginner |
-| 82 | [How do you implement HashMap vs TreeMap in a Java application?](#how-do-you-implement-hashmap-vs-treemap-in-a-java-application) | Beginner |
-| 83 | [How do you implement ConcurrentHashMap in a Java application?](#how-do-you-implement-concurrenthashmap-in-a-java-application) | Intermediate |
-| 84 | [How do you implement CopyOnWriteArrayList in a Java application?](#how-do-you-implement-copyonwritearraylist-in-a-java-application) | Intermediate |
-| 85 | [How do you implement IdentityHashMap in a Java application?](#how-do-you-implement-identityhashmap-in-a-java-application) | Advanced |
-| 86 | [How do you implement WeakHashMap in a Java application?](#how-do-you-implement-weakhashmap-in-a-java-application) | Advanced |
-| 87 | [How do you implement EnumSet in a Java application?](#how-do-you-implement-enumset-in-a-java-application) | Intermediate |
-| 88 | [How do you implement BitSet in a Java application?](#how-do-you-implement-bitset-in-a-java-application) | Intermediate |
-| 89 | [How do you implement BigInteger in a Java application?](#how-do-you-implement-biginteger-in-a-java-application) | Beginner |
-| 90 | [How do you implement BigDecimal in a Java application?](#how-do-you-implement-bigdecimal-in-a-java-application) | Beginner |
-| 91 | [How do you implement UUID in a Java application?](#how-do-you-implement-uuid-in-a-java-application) | Beginner |
-| 92 | [How do you implement Base64 in a Java application?](#how-do-you-implement-base64-in-a-java-application) | Beginner |
-| 93 | [How do you implement MessageDigest in a Java application?](#how-do-you-implement-messagedigest-in-a-java-application) | Intermediate |
-| 94 | [How do you implement Cipher in a Java application?](#how-do-you-implement-cipher-in-a-java-application) | Intermediate |
-| 95 | [How do you implement Signature in a Java application?](#how-do-you-implement-signature-in-a-java-application) | Intermediate |
-| 96 | [How do you implement SecureRandom in a Java application?](#how-do-you-implement-securerandom-in-a-java-application) | Intermediate |
-| 97 | [How do you implement KeyStore in a Java application?](#how-do-you-implement-keystore-in-a-java-application) | Intermediate |
-| 98 | [How do you implement SSLContext in a Java application?](#how-do-you-implement-sslcontext-in-a-java-application) | Advanced |
-| 99 | [How do you implement HttpClient (Java 11) in a Java application?](#how-do-you-implement-httpclient-java-11-in-a-java-application) | Intermediate |
-| 100 | [How do you implement UrlConnection in a Java application?](#how-do-you-implement-urlconnection-in-a-java-application) | Beginner |
-| 101 | [How do you implement Socket Programming in a Java application?](#how-do-you-implement-socket-programming-in-a-java-application) | Intermediate |
-| 102 | [How do you implement DatagramSocket in a Java application?](#how-do-you-implement-datagramsocket-in-a-java-application) | Intermediate |
-| 103 | [How do you implement NIO Channels in a Java application?](#how-do-you-implement-nio-channels-in-a-java-application) | Advanced |
-| 104 | [How do you implement NIO Buffers in a Java application?](#how-do-you-implement-nio-buffers-in-a-java-application) | Advanced |
-| 105 | [How do you implement NIO Selectors in a Java application?](#how-do-you-implement-nio-selectors-in-a-java-application) | Advanced |
-| 106 | [How do you implement Path API in a Java application?](#how-do-you-implement-path-api-in-a-java-application) | Beginner |
-| 107 | [How do you implement Files API in a Java application?](#how-do-you-implement-files-api-in-a-java-application) | Beginner |
-| 108 | [How do you implement WatchService in a Java application?](#how-do-you-implement-watchservice-in-a-java-application) | Advanced |
-| 109 | [How do you implement ZipInputStream in a Java application?](#how-do-you-implement-zipinputstream-in-a-java-application) | Intermediate |
+
+1. [How do you optimize memory usage by handling String duplicates efficiently?](#q1-how-do-you-optimize-memory-usage-by-handling-string-duplicates-efficiently) <span class="intermediate">Intermediate</span>
+2. [How do you prevent memory leaks?](#q2-how-do-you-prevent-memory-leaks) <span class="intermediate">Intermediate</span>
+3. [How do you execute tasks asynchronously and get the result later?](#q3-how-do-you-execute-tasks-asynchronously-and-get-the-result-later) <span class="intermediate">Intermediate</span>
+4. [How do you handle null safety efficiently in modern Java?](#q4-how-do-you-handle-null-safety-efficiently-in-modern-java) <span class="intermediate">Intermediate</span>
+5. [How do you ensure thread safety when modifying shared variables?](#q5-how-do-you-ensure-thread-safety-when-modifying-shared-variables) <span class="intermediate">Intermediate</span>
+6. [How do you create an immutable class in Java?](#q6-how-do-you-create-an-immutable-class-in-java) <span class="intermediate">Intermediate</span>
+7. [How do you process a collection of items in parallel?](#q7-how-do-you-process-a-collection-of-items-in-parallel) <span class="intermediate">Intermediate</span>
+8. [How do you implement the Singleton pattern thread-safely?](#q8-how-do-you-implement-the-singleton-pattern-thread-safely) <span class="intermediate">Intermediate</span>
+9. [How do you sort a list of objects based on multiple criteria?](#q9-how-do-you-sort-a-list-of-objects-based-on-multiple-criteria) <span class="intermediate">Intermediate</span>
+10. [How do you handle exceptions in Lambda expressions?](#q10-how-do-you-handle-exceptions-in-lambda-expressions) <span class="intermediate">Intermediate</span>
+11. [How do you dynamically access methods or fields at runtime?](#q11-how-do-you-dynamically-access-methods-or-fields-at-runtime) <span class="intermediate">Intermediate</span>
+12. [How do you ensure a variable's value is always read from main memory?](#q12-how-do-you-ensure-a-variables-value-is-always-read-from-main-memory) <span class="intermediate">Intermediate</span>
+13. [How do you filter a list using the Stream API?](#q13-how-do-you-filter-a-list-using-the-stream-api) <span class="intermediate">Intermediate</span>
+14. [How do you create a fixed-size thread pool?](#q14-how-do-you-create-a-fixed-size-thread-pool) <span class="intermediate">Intermediate</span>
+15. [How do you implement a custom annotation?](#q15-how-do-you-implement-a-custom-annotation) <span class="intermediate">Intermediate</span>
+16. [How do you implement Spring Boot Starters?](#q16-how-do-you-implement-spring-boot-starters) <span class="intermediate">Intermediate</span>
+17. [How do you implement Spring AOP?](#q17-how-do-you-implement-spring-aop) <span class="intermediate">Intermediate</span>
+18. [How do you implement Maven/Gradle?](#q18-how-do-you-implement-mavengradle) <span class="intermediate">Intermediate</span>
+19. [How do you implement JUnit 5?](#q19-how-do-you-implement-junit-5) <span class="intermediate">Intermediate</span>
+20. [How do you implement Mockito?](#q20-how-do-you-implement-mockito) <span class="intermediate">Intermediate</span>
+21. [How do you implement Log4j2?](#q21-how-do-you-implement-log4j2) <span class="intermediate">Intermediate</span>
+22. [How do you implement Jackson JSON?](#q22-how-do-you-implement-jackson-json) <span class="intermediate">Intermediate</span>
+23. [How do you implement Protobuf?](#q23-how-do-you-implement-protobuf) <span class="intermediate">Intermediate</span>
+24. [How do you implement gRPC?](#q24-how-do-you-implement-grpc) <span class="intermediate">Intermediate</span>
+25. [How do you implement Kafka Consumer?](#q25-how-do-you-implement-kafka-consumer) <span class="intermediate">Intermediate</span>
+26. [How do you implement Redis Cache?](#q26-how-do-you-implement-redis-cache) <span class="intermediate">Intermediate</span>
+27. [How do you implement JDBC Transactions?](#q27-how-do-you-implement-jdbc-transactions) <span class="intermediate">Intermediate</span>
+28. [How do you implement Connection Pooling (HikariCP)?](#q28-how-do-you-implement-connection-pooling-hikaricp) <span class="intermediate">Intermediate</span>
+29. [How do you implement Garbage Collection Tuning (G1GC)?](#q29-how-do-you-implement-garbage-collection-tuning-g1gc) <span class="intermediate">Intermediate</span>
+30. [How do you implement JIT Compiler?](#q30-how-do-you-implement-jit-compiler) <span class="intermediate">Intermediate</span>
+31. [How do you implement ClassLoaders?](#q31-how-do-you-implement-classloaders) <span class="intermediate">Intermediate</span>
+32. [How do you implement JPMS (Modules)?](#q32-how-do-you-implement-jpms-modules) <span class="intermediate">Intermediate</span>
+33. [How do you implement Varargs?](#q33-how-do-you-implement-varargs) <span class="intermediate">Intermediate</span>
+34. [How do you implement Try-With-Resources?](#q34-how-do-you-implement-try-with-resources) <span class="intermediate">Intermediate</span>
+35. [How do you implement Switch Expressions?](#q35-how-do-you-implement-switch-expressions) <span class="intermediate">Intermediate</span>
+36. [How do you implement Text Blocks?](#q36-how-do-you-implement-text-blocks) <span class="intermediate">Intermediate</span>
+37. [How do you implement Pattern Matching for instanceof?](#q37-how-do-you-implement-pattern-matching-for-instanceof) <span class="intermediate">Intermediate</span>
+38. [How do you implement Sealed Classes?](#q38-how-do-you-implement-sealed-classes) <span class="intermediate">Intermediate</span>
+39. [How do you implement Records?](#q39-how-do-you-implement-records) <span class="intermediate">Intermediate</span>
+40. [How do you implement Foreign Function & Memory API?](#q40-how-do-you-implement-foreign-function--memory-api) <span class="intermediate">Intermediate</span>
+41. [How do you implement Virtual Threads (Project Loom)?](#q41-how-do-you-implement-virtual-threads-project-loom) <span class="intermediate">Intermediate</span>
+42. [How do you implement Structured Concurrency?](#q42-how-do-you-implement-structured-concurrency) <span class="intermediate">Intermediate</span>
+43. [How do you implement Vector API?](#q43-how-do-you-implement-vector-api) <span class="intermediate">Intermediate</span>
+44. [How do you implement JPA/Hibernate?](#q44-how-do-you-implement-jpahibernate) <span class="intermediate">Intermediate</span>
+45. [How do you implement Spring Data JPA?](#q45-how-do-you-implement-spring-data-jpa) <span class="intermediate">Intermediate</span>
+46. [How do you implement Spring Security?](#q46-how-do-you-implement-spring-security) <span class="intermediate">Intermediate</span>
+47. [How do you implement JWT Auth?](#q47-how-do-you-implement-jwt-auth) <span class="intermediate">Intermediate</span>
+48. [How do you implement OAuth2?](#q48-how-do-you-implement-oauth2) <span class="intermediate">Intermediate</span>
+49. [How do you implement Reactive Streams?](#q49-how-do-you-implement-reactive-streams) <span class="intermediate">Intermediate</span>
+50. [How do you implement Project Reactor?](#q50-how-do-you-implement-project-reactor) <span class="intermediate">Intermediate</span>
+51. [How do you implement Netty?](#q51-how-do-you-implement-netty) <span class="intermediate">Intermediate</span>
+52. [How do you implement Microservices?](#q52-how-do-you-implement-microservices) <span class="intermediate">Intermediate</span>
+53. [How do you implement Service Discovery?](#q53-how-do-you-implement-service-discovery) <span class="intermediate">Intermediate</span>
+54. [How do you implement Circuit Breaker?](#q54-how-do-you-implement-circuit-breaker) <span class="intermediate">Intermediate</span>
+55. [How do you implement API Gateway?](#q55-how-do-you-implement-api-gateway) <span class="intermediate">Intermediate</span>
+56. [How do you implement Distributed Tracing?](#q56-how-do-you-implement-distributed-tracing) <span class="intermediate">Intermediate</span>
+57. [How do you implement Health Checks?](#q57-how-do-you-implement-health-checks) <span class="intermediate">Intermediate</span>
+58. [How do you implement Prometheus Metrics?](#q58-how-do-you-implement-prometheus-metrics) <span class="intermediate">Intermediate</span>
+59. [How do you implement Dockerizing Java?](#q59-how-do-you-implement-dockerizing-java) <span class="intermediate">Intermediate</span>
+60. [How do you implement Kubernetes Java?](#q60-how-do-you-implement-kubernetes-java) <span class="intermediate">Intermediate</span>
+61. [How do you implement GraphQL Java?](#q61-how-do-you-implement-graphql-java) <span class="intermediate">Intermediate</span>
+62. [How do you implement WebSocket?](#q62-how-do-you-implement-websocket) <span class="intermediate">Intermediate</span>
+63. [How do you implement RMI?](#q63-how-do-you-implement-rmi) <span class="intermediate">Intermediate</span>
+64. [How do you implement JNDI?](#q64-how-do-you-implement-jndi) <span class="intermediate">Intermediate</span>
+65. [How do you implement JMX?](#q65-how-do-you-implement-jmx) <span class="intermediate">Intermediate</span>
+66. [How do you implement Serialization?](#q66-how-do-you-implement-serialization) <span class="intermediate">Intermediate</span>
+67. [How do you implement Externalization?](#q67-how-do-you-implement-externalization) <span class="intermediate">Intermediate</span>
+68. [How do you implement Cloneable?](#q68-how-do-you-implement-cloneable) <span class="intermediate">Intermediate</span>
+69. [How do you implement WeakReference?](#q69-how-do-you-implement-weakreference) <span class="intermediate">Intermediate</span>
+70. [How do you implement SoftReference?](#q70-how-do-you-implement-softreference) <span class="intermediate">Intermediate</span>
+71. [How do you implement PhantomReference?](#q71-how-do-you-implement-phantomreference) <span class="intermediate">Intermediate</span>
+72. [How do you implement ThreadLocal?](#q72-how-do-you-implement-threadlocal) <span class="intermediate">Intermediate</span>
+73. [How do you implement CompletableFuture?](#q73-how-do-you-implement-completablefuture) <span class="intermediate">Intermediate</span>
+74. [How do you implement CountDownLatch?](#q74-how-do-you-implement-countdownlatch) <span class="intermediate">Intermediate</span>
+75. [How do you implement CyclicBarrier?](#q75-how-do-you-implement-cyclicbarrier) <span class="intermediate">Intermediate</span>
+76. [How do you implement Semaphore?](#q76-how-do-you-implement-semaphore) <span class="intermediate">Intermediate</span>
+77. [How do you implement Phaser?](#q77-how-do-you-implement-phaser) <span class="intermediate">Intermediate</span>
+78. [How do you implement Exchanger?](#q78-how-do-you-implement-exchanger) <span class="intermediate">Intermediate</span>
+79. [How do you implement BlockingQueue?](#q79-how-do-you-implement-blockingqueue) <span class="intermediate">Intermediate</span>
+80. [How do you implement PriorityQueue?](#q80-how-do-you-implement-priorityqueue) <span class="intermediate">Intermediate</span>
+81. [How do you implement LinkedList vs ArrayList?](#q81-how-do-you-implement-linkedlist-vs-arraylist) <span class="intermediate">Intermediate</span>
+82. [How do you implement HashMap vs TreeMap?](#q82-how-do-you-implement-hashmap-vs-treemap) <span class="intermediate">Intermediate</span>
+83. [How do you implement ConcurrentHashMap?](#q83-how-do-you-implement-concurrenthashmap) <span class="intermediate">Intermediate</span>
+84. [How do you implement CopyOnWriteArrayList?](#q84-how-do-you-implement-copyonwritearraylist) <span class="intermediate">Intermediate</span>
+85. [How do you implement IdentityHashMap?](#q85-how-do-you-implement-identityhashmap) <span class="intermediate">Intermediate</span>
+86. [How do you implement WeakHashMap?](#q86-how-do-you-implement-weakhashmap) <span class="intermediate">Intermediate</span>
+87. [How do you implement EnumSet?](#q87-how-do-you-implement-enumset) <span class="intermediate">Intermediate</span>
+88. [How do you implement BitSet?](#q88-how-do-you-implement-bitset) <span class="intermediate">Intermediate</span>
+89. [How do you implement BigInteger?](#q89-how-do-you-implement-biginteger) <span class="intermediate">Intermediate</span>
+90. [How do you implement BigDecimal?](#q90-how-do-you-implement-bigdecimal) <span class="intermediate">Intermediate</span>
+91. [How do you implement UUID?](#q91-how-do-you-implement-uuid) <span class="intermediate">Intermediate</span>
+92. [How do you implement Base64?](#q92-how-do-you-implement-base64) <span class="intermediate">Intermediate</span>
+93. [How do you implement MessageDigest?](#q93-how-do-you-implement-messagedigest) <span class="intermediate">Intermediate</span>
+94. [How do you implement Cipher?](#q94-how-do-you-implement-cipher) <span class="intermediate">Intermediate</span>
+95. [How do you implement Signature?](#q95-how-do-you-implement-signature) <span class="intermediate">Intermediate</span>
+96. [How do you implement SecureRandom?](#q96-how-do-you-implement-securerandom) <span class="intermediate">Intermediate</span>
+97. [How do you implement KeyStore?](#q97-how-do-you-implement-keystore) <span class="intermediate">Intermediate</span>
+98. [How do you implement SSLContext?](#q98-how-do-you-implement-sslcontext) <span class="intermediate">Intermediate</span>
+99. [How do you implement HttpClient (Java 11)?](#q99-how-do-you-implement-httpclient-java-11) <span class="intermediate">Intermediate</span>
+100. [How do you implement UrlConnection?](#q100-how-do-you-implement-urlconnection) <span class="intermediate">Intermediate</span>
+101. [How do you implement Socket Programming?](#q101-how-do-you-implement-socket-programming) <span class="intermediate">Intermediate</span>
+102. [How do you implement DatagramSocket?](#q102-how-do-you-implement-datagramsocket) <span class="intermediate">Intermediate</span>
+103. [How do you implement NIO Channels?](#q103-how-do-you-implement-nio-channels) <span class="intermediate">Intermediate</span>
+104. [How do you implement NIO Buffers?](#q104-how-do-you-implement-nio-buffers) <span class="intermediate">Intermediate</span>
+105. [How do you implement NIO Selectors?](#q105-how-do-you-implement-nio-selectors) <span class="intermediate">Intermediate</span>
+106. [How do you implement Path API?](#q106-how-do-you-implement-path-api) <span class="intermediate">Intermediate</span>
+107. [How do you implement Files API?](#q107-how-do-you-implement-files-api) <span class="intermediate">Intermediate</span>
+108. [How do you implement WatchService?](#q108-how-do-you-implement-watchservice) <span class="intermediate">Intermediate</span>
+109. [How do you implement ZipInputStream?](#q109-how-do-you-implement-zipinputstream) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -134,11 +143,11 @@ String s3 = new String("hello").intern();
 System.out.println(s2 == s3); // true
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q2: How do you prevent memory leaks in a Java application?
+### Q2: How do you prevent memory leaks?
 
 **Difficulty**: Intermediate
 
@@ -155,7 +164,7 @@ try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -176,7 +185,7 @@ CompletableFuture.supplyAsync(() -> {
 });
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -198,7 +207,7 @@ optionalName.ifPresent(System.out::println);
 String name = optionalName.orElse("Unknown");
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -222,7 +231,7 @@ class Counter {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -250,7 +259,7 @@ public final class User {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -270,7 +279,7 @@ numbers.parallelStream()
        .forEach(System.out::println);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -293,7 +302,7 @@ public enum Singleton {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -312,7 +321,7 @@ users.sort(Comparator.comparing(User::getLastName)
                      .thenComparing(User::getFirstName));
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -334,7 +343,7 @@ list.forEach(item -> {
 });
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -353,7 +362,7 @@ Object instance = clazz.getConstructor().newInstance();
 Object result = method.invoke(instance);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -373,7 +382,7 @@ public void stop() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -393,7 +402,7 @@ List<String> filtered = names.stream()
                              .collect(Collectors.toList());
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -414,7 +423,7 @@ for (int i = 0; i < 10; i++) {
 executor.shutdown();
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -433,11 +442,11 @@ public @interface LogExecutionTime {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q16: How do you implement Spring Boot Starters in a Java application?
+### Q16: How do you implement Spring Boot Starters?
 
 **Difficulty**: Intermediate
 
@@ -452,11 +461,11 @@ public void useSpringBootStarters() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q17: How do you implement Spring AOP in a Java application?
+### Q17: How do you implement Spring AOP?
 
 **Difficulty**: Intermediate
 
@@ -471,11 +480,11 @@ public void useSpringAOP() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q18: How do you implement Maven/Gradle in a Java application?
+### Q18: How do you implement Maven/Gradle?
 
 **Difficulty**: Intermediate
 
@@ -490,11 +499,11 @@ public void useMavenGradle() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q19: How do you implement JUnit 5 in a Java application?
+### Q19: How do you implement JUnit 5?
 
 **Difficulty**: Intermediate
 
@@ -509,11 +518,11 @@ public void useJUnit5() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q20: How do you implement Mockito in a Java application?
+### Q20: How do you implement Mockito?
 
 **Difficulty**: Intermediate
 
@@ -528,11 +537,11 @@ public void useMockito() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q21: How do you implement Log4j2 in a Java application?
+### Q21: How do you implement Log4j2?
 
 **Difficulty**: Intermediate
 
@@ -547,11 +556,11 @@ public void useLog4j2() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q22: How do you implement Jackson JSON in a Java application?
+### Q22: How do you implement Jackson JSON?
 
 **Difficulty**: Intermediate
 
@@ -566,11 +575,11 @@ public void useJacksonJSON() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q23: How do you implement Protobuf in a Java application?
+### Q23: How do you implement Protobuf?
 
 **Difficulty**: Intermediate
 
@@ -585,11 +594,11 @@ public void useProtobuf() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q24: How do you implement gRPC in a Java application?
+### Q24: How do you implement gRPC?
 
 **Difficulty**: Intermediate
 
@@ -604,11 +613,11 @@ public void usegRPC() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q25: How do you implement Kafka Consumer in a Java application?
+### Q25: How do you implement Kafka Consumer?
 
 **Difficulty**: Intermediate
 
@@ -623,11 +632,11 @@ public void useKafkaConsumer() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q26: How do you implement Redis Cache in a Java application?
+### Q26: How do you implement Redis Cache?
 
 **Difficulty**: Intermediate
 
@@ -642,11 +651,11 @@ public void useRedisCache() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q27: How do you implement JDBC Transactions in a Java application?
+### Q27: How do you implement JDBC Transactions?
 
 **Difficulty**: Intermediate
 
@@ -661,11 +670,11 @@ public void useJDBCTransactions() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q28: How do you implement Connection Pooling (HikariCP) in a Java application?
+### Q28: How do you implement Connection Pooling (HikariCP)?
 
 **Difficulty**: Intermediate
 
@@ -680,11 +689,11 @@ public void useConnectionPooling(HikariCP)() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q29: How do you implement Garbage Collection Tuning (G1GC) in a Java application?
+### Q29: How do you implement Garbage Collection Tuning (G1GC)?
 
 **Difficulty**: Intermediate
 
@@ -699,11 +708,11 @@ public void useGarbageCollectionTuning(G1GC)() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q30: How do you implement JIT Compiler in a Java application?
+### Q30: How do you implement JIT Compiler?
 
 **Difficulty**: Intermediate
 
@@ -718,11 +727,11 @@ public void useJITCompiler() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q31: How do you implement ClassLoaders in a Java application?
+### Q31: How do you implement ClassLoaders?
 
 **Difficulty**: Intermediate
 
@@ -737,11 +746,11 @@ public void useClassLoaders() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q32: How do you implement JPMS (Modules) in a Java application?
+### Q32: How do you implement JPMS (Modules)?
 
 **Difficulty**: Intermediate
 
@@ -756,11 +765,11 @@ public void useJPMS(Modules)() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q33: How do you implement Varargs in a Java application?
+### Q33: How do you implement Varargs?
 
 **Difficulty**: Intermediate
 
@@ -775,11 +784,11 @@ public void useVarargs() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q34: How do you implement Try-With-Resources in a Java application?
+### Q34: How do you implement Try-With-Resources?
 
 **Difficulty**: Intermediate
 
@@ -794,11 +803,11 @@ public void useTryWithResources() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q35: How do you implement Switch Expressions in a Java application?
+### Q35: How do you implement Switch Expressions?
 
 **Difficulty**: Intermediate
 
@@ -813,11 +822,11 @@ public void useSwitchExpressions() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q36: How do you implement Text Blocks in a Java application?
+### Q36: How do you implement Text Blocks?
 
 **Difficulty**: Intermediate
 
@@ -832,11 +841,11 @@ public void useTextBlocks() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q37: How do you implement Pattern Matching for instanceof in a Java application?
+### Q37: How do you implement Pattern Matching for instanceof?
 
 **Difficulty**: Intermediate
 
@@ -851,11 +860,11 @@ public void usePatternMatchingforinstanceof() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q38: How do you implement Sealed Classes in a Java application?
+### Q38: How do you implement Sealed Classes?
 
 **Difficulty**: Intermediate
 
@@ -870,11 +879,11 @@ public void useSealedClasses() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q39: How do you implement Records in a Java application?
+### Q39: How do you implement Records?
 
 **Difficulty**: Intermediate
 
@@ -889,11 +898,11 @@ public void useRecords() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q40: How do you implement Foreign Function & Memory API in a Java application?
+### Q40: How do you implement Foreign Function & Memory API?
 
 **Difficulty**: Intermediate
 
@@ -908,11 +917,11 @@ public void useForeignFunctionMemoryAPI() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q41: How do you implement Virtual Threads (Project Loom) in a Java application?
+### Q41: How do you implement Virtual Threads (Project Loom)?
 
 **Difficulty**: Intermediate
 
@@ -927,11 +936,11 @@ public void useVirtualThreads(ProjectLoom)() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q42: How do you implement Structured Concurrency in a Java application?
+### Q42: How do you implement Structured Concurrency?
 
 **Difficulty**: Intermediate
 
@@ -946,11 +955,11 @@ public void useStructuredConcurrency() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q43: How do you implement Vector API in a Java application?
+### Q43: How do you implement Vector API?
 
 **Difficulty**: Intermediate
 
@@ -965,11 +974,11 @@ public void useVectorAPI() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q44: How do you implement JPA/Hibernate in a Java application?
+### Q44: How do you implement JPA/Hibernate?
 
 **Difficulty**: Intermediate
 
@@ -984,11 +993,11 @@ public void useJPAHibernate() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q45: How do you implement Spring Data JPA in a Java application?
+### Q45: How do you implement Spring Data JPA?
 
 **Difficulty**: Intermediate
 
@@ -1003,11 +1012,11 @@ public void useSpringDataJPA() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q46: How do you implement Spring Security in a Java application?
+### Q46: How do you implement Spring Security?
 
 **Difficulty**: Intermediate
 
@@ -1022,11 +1031,11 @@ public void useSpringSecurity() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q47: How do you implement JWT Auth in a Java application?
+### Q47: How do you implement JWT Auth?
 
 **Difficulty**: Intermediate
 
@@ -1041,11 +1050,11 @@ public void useJWTAuth() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q48: How do you implement OAuth2 in a Java application?
+### Q48: How do you implement OAuth2?
 
 **Difficulty**: Intermediate
 
@@ -1060,11 +1069,11 @@ public void useOAuth2() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q49: How do you implement Reactive Streams in a Java application?
+### Q49: How do you implement Reactive Streams?
 
 **Difficulty**: Advanced
 
@@ -1079,11 +1088,11 @@ public void useReactiveStreams() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q50: How do you implement Project Reactor in a Java application?
+### Q50: How do you implement Project Reactor?
 
 **Difficulty**: Advanced
 
@@ -1098,11 +1107,11 @@ public void useProjectReactor() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q51: How do you implement Netty in a Java application?
+### Q51: How do you implement Netty?
 
 **Difficulty**: Advanced
 
@@ -1117,11 +1126,11 @@ public void useNetty() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you implement Microservices in a Java application?
+### Q52: How do you implement Microservices?
 
 **Difficulty**: Advanced
 
@@ -1136,11 +1145,11 @@ public void useMicroservices() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q53: How do you implement Service Discovery in a Java application?
+### Q53: How do you implement Service Discovery?
 
 **Difficulty**: Advanced
 
@@ -1155,11 +1164,11 @@ public void useServiceDiscovery() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q54: How do you implement Circuit Breaker in a Java application?
+### Q54: How do you implement Circuit Breaker?
 
 **Difficulty**: Advanced
 
@@ -1174,11 +1183,11 @@ public void useCircuitBreaker() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q55: How do you implement API Gateway in a Java application?
+### Q55: How do you implement API Gateway?
 
 **Difficulty**: Advanced
 
@@ -1193,11 +1202,11 @@ public void useAPIGateway() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you implement Distributed Tracing in a Java application?
+### Q56: How do you implement Distributed Tracing?
 
 **Difficulty**: Advanced
 
@@ -1212,11 +1221,11 @@ public void useDistributedTracing() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you implement Health Checks in a Java application?
+### Q57: How do you implement Health Checks?
 
 **Difficulty**: Intermediate
 
@@ -1231,11 +1240,11 @@ public void useHealthChecks() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q58: How do you implement Prometheus Metrics in a Java application?
+### Q58: How do you implement Prometheus Metrics?
 
 **Difficulty**: Intermediate
 
@@ -1250,11 +1259,11 @@ public void usePrometheusMetrics() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you implement Dockerizing Java in a Java application?
+### Q59: How do you implement Dockerizing Java?
 
 **Difficulty**: Intermediate
 
@@ -1269,11 +1278,11 @@ public void useDockerizingJava() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q60: How do you implement Kubernetes Java in a Java application?
+### Q60: How do you implement Kubernetes Java?
 
 **Difficulty**: Advanced
 
@@ -1288,11 +1297,11 @@ public void useKubernetesJava() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q61: How do you implement GraphQL Java in a Java application?
+### Q61: How do you implement GraphQL Java?
 
 **Difficulty**: Intermediate
 
@@ -1307,11 +1316,11 @@ public void useGraphQLJava() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q62: How do you implement WebSocket in a Java application?
+### Q62: How do you implement WebSocket?
 
 **Difficulty**: Intermediate
 
@@ -1326,11 +1335,11 @@ public void useWebSocket() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: How do you implement RMI in a Java application?
+### Q63: How do you implement RMI?
 
 **Difficulty**: Advanced
 
@@ -1345,11 +1354,11 @@ public void useRMI() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you implement JNDI in a Java application?
+### Q64: How do you implement JNDI?
 
 **Difficulty**: Advanced
 
@@ -1364,11 +1373,11 @@ public void useJNDI() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you implement JMX in a Java application?
+### Q65: How do you implement JMX?
 
 **Difficulty**: Advanced
 
@@ -1383,11 +1392,11 @@ public void useJMX() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q66: How do you implement Serialization in a Java application?
+### Q66: How do you implement Serialization?
 
 **Difficulty**: Beginner
 
@@ -1402,11 +1411,11 @@ public void useSerialization() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you implement Externalization in a Java application?
+### Q67: How do you implement Externalization?
 
 **Difficulty**: Advanced
 
@@ -1421,11 +1430,11 @@ public void useExternalization() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you implement Cloneable in a Java application?
+### Q68: How do you implement Cloneable?
 
 **Difficulty**: Beginner
 
@@ -1440,11 +1449,11 @@ public void useCloneable() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you implement WeakReference in a Java application?
+### Q69: How do you implement WeakReference?
 
 **Difficulty**: Advanced
 
@@ -1459,11 +1468,11 @@ public void useWeakReference() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q70: How do you implement SoftReference in a Java application?
+### Q70: How do you implement SoftReference?
 
 **Difficulty**: Advanced
 
@@ -1478,11 +1487,11 @@ public void useSoftReference() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you implement PhantomReference in a Java application?
+### Q71: How do you implement PhantomReference?
 
 **Difficulty**: Advanced
 
@@ -1497,11 +1506,11 @@ public void usePhantomReference() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you implement ThreadLocal in a Java application?
+### Q72: How do you implement ThreadLocal?
 
 **Difficulty**: Advanced
 
@@ -1516,11 +1525,11 @@ public void useThreadLocal() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you implement CompletableFuture in a Java application?
+### Q73: How do you implement CompletableFuture?
 
 **Difficulty**: Intermediate
 
@@ -1535,11 +1544,11 @@ public void useCompletableFuture() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you implement CountDownLatch in a Java application?
+### Q74: How do you implement CountDownLatch?
 
 **Difficulty**: Intermediate
 
@@ -1554,11 +1563,11 @@ public void useCountDownLatch() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q75: How do you implement CyclicBarrier in a Java application?
+### Q75: How do you implement CyclicBarrier?
 
 **Difficulty**: Intermediate
 
@@ -1573,11 +1582,11 @@ public void useCyclicBarrier() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q76: How do you implement Semaphore in a Java application?
+### Q76: How do you implement Semaphore?
 
 **Difficulty**: Intermediate
 
@@ -1592,11 +1601,11 @@ public void useSemaphore() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q77: How do you implement Phaser in a Java application?
+### Q77: How do you implement Phaser?
 
 **Difficulty**: Intermediate
 
@@ -1611,11 +1620,11 @@ public void usePhaser() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q78: How do you implement Exchanger in a Java application?
+### Q78: How do you implement Exchanger?
 
 **Difficulty**: Intermediate
 
@@ -1630,11 +1639,11 @@ public void useExchanger() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you implement BlockingQueue in a Java application?
+### Q79: How do you implement BlockingQueue?
 
 **Difficulty**: Intermediate
 
@@ -1649,11 +1658,11 @@ public void useBlockingQueue() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q80: How do you implement PriorityQueue in a Java application?
+### Q80: How do you implement PriorityQueue?
 
 **Difficulty**: Beginner
 
@@ -1668,11 +1677,11 @@ public void usePriorityQueue() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you implement LinkedList vs ArrayList in a Java application?
+### Q81: How do you implement LinkedList vs ArrayList?
 
 **Difficulty**: Beginner
 
@@ -1687,11 +1696,11 @@ public void useLinkedListvsArrayList() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you implement HashMap vs TreeMap in a Java application?
+### Q82: How do you implement HashMap vs TreeMap?
 
 **Difficulty**: Beginner
 
@@ -1706,11 +1715,11 @@ public void useHashMapvsTreeMap() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you implement ConcurrentHashMap in a Java application?
+### Q83: How do you implement ConcurrentHashMap?
 
 **Difficulty**: Intermediate
 
@@ -1725,11 +1734,11 @@ public void useConcurrentHashMap() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q84: How do you implement CopyOnWriteArrayList in a Java application?
+### Q84: How do you implement CopyOnWriteArrayList?
 
 **Difficulty**: Intermediate
 
@@ -1744,11 +1753,11 @@ public void useCopyOnWriteArrayList() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q85: How do you implement IdentityHashMap in a Java application?
+### Q85: How do you implement IdentityHashMap?
 
 **Difficulty**: Advanced
 
@@ -1763,11 +1772,11 @@ public void useIdentityHashMap() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q86: How do you implement WeakHashMap in a Java application?
+### Q86: How do you implement WeakHashMap?
 
 **Difficulty**: Advanced
 
@@ -1782,11 +1791,11 @@ public void useWeakHashMap() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you implement EnumSet in a Java application?
+### Q87: How do you implement EnumSet?
 
 **Difficulty**: Intermediate
 
@@ -1801,11 +1810,11 @@ public void useEnumSet() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q88: How do you implement BitSet in a Java application?
+### Q88: How do you implement BitSet?
 
 **Difficulty**: Intermediate
 
@@ -1820,11 +1829,11 @@ public void useBitSet() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you implement BigInteger in a Java application?
+### Q89: How do you implement BigInteger?
 
 **Difficulty**: Beginner
 
@@ -1839,11 +1848,11 @@ public void useBigInteger() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q90: How do you implement BigDecimal in a Java application?
+### Q90: How do you implement BigDecimal?
 
 **Difficulty**: Beginner
 
@@ -1858,11 +1867,11 @@ public void useBigDecimal() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q91: How do you implement UUID in a Java application?
+### Q91: How do you implement UUID?
 
 **Difficulty**: Beginner
 
@@ -1877,11 +1886,11 @@ public void useUUID() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q92: How do you implement Base64 in a Java application?
+### Q92: How do you implement Base64?
 
 **Difficulty**: Beginner
 
@@ -1896,11 +1905,11 @@ public void useBase64() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: How do you implement MessageDigest in a Java application?
+### Q93: How do you implement MessageDigest?
 
 **Difficulty**: Intermediate
 
@@ -1915,11 +1924,11 @@ public void useMessageDigest() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you implement Cipher in a Java application?
+### Q94: How do you implement Cipher?
 
 **Difficulty**: Intermediate
 
@@ -1934,11 +1943,11 @@ public void useCipher() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you implement Signature in a Java application?
+### Q95: How do you implement Signature?
 
 **Difficulty**: Intermediate
 
@@ -1953,11 +1962,11 @@ public void useSignature() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q96: How do you implement SecureRandom in a Java application?
+### Q96: How do you implement SecureRandom?
 
 **Difficulty**: Intermediate
 
@@ -1972,11 +1981,11 @@ public void useSecureRandom() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you implement KeyStore in a Java application?
+### Q97: How do you implement KeyStore?
 
 **Difficulty**: Intermediate
 
@@ -1991,11 +2000,11 @@ public void useKeyStore() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you implement SSLContext in a Java application?
+### Q98: How do you implement SSLContext?
 
 **Difficulty**: Advanced
 
@@ -2010,11 +2019,11 @@ public void useSSLContext() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you implement HttpClient (Java 11) in a Java application?
+### Q99: How do you implement HttpClient (Java 11)?
 
 **Difficulty**: Intermediate
 
@@ -2029,11 +2038,11 @@ public void useHttpClient(Java11)() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q100: How do you implement UrlConnection in a Java application?
+### Q100: How do you implement UrlConnection?
 
 **Difficulty**: Beginner
 
@@ -2048,11 +2057,11 @@ public void useUrlConnection() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q101: How do you implement Socket Programming in a Java application?
+### Q101: How do you implement Socket Programming?
 
 **Difficulty**: Intermediate
 
@@ -2067,11 +2076,11 @@ public void useSocketProgramming() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q102: How do you implement DatagramSocket in a Java application?
+### Q102: How do you implement DatagramSocket?
 
 **Difficulty**: Intermediate
 
@@ -2086,11 +2095,11 @@ public void useDatagramSocket() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q103: How do you implement NIO Channels in a Java application?
+### Q103: How do you implement NIO Channels?
 
 **Difficulty**: Advanced
 
@@ -2105,11 +2114,11 @@ public void useNIOChannels() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q104: How do you implement NIO Buffers in a Java application?
+### Q104: How do you implement NIO Buffers?
 
 **Difficulty**: Advanced
 
@@ -2124,11 +2133,11 @@ public void useNIOBuffers() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q105: How do you implement NIO Selectors in a Java application?
+### Q105: How do you implement NIO Selectors?
 
 **Difficulty**: Advanced
 
@@ -2143,11 +2152,11 @@ public void useNIOSelectors() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q106: How do you implement Path API in a Java application?
+### Q106: How do you implement Path API?
 
 **Difficulty**: Beginner
 
@@ -2162,11 +2171,11 @@ public void usePathAPI() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q107: How do you implement Files API in a Java application?
+### Q107: How do you implement Files API?
 
 **Difficulty**: Beginner
 
@@ -2181,11 +2190,11 @@ public void useFilesAPI() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q108: How do you implement WatchService in a Java application?
+### Q108: How do you implement WatchService?
 
 **Difficulty**: Advanced
 
@@ -2200,11 +2209,11 @@ public void useWatchService() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q109: How do you implement ZipInputStream in a Java application?
+### Q109: How do you implement ZipInputStream?
 
 **Difficulty**: Intermediate
 
@@ -2219,7 +2228,7 @@ public void useZipInputStream() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

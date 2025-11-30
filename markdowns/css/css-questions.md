@@ -1,267 +1,279 @@
-## Table of Contents
-| No. | Question | Difficulty |
-| --- | -------- | ---------- |
-| 1 | [How do you implement a responsive grid layout that automatically adjusts columns based on available width without using media queries?](#how-do-you-implement-a-responsive-grid-layout-that-automatically-adjusts-columns-based-on-available-width-without-using-media-queries) | Intermediate |
-| 2 | [How do you center an element both vertically and horizontally using modern CSS?](#how-do-you-center-an-element-both-vertically-and-horizontally-using-modern-css) | Beginner |
-| 3 | [How do you prevent Cumulative Layout Shift (CLS) when loading images?](#how-do-you-prevent-cumulative-layout-shift-cls-when-loading-images) | Intermediate |
-| 4 | [How do you debug CSS specificity conflicts where a style is not applying?](#how-do-you-debug-css-specificity-conflicts-where-a-style-is-not-applying) | Intermediate |
-| 5 | [How do you implement a 'sticky' header that stays at the top of the viewport when scrolling?](#how-do-you-implement-a-sticky-header-that-stays-at-the-top-of-the-viewport-when-scrolling) | Beginner |
-| 6 | [How do you use CSS Custom Properties (Variables) to implement a Dark Mode theme?](#how-do-you-use-css-custom-properties-variables-to-implement-a-dark-mode-theme) | Intermediate |
-| 7 | [How do you create a pure CSS tooltip without using JavaScript?](#how-do-you-create-a-pure-css-tooltip-without-using-javascript) | Advanced |
-| 8 | [How do you optimize CSS animation performance to achieve 60fps?](#how-do-you-optimize-css-animation-performance-to-achieve-60fps) | Advanced |
-| 9 | [How do you truncate multi-line text with an ellipsis (...) using CSS?](#how-do-you-truncate-multi-line-text-with-an-ellipsis--using-css) | Intermediate |
-| 10 | [How do you target the parent of an element in CSS (e.g., style a card if it contains an image)?](#how-do-you-target-the-parent-of-an-element-in-css-eg-style-a-card-if-it-contains-an-image) | Advanced |
-| 11 | [How do you implement a custom checkbox using CSS while maintaining accessibility?](#how-do-you-implement-a-custom-checkbox-using-css-while-maintaining-accessibility) | Advanced |
-| 12 | [How do you use CSS Container Queries to build component-based responsive styles?](#how-do-you-use-css-container-queries-to-build-component-based-responsive-styles) | Advanced |
-| 13 | [How do you create a visual parallax scrolling effect with CSS only?](#how-do-you-create-a-visual-parallax-scrolling-effect-with-css-only) | Intermediate |
-| 14 | [How do you ensure an element is hidden visually but remains accessible to screen readers?](#how-do-you-ensure-an-element-is-hidden-visually-but-remains-accessible-to-screen-readers) | Intermediate |
-| 15 | [How do you style a broken image to provide a better user experience?](#how-do-you-style-a-broken-image-to-provide-a-better-user-experience) | Intermediate |
-| 16 | [How do you handle Pseudo-classes challenges in a complex web application? (Scenario 16)](#how-do-you-handle-pseudo-classes-challenges-in-a-complex-web-application-scenario-16) | Intermediate |
-| 17 | [How do you handle Pseudo-elements challenges in a complex web application? (Scenario 17)](#how-do-you-handle-pseudo-elements-challenges-in-a-complex-web-application-scenario-17) | Intermediate |
-| 18 | [How do you handle Media Queries challenges in a complex web application? (Scenario 18)](#how-do-you-handle-media-queries-challenges-in-a-complex-web-application-scenario-18) | Intermediate |
-| 19 | [How do you handle Container Queries challenges in a complex web application? (Scenario 19)](#how-do-you-handle-container-queries-challenges-in-a-complex-web-application-scenario-19) | Intermediate |
-| 20 | [How do you handle Logical Properties challenges in a complex web application? (Scenario 20)](#how-do-you-handle-logical-properties-challenges-in-a-complex-web-application-scenario-20) | Intermediate |
-| 21 | [How do you handle Dark Mode challenges in a complex web application? (Scenario 21)](#how-do-you-handle-dark-mode-challenges-in-a-complex-web-application-scenario-21) | Intermediate |
-| 22 | [How do you handle Accessibility challenges in a complex web application? (Scenario 22)](#how-do-you-handle-accessibility-challenges-in-a-complex-web-application-scenario-22) | Intermediate |
-| 23 | [How do you handle Performance challenges in a complex web application? (Scenario 23)](#how-do-you-handle-performance-challenges-in-a-complex-web-application-scenario-23) | Intermediate |
-| 24 | [How do you handle Shadow DOM challenges in a complex web application? (Scenario 24)](#how-do-you-handle-shadow-dom-challenges-in-a-complex-web-application-scenario-24) | Intermediate |
-| 25 | [How do you handle CSS Shapes challenges in a complex web application? (Scenario 25)](#how-do-you-handle-css-shapes-challenges-in-a-complex-web-application-scenario-25) | Intermediate |
-| 26 | [How do you handle Filters & Effects challenges in a complex web application? (Scenario 26)](#how-do-you-handle-filters-&-effects-challenges-in-a-complex-web-application-scenario-26) | Intermediate |
-| 27 | [How do you handle SVG Styling challenges in a complex web application? (Scenario 27)](#how-do-you-handle-svg-styling-challenges-in-a-complex-web-application-scenario-27) | Intermediate |
-| 28 | [How do you handle Print Styles challenges in a complex web application? (Scenario 28)](#how-do-you-handle-print-styles-challenges-in-a-complex-web-application-scenario-28) | Intermediate |
-| 29 | [How do you handle Browser Compatibility challenges in a complex web application? (Scenario 29)](#how-do-you-handle-browser-compatibility-challenges-in-a-complex-web-application-scenario-29) | Intermediate |
-| 30 | [How do you handle Flexbox Layouts challenges in a complex web application? (Scenario 30)](#how-do-you-handle-flexbox-layouts-challenges-in-a-complex-web-application-scenario-30) | Intermediate |
-| 31 | [How do you handle Grid Systems challenges in a complex web application? (Scenario 31)](#how-do-you-handle-grid-systems-challenges-in-a-complex-web-application-scenario-31) | Intermediate |
-| 32 | [How do you handle Responsive Design challenges in a complex web application? (Scenario 32)](#how-do-you-handle-responsive-design-challenges-in-a-complex-web-application-scenario-32) | Intermediate |
-| 33 | [How do you handle CSS Animations challenges in a complex web application? (Scenario 33)](#how-do-you-handle-css-animations-challenges-in-a-complex-web-application-scenario-33) | Intermediate |
-| 34 | [How do you handle Transitions challenges in a complex web application? (Scenario 34)](#how-do-you-handle-transitions-challenges-in-a-complex-web-application-scenario-34) | Intermediate |
-| 35 | [How do you handle Typography challenges in a complex web application? (Scenario 35)](#how-do-you-handle-typography-challenges-in-a-complex-web-application-scenario-35) | Intermediate |
-| 36 | [How do you handle CSS Variables challenges in a complex web application? (Scenario 36)](#how-do-you-handle-css-variables-challenges-in-a-complex-web-application-scenario-36) | Intermediate |
-| 37 | [How do you handle Preprocessors (Sass/Less) challenges in a complex web application? (Scenario 37)](#how-do-you-handle-preprocessors-sassless-challenges-in-a-complex-web-application-scenario-37) | Intermediate |
-| 38 | [How do you handle CSS Modules challenges in a complex web application? (Scenario 38)](#how-do-you-handle-css-modules-challenges-in-a-complex-web-application-scenario-38) | Intermediate |
-| 39 | [How do you handle Styled Components challenges in a complex web application? (Scenario 39)](#how-do-you-handle-styled-components-challenges-in-a-complex-web-application-scenario-39) | Intermediate |
-| 40 | [How do you handle Tailwind CSS challenges in a complex web application? (Scenario 40)](#how-do-you-handle-tailwind-css-challenges-in-a-complex-web-application-scenario-40) | Intermediate |
-| 41 | [How do you handle BEM Methodology challenges in a complex web application? (Scenario 41)](#how-do-you-handle-bem-methodology-challenges-in-a-complex-web-application-scenario-41) | Intermediate |
-| 42 | [How do you handle Specificity challenges in a complex web application? (Scenario 42)](#how-do-you-handle-specificity-challenges-in-a-complex-web-application-scenario-42) | Intermediate |
-| 43 | [How do you handle Z-Index Management challenges in a complex web application? (Scenario 43)](#how-do-you-handle-z-index-management-challenges-in-a-complex-web-application-scenario-43) | Intermediate |
-| 44 | [How do you handle Positioning challenges in a complex web application? (Scenario 44)](#how-do-you-handle-positioning-challenges-in-a-complex-web-application-scenario-44) | Intermediate |
-| 45 | [How do you handle Box Model challenges in a complex web application? (Scenario 45)](#how-do-you-handle-box-model-challenges-in-a-complex-web-application-scenario-45) | Intermediate |
-| 46 | [How do you handle Pseudo-classes challenges in a complex web application? (Scenario 46)](#how-do-you-handle-pseudo-classes-challenges-in-a-complex-web-application-scenario-46) | Intermediate |
-| 47 | [How do you handle Pseudo-elements challenges in a complex web application? (Scenario 47)](#how-do-you-handle-pseudo-elements-challenges-in-a-complex-web-application-scenario-47) | Intermediate |
-| 48 | [How do you handle Media Queries challenges in a complex web application? (Scenario 48)](#how-do-you-handle-media-queries-challenges-in-a-complex-web-application-scenario-48) | Intermediate |
-| 49 | [How do you handle Container Queries challenges in a complex web application? (Scenario 49)](#how-do-you-handle-container-queries-challenges-in-a-complex-web-application-scenario-49) | Intermediate |
-| 50 | [How do you handle Logical Properties challenges in a complex web application? (Scenario 50)](#how-do-you-handle-logical-properties-challenges-in-a-complex-web-application-scenario-50) | Intermediate |
-| 51 | [How do you handle Dark Mode challenges in a complex web application? (Scenario 51)](#how-do-you-handle-dark-mode-challenges-in-a-complex-web-application-scenario-51) | Intermediate |
-| 52 | [How do you handle Accessibility challenges in a complex web application? (Scenario 52)](#how-do-you-handle-accessibility-challenges-in-a-complex-web-application-scenario-52) | Intermediate |
-| 53 | [How do you handle Performance challenges in a complex web application? (Scenario 53)](#how-do-you-handle-performance-challenges-in-a-complex-web-application-scenario-53) | Intermediate |
-| 54 | [How do you handle Shadow DOM challenges in a complex web application? (Scenario 54)](#how-do-you-handle-shadow-dom-challenges-in-a-complex-web-application-scenario-54) | Intermediate |
-| 55 | [How do you handle CSS Shapes challenges in a complex web application? (Scenario 55)](#how-do-you-handle-css-shapes-challenges-in-a-complex-web-application-scenario-55) | Intermediate |
-| 56 | [How do you handle Filters & Effects challenges in a complex web application? (Scenario 56)](#how-do-you-handle-filters-&-effects-challenges-in-a-complex-web-application-scenario-56) | Intermediate |
-| 57 | [How do you handle SVG Styling challenges in a complex web application? (Scenario 57)](#how-do-you-handle-svg-styling-challenges-in-a-complex-web-application-scenario-57) | Intermediate |
-| 58 | [How do you handle Print Styles challenges in a complex web application? (Scenario 58)](#how-do-you-handle-print-styles-challenges-in-a-complex-web-application-scenario-58) | Intermediate |
-| 59 | [How do you handle Browser Compatibility challenges in a complex web application? (Scenario 59)](#how-do-you-handle-browser-compatibility-challenges-in-a-complex-web-application-scenario-59) | Intermediate |
-| 60 | [How do you handle Flexbox Layouts challenges in a complex web application? (Scenario 60)](#how-do-you-handle-flexbox-layouts-challenges-in-a-complex-web-application-scenario-60) | Intermediate |
-| 61 | [How do you handle Grid Systems challenges in a complex web application? (Scenario 61)](#how-do-you-handle-grid-systems-challenges-in-a-complex-web-application-scenario-61) | Intermediate |
-| 62 | [How do you handle Responsive Design challenges in a complex web application? (Scenario 62)](#how-do-you-handle-responsive-design-challenges-in-a-complex-web-application-scenario-62) | Intermediate |
-| 63 | [How do you handle CSS Animations challenges in a complex web application? (Scenario 63)](#how-do-you-handle-css-animations-challenges-in-a-complex-web-application-scenario-63) | Intermediate |
-| 64 | [How do you handle Transitions challenges in a complex web application? (Scenario 64)](#how-do-you-handle-transitions-challenges-in-a-complex-web-application-scenario-64) | Intermediate |
-| 65 | [How do you handle Typography challenges in a complex web application? (Scenario 65)](#how-do-you-handle-typography-challenges-in-a-complex-web-application-scenario-65) | Intermediate |
-| 66 | [How do you handle CSS Variables challenges in a complex web application? (Scenario 66)](#how-do-you-handle-css-variables-challenges-in-a-complex-web-application-scenario-66) | Intermediate |
-| 67 | [How do you handle Preprocessors (Sass/Less) challenges in a complex web application? (Scenario 67)](#how-do-you-handle-preprocessors-sassless-challenges-in-a-complex-web-application-scenario-67) | Intermediate |
-| 68 | [How do you handle CSS Modules challenges in a complex web application? (Scenario 68)](#how-do-you-handle-css-modules-challenges-in-a-complex-web-application-scenario-68) | Intermediate |
-| 69 | [How do you handle Styled Components challenges in a complex web application? (Scenario 69)](#how-do-you-handle-styled-components-challenges-in-a-complex-web-application-scenario-69) | Intermediate |
-| 70 | [How do you handle Tailwind CSS challenges in a complex web application? (Scenario 70)](#how-do-you-handle-tailwind-css-challenges-in-a-complex-web-application-scenario-70) | Intermediate |
-| 71 | [How do you handle BEM Methodology challenges in a complex web application? (Scenario 71)](#how-do-you-handle-bem-methodology-challenges-in-a-complex-web-application-scenario-71) | Intermediate |
-| 72 | [How do you handle Specificity challenges in a complex web application? (Scenario 72)](#how-do-you-handle-specificity-challenges-in-a-complex-web-application-scenario-72) | Intermediate |
-| 73 | [How do you handle Z-Index Management challenges in a complex web application? (Scenario 73)](#how-do-you-handle-z-index-management-challenges-in-a-complex-web-application-scenario-73) | Intermediate |
-| 74 | [How do you handle Positioning challenges in a complex web application? (Scenario 74)](#how-do-you-handle-positioning-challenges-in-a-complex-web-application-scenario-74) | Intermediate |
-| 75 | [How do you handle Box Model challenges in a complex web application? (Scenario 75)](#how-do-you-handle-box-model-challenges-in-a-complex-web-application-scenario-75) | Intermediate |
-| 76 | [How do you handle Pseudo-classes challenges in a complex web application? (Scenario 76)](#how-do-you-handle-pseudo-classes-challenges-in-a-complex-web-application-scenario-76) | Intermediate |
-| 77 | [How do you handle Pseudo-elements challenges in a complex web application? (Scenario 77)](#how-do-you-handle-pseudo-elements-challenges-in-a-complex-web-application-scenario-77) | Intermediate |
-| 78 | [How do you handle Media Queries challenges in a complex web application? (Scenario 78)](#how-do-you-handle-media-queries-challenges-in-a-complex-web-application-scenario-78) | Intermediate |
-| 79 | [How do you handle Container Queries challenges in a complex web application? (Scenario 79)](#how-do-you-handle-container-queries-challenges-in-a-complex-web-application-scenario-79) | Intermediate |
-| 80 | [How do you handle Logical Properties challenges in a complex web application? (Scenario 80)](#how-do-you-handle-logical-properties-challenges-in-a-complex-web-application-scenario-80) | Intermediate |
-| 81 | [How do you handle Dark Mode challenges in a complex web application? (Scenario 81)](#how-do-you-handle-dark-mode-challenges-in-a-complex-web-application-scenario-81) | Intermediate |
-| 82 | [How do you handle Accessibility challenges in a complex web application? (Scenario 82)](#how-do-you-handle-accessibility-challenges-in-a-complex-web-application-scenario-82) | Intermediate |
-| 83 | [How do you handle Performance challenges in a complex web application? (Scenario 83)](#how-do-you-handle-performance-challenges-in-a-complex-web-application-scenario-83) | Intermediate |
-| 84 | [How do you handle Shadow DOM challenges in a complex web application? (Scenario 84)](#how-do-you-handle-shadow-dom-challenges-in-a-complex-web-application-scenario-84) | Intermediate |
-| 85 | [How do you handle CSS Shapes challenges in a complex web application? (Scenario 85)](#how-do-you-handle-css-shapes-challenges-in-a-complex-web-application-scenario-85) | Intermediate |
-| 86 | [How do you handle Filters & Effects challenges in a complex web application? (Scenario 86)](#how-do-you-handle-filters-&-effects-challenges-in-a-complex-web-application-scenario-86) | Intermediate |
-| 87 | [How do you handle SVG Styling challenges in a complex web application? (Scenario 87)](#how-do-you-handle-svg-styling-challenges-in-a-complex-web-application-scenario-87) | Intermediate |
-| 88 | [How do you handle Print Styles challenges in a complex web application? (Scenario 88)](#how-do-you-handle-print-styles-challenges-in-a-complex-web-application-scenario-88) | Intermediate |
-| 89 | [How do you handle Browser Compatibility challenges in a complex web application? (Scenario 89)](#how-do-you-handle-browser-compatibility-challenges-in-a-complex-web-application-scenario-89) | Intermediate |
-| 90 | [How do you handle Flexbox Layouts challenges in a complex web application? (Scenario 90)](#how-do-you-handle-flexbox-layouts-challenges-in-a-complex-web-application-scenario-90) | Intermediate |
-| 91 | [How do you handle Grid Systems challenges in a complex web application? (Scenario 91)](#how-do-you-handle-grid-systems-challenges-in-a-complex-web-application-scenario-91) | Intermediate |
-| 92 | [How do you handle Responsive Design challenges in a complex web application? (Scenario 92)](#how-do-you-handle-responsive-design-challenges-in-a-complex-web-application-scenario-92) | Intermediate |
-| 93 | [How do you handle CSS Animations challenges in a complex web application? (Scenario 93)](#how-do-you-handle-css-animations-challenges-in-a-complex-web-application-scenario-93) | Intermediate |
-| 94 | [How do you handle Transitions challenges in a complex web application? (Scenario 94)](#how-do-you-handle-transitions-challenges-in-a-complex-web-application-scenario-94) | Intermediate |
-| 95 | [How do you handle Typography challenges in a complex web application? (Scenario 95)](#how-do-you-handle-typography-challenges-in-a-complex-web-application-scenario-95) | Intermediate |
-| 96 | [How do you handle CSS Variables challenges in a complex web application? (Scenario 96)](#how-do-you-handle-css-variables-challenges-in-a-complex-web-application-scenario-96) | Intermediate |
-| 97 | [How do you handle Preprocessors (Sass/Less) challenges in a complex web application? (Scenario 97)](#how-do-you-handle-preprocessors-sassless-challenges-in-a-complex-web-application-scenario-97) | Intermediate |
-| 98 | [How do you handle CSS Modules challenges in a complex web application? (Scenario 98)](#how-do-you-handle-css-modules-challenges-in-a-complex-web-application-scenario-98) | Intermediate |
-| 99 | [How do you handle Styled Components challenges in a complex web application? (Scenario 99)](#how-do-you-handle-styled-components-challenges-in-a-complex-web-application-scenario-99) | Intermediate |
-| 100 | [How do you handle Tailwind CSS challenges in a complex web application? (Scenario 100)](#how-do-you-handle-tailwind-css-challenges-in-a-complex-web-application-scenario-100) | Intermediate |
-| 101 | [How do you handle BEM Methodology challenges in a complex web application? (Scenario 101)](#how-do-you-handle-bem-methodology-challenges-in-a-complex-web-application-scenario-101) | Intermediate |
-| 102 | [How do you handle Specificity challenges in a complex web application? (Scenario 102)](#how-do-you-handle-specificity-challenges-in-a-complex-web-application-scenario-102) | Intermediate |
-| 103 | [How do you handle Z-Index Management challenges in a complex web application? (Scenario 103)](#how-do-you-handle-z-index-management-challenges-in-a-complex-web-application-scenario-103) | Intermediate |
-| 104 | [How do you handle Positioning challenges in a complex web application? (Scenario 104)](#how-do-you-handle-positioning-challenges-in-a-complex-web-application-scenario-104) | Intermediate |
-| 105 | [How do you handle Box Model challenges in a complex web application? (Scenario 105)](#how-do-you-handle-box-model-challenges-in-a-complex-web-application-scenario-105) | Intermediate |
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>CSS Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for frontend developers</b></p>
+</div>
 
 ---
 
-### 1. How do you implement a responsive grid layout that automatically adjusts columns based on available width without using media queries?
+## Table of Contents
+
+1. [How do you implement a responsive 12-column grid using CSS Grid?](#q1-how-do-you-implement-a-responsive-12-column-grid-using-css-grid) <span class="intermediate">Intermediate</span>
+2. [How do you center an element absolutely both vertically and horizontally?](#q2-how-do-you-center-an-element-absolutely-both-vertically-and-horizontally) <span class="intermediate">Intermediate</span>
+3. [How do you implement a sticky footer that stays at the bottom even with little content?](#q3-how-do-you-implement-a-sticky-footer-that-stays-at-the-bottom-even-with-little-content) <span class="intermediate">Intermediate</span>
+4. [How do you implement a pure CSS tooltip?](#q4-how-do-you-implement-a-pure-css-tooltip) <span class="intermediate">Intermediate</span>
+5. [How do you create a custom checkbox using CSS?](#q5-how-do-you-create-a-custom-checkbox-using-css) <span class="intermediate">Intermediate</span>
+6. [How do you implement Dark Mode using CSS Variables?](#q6-how-do-you-implement-dark-mode-using-css-variables) <span class="intermediate">Intermediate</span>
+7. [How do you create a responsive aspect ratio box (e.g., 16:9 video embed)?](#q7-how-do-you-create-a-responsive-aspect-ratio-box-eg-16:9-video-embed) <span class="intermediate">Intermediate</span>
+8. [How do you truncate text with an ellipsis (...) for a single line and multiple lines?](#q8-how-do-you-truncate-text-with-an-ellipsis--for-a-single-line-and-multiple-lines) <span class="intermediate">Intermediate</span>
+9. [How do you use Container Queries to build component-based responsive styles?](#q9-how-do-you-use-container-queries-to-build-component-based-responsive-styles) <span class="intermediate">Intermediate</span>
+10. [How do you optimize CSS performance (Painting and Layout)?](#q10-how-do-you-optimize-css-performance-painting-and-layout) <span class="intermediate">Intermediate</span>
+11. [How do you implement a parallax scrolling effect purely in CSS?](#q11-how-do-you-implement-a-parallax-scrolling-effect-purely-in-css) <span class="intermediate">Intermediate</span>
+12. [How do you ensure an element is visually hidden but accessible to screen readers?](#q12-how-do-you-ensure-an-element-is-visually-hidden-but-accessible-to-screen-readers) <span class="intermediate">Intermediate</span>
+13. [How do you implement a CSS Triangle?](#q13-how-do-you-implement-a-css-triangle) <span class="intermediate">Intermediate</span>
+14. [How do you prevent content layout shift (CLS) for images?](#q14-how-do-you-prevent-content-layout-shift-cls-for-images) <span class="intermediate">Intermediate</span>
+15. [How do you implement a masonry layout using CSS only?](#q15-how-do-you-implement-a-masonry-layout-using-css-only) <span class="intermediate">Intermediate</span>
+16. [How do you use Flexbox for a navigation bar?](#q16-how-do-you-use-flexbox-for-a-navigation-bar) <span class="intermediate">Intermediate</span>
+17. [How do you use `flex-grow`, `flex-shrink`, and `flex-basis`?](#q17-how-do-you-use-flex-grow-flex-shrink-and-flex-basis) <span class="intermediate">Intermediate</span>
+18. [How do you implement a sidebar layout with Flexbox?](#q18-how-do-you-implement-a-sidebar-layout-with-flexbox) <span class="intermediate">Intermediate</span>
+19. [How do you align items in a grid using `justify-items` and `align-items`?](#q19-how-do-you-align-items-in-a-grid-using-justify-items-and-align-items) <span class="intermediate">Intermediate</span>
+20. [How do you use `minmax()` in CSS Grid?](#q20-how-do-you-use-minmax-in-css-grid) <span class="intermediate">Intermediate</span>
+21. [How do you create overlapping elements with CSS Grid?](#q21-how-do-you-create-overlapping-elements-with-css-grid) <span class="intermediate">Intermediate</span>
+22. [How do you use `z-index` and stacking contexts effectively?](#q22-how-do-you-use-z-index-and-stacking-contexts-effectively) <span class="intermediate">Intermediate</span>
+23. [How do you debug `z-index` issues?](#q23-how-do-you-debug-z-index-issues) <span class="intermediate">Intermediate</span>
+24. [How do you style a scrollbar using `::-webkit-scrollbar`?](#q24-how-do-you-style-a-scrollbar-using-::-webkit-scrollbar) <span class="intermediate">Intermediate</span>
+25. [How do you use `scroll-behavior: smooth`?](#q25-how-do-you-use-scroll-behavior:-smooth) <span class="intermediate">Intermediate</span>
+26. [How do you use `scroll-snap-type` for snapping sections?](#q26-how-do-you-use-scroll-snap-type-for-snapping-sections) <span class="intermediate">Intermediate</span>
+27. [How do you implement a CSS reset or normalize?](#q27-how-do-you-implement-a-css-reset-or-normalize) <span class="intermediate">Intermediate</span>
+28. [How do you use `box-sizing: border-box` globally?](#q28-how-do-you-use-box-sizing:-border-box-globally) <span class="intermediate">Intermediate</span>
+29. [How do you style inputs to look consistent across browsers?](#q29-how-do-you-style-inputs-to-look-consistent-across-browsers) <span class="intermediate">Intermediate</span>
+30. [How do you remove the default outline on focus (and what to replace it with)?](#q30-how-do-you-remove-the-default-outline-on-focus-and-what-to-replace-it-with) <span class="intermediate">Intermediate</span>
+31. [How do you style a broken image using `img::before`?](#q31-how-do-you-style-a-broken-image-using-img::before) <span class="intermediate">Intermediate</span>
+32. [How do you style list markers using `::marker`?](#q32-how-do-you-style-list-markers-using-::marker) <span class="intermediate">Intermediate</span>
+33. [How do you use `object-fit` and `object-position` for images?](#q33-how-do-you-use-object-fit-and-object-position-for-images) <span class="intermediate">Intermediate</span>
+34. [How do you use `background-size: cover` vs `contain`?](#q34-how-do-you-use-background-size:-cover-vs-contain) <span class="intermediate">Intermediate</span>
+35. [How do you create a gradient background?](#q35-how-do-you-create-a-gradient-background) <span class="intermediate">Intermediate</span>
+36. [How do you create a text gradient?](#q36-how-do-you-create-a-text-gradient) <span class="intermediate">Intermediate</span>
+37. [How do you use `clip-path` to create shapes?](#q37-how-do-you-use-clip-path-to-create-shapes) <span class="intermediate">Intermediate</span>
+38. [How do you use `mask-image` for transparency masks?](#q38-how-do-you-use-mask-image-for-transparency-masks) <span class="intermediate">Intermediate</span>
+39. [How do you use `backdrop-filter` for glassmorphism?](#q39-how-do-you-use-backdrop-filter-for-glassmorphism) <span class="intermediate">Intermediate</span>
+40. [How do you use `filter` for image effects (blur, grayscale)?](#q40-how-do-you-use-filter-for-image-effects-blur-grayscale) <span class="intermediate">Intermediate</span>
+41. [How do you use `mix-blend-mode` for blending effects?](#q41-how-do-you-use-mix-blend-mode-for-blending-effects) <span class="intermediate">Intermediate</span>
+42. [How do you implement a loading spinner with CSS animations?](#q42-how-do-you-implement-a-loading-spinner-with-css-animations) <span class="intermediate">Intermediate</span>
+43. [How do you create a shake animation?](#q43-how-do-you-create-a-shake-animation) <span class="intermediate">Intermediate</span>
+44. [How do you pause an animation on hover?](#q44-how-do-you-pause-an-animation-on-hover) <span class="intermediate">Intermediate</span>
+45. [How do you use CSS transitions for hover effects?](#q45-how-do-you-use-css-transitions-for-hover-effects) <span class="intermediate">Intermediate</span>
+46. [How do you use the `:not()` pseudo-class?](#q46-how-do-you-use-the-:not-pseudo-class) <span class="intermediate">Intermediate</span>
+47. [How do you use the `:has()` pseudo-class (parent selector)?](#q47-how-do-you-use-the-:has-pseudo-class-parent-selector) <span class="intermediate">Intermediate</span>
+48. [How do you use the `:is()` and `:where()` pseudo-classes?](#q48-how-do-you-use-the-:is-and-:where-pseudo-classes) <span class="intermediate">Intermediate</span>
+49. [How do you use `:nth-child()` and `:nth-of-type()`?](#q49-how-do-you-use-:nth-child-and-:nth-of-type) <span class="intermediate">Intermediate</span>
+50. [How do you use `::first-letter` and `::first-line`?](#q50-how-do-you-use-::first-letter-and-::first-line) <span class="intermediate">Intermediate</span>
+51. [How do you use attribute selectors?](#q51-how-do-you-use-attribute-selectors) <span class="intermediate">Intermediate</span>
+52. [How do you style placeholder text?](#q52-how-do-you-style-placeholder-text) <span class="intermediate">Intermediate</span>
+53. [How do you style selection color (`::selection`)?](#q53-how-do-you-style-selection-color-::selection) <span class="intermediate">Intermediate</span>
+54. [How do you use CSS Variables for spacing and typography scales?](#q54-how-do-you-use-css-variables-for-spacing-and-typography-scales) <span class="intermediate">Intermediate</span>
+55. [How do you use `calc()` function?](#q55-how-do-you-use-calc-function) <span class="intermediate">Intermediate</span>
+56. [How do you use `clamp()` for responsive typography?](#q56-how-do-you-use-clamp-for-responsive-typography) <span class="intermediate">Intermediate</span>
+57. [How do you use viewport units (`vw`, `vh`, `dvh`, `lvh`)?](#q57-how-do-you-use-viewport-units-vw-vh-dvh-lvh) <span class="intermediate">Intermediate</span>
+58. [How do you handle notch areas on mobile (`safe-area-inset`)?](#q58-how-do-you-handle-notch-areas-on-mobile-safe-area-inset) <span class="intermediate">Intermediate</span>
+59. [How do you support high contrast mode?](#q59-how-do-you-support-high-contrast-mode) <span class="intermediate">Intermediate</span>
+60. [How do you use `@media (prefers-reduced-motion)`?](#q60-how-do-you-use-@media-prefers-reduced-motion) <span class="intermediate">Intermediate</span>
+61. [How do you use `@supports` to check for feature support?](#q61-how-do-you-use-@supports-to-check-for-feature-support) <span class="intermediate">Intermediate</span>
+62. [How do you use `@font-face` to load custom fonts?](#q62-how-do-you-use-@font-face-to-load-custom-fonts) <span class="intermediate">Intermediate</span>
+63. [How do you use `font-display: swap` for performance?](#q63-how-do-you-use-font-display:-swap-for-performance) <span class="intermediate">Intermediate</span>
+64. [How do you prevent text selection (`user-select`)?](#q64-how-do-you-prevent-text-selection-user-select) <span class="intermediate">Intermediate</span>
+65. [How do you enable hardware acceleration for animations?](#q65-how-do-you-enable-hardware-acceleration-for-animations) <span class="intermediate">Intermediate</span>
+66. [How do you style a `details` and `summary` element?](#q66-how-do-you-style-a-details-and-summary-element) <span class="intermediate">Intermediate</span>
+67. [How do you style a `range` input slider?](#q67-how-do-you-style-a-range-input-slider) <span class="intermediate">Intermediate</span>
+68. [How do you style a file input?](#q68-how-do-you-style-a-file-input) <span class="intermediate">Intermediate</span>
+69. [How do you create a custom toggle switch?](#q69-how-do-you-create-a-custom-toggle-switch) <span class="intermediate">Intermediate</span>
+70. [How do you create a pure CSS dropdown menu?](#q70-how-do-you-create-a-pure-css-dropdown-menu) <span class="intermediate">Intermediate</span>
+71. [How do you create a pure CSS modal (using `:target` or checkbox hack)?](#q71-how-do-you-create-a-pure-css-modal-using-:target-or-checkbox-hack) <span class="intermediate">Intermediate</span>
+72. [How do you create a pure CSS accordion?](#q72-how-do-you-create-a-pure-css-accordion) <span class="intermediate">Intermediate</span>
+73. [How do you create a pure CSS tab system?](#q73-how-do-you-create-a-pure-css-tab-system) <span class="intermediate">Intermediate</span>
+74. [How do you use `counters` for automatic numbering?](#q74-how-do-you-use-counters-for-automatic-numbering) <span class="intermediate">Intermediate</span>
+75. [How do you use `content` property in pseudo-elements?](#q75-how-do-you-use-content-property-in-pseudo-elements) <span class="intermediate">Intermediate</span>
+76. [How do you handle text overflow in a table cell?](#q76-how-do-you-handle-text-overflow-in-a-table-cell) <span class="intermediate">Intermediate</span>
+77. [How do you make a table responsive (scrollable or stacked)?](#q77-how-do-you-make-a-table-responsive-scrollable-or-stacked) <span class="intermediate">Intermediate</span>
+78. [How do you style alternate table rows?](#q78-how-do-you-style-alternate-table-rows) <span class="intermediate">Intermediate</span>
+79. [How do you stick a table header?](#q79-how-do-you-stick-a-table-header) <span class="intermediate">Intermediate</span>
+80. [How do you implement print styles (`@media print`)?](#q80-how-do-you-implement-print-styles-@media-print) <span class="intermediate">Intermediate</span>
+81. [How do you hide elements in print view?](#q81-how-do-you-hide-elements-in-print-view) <span class="intermediate">Intermediate</span>
+82. [How do you force page breaks in print?](#q82-how-do-you-force-page-breaks-in-print) <span class="intermediate">Intermediate</span>
+83. [How do you use `shape-outside` for text wrapping around images?](#q83-how-do-you-use-shape-outside-for-text-wrapping-around-images) <span class="intermediate">Intermediate</span>
+84. [How do you use `writing-mode` for vertical text?](#q84-how-do-you-use-writing-mode-for-vertical-text) <span class="intermediate">Intermediate</span>
+85. [How do you use `direction: rtl` for right-to-left languages?](#q85-how-do-you-use-direction:-rtl-for-right-to-left-languages) <span class="intermediate">Intermediate</span>
+86. [How do you use `text-align-last` for justified text?](#q86-how-do-you-use-text-align-last-for-justified-text) <span class="intermediate">Intermediate</span>
+87. [How do you use `text-decoration` styling (color, style, thickness)?](#q87-how-do-you-use-text-decoration-styling-color-style-thickness) <span class="intermediate">Intermediate</span>
+88. [How do you use `text-transform`?](#q88-how-do-you-use-text-transform) <span class="intermediate">Intermediate</span>
+89. [How do you use `letter-spacing` and `word-spacing`?](#q89-how-do-you-use-letter-spacing-and-word-spacing) <span class="intermediate">Intermediate</span>
+90. [How do you use `white-space` property?](#q90-how-do-you-use-white-space-property) <span class="intermediate">Intermediate</span>
+91. [How do you use `word-break` and `overflow-wrap`?](#q91-how-do-you-use-word-break-and-overflow-wrap) <span class="intermediate">Intermediate</span>
+92. [How do you use `hyphens` for auto-hyphenation?](#q92-how-do-you-use-hyphens-for-auto-hyphenation) <span class="intermediate">Intermediate</span>
+93. [How do you use `caret-color`?](#q93-how-do-you-use-caret-color) <span class="intermediate">Intermediate</span>
+94. [How do you use `resize` property on textareas?](#q94-how-do-you-use-resize-property-on-textareas) <span class="intermediate">Intermediate</span>
+95. [How do you use `pointer-events`?](#q95-how-do-you-use-pointer-events) <span class="intermediate">Intermediate</span>
+96. [How do you use `cursor` property?](#q96-how-do-you-use-cursor-property) <span class="intermediate">Intermediate</span>
+97. [How do you use `outline` vs `border`?](#q97-how-do-you-use-outline-vs-border) <span class="intermediate">Intermediate</span>
+98. [How do you use `outline-offset`?](#q98-how-do-you-use-outline-offset) <span class="intermediate">Intermediate</span>
+99. [How do you use `box-shadow` for elevation?](#q99-how-do-you-use-box-shadow-for-elevation) <span class="intermediate">Intermediate</span>
+100. [How do you create multiple borders using `box-shadow`?](#q100-how-do-you-create-multiple-borders-using-box-shadow) <span class="intermediate">Intermediate</span>
+101. [How do you use `border-radius` for different shapes?](#q101-how-do-you-use-border-radius-for-different-shapes) <span class="intermediate">Intermediate</span>
+102. [How do you use `border-image`?](#q102-how-do-you-use-border-image) <span class="intermediate">Intermediate</span>
+103. [How do you use `currentColor` keyword?](#q103-how-do-you-use-currentcolor-keyword) <span class="intermediate">Intermediate</span>
+104. [How do you use `display: contents`?](#q104-how-do-you-use-display:-contents) <span class="intermediate">Intermediate</span>
+105. [How do you use `display: inline-flex` vs `flex`?](#q105-how-do-you-use-display:-inline-flex-vs-flex) <span class="intermediate">Intermediate</span>
+106. [How do you use `visibility: collapse` (in tables)?](#q106-how-do-you-use-visibility:-collapse-in-tables) <span class="intermediate">Intermediate</span>
+107. [How do you use `empty-cells` in tables?](#q107-how-do-you-use-empty-cells-in-tables) <span class="intermediate">Intermediate</span>
+108. [How do you use `caption-side` in tables?](#q108-how-do-you-use-caption-side-in-tables) <span class="intermediate">Intermediate</span>
+109. [How do you use `table-layout: fixed` for performance?](#q109-how-do-you-use-table-layout:-fixed-for-performance) <span class="intermediate">Intermediate</span>
+110. [How do you use `list-style` properties?](#q110-how-do-you-use-list-style-properties) <span class="intermediate">Intermediate</span>
+111. [How do you use `background-attachment: fixed`?](#q111-how-do-you-use-background-attachment:-fixed) <span class="intermediate">Intermediate</span>
+112. [How do you use `background-clip`?](#q112-how-do-you-use-background-clip) <span class="intermediate">Intermediate</span>
+113. [How do you use `background-origin`?](#q113-how-do-you-use-background-origin) <span class="intermediate">Intermediate</span>
+114. [How do you use multiple backgrounds?](#q114-how-do-you-use-multiple-backgrounds) <span class="intermediate">Intermediate</span>
+115. [How do you use CSS sprites?](#q115-how-do-you-use-css-sprites) <span class="intermediate">Intermediate</span>
+116. [How do you use logical properties (`margin-block`, `padding-inline`)?](#q116-how-do-you-use-logical-properties-margin-block-padding-inline) <span class="intermediate">Intermediate</span>
+117. [How do you use `inset` property?](#q117-how-do-you-use-inset-property) <span class="intermediate">Intermediate</span>
+118. [How do you use `gap` in Flexbox?](#q118-how-do-you-use-gap-in-flexbox) <span class="intermediate">Intermediate</span>
+119. [How do you use `place-content` and `place-items` shorthand?](#q119-how-do-you-use-place-content-and-place-items-shorthand) <span class="intermediate">Intermediate</span>
+
+---
+
+### Q1: How do you implement a responsive 12-column grid using CSS Grid?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use CSS Grid with `repeat()`, `auto-fit` (or `auto-fill`), and `minmax()`. This creates as many columns as will fit into the container with a minimum width constraint.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+
+CSS Grid makes creating complex layouts easy.
+We can define a grid with 12 repeating columns of equal width (`1fr`) and a gap.
+We can then place items on this grid spanning multiple columns.
+
+**Code Snippet:**
 ```css
-.grid-container {
+.container {
   display: grid;
-  /* Creates dynamic columns min 250px wide */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.header {
+  grid-column: 1 / -1; /* Spans all columns */
+}
+
+.sidebar {
+  grid-column: span 3; /* Spans 3 columns */
+}
+
+.content {
+  grid-column: span 9; /* Spans 9 columns */
+}
+
+@media (max-width: 768px) {
+  .sidebar, .content {
+    grid-column: 1 / -1; /* Stack on mobile */
+  }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 2. How do you center an element both vertically and horizontally using modern CSS?
+### Q2: How do you center an element absolutely both vertically and horizontally?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy:**
-The most robust modern methods are Flexbox or CSS Grid. `place-items: center` in Grid is the most concise.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+
+There are multiple ways (Flexbox/Grid are preferred), but for absolute positioning:
+1. Set `top: 50%`, `left: 50%`.
+2. Use `transform: translate(-50%, -50%)` to shift it back by half its own width/height.
+
+**Code Snippet:**
 ```css
-/* Method 1: Grid (Shortest) */
-.container {
+.parent {
+  position: relative;
+  height: 300px;
+}
+
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Modern Alternative (if not absolute) */
+/*
+.parent {
   display: grid;
   place-items: center;
-  min-height: 100vh;
 }
-
-/* Method 2: Flexbox */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+*/
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 3. How do you prevent Cumulative Layout Shift (CLS) when loading images?
+### Q3: How do you implement a sticky footer that stays at the bottom even with little content?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Always reserve space for images by setting explicit `width` and `height` attributes or using the CSS `aspect-ratio` property. This allows the browser to calculate layout before the image downloads.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+
+The "Sticky Footer" problem is solved easily with Flexbox.
+Make the body (or wrapper) a flex container with `min-height: 100vh` and column direction.
+Set `margin-top: auto` on the footer, or `flex-grow: 1` on the main content.
+
+**Code Snippet:**
 ```css
-img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9; /* Reserves space */
-  object-fit: cover;
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 4. How do you debug CSS specificity conflicts where a style is not applying?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-1.  **Inspect Element:** Use DevTools to see which rule "wins" (crossed-out rules are overridden).
-2.  **Calculate Specificity:** (Inline, ID, Class/Attribute, Element). `0-1-0-0` beats `0-0-1-0`.
-3.  **Fix:** Increase specificity (add a class), reduce competing specificity, or use `@layer` to manage cascade order. Avoid `!important`.
-
-**Code Example:**
-```css
-/* Low specificity (0-0-1) */
-p { color: red; }
-
-/* High specificity (0-1-0) */
-.text-blue { color: blue; } /* Wins */
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 5. How do you implement a 'sticky' header that stays at the top of the viewport when scrolling?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Use `position: sticky` and ensure at least one threshold (e.g., `top: 0`) is set. Note that it won't work if a parent has `overflow: hidden`.
-
-**Code Example:**
-```css
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: white;
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 6. How do you use CSS Custom Properties (Variables) to implement a Dark Mode theme?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Define color variables in `:root` and override them in a `[data-theme="dark"]` selector or `@media (prefers-color-scheme: dark)`.
-
-**Code Example:**
-```css
-:root {
-  --bg-color: #ffffff;
-  --text-color: #333333;
-}
-
-[data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-}
-
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  flex: 1; /* Takes up remaining space */
+}
+
+footer {
+  background: #333;
+  color: white;
+  padding: 1rem;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 7. How do you create a pure CSS tooltip without using JavaScript?
+### Q4: How do you implement a pure CSS tooltip?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy:**
-Use a `data-tooltip` attribute on the HTML element and a pseudo-element (`::before` or `::after`) to display the text on hover.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+
+Use a data attribute (e.g., `data-tooltip`) on the element.
+Use the `::before` or `::after` pseudo-element to display the content of that attribute using `content: attr(data-tooltip)`.
+Show it on hover.
+
+**Code Snippet:**
 ```css
-[data-tooltip]:hover::after {
+[data-tooltip] {
+  position: relative;
+  cursor: pointer;
+}
+
+[data-tooltip]::after {
   content: attr(data-tooltip);
   position: absolute;
   bottom: 100%;
@@ -269,162 +281,314 @@ Use a `data-tooltip` attribute on the HTML element and a pseudo-element (`::befo
   transform: translateX(-50%);
   background: black;
   color: white;
-  padding: 4px 8px;
+  padding: 5px 10px;
   border-radius: 4px;
   white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 8. How do you optimize CSS animation performance to achieve 60fps?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Animate only "compositor-only" properties: `transform` (translate, scale, rotate) and `opacity`. Avoid animating layout-triggering properties like `width`, `height`, `top`, or `left`. Use `will-change` sparingly for complex elements.
-
-**Code Example:**
-```css
-/* BAD: Triggers layout recalculation */
-.box { transition: width 0.3s; }
-
-/* GOOD: handled by GPU */
-.box { transition: transform 0.3s; }
-.box:hover { transform: scale(1.2); }
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 9. How do you truncate multi-line text with an ellipsis (...) using CSS?
+### Q5: How do you create a custom checkbox using CSS?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use `-webkit-line-clamp` combined with a flexbox/box display model. This is the standard way to handle multi-line truncation.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+
+1. Hide the default input (`opacity: 0` or `appearance: none`).
+2. Style a label (or pseudo-element) connected to it.
+3. Use the `:checked` pseudo-class to change the style of the label/sibling.
+
+**Code Snippet:**
 ```css
-.line-clamp {
+/* Hide native checkbox visually but keep accessible */
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create custom box */
+.checkmark {
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  display: inline-block;
+}
+
+/* On checked, change background */
+.custom-checkbox input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create check indicator */
+.checkmark::after {
+  content: "";
+  display: none;
+  /* ... styles for the check mark ... */
+}
+
+.custom-checkbox input:checked ~ .checkmark::after {
+  display: block;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q6: How do you implement Dark Mode using CSS Variables?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+**Difficulty: Advanced**
+
+
+
+Define color variables in `:root`.
+Override them in a `[data-theme='dark']` selector or `@media (prefers-color-scheme: dark)`.
+
+**Code Snippet:**
+```css
+:root {
+  --bg-color: white;
+  --text-color: black;
+}
+
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q7: How do you create a responsive aspect ratio box (e.g., 16:9 video embed)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+**Difficulty: Advanced**
+
+
+
+Modern CSS has the `aspect-ratio` property.
+Old hack: Use `padding-top` percentage on a container (percentage is based on width).
+
+**Code Snippet:**
+```css
+/* Modern Way */
+.video-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+/* Old "Padding Hack" */
+.aspect-ratio-box {
+  width: 100%;
+  padding-top: 56.25%; /* 9/16 = 0.5625 */
+  position: relative;
+}
+
+.aspect-ratio-box > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q8: How do you truncate text with an ellipsis (...) for a single line and multiple lines?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+**Difficulty: Advanced**
+
+
+
+Single line: `text-overflow: ellipsis`, `white-space: nowrap`, `overflow: hidden`.
+Multi-line: Use `line-clamp` (webkit prefixed, but standardizing).
+
+**Code Snippet:**
+```css
+/* Single Line */
+.truncate-single {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Multi Line (3 lines) */
+.truncate-multi {
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* Number of lines */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 10. How do you target the parent of an element in CSS (e.g., style a card if it contains an image)?
+### Q9: How do you use Container Queries to build component-based responsive styles?
 
-**Difficulty**: Advanced
-
-**Strategy:**
-Use the `:has()` pseudo-class (Parent Selector). It allows you to select an element based on its descendants.
-
-**Code Example:**
-```css
-/* Styles .card ONLY if it contains an img */
-.card:has(img) {
-  padding: 0;
-  border: 2px solid gold;
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 11. How do you implement a custom checkbox using CSS while maintaining accessibility?
-
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy:**
-Hide the native input using `opacity: 0` (keep it in the DOM for keyboard focus) or `appearance: none`. Style the `label` or a pseudo-element based on the `:checked` state.
+**Difficulty: Advanced**
 
-**Code Example:**
+
+
+Container Queries allow components to style themselves based on the size of their *container*, not the viewport.
+1. Mark a container as a query container: `container-type: inline-size`.
+2. Use `@container` rule.
+
+**Code Snippet:**
 ```css
-input[type="checkbox"] {
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type="checkbox"]:checked {
-  background-color: blue;
-  border-color: blue;
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 12. How do you use CSS Container Queries to build component-based responsive styles?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Define a containment context on a parent using `container-type: inline-size`. Then use `@container` to style children based on the *parent's* width, not the viewport.
-
-**Code Example:**
-```css
-.card-wrapper {
+.card-container {
   container-type: inline-size;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* If container is wider than 400px */
 @container (min-width: 400px) {
   .card {
-    flex-direction: row; /* Switch to horizontal layout */
+    flex-direction: row;
   }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 13. How do you create a visual parallax scrolling effect with CSS only?
+### Q10: How do you optimize CSS performance (Painting and Layout)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use `transform: translateZ()` and `perspective` on a container to create 3D depth. Elements further away move slower.
+**Difficulty: Advanced**
 
-**Code Example:**
+
+
+1. Use `transform` and `opacity` for animations (compositor only properties).
+2. Avoid animating `width`, `height`, `top`, `left` (triggers layout/reflow).
+3. Use `will-change` sparingly to hint browser.
+4. Reduce selector complexity (though less critical in modern engines).
+
+**Code Snippet:**
 ```css
-.parallax-container {
-  height: 100vh;
-  overflow-y: auto;
-  perspective: 10px;
+/* Bad Performance (Triggers Layout) */
+.box:hover {
+  width: 200px; 
+  top: 20px;
 }
 
-.background-layer {
-  transform: translateZ(-10px) scale(2); /* Moves slower */
+/* Good Performance (Compositor only) */
+.box:hover {
+  transform: scale(1.5) translateY(20px);
+}
+
+.animating-element {
+  will-change: transform;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 14. How do you ensure an element is hidden visually but remains accessible to screen readers?
+### Q11: How do you implement a parallax scrolling effect purely in CSS?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Do NOT use `display: none` or `visibility: hidden`. Instead, use a "sr-only" utility class that clips the element to 1px size.
+**Difficulty: Advanced**
 
-**Code Example:**
+
+
+Use `perspective` on a container and `translateZ` on children to create depth.
+Elements "further away" (negative Z) move slower than elements closer.
+
+**Code Snippet:**
+```css
+.parallax-wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+}
+
+.parallax-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  /* Push back and scale up to cover viewport */
+  transform: translateZ(-1px) scale(2); 
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q12: How do you ensure an element is visually hidden but accessible to screen readers?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+**Difficulty: Advanced**
+
+
+
+Don't use `display: none` or `visibility: hidden` (removes from accessibility tree).
+Use a utility class that clips the element to 1px rect.
+
+**Code Snippet:**
 ```css
 .sr-only {
   position: absolute;
@@ -439,2017 +603,2275 @@ Do NOT use `display: none` or `visibility: hidden`. Instead, use a "sr-only" uti
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 15. How do you style a broken image to provide a better user experience?
+### Q13: How do you implement a CSS Triangle?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the `::before` and `::after` pseudo-elements on the `img` tag. These only render if the image fails to load (in most browsers).
+**Difficulty: Advanced**
 
-**Code Example:**
+
+
+Use transparent borders. A box with 0 width/height and thick borders creates triangles where borders meet.
+
+**Code Snippet:**
+```css
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 50px solid #555;
+}
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 25px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 50px solid #555;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q14: How do you prevent content layout shift (CLS) for images?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+**Difficulty: Advanced**
+
+
+
+Always define `width` and `height` attributes (or aspect-ratio) so the browser reserves space before the image loads.
+
+
+
+
+
+```css
+/* CSS */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  /* Ensure aspect ratio is preserved in older browsers if needed */
+  aspect-ratio: 800 / 600;
+}
+```
+
+**Code Snippet:**
+```css
+<!-- HTML -->
+<img src="image.jpg" width="800" height="600" alt="Example" class="responsive-img" />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q15: How do you implement a masonry layout using CSS only?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+**Difficulty: Advanced**
+
+
+
+Pure CSS masonry is tricky.
+1. **Multi-column:** `column-count` works best for top-to-bottom ordering.
+2. **Grid:** Can only do masonry if row height is uniform or using experimental `grid-template-rows: masonry`.
+
+**Code Snippet (Multi-column approach):**
+
+**Code Snippet:**
+```css
+.masonry-container {
+  column-count: 3;
+  column-gap: 1em;
+}
+
+.masonry-item {
+  display: inline-block; /* Prevents break inside */
+  width: 100%;
+  margin-bottom: 1em;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q16: How do you use Flexbox for a navigation bar?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `display: flex` on the container. `justify-content: space-between` pushes logo and links apart. `align-items: center` vertically centers them.
+
+**Code Snippet:**
+```css
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q17: How do you use `flex-grow`, `flex-shrink`, and `flex-basis`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`flex-grow`: How much space to take (0 default). `flex-shrink`: How much to shrink (1 default). `flex-basis`: Initial size. `flex: 1` sets grow:1, shrink:1, basis:0%.
+
+**Code Snippet:**
+```css
+.item {
+  flex: 1 0 200px;
+  /* grow: 1, shrink: 0, basis: 200px */
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q18: How do you implement a sidebar layout with Flexbox?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Container: `display: flex`. Sidebar: Fixed width or `flex: 0 0 250px`. Main content: `flex: 1` to take remaining space.
+
+**Code Snippet:**
+```css
+.container {
+  display: flex;
+}
+.sidebar {
+  flex: 0 0 250px;
+}
+.main {
+  flex: 1;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q19: How do you align items in a grid using `justify-items` and `align-items`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`justify-items`: Horizontal alignment (start, center, end, stretch). `align-items`: Vertical alignment. Defaults to `stretch`.
+
+**Code Snippet:**
+```css
+.grid {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q20: How do you use `minmax()` in CSS Grid?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Defines a size range. `minmax(100px, 1fr)` means at least 100px, but stretch to fill 1fr if space allows.
+
+**Code Snippet:**
+```css
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q21: How do you create overlapping elements with CSS Grid?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Place items in the same grid cell(s) using line numbers. Later items stack on top (control with z-index if needed).
+
+**Code Snippet:**
+```css
+.item1 { grid-column: 1 / 3; grid-row: 1; }
+.item2 { grid-column: 2 / 4; grid-row: 1; opacity: 0.8; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q22: How do you use `z-index` and stacking contexts effectively?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`z-index` only works on positioned elements (relative, absolute, fixed, sticky) or flex/grid children. A new stacking context is created by opacity < 1, transform, filter, etc.
+
+**Code Snippet:**
+```css
+.top {
+  position: relative;
+  z-index: 10;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q23: How do you debug `z-index` issues?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Check if the element has `position` set (if not flex/grid child). Check parent stacking contexts (e.g., parent has `overflow: hidden` or `opacity`). Use browser devtools 'Layers' view.
+
+**Code Snippet:**
+```css
+/* Debug helper */
+* { outline: 1px solid red; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q24: How do you style a scrollbar using `::-webkit-scrollbar`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use pseudo-elements: `::-webkit-scrollbar` (width), `::-webkit-scrollbar-track` (background), `::-webkit-scrollbar-thumb` (handle).
+
+**Code Snippet:**
+```css
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q25: How do you use `scroll-behavior: smooth`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Apply to `html` or a scroll container to enable smooth scrolling for anchor links.
+
+**Code Snippet:**
+```css
+html {
+  scroll-behavior: smooth;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q26: How do you use `scroll-snap-type` for snapping sections?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Container: `scroll-snap-type: y mandatory`. Children: `scroll-snap-align: start`.
+
+**Code Snippet:**
+```css
+.container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+.section {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q27: How do you implement a CSS reset or normalize?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Remove default margins/paddings to ensure consistency. Minimal reset: `* { margin: 0; padding: 0; box-sizing: border-box; }`.
+
+**Code Snippet:**
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q28: How do you use `box-sizing: border-box` globally?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Apply it to `*` and pseudo-elements. It includes padding and border in the element's total width/height.
+
+**Code Snippet:**
+```css
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q29: How do you style inputs to look consistent across browsers?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Reset `appearance: none`, border, background, and font inheritance.
+
+**Code Snippet:**
+```css
+input {
+  appearance: none;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding: 0.5em;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q30: How do you remove the default outline on focus (and what to replace it with)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Never set `outline: none` without a replacement. Use `box-shadow` or a custom `outline` for accessibility.
+
+**Code Snippet:**
+```css
+button:focus-visible {
+  outline: 2px solid blue;
+  outline-offset: 2px;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q31: How do you style a broken image using `img::before`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+The `::before` and `::after` pseudo-elements on `img` only render if the image fails to load. Use absolute positioning to cover the broken icon.
+
+**Code Snippet:**
 ```css
 img {
-  display: block;
-  font-family: sans-serif;
-  position: relative; /* For absolute positioning of pseudos */
+  position: relative;
 }
-
 img::before {
-  content: "Image failed to load";
+  content: 'Image failed';
   position: absolute;
   top: 0; left: 0;
-  background: #f0f0f0;
   width: 100%; height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #eee;
+  display: flex; align-items: center; justify-content: center;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 16. How do you handle Pseudo-classes challenges in a complex web application? (Scenario 16)
+### Q32: How do you style list markers using `::marker`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Pseudo-classes** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use the `::marker` pseudo-element on `li` or `summary`. Supports `color`, `font-*`, `content`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Pseudo-classes */
-.element-16 {
-  /* specific styles for Pseudo-classes */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 16px;
+li::marker {
+  color: red;
+  content: '👉 ';
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 17. How do you handle Pseudo-elements challenges in a complex web application? (Scenario 17)
+### Q33: How do you use `object-fit` and `object-position` for images?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Pseudo-elements** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+`object-fit: cover` crops image to fill container. `object-position` adjusts the crop focus.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Pseudo-elements */
-.element-17 {
-  /* specific styles for Pseudo-elements */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 17px;
+img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center top;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 18. How do you handle Media Queries challenges in a complex web application? (Scenario 18)
+### Q34: How do you use `background-size: cover` vs `contain`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Media Queries** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+`cover`: Fills entire area, cropping if needed. `contain`: Shows entire image, leaving space if needed.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Media Queries */
-.element-18 {
-  /* specific styles for Media Queries */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 18px;
+.hero {
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-position: center;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 19. How do you handle Container Queries challenges in a complex web application? (Scenario 19)
+### Q35: How do you create a gradient background?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Container Queries** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `linear-gradient`, `radial-gradient`, or `conic-gradient` as `background-image`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Container Queries */
-.element-19 {
-  /* specific styles for Container Queries */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 19px;
+.bg {
+  background-image: linear-gradient(to right, #f00, #00f);
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 20. How do you handle Logical Properties challenges in a complex web application? (Scenario 20)
+### Q36: How do you create a text gradient?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Logical Properties** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Background clip text + transparent text color.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Logical Properties */
-.element-20 {
-  /* specific styles for Logical Properties */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 20px;
+.text-gradient {
+  background: linear-gradient(to right, gold, red);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 21. How do you handle Dark Mode challenges in a complex web application? (Scenario 21)
+### Q37: How do you use `clip-path` to create shapes?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Dark Mode** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Defines a clipping region. Parts outside are hidden. Use `polygon()`, `circle()`, `ellipse()`, or `path()`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Dark Mode */
-.element-21 {
-  /* specific styles for Dark Mode */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 21px;
+.triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background: red;
+  width: 100px; height: 100px;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 22. How do you handle Accessibility challenges in a complex web application? (Scenario 22)
+### Q38: How do you use `mask-image` for transparency masks?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Accessibility** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Uses an image (alpha channel) to mask element visibility. Black = visible, Transparent = hidden.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Accessibility */
-.element-22 {
-  /* specific styles for Accessibility */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 22px;
+.masked {
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent);
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 23. How do you handle Performance challenges in a complex web application? (Scenario 23)
+### Q39: How do you use `backdrop-filter` for glassmorphism?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Performance** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Applies filter to area *behind* the element. Requires semi-transparent background.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Performance */
-.element-23 {
-  /* specific styles for Performance */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 23px;
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 24. How do you handle Shadow DOM challenges in a complex web application? (Scenario 24)
+### Q40: How do you use `filter` for image effects (blur, grayscale)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Shadow DOM** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Applies graphical effects to the element itself.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Shadow DOM */
-.element-24 {
-  /* specific styles for Shadow DOM */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 24px;
+img:hover {
+  filter: grayscale(100%) blur(2px);
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 25. How do you handle CSS Shapes challenges in a complex web application? (Scenario 25)
+### Q41: How do you use `mix-blend-mode` for blending effects?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Shapes** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Blends element with its parent/background (like Photoshop layers).
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Shapes */
-.element-25 {
-  /* specific styles for CSS Shapes */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 25px;
+.text {
+  mix-blend-mode: difference;
+  color: white;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 26. How do you handle Filters & Effects challenges in a complex web application? (Scenario 26)
+### Q42: How do you implement a loading spinner with CSS animations?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Filters & Effects** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Rotate a border with one transparent side.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Filters & Effects */
-.element-26 {
-  /* specific styles for Filters & Effects */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 26px;
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader {
+  width: 40px; height: 40px;
+  border: 4px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 27. How do you handle SVG Styling challenges in a complex web application? (Scenario 27)
+### Q43: How do you create a shake animation?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **SVG Styling** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Translate X back and forth rapidly.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for SVG Styling */
-.element-27 {
-  /* specific styles for SVG Styling */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 27px;
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
 }
+.error { animation: shake 0.3s; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 28. How do you handle Print Styles challenges in a complex web application? (Scenario 28)
+### Q44: How do you pause an animation on hover?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Print Styles** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `animation-play-state`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Print Styles */
-.element-28 {
-  /* specific styles for Print Styles */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 28px;
+.box:hover {
+  animation-play-state: paused;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 29. How do you handle Browser Compatibility challenges in a complex web application? (Scenario 29)
+### Q45: How do you use CSS transitions for hover effects?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Browser Compatibility** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Define `transition` on the base state, not the hover state.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Browser Compatibility */
-.element-29 {
-  /* specific styles for Browser Compatibility */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 29px;
+.btn {
+  background: blue;
+  transition: background 0.3s ease;
 }
+.btn:hover {
+  background: darkblue;
+}
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 30. How do you handle Flexbox Layouts challenges in a complex web application? (Scenario 30)
+### Q46: How do you use the `:not()` pseudo-class?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Flexbox Layouts** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Selects elements that do NOT match the selector.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Flexbox Layouts */
-.element-30 {
-  /* specific styles for Flexbox Layouts */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 30px;
+li:not(:last-child) {
+  border-bottom: 1px solid #ccc;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 31. How do you handle Grid Systems challenges in a complex web application? (Scenario 31)
+### Q47: How do you use the `:has()` pseudo-class (parent selector)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Grid Systems** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Selects a parent if it contains a specific child. 'Parent selector'.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Grid Systems */
-.element-31 {
-  /* specific styles for Grid Systems */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 31px;
+/* Style card if it contains an image */
+.card:has(img) {
+  padding: 0;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 32. How do you handle Responsive Design challenges in a complex web application? (Scenario 32)
+### Q48: How do you use the `:is()` and `:where()` pseudo-classes?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Responsive Design** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+`is()` and `:where()` group selectors. `:is()` takes specificity of most specific arg. `:where()` has 0 specificity.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Responsive Design */
-.element-32 {
-  /* specific styles for Responsive Design */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 32px;
-}
+:is(h1, h2, h3) { margin-top: 0; }
+:where(article) p { color: #666; /* easy to override */ }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 33. How do you handle CSS Animations challenges in a complex web application? (Scenario 33)
+### Q49: How do you use `:nth-child()` and `:nth-of-type()`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Animations** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+`:nth-child` counts ALL children. `:nth-of-type` counts only children of that tag type.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Animations */
-.element-33 {
-  /* specific styles for CSS Animations */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 33px;
-}
+li:nth-child(odd) { background: #eee; }
+p:nth-of-type(2) { font-weight: bold; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 34. How do you handle Transitions challenges in a complex web application? (Scenario 34)
+### Q50: How do you use `::first-letter` and `::first-line`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Transitions** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Styles the first letter or first line of a block element.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Transitions */
-.element-34 {
-  /* specific styles for Transitions */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 34px;
+p::first-letter {
+  font-size: 2em;
+  float: left;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 35. How do you handle Typography challenges in a complex web application? (Scenario 35)
+### Q51: How do you use attribute selectors?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Typography** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+`[attr]` (exists), `[attr=val]` (exact), `[attr*=val]` (contains), `[attr^=val]` (starts), `[attr$=val]` (ends).
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Typography */
-.element-35 {
-  /* specific styles for Typography */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 35px;
-}
+a[href^="https"] { color: green; }
+input[type="text"] { width: 100%; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 36. How do you handle CSS Variables challenges in a complex web application? (Scenario 36)
+### Q52: How do you style placeholder text?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Variables** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `::placeholder` pseudo-element.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Variables */
-.element-36 {
-  /* specific styles for CSS Variables */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 36px;
+input::placeholder {
+  color: #999;
+  font-style: italic;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 37. How do you handle Preprocessors (Sass/Less) challenges in a complex web application? (Scenario 37)
+### Q53: How do you style selection color (`::selection`)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Preprocessors (Sass/Less)** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `::selection` pseudo-element. Only supports color, background, text-shadow.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Preprocessors (Sass/Less) */
-.element-37 {
-  /* specific styles for Preprocessors (Sass/Less) */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 37px;
+::selection {
+  background: gold;
+  color: black;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 38. How do you handle CSS Modules challenges in a complex web application? (Scenario 38)
+### Q54: How do you use CSS Variables for spacing and typography scales?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Modules** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Define vars in `:root` for global reuse.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Modules */
-.element-38 {
-  /* specific styles for CSS Modules */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 38px;
+:root {
+  --space-md: 1rem;
+  --font-lg: 1.5rem;
 }
+.card { padding: var(--space-md); font-size: var(--font-lg); }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 39. How do you handle Styled Components challenges in a complex web application? (Scenario 39)
+### Q55: How do you use `calc()` function?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Styled Components** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Perform math mixing units.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Styled Components */
-.element-39 {
-  /* specific styles for Styled Components */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 39px;
-}
+.sidebar { width: 300px; }
+.content { width: calc(100% - 300px); }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 40. How do you handle Tailwind CSS challenges in a complex web application? (Scenario 40)
+### Q56: How do you use `clamp()` for responsive typography?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Tailwind CSS** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+`clamp(min, preferred, max)`. Font size scales with viewport but stays within bounds.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Tailwind CSS */
-.element-40 {
-  /* specific styles for Tailwind CSS */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 40px;
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 41. How do you handle BEM Methodology challenges in a complex web application? (Scenario 41)
+### Q57: How do you use viewport units (`vw`, `vh`, `dvh`, `lvh`)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **BEM Methodology** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+`100vh` is full height. `100dvh` (dynamic) accounts for mobile browser bars expanding/collapsing.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for BEM Methodology */
-.element-41 {
-  /* specific styles for BEM Methodology */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 41px;
+.hero {
+  height: 100dvh;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 42. How do you handle Specificity challenges in a complex web application? (Scenario 42)
+### Q58: How do you handle notch areas on mobile (`safe-area-inset`)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Specificity** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `env(safe-area-inset-*)` in padding/margin.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Specificity */
-.element-42 {
-  /* specific styles for Specificity */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 42px;
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 43. How do you handle Z-Index Management challenges in a complex web application? (Scenario 43)
+### Q59: How do you support high contrast mode?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Z-Index Management** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `@media (prefers-contrast: more)`. Avoid relying solely on color.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Z-Index Management */
-.element-43 {
-  /* specific styles for Z-Index Management */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 43px;
+@media (prefers-contrast: more) {
+  .btn { border: 2px solid black; }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 44. How do you handle Positioning challenges in a complex web application? (Scenario 44)
+### Q60: How do you use `@media (prefers-reduced-motion)`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Positioning** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Disable or reduce animations for users prone to motion sickness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Positioning */
-.element-44 {
-  /* specific styles for Positioning */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 44px;
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01s !important; transition-duration: 0.01s !important; }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 45. How do you handle Box Model challenges in a complex web application? (Scenario 45)
+### Q61: How do you use `@supports` to check for feature support?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Box Model** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Feature queries. Apply styles only if browser supports a property.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Box Model */
-.element-45 {
-  /* specific styles for Box Model */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 45px;
+@supports (display: grid) {
+  .layout { display: grid; }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 46. How do you handle Pseudo-classes challenges in a complex web application? (Scenario 46)
+### Q62: How do you use `@font-face` to load custom fonts?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Pseudo-classes** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Define font family and source files (woff2 preferred).
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Pseudo-classes */
-.element-46 {
-  /* specific styles for Pseudo-classes */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 46px;
+@font-face {
+  font-family: 'MyFont';
+  src: url('font.woff2') format('woff2');
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 47. How do you handle Pseudo-elements challenges in a complex web application? (Scenario 47)
+### Q63: How do you use `font-display: swap` for performance?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Pseudo-elements** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Shows fallback font immediately, swaps to custom font when loaded (avoids invisible text).
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Pseudo-elements */
-.element-47 {
-  /* specific styles for Pseudo-elements */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 47px;
+@font-face {
+  font-family: 'MyFont';
+  src: url('font.woff2');
+  font-display: swap;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 48. How do you handle Media Queries challenges in a complex web application? (Scenario 48)
+### Q64: How do you prevent text selection (`user-select`)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Media Queries** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `user-select: none`. Useful for buttons/UI controls.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Media Queries */
-.element-48 {
-  /* specific styles for Media Queries */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 48px;
+.btn {
+  user-select: none;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 49. How do you handle Container Queries challenges in a complex web application? (Scenario 49)
+### Q65: How do you enable hardware acceleration for animations?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Container Queries** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `transform: translateZ(0)` or `will-change` to promote element to a new layer.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Container Queries */
-.element-49 {
-  /* specific styles for Container Queries */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 49px;
+.animated {
+  will-change: transform;
+  transform: translateZ(0);
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 50. How do you handle Logical Properties challenges in a complex web application? (Scenario 50)
+### Q66: How do you style a `details` and `summary` element?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Logical Properties** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Style `summary` for the header (cursor pointer, remove list-style). Content shows when open.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Logical Properties */
-.element-50 {
-  /* specific styles for Logical Properties */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 50px;
+details > summary {
+  cursor: pointer;
+  list-style: none;
 }
+details[open] { background: #f9f9f9; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 51. How do you handle Dark Mode challenges in a complex web application? (Scenario 51)
+### Q67: How do you style a `range` input slider?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Dark Mode** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `appearance: none` and style `::-webkit-slider-thumb` and `::-webkit-slider-runnable-track`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Dark Mode */
-.element-51 {
-  /* specific styles for Dark Mode */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 51px;
-}
+input[type=range] { appearance: none; width: 100%; }
+input[type=range]::-webkit-slider-thumb { appearance: none; height: 20px; width: 20px; background: blue; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 52. How do you handle Accessibility challenges in a complex web application? (Scenario 52)
+### Q68: How do you style a file input?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Accessibility** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Hide the actual input `display: none` and use a `label` styled as a button.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Accessibility */
-.element-52 {
-  /* specific styles for Accessibility */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 52px;
-}
+input[type=file] { display: none; }
+.file-label { padding: 10px; background: #eee; cursor: pointer; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 53. How do you handle Performance challenges in a complex web application? (Scenario 53)
+### Q69: How do you create a custom toggle switch?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Performance** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Hide checkbox. Style label as track, `::after` as thumb. Change position on `:checked`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Performance */
-.element-53 {
-  /* specific styles for Performance */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 53px;
-}
+.toggle-input { display: none; }
+.toggle-label { width: 40px; height: 20px; background: #ccc; position: relative; }
+.toggle-input:checked + .toggle-label { background: green; }
+.toggle-input:checked + .toggle-label::after { transform: translateX(20px); }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 54. How do you handle Shadow DOM challenges in a complex web application? (Scenario 54)
+### Q70: How do you create a pure CSS dropdown menu?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Shadow DOM** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Show submenu on parent hover.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Shadow DOM */
-.element-54 {
-  /* specific styles for Shadow DOM */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 54px;
-}
+.submenu { display: none; position: absolute; }
+.has-submenu:hover .submenu { display: block; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 55. How do you handle CSS Shapes challenges in a complex web application? (Scenario 55)
+### Q71: How do you create a pure CSS modal (using `:target` or checkbox hack)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Shapes** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `:target` to show modal when URL matches `#modal-id`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Shapes */
-.element-55 {
-  /* specific styles for CSS Shapes */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 55px;
-}
+.modal { display: none; position: fixed; }
+.modal:target { display: flex; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 56. How do you handle Filters & Effects challenges in a complex web application? (Scenario 56)
+### Q72: How do you create a pure CSS accordion?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Filters & Effects** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use Radio buttons (for one open at a time) or Checkboxes + Labels.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Filters & Effects */
-.element-56 {
-  /* specific styles for Filters & Effects */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 56px;
-}
+input[type=radio] { display: none; }
+input:checked + .content { max-height: 200px; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 57. How do you handle SVG Styling challenges in a complex web application? (Scenario 57)
+### Q73: How do you create a pure CSS tab system?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **SVG Styling** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Radio buttons + Labels. Content hidden by default, shown when corresponding radio is checked.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for SVG Styling */
-.element-57 {
-  /* specific styles for SVG Styling */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 57px;
-}
+.tab-content { display: none; }
+#tab1:checked ~ .content1 { display: block; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 58. How do you handle Print Styles challenges in a complex web application? (Scenario 58)
+### Q74: How do you use `counters` for automatic numbering?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Print Styles** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Initialize with `counter-reset`, increment with `counter-increment`, display with `content: counter(name)`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Print Styles */
-.element-58 {
-  /* specific styles for Print Styles */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 58px;
-}
+ol { counter-reset: item; }
+li::before { counter-increment: item; content: counter(item) '. '; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 59. How do you handle Browser Compatibility challenges in a complex web application? (Scenario 59)
+### Q75: How do you use `content` property in pseudo-elements?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Browser Compatibility** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Inserts generated content. Can be string, url, counter, or attr().
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Browser Compatibility */
-.element-59 {
-  /* specific styles for Browser Compatibility */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 59px;
-}
+a::after { content: ' (' attr(href) ')'; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 60. How do you handle Flexbox Layouts challenges in a complex web application? (Scenario 60)
+### Q76: How do you handle text overflow in a table cell?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Flexbox Layouts** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+`table-layout: fixed`, width on cell, and text-overflow props.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Flexbox Layouts */
-.element-60 {
-  /* specific styles for Flexbox Layouts */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 60px;
+td {
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 61. How do you handle Grid Systems challenges in a complex web application? (Scenario 61)
+### Q77: How do you make a table responsive (scrollable or stacked)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Grid Systems** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Scrollable: Wrap in `overflow-x: auto` div. Stacked: `@media` query, `display: block` for rows/cells.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Grid Systems */
-.element-61 {
-  /* specific styles for Grid Systems */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 61px;
-}
+.table-wrapper { overflow-x: auto; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 62. How do you handle Responsive Design challenges in a complex web application? (Scenario 62)
+### Q78: How do you style alternate table rows?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Responsive Design** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `:nth-child(even)` or `odd`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Responsive Design */
-.element-62 {
-  /* specific styles for Responsive Design */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 62px;
-}
+tr:nth-child(even) { background: #f2f2f2; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 63. How do you handle CSS Animations challenges in a complex web application? (Scenario 63)
+### Q79: How do you stick a table header?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Animations** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+`position: sticky; top: 0`. Requires table to not have `overflow: hidden` parents usually.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Animations */
-.element-63 {
-  /* specific styles for CSS Animations */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 63px;
-}
+th { position: sticky; top: 0; background: white; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 64. How do you handle Transitions challenges in a complex web application? (Scenario 64)
+### Q80: How do you implement print styles (`@media print`)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Transitions** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Define styles specifically for printing (black/white, remove backgrounds).
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Transitions */
-.element-64 {
-  /* specific styles for Transitions */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 64px;
+@media print {
+  body { color: black; background: white; }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 65. How do you handle Typography challenges in a complex web application? (Scenario 65)
+### Q81: How do you hide elements in print view?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Typography** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Hide navs, ads, footers.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Typography */
-.element-65 {
-  /* specific styles for Typography */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 65px;
+@media print {
+  .no-print { display: none; }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 66. How do you handle CSS Variables challenges in a complex web application? (Scenario 66)
+### Q82: How do you force page breaks in print?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Variables** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Use `break-before`, `break-after`, `page-break-*`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Variables */
-.element-66 {
-  /* specific styles for CSS Variables */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 66px;
-}
+.chapter { break-before: page; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 67. How do you handle Preprocessors (Sass/Less) challenges in a complex web application? (Scenario 67)
+### Q83: How do you use `shape-outside` for text wrapping around images?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Preprocessors (Sass/Less)** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Floats element and wraps text around a defined shape.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Preprocessors (Sass/Less) */
-.element-67 {
-  /* specific styles for Preprocessors (Sass/Less) */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 67px;
+.circle {
+  float: left;
+  shape-outside: circle(50%);
+  width: 100px; height: 100px;
+  border-radius: 50%;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 68. How do you handle CSS Modules challenges in a complex web application? (Scenario 68)
+### Q84: How do you use `writing-mode` for vertical text?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Modules** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Changes text orientation (e.g., for Asian languages or design).
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Modules */
-.element-68 {
-  /* specific styles for CSS Modules */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 68px;
-}
+.vertical { writing-mode: vertical-rl; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 69. How do you handle Styled Components challenges in a complex web application? (Scenario 69)
+### Q85: How do you use `direction: rtl` for right-to-left languages?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Styled Components** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Sets direction for Arabic/Hebrew. Usually set on `html` or `body`.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Styled Components */
-.element-69 {
-  /* specific styles for Styled Components */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 69px;
-}
+html { direction: rtl; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 70. How do you handle Tailwind CSS challenges in a complex web application? (Scenario 70)
+### Q86: How do you use `text-align-last` for justified text?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Tailwind CSS** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Aligns the last line of a justified block.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Tailwind CSS */
-.element-70 {
-  /* specific styles for Tailwind CSS */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 70px;
+p {
+  text-align: justify;
+  text-align-last: center;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 71. How do you handle BEM Methodology challenges in a complex web application? (Scenario 71)
+### Q87: How do you use `text-decoration` styling (color, style, thickness)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **BEM Methodology** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Shorthand for line, style, color, thickness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for BEM Methodology */
-.element-71 {
-  /* specific styles for BEM Methodology */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 71px;
-}
+a { text-decoration: underline wavy red 2px; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 72. How do you handle Specificity challenges in a complex web application? (Scenario 72)
+### Q88: How do you use `text-transform`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Specificity** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+Controls capitalization (uppercase, lowercase, capitalize).
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Specificity */
-.element-72 {
-  /* specific styles for Specificity */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 72px;
-}
+.heading { text-transform: uppercase; }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 73. How do you handle Z-Index Management challenges in a complex web application? (Scenario 73)
+### Q89: How do you use `letter-spacing` and `word-spacing`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Z-Index Management** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
-
-**Code Example:**
-```css
-/* Example optimization for Z-Index Management */
-.element-73 {
-  /* specific styles for Z-Index Management */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 73px;
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
+**Difficulty: Intermediate**
 
-### 74. How do you handle Positioning challenges in a complex web application? (Scenario 74)
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Apply best practices for **Positioning** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+This is a placeholder for a practical question about **How do you use `letter-spacing` and `word-spacing`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Positioning */
-.element-74 {
-  /* specific styles for Positioning */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 74px;
+/* Example implementation */
+/* How do you use `letter-spacing` and `word-spacing`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 75. How do you handle Box Model challenges in a complex web application? (Scenario 75)
+### Q90: How do you use `white-space` property?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Box Model** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
-
-**Code Example:**
-```css
-/* Example optimization for Box Model */
-.element-75 {
-  /* specific styles for Box Model */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 75px;
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
+**Difficulty: Intermediate**
 
----
-
-### 76. How do you handle Pseudo-classes challenges in a complex web application? (Scenario 76)
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Apply best practices for **Pseudo-classes** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+This is a placeholder for a practical question about **How do you use `white-space` property?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Pseudo-classes */
-.element-76 {
-  /* specific styles for Pseudo-classes */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 76px;
+/* Example implementation */
+/* How do you use `white-space` property? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 77. How do you handle Pseudo-elements challenges in a complex web application? (Scenario 77)
+### Q91: How do you use `word-break` and `overflow-wrap`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Pseudo-elements** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `word-break` and `overflow-wrap`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Pseudo-elements */
-.element-77 {
-  /* specific styles for Pseudo-elements */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 77px;
+/* Example implementation */
+/* How do you use `word-break` and `overflow-wrap`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 78. How do you handle Media Queries challenges in a complex web application? (Scenario 78)
+### Q92: How do you use `hyphens` for auto-hyphenation?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Media Queries** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
+
+This is a placeholder for a practical question about **How do you use `hyphens` for auto-hyphenation?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Media Queries */
-.element-78 {
-  /* specific styles for Media Queries */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 78px;
+/* Example implementation */
+/* How do you use `hyphens` for auto-hyphenation? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 79. How do you handle Container Queries challenges in a complex web application? (Scenario 79)
+### Q93: How do you use `caret-color`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Container Queries** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+This is a placeholder for a practical question about **How do you use `caret-color`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Container Queries */
-.element-79 {
-  /* specific styles for Container Queries */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 79px;
+/* Example implementation */
+/* How do you use `caret-color`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 80. How do you handle Logical Properties challenges in a complex web application? (Scenario 80)
+### Q94: How do you use `resize` property on textareas?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Logical Properties** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
+
+This is a placeholder for a practical question about **How do you use `resize` property on textareas?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Logical Properties */
-.element-80 {
-  /* specific styles for Logical Properties */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 80px;
+/* Example implementation */
+/* How do you use `resize` property on textareas? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 81. How do you handle Dark Mode challenges in a complex web application? (Scenario 81)
+### Q95: How do you use `pointer-events`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Dark Mode** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+This is a placeholder for a practical question about **How do you use `pointer-events`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Dark Mode */
-.element-81 {
-  /* specific styles for Dark Mode */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 81px;
+/* Example implementation */
+/* How do you use `pointer-events`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 82. How do you handle Accessibility challenges in a complex web application? (Scenario 82)
+### Q96: How do you use `cursor` property?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Accessibility** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `cursor` property?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Accessibility */
-.element-82 {
-  /* specific styles for Accessibility */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 82px;
+/* Example implementation */
+/* How do you use `cursor` property? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 83. How do you handle Performance challenges in a complex web application? (Scenario 83)
+### Q97: How do you use `outline` vs `border`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Performance** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
+
+This is a placeholder for a practical question about **How do you use `outline` vs `border`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Performance */
-.element-83 {
-  /* specific styles for Performance */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 83px;
+/* Example implementation */
+/* How do you use `outline` vs `border`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 84. How do you handle Shadow DOM challenges in a complex web application? (Scenario 84)
+### Q98: How do you use `outline-offset`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Shadow DOM** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+This is a placeholder for a practical question about **How do you use `outline-offset`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Shadow DOM */
-.element-84 {
-  /* specific styles for Shadow DOM */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 84px;
+/* Example implementation */
+/* How do you use `outline-offset`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 85. How do you handle CSS Shapes challenges in a complex web application? (Scenario 85)
+### Q99: How do you use `box-shadow` for elevation?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Shapes** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `box-shadow` for elevation?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Shapes */
-.element-85 {
-  /* specific styles for CSS Shapes */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 85px;
+/* Example implementation */
+/* How do you use `box-shadow` for elevation? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 86. How do you handle Filters & Effects challenges in a complex web application? (Scenario 86)
+### Q100: How do you create multiple borders using `box-shadow`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Filters & Effects** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
+
+This is a placeholder for a practical question about **How do you create multiple borders using `box-shadow`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Filters & Effects */
-.element-86 {
-  /* specific styles for Filters & Effects */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 86px;
+/* Example implementation */
+/* How do you create multiple borders using `box-shadow`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 87. How do you handle SVG Styling challenges in a complex web application? (Scenario 87)
+### Q101: How do you use `border-radius` for different shapes?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **SVG Styling** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+This is a placeholder for a practical question about **How do you use `border-radius` for different shapes?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for SVG Styling */
-.element-87 {
-  /* specific styles for SVG Styling */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 87px;
+/* Example implementation */
+/* How do you use `border-radius` for different shapes? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 88. How do you handle Print Styles challenges in a complex web application? (Scenario 88)
+### Q102: How do you use `border-image`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Print Styles** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `border-image`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Print Styles */
-.element-88 {
-  /* specific styles for Print Styles */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 88px;
+/* Example implementation */
+/* How do you use `border-image`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 89. How do you handle Browser Compatibility challenges in a complex web application? (Scenario 89)
+### Q103: How do you use `currentColor` keyword?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Browser Compatibility** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
+
+This is a placeholder for a practical question about **How do you use `currentColor` keyword?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Browser Compatibility */
-.element-89 {
-  /* specific styles for Browser Compatibility */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 89px;
+/* Example implementation */
+/* How do you use `currentColor` keyword? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 90. How do you handle Flexbox Layouts challenges in a complex web application? (Scenario 90)
+### Q104: How do you use `display: contents`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Flexbox Layouts** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+This is a placeholder for a practical question about **How do you use `display: contents`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Flexbox Layouts */
-.element-90 {
-  /* specific styles for Flexbox Layouts */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 90px;
+/* Example implementation */
+/* How do you use `display: contents`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 91. How do you handle Grid Systems challenges in a complex web application? (Scenario 91)
+### Q105: How do you use `display: inline-flex` vs `flex`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Grid Systems** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `display: inline-flex` vs `flex`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Grid Systems */
-.element-91 {
-  /* specific styles for Grid Systems */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 91px;
+/* Example implementation */
+/* How do you use `display: inline-flex` vs `flex`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 92. How do you handle Responsive Design challenges in a complex web application? (Scenario 92)
+### Q106: How do you use `visibility: collapse` (in tables)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Responsive Design** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `visibility: collapse` (in tables)?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Responsive Design */
-.element-92 {
-  /* specific styles for Responsive Design */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 92px;
+/* Example implementation */
+/* How do you use `visibility: collapse` (in tables)? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 93. How do you handle CSS Animations challenges in a complex web application? (Scenario 93)
+### Q107: How do you use `empty-cells` in tables?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Animations** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `empty-cells` in tables?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Animations */
-.element-93 {
-  /* specific styles for CSS Animations */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 93px;
+/* Example implementation */
+/* How do you use `empty-cells` in tables? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 94. How do you handle Transitions challenges in a complex web application? (Scenario 94)
+### Q108: How do you use `caption-side` in tables?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Transitions** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
+
+This is a placeholder for a practical question about **How do you use `caption-side` in tables?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Transitions */
-.element-94 {
-  /* specific styles for Transitions */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 94px;
+/* Example implementation */
+/* How do you use `caption-side` in tables? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 95. How do you handle Typography challenges in a complex web application? (Scenario 95)
+### Q109: How do you use `table-layout: fixed` for performance?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Typography** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+This is a placeholder for a practical question about **How do you use `table-layout: fixed` for performance?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Typography */
-.element-95 {
-  /* specific styles for Typography */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 95px;
+/* Example implementation */
+/* How do you use `table-layout: fixed` for performance? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 96. How do you handle CSS Variables challenges in a complex web application? (Scenario 96)
+### Q110: How do you use `list-style` properties?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Variables** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `list-style` properties?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Variables */
-.element-96 {
-  /* specific styles for CSS Variables */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 96px;
+/* Example implementation */
+/* How do you use `list-style` properties? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 97. How do you handle Preprocessors (Sass/Less) challenges in a complex web application? (Scenario 97)
+### Q111: How do you use `background-attachment: fixed`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Preprocessors (Sass/Less)** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
+
+This is a placeholder for a practical question about **How do you use `background-attachment: fixed`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Preprocessors (Sass/Less) */
-.element-97 {
-  /* specific styles for Preprocessors (Sass/Less) */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 97px;
+/* Example implementation */
+/* How do you use `background-attachment: fixed`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 98. How do you handle CSS Modules challenges in a complex web application? (Scenario 98)
+### Q112: How do you use `background-clip`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **CSS Modules** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+This is a placeholder for a practical question about **How do you use `background-clip`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for CSS Modules */
-.element-98 {
-  /* specific styles for CSS Modules */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 98px;
+/* Example implementation */
+/* How do you use `background-clip`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 99. How do you handle Styled Components challenges in a complex web application? (Scenario 99)
+### Q113: How do you use `background-origin`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Styled Components** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
+
+This is a placeholder for a practical question about **How do you use `background-origin`?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Styled Components */
-.element-99 {
-  /* specific styles for Styled Components */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 99px;
+/* Example implementation */
+/* How do you use `background-origin`? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 100. How do you handle Tailwind CSS challenges in a complex web application? (Scenario 100)
+### Q114: How do you use multiple backgrounds?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Tailwind CSS** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+This is a placeholder for a practical question about **How do you use multiple backgrounds?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Tailwind CSS */
-.element-100 {
-  /* specific styles for Tailwind CSS */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 100px;
+/* Example implementation */
+/* How do you use multiple backgrounds? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 101. How do you handle BEM Methodology challenges in a complex web application? (Scenario 101)
+### Q115: How do you use CSS sprites?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **BEM Methodology** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use CSS sprites?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for BEM Methodology */
-.element-101 {
-  /* specific styles for BEM Methodology */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 101px;
+/* Example implementation */
+/* How do you use CSS sprites? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 102. How do you handle Specificity challenges in a complex web application? (Scenario 102)
+### Q116: How do you use logical properties (`margin-block`, `padding-inline`)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Specificity** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
+
+This is a placeholder for a practical question about **How do you use logical properties (`margin-block`, `padding-inline`)?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
 
-**Code Example:**
+**Code Snippet:**
 ```css
-/* Example optimization for Specificity */
-.element-102 {
-  /* specific styles for Specificity */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 102px;
+/* Example implementation */
+/* How do you use logical properties (`margin-block`, `padding-inline`)? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 103. How do you handle Z-Index Management challenges in a complex web application? (Scenario 103)
+### Q117: How do you use `inset` property?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Z-Index Management** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
 
-**Code Example:**
+
+This is a placeholder for a practical question about **How do you use `inset` property?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Z-Index Management */
-.element-103 {
-  /* specific styles for Z-Index Management */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 103px;
+/* Example implementation */
+/* How do you use `inset` property? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 104. How do you handle Positioning challenges in a complex web application? (Scenario 104)
+### Q118: How do you use `gap` in Flexbox?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Positioning** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `gap` in Flexbox?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Positioning */
-.element-104 {
-  /* specific styles for Positioning */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 104px;
+/* Example implementation */
+/* How do you use `gap` in Flexbox? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 105. How do you handle Box Model challenges in a complex web application? (Scenario 105)
+### Q119: How do you use `place-content` and `place-items` shorthand?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply best practices for **Box Model** by isolating concerns and using modern CSS features. Ensure maintainability by following a consistent methodology like BEM or Utility-first.
+**Difficulty: Intermediate**
+
 
-**Code Example:**
+This is a placeholder for a practical question about **How do you use `place-content` and `place-items` shorthand?**.
+1. Understand the CSS property/concept.
+2. Implement it using modern CSS.
+3. Consider browser support and responsiveness.
+
+**Code Snippet:**
 ```css
-/* Example optimization for Box Model */
-.element-105 {
-  /* specific styles for Box Model */
-  display: flex;
-  gap: 1rem;
-  --custom-prop: 105px;
+/* Example implementation */
+/* How do you use `place-content` and `place-items` shorthand? */
+.example {
+  /* Properties go here */
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+

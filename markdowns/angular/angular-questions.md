@@ -1,31 +1,40 @@
-# Angular Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/angular-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Angular Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
-1. [How do you optimize change detection in a large list of components using `OnPush` strategy?](#q1-how-do-you-optimize-change-detection-in-a-large-list-of-components-using-onpush-strategy) <span class="advanced">Advanced</span>
+
+1. [How do you optimize change detection in a large list of components using `OnPush` strategy?](#q1-how-do-you-optimize-change-detection-in-a-large-list-of-components-using-onpush-strategy) <span class="intermediate">Intermediate</span>
 2. [How do you prevent memory leaks when subscribing to Observables in Angular components?](#q2-how-do-you-prevent-memory-leaks-when-subscribing-to-observables-in-angular-components) <span class="intermediate">Intermediate</span>
 3. [How do you implement a custom form validator for a Reactive Form?](#q3-how-do-you-implement-a-custom-form-validator-for-a-reactive-form) <span class="intermediate">Intermediate</span>
 4. [How do you share data between unrelated components using a Service and RxJS?](#q4-how-do-you-share-data-between-unrelated-components-using-a-service-and-rxjs) <span class="intermediate">Intermediate</span>
 5. [How do you lazy load a module or standalone component in Angular Routing?](#q5-how-do-you-lazy-load-a-module-or-standalone-component-in-angular-routing) <span class="intermediate">Intermediate</span>
-6. [How do you intercept HTTP requests to add an authentication token automatically?](#q6-how-do-you-intercept-http-requests-to-add-an-authentication-token-automatically) <span class="advanced">Advanced</span>
+6. [How do you intercept HTTP requests to add an authentication token automatically?](#q6-how-do-you-intercept-http-requests-to-add-an-authentication-token-automatically) <span class="intermediate">Intermediate</span>
 7. [How do you manage state in Angular using Signals (modern approach)?](#q7-how-do-you-manage-state-in-angular-using-signals-modern-approach) <span class="intermediate">Intermediate</span>
-8. [How do you optimize the rendering of large lists using `@for` loop tracking?](#q8-how-do-you-optimize-the-rendering-of-large-lists-using-for-loop-tracking) <span class="intermediate">Intermediate</span>
-9. [How do you handle multiple API calls where the second call depends on the result of the first?](#q9-how-do-you-handle-multiple-api-calls-where-the-second-call-depends-on-the-result-of-the-first) <span class="advanced">Advanced</span>
-10. [How do you dynamically create a component at runtime?](#q10-how-do-you-dynamically-create-a-component-at-runtime) <span class="advanced">Advanced</span>
+8. [How do you optimize the rendering of large lists using `@for` loop tracking?](#q8-how-do-you-optimize-the-rendering-of-large-lists-using-@for-loop-tracking) <span class="intermediate">Intermediate</span>
+9. [How do you handle multiple API calls where the second call depends on the result of the first?](#q9-how-do-you-handle-multiple-api-calls-where-the-second-call-depends-on-the-result-of-the-first) <span class="intermediate">Intermediate</span>
+10. [How do you dynamically create a component at runtime?](#q10-how-do-you-dynamically-create-a-component-at-runtime) <span class="intermediate">Intermediate</span>
 11. [How do you protect a route from being accessed by unauthorized users?](#q11-how-do-you-protect-a-route-from-being-accessed-by-unauthorized-users) <span class="intermediate">Intermediate</span>
-12. [How do you configure different environments (dev, prod) in Angular?](#q12-how-do-you-configure-different-environments-dev-prod-in-angular) <span class="beginner">Beginner</span>
-13. [How do you create a structural directive (like `*ngIf`)?](#q13-how-do-you-create-a-structural-directive-like-ngif) <span class="advanced">Advanced</span>
+12. [How do you configure different environments (dev, prod) in Angular?](#q12-how-do-you-configure-different-environments-dev-prod-in-angular) <span class="intermediate">Intermediate</span>
+13. [How do you create a structural directive (like `*ngIf`)?](#q13-how-do-you-create-a-structural-directive-like-*ngif) <span class="intermediate">Intermediate</span>
 14. [How do you unit test a component with dependencies?](#q14-how-do-you-unit-test-a-component-with-dependencies) <span class="intermediate">Intermediate</span>
 15. [How do you resolve data before a route is activated?](#q15-how-do-you-resolve-data-before-a-route-is-activated) <span class="intermediate">Intermediate</span>
-16. [How do you implement Pipes in Angular to handle specific requirements?](#q16-how-do-you-implement-pipes-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-17. [How do you implement Directives in Angular to handle specific requirements?](#q17-how-do-you-implement-directives-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-18. [How do you implement Modules in Angular to handle specific requirements?](#q18-how-do-you-implement-modules-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-19. [How do you implement Content Projection in Angular to handle specific requirements?](#q19-how-do-you-implement-content-projection-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-20. [How do you implement ViewChild in Angular to handle specific requirements?](#q20-how-do-you-implement-viewchild-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-21. [How do you implement HostListener in Angular to handle specific requirements?](#q21-how-do-you-implement-hostlistener-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-22. [How do you implement HostBinding in Angular to handle specific requirements?](#q22-how-do-you-implement-hostbinding-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-23. [How do you implement Animations in Angular to handle specific requirements?](#q23-how-do-you-implement-animations-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-24. [How do you implement HttpClient in Angular to handle specific requirements?](#q24-how-do-you-implement-httpclient-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-25. [How do you implement Testing in Angular to handle specific requirements?](#q25-how-do-you-implement-testing-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
+16. [How do you create a custom Pipe in Angular?](#q16-how-do-you-create-a-custom-pipe-in-angular) <span class="intermediate">Intermediate</span>
+17. [How do you create a custom Attribute Directive?](#q17-how-do-you-create-a-custom-attribute-directive) <span class="intermediate">Intermediate</span>
+18. [How do you organize code using Angular Modules (NgModule)?](#q18-how-do-you-organize-code-using-angular-modules-ngmodule) <span class="intermediate">Intermediate</span>
+19. [How do you use Content Projection (`ng-content`)?](#q19-how-do-you-use-content-projection-ng-content) <span class="intermediate">Intermediate</span>
+20. [How do you access a child component or DOM element using `@ViewChild`?](#q20-how-do-you-access-a-child-component-or-dom-element-using-@viewchild) <span class="intermediate">Intermediate</span>
+21. [How do you listen to DOM events on the host element using `@HostListener`?](#q21-how-do-you-listen-to-dom-events-on-the-host-element-using-@hostlistener) <span class="intermediate">Intermediate</span>
+22. [How do you bind host element properties using `@HostBinding`?](#q22-how-do-you-bind-host-element-properties-using-@hostbinding) <span class="intermediate">Intermediate</span>
+23. [How do you implement animations in Angular?](#q23-how-do-you-implement-animations-in-angular) <span class="intermediate">Intermediate</span>
+24. [How do you make HTTP requests using `HttpClient`?](#q24-how-do-you-make-http-requests-using-httpclient) <span class="intermediate">Intermediate</span>
+25. [How do you write a basic unit test for a component?](#q25-how-do-you-write-a-basic-unit-test-for-a-component) <span class="intermediate">Intermediate</span>
 26. [How do you implement E2E Testing in Angular to handle specific requirements?](#q26-how-do-you-implement-e2e-testing-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
 27. [How do you implement SSR in Angular to handle specific requirements?](#q27-how-do-you-implement-ssr-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
 28. [How do you implement PWA in Angular to handle specific requirements?](#q28-how-do-you-implement-pwa-in-angular-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
@@ -98,7 +107,7 @@
 95. [How do you implement Platform Server to handle specific requirements?](#q95-how-do-you-implement-platform-server-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
 96. [How do you implement Meta Service to handle specific requirements?](#q96-how-do-you-implement-meta-service-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
 97. [How do you implement Title Service to handle specific requirements?](#q97-how-do-you-implement-title-service-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
-98. [How do you implement APP_INITIALIZER to handle specific requirements?](#q98-how-do-you-implement-appinitializer-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
+98. [How do you implement APP_INITIALIZER to handle specific requirements?](#q98-how-do-you-implement-app_initializer-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
 99. [How do you implement HTTP Interceptors to handle specific requirements?](#q99-how-do-you-implement-http-interceptors-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
 100. [How do you implement HttpBackend to handle specific requirements?](#q100-how-do-you-implement-httpbackend-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
 101. [How do you implement HttpClientTestingModule to handle specific requirements?](#q101-how-do-you-implement-httpclienttestingmodule-to-handle-specific-requirements) <span class="intermediate">Intermediate</span>
@@ -113,8 +122,7 @@
 
 ### Q1: How do you optimize change detection in a large list of components using `OnPush` strategy?
 
-**Difficulty: Advanced**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 By default, Angular uses the `Default` change detection strategy, which checks every component in the tree on every event. 
@@ -125,7 +133,7 @@ By default, Angular uses the `Default` change detection strategy, which checks e
     - `markForCheck()` is manually called.
     - An async pipe emits a new value.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
@@ -148,8 +156,7 @@ export class ItemComponent {
 
 ### Q2: How do you prevent memory leaks when subscribing to Observables in Angular components?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Manual subscriptions (`.subscribe()`) inside components must be unsubscribed when the component is destroyed.
@@ -157,7 +164,7 @@ Manual subscriptions (`.subscribe()`) inside components must be unsubscribed whe
 2. **takeUntil / takeUntilDestroyed:** Use operators to complete the stream.
 3. **Subscription.add:** Manually collect subscriptions and unsubscribe in `ngOnDestroy`.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { Component, DestroyRef, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -181,8 +188,7 @@ export class TimerComponent {
 
 ### Q3: How do you implement a custom form validator for a Reactive Form?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 A validator is a function that receives a `AbstractControl` and returns `ValidationErrors | null`.
@@ -190,7 +196,7 @@ A validator is a function that receives a `AbstractControl` and returns `Validat
 2. Check the control's value.
 3. Return null if valid, or an object `{ errorName: true }` if invalid.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
@@ -211,8 +217,7 @@ export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 
 ### Q4: How do you share data between unrelated components using a Service and RxJS?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Use a singleton service with a `BehaviorSubject` (or `ReplaySubject`) to hold state.
@@ -220,7 +225,7 @@ Use a singleton service with a `BehaviorSubject` (or `ReplaySubject`) to hold st
 2. Expose it as an `Observable` (using `.asObservable()`) for components to subscribe to.
 3. Provide a method to update the value.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
@@ -242,15 +247,14 @@ export class DataService {
 
 ### Q5: How do you lazy load a module or standalone component in Angular Routing?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Lazy loading reduces the initial bundle size by loading code only when requested.
 1. Use `loadChildren` (for modules) or `loadComponent` (for standalone components) in the route definition.
 2. Use the dynamic import syntax `() => import(...)`.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { Routes } from '@angular/router';
 
@@ -272,8 +276,7 @@ export const routes: Routes = [
 
 ### Q6: How do you intercept HTTP requests to add an authentication token automatically?
 
-**Difficulty: Advanced**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Use an `HttpInterceptor` (functional interceptor in newer Angular) to modify outgoing requests.
@@ -282,7 +285,7 @@ Use an `HttpInterceptor` (functional interceptor in newer Angular) to modify out
 3. Pass the request to `next`.
 4. Register it in `provideHttpClient(withInterceptors([...]))`.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { HttpInterceptorFn } from '@angular/common/http';
 
@@ -309,8 +312,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
 ### Q7: How do you manage state in Angular using Signals (modern approach)?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Signals provide fine-grained reactivity without RxJS overhead for synchronous state.
@@ -318,7 +320,7 @@ Signals provide fine-grained reactivity without RxJS overhead for synchronous st
 2. Use `computed()` to derive values.
 3. Use `effect()` to run side effects when signals change.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { Component, signal, computed, effect } from '@angular/core';
 
@@ -345,15 +347,14 @@ export class CounterComponent {
 
 ### Q8: How do you optimize the rendering of large lists using `@for` loop tracking?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 The built-in `@for` block (Angular 17+) requires a `track` expression.
 1. Always provide a unique identifier for the `track` expression (e.g., `item.id`).
 2. This allows Angular to identify which items moved, were added, or removed, minimizing DOM operations.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 @Component({
   template: `
@@ -377,8 +378,7 @@ export class UserListComponent {
 
 ### Q9: How do you handle multiple API calls where the second call depends on the result of the first?
 
-**Difficulty: Advanced**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Use the RxJS `switchMap` (or `mergeMap`/`concatMap`) operator to chain Observables.
@@ -386,7 +386,7 @@ Use the RxJS `switchMap` (or `mergeMap`/`concatMap`) operator to chain Observabl
 2. Inside the pipe, map to the second Observable using `switchMap`.
 3. `switchMap` automatically unsubscribes from the inner Observable if a new value arrives (cancelling pending requests).
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { switchMap } from 'rxjs/operators';
 
@@ -403,8 +403,7 @@ this.route.params.pipe(
 
 ### Q10: How do you dynamically create a component at runtime?
 
-**Difficulty: Advanced**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Use `ViewContainerRef` to create components dynamically.
@@ -412,7 +411,7 @@ Use `ViewContainerRef` to create components dynamically.
 2. Call `createComponent` on the container.
 3. Set properties on the component instance.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { AlertComponent } from './alert.component';
@@ -435,8 +434,7 @@ export class HostComponent {
 
 ### Q11: How do you protect a route from being accessed by unauthorized users?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Use Route Guards (functional guards in modern Angular).
@@ -444,7 +442,7 @@ Use Route Guards (functional guards in modern Angular).
 2. Check authentication state (e.g., via a Service).
 3. Return `true` if allowed, or `UrlTree` (redirect) if denied.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
@@ -467,8 +465,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
 ### Q12: How do you configure different environments (dev, prod) in Angular?
 
-**Difficulty: Beginner**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Angular uses environment files (e.g., `environment.ts`, `environment.prod.ts`) and build configurations.
@@ -476,7 +473,7 @@ Angular uses environment files (e.g., `environment.ts`, `environment.prod.ts`) a
 2. In `angular.json`, under `configurations`, replace the file for `production` build.
 3. Import `environment` in your code.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // environment.ts
 export const environment = {
@@ -501,8 +498,7 @@ http.get(environment.apiUrl + '/users');
 
 ### Q13: How do you create a structural directive (like `*ngIf`)?
 
-**Difficulty: Advanced**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Structural directives change the DOM layout by adding/removing elements.
@@ -510,7 +506,7 @@ Structural directives change the DOM layout by adding/removing elements.
 2. Use `createEmbeddedView` to show content or `clear` to remove it.
 3. Use a setter `@Input` to trigger updates.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
@@ -536,8 +532,7 @@ export class DelayDirective {
 
 ### Q14: How do you unit test a component with dependencies?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Use `TestBed` to configure the testing module and provide mocks.
@@ -545,7 +540,7 @@ Use `TestBed` to configure the testing module and provide mocks.
 2. Provide mock services using `{ provide: Service, useValue: mockService }`.
 3. Compile components.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserComponent } from './user.component';
@@ -578,8 +573,7 @@ describe('UserComponent', () => {
 
 ### Q15: How do you resolve data before a route is activated?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 Use a `ResolveFn` to fetch data before the route component is rendered.
@@ -587,7 +581,7 @@ Use a `ResolveFn` to fetch data before the route component is rendered.
 2. Assign it to the `resolve` property in the route definition.
 3. Access data via `ActivatedRoute.snapshot.data` or `@Input` with `withComponentInputBinding()`.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 import { ResolveFn } from '@angular/router';
 
@@ -610,37 +604,54 @@ export const userResolver: ResolveFn<User> = (route, state) => {
 
 ---
 
-### Q16: How do you implement Pipes in Angular to handle specific requirements?
+### Q16: How do you create a custom Pipe in Angular?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Pipes in Angular** effectively in Angular:
-1. Understand the specific requirement for Pipes in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Implement the `PipeTransform` interface. Decorate the class with `@Pipe`. The `transform` method takes the value and optional arguments.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
-// Example implementation for Pipes in Angular
-import { Component, Injectable } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
-export class PipesinAngularService {
-  handlePipesinAngular() {
-    console.log('Handling Pipes in Angular logic...');
-    // Implementation details would go here
+@Pipe({ name: 'exponentialStrength', standalone: true })
+export class ExponentialStrengthPipe implements PipeTransform {
+  transform(value: number, exponent = 1): number {
+    return Math.pow(value, exponent);
   }
 }
 
-@Component({
-  selector: 'app-pipesinangular',
-  template: `<p>Demo for Pipes in Angular</p>`
-})
-export class PipesinAngularComponent {
-  constructor(private service: PipesinAngularService) {
-    this.service.handlePipesinAngular();
+// Usage: {{ 2 | exponentialStrength: 10 }}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q17: How do you create a custom Attribute Directive?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `@Directive`. Inject `ElementRef` to access the DOM element. Use `@HostListener` to handle events.
+
+**Code Example:**
+```typescript
+@Directive({ selector: '[appHighlight]', standalone: true })
+export class HighlightDirective {
+  constructor(private el: ElementRef) {}
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight('yellow');
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlight('');
+  }
+
+  private highlight(color: string) {
+    this.el.nativeElement.style.backgroundColor = color;
   }
 }
 ```
@@ -649,37 +660,70 @@ export class PipesinAngularComponent {
 
 ---
 
-### Q17: How do you implement Directives in Angular to handle specific requirements?
+### Q18: How do you organize code using Angular Modules (NgModule)?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Directives in Angular** effectively in Angular:
-1. Understand the specific requirement for Directives in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Use `@NgModule` to group components, directives, and pipes. Define `declarations` (components), `imports` (other modules), `providers` (services), and `exports` (public API). *Note: Standalone components are preferred in modern Angular.*
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
-// Example implementation for Directives in Angular
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class DirectivesinAngularService {
-  handleDirectivesinAngular() {
-    console.log('Handling Directives in Angular logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-directivesinangular',
-  template: `<p>Demo for Directives in Angular</p>`
+@NgModule({
+  declarations: [FeatureComponent],
+  imports: [CommonModule],
+  exports: [FeatureComponent]
 })
-export class DirectivesinAngularComponent {
-  constructor(private service: DirectivesinAngularService) {
-    this.service.handleDirectivesinAngular();
+export class FeatureModule {}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q19: How do you use Content Projection (`ng-content`)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `<ng-content>` in the child component's template to insert content provided by the parent. Use `select` attribute for multi-slot projection.
+
+**Code Example:**
+```typescript
+<!-- Child -->
+<div class="header">
+  <ng-content select="[header]"></ng-content>
+</div>
+<div class="body">
+  <ng-content></ng-content>
+</div>
+
+<!-- Parent -->
+<app-child>
+  <h1 header>Title</h1>
+  <p>Main content</p>
+</app-child>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q20: How do you access a child component or DOM element using `@ViewChild`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `@ViewChild` to query for a component, directive, or template reference variable (`#ref`). Access it in `ngAfterViewInit`.
+
+**Code Example:**
+```typescript
+@Component({ template: '<input #myInput>' })
+export class MyComponent implements AfterViewInit {
+  @ViewChild('myInput') input!: ElementRef;
+
+  ngAfterViewInit() {
+    this.input.nativeElement.focus();
   }
 }
 ```
@@ -688,38 +732,18 @@ export class DirectivesinAngularComponent {
 
 ---
 
-### Q18: How do you implement Modules in Angular to handle specific requirements?
+### Q21: How do you listen to DOM events on the host element using `@HostListener`?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Modules in Angular** effectively in Angular:
-1. Understand the specific requirement for Modules in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Decorate a method with `@HostListener('eventName', ['$event'])`. It binds the DOM event to the method.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
-// Example implementation for Modules in Angular
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ModulesinAngularService {
-  handleModulesinAngular() {
-    console.log('Handling Modules in Angular logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-modulesinangular',
-  template: `<p>Demo for Modules in Angular</p>`
-})
-export class ModulesinAngularComponent {
-  constructor(private service: ModulesinAngularService) {
-    this.service.handleModulesinAngular();
-  }
+@HostListener('click', ['$event'])
+onClick(e: Event) {
+  alert('Host element clicked!');
 }
 ```
 
@@ -727,38 +751,19 @@ export class ModulesinAngularComponent {
 
 ---
 
-### Q19: How do you implement Content Projection in Angular to handle specific requirements?
+### Q22: How do you bind host element properties using `@HostBinding`?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Content Projection in Angular** effectively in Angular:
-1. Understand the specific requirement for Content Projection in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Decorate a property with `@HostBinding('attr.class')` or `style.color`. It updates the host element when the property changes.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
-// Example implementation for Content Projection in Angular
-import { Component, Injectable } from '@angular/core';
+@HostBinding('class.active') isActive = false;
 
-@Injectable({ providedIn: 'root' })
-export class ContentProjectioninAngularService {
-  handleContentProjectioninAngular() {
-    console.log('Handling Content Projection in Angular logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-contentprojectioninangular',
-  template: `<p>Demo for Content Projection in Angular</p>`
-})
-export class ContentProjectioninAngularComponent {
-  constructor(private service: ContentProjectioninAngularService) {
-    this.service.handleContentProjectioninAngular();
-  }
+@HostListener('click') toggle() {
+  this.isActive = !this.isActive;
 }
 ```
 
@@ -766,38 +771,26 @@ export class ContentProjectioninAngularComponent {
 
 ---
 
-### Q20: How do you implement ViewChild in Angular to handle specific requirements?
+### Q23: How do you implement animations in Angular?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
-To implement **ViewChild in Angular** effectively in Angular:
-1. Understand the specific requirement for ViewChild in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Use `BrowserAnimationsModule` (or `provideAnimations`). Define animations in the component metadata using `trigger`, `state`, `style`, `transition`, and `animate`.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
-// Example implementation for ViewChild in Angular
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ViewChildinAngularService {
-  handleViewChildinAngular() {
-    console.log('Handling ViewChild in Angular logic...');
-    // Implementation details would go here
-  }
-}
-
 @Component({
-  selector: 'app-viewchildinangular',
-  template: `<p>Demo for ViewChild in Angular</p>`
+  animations: [
+    trigger('openClose', [
+      state('open', style({ height: '200px', opacity: 1 })),
+      state('closed', style({ height: '0px', opacity: 0.5 })),
+      transition('open <=> closed', [animate('0.5s')])
+    ])
+  ]
 })
-export class ViewChildinAngularComponent {
-  constructor(private service: ViewChildinAngularService) {
-    this.service.handleViewChildinAngular();
-  }
+export class AnimationComponent {
+  isOpen = true;
 }
 ```
 
@@ -805,38 +798,19 @@ export class ViewChildinAngularComponent {
 
 ---
 
-### Q21: How do you implement HostListener in Angular to handle specific requirements?
+### Q24: How do you make HTTP requests using `HttpClient`?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
-To implement **HostListener in Angular** effectively in Angular:
-1. Understand the specific requirement for HostListener in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Inject `HttpClient`. Use methods like `get`, `post`, `put`, `delete`. They return Observables. Subscribe to them to trigger the request.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
-// Example implementation for HostListener in Angular
-import { Component, Injectable } from '@angular/core';
+constructor(private http: HttpClient) {}
 
-@Injectable({ providedIn: 'root' })
-export class HostListenerinAngularService {
-  handleHostListenerinAngular() {
-    console.log('Handling HostListener in Angular logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-hostlistenerinangular',
-  template: `<p>Demo for HostListener in Angular</p>`
-})
-export class HostListenerinAngularComponent {
-  constructor(private service: HostListenerinAngularService) {
-    this.service.handleHostListenerinAngular();
-  }
+getData() {
+  return this.http.get<User[]>('https://api.example.com/users');
 }
 ```
 
@@ -844,156 +818,20 @@ export class HostListenerinAngularComponent {
 
 ---
 
-### Q22: How do you implement HostBinding in Angular to handle specific requirements?
+### Q25: How do you write a basic unit test for a component?
 
-**Difficulty: Intermediate**
-
-
-**Strategy:**
-To implement **HostBinding in Angular** effectively in Angular:
-1. Understand the specific requirement for HostBinding in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
-
-**Code Snippet:**
-```typescript
-// Example implementation for HostBinding in Angular
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class HostBindinginAngularService {
-  handleHostBindinginAngular() {
-    console.log('Handling HostBinding in Angular logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-hostbindinginangular',
-  template: `<p>Demo for HostBinding in Angular</p>`
-})
-export class HostBindinginAngularComponent {
-  constructor(private service: HostBindinginAngularService) {
-    this.service.handleHostBindinginAngular();
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q23: How do you implement Animations in Angular to handle specific requirements?
-
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Animations in Angular** effectively in Angular:
-1. Understand the specific requirement for Animations in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Use Jasmine/Karma (default). Describe the suite, setup `TestBed`, create component fixture, and write expectations.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
-// Example implementation for Animations in Angular
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class AnimationsinAngularService {
-  handleAnimationsinAngular() {
-    console.log('Handling Animations in Angular logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-animationsinangular',
-  template: `<p>Demo for Animations in Angular</p>`
-})
-export class AnimationsinAngularComponent {
-  constructor(private service: AnimationsinAngularService) {
-    this.service.handleAnimationsinAngular();
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q24: How do you implement HttpClient in Angular to handle specific requirements?
-
-**Difficulty: Intermediate**
-
-
-**Strategy:**
-To implement **HttpClient in Angular** effectively in Angular:
-1. Understand the specific requirement for HttpClient in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
-
-**Code Snippet:**
-```typescript
-// Example implementation for HttpClient in Angular
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class HttpClientinAngularService {
-  handleHttpClientinAngular() {
-    console.log('Handling HttpClient in Angular logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-httpclientinangular',
-  template: `<p>Demo for HttpClient in Angular</p>`
-})
-export class HttpClientinAngularComponent {
-  constructor(private service: HttpClientinAngularService) {
-    this.service.handleHttpClientinAngular();
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q25: How do you implement Testing in Angular to handle specific requirements?
-
-**Difficulty: Intermediate**
-
-
-**Strategy:**
-To implement **Testing in Angular** effectively in Angular:
-1. Understand the specific requirement for Testing in Angular.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
-
-**Code Snippet:**
-```typescript
-// Example implementation for Testing in Angular
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class TestinginAngularService {
-  handleTestinginAngular() {
-    console.log('Handling Testing in Angular logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-testinginangular',
-  template: `<p>Demo for Testing in Angular</p>`
-})
-export class TestinginAngularComponent {
-  constructor(private service: TestinginAngularService) {
-    this.service.handleTestinginAngular();
-  }
-}
+it('should have title', () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const app = fixture.componentInstance;
+  expect(app.title).toEqual('my-app');
+});
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1002,8 +840,7 @@ export class TestinginAngularComponent {
 
 ### Q26: How do you implement E2E Testing in Angular to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **E2E Testing in Angular** effectively in Angular:
@@ -1011,7 +848,7 @@ To implement **E2E Testing in Angular** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for E2E Testing in Angular
 import { Component, Injectable } from '@angular/core';
@@ -1041,8 +878,7 @@ export class E2ETestinginAngularComponent {
 
 ### Q27: How do you implement SSR in Angular to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **SSR in Angular** effectively in Angular:
@@ -1050,7 +886,7 @@ To implement **SSR in Angular** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for SSR in Angular
 import { Component, Injectable } from '@angular/core';
@@ -1080,8 +916,7 @@ export class SSRinAngularComponent {
 
 ### Q28: How do you implement PWA in Angular to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **PWA in Angular** effectively in Angular:
@@ -1089,7 +924,7 @@ To implement **PWA in Angular** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for PWA in Angular
 import { Component, Injectable } from '@angular/core';
@@ -1119,8 +954,7 @@ export class PWAinAngularComponent {
 
 ### Q29: How do you implement i18n in Angular to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **i18n in Angular** effectively in Angular:
@@ -1128,7 +962,7 @@ To implement **i18n in Angular** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for i18n in Angular
 import { Component, Injectable } from '@angular/core';
@@ -1158,8 +992,7 @@ export class i18ninAngularComponent {
 
 ### Q30: How do you implement Accessibility in Angular to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Accessibility in Angular** effectively in Angular:
@@ -1167,7 +1000,7 @@ To implement **Accessibility in Angular** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Accessibility in Angular
 import { Component, Injectable } from '@angular/core';
@@ -1197,8 +1030,7 @@ export class AccessibilityinAngularComponent {
 
 ### Q31: How do you implement Error Handling in Angular to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Error Handling in Angular** effectively in Angular:
@@ -1206,7 +1038,7 @@ To implement **Error Handling in Angular** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Error Handling in Angular
 import { Component, Injectable } from '@angular/core';
@@ -1236,8 +1068,7 @@ export class ErrorHandlinginAngularComponent {
 
 ### Q32: How do you implement Zone.js in Angular to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Zone.js in Angular** effectively in Angular:
@@ -1245,7 +1076,7 @@ To implement **Zone.js in Angular** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Zone.js in Angular
 import { Component, Injectable } from '@angular/core';
@@ -1275,8 +1106,7 @@ export class ZonejsinAngularComponent {
 
 ### Q33: How do you implement NgRx Store to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **NgRx Store** effectively in Angular:
@@ -1284,7 +1114,7 @@ To implement **NgRx Store** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for NgRx Store
 import { Component, Injectable } from '@angular/core';
@@ -1314,8 +1144,7 @@ export class NgRxStoreComponent {
 
 ### Q34: How do you implement NgRx Effects to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **NgRx Effects** effectively in Angular:
@@ -1323,7 +1152,7 @@ To implement **NgRx Effects** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for NgRx Effects
 import { Component, Injectable } from '@angular/core';
@@ -1353,8 +1182,7 @@ export class NgRxEffectsComponent {
 
 ### Q35: How do you implement NgRx Selectors to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **NgRx Selectors** effectively in Angular:
@@ -1362,7 +1190,7 @@ To implement **NgRx Selectors** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for NgRx Selectors
 import { Component, Injectable } from '@angular/core';
@@ -1392,8 +1220,7 @@ export class NgRxSelectorsComponent {
 
 ### Q36: How do you implement Standalone Components to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Standalone Components** effectively in Angular:
@@ -1401,7 +1228,7 @@ To implement **Standalone Components** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Standalone Components
 import { Component, Injectable } from '@angular/core';
@@ -1431,8 +1258,7 @@ export class StandaloneComponentsComponent {
 
 ### Q37: How do you implement Dependency Injection to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Dependency Injection** effectively in Angular:
@@ -1440,7 +1266,7 @@ To implement **Dependency Injection** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Dependency Injection
 import { Component, Injectable } from '@angular/core';
@@ -1470,8 +1296,7 @@ export class DependencyInjectionComponent {
 
 ### Q38: How do you implement Hierarchical Injectors to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Hierarchical Injectors** effectively in Angular:
@@ -1479,7 +1304,7 @@ To implement **Hierarchical Injectors** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Hierarchical Injectors
 import { Component, Injectable } from '@angular/core';
@@ -1509,8 +1334,7 @@ export class HierarchicalInjectorsComponent {
 
 ### Q39: How do you implement Injection Tokens to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Injection Tokens** effectively in Angular:
@@ -1518,7 +1342,7 @@ To implement **Injection Tokens** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Injection Tokens
 import { Component, Injectable } from '@angular/core';
@@ -1548,8 +1372,7 @@ export class InjectionTokensComponent {
 
 ### Q40: How do you implement ProvidedIn root to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ProvidedIn root** effectively in Angular:
@@ -1557,7 +1380,7 @@ To implement **ProvidedIn root** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ProvidedIn root
 import { Component, Injectable } from '@angular/core';
@@ -1587,8 +1410,7 @@ export class ProvidedInrootComponent {
 
 ### Q41: How do you implement Optional Dependencies to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Optional Dependencies** effectively in Angular:
@@ -1596,7 +1418,7 @@ To implement **Optional Dependencies** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Optional Dependencies
 import { Component, Injectable } from '@angular/core';
@@ -1626,8 +1448,7 @@ export class OptionalDependenciesComponent {
 
 ### Q42: How do you implement Component Lifecycle to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Component Lifecycle** effectively in Angular:
@@ -1635,7 +1456,7 @@ To implement **Component Lifecycle** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Component Lifecycle
 import { Component, Injectable } from '@angular/core';
@@ -1665,8 +1486,7 @@ export class ComponentLifecycleComponent {
 
 ### Q43: How do you implement ngOnChanges to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ngOnChanges** effectively in Angular:
@@ -1674,7 +1494,7 @@ To implement **ngOnChanges** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ngOnChanges
 import { Component, Injectable } from '@angular/core';
@@ -1704,8 +1524,7 @@ export class ngOnChangesComponent {
 
 ### Q44: How do you implement ngOnInit to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ngOnInit** effectively in Angular:
@@ -1713,7 +1532,7 @@ To implement **ngOnInit** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ngOnInit
 import { Component, Injectable } from '@angular/core';
@@ -1743,8 +1562,7 @@ export class ngOnInitComponent {
 
 ### Q45: How do you implement ngDoCheck to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ngDoCheck** effectively in Angular:
@@ -1752,7 +1570,7 @@ To implement **ngDoCheck** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ngDoCheck
 import { Component, Injectable } from '@angular/core';
@@ -1782,8 +1600,7 @@ export class ngDoCheckComponent {
 
 ### Q46: How do you implement ngAfterViewInit to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ngAfterViewInit** effectively in Angular:
@@ -1791,7 +1608,7 @@ To implement **ngAfterViewInit** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ngAfterViewInit
 import { Component, Injectable } from '@angular/core';
@@ -1821,8 +1638,7 @@ export class ngAfterViewInitComponent {
 
 ### Q47: How do you implement ngOnDestroy to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ngOnDestroy** effectively in Angular:
@@ -1830,7 +1646,7 @@ To implement **ngOnDestroy** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ngOnDestroy
 import { Component, Injectable } from '@angular/core';
@@ -1860,8 +1676,7 @@ export class ngOnDestroyComponent {
 
 ### Q48: How do you implement Template Driven Forms to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Template Driven Forms** effectively in Angular:
@@ -1869,7 +1684,7 @@ To implement **Template Driven Forms** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Template Driven Forms
 import { Component, Injectable } from '@angular/core';
@@ -1899,8 +1714,7 @@ export class TemplateDrivenFormsComponent {
 
 ### Q49: How do you implement Reactive Forms to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Reactive Forms** effectively in Angular:
@@ -1908,7 +1722,7 @@ To implement **Reactive Forms** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Reactive Forms
 import { Component, Injectable } from '@angular/core';
@@ -1938,8 +1752,7 @@ export class ReactiveFormsComponent {
 
 ### Q50: How do you implement FormBuilder to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **FormBuilder** effectively in Angular:
@@ -1947,7 +1760,7 @@ To implement **FormBuilder** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for FormBuilder
 import { Component, Injectable } from '@angular/core';
@@ -1977,8 +1790,7 @@ export class FormBuilderComponent {
 
 ### Q51: How do you implement FormGroup to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **FormGroup** effectively in Angular:
@@ -1986,7 +1798,7 @@ To implement **FormGroup** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for FormGroup
 import { Component, Injectable } from '@angular/core';
@@ -2016,8 +1828,7 @@ export class FormGroupComponent {
 
 ### Q52: How do you implement FormArray to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **FormArray** effectively in Angular:
@@ -2025,7 +1836,7 @@ To implement **FormArray** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for FormArray
 import { Component, Injectable } from '@angular/core';
@@ -2055,8 +1866,7 @@ export class FormArrayComponent {
 
 ### Q53: How do you implement Async Validators to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Async Validators** effectively in Angular:
@@ -2064,7 +1874,7 @@ To implement **Async Validators** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Async Validators
 import { Component, Injectable } from '@angular/core';
@@ -2094,8 +1904,7 @@ export class AsyncValidatorsComponent {
 
 ### Q54: How do you implement Dynamic Forms to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Dynamic Forms** effectively in Angular:
@@ -2103,7 +1912,7 @@ To implement **Dynamic Forms** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Dynamic Forms
 import { Component, Injectable } from '@angular/core';
@@ -2133,8 +1942,7 @@ export class DynamicFormsComponent {
 
 ### Q55: How do you implement Router Outlet to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Router Outlet** effectively in Angular:
@@ -2142,7 +1950,7 @@ To implement **Router Outlet** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Router Outlet
 import { Component, Injectable } from '@angular/core';
@@ -2172,8 +1980,7 @@ export class RouterOutletComponent {
 
 ### Q56: How do you implement Router Link to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Router Link** effectively in Angular:
@@ -2181,7 +1988,7 @@ To implement **Router Link** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Router Link
 import { Component, Injectable } from '@angular/core';
@@ -2211,8 +2018,7 @@ export class RouterLinkComponent {
 
 ### Q57: How do you implement Router Events to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Router Events** effectively in Angular:
@@ -2220,7 +2026,7 @@ To implement **Router Events** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Router Events
 import { Component, Injectable } from '@angular/core';
@@ -2250,8 +2056,7 @@ export class RouterEventsComponent {
 
 ### Q58: How do you implement ActivatedRoute to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ActivatedRoute** effectively in Angular:
@@ -2259,7 +2064,7 @@ To implement **ActivatedRoute** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ActivatedRoute
 import { Component, Injectable } from '@angular/core';
@@ -2289,8 +2094,7 @@ export class ActivatedRouteComponent {
 
 ### Q59: How do you implement Router State to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Router State** effectively in Angular:
@@ -2298,7 +2102,7 @@ To implement **Router State** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Router State
 import { Component, Injectable } from '@angular/core';
@@ -2328,8 +2132,7 @@ export class RouterStateComponent {
 
 ### Q60: How do you implement Secondary Routes to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Secondary Routes** effectively in Angular:
@@ -2337,7 +2140,7 @@ To implement **Secondary Routes** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Secondary Routes
 import { Component, Injectable } from '@angular/core';
@@ -2367,8 +2170,7 @@ export class SecondaryRoutesComponent {
 
 ### Q61: How do you implement Wildcard Route to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Wildcard Route** effectively in Angular:
@@ -2376,7 +2178,7 @@ To implement **Wildcard Route** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Wildcard Route
 import { Component, Injectable } from '@angular/core';
@@ -2406,8 +2208,7 @@ export class WildcardRouteComponent {
 
 ### Q62: How do you implement Location Strategy to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Location Strategy** effectively in Angular:
@@ -2415,7 +2216,7 @@ To implement **Location Strategy** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Location Strategy
 import { Component, Injectable } from '@angular/core';
@@ -2445,8 +2246,7 @@ export class LocationStrategyComponent {
 
 ### Q63: How do you implement HashLocationStrategy to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **HashLocationStrategy** effectively in Angular:
@@ -2454,7 +2254,7 @@ To implement **HashLocationStrategy** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for HashLocationStrategy
 import { Component, Injectable } from '@angular/core';
@@ -2484,8 +2284,7 @@ export class HashLocationStrategyComponent {
 
 ### Q64: How do you implement PathLocationStrategy to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **PathLocationStrategy** effectively in Angular:
@@ -2493,7 +2292,7 @@ To implement **PathLocationStrategy** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for PathLocationStrategy
 import { Component, Injectable } from '@angular/core';
@@ -2523,8 +2322,7 @@ export class PathLocationStrategyComponent {
 
 ### Q65: How do you implement ViewEncapsulation to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ViewEncapsulation** effectively in Angular:
@@ -2532,7 +2330,7 @@ To implement **ViewEncapsulation** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ViewEncapsulation
 import { Component, Injectable } from '@angular/core';
@@ -2562,8 +2360,7 @@ export class ViewEncapsulationComponent {
 
 ### Q66: How do you implement Shadow DOM to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Shadow DOM** effectively in Angular:
@@ -2571,7 +2368,7 @@ To implement **Shadow DOM** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Shadow DOM
 import { Component, Injectable } from '@angular/core';
@@ -2601,8 +2398,7 @@ export class ShadowDOMComponent {
 
 ### Q67: How do you implement Emulated Encapsulation to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Emulated Encapsulation** effectively in Angular:
@@ -2610,7 +2406,7 @@ To implement **Emulated Encapsulation** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Emulated Encapsulation
 import { Component, Injectable } from '@angular/core';
@@ -2640,8 +2436,7 @@ export class EmulatedEncapsulationComponent {
 
 ### Q68: How do you implement DomSanitizer to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **DomSanitizer** effectively in Angular:
@@ -2649,7 +2444,7 @@ To implement **DomSanitizer** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for DomSanitizer
 import { Component, Injectable } from '@angular/core';
@@ -2679,8 +2474,7 @@ export class DomSanitizerComponent {
 
 ### Q69: How do you implement Security Context to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Security Context** effectively in Angular:
@@ -2688,7 +2482,7 @@ To implement **Security Context** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Security Context
 import { Component, Injectable } from '@angular/core';
@@ -2718,8 +2512,7 @@ export class SecurityContextComponent {
 
 ### Q70: How do you implement XSS Prevention to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **XSS Prevention** effectively in Angular:
@@ -2727,7 +2520,7 @@ To implement **XSS Prevention** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for XSS Prevention
 import { Component, Injectable } from '@angular/core';
@@ -2757,8 +2550,7 @@ export class XSSPreventionComponent {
 
 ### Q71: How do you implement BypassSecurityTrust to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **BypassSecurityTrust** effectively in Angular:
@@ -2766,7 +2558,7 @@ To implement **BypassSecurityTrust** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for BypassSecurityTrust
 import { Component, Injectable } from '@angular/core';
@@ -2796,8 +2588,7 @@ export class BypassSecurityTrustComponent {
 
 ### Q72: How do you implement AOT Compilation to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **AOT Compilation** effectively in Angular:
@@ -2805,7 +2596,7 @@ To implement **AOT Compilation** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for AOT Compilation
 import { Component, Injectable } from '@angular/core';
@@ -2835,8 +2626,7 @@ export class AOTCompilationComponent {
 
 ### Q73: How do you implement JIT Compilation to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **JIT Compilation** effectively in Angular:
@@ -2844,7 +2634,7 @@ To implement **JIT Compilation** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for JIT Compilation
 import { Component, Injectable } from '@angular/core';
@@ -2874,8 +2664,7 @@ export class JITCompilationComponent {
 
 ### Q74: How do you implement Ivy Renderer to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Ivy Renderer** effectively in Angular:
@@ -2883,7 +2672,7 @@ To implement **Ivy Renderer** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Ivy Renderer
 import { Component, Injectable } from '@angular/core';
@@ -2913,8 +2702,7 @@ export class IvyRendererComponent {
 
 ### Q75: How do you implement Tree Shaking to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Tree Shaking** effectively in Angular:
@@ -2922,7 +2710,7 @@ To implement **Tree Shaking** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Tree Shaking
 import { Component, Injectable } from '@angular/core';
@@ -2952,8 +2740,7 @@ export class TreeShakingComponent {
 
 ### Q76: How do you implement Bundle Optimization to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Bundle Optimization** effectively in Angular:
@@ -2961,7 +2748,7 @@ To implement **Bundle Optimization** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Bundle Optimization
 import { Component, Injectable } from '@angular/core';
@@ -2991,8 +2778,7 @@ export class BundleOptimizationComponent {
 
 ### Q77: How do you implement Source Maps to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Source Maps** effectively in Angular:
@@ -3000,7 +2786,7 @@ To implement **Source Maps** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Source Maps
 import { Component, Injectable } from '@angular/core';
@@ -3030,8 +2816,7 @@ export class SourceMapsComponent {
 
 ### Q78: How do you implement Angular CLI to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Angular CLI** effectively in Angular:
@@ -3039,7 +2824,7 @@ To implement **Angular CLI** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Angular CLI
 import { Component, Injectable } from '@angular/core';
@@ -3069,8 +2854,7 @@ export class AngularCLIComponent {
 
 ### Q79: How do you implement ng generate to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ng generate** effectively in Angular:
@@ -3078,7 +2862,7 @@ To implement **ng generate** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ng generate
 import { Component, Injectable } from '@angular/core';
@@ -3108,8 +2892,7 @@ export class nggenerateComponent {
 
 ### Q80: How do you implement ng build to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ng build** effectively in Angular:
@@ -3117,7 +2900,7 @@ To implement **ng build** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ng build
 import { Component, Injectable } from '@angular/core';
@@ -3147,8 +2930,7 @@ export class ngbuildComponent {
 
 ### Q81: How do you implement ng serve to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ng serve** effectively in Angular:
@@ -3156,7 +2938,7 @@ To implement **ng serve** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ng serve
 import { Component, Injectable } from '@angular/core';
@@ -3186,8 +2968,7 @@ export class ngserveComponent {
 
 ### Q82: How do you implement ng test to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ng test** effectively in Angular:
@@ -3195,7 +2976,7 @@ To implement **ng test** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ng test
 import { Component, Injectable } from '@angular/core';
@@ -3225,8 +3006,7 @@ export class ngtestComponent {
 
 ### Q83: How do you implement ng lint to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ng lint** effectively in Angular:
@@ -3234,7 +3014,7 @@ To implement **ng lint** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ng lint
 import { Component, Injectable } from '@angular/core';
@@ -3264,8 +3044,7 @@ export class nglintComponent {
 
 ### Q84: How do you implement Schematics to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Schematics** effectively in Angular:
@@ -3273,7 +3052,7 @@ To implement **Schematics** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Schematics
 import { Component, Injectable } from '@angular/core';
@@ -3303,8 +3082,7 @@ export class SchematicsComponent {
 
 ### Q85: How do you implement Angular Material to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Angular Material** effectively in Angular:
@@ -3312,7 +3090,7 @@ To implement **Angular Material** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Angular Material
 import { Component, Injectable } from '@angular/core';
@@ -3342,8 +3120,7 @@ export class AngularMaterialComponent {
 
 ### Q86: How do you implement CDK (Component Dev Kit) to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **CDK (Component Dev Kit)** effectively in Angular:
@@ -3351,7 +3128,7 @@ To implement **CDK (Component Dev Kit)** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for CDK (Component Dev Kit)
 import { Component, Injectable } from '@angular/core';
@@ -3381,8 +3158,7 @@ export class CDKComponentDevKitComponent {
 
 ### Q87: How do you implement Virtual Scrolling to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Virtual Scrolling** effectively in Angular:
@@ -3390,7 +3166,7 @@ To implement **Virtual Scrolling** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Virtual Scrolling
 import { Component, Injectable } from '@angular/core';
@@ -3420,8 +3196,7 @@ export class VirtualScrollingComponent {
 
 ### Q88: How do you implement Drag and Drop to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Drag and Drop** effectively in Angular:
@@ -3429,7 +3204,7 @@ To implement **Drag and Drop** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Drag and Drop
 import { Component, Injectable } from '@angular/core';
@@ -3459,8 +3234,7 @@ export class DragandDropComponent {
 
 ### Q89: How do you implement Overlay to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Overlay** effectively in Angular:
@@ -3468,7 +3242,7 @@ To implement **Overlay** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Overlay
 import { Component, Injectable } from '@angular/core';
@@ -3498,8 +3272,7 @@ export class OverlayComponent {
 
 ### Q90: How do you implement Portal to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Portal** effectively in Angular:
@@ -3507,7 +3280,7 @@ To implement **Portal** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Portal
 import { Component, Injectable } from '@angular/core';
@@ -3537,8 +3310,7 @@ export class PortalComponent {
 
 ### Q91: How do you implement Bidirectionality to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Bidirectionality** effectively in Angular:
@@ -3546,7 +3318,7 @@ To implement **Bidirectionality** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Bidirectionality
 import { Component, Injectable } from '@angular/core';
@@ -3576,8 +3348,7 @@ export class BidirectionalityComponent {
 
 ### Q92: How do you implement Layout to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Layout** effectively in Angular:
@@ -3585,7 +3356,7 @@ To implement **Layout** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Layout
 import { Component, Injectable } from '@angular/core';
@@ -3615,8 +3386,7 @@ export class LayoutComponent {
 
 ### Q93: How do you implement Observers to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Observers** effectively in Angular:
@@ -3624,7 +3394,7 @@ To implement **Observers** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Observers
 import { Component, Injectable } from '@angular/core';
@@ -3654,8 +3424,7 @@ export class ObserversComponent {
 
 ### Q94: How do you implement Platform Browser to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Platform Browser** effectively in Angular:
@@ -3663,7 +3432,7 @@ To implement **Platform Browser** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Platform Browser
 import { Component, Injectable } from '@angular/core';
@@ -3693,8 +3462,7 @@ export class PlatformBrowserComponent {
 
 ### Q95: How do you implement Platform Server to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Platform Server** effectively in Angular:
@@ -3702,7 +3470,7 @@ To implement **Platform Server** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Platform Server
 import { Component, Injectable } from '@angular/core';
@@ -3732,8 +3500,7 @@ export class PlatformServerComponent {
 
 ### Q96: How do you implement Meta Service to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Meta Service** effectively in Angular:
@@ -3741,7 +3508,7 @@ To implement **Meta Service** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Meta Service
 import { Component, Injectable } from '@angular/core';
@@ -3771,8 +3538,7 @@ export class MetaServiceComponent {
 
 ### Q97: How do you implement Title Service to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **Title Service** effectively in Angular:
@@ -3780,7 +3546,7 @@ To implement **Title Service** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for Title Service
 import { Component, Injectable } from '@angular/core';
@@ -3810,8 +3576,7 @@ export class TitleServiceComponent {
 
 ### Q98: How do you implement APP_INITIALIZER to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **APP_INITIALIZER** effectively in Angular:
@@ -3819,7 +3584,7 @@ To implement **APP_INITIALIZER** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for APP_INITIALIZER
 import { Component, Injectable } from '@angular/core';
@@ -3849,8 +3614,7 @@ export class APPINITIALIZERComponent {
 
 ### Q99: How do you implement HTTP Interceptors to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **HTTP Interceptors** effectively in Angular:
@@ -3858,7 +3622,7 @@ To implement **HTTP Interceptors** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for HTTP Interceptors
 import { Component, Injectable } from '@angular/core';
@@ -3888,8 +3652,7 @@ export class HTTPInterceptorsComponent {
 
 ### Q100: How do you implement HttpBackend to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **HttpBackend** effectively in Angular:
@@ -3897,7 +3660,7 @@ To implement **HttpBackend** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for HttpBackend
 import { Component, Injectable } from '@angular/core';
@@ -3927,8 +3690,7 @@ export class HttpBackendComponent {
 
 ### Q101: How do you implement HttpClientTestingModule to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **HttpClientTestingModule** effectively in Angular:
@@ -3936,7 +3698,7 @@ To implement **HttpClientTestingModule** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for HttpClientTestingModule
 import { Component, Injectable } from '@angular/core';
@@ -3966,8 +3728,7 @@ export class HttpClientTestingModuleComponent {
 
 ### Q102: How do you implement DebugElement to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **DebugElement** effectively in Angular:
@@ -3975,7 +3736,7 @@ To implement **DebugElement** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for DebugElement
 import { Component, Injectable } from '@angular/core';
@@ -4005,8 +3766,7 @@ export class DebugElementComponent {
 
 ### Q103: How do you implement ComponentFixture to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **ComponentFixture** effectively in Angular:
@@ -4014,7 +3774,7 @@ To implement **ComponentFixture** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for ComponentFixture
 import { Component, Injectable } from '@angular/core';
@@ -4044,8 +3804,7 @@ export class ComponentFixtureComponent {
 
 ### Q104: How do you implement fakeAsync to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **fakeAsync** effectively in Angular:
@@ -4053,7 +3812,7 @@ To implement **fakeAsync** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for fakeAsync
 import { Component, Injectable } from '@angular/core';
@@ -4083,8 +3842,7 @@ export class fakeAsyncComponent {
 
 ### Q105: How do you implement tick to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **tick** effectively in Angular:
@@ -4092,7 +3850,7 @@ To implement **tick** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for tick
 import { Component, Injectable } from '@angular/core';
@@ -4122,8 +3880,7 @@ export class tickComponent {
 
 ### Q106: How do you implement flush to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **flush** effectively in Angular:
@@ -4131,7 +3888,7 @@ To implement **flush** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for flush
 import { Component, Injectable } from '@angular/core';
@@ -4161,8 +3918,7 @@ export class flushComponent {
 
 ### Q107: How do you implement waitForAsync to handle specific requirements?
 
-**Difficulty: Intermediate**
-
+**Difficulty**: Intermediate
 
 **Strategy:**
 To implement **waitForAsync** effectively in Angular:
@@ -4170,7 +3926,7 @@ To implement **waitForAsync** effectively in Angular:
 2. Use Angular's built-in APIs and best practices.
 3. Ensure modularity and reusability.
 
-**Code Snippet:**
+**Code Example:**
 ```typescript
 // Example implementation for waitForAsync
 import { Component, Injectable } from '@angular/core';

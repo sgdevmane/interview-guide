@@ -1,134 +1,53 @@
-# HTML Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>HTML Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
-1. [How do you structure a web page using Semantic HTML for better Accessibility and SEO?](#q1-how-do-you-structure-a-web-page-using-semantic-html-for-better-accessibility-and-seo)
-2. [Implement a responsive image strategy using `srcset` and `<picture>`.](#q2-implement-a-responsive-image-strategy-using-srcset-and-<picture>.)
-3. [How do you ensure a web form is accessible to screen reader users?](#q3-how-do-you-ensure-a-web-form-is-accessible-to-screen-reader-users)
-4. [How do you implement a modal dialog using the native `<dialog>` element?](#q4-how-do-you-implement-a-modal-dialog-using-the-native-<dialog>-element)
-5. [How do you optimize Critical Rendering Path using HTML tags?](#q5-how-do-you-optimize-critical-rendering-path-using-html-tags)
-6. [How do you prevent tabnabbing attacks when using `target='_blank'`?](#q6-how-do-you-prevent-tabnabbing-attacks-when-using-target=_blank)
-7. [How do you implement Open Graph tags for Social Media sharing?](#q7-how-do-you-implement-open-graph-tags-for-social-media-sharing)
-8. [How do you use the `<template>` tag for dynamic content?](#q8-how-do-you-use-the-<template>-tag-for-dynamic-content)
-9. [How do you implement a secure Content Security Policy (CSP) via meta tag?](#q9-how-do-you-implement-a-secure-content-security-policy-csp-via-meta-tag)
-10. [How do you encapsulate styles using Shadow DOM to prevent leakage?](#q10-how-do-you-encapsulate-styles-using-shadow-dom-to-prevent-leakage)
-11. [How do you implement 'Lazy Loading' for iframes and images natively?](#q11-how-do-you-implement-lazy-loading-for-iframes-and-images-natively)
-12. [How do you create an accessible 'Skip to Content' link?](#q12-how-do-you-create-an-accessible-skip-to-content-link)
-13. [How do you manage keyboard focus order using `tabindex` efficiently?](#q13-how-do-you-manage-keyboard-focus-order-using-tabindex-efficiently)
-14. [How do you handle 'Dark Mode' preference in HTML/CSS?](#q14-how-do-you-handle-dark-mode-preference-in-html-css)
-15. [How do you validate forms using HTML5 built-in attributes?](#q15-how-do-you-validate-forms-using-html5-built-in-attributes)
-16. [How do you optimize fonts with `font-display`?](#q16-how-do-you-optimize-fonts-with-font-display)
-17. [How do you handle 'Microdata' (Structured Data) for Rich Snippets?](#q17-how-do-you-handle-microdata-structured-data-for-rich-snippets)
-18. [How do you force a file download instead of opening it?](#q18-how-do-you-force-a-file-download-instead-of-opening-it)
-19. [How do you denote computer code in HTML?](#q19-how-do-you-denote-computer-code-in-html)
-20. [How do you implement a 'Toggle Switch' using semantic HTML?](#q20-how-do-you-implement-a-toggle-switch-using-semantic-html)
-21. [How do you ensure 'Print' styles are correct?](#q21-how-do-you-ensure-print-styles-are-correct)
-22. [How do you mark up a 'Figure' with a caption?](#q22-how-do-you-mark-up-a-figure-with-a-caption)
-23. [How do you implement 'Focus Trapping' inside a custom modal?](#q23-how-do-you-implement-focus-trapping-inside-a-custom-modal)
-24. [How do you detect if a user prefers 'Reduced Motion'?](#q24-how-do-you-detect-if-a-user-prefers-reduced-motion)
-25. [How do you group options in a `<select>` dropdown?](#q25-how-do-you-group-options-in-a-<select>-dropdown)
-26. [How do you specify the relationship between the current document and linked resources?](#q26-how-do-you-specify-the-relationship-between-the-current-document-and-linked-resources)
-27. [How do you disable spellcheck for an input?](#q27-how-do-you-disable-spellcheck-for-an-input)
-28. [How do you create a 'Mailto' link with subject and body?](#q28-how-do-you-create-a-mailto-link-with-subject-and-body)
-29. [How do you mark up time and dates semantically?](#q29-how-do-you-mark-up-time-and-dates-semantically)
-30. [How do you make an iframe responsive?](#q30-how-do-you-make-an-iframe-responsive)
-31. [How do you control the browser's viewport on mobile?](#q31-how-do-you-control-the-browsers-viewport-on-mobile)
-32. [How do you define a specific region for a language change?](#q32-how-do-you-define-a-specific-region-for-a-language-change)
-33. [How do you prevent iOS from detecting phone numbers automatically?](#q33-how-do-you-prevent-ios-from-detecting-phone-numbers-automatically)
-34. [How do you create a link that calls a phone number?](#q34-how-do-you-create-a-link-that-calls-a-phone-number)
-35. [How do you create a 'Back to Top' link?](#q35-how-do-you-create-a-back-to-top-link)
-36. [How do you implement a sticky header?](#q36-how-do-you-implement-a-sticky-header)
-37. [How do you style the placeholder text of an input?](#q37-how-do-you-style-the-placeholder-text-of-an-input)
-38. [How do you make a table responsive?](#q38-how-do-you-make-a-table-responsive)
-39. [How do you hide an element visually but keep it accessible?](#q39-how-do-you-hide-an-element-visually-but-keep-it-accessible)
-40. [How do you specify a fallback content for canvas?](#q40-how-do-you-specify-a-fallback-content-for-canvas)
-41. [How do you allow a user to select multiple files?](#q41-how-do-you-allow-a-user-to-select-multiple-files)
-42. [How do you restrict file upload to images only?](#q42-how-do-you-restrict-file-upload-to-images-only)
-43. [How do you create a tooltip without JS?](#q43-how-do-you-create-a-tooltip-without-js)
-44. [How do you implement smooth scrolling?](#q44-how-do-you-implement-smooth-scrolling)
-45. [How do you create a multi-line text input?](#q45-how-do-you-create-a-multi-line-text-input)
-46. [How do you disable resizing of a textarea?](#q46-how-do-you-disable-resizing-of-a-textarea)
-47. [How do you make a favicon animate?](#q47-how-do-you-make-a-favicon-animate)
-48. [How do you prevent a page from being indexed by Google?](#q48-how-do-you-prevent-a-page-from-being-indexed-by-google)
-49. [How do you refresh the page automatically after 30 seconds?](#q49-how-do-you-refresh-the-page-automatically-after-30-seconds)
-50. [How do you define the main contact info for the page?](#q50-how-do-you-define-the-main-contact-info-for-the-page)
-51. [How do you denote an abbreviation?](#q51-how-do-you-denote-an-abbreviation)
-52. [How do you group table header, body, and footer?](#q52-how-do-you-group-table-header-body-and-footer)
-53. [How do you merge two table cells horizontally?](#q53-how-do-you-merge-two-table-cells-horizontally)
-54. [How do you merge two table cells vertically?](#q54-how-do-you-merge-two-table-cells-vertically)
-55. [How do you associate a caption with a table?](#q55-how-do-you-associate-a-caption-with-a-table)
-56. [How do you highlight text (like a marker)?](#q56-how-do-you-highlight-text-like-a-marker)
-57. [How do you represent a fraction or superscript?](#q57-how-do-you-represent-a-fraction-or-superscript)
-58. [How do you indicate a text change (insertion/deletion)?](#q58-how-do-you-indicate-a-text-change-insertion-deletion)
-59. [How do you create a definition list?](#q59-how-do-you-create-a-definition-list)
-60. [How do you embed a PDF document?](#q60-how-do-you-embed-a-pdf-document)
-61. [How do you play audio automatically (if allowed)?](#q61-how-do-you-play-audio-automatically-if-allowed)
-62. [How do you use the WAI-ARIA `role` attribute?](#q62-how-do-you-use-the-wai-aria-role-attribute)
-63. [How do you create a breadcrumb navigation?](#q63-how-do-you-create-a-breadcrumb-navigation)
-64. [How do you implement pagination markup?](#q64-how-do-you-implement-pagination-markup)
-65. [How do you create a search landmark?](#q65-how-do-you-create-a-search-landmark)
-66. [How do you specify the direction of text (RTL)?](#q66-how-do-you-specify-the-direction-of-text-rtl)
-67. [How do you embed a YouTube video?](#q67-how-do-you-embed-a-youtube-video)
-68. [How do you create a color picker?](#q68-how-do-you-create-a-color-picker)
-69. [How do you create a range slider?](#q69-how-do-you-create-a-range-slider)
-70. [How do you pre-fill a subject line in a mailto link?](#q70-how-do-you-pre-fill-a-subject-line-in-a-mailto-link)
-71. [How do you define a client-side image map?](#q71-how-do-you-define-a-client-side-image-map)
-72. [How do you link to a specific part of the same page?](#q72-how-do-you-link-to-a-specific-part-of-the-same-page)
-73. [How do you create a date picker?](#q73-how-do-you-create-a-date-picker)
-74. [How do you add a nonce to scripts for CSP?](#q74-how-do-you-add-a-nonce-to-scripts-for-csp)
-75. [How do you handle broken images?](#q75-how-do-you-handle-broken-images)
-76. [How do you check if a browser supports a feature in HTML/CSS?](#q76-how-do-you-check-if-a-browser-supports-a-feature-in-html-css)
-77. [How do you create a hidden input field?](#q77-how-do-you-create-a-hidden-input-field)
-78. [How do you group options in a select?](#q78-how-do-you-group-options-in-a-select)
-79. [How do you make a checkbox checked by default?](#q79-how-do-you-make-a-checkbox-checked-by-default)
-80. [How do you make a textarea read-only?](#q80-how-do-you-make-a-textarea-read-only)
-81. [How do you disabled an input?](#q81-how-do-you-disabled-an-input)
-82. [How do you create a generic container for flow content?](#q82-how-do-you-create-a-generic-container-for-flow-content)
-83. [How do you create a generic container for phrasing content?](#q83-how-do-you-create-a-generic-container-for-phrasing-content)
-84. [How do you specify the language of the document?](#q84-how-do-you-specify-the-language-of-the-document)
-85. [How do you provide a machine-readable value for a meter?](#q85-how-do-you-provide-a-machine-readable-value-for-a-meter)
-86. [How do you create a bi-directional override?](#q86-how-do-you-create-a-bi-directional-override)
-87. [How do you specify the primary language of a text snippet?](#q87-how-do-you-specify-the-primary-language-of-a-text-snippet)
-88. [How do you create a line break opportunity?](#q88-how-do-you-create-a-line-break-opportunity)
-89. [How do you define a list of suggestions for an input?](#q89-how-do-you-define-a-list-of-suggestions-for-an-input)
-90. [How do you embed an external resource like a flash object?](#q90-how-do-you-embed-an-external-resource-like-a-flash-object)
-91. [How do you create a parameter for an object?](#q91-how-do-you-create-a-parameter-for-an-object)
-92. [How do you display a progress bar?](#q92-how-do-you-display-a-progress-bar)
-93. [How do you strike through text?](#q93-how-do-you-strike-through-text)
-94. [How do you underline text?](#q94-how-do-you-underline-text)
-95. [How do you display a subscript?](#q95-how-do-you-display-a-subscript)
-96. [How do you display a keyboard input?](#q96-how-do-you-display-a-keyboard-input)
-97. [How do you display sample output from a computer program?](#q97-how-do-you-display-sample-output-from-a-computer-program)
-98. [How do you display a variable in a mathematical expression?](#q98-how-do-you-display-a-variable-in-a-mathematical-expression)
-99. [How do you create a preformatted text block?](#q99-how-do-you-create-a-preformatted-text-block)
-100. [How do you quote a block of text from another source?](#q100-how-do-you-quote-a-block-of-text-from-another-source)
-101. [How do you create a horizontal rule?](#q101-how-do-you-create-a-horizontal-rule)
-102. [How do you add a caption to a figure?](#q102-how-do-you-add-a-caption-to-a-figure)
-103. [How do you create a description list?](#q103-how-do-you-create-a-description-list)
-104. [How do you create a term in a description list?](#q104-how-do-you-create-a-term-in-a-description-list)
-105. [How do you create a description in a description list?](#q105-how-do-you-create-a-description-in-a-description-list)
-106. [How do you create a list item?](#q106-how-do-you-create-a-list-item)
-107. [How do you create an ordered list?](#q107-how-do-you-create-an-ordered-list)
-108. [How do you create an unordered list?](#q108-how-do-you-create-an-unordered-list)
-109. [How do you create a navigation link?](#q109-how-do-you-create-a-navigation-link)
-110. [How do you create a hyperlink?](#q110-how-do-you-create-a-hyperlink)
-111. [How do you create an anchor?](#q111-how-do-you-create-an-anchor)
-112. [How do you create a table row?](#q112-how-do-you-create-a-table-row)
-113. [How do you create a table data cell?](#q113-how-do-you-create-a-table-data-cell)
-114. [How do you create a table header cell?](#q114-how-do-you-create-a-table-header-cell)
-115. [How do you create a column group?](#q115-how-do-you-create-a-column-group)
-116. [How do you create a column?](#q116-how-do-you-create-a-column)
-117. [How do you create a table body?](#q117-how-do-you-create-a-table-body)
-118. [How do you create a table footer?](#q118-how-do-you-create-a-table-footer)
-119. [How do you create a table header?](#q119-how-do-you-create-a-table-header)
-120. [How do you create a table?](#q120-how-do-you-create-a-table)
+
+1. [How do you structure a web page using Semantic HTML for better Accessibility and SEO?](#q1-how-do-you-structure-a-web-page-using-semantic-html-for-better-accessibility-and-seo) <span class="intermediate">Intermediate</span>
+2. [Implement a responsive image strategy using `srcset` and `<picture>`.](#q2-implement-a-responsive-image-strategy-using-srcset-and-<picture>) <span class="intermediate">Intermediate</span>
+3. [How do you ensure a web form is accessible to screen reader users?](#q3-how-do-you-ensure-a-web-form-is-accessible-to-screen-reader-users) <span class="intermediate">Intermediate</span>
+4. [How do you implement a modal dialog using the native `<dialog>` element?](#q4-how-do-you-implement-a-modal-dialog-using-the-native-<dialog>-element) <span class="intermediate">Intermediate</span>
+5. [How do you optimize Critical Rendering Path using HTML tags?](#q5-how-do-you-optimize-critical-rendering-path-using-html-tags) <span class="intermediate">Intermediate</span>
+6. [How do you prevent tabnabbing attacks when using `target='_blank'`?](#q6-how-do-you-prevent-tabnabbing-attacks-when-using-target=_blank) <span class="intermediate">Intermediate</span>
+7. [How do you implement Open Graph tags for Social Media sharing?](#q7-how-do-you-implement-open-graph-tags-for-social-media-sharing) <span class="intermediate">Intermediate</span>
+8. [How do you use the `<template>` tag for dynamic content?](#q8-how-do-you-use-the-<template>-tag-for-dynamic-content) <span class="intermediate">Intermediate</span>
+9. [How do you implement a secure Content Security Policy (CSP) via meta tag?](#q9-how-do-you-implement-a-secure-content-security-policy-csp-via-meta-tag) <span class="intermediate">Intermediate</span>
+10. [How do you encapsulate styles using Shadow DOM to prevent leakage?](#q10-how-do-you-encapsulate-styles-using-shadow-dom-to-prevent-leakage) <span class="intermediate">Intermediate</span>
+11. [How do you implement 'Lazy Loading' for iframes and images natively?](#q11-how-do-you-implement-lazy-loading-for-iframes-and-images-natively) <span class="intermediate">Intermediate</span>
+12. [How do you create an accessible 'Skip to Content' link?](#q12-how-do-you-create-an-accessible-skip-to-content-link) <span class="intermediate">Intermediate</span>
+13. [How do you manage keyboard focus order using `tabindex` efficiently?](#q13-how-do-you-manage-keyboard-focus-order-using-tabindex-efficiently) <span class="intermediate">Intermediate</span>
+14. [How do you handle 'Dark Mode' preference in HTML/CSS?](#q14-how-do-you-handle-dark-mode-preference-in-htmlcss) <span class="intermediate">Intermediate</span>
+15. [How do you validate forms using HTML5 built-in attributes?](#q15-how-do-you-validate-forms-using-html5-built-in-attributes) <span class="intermediate">Intermediate</span>
+16. [How do you optimize font loading using `font-display`?](#q16-how-do-you-optimize-font-loading-using-font-display) <span class="intermediate">Intermediate</span>
+17. [How do you use JSON-LD for Structured Data (SEO)?](#q17-how-do-you-use-json-ld-for-structured-data-seo) <span class="intermediate">Intermediate</span>
+18. [How do you force a file download using the `download` attribute?](#q18-how-do-you-force-a-file-download-using-the-download-attribute) <span class="beginner">Beginner</span>
+19. [What is the semantic difference between `<code>`, `<pre>`, and `<kbd>`?](#q19-what-is-the-semantic-difference-between-<code>-<pre>-and-<kbd>) <span class="beginner">Beginner</span>
+20. [How do you implement an accessible Toggle Switch using HTML/CSS?](#q20-how-do-you-implement-an-accessible-toggle-switch-using-htmlcss) <span class="intermediate">Intermediate</span>
+21. [How do you optimize a page for printing using CSS media queries?](#q21-how-do-you-optimize-a-page-for-printing-using-css-media-queries) <span class="intermediate">Intermediate</span>
+22. [How do you semantically markup an image with a caption?](#q22-how-do-you-semantically-markup-an-image-with-a-caption) <span class="beginner">Beginner</span>
+23. [How do you group options in a `<select>` dropdown?](#q23-how-do-you-group-options-in-a-<select>-dropdown) <span class="beginner">Beginner</span>
+24. [How do you specify the canonical URL to prevent duplicate content issues?](#q24-how-do-you-specify-the-canonical-url-to-prevent-duplicate-content-issues) <span class="intermediate">Intermediate</span>
+25. [How do you disable spellcheck for specific input fields?](#q25-how-do-you-disable-spellcheck-for-specific-input-fields) <span class="beginner">Beginner</span>
+26. [How do you create a 'Mailto' link with subject, body, and CC?](#q26-how-do-you-create-a-mailto-link-with-subject-body-and-cc) <span class="beginner">Beginner</span>
+27. [How do you mark up time and dates for machine readability?](#q27-how-do-you-mark-up-time-and-dates-for-machine-readability) <span class="beginner">Beginner</span>
+28. [How do you make an iframe responsive with correct aspect ratio?](#q28-how-do-you-make-an-iframe-responsive-with-correct-aspect-ratio) <span class="intermediate">Intermediate</span>
+29. [How do you define a specific language for a part of the text?](#q29-how-do-you-define-a-specific-language-for-a-part-of-the-text) <span class="beginner">Beginner</span>
+30. [How do you use the `pattern` attribute for form validation?](#q30-how-do-you-use-the-pattern-attribute-for-form-validation) <span class="intermediate">Intermediate</span>
 
 ---
 
 ### Q1: How do you structure a web page using Semantic HTML for better Accessibility and SEO?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Use semantic tags to describe content meaning, not just appearance.
 
 **Structure:**
@@ -142,6 +61,7 @@ Use semantic tags to describe content meaning, not just appearance.
 
 **Benefit:** Screen readers use these landmarks to navigate; Search engines understand content hierarchy.
 
+**Code Example:**
 ```html
 <body>
   <header>
@@ -161,23 +81,18 @@ Use semantic tags to describe content meaning, not just appearance.
 </body>
 ```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q2: Implement a responsive image strategy using `srcset` and `<picture>`.
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 **1. Resolution Switching (`srcset`):** Serve different sizes of the *same* image based on viewport width.
 
-```html
-<img src="small.jpg" 
-     srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" 
-     sizes="(max-width: 600px) 100vw, 50vw" 
-     alt="Hero Image">
-```
+
 
 **2. Art Direction (`<picture>`):** Serve *different* images (crop/aspect ratio) or formats (WebP) based on conditions.
 
@@ -189,21 +104,30 @@ Use semantic tags to describe content meaning, not just appearance.
 </picture>
 ```
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+```html
+<img src="small.jpg" 
+     srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" 
+     sizes="(max-width: 600px) 100vw, 50vw" 
+     alt="Hero Image">
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q3: How do you ensure a web form is accessible to screen reader users?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 **Key Techniques:**
 1. **Labels:** Always associate `<label>` with `<input>` using `for`/`id` or nesting.
 2. **Fieldsets:** Group related inputs (radio buttons) with `<fieldset>` and `<legend>`.
 3. **Errors:** specific error messages linked via `aria-describedby`.
 4. **Autocomplete:** Use `autocomplete` attributes to help browsers fill data.
 
+**Code Example:**
 ```html
 <form>
   <div class="form-group">
@@ -220,19 +144,20 @@ Use semantic tags to describe content meaning, not just appearance.
 </form>
 ```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q4: How do you implement a modal dialog using the native `<dialog>` element?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 The `<dialog>` element provides a native modal with built-in accessibility (focus trapping, closing with Esc).
 
 **Implementation:**
 
+**Code Example:**
 ```html
 <dialog id="myDialog">
   <form method="dialog">
@@ -257,15 +182,15 @@ The `<dialog>` element provides a native modal with built-in accessibility (focu
 </script>
 ```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q5: How do you optimize Critical Rendering Path using HTML tags?
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Optimize how the browser paints the page by prioritizing critical resources.
 
 **Strategies:**
@@ -274,6 +199,7 @@ Optimize how the browser paints the page by prioritizing critical resources.
 3. **Inline Critical CSS:** Put above-the-fold styles in `<style>` in `<head>`.
 4. **Preconnect:** Warm up DNS/TLS for 3rd party domains.
 
+**Code Example:**
 ```html
 <head>
   <!-- Preconnect to CDN -->
@@ -290,20 +216,21 @@ Optimize how the browser paints the page by prioritizing critical resources.
 </head>
 ```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q6: How do you prevent tabnabbing attacks when using `target='_blank'`?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 When using `target="_blank"`, the new page gets access to the `window.opener` object, allowing it to redirect the original page to a malicious site.
 
 **Fix:** Always add `rel="noopener noreferrer"`.
 *Note: Modern browsers implicitly set `noopener` for `target="_blank"`, but `noreferrer` is still good practice for privacy.*
 
+**Code Example:**
 ```html
 <!-- Vulnerable -->
 <a href="https://external-site.com" target="_blank">Visit Site</a>
@@ -314,20 +241,21 @@ When using `target="_blank"`, the new page gets access to the `window.opener` ob
 </a>
 ```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q7: How do you implement Open Graph tags for Social Media sharing?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Open Graph (OG) tags control how your page looks when shared on Facebook, LinkedIn, etc.
 
 **Implementation:**
 Add `<meta>` tags in the `<head>`.
 
+**Code Example:**
 ```html
 <head>
   <meta property="og:title" content="The Ultimate HTML Guide">
@@ -341,17 +269,18 @@ Add `<meta>` tags in the `<head>`.
 </head>
 ```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q8: How do you use the `<template>` tag for dynamic content?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 The `<template>` tag holds HTML that is **not rendered** immediately but can be instantiated via JavaScript. It's useful for repeating list items or dynamic components.
 
+**Code Example:**
 ```html
 <template id="user-card">
   <div class="card">
@@ -377,20 +306,28 @@ The `<template>` tag holds HTML that is **not rendered** immediately but can be 
 </script>
 ```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q9: How do you implement a secure Content Security Policy (CSP) via meta tag?
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 CSP mitigates XSS attacks by restricting where resources (scripts, images) can be loaded from.
 
 **Implementation via Meta Tag:**
 (Prefer HTTP Header, but Meta tag works for most directives).
 
+
+
+**Explanation:**
+- `default-src 'self'`: Only allow resources from own origin.
+- `script-src`: Allow local scripts and a specific CDN.
+- `child-src 'none'`: Block iframes/workers.
+
+**Code Example:**
 ```html
 <meta http-equiv="Content-Security-Policy" 
       content="default-src 'self'; 
@@ -399,23 +336,18 @@ CSP mitigates XSS attacks by restricting where resources (scripts, images) can b
                child-src 'none';">
 ```
 
-**Explanation:**
-- `default-src 'self'`: Only allow resources from own origin.
-- `script-src`: Allow local scripts and a specific CDN.
-- `child-src 'none'`: Block iframes/workers.
-
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q10: How do you encapsulate styles using Shadow DOM to prevent leakage?
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Shadow DOM creates a scoped DOM tree attached to an element, ensuring styles defined inside don't affect the main document and vice versa.
 
+**Code Example:**
 ```html
 <div id="host"></div>
 
@@ -434,17 +366,22 @@ Shadow DOM creates a scoped DOM tree attached to an element, ensuring styles def
 <p>I am in the light (not red).</p>
 ```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q11: How do you implement 'Lazy Loading' for iframes and images natively?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Use the `loading="lazy"` attribute. The browser defers loading the resource until it is near the viewport.
 
+
+
+**Note:** Always include `width` and `height` attributes to prevent layout shifts (CLS).
+
+**Code Example:**
 ```html
 <!-- Lazy load image -->
 <img src="heavy-image.jpg" loading="lazy" alt="A heavy image" width="800" height="600">
@@ -453,30 +390,20 @@ Use the `loading="lazy"` attribute. The browser defers loading the resource unti
 <iframe src="https://example.com" loading="lazy" title="External Content"></iframe>
 ```
 
-**Note:** Always include `width` and `height` attributes to prevent layout shifts (CLS).
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q12: How do you create an accessible 'Skip to Content' link?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 A 'Skip to Content' link allows keyboard/screen reader users to bypass navigation and jump to the main content.
 
 **HTML:**
 Place it as the first element in `<body>`.
-```html
-<a href="#main-content" class="skip-link">Skip to Main Content</a>
 
-<nav>...</nav>
-
-<main id="main-content">
-  <!-- Main content starts here -->
-</main>
-```
 
 **CSS:**
 Hide it visually until focused.
@@ -496,15 +423,26 @@ Hide it visually until focused.
 }
 ```
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+```html
+<a href="#main-content" class="skip-link">Skip to Main Content</a>
+
+<nav>...</nav>
+
+<main id="main-content">
+  <!-- Main content starts here -->
+</main>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q13: How do you manage keyboard focus order using `tabindex` efficiently?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Control tab order for interactive elements.
 
 **Usage:**
@@ -512,6 +450,7 @@ Control tab order for interactive elements.
 2. `tabindex="-1"`: Make element focusable via JS (`ele.focus()`) but not via Tab key (useful for modals/errors).
 3. **Avoid** `tabindex="1+"`: This forces a custom order, which often breaks accessibility for keyboard users.
 
+**Code Example:**
 ```html
 <!-- Custom button accessible via keyboard -->
 <div role="button" tabindex="0" onclick="doAction()" onkeydown="handleKey(event)">
@@ -522,21 +461,19 @@ Control tab order for interactive elements.
 <div id="modal" tabindex="-1">...</div>
 ```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q14: How do you handle 'Dark Mode' preference in HTML/CSS?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Use the `prefers-color-scheme` media query in CSS, or the `<meta name="color-scheme">` tag in HTML to signal support.
 
 **HTML:**
-```html
-<meta name="color-scheme" content="light dark">
-```
+
 
 **CSS:**
 ```css
@@ -558,17 +495,26 @@ body {
 }
 ```
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+```html
+<meta name="color-scheme" content="light dark">
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 ### Q15: How do you validate forms using HTML5 built-in attributes?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
+**Strategy:**
 Use attributes like `required`, `pattern`, `type`, `min`, `max` to validate without JavaScript.
 
+
+**Styling:** Use `:valid` and `:invalid` pseudo-classes in CSS.
+
+**Code Example:**
 ```html
 <form>
   <!-- Required field -->
@@ -586,1164 +532,393 @@ Use attributes like `required`, `pattern`, `type`, `min`, `max` to validate with
   <button type="submit">Submit</button>
 </form>
 ```
-**Styling:** Use `:valid` and `:invalid` pseudo-classes in CSS.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q16: How do you optimize fonts with `font-display`?
+### Q16: How do you optimize font loading using `font-display`?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+The `font-display` property defines how a font face is displayed based on whether and when it is downloaded and ready to use. `swap` is commonly used to show fallback text immediately until the custom font loads.
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+```html
+<style>
+  @font-face {
+    font-family: 'MyCustomFont';
+    src: url('my-font.woff2') format('woff2');
+    /* Fallback text is shown immediately, then swaps */
+    font-display: swap; 
+  }
+  
+  body {
+    font-family: 'MyCustomFont', sans-serif;
+  }
+</style>
+```
 
----
-
-### Q17: How do you handle 'Microdata' (Structured Data) for Rich Snippets?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q18: How do you force a file download instead of opening it?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q19: How do you denote computer code in HTML?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q20: How do you implement a 'Toggle Switch' using semantic HTML?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q21: How do you ensure 'Print' styles are correct?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q22: How do you mark up a 'Figure' with a caption?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q23: How do you implement 'Focus Trapping' inside a custom modal?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q24: How do you detect if a user prefers 'Reduced Motion'?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q25: How do you group options in a `<select>` dropdown?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q26: How do you specify the relationship between the current document and linked resources?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q27: How do you disable spellcheck for an input?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q28: How do you create a 'Mailto' link with subject and body?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q29: How do you mark up time and dates semantically?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q30: How do you make an iframe responsive?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q31: How do you control the browser's viewport on mobile?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q32: How do you define a specific region for a language change?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q33: How do you prevent iOS from detecting phone numbers automatically?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q34: How do you create a link that calls a phone number?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q35: How do you create a 'Back to Top' link?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q36: How do you implement a sticky header?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q37: How do you style the placeholder text of an input?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q38: How do you make a table responsive?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q39: How do you hide an element visually but keep it accessible?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q40: How do you specify a fallback content for canvas?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q41: How do you allow a user to select multiple files?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q42: How do you restrict file upload to images only?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q43: How do you create a tooltip without JS?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q44: How do you implement smooth scrolling?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q45: How do you create a multi-line text input?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q46: How do you disable resizing of a textarea?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q47: How do you make a favicon animate?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q48: How do you prevent a page from being indexed by Google?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q49: How do you refresh the page automatically after 30 seconds?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q50: How do you define the main contact info for the page?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q51: How do you denote an abbreviation?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q52: How do you group table header, body, and footer?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q53: How do you merge two table cells horizontally?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q54: How do you merge two table cells vertically?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q55: How do you associate a caption with a table?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q56: How do you highlight text (like a marker)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q57: How do you represent a fraction or superscript?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q58: How do you indicate a text change (insertion/deletion)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q59: How do you create a definition list?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q60: How do you embed a PDF document?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q61: How do you play audio automatically (if allowed)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
----
-
-### Q62: How do you use the WAI-ARIA `role` attribute?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q63: How do you create a breadcrumb navigation?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q64: How do you implement pagination markup?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q65: How do you create a search landmark?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q66: How do you specify the direction of text (RTL)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q67: How do you embed a YouTube video?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q68: How do you create a color picker?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q69: How do you create a range slider?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q70: How do you pre-fill a subject line in a mailto link?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q71: How do you define a client-side image map?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q72: How do you link to a specific part of the same page?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q73: How do you create a date picker?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q74: How do you add a nonce to scripts for CSP?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q75: How do you handle broken images?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q76: How do you check if a browser supports a feature in HTML/CSS?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q77: How do you create a hidden input field?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q78: How do you group options in a select?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q79: How do you make a checkbox checked by default?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q80: How do you make a textarea read-only?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q81: How do you disabled an input?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q82: How do you create a generic container for flow content?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q83: How do you create a generic container for phrasing content?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q84: How do you specify the language of the document?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q85: How do you provide a machine-readable value for a meter?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q86: How do you create a bi-directional override?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q87: How do you specify the primary language of a text snippet?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q88: How do you create a line break opportunity?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q89: How do you define a list of suggestions for an input?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q90: How do you embed an external resource like a flash object?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q91: How do you create a parameter for an object?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q92: How do you display a progress bar?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q93: How do you strike through text?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q94: How do you underline text?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q95: How do you display a subscript?
 
-**Difficulty: Beginner**
+### Q17: How do you use JSON-LD for Structured Data (SEO)?
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Difficulty**: Intermediate
 
-[Back to Top](#table-of-contents)
+**Strategy:**
+JSON-LD (JavaScript Object Notation for Linked Data) is the recommended format by Google for structured data. It is placed inside a `<script>` tag.
 
----
-
-### Q96: How do you display a keyboard input?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Wireless Headphones",
+  "image": "https://example.com/photos/1x1/photo.jpg",
+  "description": "Noise-cancelling headphones",
+  "brand": {
+    "@type": "Brand",
+    "name": "AudioTech"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "99.99",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q97: How do you display sample output from a computer program?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
 
----
+### Q18: How do you force a file download using the `download` attribute?
 
-### Q98: How do you display a variable in a mathematical expression?
+**Difficulty**: Beginner
 
-**Difficulty: Beginner**
+**Strategy:**
+The `download` attribute on an `<a>` tag instructs the browser to download the URL instead of navigating to it. You can optionally specify a filename.
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+```html
+<!-- Downloads as 'report.pdf' -->
+<a href="/files/report-v2.pdf" download="report.pdf">
+  Download Report
+</a>
 
-[Back to Top](#table-of-contents)
+<!-- Downloads with original filename -->
+<a href="/images/logo.png" download>
+  Download Logo
+</a>
+```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 ---
 
-### Q99: How do you create a preformatted text block?
+### Q19: What is the semantic difference between `<code>`, `<pre>`, and `<kbd>`?
 
-**Difficulty: Beginner**
+**Difficulty**: Beginner
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+`<code>` represents a fragment of computer code. `<pre>` preserves whitespace and formatting (blocks of code). `<kbd>` represents user input (keyboard keys).
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+```html
+<p>To install dependencies, run:</p>
 
----
+<pre><code>
+npm install
+npm start
+</code></pre>
+
+<p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to exit.</p>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q20: How do you implement an accessible Toggle Switch using HTML/CSS?
+
+**Difficulty**: Intermediate
 
-### Q100: How do you quote a block of text from another source?
+**Strategy:**
+Use a standard `<input type='checkbox'>` for the logic and a `<label>` for the custom UI. This ensures keyboard accessibility and screen reader support natively.
 
-**Difficulty: Beginner**
+**Code Example:**
+```html
+<style>
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px; height: 34px;
+  }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; width: 26px;
+    left: 4px; bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  input:checked + .slider { background-color: #2196F3; }
+  input:checked + .slider:before { transform: translateX(26px); }
+</style>
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+<label class="switch" aria-label="Toggle Dark Mode">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label>
+```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q101: How do you create a horizontal rule?
-
-**Difficulty: Beginner**
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+### Q21: How do you optimize a page for printing using CSS media queries?
 
-[Back to Top](#table-of-contents)
+**Difficulty**: Intermediate
 
----
-
-### Q102: How do you add a caption to a figure?
+**Strategy:**
+Use `@media print` to hide navigation, adjust margins, and ensure text is black on white for better legibility on paper.
 
-**Difficulty: Beginner**
+**Code Example:**
+```html
+<style>
+  @media print {
+    header, footer, nav, .no-print {
+      display: none;
+    }
+    
+    body {
+      font-size: 12pt;
+      color: #000;
+      background: #fff;
+    }
+    
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+  }
+</style>
+```
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q103: How do you create a description list?
 
-**Difficulty: Beginner**
+### Q22: How do you semantically markup an image with a caption?
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Difficulty**: Beginner
 
-[Back to Top](#table-of-contents)
+**Strategy:**
+Use the `<figure>` element to wrap the image and `<figcaption>` for the caption. This creates a semantic association between them.
 
----
-
-### Q104: How do you create a term in a description list?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+```html
+<figure>
+  <img src="sunset.jpg" alt="Sunset over the mountains" width="600" height="400">
+  <figcaption>Fig.1 - A beautiful sunset in the Rockies.</figcaption>
+</figure>
+```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q105: How do you create a description in a description list?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
 
----
+### Q23: How do you group options in a `<select>` dropdown?
 
-### Q106: How do you create a list item?
+**Difficulty**: Beginner
 
-**Difficulty: Beginner**
+**Strategy:**
+Use the `<optgroup>` element to group related `<option>` items. The `label` attribute defines the group name.
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+```html
+<label for="cars">Choose a car:</label>
+<select id="cars" name="cars">
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+  <optgroup label="German Cars">
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </optgroup>
+</select>
+```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q107: How do you create an ordered list?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
 
-[Back to Top](#table-of-contents)
+### Q24: How do you specify the canonical URL to prevent duplicate content issues?
 
----
-
-### Q108: How do you create an unordered list?
+**Difficulty**: Intermediate
 
-**Difficulty: Beginner**
+**Strategy:**
+Use the `<link rel='canonical'>` tag in the `<head>` to tell search engines which version of a URL is the master copy.
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+```html
+<head>
+  <!-- Even if accessed via ?ref=twitter, this is the main URL -->
+  <link rel="canonical" href="https://example.com/blog/html-guide" />
+</head>
+```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q109: How do you create a navigation link?
-
-**Difficulty: Beginner**
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+### Q25: How do you disable spellcheck for specific input fields?
 
-[Back to Top](#table-of-contents)
+**Difficulty**: Beginner
 
----
-
-### Q110: How do you create a hyperlink?
+**Strategy:**
+Use the `spellcheck='false'` attribute. This is useful for inputs like usernames, emails, or code editors where spellcheck is distracting.
 
-**Difficulty: Beginner**
+**Code Example:**
+```html
+<input type="text" name="username" spellcheck="false" placeholder="Username">
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+<textarea spellcheck="false">
+  console.log("Hello World");
+</textarea>
+```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q111: How do you create an anchor?
-
-**Difficulty: Beginner**
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+### Q26: How do you create a 'Mailto' link with subject, body, and CC?
 
-[Back to Top](#table-of-contents)
+**Difficulty**: Beginner
 
----
-
-### Q112: How do you create a table row?
+**Strategy:**
+You can add query parameters to the `mailto:` URL to pre-fill fields. Remember to URL-encode special characters.
 
-**Difficulty: Beginner**
+**Code Example:**
+```html
+<a href="mailto:support@example.com?subject=Help%20Request&cc=manager@example.com&body=I%20need%20help%20with...">
+  Contact Support
+</a>
+```
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q113: How do you create a table data cell?
 
-**Difficulty: Beginner**
+### Q27: How do you mark up time and dates for machine readability?
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Difficulty**: Beginner
 
-[Back to Top](#table-of-contents)
+**Strategy:**
+Use the `<time>` element with the `datetime` attribute. This helps search engines and calendar tools understand the specific date/time.
 
----
-
-### Q114: How do you create a table header cell?
+**Code Example:**
+```html
+<p>
+  The concert starts on 
+  <time datetime="2023-12-25T20:00">Christmas Day at 8 PM</time>.
+</p>
 
-**Difficulty: Beginner**
+<article>
+  Published <time datetime="2023-10-01">October 1st</time>
+</article>
+```
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q115: How do you create a column group?
 
-**Difficulty: Beginner**
+### Q28: How do you make an iframe responsive with correct aspect ratio?
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Difficulty**: Intermediate
 
-[Back to Top](#table-of-contents)
+**Strategy:**
+Modern CSS `aspect-ratio` property makes this easy. Previously, the 'padding-hack' was used.
 
----
-
-### Q116: How do you create a column?
+**Code Example:**
+```html
+<style>
+  .video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+</style>
 
-**Difficulty: Beginner**
+<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/xyz" frameborder="0" allowfullscreen></iframe>
+</div>
+```
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q117: How do you create a table body?
 
-**Difficulty: Beginner**
+### Q29: How do you define a specific language for a part of the text?
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Difficulty**: Beginner
 
-[Back to Top](#table-of-contents)
+**Strategy:**
+Use the `lang` attribute on a span or div. This is important for screen readers to switch pronunciation.
 
----
-
-### Q118: How do you create a table footer?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+```html
+<p>
+  The French phrase for "Hello" is <span lang="fr">Bonjour</span>.
+</p>
+```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q119: How do you create a table header?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
+### Q30: How do you use the `pattern` attribute for form validation?
 
-### Q120: How do you create a table?
+**Difficulty**: Intermediate
 
-**Difficulty: Beginner**
+**Strategy:**
+The `pattern` attribute accepts a Regular Expression that the input value must match.
 
-**Answer:**
-Use the appropriate HTML tag or attribute. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+```html
+<form>
+  <label for="zip">Zip Code (5 digits):</label>
+  <input 
+    type="text" 
+    id="zip" 
+    name="zip" 
+    pattern="[0-9]{5}" 
+    title="Five digit zip code" 
+    required
+  >
+  <button>Submit</button>
+</form>
+```
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

@@ -1,2338 +1,834 @@
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/database-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Database Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for backend developers</b></p>
+</div>
+
+---
+
 ## Table of Contents
-| No. | Question | Difficulty |
-| --- | -------- | ---------- |
-| 1 | [How do you optimize a slow SQL query that involves multiple joins and large tables?](#how-do-you-optimize-a-slow-sql-query-that-involves-multiple-joins-and-large-tables) | Advanced |
-| 2 | [How do you handle database migrations for a high-traffic application with zero downtime?](#how-do-you-handle-database-migrations-for-a-high-traffic-application-with-zero-downtime) | Expert |
-| 3 | [How do you prevent SQL Injection vulnerabilities in a raw SQL query?](#how-do-you-prevent-sql-injection-vulnerabilities-in-a-raw-sql-query) | Beginner |
-| 4 | [How do you design a schema for a 'Many-to-Many' relationship (e.g., Students and Courses)?](#how-do-you-design-a-schema-for-a-many-to-many-relationship-eg-students-and-courses) | Beginner |
-| 5 | [How do you choose between embedding documents and referencing them in MongoDB?](#how-do-you-choose-between-embedding-documents-and-referencing-them-in-mongodb) | Intermediate |
-| 6 | [How do you resolve the N+1 query problem using an ORM?](#how-do-you-resolve-the-n+1-query-problem-using-an-orm) | Intermediate |
-| 7 | [How do you use Window Functions to find the top 3 salaries per department?](#how-do-you-use-window-functions-to-find-the-top-3-salaries-per-department) | Advanced |
-| 8 | [How do you implement optimistic locking to handle concurrent updates?](#how-do-you-implement-optimistic-locking-to-handle-concurrent-updates) | Advanced |
-| 9 | [How do you ensure data consistency across microservices (Distributed Transaction)?](#how-do-you-ensure-data-consistency-across-microservices-distributed-transaction) | Expert |
-| 10 | [How do you use a Redis cache to implement the 'Cache-Aside' pattern?](#how-do-you-use-a-redis-cache-to-implement-the-cache-aside-pattern) | Intermediate |
-| 11 | [How do you structure a composite index to optimize a query with equality and range filters?](#how-do-you-structure-a-composite-index-to-optimize-a-query-with-equality-and-range-filters) | Advanced |
-| 12 | [How do you handle 'Soft Deletes' to preserve data history?](#how-do-you-handle-soft-deletes-to-preserve-data-history) | Intermediate |
-| 13 | [How do you optimize database writes for a high-ingestion system (e.g., logs)?](#how-do-you-optimize-database-writes-for-a-high-ingestion-system-eg-logs) | Advanced |
-| 14 | [How do you use Common Table Expressions (CTEs) to simplify complex logic?](#how-do-you-use-common-table-expressions-ctes-to-simplify-complex-logic) | Intermediate |
-| 15 | [How do you maintain ACID properties in a database transaction?](#how-do-you-maintain-acid-properties-in-a-database-transaction) | Beginner |
-| 16 | [How do you implement Primary Key Selection (UUID vs Int) to ensure scalability and reliability? (Scenario 16)](#how-do-you-implement-primary-key-selection-uuid-vs-int-to-ensure-scalability-and-reliability-scenario-16) | Intermediate |
-| 17 | [How do you implement Normalization (3NF) to ensure scalability and reliability? (Scenario 17)](#how-do-you-implement-normalization-3nf-to-ensure-scalability-and-reliability-scenario-17) | Intermediate |
-| 18 | [How do you implement Denormalization to ensure scalability and reliability? (Scenario 18)](#how-do-you-implement-denormalization-to-ensure-scalability-and-reliability-scenario-18) | Intermediate |
-| 19 | [How do you implement Graph Databases to ensure scalability and reliability? (Scenario 19)](#how-do-you-implement-graph-databases-to-ensure-scalability-and-reliability-scenario-19) | Intermediate |
-| 20 | [How do you implement Key-Value Stores to ensure scalability and reliability? (Scenario 20)](#how-do-you-implement-key-value-stores-to-ensure-scalability-and-reliability-scenario-20) | Intermediate |
-| 21 | [How do you implement Columnar Storage to ensure scalability and reliability? (Scenario 21)](#how-do-you-implement-columnar-storage-to-ensure-scalability-and-reliability-scenario-21) | Intermediate |
-| 22 | [How do you implement ETL Processes to ensure scalability and reliability? (Scenario 22)](#how-do-you-implement-etl-processes-to-ensure-scalability-and-reliability-scenario-22) | Intermediate |
-| 23 | [How do you implement Data Warehousing to ensure scalability and reliability? (Scenario 23)](#how-do-you-implement-data-warehousing-to-ensure-scalability-and-reliability-scenario-23) | Intermediate |
-| 24 | [How do you implement CDC (Change Data Capture) to ensure scalability and reliability? (Scenario 24)](#how-do-you-implement-cdc-change-data-capture-to-ensure-scalability-and-reliability-scenario-24) | Intermediate |
-| 25 | [How do you implement Database Security to ensure scalability and reliability? (Scenario 25)](#how-do-you-implement-database-security-to-ensure-scalability-and-reliability-scenario-25) | Intermediate |
-| 26 | [How do you implement Role-Based Access to ensure scalability and reliability? (Scenario 26)](#how-do-you-implement-role-based-access-to-ensure-scalability-and-reliability-scenario-26) | Intermediate |
-| 27 | [How do you implement Query Caching to ensure scalability and reliability? (Scenario 27)](#how-do-you-implement-query-caching-to-ensure-scalability-and-reliability-scenario-27) | Intermediate |
-| 28 | [How do you implement Horizontal Scaling to ensure scalability and reliability? (Scenario 28)](#how-do-you-implement-horizontal-scaling-to-ensure-scalability-and-reliability-scenario-28) | Intermediate |
-| 29 | [How do you implement Sharding Strategies to ensure scalability and reliability? (Scenario 29)](#how-do-you-implement-sharding-strategies-to-ensure-scalability-and-reliability-scenario-29) | Intermediate |
-| 30 | [How do you implement Database Replication to ensure scalability and reliability? (Scenario 30)](#how-do-you-implement-database-replication-to-ensure-scalability-and-reliability-scenario-30) | Intermediate |
-| 31 | [How do you implement Connection Pooling to ensure scalability and reliability? (Scenario 31)](#how-do-you-implement-connection-pooling-to-ensure-scalability-and-reliability-scenario-31) | Intermediate |
-| 32 | [How do you implement Materialized Views to ensure scalability and reliability? (Scenario 32)](#how-do-you-implement-materialized-views-to-ensure-scalability-and-reliability-scenario-32) | Intermediate |
-| 33 | [How do you implement Stored Procedures to ensure scalability and reliability? (Scenario 33)](#how-do-you-implement-stored-procedures-to-ensure-scalability-and-reliability-scenario-33) | Intermediate |
-| 34 | [How do you implement Triggers to ensure scalability and reliability? (Scenario 34)](#how-do-you-implement-triggers-to-ensure-scalability-and-reliability-scenario-34) | Intermediate |
-| 35 | [How do you implement Full-Text Search to ensure scalability and reliability? (Scenario 35)](#how-do-you-implement-full-text-search-to-ensure-scalability-and-reliability-scenario-35) | Intermediate |
-| 36 | [How do you implement JSONB Columns to ensure scalability and reliability? (Scenario 36)](#how-do-you-implement-jsonb-columns-to-ensure-scalability-and-reliability-scenario-36) | Intermediate |
-| 37 | [How do you implement Spatial Data (PostGIS) to ensure scalability and reliability? (Scenario 37)](#how-do-you-implement-spatial-data-postgis-to-ensure-scalability-and-reliability-scenario-37) | Intermediate |
-| 38 | [How do you implement Time-Series Data to ensure scalability and reliability? (Scenario 38)](#how-do-you-implement-time-series-data-to-ensure-scalability-and-reliability-scenario-38) | Intermediate |
-| 39 | [How do you implement Backup & Recovery to ensure scalability and reliability? (Scenario 39)](#how-do-you-implement-backup-&-recovery-to-ensure-scalability-and-reliability-scenario-39) | Intermediate |
-| 40 | [How do you implement Point-in-Time Recovery to ensure scalability and reliability? (Scenario 40)](#how-do-you-implement-point-in-time-recovery-to-ensure-scalability-and-reliability-scenario-40) | Intermediate |
-| 41 | [How do you implement Vacuuming/Maintenance to ensure scalability and reliability? (Scenario 41)](#how-do-you-implement-vacuumingmaintenance-to-ensure-scalability-and-reliability-scenario-41) | Intermediate |
-| 42 | [How do you implement Isolation Levels to ensure scalability and reliability? (Scenario 42)](#how-do-you-implement-isolation-levels-to-ensure-scalability-and-reliability-scenario-42) | Intermediate |
-| 43 | [How do you implement Deadlock Handling to ensure scalability and reliability? (Scenario 43)](#how-do-you-implement-deadlock-handling-to-ensure-scalability-and-reliability-scenario-43) | Intermediate |
-| 44 | [How do you implement Foreign Key Constraints to ensure scalability and reliability? (Scenario 44)](#how-do-you-implement-foreign-key-constraints-to-ensure-scalability-and-reliability-scenario-44) | Intermediate |
-| 45 | [How do you implement Primary Key Selection (UUID vs Int) to ensure scalability and reliability? (Scenario 45)](#how-do-you-implement-primary-key-selection-uuid-vs-int-to-ensure-scalability-and-reliability-scenario-45) | Intermediate |
-| 46 | [How do you implement Normalization (3NF) to ensure scalability and reliability? (Scenario 46)](#how-do-you-implement-normalization-3nf-to-ensure-scalability-and-reliability-scenario-46) | Intermediate |
-| 47 | [How do you implement Denormalization to ensure scalability and reliability? (Scenario 47)](#how-do-you-implement-denormalization-to-ensure-scalability-and-reliability-scenario-47) | Intermediate |
-| 48 | [How do you implement Graph Databases to ensure scalability and reliability? (Scenario 48)](#how-do-you-implement-graph-databases-to-ensure-scalability-and-reliability-scenario-48) | Intermediate |
-| 49 | [How do you implement Key-Value Stores to ensure scalability and reliability? (Scenario 49)](#how-do-you-implement-key-value-stores-to-ensure-scalability-and-reliability-scenario-49) | Intermediate |
-| 50 | [How do you implement Columnar Storage to ensure scalability and reliability? (Scenario 50)](#how-do-you-implement-columnar-storage-to-ensure-scalability-and-reliability-scenario-50) | Intermediate |
-| 51 | [How do you implement ETL Processes to ensure scalability and reliability? (Scenario 51)](#how-do-you-implement-etl-processes-to-ensure-scalability-and-reliability-scenario-51) | Intermediate |
-| 52 | [How do you implement Data Warehousing to ensure scalability and reliability? (Scenario 52)](#how-do-you-implement-data-warehousing-to-ensure-scalability-and-reliability-scenario-52) | Intermediate |
-| 53 | [How do you implement CDC (Change Data Capture) to ensure scalability and reliability? (Scenario 53)](#how-do-you-implement-cdc-change-data-capture-to-ensure-scalability-and-reliability-scenario-53) | Intermediate |
-| 54 | [How do you implement Database Security to ensure scalability and reliability? (Scenario 54)](#how-do-you-implement-database-security-to-ensure-scalability-and-reliability-scenario-54) | Intermediate |
-| 55 | [How do you implement Role-Based Access to ensure scalability and reliability? (Scenario 55)](#how-do-you-implement-role-based-access-to-ensure-scalability-and-reliability-scenario-55) | Intermediate |
-| 56 | [How do you implement Query Caching to ensure scalability and reliability? (Scenario 56)](#how-do-you-implement-query-caching-to-ensure-scalability-and-reliability-scenario-56) | Intermediate |
-| 57 | [How do you implement Horizontal Scaling to ensure scalability and reliability? (Scenario 57)](#how-do-you-implement-horizontal-scaling-to-ensure-scalability-and-reliability-scenario-57) | Intermediate |
-| 58 | [How do you implement Sharding Strategies to ensure scalability and reliability? (Scenario 58)](#how-do-you-implement-sharding-strategies-to-ensure-scalability-and-reliability-scenario-58) | Intermediate |
-| 59 | [How do you implement Database Replication to ensure scalability and reliability? (Scenario 59)](#how-do-you-implement-database-replication-to-ensure-scalability-and-reliability-scenario-59) | Intermediate |
-| 60 | [How do you implement Connection Pooling to ensure scalability and reliability? (Scenario 60)](#how-do-you-implement-connection-pooling-to-ensure-scalability-and-reliability-scenario-60) | Intermediate |
-| 61 | [How do you implement Materialized Views to ensure scalability and reliability? (Scenario 61)](#how-do-you-implement-materialized-views-to-ensure-scalability-and-reliability-scenario-61) | Intermediate |
-| 62 | [How do you implement Stored Procedures to ensure scalability and reliability? (Scenario 62)](#how-do-you-implement-stored-procedures-to-ensure-scalability-and-reliability-scenario-62) | Intermediate |
-| 63 | [How do you implement Triggers to ensure scalability and reliability? (Scenario 63)](#how-do-you-implement-triggers-to-ensure-scalability-and-reliability-scenario-63) | Intermediate |
-| 64 | [How do you implement Full-Text Search to ensure scalability and reliability? (Scenario 64)](#how-do-you-implement-full-text-search-to-ensure-scalability-and-reliability-scenario-64) | Intermediate |
-| 65 | [How do you implement JSONB Columns to ensure scalability and reliability? (Scenario 65)](#how-do-you-implement-jsonb-columns-to-ensure-scalability-and-reliability-scenario-65) | Intermediate |
-| 66 | [How do you implement Spatial Data (PostGIS) to ensure scalability and reliability? (Scenario 66)](#how-do-you-implement-spatial-data-postgis-to-ensure-scalability-and-reliability-scenario-66) | Intermediate |
-| 67 | [How do you implement Time-Series Data to ensure scalability and reliability? (Scenario 67)](#how-do-you-implement-time-series-data-to-ensure-scalability-and-reliability-scenario-67) | Intermediate |
-| 68 | [How do you implement Backup & Recovery to ensure scalability and reliability? (Scenario 68)](#how-do-you-implement-backup-&-recovery-to-ensure-scalability-and-reliability-scenario-68) | Intermediate |
-| 69 | [How do you implement Point-in-Time Recovery to ensure scalability and reliability? (Scenario 69)](#how-do-you-implement-point-in-time-recovery-to-ensure-scalability-and-reliability-scenario-69) | Intermediate |
-| 70 | [How do you implement Vacuuming/Maintenance to ensure scalability and reliability? (Scenario 70)](#how-do-you-implement-vacuumingmaintenance-to-ensure-scalability-and-reliability-scenario-70) | Intermediate |
-| 71 | [How do you implement Isolation Levels to ensure scalability and reliability? (Scenario 71)](#how-do-you-implement-isolation-levels-to-ensure-scalability-and-reliability-scenario-71) | Intermediate |
-| 72 | [How do you implement Deadlock Handling to ensure scalability and reliability? (Scenario 72)](#how-do-you-implement-deadlock-handling-to-ensure-scalability-and-reliability-scenario-72) | Intermediate |
-| 73 | [How do you implement Foreign Key Constraints to ensure scalability and reliability? (Scenario 73)](#how-do-you-implement-foreign-key-constraints-to-ensure-scalability-and-reliability-scenario-73) | Intermediate |
-| 74 | [How do you implement Primary Key Selection (UUID vs Int) to ensure scalability and reliability? (Scenario 74)](#how-do-you-implement-primary-key-selection-uuid-vs-int-to-ensure-scalability-and-reliability-scenario-74) | Intermediate |
-| 75 | [How do you implement Normalization (3NF) to ensure scalability and reliability? (Scenario 75)](#how-do-you-implement-normalization-3nf-to-ensure-scalability-and-reliability-scenario-75) | Intermediate |
-| 76 | [How do you implement Denormalization to ensure scalability and reliability? (Scenario 76)](#how-do-you-implement-denormalization-to-ensure-scalability-and-reliability-scenario-76) | Intermediate |
-| 77 | [How do you implement Graph Databases to ensure scalability and reliability? (Scenario 77)](#how-do-you-implement-graph-databases-to-ensure-scalability-and-reliability-scenario-77) | Intermediate |
-| 78 | [How do you implement Key-Value Stores to ensure scalability and reliability? (Scenario 78)](#how-do-you-implement-key-value-stores-to-ensure-scalability-and-reliability-scenario-78) | Intermediate |
-| 79 | [How do you implement Columnar Storage to ensure scalability and reliability? (Scenario 79)](#how-do-you-implement-columnar-storage-to-ensure-scalability-and-reliability-scenario-79) | Intermediate |
-| 80 | [How do you implement ETL Processes to ensure scalability and reliability? (Scenario 80)](#how-do-you-implement-etl-processes-to-ensure-scalability-and-reliability-scenario-80) | Intermediate |
-| 81 | [How do you implement Data Warehousing to ensure scalability and reliability? (Scenario 81)](#how-do-you-implement-data-warehousing-to-ensure-scalability-and-reliability-scenario-81) | Intermediate |
-| 82 | [How do you implement CDC (Change Data Capture) to ensure scalability and reliability? (Scenario 82)](#how-do-you-implement-cdc-change-data-capture-to-ensure-scalability-and-reliability-scenario-82) | Intermediate |
-| 83 | [How do you implement Database Security to ensure scalability and reliability? (Scenario 83)](#how-do-you-implement-database-security-to-ensure-scalability-and-reliability-scenario-83) | Intermediate |
-| 84 | [How do you implement Role-Based Access to ensure scalability and reliability? (Scenario 84)](#how-do-you-implement-role-based-access-to-ensure-scalability-and-reliability-scenario-84) | Intermediate |
-| 85 | [How do you implement Query Caching to ensure scalability and reliability? (Scenario 85)](#how-do-you-implement-query-caching-to-ensure-scalability-and-reliability-scenario-85) | Intermediate |
-| 86 | [How do you implement Horizontal Scaling to ensure scalability and reliability? (Scenario 86)](#how-do-you-implement-horizontal-scaling-to-ensure-scalability-and-reliability-scenario-86) | Intermediate |
-| 87 | [How do you implement Sharding Strategies to ensure scalability and reliability? (Scenario 87)](#how-do-you-implement-sharding-strategies-to-ensure-scalability-and-reliability-scenario-87) | Intermediate |
-| 88 | [How do you implement Database Replication to ensure scalability and reliability? (Scenario 88)](#how-do-you-implement-database-replication-to-ensure-scalability-and-reliability-scenario-88) | Intermediate |
-| 89 | [How do you implement Connection Pooling to ensure scalability and reliability? (Scenario 89)](#how-do-you-implement-connection-pooling-to-ensure-scalability-and-reliability-scenario-89) | Intermediate |
-| 90 | [How do you implement Materialized Views to ensure scalability and reliability? (Scenario 90)](#how-do-you-implement-materialized-views-to-ensure-scalability-and-reliability-scenario-90) | Intermediate |
-| 91 | [How do you implement Stored Procedures to ensure scalability and reliability? (Scenario 91)](#how-do-you-implement-stored-procedures-to-ensure-scalability-and-reliability-scenario-91) | Intermediate |
-| 92 | [How do you implement Triggers to ensure scalability and reliability? (Scenario 92)](#how-do-you-implement-triggers-to-ensure-scalability-and-reliability-scenario-92) | Intermediate |
-| 93 | [How do you implement Full-Text Search to ensure scalability and reliability? (Scenario 93)](#how-do-you-implement-full-text-search-to-ensure-scalability-and-reliability-scenario-93) | Intermediate |
-| 94 | [How do you implement JSONB Columns to ensure scalability and reliability? (Scenario 94)](#how-do-you-implement-jsonb-columns-to-ensure-scalability-and-reliability-scenario-94) | Intermediate |
-| 95 | [How do you implement Spatial Data (PostGIS) to ensure scalability and reliability? (Scenario 95)](#how-do-you-implement-spatial-data-postgis-to-ensure-scalability-and-reliability-scenario-95) | Intermediate |
-| 96 | [How do you implement Time-Series Data to ensure scalability and reliability? (Scenario 96)](#how-do-you-implement-time-series-data-to-ensure-scalability-and-reliability-scenario-96) | Intermediate |
-| 97 | [How do you implement Backup & Recovery to ensure scalability and reliability? (Scenario 97)](#how-do-you-implement-backup-&-recovery-to-ensure-scalability-and-reliability-scenario-97) | Intermediate |
-| 98 | [How do you implement Point-in-Time Recovery to ensure scalability and reliability? (Scenario 98)](#how-do-you-implement-point-in-time-recovery-to-ensure-scalability-and-reliability-scenario-98) | Intermediate |
-| 99 | [How do you implement Vacuuming/Maintenance to ensure scalability and reliability? (Scenario 99)](#how-do-you-implement-vacuumingmaintenance-to-ensure-scalability-and-reliability-scenario-99) | Intermediate |
-| 100 | [How do you implement Isolation Levels to ensure scalability and reliability? (Scenario 100)](#how-do-you-implement-isolation-levels-to-ensure-scalability-and-reliability-scenario-100) | Intermediate |
-| 101 | [How do you implement Deadlock Handling to ensure scalability and reliability? (Scenario 101)](#how-do-you-implement-deadlock-handling-to-ensure-scalability-and-reliability-scenario-101) | Intermediate |
-| 102 | [How do you implement Foreign Key Constraints to ensure scalability and reliability? (Scenario 102)](#how-do-you-implement-foreign-key-constraints-to-ensure-scalability-and-reliability-scenario-102) | Intermediate |
-| 103 | [How do you implement Primary Key Selection (UUID vs Int) to ensure scalability and reliability? (Scenario 103)](#how-do-you-implement-primary-key-selection-uuid-vs-int-to-ensure-scalability-and-reliability-scenario-103) | Intermediate |
-| 104 | [How do you implement Normalization (3NF) to ensure scalability and reliability? (Scenario 104)](#how-do-you-implement-normalization-3nf-to-ensure-scalability-and-reliability-scenario-104) | Intermediate |
-| 105 | [How do you implement Denormalization to ensure scalability and reliability? (Scenario 105)](#how-do-you-implement-denormalization-to-ensure-scalability-and-reliability-scenario-105) | Intermediate |
+
+1. [How do you optimize a slow SQL query that involves multiple joins and large tables?](#q1-how-do-you-optimize-a-slow-sql-query-that-involves-multiple-joins-and-large-tables) <span class="intermediate">Intermediate</span>
+2. [How do you handle database migrations for a high-traffic application with zero downtime?](#q2-how-do-you-handle-database-migrations-for-a-high-traffic-application-with-zero-downtime) <span class="intermediate">Intermediate</span>
+3. [How do you prevent SQL Injection vulnerabilities in a raw SQL query?](#q3-how-do-you-prevent-sql-injection-vulnerabilities-in-a-raw-sql-query) <span class="intermediate">Intermediate</span>
+4. [How do you design a schema for a 'Many-to-Many' relationship?](#q4-how-do-you-design-a-schema-for-a-many-to-many-relationship) <span class="intermediate">Intermediate</span>
+5. [How do you choose between embedding documents and referencing them in MongoDB?](#q5-how-do-you-choose-between-embedding-documents-and-referencing-them-in-mongodb) <span class="intermediate">Intermediate</span>
+6. [How do you resolve the N+1 query problem?](#q6-how-do-you-resolve-the-n1-query-problem) <span class="intermediate">Intermediate</span>
+7. [How do you use Window Functions to find the top 3 salaries per department?](#q7-how-do-you-use-window-functions-to-find-the-top-3-salaries-per-department) <span class="intermediate">Intermediate</span>
+8. [How do you implement optimistic locking to handle concurrent updates?](#q8-how-do-you-implement-optimistic-locking-to-handle-concurrent-updates) <span class="intermediate">Intermediate</span>
+9. [How do you ensure data consistency across microservices (Distributed Transaction)?](#q9-how-do-you-ensure-data-consistency-across-microservices-distributed-transaction) <span class="intermediate">Intermediate</span>
+10. [How do you use a Redis cache to implement the 'Cache-Aside' pattern?](#q10-how-do-you-use-a-redis-cache-to-implement-the-cache-aside-pattern) <span class="intermediate">Intermediate</span>
+11. [How do you structure a composite index to optimize a query with equality and range filters?](#q11-how-do-you-structure-a-composite-index-to-optimize-a-query-with-equality-and-range-filters) <span class="intermediate">Intermediate</span>
+12. [How do you handle 'Soft Deletes' to preserve data history?](#q12-how-do-you-handle-soft-deletes-to-preserve-data-history) <span class="intermediate">Intermediate</span>
+13. [How do you optimize database writes for a high-ingestion system (e.g., logs)?](#q13-how-do-you-optimize-database-writes-for-a-high-ingestion-system-eg-logs) <span class="intermediate">Intermediate</span>
+14. [How do you use Common Table Expressions (CTEs) to simplify complex logic?](#q14-how-do-you-use-common-table-expressions-ctes-to-simplify-complex-logic) <span class="intermediate">Intermediate</span>
+15. [How do you maintain ACID properties in a database transaction?](#q15-how-do-you-maintain-acid-properties-in-a-database-transaction) <span class="intermediate">Intermediate</span>
+16. [How do you create a Materialized View and refresh it concurrently?](#q16-how-do-you-create-a-materialized-view-and-refresh-it-concurrently) <span class="intermediate">Intermediate</span>
+17. [How do you implement an audit log using Database Triggers?](#q17-how-do-you-implement-an-audit-log-using-database-triggers) <span class="advanced">Advanced</span>
+18. [How do you query JSONB data efficiently in PostgreSQL?](#q18-how-do-you-query-jsonb-data-efficiently-in-postgresql) <span class="intermediate">Intermediate</span>
+19. [How do you perform an Upsert (Insert or Update) in SQL?](#q19-how-do-you-perform-an-upsert-insert-or-update-in-sql) <span class="beginner">Beginner</span>
+20. [How do you use Recursive CTEs to query hierarchical data?](#q20-how-do-you-use-recursive-ctes-to-query-hierarchical-data) <span class="advanced">Advanced</span>
+21. [How do you use Window Functions to calculate running totals?](#q21-how-do-you-use-window-functions-to-calculate-running-totals) <span class="intermediate">Intermediate</span>
+22. [How do you analyze query performance using EXPLAIN ANALYZE?](#q22-how-do-you-analyze-query-performance-using-explain-analyze) <span class="intermediate">Intermediate</span>
+23. [How do you choose between UUID and Integer for Primary Keys?](#q23-how-do-you-choose-between-uuid-and-integer-for-primary-keys) <span class="intermediate">Intermediate</span>
+24. [How do you prevent Deadlocks in database transactions?](#q24-how-do-you-prevent-deadlocks-in-database-transactions) <span class="advanced">Advanced</span>
+25. [How do you use Full-Text Search in PostgreSQL without ElasticSearch?](#q25-how-do-you-use-full-text-search-in-postgresql-without-elasticsearch) <span class="advanced">Advanced</span>
+26. [How do you handle transaction isolation levels?](#q26-how-do-you-handle-transaction-isolation-levels) <span class="advanced">Advanced</span>
+27. [How do you implement Soft Deletes?](#q27-how-do-you-implement-soft-deletes) <span class="beginner">Beginner</span>
+28. [How do you use a Composite Index effectively?](#q28-how-do-you-use-a-composite-index-effectively) <span class="intermediate">Intermediate</span>
+29. [How do you identify and fix the N+1 query problem?](#q29-how-do-you-identify-and-fix-the-n1-query-problem) <span class="intermediate">Intermediate</span>
+30. [How do you partition a large table by date?](#q30-how-do-you-partition-a-large-table-by-date) <span class="advanced">Advanced</span>
 
 ---
 
-### 1. How do you optimize a slow SQL query that involves multiple joins and large tables?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-1.  **Analyze Execution Plan:** Use `EXPLAIN ANALYZE` (Postgres) or `EXPLAIN` (MySQL) to identify bottlenecks (e.g., full table scans).
-2.  **Indexing:** Ensure foreign keys and columns used in `WHERE`, `JOIN`, and `ORDER BY` clauses are indexed. Use Composite Indexes for multiple columns.
-3.  **Selectivity:** Filter data as early as possible in the query.
-4.  **Avoid SELECT *:** Fetch only required columns to reduce I/O.
-
-**Code Example (SQL):**
-```sql
--- BAD: Full table scan if 'status' is not indexed
-SELECT * FROM orders o
-JOIN users u ON o.user_id = u.id
-WHERE o.status = 'shipped';
-
--- GOOD: targeted columns, assumes index on (status, order_date)
-SELECT o.id, o.order_date, u.email 
-FROM orders o
-JOIN users u ON o.user_id = u.id
-WHERE o.status = 'shipped';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 2. How do you handle database migrations for a high-traffic application with zero downtime?
-
-**Difficulty**: Expert
-
-**Strategy:**
-Use the **"Expand and Contract"** pattern:
-1.  **Expand:** Add the new column/table. Make it optional. Deploy code that writes to *both* old and new locations (double-write) but reads from the old.
-2.  **Migrate:** Backfill historical data to the new structure.
-3.  **Switch:** Deploy code that reads from the new location.
-4.  **Contract:** Remove the old column/table after verifying stability.
-
-**Code Example (SQL - Step 1):**
-```sql
--- Add new column as nullable first
-ALTER TABLE users ADD COLUMN full_name VARCHAR(255);
--- Do NOT set NOT NULL yet, as it locks the table for validation
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 3. How do you prevent SQL Injection vulnerabilities in a raw SQL query?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Always use **Parameterized Queries** (Prepared Statements). Never concatenate user input directly into the query string. This separates the SQL code from the data.
-
-**Code Example (Node.js/pg):**
-```javascript
-// BAD: Vulnerable
-const query = "SELECT * FROM users WHERE id = " + req.body.id;
-
-// GOOD: Parameterized
-const query = "SELECT * FROM users WHERE id = $1";
-const values = [req.body.id];
-await client.query(query, values);
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 4. How do you design a schema for a 'Many-to-Many' relationship (e.g., Students and Courses)?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Use a **Junction Table** (or Association Table). This table holds the foreign keys of both related entities and any additional data specific to the relationship (e.g., enrollment date).
-
-**Code Example (SQL):**
-```sql
-CREATE TABLE students (id INT PRIMARY KEY, name TEXT);
-CREATE TABLE courses (id INT PRIMARY KEY, title TEXT);
-
--- Junction Table
-CREATE TABLE enrollments (
-  student_id INT REFERENCES students(id),
-  course_id INT REFERENCES courses(id),
-  enrolled_at TIMESTAMP DEFAULT NOW(),
-  PRIMARY KEY (student_id, course_id) -- Composite Key
-);
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 5. How do you choose between embedding documents and referencing them in MongoDB?
+### Q1: How do you optimize a slow SQL query that involves multiple joins and large tables?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-*   **Embed** when data is "contained" (one-to-few), accessed together, and relatively static (e.g., Addresses inside User).
-*   **Reference** when data is "related" (one-to-many/many-to-many), accessed independently, large/unbounded (e.g., Reviews for a Product), or frequently updated.
+1. **Analyze Execution Plan:** Use `EXPLAIN ANALYZE` to identify bottlenecks (sequential scans, high cost loops).
+2. **Indexing:** Ensure foreign keys and columns used in `WHERE`, `JOIN`, and `ORDER BY` clauses are indexed.
+3. **Selectivity:** Filter data as early as possible to reduce the working set.
+4. **Avoid `SELECT *`:** Fetch only necessary columns to reduce I/O.
+5. **Join Type:** Check if the optimizer is choosing the right join type (Nested Loop vs Hash Join vs Merge Join).
 
-**Code Example (JSON Schema):**
+**Code Example:**
+```sql
+-- Bad Query
+SELECT * FROM orders o
+JOIN users u ON o.user_id = u.id
+JOIN products p ON o.product_id = p.id
+WHERE o.created_at > '2023-01-01';
+
+-- Optimized Query
+-- 1. Select specific columns
+-- 2. Ensure indexes on orders(created_at), orders(user_id), orders(product_id)
+EXPLAIN ANALYZE
+SELECT o.id, o.total, u.name, p.title 
+FROM orders o
+INNER JOIN users u ON o.user_id = u.id
+INNER JOIN products p ON o.product_id = p.id
+WHERE o.created_at > '2023-01-01';
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q2: How do you handle database migrations for a high-traffic application with zero downtime?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Schema changes must be backward-compatible.
+1. **Add Column:** Add new column as nullable (or with default). Code ignores it.
+2. **Dual Write:** Deploy code that writes to both old and new columns/tables.
+3. **Backfill:** Run a background script to copy old data to new structure.
+4. **Switch Read:** Deploy code that reads from the new source.
+5. **Cleanup:** Remove the old column/table after verifying everything works.
+
+**Code Example:**
+```sql
+-- Step 1: Add column safely
+ALTER TABLE users ADD COLUMN full_name VARCHAR(255);
+
+-- Step 2: Application writes to both 'first_name'/'last_name' AND 'full_name'
+
+-- Step 3: Backfill data (in batches to avoid locking)
+UPDATE users SET full_name = CONCAT(first_name, ' ', last_name) 
+WHERE full_name IS NULL LIMIT 1000;
+
+-- Step 4: Deprecate old columns (future migration)
+-- ALTER TABLE users DROP COLUMN first_name;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q3: How do you prevent SQL Injection vulnerabilities in a raw SQL query?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Never concatenate user input directly into SQL strings.
+1. **Parameterized Queries (Prepared Statements):** The database treats input as data, not executable code.
+2. **Input Validation:** Validate data type and format before reaching the DB.
+3. **Principle of Least Privilege:** DB user should only have necessary permissions.
+
+**Code Example:**
+```javascript
+// VULNERABLE
+const query = `SELECT * FROM users WHERE email = '${userInput}'`;
+db.query(query);
+
+// SECURE
+const query = 'SELECT * FROM users WHERE email = $1';
+const values = [userInput];
+db.query(query, values);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q4: How do you design a schema for a 'Many-to-Many' relationship?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use a **Junction Table** (or Join Table/Associative Entity).
+1. Create two main tables (e.g., `Students`, `Courses`).
+2. Create a third table (e.g., `Enrollments`) containing foreign keys to both main tables.
+3. Add a composite primary key (student_id, course_id) to prevent duplicates.
+
+**Code Example:**
+```sql
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100)
+);
+
+CREATE TABLE courses (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(100)
+);
+
+CREATE TABLE enrollments (
+    student_id INT REFERENCES students(id),
+    course_id INT REFERENCES courses(id),
+    enrolled_at TIMESTAMP DEFAULT NOW(),
+    PRIMARY KEY (student_id, course_id)
+);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q5: How do you choose between embedding documents and referencing them in MongoDB?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+*   **Embedding:**
+    *   **Use when:** Data is "contained" (1-to-few), accessed together, and rarely changes independently.
+    *   **Pros:** Single read operation (fast).
+    *   **Cons:** Document size limit (16MB), data duplication.
+*   **Referencing:**
+    *   **Use when:** Data is "related" (1-to-many/infinite), accessed independently, or frequently updated.
+    *   **Pros:** Smaller documents, no duplication.
+    *   **Cons:** Multiple queries or `$lookup` (slower).
+
+**Code Example:**
 ```json
-// Embedded (Good for read performance)
+// Embedding (User has few addresses)
 {
   "_id": 1,
   "name": "John",
   "addresses": [
-    { "city": "NY", "zip": "10001" }
+    { "street": "123 Main St", "city": "NY" },
+    { "street": "456 Side St", "city": "LA" }
   ]
 }
+
+// Referencing (Book has many reviews)
+// Book
+{ "_id": 101, "title": "Database Design" }
+
+// Review
+{ "_id": 501, "book_id": 101, "text": "Great book!", "user_id": 1 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 6. How do you resolve the N+1 query problem using an ORM?
+### Q6: How do you resolve the N+1 query problem?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use **Eager Loading** (fetching related data in the initial query via JOINs) instead of Lazy Loading (fetching related data on access).
+The N+1 problem happens when you fetch a parent list (1 query) and then execute a query for each child (N queries).
+1. **Eager Loading:** Fetch all related data in the initial query using JOINs or `IN` clauses.
+2. **Batching:** Collect IDs and fetch all related records in one go (DataLoader pattern).
 
-**Code Example (Pseudo-ORM):**
-```python
-# BAD: N+1 (1 query for authors, N queries for books)
-authors = Author.objects.all()
-for author in authors:
-    print(author.books) 
+**Code Example:**
+```javascript
+// BAD (N+1)
+const posts = await Post.findAll(); // 1 query
+for (const post of posts) {
+  const comments = await Comment.findByPostId(post.id); // N queries
+}
 
-# GOOD: Eager Loading (1 query with JOIN)
-authors = Author.objects.include('books').all()
+// GOOD (Eager Loading)
+const posts = await Post.findAll({ include: 'comments' }); 
+// SELECT * FROM posts;
+// SELECT * FROM comments WHERE post_id IN (1, 2, 3...);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 7. How do you use Window Functions to find the top 3 salaries per department?
+### Q7: How do you use Window Functions to find the top 3 salaries per department?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy:**
-Use `DENSE_RANK()` or `ROW_NUMBER()` partitioned by the department and ordered by salary. Then filter the result in a subquery or CTE.
+Window functions perform calculations across a set of table rows that are somehow related to the current row.
+1. Use `DENSE_RANK()` or `ROW_NUMBER()` to assign a rank to each row within a partition.
+2. Partition by `department_id` and Order by `salary DESC`.
+3. Filter the result in an outer query.
 
-**Code Example (SQL):**
+**Code Example:**
 ```sql
 WITH RankedSalaries AS (
-  SELECT 
-    name, department, salary,
-    DENSE_RANK() OVER (PARTITION BY department ORDER BY salary DESC) as rank
-  FROM employees
+    SELECT 
+        name, 
+        department_id, 
+        salary,
+        DENSE_RANK() OVER (
+            PARTITION BY department_id 
+            ORDER BY salary DESC
+        ) as rank
+    FROM employees
 )
 SELECT * FROM RankedSalaries WHERE rank <= 3;
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 8. How do you implement optimistic locking to handle concurrent updates?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Add a `version` number or `timestamp` column to the table. When updating, check if the version matches the one you read. If not, the row was modified by someone else; retry or abort.
-
-**Code Example (SQL):**
-```sql
--- 1. Read
-SELECT id, balance, version FROM accounts WHERE id = 1;
-
--- 2. Update (only if version matches)
-UPDATE accounts 
-SET balance = balance - 100, version = version + 1 
-WHERE id = 1 AND version = 5;
-
--- 3. Check row count. If 0, transaction failed due to concurrency.
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 9. How do you ensure data consistency across microservices (Distributed Transaction)?
-
-**Difficulty**: Expert
-
-**Strategy:**
-Avoid Two-Phase Commit (2PC) if possible due to blocking. Use the **Saga Pattern**: a sequence of local transactions where each updates data and publishes an event to trigger the next step. If a step fails, execute **Compensating Transactions** to undo changes.
-
-**Code Example (Concept):**
-1. Order Service: Create Order (Pending) -> Publishes `OrderCreated`
-2. Payment Service: Listens `OrderCreated` -> Charges Card -> Publishes `PaymentProcessed`
-3. Inventory Service: Listens `PaymentProcessed` -> Reserves Stock -> Publishes `OrderConfirmed`
-*Failure:* If Inventory fails, publish `StockReservationFailed` -> Payment Service refunds -> Order Service cancels.
-
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 10. How do you use a Redis cache to implement the 'Cache-Aside' pattern?
+### Q8: How do you implement optimistic locking to handle concurrent updates?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-1.  App checks Cache.
-2.  If Hit: Return data.
-3.  If Miss: Read from Database, Write to Cache (with TTL), Return data.
+Optimistic locking assumes conflicts are rare. It doesn't lock rows during read.
+1. Add a `version` column (int or timestamp) to the table.
+2. When reading, fetch the current `version`.
+3. When updating, add `WHERE version = read_version` and increment the version.
+4. If `affected_rows` is 0, the data was modified by someone else; retry or error.
 
-**Code Example (Pseudo-code):**
+**Code Example:**
+```sql
+-- 1. Read
+SELECT id, name, version FROM products WHERE id = 1; 
+-- returns version = 5
+
+-- 2. Update
+UPDATE products 
+SET name = 'New Name', version = version + 1 
+WHERE id = 1 AND version = 5;
+
+-- 3. Check result
+-- If row count = 1 -> Success
+-- If row count = 0 -> Conflict detected (throw StaleObjectException)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q9: How do you ensure data consistency across microservices (Distributed Transaction)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Traditional ACID transactions don't span services.
+1. **Saga Pattern:** A sequence of local transactions. If one fails, execute compensating transactions to undo changes.
+    *   **Choreography:** Events trigger next steps.
+    *   **Orchestration:** Central coordinator directs steps.
+2. **Two-Phase Commit (2PC):** (Less common due to blocking) Prepare and Commit phases.
+
+**Code Example:**
+```sql
+-- Two-Phase Commit (Conceptual)
+-- Phase 1: Prepare
+PREPARE TRANSACTION 'txn_id';
+
+-- Phase 2: Commit (if all services agree)
+COMMIT PREPARED 'txn_id';
+
+-- Or Rollback (if any service fails)
+ROLLBACK PREPARED 'txn_id';
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q10: How do you use a Redis cache to implement the 'Cache-Aside' pattern?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+The application is responsible for reading/writing from cache.
+1. **Read:** App checks cache.
+    *   If hit: Return data.
+    *   If miss: Read from DB, write to cache, return data.
+2. **Write:** App writes to DB, then invalidates (deletes) or updates the cache key.
+
+**Code Example:**
 ```javascript
 async function getUser(id) {
   const cacheKey = `user:${id}`;
+  
+  // 1. Check Cache
   const cached = await redis.get(cacheKey);
   if (cached) return JSON.parse(cached);
-
+  
+  // 2. Read DB
   const user = await db.findUser(id);
-  await redis.set(cacheKey, JSON.stringify(user), 'EX', 3600);
+  
+  // 3. Update Cache (with TTL)
+  if (user) {
+    await redis.set(cacheKey, JSON.stringify(user), 'EX', 3600);
+  }
+  
   return user;
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 11. How do you structure a composite index to optimize a query with equality and range filters?
+### Q11: How do you structure a composite index to optimize a query with equality and range filters?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy:**
-Follow the **ESR Rule** (Equality, Sort, Range). Columns used for equality checks should come first, followed by sorting columns, and finally range filters.
+Order of columns in a composite index matters.
+Rule: **Equality (=) columns first, then Range (>, <, BETWEEN) columns.**
+1. If you have `WHERE category_id = 5 AND price > 100`, the index should be `(category_id, price)`.
+2. If you index `(price, category_id)`, the database has to check all prices > 100 and then filter by category, which is less efficient.
 
 **Code Example:**
 ```sql
--- Query: WHERE category = 'Electronics' AND price > 100
--- Index should be: (category, price)
+-- Query
+SELECT * FROM products WHERE status = 'active' AND created_at > '2023-01-01';
 
-CREATE INDEX idx_category_price ON products (category, price);
+-- Optimal Index
+CREATE INDEX idx_status_created ON products (status, created_at);
+
+-- Explanation:
+-- The DB jumps to the 'active' section of the B-Tree, 
+-- then scans the 'created_at' range sequentially.
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 12. How do you handle 'Soft Deletes' to preserve data history?
+### Q12: How do you handle 'Soft Deletes' to preserve data history?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Add a `deleted_at` (nullable timestamp) or `is_deleted` (boolean) column. Filter queries to exclude these rows by default.
+Instead of `DELETE FROM table`, mark the row as deleted.
+1. Add a `deleted_at` (timestamp) or `is_deleted` (boolean) column.
+2. Default it to NULL (active).
+3. **Delete:** Update `deleted_at` to current timestamp.
+4. **Read:** Always filter `WHERE deleted_at IS NULL`.
 
-**Code Example (SQL):**
+**Code Example:**
 ```sql
--- Delete
+-- Table
+ALTER TABLE users ADD COLUMN deleted_at TIMESTAMP NULL;
+
+-- Soft Delete
 UPDATE users SET deleted_at = NOW() WHERE id = 1;
 
--- Select
+-- Query Active Users
 SELECT * FROM users WHERE deleted_at IS NULL;
+
+-- Restore
+UPDATE users SET deleted_at = NULL WHERE id = 1;
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 13. How do you optimize database writes for a high-ingestion system (e.g., logs)?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-1.  **Batch Inserts:** Insert thousands of rows in a single transaction/statement.
-2.  **Remove Indexes:** Drop non-essential indexes during load and rebuild later.
-3.  **Partitioning:** Write to a specific "hot" partition (e.g., by date).
-4.  **Unlogged Tables (Postgres):** Bypass WAL logging for transient data.
-
-**Code Example (SQL Batch):**
-```sql
-INSERT INTO logs (level, msg) VALUES 
-('INFO', 'Log 1'), 
-('ERROR', 'Log 2'), 
-... 
-('DEBUG', 'Log 1000');
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 14. How do you use Common Table Expressions (CTEs) to simplify complex logic?
+### Q13: How do you optimize database writes for a high-ingestion system (e.g., logs)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use `WITH` clauses to define temporary result sets. This makes queries more readable than nested subqueries. Recursive CTEs are useful for hierarchical data (trees/graphs).
+1. **Batch Inserts:** Insert multiple rows in a single transaction/query (`INSERT INTO ... VALUES (...), (...), (...)`).
+2. **Remove Indexes:** Disable non-essential indexes during bulk load; rebuild later.
+3. **Partitioning:** Write to a specific partition (e.g., current day) to keep index size manageable.
+4. **Async Processing:** Write to a queue (Kafka) first, then consume and write to DB in batches.
 
-**Code Example (SQL):**
+**Code Example:**
+```sql
+-- Faster than 3 separate INSERT statements
+INSERT INTO logs (level, message, timestamp) VALUES 
+('INFO', 'User login', NOW()),
+('ERROR', 'DB connection failed', NOW()),
+('WARN', 'High latency', NOW());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q14: How do you use Common Table Expressions (CTEs) to simplify complex logic?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+CTEs (`WITH` clause) allow you to define temporary result sets for use within a SELECT, INSERT, UPDATE, or DELETE statement.
+1. Improves readability over nested subqueries.
+2. Allows recursive queries (e.g., hierarchical data).
+
+**Code Example:**
 ```sql
 WITH RegionalSales AS (
     SELECT region, SUM(amount) as total_sales
     FROM orders
     GROUP BY region
+),
+TopRegions AS (
+    SELECT region
+    FROM RegionalSales
+    WHERE total_sales > 100000
 )
-SELECT region 
-FROM RegionalSales 
-WHERE total_sales > (SELECT AVG(total_sales) FROM RegionalSales);
+SELECT * 
+FROM orders 
+WHERE region IN (SELECT region FROM TopRegions);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 15. How do you maintain ACID properties in a database transaction?
+### Q15: How do you maintain ACID properties in a database transaction?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+1. **Atomicity:** Use `BEGIN TRANSACTION` and `COMMIT` / `ROLLBACK`. All or nothing.
+2. **Consistency:** Constraints (Foreign Keys, Checks) ensure DB rules are valid.
+3. **Isolation:** Set appropriate isolation level (`READ COMMITTED`, `SERIALIZABLE`) to handle concurrency.
+4. **Durability:** WAL (Write-Ahead Logging) ensures data survives crashes.
+
+**Code Example:**
+```sql
+BEGIN;
+
+-- Deduct money
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+
+-- Add money
+UPDATE accounts SET balance = balance + 100 WHERE id = 2;
+
+-- If error occurs anywhere here, ROLLBACK;
+
+COMMIT;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q16: How do you create a Materialized View and refresh it concurrently?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Materialized views store the result of a query physically. Use `REFRESH MATERIALIZED VIEW CONCURRENTLY` to update data without locking the view for reads.
+
+**Code Example:**
+```sql
+-- Create
+CREATE MATERIALIZED VIEW sales_summary AS
+SELECT product_id, SUM(amount) as total_sales
+FROM sales
+GROUP BY product_id;
+
+-- Create Unique Index (Required for Concurrent Refresh)
+CREATE UNIQUE INDEX idx_sales_summary_id ON sales_summary(product_id);
+
+-- Refresh without locking
+REFRESH MATERIALIZED VIEW CONCURRENTLY sales_summary;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q17: How do you implement an audit log using Database Triggers?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Create a trigger function that inserts old/new values into an audit table whenever an UPDATE or DELETE occurs on the main table.
+
+**Code Example:**
+```json
+CREATE FUNCTION log_changes() RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO audit_log (table_name, operation, old_data, new_data, changed_at)
+  VALUES (TG_TABLE_NAME, TG_OP, row_to_json(OLD), row_to_json(NEW), NOW());
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_audit_users
+AFTER UPDATE OR DELETE ON users
+FOR EACH ROW EXECUTE FUNCTION log_changes();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q18: How do you query JSONB data efficiently in PostgreSQL?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use the `->>` operator to access fields as text. Create a GIN index on the JSONB column to speed up containment queries (`@>`).
+
+**Code Example:**
+```sql
+-- Query
+SELECT * FROM users WHERE data->>'role' = 'admin';
+
+-- Indexing
+CREATE INDEX idx_users_data ON users USING GIN (data);
+
+-- Fast query using containment operator
+SELECT * FROM users WHERE data @> '{"role": "admin"}';
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q19: How do you perform an Upsert (Insert or Update) in SQL?
 
 **Difficulty**: Beginner
 
 **Strategy:**
-Wrap operations in a `BEGIN TRANSACTION` ... `COMMIT` block. Ensure the database engine supports it (e.g., InnoDB for MySQL, not MyISAM).
+Use `INSERT ... ON CONFLICT` (Postgres) or `INSERT ... ON DUPLICATE KEY UPDATE` (MySQL) to handle unique constraint violations gracefully.
 
-**Code Example (SQL):**
+**Code Example:**
+```sql
+-- PostgreSQL
+INSERT INTO users (id, name, email)
+VALUES (1, 'John', 'john@example.com')
+ON CONFLICT (id) 
+DO UPDATE SET email = EXCLUDED.email, name = EXCLUDED.name;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q20: How do you use Recursive CTEs to query hierarchical data?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use a `WITH RECURSIVE` CTE. Define a base case (e.g., root nodes) and a recursive step (joining back to the CTE) to traverse trees like organizational charts or category trees.
+
+**Code Example:**
+```sql
+WITH RECURSIVE employee_tree AS (
+  -- Base Case: Top level managers
+  SELECT id, name, manager_id, 1 as level
+  FROM employees WHERE manager_id IS NULL
+  
+  UNION ALL
+  
+  -- Recursive Step: Subordinates
+  SELECT e.id, e.name, e.manager_id, et.level + 1
+  FROM employees e
+  INNER JOIN employee_tree et ON e.manager_id = et.id
+)
+SELECT * FROM employee_tree;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q21: How do you use Window Functions to calculate running totals?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `SUM(column) OVER (ORDER BY ...)` to calculate a running total (cumulative sum) row by row.
+
+**Code Example:**
+```sql
+SELECT 
+  date,
+  amount,
+  SUM(amount) OVER (ORDER BY date) as running_total
+FROM sales;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q22: How do you analyze query performance using EXPLAIN ANALYZE?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Prepend `EXPLAIN ANALYZE` to your query to see the execution plan and actual runtimes. Look for 'Seq Scan' on large tables (bad) vs 'Index Scan' (good).
+
+**Code Example:**
+```sql
+EXPLAIN ANALYZE 
+SELECT * FROM orders 
+WHERE customer_id = 12345 
+AND order_date > '2023-01-01';
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q23: How do you choose between UUID and Integer for Primary Keys?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Integers are smaller (4/8 bytes) and faster for indexing. UUIDs (16 bytes) are globally unique, allowing decentralized ID generation (good for sharding/microservices) but fragment indexes.
+
+**Code Example:**
+```sql
+-- Integer (Auto Increment)
+id SERIAL PRIMARY KEY
+
+-- UUID (Postgres)
+id UUID PRIMARY KEY DEFAULT gen_random_uuid()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q24: How do you prevent Deadlocks in database transactions?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Ensure all transactions acquire locks on resources in the same order. Keep transactions short. Use `FOR UPDATE` to lock rows explicitly if needed.
+
+**Code Example:**
+```sql
+-- Transaction A: Lock User 1 then User 2
+BEGIN;
+UPDATE users SET balance = balance - 10 WHERE id = 1;
+UPDATE users SET balance = balance + 10 WHERE id = 2;
+COMMIT;
+
+-- Transaction B MUST also Lock User 1 then User 2 (NOT User 2 then User 1)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q25: How do you use Full-Text Search in PostgreSQL without ElasticSearch?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `tsvector` to store lexemes and `tsquery` to search. Create a GIN index on the `tsvector` column for performance.
+
+**Code Example:**
+```sql
+-- Search
+SELECT title 
+FROM articles 
+WHERE to_tsvector('english', title || ' ' || body) @@ to_tsquery('english', 'database & performance');
+
+-- Index
+CREATE INDEX idx_fts ON articles USING GIN (to_tsvector('english', title || ' ' || body));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q26: How do you handle transaction isolation levels?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Set the isolation level to balance consistency vs concurrency. `READ COMMITTED` is default. `SERIALIZABLE` prevents all anomalies but causes high contention.
+
+**Code Example:**
 ```sql
 BEGIN;
-  UPDATE account SET balance = balance - 100 WHERE id = 1;
-  UPDATE account SET balance = balance + 100 WHERE id = 2;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+-- This transaction sees a snapshot of data at start time
+SELECT * FROM account WHERE id = 1;
 COMMIT;
--- If any error occurs before COMMIT, issue ROLLBACK.
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 16. How do you implement Primary Key Selection (UUID vs Int) to ensure scalability and reliability? (Scenario 16)
+### Q27: How do you implement Soft Deletes?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Primary Key Selection (UUID vs Int)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Primary Key Selection (UUID vs Int)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Primary Key Selection (UUID vs Int)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 17. How do you implement Normalization (3NF) to ensure scalability and reliability? (Scenario 17)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Normalization (3NF)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Normalization (3NF)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Normalization (3NF)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 18. How do you implement Denormalization to ensure scalability and reliability? (Scenario 18)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Denormalization** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Denormalization
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Denormalization';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 19. How do you implement Graph Databases to ensure scalability and reliability? (Scenario 19)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Graph Databases** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Graph Databases
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Graph Databases';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 20. How do you implement Key-Value Stores to ensure scalability and reliability? (Scenario 20)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Key-Value Stores** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Key-Value Stores
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Key-Value Stores';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 21. How do you implement Columnar Storage to ensure scalability and reliability? (Scenario 21)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Columnar Storage** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Columnar Storage
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Columnar Storage';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 22. How do you implement ETL Processes to ensure scalability and reliability? (Scenario 22)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **ETL Processes** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for ETL Processes
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'ETL Processes';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 23. How do you implement Data Warehousing to ensure scalability and reliability? (Scenario 23)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Data Warehousing** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Data Warehousing
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Data Warehousing';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 24. How do you implement CDC (Change Data Capture) to ensure scalability and reliability? (Scenario 24)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **CDC (Change Data Capture)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for CDC (Change Data Capture)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'CDC (Change Data Capture)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 25. How do you implement Database Security to ensure scalability and reliability? (Scenario 25)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Database Security** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Database Security
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Database Security';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 26. How do you implement Role-Based Access to ensure scalability and reliability? (Scenario 26)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Role-Based Access** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Role-Based Access
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Role-Based Access';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 27. How do you implement Query Caching to ensure scalability and reliability? (Scenario 27)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Query Caching** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Query Caching
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Query Caching';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 28. How do you implement Horizontal Scaling to ensure scalability and reliability? (Scenario 28)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Horizontal Scaling** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Horizontal Scaling
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Horizontal Scaling';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 29. How do you implement Sharding Strategies to ensure scalability and reliability? (Scenario 29)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Sharding Strategies** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Sharding Strategies
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Sharding Strategies';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 30. How do you implement Database Replication to ensure scalability and reliability? (Scenario 30)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Database Replication** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Database Replication
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Database Replication';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 31. How do you implement Connection Pooling to ensure scalability and reliability? (Scenario 31)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Connection Pooling** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Connection Pooling
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Connection Pooling';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 32. How do you implement Materialized Views to ensure scalability and reliability? (Scenario 32)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Materialized Views** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Materialized Views
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Materialized Views';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 33. How do you implement Stored Procedures to ensure scalability and reliability? (Scenario 33)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Stored Procedures** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Stored Procedures
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Stored Procedures';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 34. How do you implement Triggers to ensure scalability and reliability? (Scenario 34)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Triggers** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Triggers
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Triggers';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 35. How do you implement Full-Text Search to ensure scalability and reliability? (Scenario 35)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Full-Text Search** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Full-Text Search
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Full-Text Search';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 36. How do you implement JSONB Columns to ensure scalability and reliability? (Scenario 36)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **JSONB Columns** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for JSONB Columns
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'JSONB Columns';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 37. How do you implement Spatial Data (PostGIS) to ensure scalability and reliability? (Scenario 37)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Spatial Data (PostGIS)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Spatial Data (PostGIS)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Spatial Data (PostGIS)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 38. How do you implement Time-Series Data to ensure scalability and reliability? (Scenario 38)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Time-Series Data** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Time-Series Data
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Time-Series Data';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 39. How do you implement Backup & Recovery to ensure scalability and reliability? (Scenario 39)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Backup & Recovery** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Backup & Recovery
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Backup & Recovery';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 40. How do you implement Point-in-Time Recovery to ensure scalability and reliability? (Scenario 40)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Point-in-Time Recovery** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Point-in-Time Recovery
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Point-in-Time Recovery';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 41. How do you implement Vacuuming/Maintenance to ensure scalability and reliability? (Scenario 41)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Vacuuming/Maintenance** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Vacuuming/Maintenance
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Vacuuming/Maintenance';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 42. How do you implement Isolation Levels to ensure scalability and reliability? (Scenario 42)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Isolation Levels** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Isolation Levels
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Isolation Levels';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 43. How do you implement Deadlock Handling to ensure scalability and reliability? (Scenario 43)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Deadlock Handling** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Deadlock Handling
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Deadlock Handling';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 44. How do you implement Foreign Key Constraints to ensure scalability and reliability? (Scenario 44)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Foreign Key Constraints** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Foreign Key Constraints
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Foreign Key Constraints';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 45. How do you implement Primary Key Selection (UUID vs Int) to ensure scalability and reliability? (Scenario 45)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Primary Key Selection (UUID vs Int)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Primary Key Selection (UUID vs Int)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Primary Key Selection (UUID vs Int)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 46. How do you implement Normalization (3NF) to ensure scalability and reliability? (Scenario 46)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Normalization (3NF)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Normalization (3NF)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Normalization (3NF)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 47. How do you implement Denormalization to ensure scalability and reliability? (Scenario 47)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Denormalization** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Denormalization
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Denormalization';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 48. How do you implement Graph Databases to ensure scalability and reliability? (Scenario 48)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Graph Databases** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Graph Databases
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Graph Databases';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 49. How do you implement Key-Value Stores to ensure scalability and reliability? (Scenario 49)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Key-Value Stores** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Key-Value Stores
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Key-Value Stores';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 50. How do you implement Columnar Storage to ensure scalability and reliability? (Scenario 50)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Columnar Storage** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Columnar Storage
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Columnar Storage';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 51. How do you implement ETL Processes to ensure scalability and reliability? (Scenario 51)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **ETL Processes** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for ETL Processes
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'ETL Processes';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 52. How do you implement Data Warehousing to ensure scalability and reliability? (Scenario 52)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Data Warehousing** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Data Warehousing
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Data Warehousing';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 53. How do you implement CDC (Change Data Capture) to ensure scalability and reliability? (Scenario 53)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **CDC (Change Data Capture)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for CDC (Change Data Capture)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'CDC (Change Data Capture)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 54. How do you implement Database Security to ensure scalability and reliability? (Scenario 54)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Database Security** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Database Security
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Database Security';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 55. How do you implement Role-Based Access to ensure scalability and reliability? (Scenario 55)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Role-Based Access** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Role-Based Access
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Role-Based Access';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 56. How do you implement Query Caching to ensure scalability and reliability? (Scenario 56)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Query Caching** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Query Caching
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Query Caching';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 57. How do you implement Horizontal Scaling to ensure scalability and reliability? (Scenario 57)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Horizontal Scaling** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Horizontal Scaling
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Horizontal Scaling';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 58. How do you implement Sharding Strategies to ensure scalability and reliability? (Scenario 58)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Sharding Strategies** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Sharding Strategies
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Sharding Strategies';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 59. How do you implement Database Replication to ensure scalability and reliability? (Scenario 59)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Database Replication** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Database Replication
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Database Replication';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 60. How do you implement Connection Pooling to ensure scalability and reliability? (Scenario 60)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Connection Pooling** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Connection Pooling
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Connection Pooling';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 61. How do you implement Materialized Views to ensure scalability and reliability? (Scenario 61)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Materialized Views** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Materialized Views
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Materialized Views';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 62. How do you implement Stored Procedures to ensure scalability and reliability? (Scenario 62)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Stored Procedures** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Stored Procedures
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Stored Procedures';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 63. How do you implement Triggers to ensure scalability and reliability? (Scenario 63)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Triggers** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Triggers
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Triggers';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 64. How do you implement Full-Text Search to ensure scalability and reliability? (Scenario 64)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Full-Text Search** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Full-Text Search
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Full-Text Search';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 65. How do you implement JSONB Columns to ensure scalability and reliability? (Scenario 65)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **JSONB Columns** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for JSONB Columns
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'JSONB Columns';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 66. How do you implement Spatial Data (PostGIS) to ensure scalability and reliability? (Scenario 66)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Spatial Data (PostGIS)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Spatial Data (PostGIS)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Spatial Data (PostGIS)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 67. How do you implement Time-Series Data to ensure scalability and reliability? (Scenario 67)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Time-Series Data** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Time-Series Data
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Time-Series Data';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 68. How do you implement Backup & Recovery to ensure scalability and reliability? (Scenario 68)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Backup & Recovery** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Backup & Recovery
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Backup & Recovery';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 69. How do you implement Point-in-Time Recovery to ensure scalability and reliability? (Scenario 69)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Point-in-Time Recovery** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Point-in-Time Recovery
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Point-in-Time Recovery';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 70. How do you implement Vacuuming/Maintenance to ensure scalability and reliability? (Scenario 70)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Vacuuming/Maintenance** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Vacuuming/Maintenance
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Vacuuming/Maintenance';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 71. How do you implement Isolation Levels to ensure scalability and reliability? (Scenario 71)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Isolation Levels** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Isolation Levels
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Isolation Levels';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 72. How do you implement Deadlock Handling to ensure scalability and reliability? (Scenario 72)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Deadlock Handling** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Deadlock Handling
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Deadlock Handling';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 73. How do you implement Foreign Key Constraints to ensure scalability and reliability? (Scenario 73)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Foreign Key Constraints** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Foreign Key Constraints
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Foreign Key Constraints';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 74. How do you implement Primary Key Selection (UUID vs Int) to ensure scalability and reliability? (Scenario 74)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Primary Key Selection (UUID vs Int)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Primary Key Selection (UUID vs Int)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Primary Key Selection (UUID vs Int)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 75. How do you implement Normalization (3NF) to ensure scalability and reliability? (Scenario 75)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Normalization (3NF)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Normalization (3NF)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Normalization (3NF)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 76. How do you implement Denormalization to ensure scalability and reliability? (Scenario 76)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Denormalization** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Denormalization
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Denormalization';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 77. How do you implement Graph Databases to ensure scalability and reliability? (Scenario 77)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Graph Databases** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Graph Databases
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Graph Databases';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 78. How do you implement Key-Value Stores to ensure scalability and reliability? (Scenario 78)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Key-Value Stores** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Key-Value Stores
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Key-Value Stores';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 79. How do you implement Columnar Storage to ensure scalability and reliability? (Scenario 79)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Columnar Storage** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Columnar Storage
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Columnar Storage';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 80. How do you implement ETL Processes to ensure scalability and reliability? (Scenario 80)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **ETL Processes** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
+**Difficulty**: Beginner
 
-**Code Example:**
-```sql
--- Example configuration or query for ETL Processes
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'ETL Processes';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 81. How do you implement Data Warehousing to ensure scalability and reliability? (Scenario 81)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Data Warehousing** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Data Warehousing
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Data Warehousing';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 82. How do you implement CDC (Change Data Capture) to ensure scalability and reliability? (Scenario 82)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **CDC (Change Data Capture)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for CDC (Change Data Capture)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'CDC (Change Data Capture)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 83. How do you implement Database Security to ensure scalability and reliability? (Scenario 83)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Database Security** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Database Security
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Database Security';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 84. How do you implement Role-Based Access to ensure scalability and reliability? (Scenario 84)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Role-Based Access** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Role-Based Access
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Role-Based Access';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 85. How do you implement Query Caching to ensure scalability and reliability? (Scenario 85)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Query Caching** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Query Caching
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Query Caching';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 86. How do you implement Horizontal Scaling to ensure scalability and reliability? (Scenario 86)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Horizontal Scaling** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Horizontal Scaling
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Horizontal Scaling';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 87. How do you implement Sharding Strategies to ensure scalability and reliability? (Scenario 87)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Sharding Strategies** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Sharding Strategies
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Sharding Strategies';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 88. How do you implement Database Replication to ensure scalability and reliability? (Scenario 88)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Database Replication** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Database Replication
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Database Replication';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 89. How do you implement Connection Pooling to ensure scalability and reliability? (Scenario 89)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Connection Pooling** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Connection Pooling
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Connection Pooling';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 90. How do you implement Materialized Views to ensure scalability and reliability? (Scenario 90)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Materialized Views** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Materialized Views
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Materialized Views';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 91. How do you implement Stored Procedures to ensure scalability and reliability? (Scenario 91)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Stored Procedures** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Stored Procedures
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Stored Procedures';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 92. How do you implement Triggers to ensure scalability and reliability? (Scenario 92)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Triggers** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Triggers
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Triggers';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 93. How do you implement Full-Text Search to ensure scalability and reliability? (Scenario 93)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Full-Text Search** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Full-Text Search
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Full-Text Search';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 94. How do you implement JSONB Columns to ensure scalability and reliability? (Scenario 94)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **JSONB Columns** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for JSONB Columns
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'JSONB Columns';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 95. How do you implement Spatial Data (PostGIS) to ensure scalability and reliability? (Scenario 95)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Spatial Data (PostGIS)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Spatial Data (PostGIS)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Spatial Data (PostGIS)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 96. How do you implement Time-Series Data to ensure scalability and reliability? (Scenario 96)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Time-Series Data** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Time-Series Data
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Time-Series Data';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 97. How do you implement Backup & Recovery to ensure scalability and reliability? (Scenario 97)
-
-**Difficulty**: Intermediate
-
 **Strategy:**
-Leverage **Backup & Recovery** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
+Add a `deleted_at` timestamp column. UPDATE this column instead of DELETE. Filter queries with `WHERE deleted_at IS NULL`.
 
 **Code Example:**
 ```sql
--- Example configuration or query for Backup & Recovery
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Backup & Recovery';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 98. How do you implement Point-in-Time Recovery to ensure scalability and reliability? (Scenario 98)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Point-in-Time Recovery** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
+-- Soft Delete
+UPDATE users SET deleted_at = NOW() WHERE id = 1;
 
-**Code Example:**
-```sql
--- Example configuration or query for Point-in-Time Recovery
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Point-in-Time Recovery';
+-- Query active users
+SELECT * FROM users WHERE deleted_at IS NULL;
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 99. How do you implement Vacuuming/Maintenance to ensure scalability and reliability? (Scenario 99)
+### Q28: How do you use a Composite Index effectively?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Vacuuming/Maintenance** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
+Order columns in the index based on query usage: Equality columns first, then Range columns. The index `(a, b)` supports queries on `a` and `a, b`, but not just `b`.
 
 **Code Example:**
 ```sql
--- Example configuration or query for Vacuuming/Maintenance
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Vacuuming/Maintenance';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 100. How do you implement Isolation Levels to ensure scalability and reliability? (Scenario 100)
-
-**Difficulty**: Intermediate
+-- Index on (last_name, first_name)
+CREATE INDEX idx_name ON users (last_name, first_name);
 
-**Strategy:**
-Leverage **Isolation Levels** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
+-- Good Usage
+SELECT * FROM users WHERE last_name = 'Doe' AND first_name = 'John';
+SELECT * FROM users WHERE last_name = 'Doe';
 
-**Code Example:**
-```sql
--- Example configuration or query for Isolation Levels
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Isolation Levels';
+-- Bad Usage (Index scan unlikely)
+SELECT * FROM users WHERE first_name = 'John';
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 101. How do you implement Deadlock Handling to ensure scalability and reliability? (Scenario 101)
+### Q29: How do you identify and fix the N+1 query problem?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Leverage **Deadlock Handling** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
+N+1 occurs when fetching a list (1 query) and then fetching related data for each item (N queries). Fix using JOINs or eager loading (fetching all related IDs in one IN clause).
 
 **Code Example:**
 ```sql
--- Example configuration or query for Deadlock Handling
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Deadlock Handling';
-```
+-- BAD (N+1)
+-- SELECT * FROM posts;
+-- For each post: SELECT * FROM comments WHERE post_id = ?;
 
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 102. How do you implement Foreign Key Constraints to ensure scalability and reliability? (Scenario 102)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Foreign Key Constraints** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Foreign Key Constraints
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Foreign Key Constraints';
+-- GOOD (JOIN)
+SELECT p.*, c.* 
+FROM posts p
+LEFT JOIN comments c ON c.post_id = p.id;
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 103. How do you implement Primary Key Selection (UUID vs Int) to ensure scalability and reliability? (Scenario 103)
+### Q30: How do you partition a large table by date?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Leverage **Primary Key Selection (UUID vs Int)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
+Use declarative partitioning. Create a parent table and attach partitions for specific date ranges. This improves query performance for range queries and data management (dropping old partitions).
 
 **Code Example:**
 ```sql
--- Example configuration or query for Primary Key Selection (UUID vs Int)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Primary Key Selection (UUID vs Int)';
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 104. How do you implement Normalization (3NF) to ensure scalability and reliability? (Scenario 104)
+CREATE TABLE logs (
+    id SERIAL,
+    log_date DATE NOT NULL
+) PARTITION BY RANGE (log_date);
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Normalization (3NF)** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Normalization (3NF)
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Normalization (3NF)';
+CREATE TABLE logs_2023_01 PARTITION OF logs
+    FOR VALUES FROM ('2023-01-01') TO ('2023-02-01');
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### 105. How do you implement Denormalization to ensure scalability and reliability? (Scenario 105)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Leverage **Denormalization** by understanding the underlying storage engine and access patterns. For high-scale systems, ensure that this implementation does not become a bottleneck.
-
-**Code Example:**
-```sql
--- Example configuration or query for Denormalization
-/* 
-   Implementation details vary by database engine (Postgres, MySQL, Oracle).
-   Ensure proper monitoring is in place.
-*/
-SELECT * FROM system_stats WHERE component = 'Denormalization';
-```
 
-[⬆️ Back to Top](#table-of-contents)
-
----

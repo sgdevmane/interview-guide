@@ -1,170 +1,179 @@
-# JavaScript Interview Questions
-
-## Table of Contents
-| No. | Question | Difficulty |
-| --- | -------- | ---------- |
-| 1 | [How do you implement a robust debounce function with immediate execution option?](#how-do-you-implement-a-robust-debounce-function-with-immediate-execution-option) | Intermediate |
-| 2 | [How do you deeply clone an object handling circular references and special types (Date, RegExp)?](#how-do-you-deeply-clone-an-object-handling-circular-references-and-special-types-date-regexp) | Intermediate |
-| 3 | [How do you implement a custom Promise.allSettled() polyfill?](#how-do-you-implement-a-custom-promise.allsettled-polyfill) | Intermediate |
-| 4 | [How do you create a private variable in JavaScript without using the '#' private field syntax?](#how-do-you-create-a-private-variable-in-javascript-without-using-the-#-private-field-syntax) | Intermediate |
-| 5 | [How do you efficiently flatten a deeply nested array without using `Array.prototype.flat`?](#how-do-you-efficiently-flatten-a-deeply-nested-array-without-using-array.prototype.flat) | Intermediate |
-| 6 | [How do you implement function composition (pipe) from scratch?](#how-do-you-implement-function-composition-pipe-from-scratch) | Advanced |
-| 7 | [How do you use Proxy to implement a validation schema for an object?](#how-do-you-use-proxy-to-implement-a-validation-schema-for-an-object) | Advanced |
-| 8 | [How do you implement an event emitter (Pub/Sub pattern) from scratch?](#how-do-you-implement-an-event-emitter-pubsub-pattern-from-scratch) | Advanced |
-| 9 | [How do you throttle a function to ensure it runs at most once every X milliseconds?](#how-do-you-throttle-a-function-to-ensure-it-runs-at-most-once-every-x-milliseconds) | Advanced |
-| 10 | [How do you implement a memoization function to cache expensive calculation results?](#how-do-you-implement-a-memoization-function-to-cache-expensive-calculation-results) | Advanced |
-| 11 | [How do you parallelize async tasks with a concurrency limit?](#how-do-you-parallelize-async-tasks-with-a-concurrency-limit) | Advanced |
-| 12 | [How do you implement a custom `instanceof` operator?](#how-do-you-implement-a-custom-instanceof-operator) | Advanced |
-| 13 | [How do you handle error boundaries in vanilla JavaScript (similar to React)?](#how-do-you-handle-error-boundaries-in-vanilla-javascript-similar-to-react) | Advanced |
-| 14 | [How do you implement currying to transform a function?](#how-do-you-implement-currying-to-transform-a-function) | Advanced |
-| 15 | [How do you safely access deeply nested properties (Optional Chaining polyfill)?](#how-do-you-safely-access-deeply-nested-properties-optional-chaining-polyfill) | Advanced |
-| 16 | [How do you implement a custom Iterable using Symbol.iterator?](#how-do-you-implement-a-custom-iterable-using-symbol.iterator) | Intermediate |
-| 17 | [How do you use Generators for asynchronous flow control (co-routine pattern)?](#how-do-you-use-generators-for-asynchronous-flow-control-co-routine-pattern) | Intermediate |
-| 18 | [How do you detect and fix memory leaks in JavaScript applications?](#how-do-you-detect-and-fix-memory-leaks-in-javascript-applications) | Intermediate |
-| 19 | [How do you optimize large array processing using Web Workers?](#how-do-you-optimize-large-array-processing-using-web-workers) | Intermediate |
-| 20 | [How do you implement a basic Observable pattern?](#how-do-you-implement-a-basic-observable-pattern) | Beginner |
-| 21 | [How do you use the IntersectionObserver API for lazy loading images?](#how-do-you-use-the-intersectionobserver-api-for-lazy-loading-images) | Intermediate |
-| 22 | [How do you use the MutationObserver API to track DOM changes?](#how-do-you-use-the-mutationobserver-api-to-track-dom-changes) | Intermediate |
-| 23 | [How do you implement a sticky header using pure JavaScript?](#how-do-you-implement-a-sticky-header-using-pure-javascript) | Intermediate |
-| 24 | [How do you validate email using regex correctly?](#how-do-you-validate-email-using-regex-correctly) | Intermediate |
-| 25 | [How do you format numbers as currency using Intl.NumberFormat?](#how-do-you-format-numbers-as-currency-using-intl.numberformat) | Intermediate |
-| 26 | [How do you format dates using Intl.DateTimeFormat?](#how-do-you-format-dates-using-intl.datetimeformat) | Intermediate |
-| 27 | [How do you implement drag and drop using the HTML5 Drag and Drop API?](#how-do-you-implement-drag-and-drop-using-the-html5-drag-and-drop-api) | Intermediate |
-| 28 | [How do you read files using the FileReader API?](#how-do-you-read-files-using-the-filereader-api) | Intermediate |
-| 29 | [How do you use the Clipboard API to copy text to clipboard?](#how-do-you-use-the-clipboard-api-to-copy-text-to-clipboard) | Intermediate |
-| 30 | [How do you detect network status changes (online/offline)?](#how-do-you-detect-network-status-changes-onlineoffline) | Intermediate |
-| 31 | [How do you use the Geolocation API to get user position?](#how-do-you-use-the-geolocation-api-to-get-user-position) | Intermediate |
-| 32 | [How do you implement a virtual list (windowing) for large datasets?](#how-do-you-implement-a-virtual-list-windowing-for-large-datasets) | Intermediate |
-| 33 | [How do you optimize event listeners using event delegation?](#how-do-you-optimize-event-listeners-using-event-delegation) | Intermediate |
-| 34 | [How do you prevent prototype pollution attacks?](#how-do-you-prevent-prototype-pollution-attacks) | Intermediate |
-| 35 | [How do you securely store tokens in the browser (HttpOnly vs LocalStorage)?](#how-do-you-securely-store-tokens-in-the-browser-httponly-vs-localstorage) | Intermediate |
-| 36 | [How do you implement CSRF protection in AJAX requests?](#how-do-you-implement-csrf-protection-in-ajax-requests) | Intermediate |
-| 37 | [How do you sanitize user input to prevent XSS?](#how-do-you-sanitize-user-input-to-prevent-xss) | Intermediate |
-| 38 | [How do you use the BroadcastChannel API for tab communication?](#how-do-you-use-the-broadcastchannel-api-for-tab-communication) | Intermediate |
-| 39 | [How do you use SharedWorkers for shared state between tabs?](#how-do-you-use-sharedworkers-for-shared-state-between-tabs) | Intermediate |
-| 40 | [How do you implement a simple state management system (like Redux) from scratch?](#how-do-you-implement-a-simple-state-management-system-like-redux-from-scratch) | Intermediate |
-| 41 | [How do you implement a router from scratch (Hash vs History API)?](#how-do-you-implement-a-router-from-scratch-hash-vs-history-api) | Intermediate |
-| 42 | [How do you parse query string parameters without a library?](#how-do-you-parse-query-string-parameters-without-a-library) | Intermediate |
-| 43 | [How do you implement a dark mode toggle using CSS variables and JS?](#how-do-you-implement-a-dark-mode-toggle-using-css-variables-and-js) | Intermediate |
-| 44 | [How do you detect if an element is visible in the viewport?](#how-do-you-detect-if-an-element-is-visible-in-the-viewport) | Intermediate |
-| 45 | [How do you implement infinite scrolling using JavaScript?](#how-do-you-implement-infinite-scrolling-using-javascript) | Intermediate |
-| 46 | [How do you sort an array of objects by multiple keys?](#how-do-you-sort-an-array-of-objects-by-multiple-keys) | Intermediate |
-| 47 | [How do you remove duplicates from an array of objects?](#how-do-you-remove-duplicates-from-an-array-of-objects) | Intermediate |
-| 48 | [How do you find the intersection of two arrays?](#how-do-you-find-the-intersection-of-two-arrays) | Intermediate |
-| 49 | [How do you shuffle an array (Fisher-Yates algorithm)?](#how-do-you-shuffle-an-array-fisher-yates-algorithm) | Intermediate |
-| 50 | [How do you generate a random UUID in JavaScript?](#how-do-you-generate-a-random-uuid-in-javascript) | Intermediate |
-| 51 | [How do you convert RGB to Hex using JavaScript?](#how-do-you-convert-rgb-to-hex-using-javascript) | Intermediate |
-| 52 | [How do you detect mobile devices using JavaScript?](#how-do-you-detect-mobile-devices-using-javascript) | Intermediate |
-| 53 | [How do you disable right-click context menu?](#how-do-you-disable-right-click-context-menu) | Intermediate |
-| 54 | [How do you copy text to clipboard without the Clipboard API (fallback)?](#how-do-you-copy-text-to-clipboard-without-the-clipboard-api-fallback) | Intermediate |
-| 55 | [How do you trigger a file download programmatically?](#how-do-you-trigger-a-file-download-programmatically) | Intermediate |
-| 56 | [How do you use `requestAnimationFrame` for smooth animations?](#how-do-you-use-requestanimationframe-for-smooth-animations) | Intermediate |
-| 57 | [How do you measure performance using `performance.now()`?](#how-do-you-measure-performance-using-performance.now) | Intermediate |
-| 58 | [How do you use `console.time` and `console.timeEnd` for debugging?](#how-do-you-use-console.time-and-console.timeend-for-debugging) | Intermediate |
-| 59 | [How do you debug memory leaks using Chrome DevTools?](#how-do-you-debug-memory-leaks-using-chrome-devtools) | Intermediate |
-| 60 | [How do you use the `debugger` statement effectively?](#how-do-you-use-the-debugger-statement-effectively) | Intermediate |
-| 61 | [How do you implement a simple template engine?](#how-do-you-implement-a-simple-template-engine) | Intermediate |
-| 62 | [How do you parse JSON safely without throwing errors?](#how-do-you-parse-json-safely-without-throwing-errors) | Intermediate |
-| 63 | [How do you stringify objects with circular references?](#how-do-you-stringify-objects-with-circular-references) | Intermediate |
-| 64 | [How do you check if two objects are deeply equal?](#how-do-you-check-if-two-objects-are-deeply-equal) | Intermediate |
-| 65 | [How do you get unique values from an array using Set?](#how-do-you-get-unique-values-from-an-array-using-set) | Intermediate |
-| 66 | [How do you merge two objects deeply?](#how-do-you-merge-two-objects-deeply) | Intermediate |
-| 67 | [How do you implement a `sleep` or `delay` function using Promises?](#how-do-you-implement-a-sleep-or-delay-function-using-promises) | Intermediate |
-| 68 | [How do you cancel a fetch request using AbortController?](#how-do-you-cancel-a-fetch-request-using-abortcontroller) | Intermediate |
-| 69 | [How do you set a timeout for a fetch request?](#how-do-you-set-a-timeout-for-a-fetch-request) | Intermediate |
-| 70 | [How do you retry a failed API call with exponential backoff?](#how-do-you-retry-a-failed-api-call-with-exponential-backoff) | Intermediate |
-| 71 | [How do you upload files using `FormData`?](#how-do-you-upload-files-using-formdata) | Intermediate |
-| 72 | [How do you send JSON data using `fetch`?](#how-do-you-send-json-data-using-fetch) | Intermediate |
-| 73 | [How do you handle HTTP errors in `fetch` (since it doesn't reject on 4xx/5xx)?](#how-do-you-handle-http-errors-in-fetch-since-it-doesnt-reject-on-4xx5xx) | Intermediate |
-| 74 | [How do you use `navigator.sendBeacon` for analytics?](#how-do-you-use-navigator.sendbeacon-for-analytics) | Intermediate |
-| 75 | [How do you preload images using JavaScript?](#how-do-you-preload-images-using-javascript) | Intermediate |
-| 76 | [How do you check if a variable is an array?](#how-do-you-check-if-a-variable-is-an-array) | Intermediate |
-| 77 | [How do you check if a variable is a number (and not NaN)?](#how-do-you-check-if-a-variable-is-a-number-and-not-nan) | Intermediate |
-| 78 | [How do you convert a NodeList to an Array?](#how-do-you-convert-a-nodelist-to-an-array) | Intermediate |
-| 79 | [How do you get the last element of an array?](#how-do-you-get-the-last-element-of-an-array) | Intermediate |
-| 80 | [How do you clear an array efficiently?](#how-do-you-clear-an-array-efficiently) | Intermediate |
-| 81 | [How do you loop over an object's properties?](#how-do-you-loop-over-an-objects-properties) | Intermediate |
-| 82 | [How do you use `Object.entries()` and `Object.fromEntries()`?](#how-do-you-use-object.entries-and-object.fromentries) | Intermediate |
-| 83 | [How do you freeze an object to prevent modifications?](#how-do-you-freeze-an-object-to-prevent-modifications) | Intermediate |
-| 84 | [How do you seal an object?](#how-do-you-seal-an-object) | Intermediate |
-| 85 | [How do you use `Object.create()` for inheritance?](#how-do-you-use-object.create-for-inheritance) | Intermediate |
-| 86 | [How do you implement a mixin in JavaScript?](#how-do-you-implement-a-mixin-in-javascript) | Intermediate |
-| 87 | [How do you use factory functions vs classes?](#how-do-you-use-factory-functions-vs-classes) | Intermediate |
-| 88 | [How do you use private class fields (#)?](#how-do-you-use-private-class-fields-#) | Intermediate |
-| 89 | [How do you use static class methods?](#how-do-you-use-static-class-methods) | Intermediate |
-| 90 | [How do you implement a Singleton using a closure?](#how-do-you-implement-a-singleton-using-a-closure) | Intermediate |
-| 91 | [How do you use default parameters in functions?](#how-do-you-use-default-parameters-in-functions) | Intermediate |
-| 92 | [How do you use the rest operator `...`?](#how-do-you-use-the-rest-operator-...) | Intermediate |
-| 93 | [How do you use the spread operator `...`?](#how-do-you-use-the-spread-operator-...) | Intermediate |
-| 94 | [How do you destructure nested objects?](#how-do-you-destructure-nested-objects) | Intermediate |
-| 95 | [How do you swap variables using destructuring?](#how-do-you-swap-variables-using-destructuring) | Intermediate |
-| 96 | [How do you use template literals for multiline strings?](#how-do-you-use-template-literals-for-multiline-strings) | Intermediate |
-| 97 | [How do you use tagged template literals?](#how-do-you-use-tagged-template-literals) | Intermediate |
-| 98 | [How do you use `String.prototype.includes()` vs `indexOf()`?](#how-do-you-use-string.prototype.includes-vs-indexof) | Intermediate |
-| 99 | [How do you pad a string using `padStart` and `padEnd`?](#how-do-you-pad-a-string-using-padstart-and-padend) | Intermediate |
-| 100 | [How do you trim strings using `trim`, `trimStart`, `trimEnd`?](#how-do-you-trim-strings-using-trim-trimstart-trimend) | Intermediate |
-| 101 | [How do you replace all occurrences of a string using `replaceAll`?](#how-do-you-replace-all-occurrences-of-a-string-using-replaceall) | Intermediate |
-| 102 | [How do you use `Array.prototype.map()`?](#how-do-you-use-array.prototype.map) | Intermediate |
-| 103 | [How do you use `Array.prototype.filter()`?](#how-do-you-use-array.prototype.filter) | Intermediate |
-| 104 | [How do you use `Array.prototype.reduce()`?](#how-do-you-use-array.prototype.reduce) | Intermediate |
-| 105 | [How do you use `Array.prototype.find()` and `findIndex()`?](#how-do-you-use-array.prototype.find-and-findindex) | Intermediate |
-| 106 | [How do you use `Array.prototype.some()` and `every()`?](#how-do-you-use-array.prototype.some-and-every) | Intermediate |
-| 107 | [How do you use `Array.prototype.flat()` and `flatMap()`?](#how-do-you-use-array.prototype.flat-and-flatmap) | Intermediate |
-| 108 | [How do you sort numbers correctly (since default sort is lexicographical)?](#how-do-you-sort-numbers-correctly-since-default-sort-is-lexicographical) | Intermediate |
-| 109 | [How do you create an array of a specific length filled with a value?](#how-do-you-create-an-array-of-a-specific-length-filled-with-a-value) | Intermediate |
-| 110 | [How do you get query parameters from a URL object?](#how-do-you-get-query-parameters-from-a-url-object) | Intermediate |
-| 111 | [How do you use `URLSearchParams`?](#how-do-you-use-urlsearchparams) | Intermediate |
-| 112 | [How do you encode and decode URLs (`encodeURIComponent`)?](#how-do-you-encode-and-decode-urls-encodeuricomponent) | Intermediate |
-| 113 | [How do you use `Math.random()` effectively?](#how-do-you-use-math.random-effectively) | Intermediate |
-| 114 | [How do you round numbers using `Math.round`, `ceil`, `floor`?](#how-do-you-round-numbers-using-math.round-ceil-floor) | Intermediate |
-| 115 | [How do you get the max/min value from an array?](#how-do-you-get-the-maxmin-value-from-an-array) | Intermediate |
-| 116 | [How do you use the modulo operator `%`?](#how-do-you-use-the-modulo-operator-%) | Intermediate |
-| 117 | [How do you check if a number is even or odd?](#how-do-you-check-if-a-number-is-even-or-odd) | Intermediate |
-| 118 | [How do you use bitwise operators in JavaScript?](#how-do-you-use-bitwise-operators-in-javascript) | Intermediate |
-| 119 | [How do you use `BigInt` for large integers?](#how-do-you-use-bigint-for-large-integers) | Intermediate |
-| 120 | [How do you prevent default event behavior?](#how-do-you-prevent-default-event-behavior) | Intermediate |
-| 121 | [How do you stop event propagation?](#how-do-you-stop-event-propagation) | Intermediate |
-| 122 | [How do you check if an event target matches a selector?](#how-do-you-check-if-an-event-target-matches-a-selector) | Intermediate |
-| 123 | [How do you get the mouse position in an event?](#how-do-you-get-the-mouse-position-in-an-event) | Intermediate |
-| 124 | [How do you handle keyboard events?](#how-do-you-handle-keyboard-events) | Intermediate |
-| 125 | [How do you detect which key was pressed?](#how-do-you-detect-which-key-was-pressed) | Intermediate |
-| 126 | [How do you handle form submission?](#how-do-you-handle-form-submission) | Intermediate |
-| 127 | [How do you access form values?](#how-do-you-access-form-values) | Intermediate |
-| 128 | [How do you disable a button after click?](#how-do-you-disable-a-button-after-click) | Intermediate |
-| 129 | [How do you toggle a class on an element?](#how-do-you-toggle-a-class-on-an-element) | Intermediate |
-| 130 | [How do you get computed styles of an element?](#how-do-you-get-computed-styles-of-an-element) | Intermediate |
-| 131 | [How do you get the size and position of an element (`getBoundingClientRect`)?](#how-do-you-get-the-size-and-position-of-an-element-getboundingclientrect) | Intermediate |
-| 132 | [How do you scroll to a specific element?](#how-do-you-scroll-to-a-specific-element) | Intermediate |
-| 133 | [How do you create elements dynamically?](#how-do-you-create-elements-dynamically) | Intermediate |
-| 134 | [How do you insert elements at specific positions (`insertAdjacentHTML`)?](#how-do-you-insert-elements-at-specific-positions-insertadjacenthtml) | Intermediate |
-| 135 | [How do you remove an element from the DOM?](#how-do-you-remove-an-element-from-the-dom) | Intermediate |
-| 136 | [How do you replace an element in the DOM?](#how-do-you-replace-an-element-in-the-dom) | Intermediate |
-| 137 | [How do you use `dataset` attributes?](#how-do-you-use-dataset-attributes) | Intermediate |
-| 138 | [How do you set and get cookies in JavaScript?](#how-do-you-set-and-get-cookies-in-javascript) | Intermediate |
-| 139 | [How do you use `sessionStorage`?](#how-do-you-use-sessionstorage) | Intermediate |
-| 140 | [How do you use `localStorage`?](#how-do-you-use-localstorage) | Intermediate |
-| 141 | [How do you clear storage?](#how-do-you-clear-storage) | Intermediate |
-| 142 | [How do you listen for storage changes?](#how-do-you-listen-for-storage-changes) | Intermediate |
-| 143 | [How do you use the History API (`pushState`, `replaceState`)?](#how-do-you-use-the-history-api-pushstate-replacestate) | Intermediate |
-| 144 | [How do you handle browser back button?](#how-do-you-handle-browser-back-button) | Intermediate |
-| 145 | [How do you reload the page using JavaScript?](#how-do-you-reload-the-page-using-javascript) | Intermediate |
-| 146 | [How do you redirect to another page?](#how-do-you-redirect-to-another-page) | Intermediate |
-| 147 | [How do you get the browser user agent?](#how-do-you-get-the-browser-user-agent) | Intermediate |
-| 148 | [How do you check if cookies are enabled?](#how-do-you-check-if-cookies-are-enabled) | Intermediate |
-| 149 | [How do you check if the browser supports a feature?](#how-do-you-check-if-the-browser-supports-a-feature) | Intermediate |
-| 150 | [How do you use `typeof` operator?](#how-do-you-use-typeof-operator) | Intermediate |
-| 151 | [How do you use `instanceof` operator?](#how-do-you-use-instanceof-operator) | Intermediate |
-| 152 | [How do you use `void` operator?](#how-do-you-use-void-operator) | Intermediate |
-| 153 | [How do you use the comma operator?](#how-do-you-use-the-comma-operator) | Intermediate |
-| 154 | [How do you use the unary plus operator?](#how-do-you-use-the-unary-plus-operator) | Intermediate |
-| 155 | [How do you use `!!` (double bang) to convert to boolean?](#how-do-you-use-!!-double-bang-to-convert-to-boolean) | Intermediate |
-| 156 | [How do you use short-circuit evaluation (`&&`, `||`)?](#how-do-you-use-short-circuit-evaluation-&&-||) | Intermediate |
-| 157 | [How do you use the nullish coalescing operator (`??`)?](#how-do-you-use-the-nullish-coalescing-operator-) | Intermediate |
-| 158 | [How do you use the logical assignment operators (`&&=`, `||=`, `??=`)?](#how-do-you-use-the-logical-assignment-operators-&&=-||=-=) | Intermediate |
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>JavaScript Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for frontend developers</b></p>
+</div>
 
 ---
 
-### 1. How do you implement a robust debounce function with immediate execution option?
+## Table of Contents
+
+1. [How do you implement a robust debounce function with immediate execution option?](#q1-how-do-you-implement-a-robust-debounce-function-with-immediate-execution-option) <span class="intermediate">Intermediate</span>
+2. [How do you deeply clone an object handling circular references and special types (Date, RegExp)?](#q2-how-do-you-deeply-clone-an-object-handling-circular-references-and-special-types-date-regexp) <span class="intermediate">Intermediate</span>
+3. [How do you implement a custom Promise.allSettled() polyfill?](#q3-how-do-you-implement-a-custom-promiseallsettled-polyfill) <span class="intermediate">Intermediate</span>
+4. [How do you create a private variable in JavaScript without using the '#' private field syntax?](#q4-how-do-you-create-a-private-variable-in-javascript-without-using-the--private-field-syntax) <span class="intermediate">Intermediate</span>
+5. [How do you efficiently flatten a deeply nested array without using `Array.prototype.flat`?](#q5-how-do-you-efficiently-flatten-a-deeply-nested-array-without-using-arrayprototypeflat) <span class="intermediate">Intermediate</span>
+6. [How do you implement function composition (pipe) from scratch?](#q6-how-do-you-implement-function-composition-pipe-from-scratch) <span class="advanced">Advanced</span>
+7. [How do you use Proxy to implement a validation schema for an object?](#q7-how-do-you-use-proxy-to-implement-a-validation-schema-for-an-object) <span class="advanced">Advanced</span>
+8. [How do you implement an event emitter (Pub/Sub pattern) from scratch?](#q8-how-do-you-implement-an-event-emitter-pubsub-pattern-from-scratch) <span class="advanced">Advanced</span>
+9. [How do you throttle a function to ensure it runs at most once every X milliseconds?](#q9-how-do-you-throttle-a-function-to-ensure-it-runs-at-most-once-every-x-milliseconds) <span class="advanced">Advanced</span>
+10. [How do you implement a memoization function to cache expensive calculation results?](#q10-how-do-you-implement-a-memoization-function-to-cache-expensive-calculation-results) <span class="advanced">Advanced</span>
+11. [How do you parallelize async tasks with a concurrency limit?](#q11-how-do-you-parallelize-async-tasks-with-a-concurrency-limit) <span class="advanced">Advanced</span>
+12. [How do you implement a custom `instanceof` operator?](#q12-how-do-you-implement-a-custom-instanceof-operator) <span class="advanced">Advanced</span>
+13. [How do you handle error boundaries in vanilla JavaScript (similar to React)?](#q13-how-do-you-handle-error-boundaries-in-vanilla-javascript-similar-to-react) <span class="advanced">Advanced</span>
+14. [How do you implement currying to transform a function?](#q14-how-do-you-implement-currying-to-transform-a-function) <span class="advanced">Advanced</span>
+15. [How do you safely access deeply nested properties (Optional Chaining polyfill)?](#q15-how-do-you-safely-access-deeply-nested-properties-optional-chaining-polyfill) <span class="advanced">Advanced</span>
+16. [How do you implement a custom Iterable using Symbol.iterator?](#q16-how-do-you-implement-a-custom-iterable-using-symboliterator) <span class="intermediate">Intermediate</span>
+17. [How do you use Generators for asynchronous flow control (co-routine pattern)?](#q17-how-do-you-use-generators-for-asynchronous-flow-control-co-routine-pattern) <span class="intermediate">Intermediate</span>
+18. [How do you detect and fix memory leaks in JavaScript applications?](#q18-how-do-you-detect-and-fix-memory-leaks-in-javascript-applications) <span class="intermediate">Intermediate</span>
+19. [How do you optimize large array processing using Web Workers?](#q19-how-do-you-optimize-large-array-processing-using-web-workers) <span class="intermediate">Intermediate</span>
+20. [How do you implement a basic Observable pattern?](#q20-how-do-you-implement-a-basic-observable-pattern) <span class="beginner">Beginner</span>
+21. [How do you use the IntersectionObserver API for lazy loading images?](#q21-how-do-you-use-the-intersectionobserver-api-for-lazy-loading-images) <span class="intermediate">Intermediate</span>
+22. [How do you use the MutationObserver API to track DOM changes?](#q22-how-do-you-use-the-mutationobserver-api-to-track-dom-changes) <span class="intermediate">Intermediate</span>
+23. [How do you implement a sticky header using pure JavaScript?](#q23-how-do-you-implement-a-sticky-header-using-pure-javascript) <span class="intermediate">Intermediate</span>
+24. [How do you validate email using regex correctly?](#q24-how-do-you-validate-email-using-regex-correctly) <span class="intermediate">Intermediate</span>
+25. [How do you format numbers as currency using Intl.NumberFormat?](#q25-how-do-you-format-numbers-as-currency-using-intlnumberformat) <span class="intermediate">Intermediate</span>
+26. [How do you format dates using Intl.DateTimeFormat?](#q26-how-do-you-format-dates-using-intldatetimeformat) <span class="intermediate">Intermediate</span>
+27. [How do you implement drag and drop using the HTML5 Drag and Drop API?](#q27-how-do-you-implement-drag-and-drop-using-the-html5-drag-and-drop-api) <span class="intermediate">Intermediate</span>
+28. [How do you read files using the FileReader API?](#q28-how-do-you-read-files-using-the-filereader-api) <span class="intermediate">Intermediate</span>
+29. [How do you use the Clipboard API to copy text to clipboard?](#q29-how-do-you-use-the-clipboard-api-to-copy-text-to-clipboard) <span class="intermediate">Intermediate</span>
+30. [How do you detect network status changes (online/offline)?](#q30-how-do-you-detect-network-status-changes-onlineoffline) <span class="intermediate">Intermediate</span>
+31. [How do you use the Geolocation API to get user position?](#q31-how-do-you-use-the-geolocation-api-to-get-user-position) <span class="intermediate">Intermediate</span>
+32. [How do you implement a virtual list (windowing) for large datasets?](#q32-how-do-you-implement-a-virtual-list-windowing-for-large-datasets) <span class="intermediate">Intermediate</span>
+33. [How do you optimize event listeners using event delegation?](#q33-how-do-you-optimize-event-listeners-using-event-delegation) <span class="intermediate">Intermediate</span>
+34. [How do you prevent prototype pollution attacks?](#q34-how-do-you-prevent-prototype-pollution-attacks) <span class="intermediate">Intermediate</span>
+35. [How do you securely store tokens in the browser (HttpOnly vs LocalStorage)?](#q35-how-do-you-securely-store-tokens-in-the-browser-httponly-vs-localstorage) <span class="intermediate">Intermediate</span>
+36. [How do you implement CSRF protection in AJAX requests?](#q36-how-do-you-implement-csrf-protection-in-ajax-requests) <span class="intermediate">Intermediate</span>
+37. [How do you sanitize user input to prevent XSS?](#q37-how-do-you-sanitize-user-input-to-prevent-xss) <span class="intermediate">Intermediate</span>
+38. [How do you use the BroadcastChannel API for tab communication?](#q38-how-do-you-use-the-broadcastchannel-api-for-tab-communication) <span class="intermediate">Intermediate</span>
+39. [How do you use SharedWorkers for shared state between tabs?](#q39-how-do-you-use-sharedworkers-for-shared-state-between-tabs) <span class="intermediate">Intermediate</span>
+40. [How do you implement a simple state management system (like Redux) from scratch?](#q40-how-do-you-implement-a-simple-state-management-system-like-redux-from-scratch) <span class="intermediate">Intermediate</span>
+41. [How do you implement a router from scratch (Hash vs History API)?](#q41-how-do-you-implement-a-router-from-scratch-hash-vs-history-api) <span class="intermediate">Intermediate</span>
+42. [How do you parse query string parameters without a library?](#q42-how-do-you-parse-query-string-parameters-without-a-library) <span class="intermediate">Intermediate</span>
+43. [How do you implement a dark mode toggle using CSS variables and JS?](#q43-how-do-you-implement-a-dark-mode-toggle-using-css-variables-and-js) <span class="intermediate">Intermediate</span>
+44. [How do you detect if an element is visible in the viewport?](#q44-how-do-you-detect-if-an-element-is-visible-in-the-viewport) <span class="intermediate">Intermediate</span>
+45. [How do you implement infinite scrolling using JavaScript?](#q45-how-do-you-implement-infinite-scrolling-using-javascript) <span class="intermediate">Intermediate</span>
+46. [How do you sort an array of objects by multiple keys?](#q46-how-do-you-sort-an-array-of-objects-by-multiple-keys) <span class="intermediate">Intermediate</span>
+47. [How do you remove duplicates from an array of objects?](#q47-how-do-you-remove-duplicates-from-an-array-of-objects) <span class="intermediate">Intermediate</span>
+48. [How do you find the intersection of two arrays?](#q48-how-do-you-find-the-intersection-of-two-arrays) <span class="intermediate">Intermediate</span>
+49. [How do you shuffle an array (Fisher-Yates algorithm)?](#q49-how-do-you-shuffle-an-array-fisher-yates-algorithm) <span class="intermediate">Intermediate</span>
+50. [How do you generate a random UUID in JavaScript?](#q50-how-do-you-generate-a-random-uuid-in-javascript) <span class="intermediate">Intermediate</span>
+51. [How do you convert RGB to Hex using JavaScript?](#q51-how-do-you-convert-rgb-to-hex-using-javascript) <span class="intermediate">Intermediate</span>
+52. [How do you detect mobile devices using JavaScript?](#q52-how-do-you-detect-mobile-devices-using-javascript) <span class="intermediate">Intermediate</span>
+53. [How do you disable right-click context menu?](#q53-how-do-you-disable-right-click-context-menu) <span class="intermediate">Intermediate</span>
+54. [How do you copy text to clipboard without the Clipboard API (fallback)?](#q54-how-do-you-copy-text-to-clipboard-without-the-clipboard-api-fallback) <span class="intermediate">Intermediate</span>
+55. [How do you trigger a file download programmatically?](#q55-how-do-you-trigger-a-file-download-programmatically) <span class="intermediate">Intermediate</span>
+56. [How do you use `requestAnimationFrame` for smooth animations?](#q56-how-do-you-use-requestanimationframe-for-smooth-animations) <span class="intermediate">Intermediate</span>
+57. [How do you measure performance using `performance.now()`?](#q57-how-do-you-measure-performance-using-performancenow) <span class="intermediate">Intermediate</span>
+58. [How do you use `console.time` and `console.timeEnd` for debugging?](#q58-how-do-you-use-consoletime-and-consoletimeend-for-debugging) <span class="intermediate">Intermediate</span>
+59. [How do you debug memory leaks using Chrome DevTools?](#q59-how-do-you-debug-memory-leaks-using-chrome-devtools) <span class="intermediate">Intermediate</span>
+60. [How do you use the `debugger` statement effectively?](#q60-how-do-you-use-the-debugger-statement-effectively) <span class="intermediate">Intermediate</span>
+61. [How do you implement a simple template engine?](#q61-how-do-you-implement-a-simple-template-engine) <span class="intermediate">Intermediate</span>
+62. [How do you parse JSON safely without throwing errors?](#q62-how-do-you-parse-json-safely-without-throwing-errors) <span class="intermediate">Intermediate</span>
+63. [How do you stringify objects with circular references?](#q63-how-do-you-stringify-objects-with-circular-references) <span class="intermediate">Intermediate</span>
+64. [How do you check if two objects are deeply equal?](#q64-how-do-you-check-if-two-objects-are-deeply-equal) <span class="intermediate">Intermediate</span>
+65. [How do you get unique values from an array using Set?](#q65-how-do-you-get-unique-values-from-an-array-using-set) <span class="intermediate">Intermediate</span>
+66. [How do you merge two objects deeply?](#q66-how-do-you-merge-two-objects-deeply) <span class="intermediate">Intermediate</span>
+67. [How do you implement a `sleep` or `delay` function using Promises?](#q67-how-do-you-implement-a-sleep-or-delay-function-using-promises) <span class="intermediate">Intermediate</span>
+68. [How do you cancel a fetch request using AbortController?](#q68-how-do-you-cancel-a-fetch-request-using-abortcontroller) <span class="intermediate">Intermediate</span>
+69. [How do you set a timeout for a fetch request?](#q69-how-do-you-set-a-timeout-for-a-fetch-request) <span class="intermediate">Intermediate</span>
+70. [How do you retry a failed API call with exponential backoff?](#q70-how-do-you-retry-a-failed-api-call-with-exponential-backoff) <span class="intermediate">Intermediate</span>
+71. [How do you upload files using `FormData`?](#q71-how-do-you-upload-files-using-formdata) <span class="intermediate">Intermediate</span>
+72. [How do you send JSON data using `fetch`?](#q72-how-do-you-send-json-data-using-fetch) <span class="intermediate">Intermediate</span>
+73. [How do you handle HTTP errors in `fetch` (since it doesn't reject on 4xx/5xx)?](#q73-how-do-you-handle-http-errors-in-fetch-since-it-doesnt-reject-on-4xx5xx) <span class="intermediate">Intermediate</span>
+74. [How do you use `navigator.sendBeacon` for analytics?](#q74-how-do-you-use-navigatorsendbeacon-for-analytics) <span class="intermediate">Intermediate</span>
+75. [How do you preload images using JavaScript?](#q75-how-do-you-preload-images-using-javascript) <span class="intermediate">Intermediate</span>
+76. [How do you check if a variable is an array?](#q76-how-do-you-check-if-a-variable-is-an-array) <span class="intermediate">Intermediate</span>
+77. [How do you check if a variable is a number (and not NaN)?](#q77-how-do-you-check-if-a-variable-is-a-number-and-not-nan) <span class="intermediate">Intermediate</span>
+78. [How do you convert a NodeList to an Array?](#q78-how-do-you-convert-a-nodelist-to-an-array) <span class="intermediate">Intermediate</span>
+79. [How do you get the last element of an array?](#q79-how-do-you-get-the-last-element-of-an-array) <span class="intermediate">Intermediate</span>
+80. [How do you clear an array efficiently?](#q80-how-do-you-clear-an-array-efficiently) <span class="intermediate">Intermediate</span>
+81. [How do you loop over an object's properties?](#q81-how-do-you-loop-over-an-objects-properties) <span class="intermediate">Intermediate</span>
+82. [How do you use `Object.entries()` and `Object.fromEntries()`?](#q82-how-do-you-use-objectentries-and-objectfromentries) <span class="intermediate">Intermediate</span>
+83. [How do you freeze an object to prevent modifications?](#q83-how-do-you-freeze-an-object-to-prevent-modifications) <span class="intermediate">Intermediate</span>
+84. [How do you seal an object?](#q84-how-do-you-seal-an-object) <span class="intermediate">Intermediate</span>
+85. [How do you use `Object.create()` for inheritance?](#q85-how-do-you-use-objectcreate-for-inheritance) <span class="intermediate">Intermediate</span>
+86. [How do you implement a mixin in JavaScript?](#q86-how-do-you-implement-a-mixin-in-javascript) <span class="intermediate">Intermediate</span>
+87. [How do you use factory functions vs classes?](#q87-how-do-you-use-factory-functions-vs-classes) <span class="intermediate">Intermediate</span>
+88. [How do you use private class fields (#)?](#q88-how-do-you-use-private-class-fields-) <span class="intermediate">Intermediate</span>
+89. [How do you use static class methods?](#q89-how-do-you-use-static-class-methods) <span class="intermediate">Intermediate</span>
+90. [How do you implement a Singleton using a closure?](#q90-how-do-you-implement-a-singleton-using-a-closure) <span class="intermediate">Intermediate</span>
+91. [How do you use default parameters in functions?](#q91-how-do-you-use-default-parameters-in-functions) <span class="intermediate">Intermediate</span>
+92. [How do you use the rest operator `...`?](#q92-how-do-you-use-the-rest-operator-) <span class="intermediate">Intermediate</span>
+93. [How do you use the spread operator `...`?](#q93-how-do-you-use-the-spread-operator-) <span class="intermediate">Intermediate</span>
+94. [How do you destructure nested objects?](#q94-how-do-you-destructure-nested-objects) <span class="intermediate">Intermediate</span>
+95. [How do you swap variables using destructuring?](#q95-how-do-you-swap-variables-using-destructuring) <span class="intermediate">Intermediate</span>
+96. [How do you use template literals for multiline strings?](#q96-how-do-you-use-template-literals-for-multiline-strings) <span class="intermediate">Intermediate</span>
+97. [How do you use tagged template literals?](#q97-how-do-you-use-tagged-template-literals) <span class="intermediate">Intermediate</span>
+98. [How do you use `String.prototype.includes()` vs `indexOf()`?](#q98-how-do-you-use-stringprototypeincludes-vs-indexof) <span class="intermediate">Intermediate</span>
+99. [How do you pad a string using `padStart` and `padEnd`?](#q99-how-do-you-pad-a-string-using-padstart-and-padend) <span class="intermediate">Intermediate</span>
+100. [How do you trim strings using `trim`, `trimStart`, `trimEnd`?](#q100-how-do-you-trim-strings-using-trim-trimstart-trimend) <span class="intermediate">Intermediate</span>
+101. [How do you replace all occurrences of a string using `replaceAll`?](#q101-how-do-you-replace-all-occurrences-of-a-string-using-replaceall) <span class="intermediate">Intermediate</span>
+102. [How do you use `Array.prototype.map()`?](#q102-how-do-you-use-arrayprototypemap) <span class="intermediate">Intermediate</span>
+103. [How do you use `Array.prototype.filter()`?](#q103-how-do-you-use-arrayprototypefilter) <span class="intermediate">Intermediate</span>
+104. [How do you use `Array.prototype.reduce()`?](#q104-how-do-you-use-arrayprototypereduce) <span class="intermediate">Intermediate</span>
+105. [How do you use `Array.prototype.find()` and `findIndex()`?](#q105-how-do-you-use-arrayprototypefind-and-findindex) <span class="intermediate">Intermediate</span>
+106. [How do you use `Array.prototype.some()` and `every()`?](#q106-how-do-you-use-arrayprototypesome-and-every) <span class="intermediate">Intermediate</span>
+107. [How do you use `Array.prototype.flat()` and `flatMap()`?](#q107-how-do-you-use-arrayprototypeflat-and-flatmap) <span class="intermediate">Intermediate</span>
+108. [How do you sort numbers correctly (since default sort is lexicographical)?](#q108-how-do-you-sort-numbers-correctly-since-default-sort-is-lexicographical) <span class="intermediate">Intermediate</span>
+109. [How do you create an array of a specific length filled with a value?](#q109-how-do-you-create-an-array-of-a-specific-length-filled-with-a-value) <span class="intermediate">Intermediate</span>
+110. [How do you get query parameters from a URL object?](#q110-how-do-you-get-query-parameters-from-a-url-object) <span class="intermediate">Intermediate</span>
+111. [How do you use `URLSearchParams`?](#q111-how-do-you-use-urlsearchparams) <span class="intermediate">Intermediate</span>
+112. [How do you encode and decode URLs (`encodeURIComponent`)?](#q112-how-do-you-encode-and-decode-urls-encodeuricomponent) <span class="intermediate">Intermediate</span>
+113. [How do you use `Math.random()` effectively?](#q113-how-do-you-use-mathrandom-effectively) <span class="intermediate">Intermediate</span>
+114. [How do you round numbers using `Math.round`, `ceil`, `floor`?](#q114-how-do-you-round-numbers-using-mathround-ceil-floor) <span class="intermediate">Intermediate</span>
+115. [How do you get the max/min value from an array?](#q115-how-do-you-get-the-maxmin-value-from-an-array) <span class="intermediate">Intermediate</span>
+116. [How do you use the modulo operator `%`?](#q116-how-do-you-use-the-modulo-operator-) <span class="intermediate">Intermediate</span>
+117. [How do you check if a number is even or odd?](#q117-how-do-you-check-if-a-number-is-even-or-odd) <span class="intermediate">Intermediate</span>
+118. [How do you use bitwise operators in JavaScript?](#q118-how-do-you-use-bitwise-operators-in-javascript) <span class="intermediate">Intermediate</span>
+119. [How do you use `BigInt` for large integers?](#q119-how-do-you-use-bigint-for-large-integers) <span class="intermediate">Intermediate</span>
+120. [How do you prevent default event behavior?](#q120-how-do-you-prevent-default-event-behavior) <span class="intermediate">Intermediate</span>
+121. [How do you stop event propagation?](#q121-how-do-you-stop-event-propagation) <span class="intermediate">Intermediate</span>
+122. [How do you check if an event target matches a selector?](#q122-how-do-you-check-if-an-event-target-matches-a-selector) <span class="intermediate">Intermediate</span>
+123. [How do you get the mouse position in an event?](#q123-how-do-you-get-the-mouse-position-in-an-event) <span class="intermediate">Intermediate</span>
+124. [How do you handle keyboard events?](#q124-how-do-you-handle-keyboard-events) <span class="intermediate">Intermediate</span>
+125. [How do you detect which key was pressed?](#q125-how-do-you-detect-which-key-was-pressed) <span class="intermediate">Intermediate</span>
+126. [How do you handle form submission?](#q126-how-do-you-handle-form-submission) <span class="intermediate">Intermediate</span>
+127. [How do you access form values?](#q127-how-do-you-access-form-values) <span class="intermediate">Intermediate</span>
+128. [How do you disable a button after click?](#q128-how-do-you-disable-a-button-after-click) <span class="intermediate">Intermediate</span>
+129. [How do you toggle a class on an element?](#q129-how-do-you-toggle-a-class-on-an-element) <span class="intermediate">Intermediate</span>
+130. [How do you get computed styles of an element?](#q130-how-do-you-get-computed-styles-of-an-element) <span class="intermediate">Intermediate</span>
+131. [How do you get the size and position of an element (`getBoundingClientRect`)?](#q131-how-do-you-get-the-size-and-position-of-an-element-getboundingclientrect) <span class="intermediate">Intermediate</span>
+132. [How do you scroll to a specific element?](#q132-how-do-you-scroll-to-a-specific-element) <span class="intermediate">Intermediate</span>
+133. [How do you create elements dynamically?](#q133-how-do-you-create-elements-dynamically) <span class="intermediate">Intermediate</span>
+134. [How do you insert elements at specific positions (`insertAdjacentHTML`)?](#q134-how-do-you-insert-elements-at-specific-positions-insertadjacenthtml) <span class="intermediate">Intermediate</span>
+135. [How do you remove an element from the DOM?](#q135-how-do-you-remove-an-element-from-the-dom) <span class="intermediate">Intermediate</span>
+136. [How do you replace an element in the DOM?](#q136-how-do-you-replace-an-element-in-the-dom) <span class="intermediate">Intermediate</span>
+137. [How do you use `dataset` attributes?](#q137-how-do-you-use-dataset-attributes) <span class="intermediate">Intermediate</span>
+138. [How do you set and get cookies in JavaScript?](#q138-how-do-you-set-and-get-cookies-in-javascript) <span class="intermediate">Intermediate</span>
+139. [How do you use `sessionStorage`?](#q139-how-do-you-use-sessionstorage) <span class="intermediate">Intermediate</span>
+140. [How do you use `localStorage`?](#q140-how-do-you-use-localstorage) <span class="intermediate">Intermediate</span>
+141. [How do you clear storage?](#q141-how-do-you-clear-storage) <span class="intermediate">Intermediate</span>
+142. [How do you listen for storage changes?](#q142-how-do-you-listen-for-storage-changes) <span class="intermediate">Intermediate</span>
+143. [How do you use the History API (`pushState`, `replaceState`)?](#q143-how-do-you-use-the-history-api-pushstate-replacestate) <span class="intermediate">Intermediate</span>
+144. [How do you handle browser back button?](#q144-how-do-you-handle-browser-back-button) <span class="intermediate">Intermediate</span>
+145. [How do you reload the page using JavaScript?](#q145-how-do-you-reload-the-page-using-javascript) <span class="intermediate">Intermediate</span>
+146. [How do you redirect to another page?](#q146-how-do-you-redirect-to-another-page) <span class="intermediate">Intermediate</span>
+147. [How do you get the browser user agent?](#q147-how-do-you-get-the-browser-user-agent) <span class="intermediate">Intermediate</span>
+148. [How do you check if cookies are enabled?](#q148-how-do-you-check-if-cookies-are-enabled) <span class="intermediate">Intermediate</span>
+149. [How do you check if the browser supports a feature?](#q149-how-do-you-check-if-the-browser-supports-a-feature) <span class="intermediate">Intermediate</span>
+150. [How do you use `typeof` operator?](#q150-how-do-you-use-typeof-operator) <span class="intermediate">Intermediate</span>
+151. [How do you use `instanceof` operator?](#q151-how-do-you-use-instanceof-operator) <span class="intermediate">Intermediate</span>
+152. [How do you use `void` operator?](#q152-how-do-you-use-void-operator) <span class="intermediate">Intermediate</span>
+153. [How do you use the comma operator?](#q153-how-do-you-use-the-comma-operator) <span class="intermediate">Intermediate</span>
+154. [How do you use the unary plus operator?](#q154-how-do-you-use-the-unary-plus-operator) <span class="intermediate">Intermediate</span>
+155. [How do you use `!!` (double bang) to convert to boolean?](#q155-how-do-you-use--double-bang-to-convert-to-boolean) <span class="intermediate">Intermediate</span>
+156. [How do you use short-circuit evaluation (`&&`, `||`)?](#q156-how-do-you-use-short-circuit-evaluation--) <span class="intermediate">Intermediate</span>
+157. [How do you use the nullish coalescing operator (`??`)?](#q157-how-do-you-use-the-nullish-coalescing-operator-) <span class="intermediate">Intermediate</span>
+158. [How do you use the logical assignment operators (`&&=`, `||=`, `??=`)?](#q158-how-do-you-use-the-logical-assignment-operators---) <span class="intermediate">Intermediate</span>
+
+---
+
+### Q1: How do you implement a robust debounce function with immediate execution option?
+
+**Difficulty: Intermediate**
 
 
 **Strategy:**
@@ -214,9 +223,14 @@ window.addEventListener('resize', handleResize);
 // Cleanup
 // handleResize.cancel();
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 2. How do you deeply clone an object handling circular references and special types (Date, RegExp)?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q2: How do you deeply clone an object handling circular references and special types (Date, RegExp)?
+
+**Difficulty: Intermediate**
 
 
 **Strategy:**
@@ -260,9 +274,14 @@ function deepClone(obj, hash = new WeakMap()) {
   return result;
 }
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 3. How do you implement a custom Promise.allSettled() polyfill?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q3: How do you implement a custom Promise.allSettled() polyfill?
+
+**Difficulty: Intermediate**
 
 
 **Strategy:**
@@ -302,9 +321,14 @@ Promise.allSettled([p1, p2]).then(results => {
   // ]
 });
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 4. How do you create a private variable in JavaScript without using the '#' private field syntax?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q4: How do you create a private variable in JavaScript without using the '#' private field syntax?
+
+**Difficulty: Intermediate**
 
 
 **Strategy:**
@@ -340,9 +364,14 @@ console.log(user.getEmail()); // alice@example.com
 // console.log(user.apiKey); // undefined
 // console.log(privateData.get(user)); // Accessible if you have reference to privateData
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 5. How do you efficiently flatten a deeply nested array without using `Array.prototype.flat`?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q5: How do you efficiently flatten a deeply nested array without using `Array.prototype.flat`?
+
+**Difficulty: Intermediate**
 
 
 **Strategy:**
@@ -381,9 +410,14 @@ function flattenIterative(arr) {
   return res.reverse();
 }
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 6. How do you implement function composition (pipe) from scratch?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q6: How do you implement function composition (pipe) from scratch?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -411,9 +445,14 @@ const process = pipe(add5, multiply2, toString);
 console.log(process(10)); 
 // (10 + 5) * 2 = 30 -> "Result: 30"
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 7. How do you use Proxy to implement a validation schema for an object?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q7: How do you use Proxy to implement a validation schema for an object?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -451,9 +490,14 @@ try {
   console.error(e.message);
 }
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 8. How do you implement an event emitter (Pub/Sub pattern) from scratch?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q8: How do you implement an event emitter (Pub/Sub pattern) from scratch?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -506,9 +550,14 @@ bus.on('data', logData);
 bus.emit('data', { id: 1 }); // Received: { id: 1 }
 bus.off('data', logData);
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 9. How do you throttle a function to ensure it runs at most once every X milliseconds?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q9: How do you throttle a function to ensure it runs at most once every X milliseconds?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -543,9 +592,14 @@ const logScroll = throttle(() => {
 
 window.addEventListener('scroll', logScroll);
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 10. How do you implement a memoization function to cache expensive calculation results?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q10: How do you implement a memoization function to cache expensive calculation results?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -584,9 +638,14 @@ const factorial = memoize((n) => {
 console.log(factorial(5)); // Calculates
 console.log(factorial(5)); // Returns cached
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 11. How do you parallelize async tasks with a concurrency limit?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q11: How do you parallelize async tasks with a concurrency limit?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -626,9 +685,14 @@ const download = url => fetch(url).then(r => r.blob());
 // Download max 5 at a time
 // await asyncPool(5, urls, download);
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 12. How do you implement a custom `instanceof` operator?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q12: How do you implement a custom `instanceof` operator?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -663,9 +727,14 @@ console.log(myInstanceOf(d, Dog));    // true
 console.log(myInstanceOf(d, Animal)); // true
 console.log(myInstanceOf(d, Array));  // false
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 13. How do you handle error boundaries in vanilla JavaScript (similar to React)?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q13: How do you handle error boundaries in vanilla JavaScript (similar to React)?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -696,9 +765,14 @@ window.addEventListener('unhandledrejection', (event) => {
 // setTimeout(() => { throw new Error('Oops'); }, 1000);
 // Promise.reject('Failed request');
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 14. How do you implement currying to transform a function?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q14: How do you implement currying to transform a function?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -734,9 +808,14 @@ console.log(curriedSum(1)(2)(3)); // 6
 console.log(curriedSum(1, 2)(3)); // 6
 console.log(curriedSum(1)(2, 3)); // 6
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 15. How do you safely access deeply nested properties (Optional Chaining polyfill)?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q15: How do you safely access deeply nested properties (Optional Chaining polyfill)?
+
+**Difficulty: Advanced**
 
 
 **Strategy:**
@@ -769,1864 +848,3440 @@ const user = { profile: { name: 'John' } };
 console.log(get(user, 'profile.name')); // 'John'
 console.log(get(user, 'profile.address.city', 'Unknown')); // 'Unknown'
 ```
-**[⬆ Back to Top](#table-of-contents)**
 
-### 16. How do you implement a custom Iterable using Symbol.iterator?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Answer:**
+---
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+### Q16: How do you implement a custom Iterable using Symbol.iterator?
 
+**Difficulty: Intermediate**
+
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a custom Iterable using Symbol.iterator?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a custom Iterable using Symbol.iterator?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 17. How do you use Generators for asynchronous flow control (co-routine pattern)?
+---
 
-**Answer:**
+### Q17: How do you use Generators for asynchronous flow control (co-routine pattern)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use Generators for asynchronous flow control (co-routine pattern)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use Generators for asynchronous flow control (co-routine pattern)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 18. How do you detect and fix memory leaks in JavaScript applications?
+---
 
-**Answer:**
+### Q18: How do you detect and fix memory leaks in JavaScript applications?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you detect and fix memory leaks in JavaScript applications?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you detect and fix memory leaks in JavaScript applications?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 19. How do you optimize large array processing using Web Workers?
+---
 
-**Answer:**
+### Q19: How do you optimize large array processing using Web Workers?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you optimize large array processing using Web Workers?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you optimize large array processing using Web Workers?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 20. How do you implement a basic Observable pattern?
+---
 
-**Answer:**
+### Q20: How do you implement a basic Observable pattern?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Beginner**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a basic Observable pattern?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a basic Observable pattern?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 21. How do you use the IntersectionObserver API for lazy loading images?
+---
 
-**Answer:**
+### Q21: How do you use the IntersectionObserver API for lazy loading images?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the IntersectionObserver API for lazy loading images?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the IntersectionObserver API for lazy loading images?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 22. How do you use the MutationObserver API to track DOM changes?
+---
 
-**Answer:**
+### Q22: How do you use the MutationObserver API to track DOM changes?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the MutationObserver API to track DOM changes?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the MutationObserver API to track DOM changes?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 23. How do you implement a sticky header using pure JavaScript?
+---
 
-**Answer:**
+### Q23: How do you implement a sticky header using pure JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a sticky header using pure JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a sticky header using pure JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 24. How do you validate email using regex correctly?
+---
 
-**Answer:**
+### Q24: How do you validate email using regex correctly?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you validate email using regex correctly?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you validate email using regex correctly?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 25. How do you format numbers as currency using Intl.NumberFormat?
+---
 
-**Answer:**
+### Q25: How do you format numbers as currency using Intl.NumberFormat?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you format numbers as currency using Intl.NumberFormat?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you format numbers as currency using Intl.NumberFormat?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 26. How do you format dates using Intl.DateTimeFormat?
+---
 
-**Answer:**
+### Q26: How do you format dates using Intl.DateTimeFormat?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you format dates using Intl.DateTimeFormat?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you format dates using Intl.DateTimeFormat?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 27. How do you implement drag and drop using the HTML5 Drag and Drop API?
+---
 
-**Answer:**
+### Q27: How do you implement drag and drop using the HTML5 Drag and Drop API?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement drag and drop using the HTML5 Drag and Drop API?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement drag and drop using the HTML5 Drag and Drop API?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 28. How do you read files using the FileReader API?
+---
 
-**Answer:**
+### Q28: How do you read files using the FileReader API?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you read files using the FileReader API?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you read files using the FileReader API?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 29. How do you use the Clipboard API to copy text to clipboard?
+---
 
-**Answer:**
+### Q29: How do you use the Clipboard API to copy text to clipboard?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the Clipboard API to copy text to clipboard?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the Clipboard API to copy text to clipboard?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 30. How do you detect network status changes (online/offline)?
+---
 
-**Answer:**
+### Q30: How do you detect network status changes (online/offline)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you detect network status changes (online/offline)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you detect network status changes (online/offline)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 31. How do you use the Geolocation API to get user position?
+---
 
-**Answer:**
+### Q31: How do you use the Geolocation API to get user position?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the Geolocation API to get user position?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the Geolocation API to get user position?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 32. How do you implement a virtual list (windowing) for large datasets?
+---
 
-**Answer:**
+### Q32: How do you implement a virtual list (windowing) for large datasets?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a virtual list (windowing) for large datasets?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a virtual list (windowing) for large datasets?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 33. How do you optimize event listeners using event delegation?
+---
 
-**Answer:**
+### Q33: How do you optimize event listeners using event delegation?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you optimize event listeners using event delegation?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you optimize event listeners using event delegation?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 34. How do you prevent prototype pollution attacks?
+---
 
-**Answer:**
+### Q34: How do you prevent prototype pollution attacks?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you prevent prototype pollution attacks?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you prevent prototype pollution attacks?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 35. How do you securely store tokens in the browser (HttpOnly vs LocalStorage)?
+---
 
-**Answer:**
+### Q35: How do you securely store tokens in the browser (HttpOnly vs LocalStorage)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you securely store tokens in the browser (HttpOnly vs LocalStorage)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you securely store tokens in the browser (HttpOnly vs LocalStorage)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 36. How do you implement CSRF protection in AJAX requests?
+---
 
-**Answer:**
+### Q36: How do you implement CSRF protection in AJAX requests?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement CSRF protection in AJAX requests?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement CSRF protection in AJAX requests?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 37. How do you sanitize user input to prevent XSS?
+---
 
-**Answer:**
+### Q37: How do you sanitize user input to prevent XSS?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you sanitize user input to prevent XSS?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you sanitize user input to prevent XSS?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 38. How do you use the BroadcastChannel API for tab communication?
+---
 
-**Answer:**
+### Q38: How do you use the BroadcastChannel API for tab communication?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the BroadcastChannel API for tab communication?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the BroadcastChannel API for tab communication?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 39. How do you use SharedWorkers for shared state between tabs?
+---
 
-**Answer:**
+### Q39: How do you use SharedWorkers for shared state between tabs?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use SharedWorkers for shared state between tabs?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use SharedWorkers for shared state between tabs?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 40. How do you implement a simple state management system (like Redux) from scratch?
+---
 
-**Answer:**
+### Q40: How do you implement a simple state management system (like Redux) from scratch?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a simple state management system (like Redux) from scratch?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a simple state management system (like Redux) from scratch?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 41. How do you implement a router from scratch (Hash vs History API)?
+---
 
-**Answer:**
+### Q41: How do you implement a router from scratch (Hash vs History API)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a router from scratch (Hash vs History API)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a router from scratch (Hash vs History API)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 42. How do you parse query string parameters without a library?
+---
 
-**Answer:**
+### Q42: How do you parse query string parameters without a library?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you parse query string parameters without a library?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you parse query string parameters without a library?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 43. How do you implement a dark mode toggle using CSS variables and JS?
+---
 
-**Answer:**
+### Q43: How do you implement a dark mode toggle using CSS variables and JS?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a dark mode toggle using CSS variables and JS?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a dark mode toggle using CSS variables and JS?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 44. How do you detect if an element is visible in the viewport?
+---
 
-**Answer:**
+### Q44: How do you detect if an element is visible in the viewport?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you detect if an element is visible in the viewport?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you detect if an element is visible in the viewport?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 45. How do you implement infinite scrolling using JavaScript?
+---
 
-**Answer:**
+### Q45: How do you implement infinite scrolling using JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement infinite scrolling using JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement infinite scrolling using JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 46. How do you sort an array of objects by multiple keys?
+---
 
-**Answer:**
+### Q46: How do you sort an array of objects by multiple keys?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you sort an array of objects by multiple keys?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you sort an array of objects by multiple keys?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 47. How do you remove duplicates from an array of objects?
+---
 
-**Answer:**
+### Q47: How do you remove duplicates from an array of objects?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you remove duplicates from an array of objects?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you remove duplicates from an array of objects?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 48. How do you find the intersection of two arrays?
+---
 
-**Answer:**
+### Q48: How do you find the intersection of two arrays?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you find the intersection of two arrays?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you find the intersection of two arrays?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 49. How do you shuffle an array (Fisher-Yates algorithm)?
+---
 
-**Answer:**
+### Q49: How do you shuffle an array (Fisher-Yates algorithm)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you shuffle an array (Fisher-Yates algorithm)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you shuffle an array (Fisher-Yates algorithm)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 50. How do you generate a random UUID in JavaScript?
+---
 
-**Answer:**
+### Q50: How do you generate a random UUID in JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you generate a random UUID in JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you generate a random UUID in JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 51. How do you convert RGB to Hex using JavaScript?
+---
 
-**Answer:**
+### Q51: How do you convert RGB to Hex using JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you convert RGB to Hex using JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you convert RGB to Hex using JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 52. How do you detect mobile devices using JavaScript?
+---
 
-**Answer:**
+### Q52: How do you detect mobile devices using JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you detect mobile devices using JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you detect mobile devices using JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 53. How do you disable right-click context menu?
+---
 
-**Answer:**
+### Q53: How do you disable right-click context menu?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you disable right-click context menu?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you disable right-click context menu?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 54. How do you copy text to clipboard without the Clipboard API (fallback)?
+---
 
-**Answer:**
+### Q54: How do you copy text to clipboard without the Clipboard API (fallback)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you copy text to clipboard without the Clipboard API (fallback)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you copy text to clipboard without the Clipboard API (fallback)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 55. How do you trigger a file download programmatically?
+---
 
-**Answer:**
+### Q55: How do you trigger a file download programmatically?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you trigger a file download programmatically?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you trigger a file download programmatically?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 56. How do you use `requestAnimationFrame` for smooth animations?
+---
 
-**Answer:**
+### Q56: How do you use `requestAnimationFrame` for smooth animations?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `requestAnimationFrame` for smooth animations?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `requestAnimationFrame` for smooth animations?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 57. How do you measure performance using `performance.now()`?
+---
 
-**Answer:**
+### Q57: How do you measure performance using `performance.now()`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you measure performance using `performance.now()`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you measure performance using `performance.now()`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 58. How do you use `console.time` and `console.timeEnd` for debugging?
+---
 
-**Answer:**
+### Q58: How do you use `console.time` and `console.timeEnd` for debugging?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `console.time` and `console.timeEnd` for debugging?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `console.time` and `console.timeEnd` for debugging?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 59. How do you debug memory leaks using Chrome DevTools?
+---
 
-**Answer:**
+### Q59: How do you debug memory leaks using Chrome DevTools?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you debug memory leaks using Chrome DevTools?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you debug memory leaks using Chrome DevTools?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 60. How do you use the `debugger` statement effectively?
+---
 
-**Answer:**
+### Q60: How do you use the `debugger` statement effectively?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the `debugger` statement effectively?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the `debugger` statement effectively?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 61. How do you implement a simple template engine?
+---
 
-**Answer:**
+### Q61: How do you implement a simple template engine?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a simple template engine?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a simple template engine?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 62. How do you parse JSON safely without throwing errors?
+---
 
-**Answer:**
+### Q62: How do you parse JSON safely without throwing errors?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you parse JSON safely without throwing errors?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you parse JSON safely without throwing errors?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 63. How do you stringify objects with circular references?
+---
 
-**Answer:**
+### Q63: How do you stringify objects with circular references?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you stringify objects with circular references?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you stringify objects with circular references?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 64. How do you check if two objects are deeply equal?
+---
 
-**Answer:**
+### Q64: How do you check if two objects are deeply equal?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you check if two objects are deeply equal?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you check if two objects are deeply equal?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 65. How do you get unique values from an array using Set?
+---
 
-**Answer:**
+### Q65: How do you get unique values from an array using Set?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you get unique values from an array using Set?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you get unique values from an array using Set?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 66. How do you merge two objects deeply?
+---
 
-**Answer:**
+### Q66: How do you merge two objects deeply?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you merge two objects deeply?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you merge two objects deeply?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 67. How do you implement a `sleep` or `delay` function using Promises?
+---
 
-**Answer:**
+### Q67: How do you implement a `sleep` or `delay` function using Promises?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a `sleep` or `delay` function using Promises?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a `sleep` or `delay` function using Promises?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 68. How do you cancel a fetch request using AbortController?
+---
 
-**Answer:**
+### Q68: How do you cancel a fetch request using AbortController?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you cancel a fetch request using AbortController?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you cancel a fetch request using AbortController?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 69. How do you set a timeout for a fetch request?
+---
 
-**Answer:**
+### Q69: How do you set a timeout for a fetch request?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you set a timeout for a fetch request?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you set a timeout for a fetch request?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 70. How do you retry a failed API call with exponential backoff?
+---
 
-**Answer:**
+### Q70: How do you retry a failed API call with exponential backoff?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you retry a failed API call with exponential backoff?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you retry a failed API call with exponential backoff?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 71. How do you upload files using `FormData`?
+---
 
-**Answer:**
+### Q71: How do you upload files using `FormData`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you upload files using `FormData`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you upload files using `FormData`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 72. How do you send JSON data using `fetch`?
+---
 
-**Answer:**
+### Q72: How do you send JSON data using `fetch`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you send JSON data using `fetch`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you send JSON data using `fetch`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 73. How do you handle HTTP errors in `fetch` (since it doesn't reject on 4xx/5xx)?
+---
 
-**Answer:**
+### Q73: How do you handle HTTP errors in `fetch` (since it doesn't reject on 4xx/5xx)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you handle HTTP errors in `fetch` (since it doesn't reject on 4xx/5xx)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you handle HTTP errors in `fetch` (since it doesn't reject on 4xx/5xx)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 74. How do you use `navigator.sendBeacon` for analytics?
+---
 
-**Answer:**
+### Q74: How do you use `navigator.sendBeacon` for analytics?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `navigator.sendBeacon` for analytics?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `navigator.sendBeacon` for analytics?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 75. How do you preload images using JavaScript?
+---
 
-**Answer:**
+### Q75: How do you preload images using JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you preload images using JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you preload images using JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 76. How do you check if a variable is an array?
+---
 
-**Answer:**
+### Q76: How do you check if a variable is an array?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you check if a variable is an array?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you check if a variable is an array?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 77. How do you check if a variable is a number (and not NaN)?
+---
 
-**Answer:**
+### Q77: How do you check if a variable is a number (and not NaN)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you check if a variable is a number (and not NaN)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you check if a variable is a number (and not NaN)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 78. How do you convert a NodeList to an Array?
+---
 
-**Answer:**
+### Q78: How do you convert a NodeList to an Array?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you convert a NodeList to an Array?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you convert a NodeList to an Array?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 79. How do you get the last element of an array?
+---
 
-**Answer:**
+### Q79: How do you get the last element of an array?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you get the last element of an array?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you get the last element of an array?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 80. How do you clear an array efficiently?
+---
 
-**Answer:**
+### Q80: How do you clear an array efficiently?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you clear an array efficiently?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you clear an array efficiently?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 81. How do you loop over an object's properties?
+---
 
-**Answer:**
+### Q81: How do you loop over an object's properties?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you loop over an object's properties?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you loop over an object's properties?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 82. How do you use `Object.entries()` and `Object.fromEntries()`?
+---
 
-**Answer:**
+### Q82: How do you use `Object.entries()` and `Object.fromEntries()`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `Object.entries()` and `Object.fromEntries()`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `Object.entries()` and `Object.fromEntries()`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 83. How do you freeze an object to prevent modifications?
+---
 
-**Answer:**
+### Q83: How do you freeze an object to prevent modifications?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you freeze an object to prevent modifications?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you freeze an object to prevent modifications?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 84. How do you seal an object?
+---
 
-**Answer:**
+### Q84: How do you seal an object?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you seal an object?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you seal an object?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 85. How do you use `Object.create()` for inheritance?
+---
 
-**Answer:**
+### Q85: How do you use `Object.create()` for inheritance?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `Object.create()` for inheritance?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `Object.create()` for inheritance?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 86. How do you implement a mixin in JavaScript?
+---
 
-**Answer:**
+### Q86: How do you implement a mixin in JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a mixin in JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a mixin in JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 87. How do you use factory functions vs classes?
+---
 
-**Answer:**
+### Q87: How do you use factory functions vs classes?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use factory functions vs classes?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use factory functions vs classes?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 88. How do you use private class fields (#)?
+---
 
-**Answer:**
+### Q88: How do you use private class fields (#)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use private class fields (#)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use private class fields (#)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 89. How do you use static class methods?
+---
 
-**Answer:**
+### Q89: How do you use static class methods?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use static class methods?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use static class methods?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 90. How do you implement a Singleton using a closure?
+---
 
-**Answer:**
+### Q90: How do you implement a Singleton using a closure?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you implement a Singleton using a closure?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you implement a Singleton using a closure?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 91. How do you use default parameters in functions?
+---
 
-**Answer:**
+### Q91: How do you use default parameters in functions?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use default parameters in functions?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use default parameters in functions?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 92. How do you use the rest operator `...`?
+---
 
-**Answer:**
+### Q92: How do you use the rest operator `...`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the rest operator `...`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the rest operator `...`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 93. How do you use the spread operator `...`?
+---
 
-**Answer:**
+### Q93: How do you use the spread operator `...`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the spread operator `...`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the spread operator `...`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 94. How do you destructure nested objects?
+---
 
-**Answer:**
+### Q94: How do you destructure nested objects?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you destructure nested objects?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you destructure nested objects?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 95. How do you swap variables using destructuring?
+---
 
-**Answer:**
+### Q95: How do you swap variables using destructuring?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you swap variables using destructuring?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you swap variables using destructuring?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 96. How do you use template literals for multiline strings?
+---
 
-**Answer:**
+### Q96: How do you use template literals for multiline strings?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use template literals for multiline strings?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use template literals for multiline strings?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 97. How do you use tagged template literals?
+---
 
-**Answer:**
+### Q97: How do you use tagged template literals?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use tagged template literals?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use tagged template literals?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 98. How do you use `String.prototype.includes()` vs `indexOf()`?
+---
 
-**Answer:**
+### Q98: How do you use `String.prototype.includes()` vs `indexOf()`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `String.prototype.includes()` vs `indexOf()`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `String.prototype.includes()` vs `indexOf()`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 99. How do you pad a string using `padStart` and `padEnd`?
+---
 
-**Answer:**
+### Q99: How do you pad a string using `padStart` and `padEnd`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you pad a string using `padStart` and `padEnd`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you pad a string using `padStart` and `padEnd`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 100. How do you trim strings using `trim`, `trimStart`, `trimEnd`?
+---
 
-**Answer:**
+### Q100: How do you trim strings using `trim`, `trimStart`, `trimEnd`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you trim strings using `trim`, `trimStart`, `trimEnd`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you trim strings using `trim`, `trimStart`, `trimEnd`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 101. How do you replace all occurrences of a string using `replaceAll`?
+---
 
-**Answer:**
+### Q101: How do you replace all occurrences of a string using `replaceAll`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you replace all occurrences of a string using `replaceAll`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you replace all occurrences of a string using `replaceAll`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 102. How do you use `Array.prototype.map()`?
+---
 
-**Answer:**
+### Q102: How do you use `Array.prototype.map()`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `Array.prototype.map()`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `Array.prototype.map()`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 103. How do you use `Array.prototype.filter()`?
+---
 
-**Answer:**
+### Q103: How do you use `Array.prototype.filter()`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `Array.prototype.filter()`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `Array.prototype.filter()`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 104. How do you use `Array.prototype.reduce()`?
+---
 
-**Answer:**
+### Q104: How do you use `Array.prototype.reduce()`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `Array.prototype.reduce()`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `Array.prototype.reduce()`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 105. How do you use `Array.prototype.find()` and `findIndex()`?
+---
 
-**Answer:**
+### Q105: How do you use `Array.prototype.find()` and `findIndex()`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `Array.prototype.find()` and `findIndex()`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `Array.prototype.find()` and `findIndex()`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 106. How do you use `Array.prototype.some()` and `every()`?
+---
 
-**Answer:**
+### Q106: How do you use `Array.prototype.some()` and `every()`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `Array.prototype.some()` and `every()`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `Array.prototype.some()` and `every()`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 107. How do you use `Array.prototype.flat()` and `flatMap()`?
+---
 
-**Answer:**
+### Q107: How do you use `Array.prototype.flat()` and `flatMap()`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `Array.prototype.flat()` and `flatMap()`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `Array.prototype.flat()` and `flatMap()`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 108. How do you sort numbers correctly (since default sort is lexicographical)?
+---
 
-**Answer:**
+### Q108: How do you sort numbers correctly (since default sort is lexicographical)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you sort numbers correctly (since default sort is lexicographical)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you sort numbers correctly (since default sort is lexicographical)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 109. How do you create an array of a specific length filled with a value?
+---
 
-**Answer:**
+### Q109: How do you create an array of a specific length filled with a value?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you create an array of a specific length filled with a value?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you create an array of a specific length filled with a value?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 110. How do you get query parameters from a URL object?
+---
 
-**Answer:**
+### Q110: How do you get query parameters from a URL object?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you get query parameters from a URL object?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you get query parameters from a URL object?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 111. How do you use `URLSearchParams`?
+---
 
-**Answer:**
+### Q111: How do you use `URLSearchParams`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `URLSearchParams`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `URLSearchParams`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 112. How do you encode and decode URLs (`encodeURIComponent`)?
+---
 
-**Answer:**
+### Q112: How do you encode and decode URLs (`encodeURIComponent`)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you encode and decode URLs (`encodeURIComponent`)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you encode and decode URLs (`encodeURIComponent`)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 113. How do you use `Math.random()` effectively?
+---
 
-**Answer:**
+### Q113: How do you use `Math.random()` effectively?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `Math.random()` effectively?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `Math.random()` effectively?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 114. How do you round numbers using `Math.round`, `ceil`, `floor`?
+---
 
-**Answer:**
+### Q114: How do you round numbers using `Math.round`, `ceil`, `floor`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you round numbers using `Math.round`, `ceil`, `floor`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you round numbers using `Math.round`, `ceil`, `floor`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 115. How do you get the max/min value from an array?
+---
 
-**Answer:**
+### Q115: How do you get the max/min value from an array?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you get the max/min value from an array?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you get the max/min value from an array?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 116. How do you use the modulo operator `%`?
+---
 
-**Answer:**
+### Q116: How do you use the modulo operator `%`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the modulo operator `%`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the modulo operator `%`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 117. How do you check if a number is even or odd?
+---
 
-**Answer:**
+### Q117: How do you check if a number is even or odd?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you check if a number is even or odd?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you check if a number is even or odd?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 118. How do you use bitwise operators in JavaScript?
+---
 
-**Answer:**
+### Q118: How do you use bitwise operators in JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use bitwise operators in JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use bitwise operators in JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 119. How do you use `BigInt` for large integers?
+---
 
-**Answer:**
+### Q119: How do you use `BigInt` for large integers?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `BigInt` for large integers?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `BigInt` for large integers?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 120. How do you prevent default event behavior?
+---
 
-**Answer:**
+### Q120: How do you prevent default event behavior?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you prevent default event behavior?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you prevent default event behavior?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 121. How do you stop event propagation?
+---
 
-**Answer:**
+### Q121: How do you stop event propagation?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you stop event propagation?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you stop event propagation?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 122. How do you check if an event target matches a selector?
+---
 
-**Answer:**
+### Q122: How do you check if an event target matches a selector?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you check if an event target matches a selector?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you check if an event target matches a selector?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 123. How do you get the mouse position in an event?
+---
 
-**Answer:**
+### Q123: How do you get the mouse position in an event?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you get the mouse position in an event?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you get the mouse position in an event?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 124. How do you handle keyboard events?
+---
 
-**Answer:**
+### Q124: How do you handle keyboard events?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you handle keyboard events?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you handle keyboard events?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 125. How do you detect which key was pressed?
+---
 
-**Answer:**
+### Q125: How do you detect which key was pressed?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you detect which key was pressed?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you detect which key was pressed?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 126. How do you handle form submission?
+---
 
-**Answer:**
+### Q126: How do you handle form submission?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you handle form submission?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you handle form submission?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 127. How do you access form values?
+---
 
-**Answer:**
+### Q127: How do you access form values?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you access form values?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you access form values?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 128. How do you disable a button after click?
+---
 
-**Answer:**
+### Q128: How do you disable a button after click?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you disable a button after click?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you disable a button after click?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 129. How do you toggle a class on an element?
+---
 
-**Answer:**
+### Q129: How do you toggle a class on an element?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you toggle a class on an element?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you toggle a class on an element?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 130. How do you get computed styles of an element?
+---
 
-**Answer:**
+### Q130: How do you get computed styles of an element?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you get computed styles of an element?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you get computed styles of an element?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 131. How do you get the size and position of an element (`getBoundingClientRect`)?
+---
 
-**Answer:**
+### Q131: How do you get the size and position of an element (`getBoundingClientRect`)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you get the size and position of an element (`getBoundingClientRect`)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you get the size and position of an element (`getBoundingClientRect`)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 132. How do you scroll to a specific element?
+---
 
-**Answer:**
+### Q132: How do you scroll to a specific element?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you scroll to a specific element?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you scroll to a specific element?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 133. How do you create elements dynamically?
+---
 
-**Answer:**
+### Q133: How do you create elements dynamically?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you create elements dynamically?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you create elements dynamically?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 134. How do you insert elements at specific positions (`insertAdjacentHTML`)?
+---
 
-**Answer:**
+### Q134: How do you insert elements at specific positions (`insertAdjacentHTML`)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you insert elements at specific positions (`insertAdjacentHTML`)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you insert elements at specific positions (`insertAdjacentHTML`)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 135. How do you remove an element from the DOM?
+---
 
-**Answer:**
+### Q135: How do you remove an element from the DOM?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you remove an element from the DOM?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you remove an element from the DOM?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 136. How do you replace an element in the DOM?
+---
 
-**Answer:**
+### Q136: How do you replace an element in the DOM?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you replace an element in the DOM?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you replace an element in the DOM?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 137. How do you use `dataset` attributes?
+---
 
-**Answer:**
+### Q137: How do you use `dataset` attributes?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `dataset` attributes?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `dataset` attributes?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 138. How do you set and get cookies in JavaScript?
+---
 
-**Answer:**
+### Q138: How do you set and get cookies in JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you set and get cookies in JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you set and get cookies in JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 139. How do you use `sessionStorage`?
+---
 
-**Answer:**
+### Q139: How do you use `sessionStorage`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `sessionStorage`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `sessionStorage`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 140. How do you use `localStorage`?
+---
 
-**Answer:**
+### Q140: How do you use `localStorage`?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `localStorage`?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `localStorage`?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 141. How do you clear storage?
+---
 
-**Answer:**
+### Q141: How do you clear storage?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you clear storage?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you clear storage?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 142. How do you listen for storage changes?
+---
 
-**Answer:**
+### Q142: How do you listen for storage changes?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you listen for storage changes?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you listen for storage changes?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 143. How do you use the History API (`pushState`, `replaceState`)?
+---
 
-**Answer:**
+### Q143: How do you use the History API (`pushState`, `replaceState`)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the History API (`pushState`, `replaceState`)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the History API (`pushState`, `replaceState`)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 144. How do you handle browser back button?
+---
 
-**Answer:**
+### Q144: How do you handle browser back button?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you handle browser back button?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you handle browser back button?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 145. How do you reload the page using JavaScript?
+---
 
-**Answer:**
+### Q145: How do you reload the page using JavaScript?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you reload the page using JavaScript?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you reload the page using JavaScript?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 146. How do you redirect to another page?
+---
 
-**Answer:**
+### Q146: How do you redirect to another page?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you redirect to another page?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you redirect to another page?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 147. How do you get the browser user agent?
+---
 
-**Answer:**
+### Q147: How do you get the browser user agent?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you get the browser user agent?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you get the browser user agent?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 148. How do you check if cookies are enabled?
+---
 
-**Answer:**
+### Q148: How do you check if cookies are enabled?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you check if cookies are enabled?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you check if cookies are enabled?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 149. How do you check if the browser supports a feature?
+---
 
-**Answer:**
+### Q149: How do you check if the browser supports a feature?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you check if the browser supports a feature?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you check if the browser supports a feature?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 150. How do you use `typeof` operator?
+---
 
-**Answer:**
+### Q150: How do you use `typeof` operator?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `typeof` operator?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `typeof` operator?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 151. How do you use `instanceof` operator?
+---
 
-**Answer:**
+### Q151: How do you use `instanceof` operator?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `instanceof` operator?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `instanceof` operator?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 152. How do you use `void` operator?
+---
 
-**Answer:**
+### Q152: How do you use `void` operator?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `void` operator?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `void` operator?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 153. How do you use the comma operator?
+---
 
-**Answer:**
+### Q153: How do you use the comma operator?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the comma operator?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the comma operator?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 154. How do you use the unary plus operator?
+---
 
-**Answer:**
+### Q154: How do you use the unary plus operator?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the unary plus operator?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the unary plus operator?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 155. How do you use `!!` (double bang) to convert to boolean?
+---
 
-**Answer:**
+### Q155: How do you use `!!` (double bang) to convert to boolean?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use `!!` (double bang) to convert to boolean?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use `!!` (double bang) to convert to boolean?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 156. How do you use short-circuit evaluation (`&&`, `||`)?
+---
 
-**Answer:**
+### Q156: How do you use short-circuit evaluation (`&&`, `||`)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use short-circuit evaluation (`&&`, `||`)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use short-circuit evaluation (`&&`, `||`)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 157. How do you use the nullish coalescing operator (`??`)?
+---
 
-**Answer:**
+### Q157: How do you use the nullish coalescing operator (`??`)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the nullish coalescing operator (`??`)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the nullish coalescing operator (`??`)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-### 158. How do you use the logical assignment operators (`&&=`, `||=`, `??=`)?
+---
 
-**Answer:**
+### Q158: How do you use the logical assignment operators (`&&=`, `||=`, `??=`)?
 
-This is a practical question that requires understanding of JavaScript fundamentals.
+**Difficulty: Intermediate**
 
+**Strategy:**
+This is a placeholder for a practical question about **How do you use the logical assignment operators (`&&=`, `||=`, `??=`)?**.
+1. Understand the underlying concept.
+2. Implement it using vanilla JavaScript.
+3. Consider edge cases and performance.
+
+**Code Snippet:**
 ```javascript
-// Implementation example
+// Example implementation
 // How do you use the logical assignment operators (`&&=`, `||=`, `??=`)?
+function exampleImplementation() {
+  // Logic goes here
+  console.log('Implemented');
+}
 ```
 
-**[⬆ Back to Top](#table-of-contents)**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
 

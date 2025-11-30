@@ -1,115 +1,49 @@
-## Table of Contents
-| No. | Question | Difficulty |
-| --- | -------- | ---------- |
-| 1 | [How do you optimize the performance of a large list in Flutter to prevent jank?](#how-do-you-optimize-the-performance-of-a-large-list-in-flutter-to-prevent-jank) | Intermediate |
-| 2 | [How do you manage global state efficiently using Riverpod?](#how-do-you-manage-global-state-efficiently-using-riverpod) | Intermediate |
-| 3 | [How do you prevent memory leaks when using Streams in Flutter?](#how-do-you-prevent-memory-leaks-when-using-streams-in-flutter) | Beginner |
-| 4 | [How do you run heavy computational tasks without blocking the UI thread (Isolates)?](#how-do-you-run-heavy-computational-tasks-without-blocking-the-ui-thread-isolates) | Advanced |
-| 5 | [How do you handle platform-specific code (e.g., accessing battery level)?](#how-do-you-handle-platform-specific-code-eg-accessing-battery-level) | Intermediate |
-| 6 | [How do you reduce the app size for production builds?](#how-do-you-reduce-the-app-size-for-production-builds) | Intermediate |
-| 7 | [How do you implement a custom painter for complex drawing?](#how-do-you-implement-a-custom-painter-for-complex-drawing) | Advanced |
-| 8 | [How do you ensure a widget rebuilds only when specific data changes (Selector)?](#how-do-you-ensure-a-widget-rebuilds-only-when-specific-data-changes-selector) | Intermediate |
-| 9 | [How do you implement deep linking in Flutter (Navigator 2.0)?](#how-do-you-implement-deep-linking-in-flutter-navigator-20) | Advanced |
-| 10 | [How do you debug layout issues where widgets have 'unbounded height'?](#how-do-you-debug-layout-issues-where-widgets-have-unbounded-height) | Beginner |
-| 11 | [How do you use Keys to preserve widget state when the list order changes?](#how-do-you-use-keys-to-preserve-widget-state-when-the-list-order-changes) | Intermediate |
-| 12 | [How do you implement a theme switch (Dark/Light mode) dynamically?](#how-do-you-implement-a-theme-switch-darklight-mode-dynamically) | Beginner |
-| 13 | [How do you optimize images by caching them?](#how-do-you-optimize-images-by-caching-them) | Beginner |
-| 14 | [How do you write a unit test for a simple business logic class?](#how-do-you-write-a-unit-test-for-a-simple-business-logic-class) | Beginner |
-| 15 | [How do you handle errors globally in Flutter (e.g., crash reporting)?](#how-do-you-handle-errors-globally-in-flutter-eg-crash-reporting) | Intermediate |
-| 16 | [How do you implement Code Generation (build_runner) in a scalable Flutter app? (Scenario 16)](#how-do-you-implement-code-generation-build_runner-in-a-scalable-flutter-app-scenario-16) | Intermediate |
-| 17 | [How do you implement Freezed in a scalable Flutter app? (Scenario 17)](#how-do-you-implement-freezed-in-a-scalable-flutter-app-scenario-17) | Intermediate |
-| 18 | [How do you implement JSON Serialization in a scalable Flutter app? (Scenario 18)](#how-do-you-implement-json-serialization-in-a-scalable-flutter-app-scenario-18) | Intermediate |
-| 19 | [How do you implement Dio Interceptors in a scalable Flutter app? (Scenario 19)](#how-do-you-implement-dio-interceptors-in-a-scalable-flutter-app-scenario-19) | Intermediate |
-| 20 | [How do you implement Hive Database in a scalable Flutter app? (Scenario 20)](#how-do-you-implement-hive-database-in-a-scalable-flutter-app-scenario-20) | Intermediate |
-| 21 | [How do you implement SQLite (sqflite) in a scalable Flutter app? (Scenario 21)](#how-do-you-implement-sqlite-sqflite-in-a-scalable-flutter-app-scenario-21) | Intermediate |
-| 22 | [How do you implement Secure Storage in a scalable Flutter app? (Scenario 22)](#how-do-you-implement-secure-storage-in-a-scalable-flutter-app-scenario-22) | Intermediate |
-| 23 | [How do you implement Background Fetch in a scalable Flutter app? (Scenario 23)](#how-do-you-implement-background-fetch-in-a-scalable-flutter-app-scenario-23) | Intermediate |
-| 24 | [How do you implement WorkManager in a scalable Flutter app? (Scenario 24)](#how-do-you-implement-workmanager-in-a-scalable-flutter-app-scenario-24) | Intermediate |
-| 25 | [How do you implement Push Notifications (FCM) in a scalable Flutter app? (Scenario 25)](#how-do-you-implement-push-notifications-fcm-in-a-scalable-flutter-app-scenario-25) | Intermediate |
-| 26 | [How do you implement WebView in a scalable Flutter app? (Scenario 26)](#how-do-you-implement-webview-in-a-scalable-flutter-app-scenario-26) | Intermediate |
-| 27 | [How do you implement Google Maps in a scalable Flutter app? (Scenario 27)](#how-do-you-implement-google-maps-in-a-scalable-flutter-app-scenario-27) | Intermediate |
-| 28 | [How do you implement Camera API in a scalable Flutter app? (Scenario 28)](#how-do-you-implement-camera-api-in-a-scalable-flutter-app-scenario-28) | Intermediate |
-| 29 | [How do you implement InheritedWidget in a scalable Flutter app? (Scenario 29)](#how-do-you-implement-inheritedwidget-in-a-scalable-flutter-app-scenario-29) | Intermediate |
-| 30 | [How do you implement RenderObjects in a scalable Flutter app? (Scenario 30)](#how-do-you-implement-renderobjects-in-a-scalable-flutter-app-scenario-30) | Intermediate |
-| 31 | [How do you implement Slivers in a scalable Flutter app? (Scenario 31)](#how-do-you-implement-slivers-in-a-scalable-flutter-app-scenario-31) | Intermediate |
-| 32 | [How do you implement AnimationController in a scalable Flutter app? (Scenario 32)](#how-do-you-implement-animationcontroller-in-a-scalable-flutter-app-scenario-32) | Intermediate |
-| 33 | [How do you implement Implicit Animations in a scalable Flutter app? (Scenario 33)](#how-do-you-implement-implicit-animations-in-a-scalable-flutter-app-scenario-33) | Intermediate |
-| 34 | [How do you implement Hero Animations in a scalable Flutter app? (Scenario 34)](#how-do-you-implement-hero-animations-in-a-scalable-flutter-app-scenario-34) | Intermediate |
-| 35 | [How do you implement Lottie Integration in a scalable Flutter app? (Scenario 35)](#how-do-you-implement-lottie-integration-in-a-scalable-flutter-app-scenario-35) | Intermediate |
-| 36 | [How do you implement Flutter Web in a scalable Flutter app? (Scenario 36)](#how-do-you-implement-flutter-web-in-a-scalable-flutter-app-scenario-36) | Intermediate |
-| 37 | [How do you implement Flutter Desktop in a scalable Flutter app? (Scenario 37)](#how-do-you-implement-flutter-desktop-in-a-scalable-flutter-app-scenario-37) | Intermediate |
-| 38 | [How do you implement Accessibility (Semantics) in a scalable Flutter app? (Scenario 38)](#how-do-you-implement-accessibility-semantics-in-a-scalable-flutter-app-scenario-38) | Intermediate |
-| 39 | [How do you implement Internationalization (ARB) in a scalable Flutter app? (Scenario 39)](#how-do-you-implement-internationalization-arb-in-a-scalable-flutter-app-scenario-39) | Intermediate |
-| 40 | [How do you implement Golden Tests in a scalable Flutter app? (Scenario 40)](#how-do-you-implement-golden-tests-in-a-scalable-flutter-app-scenario-40) | Intermediate |
-| 41 | [How do you implement Integration Tests in a scalable Flutter app? (Scenario 41)](#how-do-you-implement-integration-tests-in-a-scalable-flutter-app-scenario-41) | Intermediate |
-| 42 | [How do you implement DevTools in a scalable Flutter app? (Scenario 42)](#how-do-you-implement-devtools-in-a-scalable-flutter-app-scenario-42) | Intermediate |
-| 43 | [How do you implement Memory Profiling in a scalable Flutter app? (Scenario 43)](#how-do-you-implement-memory-profiling-in-a-scalable-flutter-app-scenario-43) | Intermediate |
-| 44 | [How do you implement Widget Inspector in a scalable Flutter app? (Scenario 44)](#how-do-you-implement-widget-inspector-in-a-scalable-flutter-app-scenario-44) | Intermediate |
-| 45 | [How do you implement Code Generation (build_runner) in a scalable Flutter app? (Scenario 45)](#how-do-you-implement-code-generation-build_runner-in-a-scalable-flutter-app-scenario-45) | Intermediate |
-| 46 | [How do you implement Freezed in a scalable Flutter app? (Scenario 46)](#how-do-you-implement-freezed-in-a-scalable-flutter-app-scenario-46) | Intermediate |
-| 47 | [How do you implement JSON Serialization in a scalable Flutter app? (Scenario 47)](#how-do-you-implement-json-serialization-in-a-scalable-flutter-app-scenario-47) | Intermediate |
-| 48 | [How do you implement Dio Interceptors in a scalable Flutter app? (Scenario 48)](#how-do-you-implement-dio-interceptors-in-a-scalable-flutter-app-scenario-48) | Intermediate |
-| 49 | [How do you implement Hive Database in a scalable Flutter app? (Scenario 49)](#how-do-you-implement-hive-database-in-a-scalable-flutter-app-scenario-49) | Intermediate |
-| 50 | [How do you implement SQLite (sqflite) in a scalable Flutter app? (Scenario 50)](#how-do-you-implement-sqlite-sqflite-in-a-scalable-flutter-app-scenario-50) | Intermediate |
-| 51 | [How do you implement Secure Storage in a scalable Flutter app? (Scenario 51)](#how-do-you-implement-secure-storage-in-a-scalable-flutter-app-scenario-51) | Intermediate |
-| 52 | [How do you implement Background Fetch in a scalable Flutter app? (Scenario 52)](#how-do-you-implement-background-fetch-in-a-scalable-flutter-app-scenario-52) | Intermediate |
-| 53 | [How do you implement WorkManager in a scalable Flutter app? (Scenario 53)](#how-do-you-implement-workmanager-in-a-scalable-flutter-app-scenario-53) | Intermediate |
-| 54 | [How do you implement Push Notifications (FCM) in a scalable Flutter app? (Scenario 54)](#how-do-you-implement-push-notifications-fcm-in-a-scalable-flutter-app-scenario-54) | Intermediate |
-| 55 | [How do you implement WebView in a scalable Flutter app? (Scenario 55)](#how-do-you-implement-webview-in-a-scalable-flutter-app-scenario-55) | Intermediate |
-| 56 | [How do you implement Google Maps in a scalable Flutter app? (Scenario 56)](#how-do-you-implement-google-maps-in-a-scalable-flutter-app-scenario-56) | Intermediate |
-| 57 | [How do you implement Camera API in a scalable Flutter app? (Scenario 57)](#how-do-you-implement-camera-api-in-a-scalable-flutter-app-scenario-57) | Intermediate |
-| 58 | [How do you implement InheritedWidget in a scalable Flutter app? (Scenario 58)](#how-do-you-implement-inheritedwidget-in-a-scalable-flutter-app-scenario-58) | Intermediate |
-| 59 | [How do you implement RenderObjects in a scalable Flutter app? (Scenario 59)](#how-do-you-implement-renderobjects-in-a-scalable-flutter-app-scenario-59) | Intermediate |
-| 60 | [How do you implement Slivers in a scalable Flutter app? (Scenario 60)](#how-do-you-implement-slivers-in-a-scalable-flutter-app-scenario-60) | Intermediate |
-| 61 | [How do you implement AnimationController in a scalable Flutter app? (Scenario 61)](#how-do-you-implement-animationcontroller-in-a-scalable-flutter-app-scenario-61) | Intermediate |
-| 62 | [How do you implement Implicit Animations in a scalable Flutter app? (Scenario 62)](#how-do-you-implement-implicit-animations-in-a-scalable-flutter-app-scenario-62) | Intermediate |
-| 63 | [How do you implement Hero Animations in a scalable Flutter app? (Scenario 63)](#how-do-you-implement-hero-animations-in-a-scalable-flutter-app-scenario-63) | Intermediate |
-| 64 | [How do you implement Lottie Integration in a scalable Flutter app? (Scenario 64)](#how-do-you-implement-lottie-integration-in-a-scalable-flutter-app-scenario-64) | Intermediate |
-| 65 | [How do you implement Flutter Web in a scalable Flutter app? (Scenario 65)](#how-do-you-implement-flutter-web-in-a-scalable-flutter-app-scenario-65) | Intermediate |
-| 66 | [How do you implement Flutter Desktop in a scalable Flutter app? (Scenario 66)](#how-do-you-implement-flutter-desktop-in-a-scalable-flutter-app-scenario-66) | Intermediate |
-| 67 | [How do you implement Accessibility (Semantics) in a scalable Flutter app? (Scenario 67)](#how-do-you-implement-accessibility-semantics-in-a-scalable-flutter-app-scenario-67) | Intermediate |
-| 68 | [How do you implement Internationalization (ARB) in a scalable Flutter app? (Scenario 68)](#how-do-you-implement-internationalization-arb-in-a-scalable-flutter-app-scenario-68) | Intermediate |
-| 69 | [How do you implement Golden Tests in a scalable Flutter app? (Scenario 69)](#how-do-you-implement-golden-tests-in-a-scalable-flutter-app-scenario-69) | Intermediate |
-| 70 | [How do you implement Integration Tests in a scalable Flutter app? (Scenario 70)](#how-do-you-implement-integration-tests-in-a-scalable-flutter-app-scenario-70) | Intermediate |
-| 71 | [How do you implement DevTools in a scalable Flutter app? (Scenario 71)](#how-do-you-implement-devtools-in-a-scalable-flutter-app-scenario-71) | Intermediate |
-| 72 | [How do you implement Memory Profiling in a scalable Flutter app? (Scenario 72)](#how-do-you-implement-memory-profiling-in-a-scalable-flutter-app-scenario-72) | Intermediate |
-| 73 | [How do you implement Widget Inspector in a scalable Flutter app? (Scenario 73)](#how-do-you-implement-widget-inspector-in-a-scalable-flutter-app-scenario-73) | Intermediate |
-| 74 | [How do you implement Code Generation (build_runner) in a scalable Flutter app? (Scenario 74)](#how-do-you-implement-code-generation-build_runner-in-a-scalable-flutter-app-scenario-74) | Intermediate |
-| 75 | [How do you implement Freezed in a scalable Flutter app? (Scenario 75)](#how-do-you-implement-freezed-in-a-scalable-flutter-app-scenario-75) | Intermediate |
-| 76 | [How do you implement JSON Serialization in a scalable Flutter app? (Scenario 76)](#how-do-you-implement-json-serialization-in-a-scalable-flutter-app-scenario-76) | Intermediate |
-| 77 | [How do you implement Dio Interceptors in a scalable Flutter app? (Scenario 77)](#how-do-you-implement-dio-interceptors-in-a-scalable-flutter-app-scenario-77) | Intermediate |
-| 78 | [How do you implement Hive Database in a scalable Flutter app? (Scenario 78)](#how-do-you-implement-hive-database-in-a-scalable-flutter-app-scenario-78) | Intermediate |
-| 79 | [How do you implement SQLite (sqflite) in a scalable Flutter app? (Scenario 79)](#how-do-you-implement-sqlite-sqflite-in-a-scalable-flutter-app-scenario-79) | Intermediate |
-| 80 | [How do you implement Secure Storage in a scalable Flutter app? (Scenario 80)](#how-do-you-implement-secure-storage-in-a-scalable-flutter-app-scenario-80) | Intermediate |
-| 81 | [How do you implement Background Fetch in a scalable Flutter app? (Scenario 81)](#how-do-you-implement-background-fetch-in-a-scalable-flutter-app-scenario-81) | Intermediate |
-| 82 | [How do you implement WorkManager in a scalable Flutter app? (Scenario 82)](#how-do-you-implement-workmanager-in-a-scalable-flutter-app-scenario-82) | Intermediate |
-| 83 | [How do you implement Push Notifications (FCM) in a scalable Flutter app? (Scenario 83)](#how-do-you-implement-push-notifications-fcm-in-a-scalable-flutter-app-scenario-83) | Intermediate |
-| 84 | [How do you implement WebView in a scalable Flutter app? (Scenario 84)](#how-do-you-implement-webview-in-a-scalable-flutter-app-scenario-84) | Intermediate |
-| 85 | [How do you implement Google Maps in a scalable Flutter app? (Scenario 85)](#how-do-you-implement-google-maps-in-a-scalable-flutter-app-scenario-85) | Intermediate |
-| 86 | [How do you implement Camera API in a scalable Flutter app? (Scenario 86)](#how-do-you-implement-camera-api-in-a-scalable-flutter-app-scenario-86) | Intermediate |
-| 87 | [How do you implement InheritedWidget in a scalable Flutter app? (Scenario 87)](#how-do-you-implement-inheritedwidget-in-a-scalable-flutter-app-scenario-87) | Intermediate |
-| 88 | [How do you implement RenderObjects in a scalable Flutter app? (Scenario 88)](#how-do-you-implement-renderobjects-in-a-scalable-flutter-app-scenario-88) | Intermediate |
-| 89 | [How do you implement Slivers in a scalable Flutter app? (Scenario 89)](#how-do-you-implement-slivers-in-a-scalable-flutter-app-scenario-89) | Intermediate |
-| 90 | [How do you implement AnimationController in a scalable Flutter app? (Scenario 90)](#how-do-you-implement-animationcontroller-in-a-scalable-flutter-app-scenario-90) | Intermediate |
-| 91 | [How do you implement Implicit Animations in a scalable Flutter app? (Scenario 91)](#how-do-you-implement-implicit-animations-in-a-scalable-flutter-app-scenario-91) | Intermediate |
-| 92 | [How do you implement Hero Animations in a scalable Flutter app? (Scenario 92)](#how-do-you-implement-hero-animations-in-a-scalable-flutter-app-scenario-92) | Intermediate |
-| 93 | [How do you implement Lottie Integration in a scalable Flutter app? (Scenario 93)](#how-do-you-implement-lottie-integration-in-a-scalable-flutter-app-scenario-93) | Intermediate |
-| 94 | [How do you implement Flutter Web in a scalable Flutter app? (Scenario 94)](#how-do-you-implement-flutter-web-in-a-scalable-flutter-app-scenario-94) | Intermediate |
-| 95 | [How do you implement Flutter Desktop in a scalable Flutter app? (Scenario 95)](#how-do-you-implement-flutter-desktop-in-a-scalable-flutter-app-scenario-95) | Intermediate |
-| 96 | [How do you implement Accessibility (Semantics) in a scalable Flutter app? (Scenario 96)](#how-do-you-implement-accessibility-semantics-in-a-scalable-flutter-app-scenario-96) | Intermediate |
-| 97 | [How do you implement Internationalization (ARB) in a scalable Flutter app? (Scenario 97)](#how-do-you-implement-internationalization-arb-in-a-scalable-flutter-app-scenario-97) | Intermediate |
-| 98 | [How do you implement Golden Tests in a scalable Flutter app? (Scenario 98)](#how-do-you-implement-golden-tests-in-a-scalable-flutter-app-scenario-98) | Intermediate |
-| 99 | [How do you implement Integration Tests in a scalable Flutter app? (Scenario 99)](#how-do-you-implement-integration-tests-in-a-scalable-flutter-app-scenario-99) | Intermediate |
-| 100 | [How do you implement DevTools in a scalable Flutter app? (Scenario 100)](#how-do-you-implement-devtools-in-a-scalable-flutter-app-scenario-100) | Intermediate |
-| 101 | [How do you implement Memory Profiling in a scalable Flutter app? (Scenario 101)](#how-do-you-implement-memory-profiling-in-a-scalable-flutter-app-scenario-101) | Intermediate |
-| 102 | [How do you implement Widget Inspector in a scalable Flutter app? (Scenario 102)](#how-do-you-implement-widget-inspector-in-a-scalable-flutter-app-scenario-102) | Intermediate |
-| 103 | [How do you implement Code Generation (build_runner) in a scalable Flutter app? (Scenario 103)](#how-do-you-implement-code-generation-build_runner-in-a-scalable-flutter-app-scenario-103) | Intermediate |
-| 104 | [How do you implement Freezed in a scalable Flutter app? (Scenario 104)](#how-do-you-implement-freezed-in-a-scalable-flutter-app-scenario-104) | Intermediate |
-| 105 | [How do you implement JSON Serialization in a scalable Flutter app? (Scenario 105)](#how-do-you-implement-json-serialization-in-a-scalable-flutter-app-scenario-105) | Intermediate |
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/flutter-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Flutter Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for mobile developers</b></p>
+</div>
 
 ---
 
-### 1. How do you optimize the performance of a large list in Flutter to prevent jank?
+## Table of Contents
+
+1. [How do you optimize the performance of a large list in Flutter to prevent jank?](#q1-how-do-you-optimize-the-performance-of-a-large-list-in-flutter-to-prevent-jank) <span class="intermediate">Intermediate</span>
+2. [How do you manage global state efficiently using Riverpod?](#q2-how-do-you-manage-global-state-efficiently-using-riverpod) <span class="intermediate">Intermediate</span>
+3. [How do you prevent memory leaks when using Streams in Flutter?](#q3-how-do-you-prevent-memory-leaks-when-using-streams-in-flutter) <span class="beginner">Beginner</span>
+4. [How do you run heavy computational tasks without blocking the UI thread (Isolates)?](#q4-how-do-you-run-heavy-computational-tasks-without-blocking-the-ui-thread-isolates) <span class="advanced">Advanced</span>
+5. [How do you handle platform-specific code (e.g., accessing battery level)?](#q5-how-do-you-handle-platform-specific-code-eg-accessing-battery-level) <span class="intermediate">Intermediate</span>
+6. [How do you reduce the app size for production builds?](#q6-how-do-you-reduce-the-app-size-for-production-builds) <span class="intermediate">Intermediate</span>
+7. [How do you implement a custom painter for complex drawing?](#q7-how-do-you-implement-a-custom-painter-for-complex-drawing) <span class="advanced">Advanced</span>
+8. [How do you ensure a widget rebuilds only when specific data changes (Selector)?](#q8-how-do-you-ensure-a-widget-rebuilds-only-when-specific-data-changes-selector) <span class="intermediate">Intermediate</span>
+9. [How do you implement deep linking in Flutter (Navigator 2.0)?](#q9-how-do-you-implement-deep-linking-in-flutter-navigator-20) <span class="advanced">Advanced</span>
+10. [How do you debug layout issues where widgets have 'unbounded height'?](#q10-how-do-you-debug-layout-issues-where-widgets-have-unbounded-height) <span class="beginner">Beginner</span>
+11. [How do you use Keys to preserve widget state when the list order changes?](#q11-how-do-you-use-keys-to-preserve-widget-state-when-the-list-order-changes) <span class="intermediate">Intermediate</span>
+12. [How do you implement a theme switch (Dark/Light mode) dynamically?](#q12-how-do-you-implement-a-theme-switch-darklight-mode-dynamically) <span class="beginner">Beginner</span>
+13. [How do you optimize images by caching them?](#q13-how-do-you-optimize-images-by-caching-them) <span class="beginner">Beginner</span>
+14. [How do you write a unit test for a simple business logic class?](#q14-how-do-you-write-a-unit-test-for-a-simple-business-logic-class) <span class="beginner">Beginner</span>
+15. [How do you handle errors globally in Flutter (e.g., crash reporting)?](#q15-how-do-you-handle-errors-globally-in-flutter-eg-crash-reporting) <span class="intermediate">Intermediate</span>
+16. [How do you perform Dependency Injection using GetIt?](#q16-how-do-you-perform-dependency-injection-using-getit) <span class="intermediate">Intermediate</span>
+17. [How do you use Flutter Hooks to simplify AnimationController management?](#q17-how-do-you-use-flutter-hooks-to-simplify-animationcontroller-management) <span class="intermediate">Intermediate</span>
+18. [How do you communicate with native platform code using MethodChannel?](#q18-how-do-you-communicate-with-native-platform-code-using-methodchannel) <span class="advanced">Advanced</span>
+19. [How do you handle keyboard visibility and dismissal efficiently?](#q19-how-do-you-handle-keyboard-visibility-and-dismissal-efficiently) <span class="beginner">Beginner</span>
+20. [How do you implement a SliverAppBar with a floating title?](#q20-how-do-you-implement-a-sliverappbar-with-a-floating-title) <span class="intermediate">Intermediate</span>
+21. [How do you make your Flutter app accessible using Semantics?](#q21-how-do-you-make-your-flutter-app-accessible-using-semantics) <span class="intermediate">Intermediate</span>
+22. [How do you implement internationalization (i18n) using the flutter_localizations package?](#q22-how-do-you-implement-internationalization-i18n-using-the-flutter_localizations-package) <span class="intermediate">Intermediate</span>
+23. [How do you write an integration test in Flutter?](#q23-how-do-you-write-an-integration-test-in-flutter) <span class="advanced">Advanced</span>
+24. [How do you debug performance issues using Flutter DevTools?](#q24-how-do-you-debug-performance-issues-using-flutter-devtools) <span class="intermediate">Intermediate</span>
+25. [How do you create a custom animation using TweenAnimationBuilder?](#q25-how-do-you-create-a-custom-animation-using-tweenanimationbuilder) <span class="intermediate">Intermediate</span>
+26. [How do you display a floating widget using OverlayEntry?](#q26-how-do-you-display-a-floating-widget-using-overlayentry) <span class="advanced">Advanced</span>
+27. [How do you optimize rebuilds with ValueListenableBuilder?](#q27-how-do-you-optimize-rebuilds-with-valuelistenablebuilder) <span class="beginner">Beginner</span>
+28. [How do you handle asynchronous data in Riverpod with AsyncValue?](#q28-how-do-you-handle-asynchronous-data-in-riverpod-with-asyncvalue) <span class="intermediate">Intermediate</span>
+29. [How do you validate a Form in Flutter?](#q29-how-do-you-validate-a-form-in-flutter) <span class="beginner">Beginner</span>
+30. [How do you embed a native Android/iOS view in Flutter?](#q30-how-do-you-embed-a-native-androidios-view-in-flutter) <span class="advanced">Advanced</span>
+
+---
+
+### Q1: How do you optimize the performance of a large list in Flutter to prevent jank?
 
 **Difficulty**: Intermediate
 
@@ -129,11 +63,11 @@ ListView.builder(
 );
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 2. How do you manage global state efficiently using Riverpod?
+### Q2: How do you manage global state efficiently using Riverpod?
 
 **Difficulty**: Intermediate
 
@@ -162,11 +96,11 @@ class Home extends ConsumerWidget {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 3. How do you prevent memory leaks when using Streams in Flutter?
+### Q3: How do you prevent memory leaks when using Streams in Flutter?
 
 **Difficulty**: Beginner
 
@@ -197,11 +131,11 @@ class _MyWidgetState extends State<MyWidget> {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 4. How do you run heavy computational tasks without blocking the UI thread (Isolates)?
+### Q4: How do you run heavy computational tasks without blocking the UI thread (Isolates)?
 
 **Difficulty**: Advanced
 
@@ -222,18 +156,18 @@ void calculate() async {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 5. How do you handle platform-specific code (e.g., accessing battery level)?
+### Q5: How do you handle platform-specific code (e.g., accessing battery level)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
 Use **Platform Channels** (`MethodChannel`). The Flutter app sends a message to the host (Android/iOS), which executes native code (Kotlin/Swift) and returns the result.
 
-**Code Example (Flutter side):**
+**Code Example:**
 ```dart
 static const platform = MethodChannel('com.example/battery');
 
@@ -247,11 +181,11 @@ Future<void> getBatteryLevel() async {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 6. How do you reduce the app size for production builds?
+### Q6: How do you reduce the app size for production builds?
 
 **Difficulty**: Intermediate
 
@@ -261,16 +195,23 @@ Future<void> getBatteryLevel() async {
 3.  Use the `--obfuscate` and `--split-debug-info` flags to compress code and remove symbols.
 4.  Compress images/assets.
 
-**Code Example (Command):**
+**Code Example:**
 ```bash
-flutter build appbundle --obfuscate --split-debug-info=/<project-name>/debug-info
+# Build app bundle (Android)
+flutter build appbundle --target-platform android-arm,android-arm64
+
+# Obfuscate (Optional)
+flutter build apk --obfuscate --split-debug-info=/<project-name>/<directory>
+
+# Analyze size
+flutter build apk --analyze-size
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 7. How do you implement a custom painter for complex drawing?
+### Q7: How do you implement a custom painter for complex drawing?
 
 **Difficulty**: Advanced
 
@@ -291,11 +232,11 @@ class MyPainter extends CustomPainter {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 8. How do you ensure a widget rebuilds only when specific data changes (Selector)?
+### Q8: How do you ensure a widget rebuilds only when specific data changes (Selector)?
 
 **Difficulty**: Intermediate
 
@@ -312,18 +253,18 @@ Selector<UserModel, String>(
 );
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 9. How do you implement deep linking in Flutter (Navigator 2.0)?
+### Q9: How do you implement deep linking in Flutter (Navigator 2.0)?
 
 **Difficulty**: Advanced
 
 **Strategy:**
 Use `MaterialApp.router` with a `RouterDelegate` and `RouteInformationParser` (or use GoRouter). Configure native AndroidManifest/Info.plist to handle intent filters.
 
-**Code Example (GoRouter):**
+**Code Example:**
 ```dart
 final router = GoRouter(
   routes: [
@@ -337,11 +278,11 @@ final router = GoRouter(
 // Native config is still required in android/app/src/main/AndroidManifest.xml
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 10. How do you debug layout issues where widgets have 'unbounded height'?
+### Q10: How do you debug layout issues where widgets have 'unbounded height'?
 
 **Difficulty**: Beginner
 
@@ -363,11 +304,11 @@ ListView(
 )
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 11. How do you use Keys to preserve widget state when the list order changes?
+### Q11: How do you use Keys to preserve widget state when the list order changes?
 
 **Difficulty**: Intermediate
 
@@ -383,11 +324,11 @@ List<Widget> items = [
 // Even if list is shuffled, state for id=1 is preserved
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 12. How do you implement a theme switch (Dark/Light mode) dynamically?
+### Q12: How do you implement a theme switch (Dark/Light mode) dynamically?
 
 **Difficulty**: Beginner
 
@@ -404,11 +345,11 @@ MaterialApp(
 );
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 13. How do you optimize images by caching them?
+### Q13: How do you optimize images by caching them?
 
 **Difficulty**: Beginner
 
@@ -424,11 +365,11 @@ CachedNetworkImage(
 );
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 14. How do you write a unit test for a simple business logic class?
+### Q14: How do you write a unit test for a simple business logic class?
 
 **Difficulty**: Beginner
 
@@ -446,11 +387,11 @@ void main() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 15. How do you handle errors globally in Flutter (e.g., crash reporting)?
+### Q15: How do you handle errors globally in Flutter (e.g., crash reporting)?
 
 **Difficulty**: Intermediate
 
@@ -469,2256 +410,437 @@ void main() {
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 16. How do you implement Code Generation (build_runner) in a scalable Flutter app? (Scenario 16)
+### Q16: How do you perform Dependency Injection using GetIt?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use **Code Generation (build_runner)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Use `GetIt` as a service locator to register and retrieve singletons or factories. This decouples implementation from usage, making testing easier.
 
 **Code Example:**
 ```dart
-// Example setup for Code Generation (build_runner)
-class CodeGeneration(build_runner)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Code Generation (build_runner)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 17. How do you implement Freezed in a scalable Flutter app? (Scenario 17)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Freezed** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Freezed
-class FreezedDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Freezed'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 18. How do you implement JSON Serialization in a scalable Flutter app? (Scenario 18)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **JSON Serialization** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for JSON Serialization
-class JSONSerializationDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of JSON Serialization'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 19. How do you implement Dio Interceptors in a scalable Flutter app? (Scenario 19)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Dio Interceptors** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Dio Interceptors
-class DioInterceptorsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Dio Interceptors'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 20. How do you implement Hive Database in a scalable Flutter app? (Scenario 20)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Hive Database** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Hive Database
-class HiveDatabaseDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Hive Database'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 21. How do you implement SQLite (sqflite) in a scalable Flutter app? (Scenario 21)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **SQLite (sqflite)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for SQLite (sqflite)
-class SQLite(sqflite)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of SQLite (sqflite)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 22. How do you implement Secure Storage in a scalable Flutter app? (Scenario 22)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Secure Storage** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Secure Storage
-class SecureStorageDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Secure Storage'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 23. How do you implement Background Fetch in a scalable Flutter app? (Scenario 23)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Background Fetch** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Background Fetch
-class BackgroundFetchDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Background Fetch'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 24. How do you implement WorkManager in a scalable Flutter app? (Scenario 24)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **WorkManager** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for WorkManager
-class WorkManagerDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of WorkManager'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 25. How do you implement Push Notifications (FCM) in a scalable Flutter app? (Scenario 25)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Push Notifications (FCM)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Push Notifications (FCM)
-class PushNotifications(FCM)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Push Notifications (FCM)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 26. How do you implement WebView in a scalable Flutter app? (Scenario 26)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **WebView** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for WebView
-class WebViewDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of WebView'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 27. How do you implement Google Maps in a scalable Flutter app? (Scenario 27)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Google Maps** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Google Maps
-class GoogleMapsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Google Maps'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 28. How do you implement Camera API in a scalable Flutter app? (Scenario 28)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Camera API** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Camera API
-class CameraAPIDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Camera API'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 29. How do you implement InheritedWidget in a scalable Flutter app? (Scenario 29)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **InheritedWidget** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for InheritedWidget
-class InheritedWidgetDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of InheritedWidget'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 30. How do you implement RenderObjects in a scalable Flutter app? (Scenario 30)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **RenderObjects** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for RenderObjects
-class RenderObjectsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of RenderObjects'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 31. How do you implement Slivers in a scalable Flutter app? (Scenario 31)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Slivers** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Slivers
-class SliversDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Slivers'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 32. How do you implement AnimationController in a scalable Flutter app? (Scenario 32)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **AnimationController** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for AnimationController
-class AnimationControllerDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of AnimationController'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 33. How do you implement Implicit Animations in a scalable Flutter app? (Scenario 33)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Implicit Animations** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Implicit Animations
-class ImplicitAnimationsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Implicit Animations'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 34. How do you implement Hero Animations in a scalable Flutter app? (Scenario 34)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Hero Animations** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Hero Animations
-class HeroAnimationsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Hero Animations'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 35. How do you implement Lottie Integration in a scalable Flutter app? (Scenario 35)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Lottie Integration** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Lottie Integration
-class LottieIntegrationDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Lottie Integration'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 36. How do you implement Flutter Web in a scalable Flutter app? (Scenario 36)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Flutter Web** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Flutter Web
-class FlutterWebDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Flutter Web'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 37. How do you implement Flutter Desktop in a scalable Flutter app? (Scenario 37)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Flutter Desktop** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Flutter Desktop
-class FlutterDesktopDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Flutter Desktop'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 38. How do you implement Accessibility (Semantics) in a scalable Flutter app? (Scenario 38)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Accessibility (Semantics)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Accessibility (Semantics)
-class Accessibility(Semantics)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Accessibility (Semantics)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 39. How do you implement Internationalization (ARB) in a scalable Flutter app? (Scenario 39)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Internationalization (ARB)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Internationalization (ARB)
-class Internationalization(ARB)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Internationalization (ARB)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 40. How do you implement Golden Tests in a scalable Flutter app? (Scenario 40)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Golden Tests** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Golden Tests
-class GoldenTestsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Golden Tests'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 41. How do you implement Integration Tests in a scalable Flutter app? (Scenario 41)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Integration Tests** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Integration Tests
-class IntegrationTestsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Integration Tests'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 42. How do you implement DevTools in a scalable Flutter app? (Scenario 42)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **DevTools** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for DevTools
-class DevToolsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of DevTools'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 43. How do you implement Memory Profiling in a scalable Flutter app? (Scenario 43)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Memory Profiling** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Memory Profiling
-class MemoryProfilingDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Memory Profiling'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 44. How do you implement Widget Inspector in a scalable Flutter app? (Scenario 44)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Widget Inspector** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Widget Inspector
-class WidgetInspectorDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Widget Inspector'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 45. How do you implement Code Generation (build_runner) in a scalable Flutter app? (Scenario 45)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Code Generation (build_runner)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Code Generation (build_runner)
-class CodeGeneration(build_runner)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Code Generation (build_runner)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 46. How do you implement Freezed in a scalable Flutter app? (Scenario 46)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Freezed** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Freezed
-class FreezedDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Freezed'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 47. How do you implement JSON Serialization in a scalable Flutter app? (Scenario 47)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **JSON Serialization** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for JSON Serialization
-class JSONSerializationDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of JSON Serialization'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 48. How do you implement Dio Interceptors in a scalable Flutter app? (Scenario 48)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Dio Interceptors** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Dio Interceptors
-class DioInterceptorsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Dio Interceptors'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 49. How do you implement Hive Database in a scalable Flutter app? (Scenario 49)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Hive Database** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Hive Database
-class HiveDatabaseDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Hive Database'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 50. How do you implement SQLite (sqflite) in a scalable Flutter app? (Scenario 50)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **SQLite (sqflite)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for SQLite (sqflite)
-class SQLite(sqflite)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of SQLite (sqflite)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 51. How do you implement Secure Storage in a scalable Flutter app? (Scenario 51)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Secure Storage** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Secure Storage
-class SecureStorageDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Secure Storage'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 52. How do you implement Background Fetch in a scalable Flutter app? (Scenario 52)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Background Fetch** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Background Fetch
-class BackgroundFetchDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Background Fetch'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 53. How do you implement WorkManager in a scalable Flutter app? (Scenario 53)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **WorkManager** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for WorkManager
-class WorkManagerDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of WorkManager'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 54. How do you implement Push Notifications (FCM) in a scalable Flutter app? (Scenario 54)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Push Notifications (FCM)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Push Notifications (FCM)
-class PushNotifications(FCM)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Push Notifications (FCM)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 55. How do you implement WebView in a scalable Flutter app? (Scenario 55)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **WebView** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for WebView
-class WebViewDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of WebView'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 56. How do you implement Google Maps in a scalable Flutter app? (Scenario 56)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Google Maps** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Google Maps
-class GoogleMapsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Google Maps'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 57. How do you implement Camera API in a scalable Flutter app? (Scenario 57)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Camera API** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Camera API
-class CameraAPIDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Camera API'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 58. How do you implement InheritedWidget in a scalable Flutter app? (Scenario 58)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **InheritedWidget** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for InheritedWidget
-class InheritedWidgetDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of InheritedWidget'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 59. How do you implement RenderObjects in a scalable Flutter app? (Scenario 59)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **RenderObjects** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for RenderObjects
-class RenderObjectsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of RenderObjects'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 60. How do you implement Slivers in a scalable Flutter app? (Scenario 60)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Slivers** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Slivers
-class SliversDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Slivers'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 61. How do you implement AnimationController in a scalable Flutter app? (Scenario 61)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **AnimationController** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for AnimationController
-class AnimationControllerDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of AnimationController'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 62. How do you implement Implicit Animations in a scalable Flutter app? (Scenario 62)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Implicit Animations** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Implicit Animations
-class ImplicitAnimationsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Implicit Animations'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 63. How do you implement Hero Animations in a scalable Flutter app? (Scenario 63)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Hero Animations** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Hero Animations
-class HeroAnimationsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Hero Animations'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 64. How do you implement Lottie Integration in a scalable Flutter app? (Scenario 64)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Lottie Integration** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Lottie Integration
-class LottieIntegrationDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Lottie Integration'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 65. How do you implement Flutter Web in a scalable Flutter app? (Scenario 65)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Flutter Web** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Flutter Web
-class FlutterWebDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Flutter Web'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 66. How do you implement Flutter Desktop in a scalable Flutter app? (Scenario 66)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Flutter Desktop** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Flutter Desktop
-class FlutterDesktopDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Flutter Desktop'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 67. How do you implement Accessibility (Semantics) in a scalable Flutter app? (Scenario 67)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Accessibility (Semantics)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Accessibility (Semantics)
-class Accessibility(Semantics)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Accessibility (Semantics)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 68. How do you implement Internationalization (ARB) in a scalable Flutter app? (Scenario 68)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Internationalization (ARB)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Internationalization (ARB)
-class Internationalization(ARB)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Internationalization (ARB)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 69. How do you implement Golden Tests in a scalable Flutter app? (Scenario 69)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Golden Tests** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Golden Tests
-class GoldenTestsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Golden Tests'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 70. How do you implement Integration Tests in a scalable Flutter app? (Scenario 70)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Integration Tests** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Integration Tests
-class IntegrationTestsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Integration Tests'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 71. How do you implement DevTools in a scalable Flutter app? (Scenario 71)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **DevTools** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for DevTools
-class DevToolsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of DevTools'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 72. How do you implement Memory Profiling in a scalable Flutter app? (Scenario 72)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Memory Profiling** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Memory Profiling
-class MemoryProfilingDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Memory Profiling'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 73. How do you implement Widget Inspector in a scalable Flutter app? (Scenario 73)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Widget Inspector** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Widget Inspector
-class WidgetInspectorDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Widget Inspector'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 74. How do you implement Code Generation (build_runner) in a scalable Flutter app? (Scenario 74)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Code Generation (build_runner)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Code Generation (build_runner)
-class CodeGeneration(build_runner)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Code Generation (build_runner)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 75. How do you implement Freezed in a scalable Flutter app? (Scenario 75)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Freezed** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Freezed
-class FreezedDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Freezed'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 76. How do you implement JSON Serialization in a scalable Flutter app? (Scenario 76)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **JSON Serialization** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for JSON Serialization
-class JSONSerializationDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of JSON Serialization'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 77. How do you implement Dio Interceptors in a scalable Flutter app? (Scenario 77)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Dio Interceptors** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Dio Interceptors
-class DioInterceptorsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Dio Interceptors'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 78. How do you implement Hive Database in a scalable Flutter app? (Scenario 78)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Hive Database** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Hive Database
-class HiveDatabaseDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Hive Database'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 79. How do you implement SQLite (sqflite) in a scalable Flutter app? (Scenario 79)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **SQLite (sqflite)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+final getIt = GetIt.instance;
 
-**Code Example:**
-```dart
-// Example setup for SQLite (sqflite)
-class SQLite(sqflite)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of SQLite (sqflite)'),
-    );
-  }
+void setup() {
+  getIt.registerSingleton<ApiService>(ApiService());
+  getIt.registerFactory<HomeViewModel>(() => HomeViewModel(getIt<ApiService>()));
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 80. How do you implement Secure Storage in a scalable Flutter app? (Scenario 80)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Secure Storage** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
 
-**Code Example:**
-```dart
-// Example setup for Secure Storage
-class SecureStorageDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Secure Storage'),
-    );
-  }
-}
+// Usage
+final viewModel = getIt<HomeViewModel>();
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 81. How do you implement Background Fetch in a scalable Flutter app? (Scenario 81)
+### Q17: How do you use Flutter Hooks to simplify AnimationController management?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use **Background Fetch** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Use `useAnimationController` from `flutter_hooks` to automatically handle the lifecycle (dispose) of the controller, reducing boilerplate code.
 
 **Code Example:**
 ```dart
-// Example setup for Background Fetch
-class BackgroundFetchDemo extends StatelessWidget {
+class HookExample extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Background Fetch'),
+    final controller = useAnimationController(
+      duration: const Duration(seconds: 1),
     );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 82. How do you implement WorkManager in a scalable Flutter app? (Scenario 82)
-
-**Difficulty**: Intermediate
+    
+    useListenable(controller); // Rebuild on change
 
-**Strategy:**
-Use **WorkManager** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for WorkManager
-class WorkManagerDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of WorkManager'),
+    return RotationTransition(
+      turns: controller,
+      child: Container(color: Colors.red, width: 50, height: 50),
     );
   }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 83. How do you implement Push Notifications (FCM) in a scalable Flutter app? (Scenario 83)
+### Q18: How do you communicate with native platform code using MethodChannel?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use **Push Notifications (FCM)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Define a `MethodChannel` with a unique name on both Flutter and Native sides. Use `invokeMethod` from Flutter and `setMethodCallHandler` on Android/iOS to handle calls.
 
 **Code Example:**
 ```dart
-// Example setup for Push Notifications (FCM)
-class PushNotifications(FCM)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Push Notifications (FCM)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
+// Flutter
+static const platform = MethodChannel('com.example.app/battery');
+final int result = await platform.invokeMethod('getBatteryLevel');
 
-### 84. How do you implement WebView in a scalable Flutter app? (Scenario 84)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **WebView** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for WebView
-class WebViewDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of WebView'),
-    );
-  }
+// Android (Kotlin)
+MethodChannel(flutterEngine.dartExecutor, "com.example.app/battery").setMethodCallHandler { call, result ->
+    if (call.method == "getBatteryLevel") {
+        result.success(batteryLevel)
+    } else {
+        result.notImplemented()
+    }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 85. How do you implement Google Maps in a scalable Flutter app? (Scenario 85)
+### Q19: How do you handle keyboard visibility and dismissal efficiently?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use **Google Maps** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Use `GestureDetector` wrapping the Scaffold to unfocus the current focus node when tapping outside. Use `MediaQuery.of(context).viewInsets.bottom` to detect keyboard height.
 
 **Code Example:**
 ```dart
-// Example setup for Google Maps
-class GoogleMapsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Google Maps'),
-    );
-  }
-}
+GestureDetector(
+  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+  child: Scaffold(
+    body: TextField(decoration: InputDecoration(labelText: 'Tap outside to dismiss')),
+  ),
+);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 86. How do you implement Camera API in a scalable Flutter app? (Scenario 86)
+### Q20: How do you implement a SliverAppBar with a floating title?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use **Camera API** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Use a `CustomScrollView` with `SliverAppBar`. Set `floating: true` and `pinned: true` to keep the app bar visible or floating as the user scrolls.
 
 **Code Example:**
 ```dart
-// Example setup for Camera API
-class CameraAPIDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Camera API'),
-    );
-  }
-}
+CustomScrollView(
+  slivers: [
+    SliverAppBar(
+      title: Text('Sliver App Bar'),
+      floating: true,
+      pinned: true,
+      expandedHeight: 200.0,
+      flexibleSpace: FlexibleSpaceBar(
+        background: Image.network('https://via.placeholder.com/350', fit: BoxFit.cover),
+      ),
+    ),
+    SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) => ListTile(title: Text('Item $index')),
+        childCount: 50,
+      ),
+    ),
+  ],
+);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 87. How do you implement InheritedWidget in a scalable Flutter app? (Scenario 87)
+### Q21: How do you make your Flutter app accessible using Semantics?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use **InheritedWidget** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Wrap widgets with `Semantics` to provide descriptions for screen readers. Use properties like `label`, `hint`, and `onTap` to describe interactions.
 
 **Code Example:**
 ```dart
-// Example setup for InheritedWidget
-class InheritedWidgetDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of InheritedWidget'),
-    );
-  }
-}
+Semantics(
+  label: 'Profile Picture',
+  hint: 'Double tap to change photo',
+  button: true,
+  onTap: () => changePhoto(),
+  child: CircleAvatar(backgroundImage: NetworkImage(url)),
+);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 88. How do you implement RenderObjects in a scalable Flutter app? (Scenario 88)
+### Q22: How do you implement internationalization (i18n) using the flutter_localizations package?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use **RenderObjects** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Add `flutter_localizations` dependency. Define ARB files for each language. Generate Dart code using `flutter gen-l10n`. Use `AppLocalizations.of(context)` to access strings.
 
 **Code Example:**
 ```dart
-// Example setup for RenderObjects
-class RenderObjectsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of RenderObjects'),
-    );
-  }
+// l10n.yaml configuration needed
+// app_en.arb
+{
+  "helloWorld": "Hello World!"
 }
-```
 
-[⬆️ Back to Top](#table-of-contents)
+// Usage
+Text(AppLocalizations.of(context)!.helloWorld);
 
----
-
-### 89. How do you implement Slivers in a scalable Flutter app? (Scenario 89)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Slivers** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Slivers
-class SliversDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Slivers'),
-    );
-  }
-}
+// MaterialApp setup
+MaterialApp(
+  localizationsDelegates: AppLocalizations.localizationsDelegates,
+  supportedLocales: AppLocalizations.supportedLocales,
+  home: HomePage(),
+);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 90. How do you implement AnimationController in a scalable Flutter app? (Scenario 90)
+### Q23: How do you write an integration test in Flutter?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use **AnimationController** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Use the `integration_test` package. Create a test file in `integration_test/`, initialize `IntegrationTestWidgetsFlutterBinding`, and use `WidgetTester` to interact with the app.
 
 **Code Example:**
 ```dart
-// Example setup for AnimationController
-class AnimationControllerDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of AnimationController'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
+import 'package:integration_test/integration_test.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:my_app/main.dart' as app;
 
-### 91. How do you implement Implicit Animations in a scalable Flutter app? (Scenario 91)
+void main() {
+  IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-**Difficulty**: Intermediate
+  testWidgets('tap on the floating action button, verify counter', (tester) async {
+    app.main();
+    await tester.pumpAndSettle();
 
-**Strategy:**
-Use **Implicit Animations** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+    final Finder fab = find.byTooltip('Increment');
+    await tester.tap(fab);
+    await tester.pumpAndSettle();
 
-**Code Example:**
-```dart
-// Example setup for Implicit Animations
-class ImplicitAnimationsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Implicit Animations'),
-    );
-  }
+    expect(find.text('1'), findsOneWidget);
+  });
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 92. How do you implement Hero Animations in a scalable Flutter app? (Scenario 92)
+### Q24: How do you debug performance issues using Flutter DevTools?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use **Hero Animations** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Open DevTools and use the 'Performance' tab. Record a trace to analyze UI (Raster) and UI (Dart) thread frames. Look for jank (red bars) and identify expensive build or layout operations.
 
 **Code Example:**
 ```dart
-// Example setup for Hero Animations
-class HeroAnimationsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Hero Animations'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 93. How do you implement Lottie Integration in a scalable Flutter app? (Scenario 93)
-
-**Difficulty**: Intermediate
+// Run app in profile mode for accurate performance data
+flutter run --profile
 
-**Strategy:**
-Use **Lottie Integration** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Lottie Integration
-class LottieIntegrationDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Lottie Integration'),
-    );
-  }
-}
+// Then open DevTools
+// Inspect 'Frame Analysis' to see if 'Build', 'Layout', or 'Paint' is the bottleneck.
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 94. How do you implement Flutter Web in a scalable Flutter app? (Scenario 94)
+### Q25: How do you create a custom animation using TweenAnimationBuilder?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use **Flutter Web** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Use `TweenAnimationBuilder` for simple implicit animations without managing a controller. Define a `Tween` (start/end values) and a `builder` to apply the value.
 
 **Code Example:**
 ```dart
-// Example setup for Flutter Web
-class FlutterWebDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Flutter Web'),
+TweenAnimationBuilder<double>(
+  tween: Tween<double>(begin: 0, end: 1),
+  duration: const Duration(seconds: 2),
+  builder: (context, value, child) {
+    return Opacity(
+      opacity: value,
+      child: Padding(
+        padding: EdgeInsets.all(value * 20),
+        child: child,
+      ),
     );
-  }
-}
+  },
+  child: const Text('Fade In & Move'),
+);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 95. How do you implement Flutter Desktop in a scalable Flutter app? (Scenario 95)
+### Q26: How do you display a floating widget using OverlayEntry?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use **Flutter Desktop** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Insert an `OverlayEntry` into the `Overlay` of the current context. Remember to remove the entry when it's no longer needed.
 
 **Code Example:**
 ```dart
-// Example setup for Flutter Desktop
-class FlutterDesktopDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Flutter Desktop'),
-    );
-  }
-}
-```
+void showFloatingWidget(BuildContext context) {
+  OverlayEntry entry;
+  entry = OverlayEntry(
+    builder: (context) => Positioned(
+      top: 100,
+      right: 20,
+      child: Material(
+        child: Text('Floating!'),
+      ),
+    ),
+  );
 
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 96. How do you implement Accessibility (Semantics) in a scalable Flutter app? (Scenario 96)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Accessibility (Semantics)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Accessibility (Semantics)
-class Accessibility(Semantics)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Accessibility (Semantics)'),
-    );
-  }
+  Overlay.of(context).insert(entry);
+  
+  // Remove later: entry.remove();
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 97. How do you implement Internationalization (ARB) in a scalable Flutter app? (Scenario 97)
+### Q27: How do you optimize rebuilds with ValueListenableBuilder?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use **Internationalization (ARB)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Use `ValueListenableBuilder` to listen to a `ValueNotifier`. This rebuilds only the builder part of the widget tree when the value changes, avoiding full widget rebuilds.
 
 **Code Example:**
 ```dart
-// Example setup for Internationalization (ARB)
-class Internationalization(ARB)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Internationalization (ARB)'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
+final ValueNotifier<int> _counter = ValueNotifier<int>(0);
 
-### 98. How do you implement Golden Tests in a scalable Flutter app? (Scenario 98)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Golden Tests** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
-
-**Code Example:**
-```dart
-// Example setup for Golden Tests
-class GoldenTestsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Golden Tests'),
-    );
-  }
+@override
+Widget build(BuildContext context) {
+  return Scaffold(
+    body: ValueListenableBuilder<int>(
+      valueListenable: _counter,
+      builder: (context, value, child) {
+        // Only this part rebuilds
+        return Text('$value');
+      },
+    ),
+    floatingActionButton: FloatingActionButton(
+      onPressed: () => _counter.value++,
+    ),
+  );
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 99. How do you implement Integration Tests in a scalable Flutter app? (Scenario 99)
+### Q28: How do you handle asynchronous data in Riverpod with AsyncValue?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use **Integration Tests** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Use `ref.watch(provider)` which returns an `AsyncValue`. Use `.when()` to handle `data`, `loading`, and `error` states gracefully in the UI.
 
 **Code Example:**
 ```dart
-// Example setup for Integration Tests
-class IntegrationTestsDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Integration Tests'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 100. How do you implement DevTools in a scalable Flutter app? (Scenario 100)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **DevTools** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+final userProvider = FutureProvider<User>((ref) async {
+  return fetchUser();
+});
 
-**Code Example:**
-```dart
-// Example setup for DevTools
-class DevToolsDemo extends StatelessWidget {
+class UserWidget extends ConsumerWidget {
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of DevTools'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 101. How do you implement Memory Profiling in a scalable Flutter app? (Scenario 101)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Memory Profiling** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+  Widget build(BuildContext context, WidgetRef ref) {
+    final userAsync = ref.watch(userProvider);
 
-**Code Example:**
-```dart
-// Example setup for Memory Profiling
-class MemoryProfilingDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Memory Profiling'),
+    return userAsync.when(
+      data: (user) => Text(user.name),
+      loading: () => CircularProgressIndicator(),
+      error: (err, stack) => Text('Error: $err'),
     );
   }
 }
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 102. How do you implement Widget Inspector in a scalable Flutter app? (Scenario 102)
+### Q29: How do you validate a Form in Flutter?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use **Widget Inspector** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Wrap `TextFormField` widgets in a `Form` widget. Use a `GlobalKey<FormState>`. Assign `validator` functions to fields. Call `_formKey.currentState!.validate()` to check all fields.
 
 **Code Example:**
 ```dart
-// Example setup for Widget Inspector
-class WidgetInspectorDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Widget Inspector'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 103. How do you implement Code Generation (build_runner) in a scalable Flutter app? (Scenario 103)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Code Generation (build_runner)** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+final _formKey = GlobalKey<FormState>();
 
-**Code Example:**
-```dart
-// Example setup for Code Generation (build_runner)
-class CodeGeneration(build_runner)Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Code Generation (build_runner)'),
-    );
-  }
-}
+Form(
+  key: _formKey,
+  child: Column(
+    children: [
+      TextFormField(
+        validator: (value) {
+          if (value == null || value.isEmpty) return 'Please enter text';
+          return null;
+        },
+      ),
+      ElevatedButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            // Process data
+          }
+        },
+        child: Text('Submit'),
+      ),
+    ],
+  ),
+);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### 104. How do you implement Freezed in a scalable Flutter app? (Scenario 104)
+### Q30: How do you embed a native Android/iOS view in Flutter?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use **Freezed** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+Use `AndroidView` (or `PlatformViewLink`) for Android and `UiKitView` for iOS. This allows rendering native components directly within the Flutter widget tree.
 
 **Code Example:**
 ```dart
-// Example setup for Freezed
-class FreezedDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of Freezed'),
-    );
-  }
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 105. How do you implement JSON Serialization in a scalable Flutter app? (Scenario 105)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **JSON Serialization** to solve specific UI or data challenges. Ensure proper cleanup and lifecycle management to avoid leaks.
+// Android
+AndroidView(
+  viewType: 'plugins.example.com/native_view',
+  creationParams: <String, dynamic>{'id': 1},
+  creationParamsCodec: const StandardMessageCodec(),
+);
 
-**Code Example:**
-```dart
-// Example setup for JSON Serialization
-class JSONSerializationDemo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      // Implementation details
-      child: Text('Usage of JSON Serialization'),
-    );
-  }
-}
+// iOS
+UiKitView(
+  viewType: 'plugins.example.com/native_view',
+  creationParams: <String, dynamic>{'id': 1},
+  creationParamsCodec: const StandardMessageCodec(),
+);
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+
