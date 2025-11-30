@@ -50,6 +50,16 @@
 38. [How do you implement Infinite Scroll in Next.js?](#q38-how-do-you-implement-infinite-scroll-in-nextjs) <span class="intermediate">Intermediate</span>
 39. [What is Turbopack?](#q39-what-is-turbopack) <span class="beginner">Beginner</span>
 40. [How do you debug Core Web Vitals in Next.js?](#q40-how-do-you-debug-core-web-vitals-in-nextjs) <span class="intermediate">Intermediate</span>
+41. [How do you generate dynamic Open Graph images using `ImageResponse`?](#q41-how-do-you-generate-dynamic-open-graph-images-using-imageresponse) <span class="advanced">Advanced</span>
+42. [How do you implement Partial Prerendering (PPR)?](#q42-how-do-you-implement-partial-prerendering-ppr) <span class="advanced">Advanced</span>
+43. [How do you configure Content Security Policy (CSP) in Next.js?](#q43-how-do-you-configure-content-security-policy-csp-in-nextjs) <span class="advanced">Advanced</span>
+44. [How do you unit test Server Components with Jest?](#q44-how-do-you-unit-test-server-components-with-jest) <span class="intermediate">Intermediate</span>
+45. [How do you implement E2E testing with Playwright in Next.js?](#q45-how-do-you-implement-e2e-testing-with-playwright-in-nextjs) <span class="intermediate">Intermediate</span>
+46. [How do you use Multi-Zones to split a large Next.js app?](#q46-how-do-you-use-multi-zones-to-split-a-large-nextjs-app) <span class="advanced">Advanced</span>
+47. [How do you run Cron Jobs in a Next.js app (Vercel Cron)?](#q47-how-do-you-run-cron-jobs-in-a-nextjs-app-vercel-cron) <span class="intermediate">Intermediate</span>
+48. [How do you prevent specific pages from being indexed by search engines?](#q48-how-do-you-prevent-specific-pages-from-being-indexed-by-search-engines) <span class="beginner">Beginner</span>
+49. [How do you use `useOptimistic` for instant UI updates?](#q49-how-do-you-use-useoptimistic-for-instant-ui-updates) <span class="advanced">Advanced</span>
+50. [How do you configure a custom build output directory?](#q50-how-do-you-configure-a-custom-build-output-directory) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1059,3 +1069,317 @@ export default function WebVitals() {
 
 ---
 
+
+### Q41: How do you generate dynamic Open Graph images using `ImageResponse`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `ImageResponse` from `next/og`. It allows you to generate images using HTML and CSS (JSX) at the edge.
+
+**Code Example:**
+```javascript
+import { ImageResponse } from 'next/og';
+
+export const runtime = 'edge';
+
+export async function GET() {
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          fontSize: 128,
+          background: 'white',
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        Hello World
+      </div>
+    ),
+    {
+      width: 1200,
+      height: 600,
+    },
+  );
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you implement Partial Prerendering (PPR)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+PPR combines static and dynamic rendering in the same route. Wrap dynamic parts in `<Suspense>`. Enable `ppr` in `next.config.js`.
+
+**Code Example:**
+```javascript
+// next.config.js
+module.exports = {
+  experimental: {
+    ppr: true,
+  },
+};
+
+// Page Component
+export default function Page() {
+  return (
+    <main>
+      <h1>Static Header</h1>
+      <Suspense fallback={<Spinner />}>
+        <DynamicFeed />
+      </Suspense>
+    </main>
+  );
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you configure Content Security Policy (CSP) in Next.js?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Set the `Content-Security-Policy` header in `middleware.ts`. Use nonces for inline scripts.
+
+**Code Example:**
+```javascript
+// middleware.ts
+import { NextResponse } from 'next/server';
+
+export function middleware(request) {
+  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
+  const cspHeader = `
+    default-src 'self';
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
+    style-src 'self' 'nonce-${nonce}';
+    img-src 'self' blob: data:;
+    font-src 'self';
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    block-all-mixed-content;
+    upgrade-insecure-requests;
+  `;
+
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-nonce', nonce);
+  requestHeaders.set('Content-Security-Policy', cspHeader.replace(/\s{2,}/g, ' ').trim());
+
+  return NextResponse.next({
+    headers: requestHeaders,
+    request: {
+      headers: requestHeaders,
+    },
+  });
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you unit test Server Components with Jest?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Since Server Components are async, you need to mock the data fetching. Use `render` from `@testing-library/react` for the component, ensuring you `await` the component if testing it directly (experimental) or test the child components.
+
+**Code Example:**
+```javascript
+import Page from './page';
+import { render, screen } from '@testing-library/react';
+
+// Mock fetch or db call
+jest.mock('./api', () => ({
+  getData: jest.fn(() => Promise.resolve({ title: 'Test' })),
+}));
+
+test('renders page', async () => {
+  const ui = await Page(); // Call async component directly
+  render(ui);
+  expect(screen.getByText('Test')).toBeInTheDocument();
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you implement E2E testing with Playwright in Next.js?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `@playwright/test`. Start the Next.js dev server or build/start for production tests.
+
+**Code Example:**
+```javascript
+// tests/example.spec.ts
+import { test, expect } from '@playwright/test';
+
+test('has title', async ({ page }) => {
+  await page.goto('http://localhost:3000/');
+  await expect(page).toHaveTitle(/Create Next App/);
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you use Multi-Zones to split a large Next.js app?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `rewrites` in `next.config.js` to map specific paths to different Next.js apps (zones). This allows micro-frontend architecture.
+
+**Code Example:**
+```javascript
+// next.config.js
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/blog',
+        destination: 'https://blog.my-app.com/blog',
+      },
+      {
+        source: '/blog/:path*',
+        destination: 'https://blog.my-app.com/blog/:path*',
+      },
+    ];
+  },
+};
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you run Cron Jobs in a Next.js app (Vercel Cron)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Create a `vercel.json` file and define `crons`. Point them to an API route.
+
+**Code Example:**
+```javascript
+// vercel.json
+{
+  "crons": [
+    {
+      "path": "/api/cron",
+      "schedule": "0 10 * * *"
+    }
+  ]
+}
+
+// app/api/cron/route.ts
+export async function GET() {
+  // Perform scheduled task
+  return new Response('Cron job executed');
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you prevent specific pages from being indexed by search engines?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Export a `metadata` object with `robots: { index: false }`.
+
+**Code Example:**
+```javascript
+export const metadata = {
+  title: 'Private Page',
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you use `useOptimistic` for instant UI updates?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use the `useOptimistic` hook to show a state immediately while a Server Action is pending. It reverts automatically if the action fails.
+
+**Code Example:**
+```javascript
+'use client';
+import { useOptimistic } from 'react';
+import { sendName } from './actions';
+
+export default function Form({ currentName }) {
+  const [optimisticName, addOptimisticName] = useOptimistic(
+    currentName,
+    (state, newName) => newName
+  );
+
+  async function action(formData) {
+    const name = formData.get('name');
+    addOptimisticName(name);
+    await sendName(name);
+  }
+
+  return (
+    <form action={action}>
+      <p>Name: {optimisticName}</p>
+      <input name="name" />
+    </form>
+  );
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you configure a custom build output directory?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Set `distDir` in `next.config.js`.
+
+**Code Example:**
+```javascript
+// next.config.js
+module.exports = {
+  distDir: 'build',
+};
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---

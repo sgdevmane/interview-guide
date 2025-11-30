@@ -60,6 +60,16 @@
 48. [How do you serve private content via CloudFront?](#q48-how-do-you-serve-private-content-via-cloudfront) <span class="advanced">Advanced</span>
 49. [How do you mount a shared file system to multiple EC2 instances?](#q49-how-do-you-mount-a-shared-file-system-to-multiple-ec2-instances) <span class="beginner">Beginner</span>
 50. [How do you create a private connection between your on-premises data center and VPC?](#q50-how-do-you-create-a-private-connection-between-your-on-premises-data-center-and-vpc) <span class="intermediate">Intermediate</span>
+51. [How do you implement Blue/Green deployment with ECS CodeDeploy?](#q51-how-do-you-implement-bluegreen-deployment-with-ecs-codedeploy) <span class="advanced">Advanced</span>
+52. [How do you use AWS Backup to automate cross-region backups?](#q52-how-do-you-use-aws-backup-to-automate-cross-region-backups) <span class="intermediate">Intermediate</span>
+53. [How do you use AWS X-Ray for distributed tracing?](#q53-how-do-you-use-aws-x-ray-for-distributed-tracing) <span class="intermediate">Intermediate</span>
+54. [How do you use AWS Organizations to manage multiple accounts?](#q54-how-do-you-use-aws-organizations-to-manage-multiple-accounts) <span class="intermediate">Intermediate</span>
+55. [How do you use S3 Object Lambda to modify data on retrieval?](#q55-how-do-you-use-s3-object-lambda-to-modify-data-on-retrieval) <span class="advanced">Advanced</span>
+56. [How do you use Athena to analyze VPC Flow Logs?](#q56-how-do-you-use-athena-to-analyze-vpc-flow-logs) <span class="intermediate">Intermediate</span>
+57. [How do you use Kinesis Data Firehose to transform and load data?](#q57-how-do-you-use-kinesis-data-firehose-to-transform-and-load-data) <span class="intermediate">Intermediate</span>
+58. [How do you use Amazon Macie to discover sensitive data?](#q58-how-do-you-use-amazon-macie-to-discover-sensitive-data) <span class="beginner">Beginner</span>
+59. [How do you use SSM Parameter Store Hierarchy?](#q59-how-do-you-use-ssm-parameter-store-hierarchy) <span class="intermediate">Intermediate</span>
+60. [How do you use AWS WAF to block SQL Injection attacks?](#q60-how-do-you-use-aws-waf-to-block-sql-injection-attacks) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1304,6 +1314,250 @@ resource "aws_vpn_connection" "main" {
   customer_gateway_id = aws_customer_gateway.customer_gw.id
   type                = "ipsec.1"
   static_routes_only  = true
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+### Q51: How do you implement Blue/Green deployment with ECS CodeDeploy?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use CodeDeploy with ECS. Define a `TaskSet` and a Load Balancer. CodeDeploy shifts traffic from the Blue target group to the Green target group gradually.
+
+**Code Example:**
+```yaml
+# appspec.yaml
+version: 0.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:..."
+        LoadBalancerInfo:
+          ContainerName: "my-app"
+          ContainerPort: 80
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q52: How do you use AWS Backup to automate cross-region backups?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Create a Backup Plan in AWS Backup. Add a rule to copy recovery points to a destination vault in another region for DR compliance.
+
+**Code Example:**
+```bash
+# Terraform
+resource "aws_backup_plan" "example" {
+  name = "cross-region-backup"
+  rule {
+    rule_name = "daily"
+    target_vault_name = aws_backup_vault.primary.name
+    schedule = "cron(0 12 * * ? *)"
+    copy_action {
+      destination_vault_arn = aws_backup_vault.secondary.arn
+    }
+  }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q53: How do you use AWS X-Ray for distributed tracing?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Instrument your application using the X-Ray SDK. Enable X-Ray tracing on Lambda or ECS. It visualizes the service map and latency bottlenecks.
+
+**Code Example:**
+```bash
+from aws_xray_sdk.core import xray_recorder
+
+@xray_recorder.capture('process_record')
+def process_record(record):
+    # ... logic
+    pass
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q54: How do you use AWS Organizations to manage multiple accounts?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use AWS Organizations to consolidate billing, apply Service Control Policies (SCPs) to restrict actions across accounts, and automate account creation.
+
+**Code Example:**
+```bash
+# SCP to deny leaving the organization
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": ["organizations:LeaveOrganization"],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q55: How do you use S3 Object Lambda to modify data on retrieval?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+S3 Object Lambda allows you to add your own code to S3 GET requests. Use it to redact PII, resize images, or convert data formats on the fly.
+
+**Code Example:**
+```bash
+def lambda_handler(event, context):
+    # Get original object
+    response = requests.get(event['inputS3Url'])
+    original_data = response.text
+    
+    # Modify
+    transformed_data = original_data.upper()
+    
+    # Write back
+    s3.write_get_object_response(
+        RequestRoute=event['outputRoute'],
+        RequestToken=event['outputToken'],
+        Body=transformed_data
+    )
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: How do you use Athena to analyze VPC Flow Logs?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Publish VPC Flow Logs to S3. Create an Athena table mapped to the S3 path. Run SQL queries to troubleshoot connectivity or detect threats.
+
+**Code Example:**
+```bash
+SELECT interface_id, srcaddr, dstaddr, action, count(*) as count
+FROM vpc_flow_logs
+WHERE action = 'REJECT'
+GROUP BY interface_id, srcaddr, dstaddr, action
+ORDER BY count DESC
+LIMIT 10;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q57: How do you use Kinesis Data Firehose to transform and load data?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Firehose delivers streaming data to destinations like S3, Redshift, or OpenSearch. It can transform data using Lambda (e.g., JSON to Parquet) before delivery.
+
+**Code Example:**
+```bash
+# Terraform
+resource "aws_kinesis_firehose_delivery_stream" "extended_s3_stream" {
+  name        = "terraform-kinesis-firehose-extended-s3-test-stream"
+  destination = "extended_s3"
+
+  extended_s3_configuration {
+    role_arn   = aws_iam_role.firehose_role.arn
+    bucket_arn = aws_s3_bucket.bucket.arn
+    processing_configuration {
+      enabled = "true"
+      processors {
+        type = "Lambda"
+        parameters {
+          parameter_name  = "LambdaArn"
+          parameter_value = aws_lambda_function.lambda_processor.arn
+        }
+      }
+    }
+  }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q58: How do you use Amazon Macie to discover sensitive data?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Enable Macie on your S3 buckets. It uses ML to automatically classify and discover sensitive data (PII, keys) and generates findings.
+
+**Code Example:**
+```bash
+aws macie2 create-classification-job     --job-type ONE_TIME     --name "FindPII"     --s3-job-definition BucketDefinitions=[{AccountId=123456789012,Buckets=[my-bucket]}]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q59: How do you use SSM Parameter Store Hierarchy?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Organize parameters using paths (e.g., `/dev/db/password`, `/prod/db/password`). You can then retrieve all parameters under a path recursively.
+
+**Code Example:**
+```bash
+aws ssm get-parameters-by-path     --path "/prod/service-a/"     --recursive     --with-decryption
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q60: How do you use AWS WAF to block SQL Injection attacks?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use the AWS Managed Ruleset `AWSManagedRulesSQLiRuleSet` in your Web ACL. It contains pre-configured rules to detect common SQL injection patterns.
+
+**Code Example:**
+```bash
+{
+  "Name": "AWS-AWSManagedRulesSQLiRuleSet",
+  "Priority": 0,
+  "Statement": {
+    "ManagedRuleGroupStatement": {
+      "VendorName": "AWS",
+      "Name": "AWSManagedRulesSQLiRuleSet"
+    }
+  },
+  "OverrideAction": { "None": {} },
+  "VisibilityConfig": { ... }
 }
 ```
 

@@ -979,10 +979,28 @@ Assign IAM roles with only necessary permissions. Avoid wildcard (`*`) permissio
 **Difficulty**: Advanced
 
 **Strategy:**
-Never trust, always verify. Authenticate and authorize every request, regardless of origin (internal vs external network).
+Never trust, always verify. Authenticate and authorize every request, regardless of origin (internal vs external network). Use mTLS for service-to-service communication.
 
 **Code Example:**
-// Verify identity on every microservice call
+```javascript
+// Service A calling Service B
+const certs = {
+  key: fs.readFileSync('service-a-key.pem'),
+  cert: fs.readFileSync('service-a-cert.pem'),
+  ca: fs.readFileSync('ca-crt.pem')
+};
+
+// Service B verifies Service A's certificate
+const server = https.createServer({ ...certs, requestCert: true, rejectUnauthorized: true }, (req, res) => {
+  const cert = req.socket.getPeerCertificate();
+  if (req.client.authorized) {
+    res.end(`Hello ${cert.subject.CN}, you are authorized.`);
+  } else {
+    res.statusCode = 401;
+    res.end('Unauthorized');
+  }
+});
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -993,10 +1011,23 @@ Never trust, always verify. Authenticate and authorize every request, regardless
 **Difficulty**: Advanced
 
 **Strategy:**
-Use a KMS (Key Management Service) with automatic rotation enabled. Ensure apps fetch the latest key version dynamically.
+Use a KMS (Key Management Service) with automatic rotation enabled. Ensure apps fetch the latest key version dynamically or use an alias that points to the current key.
 
 **Code Example:**
-// AWS KMS auto-rotation enabled
+```javascript
+const { KMSClient, EncryptCommand } = require("@aws-sdk/client-kms");
+const client = new KMSClient({ region: "us-west-2" });
+
+async function encryptData(data) {
+  // Always uses the current backing key for the alias
+  const command = new EncryptCommand({
+    KeyId: "alias/my-key-alias", 
+    Plaintext: Buffer.from(data)
+  });
+  const response = await client.send(command);
+  return response.CiphertextBlob;
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1007,11 +1038,21 @@ Use a KMS (Key Management Service) with automatic rotation enabled. Ensure apps 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use tools like `git-secrets`, `trufflehog`, or GitHub Secret Scanning.
+Use tools like `git-secrets`, `trufflehog`, or GitHub Secret Scanning as a pre-commit hook or CI step.
 
 **Code Example:**
-git secrets --install
-git secrets --register_aws
+```bash
+# Install git-secrets
+brew install git-secrets
+
+# Register AWS patterns
+git secrets --register-aws
+
+# Scan repo
+git secrets --scan
+
+# Pre-commit hook is installed automatically to prevent committing secrets
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1022,11 +1063,26 @@ git secrets --register_aws
 **Difficulty**: Intermediate
 
 **Strategy:**
-Sanitize input used in LDAP filters. Escape special characters like `(`, `)`, `*`, `\`.
+Sanitize input used in LDAP filters. Escape special characters like `(`, `)`, `*`, `\`, `NUL`.
 
 **Code Example:**
-const cleanInput = input.replace(/([()*\])/g, '\\$1');
-const filter = `(uid=${cleanInput})`;
+```javascript
+function escapeLDAP(input) {
+  return input.replace(/[ \(\)\*\]/g, (char) => {
+    switch (char) {
+      case '(': return '\28';
+      case ')': return '\29';
+      case '*': return '\2a';
+      case '\': return '\5c';
+      case ' ': return '\00';
+      default: return char;
+    }
+  });
+}
+
+const safeUser = escapeLDAP(userInput);
+const filter = `(uid=${safeUser})`;
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1038,11 +1094,13 @@ const filter = `(uid=${cleanInput})`;
 
 **Strategy:**
 - `Referrer-Policy`: Controls how much referrer info is sent (`no-referrer`, `strict-origin`).
-- `Permissions-Policy`: Controls browser features (camera, geolocation).
+- `Permissions-Policy`: Controls browser features (camera, geolocation) to reduce attack surface.
 
 **Code Example:**
+```http
 Referrer-Policy: strict-origin-when-cross-origin
-Permissions-Policy: camera=(), geolocation=()
+Permissions-Policy: camera=(), geolocation=(), microphone=()
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1056,7 +1114,16 @@ Permissions-Policy: camera=(), geolocation=()
 Install Docker Rootless. It runs the daemon and containers as a non-root user, mitigating container breakout attacks.
 
 **Code Example:**
+```bash
+# Install
 dockerd-rootless-setuptool.sh install
+
+# Export DOCKER_HOST
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
+
+# Run container (runs as user 1000 on host)
+docker run -d -p 8080:80 nginx
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1070,10 +1137,19 @@ dockerd-rootless-setuptool.sh install
 It prevents authorization code interception attacks on public clients (mobile/SPA) by requiring a `code_verifier` during the token exchange.
 
 **Code Example:**
-// Mobile App
-const verifier = generateVerifier();
-const challenge = generateChallenge(verifier);
-// Auth URL includes &code_challenge=...
+```javascript
+// 1. Generate Code Verifier
+const verifier = base64URLEncode(crypto.randomBytes(32));
+
+// 2. Generate Code Challenge
+const challenge = base64URLEncode(sha256(verifier));
+
+// 3. Send Challenge in Auth Request
+// GET /authorize?response_type=code&code_challenge=challenge&code_challenge_method=S256
+
+// 4. Send Verifier in Token Request
+// POST /token (code, code_verifier=verifier)
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1084,10 +1160,17 @@ const challenge = generateChallenge(verifier);
 **Difficulty**: Intermediate
 
 **Strategy:**
-Minimize collection. Encrypt at rest. Mask in logs. Implement retention policies.
+Minimize collection. Encrypt at rest (DB). Encrypt in transit. Mask in logs. Implement data retention policies.
 
 **Code Example:**
-logger.info(`User login: ${maskEmail(email)}`); // u***@domain.com
+```javascript
+function logUserAction(user, action) {
+  const maskedEmail = user.email.replace(/(^.{2}).+(@.+)/, '$1***$2');
+  logger.info(`User ${maskedEmail} performed ${action}`);
+}
+
+// Output: User jo***@example.com performed login
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1098,10 +1181,20 @@ logger.info(`User login: ${maskEmail(email)}`); // u***@domain.com
 **Difficulty**: Intermediate
 
 **Strategy:**
-Don't store them in the app. Use a proxy server (Backend-for-Frontend) to hold the keys and forward requests.
+Don't store them in the app. Use a proxy server (Backend-for-Frontend) to hold the keys and forward requests. Use App Attestation to verify the request comes from your genuine app.
 
 **Code Example:**
-// Mobile -> MyProxy -> ThirdPartyAPI
+```javascript
+// Mobile App -> Calls YOUR Backend (Authenticated)
+await fetch('https://api.myapp.com/weather');
+
+// Your Backend -> Calls 3rd Party API (Injects Key)
+app.get('/weather', (req, res) => {
+  const apiKey = process.env.WEATHER_API_KEY;
+  const data = await fetch(`https://weather.com/api?key=${apiKey}`);
+  res.json(data);
+});
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1112,11 +1205,19 @@ Don't store them in the app. Use a proxy server (Backend-for-Frontend) to hold t
 **Difficulty**: Beginner
 
 **Strategy:**
-Use HTTPS everywhere. Use HSTS. Validate certificates properly (don't disable SSL verification).
+Use HTTPS everywhere. Use HSTS. Validate certificates properly (don't disable SSL verification). Use Certificate Pinning (for mobile apps).
 
 **Code Example:**
-// Disable strict SSL (BAD)
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; // NEVER DO THIS
+```javascript
+// ❌ BAD: Disabling SSL verification
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; 
+
+// ✅ GOOD: Default behavior verifies CA chain.
+// For Certificate Pinning in Node.js:
+const agent = new https.Agent({
+  ca: fs.readFileSync('expected-cert.pem') // Only trust this cert/CA
+});
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1130,8 +1231,19 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; // NEVER DO THIS
 Use constant-time comparison functions for secrets (hashes, tokens). Regular string comparison returns early on mismatch, leaking length/content info.
 
 **Code Example:**
+```javascript
 const crypto = require('crypto');
-const match = crypto.timingSafeEqual(buff1, buff2);
+
+function checkToken(userToken, secretToken) {
+  const buf1 = Buffer.from(userToken);
+  const buf2 = Buffer.from(secretToken);
+  
+  if (buf1.length !== buf2.length) return false; // Leak length (acceptable trade-off sometimes)
+  
+  // ✅ Constant-time comparison
+  return crypto.timingSafeEqual(buf1, buf2);
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1142,10 +1254,28 @@ const match = crypto.timingSafeEqual(buff1, buff2);
 **Difficulty**: Advanced
 
 **Strategy:**
-Write logs to a Write-Once-Read-Many (WORM) storage. Use HMAC chaining to detect tampering.
+Write logs to a Write-Once-Read-Many (WORM) storage (e.g., S3 Object Lock). Use HMAC chaining to detect tampering.
 
 **Code Example:**
-// Append hash of previous log entry to current entry
+```javascript
+// Conceptual HMAC Chaining
+let previousHash = '0000';
+
+function writeLog(entry) {
+  const logEntry = {
+    ...entry,
+    prevHash: previousHash,
+    timestamp: Date.now()
+  };
+  
+  const currentHash = crypto.createHmac('sha256', secret)
+                            .update(JSON.stringify(logEntry))
+                            .digest('hex');
+                            
+  previousHash = currentHash;
+  db.saveLog(logEntry, currentHash);
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1159,9 +1289,21 @@ Write logs to a Write-Once-Read-Many (WORM) storage. Use HMAC chaining to detect
 Generate a cryptographically strong random token. Store hash of token with expiration. Send link. Verify token hash. Don't reuse tokens.
 
 **Code Example:**
+```javascript
+// 1. Generate
 const token = crypto.randomBytes(32).toString('hex');
-const hash = hashToken(token);
-await db.saveResetToken(userId, hash, Date.now() + 3600000);
+const hash = await argon2.hash(token);
+
+// 2. Store
+await db.saveResetToken(userId, hash, Date.now() + 3600000); // 1 hr expiry
+
+// 3. Send Link
+sendEmail(user.email, `https://app.com/reset?token=${token}`);
+
+// 4. Verify
+const isValid = await argon2.verify(storedHash, inputToken);
+if (isValid && !isExpired) { /* Allow reset */ }
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1175,12 +1317,19 @@ await db.saveResetToken(userId, hash, Date.now() + 3600000);
 Use TLS for transport security. Use Call Credentials (tokens) for authentication. Use Interceptors for authorization.
 
 **Code Example:**
-// gRPC Interceptor
-const authInterceptor = (options, nextCall) => {
-  const metadata = new Metadata();
-  metadata.add('Authorization', `Bearer ${token}`);
-  return new InterceptingCall(nextCall(options), new AuthListener());
-};
+```javascript
+// Server
+const server = new grpc.Server();
+const credentials = grpc.ServerCredentials.createSsl(
+  fs.readFileSync('ca.crt'), 
+  [{
+    private_key: fs.readFileSync('server.key'),
+    cert_chain: fs.readFileSync('server.crt')
+  }], 
+  true // Request client cert (mTLS)
+);
+server.bindAsync('0.0.0.0:50051', credentials, () => server.start());
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1191,13 +1340,26 @@ const authInterceptor = (options, nextCall) => {
 **Difficulty**: Beginner
 
 **Strategy:**
-Avoid `Access-Control-Allow-Origin: *`. Allow specific origins. Handle preflight requests (`OPTIONS`).
+Avoid `Access-Control-Allow-Origin: *` if auth is involved. Allow specific origins. Handle preflight requests (`OPTIONS`).
 
 **Code Example:**
+```javascript
+const cors = require('cors');
+
 const corsOptions = {
-  origin: 'https://trusted.com',
-  methods: ['GET', 'POST']
+  origin: (origin, callback) => {
+    const allowedOrigins = ['https://myapp.com', 'https://admin.myapp.com'];
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true // Allow cookies
 };
+
+app.use(cors(corsOptions));
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1211,9 +1373,14 @@ const corsOptions = {
 Ensures that files fetched from CDNs haven't been modified. Use the `integrity` attribute with a hash.
 
 **Code Example:**
-<script src="https://cdn.com/lib.js" 
-  integrity="sha384-..." 
-  crossorigin="anonymous"></script>
+```html
+<!-- Generate hash: openssl dgst -sha384 -binary lib.js | openssl base64 -A -->
+<script 
+  src="https://cdn.example.com/library.js"
+  integrity="sha384-Li9vy3DqF8tnTXuiaAJuML3ky+er10rcgNR/VqsVpcw+ThHmYcwiB1pbOxEbzJr7"
+  crossorigin="anonymous">
+</script>
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1227,9 +1394,20 @@ Ensures that files fetched from CDNs haven't been modified. Use the `integrity` 
 Validate the `Host` header against a whitelist of allowed domains. Configure the web server to drop requests with unknown hosts.
 
 **Code Example:**
-// Nginx
-server_name mysite.com;
-if ($host != "mysite.com") { return 444; }
+```nginx
+# Nginx Configuration
+server {
+  listen 80;
+  server_name example.com; # Only accept this host
+  
+  # Default catch-all for unknown hosts
+}
+
+server {
+  listen 80 default_server;
+  return 444; # Drop connection
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1243,8 +1421,23 @@ if ($host != "mysite.com") { return 444; }
 Normalize paths using `path.normalize`. Ensure the resolved path starts with the expected root directory.
 
 **Code Example:**
-const safePath = path.normalize(userInput);
-if (!safePath.startsWith(baseDir)) throw new Error('Traversal detected');
+```javascript
+const path = require('path');
+const baseDir = path.resolve('/var/www/uploads');
+
+app.get('/file', (req, res) => {
+  const filename = req.query.name;
+  const fullPath = path.join(baseDir, filename);
+  const normalizedPath = path.normalize(fullPath);
+
+  // ✅ Ensure we are still inside baseDir
+  if (!normalizedPath.startsWith(baseDir)) {
+    return res.status(403).send('Access Denied');
+  }
+
+  res.sendFile(normalizedPath);
+});
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1255,10 +1448,21 @@ if (!safePath.startsWith(baseDir)) throw new Error('Traversal detected');
 **Difficulty**: Advanced
 
 **Strategy:**
-Avoid deserializing untrusted data (e.g., Java `ObjectInputStream`, Python `pickle`). Use safe formats like JSON. Sign/Encrypt data if serialization is needed.
+Avoid deserializing untrusted data (e.g., Java `ObjectInputStream`, Python `pickle`). Use safe formats like JSON. If serialization is needed, sign the data.
 
 **Code Example:**
-// Avoid 'node-serialize' with untrusted input
+```javascript
+// ❌ BAD: Using 'node-serialize' on user input
+// const obj = serialize.unserialize(req.body.data);
+
+// ✅ GOOD: Use JSON.parse
+try {
+  const obj = JSON.parse(req.body.data);
+  // Validate structure
+} catch (e) {
+  // Handle error
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1269,12 +1473,29 @@ Avoid deserializing untrusted data (e.g., Java `ObjectInputStream`, Python `pick
 **Difficulty**: Advanced
 
 **Strategy:**
-Layer multiple security controls (WAF -> Load Balancer -> App Auth -> DB Permissions -> Encryption). If one fails, others protect the system.
+Layer multiple security controls. If one fails, others protect the system.
+1.  **Network:** WAF, VPC, Private Subnets.
+2.  **App:** Input Validation, Authentication, Authorization.
+3.  **Data:** Encryption at rest/transit, Backups.
+4.  **Monitoring:** Audit logs, Alerts.
 
 **Code Example:**
-// Strategy pattern, no single code snippet.
+```javascript
+// Example of layered defense for an API endpoint:
+app.post('/transfer',
+  rateLimiter,          // Layer 1: Availability
+  authenticateToken,    // Layer 2: Identity
+  authorizeRole('user'),// Layer 3: Access Control
+  validateInput,        // Layer 4: Integrity
+  async (req, res) => {
+    // Layer 5: Logic & Data Security
+    await db.transaction(async (trx) => {
+      // ...
+    });
+  }
+);
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-

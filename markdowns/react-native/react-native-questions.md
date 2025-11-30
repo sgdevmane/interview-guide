@@ -55,6 +55,40 @@
 
 ---
 
+### Q1: How do you optimize the performance of a long FlatList with thousands of items?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+1.  **getItemLayout**: Skip measurement calculation.
+2.  **windowSize**: Reduce render window (default 21).
+3.  **removeClippedSubviews**: Unmount off-screen views (Android).
+4.  **initialNumToRender**: Render fewer items initially.
+5.  **maxToRenderPerBatch**: Control batch size.
+6.  **Memoization**: Use `React.memo` for renderItem.
+
+**Code Example:**
+```javascript
+const renderItem = React.useCallback(({ item }) => <Item title={item.title} />, []);
+
+<FlatList
+  data={data}
+  renderItem={renderItem}
+  keyExtractor={item => item.id}
+  getItemLayout={(data, index) => (
+    {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+  )}
+  windowSize={5}
+  initialNumToRender={10}
+  maxToRenderPerBatch={10}
+  removeClippedSubviews={true}
+/>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
 ### Q2: How do you implement platform-specific code for iOS and Android?
 
 **Difficulty**: Beginner

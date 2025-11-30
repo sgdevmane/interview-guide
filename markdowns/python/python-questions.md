@@ -70,6 +70,16 @@
 58. [How do you use Python's bisect module for binary search?](#q58-how-do-you-use-pythons-bisect-module-for-binary-search) <span class="intermediate">Intermediate</span>
 59. [How do you profile a Python script to find bottlenecks?](#q59-how-do-you-profile-a-python-script-to-find-bottlenecks) <span class="advanced">Advanced</span>
 60. [How do you implement a Context Manager as a Class?](#q60-how-do-you-implement-a-context-manager-as-a-class) <span class="intermediate">Intermediate</span>
+61. [How do you use pathlib for modern file path handling?](#q61-how-do-you-use-pathlib-for-modern-file-path-handling) <span class="beginner">Beginner</span>
+62. [How do you use the secrets module for secure random generation?](#q62-how-do-you-use-the-secrets-module-for-secure-random-generation) <span class="intermediate">Intermediate</span>
+63. [How do you format dates and numbers using f-strings?](#q63-how-do-you-format-dates-and-numbers-using-f-strings) <span class="beginner">Beginner</span>
+64. [How do you use collections.deque for efficient queues?](#q64-how-do-you-use-collectionsdeque-for-efficient-queues) <span class="intermediate">Intermediate</span>
+65. [How do you use asyncio.Queue for producer-consumer patterns?](#q65-how-do-you-use-asyncioqueue-for-producer-consumer-patterns) <span class="advanced">Advanced</span>
+66. [How do you use operator.itemgetter for sorting?](#q66-how-do-you-use-operatoritemgetter-for-sorting) <span class="intermediate">Intermediate</span>
+67. [How do you use contextlib.suppress to ignore exceptions?](#q67-how-do-you-use-contextlibsuppress-to-ignore-exceptions) <span class="intermediate">Intermediate</span>
+68. [How do you use enum.Enum for defining constants?](#q68-how-do-you-use-enumenum-for-defining-constants) <span class="beginner">Beginner</span>
+69. [How do you use typing.Optional vs Union[T, None]?](#q69-how-do-you-use-typingoptional-vs-uniont-none) <span class="intermediate">Intermediate</span>
+70. [How do you use the inspect module to introspect code?](#q70-how-do-you-use-the-inspect-module-to-introspect-code) <span class="advanced">Advanced</span>
 
 ---
 
@@ -1488,6 +1498,243 @@ class FileManager:
 
     def __exit__(self, type, value, traceback):
         self.f.close()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+### Q61: How do you use pathlib for modern file path handling?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`pathlib` offers an object-oriented approach to filesystem paths, replacing `os.path`. It makes path manipulation more readable and cross-platform.
+
+**Code Example:**
+```python
+from pathlib import Path
+
+path = Path("data") / "file.txt"
+path.write_text("Hello")
+
+if path.exists():
+    print(path.read_text())
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q62: How do you use the secrets module for secure random generation?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `secrets` instead of `random` for generating passwords, tokens, or keys, as it uses the OS's CSPRNG.
+
+**Code Example:**
+```python
+import secrets
+
+token = secrets.token_hex(16)
+password = secrets.choice("abcdef123456")
+
+print(f"Secure Token: {token}")
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q63: How do you format dates and numbers using f-strings?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+F-strings support format specifiers inside the curly braces, allowing you to format dates, floating-point numbers, and padding directly.
+
+**Code Example:**
+```python
+import datetime
+
+now = datetime.datetime.now()
+pi = 3.14159
+
+print(f"Date: {now:%Y-%m-%d}")
+print(f"Pi: {pi:.2f}")
+print(f"Pad: {42:05d}") # 00042
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q64: How do you use collections.deque for efficient queues?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`deque` (double-ended queue) allows O(1) appends and pops from both ends, making it faster than a list for queue operations.
+
+**Code Example:**
+```python
+from collections import deque
+
+d = deque([1, 2, 3])
+d.appendleft(0)
+d.pop()
+
+print(d) # deque([0, 1, 2])
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q65: How do you use asyncio.Queue for producer-consumer patterns?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `asyncio.Queue` to safely exchange data between async tasks (producers and consumers) without locking.
+
+**Code Example:**
+```python
+import asyncio
+
+async def worker(queue):
+    while True:
+        item = await queue.get()
+        print(f"Processed {item}")
+        queue.task_done()
+
+async def main():
+    queue = asyncio.Queue()
+    asyncio.create_task(worker(queue))
+    
+    await queue.put(1)
+    await queue.put(2)
+    await queue.join() # Wait for completion
+
+asyncio.run(main())
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q66: How do you use operator.itemgetter for sorting?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`operator.itemgetter` creates a callable that fetches an item from its operand. It's faster and cleaner than a lambda for sorting by a specific key.
+
+**Code Example:**
+```python
+from operator import itemgetter
+
+data = [{'name': 'B', 'age': 20}, {'name': 'A', 'age': 30}]
+sorted_data = sorted(data, key=itemgetter('name'))
+
+print(sorted_data)
+# [{'name': 'A', 'age': 30}, {'name': 'B', 'age': 20}]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q67: How do you use contextlib.suppress to ignore exceptions?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`contextlib.suppress` is a context manager that suppresses specified exceptions, avoiding verbose `try-except-pass` blocks.
+
+**Code Example:**
+```python
+import os
+from contextlib import suppress
+
+with suppress(FileNotFoundError):
+    os.remove("non_existent_file.txt")
+    
+# Execution continues without error
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q68: How do you use enum.Enum for defining constants?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `Enum` to define a set of symbolic names bound to unique, constant values. It improves code readability and type safety.
+
+**Code Example:**
+```python
+from enum import Enum, auto
+
+class Status(Enum):
+    PENDING = auto()
+    RUNNING = auto()
+    COMPLETED = auto()
+
+state = Status.RUNNING
+if state == Status.RUNNING:
+    print("It is running")
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q69: How do you use typing.Optional vs Union[T, None]?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`Optional[T]` is an alias for `Union[T, None]`. It indicates that a value can be of type T or None. In Python 3.10+, you can also use `T | None`.
+
+**Code Example:**
+```python
+from typing import Optional
+
+def find_user(user_id: int) -> Optional[str]:
+    if user_id == 1:
+        return "Alice"
+    return None
+
+# Python 3.10+
+# def find_user(user_id: int) -> str | None: ...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q70: How do you use the inspect module to introspect code?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+The `inspect` module allows you to examine live objects, retrieve source code, check function signatures, and inspect the stack.
+
+**Code Example:**
+```python
+import inspect
+
+def func(a: int, b: str = "default"):
+    pass
+
+sig = inspect.signature(func)
+print(sig.parameters['a'].annotation) # <class 'int'>
+print(inspect.getsource(func))
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

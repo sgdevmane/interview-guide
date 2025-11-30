@@ -60,6 +60,26 @@
 48. [How do you use `Array.prototype.reduce` to group objects by a property?](#q48-how-do-you-use-arrayprototypereduce-to-group-objects-by-a-property) <span class="intermediate">Intermediate</span>
 49. [How do you implement a custom `Promise.race`?](#q49-how-do-you-implement-a-custom-promiserace) <span class="advanced">Advanced</span>
 50. [How do you use `Symbol.iterator` to make an object iterable?](#q50-how-do-you-use-symboliterator-to-make-an-object-iterable) <span class="advanced">Advanced</span>
+31. [How do you use the Proxy API to validate object property assignments?](#q31-how-do-you-use-the-proxy-api-to-validate-object-property-assignments) <span class="advanced">Advanced</span>
+32. [What is the Reflect API and how does it differ from Proxy?](#q32-what-is-the-reflect-api-and-how-does-it-differ-from-proxy) <span class="advanced">Advanced</span>
+33. [How do you implement a deep equality check for two objects?](#q33-how-do-you-implement-a-deep-equality-check-for-two-objects) <span class="advanced">Advanced</span>
+34. [How can you use Set to remove duplicates from an array?](#q34-how-can-you-use-set-to-remove-duplicates-from-an-array) <span class="intermediate">Intermediate</span>
+35. [What is a WeakMap and why is it useful for memory management?](#q35-what-is-a-weakmap-and-why-is-it-useful-for-memory-management) <span class="advanced">Advanced</span>
+36. [How do you implement an ID generator using Generators?](#q36-how-do-you-implement-an-id-generator-using-generators) <span class="intermediate">Intermediate</span>
+37. [How does requestAnimationFrame differ from setTimeout for animations?](#q37-how-does-requestanimationframe-differ-from-settimeout-for-animations) <span class="intermediate">Intermediate</span>
+38. [How do you use Web Workers to offload CPU-intensive tasks?](#q38-how-do-you-use-web-workers-to-offload-cpu-intensive-tasks) <span class="advanced">Advanced</span>
+39. [Explain the difference between null and undefined with a practical example.](#q39-explain-the-difference-between-null-and-undefined-with-a-practical-example) <span class="beginner">Beginner</span>
+40. [How do you use the Intl API for language-sensitive number formatting?](#q40-how-do-you-use-the-intl-api-for-language-sensitive-number-formatting) <span class="intermediate">Intermediate</span>
+41. [What is BigInt and when should you use it?](#q41-what-is-bigint-and-when-should-you-use-it) <span class="intermediate">Intermediate</span>
+42. [Explain the Nullish Coalescing Operator (??) vs Logical OR (||).](#q42-explain-the-nullish-coalescing-operator--vs-logical-or-) <span class="intermediate">Intermediate</span>
+43. [How does Optional Chaining (?.) simplify accessing nested properties?](#q43-how-does-optional-chaining--simplify-accessing-nested-properties) <span class="beginner">Beginner</span>
+44. [What is globalThis and why is it needed?](#q44-what-is-globalthis-and-why-is-it-needed) <span class="intermediate">Intermediate</span>
+45. [Explain the 'Classic Closure Loop' problem and how to fix it.](#q45-explain-the-classic-closure-loop-problem-and-how-to-fix-it) <span class="intermediate">Intermediate</span>
+46. [Function Declaration vs Function Expression: What is the difference?](#q46-function-declaration-vs-function-expression-what-is-the-difference) <span class="beginner">Beginner</span>
+47. [How do you implement a GroupBy function using Array.reduce?](#q47-how-do-you-implement-a-groupby-function-using-arrayreduce) <span class="advanced">Advanced</span>
+48. [How do you implement Promise.race from scratch?](#q48-how-do-you-implement-promiserace-from-scratch) <span class="advanced">Advanced</span>
+49. [How do you make an object iterable (usable in for...of)?](#q49-how-do-you-make-an-object-iterable-usable-in-forof) <span class="advanced">Advanced</span>
+50. [How can you flatten a nested array of arbitrary depth?](#q50-how-can-you-flatten-a-nested-array-of-arbitrary-depth) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1477,6 +1497,548 @@ const range = {
 for (let num of range) {
   console.log(num); // 1, 2, 3, 4, 5
 }
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+
+### Q31: How do you use the Proxy API to validate object property assignments?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Proxies allow you to intercept and redefine fundamental operations for an object. A `set` trap can be used to validate data before it is written to the object.
+
+**Code Example:**
+const validator = {
+  set: function(obj, prop, value) {
+    if (prop === 'age') {
+      if (!Number.isInteger(value)) {
+        throw new TypeError('The age must be an integer');
+      }
+      if (value < 0 || value > 200) {
+        throw new RangeError('The age seems invalid');
+      }
+    }
+    // The default behavior to store the value
+    obj[prop] = value;
+    return true;
+  }
+};
+
+const person = new Proxy({}, validator);
+
+person.age = 100; // OK
+// person.age = 'young'; // Throws TypeError
+// person.age = 300; // Throws RangeError
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: What is the Reflect API and how does it differ from Proxy?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Reflect is a built-in object that provides methods for interceptable JavaScript operations. It is often used within Proxy traps to forward the default behavior to the target object safely.
+
+**Code Example:**
+const handler = {
+  get(target, prop, receiver) {
+    console.log(`Getting ${prop}`);
+    // Reflect.get forwards the operation to the original object
+    return Reflect.get(target, prop, receiver);
+  }
+};
+
+const obj = { name: "Alice" };
+const proxy = new Proxy(obj, handler);
+
+console.log(proxy.name); 
+// Output:
+// Getting name
+// Alice
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you implement a deep equality check for two objects?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+A deep equality check recursively compares properties of objects. For simple cases, `JSON.stringify` works, but it handles dates and circular references poorly. A recursive function is more robust.
+
+**Code Example:**
+function deepEqual(obj1, obj2) {
+  if (obj1 === obj2) return true;
+
+  if (typeof obj1 !== 'object' || obj1 === null || 
+      typeof obj2 !== 'object' || obj2 === null) {
+    return false;
+  }
+
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) return false;
+
+  for (let key of keys1) {
+    if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const a = { x: 1, y: { z: 2 } };
+const b = { x: 1, y: { z: 2 } };
+console.log(deepEqual(a, b)); // true
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How can you use Set to remove duplicates from an array?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`Set` objects are collections of values where each value must be unique. Converting an array to a Set and back to an array is a concise way to remove duplicates.
+
+**Code Example:**
+const numbers = [1, 2, 2, 3, 4, 4, 5];
+const uniqueNumbers = [...new Set(numbers)];
+
+console.log(uniqueNumbers); // [1, 2, 3, 4, 5]
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: What is a WeakMap and why is it useful for memory management?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`WeakMap` holds 'weak' references to key objects, meaning if the key object is no longer referenced elsewhere, it can be garbage collected. This prevents memory leaks when associating data with DOM elements or objects.
+
+**Code Example:**
+let user = { name: "Alice" };
+
+const weakMap = new WeakMap();
+weakMap.set(user, "Secret Data");
+
+// If we remove the reference to user...
+user = null; 
+
+// The entry in weakMap is now eligible for garbage collection automatically.
+// Unlike Map, you cannot iterate over keys in WeakMap.
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: How do you implement an ID generator using Generators?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Generators can maintain internal state and yield values on demand, making them perfect for creating infinite sequences like unique IDs.
+
+**Code Example:**
+function* idGenerator() {
+  let id = 1;
+  while (true) {
+    yield id++;
+  }
+}
+
+const gen = idGenerator();
+
+console.log(gen.next().value); // 1
+console.log(gen.next().value); // 2
+console.log(gen.next().value); // 3
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: How does requestAnimationFrame differ from setTimeout for animations?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`requestAnimationFrame` tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint. It is more efficient than `setTimeout` because it pauses when the tab is inactive and syncs with the monitor's refresh rate.
+
+**Code Example:**
+function animate() {
+  const element = document.getElementById('box');
+  let pos = 0;
+
+  function step() {
+    pos++;
+    element.style.left = pos + 'px';
+    if (pos < 300) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: How do you use Web Workers to offload CPU-intensive tasks?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Web Workers run a script in the background, separate from the main execution thread of a web application. This allows the main thread (usually the UI) to run without being blocked/frozen.
+
+**Code Example:**
+// main.js
+const worker = new Worker('worker.js');
+
+worker.postMessage(1000000000); // Send data to worker
+
+worker.onmessage = function(e) {
+  console.log('Result from worker:', e.data);
+};
+
+// worker.js
+onmessage = function(e) {
+  let sum = 0;
+  for (let i = 0; i < e.data; i++) {
+    sum += i;
+  }
+  postMessage(sum); // Send result back to main thread
+};
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: Explain the difference between null and undefined with a practical example.
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`undefined` means a variable has been declared but not defined. `null` is an assignment value that represents no value or no object. `null` is an object, `undefined` is a type.
+
+**Code Example:**
+let a;
+console.log(a); // undefined (automatically assigned)
+
+let b = null;
+console.log(b); // null (intentionally assigned)
+
+console.log(typeof a); // "undefined"
+console.log(typeof b); // "object" (a known JS quirk)
+
+// Practical difference in default parameters
+function greet(name = 'Guest') {
+  return `Hello, ${name}`;
+}
+
+console.log(greet(undefined)); // "Hello, Guest"
+console.log(greet(null));      // "Hello, null" 
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you use the Intl API for language-sensitive number formatting?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+The `Intl.NumberFormat` object enables language-sensitive number formatting.
+
+**Code Example:**
+const number = 123456.789;
+
+// US English
+console.log(new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number));
+// "$123,456.79"
+
+// German
+console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number));
+// "123.456,79 €" 
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: What is BigInt and when should you use it?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`BigInt` is a built-in object that provides a way to represent whole numbers larger than 2^53 - 1, which is the largest number JavaScript can reliably represent with the Number primitive.
+
+**Code Example:**
+const maxSafe = Number.MAX_SAFE_INTEGER;
+console.log(maxSafe + 1); // 9007199254740992
+console.log(maxSafe + 2); // 9007199254740992 (Error!)
+
+const bigInt = 9007199254740991n;
+console.log(bigInt + 2n); // 9007199254740993n (Correct)
+
+// Note: You cannot mix BigInt and other types
+// console.log(1n + 2); // TypeError
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: Explain the Nullish Coalescing Operator (??) vs Logical OR (||).
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+The logical OR (`||`) operator returns the right-hand side operand if the left-hand side is *falsy* (including 0, '', false). The nullish coalescing operator (`??`) returns the right-hand side only if the left-hand side is `null` or `undefined`.
+
+**Code Example:**
+const count = 0;
+const text = "";
+
+const qty = count || 42;
+const message = text || "Hello";
+
+console.log(qty);     // 42 (because 0 is falsy)
+console.log(message); // "Hello" (because "" is falsy)
+
+const qty2 = count ?? 42;
+const message2 = text ?? "Hello";
+
+console.log(qty2);     // 0 (0 is not null/undefined)
+console.log(message2); // "" ("" is not null/undefined)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How does Optional Chaining (?.) simplify accessing nested properties?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Optional chaining (`?.`) permits reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid.
+
+**Code Example:**
+const user = {
+  profile: {
+    // address is missing
+  }
+};
+
+// Old way
+const street = user && user.profile && user.profile.address && user.profile.address.street;
+
+// New way with Optional Chaining
+const street2 = user?.profile?.address?.street;
+
+console.log(street2); // undefined (no error thrown)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: What is globalThis and why is it needed?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`globalThis` provides a standard way to access the global `this` value (and hence the global object) across environments (window in browser, global in Node.js, self in Workers).
+
+**Code Example:**
+// Before globalThis, accessing the global object was environment-specific:
+const getGlobal = () => {
+  if (typeof self !== 'undefined') { return self; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  throw new Error('unable to locate global object');
+};
+
+// With globalThis
+console.log(globalThis); // Works everywhere
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: Explain the 'Classic Closure Loop' problem and how to fix it.
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Using `var` in a loop with an asynchronous callback often leads to the same final value being used for all iterations because `var` is function-scoped. Using `let` (block-scoped) fixes this.
+
+**Code Example:**
+// Problematic code
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 100);
+}
+// Output: 3, 3, 3
+
+// Fix with let
+for (let j = 0; j < 3; j++) {
+  setTimeout(() => console.log(j), 100);
+}
+// Output: 0, 1, 2
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: Function Declaration vs Function Expression: What is the difference?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Function declarations are hoisted, meaning they can be called before they are defined. Function expressions (assigned to variables) are not hoisted.
+
+**Code Example:**
+console.log(hoistedFunc()); // Works: "I am hoisted"
+// console.log(notHoisted()); // Error: notHoisted is not a function
+
+function hoistedFunc() {
+  return "I am hoisted";
+}
+
+var notHoisted = function() {
+  return "I am not hoisted";
+};
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you implement a GroupBy function using Array.reduce?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`Array.reduce` is a powerful method that can transform an array into any structure, including an object grouping elements by a key.
+
+**Code Example:**
+const people = [
+  { name: 'Alice', age: 21 },
+  { name: 'Bob', age: 25 },
+  { name: 'Charlie', age: 21 }
+];
+
+const groupedByAge = people.reduce((acc, person) => {
+  const key = person.age;
+  if (!acc[key]) {
+    acc[key] = [];
+  }
+  acc[key].push(person);
+  return acc;
+}, {});
+
+console.log(groupedByAge);
+/*
+{
+  '21': [ { name: 'Alice', age: 21 }, { name: 'Charlie', age: 21 } ],
+  '25': [ { name: 'Bob', age: 25 } ]
+}
+*/
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you implement Promise.race from scratch?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`Promise.race` returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects.
+
+**Code Example:**
+function myPromiseRace(promises) {
+  return new Promise((resolve, reject) => {
+    for (const p of promises) {
+      Promise.resolve(p)
+        .then(resolve)
+        .catch(reject);
+    }
+  });
+}
+
+const p1 = new Promise(r => setTimeout(r, 500, 'one'));
+const p2 = new Promise(r => setTimeout(r, 100, 'two'));
+
+myPromiseRace([p1, p2]).then(value => {
+  console.log(value); // "two"
+});
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you make an object iterable (usable in for...of)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+To make an object iterable, you must implement the `[Symbol.iterator]` method, which returns an iterator (an object with a `next()` method).
+
+**Code Example:**
+const range = {
+  from: 1,
+  to: 5,
+  
+  [Symbol.iterator]() {
+    this.current = this.from;
+    return this;
+  },
+  
+  next() {
+    if (this.current <= this.to) {
+      return { done: false, value: this.current++ };
+    } else {
+      return { done: true };
+    }
+  }
+};
+
+for (let num of range) {
+  console.log(num); // 1, 2, 3, 4, 5
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How can you flatten a nested array of arbitrary depth?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Modern JS has `Array.prototype.flat(Infinity)`, but implementing it recursively demonstrates understanding of recursion and array manipulation.
+
+**Code Example:**
+const nested = [1, [2, [3, [4]], 5]];
+
+// Modern way
+console.log(nested.flat(Infinity)); // [1, 2, 3, 4, 5]
+
+// Recursive implementation
+function flatten(arr) {
+  return arr.reduce((acc, val) => 
+    Array.isArray(val) ? acc.concat(flatten(val)) : acc.concat(val), 
+  []);
+}
+
+console.log(flatten(nested)); // [1, 2, 3, 4, 5]
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 

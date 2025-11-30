@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-1. [How do you debug and resolve a memory leak caused by a retain cycle in a Swift closure?](#q1-how-do-you-debug-and-resolve-a-memory-leak-caused-by-a-retain-cycle-in-a-swift-closure) <span class="expert">Expert</span>
+1. [What is the difference between `class` and `struct` in Swift?](#q1-what-is-the-difference-between-class-and-struct-in-swift) <span class="beginner">Beginner</span>
 2. [How do you implement a thread-safe counter using Swift Actors?](#q2-how-do-you-implement-a-thread-safe-counter-using-swift-actors) <span class="advanced">Advanced</span>
 3. [How do you efficiently handle large lists of data in SwiftUI to avoid performance issues?](#q3-how-do-you-efficiently-handle-large-lists-of-data-in-swiftui-to-avoid-performance-issues) <span class="intermediate">Intermediate</span>
 4. [How do you migrate legacy callback-based code to Swift Concurrency (async/await)?](#q4-how-do-you-migrate-legacy-callback-based-code-to-swift-concurrency-asyncawait) <span class="advanced">Advanced</span>
@@ -52,6 +52,32 @@
 48. [How do you optimize memory using `autoreleasepool`?](#q48-how-do-you-optimize-memory-using-autoreleasepool) <span class="advanced">Advanced</span>
 49. [How do you check for API availability?](#q49-how-do-you-check-for-api-availability) <span class="beginner">Beginner</span>
 50. [How do you prevent a retain cycle in a Delegate?](#q50-how-do-you-prevent-a-retain-cycle-in-a-delegate) <span class="beginner">Beginner</span>
+
+---
+
+### Q1: What is the difference between `class` and `struct` in Swift?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+*   **Struct**: Value type (copied when passed). Stack allocated (faster). Immutable by default. No inheritance. (Use by default).
+*   **Class**: Reference type (shared instance). Heap allocated. Supports inheritance and deinitializers.
+
+**Code Example:**
+```swift
+struct UserStruct { var name: String }
+class UserClass { var name: String; init(name: String) { self.name = name } }
+
+var s1 = UserStruct(name: "A")
+var s2 = s1
+s2.name = "B" // s1 is still "A"
+
+var c1 = UserClass(name: "A")
+var c2 = c1
+c2.name = "B" // c1 is now "B"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -463,6 +489,8 @@ struct ContentView: View {
 Initialize an `NSPersistentContainer`. Load persistent stores. Provide a `viewContext` for the main thread.
 
 **Code Example:**
+
+```swift
 import CoreData
 
 class CoreDataStack {
@@ -478,6 +506,7 @@ class CoreDataStack {
     
     var context: NSManagedObjectContext { persistentContainer.viewContext }
 }
+```
 
 ---
 
@@ -489,6 +518,8 @@ class CoreDataStack {
 Use `@Published` property, listen to it with `$`, apply `debounce`, `removeDuplicates`, and `sink`.
 
 **Code Example:**
+
+```swift
 class ViewModel: ObservableObject {
     @Published var text = ""
     private var cancellables = Set<AnyCancellable>()
@@ -501,6 +532,7 @@ class ViewModel: ObservableObject {
             .store(in: &cancellables)
     }
 }
+```
 
 ---
 
@@ -512,6 +544,8 @@ class ViewModel: ObservableObject {
 Set `translatesAutoresizingMaskIntoConstraints = false`. Use `NSLayoutConstraint.activate` with anchors.
 
 **Code Example:**
+
+```swift
 let view = UIView()
 view.translatesAutoresizingMaskIntoConstraints = false
 parentView.addSubview(view)
@@ -522,6 +556,7 @@ NSLayoutConstraint.activate([
     view.widthAnchor.constraint(equalToConstant: 100),
     view.heightAnchor.constraint(equalToConstant: 100)
 ])
+```
 
 ---
 
@@ -533,12 +568,15 @@ NSLayoutConstraint.activate([
 Use a generic type parameter constrained to the `Numeric` protocol.
 
 **Code Example:**
+
+```swift
 func square<T: Numeric>(_ value: T) -> T {
     return value * value
 }
 
 print(square(5))       // 25
 print(square(5.5))     // 30.25
+```
 
 ---
 
@@ -550,11 +588,14 @@ print(square(5.5))     // 30.25
 An `@escaping` closure is called *after* the function returns (e.g., async callbacks). Non-escaping is default.
 
 **Code Example:**
+
+```swift
 func fetchData(completion: @escaping (String) -> Void) {
     DispatchQueue.global().async {
         completion("Data") // Called later
     }
 }
+```
 
 ---
 
@@ -566,6 +607,8 @@ func fetchData(completion: @escaping (String) -> Void) {
 Struct methods mutating properties must be marked `mutating`. Classes don't need this as they are reference types.
 
 **Code Example:**
+
+```swift
 struct Point {
     var x = 0
     mutating func moveBy(delta: Int) {
@@ -579,6 +622,7 @@ class Mover {
         x += delta
     }
 }
+```
 
 ---
 
@@ -590,6 +634,8 @@ class Mover {
 Use a Protocol Extension.
 
 **Code Example:**
+
+```swift
 protocol Greeter {
     func greet()
 }
@@ -601,7 +647,8 @@ extension Greeter {
 }
 
 struct Person: Greeter {}
-Person().greet() // "Hello" 
+Person().greet() // "Hello"
+```
 
 ---
 
@@ -613,12 +660,15 @@ Person().greet() // "Hello"
 Extensions can add computed properties but not stored properties.
 
 **Code Example:**
+
+```swift
 extension Double {
     var km: Double { return this * 1000.0 }
     var m: Double { return this }
 }
 
 let distance = 5.0.km
+```
 
 ---
 
@@ -630,6 +680,8 @@ let distance = 5.0.km
 Conform an enum to `Error` protocol. Use `throw` keyword.
 
 **Code Example:**
+
+```swift
 enum ValidationError: Error {
     case empty
 }
@@ -643,6 +695,7 @@ do {
 } catch {
     print(error)
 }
+```
 
 ---
 
@@ -654,6 +707,8 @@ do {
 Sets use hash tables (O(1) complexity), while Arrays require iterating through elements (O(n) complexity) to find a value.
 
 **Code Example:**
+
+```swift
 let set: Set = [1, 2, 3]
 let array = [1, 2, 3]
 
@@ -662,6 +717,7 @@ set.contains(2)
 
 // O(n)
 array.contains(2)
+```
 
 ---
 
@@ -673,11 +729,14 @@ array.contains(2)
 Use standard fonts (`.body`, `.headline`) or `scaledMetric`. SwiftUI handles scaling automatically.
 
 **Code Example:**
+
+```swift
 Text("Scalable Text")
     .font(.body) // Scales with system settings
 
 @ScaledMetric var size: CGFloat = 20
 Image(systemName: "star").frame(width: size, height: size)
+```
 
 ---
 
@@ -689,6 +748,8 @@ Image(systemName: "star").frame(width: size, height: size)
 Use `NSLocalizedString` with a key and comment. Provide `Localizable.strings` files for languages.
 
 **Code Example:**
+
+```swift
 let greeting = NSLocalizedString("hello_key", comment: "Greeting")
 
 // Localizable.strings (en)
@@ -696,6 +757,7 @@ let greeting = NSLocalizedString("hello_key", comment: "Greeting")
 
 // Localizable.strings (es)
 // "hello_key" = "Hola";
+```
 
 ---
 
@@ -707,6 +769,8 @@ let greeting = NSLocalizedString("hello_key", comment: "Greeting")
 AppDelegate handles app-level lifecycle (launch, termination). SceneDelegate (iOS 13+) handles UI lifecycle (foreground, background) for multi-window support.
 
 **Code Example:**
+
+```swift
 // SceneDelegate.swift
 func sceneDidBecomeActive(_ scene: UIScene) {
     // UI is active
@@ -716,6 +780,7 @@ func sceneDidBecomeActive(_ scene: UIScene) {
 func application(_ app: UIApplication, didFinishLaunchingWithOptions...) {
     // App launched
 }
+```
 
 ---
 
@@ -727,10 +792,13 @@ func application(_ app: UIApplication, didFinishLaunchingWithOptions...) {
 Mark the test method as `async` and use `await`.
 
 **Code Example:**
+
+```swift
 func testAsyncFetch() async throws {
     let data = try await service.fetch()
     XCTAssertNotNil(data)
 }
+```
 
 ---
 
@@ -742,6 +810,8 @@ func testAsyncFetch() async throws {
 Define lanes in `Fastfile` (Ruby) to automate tasks like testing and beta deployment.
 
 **Code Example:**
+
+```swift
 default_platform(:ios)
 
 platform :ios do
@@ -754,6 +824,7 @@ platform :ios do
     run_tests(scheme: "MyApp")
   end
 end
+```
 
 ---
 
@@ -765,12 +836,15 @@ end
 Edit `Package.swift` and add dependencies in the `dependencies` array.
 
 **Code Example:**
+
+```swift
 dependencies: [
     .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.0.0"))
 ],
 targets: [
     .target(name: "MyApp", dependencies: ["Alamofire"])
 ]
+```
 
 ---
 
@@ -782,6 +856,8 @@ targets: [
 Annotate a class, function, or property with `@MainActor`. The compiler enforces main thread execution.
 
 **Code Example:**
+
+```swift
 @MainActor
 class ViewModel: ObservableObject {
     @Published var data = ""
@@ -790,6 +866,7 @@ class ViewModel: ObservableObject {
         data = "Updated" // Guaranteed main thread
     }
 }
+```
 
 ---
 
@@ -801,12 +878,15 @@ class ViewModel: ObservableObject {
 Use `defer` to execute code just before the current scope exits (cleanup, closing files/locks). Executed in reverse order of declaration.
 
 **Code Example:**
+
+```swift
 func process() {
     print("Start")
     defer { print("Cleanup") }
     print("Work")
 }
 // Output: Start, Work, Cleanup
+```
 
 ---
 
@@ -818,9 +898,12 @@ func process() {
 Mark a property as `lazy var`. It is initialized only when first accessed. Must be mutable (`var`).
 
 **Code Example:**
+
+```swift
 class Manager {
     lazy var importer = Importer() // Expensive creation
 }
+```
 
 ---
 
@@ -832,6 +915,8 @@ class Manager {
 Stored properties store a value in memory. Computed properties calculate a value every time they are accessed.
 
 **Code Example:**
+
+```swift
 struct Rect {
     var width = 0.0 // Stored
     var height = 0.0
@@ -840,6 +925,7 @@ struct Rect {
         return width * height
     }
 }
+```
 
 ---
 
@@ -851,10 +937,13 @@ struct Rect {
 `if let` unwrap optionals for a specific block. `guard let` unwrap optionals for the rest of the scope and requires an early exit (`return`, `throw`) if it fails.
 
 **Code Example:**
+
+```swift
 func printName(_ name: String?) {
     guard let name = name else { return }
     print(name) // Available here
 }
+```
 
 ---
 
@@ -866,10 +955,13 @@ func printName(_ name: String?) {
 Set `dateDecodingStrategy` on `JSONDecoder`.
 
 **Code Example:**
+
+```swift
 let decoder = JSONDecoder()
 let formatter = DateFormatter()
 formatter.dateFormat = "yyyy-MM-dd"
 decoder.dateDecodingStrategy = .formatted(formatter)
+```
 
 ---
 
@@ -881,10 +973,13 @@ decoder.dateDecodingStrategy = .formatted(formatter)
 `Result<Success, Failure>` is an enum representing success or failure. Useful for completion handlers.
 
 **Code Example:**
+
+```swift
 func fetch(completion: (Result<String, Error>) -> Void) {
     if success { completion(.success("Data")) }
     else { completion(.failure(MyError.fail)) }
 }
+```
 
 ---
 
@@ -896,9 +991,12 @@ func fetch(completion: (Result<String, Error>) -> Void) {
 Functional methods for collections. `map` transforms, `filter` selects, `reduce` combines.
 
 **Code Example:**
+
+```swift
 let nums = [1, 2, 3, 4]
 let squaredEvens = nums.filter { $0 % 2 == 0 }.map { $0 * $0 }
 let sum = nums.reduce(0, +)
+```
 
 ---
 
@@ -910,9 +1008,12 @@ let sum = nums.reduce(0, +)
 KeyPaths allow referring to a property without accessing it. Syntax: `\Type.property`.
 
 **Code Example:**
+
+```swift
 struct User { var name: String }
 let users = [User(name: "A"), User(name: "B")]
 let names = users.map(\.name)
+```
 
 ---
 
@@ -924,10 +1025,13 @@ let names = users.map(\.name)
 Use a `static let shared` property and a `private init()` to prevent external instantiation.
 
 **Code Example:**
+
+```swift
 class Settings {
     static let shared = Settings()
     private init() {}
 }
+```
 
 ---
 
@@ -939,6 +1043,8 @@ class Settings {
 Use `enter()`, `leave()`, and `notify()`. `notify` block runs when enter/leave counts balance.
 
 **Code Example:**
+
+```swift
 let group = DispatchGroup()
 
 group.enter()
@@ -950,6 +1056,7 @@ asyncTask2 { group.leave() }
 group.notify(queue: .main) {
     print("All done")
 }
+```
 
 ---
 
@@ -961,12 +1068,15 @@ group.notify(queue: .main) {
 Create `Operation` objects and use `addDependency`.
 
 **Code Example:**
+
+```swift
 let queue = OperationQueue()
 let op1 = BlockOperation { print("1") }
 let op2 = BlockOperation { print("2") }
 
 op2.addDependency(op1) // op1 runs first
 queue.addOperations([op1, op2], waitUntilFinished: false)
+```
 
 ---
 
@@ -978,10 +1088,13 @@ queue.addOperations([op1, op2], waitUntilFinished: false)
 Use `URLCache` and configure `URLSessionConfiguration`.
 
 **Code Example:**
+
+```swift
 let config = URLSessionConfiguration.default
 config.requestCachePolicy = .returnCacheDataElseLoad
 config.urlCache = URLCache(memoryCapacity: 50*1024*1024, diskCapacity: 0)
 let session = URLSession(configuration: config)
+```
 
 ---
 
@@ -993,6 +1106,8 @@ let session = URLSession(configuration: config)
 Use a factory class/method to create objects without exposing instantiation logic.
 
 **Code Example:**
+
+```swift
 protocol Button { func render() }
 class IOSButton: Button { func render() {} }
 class AndroidButton: Button { func render() {} }
@@ -1002,6 +1117,7 @@ class ButtonFactory {
         return type == "iOS" ? IOSButton() : AndroidButton()
     }
 }
+```
 
 ---
 
@@ -1013,11 +1129,14 @@ class ButtonFactory {
 Post notifications and add observers. Remember to remove observers (though simpler in iOS 9+).
 
 **Code Example:**
+
+```swift
 NotificationCenter.default.post(name: .myNotif, object: nil)
 
 NotificationCenter.default.addObserver(forName: .myNotif, object: nil, queue: .main) { _ in
     print("Received")
 }
+```
 
 ---
 
@@ -1029,6 +1148,8 @@ NotificationCenter.default.addObserver(forName: .myNotif, object: nil, queue: .m
 Delegate navigation responsibility to a Coordinator object instead of ViewControllers pushing others directly.
 
 **Code Example:**
+
+```swift
 protocol Coordinator {
     var nav: UINavigationController { get }
     func start()
@@ -1044,6 +1165,7 @@ class MainCoordinator: Coordinator {
         nav.pushViewController(vc, animated: false)
     }
 }
+```
 
 ---
 
@@ -1055,12 +1177,15 @@ class MainCoordinator: Coordinator {
 Use `autoreleasepool` inside loops creating many temporary objects to free memory immediately.
 
 **Code Example:**
+
+```swift
 for _ in 0..<10000 {
     autoreleasepool {
         let image = UIImage(named: "large")
         // Process image
     } // image released here
 }
+```
 
 ---
 
@@ -1072,11 +1197,14 @@ for _ in 0..<10000 {
 Use `#available` check.
 
 **Code Example:**
+
+```swift
 if #available(iOS 15, *) {
     // Use iOS 15 APIs
 } else {
     // Fallback
 }
+```
 
 ---
 
@@ -1088,6 +1216,8 @@ if #available(iOS 15, *) {
 Mark the delegate property as `weak`.
 
 **Code Example:**
+
+```swift
 protocol MyDelegate: AnyObject {
     func didSomething()
 }
@@ -1095,6 +1225,7 @@ protocol MyDelegate: AnyObject {
 class MyClass {
     weak var delegate: MyDelegate?
 }
+```
 
 ---
 

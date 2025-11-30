@@ -64,12 +64,23 @@
 52. [How do you handle JWT Authentication in Spring Security?](#q52-how-do-you-handle-jwt-authentication-in-spring-security) <span class="advanced">Advanced</span>
 53. [How do you expose a custom metric in Spring Boot Actuator?](#q53-how-do-you-expose-a-custom-metric-in-spring-boot-actuator) <span class="intermediate">Intermediate</span>
 54. [What is the difference between @Mock and @Spy in Mockito?](#q54-what-is-the-difference-between-mock-and-spy-in-mockito) <span class="intermediate">Intermediate</span>
-55. [How do you use Java Records (Java 14+)?](#q55-how-do-you-use-java-records-java-14) <span class="beginner">Beginner</span>
-56. [How do you use Sealed Classes (Java 17+)?](#q56-how-do-you-use-sealed-classes-java-17) <span class="intermediate">Intermediate</span>
-57. [How do you implement a Global Exception Handler in Spring Boot?](#q57-how-do-you-implement-a-global-exception-handler-in-spring-boot) <span class="intermediate">Intermediate</span>
-58. [How do you use Optional correctly to avoid NullPointerException?](#q58-how-do-you-use-optional-correctly-to-avoid-nullpointerexception) <span class="beginner">Beginner</span>
-59. [How do you solve the 'LazyInitializationException' in Hibernate?](#q59-how-do-you-solve-the-lazyinitializationexception-in-hibernate) <span class="intermediate">Intermediate</span>
-60. [How do you implement a simple REST Client using RestClient (Spring Boot 3.2+)?](#q60-how-do-you-implement-a-simple-rest-client-using-restclient-spring-boot-32) <span class="intermediate">Intermediate</span>
+55. [How do you solve the 'LazyInitializationException' in Hibernate?](#q55-how-do-you-solve-the-lazyinitializationexception-in-hibernate) <span class="intermediate">Intermediate</span>
+56. [How do you implement a simple REST Client using RestClient (Spring Boot 3.2+)?](#q56-how-do-you-implement-a-simple-rest-client-using-restclient-spring-boot-32) <span class="intermediate">Intermediate</span>
+57. [How do you use 'var' (Local Variable Type Inference)?](#q57-how-do-you-use-var-local-variable-type-inference) <span class="beginner">Beginner</span>
+58. [What are Text Blocks and how do they simplify String handling?](#q58-what-are-text-blocks-and-how-do-they-simplify-string-handling) <span class="beginner">Beginner</span>
+59. [How do you use SequencedCollection in Java 21?](#q59-how-do-you-use-sequencedcollection-in-java-21) <span class="intermediate">Intermediate</span>
+60. [How does ConcurrentHashMap ensure thread safety without locking the entire map?](#q60-how-does-concurrenthashmap-ensure-thread-safety-without-locking-the-entire-map) <span class="advanced">Advanced</span>
+61. [What is the difference between WeakReference and SoftReference?](#q61-what-is-the-difference-between-weakreference-and-softreference) <span class="advanced">Advanced</span>
+62. [How do you use Spring Data JPA Projections to optimize read performance?](#q62-how-do-you-use-spring-data-jpa-projections-to-optimize-read-performance) <span class="intermediate">Intermediate</span>
+63. [How do you implement a Dead Letter Queue (DLQ) in Kafka with Spring Boot?](#q63-how-do-you-implement-a-dead-letter-queue-dlq-in-kafka-with-spring-boot) <span class="advanced">Advanced</span>
+64. [How do you use Feign Client for declarative REST communication?](#q64-how-do-you-use-feign-client-for-declarative-rest-communication) <span class="intermediate">Intermediate</span>
+65. [How do you configure L2 Cache in Hibernate?](#q65-how-do-you-configure-l2-cache-in-hibernate) <span class="advanced">Advanced</span>
+66. [How do you secure methods using @PreAuthorize in Spring Security?](#q66-how-do-you-secure-methods-using-preauthorize-in-spring-security) <span class="intermediate">Intermediate</span>
+67. [How do you handle transactions programmatically (TransactionTemplate)?](#q67-how-do-you-handle-transactions-programmatically-transactiontemplate) <span class="advanced">Advanced</span>
+68. [How do you implement a custom validation annotation (Bean Validation)?](#q68-how-do-you-implement-a-custom-validation-annotation-bean-validation) <span class="intermediate">Intermediate</span>
+69. [How do you use CompletableFuture.allOf to wait for multiple tasks?](#q69-how-do-you-use-completablefutureallof-to-wait-for-multiple-tasks) <span class="intermediate">Intermediate</span>
+70. [How do you profile a Java application using JFR (Java Flight Recorder)?](#q70-how-do-you-profile-a-java-application-using-jfr-java-flight-recorder) <span class="advanced">Advanced</span>
+71. [How do you implement a retry mechanism with exponential backoff?](#q71-how-do-you-implement-a-retry-mechanism-with-exponential-backoff) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1333,102 +1344,7 @@ doReturn("b").when(spyList).get(0); // partial mock
 
 ---
 
-### Q55: How do you use Java Records (Java 14+)?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Records are immutable data carriers. They automatically generate constructor, accessors, `equals`, `hashCode`, and `toString`. Use them for DTOs or map keys.
-
-**Code Example:**
-```java
-public record UserDto(String name, String email) {}
-
-// Usage
-UserDto user = new UserDto("Alice", "alice@example.com");
-System.out.println(user.name()); // Accessor (no get prefix)
-System.out.println(user); // UserDto[name=Alice, email=alice@example.com]
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: How do you use Sealed Classes (Java 17+)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Sealed classes restrict which other classes may extend them. This provides fine-grained control over inheritance and enables exhaustive pattern matching.
-
-**Code Example:**
-```java
-public sealed interface Shape permits Circle, Square {}
-
-public final class Circle implements Shape {}
-public final class Square implements Shape {}
-
-// Pattern Matching (Java 21 switch)
-String type = switch (shape) {
-    case Circle c -> "It's a circle";
-    case Square s -> "It's a square";
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q57: How do you implement a Global Exception Handler in Spring Boot?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `@ControllerAdvice` (or `@RestControllerAdvice`) and `@ExceptionHandler`. This centralizes error handling logic across all controllers.
-
-**Code Example:**
-```java
-@RestControllerAdvice
-public class GlobalExceptionHandler {
-
-    @ExceptionHandler(ResourceNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public ErrorResponse handleNotFound(ResourceNotFoundException ex) {
-        return new ErrorResponse("NOT_FOUND", ex.getMessage());
-    }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: How do you use Optional correctly to avoid NullPointerException?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Don't use `Optional.get()` without checking. Prefer `map`, `orElse`, `orElseGet`, or `orElseThrow`. Use Optional as a return type, not as a field or parameter.
-
-**Code Example:**
-```java
-// BAD
-if (opt.isPresent()) { return opt.get(); }
-
-// GOOD
-return opt.map(String::toUpperCase)
-          .orElse("DEFAULT");
-
-// GOOD
-User user = repo.findById(id)
-                .orElseThrow(() -> new UserNotFoundException(id));
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q59: How do you solve the 'LazyInitializationException' in Hibernate?
+### Q55: How do you solve the 'LazyInitializationException' in Hibernate?
 
 **Difficulty**: Intermediate
 
@@ -1457,7 +1373,7 @@ public class UserService {
 
 ---
 
-### Q60: How do you implement a simple REST Client using RestClient (Spring Boot 3.2+)?
+### Q56: How do you implement a simple REST Client using RestClient (Spring Boot 3.2+)?
 
 **Difficulty**: Intermediate
 
@@ -1481,6 +1397,367 @@ ResponseEntity<Void> response = client.post()
     .body(newUser)
     .retrieve()
     .toBodilessEntity();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+### Q57: How do you use 'var' (Local Variable Type Inference)?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `var` to reduce boilerplate when the type is obvious from the right-hand side. It only works for local variables with an initializer.
+
+**Code Example:**
+```java
+// Explicit type
+Map<String, List<String>> map = new HashMap<>();
+
+// Using var
+var map = new HashMap<String, List<String>>();
+
+// Loop
+for (var entry : map.entrySet()) {
+    System.out.println(entry.getKey());
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q58: What are Text Blocks and how do they simplify String handling?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Text Blocks (introduced in Java 15) allow multi-line strings without explicit escape sequences for newlines or quotes. They start and end with `"""`.
+
+**Code Example:**
+```java
+String json = """
+              {
+                  "name": "John",
+                  "age": 30
+              }
+              """;
+              
+System.out.println(json);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q59: How do you use SequencedCollection in Java 21?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`SequencedCollection` provides a uniform API for collections with a defined encounter order (like List, Deque, SortedSet). It adds methods like `addFirst`, `addLast`, `getFirst`, `getLast`.
+
+**Code Example:**
+```java
+SequencedCollection<String> list = new ArrayList<>();
+list.add("B");
+list.addFirst("A");
+list.addLast("C");
+
+System.out.println(list.getFirst()); // A
+System.out.println(list.getLast());  // C
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q60: How does ConcurrentHashMap ensure thread safety without locking the entire map?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`ConcurrentHashMap` uses a bucket-level locking mechanism (Node locking) using `synchronized` on the head node of the bucket and CAS (Compare-And-Swap) operations. It allows concurrent reads without locking and concurrent writes to different buckets.
+
+**Code Example:**
+```java
+ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+
+map.put("A", 1);
+map.put("B", 2);
+
+// Atomic update
+map.compute("A", (k, v) -> v + 1);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q61: What is the difference between WeakReference and SoftReference?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+**WeakReference**: Objects are collected eagerly by GC as soon as they are weakly reachable. Useful for mapping keys (WeakHashMap). **SoftReference**: Objects are collected only when JVM is low on memory. Useful for implementing memory-sensitive caches.
+
+**Code Example:**
+```java
+Object strong = new Object();
+WeakReference<Object> weak = new WeakReference<>(strong);
+SoftReference<Object> soft = new SoftReference<>(strong);
+
+strong = null; 
+
+// weak.get() might return null after next GC
+// soft.get() will likely return the object unless memory is low
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q62: How do you use Spring Data JPA Projections to optimize read performance?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use interface-based projections to fetch only the required columns instead of the entire entity. This reduces memory usage and database load.
+
+**Code Example:**
+```java
+// Interface Projection
+public interface UserSummary {
+    String getUsername();
+    String getEmail();
+}
+
+// Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    List<UserSummary> findByActiveTrue();
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q63: How do you implement a Dead Letter Queue (DLQ) in Kafka with Spring Boot?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Configure a `DeadLetterPublishingRecoverer` with a `DefaultErrorHandler`. When a message processing fails repeatedly, it is sent to a DLQ topic (e.g., `original-topic.DLT`).
+
+**Code Example:**
+```java
+@Bean
+public CommonErrorHandler errorHandler(KafkaTemplate<Object, Object> template) {
+    return new DefaultErrorHandler(
+        new DeadLetterPublishingRecoverer(template),
+        new FixedBackOff(1000L, 2) // Retry 2 times, 1s interval
+    );
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q64: How do you use Feign Client for declarative REST communication?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Add `spring-cloud-starter-openfeign`, enable it with `@EnableFeignClients`, and define an interface annotated with `@FeignClient`.
+
+**Code Example:**
+```java
+@FeignClient(name = "user-service", url = "https://api.example.com")
+public interface UserClient {
+    @GetMapping("/users/{id}")
+    User getUser(@PathVariable("id") Long id);
+}
+
+// Usage
+@Autowired UserClient userClient;
+User u = userClient.getUser(1L);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q65: How do you configure L2 Cache in Hibernate?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Enable L2 cache in properties (`hibernate.cache.use_second_level_cache=true`), choose a provider (e.g., Ehcache, Redis), and annotate entities with `@Cache`.
+
+**Code Example:**
+```java
+@Entity
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+public class Product {
+    @Id Long id;
+    String name;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q66: How do you secure methods using @PreAuthorize in Spring Security?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Enable method security with `@EnableMethodSecurity` and use `@PreAuthorize` with SpEL expressions to restrict access based on roles or permissions.
+
+**Code Example:**
+```java
+@Service
+public class AdminService {
+    
+    @PreAuthorize("hasRole('ADMIN')")
+    public void deleteUser(Long id) {
+        // ...
+    }
+    
+    @PreAuthorize("#username == authentication.name")
+    public void updateProfile(String username) {
+        // ...
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q67: How do you handle transactions programmatically (TransactionTemplate)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `TransactionTemplate` when you need fine-grained control over transaction boundaries (e.g., inside a loop or try-catch block) instead of `@Transactional`.
+
+**Code Example:**
+```java
+@Autowired TransactionTemplate transactionTemplate;
+
+public void process() {
+    String result = transactionTemplate.execute(status -> {
+        try {
+            // DB operations
+            return "Success";
+        } catch (Exception e) {
+            status.setRollbackOnly();
+            return "Error";
+        }
+    });
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q68: How do you implement a custom validation annotation (Bean Validation)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Create an annotation annotated with `@Constraint` and implement a `ConstraintValidator`.
+
+**Code Example:**
+```java
+@Constraint(validatedBy = PasswordValidator.class)
+@Target({ ElementType.FIELD })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface ValidPassword {
+    String message() default "Invalid password";
+    Class<?>[] groups() default {};
+    Class<? extends Payload>[] payload() default {};
+}
+
+public class PasswordValidator implements ConstraintValidator<ValidPassword, String> {
+    public boolean isValid(String value, ConstraintValidatorContext context) {
+        return value != null && value.length() > 8;
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q69: How do you use CompletableFuture.allOf to wait for multiple tasks?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `CompletableFuture.allOf(f1, f2, ...)` to return a new future that completes when all given futures complete. Then use `join()` to wait.
+
+**Code Example:**
+```java
+CompletableFuture<String> f1 = CompletableFuture.supplyAsync(() -> "A");
+CompletableFuture<String> f2 = CompletableFuture.supplyAsync(() -> "B");
+
+CompletableFuture<Void> all = CompletableFuture.allOf(f1, f2);
+
+all.thenRun(() -> {
+    System.out.println("All done");
+    // f1.join(), f2.join() are safe here
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q70: How do you profile a Java application using JFR (Java Flight Recorder)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Start the application with `-XX:StartFlightRecording` or use `jcmd` to start/dump recordings. Analyze the `.jfr` file using JDK Mission Control (JMC).
+
+**Code Example:**
+```bash
+# Start recording for 60 seconds
+jcmd <PID> JFR.start duration=60s filename=recording.jfr
+
+# Analyze
+# Open recording.jfr in Java Mission Control
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q71: How do you implement a retry mechanism with exponential backoff?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use a loop with `Thread.sleep()` increasing exponentially, or better, use **Resilience4j Retry** module.
+
+**Code Example:**
+```java
+@Retry(name = "backendA")
+public String callService() {
+    // ...
+}
+
+// resilience4j.retry.instances.backendA.waitDuration=1s
+// resilience4j.retry.instances.backendA.enableExponentialBackoff=true
+// resilience4j.retry.instances.backendA.exponentialBackoffMultiplier=2
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

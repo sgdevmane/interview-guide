@@ -71,6 +71,8 @@
 Use **ConfigMaps** to store non-sensitive configuration. Inject them into Pods as environment variables or mounted files.
 
 **Code Example:**
+
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -83,6 +85,7 @@ data:
 envFrom:
 - configMapRef:
     name: app-config
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -96,6 +99,8 @@ envFrom:
 Use **Secrets**. They are base64 encoded (not encrypted by default, use encryption-at-rest) and mounted as volumes or env vars, kept in tmpfs on the node.
 
 **Code Example:**
+
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -104,6 +109,7 @@ type: Opaque
 data:
   # echo -n 'password' | base64
   password: cGFzc3dvcmQ=
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -117,6 +123,8 @@ data:
 Use a **Deployment** with `RollingUpdate` strategy and configure **Readiness Probes** to prevent traffic to unready pods.
 
 **Code Example:**
+
+```yaml
 strategy:
   type: RollingUpdate
   rollingUpdate:
@@ -130,6 +138,7 @@ template:
           httpGet:
             path: /health
             port: 8080
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -143,6 +152,8 @@ template:
 Use an **Ingress** resource backed by an Ingress Controller (e.g., Nginx). It provides load balancing, SSL termination, and name-based virtual hosting.
 
 **Code Example:**
+
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -159,6 +170,7 @@ spec:
             name: my-service
             port:
               number: 80
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -172,6 +184,8 @@ spec:
 Use the **Horizontal Pod Autoscaler (HPA)**. It scales the number of replicas based on observed metrics like CPU utilization.
 
 **Code Example:**
+
+```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
@@ -190,6 +204,7 @@ spec:
       target:
         type: Utilization
         averageUtilization: 50
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -203,6 +218,8 @@ spec:
 Use **Node Affinity** for flexible rules or `nodeSelector` for simple equality checks against node labels.
 
 **Code Example:**
+
+```yaml
 spec:
   affinity:
     nodeAffinity:
@@ -212,7 +229,8 @@ spec:
           - key: gpu
             operator: In
             values:
-            - "true" 
+            - "true"
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -226,6 +244,8 @@ spec:
 Use **NetworkPolicies**. By default, all traffic is allowed. Create a policy to deny all ingress/egress and then whitelist specific traffic.
 
 **Code Example:**
+
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -234,6 +254,7 @@ spec:
   podSelector: {}
   policyTypes:
   - Ingress
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -247,6 +268,8 @@ spec:
 Use **StatefulSet**. It provides stable network IDs (web-0, web-1), stable persistent storage, and ordered deployment.
 
 **Code Example:**
+
+```yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -269,6 +292,7 @@ spec:
       resources:
         requests:
           storage: 1Gi
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -282,6 +306,8 @@ spec:
 Use a **DaemonSet**. It ensures that a copy of the Pod runs on all (or a subset of) nodes.
 
 **Code Example:**
+
+```yaml
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -292,6 +318,7 @@ spec:
       containers:
       - name: fluentd
         image: fluentd:latest
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -305,6 +332,8 @@ spec:
 Check logs (`kubectl logs`), previous logs (`--previous`), and events (`kubectl describe pod`).
 
 **Code Example:**
+
+```yaml
 # Check current logs
 kubectl logs my-pod
 
@@ -313,6 +342,7 @@ kubectl logs my-pod --previous
 
 # Check events (OOMKilled, Scheduling failures)
 kubectl describe pod my-pod
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -326,6 +356,8 @@ kubectl describe pod my-pod
 Use **ResourceQuota** to set hard limits on aggregate resource usage per namespace.
 
 **Code Example:**
+
+```yaml
 apiVersion: v1
 kind: ResourceQuota
 metadata:
@@ -337,6 +369,7 @@ spec:
     requests.memory: 2Gi
     limits.cpu: "10"
     limits.memory: 4Gi
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -350,6 +383,8 @@ spec:
 Use a **Job**. It creates pods that run to completion and then terminate.
 
 **Code Example:**
+
+```yaml
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -362,6 +397,7 @@ spec:
         image: my-app:latest
         command: ["./migrate.sh"]
       restartPolicy: Never
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -375,6 +411,8 @@ spec:
 Use **RBAC (Role-Based Access Control)**. Create `Role` (permissions) and `RoleBinding` (assignment) for namespaced access.
 
 **Code Example:**
+
+```yaml
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -384,6 +422,7 @@ rules:
 - apiGroups: [""]
   resources: ["pods"]
   verbs: ["get", "watch", "list"]
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -397,6 +436,8 @@ rules:
 Use an `emptyDir` volume. It's created with the pod and deleted when the pod is removed.
 
 **Code Example:**
+
+```yaml
 spec:
   volumes:
   - name: shared-data
@@ -414,6 +455,7 @@ spec:
     volumeMounts:
     - name: shared-data
       mountPath: /data
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -427,11 +469,14 @@ spec:
 Use **Helm**. It allows you to define, install, and upgrade complex Kubernetes applications using 'Charts'.
 
 **Code Example:**
+
+```yaml
 # Install a chart
 helm install my-release bitnami/nginx
 
 # Upgrade a release
 helm upgrade my-release bitnami/nginx
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -445,6 +490,8 @@ helm upgrade my-release bitnami/nginx
 Apply a **Taint** to the node. Only pods with a matching **Toleration** can be scheduled there.
 
 **Code Example:**
+
+```yaml
 # Taint node
 kubectl taint nodes node1 key=value:NoSchedule
 
@@ -453,7 +500,8 @@ tolerations:
 - key: "key"
   operator: "Equal"
   value: "value"
-  effect: "NoSchedule" 
+  effect: "NoSchedule"
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -467,6 +515,8 @@ tolerations:
 Use **Liveness Probes** (restart if dead) and **Readiness Probes** (remove from endpoints if busy/starting).
 
 **Code Example:**
+
+```yaml
 livenessProbe:
   httpGet:
     path: /healthz
@@ -477,6 +527,7 @@ readinessProbe:
     path: /ready
     port: 8080
   initialDelaySeconds: 5
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -490,6 +541,8 @@ readinessProbe:
 Use a **Service**. It provides a stable IP and DNS name, and load balances traffic across pods matching the selector.
 
 **Code Example:**
+
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -501,6 +554,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 9376
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -514,6 +568,8 @@ spec:
 Run a second container in the same Pod to assist the main container (e.g., log shipping, proxying). They share the same network and volumes.
 
 **Code Example:**
+
+```yaml
 spec:
   containers:
   - name: app
@@ -523,6 +579,7 @@ spec:
     volumeMounts:
     - name: logs
       mountPath: /var/log/app
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -536,6 +593,8 @@ spec:
 Use a **CronJob**. It creates Jobs based on a cron schedule string.
 
 **Code Example:**
+
+```yaml
 apiVersion: batch/v1
 kind: CronJob
 metadata:
@@ -554,6 +613,7 @@ spec:
             - -c
             - date; echo Hello from the Kubernetes cluster
           restartPolicy: OnFailure
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -567,6 +627,8 @@ spec:
 Create a new Deployment with the new version and a small replica count. Both deployments share the same Service selector. For advanced traffic splitting (percentage-based), use **Istio** or **Argo Rollouts**.
 
 **Code Example:**
+
+```yaml
 # Deployment V1 (9 replicas)
 labels:
   app: my-app
@@ -578,6 +640,7 @@ labels:
   version: v2
 
 # Service targets 'app: my-app', balancing traffic 90/10 naturally
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -591,6 +654,8 @@ labels:
 Use a Service Mesh like **Istio** or **Linkerd**. They automatically inject sidecar proxies that handle mutual TLS encryption between services.
 
 **Code Example:**
+
+```yaml
 # Istio PeerAuthentication policy
 apiVersion: security.istio.io/v1beta1
 kind: PeerAuthentication
@@ -600,6 +665,7 @@ metadata:
 spec:
   mtls:
     mode: STRICT
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -613,6 +679,8 @@ spec:
 Use a **PodDisruptionBudget (PDB)** to ensure a minimum number of replicas are always available.
 
 **Code Example:**
+
+```yaml
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
@@ -622,6 +690,7 @@ spec:
   selector:
     matchLabels:
       app: zookeeper
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -635,6 +704,8 @@ spec:
 Use **PersistentVolumeClaim (PVC)**. The pod requests storage via PVC, and the cluster binds it to a matching **PersistentVolume (PV)** (often dynamically provisioned via StorageClass).
 
 **Code Example:**
+
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -645,6 +716,7 @@ spec:
   resources:
     requests:
       storage: 10Gi
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -658,11 +730,14 @@ spec:
 Use **Init Containers**. They run to completion before app containers start. Useful for waiting for DBs or setting permissions.
 
 **Code Example:**
+
+```yaml
 spec:
   initContainers:
   - name: init-myservice
     image: busybox:1.28
     command: ['sh', '-c', 'until nslookup myservice; do echo waiting for myservice; sleep 2; done;']
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -676,6 +751,8 @@ spec:
 Use **Operators** and **Custom Resource Definitions (CRDs)**. Operators use custom controllers to automate complex application logic.
 
 **Code Example:**
+
+```yaml
 # Example CRD usage (Prometheus Operator)
 apiVersion: monitoring.coreos.com/v1
 kind: Prometheus
@@ -685,6 +762,7 @@ spec:
   serviceAccountName: prometheus
   replicas: 2
   version: v2.26.0
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -698,7 +776,10 @@ spec:
 Run a temporary pod with DNS tools (`busybox` or `dnsutils`) and use `nslookup` or `dig` to query the CoreDNS service.
 
 **Code Example:**
+
+```bash
 kubectl run -it --rm --restart=Never busybox --image=busybox:1.28 -- nslookup kubernetes.default
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -712,12 +793,15 @@ kubectl run -it --rm --restart=Never busybox --image=busybox:1.28 -- nslookup ku
 Use **Service Accounts** mapped to IAM roles (IRSA in AWS, Workload Identity in GKE).
 
 **Code Example:**
+
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: my-sa
   annotations:
     eks.amazonaws.com/role-arn: arn:aws:iam::123456789012:role/my-role
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -731,6 +815,8 @@ metadata:
 Use **Vertical Pod Autoscaler (VPA)**. It recommends or automatically updates CPU/Memory requests based on usage.
 
 **Code Example:**
+
+```yaml
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
@@ -741,7 +827,8 @@ spec:
     kind: Deployment
     name: my-app
   updatePolicy:
-    updateMode: "Auto" 
+    updateMode: "Auto"
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -755,6 +842,8 @@ spec:
 Use the **Prometheus Adapter**. It exposes Prometheus metrics to the Kubernetes Custom Metrics API, allowing HPA to scale on application-level metrics (e.g., http_requests).
 
 **Code Example:**
+
+```yaml
 # HPA using custom metric
 spec:
   metrics:
@@ -765,6 +854,7 @@ spec:
       target:
         type: AverageValue
         averageValue: 500m
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -778,6 +868,8 @@ spec:
 Maintain two separate environments (Blue and Green). Deploy the new version to Green, run tests, and then switch the Service selector to point to Green.
 
 **Code Example:**
+
+```yaml
 # Service pointing to Blue (v1)
 selector:
   app: my-app
@@ -785,6 +877,7 @@ selector:
 
 # Update to point to Green (v2)
 kubectl patch service my-service -p '{"spec":{"selector":{"version":"v2"}}}'
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -798,9 +891,12 @@ kubectl patch service my-service -p '{"spec":{"selector":{"version":"v2"}}}'
 Use **Namespaces** for isolation, **ResourceQuotas** for fairness, **NetworkPolicies** for traffic isolation, and **RBAC** for access control.
 
 **Code Example:**
+
+```yaml
 # Namespace isolation
 kubectl create namespace tenant-a
 kubectl create rolebinding ... -n tenant-a
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -814,7 +910,10 @@ kubectl create rolebinding ... -n tenant-a
 Enable the **MutatingAdmissionWebhook**. Label the namespace (e.g., `istio-injection=enabled`), and the admission controller will inject the sidecar container into new pods.
 
 **Code Example:**
+
+```bash
 kubectl label namespace default istio-injection=enabled
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -828,12 +927,15 @@ kubectl label namespace default istio-injection=enabled
 Handle the **SIGTERM** signal in your application to finish in-flight requests. Kubernetes waits for `terminationGracePeriodSeconds` (default 30s) before sending SIGKILL.
 
 **Code Example:**
+
+```javascript
 // Node.js example
 process.on('SIGTERM', () => {
   server.close(() => {
     console.log('Process terminated');
   });
 });
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -847,10 +949,13 @@ process.on('SIGTERM', () => {
 Disable anonymous access, use RBAC, enable audit logging, and restrict access to the API server endpoint (e.g., private VPC endpoint).
 
 **Code Example:**
+
+```yaml
 # kube-apiserver flags
 --anonymous-auth=false
 --authorization-mode=Node,RBAC
 --audit-log-path=/var/log/audit.log
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -864,6 +969,8 @@ Disable anonymous access, use RBAC, enable audit logging, and restrict access to
 Set `clusterIP: None`. This returns the IPs of all backing pods directly via DNS, rather than a single VIP. Useful for stateful sets and service discovery.
 
 **Code Example:**
+
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -872,6 +979,7 @@ spec:
   clusterIP: None
   selector:
     app: my-app
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -885,6 +993,8 @@ spec:
 Use tools like **ArgoCD** or **Flux**. They synchronize the cluster state with a Git repository.
 
 **Code Example:**
+
+```yaml
 # ArgoCD Application
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -898,6 +1008,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: guestbook
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -911,7 +1022,10 @@ spec:
 Use `kubectl drain`. It cordons the node (unschedulable) and evicts all pods to other nodes (respecting PDBs).
 
 **Code Example:**
+
+```bash
 kubectl drain node-1 --ignore-daemonsets --delete-emptydir-data
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -925,8 +1039,11 @@ kubectl drain node-1 --ignore-daemonsets --delete-emptydir-data
 Use `helm lint` to check for syntax errors and best practices, and `helm template` to render the YAML locally for inspection.
 
 **Code Example:**
+
+```bash
 helm lint ./my-chart
 helm template ./my-chart --debug
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -940,7 +1057,10 @@ helm template ./my-chart --debug
 Use `kubectl debug`. It attaches a new container (with tools) to a running pod without restarting it (K8s v1.23+).
 
 **Code Example:**
+
+```bash
 kubectl debug -it my-pod --image=busybox --target=my-container
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -954,10 +1074,13 @@ kubectl debug -it my-pod --image=busybox --target=my-container
 Use `subPath` in the `volumeMounts` section.
 
 **Code Example:**
+
+```yaml
 volumeMounts:
 - name: config-vol
   mountPath: /etc/app/config.json
   subPath: config.json
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -971,7 +1094,10 @@ volumeMounts:
 Annotate the StorageClass with `storageclass.kubernetes.io/is-default-class=true`.
 
 **Code Example:**
+
+```bash
 kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -985,7 +1111,10 @@ kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.ku
 Use `etcdctl` to take a snapshot of the etcd database. This saves the entire cluster state.
 
 **Code Example:**
+
+```bash
 ETCDCTL_API=3 etcdctl snapshot save snapshot.db   --endpoints=https://127.0.0.1:2379   --cacert=/etc/kubernetes/pki/etcd/ca.crt   --cert=/etc/kubernetes/pki/etcd/server.crt   --key=/etc/kubernetes/pki/etcd/server.key
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -999,7 +1128,10 @@ ETCDCTL_API=3 etcdctl snapshot save snapshot.db   --endpoints=https://127.0.0.1:
 Use `--force --grace-period=0`. This removes the API object immediately (use with caution).
 
 **Code Example:**
+
+```bash
 kubectl delete pod my-pod --grace-period=0 --force
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1013,8 +1145,11 @@ kubectl delete pod my-pod --grace-period=0 --force
 Use **Prometheus** with **Grafana**. Deploy `kube-prometheus-stack` which includes exporters for kubelet, etcd, scheduler, and controller-manager.
 
 **Code Example:**
+
+```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm install monitoring prometheus-community/kube-prometheus-stack
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1028,9 +1163,12 @@ helm install monitoring prometheus-community/kube-prometheus-stack
 Set `.spec.successfulJobsHistoryLimit` and `.spec.failedJobsHistoryLimit` in the CronJob definition.
 
 **Code Example:**
+
+```yaml
 spec:
   successfulJobsHistoryLimit: 3
   failedJobsHistoryLimit: 1
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1044,8 +1182,11 @@ spec:
 You need a cluster with Windows nodes. Use `nodeSelector` or `tolerations` to schedule the pod on a Windows node.
 
 **Code Example:**
+
+```yaml
 nodeSelector:
   kubernetes.io/os: windows
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1059,6 +1200,8 @@ nodeSelector:
 Create a **PriorityClass** and assign it to the Pod. Higher priority pods can preempt (evict) lower priority pods if resources are scarce.
 
 **Code Example:**
+
+```yaml
 apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
@@ -1067,6 +1210,7 @@ value: 1000000
 ---
 spec:
   priorityClassName: high-priority
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1080,6 +1224,8 @@ spec:
 Use **cert-manager**. It automates the issuance and renewal of certificates from issuers like Let's Encrypt or HashiCorp Vault.
 
 **Code Example:**
+
+```yaml
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -1090,6 +1236,7 @@ spec:
     name: letsencrypt-prod
   dnsNames:
   - example.com
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -1103,6 +1250,8 @@ spec:
 Use an admission controller (Kyverno or Gatekeeper) to verify Cosign signatures before allowing image deployment.
 
 **Code Example:**
+
+```yaml
 # Kyverno Policy
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
@@ -1119,6 +1268,7 @@ spec:
       message: "Image must be signed."
       imageVerification:
         # ... verification config
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 

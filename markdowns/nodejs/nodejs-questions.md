@@ -29,41 +29,36 @@
 17. [How do you handle Rate limiting requests?](#q17-how-do-you-handle-rate-limiting-requests) <span class="intermediate">Intermediate</span>
 18. [How do you handle Using node-postgres vs ORMs?](#q18-how-do-you-handle-using-node-postgres-vs-orms) <span class="intermediate">Intermediate</span>
 19. [How do you handle Handling uncaught exceptions?](#q19-how-do-you-handle-handling-uncaught-exceptions) <span class="intermediate">Intermediate</span>
-20. [How do you handle Unhandled promise rejections?](#q20-how-do-you-handle-unhandled-promise-rejections) <span class="intermediate">Intermediate</span>
-21. [How do you validate API requests using Joi?](#q21-how-do-you-validate-api-requests-using-joi) <span class="intermediate">Intermediate</span>
-22. [How do you implement structured logging using Winston?](#q22-how-do-you-implement-structured-logging-using-winston) <span class="intermediate">Intermediate</span>
-23. [How do you handle file uploads using Multer?](#q23-how-do-you-handle-file-uploads-using-multer) <span class="intermediate">Intermediate</span>
-24. [How do you use dotenv to manage environment variables?](#q24-how-do-you-use-dotenv-to-manage-environment-variables) <span class="beginner">Beginner</span>
-25. [How do you use spawn to run a child process?](#q25-how-do-you-use-spawn-to-run-a-child-process) <span class="intermediate">Intermediate</span>
-26. [How do you write a simple unit test with Jest?](#q26-how-do-you-write-a-simple-unit-test-with-jest) <span class="beginner">Beginner</span>
-27. [How do you use AsyncLocalStorage for request context tracking?](#q27-how-do-you-use-asynclocalstorage-for-request-context-tracking) <span class="advanced">Advanced</span>
-28. [How do you implement a custom Event Emitter?](#q28-how-do-you-implement-a-custom-event-emitter) <span class="intermediate">Intermediate</span>
-29. [How do you Dockerize a Node.js application?](#q29-how-do-you-dockerize-a-nodejs-application) <span class="intermediate">Intermediate</span>
-30. [How do you use the path module to handle file paths cross-platform?](#q30-how-do-you-use-the-path-module-to-handle-file-paths-cross-platform) <span class="beginner">Beginner</span>
-31. [How do you use the `cluster` module to scale a Node.js app?](#q31-how-do-you-use-the-cluster-module-to-scale-a-nodejs-app) <span class="intermediate">Intermediate</span>
-32. [What is the difference between `process.nextTick` and `setImmediate`?](#q32-what-is-the-difference-between-processnexttick-and-setimmediate) <span class="advanced">Advanced</span>
-33. [How do you safely spawn a child process?](#q33-how-do-you-safely-spawn-a-child-process) <span class="intermediate">Intermediate</span>
-34. [How do you handle unhandled promise rejections globally?](#q34-how-do-you-handle-unhandled-promise-rejections-globally) <span class="intermediate">Intermediate</span>
-35. [How do you implement a custom Event Emitter?](#q35-how-do-you-implement-a-custom-event-emitter) <span class="beginner">Beginner</span>
-36. [How do you optimize garbage collection in Node.js?](#q36-how-do-you-optimize-garbage-collection-in-nodejs) <span class="advanced">Advanced</span>
-37. [How do you use Buffers safely?](#q37-how-do-you-use-buffers-safely) <span class="intermediate">Intermediate</span>
-38. [How do you debug a Node.js application with the Inspector?](#q38-how-do-you-debug-a-nodejs-application-with-the-inspector) <span class="beginner">Beginner</span>
-39. [How do you create a secure HTTPS server?](#q39-how-do-you-create-a-secure-https-server) <span class="intermediate">Intermediate</span>
-40. [How do you use `util.promisify` to convert callback-based functions?](#q40-how-do-you-use-utilpromisify-to-convert-callback-based-functions) <span class="beginner">Beginner</span>
-41. [How do you parse large JSON files without blocking the event loop?](#q41-how-do-you-parse-large-json-files-without-blocking-the-event-loop) <span class="advanced">Advanced</span>
-42. [How do you implement a simple rate limiter using Redis?](#q42-how-do-you-implement-a-simple-rate-limiter-using-redis) <span class="advanced">Advanced</span>
-43. [How do you use `vm` module to run untrusted code (Sandboxing)?](#q43-how-do-you-use-vm-module-to-run-untrusted-code-sandboxing) <span class="advanced">Advanced</span>
-44. [How do you prevent blocking the Event Loop with cryptographic operations?](#q44-how-do-you-prevent-blocking-the-event-loop-with-cryptographic-operations) <span class="intermediate">Intermediate</span>
-45. [How do you handle 'uncaughtException'?](#q45-how-do-you-handle-uncaughtexception) <span class="intermediate">Intermediate</span>
-46. [How do you use `require.resolve`?](#q46-how-do-you-use-requireresolve) <span class="beginner">Beginner</span>
-47. [How do you implement simple middleware in pure Node.js?](#q47-how-do-you-implement-simple-middleware-in-pure-nodejs) <span class="intermediate">Intermediate</span>
-48. [How do you use the `repl` module to create a custom shell?](#q48-how-do-you-use-the-repl-module-to-create-a-custom-shell) <span class="intermediate">Intermediate</span>
-49. [How do you benchmark Node.js code using `perf_hooks`?](#q49-how-do-you-benchmark-nodejs-code-using-perf_hooks) <span class="intermediate">Intermediate</span>
-50. [How do you serve static files without a framework?](#q50-how-do-you-serve-static-files-without-a-framework) <span class="intermediate">Intermediate</span>
+20. [How do you validate API requests using Joi?](#q20-how-do-you-validate-api-requests-using-joi) <span class="intermediate">Intermediate</span>
+21. [How do you implement structured logging using Winston?](#q21-how-do-you-implement-structured-logging-using-winston) <span class="intermediate">Intermediate</span>
+22. [How do you handle file uploads using Multer?](#q22-how-do-you-handle-file-uploads-using-multer) <span class="intermediate">Intermediate</span>
+23. [How do you use dotenv to manage environment variables?](#q23-how-do-you-use-dotenv-to-manage-environment-variables) <span class="beginner">Beginner</span>
+24. [How do you use spawn to run a child process?](#q24-how-do-you-use-spawn-to-run-a-child-process) <span class="intermediate">Intermediate</span>
+25. [How do you write a simple unit test with Jest?](#q25-how-do-you-write-a-simple-unit-test-with-jest) <span class="beginner">Beginner</span>
+26. [How do you use AsyncLocalStorage for request context tracking?](#q26-how-do-you-use-asynclocalstorage-for-request-context-tracking) <span class="advanced">Advanced</span>
+27. [How do you Dockerize a Node.js application?](#q27-how-do-you-dockerize-a-nodejs-application) <span class="intermediate">Intermediate</span>
+28. [How do you use the path module to handle file paths cross-platform?](#q28-how-do-you-use-the-path-module-to-handle-file-paths-cross-platform) <span class="beginner">Beginner</span>
+29. [What is the difference between `process.nextTick` and `setImmediate`?](#q29-what-is-the-difference-between-processnexttick-and-setimmediate) <span class="advanced">Advanced</span>
+30. [How do you safely spawn a child process?](#q30-how-do-you-safely-spawn-a-child-process) <span class="intermediate">Intermediate</span>
+31. [How do you handle unhandled promise rejections globally?](#q31-how-do-you-handle-unhandled-promise-rejections-globally) <span class="intermediate">Intermediate</span>
+32. [How do you optimize garbage collection in Node.js?](#q32-how-do-you-optimize-garbage-collection-in-nodejs) <span class="advanced">Advanced</span>
+33. [How do you use Buffers safely?](#q33-how-do-you-use-buffers-safely) <span class="intermediate">Intermediate</span>
+34. [How do you debug a Node.js application with the Inspector?](#q34-how-do-you-debug-a-nodejs-application-with-the-inspector) <span class="beginner">Beginner</span>
+35. [How do you create a secure HTTPS server?](#q35-how-do-you-create-a-secure-https-server) <span class="intermediate">Intermediate</span>
+36. [How do you use `util.promisify` to convert callback-based functions?](#q36-how-do-you-use-utilpromisify-to-convert-callback-based-functions) <span class="beginner">Beginner</span>
+37. [How do you parse large JSON files without blocking the event loop?](#q37-how-do-you-parse-large-json-files-without-blocking-the-event-loop) <span class="advanced">Advanced</span>
+38. [How do you implement a simple rate limiter using Redis?](#q38-how-do-you-implement-a-simple-rate-limiter-using-redis) <span class="advanced">Advanced</span>
+39. [How do you use `vm` module to run untrusted code (Sandboxing)?](#q39-how-do-you-use-vm-module-to-run-untrusted-code-sandboxing) <span class="advanced">Advanced</span>
+40. [How do you prevent blocking the Event Loop with cryptographic operations?](#q40-how-do-you-prevent-blocking-the-event-loop-with-cryptographic-operations) <span class="intermediate">Intermediate</span>
+41. [How do you use `require.resolve`?](#q41-how-do-you-use-requireresolve) <span class="beginner">Beginner</span>
+42. [How do you implement simple middleware in pure Node.js?](#q42-how-do-you-implement-simple-middleware-in-pure-nodejs) <span class="intermediate">Intermediate</span>
+43. [How do you use the `repl` module to create a custom shell?](#q43-how-do-you-use-the-repl-module-to-create-a-custom-shell) <span class="intermediate">Intermediate</span>
+44. [How do you benchmark Node.js code using `perf_hooks`?](#q44-how-do-you-benchmark-nodejs-code-using-perf_hooks) <span class="intermediate">Intermediate</span>
+45. [How do you serve static files without a framework?](#q45-how-do-you-serve-static-files-without-a-framework) <span class="intermediate">Intermediate</span>
 
 ---
 
-### Q1: How do you handle backpressure in a Node.js stream pipeline?
+### Q1:  How do you handle backpressure in a Node.js stream pipeline?
 
 **Difficulty**: Intermediate
 
@@ -111,9 +106,11 @@ pipeline(
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q2: How do you offload CPU-intensive tasks using Worker Threads?
+
+### Q2:  How do you offload CPU-intensive tasks using Worker Threads?
 
 **Difficulty**: Intermediate
 
@@ -156,9 +153,11 @@ parentPort.postMessage(result);
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q3: How do you implement a custom Transform stream to modify data on the fly?
+
+### Q3:  How do you implement a custom Transform stream to modify data on the fly?
 
 **Difficulty**: Intermediate
 
@@ -193,9 +192,11 @@ process.stdin.pipe(upper).pipe(process.stdout);
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q4: How do you handle errors in async/await middleware in Express?
+
+### Q4:  How do you handle errors in async/await middleware in Express?
 
 **Difficulty**: Intermediate
 
@@ -229,9 +230,11 @@ app.use((err, req, res, next) => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q5: How do you implement graceful shutdown in a Node.js server?
+
+### Q5:  How do you implement graceful shutdown in a Node.js server?
 
 **Difficulty**: Intermediate
 
@@ -268,9 +271,11 @@ process.on('SIGTERM', () => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q6: How do you prevent prototype pollution in Node.js applications?
+
+### Q6:  How do you prevent prototype pollution in Node.js applications?
 
 **Difficulty**: Intermediate
 
@@ -313,9 +318,11 @@ function safeMerge(target, source) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q7: How do you migrate from CommonJS to ES Modules (ESM) in Node.js?
+
+### Q7:  How do you migrate from CommonJS to ES Modules (ESM) in Node.js?
 
 **Difficulty**: Intermediate
 
@@ -346,9 +353,11 @@ export function readConfig() {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q8: How do you debug memory leaks in Node.js?
+
+### Q8:  How do you debug memory leaks in Node.js?
 
 **Difficulty**: Intermediate
 
@@ -380,9 +389,11 @@ setInterval(() => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q9: How do you scale a Node.js application using the Cluster module?
+
+### Q9:  How do you scale a Node.js application using the Cluster module?
 
 **Difficulty**: Intermediate
 
@@ -425,9 +436,11 @@ if (cluster.isMaster) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q10: How do you securely hash passwords using the built-in crypto module?
+
+### Q10:  How do you securely hash passwords using the built-in crypto module?
 
 **Difficulty**: Intermediate
 
@@ -467,9 +480,11 @@ function verifyPassword(password, storedHash) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q11: How do you create a CLI tool with Node.js?
+
+### Q11:  How do you create a CLI tool with Node.js?
 
 **Difficulty**: Intermediate
 
@@ -505,9 +520,11 @@ console.log(`Hello, ${args[0]}!`);
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q12: How do you process large files line-by-line to keep memory usage low?
+
+### Q12:  How do you process large files line-by-line to keep memory usage low?
 
 **Difficulty**: Intermediate
 
@@ -541,9 +558,11 @@ processLineByLine('huge-file.log');
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q13: How do you handle multiple Promises concurrently but fail gracefully if one fails?
+
+### Q13:  How do you handle multiple Promises concurrently but fail gracefully if one fails?
 
 **Difficulty**: Intermediate
 
@@ -576,9 +595,11 @@ Success: foo
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q14: How do you optimize Node.js performance by caching static assets?
+
+### Q14:  How do you optimize Node.js performance by caching static assets?
 
 **Difficulty**: Intermediate
 
@@ -606,9 +627,11 @@ app.listen(3000);
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q15: How do you use Buffers to manipulate binary data?
+
+### Q15:  How do you use Buffers to manipulate binary data?
 
 **Difficulty**: Intermediate
 
@@ -639,9 +662,11 @@ console.log(buf3.toString()); // Hello World
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q16: How do you handle Implementing JWT authentication?
+
+### Q16:  How do you handle Implementing JWT authentication?
 
 **Difficulty**: Intermediate
 
@@ -671,9 +696,11 @@ function authenticateToken(req, res, next) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q17: How do you handle Rate limiting requests?
+
+### Q17:  How do you handle Rate limiting requests?
 
 **Difficulty**: Intermediate
 
@@ -697,9 +724,11 @@ app.use(limiter);
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q18: How do you handle Using node-postgres vs ORMs?
+
+### Q18:  How do you handle Using node-postgres vs ORMs?
 
 **Difficulty**: Intermediate
 
@@ -723,9 +752,11 @@ async function getUser(id) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q19: How do you handle Handling uncaught exceptions?
+
+### Q19:  How do you handle Handling uncaught exceptions?
 
 **Difficulty**: Intermediate
 
@@ -743,28 +774,11 @@ process.on('uncaughtException', (err) => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
-
-### Q20: How do you handle Unhandled promise rejections?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Listen to the `unhandledRejection` event. Log the reason and promise. In modern Node.js, unhandled rejections will eventually terminate the process, so it's best to handle them explicitly or crash gracefully.
-
-**Code Snippet:**
-```javascript
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
-  // Application specific logging, throwing an error, or other logic here
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q21: How do you validate API requests using Joi?
+
+### Q20:  How do you validate API requests using Joi?
 
 **Difficulty**: Intermediate
 
@@ -790,9 +804,11 @@ const validateRequest = (req, res, next) => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q22: How do you implement structured logging using Winston?
+
+### Q21:  How do you implement structured logging using Winston?
 
 **Difficulty**: Intermediate
 
@@ -823,9 +839,11 @@ logger.info('Hello distributed log files!');
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q23: How do you handle file uploads using Multer?
+
+### Q22:  How do you handle file uploads using Multer?
 
 **Difficulty**: Intermediate
 
@@ -849,9 +867,11 @@ const upload = multer({ storage: storage });
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q24: How do you use dotenv to manage environment variables?
+
+### Q23:  How do you use dotenv to manage environment variables?
 
 **Difficulty**: Beginner
 
@@ -872,9 +892,11 @@ console.log(process.env.API_KEY);
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q25: How do you use spawn to run a child process?
+
+### Q24:  How do you use spawn to run a child process?
 
 **Difficulty**: Intermediate
 
@@ -901,9 +923,11 @@ ls.on('close', (code) => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q26: How do you write a simple unit test with Jest?
+
+### Q25:  How do you write a simple unit test with Jest?
 
 **Difficulty**: Beginner
 
@@ -928,9 +952,11 @@ test('adds 1 + 2 to equal 3', () => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q27: How do you use AsyncLocalStorage for request context tracking?
+
+### Q26:  How do you use AsyncLocalStorage for request context tracking?
 
 **Difficulty**: Advanced
 
@@ -958,35 +984,11 @@ function logWithId(msg) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
-
-### Q28: How do you implement a custom Event Emitter?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Extend the `EventEmitter` class and use `emit` to trigger events and `on` to listen.
-
-**Code Snippet:**
-```javascript
-const EventEmitter = require('events');
-
-class MyEmitter extends EventEmitter {}
-
-const myEmitter = new MyEmitter();
-
-myEmitter.on('event', () => {
-  console.log('an event occurred!');
-});
-
-myEmitter.emit('event');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q29: How do you Dockerize a Node.js application?
+
+### Q27:  How do you Dockerize a Node.js application?
 
 **Difficulty**: Intermediate
 
@@ -1011,9 +1013,11 @@ CMD ["node", "server.js"]
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q30: How do you use the path module to handle file paths cross-platform?
+
+### Q28:  How do you use the path module to handle file paths cross-platform?
 
 **Difficulty**: Beginner
 
@@ -1034,52 +1038,11 @@ const absolutePath = path.resolve('static');
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
-
 
 ---
 
-### Q31: How do you use the `cluster` module to scale a Node.js app?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Node.js is single-threaded. The `cluster` module allows you to create child processes (workers) that share server ports, utilizing multi-core systems.
-
-**Code Example:**
-```javascript
-const cluster = require('cluster');
-const http = require('http');
-const numCPUs = require('os').cpus().length;
-
-if (cluster.isMaster) {
-  console.log(`Master ${process.pid} is running`);
-
-  // Fork workers.
-  for (let i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
-
-  cluster.on('exit', (worker, code, signal) => {
-    console.log(`worker ${worker.process.pid} died`);
-    cluster.fork(); // Replace dead worker
-  });
-} else {
-  // Workers can share any TCP connection
-  http.createServer((req, res) => {
-    res.writeHead(200);
-    res.end('Hello World\n');
-  }).listen(8000);
-
-  console.log(`Worker ${process.pid} started`);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q32: What is the difference between `process.nextTick` and `setImmediate`?
+### Q29:  What is the difference between `process.nextTick` and `setImmediate`?
 
 **Difficulty**: Advanced
 
@@ -1109,9 +1072,11 @@ console.log('End');
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q33: How do you safely spawn a child process?
+
+### Q30:  How do you safely spawn a child process?
 
 **Difficulty**: Intermediate
 
@@ -1139,9 +1104,11 @@ child.on('close', (code) => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q34: How do you handle unhandled promise rejections globally?
+
+### Q31:  How do you handle unhandled promise rejections globally?
 
 **Difficulty**: Intermediate
 
@@ -1161,35 +1128,11 @@ Promise.reject(new Error('Fail!'));
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
-
-### Q35: How do you implement a custom Event Emitter?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Extend the `EventEmitter` class from the `events` module. Use `emit` to trigger events and `on` to listen for them.
-
-**Code Example:**
-```javascript
-const EventEmitter = require('events');
-
-class MyEmitter extends EventEmitter {}
-
-const myEmitter = new MyEmitter();
-
-myEmitter.on('event', (a, b) => {
-  console.log(a, b, this);
-});
-
-myEmitter.emit('event', 'a', 'b');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q36: How do you optimize garbage collection in Node.js?
+
+### Q32:  How do you optimize garbage collection in Node.js?
 
 **Difficulty**: Advanced
 
@@ -1215,9 +1158,11 @@ function addToCache(key, value) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q37: How do you use Buffers safely?
+
+### Q33:  How do you use Buffers safely?
 
 **Difficulty**: Intermediate
 
@@ -1238,9 +1183,11 @@ console.log(buf2.toString('hex')); // 48656c6c6f20576f726c64
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q38: How do you debug a Node.js application with the Inspector?
+
+### Q34:  How do you debug a Node.js application with the Inspector?
 
 **Difficulty**: Beginner
 
@@ -1259,9 +1206,11 @@ console.log('Paused here if inspector is attached');
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q39: How do you create a secure HTTPS server?
+
+### Q35:  How do you create a secure HTTPS server?
 
 **Difficulty**: Intermediate
 
@@ -1286,9 +1235,11 @@ https.createServer(options, (req, res) => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q40: How do you use `util.promisify` to convert callback-based functions?
+
+### Q36:  How do you use `util.promisify` to convert callback-based functions?
 
 **Difficulty**: Beginner
 
@@ -1314,9 +1265,11 @@ async function read() {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q41: How do you parse large JSON files without blocking the event loop?
+
+### Q37:  How do you parse large JSON files without blocking the event loop?
 
 **Difficulty**: Advanced
 
@@ -1338,9 +1291,11 @@ if (isMainThread) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q42: How do you implement a simple rate limiter using Redis?
+
+### Q38:  How do you implement a simple rate limiter using Redis?
 
 **Difficulty**: Advanced
 
@@ -1368,9 +1323,11 @@ async function rateLimit(ip) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q43: How do you use `vm` module to run untrusted code (Sandboxing)?
+
+### Q39:  How do you use `vm` module to run untrusted code (Sandboxing)?
 
 **Difficulty**: Advanced
 
@@ -1394,9 +1351,11 @@ console.log(context.y); // 17
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q44: How do you prevent blocking the Event Loop with cryptographic operations?
+
+### Q40:  How do you prevent blocking the Event Loop with cryptographic operations?
 
 **Difficulty**: Intermediate
 
@@ -1419,32 +1378,11 @@ crypto.pbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, derivedKey) => {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
-
-### Q45: How do you handle 'uncaughtException'?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Listen for `uncaughtException`. Perform cleanup (close DB, log error) and **exit the process**. Continuing after an uncaught exception leaves the app in an undefined state.
-
-**Code Example:**
-```javascript
-process.on('uncaughtException', (err) => {
-  console.error('Uncaught Exception:', err);
-  // Cleanup logic...
-  process.exit(1);
-});
-
-// Non-existent function call
-nonExistentFunction();
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q46: How do you use `require.resolve`?
+
+### Q41:  How do you use `require.resolve`?
 
 **Difficulty**: Beginner
 
@@ -1463,9 +1401,11 @@ try {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q47: How do you implement simple middleware in pure Node.js?
+
+### Q42:  How do you implement simple middleware in pure Node.js?
 
 **Difficulty**: Intermediate
 
@@ -1491,9 +1431,11 @@ function run(req, res) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q48: How do you use the `repl` module to create a custom shell?
+
+### Q43:  How do you use the `repl` module to create a custom shell?
 
 **Difficulty**: Intermediate
 
@@ -1514,9 +1456,11 @@ r.context.sayHello = (name) => `Hello ${name}`;
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q49: How do you benchmark Node.js code using `perf_hooks`?
+
+### Q44:  How do you benchmark Node.js code using `perf_hooks`?
 
 **Difficulty**: Intermediate
 
@@ -1541,9 +1485,11 @@ performance.measure('A to B', 'A', 'B');
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+
 ---
 
-### Q50: How do you serve static files without a framework?
+
+### Q45:  How do you serve static files without a framework?
 
 **Difficulty**: Intermediate
 
@@ -1570,6 +1516,168 @@ http.createServer((req, res) => {
     }
   });
 }).listen(8080);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+### Q{}: How do you use `fs.promises` for async file operations?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Node.js provides `fs.promises` (or `require('fs/promises')`) to perform file system operations using Promises, allowing cleaner code with `async/await` compared to callbacks.
+
+**Code Snippet:**
+```javascript
+const fs = require('fs/promises');
+
+async function readConfig() {
+  try {
+    const data = await fs.readFile('./config.json', 'utf8');
+    const config = JSON.parse(data);
+    console.log(config);
+  } catch (err) {
+    console.error('Error reading config:', err);
+  }
+}
+
+readConfig();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q{}: How do you implement a simple health check endpoint?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+A health check endpoint (usually `/health` or `/status`) returns a 200 OK status if the server is running. It can also check DB connectivity or other dependencies.
+
+**Code Snippet:**
+```javascript
+const express = require('express');
+const app = express();
+
+app.get('/health', async (req, res) => {
+  const healthcheck = {
+    uptime: process.uptime(),
+    message: 'OK',
+    timestamp: Date.now()
+  };
+  
+  try {
+    // Optional: Check DB connection here
+    // await db.ping();
+    res.send(healthcheck);
+  } catch (error) {
+    healthcheck.message = error;
+    res.status(503).send(healthcheck);
+  }
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q{}: How do you use `AbortController` to cancel async operations?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Since Node.js v15, `AbortController` is globally available. It allows you to abort promise-based APIs (like `fetch` or timers) or your own async logic.
+
+**Code Snippet:**
+```javascript
+const controller = new AbortController();
+const { signal } = controller;
+
+async function doWork() {
+  try {
+    await new Promise((resolve, reject) => {
+      const timeout = setTimeout(resolve, 5000);
+      signal.addEventListener('abort', () => {
+        clearTimeout(timeout);
+        reject(new Error('Operation aborted'));
+      });
+    });
+  } catch (err) {
+    if (err.message === 'Operation aborted') {
+      console.log('Work was cancelled');
+    } else {
+      throw err;
+    }
+  }
+}
+
+doWork();
+// Cancel after 1 second
+setTimeout(() => controller.abort(), 1000);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q{}: How do you inspect heap snapshots programmatically using `v8` module?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+The `v8` module allows you to write heap snapshots to disk programmatically. This is useful for debugging memory leaks in production when triggered by a signal or specific condition.
+
+**Code Snippet:**
+```javascript
+const v8 = require('v8');
+const path = require('path');
+
+function takeSnapshot() {
+  const fileName = path.join(__dirname, `heap-${Date.now()}.heapsnapshot`);
+  v8.writeHeapSnapshot(fileName);
+  console.log(`Heap snapshot written to ${fileName}`);
+}
+
+// Trigger on high memory usage (example logic)
+const usage = process.memoryUsage();
+if (usage.heapUsed > 500 * 1024 * 1024) { // 500MB
+  takeSnapshot();
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q{}: How do you use the native Node.js Test Runner?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Since Node.js v18 (stable in v20), there is a built-in test runner (`node:test`). It supports `describe`, `it`, `test`, and mocking, reducing the need for external libraries like Jest for simple projects.
+
+**Code Snippet:**
+```javascript
+const { test, describe, it } = require('node:test');
+const assert = require('node:assert');
+
+function add(a, b) { return a + b; }
+
+describe('Math operations', () => {
+  it('should add two numbers', () => {
+    assert.strictEqual(add(2, 3), 5);
+  });
+
+  test('async test', async () => {
+    const result = await Promise.resolve(42);
+    assert.strictEqual(result, 42);
+  });
+});
+// Run with: node --test file.js
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

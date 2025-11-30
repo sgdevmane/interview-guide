@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
-1. [How do you handle optimistic UI updates using NgRx Effects?](#q1-how-do-you-handle-optimistic-ui-updates-using-ngrx-effects) <span class="advanced">Advanced</span>
+1. [What is the difference between NgRx Global Store and NgRx ComponentStore?](#q1-what-is-the-difference-between-ngrx-global-store-and-ngrx-componentstore) <span class="beginner">Beginner</span>
 2. [How do you prevent selector re-computation when using arguments (props)?](#q2-how-do-you-prevent-selector-re-computation-when-using-arguments-props) <span class="advanced">Advanced</span>
 3. [How do you manage local component state using NgRx ComponentStore?](#q3-how-do-you-manage-local-component-state-using-ngrx-componentstore) <span class="intermediate">Intermediate</span>
 4. [How do you implement the Facade pattern with NgRx to hide store complexity?](#q4-how-do-you-implement-the-facade-pattern-with-ngrx-to-hide-store-complexity) <span class="intermediate">Intermediate</span>
@@ -52,6 +52,28 @@
 48. [How do you manage Forms with NgRx?](#q48-how-do-you-manage-forms-with-ngrx) <span class="intermediate">Intermediate</span>
 49. [How do you use `ngrx-data`?](#q49-how-do-you-use-ngrx-data) <span class="advanced">Advanced</span>
 50. [How do you migrate from NgRx Global Store to SignalStore?](#q50-how-do-you-migrate-from-ngrx-global-store-to-signalstore) <span class="advanced">Advanced</span>
+
+---
+
+### Q1: What is the difference between NgRx Global Store and NgRx ComponentStore?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+*   **Global Store**: Single source of truth for the entire app. Used for shared state (Auth, Config). Dispatches actions, uses reducers/effects.
+*   **ComponentStore**: Local state management for a specific component or feature. Service-based, no actions/reducers needed (uses `updater`/`effect`).
+
+**Code Example:**
+```typescript
+// ComponentStore (Local)
+@Injectable()
+export class MoviesStore extends ComponentStore<MoviesState> { ... }
+
+// Global Store
+StoreModule.forRoot({ movies: moviesReducer })
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -828,7 +850,22 @@ tap(action => trackPageView(action.payload.routerState.url))
 Use `withUndoRedo` custom feature (community or manual). Maintain a history stack signal and update current state on undo.
 
 **Code Example:**
-// Custom feature implementation
+```typescript
+import { signalStore, withState, patchState } from '@ngrx/signals';
+import { withUndoRedo } from '@ngrx/signals/features'; // Hypothetical or custom
+
+export const UserStore = signalStore(
+  withState({ user: null }),
+  withUndoRedo({
+    maxHistory: 10,
+    keys: ['user'] // Only track user changes
+  })
+);
+
+// Usage
+store.undo();
+store.redo();
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -842,11 +879,17 @@ Use `withUndoRedo` custom feature (community or manual). Maintain a history stac
 Use `selectRouteParams` from RouterStore selectors combined with entity selectors.
 
 **Code Example:**
+```typescript
+import { getRouterSelectors } from '@ngrx/router-store';
+
+const { selectRouteParams } = getRouterSelectors();
+
 export const selectSelectedUser = createSelector(
   selectUserEntities,
-  selectRouteParam('id'),
-  (users, id) => users[id]
+  selectRouteParams,
+  (users, params) => users[params['id']]
 );
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -860,8 +903,19 @@ export const selectSelectedUser = createSelector(
 Ensure selectors return new references only when data actually changes (memoization). Avoid returning new objects `{...}` in selectors if data is unchanged.
 
 **Code Example:**
-// Good
-createSelector(s1, s2, (a, b) => a.id === b.id ? a : { ...a, ...b })
+```typescript
+// Bad: Returns new reference every time
+export const selectBad = createSelector(
+  selectItems,
+  items => ({ count: items.length }) 
+);
+
+// Good: Returns same reference if length is same
+export const selectGood = createSelector(
+  selectItems,
+  items => items.length
+);
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -875,9 +929,17 @@ createSelector(s1, s2, (a, b) => a.id === b.id ? a : { ...a, ...b })
 Create an effect that connects to the socket and maps incoming messages to Actions. Dispatch actions to update state.
 
 **Code Example:**
-return socket.messages$.pipe(
-  map(msg => Actions.messageReceived({ msg }))
-);
+```typescript
+listenToMessages$ = createEffect(() => {
+  return this.actions$.pipe(
+    ofType(AuthActions.loginSuccess),
+    switchMap(() => this.socketService.messages$.pipe(
+      map(msg => ChatActions.messageReceived({ msg })),
+      takeUntil(this.actions$.pipe(ofType(AuthActions.logout)))
+    ))
+  );
+});
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -891,10 +953,22 @@ return socket.messages$.pipe(
 Add it to providers. Configure `maxAge` and `logOnly` for production.
 
 **Code Example:**
-provideStoreDevtools({
-  maxAge: 25,
-  logOnly: environment.production
-})
+```typescript
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideStore(reducers),
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+      autoPause: true,
+      trace: false,
+      traceLimit: 75,
+    }),
+  ],
+});
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -908,11 +982,17 @@ provideStoreDevtools({
 Store `page`, `pageSize`, and `total` in state. Effects trigger API calls with these params. Selectors derive the current page slice.
 
 **Code Example:**
+```typescript
 loadPage$ = createEffect(() => this.actions$.pipe(
-  ofType(PageActions.next),
-  withLatestFrom(this.store.select(selectPageParams)),
-  switchMap(([_, params]) => api.get(params))
+  ofType(PageActions.changePage),
+  concatLatestFrom(() => this.store.select(selectPaginationParams)),
+  switchMap(([action, { page, pageSize }]) => 
+    this.service.getItems(page, pageSize).pipe(
+      map(items => PageActions.loadSuccess({ items }))
+    )
+  )
 ));
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -926,7 +1006,21 @@ loadPage$ = createEffect(() => this.actions$.pipe(
 If using `ComponentStore`, the effect is tied to the lifecycle and cancels automatically. In global Effects, listen for a specific Cancel action dispatch in `ngOnDestroy`.
 
 **Code Example:**
-takeUntil(this.actions$.pipe(ofType(PageActions.destroyed)))
+```typescript
+// In Component
+ngOnDestroy() {
+  this.store.dispatch(PageActions.destroyed());
+}
+
+// In Effect
+loadData$ = createEffect(() => this.actions$.pipe(
+  ofType(PageActions.load),
+  switchMap(() => this.service.getData().pipe(
+    takeUntil(this.actions$.pipe(ofType(PageActions.destroyed))),
+    map(data => PageActions.success({ data }))
+  ))
+));
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -940,9 +1034,20 @@ takeUntil(this.actions$.pipe(ofType(PageActions.destroyed)))
 Avoid storing every keystroke in Redux. Use local state for the form, and dispatch a single action on Submit. Or use Reactive Forms with `ngrx-forms` (if complex).
 
 **Code Example:**
-onSubmit() {
-  if (form.valid) this.store.dispatch(save({ data: form.value }));
+```typescript
+@Component({...})
+export class ContactComponent {
+  form = this.fb.group({ name: [''], email: [''] });
+
+  onSubmit() {
+    if (this.form.valid) {
+      this.store.dispatch(ContactActions.submit({ 
+        data: this.form.value 
+      }));
+    }
+  }
 }
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -956,11 +1061,21 @@ onSubmit() {
 `ngrx-data` automates standard CRUD. Define `EntityMetadataMap`, register it, and inject `EntityCollectionService<T>`.
 
 **Code Example:**
-const entityMetadata: EntityMetadataMap = { Hero: {} };
-// Service
-constructor(service: EntityCollectionService<Hero>) {
-  service.getAll(); // Auto-dispatches, effects, reducer
+```typescript
+const entityMetadata: EntityMetadataMap = {
+  Hero: {
+    selectId: (hero) => hero.uuid, // Custom ID
+  }
+};
+
+@Injectable()
+export class HeroService extends EntityCollectionServiceBase<Hero> {
+  constructor(serviceElementsFactory: EntityCollectionServiceElementsFactory) {
+    super('Hero', serviceElementsFactory);
+  }
 }
+// Usage: this.heroService.getAll();
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
@@ -974,9 +1089,16 @@ constructor(service: EntityCollectionService<Hero>) {
 Refactor Feature States to SignalStores. Replace Selectors with computed signals. Replace Actions/Effects with `rxMethod`. Keep Global Store for truly global data (Auth).
 
 **Code Example:**
-// Incremental adoption allowed
+```typescript
+// Before (Reducer)
+on(increment, state => ({ count: state.count + 1 }))
+
+// After (SignalStore)
+withMethods((store) => ({
+  increment: () => patchState(store, (state) => ({ count: state.count + 1 }))
+}))
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
