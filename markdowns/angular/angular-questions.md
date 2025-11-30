@@ -1332,36 +1332,36 @@ export class HierarchicalInjectorsComponent {
 
 ---
 
-### Q39: How do you implement Injection Tokens to handle specific requirements?
+### Q39: How do you use `InjectionToken` for non-class dependencies?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Injection Tokens** effectively in Angular:
-1. Understand the specific requirement for Injection Tokens.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+`InjectionToken` is used to inject values that aren't classes (like configuration objects, primitive values, or functions) or interfaces (which disappear at runtime).
+1.  Define an `InjectionToken`.
+2.  Provide a value for it in the `providers` array using `useValue` (or `useFactory`).
+3.  Inject it into a component or service using the `@Inject` decorator.
 
 **Code Example:**
 ```typescript
-// Example implementation for Injection Tokens
-import { Component, Injectable } from '@angular/core';
+import { Component, Inject, InjectionToken } from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
-export class InjectionTokensService {
-  handleInjectionTokens() {
-    console.log('Handling Injection Tokens logic...');
-    // Implementation details would go here
-  }
-}
+// 1. Define the token
+export const API_CONFIG = new InjectionToken<string>('API_CONFIG');
 
 @Component({
-  selector: 'app-injectiontokens',
-  template: `<p>Demo for Injection Tokens</p>`
+  selector: 'app-api-consumer',
+  standalone: true,
+  template: `<p>API Endpoint: {{ apiUrl }}</p>`,
+  providers: [
+    // 2. Provide the value
+    { provide: API_CONFIG, useValue: 'https://api.example.com/v1' }
+  ]
 })
-export class InjectionTokensComponent {
-  constructor(private service: InjectionTokensService) {
-    this.service.handleInjectionTokens();
+export class ApiConsumerComponent {
+  // 3. Inject the token
+  constructor(@Inject(API_CONFIG) public apiUrl: string) {
+    console.log('Injected API URL:', this.apiUrl);
   }
 }
 ```
@@ -1370,36 +1370,67 @@ export class InjectionTokensComponent {
 
 ---
 
-### Q40: How do you implement ProvidedIn root to handle specific requirements?
+### Q40: How do you create tree-shakable services using `providedIn: 'root'`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **ProvidedIn root** effectively in Angular:
-1. Understand the specific requirement for ProvidedIn root.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Using `providedIn: 'root'` in the `@Injectable` decorator is the preferred way to create singletons.
+1.  It makes the service a singleton available throughout the app.
+2.  It allows Angular's optimization tools (tree-shaking) to remove the service from the final bundle if it's not used, unlike declaring it in the `providers` array of an `NgModule`.
 
 **Code Example:**
 ```typescript
-// Example implementation for ProvidedIn root
-import { Component, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
-export class ProvidedInrootService {
-  handleProvidedInroot() {
-    console.log('Handling ProvidedIn root logic...');
-    // Implementation details would go here
+// Service is available application-wide and is tree-shakable
+@Injectable({
+  providedIn: 'root'
+})
+export class LoggerService {
+  log(message: string) {
+    console.log(`[Logger]: ${message}`);
   }
 }
 
+// Usage in a component
+// constructor(private logger: LoggerService) {}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you handle optional dependencies using `@Optional`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Sometimes a dependency might not be available (e.g., a configuration service not provided in a specific context). Without `@Optional`, Angular throws an error.
+1.  Use the `@Optional()` decorator in the constructor.
+2.  Check if the dependency exists before using it.
+
+**Code Example:**
+```typescript
+import { Component, Optional, Injectable } from '@angular/core';
+
+@Injectable()
+export class LoggerService {
+  log(msg: string) { console.log(msg); }
+}
+
 @Component({
-  selector: 'app-providedinroot',
-  template: `<p>Demo for ProvidedIn root</p>`
+  selector: 'app-optional-demo',
+  standalone: true,
+  template: `<p>Check console</p>`
 })
-export class ProvidedInrootComponent {
-  constructor(private service: ProvidedInrootService) {
-    this.service.handleProvidedInroot();
+export class OptionalDemoComponent {
+  constructor(@Optional() private logger: LoggerService | null) {
+    if (this.logger) {
+      this.logger.log('Logger is present');
+    } else {
+      console.warn('Logger was not provided, proceeding without it.');
+    }
   }
 }
 ```
@@ -1408,36 +1439,45 @@ export class ProvidedInrootComponent {
 
 ---
 
-### Q41: How do you implement Optional Dependencies to handle specific requirements?
+### Q42: What is the execution order of Angular Lifecycle Hooks?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Optional Dependencies** effectively in Angular:
-1. Understand the specific requirement for Optional Dependencies.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Understanding the order is crucial for initialization and avoiding errors.
+1.  `ngOnChanges`: Called first when input properties change.
+2.  `ngOnInit`: Called once after the first `ngOnChanges`.
+3.  `ngDoCheck`: Called during every change detection run.
+4.  `ngAfterContentInit`: Called once after content (ng-content) is projected.
+5.  `ngAfterContentChecked`: Called after every check of projected content.
+6.  `ngAfterViewInit`: Called once after the component's view (and child views) is initialized.
+7.  `ngAfterViewChecked`: Called after every check of the component's view.
+8.  `ngOnDestroy`: Called just before the component is destroyed.
 
 **Code Example:**
 ```typescript
-// Example implementation for Optional Dependencies
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class OptionalDependenciesService {
-  handleOptionalDependencies() {
-    console.log('Handling Optional Dependencies logic...');
-    // Implementation details would go here
-  }
-}
+import { Component, OnInit, OnDestroy, OnChanges, SimpleChanges, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-optionaldependencies',
-  template: `<p>Demo for Optional Dependencies</p>`
+  selector: 'app-lifecycle',
+  standalone: true,
+  template: `<p>Lifecycle Demo</p>`
 })
-export class OptionalDependenciesComponent {
-  constructor(private service: OptionalDependenciesService) {
-    this.service.handleOptionalDependencies();
+export class LifecycleComponent implements OnInit, OnDestroy, OnChanges {
+  @Input() data: string = '';
+
+  constructor() { console.log('1. Constructor'); }
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('2. ngOnChanges', changes);
+  }
+
+  ngOnInit() {
+    console.log('3. ngOnInit');
+  }
+
+  ngOnDestroy() {
+    console.log('4. ngOnDestroy');
   }
 }
 ```
@@ -1446,36 +1486,37 @@ export class OptionalDependenciesComponent {
 
 ---
 
-### Q42: How do you implement Component Lifecycle to handle specific requirements?
+### Q43: When and how do you use `ngOnChanges`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Component Lifecycle** effectively in Angular:
-1. Understand the specific requirement for Component Lifecycle.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+`ngOnChanges` is used to react to changes in input properties (`@Input`).
+1.  It receives a `SimpleChanges` object containing current and previous values.
+2.  It runs *before* `ngOnInit` for the initial set of inputs, and then every time the *reference* of an input property changes.
 
 **Code Example:**
 ```typescript
-// Example implementation for Component Lifecycle
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ComponentLifecycleService {
-  handleComponentLifecycle() {
-    console.log('Handling Component Lifecycle logic...');
-    // Implementation details would go here
-  }
-}
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-componentlifecycle',
-  template: `<p>Demo for Component Lifecycle</p>`
+  selector: 'app-user-card',
+  standalone: true,
+  template: `<div>User: {{ name }}</div>`
 })
-export class ComponentLifecycleComponent {
-  constructor(private service: ComponentLifecycleService) {
-    this.service.handleComponentLifecycle();
+export class UserCardComponent implements OnChanges {
+  @Input() userId: number = 0;
+  @Input() name: string = '';
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['userId'] && !changes['userId'].isFirstChange()) {
+      console.log(`User ID changed from ${changes['userId'].previousValue} to ${changes['userId'].currentValue}`);
+      this.fetchUserData(this.userId);
+    }
+  }
+
+  fetchUserData(id: number) {
+    // Logic to fetch new data
   }
 }
 ```
@@ -1484,36 +1525,37 @@ export class ComponentLifecycleComponent {
 
 ---
 
-### Q43: How do you implement ngOnChanges to handle specific requirements?
+### Q44: Why use `ngOnInit` instead of the `constructor` for initialization?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **ngOnChanges** effectively in Angular:
-1. Understand the specific requirement for ngOnChanges.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+The `constructor` is a Typescript feature used for dependency injection. `ngOnInit` is an Angular lifecycle hook.
+1.  In the `constructor`, input bindings (`@Input`) are not yet available.
+2.  `ngOnInit` runs after Angular has initialized the inputs, making it safe to use them.
+3.  Keep constructors light (only DI) and put heavy logic (HTTP calls) in `ngOnInit` to make testing easier.
 
 **Code Example:**
 ```typescript
-// Example implementation for ngOnChanges
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ngOnChangesService {
-  handlengOnChanges() {
-    console.log('Handling ngOnChanges logic...');
-    // Implementation details would go here
-  }
-}
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-ngonchanges',
-  template: `<p>Demo for ngOnChanges</p>`
+  selector: 'app-init-demo',
+  standalone: true,
+  template: `<p>Data: {{ data }}</p>`
 })
-export class ngOnChangesComponent {
-  constructor(private service: ngOnChangesService) {
-    this.service.handlengOnChanges();
+export class InitDemoComponent implements OnInit {
+  @Input() initialValue: string = '';
+  data: string = '';
+
+  constructor() {
+    // this.initialValue is undefined here!
+  }
+
+  ngOnInit() {
+    // Safe to access inputs
+    this.data = this.initialValue || 'Default';
+    console.log('Component initialized with:', this.data);
   }
 }
 ```
@@ -1522,36 +1564,32 @@ export class ngOnChangesComponent {
 
 ---
 
-### Q44: How do you implement ngOnInit to handle specific requirements?
+### Q45: How do you use `ngDoCheck` for custom change detection?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-To implement **ngOnInit** effectively in Angular:
-1. Understand the specific requirement for ngOnInit.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+`ngDoCheck` runs on every change detection cycle. It allows you to check for changes that Angular might miss (like mutations within an object if using `OnPush` strategy or non-Angular events), or to implement custom complex change logic.
+*Warning:* It is called very frequently, so keep logic lightweight.
 
 **Code Example:**
 ```typescript
-// Example implementation for ngOnInit
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ngOnInitService {
-  handlengOnInit() {
-    console.log('Handling ngOnInit logic...');
-    // Implementation details would go here
-  }
-}
+import { Component, DoCheck, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-ngoninit',
-  template: `<p>Demo for ngOnInit</p>`
+  selector: 'app-do-check',
+  standalone: true,
+  template: `<p>Items: {{ list.length }}</p>`
 })
-export class ngOnInitComponent {
-  constructor(private service: ngOnInitService) {
-    this.service.handlengOnInit();
+export class DoCheckComponent implements DoCheck {
+  @Input() list: string[] = [];
+  private previousLength = 0;
+
+  ngDoCheck() {
+    if (this.list.length !== this.previousLength) {
+      console.log(`List changed from ${this.previousLength} to ${this.list.length}`);
+      this.previousLength = this.list.length;
+    }
   }
 }
 ```
@@ -1560,36 +1598,31 @@ export class ngOnInitComponent {
 
 ---
 
-### Q45: How do you implement ngDoCheck to handle specific requirements?
+### Q46: How do you access the DOM using `ngAfterViewInit` and `@ViewChild`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **ngDoCheck** effectively in Angular:
-1. Understand the specific requirement for ngDoCheck.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+To access a DOM element or a child component instance, use `@ViewChild`.
+1.  The element is only available after the view initializes, so access it in `ngAfterViewInit`.
+2.  Use `ElementRef` for DOM elements (avoid direct DOM manipulation if possible) or the component class for child components.
 
 **Code Example:**
 ```typescript
-// Example implementation for ngDoCheck
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ngDoCheckService {
-  handlengDoCheck() {
-    console.log('Handling ngDoCheck logic...');
-    // Implementation details would go here
-  }
-}
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
-  selector: 'app-ngdocheck',
-  template: `<p>Demo for ngDoCheck</p>`
+  selector: 'app-view-child-demo',
+  standalone: true,
+  template: `<input #myInput type="text" placeholder="Focus me">`
 })
-export class ngDoCheckComponent {
-  constructor(private service: ngDoCheckService) {
-    this.service.handlengDoCheck();
+export class ViewChildDemoComponent implements AfterViewInit {
+  @ViewChild('myInput') inputElement!: ElementRef<HTMLInputElement>;
+
+  ngAfterViewInit() {
+    // Safe to access the element now
+    this.inputElement.nativeElement.focus();
+    console.log('Input focused!');
   }
 }
 ```
@@ -1598,36 +1631,38 @@ export class ngDoCheckComponent {
 
 ---
 
-### Q46: How do you implement ngAfterViewInit to handle specific requirements?
+### Q47: How do you prevent memory leaks using `ngOnDestroy`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **ngAfterViewInit** effectively in Angular:
-1. Understand the specific requirement for ngAfterViewInit.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+`ngOnDestroy` is the place to clean up resources.
+1.  Unsubscribe from RxJS Observables (unless using `AsyncPipe` or `takeUntilDestroyed`).
+2.  Detach event listeners added manually.
+3.  Clear timers (`setInterval`, `setTimeout`).
 
 **Code Example:**
 ```typescript
-// Example implementation for ngAfterViewInit
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ngAfterViewInitService {
-  handlengAfterViewInit() {
-    console.log('Handling ngAfterViewInit logic...');
-    // Implementation details would go here
-  }
-}
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-ngafterviewinit',
-  template: `<p>Demo for ngAfterViewInit</p>`
+  selector: 'app-destroy-demo',
+  standalone: true,
+  template: `<p>Timer running...</p>`
 })
-export class ngAfterViewInitComponent {
-  constructor(private service: ngAfterViewInitService) {
-    this.service.handlengAfterViewInit();
+export class DestroyDemoComponent implements OnInit, OnDestroy {
+  private sub!: Subscription;
+
+  ngOnInit() {
+    this.sub = interval(1000).subscribe(val => console.log(val));
+  }
+
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe();
+      console.log('Cleaned up timer');
+    }
   }
 }
 ```
@@ -1636,36 +1671,36 @@ export class ngAfterViewInitComponent {
 
 ---
 
-### Q47: How do you implement ngOnDestroy to handle specific requirements?
+### Q48: How do you implement a Template-Driven Form?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-To implement **ngOnDestroy** effectively in Angular:
-1. Understand the specific requirement for ngOnDestroy.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Template-driven forms rely on directives in the template.
+1.  Import `FormsModule`.
+2.  Use `[(ngModel)]` for two-way binding.
+3.  Use `name` attribute (required).
+4.  Export `ngForm` to a template variable (`#f="ngForm"`) to access validity and values.
 
 **Code Example:**
 ```typescript
-// Example implementation for ngOnDestroy
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ngOnDestroyService {
-  handlengOnDestroy() {
-    console.log('Handling ngOnDestroy logic...');
-    // Implementation details would go here
-  }
-}
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-ngondestroy',
-  template: `<p>Demo for ngOnDestroy</p>`
+  selector: 'app-login-template',
+  standalone: true,
+  imports: [FormsModule],
+  template: `
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <input type="text" name="username" ngModel required placeholder="Username">
+      <button type="submit" [disabled]="f.invalid">Submit</button>
+    </form>
+  `
 })
-export class ngOnDestroyComponent {
-  constructor(private service: ngOnDestroyService) {
-    this.service.handlengOnDestroy();
+export class LoginTemplateComponent {
+  onSubmit(value: any) {
+    console.log('Form Value:', value);
   }
 }
 ```
@@ -1674,37 +1709,32 @@ export class ngOnDestroyComponent {
 
 ---
 
-### Q48: How do you implement Template Driven Forms to handle specific requirements?
+### Q49: How do you implement a Reactive Form?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Template Driven Forms** effectively in Angular:
-1. Understand the specific requirement for Template Driven Forms.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Reactive forms are more robust and testable. Logic resides in the component class.
+1.  Import `ReactiveFormsModule`.
+2.  Create a `FormControl` or `FormGroup` in the class.
+3.  Bind it to the template using `[formControl]` or `[formGroup]`.
 
 **Code Example:**
 ```typescript
-// Example implementation for Template Driven Forms
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class TemplateDrivenFormsService {
-  handleTemplateDrivenForms() {
-    console.log('Handling Template Driven Forms logic...');
-    // Implementation details would go here
-  }
-}
+import { Component } from '@angular/core';
+import { ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-templatedrivenforms',
-  template: `<p>Demo for Template Driven Forms</p>`
+  selector: 'app-reactive-input',
+  standalone: true,
+  imports: [ReactiveFormsModule],
+  template: `
+    <input [formControl]="emailControl" placeholder="Email">
+    <p *ngIf="emailControl.invalid && emailControl.touched">Invalid Email</p>
+  `
 })
-export class TemplateDrivenFormsComponent {
-  constructor(private service: TemplateDrivenFormsService) {
-    this.service.handleTemplateDrivenForms();
-  }
+export class ReactiveInputComponent {
+  emailControl = new FormControl('', [Validators.required, Validators.email]);
 }
 ```
 
@@ -1712,74 +1742,42 @@ export class TemplateDrivenFormsComponent {
 
 ---
 
-### Q49: How do you implement Reactive Forms to handle specific requirements?
+### Q50: How do you simplify Reactive Forms using `FormBuilder`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **Reactive Forms** effectively in Angular:
-1. Understand the specific requirement for Reactive Forms.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+`FormBuilder` is a service that provides syntactic sugar for creating `FormGroup` and `FormControl` instances, making code cleaner.
+1.  Inject `FormBuilder`.
+2.  Use `.group()`, `.control()`, or `.array()` methods.
 
 **Code Example:**
 ```typescript
-// Example implementation for Reactive Forms
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class ReactiveFormsService {
-  handleReactiveForms() {
-    console.log('Handling Reactive Forms logic...');
-    // Implementation details would go here
-  }
-}
+import { Component, inject } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-reactiveforms',
-  template: `<p>Demo for Reactive Forms</p>`
-})
-export class ReactiveFormsComponent {
-  constructor(private service: ReactiveFormsService) {
-    this.service.handleReactiveForms();
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q50: How do you implement FormBuilder to handle specific requirements?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-To implement **FormBuilder** effectively in Angular:
-1. Understand the specific requirement for FormBuilder.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
-
-**Code Example:**
-```typescript
-// Example implementation for FormBuilder
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class FormBuilderService {
-  handleFormBuilder() {
-    console.log('Handling FormBuilder logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-formbuilder',
-  template: `<p>Demo for FormBuilder</p>`
+  selector: 'app-form-builder',
+  standalone: true,
+  imports: [ReactiveFormsModule],
+  template: `
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <input formControlName="username">
+      <input formControlName="password" type="password">
+      <button>Login</button>
+    </form>
+  `
 })
 export class FormBuilderComponent {
-  constructor(private service: FormBuilderService) {
-    this.service.handleFormBuilder();
+  private fb = inject(FormBuilder);
+
+  form = this.fb.group({
+    username: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  });
+
+  submit() {
+    console.log(this.form.value);
   }
 }
 ```
@@ -1788,36 +1786,101 @@ export class FormBuilderComponent {
 
 ---
 
-### Q51: How do you implement FormGroup to handle specific requirements?
+### Q51: How do you validate a `FormGroup` (Cross-field validation)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-To implement **FormGroup** effectively in Angular:
-1. Understand the specific requirement for FormGroup.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+To validate relationships between fields (e.g., "Password" matches "Confirm Password"), apply a validator to the `FormGroup` itself, not just individual controls.
+1.  Create a validator function that accepts a `AbstractControl` (which will be the group).
+2.  Pass it as the second argument (or within `validators` options) to `fb.group()`.
 
 **Code Example:**
 ```typescript
-// Example implementation for FormGroup
-import { Component, Injectable } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, AbstractControl, ValidationErrors } from '@angular/forms';
 
-@Injectable({ providedIn: 'root' })
-export class FormGroupService {
-  handleFormGroup() {
-    console.log('Handling FormGroup logic...');
-    // Implementation details would go here
-  }
-}
+const passwordMatchValidator = (control: AbstractControl): ValidationErrors | null => {
+  const password = control.get('password')?.value;
+  const confirm = control.get('confirmPassword')?.value;
+  return password === confirm ? null : { mismatch: true };
+};
 
 @Component({
-  selector: 'app-formgroup',
-  template: `<p>Demo for FormGroup</p>`
+  selector: 'app-signup',
+  standalone: true,
+  imports: [ReactiveFormsModule],
+  template: `
+    <form [formGroup]="form">
+      <input formControlName="password" type="password">
+      <input formControlName="confirmPassword" type="password">
+      <p *ngIf="form.errors?.['mismatch']">Passwords do not match</p>
+    </form>
+  `
 })
-export class FormGroupComponent {
-  constructor(private service: FormGroupService) {
-    this.service.handleFormGroup();
+export class SignupComponent {
+  private fb = inject(FormBuilder);
+
+  form = this.fb.group({
+    password: [''],
+    confirmPassword: ['']
+  }, { validators: passwordMatchValidator });
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q52: How do you use `FormArray` for dynamic form fields?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`FormArray` is used to manage an array of controls, useful for dynamic lists (e.g., "Add Phone Number").
+1.  Define a `FormArray` in your `FormGroup`.
+2.  Iterate over `controls` in the template.
+3.  Use `.push()` or `.removeAt()` to modify the array dynamically.
+
+**Code Example:**
+```typescript
+import { Component, inject } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormArray } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-dynamic-list',
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule],
+  template: `
+    <form [formGroup]="form">
+      <div formArrayName="phones">
+        <div *ngFor="let phone of phones.controls; let i = index">
+          <input [formControlName]="i" placeholder="Phone {{i + 1}}">
+          <button (click)="removePhone(i)">Remove</button>
+        </div>
+      </div>
+      <button (click)="addPhone()">Add Phone</button>
+    </form>
+  `
+})
+export class DynamicListComponent {
+  private fb = inject(FormBuilder);
+
+  form = this.fb.group({
+    phones: this.fb.array([])
+  });
+
+  get phones() {
+    return this.form.get('phones') as FormArray;
+  }
+
+  addPhone() {
+    this.phones.push(this.fb.control(''));
+  }
+
+  removePhone(index: number) {
+    this.phones.removeAt(index);
   }
 }
 ```
@@ -1826,36 +1889,100 @@ export class FormGroupComponent {
 
 ---
 
-### Q52: How do you implement FormArray to handle specific requirements?
+### Q53: How do you implement an Async Validator?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-To implement **FormArray** effectively in Angular:
-1. Understand the specific requirement for FormArray.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Async validators return a `Promise` or `Observable`. They are used for server-side checks (e.g., "Is username taken?").
+1.  The validator function takes a control and returns `Observable<ValidationErrors | null>`.
+2.  Pass it as the *third* argument to `FormControl` or `FormBuilder`.
 
 **Code Example:**
 ```typescript
-// Example implementation for FormArray
-import { Component, Injectable } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule, AbstractControl } from '@angular/forms';
+import { delay, map, of } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
-export class FormArrayService {
-  handleFormArray() {
-    console.log('Handling FormArray logic...');
-    // Implementation details would go here
-  }
+const usernameValidator = (control: AbstractControl) => {
+  const takenUsernames = ['admin', 'user'];
+  return of(takenUsernames.includes(control.value)).pipe(
+    delay(1000), // Simulate API call
+    map(isTaken => isTaken ? { taken: true } : null)
+  );
+};
+
+@Component({
+  selector: 'app-async-validation',
+  standalone: true,
+  imports: [ReactiveFormsModule],
+  template: `
+    <input [formControl]="username">
+    <p *ngIf="username.pending">Checking...</p>
+    <p *ngIf="username.errors?.['taken']">Username is taken!</p>
+  `
+})
+export class AsyncValidationComponent {
+  username = new FormControl('', { asyncValidators: usernameValidator });
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q54: How do you create a Dynamic Form based on JSON configuration?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Instead of hardcoding the template, iterate over a configuration array.
+1.  Define a configuration interface (type, label, name).
+2.  Use `*ngFor` to loop through the config.
+3.  Use `[formGroup]` and dynamic `formControlName` to bind controls.
+4.  Use `ngSwitch` to render different input types (text, select, checkbox).
+
+**Code Example:**
+```typescript
+import { Component, OnInit, inject } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+interface FieldConfig {
+  name: string;
+  type: 'text' | 'number';
+  label: string;
 }
 
 @Component({
-  selector: 'app-formarray',
-  template: `<p>Demo for FormArray</p>`
+  selector: 'app-config-form',
+  standalone: true,
+  imports: [ReactiveFormsModule, CommonModule],
+  template: `
+    <form [formGroup]="form">
+      <div *ngFor="let field of config">
+        <label>{{ field.label }}</label>
+        <input [type]="field.type" [formControlName]="field.name">
+      </div>
+    </form>
+    <pre>{{ form.value | json }}</pre>
+  `
 })
-export class FormArrayComponent {
-  constructor(private service: FormArrayService) {
-    this.service.handleFormArray();
+export class ConfigFormComponent implements OnInit {
+  private fb = inject(FormBuilder);
+  form!: FormGroup;
+
+  config: FieldConfig[] = [
+    { name: 'firstName', type: 'text', label: 'First Name' },
+    { name: 'age', type: 'number', label: 'Age' }
+  ];
+
+  ngOnInit() {
+    const group: any = {};
+    this.config.forEach(field => {
+      group[field.name] = [''];
+    });
+    this.form = this.fb.group(group);
   }
 }
 ```
@@ -1864,114 +1991,48 @@ export class FormArrayComponent {
 
 ---
 
-### Q53: How do you implement Async Validators to handle specific requirements?
+### Q55: How do you set up basic routing with `RouterOutlet`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-To implement **Async Validators** effectively in Angular:
-1. Understand the specific requirement for Async Validators.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
+Routing allows navigation between views.
+1.  Define routes in `provideRouter` or `RouterModule.forRoot`.
+2.  Add `<router-outlet></router-outlet>` in the main component template. This is where the routed component will be rendered.
 
 **Code Example:**
 ```typescript
-// Example implementation for Async Validators
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class AsyncValidatorsService {
-  handleAsyncValidators() {
-    console.log('Handling Async Validators logic...');
-    // Implementation details would go here
-  }
-}
+import { Component } from '@angular/core';
+import { RouterOutlet, Routes, provideRouter } from '@angular/router';
+import { bootstrapApplication } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-asyncvalidators',
-  template: `<p>Demo for Async Validators</p>`
+  selector: 'app-home',
+  template: `<h1>Home</h1>`
 })
-export class AsyncValidatorsComponent {
-  constructor(private service: AsyncValidatorsService) {
-    this.service.handleAsyncValidators();
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you implement Dynamic Forms to handle specific requirements?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-To implement **Dynamic Forms** effectively in Angular:
-1. Understand the specific requirement for Dynamic Forms.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
-
-**Code Example:**
-```typescript
-// Example implementation for Dynamic Forms
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class DynamicFormsService {
-  handleDynamicForms() {
-    console.log('Handling Dynamic Forms logic...');
-    // Implementation details would go here
-  }
-}
+class HomeComponent {}
 
 @Component({
-  selector: 'app-dynamicforms',
-  template: `<p>Demo for Dynamic Forms</p>`
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet],
+  template: `
+    <nav>App Navigation</nav>
+    <main>
+      <!-- Routed components render here -->
+      <router-outlet></router-outlet>
+    </main>
+  `
 })
-export class DynamicFormsComponent {
-  constructor(private service: DynamicFormsService) {
-    this.service.handleDynamicForms();
-  }
-}
-```
+class AppComponent {}
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+const routes: Routes = [
+  { path: '', component: HomeComponent }
+];
 
----
-
-### Q55: How do you implement Router Outlet to handle specific requirements?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-To implement **Router Outlet** effectively in Angular:
-1. Understand the specific requirement for Router Outlet.
-2. Use Angular's built-in APIs and best practices.
-3. Ensure modularity and reusability.
-
-**Code Example:**
-```typescript
-// Example implementation for Router Outlet
-import { Component, Injectable } from '@angular/core';
-
-@Injectable({ providedIn: 'root' })
-export class RouterOutletService {
-  handleRouterOutlet() {
-    console.log('Handling Router Outlet logic...');
-    // Implementation details would go here
-  }
-}
-
-@Component({
-  selector: 'app-routeroutlet',
-  template: `<p>Demo for Router Outlet</p>`
-})
-export class RouterOutletComponent {
-  constructor(private service: RouterOutletService) {
-    this.service.handleRouterOutlet();
-  }
-}
+bootstrapApplication(AppComponent, {
+  providers: [provideRouter(routes)]
+});
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

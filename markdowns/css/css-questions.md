@@ -16,7 +16,7 @@
 4. [How do you implement a pure CSS tooltip?](#q4-how-do-you-implement-a-pure-css-tooltip) <span class="intermediate">Intermediate</span>
 5. [How do you create a custom checkbox using CSS?](#q5-how-do-you-create-a-custom-checkbox-using-css) <span class="intermediate">Intermediate</span>
 6. [How do you implement Dark Mode using CSS Variables?](#q6-how-do-you-implement-dark-mode-using-css-variables) <span class="intermediate">Intermediate</span>
-7. [How do you create a responsive aspect ratio box (e.g., 16:9 video embed)?](#q7-how-do-you-create-a-responsive-aspect-ratio-box-eg-16:9-video-embed) <span class="intermediate">Intermediate</span>
+7. [How do you create a responsive aspect ratio box (e.g., 16:9 video embed)?](#q7-how-do-you-create-a-responsive-aspect-ratio-box-eg-169-video-embed) <span class="intermediate">Intermediate</span>
 8. [How do you truncate text with an ellipsis (...) for a single line and multiple lines?](#q8-how-do-you-truncate-text-with-an-ellipsis--for-a-single-line-and-multiple-lines) <span class="intermediate">Intermediate</span>
 9. [How do you use Container Queries to build component-based responsive styles?](#q9-how-do-you-use-container-queries-to-build-component-based-responsive-styles) <span class="intermediate">Intermediate</span>
 10. [How do you optimize CSS performance (Painting and Layout)?](#q10-how-do-you-optimize-css-performance-painting-and-layout) <span class="intermediate">Intermediate</span>
@@ -33,17 +33,17 @@
 21. [How do you create overlapping elements with CSS Grid?](#q21-how-do-you-create-overlapping-elements-with-css-grid) <span class="intermediate">Intermediate</span>
 22. [How do you use `z-index` and stacking contexts effectively?](#q22-how-do-you-use-z-index-and-stacking-contexts-effectively) <span class="intermediate">Intermediate</span>
 23. [How do you debug `z-index` issues?](#q23-how-do-you-debug-z-index-issues) <span class="intermediate">Intermediate</span>
-24. [How do you style a scrollbar using `::-webkit-scrollbar`?](#q24-how-do-you-style-a-scrollbar-using-::-webkit-scrollbar) <span class="intermediate">Intermediate</span>
-25. [How do you use `scroll-behavior: smooth`?](#q25-how-do-you-use-scroll-behavior:-smooth) <span class="intermediate">Intermediate</span>
+24. [How do you style a scrollbar using `::-webkit-scrollbar`?](#q24-how-do-you-style-a-scrollbar-using--webkit-scrollbar) <span class="intermediate">Intermediate</span>
+25. [How do you use `scroll-behavior: smooth`?](#q25-how-do-you-use-scroll-behavior-smooth) <span class="intermediate">Intermediate</span>
 26. [How do you use `scroll-snap-type` for snapping sections?](#q26-how-do-you-use-scroll-snap-type-for-snapping-sections) <span class="intermediate">Intermediate</span>
 27. [How do you implement a CSS reset or normalize?](#q27-how-do-you-implement-a-css-reset-or-normalize) <span class="intermediate">Intermediate</span>
-28. [How do you use `box-sizing: border-box` globally?](#q28-how-do-you-use-box-sizing:-border-box-globally) <span class="intermediate">Intermediate</span>
+28. [How do you use `box-sizing: border-box` globally?](#q28-how-do-you-use-box-sizing-border-box-globally) <span class="intermediate">Intermediate</span>
 29. [How do you style inputs to look consistent across browsers?](#q29-how-do-you-style-inputs-to-look-consistent-across-browsers) <span class="intermediate">Intermediate</span>
 30. [How do you remove the default outline on focus (and what to replace it with)?](#q30-how-do-you-remove-the-default-outline-on-focus-and-what-to-replace-it-with) <span class="intermediate">Intermediate</span>
-31. [How do you style a broken image using `img::before`?](#q31-how-do-you-style-a-broken-image-using-img::before) <span class="intermediate">Intermediate</span>
-32. [How do you style list markers using `::marker`?](#q32-how-do-you-style-list-markers-using-::marker) <span class="intermediate">Intermediate</span>
+31. [How do you style a broken image using `img::before`?](#q31-how-do-you-style-a-broken-image-using-imgbefore) <span class="intermediate">Intermediate</span>
+32. [How do you style list markers using `::marker`?](#q32-how-do-you-style-list-markers-using-marker) <span class="intermediate">Intermediate</span>
 33. [How do you use `object-fit` and `object-position` for images?](#q33-how-do-you-use-object-fit-and-object-position-for-images) <span class="intermediate">Intermediate</span>
-34. [How do you use `background-size: cover` vs `contain`?](#q34-how-do-you-use-background-size:-cover-vs-contain) <span class="intermediate">Intermediate</span>
+34. [How do you use `background-size: cover` vs `contain`?](#q34-how-do-you-use-background-size-cover-vs-contain) <span class="intermediate">Intermediate</span>
 35. [How do you create a gradient background?](#q35-how-do-you-create-a-gradient-background) <span class="intermediate">Intermediate</span>
 36. [How do you create a text gradient?](#q36-how-do-you-create-a-text-gradient) <span class="intermediate">Intermediate</span>
 37. [How do you use `clip-path` to create shapes?](#q37-how-do-you-use-clip-path-to-create-shapes) <span class="intermediate">Intermediate</span>
@@ -55,24 +55,24 @@
 43. [How do you create a shake animation?](#q43-how-do-you-create-a-shake-animation) <span class="intermediate">Intermediate</span>
 44. [How do you pause an animation on hover?](#q44-how-do-you-pause-an-animation-on-hover) <span class="intermediate">Intermediate</span>
 45. [How do you use CSS transitions for hover effects?](#q45-how-do-you-use-css-transitions-for-hover-effects) <span class="intermediate">Intermediate</span>
-46. [How do you use the `:not()` pseudo-class?](#q46-how-do-you-use-the-:not-pseudo-class) <span class="intermediate">Intermediate</span>
-47. [How do you use the `:has()` pseudo-class (parent selector)?](#q47-how-do-you-use-the-:has-pseudo-class-parent-selector) <span class="intermediate">Intermediate</span>
-48. [How do you use the `:is()` and `:where()` pseudo-classes?](#q48-how-do-you-use-the-:is-and-:where-pseudo-classes) <span class="intermediate">Intermediate</span>
-49. [How do you use `:nth-child()` and `:nth-of-type()`?](#q49-how-do-you-use-:nth-child-and-:nth-of-type) <span class="intermediate">Intermediate</span>
-50. [How do you use `::first-letter` and `::first-line`?](#q50-how-do-you-use-::first-letter-and-::first-line) <span class="intermediate">Intermediate</span>
+46. [How do you use the `:not()` pseudo-class?](#q46-how-do-you-use-the-not-pseudo-class) <span class="intermediate">Intermediate</span>
+47. [How do you use the `:has()` pseudo-class (parent selector)?](#q47-how-do-you-use-the-has-pseudo-class-parent-selector) <span class="intermediate">Intermediate</span>
+48. [How do you use the `:is()` and `:where()` pseudo-classes?](#q48-how-do-you-use-the-is-and-where-pseudo-classes) <span class="intermediate">Intermediate</span>
+49. [How do you use `:nth-child()` and `:nth-of-type()`?](#q49-how-do-you-use-nth-child-and-nth-of-type) <span class="intermediate">Intermediate</span>
+50. [How do you use `::first-letter` and `::first-line`?](#q50-how-do-you-use-first-letter-and-first-line) <span class="intermediate">Intermediate</span>
 51. [How do you use attribute selectors?](#q51-how-do-you-use-attribute-selectors) <span class="intermediate">Intermediate</span>
 52. [How do you style placeholder text?](#q52-how-do-you-style-placeholder-text) <span class="intermediate">Intermediate</span>
-53. [How do you style selection color (`::selection`)?](#q53-how-do-you-style-selection-color-::selection) <span class="intermediate">Intermediate</span>
+53. [How do you style selection color (`::selection`)?](#q53-how-do-you-style-selection-color-selection) <span class="intermediate">Intermediate</span>
 54. [How do you use CSS Variables for spacing and typography scales?](#q54-how-do-you-use-css-variables-for-spacing-and-typography-scales) <span class="intermediate">Intermediate</span>
 55. [How do you use `calc()` function?](#q55-how-do-you-use-calc-function) <span class="intermediate">Intermediate</span>
 56. [How do you use `clamp()` for responsive typography?](#q56-how-do-you-use-clamp-for-responsive-typography) <span class="intermediate">Intermediate</span>
 57. [How do you use viewport units (`vw`, `vh`, `dvh`, `lvh`)?](#q57-how-do-you-use-viewport-units-vw-vh-dvh-lvh) <span class="intermediate">Intermediate</span>
 58. [How do you handle notch areas on mobile (`safe-area-inset`)?](#q58-how-do-you-handle-notch-areas-on-mobile-safe-area-inset) <span class="intermediate">Intermediate</span>
 59. [How do you support high contrast mode?](#q59-how-do-you-support-high-contrast-mode) <span class="intermediate">Intermediate</span>
-60. [How do you use `@media (prefers-reduced-motion)`?](#q60-how-do-you-use-@media-prefers-reduced-motion) <span class="intermediate">Intermediate</span>
-61. [How do you use `@supports` to check for feature support?](#q61-how-do-you-use-@supports-to-check-for-feature-support) <span class="intermediate">Intermediate</span>
-62. [How do you use `@font-face` to load custom fonts?](#q62-how-do-you-use-@font-face-to-load-custom-fonts) <span class="intermediate">Intermediate</span>
-63. [How do you use `font-display: swap` for performance?](#q63-how-do-you-use-font-display:-swap-for-performance) <span class="intermediate">Intermediate</span>
+60. [How do you use `@media (prefers-reduced-motion)`?](#q60-how-do-you-use-media-prefers-reduced-motion) <span class="intermediate">Intermediate</span>
+61. [How do you use `@supports` to check for feature support?](#q61-how-do-you-use-supports-to-check-for-feature-support) <span class="intermediate">Intermediate</span>
+62. [How do you use `@font-face` to load custom fonts?](#q62-how-do-you-use-font-face-to-load-custom-fonts) <span class="intermediate">Intermediate</span>
+63. [How do you use `font-display: swap` for performance?](#q63-how-do-you-use-font-display-swap-for-performance) <span class="intermediate">Intermediate</span>
 64. [How do you prevent text selection (`user-select`)?](#q64-how-do-you-prevent-text-selection-user-select) <span class="intermediate">Intermediate</span>
 65. [How do you enable hardware acceleration for animations?](#q65-how-do-you-enable-hardware-acceleration-for-animations) <span class="intermediate">Intermediate</span>
 66. [How do you style a `details` and `summary` element?](#q66-how-do-you-style-a-details-and-summary-element) <span class="intermediate">Intermediate</span>
@@ -80,7 +80,7 @@
 68. [How do you style a file input?](#q68-how-do-you-style-a-file-input) <span class="intermediate">Intermediate</span>
 69. [How do you create a custom toggle switch?](#q69-how-do-you-create-a-custom-toggle-switch) <span class="intermediate">Intermediate</span>
 70. [How do you create a pure CSS dropdown menu?](#q70-how-do-you-create-a-pure-css-dropdown-menu) <span class="intermediate">Intermediate</span>
-71. [How do you create a pure CSS modal (using `:target` or checkbox hack)?](#q71-how-do-you-create-a-pure-css-modal-using-:target-or-checkbox-hack) <span class="intermediate">Intermediate</span>
+71. [How do you create a pure CSS modal (using `:target` or checkbox hack)?](#q71-how-do-you-create-a-pure-css-modal-using-target-or-checkbox-hack) <span class="intermediate">Intermediate</span>
 72. [How do you create a pure CSS accordion?](#q72-how-do-you-create-a-pure-css-accordion) <span class="intermediate">Intermediate</span>
 73. [How do you create a pure CSS tab system?](#q73-how-do-you-create-a-pure-css-tab-system) <span class="intermediate">Intermediate</span>
 74. [How do you use `counters` for automatic numbering?](#q74-how-do-you-use-counters-for-automatic-numbering) <span class="intermediate">Intermediate</span>
@@ -89,46 +89,30 @@
 77. [How do you make a table responsive (scrollable or stacked)?](#q77-how-do-you-make-a-table-responsive-scrollable-or-stacked) <span class="intermediate">Intermediate</span>
 78. [How do you style alternate table rows?](#q78-how-do-you-style-alternate-table-rows) <span class="intermediate">Intermediate</span>
 79. [How do you stick a table header?](#q79-how-do-you-stick-a-table-header) <span class="intermediate">Intermediate</span>
-80. [How do you implement print styles (`@media print`)?](#q80-how-do-you-implement-print-styles-@media-print) <span class="intermediate">Intermediate</span>
+80. [How do you implement print styles (`@media print`)?](#q80-how-do-you-implement-print-styles-media-print) <span class="intermediate">Intermediate</span>
 81. [How do you hide elements in print view?](#q81-how-do-you-hide-elements-in-print-view) <span class="intermediate">Intermediate</span>
 82. [How do you force page breaks in print?](#q82-how-do-you-force-page-breaks-in-print) <span class="intermediate">Intermediate</span>
 83. [How do you use `shape-outside` for text wrapping around images?](#q83-how-do-you-use-shape-outside-for-text-wrapping-around-images) <span class="intermediate">Intermediate</span>
 84. [How do you use `writing-mode` for vertical text?](#q84-how-do-you-use-writing-mode-for-vertical-text) <span class="intermediate">Intermediate</span>
-85. [How do you use `direction: rtl` for right-to-left languages?](#q85-how-do-you-use-direction:-rtl-for-right-to-left-languages) <span class="intermediate">Intermediate</span>
+85. [How do you use `direction: rtl` for right-to-left languages?](#q85-how-do-you-use-direction-rtl-for-right-to-left-languages) <span class="intermediate">Intermediate</span>
 86. [How do you use `text-align-last` for justified text?](#q86-how-do-you-use-text-align-last-for-justified-text) <span class="intermediate">Intermediate</span>
 87. [How do you use `text-decoration` styling (color, style, thickness)?](#q87-how-do-you-use-text-decoration-styling-color-style-thickness) <span class="intermediate">Intermediate</span>
 88. [How do you use `text-transform`?](#q88-how-do-you-use-text-transform) <span class="intermediate">Intermediate</span>
-89. [How do you use `letter-spacing` and `word-spacing`?](#q89-how-do-you-use-letter-spacing-and-word-spacing) <span class="intermediate">Intermediate</span>
+89. [How do you use `letter-spacing` and `word-spacing`?](#q89-how-do-you-use-letter-spacing-and-word-spacing) <span class="beginner">Beginner</span>
 90. [How do you use `white-space` property?](#q90-how-do-you-use-white-space-property) <span class="intermediate">Intermediate</span>
 91. [How do you use `word-break` and `overflow-wrap`?](#q91-how-do-you-use-word-break-and-overflow-wrap) <span class="intermediate">Intermediate</span>
 92. [How do you use `hyphens` for auto-hyphenation?](#q92-how-do-you-use-hyphens-for-auto-hyphenation) <span class="intermediate">Intermediate</span>
-93. [How do you use `caret-color`?](#q93-how-do-you-use-caret-color) <span class="intermediate">Intermediate</span>
-94. [How do you use `resize` property on textareas?](#q94-how-do-you-use-resize-property-on-textareas) <span class="intermediate">Intermediate</span>
-95. [How do you use `pointer-events`?](#q95-how-do-you-use-pointer-events) <span class="intermediate">Intermediate</span>
-96. [How do you use `cursor` property?](#q96-how-do-you-use-cursor-property) <span class="intermediate">Intermediate</span>
-97. [How do you use `outline` vs `border`?](#q97-how-do-you-use-outline-vs-border) <span class="intermediate">Intermediate</span>
-98. [How do you use `outline-offset`?](#q98-how-do-you-use-outline-offset) <span class="intermediate">Intermediate</span>
-99. [How do you use `box-shadow` for elevation?](#q99-how-do-you-use-box-shadow-for-elevation) <span class="intermediate">Intermediate</span>
-100. [How do you create multiple borders using `box-shadow`?](#q100-how-do-you-create-multiple-borders-using-box-shadow) <span class="intermediate">Intermediate</span>
-101. [How do you use `border-radius` for different shapes?](#q101-how-do-you-use-border-radius-for-different-shapes) <span class="intermediate">Intermediate</span>
-102. [How do you use `border-image`?](#q102-how-do-you-use-border-image) <span class="intermediate">Intermediate</span>
-103. [How do you use `currentColor` keyword?](#q103-how-do-you-use-currentcolor-keyword) <span class="intermediate">Intermediate</span>
-104. [How do you use `display: contents`?](#q104-how-do-you-use-display:-contents) <span class="intermediate">Intermediate</span>
-105. [How do you use `display: inline-flex` vs `flex`?](#q105-how-do-you-use-display:-inline-flex-vs-flex) <span class="intermediate">Intermediate</span>
-106. [How do you use `visibility: collapse` (in tables)?](#q106-how-do-you-use-visibility:-collapse-in-tables) <span class="intermediate">Intermediate</span>
-107. [How do you use `empty-cells` in tables?](#q107-how-do-you-use-empty-cells-in-tables) <span class="intermediate">Intermediate</span>
-108. [How do you use `caption-side` in tables?](#q108-how-do-you-use-caption-side-in-tables) <span class="intermediate">Intermediate</span>
-109. [How do you use `table-layout: fixed` for performance?](#q109-how-do-you-use-table-layout:-fixed-for-performance) <span class="intermediate">Intermediate</span>
-110. [How do you use `list-style` properties?](#q110-how-do-you-use-list-style-properties) <span class="intermediate">Intermediate</span>
-111. [How do you use `background-attachment: fixed`?](#q111-how-do-you-use-background-attachment:-fixed) <span class="intermediate">Intermediate</span>
-112. [How do you use `background-clip`?](#q112-how-do-you-use-background-clip) <span class="intermediate">Intermediate</span>
-113. [How do you use `background-origin`?](#q113-how-do-you-use-background-origin) <span class="intermediate">Intermediate</span>
-114. [How do you use multiple backgrounds?](#q114-how-do-you-use-multiple-backgrounds) <span class="intermediate">Intermediate</span>
-115. [How do you use CSS sprites?](#q115-how-do-you-use-css-sprites) <span class="intermediate">Intermediate</span>
-116. [How do you use logical properties (`margin-block`, `padding-inline`)?](#q116-how-do-you-use-logical-properties-margin-block-padding-inline) <span class="intermediate">Intermediate</span>
-117. [How do you use `inset` property?](#q117-how-do-you-use-inset-property) <span class="intermediate">Intermediate</span>
-118. [How do you use `gap` in Flexbox?](#q118-how-do-you-use-gap-in-flexbox) <span class="intermediate">Intermediate</span>
-119. [How do you use `place-content` and `place-items` shorthand?](#q119-how-do-you-use-place-content-and-place-items-shorthand) <span class="intermediate">Intermediate</span>
+93. [How do you use `caret-color`?](#q93-how-do-you-use-caret-color) <span class="beginner">Beginner</span>
+94. [How do you use `pointer-events`?](#q94-how-do-you-use-pointer-events) <span class="intermediate">Intermediate</span>
+95. [How do you use `cursor` property?](#q95-how-do-you-use-cursor-property) <span class="beginner">Beginner</span>
+96. [How do you use `outline` vs `border`?](#q96-how-do-you-use-outline-vs-border) <span class="intermediate">Intermediate</span>
+97. [How do you use `box-shadow` for elevation?](#q97-how-do-you-use-box-shadow-for-elevation) <span class="beginner">Beginner</span>
+98. [How do you use `border-radius` for different shapes?](#q98-how-do-you-use-border-radius-for-different-shapes) <span class="beginner">Beginner</span>
+99. [How do you use `display: contents`?](#q99-how-do-you-use-display-contents) <span class="advanced">Advanced</span>
+100. [How do you use `gap` in Flexbox?](#q100-how-do-you-use-gap-in-flexbox) <span class="beginner">Beginner</span>
+101. [How do you use Logical Properties (`margin-block`, `padding-inline`)?](#q101-how-do-you-use-logical-properties-margin-block-padding-inline) <span class="intermediate">Intermediate</span>
+102. [How do you use `inset` property?](#q102-how-do-you-use-inset-property) <span class="intermediate">Intermediate</span>
+103. [How do you use `place-items` (Centering Trick)?](#q103-how-do-you-use-place-items-centering-trick) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -2071,23 +2055,18 @@ Controls capitalization (uppercase, lowercase, capitalize).
 
 ### Q89: How do you use `letter-spacing` and `word-spacing`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `letter-spacing` and `word-spacing`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Use `letter-spacing` to adjust the space between characters (tracking) and `word-spacing` for space between words. Use relative units (`em`) for better responsiveness.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `letter-spacing` and `word-spacing`? */
-.example {
-  /* Properties go here */
+h1 {
+  letter-spacing: 0.05em; /* Spreads characters slightly */
+}
+p {
+  word-spacing: 0.1em; /* Spreads words slightly */
 }
 ```
 
@@ -2100,20 +2079,20 @@ This is a placeholder for a practical question about **How do you use `letter-sp
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `white-space` property?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Controls how whitespace and line breaks are handled. `nowrap` prevents wrapping. `pre-wrap` preserves whitespace and wraps text. `pre` preserves both (like HTML `<pre>`).
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `white-space` property? */
-.example {
-  /* Properties go here */
+/* Prevent text from wrapping */
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Preserve formatting (e.g., code blocks) */
+.code-block {
+  white-space: pre-wrap;
 }
 ```
 
@@ -2126,20 +2105,14 @@ This is a placeholder for a practical question about **How do you use `white-spa
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `word-break` and `overflow-wrap`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Use `overflow-wrap: break-word` (standard) to break long words only if they cause overflow. Use `word-break: break-all` to break words at any character (useful for CJK or long URLs).
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `word-break` and `overflow-wrap`? */
-.example {
-  /* Properties go here */
+.container {
+  width: 200px;
+  /* Prevents horizontal scrollbar for long words */
+  overflow-wrap: break-word; 
 }
 ```
 
@@ -2152,20 +2125,13 @@ This is a placeholder for a practical question about **How do you use `word-brea
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `hyphens` for auto-hyphenation?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Use `hyphens: auto` to allow the browser to hyphenate words at line breaks. Requires the `lang` attribute to be set on the HTML element (e.g., `<html lang="en">`).
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `hyphens` for auto-hyphenation? */
-.example {
-  /* Properties go here */
+p {
+  hyphens: auto;
+  text-align: justify; /* Often used together */
 }
 ```
 
@@ -2175,23 +2141,15 @@ This is a placeholder for a practical question about **How do you use `hyphens` 
 
 ### Q93: How do you use `caret-color`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `caret-color`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Customizes the color of the text insertion cursor (caret) in inputs and textareas.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `caret-color`? */
-.example {
-  /* Properties go here */
+input {
+  caret-color: red;
 }
 ```
 
@@ -2199,25 +2157,20 @@ This is a placeholder for a practical question about **How do you use `caret-col
 
 ---
 
-### Q94: How do you use `resize` property on textareas?
+### Q94: How do you use `pointer-events`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `resize` property on textareas?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+`pointer-events: none` makes an element ignore mouse events (clicks, hovers), allowing clicks to pass through to elements behind it. `auto` restores default behavior.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `resize` property on textareas? */
-.example {
-  /* Properties go here */
+/* Click-through overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
 }
 ```
 
@@ -2225,25 +2178,21 @@ This is a placeholder for a practical question about **How do you use `resize` p
 
 ---
 
-### Q95: How do you use `pointer-events`?
+### Q95: How do you use `cursor` property?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `pointer-events`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Changes the mouse cursor to indicate interaction type. Common values: `pointer` (links/buttons), `not-allowed` (disabled), `grab`/`grabbing` (drag and drop).
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `pointer-events`? */
-.example {
-  /* Properties go here */
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.draggable {
+  cursor: grab;
 }
 ```
 
@@ -2251,25 +2200,19 @@ This is a placeholder for a practical question about **How do you use `pointer-e
 
 ---
 
-### Q96: How do you use `cursor` property?
+### Q96: How do you use `outline` vs `border`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `cursor` property?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+`border` takes up layout space; `outline` does not. `outline` is often used for accessibility focus rings (`:focus-visible`). Use `outline-offset` to create space between the element and the outline.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `cursor` property? */
-.example {
-  /* Properties go here */
+button:focus-visible {
+  outline: 2px solid blue;
+  outline-offset: 2px; /* Space between button and outline */
+  border-radius: 4px;
 }
 ```
 
@@ -2277,25 +2220,19 @@ This is a placeholder for a practical question about **How do you use `cursor` p
 
 ---
 
-### Q97: How do you use `outline` vs `border`?
+### Q97: How do you use `box-shadow` for elevation?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `outline` vs `border`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Use `box-shadow` to create depth. Combine multiple shadows (ambient and direct) for realistic effects.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `outline` vs `border`? */
-.example {
-  /* Properties go here */
+.card {
+  /* x-offset, y-offset, blur-radius, spread-radius, color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+              0 2px 4px rgba(0, 0, 0, 0.06);
 }
 ```
 
@@ -2303,25 +2240,21 @@ This is a placeholder for a practical question about **How do you use `outline` 
 
 ---
 
-### Q98: How do you use `outline-offset`?
+### Q98: How do you use `border-radius` for different shapes?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `outline-offset`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Use `50%` for circles (if width equals height). Use 4 values for different corners, or 8 values (slashes) for elliptical corners.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `outline-offset`? */
-.example {
-  /* Properties go here */
+.circle {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+}
+.pill {
+  border-radius: 9999px; /* Fully rounded ends */
 }
 ```
 
@@ -2329,25 +2262,37 @@ This is a placeholder for a practical question about **How do you use `outline-o
 
 ---
 
-### Q99: How do you use `box-shadow` for elevation?
+### Q99: How do you use `display: contents`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `box-shadow` for elevation?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+The element itself is removed from the box tree, but its children remain. Useful when you want children of a wrapper to participate in a parent's Grid or Flex layout directly.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `box-shadow` for elevation? */
-.example {
-  /* Properties go here */
+.wrapper {
+  display: contents;
+}
+/* .wrapper's children now act as direct children of .wrapper's parent */
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: How do you use `gap` in Flexbox?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `gap` (formerly `grid-gap`) to define space between flex items, replacing the need for margins on children.
+
+**Code Snippet:**
+```css
+.flex-container {
+  display: flex;
+  gap: 1rem; /* Space between items */
 }
 ```
 
@@ -2355,25 +2300,19 @@ This is a placeholder for a practical question about **How do you use `box-shado
 
 ---
 
-### Q100: How do you create multiple borders using `box-shadow`?
+### Q101: How do you use Logical Properties (`margin-block`, `padding-inline`)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you create multiple borders using `box-shadow`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Use logical properties instead of physical (`top`, `left`, etc.) to support internationalization (LTR/RTL modes) automatically. `block` is vertical (usually), `inline` is horizontal.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you create multiple borders using `box-shadow`? */
-.example {
-  /* Properties go here */
+.box {
+  padding-inline: 20px; /* Left & Right in LTR */
+  margin-block-start: 10px; /* Top in LTR */
+  border-inline-start: 5px solid red; /* Left border in LTR */
 }
 ```
 
@@ -2381,25 +2320,20 @@ This is a placeholder for a practical question about **How do you create multipl
 
 ---
 
-### Q101: How do you use `border-radius` for different shapes?
+### Q102: How do you use `inset` property?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `border-radius` for different shapes?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Shorthand for `top`, `right`, `bottom`, `left`. Useful for positioning absolute/fixed elements.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `border-radius` for different shapes? */
-.example {
-  /* Properties go here */
+/* Full screen modal overlay */
+.modal-backdrop {
+  position: fixed;
+  inset: 0; /* top:0, right:0, bottom:0, left:0 */
+  background: rgba(0,0,0,0.5);
 }
 ```
 
@@ -2407,467 +2341,19 @@ This is a placeholder for a practical question about **How do you use `border-ra
 
 ---
 
-### Q102: How do you use `border-image`?
+### Q103: How do you use `place-items` (Centering Trick)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `border-image`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
+Shorthand for `align-items` and `justify-items`. In CSS Grid, `place-items: center` is the modern way to perfectly center content.
 
 **Code Snippet:**
 ```css
-/* Example implementation */
-/* How do you use `border-image`? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q103: How do you use `currentColor` keyword?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `currentColor` keyword?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `currentColor` keyword? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q104: How do you use `display: contents`?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `display: contents`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `display: contents`? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q105: How do you use `display: inline-flex` vs `flex`?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `display: inline-flex` vs `flex`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `display: inline-flex` vs `flex`? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q106: How do you use `visibility: collapse` (in tables)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `visibility: collapse` (in tables)?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `visibility: collapse` (in tables)? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q107: How do you use `empty-cells` in tables?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `empty-cells` in tables?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `empty-cells` in tables? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q108: How do you use `caption-side` in tables?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `caption-side` in tables?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `caption-side` in tables? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q109: How do you use `table-layout: fixed` for performance?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `table-layout: fixed` for performance?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `table-layout: fixed` for performance? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q110: How do you use `list-style` properties?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `list-style` properties?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `list-style` properties? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q111: How do you use `background-attachment: fixed`?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `background-attachment: fixed`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `background-attachment: fixed`? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q112: How do you use `background-clip`?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `background-clip`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `background-clip`? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q113: How do you use `background-origin`?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `background-origin`?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `background-origin`? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q114: How do you use multiple backgrounds?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use multiple backgrounds?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use multiple backgrounds? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q115: How do you use CSS sprites?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use CSS sprites?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use CSS sprites? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q116: How do you use logical properties (`margin-block`, `padding-inline`)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use logical properties (`margin-block`, `padding-inline`)?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use logical properties (`margin-block`, `padding-inline`)? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q117: How do you use `inset` property?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `inset` property?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `inset` property? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q118: How do you use `gap` in Flexbox?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `gap` in Flexbox?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `gap` in Flexbox? */
-.example {
-  /* Properties go here */
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q119: How do you use `place-content` and `place-items` shorthand?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-**Difficulty: Intermediate**
-
-
-This is a placeholder for a practical question about **How do you use `place-content` and `place-items` shorthand?**.
-1. Understand the CSS property/concept.
-2. Implement it using modern CSS.
-3. Consider browser support and responsiveness.
-
-**Code Snippet:**
-```css
-/* Example implementation */
-/* How do you use `place-content` and `place-items` shorthand? */
-.example {
-  /* Properties go here */
+.center-box {
+  display: grid;
+  place-items: center;
+  height: 100vh;
 }
 ```
 

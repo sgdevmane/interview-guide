@@ -37,8 +37,28 @@
 25. [How do you mount a specific file as a volume (Bind Mount)?](#q25-how-do-you-mount-a-specific-file-as-a-volume-bind-mount) <span class="beginner">Beginner</span>
 26. [How do you view the logs of a running container in real-time?](#q26-how-do-you-view-the-logs-of-a-running-container-in-real-time) <span class="beginner">Beginner</span>
 27. [How do you inspect a container's IP address and configuration?](#q27-how-do-you-inspect-a-containers-ip-address-and-configuration) <span class="intermediate">Intermediate</span>
-28. [How do you perform a multi-architecture build using Docker Buildx?](#q28-how-do-you-perform-a-multi-architecture-build-using-docker-buildx) <span class="advanced">Advanced</span>
 29. [How do you implement caching for `pip install` or `npm install` in Docker builds?](#q29-how-do-you-implement-caching-for-pip-install-or-npm-install-in-docker-builds) <span class="advanced">Advanced</span>
+30. [How do you network containers across multiple hosts (Overlay Network)?](#q30-how-do-you-network-containers-across-multiple-hosts-overlay-network) <span class="advanced">Advanced</span>
+31. [How do you use Docker Context to manage multiple Docker daemons?](#q31-how-do-you-use-docker-context-to-manage-multiple-docker-daemons) <span class="intermediate">Intermediate</span>
+32. [How do you debug a container that fails to start due to an 'Exec format error'?](#q32-how-do-you-debug-a-container-that-fails-to-start-due-to-an-exec-format-error) <span class="intermediate">Intermediate</span>
+33. [How do you flatten a Docker image to reduce layers?](#q33-how-do-you-flatten-a-docker-image-to-reduce-layers) <span class="advanced">Advanced</span>
+34. [How do you prevent the 'PID 1 zombie reaping' problem in Docker?](#q34-how-do-you-prevent-the-pid-1-zombie-reaping-problem-in-docker) <span class="advanced">Advanced</span>
+35. [How do you optimize Docker layer caching for `apt-get install`?](#q35-how-do-you-optimize-docker-layer-caching-for-apt-get-install) <span class="intermediate">Intermediate</span>
+36. [How do you use Docker in Docker (DinD) for CI pipelines?](#q36-how-do-you-use-docker-in-docker-dind-for-ci-pipelines) <span class="advanced">Advanced</span>
+37. [How do you change the default logging driver for all containers?](#q37-how-do-you-change-the-default-logging-driver-for-all-containers) <span class="intermediate">Intermediate</span>
+38. [How do you inspect the resource usage (stats) of running containers?](#q38-how-do-you-inspect-the-resource-usage-stats-of-running-containers) <span class="beginner">Beginner</span>
+39. [How do you use multi-stage builds to run tests before building the final image?](#q39-how-do-you-use-multi-stage-builds-to-run-tests-before-building-the-final-image) <span class="intermediate">Intermediate</span>
+40. [How do you handle timezones in Docker containers?](#q40-how-do-you-handle-timezones-in-docker-containers) <span class="beginner">Beginner</span>
+41. [How do you scan Docker images for security vulnerabilities?](#q41-how-do-you-scan-docker-images-for-security-vulnerabilities) <span class="intermediate">Intermediate</span>
+42. [How do you force a rebuild of a specific Docker layer?](#q42-how-do-you-force-a-rebuild-of-a-specific-docker-layer) <span class="intermediate">Intermediate</span>
+43. [How do you back up a Docker volume?](#q43-how-do-you-back-up-a-docker-volume) <span class="intermediate">Intermediate</span>
+44. [How do you run a command when a container stops (Traps)?](#q44-how-do-you-run-a-command-when-a-container-stops-traps) <span class="advanced">Advanced</span>
+45. [How do you limit container restart attempts (Restart Policy)?](#q45-how-do-you-limit-container-restart-attempts-restart-policy) <span class="beginner">Beginner</span>
+46. [How do you share a Unix socket between containers?](#q46-how-do-you-share-a-unix-socket-between-containers) <span class="advanced">Advanced</span>
+47. [How do you implement a warm-up period for a container before it receives traffic?](#q47-how-do-you-implement-a-warm-up-period-for-a-container-before-it-receives-traffic) <span class="intermediate">Intermediate</span>
+48. [How do you prevent 'works on my machine' issues using Dev Containers?](#q48-how-do-you-prevent-works-on-my-machine-issues-using-dev-containers) <span class="intermediate">Intermediate</span>
+49. [How do you verify the authenticity of a Docker image (Content Trust)?](#q49-how-do-you-verify-the-authenticity-of-a-docker-image-content-trust) <span class="advanced">Advanced</span>
+50. [How do you debug a container's network connectivity using `nsenter`?](#q50-how-do-you-debug-a-containers-network-connectivity-using-nsenter) <span class="advanced">Advanced</span>
 
 ---
 
@@ -663,29 +683,6 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' my-
 
 ---
 
-### Q28: How do you perform a multi-architecture build using Docker Buildx?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Use `docker buildx create` to setup a builder, then use `docker buildx build --platform linux/amd64,linux/arm64` to build for multiple architectures and push to a registry.
-
-**Code Example:**
-```bash
-# Create and use a new builder instance
-docker buildx create --name mybuilder --use
-
-# Build and push for multiple platforms
-docker buildx build \
-  --platform linux/amd64,linux/arm64 \
-  -t user/app:latest \
-  --push .
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
 ### Q29: How do you implement caching for `pip install` or `npm install` in Docker builds?
 
 **Difficulty**: Advanced
@@ -694,15 +691,442 @@ docker buildx build \
 Use BuildKit's cache mounts (`--mount=type=cache`) to persist package directories between builds, speeding up dependency installation.
 
 **Code Example:**
-```dockerfile
 # Python example
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip install -r requirements.txt
 
-# Node example
+# Node.js example
 RUN --mount=type=cache,target=/root/.npm \
     npm ci
-```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q30: How do you network containers across multiple hosts (Overlay Network)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use an Overlay network, which is built-in to Docker Swarm mode, or use a third-party plugin (Weave, Calico). It allows containers on different daemon hosts to communicate securely.
+
+**Code Example:**
+# Initialize Swarm (required for overlay network)
+docker swarm init
+
+# Create an overlay network
+docker network create -d overlay my-overlay-net
+
+# Create a service attached to the network
+docker service create --name my-web --network my-overlay-net nginx
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q31: How do you use Docker Context to manage multiple Docker daemons?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `docker context` to switch between different Docker endpoints (e.g., local, remote server, cloud context) without changing environment variables like `DOCKER_HOST`.
+
+**Code Example:**
+# Create a context for a remote server via SSH
+docker context create remote-server --docker "host=ssh://user@remote-host"
+
+# Use the context
+docker context use remote-server
+
+# Run commands on the remote host
+docker ps
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: How do you debug a container that fails to start due to an 'Exec format error'?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+This error usually means architecture mismatch (e.g., running an ARM image on AMD64). Check the image architecture with `docker inspect` or rebuild using `docker buildx` for the correct platform.
+
+**Code Example:**
+# Check image architecture
+docker inspect my-image | grep Architecture
+
+# If mismatch, use buildx to build for your host architecture
+docker buildx build --platform linux/amd64 -t my-image .
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you flatten a Docker image to reduce layers?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+You can export the container's filesystem as a tar archive and import it back as a single-layer image. Note that this removes history and metadata.
+
+**Code Example:**
+# Run the container
+docker run -d --name temp-container my-image
+
+# Export and Import
+docker export temp-container | docker import - my-flat-image:latest
+
+# Verify size/layers
+docker history my-flat-image:latest
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you prevent the 'PID 1 zombie reaping' problem in Docker?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Docker containers often use the application as PID 1, which might not handle zombie processes correctly. Use `--init` to use a tiny init process (Tini) that handles signal forwarding and zombie reaping.
+
+**Code Example:**
+# Run with init process
+docker run --init -d my-app
+
+# Or in Docker Compose
+version: "3.8"
+services:
+  web:
+    image: my-app
+    init: true
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you optimize Docker layer caching for `apt-get install`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Combine `apt-get update` and `apt-get install` in a single RUN instruction and clean up afterwards to keep the layer small.
+
+**Code Example:**
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: How do you use Docker in Docker (DinD) for CI pipelines?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Run the Docker daemon inside a container. This requires privileged mode. Alternatively, use Docker Socket Binding (DooD) by mounting `/var/run/docker.sock`.
+
+**Code Example:**
+# Docker Socket Binding (Safer/Faster for CI)
+docker run -v /var/run/docker.sock:/var/run/docker.sock docker:cli docker ps
+
+# Docker in Docker (Privileged)
+docker run --privileged -d --name dind docker:dind
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: How do you change the default logging driver for all containers?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Configure the `log-driver` in the `daemon.json` file and restart the Docker daemon. This avoids setting it for every container.
+
+**Code Example:**
+// /etc/docker/daemon.json
+{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  }
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: How do you inspect the resource usage (stats) of running containers?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `docker stats` to see a live stream of CPU, memory, network I/O, and block I/O usage for all running containers.
+
+**Code Example:**
+# Live stats for all containers
+docker stats
+
+# Stats for specific containers
+docker stats container1 container2
+
+# No stream (snapshot)
+docker stats --no-stream
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: How do you use multi-stage builds to run tests before building the final image?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Define a test stage that runs tests. If this stage fails, the build fails. The final stage copies artifacts only if the test stage succeeds.
+
+**Code Example:**
+FROM golang:1.21 AS builder
+WORKDIR /app
+COPY . .
+# Run tests
+RUN go test ./...
+
+# Build binary
+RUN go build -o server main.go
+
+FROM alpine
+COPY --from=builder /app/server /server
+CMD ["/server"]
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you handle timezones in Docker containers?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Set the `TZ` environment variable or mount `/etc/localtime` from the host (Linux only).
+
+**Code Example:**
+# Using environment variable (requires tzdata installed)
+docker run -e TZ=America/New_York my-app
+
+# Using volume mount (sync with host)
+docker run -v /etc/localtime:/etc/localtime:ro my-app
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you scan Docker images for security vulnerabilities?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `docker scout` (newer) or `docker scan` (older, Snyk-based) to analyze images for known CVEs.
+
+**Code Example:**
+# Quick view of vulnerabilities
+docker scout quickview my-image:latest
+
+# Detailed recommendations
+docker scout recommendations my-image:latest
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you force a rebuild of a specific Docker layer?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use build arguments (ARGS) to invalidate the cache at a specific point, or simply change the instruction string.
+
+**Code Example:**
+ARG CACHEBUST=1
+RUN git clone https://github.com/my/repo.git
+
+# Build with new value to force re-clone
+docker build --build-arg CACHEBUST=$(date +%s) .
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you back up a Docker volume?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Mount the volume and a local backup directory into a temporary container, then use `tar` to archive the volume contents.
+
+**Code Example:**
+docker run --rm \
+  -v my-volume:/data \
+  -v $(pwd):/backup \
+  alpine tar cvf /backup/backup.tar /data
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you run a command when a container stops (Traps)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use a shell script as the ENTRYPOINT and define a `trap` to catch signals (SIGTERM) and execute cleanup logic before exiting.
+
+**Code Example:**
+#!/bin/sh
+# entrypoint.sh
+
+cleanup() {
+    echo "Stopping... Cleaning up resources"
+    # cleanup logic here
+}
+
+trap cleanup SIGTERM
+
+exec "$@" &
+wait $!
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you limit container restart attempts (Restart Policy)?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `on-failure` with a maximum retry count instead of `always`.
+
+**Code Example:**
+# Restart max 5 times on failure
+docker run -d --restart on-failure:5 my-app
+
+# Compose
+restart: on-failure
+deploy:
+  restart_policy:
+    condition: on-failure
+    max_attempts: 5
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you share a Unix socket between containers?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use a shared volume to expose the socket file from one container to another. Common for reverse proxies or database connections.
+
+**Code Example:**
+services:
+  app:
+    image: my-app
+    volumes:
+      - socket-vol:/var/run/app
+  
+  proxy:
+    image: nginx
+    volumes:
+      - socket-vol:/var/run/app
+
+volumes:
+  socket-vol:
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you implement a warm-up period for a container before it receives traffic?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+In Docker Swarm or K8s, use health checks with a `start_period` (Compose v2.3+ / Swarm). This gives the application time to bootstrap.
+
+**Code Example:**
+healthcheck:
+  test: ["CMD", "curl", "-f", "http://localhost"]
+  interval: 10s
+  retries: 3
+  start_period: 40s  # Wait 40s before counting failures
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you prevent 'works on my machine' issues using Dev Containers?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use a `.devcontainer` configuration (VS Code) to define the entire development environment (extensions, tools, runtime) in Docker.
+
+**Code Example:**
+// .devcontainer/devcontainer.json
+{
+  "name": "Node.js",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+  "forwardPorts": [3000],
+  "customizations": {
+    "vscode": {
+      "extensions": ["dbaeumer.vscode-eslint"]
+    }
+  }
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you verify the authenticity of a Docker image (Content Trust)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Enable Docker Content Trust (DCT) by setting `DOCKER_CONTENT_TRUST=1`. This enforces signature verification when pulling/running images.
+
+**Code Example:**
+export DOCKER_CONTENT_TRUST=1
+
+# This will fail if the image is not signed
+docker pull my-secure-image:latest
+
+# Sign and push
+docker trust sign my-image:latest
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you debug a container's network connectivity using `nsenter`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `nsenter` to enter the container's network namespace from the host, allowing you to use host networking tools (tcpdump, ip) inside the container context.
+
+**Code Example:**
+# Get PID of container
+PID=$(docker inspect -f '{{.State.Pid}}' my-container)
+
+# Enter network namespace
+sudo nsenter -t $PID -n ip addr show
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 

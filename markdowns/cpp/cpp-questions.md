@@ -10,36 +10,56 @@
 
 ## Table of Contents
 
-1. [How do you prevent memory leaks in Modern C++ using RAII?](#q1-how-do-you-prevent-memory-leaks-in-modern-c++-using-raii) <span class="beginner">Beginner</span>
+1. [How do you prevent memory leaks in Modern C++ using RAII?](#q1-how-do-you-prevent-memory-leaks-in-modern-c-using-raii) <span class="beginner">Beginner</span>
 2. [How do you implement Move Semantics to optimize performance when returning large objects?](#q2-how-do-you-implement-move-semantics-to-optimize-performance-when-returning-large-objects) <span class="intermediate">Intermediate</span>
-3. [How do you resolve circular dependencies when using `std::shared_ptr`?](#q3-how-do-you-resolve-circular-dependencies-when-using-std::shared_ptr) <span class="intermediate">Intermediate</span>
-4. [How do you use `std::async` to run a task asynchronously and retrieve the result?](#q4-how-do-you-use-std::async-to-run-a-task-asynchronously-and-retrieve-the-result) <span class="intermediate">Intermediate</span>
+3. [How do you resolve circular dependencies when using `std::shared_ptr`?](#q3-how-do-you-resolve-circular-dependencies-when-using-stdshared_ptr) <span class="intermediate">Intermediate</span>
+4. [How do you use `std::async` to run a task asynchronously and retrieve the result?](#q4-how-do-you-use-stdasync-to-run-a-task-asynchronously-and-retrieve-the-result) <span class="intermediate">Intermediate</span>
 5. [How do you use `if constexpr` to optimize template code at compile time?](#q5-how-do-you-use-if-constexpr-to-optimize-template-code-at-compile-time) <span class="advanced">Advanced</span>
 6. [How do you ensure thread safety when accessing a shared variable without using heavy mutexes?](#q6-how-do-you-ensure-thread-safety-when-accessing-a-shared-variable-without-using-heavy-mutexes) <span class="advanced">Advanced</span>
 7. [How do you implement Perfect Forwarding in a template function?](#q7-how-do-you-implement-perfect-forwarding-in-a-template-function) <span class="advanced">Advanced</span>
 8. [How do you handle multiple return values from a function efficiently?](#q8-how-do-you-handle-multiple-return-values-from-a-function-efficiently) <span class="intermediate">Intermediate</span>
 9. [How do you avoid Virtual Function overhead (dynamic dispatch) when polymorphism is needed?](#q9-how-do-you-avoid-virtual-function-overhead-dynamic-dispatch-when-polymorphism-is-needed) <span class="expert">Expert</span>
-10. [How do you use `std::variant` to create a type-safe union?](#q10-how-do-you-use-std::variant-to-create-a-type-safe-union) <span class="intermediate">Intermediate</span>
+10. [How do you use `std::variant` to create a type-safe union?](#q10-how-do-you-use-stdvariant-to-create-a-type-safe-union) <span class="intermediate">Intermediate</span>
 11. [How do you prevent 'Object Slicing' when passing derived objects to functions?](#q11-how-do-you-prevent-object-slicing-when-passing-derived-objects-to-functions) <span class="beginner">Beginner</span>
-12. [How do you use `std::optional` to handle values that might not exist?](#q12-how-do-you-use-std::optional-to-handle-values-that-might-not-exist) <span class="intermediate">Intermediate</span>
+12. [How do you use `std::optional` to handle values that might not exist?](#q12-how-do-you-use-stdoptional-to-handle-values-that-might-not-exist) <span class="intermediate">Intermediate</span>
 13. [How do you optimize vector growth to avoid frequent reallocations?](#q13-how-do-you-optimize-vector-growth-to-avoid-frequent-reallocations) <span class="beginner">Beginner</span>
 14. [How do you debug a segmentation fault caused by a dangling pointer?](#q14-how-do-you-debug-a-segmentation-fault-caused-by-a-dangling-pointer) <span class="intermediate">Intermediate</span>
 15. [How do you ensure a destructor in a base class allows proper cleanup of derived classes?](#q15-how-do-you-ensure-a-destructor-in-a-base-class-allows-proper-cleanup-of-derived-classes) <span class="beginner">Beginner</span>
-16. [What is the difference between std::unique_ptr and std::shared_ptr?](#q16-what-is-the-difference-between-std::unique_ptr-and-std::shared_ptr) <span class="intermediate">Intermediate</span>
-17. [When should you choose std::map over std::unordered_map?](#q17-when-should-you-choose-std::map-over-std::unordered_map) <span class="intermediate">Intermediate</span>
+16. [What is the difference between std::unique_ptr and std::shared_ptr?](#q16-what-is-the-difference-between-stdunique_ptr-and-stdshared_ptr) <span class="intermediate">Intermediate</span>
+17. [When should you choose std::map over std::unordered_map?](#q17-when-should-you-choose-stdmap-over-stdunordered_map) <span class="intermediate">Intermediate</span>
 18. [How does const_cast work and when should you avoid it?](#q18-how-does-const_cast-work-and-when-should-you-avoid-it) <span class="intermediate">Intermediate</span>
 19. [What is the purpose of the volatile keyword?](#q19-what-is-the-purpose-of-the-volatile-keyword) <span class="advanced">Advanced</span>
-20. [How do you use a custom deleter with std::unique_ptr?](#q20-how-do-you-use-a-custom-deleter-with-std::unique_ptr) <span class="advanced">Advanced</span>
+20. [How do you use a custom deleter with std::unique_ptr?](#q20-how-do-you-use-a-custom-deleter-with-stdunique_ptr) <span class="advanced">Advanced</span>
 21. [What is Template Specialization?](#q21-what-is-template-specialization) <span class="intermediate">Intermediate</span>
 22. [How does SFINAE work?](#q22-how-does-sfinae-work) <span class="advanced">Advanced</span>
-23. [What does std::move actually do?](#q23-what-does-std::move-actually-do) <span class="intermediate">Intermediate</span>
-24. [When should you use std::function over function pointers?](#q24-when-should-you-use-std::function-over-function-pointers) <span class="intermediate">Intermediate</span>
+23. [What does std::move actually do?](#q23-what-does-stdmove-actually-do) <span class="intermediate">Intermediate</span>
+24. [When should you use std::function over function pointers?](#q24-when-should-you-use-stdfunction-over-function-pointers) <span class="intermediate">Intermediate</span>
 25. [How do lambda captures work?](#q25-how-do-lambda-captures-work) <span class="beginner">Beginner</span>
-26. [What are Structured Bindings (C++17)?](#q26-what-are-structured-bindings-c++17) <span class="beginner">Beginner</span>
-27. [Why use std::string_view (C++17)?](#q27-why-use-std::string_view-c++17) <span class="intermediate">Intermediate</span>
-28. [What is the difference between constexpr and consteval (C++20)?](#q28-what-is-the-difference-between-constexpr-and-consteval-c++20) <span class="intermediate">Intermediate</span>
+26. [What are Structured Bindings (C++17)?](#q26-what-are-structured-bindings-c17) <span class="beginner">Beginner</span>
+27. [Why use std::string_view (C++17)?](#q27-why-use-stdstring_view-c17) <span class="intermediate">Intermediate</span>
+28. [What is the difference between constexpr and consteval (C++20)?](#q28-what-is-the-difference-between-constexpr-and-consteval-c20) <span class="intermediate">Intermediate</span>
 29. [What is Uniform Initialization?](#q29-what-is-uniform-initialization) <span class="beginner">Beginner</span>
 30. [Why are Virtual Destructors important?](#q30-why-are-virtual-destructors-important) <span class="intermediate">Intermediate</span>
+31. [How do you use C++20 Concepts to constrain template parameters?](#q31-how-do-you-use-c20-concepts-to-constrain-template-parameters) <span class="intermediate">Intermediate</span>
+32. [How do you use `std::jthread` (C++20) for automatic joining?](#q32-how-do-you-use-stdjthread-c20-for-automatic-joining) <span class="beginner">Beginner</span>
+33. [How do you use the C++20 Ranges library for pipeline operations?](#q33-how-do-you-use-the-c20-ranges-library-for-pipeline-operations) <span class="intermediate">Intermediate</span>
+34. [How do you implement the Observer pattern using `std::function`?](#q34-how-do-you-implement-the-observer-pattern-using-stdfunction) <span class="advanced">Advanced</span>
+35. [How do you use `std::span` (C++20) to pass contiguous memory safely?](#q35-how-do-you-use-stdspan-c20-to-pass-contiguous-memory-safely) <span class="intermediate">Intermediate</span>
+36. [How do you use `std::atomic_flag` for a spinlock?](#q36-how-do-you-use-stdatomic_flag-for-a-spinlock) <span class="advanced">Advanced</span>
+37. [How do you perform compile-time string hashing?](#q37-how-do-you-perform-compile-time-string-hashing) <span class="advanced">Advanced</span>
+38. [How do you use `std::any` to store values of any type?](#q38-how-do-you-use-stdany-to-store-values-of-any-type) <span class="intermediate">Intermediate</span>
+39. [How do you implement the Pimpl (Pointer to Implementation) idiom?](#q39-how-do-you-implement-the-pimpl-pointer-to-implementation-idiom) <span class="advanced">Advanced</span>
+40. [How do you use `std::reduce` for parallel accumulation?](#q40-how-do-you-use-stdreduce-for-parallel-accumulation) <span class="advanced">Advanced</span>
+41. [How do you avoid Small String Optimization (SSO) pitfalls?](#q41-how-do-you-avoid-small-string-optimization-sso-pitfalls) <span class="expert">Expert</span>
+42. [How do you use `std::filesystem` to traverse directories?](#q42-how-do-you-use-stdfilesystem-to-traverse-directories) <span class="beginner">Beginner</span>
+43. [How do you use `std::visit` with `std::variant`?](#q43-how-do-you-use-stdvisit-with-stdvariant) <span class="intermediate">Intermediate</span>
+44. [How do you implement a thread-safe Singleton in C++11?](#q44-how-do-you-implement-a-thread-safe-singleton-in-c11) <span class="intermediate">Intermediate</span>
+45. [How do you use `std::format` (C++20) for string formatting?](#q45-how-do-you-use-stdformat-c20-for-string-formatting) <span class="beginner">Beginner</span>
+46. [How do you use `std::source_location` for logging?](#q46-how-do-you-use-stdsource_location-for-logging) <span class="intermediate">Intermediate</span>
+47. [How do you implement the Factory Pattern with unique_ptr?](#q47-how-do-you-implement-the-factory-pattern-with-unique_ptr) <span class="intermediate">Intermediate</span>
+48. [How do you use `std::bit_cast` for type punning?](#q48-how-do-you-use-stdbit_cast-for-type-punning) <span class="advanced">Advanced</span>
+49. [How do you use `std::latch` for thread synchronization?](#q49-how-do-you-use-stdlatch-for-thread-synchronization) <span class="intermediate">Intermediate</span>
+50. [How do you detect memory leaks with Valgrind?](#q50-how-do-you-detect-memory-leaks-with-valgrind) <span class="beginner">Beginner</span>
 
 ---
 
@@ -870,3 +890,687 @@ void example() {
 
 ---
 
+
+---
+
+### Q31: How do you use C++20 Concepts to constrain template parameters?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Concepts allow you to specify requirements on template arguments, producing more readable error messages and enabling overloading based on properties. Use the `requires` clause or shorthand syntax.
+
+**Code Example:**
+```cpp
+#include <concepts>
+#include <iostream>
+
+// Constrain T to be an integral type
+template <std::integral T>
+T add(T a, T b) {
+    return a + b;
+}
+
+// Custom concept
+template <typename T>
+concept Hashable = requires(T a) {
+    { std::hash<T>{}(a) } -> std::convertible_to<std::size_t>;
+};
+
+void process(Hashable auto const& item) {
+    std::cout << "Processing hashable item\n";
+}
+
+int main() {
+    std::cout << add(5, 10) << "\n";
+    // add(5.5, 1.2); // Compile error: double is not integral
+    
+    process(10); // int is hashable
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: How do you use `std::jthread` (C++20) for automatic joining?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`std::jthread` is a wrapper around `std::thread` that automatically joins on destruction and supports cooperative interruption via `std::stop_token`.
+
+**Code Example:**
+```cpp
+#include <thread>
+#include <iostream>
+#include <chrono>
+
+void worker(std::stop_token stoken) {
+    while (!stoken.stop_requested()) {
+        std::cout << "Working...\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    }
+    std::cout << "Worker stopped.\n";
+}
+
+int main() {
+    // jthread automatically joins when it goes out of scope
+    std::jthread t(worker);
+    
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    // t destructor calls request_stop() and join()
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you use the C++20 Ranges library for pipeline operations?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Ranges allow you to compose algorithms using the pipe operator (`|`). This creates lazy, readable sequences of operations without creating intermediate containers.
+
+**Code Example:**
+```cpp
+#include <iostream>
+#include <vector>
+#include <ranges>
+#include <algorithm>
+
+int main() {
+    std::vector<int> nums = {1, 2, 3, 4, 5, 6};
+
+    // Filter even numbers, square them, and take the first 2
+    auto result = nums 
+        | std::views::filter([](int n) { return n % 2 == 0; }) 
+        | std::views::transform([](int n) { return n * n; })
+        | std::views::take(2);
+
+    for (int n : result) {
+        std::cout << n << " "; // Output: 4 16
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you implement the Observer pattern using `std::function`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `std::vector<std::function<void()>>` to store listeners. This avoids inheritance hierarchies for observers and allows lambdas to be used as callbacks.
+
+**Code Example:**
+```cpp
+#include <iostream>
+#include <vector>
+#include <functional>
+
+class Subject {
+    std::vector<std::function<void(int)>> observers;
+    int state;
+
+public:
+    void attach(std::function<void(int)> observer) {
+        observers.push_back(observer);
+    }
+
+    void setState(int s) {
+        state = s;
+        notify();
+    }
+
+    void notify() {
+        for (const auto& obs : observers) {
+            obs(state);
+        }
+    }
+};
+
+int main() {
+    Subject subj;
+    
+    subj.attach([](int s) { std::cout << "Observer 1: " << s << "\n"; });
+    subj.attach([](int s) { std::cout << "Observer 2: " << s * 2 << "\n"; });
+    
+    subj.setState(5);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you use `std::span` (C++20) to pass contiguous memory safely?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`std::span` is a non-owning view over a contiguous sequence (array, vector, C-array). It provides bounds safety and avoids decaying pointers, without copying data.
+
+**Code Example:**
+```cpp
+#include <span>
+#include <iostream>
+#include <vector>
+
+void print_span(std::span<int> data) {
+    for (int i : data) {
+        std::cout << i << " ";
+    }
+    std::cout << "\n";
+}
+
+int main() {
+    int arr[] = {1, 2, 3};
+    std::vector<int> vec = {4, 5, 6};
+
+    print_span(arr); // Works with C-array
+    print_span(vec); // Works with std::vector
+    
+    // Sub-span
+    print_span(std::span{vec}.subspan(1)); // Output: 5 6
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: How do you use `std::atomic_flag` for a spinlock?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`std::atomic_flag` is the only atomic type guaranteed to be lock-free. It can be used to implement a simple spinlock for short critical sections.
+
+**Code Example:**
+```cpp
+#include <atomic>
+#include <thread>
+#include <iostream>
+#include <vector>
+
+std::atomic_flag lock = ATOMIC_FLAG_INIT;
+
+void critical_section(int id) {
+    while (lock.test_and_set(std::memory_order_acquire)) {
+        // Spin
+    }
+    
+    std::cout << "Thread " << id << " inside\n";
+    
+    lock.clear(std::memory_order_release);
+}
+
+int main() {
+    std::vector<std::thread> threads;
+    for (int i = 0; i < 5; ++i) {
+        threads.emplace_back(critical_section, i);
+    }
+    for (auto& t : threads) t.join();
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: How do you perform compile-time string hashing?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `constexpr` functions to compute hashes at compile time. This allows strings to be used in switch statements (conceptually) or for optimized lookups.
+
+**Code Example:**
+```cpp
+#include <iostream>
+
+constexpr unsigned int hash(const char* str, int h = 0) {
+    return !str[h] ? 5381 : (hash(str, h+1) * 33) ^ str[h];
+}
+
+int main() {
+    constexpr auto h1 = hash("hello");
+    constexpr auto h2 = hash("world");
+    
+    // Static assert proves it runs at compile time
+    static_assert(h1 != h2, "Hashes should differ");
+    
+    std::cout << "Hash of hello: " << h1 << "\n";
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: How do you use `std::any` to store values of any type?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`std::any` (C++17) is a type-safe container for single values of any type. Use `std::any_cast` to retrieve the value safely.
+
+**Code Example:**
+```cpp
+#include <any>
+#include <iostream>
+#include <string>
+
+int main() {
+    std::any a = 10;
+    std::cout << std::any_cast<int>(a) << "\n"; // 10
+
+    a = std::string("Hello");
+    
+    try {
+        std::cout << std::any_cast<std::string>(a) << "\n";
+        // std::cout << std::any_cast<int>(a) << "\n"; // Throws bad_any_cast
+    } catch (const std::bad_any_cast& e) {
+        std::cout << e.what() << "\n";
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: How do you implement the Pimpl (Pointer to Implementation) idiom?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Move private members to a separate struct defined in the .cpp file. The main class holds a `std::unique_ptr` to this struct. This reduces compilation dependencies and hides implementation details.
+
+**Code Example:**
+```cpp
+// Widget.h
+#include <memory>
+
+class Widget {
+public:
+    Widget();
+    ~Widget(); // Must be defined in .cpp where Impl is complete
+    void doSomething();
+    
+private:
+    struct Impl;
+    std::unique_ptr<Impl> pImpl;
+};
+
+// Widget.cpp
+#include "Widget.h"
+#include <iostream>
+
+struct Widget::Impl {
+    void work() { std::cout << "Implementation working...\n"; }
+};
+
+Widget::Widget() : pImpl(std::make_unique<Impl>()) {}
+Widget::~Widget() = default;
+void Widget::doSomething() { pImpl->work(); }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you use `std::reduce` for parallel accumulation?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`std::reduce` (C++17) is similar to `std::accumulate` but supports out-of-order execution, enabling parallelization via execution policies (C++17).
+
+**Code Example:**
+```cpp
+#include <numeric>
+#include <vector>
+#include <execution>
+#include <iostream>
+
+int main() {
+    std::vector<int> v(1000000, 1);
+
+    // Parallel reduction
+    int sum = std::reduce(std::execution::par, v.begin(), v.end());
+
+    std::cout << "Sum: " << sum << "\n";
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you avoid Small String Optimization (SSO) pitfalls?
+
+**Difficulty**: Expert
+
+**Strategy:**
+SSO stores small strings directly in the `std::string` object to avoid allocation. Be aware that moving a string might invalidate iterators pointing to the internal buffer if the string is small (implementation dependent, but generally safe in standard, though pointers to buffer might change location if object moves).
+
+**Code Example:**
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    // Small string (fits in SSO buffer)
+    std::string s1 = "short"; 
+    const char* ptr1 = s1.data();
+    
+    // Move s1 to s2
+    std::string s2 = std::move(s1);
+    
+    // ptr1 is likely dangling or pointing to s2's buffer now
+    // Unlike heap-allocated strings, the data physically moved location
+    std::cout << "Pointer address changed: " << (void*)s2.data() << " vs " << (void*)ptr1 << "\n";
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you use `std::filesystem` to traverse directories?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `std::filesystem::recursive_directory_iterator` to walk through a directory tree. It's part of C++17 standard library.
+
+**Code Example:**
+```cpp
+#include <filesystem>
+#include <iostream>
+
+namespace fs = std::filesystem;
+
+int main() {
+    // Create dummy dir for demo
+    fs::create_directory("sandbox");
+    fs::create_directory("sandbox/subdir");
+    
+    for (const auto& entry : fs::recursive_directory_iterator("sandbox")) {
+        std::cout << entry.path() << "\n";
+    }
+    
+    fs::remove_all("sandbox");
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you use `std::visit` with `std::variant`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`std::visit` applies a callable (visitor) to the value currently held by a `std::variant`. You can use a struct with overloaded `operator()` or the `overloaded` helper pattern with lambdas.
+
+**Code Example:**
+```cpp
+#include <variant>
+#include <iostream>
+
+// Helper for overloaded lambdas
+template<class... Ts> struct overloaded : Ts... { using Ts::operator()...; };
+template<class... Ts> overloaded(Ts...) -> overloaded<Ts...>;
+
+int main() {
+    std::variant<int, float, std::string> v = "Hello";
+
+    std::visit(overloaded {
+        [](int arg) { std::cout << "Int: " << arg << "\n"; },
+        [](float arg) { std::cout << "Float: " << arg << "\n"; },
+        [](const std::string& arg) { std::cout << "String: " << arg << "\n"; }
+    }, v);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you implement a thread-safe Singleton in C++11?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+In C++11, static local variables are guaranteed to be initialized in a thread-safe manner. This is the 'Meyers Singleton'.
+
+**Code Example:**
+```cpp
+class Singleton {
+public:
+    static Singleton& getInstance() {
+        static Singleton instance; // Thread-safe initialization
+        return instance;
+    }
+    
+    void doWork() {}
+
+private:
+    Singleton() {}
+    Singleton(const Singleton&) = delete;
+    void operator=(const Singleton&) = delete;
+};
+
+int main() {
+    Singleton::getInstance().doWork();
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you use `std::format` (C++20) for string formatting?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`std::format` provides a type-safe, python-like string formatting alternative to `printf` and `iostreams`. It is faster and more readable.
+
+**Code Example:**
+```cpp
+#include <format>
+#include <iostream>
+#include <string>
+
+int main() {
+    std::string name = "Alice";
+    int age = 30;
+    
+    std::string s = std::format("User {} is {} years old.", name, age);
+    std::cout << s << "\n";
+    
+    // Format specifiers
+    std::cout << std::format("Pi: {:.2f}", 3.14159) << "\n"; // 3.14
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you use `std::source_location` for logging?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`std::source_location` (C++20) captures file name, line number, and function name at the call site. It replaces preprocessor macros like `__FILE__` and `__LINE__`.
+
+**Code Example:**
+```cpp
+#include <source_location>
+#include <iostream>
+
+void log(const char* message, 
+         const std::source_location location = std::source_location::current()) {
+    std::cout << "INFO: " << message << "\n"
+              << "File: " << location.file_name() << "\n"
+              << "Line: " << location.line() << "\n"
+              << "Func: " << location.function_name() << "\n";
+}
+
+int main() {
+    log("Application started");
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you implement the Factory Pattern with unique_ptr?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+A factory function should return `std::unique_ptr<Base>` to transfer ownership to the caller. This ensures proper cleanup without manual `delete`.
+
+**Code Example:**
+```cpp
+#include <memory>
+#include <iostream>
+
+class Animal {
+public:
+    virtual void speak() = 0;
+    virtual ~Animal() = default;
+};
+
+class Dog : public Animal {
+    void speak() override { std::cout << "Woof!\n"; }
+};
+
+class Cat : public Animal {
+    void speak() override { std::cout << "Meow!\n"; }
+};
+
+std::unique_ptr<Animal> createAnimal(const std::string& type) {
+    if (type == "dog") return std::make_unique<Dog>();
+    if (type == "cat") return std::make_unique<Cat>();
+    return nullptr;
+}
+
+int main() {
+    auto pet = createAnimal("dog");
+    if (pet) pet->speak();
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you use `std::bit_cast` for type punning?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`std::bit_cast` (C++20) safely reinterprets the bits of a value as another type of the same size. It is the only undefined-behavior-free way to do type punning (unlike `reinterpret_cast` or unions).
+
+**Code Example:**
+```cpp
+#include <bit>
+#include <iostream>
+#include <cstdint>
+
+int main() {
+    float f = 3.14f;
+    
+    // View bits of float as uint32_t
+    uint32_t i = std::bit_cast<uint32_t>(f);
+    
+    std::cout << std::hex << i << "\n";
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you use `std::latch` for thread synchronization?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`std::latch` (C++20) is a downward counter. Threads wait until the counter reaches zero. Unlike `std::barrier`, it cannot be reused.
+
+**Code Example:**
+```cpp
+#include <latch>
+#include <thread>
+#include <vector>
+#include <iostream>
+
+std::latch work_done(3);
+
+void worker(int id) {
+    std::cout << "Worker " << id << " done\n";
+    work_done.count_down();
+}
+
+int main() {
+    std::vector<std::thread> threads;
+    for(int i=0; i<3; ++i) threads.emplace_back(worker, i);
+    
+    work_done.wait(); // Wait for all 3
+    std::cout << "All workers finished\n";
+    
+    for(auto& t : threads) t.join();
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you detect memory leaks with Valgrind?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Valgrind is a command-line tool. Run your executable with `valgrind --leak-check=full ./program`. It reports memory that was allocated but not freed.
+
+**Code Example:**
+```cpp
+// Compile: g++ -g main.cpp -o main
+// Run: valgrind --leak-check=full ./main
+
+#include <iostream>
+
+void leak() {
+    int* p = new int[10];
+    p[0] = 5;
+    // Missing delete[] p;
+}
+
+int main() {
+    leak();
+    return 0;
+}
+
+/* Valgrind Output Snippet:
+==12345== 40 bytes in 1 blocks are definitely lost in loss record 1 of 1
+==12345==    at 0x4C2E80F: operator new[](unsigned long) (in /usr/lib/valgrind/...)
+==12345==    by 0x4006F6: leak() (main.cpp:7)
+*/
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

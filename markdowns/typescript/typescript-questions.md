@@ -19,27 +19,47 @@
 7. [How do you create a 'readonly' array or tuple so that its contents cannot be modified after initialization?](#q7-how-do-you-create-a-readonly-array-or-tuple-so-that-its-contents-cannot-be-modified-after-initialization) <span class="intermediate">Intermediate</span>
 8. [How do you use `unknown` vs `any` for type safety?](#q8-how-do-you-use-unknown-vs-any-for-type-safety) <span class="intermediate">Intermediate</span>
 9. [How do you use 'Mapped Types' to create a new type where all boolean properties of an interface are changed to strings?](#q9-how-do-you-use-mapped-types-to-create-a-new-type-where-all-boolean-properties-of-an-interface-are-changed-to-strings) <span class="intermediate">Intermediate</span>
-10. [How do you define a React Component Prop type that accepts *either* an `image` URL *or* a `text` label, but not both?](#q10-how-do-you-define-a-react-component-prop-type-that-accepts-*either*-an-image-url-*or*-a-text-label-but-not-both) <span class="intermediate">Intermediate</span>
+10. [How do you define a React Component Prop type that accepts *either* an `image` URL *or* a `text` label, but not both?](#q10-how-do-you-define-a-react-component-prop-type-that-accepts-either-an-image-url-or-a-text-label-but-not-both) <span class="intermediate">Intermediate</span>
 11. [How do you implement a generic 'Singleton' pattern in TypeScript using a static `getInstance` method?](#q11-how-do-you-implement-a-generic-singleton-pattern-in-typescript-using-a-static-getinstance-method) <span class="intermediate">Intermediate</span>
 12. [How do you use the `infer` keyword to extract the type of the first argument of a function?](#q12-how-do-you-use-the-infer-keyword-to-extract-the-type-of-the-first-argument-of-a-function) <span class="intermediate">Intermediate</span>
 13. [How do you fix the error 'Element implicitly has an any type because expression of type string can't be used to index type'?](#q13-how-do-you-fix-the-error-element-implicitly-has-an-any-type-because-expression-of-type-string-cant-be-used-to-index-type) <span class="intermediate">Intermediate</span>
 14. [How do you declare a global variable (e.g., `window.myConfig`) so TypeScript recognizes it without errors?](#q14-how-do-you-declare-a-global-variable-eg-windowmyconfig-so-typescript-recognizes-it-without-errors) <span class="intermediate">Intermediate</span>
 15. [How do you use TypeScript's `satisfies` operator to validate an expression matches a type without widening it?](#q15-how-do-you-use-typescripts-satisfies-operator-to-validate-an-expression-matches-a-type-without-widening-it) <span class="intermediate">Intermediate</span>
-16. [How do you implement a `DeepPartial<T>` utility type?](#q16-how-do-you-implement-a-deeppartial<t>-utility-type) <span class="advanced">Advanced</span>
+16. [How do you implement a `DeepPartial<T>` utility type?](#q16-how-do-you-implement-a-deeppartialt-utility-type) <span class="advanced">Advanced</span>
 17. [How do you use `const` assertions (`as const`) to create literal types?](#q17-how-do-you-use-const-assertions-as-const-to-create-literal-types) <span class="intermediate">Intermediate</span>
-18. [How do you use `Awaited<T>` to unwrap Promise types recursively?](#q18-how-do-you-use-awaited<t>-to-unwrap-promise-types-recursively) <span class="intermediate">Intermediate</span>
+18. [How do you use `Awaited<T>` to unwrap Promise types recursively?](#q18-how-do-you-use-awaitedt-to-unwrap-promise-types-recursively) <span class="intermediate">Intermediate</span>
 19. [How do you create a type that requires exactly one of two properties (XOR)?](#q19-how-do-you-create-a-type-that-requires-exactly-one-of-two-properties-xor) <span class="advanced">Advanced</span>
 20. [How do you use `keyof` with Generics to access properties safely?](#q20-how-do-you-use-keyof-with-generics-to-access-properties-safely) <span class="intermediate">Intermediate</span>
 21. [How do you implement a specialized `Pick` that filters by value type?](#q21-how-do-you-implement-a-specialized-pick-that-filters-by-value-type) <span class="advanced">Advanced</span>
 22. [How do you use `asserts` to create a custom assertion function?](#q22-how-do-you-use-asserts-to-create-a-custom-assertion-function) <span class="intermediate">Intermediate</span>
-23. [How do you use `ThisType<T>` to type `this` in object literals?](#q23-how-do-you-use-thistype<t>-to-type-this-in-object-literals) <span class="advanced">Advanced</span>
+23. [How do you use `ThisType<T>` to type `this` in object literals?](#q23-how-do-you-use-thistypet-to-type-this-in-object-literals) <span class="advanced">Advanced</span>
 24. [How do you make a tuple type with a variable number of elements (Variadic Tuples)?](#q24-how-do-you-make-a-tuple-type-with-a-variable-number-of-elements-variadic-tuples) <span class="advanced">Advanced</span>
 25. [How do you use `never` type for exhaustive checks in switch statements?](#q25-how-do-you-use-never-type-for-exhaustive-checks-in-switch-statements) <span class="intermediate">Intermediate</span>
 26. [How do you use Module Augmentation to extend third-party libraries?](#q26-how-do-you-use-module-augmentation-to-extend-third-party-libraries) <span class="intermediate">Intermediate</span>
-27. [How do you implement a generic `Mutable<T>` utility type?](#q27-how-do-you-implement-a-generic-mutable<t>-utility-type) <span class="intermediate">Intermediate</span>
+27. [How do you implement a generic `Mutable<T>` utility type?](#q27-how-do-you-implement-a-generic-mutablet-utility-type) <span class="intermediate">Intermediate</span>
 28. [How do you use `Omit` to exclude properties from a type?](#q28-how-do-you-use-omit-to-exclude-properties-from-a-type) <span class="beginner">Beginner</span>
 29. [How do you type a function with function overloads?](#q29-how-do-you-type-a-function-with-function-overloads) <span class="intermediate">Intermediate</span>
 30. [How do you use the `instanceof` type guard?](#q30-how-do-you-use-the-instanceof-type-guard) <span class="beginner">Beginner</span>
+31. [What is the difference between `never` and `void`?](#q31-what-is-the-difference-between-never-and-void) <span class="intermediate">Intermediate</span>
+32. [How do you implement Branded Types (Nominal Typing) to prevent accidental assignment?](#q32-how-do-you-implement-branded-types-nominal-typing-to-prevent-accidental-assignment) <span class="advanced">Advanced</span>
+33. [How do you create a Conditional Type?](#q33-how-do-you-create-a-conditional-type) <span class="intermediate">Intermediate</span>
+34. [How do you use `import type` and why is it useful?](#q34-how-do-you-use-import-type-and-why-is-it-useful) <span class="beginner">Beginner</span>
+35. [How do you convert a Tuple to a Union type?](#q35-how-do-you-convert-a-tuple-to-a-union-type) <span class="intermediate">Intermediate</span>
+36. [Why should you prefer `as const` objects over `enum`?](#q36-why-should-you-prefer-as-const-objects-over-enum) <span class="intermediate">Intermediate</span>
+37. [How do you use `NonNullable<T>` to remove null and undefined?](#q37-how-do-you-use-nonnullablet-to-remove-null-and-undefined) <span class="beginner">Beginner</span>
+38. [How do you use `Parameters<T>` to extract function argument types?](#q38-how-do-you-use-parameterst-to-extract-function-argument-types) <span class="intermediate">Intermediate</span>
+39. [What is the difference between `Exclude` and `Omit`?](#q39-what-is-the-difference-between-exclude-and-omit) <span class="intermediate">Intermediate</span>
+40. [How do you use `Record<K, T>` to create a dictionary?](#q40-how-do-you-use-recordk-t-to-create-a-dictionary) <span class="beginner">Beginner</span>
+41. [How do you implement Mixins in TypeScript?](#q41-how-do-you-implement-mixins-in-typescript) <span class="advanced">Advanced</span>
+42. [How do you use `ConstructorParameters<T>`?](#q42-how-do-you-use-constructorparameterst) <span class="advanced">Advanced</span>
+43. [How do you force a type to be partially optional using a utility type?](#q43-how-do-you-force-a-type-to-be-partially-optional-using-a-utility-type) <span class="advanced">Advanced</span>
+44. [What is Covariance vs Contravariance in TypeScript?](#q44-what-is-covariance-vs-contravariance-in-typescript) <span class="expert">Expert</span>
+45. [How do you make a class property private at runtime vs compile time?](#q45-how-do-you-make-a-class-property-private-at-runtime-vs-compile-time) <span class="beginner">Beginner</span>
+46. [How do you handle circular dependencies in types?](#q46-how-do-you-handle-circular-dependencies-in-types) <span class="intermediate">Intermediate</span>
+47. [How do you assert that a value is defined (Not Null Assertion)?](#q47-how-do-you-assert-that-a-value-is-defined-not-null-assertion) <span class="beginner">Beginner</span>
+48. [How do you use `Partial<T>` to update objects?](#q48-how-do-you-use-partialt-to-update-objects) <span class="beginner">Beginner</span>
+49. [How do you use `ReturnType` to create a type from a function implementation?](#q49-how-do-you-use-returntype-to-create-a-type-from-a-function-implementation) <span class="intermediate">Intermediate</span>
+50. [How do you strictly type the `this` context in a function?](#q50-how-do-you-strictly-type-the-this-context-in-a-function) <span class="advanced">Advanced</span>
 
 ---
 
@@ -210,7 +230,7 @@ function formatInput(input: string | number) {
 **Difficulty**: Intermediate
 
 **Strategy:**
-
+Use the `readonly` modifier or `ReadonlyArray<T>` to prevent mutation methods like `push` or `pop`. Alternatively, use `as const` for a deeply readonly literal.
 
 **Code Example:**
 ```typescript
@@ -327,7 +347,7 @@ const c2: CardProps = { text: "Hello" };    // OK
 **Difficulty**: Intermediate
 
 **Strategy:**
-
+Make the constructor `private` to prevent direct instantiation. Use a static property to hold the instance and a static method `getInstance()` to return it, creating it only if it doesn't exist.
 
 **Code Example:**
 ```typescript
@@ -359,7 +379,7 @@ console.log(db1 === db2); // true
 **Difficulty**: Intermediate
 
 **Strategy:**
-
+Use `infer` within a conditional type to deduce a specific type. For the first argument, pattern match the function signature: `(first: infer U, ...args: any[]) => any`.
 
 **Code Example:**
 ```typescript
@@ -910,6 +930,490 @@ function interact(pet: Dog | Cat) {
   }
 }
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+
+### Q31: What is the difference between `never` and `void`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`void` means a function returns nothing (or undefined). `never` means a function *never* returns (e.g., it throws an error or has an infinite loop).
+
+**Code Example:**
+function logMessage(msg: string): void {
+  console.log(msg);
+  // Returns undefined implicitly
+}
+
+function throwError(msg: string): never {
+  throw new Error(msg);
+  // Execution stops here, never returns
+}
+
+function infiniteLoop(): never {
+  while (true) {}
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: How do you implement Branded Types (Nominal Typing) to prevent accidental assignment?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+TypeScript uses Structural Typing (duck typing). To enforce Nominal Typing (where types are equal only if they have the same name), you can use a 'brand' property.
+
+**Code Example:**
+type USD = number & { __brand: 'USD' };
+type EUR = number & { __brand: 'EUR' };
+
+function usd(value: number): USD {
+  return value as USD;
+}
+
+function eur(value: number): EUR {
+  return value as EUR;
+}
+
+const dollars = usd(10);
+const euros = eur(10);
+
+// dollars = euros; // Error: Type 'EUR' is not assignable to type 'USD'.
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you create a Conditional Type?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Conditional types work like ternary operators: `T extends U ? X : Y`. They allow types to be determined dynamically based on other types.
+
+**Code Example:**
+type IsString<T> = T extends string ? true : false;
+
+type A = IsString<string>; // true
+type B = IsString<number>; // false
+
+// Practical: Extract array type
+type Flatten<T> = T extends any[] ? T[number] : T;
+
+type Str = Flatten<string[]>; // string
+type Num = Flatten<number>;   // number
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you use `import type` and why is it useful?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`import type` ensures that the import is erased during compilation. It avoids circular dependency issues at runtime and clarifies that the import is only for type checking.
+
+**Code Example:**
+// types.ts
+export interface User { name: string; }
+
+// app.ts
+import type { User } from './types';
+
+const user: User = { name: 'Alice' };
+
+// Compiled JS:
+// const user = { name: 'Alice' };
+// (The import statement is completely removed)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you convert a Tuple to a Union type?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use the indexed access type `[number]` on the tuple.
+
+**Code Example:**
+const colors = ['red', 'green', 'blue'] as const;
+
+// Type is 'red' | 'green' | 'blue'
+type Color = typeof colors[number];
+
+const c1: Color = 'red'; // OK
+// const c2: Color = 'yellow'; // Error
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: Why should you prefer `as const` objects over `enum`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+TypeScript `enum` generates extra runtime code (IIFE). Objects with `as const` generate zero runtime overhead (except the object itself) and are safer.
+
+**Code Example:**
+// Enum (Generates code)
+enum Direction {
+  Up,
+  Down
+}
+
+// Object as const (Cleaner)
+const DirectionConst = {
+  Up: 'UP',
+  Down: 'DOWN'
+} as const;
+
+type DirectionType = typeof DirectionConst[keyof typeof DirectionConst];
+// 'UP' | 'DOWN'
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: How do you use `NonNullable<T>` to remove null and undefined?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`NonNullable<T>` constructs a type by excluding `null` and `undefined` from `T`.
+
+**Code Example:**
+type MaybeString = string | null | undefined;
+
+type DefinitelyString = NonNullable<MaybeString>;
+// string
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: How do you use `Parameters<T>` to extract function argument types?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`Parameters<T>` returns a tuple type containing the types of the arguments of a function type `T`.
+
+**Code Example:**
+function createUser(name: string, age: number) {
+  return { name, age };
+}
+
+type CreateUserArgs = Parameters<typeof createUser>;
+// [name: string, age: number]
+
+const args: CreateUserArgs = ['Alice', 30];
+createUser(...args);
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: What is the difference between `Exclude` and `Omit`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`Exclude<T, U>` removes types from a **Union**. `Omit<T, K>` removes keys from an **Object** type.
+
+**Code Example:**
+// Exclude (Union)
+type T1 = Exclude<"a" | "b" | "c", "a">;
+// "b" | "c"
+
+// Omit (Object)
+interface Todo {
+  title: string;
+  completed: boolean;
+  createdAt: number;
+}
+type TodoPreview = Omit<Todo, "completed" | "createdAt">;
+// { title: string; }
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you use `Record<K, T>` to create a dictionary?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`Record<K, T>` constructs an object type whose property keys are `K` and whose property values are `T`. Useful for mapping keys to values.
+
+**Code Example:**
+type Role = 'admin' | 'user' | 'guest';
+
+interface UserInfo {
+  id: number;
+}
+
+const usersByRole: Record<Role, UserInfo[]> = {
+  admin: [{ id: 1 }],
+  user: [{ id: 2 }, { id: 3 }],
+  guest: []
+};
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you implement Mixins in TypeScript?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Mixins allow you to build up classes from reusable components. A mixin is a function that takes a class and returns a new class extending it.
+
+**Code Example:**
+type Constructor = new (...args: any[]) => {};
+
+function Timestamped<TBase extends Constructor>(Base: TBase) {
+  return class extends Base {
+    timestamp = Date.now();
+  };
+}
+
+class User {
+  name = "Alice";
+}
+
+const TimestampedUser = Timestamped(User);
+const user = new TimestampedUser();
+console.log(user.name, user.timestamp);
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you use `ConstructorParameters<T>`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`ConstructorParameters<T>` extracts the tuple of argument types from a constructor function type.
+
+**Code Example:**
+class Point {
+  constructor(public x: number, public y: number) {}
+}
+
+type PointParams = ConstructorParameters<typeof Point>;
+// [x: number, y: number]
+
+const coords: PointParams = [10, 20];
+const p = new Point(...coords);
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you force a type to be partially optional using a utility type?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Combine `Omit`, `Partial`, and intersection `&` to make specific keys optional while keeping others required.
+
+**Code Example:**
+interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+
+// Make 'email' optional, keep 'id' and 'name' required
+type UserOptionalEmail = Omit<User, 'email'> & Partial<Pick<User, 'email'>>;
+
+const u: UserOptionalEmail = {
+  id: '1',
+  name: 'Alice'
+  // email is optional
+};
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: What is Covariance vs Contravariance in TypeScript?
+
+**Difficulty**: Expert
+
+**Strategy:**
+TypeScript is generally covariant (allows subtype assignment). However, function parameters are contravariant (you can pass a function that accepts a supertype), while return types are covariant.
+
+**Code Example:**
+interface Animal { name: string; }
+interface Dog extends Animal { breed: string; }
+
+let animal: Animal;
+let dog: Dog;
+
+// Covariance (Return types):
+// A function returning Dog is assignable to a function returning Animal.
+type Getter<T> = () => T;
+let getAnimal: Getter<Animal>;
+let getDog: Getter<Dog>;
+getAnimal = getDog; // ✅ OK
+
+// Contravariance (Parameters):
+// A function taking Animal is assignable to a function taking Dog.
+type Setter<T> = (item: T) => void;
+let setAnimal: Setter<Animal>;
+let setDog: Setter<Dog>;
+setDog = setAnimal; // ✅ OK: If it handles any Animal, it handles a Dog.
+// setAnimal = setDog; // ❌ Error: setDog might need 'breed' which Animal lacks.
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you make a class property private at runtime vs compile time?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`private` keyword is compile-time only (erased in JS). `#` prefix creates a true private field in JavaScript runtime.
+
+**Code Example:**
+class Counter {
+  private compileTimePrivate = 0; // Accessible via (counter as any).compileTimePrivate
+  #runtimePrivate = 0; // Truly inaccessible
+  
+  increment() {
+    this.#runtimePrivate++;
+  }
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you handle circular dependencies in types?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+TypeScript handles recursive types automatically if they are defined correctly using interfaces or type aliases.
+
+**Code Example:**
+interface Category {
+  name: string;
+  subcategories: Category[]; // Recursive reference
+}
+
+const root: Category = {
+  name: "Electronics",
+  subcategories: [
+    { name: "Laptops", subcategories: [] }
+  ]
+};
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you assert that a value is defined (Not Null Assertion)?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use the postfix `!` operator. Use this only when you are certain the value is not null/undefined.
+
+**Code Example:**
+const input = document.getElementById("my-input")!; 
+// Type is HTMLElement, not HTMLElement | null
+
+// Alternative (Safer):
+if (input) {
+  // Type narrowed inside block
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you use `Partial<T>` to update objects?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`Partial<T>` sets all properties of T to optional. This is useful for update functions that accept a subset of fields.
+
+**Code Example:**
+interface User {
+  id: number;
+  name: string;
+  age: number;
+}
+
+function updateUser(id: number, changes: Partial<User>) {
+  // ... logic to merge changes
+}
+
+updateUser(1, { age: 31 }); // Valid
+updateUser(1, { name: "Bob" }); // Valid
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you use `ReturnType` to create a type from a function implementation?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Useful when you have a function but no explicit interface for its return value.
+
+**Code Example:**
+function createConfig() {
+  return {
+    port: 8080,
+    db: 'postgres',
+    debug: true
+  };
+}
+
+type Config = ReturnType<typeof createConfig>;
+// { port: number; db: string; debug: boolean; }
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you strictly type the `this` context in a function?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Declare `this` as the first parameter in the function signature. It is erased at runtime.
+
+**Code Example:**
+interface Button {
+  disabled: boolean;
+}
+
+function handleClick(this: Button) {
+  this.disabled = true;
+}
+
+const btn: Button = { disabled: false };
+// handleClick(); // Error: The 'this' context is missing.
+handleClick.call(btn); // OK
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 

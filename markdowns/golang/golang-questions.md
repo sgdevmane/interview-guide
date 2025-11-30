@@ -29,7 +29,7 @@
 17. [How do you use `sync.Once` to ensure a function runs exactly once?](#q17-how-do-you-use-synconce-to-ensure-a-function-runs-exactly-once) <span class="intermediate">Intermediate</span>
 18. [How do you implement a rate limiter using a Token Bucket algorithm?](#q18-how-do-you-implement-a-rate-limiter-using-a-token-bucket-algorithm) <span class="intermediate">Intermediate</span>
 19. [How do you correctly handle loop variables in Goroutines?](#q19-how-do-you-correctly-handle-loop-variables-in-goroutines) <span class="intermediate">Intermediate</span>
-20. [How do you use `go:embed` to bundle static assets?](#q20-how-do-you-use-go:embed-to-bundle-static-assets) <span class="intermediate">Intermediate</span>
+20. [How do you use `go:embed` to bundle static assets?](#q20-how-do-you-use-goembed-to-bundle-static-assets) <span class="intermediate">Intermediate</span>
 21. [How do you use `errgroup` to manage parallel tasks with error propagation?](#q21-how-do-you-use-errgroup-to-manage-parallel-tasks-with-error-propagation) <span class="intermediate">Intermediate</span>
 22. [How do you implement atomic counters using `sync/atomic`?](#q22-how-do-you-implement-atomic-counters-using-syncatomic) <span class="intermediate">Intermediate</span>
 23. [How do you benchmark code using `testing.B`?](#q23-how-do-you-benchmark-code-using-testingb) <span class="intermediate">Intermediate</span>
@@ -39,7 +39,27 @@
 27. [How do you use `defer` effectively for cleanup (and avoid common traps)?](#q27-how-do-you-use-defer-effectively-for-cleanup-and-avoid-common-traps) <span class="intermediate">Intermediate</span>
 28. [How do you implement a custom HTTP RoundTripper?](#q28-how-do-you-implement-a-custom-http-roundtripper) <span class="expert">Expert</span>
 29. [How do you use `reflect` to iterate over struct fields?](#q29-how-do-you-use-reflect-to-iterate-over-struct-fields) <span class="expert">Expert</span>
-30. [How do you use `slices` package (Go 1.21+) for common operations?](#q30-how-do-you-use-slices-package-go-121+-for-common-operations) <span class="intermediate">Intermediate</span>
+30. [How do you use `slices` package (Go 1.21+) for common operations?](#q30-how-do-you-use-slices-package-go-121-for-common-operations) <span class="intermediate">Intermediate</span>
+31. [How do you use the new `slices` package (Go 1.21+) for common operations?](#q31-how-do-you-use-the-new-slices-package-go-121-for-common-operations) <span class="beginner">Beginner</span>
+32. [How do you iterate over an integer range using `range` in Go 1.22+?](#q32-how-do-you-iterate-over-an-integer-range-using-range-in-go-122) <span class="beginner">Beginner</span>
+33. [How do you use `cmp.Or` (Go 1.22+) to return the first non-zero value?](#q33-how-do-you-use-cmpor-go-122-to-return-the-first-non-zero-value) <span class="intermediate">Intermediate</span>
+34. [How do you create a structured logger using `log/slog` (Go 1.21+)?](#q34-how-do-you-create-a-structured-logger-using-logslog-go-121) <span class="intermediate">Intermediate</span>
+35. [How do you implement a worker pool with result collection?](#q35-how-do-you-implement-a-worker-pool-with-result-collection) <span class="advanced">Advanced</span>
+36. [How do you use `sync.OnceValue` (Go 1.21+) for lazy initialization?](#q36-how-do-you-use-synconcevalue-go-121-for-lazy-initialization) <span class="intermediate">Intermediate</span>
+37. [How do you check for race conditions in Go?](#q37-how-do-you-check-for-race-conditions-in-go) <span class="intermediate">Intermediate</span>
+38. [How do you implement the Functional Options pattern?](#q38-how-do-you-implement-the-functional-options-pattern) <span class="intermediate">Intermediate</span>
+39. [How do you use `context.WithTimeout` to cancel long-running operations?](#q39-how-do-you-use-contextwithtimeout-to-cancel-long-running-operations) <span class="intermediate">Intermediate</span>
+40. [How do you embed static files into a Go binary?](#q40-how-do-you-embed-static-files-into-a-go-binary) <span class="beginner">Beginner</span>
+41. [How do you perform atomic operations to avoid mutexes?](#q41-how-do-you-perform-atomic-operations-to-avoid-mutexes) <span class="advanced">Advanced</span>
+42. [How do you benchmark Go code?](#q42-how-do-you-benchmark-go-code) <span class="intermediate">Intermediate</span>
+43. [How do you use Generics to create a type-safe Set?](#q43-how-do-you-use-generics-to-create-a-type-safe-set) <span class="advanced">Advanced</span>
+44. [How do you gracefully shutdown an HTTP server?](#q44-how-do-you-gracefully-shutdown-an-http-server) <span class="intermediate">Intermediate</span>
+45. [How do you marshal JSON with custom field names or omission?](#q45-how-do-you-marshal-json-with-custom-field-names-or-omission) <span class="beginner">Beginner</span>
+46. [How do you use `errgroup` for concurrent task synchronization?](#q46-how-do-you-use-errgroup-for-concurrent-task-synchronization) <span class="advanced">Advanced</span>
+47. [How do you implement a simple HTTP middleware?](#q47-how-do-you-implement-a-simple-http-middleware) <span class="intermediate">Intermediate</span>
+48. [How do you detect and handle panics in a Goroutine?](#q48-how-do-you-detect-and-handle-panics-in-a-goroutine) <span class="intermediate">Intermediate</span>
+49. [How do you use `io.Pipe` to stream data between a reader and writer?](#q49-how-do-you-use-iopipe-to-stream-data-between-a-reader-and-writer) <span class="advanced">Advanced</span>
+50. [How do you implement the Singleton pattern in Go?](#q50-how-do-you-implement-the-singleton-pattern-in-go) <span class="beginner">Beginner</span>
 
 ---
 
@@ -1616,3 +1636,813 @@ func main() {
 
 ---
 
+
+---
+
+### Q31: How do you use the new `slices` package (Go 1.21+) for common operations?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+The `slices` package provides generic functions for common slice operations like sorting, searching, and reversing. It is more efficient and type-safe than the older `sort` package.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "fmt"
+    "slices"
+)
+
+func main() {
+    nums := []int{5, 2, 9, 1, 5, 6}
+
+    // Sort
+    slices.Sort(nums)
+    fmt.Println("Sorted:", nums) // [1 2 5 5 6 9]
+
+    // Binary Search (must be sorted)
+    idx, found := slices.BinarySearch(nums, 6)
+    fmt.Printf("Found 6 at index %d: %v\n", idx, found)
+
+    // Compact (remove consecutive duplicates)
+    nums = slices.Compact(nums)
+    fmt.Println("Compact:", nums) // [1 2 5 6 9]
+
+    // Max
+    maxVal := slices.Max(nums)
+    fmt.Println("Max:", maxVal)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: How do you iterate over an integer range using `range` in Go 1.22+?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Go 1.22 introduced iterating over integers directly in `range` loops, replacing the traditional `for i := 0; i < n; i++` syntax.
+
+**Code Example:**
+```go
+package main
+
+import "fmt"
+
+func main() {
+    // Iterate from 0 to 4 (exclusive of 5)
+    for i := range 5 {
+        fmt.Println(i)
+    }
+
+    // Works with variable
+    n := 3
+    for i := range n {
+        fmt.Printf("Index: %d\n", i)
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you use `cmp.Or` (Go 1.22+) to return the first non-zero value?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`cmp.Or` returns the first argument that is not the zero value for its type. It's useful for setting default values or falling back to secondary configurations.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "cmp"
+    "fmt"
+    "os"
+)
+
+func main() {
+    // Simulating environment variables
+    userEnv := ""
+    defaultUser := "Guest"
+
+    // Returns userEnv if not empty, otherwise defaultUser
+    currentUser := cmp.Or(userEnv, defaultUser)
+    fmt.Println("User:", currentUser)
+
+    // Works with numbers too (0 is zero value)
+    port := cmp.Or(0, 8080)
+    fmt.Println("Port:", port)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you create a structured logger using `log/slog` (Go 1.21+)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`log/slog` provides structured, leveled logging. It supports key-value pairs and different output formats (Text, JSON) natively.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "log/slog"
+    "os"
+)
+
+func main() {
+    // JSON Logger
+    logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+
+    // Log with attributes
+    logger.Info("User logged in",
+        "user_id", 42,
+        "status", "success",
+        slog.Group("meta",
+            "ip", "192.168.1.1",
+            "region", "us-east-1",
+        ),
+    )
+    
+    // Error logging
+    logger.Error("Database connection failed", "retry_count", 3)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you implement a worker pool with result collection?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use channels for jobs and results. Start a fixed number of workers that consume from the jobs channel and send outputs to the results channel. Close the results channel after all workers finish (using `sync.WaitGroup`).
+
+**Code Example:**
+```go
+package main
+
+import (
+    "fmt"
+    "sync"
+)
+
+func worker(id int, jobs <-chan int, results chan<- int, wg *sync.WaitGroup) {
+    defer wg.Done()
+    for j := range jobs {
+        fmt.Printf("Worker %d processing %d\n", id, j)
+        results <- j * 2
+    }
+}
+
+func main() {
+    const numJobs = 5
+    jobs := make(chan int, numJobs)
+    results := make(chan int, numJobs)
+    var wg sync.WaitGroup
+
+    // Start 3 workers
+    for w := 1; w <= 3; w++ {
+        wg.Add(1)
+        go worker(w, jobs, results, &wg)
+    }
+
+    // Send jobs
+    for j := 1; j <= numJobs; j++ {
+        jobs <- j
+    }
+    close(jobs)
+
+    // Close results when workers are done
+    go func() {
+        wg.Wait()
+        close(results)
+    }()
+
+    // Collect results
+    for r := range results {
+        fmt.Println("Result:", r)
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: How do you use `sync.OnceValue` (Go 1.21+) for lazy initialization?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`sync.OnceValue` returns a function that invokes the initializer only once and returns the value. Subsequent calls return the same value without re-executing the initializer.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "fmt"
+    "sync"
+)
+
+func main() {
+    // Initialize expensive resource lazily
+    getConfig := sync.OnceValue(func() map[string]string {
+        fmt.Println("Loading config...")
+        return map[string]string{"env": "production"}
+    })
+
+    // First call runs the function
+    fmt.Println(getConfig())
+
+    // Second call returns cached value
+    fmt.Println(getConfig())
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: How do you check for race conditions in Go?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use the built-in race detector by adding the `-race` flag when running tests or the application: `go run -race main.go` or `go test -race`.
+
+**Code Example:**
+```go
+// Run with: go run -race main.go
+package main
+
+import (
+    "fmt"
+    "sync"
+)
+
+func main() {
+    var count int
+    var wg sync.WaitGroup
+
+    // This code has a race condition
+    for i := 0; i < 1000; i++ {
+        wg.Add(1)
+        go func() {
+            defer wg.Done()
+            count++ // Unsafe concurrent access
+        }()
+    }
+    wg.Wait()
+    fmt.Println("Count:", count)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: How do you implement the Functional Options pattern?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use functions that return a closure modifying a configuration struct. This allows for flexible, readable, and optional arguments in constructor functions.
+
+**Code Example:**
+```go
+package main
+
+import "fmt"
+
+type Server struct {
+    Host string
+    Port int
+    TLS  bool
+}
+
+type Option func(*Server)
+
+func WithPort(port int) Option {
+    return func(s *Server) {
+        s.Port = port
+    }
+}
+
+func WithTLS() Option {
+    return func(s *Server) {
+        s.TLS = true
+    }
+}
+
+func NewServer(host string, opts ...Option) *Server {
+    s := &Server{Host: host, Port: 80, TLS: false} // Defaults
+    for _, opt := range opts {
+        opt(s)
+    }
+    return s
+}
+
+func main() {
+    s := NewServer("localhost", WithPort(8080), WithTLS())
+    fmt.Printf("%+v\n", s)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: How do you use `context.WithTimeout` to cancel long-running operations?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Wrap the parent context with a timeout. Pass the context to the operation. The operation should listen to `ctx.Done()`.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "time"
+)
+
+func slowOperation(ctx context.Context) {
+    select {
+    case <-time.After(2 * time.Second):
+        fmt.Println("Operation finished")
+    case <-ctx.Done():
+        fmt.Println("Operation cancelled:", ctx.Err())
+    }
+}
+
+func main() {
+    // Create context that cancels after 1 second
+    ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+    defer cancel() // Always call cancel to release resources
+
+    slowOperation(ctx)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you embed static files into a Go binary?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use the `//go:embed` directive to include files or directories at compile time. Access them via `string`, `[]byte`, or `embed.FS`.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "embed"
+    "fmt"
+)
+
+//go:embed config.json
+var configData string
+
+//go:embed static/*
+var staticFiles embed.FS
+
+func main() {
+    fmt.Println("Config Content:", configData)
+
+    content, _ := staticFiles.ReadFile("static/index.html")
+    fmt.Println("Index HTML:", string(content))
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you perform atomic operations to avoid mutexes?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use the `sync/atomic` package for low-level atomic memory primitives. This is faster than Mutex for simple counters or boolean flags.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "fmt"
+    "sync"
+    "sync/atomic"
+)
+
+func main() {
+    var ops atomic.Int64
+    var wg sync.WaitGroup
+
+    for i := 0; i < 50; i++ {
+        wg.Add(1)
+        go func() {
+            defer wg.Done()
+            ops.Add(1) // Atomic increment
+        }()
+    }
+
+    wg.Wait()
+    fmt.Println("Ops:", ops.Load())
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you benchmark Go code?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Create a test file ending in `_test.go` and functions starting with `Benchmark`. Use `b.N` to loop the operation. Run with `go test -bench=.`.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "fmt"
+    "testing"
+)
+
+func Calculate(n int) int {
+    return n * n
+}
+
+// Run: go test -bench=.
+func BenchmarkCalculate(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        Calculate(100)
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you use Generics to create a type-safe Set?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use type parameters (e.g., `[T comparable]`) to define a generic struct. This allows the Set to work with any type that supports comparison.
+
+**Code Example:**
+```go
+package main
+
+import "fmt"
+
+type Set[T comparable] map[T]struct{}
+
+func NewSet[T comparable]() Set[T] {
+    return make(Set[T])
+}
+
+func (s Set[T]) Add(val T) {
+    s[val] = struct{}{}
+}
+
+func (s Set[T]) Contains(val T) bool {
+    _, exists := s[val]
+    return exists
+}
+
+func main() {
+    intSet := NewSet[int]()
+    intSet.Add(1)
+    intSet.Add(2)
+    fmt.Println(intSet.Contains(1)) // true
+
+    strSet := NewSet[string]()
+    strSet.Add("hello")
+    fmt.Println(strSet.Contains("world")) // false
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you gracefully shutdown an HTTP server?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Listen for OS interrupt signals (SIGINT, SIGTERM). When received, call `server.Shutdown(ctx)` to stop accepting new connections and wait for active ones to finish.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "net/http"
+    "os"
+    "os/signal"
+    "syscall"
+    "time"
+)
+
+func main() {
+    srv := &http.Server{Addr: ":8080"}
+
+    go func() {
+        if err := srv.ListenAndServe(); err != http.ErrServerClosed {
+            fmt.Println("Server error:", err)
+        }
+    }()
+
+    // Wait for interrupt signal
+    quit := make(chan os.Signal, 1)
+    signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+    <-quit
+
+    // Shutdown with timeout
+    ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+    defer cancel()
+    if err := srv.Shutdown(ctx); err != nil {
+        fmt.Println("Forced shutdown:", err)
+    }
+    fmt.Println("Server exiting")
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you marshal JSON with custom field names or omission?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use struct tags like `json:"name"` to rename fields and `json:"-"` to ignore them. `omitempty` omits the field if it has a zero value.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+)
+
+type User struct {
+    ID       int    `json:"id"`
+    Name     string `json:"username"`
+    Password string `json:"-"` // Ignored
+    Email    string `json:"email,omitempty"`
+}
+
+func main() {
+    u := User{ID: 1, Name: "Alice", Password: "secret"}
+    
+    data, _ := json.Marshal(u)
+    fmt.Println(string(data)) 
+    // Output: {"id":1,"username":"Alice"} (Email omitted)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you use `errgroup` for concurrent task synchronization?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`errgroup` (from `golang.org/x/sync/errgroup`) manages a group of goroutines. It waits for all to finish and returns the first non-nil error encountered.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "fmt"
+    "golang.org/x/sync/errgroup"
+    "net/http"
+)
+
+func main() {
+    var g errgroup.Group
+    urls := []string{"http://google.com", "http://example.com"}
+
+    for _, url := range urls {
+        u := url // Capture loop variable (not needed in Go 1.22+)
+        g.Go(func() error {
+            resp, err := http.Get(u)
+            if err == nil {
+                resp.Body.Close()
+                fmt.Println("Fetched", u)
+            }
+            return err
+        })
+    }
+
+    if err := g.Wait(); err != nil {
+        fmt.Println("Error fetching:", err)
+    } else {
+        fmt.Println("All fetched successfully")
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you implement a simple HTTP middleware?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Middleware is a function that takes an `http.Handler` and returns an `http.Handler`. It wraps the inner handler to execute logic before or after it.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "fmt"
+    "net/http"
+    "time"
+)
+
+func LoggingMiddleware(next http.Handler) http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        start := time.Now()
+        next.ServeHTTP(w, r) // Call next handler
+        fmt.Printf("%s %s took %v\n", r.Method, r.URL.Path, time.Since(start))
+    })
+}
+
+func hello(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintln(w, "Hello, World!")
+}
+
+func main() {
+    mux := http.NewServeMux()
+    mux.HandleFunc("/", hello)
+    
+    http.ListenAndServe(":8080", LoggingMiddleware(mux))
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you detect and handle panics in a Goroutine?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `recover()` inside a `defer` function. This must be done within the goroutine where the panic might occur, as panics do not propagate across goroutine boundaries.
+
+**Code Example:**
+```go
+package main
+
+import "fmt"
+
+func riskyTask() {
+    defer func() {
+        if r := recover(); r != nil {
+            fmt.Println("Recovered from panic:", r)
+        }
+    }()
+    
+    panic("Something went wrong!")
+}
+
+func main() {
+    go riskyTask()
+    
+    // Wait for goroutine (for demo purposes)
+    var input string
+    fmt.Scanln(&input)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you use `io.Pipe` to stream data between a reader and writer?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`io.Pipe` creates a synchronous in-memory pipe. Data written to the `PipeWriter` is available to be read from the `PipeReader`. Useful for connecting streams without buffering everything in memory.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "fmt"
+    "io"
+    "os"
+)
+
+func main() {
+    pr, pw := io.Pipe()
+
+    // Writer goroutine
+    go func() {
+        defer pw.Close()
+        fmt.Fprintln(pw, "Hello from pipe!")
+    }()
+
+    // Reader (Main thread)
+    io.Copy(os.Stdout, pr)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you implement the Singleton pattern in Go?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `sync.Once` to ensure initialization code runs exactly once, even if called concurrently from multiple goroutines.
+
+**Code Example:**
+```go
+package main
+
+import (
+    "fmt"
+    "sync"
+)
+
+type Config struct {
+    APIKey string
+}
+
+var (
+    instance *Config
+    once     sync.Once
+)
+
+func GetConfig() *Config {
+    once.Do(func() {
+        fmt.Println("Initializing config...")
+        instance = &Config{APIKey: "secret-key"}
+    })
+    return instance
+}
+
+func main() {
+    var wg sync.WaitGroup
+    for i := 0; i < 5; i++ {
+        wg.Add(1)
+        go func() {
+            defer wg.Done()
+            cfg := GetConfig()
+            fmt.Println("Key:", cfg.APIKey)
+        }()
+    }
+    wg.Wait()
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

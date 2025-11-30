@@ -40,6 +40,26 @@
 28. [How do you implement Cross-Region Replication (CRR) for an S3 bucket?](#q28-how-do-you-implement-cross-region-replication-crr-for-an-s3-bucket) <span class="advanced">Advanced</span>
 29. [How do you use DynamoDB Streams to trigger a Lambda function?](#q29-how-do-you-use-dynamodb-streams-to-trigger-a-lambda-function) <span class="intermediate">Intermediate</span>
 30. [How do you ensure your EBS volumes are encrypted?](#q30-how-do-you-ensure-your-ebs-volumes-are-encrypted) <span class="beginner">Beginner</span>
+31. [How do you implement Rate Limiting using AWS WAF?](#q31-how-do-you-implement-rate-limiting-using-aws-waf) <span class="intermediate">Intermediate</span>
+32. [How do you scale an Aurora database instantly for unpredictable workloads?](#q32-how-do-you-scale-an-aurora-database-instantly-for-unpredictable-workloads) <span class="intermediate">Intermediate</span>
+33. [How do you orchestrate a multi-step workflow with error handling?](#q33-how-do-you-orchestrate-a-multi-step-workflow-with-error-handling) <span class="intermediate">Intermediate</span>
+34. [How do you query CSV data stored in S3 without loading it into a database?](#q34-how-do-you-query-csv-data-stored-in-s3-without-loading-it-into-a-database) <span class="beginner">Beginner</span>
+35. [How do you create an EKS Cluster using the command line?](#q35-how-do-you-create-an-eks-cluster-using-the-command-line) <span class="intermediate">Intermediate</span>
+36. [How do you trigger a Lambda function on a schedule?](#q36-how-do-you-trigger-a-lambda-function-on-a-schedule) <span class="beginner">Beginner</span>
+37. [How do you analyze CloudTrail logs for suspicious activity?](#q37-how-do-you-analyze-cloudtrail-logs-for-suspicious-activity) <span class="intermediate">Intermediate</span>
+38. [How do you ensure all S3 buckets are encrypted using AWS Config?](#q38-how-do-you-ensure-all-s3-buckets-are-encrypted-using-aws-config) <span class="intermediate">Intermediate</span>
+39. [How do you connect multiple VPCs together at scale?](#q39-how-do-you-connect-multiple-vpcs-together-at-scale) <span class="advanced">Advanced</span>
+40. [How do you provide a static IP address for an application running in multiple regions?](#q40-how-do-you-provide-a-static-ip-address-for-an-application-running-in-multiple-regions) <span class="advanced">Advanced</span>
+41. [How do you implement caching for a database to improve read performance?](#q41-how-do-you-implement-caching-for-a-database-to-improve-read-performance) <span class="intermediate">Intermediate</span>
+42. [How do you limit the maximum permissions a user or role can have?](#q42-how-do-you-limit-the-maximum-permissions-a-user-or-role-can-have) <span class="advanced">Advanced</span>
+43. [How do you allow users to upload files directly to S3 securely?](#q43-how-do-you-allow-users-to-upload-files-directly-to-s3-securely) <span class="intermediate">Intermediate</span>
+44. [How do you handle user authentication for a mobile app?](#q44-how-do-you-handle-user-authentication-for-a-mobile-app) <span class="intermediate">Intermediate</span>
+45. [How do you deploy a web application from source code without writing Dockerfiles?](#q45-how-do-you-deploy-a-web-application-from-source-code-without-writing-dockerfiles) <span class="beginner">Beginner</span>
+46. [How do you securely access EC2 instances without opening port 22 (SSH)?](#q46-how-do-you-securely-access-ec2-instances-without-opening-port-22-ssh) <span class="intermediate">Intermediate</span>
+47. [How do you run a serverless ETL job?](#q47-how-do-you-run-a-serverless-etl-job) <span class="intermediate">Intermediate</span>
+48. [How do you serve private content via CloudFront?](#q48-how-do-you-serve-private-content-via-cloudfront) <span class="advanced">Advanced</span>
+49. [How do you mount a shared file system to multiple EC2 instances?](#q49-how-do-you-mount-a-shared-file-system-to-multiple-ec2-instances) <span class="beginner">Beginner</span>
+50. [How do you create a private connection between your on-premises data center and VPC?](#q50-how-do-you-create-a-private-connection-between-your-on-premises-data-center-and-vpc) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -815,3 +835,476 @@ resource "aws_ebs_volume" "example" {
 
 ---
 
+
+
+---
+
+### Q31: How do you implement Rate Limiting using AWS WAF?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Create a **Rate-based Rule** in your Web ACL. This tracks requests from each IP address over a 5-minute window. If the count exceeds the limit, WAF blocks the IP.
+
+**Code Example:**
+```bash
+{
+  "Name": "RateLimitRule",
+  "Priority": 1,
+  "Action": { "Block": {} },
+  "VisibilityConfig": { ... },
+  "Statement": {
+    "RateBasedStatement": {
+      "Limit": 2000,
+      "AggregateKeyType": "IP"
+    }
+  }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: How do you scale an Aurora database instantly for unpredictable workloads?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Aurora Serverless v2**. It scales capacity (ACUs) up and down in fractions of a second based on actual load, without dropping connections.
+
+**Code Example:**
+```bash
+resource "aws_rds_cluster" "default" {
+  cluster_identifier = "aurora-cluster-demo"
+  engine             = "aurora-mysql"
+  engine_mode        = "provisioned"
+  serverless_v2_scaling_configuration {
+    min_capacity = 0.5
+    max_capacity = 128.0
+  }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you orchestrate a multi-step workflow with error handling?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **AWS Step Functions**. Define a state machine in ASL (Amazon States Language) to coordinate Lambda functions, handle retries, and manage failures.
+
+**Code Example:**
+```bash
+{
+  "StartAt": "ProcessPayment",
+  "States": {
+    "ProcessPayment": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:123:function:ProcessPayment",
+      "Next": "ShipItem",
+      "Catch": [ { "ErrorEquals": ["PaymentFailed"], "Next": "NotifyUser" } ]
+    },
+    "ShipItem": { "Type": "Task", "End": true },
+    "NotifyUser": { "Type": "Task", "End": true }
+  }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you query CSV data stored in S3 without loading it into a database?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use **Amazon Athena**. Define a schema (table) pointing to the S3 location and run standard SQL queries. You pay only for the data scanned.
+
+**Code Example:**
+```bash
+CREATE EXTERNAL TABLE IF NOT EXISTS orders (
+  order_id string,
+  amount double
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+LOCATION 's3://my-data-bucket/orders/';
+
+-- Query
+SELECT * FROM orders WHERE amount > 100;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you create an EKS Cluster using the command line?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **eksctl**, the official CLI for EKS. It simplifies cluster creation by provisioning VPCs, Subnets, and Node Groups automatically.
+
+**Code Example:**
+```bash
+eksctl create cluster \
+  --name my-cluster \
+  --region us-east-1 \
+  --version 1.27 \
+  --nodegroup-name standard-workers \
+  --node-type t3.medium \
+  --nodes 3 \
+  --nodes-min 1 \
+  --nodes-max 4 \
+  --managed
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: How do you trigger a Lambda function on a schedule?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use **Amazon EventBridge** (formerly CloudWatch Events) with a Schedule Rule (Cron or Rate expression).
+
+**Code Example:**
+```bash
+{
+  "Name": "DailyReport",
+  "ScheduleExpression": "cron(0 8 * * ? *)",
+  "State": "ENABLED",
+  "Targets": [
+    {
+      "Id": "MyLambda",
+      "Arn": "arn:aws:lambda:us-east-1:123:function:GenerateReport"
+    }
+  ]
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: How do you analyze CloudTrail logs for suspicious activity?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **CloudTrail Lake** (SQL-based query) or **CloudTrail Insights** (anomaly detection). You can also stream logs to CloudWatch Logs and use Metric Filters.
+
+**Code Example:**
+```bash
+-- CloudTrail Lake Query
+SELECT eventTime, eventName, userIdentity.arn, sourceIPAddress
+FROM $EDS_ID
+WHERE eventName = 'ConsoleLogin'
+AND errorMessage IS NOT NULL
+ORDER BY eventTime DESC
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: How do you ensure all S3 buckets are encrypted using AWS Config?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Enable **AWS Config** and add the managed rule `s3-bucket-server-side-encryption-enabled`. It flags non-compliant buckets.
+
+**Code Example:**
+```bash
+aws configservice put-config-rule --config-rule '{
+  "ConfigRuleName": "s3-encryption-enabled",
+  "Source": {
+    "Owner": "AWS",
+    "SourceIdentifier": "S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED"
+  }
+}'
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: How do you connect multiple VPCs together at scale?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use **AWS Transit Gateway**. It acts as a hub that connects VPCs and on-premises networks. It simplifies peering compared to a mesh of VPC Peering connections.
+
+**Code Example:**
+```bash
+resource "aws_ec2_transit_gateway_vpc_attachment" "example" {
+  subnet_ids         = [aws_subnet.private.id]
+  transit_gateway_id = aws_ec2_transit_gateway.example.id
+  vpc_id             = aws_vpc.main.id
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you provide a static IP address for an application running in multiple regions?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use **AWS Global Accelerator**. It provides two static Anycast IPs that route traffic to the nearest endpoint (ALB, EC2) over the AWS global network.
+
+**Code Example:**
+```bash
+resource "aws_globalaccelerator_accelerator" "example" {
+  name            = "example-accelerator"
+  ip_address_type = "IPV4"
+  enabled         = true
+}
+# Add listener and endpoint groups for regions...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you implement caching for a database to improve read performance?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Amazon ElastiCache** (Redis or Memcached). Implement Lazy Loading (cache-aside) or Write-Through strategies in your application.
+
+**Code Example:**
+```bash
+// Pseudo-code for Cache-Aside
+val = cache.get(key);
+if (val == null) {
+    val = db.query(key);
+    cache.set(key, val, ttl);
+}
+return val;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you limit the maximum permissions a user or role can have?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use an **IAM Permissions Boundary**. It sets the maximum intersection of permissions. Even if a policy allows `AdministratorAccess`, the boundary restricts it.
+
+**Code Example:**
+```bash
+// Create User with Boundary
+aws iam create-user     --user-name Alice     --permissions-boundary arn:aws:iam::123:policy/MaxPermissionsBoundary
+
+// Boundary Policy Example
+{
+  "Effect": "Allow",
+  "Action": ["s3:*", "ec2:*"],
+  "Resource": "*"
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you allow users to upload files directly to S3 securely?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Generate an **S3 Presigned URL** using the AWS SDK. The URL grants temporary permission to upload a specific object without sharing AWS credentials.
+
+**Code Example:**
+```bash
+s3 = boto3.client('s3')
+url = s3.generate_presigned_url(
+    'put_object',
+    Params={'Bucket': 'my-bucket', 'Key': 'uploads/image.jpg'},
+    ExpiresIn=3600
+)
+# Client uses PUT request to this URL
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you handle user authentication for a mobile app?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Amazon Cognito User Pools**. It handles sign-up, sign-in, MFA, and social identity providers (Google, Facebook). It returns JWT tokens.
+
+**Code Example:**
+```bash
+// Amplify / JS SDK
+import { Auth } from 'aws-amplify';
+
+async function signUp() {
+    try {
+        const { user } = await Auth.signUp({
+            username,
+            password,
+            attributes: { email }
+        });
+    } catch (error) {
+        console.log('error signing up:', error);
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you deploy a web application from source code without writing Dockerfiles?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use **AWS App Runner**. It connects to your GitHub repository, detects the language (Python, Node, Java), builds the image automatically, and deploys it.
+
+**Code Example:**
+```bash
+# App Runner Configuration (apprunner.yaml)
+version: 1.0
+runtime: nodejs16
+build:
+  commands:
+    build:
+      - npm install
+run:
+  command: npm start
+  network:
+    port: 8080
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you securely access EC2 instances without opening port 22 (SSH)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **AWS Systems Manager Session Manager**. It tunnels traffic through the SSM Agent, requires no inbound ports, and logs session activity to S3/CloudWatch.
+
+**Code Example:**
+```bash
+# Start session via CLI
+aws ssm start-session --target i-0123456789abcdef0
+
+# Prerequisites:
+# 1. SSM Agent installed
+# 2. IAM Role with AmazonSSMManagedInstanceCore policy attached
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you run a serverless ETL job?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **AWS Glue**. Write PySpark or Scala scripts to transform data. Glue creates a serverless Spark environment to run the job.
+
+**Code Example:**
+```bash
+import sys
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+
+glueContext = GlueContext(SparkContext.getOrCreate())
+datasource0 = glueContext.create_dynamic_frame.from_catalog(database = "db", table_name = "table")
+# Transform...
+glueContext.write_dynamic_frame.from_options(frame = datasource0, connection_type = "s3", connection_options = {"path": "s3://..."})
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you serve private content via CloudFront?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use **Signed URLs** (for individual files) or **Signed Cookies** (for access to multiple files). The application generates the signature using a private key.
+
+**Code Example:**
+```bash
+from botocore.signers import CloudFrontSigner
+
+def rsa_signer(message):
+    with open('private_key.pem', 'rb') as key_file:
+        private_key = serialization.load_pem_private_key(key_file.read(), password=None)
+    return private_key.sign(message, padding.PKCS1v15(), hashes.SHA1())
+
+signer = CloudFrontSigner(key_id, rsa_signer)
+url = signer.generate_presigned_url(url, date_less_than=expire_date)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you mount a shared file system to multiple EC2 instances?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use **Amazon EFS (Elastic File System)**. It provides a scalable NFS file system that can be mounted by multiple Linux instances simultaneously.
+
+**Code Example:**
+```bash
+# On EC2 Instance
+sudo mount -t nfs4 -o nfsvers=4.1 fs-12345678.efs.us-east-1.amazonaws.com:/ /mnt/efs
+
+# /etc/fstab entry for auto-mount
+fs-12345678.efs.us-east-1.amazonaws.com:/ /mnt/efs nfs4 defaults,_netdev 0 0
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you create a private connection between your on-premises data center and VPC?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **AWS Direct Connect** for a dedicated fiber connection (consistent performance) or **AWS Site-to-Site VPN** for an encrypted tunnel over the public internet (cost-effective).
+
+**Code Example:**
+```bash
+resource "aws_vpn_connection" "main" {
+  vpn_gateway_id      = aws_vpn_gateway.vpn_gw.id
+  customer_gateway_id = aws_customer_gateway.customer_gw.id
+  type                = "ipsec.1"
+  static_routes_only  = true
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

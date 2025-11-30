@@ -40,6 +40,26 @@
 28. [How do you use a Composite Index effectively?](#q28-how-do-you-use-a-composite-index-effectively) <span class="intermediate">Intermediate</span>
 29. [How do you identify and fix the N+1 query problem?](#q29-how-do-you-identify-and-fix-the-n1-query-problem) <span class="intermediate">Intermediate</span>
 30. [How do you partition a large table by date?](#q30-how-do-you-partition-a-large-table-by-date) <span class="advanced">Advanced</span>
+31. [How do you implement Database Sharding and when should you use it?](#q31-how-do-you-implement-database-sharding-and-when-should-you-use-it) <span class="advanced">Advanced</span>
+32. [How do you prevent Phantom Reads in a transaction?](#q32-how-do-you-prevent-phantom-reads-in-a-transaction) <span class="advanced">Advanced</span>
+33. [How do you optimize a query using a Covering Index?](#q33-how-do-you-optimize-a-query-using-a-covering-index) <span class="intermediate">Intermediate</span>
+34. [How do you handle 'Dirty Reads' and which isolation level prevents them?](#q34-how-do-you-handle-dirty-reads-and-which-isolation-level-prevents-them) <span class="intermediate">Intermediate</span>
+35. [How do you implement connection pooling in a Node.js application?](#q35-how-do-you-implement-connection-pooling-in-a-nodejs-application) <span class="intermediate">Intermediate</span>
+36. [How do you model a tree structure (Hierarchy) in a Relational Database?](#q36-how-do-you-model-a-tree-structure-hierarchy-in-a-relational-database) <span class="advanced">Advanced</span>
+37. [How do you use JSON columns in PostgreSQL vs MySQL?](#q37-how-do-you-use-json-columns-in-postgresql-vs-mysql) <span class="intermediate">Intermediate</span>
+38. [How do you implement Row-Level Security (RLS)?](#q38-how-do-you-implement-row-level-security-rls) <span class="advanced">Advanced</span>
+39. [How do you use a Materialized View for reporting?](#q39-how-do-you-use-a-materialized-view-for-reporting) <span class="intermediate">Intermediate</span>
+40. [How do you generate unique IDs in a distributed system (Snowflake ID)?](#q40-how-do-you-generate-unique-ids-in-a-distributed-system-snowflake-id) <span class="advanced">Advanced</span>
+41. [How do you use Foreign Data Wrappers (FDW) in PostgreSQL?](#q41-how-do-you-use-foreign-data-wrappers-fdw-in-postgresql) <span class="advanced">Advanced</span>
+42. [How do you optimize a `LIKE` query with wildcards at the beginning?](#q42-how-do-you-optimize-a-like-query-with-wildcards-at-the-beginning) <span class="intermediate">Intermediate</span>
+43. [How do you handle Deadlocks in a database?](#q43-how-do-you-handle-deadlocks-in-a-database) <span class="advanced">Advanced</span>
+44. [How do you use the `CASE` statement for conditional logic in SQL?](#q44-how-do-you-use-the-case-statement-for-conditional-logic-in-sql) <span class="beginner">Beginner</span>
+45. [How do you implement Database Replication (Master-Slave)?](#q45-how-do-you-implement-database-replication-master-slave) <span class="advanced">Advanced</span>
+46. [How do you perform a Batch Insert efficiently?](#q46-how-do-you-perform-a-batch-insert-efficiently) <span class="intermediate">Intermediate</span>
+47. [How do you use `GROUPING SETS` for multi-level aggregation?](#q47-how-do-you-use-grouping-sets-for-multi-level-aggregation) <span class="advanced">Advanced</span>
+48. [How do you store and query time-series data efficiently?](#q48-how-do-you-store-and-query-time-series-data-efficiently) <span class="intermediate">Intermediate</span>
+49. [How do you handle 'NoSQL' data modeling in DynamoDB (Single Table Design)?](#q49-how-do-you-handle-nosql-data-modeling-in-dynamodb-single-table-design) <span class="advanced">Advanced</span>
+50. [How do you identify and remove duplicate rows from a table?](#q50-how-do-you-identify-and-remove-duplicate-rows-from-a-table) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -827,6 +847,530 @@ CREATE TABLE logs (
 CREATE TABLE logs_2023_01 PARTITION OF logs
     FOR VALUES FROM ('2023-01-01') TO ('2023-02-01');
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+
+### Q31: How do you implement Database Sharding and when should you use it?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Sharding splits a large dataset across multiple database instances (shards) to improve scalability. Use it when vertical scaling (upgrading hardware) is no longer sufficient.
+
+**Code Example:**
+-- Concept: Sharding by User ID (Application Level)
+-- Shard 1 (Users 1-1000000)
+SELECT * FROM users_shard_1 WHERE user_id = 500;
+
+-- Shard 2 (Users 1000001-2000000)
+SELECT * FROM users_shard_2 WHERE user_id = 1500500;
+
+-- Routing Logic in Application (Pseudocode)
+function getShard(userId) {
+    if (userId <= 1000000) return connectionShard1;
+    return connectionShard2;
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: How do you prevent Phantom Reads in a transaction?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Phantom reads occur when a transaction reads a set of rows that match a search condition, but another transaction inserts/deletes rows that match that condition. Prevent this by using the `SERIALIZABLE` isolation level or `REPEATABLE READ` with range locks (Next-Key Locking in MySQL).
+
+**Code Example:**
+-- MySQL/InnoDB Example
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+START TRANSACTION;
+
+-- Next-Key Lock prevents insertion into the range
+SELECT * FROM orders WHERE amount > 1000 FOR UPDATE;
+
+-- COMMIT;
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you optimize a query using a Covering Index?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+A covering index includes all the columns retrieved by the query, allowing the database to fetch data solely from the index structure without accessing the table heap (Index Only Scan).
+
+**Code Example:**
+-- Query
+SELECT first_name, last_name FROM users WHERE age > 25;
+
+-- Create Covering Index (Composite Index)
+-- Includes columns in WHERE clause and SELECT clause
+CREATE INDEX idx_users_age_names ON users(age) INCLUDE (first_name, last_name);
+
+-- 'INCLUDE' is PostgreSQL syntax. In MySQL, simply add columns to the key:
+-- CREATE INDEX idx_users_age_names ON users(age, first_name, last_name);
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you handle 'Dirty Reads' and which isolation level prevents them?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Dirty reads happen when a transaction reads uncommitted data from another transaction. The `READ COMMITTED` isolation level prevents this.
+
+**Code Example:**
+-- Transaction A
+START TRANSACTION;
+UPDATE accounts SET balance = balance - 100 WHERE id = 1;
+-- (Not committed yet)
+
+-- Transaction B (READ COMMITTED)
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SELECT balance FROM accounts WHERE id = 1; 
+-- Will read the OLD balance, ignoring uncommitted changes from A.
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you implement connection pooling in a Node.js application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Connection pooling reuses active database connections instead of creating a new one for every request, reducing latency and overhead.
+
+**Code Example:**
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  user: 'dbuser',
+  host: 'database.server.com',
+  database: 'mydb',
+  password: 'secretpassword',
+  port: 5432,
+  max: 20, // Maximum number of clients in the pool
+  idleTimeoutMillis: 30000
+});
+
+// Usage
+pool.query('SELECT NOW()', (err, res) => {
+  console.log(err, res);
+  // Connection is automatically returned to the pool
+});
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: How do you model a tree structure (Hierarchy) in a Relational Database?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Common patterns include Adjacency List (parent_id), Path Enumeration (path string), Nested Sets (lft/rgt), and Closure Table (separate table for all paths).
+
+**Code Example:**
+-- Adjacency List (Simple, good for single-level fetch)
+CREATE TABLE categories (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    parent_id INT REFERENCES categories(id)
+);
+
+-- Recursive Query (Common Table Expression) to fetch full tree
+WITH RECURSIVE category_path (id, name, path) AS (
+  SELECT id, name, CAST(name AS CHAR(200))
+    FROM categories
+    WHERE parent_id IS NULL
+  UNION ALL
+  SELECT c.id, c.name, CONCAT(cp.path, ' > ', c.name)
+    FROM category_path cp JOIN categories c
+      ON cp.id = c.parent_id
+)
+SELECT * FROM category_path;
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: How do you use JSON columns in PostgreSQL vs MySQL?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+PostgreSQL uses `JSONB` for binary storage and indexing. MySQL uses the `JSON` data type.
+
+**Code Example:**
+-- PostgreSQL
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    data JSONB
+);
+-- Query JSONB
+SELECT * FROM products WHERE data->>'category' = 'Electronics';
+-- Create Index on JSON path
+CREATE INDEX idx_category ON products ((data->>'category'));
+
+-- MySQL
+CREATE TABLE products (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    data JSON
+);
+-- Query JSON
+SELECT * FROM products WHERE JSON_EXTRACT(data, '$.category') = 'Electronics';
+-- Or shorthand
+SELECT * FROM products WHERE data->'$.category' = 'Electronics';
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: How do you implement Row-Level Security (RLS)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+RLS restricts access to rows based on the user executing the query. It allows multiple tenants to share the same table securely.
+
+**Code Example:**
+-- PostgreSQL Example
+ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
+
+-- Create Policy
+CREATE POLICY user_orders_policy ON orders
+    FOR SELECT
+    USING (user_id = current_setting('app.current_user_id')::integer);
+
+-- Usage in App
+BEGIN;
+SET LOCAL app.current_user_id = '42';
+SELECT * FROM orders; -- Only returns orders for user 42
+COMMIT;
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: How do you use a Materialized View for reporting?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Materialized Views store the result of a query physically. They are faster for heavy aggregations but need to be refreshed.
+
+**Code Example:**
+-- Create Materialized View
+CREATE MATERIALIZED VIEW monthly_sales AS
+SELECT 
+    date_trunc('month', order_date) as month,
+    SUM(amount) as total_sales
+FROM orders
+GROUP BY 1;
+
+-- Create Index for faster access
+CREATE INDEX idx_monthly_sales ON monthly_sales(month);
+
+-- Refresh Data (e.g., nightly via Cron)
+REFRESH MATERIALIZED VIEW CONCURRENTLY monthly_sales;
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you generate unique IDs in a distributed system (Snowflake ID)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Auto-increment keys don't scale in distributed DBs. Use UUIDs (random, larger) or Snowflake IDs (time-sortable, 64-bit integer composed of timestamp + machine ID + sequence).
+
+**Code Example:**
+-- Twitter Snowflake ID Structure (64 bits)
+-- | 1 bit sign | 41 bits timestamp | 10 bits machine ID | 12 bits sequence |
+
+-- Implementation Logic (Pseudocode)
+class Snowflake {
+    nextId() {
+        timestamp = currentTimestamp();
+        if (timestamp < lastTimestamp) throw Error("Clock moved backwards");
+        if (timestamp == lastTimestamp) {
+            sequence = (sequence + 1) & 4095;
+            if (sequence == 0) timestamp = waitForNextMillis(lastTimestamp);
+        } else {
+            sequence = 0;
+        }
+        lastTimestamp = timestamp;
+        return ((timestamp - epoch) << 22) | (machineId << 12) | sequence;
+    }
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you use Foreign Data Wrappers (FDW) in PostgreSQL?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+FDW allows you to access data in external data sources (another SQL DB, CSV, MongoDB) as if they were local tables.
+
+**Code Example:**
+-- Install extension
+CREATE EXTENSION postgres_fdw;
+
+-- Create Server object
+CREATE SERVER remote_pg_db
+    FOREIGN DATA WRAPPER postgres_fdw
+    OPTIONS (host 'remote-host', dbname 'remote_db', port '5432');
+
+-- Create User Mapping
+CREATE USER MAPPING FOR local_user
+    SERVER remote_pg_db
+    OPTIONS (user 'remote_user', password 'secret');
+
+-- Import Schema or Create Foreign Table
+IMPORT FOREIGN SCHEMA public 
+    FROM SERVER remote_pg_db 
+    INTO local_schema;
+    
+-- Query like a local table
+SELECT * FROM local_schema.remote_table;
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you optimize a `LIKE` query with wildcards at the beginning?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Standard B-Tree indexes don't support leading wildcards (`%term`). Use Trigram Indexes (`pg_trgm` in Postgres) or Full-Text Search.
+
+**Code Example:**
+-- Query
+SELECT * FROM users WHERE name LIKE '%smith%'; -- Slow (Seq Scan)
+
+-- Optimization (PostgreSQL)
+CREATE EXTENSION pg_trgm;
+
+CREATE INDEX idx_users_name_trgm ON users USING GIN (name gin_trgm_ops);
+
+-- Now the index can be used
+EXPLAIN SELECT * FROM users WHERE name LIKE '%smith%';
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you handle Deadlocks in a database?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Deadlocks occur when two transactions block each other. Handle them by: 1. Ordering updates consistently. 2. Keeping transactions short. 3. Using retry logic in the application.
+
+**Code Example:**
+-- Scenario causing Deadlock
+-- Tx1: Locks Row A, needs Row B
+-- Tx2: Locks Row B, needs Row A
+
+-- Solution: Consistent Ordering
+-- Always lock tables/rows in the same order (e.g., by ID)
+
+-- Tx1
+UPDATE accounts SET balance = balance - 10 WHERE id = 1;
+UPDATE accounts SET balance = balance + 10 WHERE id = 2;
+
+-- Tx2 (Must follow same order: 1 then 2)
+UPDATE accounts SET balance = balance - 20 WHERE id = 1;
+UPDATE accounts SET balance = balance + 20 WHERE id = 2;
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you use the `CASE` statement for conditional logic in SQL?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+The `CASE` statement acts like an if-else block within a query.
+
+**Code Example:**
+SELECT 
+    id,
+    name,
+    salary,
+    CASE
+        WHEN salary < 30000 THEN 'Junior'
+        WHEN salary BETWEEN 30000 AND 70000 THEN 'Mid'
+        ELSE 'Senior'
+    END AS level
+FROM employees;
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you implement Database Replication (Master-Slave)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Replication copies data from a Master (Write) node to Slave (Read) nodes. It improves read scalability and availability.
+
+**Code Example:**
+-- PostgreSQL Streaming Replication Setup (simplified)
+
+-- 1. On Master (postgresql.conf)
+wal_level = replica
+max_wal_senders = 3
+
+-- 2. Allow replication user (pg_hba.conf)
+host replication replicator 192.168.1.0/24 md5
+
+-- 3. On Slave
+pg_basebackup -h master_host -D /var/lib/postgresql/data -U replicator -P -R
+
+-- 4. Start Slave
+-- Application logic: Write to Master, Read from Slave.
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you perform a Batch Insert efficiently?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Avoid single-row inserts. Use multi-row `VALUES` syntax or `COPY` command (Postgres) / `LOAD DATA INFILE` (MySQL).
+
+**Code Example:**
+-- Bad (Multiple Round Trips)
+INSERT INTO logs (msg) VALUES ('Error 1');
+INSERT INTO logs (msg) VALUES ('Error 2');
+
+-- Good (Single Transaction, Multi-row)
+INSERT INTO logs (msg) VALUES 
+    ('Error 1'), 
+    ('Error 2'), 
+    ('Error 3');
+
+-- Best (PostgreSQL COPY for massive data)
+COPY logs (msg) FROM '/path/to/file.csv' DELIMITER ',' CSV;
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you use `GROUPING SETS` for multi-level aggregation?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`GROUPING SETS`, `ROLLUP`, and `CUBE` allow generating multiple levels of subtotals in a single query.
+
+**Code Example:**
+SELECT 
+    region,
+    department,
+    SUM(sales) 
+FROM sales_data
+GROUP BY GROUPING SETS (
+    (region, department), -- Sales per Region & Dept
+    (region),             -- Total per Region
+    ()                    -- Grand Total
+);
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you store and query time-series data efficiently?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use specialized extensions (TimescaleDB) or Partitioning by time. Avoid updating old data. Use proper indexing (BRIN index for ordered time data).
+
+**Code Example:**
+-- Using PostgreSQL Partitioning for Time Series
+CREATE TABLE sensor_data (
+    time TIMESTAMP NOT NULL,
+    device_id INT,
+    value FLOAT
+) PARTITION BY RANGE (time);
+
+-- BRIN Index (Block Range Index) is tiny and fast for time-ordered data
+CREATE INDEX idx_sensor_time ON sensor_data USING BRIN(time);
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you handle 'NoSQL' data modeling in DynamoDB (Single Table Design)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+In DynamoDB, use a Single Table with generic PK/SK (Partition Key/Sort Key) to support multiple access patterns via Overloaded Indexes.
+
+**Code Example:**
+// Table: MyTable (PK, SK)
+
+// Entity: User
+// PK: USER#123, SK: METADATA
+
+// Entity: Order
+// PK: USER#123, SK: ORDER#999
+
+// Query: Get User and all their Orders
+KeyConditionExpression: "PK = :pk",
+ExpressionAttributeValues: {
+    ":pk": "USER#123"
+}
+// Efficiently fetches heterogeneous items in one request.
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you identify and remove duplicate rows from a table?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use a CTE or self-join to identify duplicates based on specific columns, keeping only the one with the lowest/highest ID.
+
+**Code Example:**
+-- Using CTE and Window Function
+WITH Duplicates AS (
+    SELECT 
+        id,
+        ROW_NUMBER() OVER (
+            PARTITION BY email 
+            ORDER BY id ASC
+        ) AS row_num
+    FROM users
+)
+DELETE FROM users
+WHERE id IN (
+    SELECT id FROM Duplicates WHERE row_num > 1
+);
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 

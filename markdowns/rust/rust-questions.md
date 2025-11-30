@@ -26,7 +26,7 @@
 14. [How do you reference a slice of an array?](#q14-how-do-you-reference-a-slice-of-an-array) <span class="beginner">Beginner</span>
 15. [How do you use unsafe code for performance?](#q15-how-do-you-use-unsafe-code-for-performance) <span class="advanced">Advanced</span>
 16. [How do you use Option and Result combinators?](#q16-how-do-you-use-option-and-result-combinators) <span class="intermediate">Intermediate</span>
-17. [When should you use Box<T>?](#q17-when-should-you-use-box<t>) <span class="intermediate">Intermediate</span>
+17. [When should you use Box<T>?](#q17-when-should-you-use-boxt) <span class="intermediate">Intermediate</span>
 18. [What is the difference between RefCell and Cell?](#q18-what-is-the-difference-between-refcell-and-cell) <span class="advanced">Advanced</span>
 19. [When to use Arc vs Rc?](#q19-when-to-use-arc-vs-rc) <span class="intermediate">Intermediate</span>
 20. [How do you implement From and Into traits?](#q20-how-do-you-implement-from-and-into-traits) <span class="intermediate">Intermediate</span>
@@ -40,6 +40,26 @@
 28. [How do you use match guards?](#q28-how-do-you-use-match-guards) <span class="beginner">Beginner</span>
 29. [How do you create a thread-safe global counter?](#q29-how-do-you-create-a-thread-safe-global-counter) <span class="intermediate">Intermediate</span>
 30. [How do you handle results with the ? operator?](#q30-how-do-you-handle-results-with-the--operator) <span class="beginner">Beginner</span>
+31. [How do you implement the `Iterator` trait for a custom type?](#q31-how-do-you-implement-the-iterator-trait-for-a-custom-type) <span class="intermediate">Intermediate</span>
+32. [How do you handle errors using `thiserror`?](#q32-how-do-you-handle-errors-using-thiserror) <span class="intermediate">Intermediate</span>
+33. [How do you use `serde` for JSON serialization?](#q33-how-do-you-use-serde-for-json-serialization) <span class="beginner">Beginner</span>
+34. [How do you use `tokio` for async execution?](#q34-how-do-you-use-tokio-for-async-execution) <span class="intermediate">Intermediate</span>
+35. [How do you use `Weak` pointers to prevent reference cycles?](#q35-how-do-you-use-weak-pointers-to-prevent-reference-cycles) <span class="advanced">Advanced</span>
+36. [How do you create a declarative macro?](#q36-how-do-you-create-a-declarative-macro) <span class="advanced">Advanced</span>
+37. [How do you call C code from Rust (FFI)?](#q37-how-do-you-call-c-code-from-rust-ffi) <span class="advanced">Advanced</span>
+38. [How do you implement a Builder Pattern?](#q38-how-do-you-implement-a-builder-pattern) <span class="intermediate">Intermediate</span>
+39. [How do you use `std::sync::mpsc` for message passing?](#q39-how-do-you-use-stdsyncmpsc-for-message-passing) <span class="intermediate">Intermediate</span>
+40. [How do you write documentation comments?](#q40-how-do-you-write-documentation-comments) <span class="beginner">Beginner</span>
+41. [How do you use `Cow` (Copy-on-Write) efficiently?](#q41-how-do-you-use-cow-copy-on-write-efficiently) <span class="advanced">Advanced</span>
+42. [How do you implement the `Default` trait?](#q42-how-do-you-implement-the-default-trait) <span class="beginner">Beginner</span>
+43. [How do you use `Any` trait for dynamic typing?](#q43-how-do-you-use-any-trait-for-dynamic-typing) <span class="expert">Expert</span>
+44. [How do you use `lazy_static` or `OnceLock` (std)?](#q44-how-do-you-use-lazy_static-or-oncelock-std) <span class="intermediate">Intermediate</span>
+45. [How do you optimize memory layout with `#[repr(C)]` or `#[repr(packed)]`?](#q45-how-do-you-optimize-memory-layout-with-reprc-or-reprpacked) <span class="advanced">Advanced</span>
+46. [How do you use `Pin` to handle self-referential structs?](#q46-how-do-you-use-pin-to-handle-self-referential-structs) <span class="expert">Expert</span>
+47. [How do you use `std::collections::BTreeMap` vs `HashMap`?](#q47-how-do-you-use-stdcollectionsbtreemap-vs-hashmap) <span class="intermediate">Intermediate</span>
+48. [How do you implement a custom Drop trait?](#q48-how-do-you-implement-a-custom-drop-trait) <span class="beginner">Beginner</span>
+49. [How do you use `rayon` for data parallelism?](#q49-how-do-you-use-rayon-for-data-parallelism) <span class="intermediate">Intermediate</span>
+50. [How do you use `std::process::Command` to run external programs?](#q50-how-do-you-use-stdprocesscommand-to-run-external-programs) <span class="beginner">Beginner</span>
 
 ---
 
@@ -48,9 +68,6 @@
 **Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty**: Beginner
-
-
 Use the `Result<T, E>` enum for recoverable errors and `Option<T>` for optional values. Use pattern matching (`match`) or helper methods like `.unwrap_or()`, `?` operator.
 
 **Code Example:**
@@ -80,9 +97,6 @@ fn main() {
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty**: Intermediate
-
-
 Use `Arc` (Atomic Reference Counting) for shared ownership and `Mutex` (Mutual Exclusion) or `RwLock` for synchronization.
 
 **Code Example:**
@@ -116,9 +130,6 @@ for handle in handles {
 **Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty**: Beginner
-
-
 Rust's **Ownership** system prevents this at compile time. When a value is moved to another variable, the original variable becomes invalid.
 
 **Code Example:**
@@ -139,9 +150,6 @@ println!("{}", s2); // Valid
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty**: Intermediate
-
-
 Use **Traits**. Define a trait with methods and implement it for different structs. Use `Box<dyn Trait>` for dynamic dispatch or generics `T: Trait` for static dispatch.
 
 **Code Example:**
@@ -169,9 +177,6 @@ fn make_it_speak(animal: &impl Speak) {
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty**: Intermediate
-
-
 Rust uses **RAII** (Resource Acquisition Is Initialization). Memory is automatically freed when the owner goes out of scope (`drop` is called).
 
 **Code Example:**
@@ -191,9 +196,6 @@ Rust uses **RAII** (Resource Acquisition Is Initialization). Memory is automatic
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty**: Intermediate
-
-
 Use a `FnMut` closure and declare the variable as `mut`. The closure must capture the variable by mutable reference.
 
 **Code Example:**
@@ -217,9 +219,6 @@ increment();
 **Difficulty**: Advanced
 
 **Strategy:**
-**Difficulty**: Advanced
-
-
 Use `lazy_static!` or `std::sync::OnceLock` (Rust 1.70+) to create thread-safe singletons.
 
 **Code Example:**
@@ -244,9 +243,6 @@ fn main() {
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty**: Intermediate
-
-
 Use a `String` buffer and `push_str` or `format!` macro. Avoid repeated `+` operations which can create intermediate allocations.
 
 **Code Example:**
@@ -266,9 +262,6 @@ s.push_str("World");
 **Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty**: Beginner
-
-
 Return a **Tuple**.
 
 **Code Example:**
@@ -289,9 +282,6 @@ let (sum, product) = calculate(2, 3);
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty**: Intermediate
-
-
 Implement the `std::fmt::Display` and `std::fmt::Debug` traits (and optionally `std::error::Error`). Using the `thiserror` crate simplifies this.
 
 **Code Example:**
@@ -319,9 +309,6 @@ impl std::error::Error for MyError {}
 **Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty**: Beginner
-
-
 Use `.iter()` to borrow items immutably. `.into_iter()` consumes the collection (moves items).
 
 **Code Example:**
@@ -342,9 +329,6 @@ for num in nums.iter() {
 **Difficulty**: Intermediate
 
 **Strategy:**
-**Difficulty**: Intermediate
-
-
 Use `async fn` and an async runtime like **Tokio**. Call `.await` on futures.
 
 **Code Example:**
@@ -369,9 +353,6 @@ async fn main() {
 **Difficulty**: Advanced
 
 **Strategy:**
-**Difficulty**: Advanced
-
-
 Use `macro_rules!` for declarative macros.
 
 **Code Example:**
@@ -394,9 +375,6 @@ say_hello!();
 **Difficulty**: Beginner
 
 **Strategy:**
-**Difficulty**: Beginner
-
-
 Use the range syntax `&array[start..end]`.
 
 **Code Example:**
@@ -414,9 +392,6 @@ let slice = &arr[1..4]; // [2, 3, 4]
 **Difficulty**: Advanced
 
 **Strategy:**
-**Difficulty**: Advanced
-
-
 Wrap code in an `unsafe` block. This allows dereferencing raw pointers, calling unsafe functions, etc. Use with extreme caution.
 
 **Code Example:**
@@ -824,3 +799,618 @@ fn read_username() -> Result<String, io::Error> {
 
 ---
 
+
+---
+
+### Q31: How do you implement the `Iterator` trait for a custom type?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Implement the `Iterator` trait by defining the `Item` associated type and the `next` method. The `next` method should return `Option<Self::Item>`.
+
+**Code Example:**
+```rust
+struct Counter {
+    count: u32,
+}
+
+impl Iterator for Counter {
+    type Item = u32;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        self.count += 1;
+        if self.count < 6 {
+            Some(self.count)
+        } else {
+            None
+        }
+    }
+}
+
+fn main() {
+    let counter = Counter { count: 0 };
+    for i in counter {
+        println!("{}", i);
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: How do you handle errors using `thiserror`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`thiserror` provides a convenient macro to derive the `Error` trait for custom enums, reducing boilerplate code for error definitions.
+
+**Code Example:**
+```rust
+use thiserror::Error;
+
+#[derive(Error, Debug)]
+pub enum DataStoreError {
+    #[error("data not found")]
+    NotFound,
+    #[error("invalid disconnect")]
+    Disconnect(#[from] std::io::Error),
+    #[error("unknown error")]
+    Unknown,
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you use `serde` for JSON serialization?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Add `serde` and `serde_json` dependencies. Derive `Serialize` and `Deserialize` traits on your structs to enable automatic conversion to/from JSON.
+
+**Code Example:**
+```rust
+use serde::{Serialize, Deserialize};
+
+#[derive(Serialize, Deserialize, Debug)]
+struct User {
+    id: u32,
+    name: String,
+}
+
+fn main() {
+    let user = User { id: 1, name: "Alice".into() };
+    
+    // Serialize
+    let json = serde_json::to_string(&user).unwrap();
+    println!("{}", json);
+    
+    // Deserialize
+    let parsed: User = serde_json::from_str(&json).unwrap();
+    println!("{:?}", parsed);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you use `tokio` for async execution?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use the `#[tokio::main]` attribute to turn the `main` function into an async runtime entry point. Use `.await` to suspend execution until a future completes.
+
+**Code Example:**
+```rust
+#[tokio::main]
+async fn main() {
+    let result = say_hello().await;
+    println!("{}", result);
+}
+
+async fn say_hello() -> &'static str {
+    // Simulate async work
+    tokio::time::sleep(tokio::time::Duration::from_millis(100)).await;
+    "Hello, World!"
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you use `Weak` pointers to prevent reference cycles?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`Weak<T>` provides a non-owning reference to an allocation managed by `Arc<T>` or `Rc<T>`. It doesn't prevent deallocation, thus breaking cycles (e.g., parent-child relationships).
+
+**Code Example:**
+```rust
+use std::rc::{Rc, Weak};
+use std::cell::RefCell;
+
+struct Node {
+    parent: RefCell<Weak<Node>>,
+    children: RefCell<Vec<Rc<Node>>>,
+}
+
+fn main() {
+    let leaf = Rc::new(Node {
+        parent: RefCell::new(Weak::new()),
+        children: RefCell::new(vec![]),
+    });
+    
+    let branch = Rc::new(Node {
+        parent: RefCell::new(Weak::new()),
+        children: RefCell::new(vec![leaf.clone()]),
+    });
+    
+    *leaf.parent.borrow_mut() = Rc::downgrade(&branch);
+    // No memory leak!
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: How do you create a declarative macro?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `macro_rules!` to define a macro. Macros match patterns in the code and expand into Rust code at compile time.
+
+**Code Example:**
+```rust
+macro_rules! say_hello {
+    () => {
+        println!("Hello!");
+    };
+    ($name:expr) => {
+        println!("Hello, {}!", $name);
+    };
+}
+
+fn main() {
+    say_hello!();
+    say_hello!("Rustacean");
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: How do you call C code from Rust (FFI)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `extern "C"` blocks to define foreign function signatures. Mark the call as `unsafe` because the compiler cannot guarantee safety across the FFI boundary.
+
+**Code Example:**
+```rust
+extern "C" {
+    fn abs(input: i32) -> i32;
+}
+
+fn main() {
+    unsafe {
+        let result = abs(-10);
+        println!("Absolute value: {}", result);
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: How do you implement a Builder Pattern?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Create a separate Builder struct with methods to set fields, returning `&mut Self` or `Self`. Add a `build()` method to consume the builder and return the final struct.
+
+**Code Example:**
+```rust
+#[derive(Debug)]
+struct Server {
+    host: String,
+    port: u16,
+}
+
+struct ServerBuilder {
+    host: String,
+    port: u16,
+}
+
+impl ServerBuilder {
+    fn new() -> Self {
+        Self { host: "localhost".into(), port: 8080 }
+    }
+    
+    fn port(mut self, port: u16) -> Self {
+        self.port = port;
+        self
+    }
+    
+    fn build(self) -> Server {
+        Server { host: self.host, port: self.port }
+    }
+}
+
+fn main() {
+    let s = ServerBuilder::new().port(3000).build();
+    println!("{:?}", s);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: How do you use `std::sync::mpsc` for message passing?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`mpsc` stands for Multi-Producer, Single-Consumer. Use `channel()` to create a sender and receiver pair for communicating between threads.
+
+**Code Example:**
+```rust
+use std::sync::mpsc;
+use std::thread;
+
+fn main() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        tx.send("ping").unwrap();
+    });
+
+    let msg = rx.recv().unwrap();
+    println!("{}", msg);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you write documentation comments?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `///` for documenting items (functions, structs). These comments support Markdown and are used by `rustdoc` to generate HTML documentation.
+
+**Code Example:**
+```rust
+/// Adds one to the number given.
+///
+/// # Examples
+///
+/// ```
+/// let arg = 5;
+/// let answer = my_crate::add_one(arg);
+///
+/// assert_eq!(6, answer);
+/// ```
+pub fn add_one(x: i32) -> i32 {
+    x + 1
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you use `Cow` (Copy-on-Write) efficiently?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`Cow<str>` allows holding either a borrowed `&str` or an owned `String`. It only allocates (clones) when mutation is necessary or ownership is required.
+
+**Code Example:**
+```rust
+use std::borrow::Cow;
+
+fn sanitize(input: &str) -> Cow<str> {
+    if input.contains("bad") {
+        Cow::Owned(input.replace("bad", "good"))
+    } else {
+        Cow::Borrowed(input)
+    }
+}
+
+fn main() {
+    let s1 = "this is good";
+    let s2 = "this is bad";
+    
+    // No allocation
+    println!("{}", sanitize(s1));
+    
+    // Allocation happens here
+    println!("{}", sanitize(s2));
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you implement the `Default` trait?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Implement `Default` to provide a standard default value for your type. This is often used with `..Default::default()` struct update syntax.
+
+**Code Example:**
+```rust
+#[derive(Debug)]
+struct Config {
+    timeout: u32,
+    retries: u32,
+}
+
+impl Default for Config {
+    fn default() -> Self {
+        Self { timeout: 30, retries: 3 }
+    }
+}
+
+fn main() {
+    let conf = Config {
+        retries: 5,
+        ..Default::default()
+    };
+    println!("{:?}", conf);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you use `Any` trait for dynamic typing?
+
+**Difficulty**: Expert
+
+**Strategy:**
+`Any` allows dynamic typing and downcasting at runtime. It works for types with static lifetime (usually `'static`).
+
+**Code Example:**
+```rust
+use std::any::Any;
+
+fn print_if_string(s: &dyn Any) {
+    if let Some(string) = s.downcast_ref::<String>() {
+        println!("It's a string: {}", string);
+    } else {
+        println!("Not a string");
+    }
+}
+
+fn main() {
+    print_if_string(&String::from("Hello"));
+    print_if_string(&10);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you use `lazy_static` or `OnceLock` (std)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`std::sync::OnceLock` (Rust 1.70+) allows lazy initialization of global static variables without external crates like `lazy_static`.
+
+**Code Example:**
+```rust
+use std::sync::OnceLock;
+
+static CONFIG: OnceLock<String> = OnceLock::new();
+
+fn get_config() -> &'static str {
+    CONFIG.get_or_init(|| {
+        println!("Initializing...");
+        "Production".to_string()
+    })
+}
+
+fn main() {
+    println!("{}", get_config());
+    println!("{}", get_config());
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you optimize memory layout with `#[repr(C)]` or `#[repr(packed)]`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`#[repr(C)]` ensures C-compatible memory layout. `#[repr(packed)]` minimizes padding but may cause misaligned access (undefined behavior if not handled carefully).
+
+**Code Example:**
+```rust
+#[repr(C)]
+struct MyStruct {
+    a: u8,
+    b: u32,
+}
+
+fn main() {
+    println!("Size: {}", std::mem::size_of::<MyStruct>());
+    // Size is 8 (4 bytes alignment for u32)
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you use `Pin` to handle self-referential structs?
+
+**Difficulty**: Expert
+
+**Strategy:**
+`Pin<P>` prevents the value pointed to by `P` from being moved in memory. This is crucial for async futures which generate self-referential state machines.
+
+**Code Example:**
+```rust
+use std::pin::Pin;
+use std::marker::PhantomPinned;
+
+struct SelfRef {
+    data: String,
+    ptr_to_data: *const String,
+    _marker: PhantomPinned, // Makes it !Unpin
+}
+
+impl SelfRef {
+    fn new(data: String) -> Pin<Box<Self>> {
+        let res = Self {
+            data,
+            ptr_to_data: std::ptr::null(),
+            _marker: PhantomPinned,
+        };
+        let mut boxed = Box::pin(res);
+        let self_ptr: *const String = &boxed.data;
+        unsafe {
+            let mut_ref: &mut SelfRef = Pin::get_unchecked_mut(boxed.as_mut());
+            mut_ref.ptr_to_data = self_ptr;
+        }
+        boxed
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you use `std::collections::BTreeMap` vs `HashMap`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`BTreeMap` keeps keys sorted. Use it when iteration order matters or you need range queries. `HashMap` is faster O(1) but unordered.
+
+**Code Example:**
+```rust
+use std::collections::BTreeMap;
+
+fn main() {
+    let mut map = BTreeMap::new();
+    map.insert(3, "c");
+    map.insert(1, "a");
+    map.insert(2, "b");
+
+    // Iterates in sorted order of keys
+    for (key, value) in &map {
+        println!("{}: {}", key, value);
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you implement a custom Drop trait?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Implement `Drop` to execute code when a value goes out of scope (e.g., closing file handles, freeing resources).
+
+**Code Example:**
+```rust
+struct FileHandler {
+    name: String,
+}
+
+impl Drop for FileHandler {
+    fn drop(&mut self) {
+        println!("Closing file: {}", self.name);
+    }
+}
+
+fn main() {
+    let _f = FileHandler { name: "log.txt".into() };
+    println!("Doing work...");
+} // _f dropped here
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you use `rayon` for data parallelism?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`rayon` is a data-parallelism library. Convert iterators to parallel iterators using `.par_iter()` to process items concurrently across CPU cores.
+
+**Code Example:**
+```rust
+use rayon::prelude::*;
+
+fn main() {
+    let mut nums: Vec<i32> = (0..100).collect();
+    
+    // Parallel processing
+    nums.par_iter_mut().for_each(|p| *p *= 2);
+    
+    println!("{:?}", &nums[0..5]);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you use `std::process::Command` to run external programs?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `Command` to spawn child processes. You can capture output, pipe input, and wait for completion.
+
+**Code Example:**
+```rust
+use std::process::Command;
+
+fn main() {
+    let output = Command::new("echo")
+        .arg("Hello from process")
+        .output()
+        .expect("Failed to execute command");
+
+    println!("{}", String::from_utf8_lossy(&output.stdout));
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

@@ -15,7 +15,7 @@
 3. [How do you implement a decorator to measure the execution time of a function?](#q3-how-do-you-implement-a-decorator-to-measure-the-execution-time-of-a-function) <span class="intermediate">Intermediate</span>
 4. [How do you bypass the Global Interpreter Lock (GIL) for CPU-bound tasks?](#q4-how-do-you-bypass-the-global-interpreter-lock-gil-for-cpu-bound-tasks) <span class="advanced">Advanced</span>
 5. [How do you handle concurrent I/O-bound operations efficiently?](#q5-how-do-you-handle-concurrent-io-bound-operations-efficiently) <span class="intermediate">Intermediate</span>
-6. [How do you merge two dictionaries in Python 3.9+?](#q6-how-do-you-merge-two-dictionaries-in-python-39+) <span class="beginner">Beginner</span>
+6. [How do you merge two dictionaries in Python 3.9+?](#q6-how-do-you-merge-two-dictionaries-in-python-39) <span class="beginner">Beginner</span>
 7. [How do you create a lightweight immutable data class?](#q7-how-do-you-create-a-lightweight-immutable-data-class) <span class="intermediate">Intermediate</span>
 8. [How do you optimize function calls with caching (memoization)?](#q8-how-do-you-optimize-function-calls-with-caching-memoization) <span class="intermediate">Intermediate</span>
 9. [How do you enforce type safety in a large Python codebase?](#q9-how-do-you-enforce-type-safety-in-a-large-python-codebase) <span class="intermediate">Intermediate</span>
@@ -32,7 +32,7 @@
 20. [How do you use ContextVars for thread-safe state management?](#q20-how-do-you-use-contextvars-for-thread-safe-state-management) <span class="advanced">Advanced</span>
 21. [How do you use the Walrus Operator (Assignment Expression)?](#q21-how-do-you-use-the-walrus-operator-assignment-expression) <span class="beginner">Beginner</span>
 22. [How do you implement abstract base classes (ABCs)?](#q22-how-do-you-implement-abstract-base-classes-abcs) <span class="intermediate">Intermediate</span>
-23. [How do you use Python's gc module to handle cyclic references?](#q23-how-do-you-use-python's-gc-module-to-handle-cyclic-references) <span class="advanced">Advanced</span>
+23. [How do you use Python's gc module to handle cyclic references?](#q23-how-do-you-use-pythons-gc-module-to-handle-cyclic-references) <span class="advanced">Advanced</span>
 24. [How do you use __slots__ to optimize memory?](#q24-how-do-you-use-__slots__-to-optimize-memory) <span class="intermediate">Intermediate</span>
 25. [How do you use Itertools to chain iterables?](#q25-how-do-you-use-itertools-to-chain-iterables) <span class="intermediate">Intermediate</span>
 26. [How do you use defaultdict for cleaner grouping code?](#q26-how-do-you-use-defaultdict-for-cleaner-grouping-code) <span class="beginner">Beginner</span>
@@ -45,11 +45,31 @@
 33. [How do you use heapq for a priority queue?](#q33-how-do-you-use-heapq-for-a-priority-queue) <span class="intermediate">Intermediate</span>
 34. [How do you use zip to iterate over multiple lists?](#q34-how-do-you-use-zip-to-iterate-over-multiple-lists) <span class="beginner">Beginner</span>
 35. [How do you use enumerate?](#q35-how-do-you-use-enumerate) <span class="beginner">Beginner</span>
-36. [How do you use if __name__ == "__main__":?](#q36-how-do-you-use-if-__name__-==-"__main__":) <span class="beginner">Beginner</span>
+36. [How do you use if __name__ == "__main__":?](#q36-how-do-you-use-if-__name__--__main__) <span class="beginner">Beginner</span>
 37. [How do you use re module for regex matching?](#q37-how-do-you-use-re-module-for-regex-matching) <span class="intermediate">Intermediate</span>
 38. [How do you use with statement (Context Managers)?](#q38-how-do-you-use-with-statement-context-managers) <span class="beginner">Beginner</span>
 39. [How do you use Generators (yield)?](#q39-how-do-you-use-generators-yield) <span class="intermediate">Intermediate</span>
 40. [How do you use Decorators?](#q40-how-do-you-use-decorators) <span class="intermediate">Intermediate</span>
+41. [How do you implement asynchronous tasks with Celery?](#q41-how-do-you-implement-asynchronous-tasks-with-celery) <span class="advanced">Advanced</span>
+42. [How do you define a One-to-Many relationship in SQLAlchemy?](#q42-how-do-you-define-a-one-to-many-relationship-in-sqlalchemy) <span class="intermediate">Intermediate</span>
+43. [How do you structure a large Flask application using Blueprints?](#q43-how-do-you-structure-a-large-flask-application-using-blueprints) <span class="intermediate">Intermediate</span>
+44. [How do you use Django Signals to decouple logic?](#q44-how-do-you-use-django-signals-to-decouple-logic) <span class="intermediate">Intermediate</span>
+45. [How do you use Pytest Fixtures with scopes?](#q45-how-do-you-use-pytest-fixtures-with-scopes) <span class="intermediate">Intermediate</span>
+46. [How do you implement Generics using TypeVar?](#q46-how-do-you-implement-generics-using-typevar) <span class="advanced">Advanced</span>
+47. [How do you use Protocols for structural subtyping (Duck Typing)?](#q47-how-do-you-use-protocols-for-structural-subtyping-duck-typing) <span class="advanced">Advanced</span>
+48. [How do you use Single Dispatch for function overloading?](#q48-how-do-you-use-single-dispatch-for-function-overloading) <span class="intermediate">Intermediate</span>
+49. [How do you use WeakRef to manage memory?](#q49-how-do-you-use-weakref-to-manage-memory) <span class="advanced">Advanced</span>
+50. [How do you validate data using Pydantic?](#q50-how-do-you-validate-data-using-pydantic) <span class="intermediate">Intermediate</span>
+51. [How do you implement Dependency Injection in FastAPI?](#q51-how-do-you-implement-dependency-injection-in-fastapi) <span class="intermediate">Intermediate</span>
+52. [How do you make concurrent HTTP requests with Aiohttp?](#q52-how-do-you-make-concurrent-http-requests-with-aiohttp) <span class="intermediate">Intermediate</span>
+53. [How do you group and aggregate data in Pandas?](#q53-how-do-you-group-and-aggregate-data-in-pandas) <span class="beginner">Beginner</span>
+54. [How do you create a Machine Learning Pipeline with Scikit-learn?](#q54-how-do-you-create-a-machine-learning-pipeline-with-scikit-learn) <span class="intermediate">Intermediate</span>
+55. [How do you scrape a website using Beautiful Soup?](#q55-how-do-you-scrape-a-website-using-beautiful-soup) <span class="intermediate">Intermediate</span>
+56. [How do you create a command-line interface (CLI) with Click?](#q56-how-do-you-create-a-command-line-interface-cli-with-click) <span class="intermediate">Intermediate</span>
+57. [How do you use Loguru for better logging?](#q57-how-do-you-use-loguru-for-better-logging) <span class="beginner">Beginner</span>
+58. [How do you use Python's bisect module for binary search?](#q58-how-do-you-use-pythons-bisect-module-for-binary-search) <span class="intermediate">Intermediate</span>
+59. [How do you profile a Python script to find bottlenecks?](#q59-how-do-you-profile-a-python-script-to-find-bottlenecks) <span class="advanced">Advanced</span>
+60. [How do you implement a Context Manager as a Class?](#q60-how-do-you-implement-a-context-manager-as-a-class) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1023,3 +1043,451 @@ say_hello()
 
 ---
 
+
+
+---
+
+### Q41: How do you implement asynchronous tasks with Celery?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use **Celery** with a message broker (RabbitMQ/Redis). Define tasks with `@app.task` and call them using `.delay()`. This offloads heavy work to background workers.
+
+**Code Example:**
+```python
+from celery import Celery
+
+app = Celery('tasks', broker='redis://localhost:6379/0')
+
+@app.task
+def add(x, y):
+    return x + y
+
+# Call asynchronously
+result = add.delay(4, 4)
+print(f"Task ID: {result.id}")
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you define a One-to-Many relationship in SQLAlchemy?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `ForeignKey` on the 'Many' side and `relationship` on the 'One' side. `back_populates` synchronizes changes between the two objects.
+
+**Code Example:**
+```python
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    posts = relationship("Post", back_populates="author")
+
+class Post(Base):
+    __tablename__ = 'posts'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    author = relationship("User", back_populates="posts")
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you structure a large Flask application using Blueprints?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Blueprints** to organize routes into modules (e.g., auth, admin, api). Register them in the main application factory.
+
+**Code Example:**
+```python
+# auth.py
+auth_bp = Blueprint('auth', __name__)
+
+@auth_bp.route('/login')
+def login(): return "Login"
+
+# app.py
+app = Flask(__name__)
+app.register_blueprint(auth_bp, url_prefix='/auth')
+# Access: /auth/login
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you use Django Signals to decouple logic?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Signals allow senders to notify receivers when actions occur. Use `@receiver` with signals like `post_save` to trigger side effects (e.g., creating a profile when a user is created).
+
+**Code Example:**
+```python
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you use Pytest Fixtures with scopes?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Fixtures provide setup/teardown code. Use `scope` ('function', 'module', 'session') to control how often the fixture runs. 'session' runs once per test suite.
+
+**Code Example:**
+```python
+@pytest.fixture(scope="session")
+def db_connection():
+    conn = connect_db()
+    yield conn
+    conn.close()
+
+def test_query(db_connection):
+    assert db_connection.query("SELECT 1")
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you implement Generics using TypeVar?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `TypeVar` to create a generic type variable. This allows functions or classes to work with multiple types while maintaining type safety.
+
+**Code Example:**
+```python
+from typing import TypeVar, List
+
+T = TypeVar('T')
+
+def first_element(items: List[T]) -> T:
+    return items[0]
+
+# first_element([1, 2]) -> int
+# first_element(["a", "b"]) -> str
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you use Protocols for structural subtyping (Duck Typing)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `typing.Protocol`. A class satisfies a Protocol if it implements the declared methods, even if it doesn't explicitly inherit from it.
+
+**Code Example:**
+```python
+class Drawable(Protocol):
+    def draw(self) -> None: ...
+
+class Circle:
+    def draw(self) -> None: print("O")
+
+def render(obj: Drawable):
+    obj.draw()
+
+render(Circle()) # Valid
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you use Single Dispatch for function overloading?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `@functools.singledispatch`. It allows you to define a generic function and register specialized implementations based on the type of the first argument.
+
+**Code Example:**
+```python
+@singledispatch
+def process(arg):
+    print("Default processing")
+
+@process.register
+def _(arg: int):
+    print(f"Processing int: {arg}")
+
+@process.register
+def _(arg: list):
+    print(f"Processing list: {len(arg)}")
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you use WeakRef to manage memory?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `weakref` to create references that don't prevent the referent from being garbage collected. Useful for caches or circular references.
+
+**Code Example:**
+```python
+import weakref
+
+class BigObject: pass
+
+obj = BigObject()
+r = weakref.ref(obj)
+
+print(r()) # Access object
+del obj
+print(r()) # None (object was collected)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you validate data using Pydantic?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Define a model inheriting from `BaseModel`. Pydantic parses and validates data types at runtime, raising errors for invalid data.
+
+**Code Example:**
+```python
+from pydantic import BaseModel
+
+class User(BaseModel):
+    id: int
+    name: str
+    email: str
+
+# Parses dict to object, converts types if possible
+user = User(id="123", name="Alice", email="alice@example.com")
+print(user.id) # 123 (int)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q51: How do you implement Dependency Injection in FastAPI?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `Depends`. It declares a dependency that FastAPI resolves and injects into your path operation. It supports nested dependencies and caching.
+
+**Code Example:**
+```python
+def get_db():
+    db = Session()
+    try: yield db
+    finally: db.close()
+
+@app.get("/users")
+def read_users(db: Session = Depends(get_db)):
+    return db.query(User).all()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q52: How do you make concurrent HTTP requests with Aiohttp?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `aiohttp.ClientSession` within an `async` function. Combine with `asyncio.gather` to fire multiple requests simultaneously.
+
+**Code Example:**
+```python
+async with aiohttp.ClientSession() as session:
+    tasks = [session.get(url) for url in urls]
+    responses = await asyncio.gather(*tasks)
+    for resp in responses:
+        print(resp.status)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q53: How do you group and aggregate data in Pandas?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `.groupby()` followed by an aggregation function like `.sum()`, `.mean()`, or `.agg()` for multiple metrics.
+
+**Code Example:**
+```python
+df.groupby('Category').agg({
+    'Sales': 'sum',
+    'Profit': 'mean'
+})
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q54: How do you create a Machine Learning Pipeline with Scikit-learn?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `Pipeline` to chain preprocessing steps (scalers, encoders) and the model. This ensures the same transformations are applied to train and test data.
+
+**Code Example:**
+```python
+pipe = Pipeline([
+    ('scaler', StandardScaler()),
+    ('svc', SVC())
+])
+pipe.fit(X_train, y_train)
+pipe.score(X_test, y_test)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q55: How do you scrape a website using Beautiful Soup?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Fetch the page with `requests`, then parse the HTML with `BeautifulSoup`. Use `.find()` or `.select()` to extract elements.
+
+**Code Example:**
+```python
+page = requests.get(url)
+soup = BeautifulSoup(page.content, 'html.parser')
+title = soup.find('h1').text
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: How do you create a command-line interface (CLI) with Click?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Decorate functions with `@click.command()` and `@click.option()`. Click handles argument parsing and help generation automatically.
+
+**Code Example:**
+```python
+@click.command()
+@click.option('--count', default=1, help='Number of greetings.')
+def hello(count):
+    for _ in range(count):
+        click.echo('Hello!')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q57: How do you use Loguru for better logging?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`Loguru` simplifies logging. No configuration boilerplate is needed. It supports rotation, compression, and colorized output out of the box.
+
+**Code Example:**
+```python
+from loguru import logger
+
+logger.add("file.log", rotation="500 MB")
+logger.info("Information message")
+logger.error("Something went wrong")
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q58: How do you use Python's bisect module for binary search?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`bisect` provides support for maintaining a list in sorted order without having to sort the list after each insertion.
+
+**Code Example:**
+```python
+import bisect
+
+scores = [10, 20, 30, 40]
+bisect.insort(scores, 25)
+# scores is now [10, 20, 25, 30, 40]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q59: How do you profile a Python script to find bottlenecks?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `cProfile`. It provides deterministic profiling of Python programs, showing how much time is spent in each function.
+
+**Code Example:**
+```python
+python -m cProfile -o output.pstats myscript.py
+# Visualize with snakeviz
+# snakeviz output.pstats
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q60: How do you implement a Context Manager as a Class?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Define `__enter__` and `__exit__` methods. `__enter__` returns the resource, and `__exit__` handles cleanup and exceptions.
+
+**Code Example:**
+```python
+class FileManager:
+    def __init__(self, name):
+        self.name = name
+
+    def __enter__(self):
+        self.f = open(self.name, 'w')
+        return self.f
+
+    def __exit__(self, type, value, traceback):
+        self.f.close()
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

@@ -10,115 +10,66 @@
 
 ## Table of Contents
 
-1. [How do you optimize memory usage by handling String duplicates efficiently?](#q1-how-do-you-optimize-memory-usage-by-handling-string-duplicates-efficiently) <span class="intermediate">Intermediate</span>
+1. [How do you optimize memory usage by handling String duplicates efficiently?](#q1-how-do-you-optimize-memory-usage-by-handling-string-duplicates-efficiently) <span class="beginner">Beginner</span>
 2. [How do you prevent memory leaks?](#q2-how-do-you-prevent-memory-leaks) <span class="intermediate">Intermediate</span>
 3. [How do you execute tasks asynchronously and get the result later?](#q3-how-do-you-execute-tasks-asynchronously-and-get-the-result-later) <span class="intermediate">Intermediate</span>
-4. [How do you handle null safety efficiently in modern Java?](#q4-how-do-you-handle-null-safety-efficiently-in-modern-java) <span class="intermediate">Intermediate</span>
+4. [How do you handle null safety efficiently in modern Java?](#q4-how-do-you-handle-null-safety-efficiently-in-modern-java) <span class="beginner">Beginner</span>
 5. [How do you ensure thread safety when modifying shared variables?](#q5-how-do-you-ensure-thread-safety-when-modifying-shared-variables) <span class="intermediate">Intermediate</span>
 6. [How do you create an immutable class in Java?](#q6-how-do-you-create-an-immutable-class-in-java) <span class="intermediate">Intermediate</span>
 7. [How do you process a collection of items in parallel?](#q7-how-do-you-process-a-collection-of-items-in-parallel) <span class="intermediate">Intermediate</span>
 8. [How do you implement the Singleton pattern thread-safely?](#q8-how-do-you-implement-the-singleton-pattern-thread-safely) <span class="intermediate">Intermediate</span>
-9. [How do you sort a list of objects based on multiple criteria?](#q9-how-do-you-sort-a-list-of-objects-based-on-multiple-criteria) <span class="intermediate">Intermediate</span>
+9. [How do you sort a list of objects based on multiple criteria?](#q9-how-do-you-sort-a-list-of-objects-based-on-multiple-criteria) <span class="beginner">Beginner</span>
 10. [How do you handle exceptions in Lambda expressions?](#q10-how-do-you-handle-exceptions-in-lambda-expressions) <span class="intermediate">Intermediate</span>
-11. [How do you dynamically access methods or fields at runtime?](#q11-how-do-you-dynamically-access-methods-or-fields-at-runtime) <span class="intermediate">Intermediate</span>
-12. [How do you ensure a variable's value is always read from main memory?](#q12-how-do-you-ensure-a-variables-value-is-always-read-from-main-memory) <span class="intermediate">Intermediate</span>
-13. [How do you filter a list using the Stream API?](#q13-how-do-you-filter-a-list-using-the-stream-api) <span class="intermediate">Intermediate</span>
+11. [How do you dynamically access methods or fields at runtime?](#q11-how-do-you-dynamically-access-methods-or-fields-at-runtime) <span class="advanced">Advanced</span>
+12. [How do you ensure a variable's value is always read from main memory?](#q12-how-do-you-ensure-a-variables-value-is-always-read-from-main-memory) <span class="advanced">Advanced</span>
+13. [How do you filter a list using the Stream API?](#q13-how-do-you-filter-a-list-using-the-stream-api) <span class="beginner">Beginner</span>
 14. [How do you create a fixed-size thread pool?](#q14-how-do-you-create-a-fixed-size-thread-pool) <span class="intermediate">Intermediate</span>
 15. [How do you implement a custom annotation?](#q15-how-do-you-implement-a-custom-annotation) <span class="intermediate">Intermediate</span>
-16. [How do you implement Spring Boot Starters?](#q16-how-do-you-implement-spring-boot-starters) <span class="intermediate">Intermediate</span>
-17. [How do you implement Spring AOP?](#q17-how-do-you-implement-spring-aop) <span class="intermediate">Intermediate</span>
-18. [How do you implement Maven/Gradle?](#q18-how-do-you-implement-mavengradle) <span class="intermediate">Intermediate</span>
-19. [How do you implement JUnit 5?](#q19-how-do-you-implement-junit-5) <span class="intermediate">Intermediate</span>
-20. [How do you implement Mockito?](#q20-how-do-you-implement-mockito) <span class="intermediate">Intermediate</span>
-21. [How do you implement Log4j2?](#q21-how-do-you-implement-log4j2) <span class="intermediate">Intermediate</span>
-22. [How do you implement Jackson JSON?](#q22-how-do-you-implement-jackson-json) <span class="intermediate">Intermediate</span>
-23. [How do you implement Protobuf?](#q23-how-do-you-implement-protobuf) <span class="intermediate">Intermediate</span>
-24. [How do you implement gRPC?](#q24-how-do-you-implement-grpc) <span class="intermediate">Intermediate</span>
-25. [How do you implement Kafka Consumer?](#q25-how-do-you-implement-kafka-consumer) <span class="intermediate">Intermediate</span>
-26. [How do you implement Redis Cache?](#q26-how-do-you-implement-redis-cache) <span class="intermediate">Intermediate</span>
-27. [How do you implement JDBC Transactions?](#q27-how-do-you-implement-jdbc-transactions) <span class="intermediate">Intermediate</span>
-28. [How do you implement Connection Pooling (HikariCP)?](#q28-how-do-you-implement-connection-pooling-hikaricp) <span class="intermediate">Intermediate</span>
-29. [How do you implement Garbage Collection Tuning (G1GC)?](#q29-how-do-you-implement-garbage-collection-tuning-g1gc) <span class="intermediate">Intermediate</span>
-30. [How do you implement JIT Compiler?](#q30-how-do-you-implement-jit-compiler) <span class="intermediate">Intermediate</span>
-31. [How do you implement ClassLoaders?](#q31-how-do-you-implement-classloaders) <span class="intermediate">Intermediate</span>
-32. [How do you implement JPMS (Modules)?](#q32-how-do-you-implement-jpms-modules) <span class="intermediate">Intermediate</span>
-33. [How do you implement Varargs?](#q33-how-do-you-implement-varargs) <span class="intermediate">Intermediate</span>
-34. [How do you implement Try-With-Resources?](#q34-how-do-you-implement-try-with-resources) <span class="intermediate">Intermediate</span>
-35. [How do you implement Switch Expressions?](#q35-how-do-you-implement-switch-expressions) <span class="intermediate">Intermediate</span>
-36. [How do you implement Text Blocks?](#q36-how-do-you-implement-text-blocks) <span class="intermediate">Intermediate</span>
-37. [How do you implement Pattern Matching for instanceof?](#q37-how-do-you-implement-pattern-matching-for-instanceof) <span class="intermediate">Intermediate</span>
-38. [How do you implement Sealed Classes?](#q38-how-do-you-implement-sealed-classes) <span class="intermediate">Intermediate</span>
-39. [How do you implement Records?](#q39-how-do-you-implement-records) <span class="intermediate">Intermediate</span>
-40. [How do you implement Foreign Function & Memory API?](#q40-how-do-you-implement-foreign-function--memory-api) <span class="intermediate">Intermediate</span>
-41. [How do you implement Virtual Threads (Project Loom)?](#q41-how-do-you-implement-virtual-threads-project-loom) <span class="intermediate">Intermediate</span>
-42. [How do you implement Structured Concurrency?](#q42-how-do-you-implement-structured-concurrency) <span class="intermediate">Intermediate</span>
-43. [How do you implement Vector API?](#q43-how-do-you-implement-vector-api) <span class="intermediate">Intermediate</span>
-44. [How do you implement JPA/Hibernate?](#q44-how-do-you-implement-jpahibernate) <span class="intermediate">Intermediate</span>
-45. [How do you implement Spring Data JPA?](#q45-how-do-you-implement-spring-data-jpa) <span class="intermediate">Intermediate</span>
-46. [How do you implement Spring Security?](#q46-how-do-you-implement-spring-security) <span class="intermediate">Intermediate</span>
-47. [How do you implement JWT Auth?](#q47-how-do-you-implement-jwt-auth) <span class="intermediate">Intermediate</span>
-48. [How do you implement OAuth2?](#q48-how-do-you-implement-oauth2) <span class="intermediate">Intermediate</span>
-49. [How do you implement Reactive Streams?](#q49-how-do-you-implement-reactive-streams) <span class="intermediate">Intermediate</span>
-50. [How do you implement Project Reactor?](#q50-how-do-you-implement-project-reactor) <span class="intermediate">Intermediate</span>
-51. [How do you implement Netty?](#q51-how-do-you-implement-netty) <span class="intermediate">Intermediate</span>
-52. [How do you implement Microservices?](#q52-how-do-you-implement-microservices) <span class="intermediate">Intermediate</span>
-53. [How do you implement Service Discovery?](#q53-how-do-you-implement-service-discovery) <span class="intermediate">Intermediate</span>
-54. [How do you implement Circuit Breaker?](#q54-how-do-you-implement-circuit-breaker) <span class="intermediate">Intermediate</span>
-55. [How do you implement API Gateway?](#q55-how-do-you-implement-api-gateway) <span class="intermediate">Intermediate</span>
-56. [How do you implement Distributed Tracing?](#q56-how-do-you-implement-distributed-tracing) <span class="intermediate">Intermediate</span>
-57. [How do you implement Health Checks?](#q57-how-do-you-implement-health-checks) <span class="intermediate">Intermediate</span>
-58. [How do you implement Prometheus Metrics?](#q58-how-do-you-implement-prometheus-metrics) <span class="intermediate">Intermediate</span>
-59. [How do you implement Dockerizing Java?](#q59-how-do-you-implement-dockerizing-java) <span class="intermediate">Intermediate</span>
-60. [How do you implement Kubernetes Java?](#q60-how-do-you-implement-kubernetes-java) <span class="intermediate">Intermediate</span>
-61. [How do you implement GraphQL Java?](#q61-how-do-you-implement-graphql-java) <span class="intermediate">Intermediate</span>
-62. [How do you implement WebSocket?](#q62-how-do-you-implement-websocket) <span class="intermediate">Intermediate</span>
-63. [How do you implement RMI?](#q63-how-do-you-implement-rmi) <span class="intermediate">Intermediate</span>
-64. [How do you implement JNDI?](#q64-how-do-you-implement-jndi) <span class="intermediate">Intermediate</span>
-65. [How do you implement JMX?](#q65-how-do-you-implement-jmx) <span class="intermediate">Intermediate</span>
-66. [How do you implement Serialization?](#q66-how-do-you-implement-serialization) <span class="intermediate">Intermediate</span>
-67. [How do you implement Externalization?](#q67-how-do-you-implement-externalization) <span class="intermediate">Intermediate</span>
-68. [How do you implement Cloneable?](#q68-how-do-you-implement-cloneable) <span class="intermediate">Intermediate</span>
-69. [How do you implement WeakReference?](#q69-how-do-you-implement-weakreference) <span class="intermediate">Intermediate</span>
-70. [How do you implement SoftReference?](#q70-how-do-you-implement-softreference) <span class="intermediate">Intermediate</span>
-71. [How do you implement PhantomReference?](#q71-how-do-you-implement-phantomreference) <span class="intermediate">Intermediate</span>
-72. [How do you implement ThreadLocal?](#q72-how-do-you-implement-threadlocal) <span class="intermediate">Intermediate</span>
-73. [How do you implement CompletableFuture?](#q73-how-do-you-implement-completablefuture) <span class="intermediate">Intermediate</span>
-74. [How do you implement CountDownLatch?](#q74-how-do-you-implement-countdownlatch) <span class="intermediate">Intermediate</span>
-75. [How do you implement CyclicBarrier?](#q75-how-do-you-implement-cyclicbarrier) <span class="intermediate">Intermediate</span>
-76. [How do you implement Semaphore?](#q76-how-do-you-implement-semaphore) <span class="intermediate">Intermediate</span>
-77. [How do you implement Phaser?](#q77-how-do-you-implement-phaser) <span class="intermediate">Intermediate</span>
-78. [How do you implement Exchanger?](#q78-how-do-you-implement-exchanger) <span class="intermediate">Intermediate</span>
-79. [How do you implement BlockingQueue?](#q79-how-do-you-implement-blockingqueue) <span class="intermediate">Intermediate</span>
-80. [How do you implement PriorityQueue?](#q80-how-do-you-implement-priorityqueue) <span class="intermediate">Intermediate</span>
-81. [How do you implement LinkedList vs ArrayList?](#q81-how-do-you-implement-linkedlist-vs-arraylist) <span class="intermediate">Intermediate</span>
-82. [How do you implement HashMap vs TreeMap?](#q82-how-do-you-implement-hashmap-vs-treemap) <span class="intermediate">Intermediate</span>
-83. [How do you implement ConcurrentHashMap?](#q83-how-do-you-implement-concurrenthashmap) <span class="intermediate">Intermediate</span>
-84. [How do you implement CopyOnWriteArrayList?](#q84-how-do-you-implement-copyonwritearraylist) <span class="intermediate">Intermediate</span>
-85. [How do you implement IdentityHashMap?](#q85-how-do-you-implement-identityhashmap) <span class="intermediate">Intermediate</span>
-86. [How do you implement WeakHashMap?](#q86-how-do-you-implement-weakhashmap) <span class="intermediate">Intermediate</span>
-87. [How do you implement EnumSet?](#q87-how-do-you-implement-enumset) <span class="intermediate">Intermediate</span>
-88. [How do you implement BitSet?](#q88-how-do-you-implement-bitset) <span class="intermediate">Intermediate</span>
-89. [How do you implement BigInteger?](#q89-how-do-you-implement-biginteger) <span class="intermediate">Intermediate</span>
-90. [How do you implement BigDecimal?](#q90-how-do-you-implement-bigdecimal) <span class="intermediate">Intermediate</span>
-91. [How do you implement UUID?](#q91-how-do-you-implement-uuid) <span class="intermediate">Intermediate</span>
-92. [How do you implement Base64?](#q92-how-do-you-implement-base64) <span class="intermediate">Intermediate</span>
-93. [How do you implement MessageDigest?](#q93-how-do-you-implement-messagedigest) <span class="intermediate">Intermediate</span>
-94. [How do you implement Cipher?](#q94-how-do-you-implement-cipher) <span class="intermediate">Intermediate</span>
-95. [How do you implement Signature?](#q95-how-do-you-implement-signature) <span class="intermediate">Intermediate</span>
-96. [How do you implement SecureRandom?](#q96-how-do-you-implement-securerandom) <span class="intermediate">Intermediate</span>
-97. [How do you implement KeyStore?](#q97-how-do-you-implement-keystore) <span class="intermediate">Intermediate</span>
-98. [How do you implement SSLContext?](#q98-how-do-you-implement-sslcontext) <span class="intermediate">Intermediate</span>
-99. [How do you implement HttpClient (Java 11)?](#q99-how-do-you-implement-httpclient-java-11) <span class="intermediate">Intermediate</span>
-100. [How do you implement UrlConnection?](#q100-how-do-you-implement-urlconnection) <span class="intermediate">Intermediate</span>
-101. [How do you implement Socket Programming?](#q101-how-do-you-implement-socket-programming) <span class="intermediate">Intermediate</span>
-102. [How do you implement DatagramSocket?](#q102-how-do-you-implement-datagramsocket) <span class="intermediate">Intermediate</span>
-103. [How do you implement NIO Channels?](#q103-how-do-you-implement-nio-channels) <span class="intermediate">Intermediate</span>
-104. [How do you implement NIO Buffers?](#q104-how-do-you-implement-nio-buffers) <span class="intermediate">Intermediate</span>
-105. [How do you implement NIO Selectors?](#q105-how-do-you-implement-nio-selectors) <span class="intermediate">Intermediate</span>
-106. [How do you implement Path API?](#q106-how-do-you-implement-path-api) <span class="intermediate">Intermediate</span>
-107. [How do you implement Files API?](#q107-how-do-you-implement-files-api) <span class="intermediate">Intermediate</span>
-108. [How do you implement WatchService?](#q108-how-do-you-implement-watchservice) <span class="intermediate">Intermediate</span>
-109. [How do you implement ZipInputStream?](#q109-how-do-you-implement-zipinputstream) <span class="intermediate">Intermediate</span>
+16. [How do you create a custom Spring Boot Starter?](#q16-how-do-you-create-a-custom-spring-boot-starter) <span class="advanced">Advanced</span>
+17. [How do you implement AOP for logging execution time?](#q17-how-do-you-implement-aop-for-logging-execution-time) <span class="intermediate">Intermediate</span>
+18. [What are Java Records and when should you use them?](#q18-what-are-java-records-and-when-should-you-use-them) <span class="beginner">Beginner</span>
+19. [How do Sealed Classes control inheritance hierarchy?](#q19-how-do-sealed-classes-control-inheritance-hierarchy) <span class="intermediate">Intermediate</span>
+20. [How do you use Pattern Matching in Switch expressions?](#q20-how-do-you-use-pattern-matching-in-switch-expressions) <span class="intermediate">Intermediate</span>
+21. [How do Virtual Threads (Project Loom) differ from Platform Threads?](#q21-how-do-virtual-threads-project-loom-differ-from-platform-threads) <span class="advanced">Advanced</span>
+22. [How do you use Structured Concurrency?](#q22-how-do-you-use-structured-concurrency) <span class="advanced">Advanced</span>
+23. [How do you tune Garbage Collection for low latency?](#q23-how-do-you-tune-garbage-collection-for-low-latency) <span class="advanced">Advanced</span>
+24. [How do you chain multiple asynchronous tasks?](#q24-how-do-you-chain-multiple-asynchronous-tasks) <span class="intermediate">Intermediate</span>
+25. [How do you group elements in a Stream?](#q25-how-do-you-group-elements-in-a-stream) <span class="intermediate">Intermediate</span>
+26. [How do you flatten a list of lists using Streams?](#q26-how-do-you-flatten-a-list-of-lists-using-streams) <span class="intermediate">Intermediate</span>
+27. [How do you solve the N+1 Select problem in Hibernate/JPA?](#q27-how-do-you-solve-the-n1-select-problem-in-hibernatejpa) <span class="advanced">Advanced</span>
+28. [How do you implement Caching with Redis in Spring Boot?](#q28-how-do-you-implement-caching-with-redis-in-spring-boot) <span class="intermediate">Intermediate</span>
+29. [How do you implement a Circuit Breaker using Resilience4j?](#q29-how-do-you-implement-a-circuit-breaker-using-resilience4j) <span class="advanced">Advanced</span>
+30. [How do you unit test a Spring Service with Mockito?](#q30-how-do-you-unit-test-a-spring-service-with-mockito) <span class="intermediate">Intermediate</span>
+31. [How do you handle global exceptions in Spring Boot?](#q31-how-do-you-handle-global-exceptions-in-spring-boot) <span class="intermediate">Intermediate</span>
+32. [How do you create a Dockerfile for a Java application?](#q32-how-do-you-create-a-dockerfile-for-a-java-application) <span class="intermediate">Intermediate</span>
+33. [How do you implement an API Gateway pattern?](#q33-how-do-you-implement-an-api-gateway-pattern) <span class="advanced">Advanced</span>
+34. [How do you create a non-blocking REST API with Spring WebFlux?](#q34-how-do-you-create-a-non-blocking-rest-api-with-spring-webflux) <span class="advanced">Advanced</span>
+35. [How do you implement Health Checks in Spring Boot?](#q35-how-do-you-implement-health-checks-in-spring-boot) <span class="beginner">Beginner</span>
+36. [How do you ensure a specific execution order of beans?](#q36-how-do-you-ensure-a-specific-execution-order-of-beans) <span class="beginner">Beginner</span>
+37. [How do you handle configuration for multiple environments?](#q37-how-do-you-handle-configuration-for-multiple-environments) <span class="beginner">Beginner</span>
+38. [How do you implement a Kafka Consumer with Spring Boot?](#q38-how-do-you-implement-a-kafka-consumer-with-spring-boot) <span class="intermediate">Intermediate</span>
+39. [How do you secure passwords in Java?](#q39-how-do-you-secure-passwords-in-java) <span class="intermediate">Intermediate</span>
+40. [How do you debug a deadlock in Java?](#q40-how-do-you-debug-a-deadlock-in-java) <span class="advanced">Advanced</span>
+41. [How do you implement the Singleton pattern safely in Java?](#q41-how-do-you-implement-the-singleton-pattern-safely-in-java) <span class="beginner">Beginner</span>
+42. [How do you implement the Factory Pattern using Java 8+ features?](#q42-how-do-you-implement-the-factory-pattern-using-java-8-features) <span class="intermediate">Intermediate</span>
+43. [How do you implement the Strategy Pattern with Lambdas?](#q43-how-do-you-implement-the-strategy-pattern-with-lambdas) <span class="intermediate">Intermediate</span>
+44. [How do you implement the Observer Pattern using Spring Events?](#q44-how-do-you-implement-the-observer-pattern-using-spring-events) <span class="intermediate">Intermediate</span>
+45. [What is the difference between REQUIRED and REQUIRES_NEW transaction propagation?](#q45-what-is-the-difference-between-required-and-requires_new-transaction-propagation) <span class="advanced">Advanced</span>
+46. [How do you implement Optimistic Locking in JPA?](#q46-how-do-you-implement-optimistic-locking-in-jpa) <span class="intermediate">Intermediate</span>
+47. [How do you chain multiple asynchronous tasks using CompletableFuture?](#q47-how-do-you-chain-multiple-asynchronous-tasks-using-completablefuture) <span class="advanced">Advanced</span>
+48. [How do you write a Parameterized Test in JUnit 5?](#q48-how-do-you-write-a-parameterized-test-in-junit-5) <span class="intermediate">Intermediate</span>
+49. [How do you use TestContainers for integration testing?](#q49-how-do-you-use-testcontainers-for-integration-testing) <span class="advanced">Advanced</span>
+50. [How do you implement a simple Rate Limiter using Bucket4j?](#q50-how-do-you-implement-a-simple-rate-limiter-using-bucket4j) <span class="advanced">Advanced</span>
+51. [How do you implement Distributed Locking with Redis (Redisson)?](#q51-how-do-you-implement-distributed-locking-with-redis-redisson) <span class="advanced">Advanced</span>
+52. [How do you handle JWT Authentication in Spring Security?](#q52-how-do-you-handle-jwt-authentication-in-spring-security) <span class="advanced">Advanced</span>
+53. [How do you expose a custom metric in Spring Boot Actuator?](#q53-how-do-you-expose-a-custom-metric-in-spring-boot-actuator) <span class="intermediate">Intermediate</span>
+54. [What is the difference between @Mock and @Spy in Mockito?](#q54-what-is-the-difference-between-mock-and-spy-in-mockito) <span class="intermediate">Intermediate</span>
+55. [How do you use Java Records (Java 14+)?](#q55-how-do-you-use-java-records-java-14) <span class="beginner">Beginner</span>
+56. [How do you use Sealed Classes (Java 17+)?](#q56-how-do-you-use-sealed-classes-java-17) <span class="intermediate">Intermediate</span>
+57. [How do you implement a Global Exception Handler in Spring Boot?](#q57-how-do-you-implement-a-global-exception-handler-in-spring-boot) <span class="intermediate">Intermediate</span>
+58. [How do you use Optional correctly to avoid NullPointerException?](#q58-how-do-you-use-optional-correctly-to-avoid-nullpointerexception) <span class="beginner">Beginner</span>
+59. [How do you solve the 'LazyInitializationException' in Hibernate?](#q59-how-do-you-solve-the-lazyinitializationexception-in-hibernate) <span class="intermediate">Intermediate</span>
+60. [How do you implement a simple REST Client using RestClient (Spring Boot 3.2+)?](#q60-how-do-you-implement-a-simple-rest-client-using-restclient-spring-boot-32) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -446,645 +397,25 @@ public @interface LogExecutionTime {
 
 ---
 
-### Q16: How do you implement Spring Boot Starters?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `spring-boot-starter-web` to handle spring boot starters. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Spring Boot Starters
-public void useSpringBootStarters() {
-    System.out.println("Using spring-boot-starter-web for Spring Boot Starters");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q17: How do you implement Spring AOP?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `@Aspect` to handle spring aop. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Spring AOP
-public void useSpringAOP() {
-    System.out.println("Using @Aspect for Spring AOP");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q18: How do you implement Maven/Gradle?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `pom.xml / build.gradle` to handle maven/gradle. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Maven/Gradle
-public void useMavenGradle() {
-    System.out.println("Using pom.xml / build.gradle for Maven/Gradle");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q19: How do you implement JUnit 5?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `@Test` to handle junit 5. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for JUnit 5
-public void useJUnit5() {
-    System.out.println("Using @Test for JUnit 5");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q20: How do you implement Mockito?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Mockito.mock()` to handle mockito. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Mockito
-public void useMockito() {
-    System.out.println("Using Mockito.mock() for Mockito");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q21: How do you implement Log4j2?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Logger.info()` to handle log4j2. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Log4j2
-public void useLog4j2() {
-    System.out.println("Using Logger.info() for Log4j2");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q22: How do you implement Jackson JSON?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `ObjectMapper` to handle jackson json. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Jackson JSON
-public void useJacksonJSON() {
-    System.out.println("Using ObjectMapper for Jackson JSON");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q23: How do you implement Protobuf?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `.proto files` to handle protobuf. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Protobuf
-public void useProtobuf() {
-    System.out.println("Using .proto files for Protobuf");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q24: How do you implement gRPC?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `gRPC Stub` to handle grpc. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for gRPC
-public void usegRPC() {
-    System.out.println("Using gRPC Stub for gRPC");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q25: How do you implement Kafka Consumer?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `@KafkaListener` to handle kafka consumer. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Kafka Consumer
-public void useKafkaConsumer() {
-    System.out.println("Using @KafkaListener for Kafka Consumer");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q26: How do you implement Redis Cache?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Jedis / Lettuce` to handle redis cache. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Redis Cache
-public void useRedisCache() {
-    System.out.println("Using Jedis / Lettuce for Redis Cache");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q27: How do you implement JDBC Transactions?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `connection.commit()` to handle jdbc transactions. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for JDBC Transactions
-public void useJDBCTransactions() {
-    System.out.println("Using connection.commit() for JDBC Transactions");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q28: How do you implement Connection Pooling (HikariCP)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `HikariDataSource` to handle connection pooling (hikaricp). This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Connection Pooling (HikariCP)
-public void useConnectionPooling(HikariCP)() {
-    System.out.println("Using HikariDataSource for Connection Pooling (HikariCP)");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q29: How do you implement Garbage Collection Tuning (G1GC)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `-XX:+UseG1GC` to handle garbage collection tuning (g1gc). This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Garbage Collection Tuning (G1GC)
-public void useGarbageCollectionTuning(G1GC)() {
-    System.out.println("Using -XX:+UseG1GC for Garbage Collection Tuning (G1GC)");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q30: How do you implement JIT Compiler?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `HotSpot` to handle jit compiler. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for JIT Compiler
-public void useJITCompiler() {
-    System.out.println("Using HotSpot for JIT Compiler");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q31: How do you implement ClassLoaders?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `ClassLoader.loadClass()` to handle classloaders. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for ClassLoaders
-public void useClassLoaders() {
-    System.out.println("Using ClassLoader.loadClass() for ClassLoaders");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q32: How do you implement JPMS (Modules)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `module-info.java` to handle jpms (modules). This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for JPMS (Modules)
-public void useJPMS(Modules)() {
-    System.out.println("Using module-info.java for JPMS (Modules)");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q33: How do you implement Varargs?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `String... args` to handle varargs. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Varargs
-public void useVarargs() {
-    System.out.println("Using String... args for Varargs");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q34: How do you implement Try-With-Resources?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `AutoCloseable` to handle try-with-resources. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Try-With-Resources
-public void useTryWithResources() {
-    System.out.println("Using AutoCloseable for Try-With-Resources");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q35: How do you implement Switch Expressions?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `yield` to handle switch expressions. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Switch Expressions
-public void useSwitchExpressions() {
-    System.out.println("Using yield for Switch Expressions");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q36: How do you implement Text Blocks?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `"""` to handle text blocks. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Text Blocks
-public void useTextBlocks() {
-    System.out.println("Using """ for Text Blocks");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q37: How do you implement Pattern Matching for instanceof?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `instanceof String s` to handle pattern matching for instanceof. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Pattern Matching for instanceof
-public void usePatternMatchingforinstanceof() {
-    System.out.println("Using instanceof String s for Pattern Matching for instanceof");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q38: How do you implement Sealed Classes?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `sealed interface` to handle sealed classes. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Sealed Classes
-public void useSealedClasses() {
-    System.out.println("Using sealed interface for Sealed Classes");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q39: How do you implement Records?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `record Point(int x, int y)` to handle records. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Records
-public void useRecords() {
-    System.out.println("Using record Point(int x, int y) for Records");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q40: How do you implement Foreign Function & Memory API?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `MemorySegment` to handle foreign function & memory api. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Foreign Function & Memory API
-public void useForeignFunctionMemoryAPI() {
-    System.out.println("Using MemorySegment for Foreign Function & Memory API");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q41: How do you implement Virtual Threads (Project Loom)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Thread.ofVirtual()` to handle virtual threads (project loom). This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Virtual Threads (Project Loom)
-public void useVirtualThreads(ProjectLoom)() {
-    System.out.println("Using Thread.ofVirtual() for Virtual Threads (Project Loom)");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q42: How do you implement Structured Concurrency?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `StructuredTaskScope` to handle structured concurrency. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Structured Concurrency
-public void useStructuredConcurrency() {
-    System.out.println("Using StructuredTaskScope for Structured Concurrency");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q43: How do you implement Vector API?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `VectorSpecies` to handle vector api. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Vector API
-public void useVectorAPI() {
-    System.out.println("Using VectorSpecies for Vector API");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q44: How do you implement JPA/Hibernate?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `@Entity` to handle jpa/hibernate. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for JPA/Hibernate
-public void useJPAHibernate() {
-    System.out.println("Using @Entity for JPA/Hibernate");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q45: How do you implement Spring Data JPA?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `JpaRepository` to handle spring data jpa. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Spring Data JPA
-public void useSpringDataJPA() {
-    System.out.println("Using JpaRepository for Spring Data JPA");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q46: How do you implement Spring Security?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `@EnableWebSecurity` to handle spring security. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Spring Security
-public void useSpringSecurity() {
-    System.out.println("Using @EnableWebSecurity for Spring Security");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q47: How do you implement JWT Auth?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Bearer Token` to handle jwt auth. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for JWT Auth
-public void useJWTAuth() {
-    System.out.println("Using Bearer Token for JWT Auth");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q48: How do you implement OAuth2?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Authorization Code Flow` to handle oauth2. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for OAuth2
-public void useOAuth2() {
-    System.out.println("Using Authorization Code Flow for OAuth2");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q49: How do you implement Reactive Streams?
+### Q16: How do you create a custom Spring Boot Starter?
 
 **Difficulty**: Advanced
 
 **Strategy:**
-Utilize `Flux/Mono` to handle reactive streams. This approach ensures robust and scalable implementation suitable for advanced use cases.
+Create a separate module with an **AutoConfiguration** class, register it in `META-INF/spring/org.springframework.boot.autoconfigure.AutoConfiguration.imports` (Spring Boot 3+), and optionally provide a `Properties` class for configuration.
 
 **Code Example:**
 ```java
-// Example implementation for Reactive Streams
-public void useReactiveStreams() {
-    System.out.println("Using Flux/Mono for Reactive Streams");
+@Configuration
+@ConditionalOnClass(MyService.class)
+@EnableConfigurationProperties(MyProperties.class)
+public class MyStarterAutoConfiguration {
+
+    @Bean
+    @ConditionalOnMissingBean
+    public MyService myService(MyProperties properties) {
+        return new MyService(properties.getConfig());
+    }
 }
 ```
 
@@ -1092,151 +423,26 @@ public void useReactiveStreams() {
 
 ---
 
-### Q50: How do you implement Project Reactor?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `Reactor Core` to handle project reactor. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for Project Reactor
-public void useProjectReactor() {
-    System.out.println("Using Reactor Core for Project Reactor");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q51: How do you implement Netty?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `EventLoop` to handle netty. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for Netty
-public void useNetty() {
-    System.out.println("Using EventLoop for Netty");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q52: How do you implement Microservices?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `Spring Cloud` to handle microservices. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for Microservices
-public void useMicroservices() {
-    System.out.println("Using Spring Cloud for Microservices");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: How do you implement Service Discovery?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `Eureka` to handle service discovery. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for Service Discovery
-public void useServiceDiscovery() {
-    System.out.println("Using Eureka for Service Discovery");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you implement Circuit Breaker?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `Resilience4j` to handle circuit breaker. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for Circuit Breaker
-public void useCircuitBreaker() {
-    System.out.println("Using Resilience4j for Circuit Breaker");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How do you implement API Gateway?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `Spring Cloud Gateway` to handle api gateway. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for API Gateway
-public void useAPIGateway() {
-    System.out.println("Using Spring Cloud Gateway for API Gateway");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: How do you implement Distributed Tracing?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `Zipkin / Sleuth` to handle distributed tracing. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for Distributed Tracing
-public void useDistributedTracing() {
-    System.out.println("Using Zipkin / Sleuth for Distributed Tracing");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q57: How do you implement Health Checks?
+### Q17: How do you implement AOP for logging execution time?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize `Spring Boot Actuator` to handle health checks. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+Use Spring AOP with `@Aspect` and `@Around`. This allows you to intercept method execution, start a timer, proceed with the execution, and log the duration.
 
 **Code Example:**
 ```java
-// Example implementation for Health Checks
-public void useHealthChecks() {
-    System.out.println("Using Spring Boot Actuator for Health Checks");
+@Aspect
+@Component
+public class LoggingAspect {
+    @Around("@annotation(LogExecutionTime)")
+    public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
+        long start = System.currentTimeMillis();
+        Object proceed = joinPoint.proceed();
+        long executionTime = System.currentTimeMillis() - start;
+        System.out.println(joinPoint.getSignature() + " executed in " + executionTime + "ms");
+        return proceed;
+    }
 }
 ```
 
@@ -1244,189 +450,107 @@ public void useHealthChecks() {
 
 ---
 
-### Q58: How do you implement Prometheus Metrics?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Micrometer` to handle prometheus metrics. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Prometheus Metrics
-public void usePrometheusMetrics() {
-    System.out.println("Using Micrometer for Prometheus Metrics");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q59: How do you implement Dockerizing Java?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Dockerfile (OpenJDK)` to handle dockerizing java. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Dockerizing Java
-public void useDockerizingJava() {
-    System.out.println("Using Dockerfile (OpenJDK) for Dockerizing Java");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: How do you implement Kubernetes Java?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `Fabric8 Client` to handle kubernetes java. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for Kubernetes Java
-public void useKubernetesJava() {
-    System.out.println("Using Fabric8 Client for Kubernetes Java");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q61: How do you implement GraphQL Java?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Schema definition` to handle graphql java. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for GraphQL Java
-public void useGraphQLJava() {
-    System.out.println("Using Schema definition for GraphQL Java");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q62: How do you implement WebSocket?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `@ServerEndpoint` to handle websocket. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for WebSocket
-public void useWebSocket() {
-    System.out.println("Using @ServerEndpoint for WebSocket");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: How do you implement RMI?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `Remote interface` to handle rmi. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for RMI
-public void useRMI() {
-    System.out.println("Using Remote interface for RMI");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q64: How do you implement JNDI?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `InitialContext` to handle jndi. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for JNDI
-public void useJNDI() {
-    System.out.println("Using InitialContext for JNDI");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q65: How do you implement JMX?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `MBean` to handle jmx. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for JMX
-public void useJMX() {
-    System.out.println("Using MBean for JMX");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q66: How do you implement Serialization?
+### Q18: What are Java Records and when should you use them?
 
 **Difficulty**: Beginner
 
 **Strategy:**
-Utilize `Serializable` to handle serialization. This approach ensures robust and scalable implementation suitable for beginner use cases.
+Records (introduced in Java 14/16) are immutable data carriers. They automatically generate `constructor`, `getters` (without `get` prefix), `equals()`, `hashCode()`, and `toString()`. Use them for DTOs and configuration objects.
 
 **Code Example:**
 ```java
-// Example implementation for Serialization
-public void useSerialization() {
-    System.out.println("Using Serializable for Serialization");
-}
+public record Point(int x, int y) {}
+
+// Usage
+Point p = new Point(10, 20);
+System.out.println(p.x()); // 10
+System.out.println(p);     // Point[x=10, y=20]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you implement Externalization?
+### Q19: How do Sealed Classes control inheritance hierarchy?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Sealed classes (`sealed`) restrict which classes can extend them using `permits`. This provides better control over the hierarchy and enables exhaustive pattern matching in switch expressions.
+
+**Code Example:**
+```java
+public sealed interface Shape permits Circle, Rectangle {}
+
+public final class Circle implements Shape {}
+public final class Rectangle implements Shape {}
+// public class Triangle implements Shape {} // Compilation Error
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q20: How do you use Pattern Matching in Switch expressions?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use modern `switch` expressions (Java 17+) to handle different types directly without casting. It works well with Sealed Classes for exhaustive checks.
+
+**Code Example:**
+```java
+String result = switch (obj) {
+    case Integer i -> "It's an integer: " + i;
+    case String s -> "It's a string: " + s;
+    case null -> "It's null";
+    default -> "Unknown type";
+};
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q21: How do Virtual Threads (Project Loom) differ from Platform Threads?
 
 **Difficulty**: Advanced
 
 **Strategy:**
-Utilize `Externalizable` to handle externalization. This approach ensures robust and scalable implementation suitable for advanced use cases.
+**Virtual Threads** (Java 21) are lightweight user-mode threads managed by the JVM, not the OS. They allow creating millions of threads for high-throughput concurrent applications (blocking I/O), whereas Platform Threads are expensive OS threads.
 
 **Code Example:**
 ```java
-// Example implementation for Externalization
-public void useExternalization() {
-    System.out.println("Using Externalizable for Externalization");
+try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
+    IntStream.range(0, 10_000).forEach(i -> {
+        executor.submit(() -> {
+            Thread.sleep(Duration.ofSeconds(1));
+            return i;
+        });
+    });
+} // Executor auto-closes and waits for tasks
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q22: How do you use Structured Concurrency?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Structured Concurrency (Preview) treats multiple tasks running in different threads as a single unit of work. It simplifies error handling and cancellation.
+
+**Code Example:**
+```java
+try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+    Supplier<String> user  = scope.fork(() -> fetchUser(id));
+    Supplier<List<Order>> orders = scope.fork(() -> fetchOrders(id));
+
+    scope.join().throwIfFailed(); // Wait for all, fail if any fails
+
+    return new Response(user.get(), orders.get());
 }
 ```
 
@@ -1434,303 +558,347 @@ public void useExternalization() {
 
 ---
 
-### Q68: How do you implement Cloneable?
+### Q23: How do you tune Garbage Collection for low latency?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use **ZGC** (Java 15+) or **Shenandoah GC** for sub-millisecond pause times on large heaps. Alternatively, tune **G1GC** (default) by adjusting max pause time targets.
+
+**Code Example:**
+```bash
+# Enable ZGC
+java -XX:+UseZGC -jar app.jar
+
+# Tune G1GC for 200ms max pause
+java -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -jar app.jar
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q24: How do you chain multiple asynchronous tasks?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `CompletableFuture.thenCompose()` to chain dependent tasks (flatmap style) or `thenCombine()` to run tasks in parallel and combine results.
+
+**Code Example:**
+```java
+CompletableFuture.supplyAsync(() -> fetchUserId())
+    .thenCompose(userId -> fetchUserDetails(userId))
+    .thenAccept(details -> System.out.println(details));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q25: How do you group elements in a Stream?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `Collectors.groupingBy()`. It returns a Map where keys are the classification and values are Lists of items.
+
+**Code Example:**
+```java
+Map<String, List<Person>> byCity = people.stream()
+    .collect(Collectors.groupingBy(Person::getCity));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q26: How do you flatten a list of lists using Streams?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `.flatMap()` to transform each element into a stream and flatten the result into a single stream.
+
+**Code Example:**
+```java
+List<List<String>> nested = Arrays.asList(
+    Arrays.asList("a", "b"), 
+    Arrays.asList("c", "d")
+);
+
+List<String> flat = nested.stream()
+    .flatMap(List::stream)
+    .collect(Collectors.toList());
+// Result: [a, b, c, d]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q27: How do you solve the N+1 Select problem in Hibernate/JPA?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use **JOIN FETCH** in JPQL to load related entities in a single query, or use **Entity Graphs**.
+
+**Code Example:**
+```java
+// BAD: Triggers N+1 queries if accessing orders
+@Query("SELECT u FROM User u")
+List<User> findAll();
+
+// GOOD: Fetches orders in the same query
+@Query("SELECT u FROM User u JOIN FETCH u.orders")
+List<User> findAllWithOrders();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q28: How do you implement Caching with Redis in Spring Boot?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Enable caching with `@EnableCaching`, configure Redis as the cache manager, and use `@Cacheable` on service methods.
+
+**Code Example:**
+```java
+@Service
+public class UserService {
+    @Cacheable(value = "users", key = "#userId")
+    public User getUser(String userId) {
+        // Expensive DB call
+        return userRepository.findById(userId).orElseThrow();
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q29: How do you implement a Circuit Breaker using Resilience4j?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `@CircuitBreaker` annotation. It monitors failures and "opens" the circuit (stops requests) to prevent cascading failures, then periodically checks if the service is back.
+
+**Code Example:**
+```java
+@CircuitBreaker(name = "inventoryService", fallbackMethod = "fallbackInventory")
+public String getInventory(String productId) {
+    return restTemplate.getForObject("/inventory/" + productId, String.class);
+}
+
+public String fallbackInventory(String productId, Throwable t) {
+    return "Default Inventory";
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q30: How do you unit test a Spring Service with Mockito?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `@ExtendWith(MockitoExtension.class)` and `@InjectMocks` for the service under test, and `@Mock` for dependencies.
+
+**Code Example:**
+```java
+@ExtendWith(MockitoExtension.class)
+class UserServiceTest {
+    @Mock UserRepository repo;
+    @InjectMocks UserService service;
+
+    @Test
+    void testGetUser() {
+        when(repo.findById(1L)).thenReturn(Optional.of(new User(1L, "John")));
+        
+        User user = service.getUser(1L);
+        
+        assertEquals("John", user.getName());
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q31: How do you handle global exceptions in Spring Boot?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `@ControllerAdvice` (or `@RestControllerAdvice`) with `@ExceptionHandler` methods to handle exceptions globally and return consistent error responses.
+
+**Code Example:**
+```java
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<String> handleNotFound(UserNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: How do you create a Dockerfile for a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use a multi-stage build to compile the code (Maven/Gradle) in the first stage and copy the JAR to a lightweight JRE image in the second stage.
+
+**Code Example:**
+```dockerfile
+# Stage 1: Build
+FROM maven:3.8-eclipse-temurin-17 AS build
+COPY . /app
+WORKDIR /app
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run
+FROM eclipse-temurin:17-jre
+COPY --from=build /app/target/myapp.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you implement an API Gateway pattern?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use **Spring Cloud Gateway**. It acts as a single entry point for microservices, handling routing, security, rate limiting, and monitoring.
+
+**Code Example:**
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/users/**
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you create a non-blocking REST API with Spring WebFlux?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use **Spring WebFlux** with `Mono` (0..1) and `Flux` (0..N) types. It uses Netty by default for high concurrency.
+
+**Code Example:**
+```java
+@RestController
+@RequestMapping("/reactive")
+public class ReactiveController {
+
+    @GetMapping("/stream")
+    public Flux<String> streamData() {
+        return Flux.interval(Duration.ofSeconds(1))
+                   .map(i -> "Data chunk " + i);
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you implement Health Checks in Spring Boot?
 
 **Difficulty**: Beginner
 
 **Strategy:**
-Utilize `clone()` to handle cloneable. This approach ensures robust and scalable implementation suitable for beginner use cases.
+Add `spring-boot-starter-actuator`. It exposes endpoints like `/actuator/health` to monitor application status, database connectivity, and disk space.
 
 **Code Example:**
-```java
-// Example implementation for Cloneable
-public void useCloneable() {
-    System.out.println("Using clone() for Cloneable");
-}
+```properties
+# application.properties
+management.endpoints.web.exposure.include=health,info
+management.endpoint.health.show-details=always
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you implement WeakReference?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `WeakReference<T>` to handle weakreference. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for WeakReference
-public void useWeakReference() {
-    System.out.println("Using WeakReference<T> for WeakReference");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you implement SoftReference?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `SoftReference<T>` to handle softreference. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for SoftReference
-public void useSoftReference() {
-    System.out.println("Using SoftReference<T> for SoftReference");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q71: How do you implement PhantomReference?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `PhantomReference<T>` to handle phantomreference. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for PhantomReference
-public void usePhantomReference() {
-    System.out.println("Using PhantomReference<T> for PhantomReference");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q72: How do you implement ThreadLocal?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `ThreadLocal.withInitial()` to handle threadlocal. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for ThreadLocal
-public void useThreadLocal() {
-    System.out.println("Using ThreadLocal.withInitial() for ThreadLocal");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: How do you implement CompletableFuture?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `supplyAsync()` to handle completablefuture. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for CompletableFuture
-public void useCompletableFuture() {
-    System.out.println("Using supplyAsync() for CompletableFuture");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q74: How do you implement CountDownLatch?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `await() / countDown()` to handle countdownlatch. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for CountDownLatch
-public void useCountDownLatch() {
-    System.out.println("Using await() / countDown() for CountDownLatch");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you implement CyclicBarrier?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `await()` to handle cyclicbarrier. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for CyclicBarrier
-public void useCyclicBarrier() {
-    System.out.println("Using await() for CyclicBarrier");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: How do you implement Semaphore?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `acquire() / release()` to handle semaphore. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Semaphore
-public void useSemaphore() {
-    System.out.println("Using acquire() / release() for Semaphore");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: How do you implement Phaser?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `arriveAndAwaitAdvance()` to handle phaser. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Phaser
-public void usePhaser() {
-    System.out.println("Using arriveAndAwaitAdvance() for Phaser");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: How do you implement Exchanger?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `exchange()` to handle exchanger. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Exchanger
-public void useExchanger() {
-    System.out.println("Using exchange() for Exchanger");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q79: How do you implement BlockingQueue?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `put() / take()` to handle blockingqueue. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for BlockingQueue
-public void useBlockingQueue() {
-    System.out.println("Using put() / take() for BlockingQueue");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q80: How do you implement PriorityQueue?
+### Q36: How do you ensure a specific execution order of beans?
 
 **Difficulty**: Beginner
 
 **Strategy:**
-Utilize `Comparator` to handle priorityqueue. This approach ensures robust and scalable implementation suitable for beginner use cases.
+Use `@Order` annotation or implement `Ordered` interface. However, for dependency injection order, rely on `@DependsOn` (though explicit dependency injection is preferred).
 
 **Code Example:**
 ```java
-// Example implementation for PriorityQueue
-public void usePriorityQueue() {
-    System.out.println("Using Comparator for PriorityQueue");
-}
+@Component
+@Order(1)
+public class FirstFilter implements Filter { ... }
+
+@Component
+@Order(2)
+public class SecondFilter implements Filter { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you implement LinkedList vs ArrayList?
+### Q37: How do you handle configuration for multiple environments?
 
 **Difficulty**: Beginner
 
 **Strategy:**
-Utilize `Access vs Insert` to handle linkedlist vs arraylist. This approach ensures robust and scalable implementation suitable for beginner use cases.
+Use **Spring Profiles**. Create separate properties files (`application-dev.properties`, `application-prod.properties`) and activate them using `spring.profiles.active`.
 
 **Code Example:**
-```java
-// Example implementation for LinkedList vs ArrayList
-public void useLinkedListvsArrayList() {
-    System.out.println("Using Access vs Insert for LinkedList vs ArrayList");
-}
+```bash
+# Run with production profile
+java -jar app.jar --spring.profiles.active=prod
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you implement HashMap vs TreeMap?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Utilize `Hashing vs Sorting` to handle hashmap vs treemap. This approach ensures robust and scalable implementation suitable for beginner use cases.
-
-**Code Example:**
-```java
-// Example implementation for HashMap vs TreeMap
-public void useHashMapvsTreeMap() {
-    System.out.println("Using Hashing vs Sorting for HashMap vs TreeMap");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q83: How do you implement ConcurrentHashMap?
+### Q38: How do you implement a Kafka Consumer with Spring Boot?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize `Segment locking` to handle concurrenthashmap. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+Use `@KafkaListener`. Configure the bootstrap servers and group ID in properties, then annotate a method to listen to a topic.
 
 **Code Example:**
 ```java
-// Example implementation for ConcurrentHashMap
-public void useConcurrentHashMap() {
-    System.out.println("Using Segment locking for ConcurrentHashMap");
+@KafkaListener(topics = "orders", groupId = "order-group")
+public void listen(String message) {
+    System.out.println("Received Order: " + message);
 }
 ```
 
@@ -1738,37 +906,95 @@ public void useConcurrentHashMap() {
 
 ---
 
-### Q84: How do you implement CopyOnWriteArrayList?
+### Q39: How do you secure passwords in Java?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize `Thread-safe list` to handle copyonwritearraylist. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+Never store plain text. Use a strong hashing algorithm like **BCrypt** (provided by Spring Security) or **Argon2**.
 
 **Code Example:**
 ```java
-// Example implementation for CopyOnWriteArrayList
-public void useCopyOnWriteArrayList() {
-    System.out.println("Using Thread-safe list for CopyOnWriteArrayList");
-}
+BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+String hashed = encoder.encode("mySecretPassword");
+
+boolean matches = encoder.matches("mySecretPassword", hashed);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q85: How do you implement IdentityHashMap?
+### Q40: How do you debug a deadlock in Java?
 
 **Difficulty**: Advanced
 
 **Strategy:**
-Utilize `Reference equality` to handle identityhashmap. This approach ensures robust and scalable implementation suitable for advanced use cases.
+Use `jstack` or **VisualVM** to take a thread dump. Look for threads stuck in `BLOCKED` state waiting for a lock held by another thread that is also waiting.
+
+**Code Example:**
+```bash
+# Find PID
+jps -l
+
+# Take thread dump
+jstack <PID> > dump.txt
+
+# Look for "Found one Java-level deadlock" in dump.txt
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+### Q41: How do you implement the Singleton pattern safely in Java?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+The best way to implement a Singleton in modern Java is using an **Enum**. It provides serialization machinery for free, prevents multiple instantiation (even with reflection), and is thread-safe.
 
 **Code Example:**
 ```java
-// Example implementation for IdentityHashMap
-public void useIdentityHashMap() {
-    System.out.println("Using Reference equality for IdentityHashMap");
+public enum Singleton {
+    INSTANCE;
+
+    public void doSomething() {
+        System.out.println("Doing something...");
+    }
+}
+
+// Usage
+Singleton.INSTANCE.doSomething();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you implement the Factory Pattern using Java 8+ features?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Instead of a switch-case or if-else block, use a `Map<String, Supplier<MyInterface>>` to register implementations. This makes the factory open for extension but closed for modification.
+
+**Code Example:**
+```java
+public class ShapeFactory {
+    private final Map<String, Supplier<Shape>> map = new HashMap<>();
+
+    public ShapeFactory() {
+        map.put("CIRCLE", Circle::new);
+        map.put("SQUARE", Square::new);
+    }
+
+    public Shape create(String type) {
+        return map.getOrDefault(type, () -> { 
+            throw new IllegalArgumentException("Unknown shape"); 
+        }).get();
+    }
 }
 ```
 
@@ -1776,18 +1002,88 @@ public void useIdentityHashMap() {
 
 ---
 
-### Q86: How do you implement WeakHashMap?
+### Q43: How do you implement the Strategy Pattern with Lambdas?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+You don't always need separate classes for strategies. You can use a Functional Interface and pass lambdas or method references.
+
+**Code Example:**
+```java
+public class PaymentProcessor {
+    private final Function<Integer, String> strategy;
+
+    public PaymentProcessor(Function<Integer, String> strategy) {
+        this.strategy = strategy;
+    }
+
+    public void process(int amount) {
+        System.out.println(strategy.apply(amount));
+    }
+}
+
+// Usage
+new PaymentProcessor(amt -> "Paid $" + amt + " via Credit Card").process(100);
+new PaymentProcessor(amt -> "Paid $" + amt + " via PayPal").process(200);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you implement the Observer Pattern using Spring Events?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Spring provides a built-in event mechanism. Create an event class extending `ApplicationEvent` (or just a POJO), publish it using `ApplicationEventPublisher`, and listen using `@EventListener`.
+
+**Code Example:**
+```java
+@Component
+public class UserRegistrationService {
+    @Autowired private ApplicationEventPublisher publisher;
+
+    public void register(String email) {
+        // Logic...
+        publisher.publishEvent(new UserRegisteredEvent(email));
+    }
+}
+
+@Component
+public class EmailService {
+    @EventListener
+    public void sendWelcomeEmail(UserRegisteredEvent event) {
+        System.out.println("Sending email to " + event.getEmail());
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: What is the difference between REQUIRED and REQUIRES_NEW transaction propagation?
 
 **Difficulty**: Advanced
 
 **Strategy:**
-Utilize `Weak keys` to handle weakhashmap. This approach ensures robust and scalable implementation suitable for advanced use cases.
+**REQUIRED** (default) joins an existing transaction or creates a new one if none exists. **REQUIRES_NEW** suspends the current transaction and creates a completely new, independent transaction. If the inner REQUIRES_NEW transaction fails, it rolls back, but the outer transaction can continue (if the exception is caught).
 
 **Code Example:**
 ```java
-// Example implementation for WeakHashMap
-public void useWeakHashMap() {
-    System.out.println("Using Weak keys for WeakHashMap");
+@Transactional(propagation = Propagation.REQUIRED)
+public void outer() {
+    // Part of outer transaction
+    innerService.inner();
+    // If inner fails, outer is marked for rollback
+}
+
+@Transactional(propagation = Propagation.REQUIRES_NEW)
+public void inner() {
+    // Runs in a separate transaction
+    // If this fails, it rolls back ONLY this part (if caught in outer)
 }
 ```
 
@@ -1795,246 +1091,75 @@ public void useWeakHashMap() {
 
 ---
 
-### Q87: How do you implement EnumSet?
+### Q46: How do you implement Optimistic Locking in JPA?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize `Bit vectors` to handle enumset. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+Add a `@Version` annotation to a field (usually Long or Integer) in your entity. JPA will check this version during updates. If the version in the DB is higher than the entity's version, an `OptimisticLockException` is thrown.
 
 **Code Example:**
 ```java
-// Example implementation for EnumSet
-public void useEnumSet() {
-    System.out.println("Using Bit vectors for EnumSet");
+@Entity
+public class Product {
+    @Id private Long id;
+    
+    @Version
+    private Long version;
+    
+    private String name;
 }
+
+// When updating:
+// UPDATE product SET name=?, version=2 WHERE id=? AND version=1
+
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q88: How do you implement BitSet?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Bit manipulation` to handle bitset. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for BitSet
-public void useBitSet() {
-    System.out.println("Using Bit manipulation for BitSet");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q89: How do you implement BigInteger?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Utilize `Arbitrary precision` to handle biginteger. This approach ensures robust and scalable implementation suitable for beginner use cases.
-
-**Code Example:**
-```java
-// Example implementation for BigInteger
-public void useBigInteger() {
-    System.out.println("Using Arbitrary precision for BigInteger");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you implement BigDecimal?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Utilize `Currency calc` to handle bigdecimal. This approach ensures robust and scalable implementation suitable for beginner use cases.
-
-**Code Example:**
-```java
-// Example implementation for BigDecimal
-public void useBigDecimal() {
-    System.out.println("Using Currency calc for BigDecimal");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: How do you implement UUID?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Utilize `randomUUID()` to handle uuid. This approach ensures robust and scalable implementation suitable for beginner use cases.
-
-**Code Example:**
-```java
-// Example implementation for UUID
-public void useUUID() {
-    System.out.println("Using randomUUID() for UUID");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: How do you implement Base64?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Utilize `Encoder/Decoder` to handle base64. This approach ensures robust and scalable implementation suitable for beginner use cases.
-
-**Code Example:**
-```java
-// Example implementation for Base64
-public void useBase64() {
-    System.out.println("Using Encoder/Decoder for Base64");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: How do you implement MessageDigest?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `SHA-256` to handle messagedigest. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for MessageDigest
-public void useMessageDigest() {
-    System.out.println("Using SHA-256 for MessageDigest");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q94: How do you implement Cipher?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `AES Encryption` to handle cipher. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Cipher
-public void useCipher() {
-    System.out.println("Using AES Encryption for Cipher");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q95: How do you implement Signature?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Digital Signatures` to handle signature. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for Signature
-public void useSignature() {
-    System.out.println("Using Digital Signatures for Signature");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q96: How do you implement SecureRandom?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Cryptographic PRNG` to handle securerandom. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for SecureRandom
-public void useSecureRandom() {
-    System.out.println("Using Cryptographic PRNG for SecureRandom");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q97: How do you implement KeyStore?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize `Certificate storage` to handle keystore. This approach ensures robust and scalable implementation suitable for intermediate use cases.
-
-**Code Example:**
-```java
-// Example implementation for KeyStore
-public void useKeyStore() {
-    System.out.println("Using Certificate storage for KeyStore");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q98: How do you implement SSLContext?
+### Q47: How do you chain multiple asynchronous tasks using CompletableFuture?
 
 **Difficulty**: Advanced
 
 **Strategy:**
-Utilize `TLS protocol` to handle sslcontext. This approach ensures robust and scalable implementation suitable for advanced use cases.
+Use methods like `thenApply` (transform result), `thenCompose` (chain another Future), and `thenAccept` (consume result). Use `exceptionally` for error handling.
 
 **Code Example:**
 ```java
-// Example implementation for SSLContext
-public void useSSLContext() {
-    System.out.println("Using TLS protocol for SSLContext");
-}
+CompletableFuture.supplyAsync(() -> "Hello")
+    .thenApply(s -> s + " World")
+    .thenCompose(s -> CompletableFuture.supplyAsync(() -> s.toUpperCase()))
+    .thenAccept(System.out::println)
+    .exceptionally(ex -> {
+        System.err.println("Error: " + ex.getMessage());
+        return null;
+    });
+// Output: HELLO WORLD
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you implement HttpClient (Java 11)?
+### Q48: How do you write a Parameterized Test in JUnit 5?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize `send()` to handle httpclient (java 11). This approach ensures robust and scalable implementation suitable for intermediate use cases.
+Use `@ParameterizedTest` with a source like `@ValueSource`, `@CsvSource`, or `@MethodSource`. This allows running the same test logic with different inputs.
 
 **Code Example:**
 ```java
-// Example implementation for HttpClient (Java 11)
-public void useHttpClient(Java11)() {
-    System.out.println("Using send() for HttpClient (Java 11)");
+@ParameterizedTest
+@CsvSource({
+    "1, 1, 2",
+    "2, 3, 5",
+    "10, 5, 15"
+})
+void testAddition(int a, int b, int expected) {
+    assertEquals(expected, Calculator.add(a, b));
 }
 ```
 
@@ -2042,56 +1167,235 @@ public void useHttpClient(Java11)() {
 
 ---
 
-### Q100: How do you implement UrlConnection?
+### Q49: How do you use TestContainers for integration testing?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+TestContainers spins up real Docker containers (e.g., PostgreSQL, Redis) for tests. Use `@Container` and `@Testcontainers` (JUnit 5 support) or manually start/stop in setup/teardown.
+
+**Code Example:**
+```java
+@Testcontainers
+@SpringBootTest
+class UserServiceIT {
+
+    @Container
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:15");
+
+    @DynamicPropertySource
+    static void configureProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url", postgres::getJdbcUrl);
+        registry.add("spring.datasource.username", postgres::getUsername);
+        registry.add("spring.datasource.password", postgres::getPassword);
+    }
+
+    @Test
+    void testDatabaseInteraction() {
+        // Runs against real Postgres in Docker
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you implement a simple Rate Limiter using Bucket4j?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Create a `Bucket` with a `Bandwidth` (limit). In your controller or filter, call `bucket.tryConsume(1)`. If it returns false, reject the request.
+
+**Code Example:**
+```java
+// Configuration
+Bandwidth limit = Bandwidth.classic(10, Refill.greedy(10, Duration.ofMinutes(1)));
+Bucket bucket = Bucket4j.builder().addLimit(limit).build();
+
+// Usage in Controller
+if (bucket.tryConsume(1)) {
+    return ResponseEntity.ok("Request processed");
+} else {
+    return ResponseEntity.status(429).body("Too Many Requests");
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q51: How do you implement Distributed Locking with Redis (Redisson)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use Redisson's `RLock`. It implements `java.util.concurrent.locks.Lock`. Always use `try-finally` to ensure the lock is released.
+
+**Code Example:**
+```java
+@Autowired RedissonClient redisson;
+
+public void criticalSection() {
+    RLock lock = redisson.getLock("myLock");
+    try {
+        // Wait up to 10s, lock expires after 60s
+        if (lock.tryLock(10, 60, TimeUnit.SECONDS)) {
+            // Do critical work
+        }
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+    } finally {
+        if (lock.isHeldByCurrentThread()) {
+            lock.unlock();
+        }
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q52: How do you handle JWT Authentication in Spring Security?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Implement a `OncePerRequestFilter`. Extract the token from the `Authorization` header, validate it, create an `Authentication` object (e.g., `UsernamePasswordAuthenticationToken`), and set it in the `SecurityContextHolder`.
+
+**Code Example:**
+```java
+protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) {
+    String token = extractToken(request);
+    if (token != null && jwtUtils.validate(token)) {
+        String user = jwtUtils.getUser(token);
+        Authentication auth = new UsernamePasswordAuthenticationToken(user, null, Collections.emptyList());
+        SecurityContextHolder.getContext().setAuthentication(auth);
+    }
+    chain.doFilter(request, response);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q53: How do you expose a custom metric in Spring Boot Actuator?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Inject `MeterRegistry` and use it to create counters, gauges, or timers. Counters are for monotonic increments; gauges are for values that go up and down.
+
+**Code Example:**
+```java
+@Service
+public class OrderService {
+    private final Counter orderCounter;
+
+    public OrderService(MeterRegistry registry) {
+        this.orderCounter = registry.counter("orders.created");
+    }
+
+    public void createOrder() {
+        // Logic
+        orderCounter.increment();
+    }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q54: What is the difference between @Mock and @Spy in Mockito?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+**@Mock** creates a complete dummy object; real methods are NOT called unless stubbed. **@Spy** wraps a real object; real methods ARE called unless stubbed. Use Spy when you need partial mocking.
+
+**Code Example:**
+```java
+@Mock
+List<String> mockList; // mockList.add("a") does nothing
+
+@Spy
+List<String> spyList = new ArrayList<>(); // spyList.add("a") actually adds "a"
+
+// Stubbing spy
+doReturn("b").when(spyList).get(0); // partial mock
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q55: How do you use Java Records (Java 14+)?
 
 **Difficulty**: Beginner
 
 **Strategy:**
-Utilize `legacy HTTP` to handle urlconnection. This approach ensures robust and scalable implementation suitable for beginner use cases.
+Records are immutable data carriers. They automatically generate constructor, accessors, `equals`, `hashCode`, and `toString`. Use them for DTOs or map keys.
 
 **Code Example:**
 ```java
-// Example implementation for UrlConnection
-public void useUrlConnection() {
-    System.out.println("Using legacy HTTP for UrlConnection");
-}
+public record UserDto(String name, String email) {}
+
+// Usage
+UserDto user = new UserDto("Alice", "alice@example.com");
+System.out.println(user.name()); // Accessor (no get prefix)
+System.out.println(user); // UserDto[name=Alice, email=alice@example.com]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q101: How do you implement Socket Programming?
+### Q56: How do you use Sealed Classes (Java 17+)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize `ServerSocket` to handle socket programming. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+Sealed classes restrict which other classes may extend them. This provides fine-grained control over inheritance and enables exhaustive pattern matching.
 
 **Code Example:**
 ```java
-// Example implementation for Socket Programming
-public void useSocketProgramming() {
-    System.out.println("Using ServerSocket for Socket Programming");
-}
+public sealed interface Shape permits Circle, Square {}
+
+public final class Circle implements Shape {}
+public final class Square implements Shape {}
+
+// Pattern Matching (Java 21 switch)
+String type = switch (shape) {
+    case Circle c -> "It's a circle";
+    case Square s -> "It's a square";
+};
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q102: How do you implement DatagramSocket?
+### Q57: How do you implement a Global Exception Handler in Spring Boot?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize `UDP` to handle datagramsocket. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+Use `@ControllerAdvice` (or `@RestControllerAdvice`) and `@ExceptionHandler`. This centralizes error handling logic across all controllers.
 
 **Code Example:**
 ```java
-// Example implementation for DatagramSocket
-public void useDatagramSocket() {
-    System.out.println("Using UDP for DatagramSocket");
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ErrorResponse handleNotFound(ResourceNotFoundException ex) {
+        return new ErrorResponse("NOT_FOUND", ex.getMessage());
+    }
 }
 ```
 
@@ -2099,132 +1403,53 @@ public void useDatagramSocket() {
 
 ---
 
-### Q103: How do you implement NIO Channels?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `FileChannel` to handle nio channels. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for NIO Channels
-public void useNIOChannels() {
-    System.out.println("Using FileChannel for NIO Channels");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q104: How do you implement NIO Buffers?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `ByteBuffer` to handle nio buffers. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for NIO Buffers
-public void useNIOBuffers() {
-    System.out.println("Using ByteBuffer for NIO Buffers");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q105: How do you implement NIO Selectors?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `Multiplexing` to handle nio selectors. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for NIO Selectors
-public void useNIOSelectors() {
-    System.out.println("Using Multiplexing for NIO Selectors");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q106: How do you implement Path API?
+### Q58: How do you use Optional correctly to avoid NullPointerException?
 
 **Difficulty**: Beginner
 
 **Strategy:**
-Utilize `Paths.get()` to handle path api. This approach ensures robust and scalable implementation suitable for beginner use cases.
+Don't use `Optional.get()` without checking. Prefer `map`, `orElse`, `orElseGet`, or `orElseThrow`. Use Optional as a return type, not as a field or parameter.
 
 **Code Example:**
 ```java
-// Example implementation for Path API
-public void usePathAPI() {
-    System.out.println("Using Paths.get() for Path API");
-}
+// BAD
+if (opt.isPresent()) { return opt.get(); }
+
+// GOOD
+return opt.map(String::toUpperCase)
+          .orElse("DEFAULT");
+
+// GOOD
+User user = repo.findById(id)
+                .orElseThrow(() -> new UserNotFoundException(id));
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q107: How do you implement Files API?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Utilize `Files.readAllLines()` to handle files api. This approach ensures robust and scalable implementation suitable for beginner use cases.
-
-**Code Example:**
-```java
-// Example implementation for Files API
-public void useFilesAPI() {
-    System.out.println("Using Files.readAllLines() for Files API");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q108: How do you implement WatchService?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Utilize `File monitoring` to handle watchservice. This approach ensures robust and scalable implementation suitable for advanced use cases.
-
-**Code Example:**
-```java
-// Example implementation for WatchService
-public void useWatchService() {
-    System.out.println("Using File monitoring for WatchService");
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q109: How do you implement ZipInputStream?
+### Q59: How do you solve the 'LazyInitializationException' in Hibernate?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize `Compression` to handle zipinputstream. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+This occurs when accessing a lazy-loaded collection after the session is closed. Solutions: 1) Use `JOIN FETCH` in the query (best). 2) Use `@Transactional` on the service method (extends session). 3) Use Entity Graphs. 4) DTO Projection.
 
 **Code Example:**
 ```java
-// Example implementation for ZipInputStream
-public void useZipInputStream() {
-    System.out.println("Using Compression for ZipInputStream");
+// Solution 1: Join Fetch
+@Query("SELECT u FROM User u JOIN FETCH u.roles WHERE u.id = :id")
+Optional<User> findByIdWithRoles(Long id);
+
+// Solution 2: Transactional Service
+@Service
+public class UserService {
+    @Transactional
+    public User getUser(Long id) {
+        User u = repo.findById(id).get();
+        u.getRoles().size(); // Init collection while session open
+        return u;
+    }
 }
 ```
 
@@ -2232,3 +1457,30 @@ public void useZipInputStream() {
 
 ---
 
+### Q60: How do you implement a simple REST Client using RestClient (Spring Boot 3.2+)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`RestClient` is the modern, fluent alternative to `RestTemplate`. It offers a functional API similar to `WebClient` but is synchronous.
+
+**Code Example:**
+```java
+RestClient client = RestClient.create();
+
+String result = client.get()
+    .uri("https://api.example.com/users/{id}", 1)
+    .retrieve()
+    .body(String.class);
+
+// Post example
+User newUser = new User("Alice");
+ResponseEntity<Void> response = client.post()
+    .uri("https://api.example.com/users")
+    .contentType(MediaType.APPLICATION_JSON)
+    .body(newUser)
+    .retrieve()
+    .toBodilessEntity();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

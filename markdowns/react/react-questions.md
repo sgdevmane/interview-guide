@@ -15,151 +15,63 @@
 3. [How do you manage global state using React Context without triggering unnecessary re-renders?](#q3-how-do-you-manage-global-state-using-react-context-without-triggering-unnecessary-re-renders) <span class="intermediate">Intermediate</span>
 4. [How do you implement a Compound Component pattern (e.g., Tabs)?](#q4-how-do-you-implement-a-compound-component-pattern-eg-tabs) <span class="intermediate">Intermediate</span>
 5. [How do you create a Higher-Order Component (HOC) for authentication?](#q5-how-do-you-create-a-higher-order-component-hoc-for-authentication) <span class="intermediate">Intermediate</span>
-6. [How do you implement the Render Props pattern for code reuse?](#q6-how-do-you-implement-the-render-props-pattern-for-code-reuse) <span class="advanced">Advanced</span>
-7. [How do you implement an Error Boundary to catch crashes in child components?](#q7-how-do-you-implement-an-error-boundary-to-catch-crashes-in-child-components) <span class="advanced">Advanced</span>
-8. [How do you use `useImperativeHandle` to expose child methods to a parent?](#q8-how-do-you-use-useimperativehandle-to-expose-child-methods-to-a-parent) <span class="advanced">Advanced</span>
-9. [How do you implement a Portal to render children into a different part of the DOM?](#q9-how-do-you-implement-a-portal-to-render-children-into-a-different-part-of-the-dom) <span class="advanced">Advanced</span>
-10. [How do you optimize large lists using Virtualization (Windowing)?](#q10-how-do-you-optimize-large-lists-using-virtualization-windowing) <span class="advanced">Advanced</span>
-11. [How do you handle form state efficiently (Controlled vs Uncontrolled)?](#q11-how-do-you-handle-form-state-efficiently-controlled-vs-uncontrolled) <span class="advanced">Advanced</span>
-12. [How do you lazy load components using React.lazy and Suspense?](#q12-how-do-you-lazy-load-components-using-reactlazy-and-suspense) <span class="advanced">Advanced</span>
-13. [How do you implement Infinite Scroll using Intersection Observer?](#q13-how-do-you-implement-infinite-scroll-using-intersection-observer) <span class="advanced">Advanced</span>
-14. [How do you prevent prop drilling using Component Composition?](#q14-how-do-you-prevent-prop-drilling-using-component-composition) <span class="advanced">Advanced</span>
-15. [How do you handle side effects that depend on props changing using `useEffect`?](#q15-how-do-you-handle-side-effects-that-depend-on-props-changing-using-useeffect) <span class="advanced">Advanced</span>
-16. [How do you implement Dark Mode using Context and localStorage?](#q16-how-do-you-implement-dark-mode-using-context-and-localstorage) <span class="intermediate">Intermediate</span>
-17. [How do you secure React routes using a PrivateRoute component?](#q17-how-do-you-secure-react-routes-using-a-privateroute-component) <span class="intermediate">Intermediate</span>
-18. [How do you manage multiple environments (dev, staging, prod) in React?](#q18-how-do-you-manage-multiple-environments-dev-staging-prod-in-react) <span class="intermediate">Intermediate</span>
-19. [How do you test React components using Jest and React Testing Library?](#q19-how-do-you-test-react-components-using-jest-and-react-testing-library) <span class="intermediate">Intermediate</span>
-20. [How do you mock API calls in Jest tests?](#q20-how-do-you-mock-api-calls-in-jest-tests) <span class="intermediate">Intermediate</span>
-21. [How do you optimize images in React?](#q21-how-do-you-optimize-images-in-react) <span class="intermediate">Intermediate</span>
-22. [How do you implement drag and drop in React (dnd-kit or react-beautiful-dnd)?](#q22-how-do-you-implement-drag-and-drop-in-react-dnd-kit-or-react-beautiful-dnd) <span class="intermediate">Intermediate</span>
-23. [How do you use WebSockets in React?](#q23-how-do-you-use-websockets-in-react) <span class="intermediate">Intermediate</span>
-24. [How do you implement Server-Sent Events (SSE) in React?](#q24-how-do-you-implement-server-sent-events-sse-in-react) <span class="intermediate">Intermediate</span>
-25. [How do you handle file uploads in React?](#q25-how-do-you-handle-file-uploads-in-react) <span class="intermediate">Intermediate</span>
-26. [How do you implement pagination in React?](#q26-how-do-you-implement-pagination-in-react) <span class="intermediate">Intermediate</span>
-27. [How do you implement a search filter in React?](#q27-how-do-you-implement-a-search-filter-in-react) <span class="intermediate">Intermediate</span>
-28. [How do you implement sorting in a table in React?](#q28-how-do-you-implement-sorting-in-a-table-in-react) <span class="intermediate">Intermediate</span>
-29. [How do you use the `useReducer` hook for complex state logic?](#q29-how-do-you-use-the-usereducer-hook-for-complex-state-logic) <span class="intermediate">Intermediate</span>
-30. [How do you use the `useLayoutEffect` hook (vs useEffect)?](#q30-how-do-you-use-the-uselayouteffect-hook-vs-useeffect) <span class="intermediate">Intermediate</span>
-31. [How do you use the `useDebugValue` hook?](#q31-how-do-you-use-the-usedebugvalue-hook) <span class="intermediate">Intermediate</span>
-32. [How do you use the `useId` hook for accessibility?](#q32-how-do-you-use-the-useid-hook-for-accessibility) <span class="intermediate">Intermediate</span>
-33. [How do you use the `useTransition` hook for non-blocking UI updates?](#q33-how-do-you-use-the-usetransition-hook-for-non-blocking-ui-updates) <span class="intermediate">Intermediate</span>
-34. [How do you use the `useDeferredValue` hook?](#q34-how-do-you-use-the-usedeferredvalue-hook) <span class="intermediate">Intermediate</span>
-35. [How do you use the `useSyncExternalStore` hook?](#q35-how-do-you-use-the-usesyncexternalstore-hook) <span class="intermediate">Intermediate</span>
-36. [How do you use `React.memo` with custom comparison functions?](#q36-how-do-you-use-reactmemo-with-custom-comparison-functions) <span class="intermediate">Intermediate</span>
-37. [How do you use `React.PureComponent` (for class components)?](#q37-how-do-you-use-reactpurecomponent-for-class-components) <span class="intermediate">Intermediate</span>
-38. [How do you use `forceUpdate` (if absolutely necessary)?](#q38-how-do-you-use-forceupdate-if-absolutely-necessary) <span class="intermediate">Intermediate</span>
-39. [How do you implement a custom router without a library?](#q39-how-do-you-implement-a-custom-router-without-a-library) <span class="intermediate">Intermediate</span>
-40. [How do you manage focus in React (accessibility)?](#q40-how-do-you-manage-focus-in-react-accessibility) <span class="intermediate">Intermediate</span>
-41. [How do you implement a skip link for accessibility?](#q41-how-do-you-implement-a-skip-link-for-accessibility) <span class="intermediate">Intermediate</span>
-42. [How do you handle 404 pages in React Router?](#q42-how-do-you-handle-404-pages-in-react-router) <span class="intermediate">Intermediate</span>
-43. [How do you use nested routes in React Router v6?](#q43-how-do-you-use-nested-routes-in-react-router-v6) <span class="intermediate">Intermediate</span>
-44. [How do you use URL parameters (`useParams`)?](#q44-how-do-you-use-url-parameters-useparams) <span class="intermediate">Intermediate</span>
-45. [How do you use query parameters (`useSearchParams`)?](#q45-how-do-you-use-query-parameters-usesearchparams) <span class="intermediate">Intermediate</span>
-46. [How do you implement programmatic navigation (`useNavigate`)?](#q46-how-do-you-implement-programmatic-navigation-usenavigate) <span class="intermediate">Intermediate</span>
-47. [How do you implement breadcrumbs in React?](#q47-how-do-you-implement-breadcrumbs-in-react) <span class="intermediate">Intermediate</span>
-48. [How do you integrate Redux Toolkit with React?](#q48-how-do-you-integrate-redux-toolkit-with-react) <span class="intermediate">Intermediate</span>
-49. [How do you use `createSlice` in Redux Toolkit?](#q49-how-do-you-use-createslice-in-redux-toolkit) <span class="intermediate">Intermediate</span>
-50. [How do you use `createAsyncThunk` for async logic?](#q50-how-do-you-use-createasyncthunk-for-async-logic) <span class="intermediate">Intermediate</span>
-51. [How do you use Redux DevTools?](#q51-how-do-you-use-redux-devtools) <span class="intermediate">Intermediate</span>
-52. [How do you integrate Zustand for state management?](#q52-how-do-you-integrate-zustand-for-state-management) <span class="intermediate">Intermediate</span>
-53. [How do you integrate Recoil for state management?](#q53-how-do-you-integrate-recoil-for-state-management) <span class="intermediate">Intermediate</span>
-54. [How do you integrate Jotai for atomic state management?](#q54-how-do-you-integrate-jotai-for-atomic-state-management) <span class="intermediate">Intermediate</span>
-55. [How do you integrate React Query (TanStack Query)?](#q55-how-do-you-integrate-react-query-tanstack-query) <span class="intermediate">Intermediate</span>
-56. [How do you use `useQuery` for data fetching?](#q56-how-do-you-use-usequery-for-data-fetching) <span class="intermediate">Intermediate</span>
-57. [How do you use `useMutation` for data updates?](#q57-how-do-you-use-usemutation-for-data-updates) <span class="intermediate">Intermediate</span>
-58. [How do you implement optimistic updates with React Query?](#q58-how-do-you-implement-optimistic-updates-with-react-query) <span class="intermediate">Intermediate</span>
-59. [How do you implement infinite scrolling with React Query?](#q59-how-do-you-implement-infinite-scrolling-with-react-query) <span class="intermediate">Intermediate</span>
-60. [How do you integrate SWR for data fetching?](#q60-how-do-you-integrate-swr-for-data-fetching) <span class="intermediate">Intermediate</span>
-61. [How do you implement Internationalization (i18n) in React?](#q61-how-do-you-implement-internationalization-i18n-in-react) <span class="intermediate">Intermediate</span>
-62. [How do you use `react-i18next`?](#q62-how-do-you-use-react-i18next) <span class="intermediate">Intermediate</span>
-63. [How do you implement Theming (Styled Components / Emotion)?](#q63-how-do-you-implement-theming-styled-components--emotion) <span class="intermediate">Intermediate</span>
-64. [How do you use CSS Modules in React?](#q64-how-do-you-use-css-modules-in-react) <span class="intermediate">Intermediate</span>
-65. [How do you use Tailwind CSS with React?](#q65-how-do-you-use-tailwind-css-with-react) <span class="intermediate">Intermediate</span>
-66. [How do you implement a Modal/Dialog component?](#q66-how-do-you-implement-a-modaldialog-component) <span class="intermediate">Intermediate</span>
-67. [How do you implement a Toast/Notification system?](#q67-how-do-you-implement-a-toastnotification-system) <span class="intermediate">Intermediate</span>
-68. [How do you implement a Tooltip component?](#q68-how-do-you-implement-a-tooltip-component) <span class="intermediate">Intermediate</span>
-69. [How do you implement a Dropdown/Select component?](#q69-how-do-you-implement-a-dropdownselect-component) <span class="intermediate">Intermediate</span>
-70. [How do you implement a Carousel/Slider component?](#q70-how-do-you-implement-a-carouselslider-component) <span class="intermediate">Intermediate</span>
-71. [How do you implement a Date Picker component?](#q71-how-do-you-implement-a-date-picker-component) <span class="intermediate">Intermediate</span>
-72. [How do you implement an Accordion component?](#q72-how-do-you-implement-an-accordion-component) <span class="intermediate">Intermediate</span>
-73. [How do you implement Tabs component?](#q73-how-do-you-implement-tabs-component) <span class="intermediate">Intermediate</span>
-74. [How do you implement a Sidebar/Drawer navigation?](#q74-how-do-you-implement-a-sidebardrawer-navigation) <span class="intermediate">Intermediate</span>
-75. [How do you implement a Breadcrumb component?](#q75-how-do-you-implement-a-breadcrumb-component) <span class="intermediate">Intermediate</span>
-76. [How do you implement a Stepper component?](#q76-how-do-you-implement-a-stepper-component) <span class="intermediate">Intermediate</span>
-77. [How do you implement a Rating component?](#q77-how-do-you-implement-a-rating-component) <span class="intermediate">Intermediate</span>
-78. [How do you implement a Skeleton loader?](#q78-how-do-you-implement-a-skeleton-loader) <span class="intermediate">Intermediate</span>
-79. [How do you implement a ProgressBar?](#q79-how-do-you-implement-a-progressbar) <span class="intermediate">Intermediate</span>
-80. [How do you implement a Toggle/Switch component?](#q80-how-do-you-implement-a-toggleswitch-component) <span class="intermediate">Intermediate</span>
-81. [How do you implement a Checkbox/Radio group?](#q81-how-do-you-implement-a-checkboxradio-group) <span class="intermediate">Intermediate</span>
-82. [How do you implement a File Upload component with preview?](#q82-how-do-you-implement-a-file-upload-component-with-preview) <span class="intermediate">Intermediate</span>
-83. [How do you implement a Rich Text Editor (Draft.js / Slate)?](#q83-how-do-you-implement-a-rich-text-editor-draftjs--slate) <span class="intermediate">Intermediate</span>
-84. [How do you implement Charts (Recharts / Chart.js)?](#q84-how-do-you-implement-charts-recharts--chartjs) <span class="intermediate">Intermediate</span>
-85. [How do you implement Maps (Google Maps / Leaflet)?](#q85-how-do-you-implement-maps-google-maps--leaflet) <span class="intermediate">Intermediate</span>
-86. [How do you implement Video Player?](#q86-how-do-you-implement-video-player) <span class="intermediate">Intermediate</span>
-87. [How do you implement Audio Player?](#q87-how-do-you-implement-audio-player) <span class="intermediate">Intermediate</span>
-88. [How do you implement Copy to Clipboard functionality?](#q88-how-do-you-implement-copy-to-clipboard-functionality) <span class="intermediate">Intermediate</span>
-89. [How do you implement Print functionality?](#q89-how-do-you-implement-print-functionality) <span class="intermediate">Intermediate</span>
-90. [How do you implement Export to CSV/PDF?](#q90-how-do-you-implement-export-to-csvpdf) <span class="intermediate">Intermediate</span>
-91. [How do you implement Social Login (Google/Facebook)?](#q91-how-do-you-implement-social-login-googlefacebook) <span class="intermediate">Intermediate</span>
-92. [How do you implement JWT Authentication flow?](#q92-how-do-you-implement-jwt-authentication-flow) <span class="intermediate">Intermediate</span>
-93. [How do you handle token expiration and refresh?](#q93-how-do-you-handle-token-expiration-and-refresh) <span class="intermediate">Intermediate</span>
-94. [How do you implement Role-Based Access Control (RBAC)?](#q94-how-do-you-implement-role-based-access-control-rbac) <span class="intermediate">Intermediate</span>
-95. [How do you implement Feature Flags?](#q95-how-do-you-implement-feature-flags) <span class="intermediate">Intermediate</span>
-96. [How do you implement Analytics (Google Analytics / Mixpanel)?](#q96-how-do-you-implement-analytics-google-analytics--mixpanel) <span class="intermediate">Intermediate</span>
-97. [How do you implement Error Logging (Sentry)?](#q97-how-do-you-implement-error-logging-sentry) <span class="intermediate">Intermediate</span>
-98. [How do you implement Performance Monitoring?](#q98-how-do-you-implement-performance-monitoring) <span class="intermediate">Intermediate</span>
-99. [How do you implement A/B Testing?](#q99-how-do-you-implement-ab-testing) <span class="intermediate">Intermediate</span>
-100. [How do you implement SEO in React (Helmet)?](#q100-how-do-you-implement-seo-in-react-helmet) <span class="intermediate">Intermediate</span>
-101. [How do you implement Server-Side Rendering (SSR) concepts?](#q101-how-do-you-implement-server-side-rendering-ssr-concepts) <span class="intermediate">Intermediate</span>
-102. [How do you implement Static Site Generation (SSG) concepts?](#q102-how-do-you-implement-static-site-generation-ssg-concepts) <span class="intermediate">Intermediate</span>
-103. [How do you migrate a Class Component to a Functional Component?](#q103-how-do-you-migrate-a-class-component-to-a-functional-component) <span class="intermediate">Intermediate</span>
-104. [How do you prevent memory leaks in useEffect?](#q104-how-do-you-prevent-memory-leaks-in-useeffect) <span class="intermediate">Intermediate</span>
-105. [How do you fix 'Can't perform a React state update on an unmounted component' error?](#q105-how-do-you-fix-cant-perform-a-react-state-update-on-an-unmounted-component-error) <span class="intermediate">Intermediate</span>
-106. [How do you fix 'Too many re-renders' error?](#q106-how-do-you-fix-too-many-re-renders-error) <span class="intermediate">Intermediate</span>
-107. [How do you fix 'Objects are not valid as a React child' error?](#q107-how-do-you-fix-objects-are-not-valid-as-a-react-child-error) <span class="intermediate">Intermediate</span>
-108. [How do you fix 'Each child in a list should have a unique key' warning?](#q108-how-do-you-fix-each-child-in-a-list-should-have-a-unique-key-warning) <span class="intermediate">Intermediate</span>
-109. [How do you fix 'useEffect missing dependency' warning?](#q109-how-do-you-fix-useeffect-missing-dependency-warning) <span class="intermediate">Intermediate</span>
-110. [How do you debug React apps using React Developer Tools?](#q110-how-do-you-debug-react-apps-using-react-developer-tools) <span class="intermediate">Intermediate</span>
-111. [How do you profile React apps for performance?](#q111-how-do-you-profile-react-apps-for-performance) <span class="intermediate">Intermediate</span>
-112. [How do you use the Profiler API?](#q112-how-do-you-use-the-profiler-api) <span class="intermediate">Intermediate</span>
-113. [How do you implement a custom renderer?](#q113-how-do-you-implement-a-custom-renderer) <span class="intermediate">Intermediate</span>
-114. [How do you implement a micro-frontend architecture with React?](#q114-how-do-you-implement-a-micro-frontend-architecture-with-react) <span class="intermediate">Intermediate</span>
-115. [How do you implement a monorepo for React projects (Nx / Turborepo)?](#q115-how-do-you-implement-a-monorepo-for-react-projects-nx--turborepo) <span class="intermediate">Intermediate</span>
-116. [How do you publish a React component library to npm?](#q116-how-do-you-publish-a-react-component-library-to-npm) <span class="intermediate">Intermediate</span>
-117. [How do you document React components (Storybook)?](#q117-how-do-you-document-react-components-storybook) <span class="intermediate">Intermediate</span>
-118. [How do you use PropTypes for type checking?](#q118-how-do-you-use-proptypes-for-type-checking) <span class="intermediate">Intermediate</span>
-119. [How do you use TypeScript with React?](#q119-how-do-you-use-typescript-with-react) <span class="intermediate">Intermediate</span>
-120. [How do you type props in TypeScript?](#q120-how-do-you-type-props-in-typescript) <span class="intermediate">Intermediate</span>
-121. [How do you type hooks in TypeScript?](#q121-how-do-you-type-hooks-in-typescript) <span class="intermediate">Intermediate</span>
-122. [How do you type events in TypeScript?](#q122-how-do-you-type-events-in-typescript) <span class="intermediate">Intermediate</span>
-123. [How do you type refs in TypeScript?](#q123-how-do-you-type-refs-in-typescript) <span class="intermediate">Intermediate</span>
-124. [How do you type context in TypeScript?](#q124-how-do-you-type-context-in-typescript) <span class="intermediate">Intermediate</span>
-125. [How do you type children in TypeScript?](#q125-how-do-you-type-children-in-typescript) <span class="intermediate">Intermediate</span>
-126. [How do you use Generics in React components?](#q126-how-do-you-use-generics-in-react-components) <span class="intermediate">Intermediate</span>
-127. [How do you use Utility Types (Partial, Omit, Pick) in React?](#q127-how-do-you-use-utility-types-partial-omit-pick-in-react) <span class="intermediate">Intermediate</span>
-128. [How do you configure ESLint and Prettier for React?](#q128-how-do-you-configure-eslint-and-prettier-for-react) <span class="intermediate">Intermediate</span>
-129. [How do you configure Webpack for React from scratch?](#q129-how-do-you-configure-webpack-for-react-from-scratch) <span class="intermediate">Intermediate</span>
-130. [How do you configure Vite for React?](#q130-how-do-you-configure-vite-for-react) <span class="intermediate">Intermediate</span>
-131. [How do you configure Babel for React?](#q131-how-do-you-configure-babel-for-react) <span class="intermediate">Intermediate</span>
-132. [How do you use environment variables in React?](#q132-how-do-you-use-environment-variables-in-react) <span class="intermediate">Intermediate</span>
-133. [How do you implement a PWA (Progressive Web App) with React?](#q133-how-do-you-implement-a-pwa-progressive-web-app-with-react) <span class="intermediate">Intermediate</span>
-134. [How do you use Service Workers in React?](#q134-how-do-you-use-service-workers-in-react) <span class="intermediate">Intermediate</span>
+6. [How do you implement the Render Props pattern for code reuse?](#q6-how-do-you-implement-the-render-props-pattern-for-code-reuse) <span class="intermediate">Intermediate</span>
+7. [How do you implement an Error Boundary to catch crashes in child components?](#q7-how-do-you-implement-an-error-boundary-to-catch-crashes-in-child-components) <span class="intermediate">Intermediate</span>
+8. [How do you use `useImperativeHandle` to expose child methods to a parent?](#q8-how-do-you-use-useimperativehandle-to-expose-child-methods-to-a-parent) <span class="intermediate">Intermediate</span>
+9. [How do you implement a Portal to render children into a different part of the DOM?](#q9-how-do-you-implement-a-portal-to-render-children-into-a-different-part-of-the-dom) <span class="intermediate">Intermediate</span>
+10. [How do you optimize large lists using Virtualization (Windowing)?](#q10-how-do-you-optimize-large-lists-using-virtualization-windowing) <span class="intermediate">Intermediate</span>
+11. [How do you implement a custom `useDebounce` hook?](#q11-how-do-you-implement-a-custom-usedebounce-hook) <span class="intermediate">Intermediate</span>
+12. [How do you implement a custom `useLocalStorage` hook?](#q12-how-do-you-implement-a-custom-uselocalstorage-hook) <span class="intermediate">Intermediate</span>
+13. [How do you implement a custom `usePrevious` hook?](#q13-how-do-you-implement-a-custom-useprevious-hook) <span class="intermediate">Intermediate</span>
+14. [What is the difference between `useEffect` and `useLayoutEffect`?](#q14-what-is-the-difference-between-useeffect-and-uselayouteffect) <span class="intermediate">Intermediate</span>
+15. [How do you use `forwardRef` to pass refs to child components?](#q15-how-do-you-use-forwardref-to-pass-refs-to-child-components) <span class="intermediate">Intermediate</span>
+16. [Controlled vs Uncontrolled Components: When to use which?](#q16-controlled-vs-uncontrolled-components-when-to-use-which) <span class="intermediate">Intermediate</span>
+17. [How do you use `React.memo` to prevent re-renders?](#q17-how-do-you-use-reactmemo-to-prevent-re-renders) <span class="intermediate">Intermediate</span>
+18. [How do you implement Code Splitting using `React.lazy` and `Suspense`?](#q18-how-do-you-implement-code-splitting-using-reactlazy-and-suspense) <span class="intermediate">Intermediate</span>
+19. [How do you handle forms efficiently using React Hook Form?](#q19-how-do-you-handle-forms-efficiently-using-react-hook-form) <span class="intermediate">Intermediate</span>
+20. [How do you manage state with Redux Toolkit (Slice + Thunk)?](#q20-how-do-you-manage-state-with-redux-toolkit-slice--thunk) <span class="intermediate">Intermediate</span>
+21. [How do you create a simple store using Zustand?](#q21-how-do-you-create-a-simple-store-using-zustand) <span class="intermediate">Intermediate</span>
+22. [How do you implement Private Routes for authentication?](#q22-how-do-you-implement-private-routes-for-authentication) <span class="intermediate">Intermediate</span>
+23. [How do you handle JWT Authentication (Login/Logout)?](#q23-how-do-you-handle-jwt-authentication-loginlogout) <span class="intermediate">Intermediate</span>
+24. [How do you unit test a React component using Jest and React Testing Library?](#q24-how-do-you-unit-test-a-react-component-using-jest-and-react-testing-library) <span class="intermediate">Intermediate</span>
+25. [How do you mock API calls in Jest tests?](#q25-how-do-you-mock-api-calls-in-jest-tests) <span class="intermediate">Intermediate</span>
+26. [How do you prevent XSS attacks in React?](#q26-how-do-you-prevent-xss-attacks-in-react) <span class="intermediate">Intermediate</span>
+27. [How do you fix "Can't perform a React state update on an unmounted component"?](#q27-how-do-you-fix-cant-perform-a-react-state-update-on-an-unmounted-component) <span class="intermediate">Intermediate</span>
+28. [How do you manage focus for accessibility (A11y)?](#q28-how-do-you-manage-focus-for-accessibility-a11y) <span class="intermediate">Intermediate</span>
+29. [SSR vs CSR vs SSG: When to use what?](#q29-ssr-vs-csr-vs-ssg-when-to-use-what) <span class="intermediate">Intermediate</span>
+30. [What is React Fiber and how does it improve performance?](#q30-what-is-react-fiber-and-how-does-it-improve-performance) <span class="intermediate">Intermediate</span>
+31. [`useState` vs `useReducer`: When should you choose one over the other?](#q31-usestate-vs-usereducer-when-should-you-choose-one-over-the-other) <span class="intermediate">Intermediate</span>
+32. [How do you implement a custom hook `useOnClickOutside` to close modals?](#q32-how-do-you-implement-a-custom-hook-useonclickoutside-to-close-modals) <span class="intermediate">Intermediate</span>
+33. [How do you implement a `useMediaQuery` hook for responsive designs?](#q33-how-do-you-implement-a-usemediaquery-hook-for-responsive-designs) <span class="intermediate">Intermediate</span>
+34. [How do you make a custom button accessible using ARIA attributes?](#q34-how-do-you-make-a-custom-button-accessible-using-aria-attributes) <span class="intermediate">Intermediate</span>
+35. [How do you profile a React application to identify performance bottlenecks?](#q35-how-do-you-profile-a-react-application-to-identify-performance-bottlenecks) <span class="advanced">Advanced</span>
+36. [How do you safely render HTML content to prevent XSS attacks?](#q36-how-do-you-safely-render-html-content-to-prevent-xss-attacks) <span class="intermediate">Intermediate</span>
+37. [What is the difference between `fireEvent` and `userEvent` in React Testing Library?](#q37-what-is-the-difference-between-fireevent-and-userevent-in-react-testing-library) <span class="intermediate">Intermediate</span>
+38. [How do you handle errors in Functional Components (since they lack `componentDidCatch`)?](#q38-how-do-you-handle-errors-in-functional-components-since-they-lack-componentdidcatch) <span class="intermediate">Intermediate</span>
+39. [What is Automatic Batching in React 18?](#q39-what-is-automatic-batching-in-react-18) <span class="advanced">Advanced</span>
+40. [How do you use `useTransition` to keep the UI responsive during heavy state updates?](#q40-how-do-you-use-usetransition-to-keep-the-ui-responsive-during-heavy-state-updates) <span class="advanced">Advanced</span>
+41. [What is `useDeferredValue` and when should you use it?](#q41-what-is-usedeferredvalue-and-when-should-you-use-it) <span class="advanced">Advanced</span>
+42. [How does Suspense for Data Fetching work?](#q42-how-does-suspense-for-data-fetching-work) <span class="advanced">Advanced</span>
+43. [Why is using the array index as a key an anti-pattern?](#q43-why-is-using-the-array-index-as-a-key-an-anti-pattern) <span class="beginner">Beginner</span>
+44. [How do you solve Props Drilling without Context?](#q44-how-do-you-solve-props-drilling-without-context) <span class="intermediate">Intermediate</span>
+45. [What are Micro-frontends and how does Module Federation help?](#q45-what-are-micro-frontends-and-how-does-module-federation-help) <span class="expert">Expert</span>
+46. [How do you use Generics in TypeScript with React Props?](#q46-how-do-you-use-generics-in-typescript-with-react-props) <span class="intermediate">Intermediate</span>
+47. [How do you create Discriminated Unions for mutually exclusive props?](#q47-how-do-you-create-discriminated-unions-for-mutually-exclusive-props) <span class="advanced">Advanced</span>
+48. [What does React Strict Mode do?](#q48-what-does-react-strict-mode-do) <span class="beginner">Beginner</span>
+49. [How does Event Delegation work in React?](#q49-how-does-event-delegation-work-in-react) <span class="advanced">Advanced</span>
+50. [What is the React Reconciler?](#q50-what-is-the-react-reconciler) <span class="expert">Expert</span>
 
 ---
 
-### Q1: How do you implement a custom hook `useFetch` with caching and cancellation?
+### Q1. How do you implement a custom hook `useFetch` with caching and cancellation?
 
-**Difficulty: Intermediate**
+**Answer:**
+Creating a robust `useFetch` hook involves handling loading states, errors, data caching to avoid redundant requests, and request cancellation to prevent memory leaks or state updates on unmounted components.
 
-
-**Strategy:**
-A robust `useFetch` hook should handle:
-1. **Loading/Error states.**
-2. **Caching:** Store results in a `useRef` or external cache to avoid redundant requests.
-3. **Cancellation:** Use `AbortController` to cancel requests when the component unmounts or dependencies change.
-4. **Race conditions:** Ensure only the latest request's result is set.
-
-**Code Snippet:**
+**Key Features:**
+1.  **Loading & Error States:** Standard state management for async operations.
+2.  **Caching:** Using `useRef` to store responses keyed by URL.
+3.  **Cancellation:** Using `AbortController` to cancel pending requests if the component unmounts or the URL changes.
 
 ```javascript
 import { useState, useEffect, useRef } from 'react';
@@ -169,11 +81,12 @@ function useFetch(url, options = {}) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   
+  // Use useRef for cache to persist data across renders without causing re-renders
   const cache = useRef({});
 
   useEffect(() => {
     if (!url) return;
-    
+
     // Check cache first
     if (cache.current[url]) {
       setData(cache.current[url]);
@@ -189,11 +102,17 @@ function useFetch(url, options = {}) {
       
       try {
         const response = await fetch(url, { ...options, signal });
-        if (!response.ok) throw new Error(response.statusText);
+        
+        if (!response.ok) {
+          throw new Error(`Error: ${response.statusText}`);
+        }
         
         const result = await response.json();
-        cache.current[url] = result; // Cache result
         
+        // Update cache
+        cache.current[url] = result;
+        
+        // Only update state if not aborted
         if (!signal.aborted) {
           setData(result);
         }
@@ -210,37 +129,31 @@ function useFetch(url, options = {}) {
 
     fetchData();
 
+    // Cleanup function to abort fetch on unmount or dependency change
     return () => {
       abortController.abort();
     };
-  }, [url]); // Re-run if URL changes
+  }, [url]); // Re-run effect if URL changes
 
   return { data, loading, error };
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
-### Q2: How do you optimize a React application using `useMemo` and `useCallback` correctly?
+### Q2. How do you optimize a React application using `useMemo` and `useCallback` correctly?
 
-**Difficulty: Intermediate**
+**Answer:**
+`useMemo` and `useCallback` are hooks for memoization, but they should be used judiciously. Overusing them can add overhead. They are most effective when performing expensive calculations or preserving referential equality for child components wrapped in `React.memo`.
 
-
-**Strategy:**
-`useMemo` caches a calculated value, and `useCallback` caches a function definition.
-They are useful when:
-1. Passing props to memoized child components (`React.memo`).
-2. Avoiding expensive calculations on every render.
-3. Using functions/objects in dependency arrays of `useEffect`.
-
-**Code Snippet:**
+**Usage:**
+*   **`useMemo`**: Memoizes a *value*. Use it for expensive calculations (e.g., filtering large arrays) or to ensure an object/array dependency in `useEffect` remains stable.
+*   **`useCallback`**: Memoizes a *function*. Use it when passing functions to optimized child components (`React.memo`) to prevent them from re-rendering due to a new function reference.
 
 ```javascript
 import React, { useState, useMemo, useCallback } from 'react';
 
-// Memoized Child Component
+// A child component optimized with React.memo
 const Child = React.memo(({ onClick, data }) => {
   console.log('Child rendered');
   return <button onClick={onClick}>{data.label}</button>;
@@ -250,18 +163,19 @@ function Parent() {
   const [count, setCount] = useState(0);
   const [text, setText] = useState('');
 
-  // Expensive calculation
+  // Expensive calculation: only re-runs if 'count' changes
   const expensiveValue = useMemo(() => {
     console.log('Computing expensive value...');
-    return count * 2; 
+    return count * 2; // Imagine a heavy loop here
   }, [count]);
 
-  // Stable function reference
+  // Function memoization: 'handleClick' reference stays the same unless dependencies change
+  // Essential for passing to React.memo components
   const handleClick = useCallback(() => {
     console.log('Button clicked:', count);
   }, [count]);
-  
-  // Stable object reference
+
+  // Object memoization: prevents 'childData' from being a new reference on every render
   const childData = useMemo(() => ({ label: 'Click Me' }), []);
 
   return (
@@ -269,84 +183,67 @@ function Parent() {
       <h1>Count: {count}</h1>
       <h2>Double: {expensiveValue}</h2>
       <button onClick={() => setCount(c => c + 1)}>Increment</button>
-      <input value={text} onChange={e => setText(e.target.value)} />
       
-      {/* Child won't re-render when 'text' changes because props are stable */}
+      <input value={text} onChange={e => setText(e.target.value)} placeholder="Type something..." />
+      
+      {/* Child won't re-render when 'text' changes, thanks to memo/useCallback */}
       <Child onClick={handleClick} data={childData} />
     </div>
   );
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
-### Q3: How do you manage global state using React Context without triggering unnecessary re-renders?
+### Q3. How do you manage global state using React Context without triggering unnecessary re-renders?
 
-**Difficulty: Intermediate**
+**Answer:**
+A common pitfall with React Context is that updating the context value causes *all* consuming components to re-render, even if they only use a part of the data.
 
-
-**Strategy:**
-Context API can cause performance issues if the value object changes on every render.
-To optimize:
-1. Split context into state and dispatch (or multiple contexts).
-2. Memoize the context value.
-3. Wrap children with `React.memo` if needed (though Context changes bypass `React.memo`).
-
-**Code Snippet:**
+**Strategies to avoid re-renders:**
+1.  **Split Contexts:** Separate state into different contexts (e.g., `AuthContext`, `ThemeContext`) so updates in one don't affect consumers of the other.
+2.  **Memoize the Value:** Wrap the context value object in `useMemo` so the reference remains stable unless state changes.
+3.  **Context Selectors (Third-party):** Libraries like `use-context-selector` allow components to listen to only slices of the context.
 
 ```javascript
-import React, { createContext, useContext, useReducer, useMemo } from 'react';
+import React, { createContext, useContext, useState, useMemo } from 'react';
 
-const StateContext = createContext();
-const DispatchContext = createContext();
+const AuthContext = createContext();
+const ThemeContext = createContext();
 
-function reducer(state, action) {
-  switch (action.type) {
-    case 'increment': return { count: state.count + 1 };
-    default: return state;
-  }
-}
+export function AppProvider({ children }) {
+  const [user, setUser] = useState(null);
+  const [theme, setTheme] = useState('light');
 
-export function Provider({ children }) {
-  const [state, dispatch] = useReducer(reducer, { count: 0 });
-
-  // Optimization: Memoize state value
-  const stateValue = useMemo(() => state, [state]);
+  // Memoize auth value to prevent unnecessary re-renders if only theme changes
+  const authValue = useMemo(() => ({ user, setUser }), [user]);
   
-  // Optimization: Dispatch is stable, but good practice to be explicit if creating custom dispatchers
-  
+  // Memoize theme value
+  const themeValue = useMemo(() => ({ theme, setTheme }), [theme]);
+
   return (
-    <DispatchContext.Provider value={dispatch}>
-      <StateContext.Provider value={stateValue}>
+    <AuthContext.Provider value={authValue}>
+      <ThemeContext.Provider value={themeValue}>
         {children}
-      </StateContext.Provider>
-    </DispatchContext.Provider>
+      </ThemeContext.Provider>
+    </AuthContext.Provider>
   );
 }
 
-// Custom hooks
-export const useStateContext = () => useContext(StateContext);
-export const useDispatchContext = () => useContext(DispatchContext);
-
-// Usage: Components using only Dispatch won't re-render when State changes
+// Custom hooks for consumption
+export const useAuth = () => useContext(AuthContext);
+export const useTheme = () => useContext(ThemeContext);
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q4: How do you implement a Compound Component pattern (e.g., Tabs)?
+### Q4. How do you implement a Compound Component pattern (e.g., Tabs)?
 
-**Difficulty: Intermediate**
+**Answer:**
+Compound Components allow you to create flexible components where the parent manages the state, and children communicate with the parent implicitly. This avoids "prop explosion" where the parent needs dozens of props to configure internal children.
 
-
-**Strategy:**
-Compound components share state implicitly using Context, allowing flexible composition.
-Typical usage: `<Tabs><Tabs.List>...</Tabs.List><Tabs.Panel>...</Tabs.Panel></Tabs>`.
-
-**Code Snippet:**
+**Implementation:**
+Use `React.Children.map` or `React.Context` to share state between the parent (`Tabs`) and children (`Tab`, `TabPanel`). Context is the modern and more flexible approach.
 
 ```javascript
 import React, { createContext, useContext, useState } from 'react';
@@ -354,10 +251,10 @@ import React, { createContext, useContext, useState } from 'react';
 const TabsContext = createContext();
 
 function Tabs({ children, defaultIndex = 0 }) {
-  const [selectedIndex, setSelectedIndex] = useState(defaultIndex);
+  const [activeIndex, setActiveIndex] = useState(defaultIndex);
 
   return (
-    <TabsContext.Provider value={{ selectedIndex, setSelectedIndex }}>
+    <TabsContext.Provider value={{ activeIndex, setActiveIndex }}>
       <div className="tabs">{children}</div>
     </TabsContext.Provider>
   );
@@ -368,71 +265,56 @@ function TabList({ children }) {
 }
 
 function Tab({ index, children }) {
-  const { selectedIndex, setSelectedIndex } = useContext(TabsContext);
-  const isActive = selectedIndex === index;
-  
+  const { activeIndex, setActiveIndex } = useContext(TabsContext);
+  const isActive = activeIndex === index;
+
   return (
-    <button 
-      className={isActive ? 'active' : ''} 
-      onClick={() => setSelectedIndex(index)}
+    <button
+      className={`tab ${isActive ? 'active' : ''}`}
+      onClick={() => setActiveIndex(index)}
     >
       {children}
     </button>
   );
 }
 
-function TabPanels({ children }) {
-  return <div className="tab-panels">{children}</div>;
+function TabPanel({ index, children }) {
+  const { activeIndex } = useContext(TabsContext);
+  return activeIndex === index ? <div className="tab-panel">{children}</div> : null;
 }
-
-function Panel({ index, children }) {
-  const { selectedIndex } = useContext(TabsContext);
-  return selectedIndex === index ? <div>{children}</div> : null;
-}
-
-// Attach sub-components
-Tabs.List = TabList;
-Tabs.Tab = Tab;
-Tabs.Panels = TabPanels;
-Tabs.Panel = Panel;
 
 // Usage
-// <Tabs>
-//   <Tabs.List>
-//     <Tabs.Tab index={0}>Tab 1</Tabs.Tab>
-//     <Tabs.Tab index={1}>Tab 2</Tabs.Tab>
-//   </Tabs.List>
-//   <Tabs.Panels>
-//     <Tabs.Panel index={0}>Content 1</Tabs.Panel>
-//     <Tabs.Panel index={1}>Content 2</Tabs.Panel>
-//   </Tabs.Panels>
-// </Tabs>
+function App() {
+  return (
+    <Tabs defaultIndex={0}>
+      <TabList>
+        <Tab index={0}>Profile</Tab>
+        <Tab index={1}>Settings</Tab>
+      </TabList>
+      <TabPanel index={0}>User Profile Content</TabPanel>
+      <TabPanel index={1}>User Settings Content</TabPanel>
+    </Tabs>
+  );
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q5: How do you create a Higher-Order Component (HOC) for authentication?
+### Q5. How do you create a Higher-Order Component (HOC) for authentication?
 
-**Difficulty: Intermediate**
-
-
-**Strategy:**
-HOC is a function that takes a component and returns a new component.
-It's useful for cross-cutting concerns like auth, logging, or data fetching.
-Modern React prefers Hooks, but HOCs are still relevant for class components or specific patterns.
-
-**Code Snippet:**
+**Answer:**
+A Higher-Order Component (HOC) is a function that takes a component and returns a new component. It's a pattern for reusing component logic. While Hooks have replaced HOCs for many use cases (like data fetching), HOCs are still useful for wrapping components with cross-cutting concerns like authentication or layout injection.
 
 ```javascript
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Assuming react-router
 
+// HOC definition
 function withAuth(WrappedComponent) {
   return function AuthComponent(props) {
     const navigate = useNavigate();
-    const isAuthenticated = localStorage.getItem('token'); // Simplified check
+    // In a real app, check from context or localStorage
+    const isAuthenticated = localStorage.getItem('token');
 
     useEffect(() => {
       if (!isAuthenticated) {
@@ -441,9 +323,10 @@ function withAuth(WrappedComponent) {
     }, [isAuthenticated, navigate]);
 
     if (!isAuthenticated) {
-      return null; // or a loading spinner
+      return null; // Or a loading spinner
     }
 
+    // Pass through props
     return <WrappedComponent {...props} />;
   };
 }
@@ -453,72 +336,60 @@ function Dashboard() {
   return <h1>Private Dashboard</h1>;
 }
 
-export default withAuth(Dashboard);
-```
+const ProtectedDashboard = withAuth(Dashboard);
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+export default ProtectedDashboard;
+```
 
 ---
 
-### Q6: How do you implement the Render Props pattern for code reuse?
+### Q6. How do you implement the Render Props pattern for code reuse?
 
-**Difficulty: Advanced**
-
-
-**Strategy:**
-A component with a render prop takes a function that returns a React element and calls it instead of implementing its own render logic.
-This allows sharing state or logic (like mouse position, scroll state) with any UI.
-
-**Code Snippet:**
+**Answer:**
+Render Props refers to a technique for sharing code between React components using a prop whose value is a function. This function returns a React element. It allows the internal state of a component to be exposed to the parent, giving the parent full control over the UI.
 
 ```javascript
 import React, { useState } from 'react';
 
-class MouseTracker extends React.Component {
-  state = { x: 0, y: 0 };
+// Reusable logic component
+function MouseTracker({ render }) {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  handleMouseMove = (event) => {
-    this.setState({
+  const handleMouseMove = (event) => {
+    setPosition({
       x: event.clientX,
       y: event.clientY
     });
   };
 
-  render() {
-    return (
-      <div style={{ height: '100vh' }} onMouseMove={this.handleMouseMove}>
-        {/* Call the render prop */}
-        {this.props.render(this.state)}
-      </div>
-    );
-  }
+  return (
+    <div style={{ height: '100vh' }} onMouseMove={handleMouseMove}>
+      {/* Call the render prop with the state */}
+      {render(position)}
+    </div>
+  );
 }
 
 // Usage
 function App() {
   return (
-    <MouseTracker render={({ x, y }) => (
-      <h1>The mouse position is ({x}, {y})</h1>
-    )}/>
+    <MouseTracker
+      render={({ x, y }) => (
+        <h1>
+          The mouse position is ({x}, {y})
+        </h1>
+      )}
+    />
   );
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
-### Q7: How do you implement an Error Boundary to catch crashes in child components?
+### Q7. How do you implement an Error Boundary to catch crashes in child components?
 
-**Difficulty: Advanced**
-
-
-**Strategy:**
-Error Boundaries are class components that define `static getDerivedStateFromError()` or `componentDidCatch()`.
-They catch errors during rendering, lifecycle methods, and constructors of the whole tree below them.
-**Note:** They do *not* catch errors in event handlers or async code (use try/catch for those).
-
-**Code Snippet:**
+**Answer:**
+Error Boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. They must be implemented as **Class Components** because functional components do not yet support `getDerivedStateFromError` or `componentDidCatch`.
 
 ```javascript
 import React from 'react';
@@ -529,13 +400,13 @@ class ErrorBoundary extends React.Component {
     this.state = { hasError: false };
   }
 
+  // Update state so the next render shows the fallback UI
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
 
+  // You can also log the error to an error reporting service
   componentDidCatch(error, errorInfo) {
-    // You can also log the error to an error reporting service
     console.error("Uncaught error:", error, errorInfo);
   }
 
@@ -544,30 +415,30 @@ class ErrorBoundary extends React.Component {
       return this.props.fallback || <h1>Something went wrong.</h1>;
     }
 
-    return this.props.children; 
+    return this.props.children;
   }
 }
 
 // Usage
-// <ErrorBoundary fallback={<p>Error loading widget</p>}>
-//   <Widget />
-// </ErrorBoundary>
-```
+function BuggyComponent() {
+  throw new Error("I crashed!");
+}
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+function App() {
+  return (
+    <ErrorBoundary fallback={<h1>Sorry, the widget crashed!</h1>}>
+      <BuggyComponent />
+    </ErrorBoundary>
+  );
+}
+```
 
 ---
 
-### Q8: How do you use `useImperativeHandle` to expose child methods to a parent?
+### Q8. How do you use `useImperativeHandle` to expose child methods to a parent?
 
-**Difficulty: Advanced**
-
-
-**Strategy:**
-Sometimes you need to imperatively call a function on a child component (e.g., `focus()` on an input, or `reset()` on a form).
-`useImperativeHandle` works with `forwardRef` to customize the instance value that is exposed to parent components.
-
-**Code Snippet:**
+**Answer:**
+`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. It is rarely used but helpful when you need to imperatively control a child (e.g., focus an input, scroll to a node, or trigger a child method) from the parent. It must be used with `forwardRef`.
 
 ```javascript
 import React, { useRef, useImperativeHandle, forwardRef } from 'react';
@@ -581,3141 +452,1426 @@ const CustomInput = forwardRef((props, ref) => {
     },
     clear: () => {
       inputRef.current.value = '';
-    },
-    shake: () => {
-      inputRef.current.classList.add('shake');
-      setTimeout(() => inputRef.current.classList.remove('shake'), 500);
     }
   }));
 
   return <input ref={inputRef} {...props} />;
 });
 
-// Usage
-function Parent() {
-  const inputRef = useRef();
+function App() {
+  const childRef = useRef();
 
   return (
     <div>
-      <CustomInput ref={inputRef} />
-      <button onClick={() => inputRef.current.focus()}>Focus</button>
-      <button onClick={() => inputRef.current.clear()}>Clear</button>
-      <button onClick={() => inputRef.current.shake()}>Shake</button>
+      <CustomInput ref={childRef} />
+      <button onClick={() => childRef.current.focus()}>Focus Input</button>
+      <button onClick={() => childRef.current.clear()}>Clear Input</button>
     </div>
   );
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
-### Q9: How do you implement a Portal to render children into a different part of the DOM?
+### Q9. How do you implement a Portal to render children into a different part of the DOM?
 
-**Difficulty: Advanced**
-
-
-**Strategy:**
-Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
-Common use cases: Modals, Tooltips, Toast notifications.
-
-**Code Snippet:**
+**Answer:**
+Portals provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component. This is commonly used for Modals, Tooltips, and Popovers to ensure they appear visually "on top" of other elements and aren't affected by parent CSS (like `overflow: hidden` or `z-index`).
 
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Modal = ({ isOpen, onClose, children }) => {
-  if (!isOpen) return null;
+function Modal({ children, onClose }) {
+  // Ensure this element exists in your index.html (e.g., <div id="modal-root"></div>)
+  const modalRoot = document.getElementById('modal-root') || document.body;
 
   return ReactDOM.createPortal(
-    <div className="modal-overlay">
-      <div className="modal-content">
-        <button onClick={onClose}>Close</button>
+    <div style={overlayStyle}>
+      <div style={modalStyle}>
         {children}
+        <button onClick={onClose}>Close</button>
       </div>
     </div>,
-    document.getElementById('modal-root') // Target DOM node
+    modalRoot
   );
+}
+
+// Styles
+const overlayStyle = {
+  position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
+  backgroundColor: 'rgba(0,0,0,0.7)', zIndex: 1000
+};
+
+const modalStyle = {
+  padding: '20px', background: '#fff', margin: '100px auto',
+  width: '300px', borderRadius: '8px'
 };
 
 // Usage
-// Ensure <div id="modal-root"></div> exists in index.html
-// <Modal isOpen={show} onClose={() => setShow(false)}>Hello</Modal>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q10: How do you optimize large lists using Virtualization (Windowing)?
-
-**Difficulty: Advanced**
-
-
-**Strategy:**
-Rendering thousands of rows kills performance.
-Virtualization renders only the items currently visible in the viewport (plus a small buffer).
-Libraries like `react-window` or `react-virtualized` are standard.
-
-**Code Snippet (Conceptual):**
-
-```javascript
-import { FixedSizeList as List } from 'react-window';
-
-const Row = ({ index, style }) => (
-  <div style={style} className={index % 2 ? 'ListItemOdd' : 'ListItemEven'}>
-    Row {index}
-  </div>
-);
-
-const Example = () => (
-  <List
-    height={500}      // Height of the list container
-    itemCount={1000}  // Total number of items
-    itemSize={35}     // Height of each item
-    width={300}       // Width of the list container
-  >
-    {Row}
-  </List>
-);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q11: How do you handle form state efficiently (Controlled vs Uncontrolled)?
-
-**Difficulty: Advanced**
-
-
-**Strategy:**
-- **Controlled:** React state drives the input value. Good for validation, conditional fields.
-- **Uncontrolled:** DOM handles the state, accessed via `ref`. Good for simple forms, file inputs, or integrating with non-React libs.
-- **Libraries:** `react-hook-form` is popular for performance as it minimizes re-renders using uncontrolled inputs internally.
-
-**Code Snippet (React Hook Form):**
-
-```javascript
-import { useForm } from "react-hook-form";
-
-export default function App() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  
-  const onSubmit = data => console.log(data);
-
+function App() {
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input {...register("firstName", { required: true })} />
-      {errors.firstName && <span>This field is required</span>}
-      
-      <input {...register("age", { min: 18 })} />
-      {errors.age && <span>Must be 18+</span>}
-      
-      <input type="submit" />
-    </form>
+    <div style={{ overflow: 'hidden' }}>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      {isOpen && (
+        <Modal onClose={() => setIsOpen(false)}>
+          <h2>I am a Portal!</h2>
+        </Modal>
+      )}
+    </div>
   );
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+---
+
+### Q10. How do you optimize large lists using Virtualization (Windowing)?
+
+**Answer:**
+Virtualization (or Windowing) renders only the items currently visible in the viewport (plus a small buffer), rather than the entire list of thousands of items. This drastically reduces the number of DOM nodes and improves performance. Libraries like `react-window` or `react-virtualized` are standard.
+
+**Implementation (Manual Concept):**
+To implement it manually, you need to calculate which items overlap with the scroll container's viewport.
+
+```javascript
+import React, { useState } from 'react';
+
+// Simple Fixed Height Virtual List
+const VirtualList = ({ items, itemHeight, windowHeight }) => {
+  const [scrollTop, setScrollTop] = useState(0);
+
+  const totalHeight = items.length * itemHeight;
+  
+  // Calculate start and end indices
+  const startIndex = Math.floor(scrollTop / itemHeight);
+  const endIndex = Math.min(
+    items.length - 1,
+    Math.floor((scrollTop + windowHeight) / itemHeight)
+  );
+
+  const visibleItems = [];
+  for (let i = startIndex; i <= endIndex; i++) {
+    visibleItems.push(
+      <div
+        key={i}
+        style={{
+          position: 'absolute',
+          top: `${i * itemHeight}px`,
+          height: `${itemHeight}px`,
+          width: '100%'
+        }}
+      >
+        {items[i]}
+      </div>
+    );
+  }
+
+  return (
+    <div
+      onScroll={(e) => setScrollTop(e.target.scrollTop)}
+      style={{ height: `${windowHeight}px`, overflowY: 'auto', position: 'relative' }}
+    >
+      <div style={{ height: `${totalHeight}px` }}>
+        {visibleItems}
+      </div>
+    </div>
+  );
+};
+
+// Usage
+const items = Array.from({ length: 1000 }, (_, i) => `Item ${i + 1}`);
+
+function App() {
+  return <VirtualList items={items} itemHeight={35} windowHeight={300} />;
+}
+```
 
 ---
 
-### Q12: How do you lazy load components using React.lazy and Suspense?
+### Q11. How do you implement a custom `useDebounce` hook?
 
-**Difficulty: Advanced**
-
-
-**Strategy:**
-Code-splitting allows loading parts of the application only when needed.
-`React.lazy` takes a function calling a dynamic `import()`.
-`Suspense` displays a fallback while the component loads.
-
-**Code Snippet:**
+**Answer:**
+A `useDebounce` hook is useful for delaying a value update until a specified time has passed since the last change. It's commonly used for search inputs to avoid making an API call on every keystroke.
 
 ```javascript
-import React, { Suspense, lazy } from 'react';
+import { useState, useEffect } from 'react';
 
-const HeavyChart = lazy(() => import('./HeavyChart'));
+function useDebounce(value, delay) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
 
-function Dashboard() {
+  useEffect(() => {
+    // Set a timeout to update the debounced value after the delay
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    // Cleanup: Clear the timeout if value changes (resetting the timer)
+    // or if the component unmounts
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
+// Usage
+function SearchComponent() {
+  const [text, setText] = useState('');
+  const debouncedText = useDebounce(text, 500);
+
+  useEffect(() => {
+    if (debouncedText) {
+      console.log('API Call for:', debouncedText);
+    }
+  }, [debouncedText]);
+
+  return <input value={text} onChange={(e) => setText(e.target.value)} />;
+}
+```
+
+---
+
+### Q12. How do you implement a custom `useLocalStorage` hook?
+
+**Answer:**
+This hook syncs a state variable with `localStorage` so that data persists across browser refreshes. It also listens for changes to keep the state in sync.
+
+```javascript
+import { useState, useEffect } from 'react';
+
+function useLocalStorage(key, initialValue) {
+  // Initialize state function to run only once
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const item = window.localStorage.getItem(key);
+      return item ? JSON.parse(item) : initialValue;
+    } catch (error) {
+      console.error(error);
+      return initialValue;
+    }
+  });
+
+  // Return a wrapped version of useState's setter function that persists data
+  const setValue = (value) => {
+    try {
+      // Allow value to be a function so we have same API as useState
+      const valueToStore = value instanceof Function ? value(storedValue) : value;
+      setStoredValue(valueToStore);
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return [storedValue, setValue];
+}
+```
+
+---
+
+### Q13. How do you implement a custom `usePrevious` hook?
+
+**Answer:**
+`usePrevious` is used to hold the value of a prop or state from the *previous* render. This is useful for comparing old and new values in effects.
+
+```javascript
+import { useRef, useEffect } from 'react';
+
+function usePrevious(value) {
+  const ref = useRef();
+
+  // Store current value in ref
+  useEffect(() => {
+    ref.current = value;
+  }, [value]); // Runs AFTER render
+
+  // Return previous value (happens before update in useEffect)
+  return ref.current;
+}
+
+// Usage
+function Counter() {
+  const [count, setCount] = useState(0);
+  const prevCount = usePrevious(count);
+
+  return (
+    <h1>
+      Now: {count}, Before: {prevCount}
+    </h1>
+  );
+}
+```
+
+---
+
+### Q14. What is the difference between `useEffect` and `useLayoutEffect`?
+
+**Answer:**
+Both hooks run side effects, but the timing differs:
+*   **`useEffect`**: Runs **asynchronously** *after* the browser has painted the screen. This is good for data fetching, subscriptions, and non-blocking updates. It doesn't block the UI.
+*   **`useLayoutEffect`**: Runs **synchronously** *after* DOM mutations but *before* the browser paints. Use this if you need to measure DOM elements (width, height) and update state immediately to prevent a visual flicker.
+
+**Visual Example:**
+If you set state in `useEffect` that changes layout, the user might see the initial layout, then a flicker as it updates. With `useLayoutEffect`, the update happens before the paint, so no flicker occurs.
+
+```javascript
+import React, { useLayoutEffect, useRef, useState } from 'react';
+
+function Tooltip() {
+  const [height, setHeight] = useState(0);
+  const ref = useRef(null);
+
+  useLayoutEffect(() => {
+    if (ref.current) {
+      const { height } = ref.current.getBoundingClientRect();
+      setHeight(height);
+    }
+  }, []); // Runs before paint
+
+  return (
+    <div>
+      <div ref={ref}>Content that determines height</div>
+      <p>Height is: {height}px</p>
+    </div>
+  );
+}
+```
+
+---
+
+### Q15. How do you use `forwardRef` to pass refs to child components?
+
+**Answer:**
+By default, `ref`s are not passed to functional components. `forwardRef` allows a component to take a `ref` attribute and "forward" it to one of its children (usually a DOM element).
+
+```javascript
+import React, { forwardRef, useRef } from 'react';
+
+// Child component capable of receiving a ref
+const CustomButton = forwardRef((props, ref) => (
+  <button ref={ref} className="btn">
+    {props.children}
+  </button>
+));
+
+function App() {
+  const buttonRef = useRef(null);
+
+  const clickHandler = () => {
+    buttonRef.current.focus();
+    buttonRef.current.innerText = "Clicked!";
+  };
+
+  return (
+    <div>
+      <CustomButton ref={buttonRef}>Click Me</CustomButton>
+      <button onClick={clickHandler}>Focus the Custom Button</button>
+    </div>
+  );
+}
+```
+
+---
+
+### Q16. Controlled vs Uncontrolled Components: When to use which?
+
+**Answer:**
+*   **Controlled Components:** React manages the state. The input value is driven by state (`value={state}`) and changes via `onChange`.
+    *   *Pros:* Instant validation, conditional disabling, consistent state.
+    *   *Cons:* More boilerplate, re-renders on every keystroke.
+*   **Uncontrolled Components:** The DOM manages the state. You access the value using a `ref`.
+    *   *Pros:* Easier to integrate with non-React code, less re-rendering.
+    *   *Cons:* Harder to validate conditionally as you type.
+
+**Recommendation:** Use Controlled for most forms. Use Uncontrolled for simple inputs or file uploads where React doesn't need to know the value instantly.
+
+```javascript
+// Controlled
+function ControlledInput() {
+  const [val, setVal] = useState("");
+  return <input value={val} onChange={e => setVal(e.target.value)} />;
+}
+
+// Uncontrolled
+function UncontrolledInput() {
+  const inputRef = useRef();
+  const handleSubmit = () => alert(inputRef.current.value);
+  return (
+    <div>
+      <input ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+    </div>
+  );
+}
+```
+
+---
+
+### Q17. How do you use `React.memo` to prevent re-renders?
+
+**Answer:**
+`React.memo` is a higher-order component that memoizes a functional component. It checks if the *props* have changed. If props are the same (shallow comparison), it skips re-rendering the component.
+
+**Warning:** Don't wrap everything in `memo`. Use it only for pure components that render often with the same props.
+
+```javascript
+import React, { useState } from 'react';
+
+const Movie = React.memo(({ title, releaseDate }) => {
+  console.log(`Rendering Movie: ${title}`);
+  return (
+    <div>
+      <h3>{title}</h3>
+      <p>Release: {releaseDate}</p>
+    </div>
+  );
+});
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <button onClick={() => setCount(c => c + 1)}>Count: {count}</button>
+      {/* Movie will NOT re-render when count changes */}
+      <Movie title="Inception" releaseDate="2010" />
+    </div>
+  );
+}
+```
+
+---
+
+### Q18. How do you implement Code Splitting using `React.lazy` and `Suspense`?
+
+**Answer:**
+Code splitting allows you to split your bundle into smaller chunks which can then be loaded on demand. This improves the initial load time. `React.lazy` lets you define a component that is loaded dynamically, and `Suspense` lets you show a fallback (like a spinner) while it's loading.
+
+```javascript
+import React, { Suspense } from 'react';
+
+// Lazy load the component
+const HeavyWidget = React.lazy(() => import('./HeavyWidget'));
+
+function App() {
   return (
     <div>
       <h1>Dashboard</h1>
-      <Suspense fallback={<div>Loading Chart...</div>}>
-        <HeavyChart />
+      
+      {/* Show "Loading..." while HeavyWidget bundle is fetched */}
+      <Suspense fallback={<div>Loading widget...</div>}>
+        <HeavyWidget />
       </Suspense>
     </div>
   );
 }
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+---
+
+### Q19. How do you handle forms efficiently using React Hook Form?
+
+**Answer:**
+`React Hook Form` is a popular library that uses *uncontrolled components* (refs) to handle form state, resulting in significantly fewer re-renders compared to controlled components. It provides easy validation and error handling.
+
+```javascript
+import React from 'react';
+import { useForm } from 'react-hook-form';
+
+function LoginForm() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("Form Data:", data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <label>Username</label>
+        {/* Register the input with validation rules */}
+        <input {...register("username", { required: "Username is required" })} />
+        {errors.username && <p>{errors.username.message}</p>}
+      </div>
+
+      <div>
+        <label>Email</label>
+        <input 
+          {...register("email", { 
+            required: "Email is required",
+            pattern: { value: /^\S+@\S+$/i, message: "Invalid email" }
+          })} 
+        />
+        {errors.email && <p>{errors.email.message}</p>}
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+  );
+}
+```
 
 ---
 
-### Q13: How do you implement Infinite Scroll using Intersection Observer?
+### Q20. How do you manage state with Redux Toolkit (Slice + Thunk)?
 
-**Difficulty: Advanced**
-
-
-**Strategy:**
-Instead of listening to scroll events (which fires frequently), use `IntersectionObserver` to detect when a "loader" element at the bottom of the list comes into view.
-
-**Code Snippet:**
+**Answer:**
+Redux Toolkit (RTK) simplifies Redux. A "Slice" contains the reducer logic and actions. `createAsyncThunk` handles async logic.
 
 ```javascript
-import { useEffect, useRef, useState } from 'react';
+// features/userSlice.js
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-function InfiniteList() {
-  const [items, setItems] = useState(Array.from({ length: 20 }));
-  const loaderRef = useRef(null);
+// Async Thunk
+export const fetchUser = createAsyncThunk('user/fetch', async (userId) => {
+  const response = await fetch(`/api/user/${userId}`);
+  return await response.json();
+});
+
+const userSlice = createSlice({
+  name: 'user',
+  initialState: { data: null, status: 'idle' },
+  reducers: {
+    logout: (state) => { state.data = null; }
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchUser.pending, (state) => { state.status = 'loading'; })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.data = action.payload;
+      });
+  }
+});
+
+export const { logout } = userSlice.actions;
+export default userSlice.reducer;
+
+// Component
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+function UserProfile({ id }) {
+  const dispatch = useDispatch();
+  const { data, status } = useSelector((state) => state.user);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      const target = entries[0];
-      if (target.isIntersecting) {
-        // Load more items
-        setItems(prev => [...prev, ...Array.from({ length: 10 })]);
-      }
-    }, { root: null, rootMargin: '20px', threshold: 1.0 });
+    dispatch(fetchUser(id));
+  }, [dispatch, id]);
 
-    if (loaderRef.current) observer.observe(loaderRef.current);
+  if (status === 'loading') return <p>Loading...</p>;
+  return <div>{data?.name}</div>;
+}
+```
 
-    return () => {
-      if (loaderRef.current) observer.unobserve(loaderRef.current);
-    };
+---
+
+### Q21. How do you create a simple store using Zustand?
+
+**Answer:**
+Zustand is a minimalistic state management library. It uses hooks and doesn't require a provider wrapper (unlike Context or Redux). It's great for avoiding boilerplate.
+
+```javascript
+import create from 'zustand';
+
+// Create store
+const useStore = create((set) => ({
+  bears: 0,
+  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: 0 }),
+}));
+
+// Component
+function BearCounter() {
+  // Select state
+  const bears = useStore((state) => state.bears);
+  return <h1>{bears} around here...</h1>;
+}
+
+function Controls() {
+  // Select actions
+  const increase = useStore((state) => state.increasePopulation);
+  return <button onClick={increase}>One up</button>;
+}
+```
+
+---
+
+### Q22. How do you implement Private Routes for authentication?
+
+**Answer:**
+Private routes prevent unauthenticated users from accessing certain pages. In React Router v6, this is done by creating a wrapper component that checks for a token/user and redirects if missing.
+
+```javascript
+import { Navigate, Outlet } from 'react-router-dom';
+
+const useAuth = () => {
+  const user = localStorage.getItem('user');
+  return user ? true : false;
+};
+
+function PrivateRoutes() {
+  const isAuth = useAuth();
+  // If authorized, render child routes (Outlet), else redirect to login
+  return isAuth ? <Outlet /> : <Navigate to="/login" />;
+}
+
+// App.js
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        
+        {/* Protected Routes */}
+        <Route element={<PrivateRoutes />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/settings" element={<Settings />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+```
+
+---
+
+### Q23. How do you handle JWT Authentication (Login/Logout)?
+
+**Answer:**
+Handling JWT involves sending credentials, storing the received token (usually `localStorage` or HttpOnly cookies), and attaching it to subsequent requests.
+
+```javascript
+// api.js
+export const login = async (credentials) => {
+  const res = await fetch('/api/login', {
+    method: 'POST',
+    body: JSON.stringify(credentials),
+    headers: { 'Content-Type': 'application/json' }
+  });
+  const data = await res.json();
+  if (data.token) {
+    localStorage.setItem('token', data.token);
+  }
+  return data;
+};
+
+export const getProtectedData = async () => {
+  const token = localStorage.getItem('token');
+  const res = await fetch('/api/protected', {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+  return res.json();
+};
+
+export const logout = () => {
+  localStorage.removeItem('token');
+  window.location.href = '/login';
+};
+```
+
+---
+
+### Q24. How do you unit test a React component using Jest and React Testing Library?
+
+**Answer:**
+React Testing Library focuses on testing behavior from the user's perspective (clicking, seeing text) rather than implementation details (state, props).
+
+```javascript
+// Counter.js
+import { useState } from 'react';
+export default function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p data-testid="count-value">{count}</p>
+      <button onClick={() => setCount(c => c + 1)}>Increment</button>
+    </div>
+  );
+}
+
+// Counter.test.js
+import { render, screen, fireEvent } from '@testing-library/react';
+import Counter from './Counter';
+
+test('increments counter on click', () => {
+  render(<Counter />);
+  
+  // Check initial state
+  const countValue = screen.getByTestId('count-value');
+  expect(countValue).toHaveTextContent('0');
+  
+  // Simulate click
+  const button = screen.getByText('Increment');
+  fireEvent.click(button);
+  
+  // Check updated state
+  expect(countValue).toHaveTextContent('1');
+});
+```
+
+---
+
+### Q25. How do you mock API calls in Jest tests?
+
+**Answer:**
+You should not make real network requests in tests. Instead, mock the `fetch` function or the module that makes the request.
+
+```javascript
+// UserList.js
+import { useEffect, useState } from 'react';
+
+export default function UserList() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/users')
+      .then(res => res.json())
+      .then(data => setUsers(data));
   }, []);
 
   return (
     <ul>
-      {items.map((_, i) => <li key={i}>Item {i}</li>)}
-      <li ref={loaderRef} style={{ background: 'red', height: '20px' }}>
-        Loading more...
-      </li>
+      {users.map(u => <li key={u.id}>{u.name}</li>)}
     </ul>
   );
 }
-```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+// UserList.test.js
+import { render, screen, waitFor } from '@testing-library/react';
+import UserList from './UserList';
+
+// Mock global fetch
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve([{ id: 1, name: 'John Doe' }]),
+  })
+);
+
+test('renders users from API', async () => {
+  render(<UserList />);
+
+  // Wait for the element to appear
+  const userItem = await waitFor(() => screen.getByText('John Doe'));
+  
+  expect(userItem).toBeInTheDocument();
+  expect(fetch).toHaveBeenCalledTimes(1);
+});
+```
 
 ---
 
-### Q14: How do you prevent prop drilling using Component Composition?
+### Q26. How do you prevent XSS attacks in React?
 
-**Difficulty: Advanced**
+**Answer:**
+Cross-Site Scripting (XSS) occurs when an attacker injects malicious scripts. React protects against XSS by default because it escapes data before rendering it. However, you are vulnerable if you use `dangerouslySetInnerHTML` or user-controlled `href` attributes.
 
-
-**Strategy:**
-Instead of passing data through intermediate components (prop drilling), you can lift the content up and pass it as `children` or specific props (`leftContent`, `rightContent`).
-
-**Code Snippet:**
+**Best Practices:**
+1.  Avoid `dangerouslySetInnerHTML`. If necessary, use a sanitization library like `dompurify`.
+2.  Validate URLs in `<a>` tags (avoid `javascript:alert(1)`).
 
 ```javascript
-// Bad: Prop Drilling
-// <Page user={user} /> -> <Layout user={user} /> -> <Header user={user} />
+import DOMPurify from 'dompurify';
 
-// Good: Composition
-function Page({ user }) {
-  return (
-    <Layout>
-      <Header user={user} />
-      <MainContent />
-    </Layout>
-  );
+function SafeContent({ htmlContent }) {
+  // BAD: Vulnerable if htmlContent contains <script>
+  // return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+
+  // GOOD: Sanitize first
+  const cleanHTML = DOMPurify.sanitize(htmlContent);
+  
+  return <div dangerouslySetInnerHTML={{ __html: cleanHTML }} />;
 }
-
-function Layout({ children }) {
-  return <div className="layout">{children}</div>;
-}
-
-// Now Layout doesn't need to know about 'user'
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q15: How do you handle side effects that depend on props changing using `useEffect`?
+### Q27. How do you fix "Can't perform a React state update on an unmounted component"?
 
-**Difficulty: Advanced**
+**Answer:**
+This warning occurs when an async operation (like `fetch` or `setTimeout`) completes and tries to call `setState` after the component has already unmounted.
 
-
-**Strategy:**
-`useEffect` runs after render. You specify dependencies to control when it re-runs.
-Always include all variables from the component scope that change over time in the dependency array.
-
-**Code Snippet:**
+**Fix:** Use a cleanup function in `useEffect` to cancel the operation or set a flag.
 
 ```javascript
 useEffect(() => {
-  const subscription = props.source.subscribe();
-  
+  let isMounted = true;
+
+  fetchData().then(data => {
+    if (isMounted) {
+      setData(data);
+    }
+  });
+
   return () => {
-    // Clean up the subscription
-    subscription.unsubscribe();
+    isMounted = false;
   };
-}, [props.source]); // Only re-subscribe if props.source changes
+}, []);
 ```
+*Note: In modern React, strict mode often helps detect this, and using proper cancellation (like AbortController) is preferred over the `isMounted` flag.*
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
-### Q16: How do you implement Dark Mode using Context and localStorage?
+### Q28. How do you manage focus for accessibility (A11y)?
 
-**Difficulty: Intermediate**
+**Answer:**
+Managing focus is critical for keyboard navigation.
+1.  **Auto-focus:** Use `ref.current.focus()` to move focus to a modal when it opens.
+2.  **Focus Trap:** Keep focus inside a modal so Tab doesn't exit it.
+3.  **Skip Links:** Allow users to skip navigation to main content.
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Dark Mode using Context and localStorage?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
 ```javascript
-// Example implementation
-// How do you implement Dark Mode using Context and localStorage?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+import { useEffect, useRef } from 'react';
 
----
+function Modal({ isOpen, onClose, children }) {
+  const modalRef = useRef();
 
-### Q17: How do you secure React routes using a PrivateRoute component?
+  useEffect(() => {
+    if (isOpen) {
+      modalRef.current?.focus();
+    }
+  }, [isOpen]);
 
-**Difficulty: Intermediate**
+  if (!isOpen) return null;
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you secure React routes using a PrivateRoute component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you secure React routes using a PrivateRoute component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+  return (
+    <div role="dialog" aria-modal="true">
+      <div tabIndex={-1} ref={modalRef}>
+        {children}
+        <button onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q18: How do you manage multiple environments (dev, staging, prod) in React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you manage multiple environments (dev, staging, prod) in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you manage multiple environments (dev, staging, prod) in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+### Q29. SSR vs CSR vs SSG: When to use what?
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Answer:**
+*   **CSR (Client-Side Rendering):** Standard React. Browser downloads empty HTML + JS bundle, then renders.
+    *   *Use:* Dashboards, private apps behind login.
+*   **SSR (Server-Side Rendering):** Server renders HTML on every request. (Next.js `getServerSideProps`).
+    *   *Use:* Dynamic content needing SEO (e.g., Social Media feed).
+*   **SSG (Static Site Generation):** HTML is built at **build time**. (Next.js `getStaticProps`).
+    *   *Use:* Blogs, Marketing pages, Docs (Fastest performance).
 
 ---
-
-### Q19: How do you test React components using Jest and React Testing Library?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you test React components using Jest and React Testing Library?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you test React components using Jest and React Testing Library?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+### Q30. What is React Fiber and how does it improve performance?
 
----
+**Answer:**
+React Fiber is the reimplementation of React's core reconciliation algorithm (introduced in React 16).
+*   **Key Goal:** Incremental rendering. It can split rendering work into chunks and spread it out over multiple frames.
+*   **Impact:** It allows React to pause work, reuse it, or abort it to prioritize higher-priority updates (like user input) over low-priority ones (like data fetching). This results in smoother animations and responsiveness.
+*   **Features enabled by Fiber:** `Suspense`, `useTransition`, `Concurrency`.
 
-### Q20: How do you mock API calls in Jest tests?
+### Q31: `useState` vs `useReducer`: When should you choose one over the other?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you mock API calls in Jest tests?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you mock API calls in Jest tests?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+Use `useState` for simple, independent state values (strings, booleans). Use `useReducer` for complex state logic that involves multiple sub-values or when the next state depends on the previous one.
 
-### Q21: How do you optimize images in React?
+**Code Example:**
+import React, { useReducer } from 'react';
 
-**Difficulty: Intermediate**
+const initialState = { count: 0 };
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you optimize images in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you optimize images in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
 }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
----
-
-### Q22: How do you implement drag and drop in React (dnd-kit or react-beautiful-dnd)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement drag and drop in React (dnd-kit or react-beautiful-dnd)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement drag and drop in React (dnd-kit or react-beautiful-dnd)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return (
+    <>
+      Count: {state.count}
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+    </>
+  );
 }
-```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q23: How do you use WebSockets in React?
+### Q32: How do you implement a custom hook `useOnClickOutside` to close modals?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use WebSockets in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use WebSockets in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+This hook detects clicks outside a specified element (ref). It binds a `mousedown` or `touchstart` listener to the document and checks if the event target is contained within the ref element.
 
----
+**Code Example:**
+import { useEffect } from 'react';
 
-### Q24: How do you implement Server-Sent Events (SSE) in React?
+function useOnClickOutside(ref, handler) {
+  useEffect(() => {
+    const listener = (event) => {
+      // Do nothing if clicking ref's element or descendent elements
+      if (!ref.current || ref.current.contains(event.target)) {
+        return;
+      }
+      handler(event);
+    };
 
-**Difficulty: Intermediate**
+    document.addEventListener('mousedown', listener);
+    document.addEventListener('touchstart', listener);
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Server-Sent Events (SSE) in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Server-Sent Events (SSE) in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+    return () => {
+      document.removeEventListener('mousedown', listener);
+      document.removeEventListener('touchstart', listener);
+    };
+  }, [ref, handler]);
 }
-```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q25: How do you handle file uploads in React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you handle file uploads in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you handle file uploads in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+// Usage
+// const ref = useRef();
+// useOnClickOutside(ref, () => setModalOpen(false));
+// <div ref={ref}>Modal Content</div>
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q26: How do you implement pagination in React?
+### Q33: How do you implement a `useMediaQuery` hook for responsive designs?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you implement pagination in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement pagination in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q27: How do you implement a search filter in React?
+This hook uses `window.matchMedia` to listen for media query changes and updates state accordingly.
 
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a search filter in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a search filter in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+**Code Example:**
+import { useState, useEffect } from 'react';
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
 
----
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
 
-### Q28: How do you implement sorting in a table in React?
+    const listener = () => setMatches(media.matches);
+    media.addEventListener('change', listener);
 
-**Difficulty: Intermediate**
+    return () => media.removeEventListener('change', listener);
+  }, [query]);
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement sorting in a table in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement sorting in a table in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+  return matches;
 }
-```
 
+// Usage
+// const isMobile = useMediaQuery('(max-width: 768px)');
+// return <div>{isMobile ? 'Mobile View' : 'Desktop View'}</div>;
+
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q29: How do you use the `useReducer` hook for complex state logic?
+### Q34: How do you make a custom button accessible using ARIA attributes?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use the `useReducer` hook for complex state logic?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use the `useReducer` hook for complex state logic?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+When creating a non-native button (e.g., using a `div`), you must add `role='button'`, `tabIndex={0}` for keyboard focus, and handle `onKeyDown` for Enter/Space keys.
+
+**Code Example:**
+function AccessibleButton({ onClick, label }) {
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      aria-label={label}
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault(); // Prevent scrolling for Space
+          onClick();
+        }
+      }}
+      style={{ cursor: 'pointer' }}
+    >
+      {label}
+    </div>
+  );
 }
-```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q30: How do you use the `useLayoutEffect` hook (vs useEffect)?
+### Q35: How do you profile a React application to identify performance bottlenecks?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use the `useLayoutEffect` hook (vs useEffect)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use the `useLayoutEffect` hook (vs useEffect)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+Use the React DevTools Profiler tab. It records rendering information, showing which components rendered, why they rendered (changed props/state), and how long it took.
 
-### Q31: How do you use the `useDebugValue` hook?
+**Code Example:**
+// 1. Install React DevTools extension.
+// 2. Open the 'Profiler' tab in Chrome DevTools.
+// 3. Click 'Record' (blue circle).
+// 4. Interact with your app.
+// 5. Stop recording.
 
-**Difficulty: Intermediate**
+// Analysis:
+// - Flamegraph: Shows the component tree. Width of bar = time taken to render. Color (yellow/red) = slow.
+// - Ranked chart: Lists components by render time.
+// - Why did this render?: Hover over a component to see changed props or hooks.
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you use the `useDebugValue` hook?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use the `useDebugValue` hook?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+// Programmatic Profiling:
+<Profiler id="Navigation" onRender={(id, phase, actualDuration) => {
+  console.log({ id, phase, actualDuration });
+}}>
+  <Navigation />
+</Profiler>
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q32: How do you use the `useId` hook for accessibility?
+### Q36: How do you safely render HTML content to prevent XSS attacks?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use the `useId` hook for accessibility?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use the `useId` hook for accessibility?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+React escapes content by default. If you must render raw HTML, use `dangerouslySetInnerHTML` but sanitize the content first using a library like `dompurify`.
 
----
-
-### Q33: How do you use the `useTransition` hook for non-blocking UI updates?
+**Code Example:**
+import DOMPurify from 'dompurify';
 
-**Difficulty: Intermediate**
+function SafeHTML({ htmlContent }) {
+  const sanitizedHTML = DOMPurify.sanitize(htmlContent);
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you use the `useTransition` hook for non-blocking UI updates?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use the `useTransition` hook for non-blocking UI updates?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
+    />
+  );
 }
-```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q34: How do you use the `useDeferredValue` hook?
+### Q37: What is the difference between `fireEvent` and `userEvent` in React Testing Library?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use the `useDeferredValue` hook?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use the `useDeferredValue` hook?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+`fireEvent` dispatches DOM events directly. `userEvent` simulates full user interactions (e.g., typing triggers focus, keydown, input, keyup, blur), making tests more realistic.
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q35: How do you use the `useSyncExternalStore` hook?
+**Code Example:**
+// fireEvent (Low-level)
+fireEvent.change(input, { target: { value: 'hello' } });
 
-**Difficulty: Intermediate**
+// userEvent (Recommended - mimics real user behavior)
+import userEvent from '@testing-library/user-event';
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you use the `useSyncExternalStore` hook?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use the `useSyncExternalStore` hook?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+const user = userEvent.setup();
+await user.type(input, 'hello'); // Triggers focus, keydown, input...
+await user.click(button);
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q36: How do you use `React.memo` with custom comparison functions?
+### Q38: How do you handle errors in Functional Components (since they lack `componentDidCatch`)?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use `React.memo` with custom comparison functions?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use `React.memo` with custom comparison functions?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+Use the `react-error-boundary` library, which provides a reusable `ErrorBoundary` component that works with functional components and hooks.
 
-### Q37: How do you use `React.PureComponent` (for class components)?
+**Code Example:**
+import { ErrorBoundary } from 'react-error-boundary';
 
-**Difficulty: Intermediate**
+function ErrorFallback({ error, resetErrorBoundary }) {
+  return (
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <pre>{error.message}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  );
+}
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you use `React.PureComponent` (for class components)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use `React.PureComponent` (for class components)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+function App() {
+  return (
+    <ErrorBoundary
+      FallbackComponent={ErrorFallback}
+      onReset={() => {
+        // Reset the state of your app so the error doesn't happen again
+      }}
+    >
+      <MyComponent />
+    </ErrorBoundary>
+  );
 }
-```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q38: How do you use `forceUpdate` (if absolutely necessary)?
+### Q39: What is Automatic Batching in React 18?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use `forceUpdate` (if absolutely necessary)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use `forceUpdate` (if absolutely necessary)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+Before React 18, updates inside promises, timeouts, or native event handlers were not batched. React 18 batches *all* state updates automatically, reducing re-renders.
 
----
-
-### Q39: How do you implement a custom router without a library?
+**Code Example:**
+// React 17: Renders twice
+setTimeout(() => {
+  setCount(c => c + 1);
+  setFlag(f => !f);
+}, 1000);
 
-**Difficulty: Intermediate**
+// React 18: Renders once (Automatic Batching)
+setTimeout(() => {
+  setCount(c => c + 1);
+  setFlag(f => !f);
+}, 1000);
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a custom router without a library?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a custom router without a library?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+// Opt-out (rarely needed):
+import { flushSync } from 'react-dom';
+flushSync(() => {
+  setCount(c => c + 1); // Forces re-render immediately
+});
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q40: How do you manage focus in React (accessibility)?
+### Q40: How do you use `useTransition` to keep the UI responsive during heavy state updates?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you manage focus in React (accessibility)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you manage focus in React (accessibility)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+`useTransition` marks a state update as 'non-urgent' (transition). This allows the UI to remain responsive (e.g., typing in an input) while the heavy update (e.g., filtering a list) calculates in the background.
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example:**
+import { useState, useTransition } from 'react';
 
----
+function App() {
+  const [isPending, startTransition] = useTransition();
+  const [input, setInput] = useState('');
+  const [list, setList] = useState([]);
 
-### Q41: How do you implement a skip link for accessibility?
+  const handleChange = (e) => {
+    // Urgent: Update input immediately
+    setInput(e.target.value);
 
-**Difficulty: Intermediate**
+    // Non-urgent: Filter list (can lag slightly)
+    startTransition(() => {
+      const filtered = largeList.filter(item => item.includes(e.target.value));
+      setList(filtered);
+    });
+  };
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a skip link for accessibility?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a skip link for accessibility?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+  return (
+    <div>
+      <input value={input} onChange={handleChange} />
+      {isPending ? <p>Loading list...</p> : <List items={list} />}
+    </div>
+  );
 }
-```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q42: How do you handle 404 pages in React Router?
+### Q41: What is `useDeferredValue` and when should you use it?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you handle 404 pages in React Router?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you handle 404 pages in React Router?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+`useDeferredValue` accepts a value and returns a new copy of the value that will defer to more urgent updates. It's like debouncing but integrated with React's rendering cycle.
 
----
+**Code Example:**
+import { useState, useDeferredValue, useMemo } from 'react';
 
-### Q43: How do you use nested routes in React Router v6?
+function App() {
+  const [query, setQuery] = useState('');
+  // The deferred query will lag behind the actual query if the UI is busy
+  const deferredQuery = useDeferredValue(query);
 
-**Difficulty: Intermediate**
+  // Expensive list calculation only runs when deferredQuery catches up
+  const list = useMemo(() => {
+    return largeList.filter(item => item.includes(deferredQuery));
+  }, [deferredQuery]);
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you use nested routes in React Router v6?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use nested routes in React Router v6?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+  return (
+    <>
+      <input value={query} onChange={e => setQuery(e.target.value)} />
+      <List items={list} />
+    </>
+  );
 }
-```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q44: How do you use URL parameters (`useParams`)?
+### Q42: How does Suspense for Data Fetching work?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use URL parameters (`useParams`)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use URL parameters (`useParams`)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+Suspense allows components to 'suspend' rendering while waiting for an async operation (like fetching data) to complete. It requires a Suspense-enabled data fetching library (like Relay, SWR, or React Query's suspense mode).
 
----
-
-### Q45: How do you use query parameters (`useSearchParams`)?
+**Code Example:**
+import { Suspense } from 'react';
 
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use query parameters (`useSearchParams`)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use query parameters (`useSearchParams`)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+// Assume 'ProfileData' is a component that throws a promise while fetching
+// This requires a library that supports Suspense for data fetching
+function ProfilePage() {
+  return (
+    <Suspense fallback={<h1>Loading profile...</h1>}>
+      <ProfileData />
+      <Suspense fallback={<h1>Loading posts...</h1>}>
+        <ProfilePosts />
+      </Suspense>
+    </Suspense>
+  );
 }
-```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q46: How do you implement programmatic navigation (`useNavigate`)?
+### Q43: Why is using the array index as a key an anti-pattern?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you implement programmatic navigation (`useNavigate`)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement programmatic navigation (`useNavigate`)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q47: How do you implement breadcrumbs in React?
+Using the index as a key can break your application and cause wrong data to be displayed if the list order changes (sorting, filtering, inserting). React uses keys to identify elements. If the index changes, React may reuse component state incorrectly.
 
-**Difficulty: Intermediate**
+**Code Example:**
+// ❌ Bad: Index as key
+{items.map((item, index) => (
+  <li key={index}>{item.name}</li>
+))}
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement breadcrumbs in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement breadcrumbs in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+// ✅ Good: Unique ID as key
+{items.map((item) => (
+  <li key={item.id}>{item.name}</li>
+))}
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q48: How do you integrate Redux Toolkit with React?
+### Q44: How do you solve Props Drilling without Context?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you integrate Redux Toolkit with React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you integrate Redux Toolkit with React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q49: How do you use `createSlice` in Redux Toolkit?
+Use **Component Composition**. Instead of passing data down through intermediate components, pass the components themselves as `children` or props.
 
-**Difficulty: Intermediate**
+**Code Example:**
+// ❌ Props Drilling
+function App() {
+  const user = { name: 'Alice' };
+  return <Layout user={user} />;
+}
+function Layout({ user }) {
+  return <Header user={user} />; // Layout doesn't need user
+}
+function Header({ user }) {
+  return <div>Hello {user.name}</div>;
+}
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you use `createSlice` in Redux Toolkit?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use `createSlice` in Redux Toolkit?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+// ✅ Composition
+function App() {
+  const user = { name: 'Alice' };
+  return (
+    <Layout>
+      <Header user={user} />
+    </Layout>
+  );
 }
-```
+function Layout({ children }) {
+  return <div>{children}</div>; // Layout is agnostic
+}
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q50: How do you use `createAsyncThunk` for async logic?
+### Q45: What are Micro-frontends and how does Module Federation help?
 
-**Difficulty: Intermediate**
+**Difficulty**: Expert
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use `createAsyncThunk` for async logic?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use `createAsyncThunk` for async logic?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+Micro-frontends split a monolithic frontend into smaller, independently deployable apps. Webpack 5 Module Federation allows a JavaScript application to dynamically load code from another application at runtime.
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+**Code Example:**
+// webpack.config.js (Host App)
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
-### Q51: How do you use Redux DevTools?
+module.exports = {
+  plugins: [
+    new ModuleFederationPlugin({
+      name: "host",
+      remotes: {
+        app1: "app1@http://localhost:3001/remoteEntry.js",
+      },
+    }),
+  ],
+};
 
-**Difficulty: Intermediate**
+// Usage in Host App
+const RemoteApp1 = React.lazy(() => import("app1/App"));
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you use Redux DevTools?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use Redux DevTools?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+function App() {
+  return (
+    <Suspense fallback="Loading App1...">
+      <RemoteApp1 />
+    </Suspense>
+  );
 }
-```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you integrate Zustand for state management?
+### Q46: How do you use Generics in TypeScript with React Props?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you integrate Zustand for state management?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you integrate Zustand for state management?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: How do you integrate Recoil for state management?
+Generics allow you to create reusable components that work with different data types while maintaining type safety.
 
-**Difficulty: Intermediate**
+**Code Example:**
+interface ListProps<T> {
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
+}
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you integrate Recoil for state management?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you integrate Recoil for state management?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+function List<T>({ items, renderItem }: ListProps<T>) {
+  return <ul>{items.map((item, i) => <li key={i}>{renderItem(item)}</li>)}</ul>;
 }
-```
 
+// Usage
+// <List<string> items={['a', 'b']} renderItem={(item) => <span>{item}</span>} />
+// <List<number> items={[1, 2]} renderItem={(item) => <span>{item}</span>} />
+
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q54: How do you integrate Jotai for atomic state management?
+### Q47: How do you create Discriminated Unions for mutually exclusive props?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you integrate Jotai for atomic state management?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you integrate Jotai for atomic state management?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+Use a common literal type property (the discriminant) to distinguish between object types.
 
----
-
-### Q55: How do you integrate React Query (TanStack Query)?
+**Code Example:**
+type ButtonProps = 
+  | { variant: 'text'; text: string; icon?: never }
+  | { variant: 'icon'; icon: string; text?: never };
 
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you integrate React Query (TanStack Query)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you integrate React Query (TanStack Query)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
+function Button(props: ButtonProps) {
+  if (props.variant === 'text') {
+    return <button>{props.text}</button>;
+  }
+  return <button className="icon">{props.icon}</button>;
 }
-```
 
+// Usage
+// <Button variant="text" text="Click me" /> // ✅ Valid
+// <Button variant="icon" icon="star" />     // ✅ Valid
+// <Button variant="text" icon="star" />     // ❌ Error: Property 'icon' does not exist...
+
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you use `useQuery` for data fetching?
+### Q48: What does React Strict Mode do?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you use `useQuery` for data fetching?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use `useQuery` for data fetching?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+`React.StrictMode` is a development-only tool that highlights potential problems. It intentionally double-invokes effects (mount -> unmount -> mount) to help find side effects and unsafe lifecycle methods.
 
----
-
-### Q57: How do you use `useMutation` for data updates?
+**Code Example:**
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
 
-**Difficulty: Intermediate**
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you use `useMutation` for data updates?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use `useMutation` for data updates?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+// In Dev:
+// useEffect(() => console.log('mount'), []) 
+// Logs: 'mount', 'mount' (to ensure your cleanup logic is correct)
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q58: How do you implement optimistic updates with React Query?
+### Q49: How does Event Delegation work in React?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you implement optimistic updates with React Query?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement optimistic updates with React Query?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+React doesn't attach event handlers to the DOM nodes you create. Instead, it attaches a single event listener to the root element. When an event occurs, React maps it back to the correct component instance (Synthetic Events). This improves memory usage.
 
-### Q59: How do you implement infinite scrolling with React Query?
+**Code Example:**
+// JSX
+<button onClick={handleClick}>Click</button>
 
-**Difficulty: Intermediate**
+// Real DOM (Simplified)
+// <div id="root"></div> (Event Listener attached here)
+//   <button>Click</button> (No individual listener)
 
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement infinite scrolling with React Query?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement infinite scrolling with React Query?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+// Event Bubble:
+// Button Click -> Bubbles up to #root -> React catches it -> Calls handleClick
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q60: How do you integrate SWR for data fetching?
+### Q50: What is the React Reconciler?
 
-**Difficulty: Intermediate**
+**Difficulty**: Expert
 
 **Strategy:**
-This is a placeholder for a practical question about **How do you integrate SWR for data fetching?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you integrate SWR for data fetching?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+The Reconciler is the engine that diffs the Virtual DOM. React Fiber is the current reconciliation engine (since v16). It enables features like pausing/aborting work, assigning priority to different updates, and reusing DOM elements.
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example:**
+// Reconciliation Process:
+// 1. Render Phase: React calls your components and creates a Virtual DOM tree.
+//    - This phase can be interrupted/paused (Fiber).
+//    - Calculates changes (diffing).
 
----
-
-### Q61: How do you implement Internationalization (i18n) in React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Internationalization (i18n) in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Internationalization (i18n) in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q62: How do you use `react-i18next`?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use `react-i18next`?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use `react-i18next`?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: How do you implement Theming (Styled Components / Emotion)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Theming (Styled Components / Emotion)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Theming (Styled Components / Emotion)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q64: How do you use CSS Modules in React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use CSS Modules in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use CSS Modules in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q65: How do you use Tailwind CSS with React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use Tailwind CSS with React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use Tailwind CSS with React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q66: How do you implement a Modal/Dialog component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Modal/Dialog component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Modal/Dialog component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q67: How do you implement a Toast/Notification system?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Toast/Notification system?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Toast/Notification system?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q68: How do you implement a Tooltip component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Tooltip component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Tooltip component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you implement a Dropdown/Select component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Dropdown/Select component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Dropdown/Select component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you implement a Carousel/Slider component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Carousel/Slider component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Carousel/Slider component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q71: How do you implement a Date Picker component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Date Picker component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Date Picker component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q72: How do you implement an Accordion component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement an Accordion component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement an Accordion component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: How do you implement Tabs component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Tabs component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Tabs component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q74: How do you implement a Sidebar/Drawer navigation?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Sidebar/Drawer navigation?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Sidebar/Drawer navigation?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you implement a Breadcrumb component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Breadcrumb component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Breadcrumb component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: How do you implement a Stepper component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Stepper component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Stepper component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: How do you implement a Rating component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Rating component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Rating component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: How do you implement a Skeleton loader?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Skeleton loader?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Skeleton loader?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q79: How do you implement a ProgressBar?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a ProgressBar?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a ProgressBar?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q80: How do you implement a Toggle/Switch component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Toggle/Switch component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Toggle/Switch component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q81: How do you implement a Checkbox/Radio group?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Checkbox/Radio group?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Checkbox/Radio group?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q82: How do you implement a File Upload component with preview?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a File Upload component with preview?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a File Upload component with preview?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q83: How do you implement a Rich Text Editor (Draft.js / Slate)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a Rich Text Editor (Draft.js / Slate)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a Rich Text Editor (Draft.js / Slate)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you implement Charts (Recharts / Chart.js)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Charts (Recharts / Chart.js)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Charts (Recharts / Chart.js)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: How do you implement Maps (Google Maps / Leaflet)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Maps (Google Maps / Leaflet)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Maps (Google Maps / Leaflet)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q86: How do you implement Video Player?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Video Player?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Video Player?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q87: How do you implement Audio Player?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Audio Player?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Audio Player?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q88: How do you implement Copy to Clipboard functionality?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Copy to Clipboard functionality?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Copy to Clipboard functionality?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q89: How do you implement Print functionality?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Print functionality?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Print functionality?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you implement Export to CSV/PDF?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Export to CSV/PDF?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Export to CSV/PDF?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: How do you implement Social Login (Google/Facebook)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Social Login (Google/Facebook)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Social Login (Google/Facebook)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: How do you implement JWT Authentication flow?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement JWT Authentication flow?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement JWT Authentication flow?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: How do you handle token expiration and refresh?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you handle token expiration and refresh?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you handle token expiration and refresh?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q94: How do you implement Role-Based Access Control (RBAC)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Role-Based Access Control (RBAC)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Role-Based Access Control (RBAC)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q95: How do you implement Feature Flags?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Feature Flags?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Feature Flags?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q96: How do you implement Analytics (Google Analytics / Mixpanel)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Analytics (Google Analytics / Mixpanel)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Analytics (Google Analytics / Mixpanel)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q97: How do you implement Error Logging (Sentry)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Error Logging (Sentry)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Error Logging (Sentry)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q98: How do you implement Performance Monitoring?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Performance Monitoring?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Performance Monitoring?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q99: How do you implement A/B Testing?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement A/B Testing?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement A/B Testing?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q100: How do you implement SEO in React (Helmet)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement SEO in React (Helmet)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement SEO in React (Helmet)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q101: How do you implement Server-Side Rendering (SSR) concepts?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Server-Side Rendering (SSR) concepts?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Server-Side Rendering (SSR) concepts?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q102: How do you implement Static Site Generation (SSG) concepts?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement Static Site Generation (SSG) concepts?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement Static Site Generation (SSG) concepts?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q103: How do you migrate a Class Component to a Functional Component?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you migrate a Class Component to a Functional Component?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you migrate a Class Component to a Functional Component?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q104: How do you prevent memory leaks in useEffect?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you prevent memory leaks in useEffect?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you prevent memory leaks in useEffect?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q105: How do you fix 'Can't perform a React state update on an unmounted component' error?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you fix 'Can't perform a React state update on an unmounted component' error?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you fix 'Can't perform a React state update on an unmounted component' error?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q106: How do you fix 'Too many re-renders' error?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you fix 'Too many re-renders' error?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you fix 'Too many re-renders' error?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q107: How do you fix 'Objects are not valid as a React child' error?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you fix 'Objects are not valid as a React child' error?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you fix 'Objects are not valid as a React child' error?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q108: How do you fix 'Each child in a list should have a unique key' warning?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you fix 'Each child in a list should have a unique key' warning?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you fix 'Each child in a list should have a unique key' warning?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q109: How do you fix 'useEffect missing dependency' warning?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you fix 'useEffect missing dependency' warning?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you fix 'useEffect missing dependency' warning?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q110: How do you debug React apps using React Developer Tools?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you debug React apps using React Developer Tools?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you debug React apps using React Developer Tools?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q111: How do you profile React apps for performance?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you profile React apps for performance?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you profile React apps for performance?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q112: How do you use the Profiler API?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use the Profiler API?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use the Profiler API?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q113: How do you implement a custom renderer?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a custom renderer?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a custom renderer?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q114: How do you implement a micro-frontend architecture with React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a micro-frontend architecture with React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a micro-frontend architecture with React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q115: How do you implement a monorepo for React projects (Nx / Turborepo)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a monorepo for React projects (Nx / Turborepo)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a monorepo for React projects (Nx / Turborepo)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q116: How do you publish a React component library to npm?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you publish a React component library to npm?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you publish a React component library to npm?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q117: How do you document React components (Storybook)?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you document React components (Storybook)?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you document React components (Storybook)?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q118: How do you use PropTypes for type checking?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use PropTypes for type checking?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use PropTypes for type checking?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q119: How do you use TypeScript with React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use TypeScript with React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use TypeScript with React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q120: How do you type props in TypeScript?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you type props in TypeScript?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you type props in TypeScript?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q121: How do you type hooks in TypeScript?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you type hooks in TypeScript?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you type hooks in TypeScript?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q122: How do you type events in TypeScript?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you type events in TypeScript?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you type events in TypeScript?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q123: How do you type refs in TypeScript?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you type refs in TypeScript?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you type refs in TypeScript?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q124: How do you type context in TypeScript?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you type context in TypeScript?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you type context in TypeScript?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q125: How do you type children in TypeScript?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you type children in TypeScript?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you type children in TypeScript?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q126: How do you use Generics in React components?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use Generics in React components?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use Generics in React components?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q127: How do you use Utility Types (Partial, Omit, Pick) in React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use Utility Types (Partial, Omit, Pick) in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use Utility Types (Partial, Omit, Pick) in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q128: How do you configure ESLint and Prettier for React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you configure ESLint and Prettier for React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you configure ESLint and Prettier for React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q129: How do you configure Webpack for React from scratch?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you configure Webpack for React from scratch?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you configure Webpack for React from scratch?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q130: How do you configure Vite for React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you configure Vite for React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you configure Vite for React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q131: How do you configure Babel for React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you configure Babel for React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you configure Babel for React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q132: How do you use environment variables in React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use environment variables in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use environment variables in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q133: How do you implement a PWA (Progressive Web App) with React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you implement a PWA (Progressive Web App) with React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you implement a PWA (Progressive Web App) with React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q134: How do you use Service Workers in React?
-
-**Difficulty: Intermediate**
-
-**Strategy:**
-This is a placeholder for a practical question about **How do you use Service Workers in React?**.
-1. Understand the React concept/pattern.
-2. Apply best practices (hooks, optimization, etc.).
-3. Consider performance and re-renders.
-
-**Code Snippet:**
-```javascript
-// Example implementation
-// How do you use Service Workers in React?
-function Example() {
-  // Implementation goes here
-  return <div>Implementation</div>;
-}
-```
+// 2. Commit Phase: React applies the changes to the real DOM.
+//    - This phase is synchronous and cannot be interrupted.
+//    - Lifecycle methods like componentDidMount / useLayoutEffect run here.
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
