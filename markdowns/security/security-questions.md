@@ -1,117 +1,124 @@
-# Web Security Interview Questions
-
-## Table of Contents
-| No. | Question | Difficulty |
-| --- | -------- | ---------- |
-| 1 | [How do you prevent SQL Injection in a Node.js application using raw SQL?](#how-do-you-prevent-sql-injection-in-a-nodejs-application-using-raw-sql) | Intermediate |
-| 2 | [How do you prevent Cross-Site Scripting (XSS) in a React application?](#how-do-you-prevent-cross-site-scripting-xss-in-a-react-application) | Intermediate |
-| 3 | [How do you securely store user passwords in a database?](#how-do-you-securely-store-user-passwords-in-a-database) | Intermediate |
-| 4 | [How do you implement Cross-Site Request Forgery (CSRF) protection?](#how-do-you-implement-cross-site-request-forgery-csrf-protection) | Intermediate |
-| 5 | [How do you securely implement JWT authentication?](#how-do-you-securely-implement-jwt-authentication) | Advanced |
-| 6 | [How do you implement Rate Limiting to prevent DoS and Brute-Force attacks?](#how-do-you-implement-rate-limiting-to-prevent-dos-and-brute-force-attacks) | Intermediate |
-| 7 | [How do you secure HTTP headers using Helmet?](#how-do-you-secure-http-headers-using-helmet) | Beginner |
-| 8 | [How do you prevent Server-Side Request Forgery (SSRF)?](#how-do-you-prevent-server-side-request-forgery-ssrf) | Advanced |
-| 9 | [How do you fix Insecure Direct Object References (IDOR)?](#how-do-you-fix-insecure-direct-object-references-idor) | Intermediate |
-| 10 | [How do you securely handle file uploads?](#how-do-you-securely-handle-file-uploads) | Intermediate |
-| 11 | [How do you manage secrets and environment variables securely?](#how-do-you-manage-secrets-and-environment-variables-securely) | Beginner |
-| 12 | [How do you prevent XML External Entity (XXE) attacks?](#how-do-you-prevent-xml-external-entity-xxe-attacks) | Advanced |
-| 13 | [How do you prevent Clickjacking?](#how-do-you-prevent-clickjacking) | Beginner |
-| 14 | [How do you implement secure Open Redirect protection?](#how-do-you-implement-secure-open-redirect-protection) | Intermediate |
-| 15 | [How do you implement Role-Based Access Control (RBAC)?](#how-do-you-implement-role-based-access-control-rbac) | Intermediate |
-| 16 | [How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 1)](#how-do-you-approach-implementing-multi-factor-authentication-mfa-scenario-1) | Intermediate |
-| 17 | [How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 1)](#how-do-you-approach-securing-graphql-apis-against-depth-limit-attacks-scenario-1) | Advanced |
-| 18 | [How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 1)](#how-do-you-approach-handling-denial-of-service-dos-with-regex-redos-scenario-1) | Intermediate |
-| 19 | [How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 1)](#how-do-you-approach-securing-cookies-with-httponly-and-secure-flags-scenario-1) | Advanced |
-| 20 | [How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 1)](#how-do-you-approach-implementing-content-security-policy-csp-nonces-scenario-1) | Intermediate |
-| 21 | [How do you approach Securing WebSocket connections (WSS)? (Scenario 1)](#how-do-you-approach-securing-websocket-connections-wss-scenario-1) | Advanced |
-| 22 | [How do you approach Preventing Session Fixation attacks? (Scenario 1)](#how-do-you-approach-preventing-session-fixation-attacks-scenario-1) | Intermediate |
-| 23 | [How do you approach Implementing Account Lockout policies? (Scenario 1)](#how-do-you-approach-implementing-account-lockout-policies-scenario-1) | Advanced |
-| 24 | [How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 1)](#how-do-you-approach-securing-third-party-dependencies-supply-chain-attacks-scenario-1) | Intermediate |
-| 25 | [How do you approach Handling Data Encryption at Rest? (Scenario 1)](#how-do-you-approach-handling-data-encryption-at-rest-scenario-1) | Advanced |
-| 26 | [How do you approach Implementing Perfect Forward Secrecy? (Scenario 1)](#how-do-you-approach-implementing-perfect-forward-secrecy-scenario-1) | Intermediate |
-| 27 | [How do you approach Securing Microservices communication (mTLS)? (Scenario 1)](#how-do-you-approach-securing-microservices-communication-mtls-scenario-1) | Advanced |
-| 28 | [How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 1)](#how-do-you-approach-handling-oidc-openid-connect-flows-scenario-1) | Intermediate |
-| 29 | [How do you approach Preventing Parameter Pollution attacks? (Scenario 1)](#how-do-you-approach-preventing-parameter-pollution-attacks-scenario-1) | Advanced |
-| 30 | [How do you approach Securing Serverless Functions (Lambda)? (Scenario 1)](#how-do-you-approach-securing-serverless-functions-lambda-scenario-1) | Intermediate |
-| 31 | [How do you approach Implementing Zero Trust Architecture? (Scenario 1)](#how-do-you-approach-implementing-zero-trust-architecture-scenario-1) | Advanced |
-| 32 | [How do you approach Handling Key Rotation strategies? (Scenario 1)](#how-do-you-approach-handling-key-rotation-strategies-scenario-1) | Intermediate |
-| 33 | [How do you approach Securing CI/CD pipelines? (Scenario 1)](#how-do-you-approach-securing-cicd-pipelines-scenario-1) | Advanced |
-| 34 | [How do you approach Preventing LDAP Injection? (Scenario 1)](#how-do-you-approach-preventing-ldap-injection-scenario-1) | Intermediate |
-| 35 | [How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 1)](#how-do-you-approach-handling-security-headers-referrer-policy-permissions-policy-scenario-1) | Advanced |
-| 36 | [How do you approach Securing Docker Containers (Rootless mode)? (Scenario 1)](#how-do-you-approach-securing-docker-containers-rootless-mode-scenario-1) | Intermediate |
-| 37 | [How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 1)](#how-do-you-approach-implementing-oauth-20-pkce-flow-scenario-1) | Advanced |
-| 38 | [How do you approach Handling Personally Identifiable Information (PII)? (Scenario 1)](#how-do-you-approach-handling-personally-identifiable-information-pii-scenario-1) | Intermediate |
-| 39 | [How do you approach Securing API Keys in Mobile Apps? (Scenario 1)](#how-do-you-approach-securing-api-keys-in-mobile-apps-scenario-1) | Advanced |
-| 40 | [How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 1)](#how-do-you-approach-preventing-man-in-the-middle-mitm-attacks-scenario-1) | Intermediate |
-| 41 | [How do you approach Handling Certificate Pinning? (Scenario 1)](#how-do-you-approach-handling-certificate-pinning-scenario-1) | Advanced |
-| 42 | [How do you approach Securing against Timing Attacks? (Scenario 1)](#how-do-you-approach-securing-against-timing-attacks-scenario-1) | Intermediate |
-| 43 | [How do you approach Implementing Audit Logging securely? (Scenario 1)](#how-do-you-approach-implementing-audit-logging-securely-scenario-1) | Advanced |
-| 44 | [How do you approach Handling Forgotten Password flows securely? (Scenario 1)](#how-do-you-approach-handling-forgotten-password-flows-securely-scenario-1) | Intermediate |
-| 45 | [How do you approach Securing gRPC communications? (Scenario 1)](#how-do-you-approach-securing-grpc-communications-scenario-1) | Advanced |
-| 46 | [How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 2)](#how-do-you-approach-implementing-multi-factor-authentication-mfa-scenario-2) | Intermediate |
-| 47 | [How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 2)](#how-do-you-approach-securing-graphql-apis-against-depth-limit-attacks-scenario-2) | Advanced |
-| 48 | [How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 2)](#how-do-you-approach-handling-denial-of-service-dos-with-regex-redos-scenario-2) | Intermediate |
-| 49 | [How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 2)](#how-do-you-approach-securing-cookies-with-httponly-and-secure-flags-scenario-2) | Advanced |
-| 50 | [How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 2)](#how-do-you-approach-implementing-content-security-policy-csp-nonces-scenario-2) | Intermediate |
-| 51 | [How do you approach Securing WebSocket connections (WSS)? (Scenario 2)](#how-do-you-approach-securing-websocket-connections-wss-scenario-2) | Advanced |
-| 52 | [How do you approach Preventing Session Fixation attacks? (Scenario 2)](#how-do-you-approach-preventing-session-fixation-attacks-scenario-2) | Intermediate |
-| 53 | [How do you approach Implementing Account Lockout policies? (Scenario 2)](#how-do-you-approach-implementing-account-lockout-policies-scenario-2) | Advanced |
-| 54 | [How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 2)](#how-do-you-approach-securing-third-party-dependencies-supply-chain-attacks-scenario-2) | Intermediate |
-| 55 | [How do you approach Handling Data Encryption at Rest? (Scenario 2)](#how-do-you-approach-handling-data-encryption-at-rest-scenario-2) | Advanced |
-| 56 | [How do you approach Implementing Perfect Forward Secrecy? (Scenario 2)](#how-do-you-approach-implementing-perfect-forward-secrecy-scenario-2) | Intermediate |
-| 57 | [How do you approach Securing Microservices communication (mTLS)? (Scenario 2)](#how-do-you-approach-securing-microservices-communication-mtls-scenario-2) | Advanced |
-| 58 | [How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 2)](#how-do-you-approach-handling-oidc-openid-connect-flows-scenario-2) | Intermediate |
-| 59 | [How do you approach Preventing Parameter Pollution attacks? (Scenario 2)](#how-do-you-approach-preventing-parameter-pollution-attacks-scenario-2) | Advanced |
-| 60 | [How do you approach Securing Serverless Functions (Lambda)? (Scenario 2)](#how-do-you-approach-securing-serverless-functions-lambda-scenario-2) | Intermediate |
-| 61 | [How do you approach Implementing Zero Trust Architecture? (Scenario 2)](#how-do-you-approach-implementing-zero-trust-architecture-scenario-2) | Advanced |
-| 62 | [How do you approach Handling Key Rotation strategies? (Scenario 2)](#how-do-you-approach-handling-key-rotation-strategies-scenario-2) | Intermediate |
-| 63 | [How do you approach Securing CI/CD pipelines? (Scenario 2)](#how-do-you-approach-securing-cicd-pipelines-scenario-2) | Advanced |
-| 64 | [How do you approach Preventing LDAP Injection? (Scenario 2)](#how-do-you-approach-preventing-ldap-injection-scenario-2) | Intermediate |
-| 65 | [How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 2)](#how-do-you-approach-handling-security-headers-referrer-policy-permissions-policy-scenario-2) | Advanced |
-| 66 | [How do you approach Securing Docker Containers (Rootless mode)? (Scenario 2)](#how-do-you-approach-securing-docker-containers-rootless-mode-scenario-2) | Intermediate |
-| 67 | [How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 2)](#how-do-you-approach-implementing-oauth-20-pkce-flow-scenario-2) | Advanced |
-| 68 | [How do you approach Handling Personally Identifiable Information (PII)? (Scenario 2)](#how-do-you-approach-handling-personally-identifiable-information-pii-scenario-2) | Intermediate |
-| 69 | [How do you approach Securing API Keys in Mobile Apps? (Scenario 2)](#how-do-you-approach-securing-api-keys-in-mobile-apps-scenario-2) | Advanced |
-| 70 | [How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 2)](#how-do-you-approach-preventing-man-in-the-middle-mitm-attacks-scenario-2) | Intermediate |
-| 71 | [How do you approach Handling Certificate Pinning? (Scenario 2)](#how-do-you-approach-handling-certificate-pinning-scenario-2) | Advanced |
-| 72 | [How do you approach Securing against Timing Attacks? (Scenario 2)](#how-do-you-approach-securing-against-timing-attacks-scenario-2) | Intermediate |
-| 73 | [How do you approach Implementing Audit Logging securely? (Scenario 2)](#how-do-you-approach-implementing-audit-logging-securely-scenario-2) | Advanced |
-| 74 | [How do you approach Handling Forgotten Password flows securely? (Scenario 2)](#how-do-you-approach-handling-forgotten-password-flows-securely-scenario-2) | Intermediate |
-| 75 | [How do you approach Securing gRPC communications? (Scenario 2)](#how-do-you-approach-securing-grpc-communications-scenario-2) | Advanced |
-| 76 | [How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 3)](#how-do-you-approach-implementing-multi-factor-authentication-mfa-scenario-3) | Intermediate |
-| 77 | [How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 3)](#how-do-you-approach-securing-graphql-apis-against-depth-limit-attacks-scenario-3) | Advanced |
-| 78 | [How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 3)](#how-do-you-approach-handling-denial-of-service-dos-with-regex-redos-scenario-3) | Intermediate |
-| 79 | [How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 3)](#how-do-you-approach-securing-cookies-with-httponly-and-secure-flags-scenario-3) | Advanced |
-| 80 | [How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 3)](#how-do-you-approach-implementing-content-security-policy-csp-nonces-scenario-3) | Intermediate |
-| 81 | [How do you approach Securing WebSocket connections (WSS)? (Scenario 3)](#how-do-you-approach-securing-websocket-connections-wss-scenario-3) | Advanced |
-| 82 | [How do you approach Preventing Session Fixation attacks? (Scenario 3)](#how-do-you-approach-preventing-session-fixation-attacks-scenario-3) | Intermediate |
-| 83 | [How do you approach Implementing Account Lockout policies? (Scenario 3)](#how-do-you-approach-implementing-account-lockout-policies-scenario-3) | Advanced |
-| 84 | [How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 3)](#how-do-you-approach-securing-third-party-dependencies-supply-chain-attacks-scenario-3) | Intermediate |
-| 85 | [How do you approach Handling Data Encryption at Rest? (Scenario 3)](#how-do-you-approach-handling-data-encryption-at-rest-scenario-3) | Advanced |
-| 86 | [How do you approach Implementing Perfect Forward Secrecy? (Scenario 3)](#how-do-you-approach-implementing-perfect-forward-secrecy-scenario-3) | Intermediate |
-| 87 | [How do you approach Securing Microservices communication (mTLS)? (Scenario 3)](#how-do-you-approach-securing-microservices-communication-mtls-scenario-3) | Advanced |
-| 88 | [How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 3)](#how-do-you-approach-handling-oidc-openid-connect-flows-scenario-3) | Intermediate |
-| 89 | [How do you approach Preventing Parameter Pollution attacks? (Scenario 3)](#how-do-you-approach-preventing-parameter-pollution-attacks-scenario-3) | Advanced |
-| 90 | [How do you approach Securing Serverless Functions (Lambda)? (Scenario 3)](#how-do-you-approach-securing-serverless-functions-lambda-scenario-3) | Intermediate |
-| 91 | [How do you approach Implementing Zero Trust Architecture? (Scenario 3)](#how-do-you-approach-implementing-zero-trust-architecture-scenario-3) | Advanced |
-| 92 | [How do you approach Handling Key Rotation strategies? (Scenario 3)](#how-do-you-approach-handling-key-rotation-strategies-scenario-3) | Intermediate |
-| 93 | [How do you approach Securing CI/CD pipelines? (Scenario 3)](#how-do-you-approach-securing-cicd-pipelines-scenario-3) | Advanced |
-| 94 | [How do you approach Preventing LDAP Injection? (Scenario 3)](#how-do-you-approach-preventing-ldap-injection-scenario-3) | Intermediate |
-| 95 | [How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 3)](#how-do-you-approach-handling-security-headers-referrer-policy-permissions-policy-scenario-3) | Advanced |
-| 96 | [How do you approach Securing Docker Containers (Rootless mode)? (Scenario 3)](#how-do-you-approach-securing-docker-containers-rootless-mode-scenario-3) | Intermediate |
-| 97 | [How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 3)](#how-do-you-approach-implementing-oauth-20-pkce-flow-scenario-3) | Advanced |
-| 98 | [How do you approach Handling Personally Identifiable Information (PII)? (Scenario 3)](#how-do-you-approach-handling-personally-identifiable-information-pii-scenario-3) | Intermediate |
-| 99 | [How do you approach Securing API Keys in Mobile Apps? (Scenario 3)](#how-do-you-approach-securing-api-keys-in-mobile-apps-scenario-3) | Advanced |
-| 100 | [How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 3)](#how-do-you-approach-preventing-man-in-the-middle-mitm-attacks-scenario-3) | Intermediate |
-| 101 | [How do you approach Handling Certificate Pinning? (Scenario 3)](#how-do-you-approach-handling-certificate-pinning-scenario-3) | Advanced |
-| 102 | [How do you approach Securing against Timing Attacks? (Scenario 3)](#how-do-you-approach-securing-against-timing-attacks-scenario-3) | Intermediate |
-| 103 | [How do you approach Implementing Audit Logging securely? (Scenario 3)](#how-do-you-approach-implementing-audit-logging-securely-scenario-3) | Advanced |
-| 104 | [How do you approach Handling Forgotten Password flows securely? (Scenario 3)](#how-do-you-approach-handling-forgotten-password-flows-securely-scenario-3) | Intermediate |
-| 105 | [How do you approach Securing gRPC communications? (Scenario 3)](#how-do-you-approach-securing-grpc-communications-scenario-3) | Advanced |
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Web security Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
 
 ---
 
-## 1. How do you prevent SQL Injection in a Node.js application using raw SQL?
+## Table of Contents
+
+1. [How do you prevent SQL Injection in a Node.js application using raw SQL?](#q1-how-do-you-prevent-sql-injection-in-a-nodejs-application-using-raw-sql) <span class="intermediate">Intermediate</span>
+2. [How do you prevent Cross-Site Scripting (XSS) in a React application?](#q2-how-do-you-prevent-cross-site-scripting-xss-in-a-react-application) <span class="intermediate">Intermediate</span>
+3. [How do you securely store user passwords in a database?](#q3-how-do-you-securely-store-user-passwords-in-a-database) <span class="intermediate">Intermediate</span>
+4. [How do you implement Cross-Site Request Forgery (CSRF) protection?](#q4-how-do-you-implement-cross-site-request-forgery-csrf-protection) <span class="intermediate">Intermediate</span>
+5. [How do you securely implement JWT authentication?](#q5-how-do-you-securely-implement-jwt-authentication) <span class="intermediate">Intermediate</span>
+6. [How do you implement Rate Limiting to prevent DoS and Brute-Force attacks?](#q6-how-do-you-implement-rate-limiting-to-prevent-dos-and-brute-force-attacks) <span class="intermediate">Intermediate</span>
+7. [How do you secure HTTP headers using Helmet?](#q7-how-do-you-secure-http-headers-using-helmet) <span class="intermediate">Intermediate</span>
+8. [How do you prevent Server-Side Request Forgery (SSRF)?](#q8-how-do-you-prevent-server-side-request-forgery-ssrf) <span class="intermediate">Intermediate</span>
+9. [How do you fix Insecure Direct Object References (IDOR)?](#q9-how-do-you-fix-insecure-direct-object-references-idor) <span class="intermediate">Intermediate</span>
+10. [How do you securely handle file uploads?](#q10-how-do-you-securely-handle-file-uploads) <span class="intermediate">Intermediate</span>
+11. [How do you manage secrets and environment variables securely?](#q11-how-do-you-manage-secrets-and-environment-variables-securely) <span class="intermediate">Intermediate</span>
+12. [How do you prevent XML External Entity (XXE) attacks?](#q12-how-do-you-prevent-xml-external-entity-xxe-attacks) <span class="intermediate">Intermediate</span>
+13. [How do you prevent Clickjacking?](#q13-how-do-you-prevent-clickjacking) <span class="intermediate">Intermediate</span>
+14. [How do you implement secure Open Redirect protection?](#q14-how-do-you-implement-secure-open-redirect-protection) <span class="intermediate">Intermediate</span>
+15. [How do you implement Role-Based Access Control (RBAC)?](#q15-how-do-you-implement-role-based-access-control-rbac) <span class="intermediate">Intermediate</span>
+16. [How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 1)](#q16-how-do-you-approach-implementing-multi-factor-authentication-mfa-scenario-1) <span class="intermediate">Intermediate</span>
+17. [How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 1)](#q17-how-do-you-approach-securing-graphql-apis-against-depth-limit-attacks-scenario-1) <span class="intermediate">Intermediate</span>
+18. [How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 1)](#q18-how-do-you-approach-handling-denial-of-service-dos-with-regex-redos-scenario-1) <span class="intermediate">Intermediate</span>
+19. [How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 1)](#q19-how-do-you-approach-securing-cookies-with-httponly-and-secure-flags-scenario-1) <span class="intermediate">Intermediate</span>
+20. [How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 1)](#q20-how-do-you-approach-implementing-content-security-policy-csp-nonces-scenario-1) <span class="intermediate">Intermediate</span>
+21. [How do you approach Securing WebSocket connections (WSS)? (Scenario 1)](#q21-how-do-you-approach-securing-websocket-connections-wss-scenario-1) <span class="intermediate">Intermediate</span>
+22. [How do you approach Preventing Session Fixation attacks? (Scenario 1)](#q22-how-do-you-approach-preventing-session-fixation-attacks-scenario-1) <span class="intermediate">Intermediate</span>
+23. [How do you approach Implementing Account Lockout policies? (Scenario 1)](#q23-how-do-you-approach-implementing-account-lockout-policies-scenario-1) <span class="intermediate">Intermediate</span>
+24. [How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 1)](#q24-how-do-you-approach-securing-third-party-dependencies-supply-chain-attacks-scenario-1) <span class="intermediate">Intermediate</span>
+25. [How do you approach Handling Data Encryption at Rest? (Scenario 1)](#q25-how-do-you-approach-handling-data-encryption-at-rest-scenario-1) <span class="intermediate">Intermediate</span>
+26. [How do you approach Implementing Perfect Forward Secrecy? (Scenario 1)](#q26-how-do-you-approach-implementing-perfect-forward-secrecy-scenario-1) <span class="intermediate">Intermediate</span>
+27. [How do you approach Securing Microservices communication (mTLS)? (Scenario 1)](#q27-how-do-you-approach-securing-microservices-communication-mtls-scenario-1) <span class="intermediate">Intermediate</span>
+28. [How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 1)](#q28-how-do-you-approach-handling-oidc-openid-connect-flows-scenario-1) <span class="intermediate">Intermediate</span>
+29. [How do you approach Preventing Parameter Pollution attacks? (Scenario 1)](#q29-how-do-you-approach-preventing-parameter-pollution-attacks-scenario-1) <span class="intermediate">Intermediate</span>
+30. [How do you approach Securing Serverless Functions (Lambda)? (Scenario 1)](#q30-how-do-you-approach-securing-serverless-functions-lambda-scenario-1) <span class="intermediate">Intermediate</span>
+31. [How do you approach Implementing Zero Trust Architecture? (Scenario 1)](#q31-how-do-you-approach-implementing-zero-trust-architecture-scenario-1) <span class="intermediate">Intermediate</span>
+32. [How do you approach Handling Key Rotation strategies? (Scenario 1)](#q32-how-do-you-approach-handling-key-rotation-strategies-scenario-1) <span class="intermediate">Intermediate</span>
+33. [How do you approach Securing CI/CD pipelines? (Scenario 1)](#q33-how-do-you-approach-securing-cicd-pipelines-scenario-1) <span class="intermediate">Intermediate</span>
+34. [How do you approach Preventing LDAP Injection? (Scenario 1)](#q34-how-do-you-approach-preventing-ldap-injection-scenario-1) <span class="intermediate">Intermediate</span>
+35. [How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 1)](#q35-how-do-you-approach-handling-security-headers-referrer-policy-permissions-policy-scenario-1) <span class="intermediate">Intermediate</span>
+36. [How do you approach Securing Docker Containers (Rootless mode)? (Scenario 1)](#q36-how-do-you-approach-securing-docker-containers-rootless-mode-scenario-1) <span class="intermediate">Intermediate</span>
+37. [How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 1)](#q37-how-do-you-approach-implementing-oauth-20-pkce-flow-scenario-1) <span class="intermediate">Intermediate</span>
+38. [How do you approach Handling Personally Identifiable Information (PII)? (Scenario 1)](#q38-how-do-you-approach-handling-personally-identifiable-information-pii-scenario-1) <span class="intermediate">Intermediate</span>
+39. [How do you approach Securing API Keys in Mobile Apps? (Scenario 1)](#q39-how-do-you-approach-securing-api-keys-in-mobile-apps-scenario-1) <span class="intermediate">Intermediate</span>
+40. [How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 1)](#q40-how-do-you-approach-preventing-man-in-the-middle-mitm-attacks-scenario-1) <span class="intermediate">Intermediate</span>
+41. [How do you approach Handling Certificate Pinning? (Scenario 1)](#q41-how-do-you-approach-handling-certificate-pinning-scenario-1) <span class="intermediate">Intermediate</span>
+42. [How do you approach Securing against Timing Attacks? (Scenario 1)](#q42-how-do-you-approach-securing-against-timing-attacks-scenario-1) <span class="intermediate">Intermediate</span>
+43. [How do you approach Implementing Audit Logging securely? (Scenario 1)](#q43-how-do-you-approach-implementing-audit-logging-securely-scenario-1) <span class="intermediate">Intermediate</span>
+44. [How do you approach Handling Forgotten Password flows securely? (Scenario 1)](#q44-how-do-you-approach-handling-forgotten-password-flows-securely-scenario-1) <span class="intermediate">Intermediate</span>
+45. [How do you approach Securing gRPC communications? (Scenario 1)](#q45-how-do-you-approach-securing-grpc-communications-scenario-1) <span class="intermediate">Intermediate</span>
+46. [How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 2)](#q46-how-do-you-approach-implementing-multi-factor-authentication-mfa-scenario-2) <span class="intermediate">Intermediate</span>
+47. [How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 2)](#q47-how-do-you-approach-securing-graphql-apis-against-depth-limit-attacks-scenario-2) <span class="intermediate">Intermediate</span>
+48. [How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 2)](#q48-how-do-you-approach-handling-denial-of-service-dos-with-regex-redos-scenario-2) <span class="intermediate">Intermediate</span>
+49. [How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 2)](#q49-how-do-you-approach-securing-cookies-with-httponly-and-secure-flags-scenario-2) <span class="intermediate">Intermediate</span>
+50. [How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 2)](#q50-how-do-you-approach-implementing-content-security-policy-csp-nonces-scenario-2) <span class="intermediate">Intermediate</span>
+51. [How do you approach Securing WebSocket connections (WSS)? (Scenario 2)](#q51-how-do-you-approach-securing-websocket-connections-wss-scenario-2) <span class="intermediate">Intermediate</span>
+52. [How do you approach Preventing Session Fixation attacks? (Scenario 2)](#q52-how-do-you-approach-preventing-session-fixation-attacks-scenario-2) <span class="intermediate">Intermediate</span>
+53. [How do you approach Implementing Account Lockout policies? (Scenario 2)](#q53-how-do-you-approach-implementing-account-lockout-policies-scenario-2) <span class="intermediate">Intermediate</span>
+54. [How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 2)](#q54-how-do-you-approach-securing-third-party-dependencies-supply-chain-attacks-scenario-2) <span class="intermediate">Intermediate</span>
+55. [How do you approach Handling Data Encryption at Rest? (Scenario 2)](#q55-how-do-you-approach-handling-data-encryption-at-rest-scenario-2) <span class="intermediate">Intermediate</span>
+56. [How do you approach Implementing Perfect Forward Secrecy? (Scenario 2)](#q56-how-do-you-approach-implementing-perfect-forward-secrecy-scenario-2) <span class="intermediate">Intermediate</span>
+57. [How do you approach Securing Microservices communication (mTLS)? (Scenario 2)](#q57-how-do-you-approach-securing-microservices-communication-mtls-scenario-2) <span class="intermediate">Intermediate</span>
+58. [How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 2)](#q58-how-do-you-approach-handling-oidc-openid-connect-flows-scenario-2) <span class="intermediate">Intermediate</span>
+59. [How do you approach Preventing Parameter Pollution attacks? (Scenario 2)](#q59-how-do-you-approach-preventing-parameter-pollution-attacks-scenario-2) <span class="intermediate">Intermediate</span>
+60. [How do you approach Securing Serverless Functions (Lambda)? (Scenario 2)](#q60-how-do-you-approach-securing-serverless-functions-lambda-scenario-2) <span class="intermediate">Intermediate</span>
+61. [How do you approach Implementing Zero Trust Architecture? (Scenario 2)](#q61-how-do-you-approach-implementing-zero-trust-architecture-scenario-2) <span class="intermediate">Intermediate</span>
+62. [How do you approach Handling Key Rotation strategies? (Scenario 2)](#q62-how-do-you-approach-handling-key-rotation-strategies-scenario-2) <span class="intermediate">Intermediate</span>
+63. [How do you approach Securing CI/CD pipelines? (Scenario 2)](#q63-how-do-you-approach-securing-cicd-pipelines-scenario-2) <span class="intermediate">Intermediate</span>
+64. [How do you approach Preventing LDAP Injection? (Scenario 2)](#q64-how-do-you-approach-preventing-ldap-injection-scenario-2) <span class="intermediate">Intermediate</span>
+65. [How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 2)](#q65-how-do-you-approach-handling-security-headers-referrer-policy-permissions-policy-scenario-2) <span class="intermediate">Intermediate</span>
+66. [How do you approach Securing Docker Containers (Rootless mode)? (Scenario 2)](#q66-how-do-you-approach-securing-docker-containers-rootless-mode-scenario-2) <span class="intermediate">Intermediate</span>
+67. [How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 2)](#q67-how-do-you-approach-implementing-oauth-20-pkce-flow-scenario-2) <span class="intermediate">Intermediate</span>
+68. [How do you approach Handling Personally Identifiable Information (PII)? (Scenario 2)](#q68-how-do-you-approach-handling-personally-identifiable-information-pii-scenario-2) <span class="intermediate">Intermediate</span>
+69. [How do you approach Securing API Keys in Mobile Apps? (Scenario 2)](#q69-how-do-you-approach-securing-api-keys-in-mobile-apps-scenario-2) <span class="intermediate">Intermediate</span>
+70. [How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 2)](#q70-how-do-you-approach-preventing-man-in-the-middle-mitm-attacks-scenario-2) <span class="intermediate">Intermediate</span>
+71. [How do you approach Handling Certificate Pinning? (Scenario 2)](#q71-how-do-you-approach-handling-certificate-pinning-scenario-2) <span class="intermediate">Intermediate</span>
+72. [How do you approach Securing against Timing Attacks? (Scenario 2)](#q72-how-do-you-approach-securing-against-timing-attacks-scenario-2) <span class="intermediate">Intermediate</span>
+73. [How do you approach Implementing Audit Logging securely? (Scenario 2)](#q73-how-do-you-approach-implementing-audit-logging-securely-scenario-2) <span class="intermediate">Intermediate</span>
+74. [How do you approach Handling Forgotten Password flows securely? (Scenario 2)](#q74-how-do-you-approach-handling-forgotten-password-flows-securely-scenario-2) <span class="intermediate">Intermediate</span>
+75. [How do you approach Securing gRPC communications? (Scenario 2)](#q75-how-do-you-approach-securing-grpc-communications-scenario-2) <span class="intermediate">Intermediate</span>
+76. [How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 3)](#q76-how-do-you-approach-implementing-multi-factor-authentication-mfa-scenario-3) <span class="intermediate">Intermediate</span>
+77. [How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 3)](#q77-how-do-you-approach-securing-graphql-apis-against-depth-limit-attacks-scenario-3) <span class="intermediate">Intermediate</span>
+78. [How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 3)](#q78-how-do-you-approach-handling-denial-of-service-dos-with-regex-redos-scenario-3) <span class="intermediate">Intermediate</span>
+79. [How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 3)](#q79-how-do-you-approach-securing-cookies-with-httponly-and-secure-flags-scenario-3) <span class="intermediate">Intermediate</span>
+80. [How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 3)](#q80-how-do-you-approach-implementing-content-security-policy-csp-nonces-scenario-3) <span class="intermediate">Intermediate</span>
+81. [How do you approach Securing WebSocket connections (WSS)? (Scenario 3)](#q81-how-do-you-approach-securing-websocket-connections-wss-scenario-3) <span class="intermediate">Intermediate</span>
+82. [How do you approach Preventing Session Fixation attacks? (Scenario 3)](#q82-how-do-you-approach-preventing-session-fixation-attacks-scenario-3) <span class="intermediate">Intermediate</span>
+83. [How do you approach Implementing Account Lockout policies? (Scenario 3)](#q83-how-do-you-approach-implementing-account-lockout-policies-scenario-3) <span class="intermediate">Intermediate</span>
+84. [How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 3)](#q84-how-do-you-approach-securing-third-party-dependencies-supply-chain-attacks-scenario-3) <span class="intermediate">Intermediate</span>
+85. [How do you approach Handling Data Encryption at Rest? (Scenario 3)](#q85-how-do-you-approach-handling-data-encryption-at-rest-scenario-3) <span class="intermediate">Intermediate</span>
+86. [How do you approach Implementing Perfect Forward Secrecy? (Scenario 3)](#q86-how-do-you-approach-implementing-perfect-forward-secrecy-scenario-3) <span class="intermediate">Intermediate</span>
+87. [How do you approach Securing Microservices communication (mTLS)? (Scenario 3)](#q87-how-do-you-approach-securing-microservices-communication-mtls-scenario-3) <span class="intermediate">Intermediate</span>
+88. [How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 3)](#q88-how-do-you-approach-handling-oidc-openid-connect-flows-scenario-3) <span class="intermediate">Intermediate</span>
+89. [How do you approach Preventing Parameter Pollution attacks? (Scenario 3)](#q89-how-do-you-approach-preventing-parameter-pollution-attacks-scenario-3) <span class="intermediate">Intermediate</span>
+90. [How do you approach Securing Serverless Functions (Lambda)? (Scenario 3)](#q90-how-do-you-approach-securing-serverless-functions-lambda-scenario-3) <span class="intermediate">Intermediate</span>
+91. [How do you approach Implementing Zero Trust Architecture? (Scenario 3)](#q91-how-do-you-approach-implementing-zero-trust-architecture-scenario-3) <span class="intermediate">Intermediate</span>
+92. [How do you approach Handling Key Rotation strategies? (Scenario 3)](#q92-how-do-you-approach-handling-key-rotation-strategies-scenario-3) <span class="intermediate">Intermediate</span>
+93. [How do you approach Securing CI/CD pipelines? (Scenario 3)](#q93-how-do-you-approach-securing-cicd-pipelines-scenario-3) <span class="intermediate">Intermediate</span>
+94. [How do you approach Preventing LDAP Injection? (Scenario 3)](#q94-how-do-you-approach-preventing-ldap-injection-scenario-3) <span class="intermediate">Intermediate</span>
+95. [How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 3)](#q95-how-do-you-approach-handling-security-headers-referrer-policy-permissions-policy-scenario-3) <span class="intermediate">Intermediate</span>
+96. [How do you approach Securing Docker Containers (Rootless mode)? (Scenario 3)](#q96-how-do-you-approach-securing-docker-containers-rootless-mode-scenario-3) <span class="intermediate">Intermediate</span>
+97. [How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 3)](#q97-how-do-you-approach-implementing-oauth-20-pkce-flow-scenario-3) <span class="intermediate">Intermediate</span>
+98. [How do you approach Handling Personally Identifiable Information (PII)? (Scenario 3)](#q98-how-do-you-approach-handling-personally-identifiable-information-pii-scenario-3) <span class="intermediate">Intermediate</span>
+99. [How do you approach Securing API Keys in Mobile Apps? (Scenario 3)](#q99-how-do-you-approach-securing-api-keys-in-mobile-apps-scenario-3) <span class="intermediate">Intermediate</span>
+100. [How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 3)](#q100-how-do-you-approach-preventing-man-in-the-middle-mitm-attacks-scenario-3) <span class="intermediate">Intermediate</span>
+101. [How do you approach Handling Certificate Pinning? (Scenario 3)](#q101-how-do-you-approach-handling-certificate-pinning-scenario-3) <span class="intermediate">Intermediate</span>
+102. [How do you approach Securing against Timing Attacks? (Scenario 3)](#q102-how-do-you-approach-securing-against-timing-attacks-scenario-3) <span class="intermediate">Intermediate</span>
+103. [How do you approach Implementing Audit Logging securely? (Scenario 3)](#q103-how-do-you-approach-implementing-audit-logging-securely-scenario-3) <span class="intermediate">Intermediate</span>
+104. [How do you approach Handling Forgotten Password flows securely? (Scenario 3)](#q104-how-do-you-approach-handling-forgotten-password-flows-securely-scenario-3) <span class="intermediate">Intermediate</span>
+105. [How do you approach Securing gRPC communications? (Scenario 3)](#q105-how-do-you-approach-securing-grpc-communications-scenario-3) <span class="intermediate">Intermediate</span>
+
+---
+
+### Q1: How do you prevent SQL Injection in a Node.js application using raw SQL?
 
 **Difficulty**: Intermediate
 
@@ -151,12 +158,11 @@ getUserById(5).then(user => console.log(user));
 // Even if userId is "5; DROP TABLE users;", it is treated as a string literal, not code.
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 2. How do you prevent Cross-Site Scripting (XSS) in a React application?
+### Q2: How do you prevent Cross-Site Scripting (XSS) in a React application?
 
 **Difficulty**: Intermediate
 
@@ -194,12 +200,11 @@ function Comment({ content, userUrl }) {
 }
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 3. How do you securely store user passwords in a database?
+### Q3: How do you securely store user passwords in a database?
 
 **Difficulty**: Intermediate
 
@@ -248,12 +253,11 @@ async function verifyUser(username, inputPassword) {
 }
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 4. How do you implement Cross-Site Request Forgery (CSRF) protection?
+### Q4: How do you implement Cross-Site Request Forgery (CSRF) protection?
 
 **Difficulty**: Intermediate
 
@@ -300,12 +304,11 @@ app.use(session({
 }));
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 5. How do you securely implement JWT authentication?
+### Q5: How do you securely implement JWT authentication?
 
 **Difficulty**: Advanced
 
@@ -348,12 +351,11 @@ function authenticateToken(req, res, next) {
 }
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 6. How do you implement Rate Limiting to prevent DoS and Brute-Force attacks?
+### Q6: How do you implement Rate Limiting to prevent DoS and Brute-Force attacks?
 
 **Difficulty**: Intermediate
 
@@ -390,12 +392,11 @@ app.use('/api/', apiLimiter);
 app.post('/api/login', loginLimiter, loginHandler);
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 7. How do you secure HTTP headers using Helmet?
+### Q7: How do you secure HTTP headers using Helmet?
 
 **Difficulty**: Beginner
 
@@ -436,12 +437,11 @@ app.get('/', (req, res) => {
 });
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 8. How do you prevent Server-Side Request Forgery (SSRF)?
+### Q8: How do you prevent Server-Side Request Forgery (SSRF)?
 
 **Difficulty**: Advanced
 
@@ -484,12 +484,11 @@ function fetchExternalUrl(userUrl) {
 }
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 9. How do you fix Insecure Direct Object References (IDOR)?
+### Q9: How do you fix Insecure Direct Object References (IDOR)?
 
 **Difficulty**: Intermediate
 
@@ -524,12 +523,11 @@ app.get('/invoices/:id', async (req, res) => {
 });
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 10. How do you securely handle file uploads?
+### Q10: How do you securely handle file uploads?
 
 **Difficulty**: Intermediate
 
@@ -575,12 +573,11 @@ const upload = multer({
 }).single('myImage');
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 11. How do you manage secrets and environment variables securely?
+### Q11: How do you manage secrets and environment variables securely?
 
 **Difficulty**: Beginner
 
@@ -614,12 +611,11 @@ if (!process.env.DB_PASSWORD) {
 }
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 12. How do you prevent XML External Entity (XXE) attacks?
+### Q12: How do you prevent XML External Entity (XXE) attacks?
 
 **Difficulty**: Advanced
 
@@ -650,12 +646,11 @@ function parseXML(xmlString) {
 }
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 13. How do you prevent Clickjacking?
+### Q13: How do you prevent Clickjacking?
 
 **Difficulty**: Beginner
 
@@ -684,12 +679,11 @@ app.use((req, res, next) => {
 });
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 14. How do you implement secure Open Redirect protection?
+### Q14: How do you implement secure Open Redirect protection?
 
 **Difficulty**: Intermediate
 
@@ -724,12 +718,11 @@ app.get('/login', (req, res) => {
 });
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 15. How do you implement Role-Based Access Control (RBAC)?
+### Q15: How do you implement Role-Based Access Control (RBAC)?
 
 **Difficulty**: Intermediate
 
@@ -768,12 +761,11 @@ function authorize(requiredPermission) {
 app.delete('/api/posts/:id', authenticate, authorize('delete'), deletePostHandler);
 ```
 
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 16. How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 1)
+### Q16: How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -786,11 +778,11 @@ To address **Implementing Multi-Factor Authentication (MFA)**, you should follow
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 17. How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 1)
+### Q17: How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -803,11 +795,11 @@ To address **Securing GraphQL APIs against Depth Limit attacks**, you should fol
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 18. How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 1)
+### Q18: How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -820,11 +812,11 @@ To address **Handling Denial of Service (DoS) with Regex (ReDoS)**, you should f
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 19. How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 1)
+### Q19: How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -837,11 +829,11 @@ To address **Securing Cookies with HttpOnly and Secure flags**, you should follo
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 20. How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 1)
+### Q20: How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -854,11 +846,11 @@ To address **Implementing Content Security Policy (CSP) nonces**, you should fol
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 21. How do you approach Securing WebSocket connections (WSS)? (Scenario 1)
+### Q21: How do you approach Securing WebSocket connections (WSS)? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -871,11 +863,11 @@ To address **Securing WebSocket connections (WSS)**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 22. How do you approach Preventing Session Fixation attacks? (Scenario 1)
+### Q22: How do you approach Preventing Session Fixation attacks? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -888,11 +880,11 @@ To address **Preventing Session Fixation attacks**, you should follow industry b
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 23. How do you approach Implementing Account Lockout policies? (Scenario 1)
+### Q23: How do you approach Implementing Account Lockout policies? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -905,11 +897,11 @@ To address **Implementing Account Lockout policies**, you should follow industry
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 24. How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 1)
+### Q24: How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -922,11 +914,11 @@ To address **Securing Third-party dependencies (Supply Chain Attacks)**, you sho
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 25. How do you approach Handling Data Encryption at Rest? (Scenario 1)
+### Q25: How do you approach Handling Data Encryption at Rest? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -939,11 +931,11 @@ To address **Handling Data Encryption at Rest**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 26. How do you approach Implementing Perfect Forward Secrecy? (Scenario 1)
+### Q26: How do you approach Implementing Perfect Forward Secrecy? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -956,11 +948,11 @@ To address **Implementing Perfect Forward Secrecy**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 27. How do you approach Securing Microservices communication (mTLS)? (Scenario 1)
+### Q27: How do you approach Securing Microservices communication (mTLS)? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -973,11 +965,11 @@ To address **Securing Microservices communication (mTLS)**, you should follow in
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 28. How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 1)
+### Q28: How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -990,11 +982,11 @@ To address **Handling OIDC (OpenID Connect) flows**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 29. How do you approach Preventing Parameter Pollution attacks? (Scenario 1)
+### Q29: How do you approach Preventing Parameter Pollution attacks? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -1007,11 +999,11 @@ To address **Preventing Parameter Pollution attacks**, you should follow industr
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 30. How do you approach Securing Serverless Functions (Lambda)? (Scenario 1)
+### Q30: How do you approach Securing Serverless Functions (Lambda)? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -1024,11 +1016,11 @@ To address **Securing Serverless Functions (Lambda)**, you should follow industr
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 31. How do you approach Implementing Zero Trust Architecture? (Scenario 1)
+### Q31: How do you approach Implementing Zero Trust Architecture? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -1041,11 +1033,11 @@ To address **Implementing Zero Trust Architecture**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 32. How do you approach Handling Key Rotation strategies? (Scenario 1)
+### Q32: How do you approach Handling Key Rotation strategies? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -1058,11 +1050,11 @@ To address **Handling Key Rotation strategies**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 33. How do you approach Securing CI/CD pipelines? (Scenario 1)
+### Q33: How do you approach Securing CI/CD pipelines? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -1075,11 +1067,11 @@ To address **Securing CI/CD pipelines**, you should follow industry best practic
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 34. How do you approach Preventing LDAP Injection? (Scenario 1)
+### Q34: How do you approach Preventing LDAP Injection? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -1092,11 +1084,11 @@ To address **Preventing LDAP Injection**, you should follow industry best practi
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 35. How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 1)
+### Q35: How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -1109,11 +1101,11 @@ To address **Handling Security Headers (Referrer-Policy, Permissions-Policy)**, 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 36. How do you approach Securing Docker Containers (Rootless mode)? (Scenario 1)
+### Q36: How do you approach Securing Docker Containers (Rootless mode)? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -1126,11 +1118,11 @@ To address **Securing Docker Containers (Rootless mode)**, you should follow ind
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 37. How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 1)
+### Q37: How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -1143,11 +1135,11 @@ To address **Implementing OAuth 2.0 PKCE flow**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 38. How do you approach Handling Personally Identifiable Information (PII)? (Scenario 1)
+### Q38: How do you approach Handling Personally Identifiable Information (PII)? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -1160,11 +1152,11 @@ To address **Handling Personally Identifiable Information (PII)**, you should fo
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 39. How do you approach Securing API Keys in Mobile Apps? (Scenario 1)
+### Q39: How do you approach Securing API Keys in Mobile Apps? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -1177,11 +1169,11 @@ To address **Securing API Keys in Mobile Apps**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 40. How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 1)
+### Q40: How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -1194,11 +1186,11 @@ To address **Preventing Man-in-the-Middle (MitM) attacks**, you should follow in
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 41. How do you approach Handling Certificate Pinning? (Scenario 1)
+### Q41: How do you approach Handling Certificate Pinning? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -1211,11 +1203,11 @@ To address **Handling Certificate Pinning**, you should follow industry best pra
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 42. How do you approach Securing against Timing Attacks? (Scenario 1)
+### Q42: How do you approach Securing against Timing Attacks? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -1228,11 +1220,11 @@ To address **Securing against Timing Attacks**, you should follow industry best 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 43. How do you approach Implementing Audit Logging securely? (Scenario 1)
+### Q43: How do you approach Implementing Audit Logging securely? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -1245,11 +1237,11 @@ To address **Implementing Audit Logging securely**, you should follow industry b
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 44. How do you approach Handling Forgotten Password flows securely? (Scenario 1)
+### Q44: How do you approach Handling Forgotten Password flows securely? (Scenario 1)
 
 **Difficulty**: Intermediate
 
@@ -1262,11 +1254,11 @@ To address **Handling Forgotten Password flows securely**, you should follow ind
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 45. How do you approach Securing gRPC communications? (Scenario 1)
+### Q45: How do you approach Securing gRPC communications? (Scenario 1)
 
 **Difficulty**: Advanced
 
@@ -1279,11 +1271,11 @@ To address **Securing gRPC communications**, you should follow industry best pra
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 46. How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 2)
+### Q46: How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1296,11 +1288,11 @@ To address **Implementing Multi-Factor Authentication (MFA)**, you should follow
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 47. How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 2)
+### Q47: How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1313,11 +1305,11 @@ To address **Securing GraphQL APIs against Depth Limit attacks**, you should fol
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 48. How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 2)
+### Q48: How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1330,11 +1322,11 @@ To address **Handling Denial of Service (DoS) with Regex (ReDoS)**, you should f
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 49. How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 2)
+### Q49: How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1347,11 +1339,11 @@ To address **Securing Cookies with HttpOnly and Secure flags**, you should follo
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 50. How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 2)
+### Q50: How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1364,11 +1356,11 @@ To address **Implementing Content Security Policy (CSP) nonces**, you should fol
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 51. How do you approach Securing WebSocket connections (WSS)? (Scenario 2)
+### Q51: How do you approach Securing WebSocket connections (WSS)? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1381,11 +1373,11 @@ To address **Securing WebSocket connections (WSS)**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 52. How do you approach Preventing Session Fixation attacks? (Scenario 2)
+### Q52: How do you approach Preventing Session Fixation attacks? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1398,11 +1390,11 @@ To address **Preventing Session Fixation attacks**, you should follow industry b
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 53. How do you approach Implementing Account Lockout policies? (Scenario 2)
+### Q53: How do you approach Implementing Account Lockout policies? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1415,11 +1407,11 @@ To address **Implementing Account Lockout policies**, you should follow industry
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 54. How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 2)
+### Q54: How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1432,11 +1424,11 @@ To address **Securing Third-party dependencies (Supply Chain Attacks)**, you sho
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 55. How do you approach Handling Data Encryption at Rest? (Scenario 2)
+### Q55: How do you approach Handling Data Encryption at Rest? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1449,11 +1441,11 @@ To address **Handling Data Encryption at Rest**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 56. How do you approach Implementing Perfect Forward Secrecy? (Scenario 2)
+### Q56: How do you approach Implementing Perfect Forward Secrecy? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1466,11 +1458,11 @@ To address **Implementing Perfect Forward Secrecy**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 57. How do you approach Securing Microservices communication (mTLS)? (Scenario 2)
+### Q57: How do you approach Securing Microservices communication (mTLS)? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1483,11 +1475,11 @@ To address **Securing Microservices communication (mTLS)**, you should follow in
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 58. How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 2)
+### Q58: How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1500,11 +1492,11 @@ To address **Handling OIDC (OpenID Connect) flows**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 59. How do you approach Preventing Parameter Pollution attacks? (Scenario 2)
+### Q59: How do you approach Preventing Parameter Pollution attacks? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1517,11 +1509,11 @@ To address **Preventing Parameter Pollution attacks**, you should follow industr
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 60. How do you approach Securing Serverless Functions (Lambda)? (Scenario 2)
+### Q60: How do you approach Securing Serverless Functions (Lambda)? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1534,11 +1526,11 @@ To address **Securing Serverless Functions (Lambda)**, you should follow industr
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 61. How do you approach Implementing Zero Trust Architecture? (Scenario 2)
+### Q61: How do you approach Implementing Zero Trust Architecture? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1551,11 +1543,11 @@ To address **Implementing Zero Trust Architecture**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 62. How do you approach Handling Key Rotation strategies? (Scenario 2)
+### Q62: How do you approach Handling Key Rotation strategies? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1568,11 +1560,11 @@ To address **Handling Key Rotation strategies**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 63. How do you approach Securing CI/CD pipelines? (Scenario 2)
+### Q63: How do you approach Securing CI/CD pipelines? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1585,11 +1577,11 @@ To address **Securing CI/CD pipelines**, you should follow industry best practic
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 64. How do you approach Preventing LDAP Injection? (Scenario 2)
+### Q64: How do you approach Preventing LDAP Injection? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1602,11 +1594,11 @@ To address **Preventing LDAP Injection**, you should follow industry best practi
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 65. How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 2)
+### Q65: How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1619,11 +1611,11 @@ To address **Handling Security Headers (Referrer-Policy, Permissions-Policy)**, 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 66. How do you approach Securing Docker Containers (Rootless mode)? (Scenario 2)
+### Q66: How do you approach Securing Docker Containers (Rootless mode)? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1636,11 +1628,11 @@ To address **Securing Docker Containers (Rootless mode)**, you should follow ind
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 67. How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 2)
+### Q67: How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1653,11 +1645,11 @@ To address **Implementing OAuth 2.0 PKCE flow**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 68. How do you approach Handling Personally Identifiable Information (PII)? (Scenario 2)
+### Q68: How do you approach Handling Personally Identifiable Information (PII)? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1670,11 +1662,11 @@ To address **Handling Personally Identifiable Information (PII)**, you should fo
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 69. How do you approach Securing API Keys in Mobile Apps? (Scenario 2)
+### Q69: How do you approach Securing API Keys in Mobile Apps? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1687,11 +1679,11 @@ To address **Securing API Keys in Mobile Apps**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 70. How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 2)
+### Q70: How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1704,11 +1696,11 @@ To address **Preventing Man-in-the-Middle (MitM) attacks**, you should follow in
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 71. How do you approach Handling Certificate Pinning? (Scenario 2)
+### Q71: How do you approach Handling Certificate Pinning? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1721,11 +1713,11 @@ To address **Handling Certificate Pinning**, you should follow industry best pra
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 72. How do you approach Securing against Timing Attacks? (Scenario 2)
+### Q72: How do you approach Securing against Timing Attacks? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1738,11 +1730,11 @@ To address **Securing against Timing Attacks**, you should follow industry best 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 73. How do you approach Implementing Audit Logging securely? (Scenario 2)
+### Q73: How do you approach Implementing Audit Logging securely? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1755,11 +1747,11 @@ To address **Implementing Audit Logging securely**, you should follow industry b
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 74. How do you approach Handling Forgotten Password flows securely? (Scenario 2)
+### Q74: How do you approach Handling Forgotten Password flows securely? (Scenario 2)
 
 **Difficulty**: Intermediate
 
@@ -1772,11 +1764,11 @@ To address **Handling Forgotten Password flows securely**, you should follow ind
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 75. How do you approach Securing gRPC communications? (Scenario 2)
+### Q75: How do you approach Securing gRPC communications? (Scenario 2)
 
 **Difficulty**: Advanced
 
@@ -1789,11 +1781,11 @@ To address **Securing gRPC communications**, you should follow industry best pra
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 76. How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 3)
+### Q76: How do you approach Implementing Multi-Factor Authentication (MFA)? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -1806,11 +1798,11 @@ To address **Implementing Multi-Factor Authentication (MFA)**, you should follow
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 77. How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 3)
+### Q77: How do you approach Securing GraphQL APIs against Depth Limit attacks? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -1823,11 +1815,11 @@ To address **Securing GraphQL APIs against Depth Limit attacks**, you should fol
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 78. How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 3)
+### Q78: How do you approach Handling Denial of Service (DoS) with Regex (ReDoS)? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -1840,11 +1832,11 @@ To address **Handling Denial of Service (DoS) with Regex (ReDoS)**, you should f
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 79. How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 3)
+### Q79: How do you approach Securing Cookies with HttpOnly and Secure flags? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -1857,11 +1849,11 @@ To address **Securing Cookies with HttpOnly and Secure flags**, you should follo
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 80. How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 3)
+### Q80: How do you approach Implementing Content Security Policy (CSP) nonces? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -1874,11 +1866,11 @@ To address **Implementing Content Security Policy (CSP) nonces**, you should fol
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 81. How do you approach Securing WebSocket connections (WSS)? (Scenario 3)
+### Q81: How do you approach Securing WebSocket connections (WSS)? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -1891,11 +1883,11 @@ To address **Securing WebSocket connections (WSS)**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 82. How do you approach Preventing Session Fixation attacks? (Scenario 3)
+### Q82: How do you approach Preventing Session Fixation attacks? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -1908,11 +1900,11 @@ To address **Preventing Session Fixation attacks**, you should follow industry b
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 83. How do you approach Implementing Account Lockout policies? (Scenario 3)
+### Q83: How do you approach Implementing Account Lockout policies? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -1925,11 +1917,11 @@ To address **Implementing Account Lockout policies**, you should follow industry
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 84. How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 3)
+### Q84: How do you approach Securing Third-party dependencies (Supply Chain Attacks)? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -1942,11 +1934,11 @@ To address **Securing Third-party dependencies (Supply Chain Attacks)**, you sho
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 85. How do you approach Handling Data Encryption at Rest? (Scenario 3)
+### Q85: How do you approach Handling Data Encryption at Rest? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -1959,11 +1951,11 @@ To address **Handling Data Encryption at Rest**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 86. How do you approach Implementing Perfect Forward Secrecy? (Scenario 3)
+### Q86: How do you approach Implementing Perfect Forward Secrecy? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -1976,11 +1968,11 @@ To address **Implementing Perfect Forward Secrecy**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 87. How do you approach Securing Microservices communication (mTLS)? (Scenario 3)
+### Q87: How do you approach Securing Microservices communication (mTLS)? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -1993,11 +1985,11 @@ To address **Securing Microservices communication (mTLS)**, you should follow in
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 88. How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 3)
+### Q88: How do you approach Handling OIDC (OpenID Connect) flows? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -2010,11 +2002,11 @@ To address **Handling OIDC (OpenID Connect) flows**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 89. How do you approach Preventing Parameter Pollution attacks? (Scenario 3)
+### Q89: How do you approach Preventing Parameter Pollution attacks? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -2027,11 +2019,11 @@ To address **Preventing Parameter Pollution attacks**, you should follow industr
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 90. How do you approach Securing Serverless Functions (Lambda)? (Scenario 3)
+### Q90: How do you approach Securing Serverless Functions (Lambda)? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -2044,11 +2036,11 @@ To address **Securing Serverless Functions (Lambda)**, you should follow industr
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 91. How do you approach Implementing Zero Trust Architecture? (Scenario 3)
+### Q91: How do you approach Implementing Zero Trust Architecture? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -2061,11 +2053,11 @@ To address **Implementing Zero Trust Architecture**, you should follow industry 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 92. How do you approach Handling Key Rotation strategies? (Scenario 3)
+### Q92: How do you approach Handling Key Rotation strategies? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -2078,11 +2070,11 @@ To address **Handling Key Rotation strategies**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 93. How do you approach Securing CI/CD pipelines? (Scenario 3)
+### Q93: How do you approach Securing CI/CD pipelines? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -2095,11 +2087,11 @@ To address **Securing CI/CD pipelines**, you should follow industry best practic
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 94. How do you approach Preventing LDAP Injection? (Scenario 3)
+### Q94: How do you approach Preventing LDAP Injection? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -2112,11 +2104,11 @@ To address **Preventing LDAP Injection**, you should follow industry best practi
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 95. How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 3)
+### Q95: How do you approach Handling Security Headers (Referrer-Policy, Permissions-Policy)? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -2129,11 +2121,11 @@ To address **Handling Security Headers (Referrer-Policy, Permissions-Policy)**, 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 96. How do you approach Securing Docker Containers (Rootless mode)? (Scenario 3)
+### Q96: How do you approach Securing Docker Containers (Rootless mode)? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -2146,11 +2138,11 @@ To address **Securing Docker Containers (Rootless mode)**, you should follow ind
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 97. How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 3)
+### Q97: How do you approach Implementing OAuth 2.0 PKCE flow? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -2163,11 +2155,11 @@ To address **Implementing OAuth 2.0 PKCE flow**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 98. How do you approach Handling Personally Identifiable Information (PII)? (Scenario 3)
+### Q98: How do you approach Handling Personally Identifiable Information (PII)? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -2180,11 +2172,11 @@ To address **Handling Personally Identifiable Information (PII)**, you should fo
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 99. How do you approach Securing API Keys in Mobile Apps? (Scenario 3)
+### Q99: How do you approach Securing API Keys in Mobile Apps? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -2197,11 +2189,11 @@ To address **Securing API Keys in Mobile Apps**, you should follow industry best
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 100. How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 3)
+### Q100: How do you approach Preventing Man-in-the-Middle (MitM) attacks? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -2214,11 +2206,11 @@ To address **Preventing Man-in-the-Middle (MitM) attacks**, you should follow in
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 101. How do you approach Handling Certificate Pinning? (Scenario 3)
+### Q101: How do you approach Handling Certificate Pinning? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -2231,11 +2223,11 @@ To address **Handling Certificate Pinning**, you should follow industry best pra
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 102. How do you approach Securing against Timing Attacks? (Scenario 3)
+### Q102: How do you approach Securing against Timing Attacks? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -2248,11 +2240,11 @@ To address **Securing against Timing Attacks**, you should follow industry best 
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 103. How do you approach Implementing Audit Logging securely? (Scenario 3)
+### Q103: How do you approach Implementing Audit Logging securely? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -2265,11 +2257,11 @@ To address **Implementing Audit Logging securely**, you should follow industry b
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 104. How do you approach Handling Forgotten Password flows securely? (Scenario 3)
+### Q104: How do you approach Handling Forgotten Password flows securely? (Scenario 3)
 
 **Difficulty**: Intermediate
 
@@ -2282,11 +2274,11 @@ To address **Handling Forgotten Password flows securely**, you should follow ind
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-## 105. How do you approach Securing gRPC communications? (Scenario 3)
+### Q105: How do you approach Securing gRPC communications? (Scenario 3)
 
 **Difficulty**: Advanced
 
@@ -2299,7 +2291,6 @@ To address **Securing gRPC communications**, you should follow industry best pra
 
 This ensures a robust security posture against potential threats.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
