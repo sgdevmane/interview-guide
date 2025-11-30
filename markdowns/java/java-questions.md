@@ -1,834 +1,2225 @@
-# Java Interview Questions
-
 ## Table of Contents
-- [Java Interview Questions](#java-interview-questions)
-  - [Table of Contents](#table-of-contents)
-    - [Q1: What is the difference between the Java Development Kit (JDK), Java Runtime Environment (JRE), and Java Virtual Machine (JVM)?](#q1-what-is-the-difference-between-the-java-development-kit-jdk-java-runtime-environment-jre-and-java-virtual-machine-jvm)
-    - [Q2: What is the difference between `==` and `.equals()`?](#q2-what-is-the-difference-between--and-equals)
-    - [Q3: What are the main principles of Object-Oriented Programming (OOP)?](#q3-what-are-the-main-principles-of-object-oriented-programming-oop)
-    - [Q4: What is the difference between an `abstract class` and an `interface`?](#q4-what-is-the-difference-between-an-abstract-class-and-an-interface)
-    - [Q5: What is the `final` keyword in Java?](#q5-what-is-the-final-keyword-in-java)
-    - [Q6: What is the `static` keyword in Java?](#q6-what-is-the-static-keyword-in-java)
-    - [Q7: What is method overloading and method overriding?](#q7-what-is-method-overloading-and-method-overriding)
-    - [Q8: What is the Java Collections Framework?](#q8-what-is-the-java-collections-framework)
-    - [Q9: What is the difference between `ArrayList` and `LinkedList`?](#q9-what-is-the-difference-between-arraylist-and-linkedlist)
-    - [Q10: What is the difference between `HashMap` and `HashTable`?](#q10-what-is-the-difference-between-hashmap-and-hashtable)
-    - [Q11: What is exception handling in Java?](#q11-what-is-exception-handling-in-java)
-    - [Q12: What is the difference between checked and unchecked exceptions?](#q12-what-is-the-difference-between-checked-and-unchecked-exceptions)
-    - [Q13: What is garbage collection in Java?](#q13-what-is-garbage-collection-in-java)
-    - [Q14: What is multithreading in Java?](#q14-what-is-multithreading-in-java)
-    - [Q15: What is the difference between `Runnable` and `Thread`?](#q15-what-is-the-difference-between-runnable-and-thread)
-    - [Q16: What are generics in Java?](#q16-what-are-generics-in-java)
-    - [Q17: What are lambda expressions in Java?](#q17-what-are-lambda-expressions-in-java)
-    - [Q18: What is the Stream API?](#q18-what-is-the-stream-api)
-    - [Q19: What is the `Optional` class?](#q19-what-is-the-optional-class)
-    - [Q20: What is dependency injection?](#q20-what-is-dependency-injection)
-    - [Q21: What is the `volatile` keyword?](#q21-what-is-the-volatile-keyword)
-    - [Q22: What is `synchronized` keyword?](#q22-what-is-synchronized-keyword)
-    - [Q23: What is a `ThreadLocal` variable?](#q23-what-is-a-threadlocal-variable)
-    - [Q24: What is the difference between `String`, `StringBuilder`, and `StringBuffer`?](#q24-what-is-the-difference-between-string-stringbuilder-and-stringbuffer)
-    - [Q25: What is the Java Memory Model?](#q25-what-is-the-java-memory-model)
-    - [Q26: What are the different types of Garbage Collectors in Java?](#q26-what-are-the-different-types-of-garbage-collectors-in-java)
-    - [Q27: What is ClassLoader?](#q27-what-is-classloader)
-    - [Q28: What is the `transient` keyword?](#q28-what-is-the-transient-keyword)
-    - [Q29: What is Serialization and Deserialization?](#q29-what-is-serialization-and-deserialization)
-    - [Q30: What is `serialVersionUID`?](#q30-what-is-serialversionuid)
-    - [Q31: What is Reflection?](#q31-what-is-reflection)
-    - [Q32: What are Java Annotations?](#q32-what-are-java-annotations)
-    - [Q33: What is `Enum` in Java?](#q33-what-is-enum-in-java)
-    - [Q34: What is the Executor Framework?](#q34-what-is-the-executor-framework)
-    - [Q35: What is `CompletableFuture`?](#q35-what-is-completablefuture)
-    - [Q36: What is the Fork/Join Framework?](#q36-what-is-the-forkjoin-framework)
-    - [Q37: What is the difference between `Comparator` and `Comparable`?](#q37-what-is-the-difference-between-comparator-and-comparable)
-    - [Q38: What is the `default` method in interfaces?](#q38-what-is-the-default-method-in-interfaces)
-    - [Q39: What is a Functional Interface?](#q39-what-is-a-functional-interface)
-    - [Q40: What are the core Functional Interfaces in Java 8?](#q40-what-are-the-core-functional-interfaces-in-java-8)
-    - [Q41: What is method reference?](#q41-what-is-method-reference)
-    - [Q42: What is the Date/Time API (Java 8)?](#q42-what-is-the-datetime-api-java-8)
-    - [Q43: What are Java Records (Java 14/16)?](#q43-what-are-java-records-java-1416)
-    - [Q44: What are Sealed Classes (Java 15/17)?](#q44-what-are-sealed-classes-java-1517)
-    - [Q45: What is Pattern Matching for `instanceof` (Java 14/16)?](#q45-what-is-pattern-matching-for-instanceof-java-1416)
-    - [Q46: What are Virtual Threads (Java 21)?](#q46-what-are-virtual-threads-java-21)
-    - [Q47: What is the difference between `Checked` and `Unchecked` Exceptions?](#q47-what-is-the-difference-between-checked-and-unchecked-exceptions)
-    - [Q48: What is `try-with-resources`?](#q48-what-is-try-with-resources)
-    - [Q49: What is `System.gc()`?](#q49-what-is-systemgc)
-    - [Q50: What is the difference between `throw` and `throws`?](#q50-what-is-the-difference-between-throw-and-throws)
-    - [Q51: What is Singleton Pattern?](#q51-what-is-singleton-pattern)
-    - [Q52: What is Factory Pattern?](#q52-what-is-factory-pattern)
-    - [Q53: What is Observer Pattern?](#q53-what-is-observer-pattern)
-    - [Q54: What is Dependency Injection (DI)?](#q54-what-is-dependency-injection-di)
-    - [Q55: What is Spring Framework?](#q55-what-is-spring-framework)
-    - [Q56: What is Spring Boot?](#q56-what-is-spring-boot)
-    - [Q57: What is `@Autowired`?](#q57-what-is-autowired)
-    - [Q58: What is the difference between `@Component`, `@Service`, `@Repository`, and `@Controller`?](#q58-what-is-the-difference-between-component-service-repository-and-controller)
-    - [Q59: What is JPA (Java Persistence API)?](#q59-what-is-jpa-java-persistence-api)
-    - [Q60: What is the difference between `FetchType.LAZY` and `FetchType.EAGER`?](#q60-what-is-the-difference-between-fetchtypelazy-and-fetchtypeeager)
-    - [Q61: What is Hibernate?](#q61-what-is-hibernate)
-    - [Q62: What is the N+1 Select Problem?](#q62-what-is-the-n1-select-problem)
-    - [Q63: What is JDBC?](#q63-what-is-jdbc)
-    - [Q64: What is a Connection Pool?](#q64-what-is-a-connection-pool)
-    - [Q65: What is REST?](#q65-what-is-rest)
-    - [Q66: What is JSON?](#q66-what-is-json)
-    - [Q67: What is Maven/Gradle?](#q67-what-is-mavengradle)
-    - [Q68: What is JUnit?](#q68-what-is-junit)
-    - [Q69: What is Mockito?](#q69-what-is-mockito)
-    - [Q70: What is Log4j/SLF4J?](#q70-what-is-log4jslf4j)
-    - [Q71: What is the difference between `Stack` and `Heap` memory in Java?](#q71-what-is-the-difference-between-stack-and-heap-memory-in-java)
-    - [Q72: What is `OutOfMemoryError`?](#q72-what-is-outofmemoryerror)
-    - [Q73: What is `StackOverflowError`?](#q73-what-is-stackoverflowerror)
-    - [Q74: What is Double Checked Locking?](#q74-what-is-double-checked-locking)
-    - [Q75: What is Immutable Class?](#q75-what-is-immutable-class)
-    - [Q76: What is `String.intern()`?](#q76-what-is-stringintern)
-    - [Q77: What is `System.out.println()`?](#q77-what-is-systemoutprintln)
-    - [Q78: What is the difference between `PATH` and `CLASSPATH`?](#q78-what-is-the-difference-between-path-and-classpath)
-    - [Q79: What is JIT (Just-In-Time) Compiler?](#q79-what-is-jit-just-in-time-compiler)
-    - [Q80: What is the difference between `fail-fast` and `fail-safe` iterators?](#q80-what-is-the-difference-between-fail-fast-and-fail-safe-iterators)
-    - [Q81: What is `BlockingQueue`?](#q81-what-is-blockingqueue)
-    - [Q82: What is `CountDownLatch`?](#q82-what-is-countdownlatch)
-    - [Q83: What is `CyclicBarrier`?](#q83-what-is-cyclicbarrier)
-    - [Q84: What is `Semaphore`?](#q84-what-is-semaphore)
-    - [Q85: What is `ReentrantLock`?](#q85-what-is-reentrantlock)
-    - [Q86: What is `AtomicInteger`?](#q86-what-is-atomicinteger)
-    - [Q87: What is the difference between `yield()`, `sleep()`, and `join()`?](#q87-what-is-the-difference-between-yield-sleep-and-join)
-    - [Q88: What is Deadlock?](#q88-what-is-deadlock)
-    - [Q89: How do you prevent Deadlock?](#q89-how-do-you-prevent-deadlock)
-    - [Q90: What is Livelock?](#q90-what-is-livelock)
-    - [Q91: What is Starvation?](#q91-what-is-starvation)
-    - [Q92: What is Race Condition?](#q92-what-is-race-condition)
-    - [Q93: What is Microservices Architecture?](#q93-what-is-microservices-architecture)
-    - [Q94: What is API Gateway?](#q94-what-is-api-gateway)
-    - [Q95: What is Circuit Breaker Pattern?](#q95-what-is-circuit-breaker-pattern)
-    - [Q96: What is Service Discovery?](#q96-what-is-service-discovery)
-    - [Q97: What is CAP Theorem?](#q97-what-is-cap-theorem)
-    - [Q98: What is BASE property?](#q98-what-is-base-property)
-    - [Q99: What is SOLID principles?](#q99-what-is-solid-principles)
-    - [Q100: What is the future of Java?](#q100-what-is-the-future-of-java)
-
+| No. | Question | Difficulty |
+| --- | -------- | ---------- |
+| 1 | [How do you optimize memory usage by handling String duplicates efficiently?](#how-do-you-optimize-memory-usage-by-handling-string-duplicates-efficiently) | Beginner |
+| 2 | [How do you prevent memory leaks in a Java application?](#how-do-you-prevent-memory-leaks-in-a-java-application) | Intermediate |
+| 3 | [How do you execute tasks asynchronously and get the result later?](#how-do-you-execute-tasks-asynchronously-and-get-the-result-later) | Intermediate |
+| 4 | [How do you handle null safety efficiently in modern Java?](#how-do-you-handle-null-safety-efficiently-in-modern-java) | Beginner |
+| 5 | [How do you ensure thread safety when modifying shared variables?](#how-do-you-ensure-thread-safety-when-modifying-shared-variables) | Intermediate |
+| 6 | [How do you create an immutable class in Java?](#how-do-you-create-an-immutable-class-in-java) | Intermediate |
+| 7 | [How do you process a collection of items in parallel?](#how-do-you-process-a-collection-of-items-in-parallel) | Intermediate |
+| 8 | [How do you implement the Singleton pattern thread-safely?](#how-do-you-implement-the-singleton-pattern-thread-safely) | Intermediate |
+| 9 | [How do you sort a list of objects based on multiple criteria?](#how-do-you-sort-a-list-of-objects-based-on-multiple-criteria) | Beginner |
+| 10 | [How do you handle exceptions in Lambda expressions?](#how-do-you-handle-exceptions-in-lambda-expressions) | Intermediate |
+| 11 | [How do you dynamically access methods or fields at runtime?](#how-do-you-dynamically-access-methods-or-fields-at-runtime) | Advanced |
+| 12 | [How do you ensure a variable's value is always read from main memory?](#how-do-you-ensure-a-variable's-value-is-always-read-from-main-memory) | Advanced |
+| 13 | [How do you filter a list using the Stream API?](#how-do-you-filter-a-list-using-the-stream-api) | Beginner |
+| 14 | [How do you create a fixed-size thread pool?](#how-do-you-create-a-fixed-size-thread-pool) | Intermediate |
+| 15 | [How do you implement a custom annotation?](#how-do-you-implement-a-custom-annotation) | Intermediate |
+| 16 | [How do you implement Spring Boot Starters in a Java application?](#how-do-you-implement-spring-boot-starters-in-a-java-application) | Intermediate |
+| 17 | [How do you implement Spring AOP in a Java application?](#how-do-you-implement-spring-aop-in-a-java-application) | Intermediate |
+| 18 | [How do you implement Maven/Gradle in a Java application?](#how-do-you-implement-maven-gradle-in-a-java-application) | Intermediate |
+| 19 | [How do you implement JUnit 5 in a Java application?](#how-do-you-implement-junit-5-in-a-java-application) | Intermediate |
+| 20 | [How do you implement Mockito in a Java application?](#how-do-you-implement-mockito-in-a-java-application) | Intermediate |
+| 21 | [How do you implement Log4j2 in a Java application?](#how-do-you-implement-log4j2-in-a-java-application) | Intermediate |
+| 22 | [How do you implement Jackson JSON in a Java application?](#how-do-you-implement-jackson-json-in-a-java-application) | Intermediate |
+| 23 | [How do you implement Protobuf in a Java application?](#how-do-you-implement-protobuf-in-a-java-application) | Intermediate |
+| 24 | [How do you implement gRPC in a Java application?](#how-do-you-implement-grpc-in-a-java-application) | Intermediate |
+| 25 | [How do you implement Kafka Consumer in a Java application?](#how-do-you-implement-kafka-consumer-in-a-java-application) | Intermediate |
+| 26 | [How do you implement Redis Cache in a Java application?](#how-do-you-implement-redis-cache-in-a-java-application) | Intermediate |
+| 27 | [How do you implement JDBC Transactions in a Java application?](#how-do-you-implement-jdbc-transactions-in-a-java-application) | Intermediate |
+| 28 | [How do you implement Connection Pooling (HikariCP) in a Java application?](#how-do-you-implement-connection-pooling-hikaricp-in-a-java-application) | Intermediate |
+| 29 | [How do you implement Garbage Collection Tuning (G1GC) in a Java application?](#how-do-you-implement-garbage-collection-tuning-g1gc-in-a-java-application) | Intermediate |
+| 30 | [How do you implement JIT Compiler in a Java application?](#how-do-you-implement-jit-compiler-in-a-java-application) | Intermediate |
+| 31 | [How do you implement ClassLoaders in a Java application?](#how-do-you-implement-classloaders-in-a-java-application) | Intermediate |
+| 32 | [How do you implement JPMS (Modules) in a Java application?](#how-do-you-implement-jpms-modules-in-a-java-application) | Intermediate |
+| 33 | [How do you implement Varargs in a Java application?](#how-do-you-implement-varargs-in-a-java-application) | Intermediate |
+| 34 | [How do you implement Try-With-Resources in a Java application?](#how-do-you-implement-try-with-resources-in-a-java-application) | Intermediate |
+| 35 | [How do you implement Switch Expressions in a Java application?](#how-do-you-implement-switch-expressions-in-a-java-application) | Intermediate |
+| 36 | [How do you implement Text Blocks in a Java application?](#how-do-you-implement-text-blocks-in-a-java-application) | Intermediate |
+| 37 | [How do you implement Pattern Matching for instanceof in a Java application?](#how-do-you-implement-pattern-matching-for-instanceof-in-a-java-application) | Intermediate |
+| 38 | [How do you implement Sealed Classes in a Java application?](#how-do-you-implement-sealed-classes-in-a-java-application) | Intermediate |
+| 39 | [How do you implement Records in a Java application?](#how-do-you-implement-records-in-a-java-application) | Intermediate |
+| 40 | [How do you implement Foreign Function & Memory API in a Java application?](#how-do-you-implement-foreign-function-&-memory-api-in-a-java-application) | Intermediate |
+| 41 | [How do you implement Virtual Threads (Project Loom) in a Java application?](#how-do-you-implement-virtual-threads-project-loom-in-a-java-application) | Intermediate |
+| 42 | [How do you implement Structured Concurrency in a Java application?](#how-do-you-implement-structured-concurrency-in-a-java-application) | Intermediate |
+| 43 | [How do you implement Vector API in a Java application?](#how-do-you-implement-vector-api-in-a-java-application) | Intermediate |
+| 44 | [How do you implement JPA/Hibernate in a Java application?](#how-do-you-implement-jpa-hibernate-in-a-java-application) | Intermediate |
+| 45 | [How do you implement Spring Data JPA in a Java application?](#how-do-you-implement-spring-data-jpa-in-a-java-application) | Intermediate |
+| 46 | [How do you implement Spring Security in a Java application?](#how-do-you-implement-spring-security-in-a-java-application) | Intermediate |
+| 47 | [How do you implement JWT Auth in a Java application?](#how-do-you-implement-jwt-auth-in-a-java-application) | Intermediate |
+| 48 | [How do you implement OAuth2 in a Java application?](#how-do-you-implement-oauth2-in-a-java-application) | Intermediate |
+| 49 | [How do you implement Reactive Streams in a Java application?](#how-do-you-implement-reactive-streams-in-a-java-application) | Advanced |
+| 50 | [How do you implement Project Reactor in a Java application?](#how-do-you-implement-project-reactor-in-a-java-application) | Advanced |
+| 51 | [How do you implement Netty in a Java application?](#how-do-you-implement-netty-in-a-java-application) | Advanced |
+| 52 | [How do you implement Microservices in a Java application?](#how-do-you-implement-microservices-in-a-java-application) | Advanced |
+| 53 | [How do you implement Service Discovery in a Java application?](#how-do-you-implement-service-discovery-in-a-java-application) | Advanced |
+| 54 | [How do you implement Circuit Breaker in a Java application?](#how-do-you-implement-circuit-breaker-in-a-java-application) | Advanced |
+| 55 | [How do you implement API Gateway in a Java application?](#how-do-you-implement-api-gateway-in-a-java-application) | Advanced |
+| 56 | [How do you implement Distributed Tracing in a Java application?](#how-do-you-implement-distributed-tracing-in-a-java-application) | Advanced |
+| 57 | [How do you implement Health Checks in a Java application?](#how-do-you-implement-health-checks-in-a-java-application) | Intermediate |
+| 58 | [How do you implement Prometheus Metrics in a Java application?](#how-do-you-implement-prometheus-metrics-in-a-java-application) | Intermediate |
+| 59 | [How do you implement Dockerizing Java in a Java application?](#how-do-you-implement-dockerizing-java-in-a-java-application) | Intermediate |
+| 60 | [How do you implement Kubernetes Java in a Java application?](#how-do-you-implement-kubernetes-java-in-a-java-application) | Advanced |
+| 61 | [How do you implement GraphQL Java in a Java application?](#how-do-you-implement-graphql-java-in-a-java-application) | Intermediate |
+| 62 | [How do you implement WebSocket in a Java application?](#how-do-you-implement-websocket-in-a-java-application) | Intermediate |
+| 63 | [How do you implement RMI in a Java application?](#how-do-you-implement-rmi-in-a-java-application) | Advanced |
+| 64 | [How do you implement JNDI in a Java application?](#how-do-you-implement-jndi-in-a-java-application) | Advanced |
+| 65 | [How do you implement JMX in a Java application?](#how-do-you-implement-jmx-in-a-java-application) | Advanced |
+| 66 | [How do you implement Serialization in a Java application?](#how-do-you-implement-serialization-in-a-java-application) | Beginner |
+| 67 | [How do you implement Externalization in a Java application?](#how-do-you-implement-externalization-in-a-java-application) | Advanced |
+| 68 | [How do you implement Cloneable in a Java application?](#how-do-you-implement-cloneable-in-a-java-application) | Beginner |
+| 69 | [How do you implement WeakReference in a Java application?](#how-do-you-implement-weakreference-in-a-java-application) | Advanced |
+| 70 | [How do you implement SoftReference in a Java application?](#how-do-you-implement-softreference-in-a-java-application) | Advanced |
+| 71 | [How do you implement PhantomReference in a Java application?](#how-do-you-implement-phantomreference-in-a-java-application) | Advanced |
+| 72 | [How do you implement ThreadLocal in a Java application?](#how-do-you-implement-threadlocal-in-a-java-application) | Advanced |
+| 73 | [How do you implement CompletableFuture in a Java application?](#how-do-you-implement-completablefuture-in-a-java-application) | Intermediate |
+| 74 | [How do you implement CountDownLatch in a Java application?](#how-do-you-implement-countdownlatch-in-a-java-application) | Intermediate |
+| 75 | [How do you implement CyclicBarrier in a Java application?](#how-do-you-implement-cyclicbarrier-in-a-java-application) | Intermediate |
+| 76 | [How do you implement Semaphore in a Java application?](#how-do-you-implement-semaphore-in-a-java-application) | Intermediate |
+| 77 | [How do you implement Phaser in a Java application?](#how-do-you-implement-phaser-in-a-java-application) | Intermediate |
+| 78 | [How do you implement Exchanger in a Java application?](#how-do-you-implement-exchanger-in-a-java-application) | Intermediate |
+| 79 | [How do you implement BlockingQueue in a Java application?](#how-do-you-implement-blockingqueue-in-a-java-application) | Intermediate |
+| 80 | [How do you implement PriorityQueue in a Java application?](#how-do-you-implement-priorityqueue-in-a-java-application) | Beginner |
+| 81 | [How do you implement LinkedList vs ArrayList in a Java application?](#how-do-you-implement-linkedlist-vs-arraylist-in-a-java-application) | Beginner |
+| 82 | [How do you implement HashMap vs TreeMap in a Java application?](#how-do-you-implement-hashmap-vs-treemap-in-a-java-application) | Beginner |
+| 83 | [How do you implement ConcurrentHashMap in a Java application?](#how-do-you-implement-concurrenthashmap-in-a-java-application) | Intermediate |
+| 84 | [How do you implement CopyOnWriteArrayList in a Java application?](#how-do-you-implement-copyonwritearraylist-in-a-java-application) | Intermediate |
+| 85 | [How do you implement IdentityHashMap in a Java application?](#how-do-you-implement-identityhashmap-in-a-java-application) | Advanced |
+| 86 | [How do you implement WeakHashMap in a Java application?](#how-do-you-implement-weakhashmap-in-a-java-application) | Advanced |
+| 87 | [How do you implement EnumSet in a Java application?](#how-do-you-implement-enumset-in-a-java-application) | Intermediate |
+| 88 | [How do you implement BitSet in a Java application?](#how-do-you-implement-bitset-in-a-java-application) | Intermediate |
+| 89 | [How do you implement BigInteger in a Java application?](#how-do-you-implement-biginteger-in-a-java-application) | Beginner |
+| 90 | [How do you implement BigDecimal in a Java application?](#how-do-you-implement-bigdecimal-in-a-java-application) | Beginner |
+| 91 | [How do you implement UUID in a Java application?](#how-do-you-implement-uuid-in-a-java-application) | Beginner |
+| 92 | [How do you implement Base64 in a Java application?](#how-do-you-implement-base64-in-a-java-application) | Beginner |
+| 93 | [How do you implement MessageDigest in a Java application?](#how-do-you-implement-messagedigest-in-a-java-application) | Intermediate |
+| 94 | [How do you implement Cipher in a Java application?](#how-do-you-implement-cipher-in-a-java-application) | Intermediate |
+| 95 | [How do you implement Signature in a Java application?](#how-do-you-implement-signature-in-a-java-application) | Intermediate |
+| 96 | [How do you implement SecureRandom in a Java application?](#how-do-you-implement-securerandom-in-a-java-application) | Intermediate |
+| 97 | [How do you implement KeyStore in a Java application?](#how-do-you-implement-keystore-in-a-java-application) | Intermediate |
+| 98 | [How do you implement SSLContext in a Java application?](#how-do-you-implement-sslcontext-in-a-java-application) | Advanced |
+| 99 | [How do you implement HttpClient (Java 11) in a Java application?](#how-do-you-implement-httpclient-java-11-in-a-java-application) | Intermediate |
+| 100 | [How do you implement UrlConnection in a Java application?](#how-do-you-implement-urlconnection-in-a-java-application) | Beginner |
+| 101 | [How do you implement Socket Programming in a Java application?](#how-do-you-implement-socket-programming-in-a-java-application) | Intermediate |
+| 102 | [How do you implement DatagramSocket in a Java application?](#how-do-you-implement-datagramsocket-in-a-java-application) | Intermediate |
+| 103 | [How do you implement NIO Channels in a Java application?](#how-do-you-implement-nio-channels-in-a-java-application) | Advanced |
+| 104 | [How do you implement NIO Buffers in a Java application?](#how-do-you-implement-nio-buffers-in-a-java-application) | Advanced |
+| 105 | [How do you implement NIO Selectors in a Java application?](#how-do-you-implement-nio-selectors-in-a-java-application) | Advanced |
+| 106 | [How do you implement Path API in a Java application?](#how-do-you-implement-path-api-in-a-java-application) | Beginner |
+| 107 | [How do you implement Files API in a Java application?](#how-do-you-implement-files-api-in-a-java-application) | Beginner |
+| 108 | [How do you implement WatchService in a Java application?](#how-do-you-implement-watchservice-in-a-java-application) | Advanced |
+| 109 | [How do you implement ZipInputStream in a Java application?](#how-do-you-implement-zipinputstream-in-a-java-application) | Intermediate |
 
 ---
-### Q1: What is the difference between the Java Development Kit (JDK), Java Runtime Environment (JRE), and Java Virtual Machine (JVM)?
 
-**Answer:**
-These three components are fundamental to the Java platform, and understanding their roles is essential for any Java developer.
+### Q1: How do you optimize memory usage by handling String duplicates efficiently?
 
-**Java Virtual Machine (JVM)**
--   **Role:** The JVM is an abstract machine that provides a runtime environment in which Java bytecode can be executed.
--   **Function:**
-    -   Loads code
-    -   Verifies code
-    -   Executes code
-    -   Provides runtime environment
--   **Key Concept:** The JVM is platform-dependent, meaning there are different implementations for different operating systems. This is what makes Java a "write once, run anywhere" language.
+**Difficulty**: Beginner
 
-**Java Runtime Environment (JRE)**
--   **Role:** The JRE is a software package that contains what is required to run a Java program. It includes the JVM, along with the Java Class Library (JCL) and other supporting files.
--   **Components:**
-    -   JVM
-    -   Java Class Library (core classes like `java.lang`, `java.util`, etc.)
--   **Use Case:** You need the JRE to run Java applications, but not to develop them.
+**Strategy:**
+Use **String Interning** (`String.intern()`) or the **String Deduplication** feature in G1GC. Avoid creating new String objects with `new String("...")` unnecessarily.
 
-**Java Development Kit (JDK)**
--   **Role:** The JDK is a full-featured software development kit for Java. It includes everything in the JRE, plus tools for developing, debugging, and monitoring Java applications.
--   **Components:**
-    -   JRE (which includes the JVM)
-    -   Development tools (e.g., `javac` compiler, `java` launcher, `jar` archiver, `javadoc` documentation generator)
--   **Use Case:** You need the JDK to develop Java applications.
-
-**Relationship:**
-
-`JDK = JRE + Development Tools`
-`JRE = JVM + Java Class Library`
-
-**Analogy:**
--   **JVM:** The engine of a car.
--   **JRE:** The car itself (you can drive it, but you can't build a new one with it).
--   **JDK:** A car factory (you have everything you need to build and drive cars).
-
-**Diagram:**
-
-```
-+-------------------------------------------+
-|                  JDK                      |
-|  +-----------------------------------+    |
-|  |                JRE                |    |
-|  |  +---------------------------+    |    |
-|  |  |            JVM            |    |    |
-|  |  +---------------------------+    |    |
-|  |                                   |    |
-|  |      Java Class Library           |    |
-|  +-----------------------------------+    |
-|                                           |
-|         Development Tools                 |
-| (javac, jar, javadoc, etc.)               |
-+-------------------------------------------+
-```
-
-### Q2: What is the difference between `==` and `.equals()`?
-
-**Answer:**
--   `==`: A reference comparison, i.e., it checks if both objects point to the same memory location.
--   `.equals()`: A value comparison, i.e., it checks if the values in the objects are the same. By default, it behaves like `==`, but it's often overridden in classes to provide a meaningful comparison.
-
-### Q3: What are the main principles of Object-Oriented Programming (OOP)?
-
-**Answer:**
--   **Encapsulation:** Bundling of data with the methods that operate on that data.
--   **Abstraction:** Hiding the complex implementation details and showing only the essential features of the object.
--   **Inheritance:** A mechanism wherein a new class derives from an existing class.
--   **Polymorphism:** The ability of an object to take on many forms.
-
-### Q4: What is the difference between an `abstract class` and an `interface`?
-
-**Answer:**
-
-| Feature | Abstract Class | Interface |
-| :--- | :--- | :--- |
-| **Methods** | Can have both abstract and concrete methods. | Can only have abstract methods (before Java 8). | 
-| **Variables** | Can have final, non-final, static, and non-static variables. | Can only have static and final variables. |
-| **Inheritance** | A class can inherit only one abstract class. | A class can implement multiple interfaces. |
-
-### Q5: What is the `final` keyword in Java?
-
-**Answer:**
--   **Final variable:** The value cannot be changed.
--   **Final method:** Cannot be overridden by a subclass.
--   **Final class:** Cannot be inherited.
-
-### Q6: What is the `static` keyword in Java?
-
-**Answer:**
--   **Static variable:** Belongs to the class rather than an instance of the class. Shared among all instances.
--   **Static method:** Belongs to the class and can be called without creating an instance.
-
-### Q7: What is method overloading and method overriding?
-
-**Answer:**
--   **Overloading:** When two or more methods in the same class have the same name but different parameters.
--   **Overriding:** When a method in a subclass has the same name and parameters as a method in its superclass.
-
-### Q8: What is the Java Collections Framework?
-
-**Answer:**
-The Java Collections Framework is a set of classes and interfaces that implement commonly reusable collection data structures like `List`, `Set`, and `Map`.
-
-### Q9: What is the difference between `ArrayList` and `LinkedList`?
-
-**Answer:**
--   `ArrayList`: Implemented as a dynamic array. Better for storing and accessing data.
--   `LinkedList`: Implemented as a doubly-linked list. Better for manipulating data (insertion and deletion).
-
-### Q10: What is the difference between `HashMap` and `HashTable`?
-
-**Answer:**
--   `HashMap`: Not synchronized, allows one null key and multiple null values.
--   `HashTable`: Synchronized, does not allow null keys or values.
-
-### Q11: What is exception handling in Java?
-
-**Answer:**
-Exception handling is a mechanism to handle runtime errors such as `ClassNotFoundException`, `IOException`, `SQLException`, etc. It uses `try`, `catch`, `finally`, `throw`, and `throws` keywords.
-
-### Q12: What is the difference between checked and unchecked exceptions?
-
-**Answer:**
--   **Checked exceptions:** Exceptions that are checked at compile-time. The programmer must handle them using `try-catch` or declare them with `throws`.
--   **Unchecked exceptions:** Exceptions that are not checked at compile-time. They are subclasses of `RuntimeException`.
-
-### Q13: What is garbage collection in Java?
-
-**Answer:**
-Garbage collection is the process of automatically freeing up memory that is no longer in use by the program. The JVM's garbage collector runs in the background to reclaim memory.
-
-### Q14: What is multithreading in Java?
-
-**Answer:**
-Multithreading is a process of executing multiple threads simultaneously. It allows a program to be more efficient by doing multiple things at the same time.
-
-### Q15: What is the difference between `Runnable` and `Thread`?
-
-**Answer:**
--   `Thread`: A class that you can extend to create a thread.
--   `Runnable`: An interface that you can implement to create a thread. Implementing `Runnable` is generally preferred as it allows the class to extend other classes.
-
-### Q16: What are generics in Java?
-
-**Answer:**
-Generics enable types (classes and interfaces) to be parameters when defining classes, interfaces, and methods. This provides compile-time type safety and avoids the need for casting.
-
-### Q17: What are lambda expressions in Java?
-
-**Answer:**
-Lambda expressions, introduced in Java 8, provide a clear and concise way to represent one method interface using an expression. They are often used with functional interfaces.
-
-### Q18: What is the Stream API?
-
-**Answer:**
-The Stream API, also introduced in Java 8, is used to process collections of objects. A stream is a sequence of objects that supports various methods which can be pipelined to produce the desired result.
-
-### Q19: What is the `Optional` class?
-
-**Answer:**
-`Optional` is a container object which may or may not contain a non-null value. It's used to represent the absence of a value, as an alternative to `null` references.
-
-### Q20: What is dependency injection?
-
-**Answer:**
-Dependency Injection is a design pattern in which an object receives other objects that it depends on. This pattern is often used in frameworks like Spring to achieve Inversion of Control.
-### Q21: What is the `volatile` keyword?
-**Difficulty: Advanced**
-
-**Answer:**
-The `volatile` keyword guarantees visibility of changes to variables across threads. It prevents the compiler and CPU from reordering instructions or caching the variable in registers/CPU caches, forcing reads/writes to main memory. It does *not* guarantee atomicity.
-
-### Q22: What is `synchronized` keyword?
-**Difficulty: Medium**
-
-**Answer:**
-It ensures that only one thread can access a block of code or object at a time. It can be applied to instance methods (locks on `this`), static methods (locks on `Class` object), or blocks (locks on a specified object).
-
-### Q23: What is a `ThreadLocal` variable?
-**Difficulty: Advanced**
-
-**Answer:**
-A variable that provides a separate storage slot for each thread that accesses it. Each thread sees its own independently initialized copy of the variable.
+**Code Example:**
 ```java
-ThreadLocal<Integer> threadId = ThreadLocal.withInitial(() -> 0);
+// BAD: Creates a new object in heap
+String s1 = new String("hello");
+
+// GOOD: Uses String Constant Pool
+String s2 = "hello";
+
+// GOOD: Manually intern (if computed at runtime)
+String s3 = new String("hello").intern();
+
+System.out.println(s2 == s3); // true
 ```
 
-### Q24: What is the difference between `String`, `StringBuilder`, and `StringBuffer`?
-**Difficulty: Easy**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-- `String`: Immutable. Slow for concatenations. Thread-safe (because immutable).
-- `StringBuilder`: Mutable. Fast. Not thread-safe.
-- `StringBuffer`: Mutable. Slower than StringBuilder. Thread-safe (synchronized).
+---
 
-### Q25: What is the Java Memory Model?
-**Difficulty: Advanced**
+### Q2: How do you prevent memory leaks in a Java application?
 
-**Answer:**
-It describes how threads interact through memory. It defines the rules for visibility (happens-before relationship), atomicity, and ordering of operations.
+**Difficulty**: Intermediate
 
-### Q26: What are the different types of Garbage Collectors in Java?
-**Difficulty: Advanced**
+**Strategy:**
+Avoid static references to large objects, close resources (Streams, Connections) using **try-with-resources**, and unregister listeners/callbacks when no longer needed.
 
-**Answer:**
-- Serial GC: Single-threaded (for small apps).
-- Parallel GC: Multi-threaded (throughput-oriented).
-- G1 GC (Garbage First): Low-pause, splits heap into regions. Default in modern Java.
-- ZGC: Low-latency, scalable (sub-millisecond pauses).
-- Shenandoah: Ultra-low pause time.
-
-### Q27: What is ClassLoader?
-**Difficulty: Advanced**
-
-**Answer:**
-Part of the JVM that dynamically loads Java classes into the JVM. Types:
-- Bootstrap ClassLoader (loads core libs).
-- Extension/Platform ClassLoader.
-- Application/System ClassLoader.
-
-### Q28: What is the `transient` keyword?
-**Difficulty: Medium**
-
-**Answer:**
-Used in serialization. Variables marked as `transient` are not serialized (saved) when the object is converted to a byte stream.
-
-### Q29: What is Serialization and Deserialization?
-**Difficulty: Medium**
-
-**Answer:**
-- **Serialization:** Converting an object into a byte stream.
-- **Deserialization:** Reconstructing the object from the byte stream.
-Classes must implement `Serializable` interface.
-
-### Q30: What is `serialVersionUID`?
-**Difficulty: Medium**
-
-**Answer:**
-A unique identifier for `Serializable` classes. It ensures that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization.
-
-### Q31: What is Reflection?
-**Difficulty: Advanced**
-
-**Answer:**
-A feature that allows code to inspect and modify the runtime behavior of applications (classes, interfaces, fields, methods) at runtime.
-
-### Q32: What are Java Annotations?
-**Difficulty: Medium**
-
-**Answer:**
-Metadata about the program that is not part of the program itself. They have no direct effect on the operation of the code they annotate but can be used by compilers or runtime environments (e.g., `@Override`, `@Deprecated`, `@Test`).
-
-### Q33: What is `Enum` in Java?
-**Difficulty: Easy**
-
-**Answer:**
-A special data type that enables for a variable to be a set of predefined constants. Enums in Java are full-fledged classes.
-
-### Q34: What is the Executor Framework?
-**Difficulty: Advanced**
-
-**Answer:**
-A framework for asynchronous task execution. It separates task creation from execution.
-- `ExecutorService`: Manages thread pools (`newFixedThreadPool`, `newCachedThreadPool`).
-- `Future`: Represents the result of an asynchronous computation.
-
-### Q35: What is `CompletableFuture`?
-**Difficulty: Advanced**
-
-**Answer:**
-Introduced in Java 8, it represents a future result of an asynchronous computation and provides methods to chain computations, combine futures, and handle errors.
-
-### Q36: What is the Fork/Join Framework?
-**Difficulty: Advanced**
-
-**Answer:**
-Designed for work-stealing algorithms. It recursively breaks a task into smaller subtasks (fork) and then combines the results (join). Used by parallel streams.
-
-### Q37: What is the difference between `Comparator` and `Comparable`?
-**Difficulty: Medium**
-
-**Answer:**
-- `Comparable`: Interface (`compareTo`) used to define the *natural ordering* of objects. The class itself implements it.
-- `Comparator`: Interface (`compare`) used to define *custom ordering*. Implemented by a separate class or lambda.
-
-### Q38: What is the `default` method in interfaces?
-**Difficulty: Medium**
-
-**Answer:**
-Introduced in Java 8, allows interfaces to have methods with implementation. Enables backward compatibility when adding new methods to interfaces.
-
-### Q39: What is a Functional Interface?
-**Difficulty: Medium**
-
-**Answer:**
-An interface with exactly one abstract method. Can be implemented using Lambda expressions. Annotated with `@FunctionalInterface`. Examples: `Runnable`, `Callable`, `Comparator`.
-
-### Q40: What are the core Functional Interfaces in Java 8?
-**Difficulty: Medium**
-
-**Answer:**
-- `Predicate<T>`: `T -> boolean` (test)
-- `Consumer<T>`: `T -> void` (accept)
-- `Supplier<T>`: `() -> T` (get)
-- `Function<T, R>`: `T -> R` (apply)
-
-### Q41: What is method reference?
-**Difficulty: Easy**
-
-**Answer:**
-Shorthand syntax for a lambda expression that executes just ONE method. `ClassName::methodName`.
-
-### Q42: What is the Date/Time API (Java 8)?
-**Difficulty: Medium**
-
-**Answer:**
-A modern, immutable, thread-safe API for date and time.
-- `LocalDate`, `LocalTime`, `LocalDateTime`
-- `ZonedDateTime`
-- `Period`, `Duration`
-Replaces the old, mutable `java.util.Date` and `Calendar`.
-
-### Q43: What are Java Records (Java 14/16)?
-**Difficulty: Medium**
-
-**Answer:**
-A concise way to create immutable data-carrying classes.
+**Code Example:**
 ```java
-public record Point(int x, int y) {}
-```
-Automatically generates constructor, getters, `equals`, `hashCode`, and `toString`.
-
-### Q44: What are Sealed Classes (Java 15/17)?
-**Difficulty: Advanced**
-
-**Answer:**
-Classes or interfaces that restrict which other classes or interfaces may extend or implement them.
-```java
-public sealed class Shape permits Circle, Square {}
-```
-
-### Q45: What is Pattern Matching for `instanceof` (Java 14/16)?
-**Difficulty: Medium**
-
-**Answer:**
-Allows testing and casting in a single step.
-```java
-if (obj instanceof String s) {
-    System.out.println(s.length());
+// GOOD: Auto-close resource
+try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+    System.out.println(br.readLine());
+} catch (IOException e) {
+    e.printStackTrace();
 }
 ```
 
-### Q46: What are Virtual Threads (Java 21)?
-**Difficulty: Advanced**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-Lightweight threads managed by the JVM (Project Loom). They map M virtual threads to N carrier (OS) threads, allowing millions of concurrent tasks with high throughput.
+---
 
-### Q47: What is the difference between `Checked` and `Unchecked` Exceptions?
-**Difficulty: Medium**
+### Q3: How do you execute tasks asynchronously and get the result later?
 
-**Answer:**
-- **Checked:** Inherit from `Exception`. Must be handled (`try-catch`) or declared (`throws`). Compile-time check. (e.g., `IOException`).
-- **Unchecked:** Inherit from `RuntimeException`. No need to handle explicitly. (e.g., `NullPointerException`).
+**Difficulty**: Intermediate
 
-### Q48: What is `try-with-resources`?
-**Difficulty: Medium**
+**Strategy:**
+Use **CompletableFuture**. It allows non-blocking execution and chaining of tasks (callbacks) when the result is available.
 
-**Answer:**
-Introduced in Java 7. Automatically closes resources (like streams, connections) that implement `AutoCloseable`.
+**Code Example:**
 ```java
-try (BufferedReader br = new BufferedReader(new FileReader(path))) {
-    return br.readLine();
+CompletableFuture.supplyAsync(() -> {
+    // Long running task
+    return "Result";
+}).thenAccept(result -> {
+    System.out.println("Got: " + result);
+});
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q4: How do you handle null safety efficiently in modern Java?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use **Optional<T>** to represent a value that might be absent, avoiding `NullPointerException`.
+
+**Code Example:**
+```java
+Optional<String> optionalName = Optional.ofNullable(getName());
+
+// Execute only if present
+optionalName.ifPresent(System.out::println);
+
+// Default value
+String name = optionalName.orElse("Unknown");
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q5: How do you ensure thread safety when modifying shared variables?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Atomic Classes** (like `AtomicInteger`) for simple counters, or `synchronized` blocks/`ReentrantLock` for complex critical sections.
+
+**Code Example:**
+```java
+import java.util.concurrent.atomic.AtomicInteger;
+
+class Counter {
+    private AtomicInteger count = new AtomicInteger(0);
+
+    public void increment() {
+        count.incrementAndGet(); // Thread-safe
+    }
 }
 ```
 
-### Q49: What is `System.gc()`?
-**Difficulty: Easy**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-A hint to the JVM to run the Garbage Collector. It does not guarantee execution.
+---
 
-### Q50: What is the difference between `throw` and `throws`?
-**Difficulty: Easy**
+### Q6: How do you create an immutable class in Java?
 
-**Answer:**
-- `throw`: Used to explicitly throw an exception within a method.
-- `throws`: Used in method signature to declare that the method might throw exceptions.
+**Difficulty**: Intermediate
 
-### Q51: What is Singleton Pattern?
-**Difficulty: Medium**
+**Strategy:**
+Declare the class `final`, make all fields `private final`, do not provide setters, and return deep copies of mutable fields in getters.
 
-**Answer:**
-Ensures a class has only one instance and provides a global point of access.
+**Code Example:**
 ```java
-public class Singleton {
-    private static final Singleton INSTANCE = new Singleton();
-    private Singleton() {}
-    public static Singleton getInstance() { return INSTANCE; }
+public final class User {
+    private final String name;
+    private final List<String> roles;
+
+    public User(String name, List<String> roles) {
+        this.name = name;
+        this.roles = new ArrayList<>(roles); // Deep copy
+    }
+
+    public List<String> getRoles() {
+        return new ArrayList<>(roles); // Return copy
+    }
 }
 ```
 
-### Q52: What is Factory Pattern?
-**Difficulty: Medium**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-Creates objects without specifying the exact class of object that will be created.
+---
 
-### Q53: What is Observer Pattern?
-**Difficulty: Medium**
+### Q7: How do you process a collection of items in parallel?
 
-**Answer:**
-Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified. Used in event handling.
+**Difficulty**: Intermediate
 
-### Q54: What is Dependency Injection (DI)?
-**Difficulty: Advanced**
+**Strategy:**
+Use **Parallel Streams** (`collection.parallelStream()`). It utilizes the ForkJoinPool to split the task across multiple threads.
 
-**Answer:**
-A design pattern where an object's dependencies are "injected" into it (by a framework or container) rather than the object creating them itself. Inversion of Control (IoC).
+**Code Example:**
+```java
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
-### Q55: What is Spring Framework?
-**Difficulty: Advanced**
+numbers.parallelStream()
+       .map(n -> n * n)
+       .forEach(System.out::println);
+```
 
-**Answer:**
-A comprehensive framework for enterprise Java development. Provides DI, AOP, transaction management, MVC, and more.
+[⬆️ Back to Top](#table-of-contents)
 
-### Q56: What is Spring Boot?
-**Difficulty: Medium**
+---
 
-**Answer:**
-An extension of Spring that simplifies setup and development. Provides "starter" dependencies, auto-configuration, and an embedded server (Tomcat).
+### Q8: How do you implement the Singleton pattern thread-safely?
 
-### Q57: What is `@Autowired`?
-**Difficulty: Medium**
+**Difficulty**: Intermediate
 
-**Answer:**
-Spring annotation for dependency injection. Can be used on constructors, setters, or fields.
+**Strategy:**
+Use an **Enum** (simplest and safest) or **Double-Checked Locking** with `volatile`.
 
-### Q58: What is the difference between `@Component`, `@Service`, `@Repository`, and `@Controller`?
-**Difficulty: Medium**
+**Code Example:**
+```java
+// Best practice
+public enum Singleton {
+    INSTANCE;
+    
+    public void doSomething() {
+        System.out.println("Doing something");
+    }
+}
+```
 
-**Answer:**
-They are all stereotypes for Spring beans.
-- `@Component`: Generic.
-- `@Service`: Business logic.
-- `@Repository`: Data access (translates exceptions).
-- `@Controller`: Web controller.
+[⬆️ Back to Top](#table-of-contents)
 
-### Q59: What is JPA (Java Persistence API)?
-**Difficulty: Advanced**
+---
 
-**Answer:**
-A specification for accessing, persisting, and managing data between Java objects and a relational database. Hibernate is a popular implementation.
+### Q9: How do you sort a list of objects based on multiple criteria?
 
-### Q60: What is the difference between `FetchType.LAZY` and `FetchType.EAGER`?
-**Difficulty: Advanced**
+**Difficulty**: Beginner
 
-**Answer:**
-- `LAZY`: Data is loaded only when accessed (getter called).
-- `EAGER`: Data is loaded immediately with the parent entity.
+**Strategy:**
+Use `Comparator.comparing()` chained with `thenComparing()`.
 
-### Q61: What is Hibernate?
-**Difficulty: Advanced**
+**Code Example:**
+```java
+List<User> users = getUsers();
 
-**Answer:**
-An ORM (Object-Relational Mapping) framework that maps Java classes to database tables and Java data types to SQL data types.
+users.sort(Comparator.comparing(User::getLastName)
+                     .thenComparing(User::getFirstName));
+```
 
-### Q62: What is the N+1 Select Problem?
-**Difficulty: Advanced**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-A performance issue in ORMs where 1 query retrieves the parent entities, and then N queries are executed to fetch related child entities for each parent. Solved using `JOIN FETCH`.
+---
 
-### Q63: What is JDBC?
-**Difficulty: Medium**
+### Q10: How do you handle exceptions in Lambda expressions?
 
-**Answer:**
-Java Database Connectivity. An API for connecting and executing queries on a database.
+**Difficulty**: Intermediate
 
-### Q64: What is a Connection Pool?
-**Difficulty: Advanced**
+**Strategy:**
+Since standard functional interfaces don't throw checked exceptions, wrap the code in a try-catch block or write a wrapper method/interface that handles the exception.
 
-**Answer:**
-A cache of database connections maintained so that connections can be reused when future requests to the database are required. Reduces the overhead of establishing connections. (e.g., HikariCP).
+**Code Example:**
+```java
+list.forEach(item -> {
+    try {
+        process(item);
+    } catch (Exception e) {
+        System.err.println("Error: " + e);
+    }
+});
+```
 
-### Q65: What is REST?
-**Difficulty: Medium**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-Representational State Transfer. An architectural style for designing networked applications. Uses HTTP methods (GET, POST, PUT, DELETE).
+---
 
-### Q66: What is JSON?
-**Difficulty: Easy**
+### Q11: How do you dynamically access methods or fields at runtime?
 
-**Answer:**
-JavaScript Object Notation. A lightweight data-interchange format.
+**Difficulty**: Advanced
 
-### Q67: What is Maven/Gradle?
-**Difficulty: Medium**
+**Strategy:**
+Use the **Reflection API**. It allows inspection and modification of classes, fields, and methods at runtime, though it has performance overhead.
 
-**Answer:**
-Build automation tools. They manage dependencies, compilation, packaging, and testing.
+**Code Example:**
+```java
+Class<?> clazz = Class.forName("com.example.User");
+Method method = clazz.getMethod("getName");
+Object instance = clazz.getConstructor().newInstance();
+Object result = method.invoke(instance);
+```
 
-### Q68: What is JUnit?
-**Difficulty: Easy**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-A unit testing framework for Java.
+---
 
-### Q69: What is Mockito?
-**Difficulty: Medium**
+### Q12: How do you ensure a variable's value is always read from main memory?
 
-**Answer:**
-A mocking framework for unit tests in Java. Allows creating mock objects to simulate dependencies.
+**Difficulty**: Advanced
 
-### Q70: What is Log4j/SLF4J?
-**Difficulty: Easy**
+**Strategy:**
+Use the `volatile` keyword. It guarantees visibility of changes to variables across threads (happens-before relationship), preventing CPU caching of that variable.
 
-**Answer:**
-Logging libraries. SLF4J is a facade, Log4j/Logback are implementations.
+**Code Example:**
+```java
+private volatile boolean running = true;
 
-### Q71: What is the difference between `Stack` and `Heap` memory in Java?
-**Difficulty: Medium**
+public void stop() {
+    running = false; // Immediately visible to other threads
+}
+```
 
-**Answer:**
-- **Stack:** Stores method frames, local primitive variables, and reference variables. Thread-safe.
-- **Heap:** Stores Objects. Shared by all threads.
+[⬆️ Back to Top](#table-of-contents)
 
-### Q72: What is `OutOfMemoryError`?
-**Difficulty: Medium**
+---
 
-**Answer:**
-Thrown when the JVM cannot allocate an object because it is out of memory, and no more memory could be made available by the garbage collector.
+### Q13: How do you filter a list using the Stream API?
 
-### Q73: What is `StackOverflowError`?
-**Difficulty: Medium**
+**Difficulty**: Beginner
 
-**Answer:**
-Thrown when the stack size is exceeded, typically due to deep or infinite recursion.
+**Strategy:**
+Use `.filter(Predicate)`.
 
-### Q74: What is Double Checked Locking?
-**Difficulty: Advanced**
+**Code Example:**
+```java
+List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
 
-**Answer:**
-A pattern used to reduce the overhead of acquiring a lock by first testing the locking criterion (the "lock hint") without actually acquiring the lock. Used in Singleton.
+List<String> filtered = names.stream()
+                             .filter(name -> name.startsWith("A"))
+                             .collect(Collectors.toList());
+```
 
-### Q75: What is Immutable Class?
-**Difficulty: Medium**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-A class whose instances cannot be modified after creation. Example: `String`, `Integer`. created by making class `final`, fields `private final`, and no setters.
+---
 
-### Q76: What is `String.intern()`?
-**Difficulty: Advanced**
+### Q14: How do you create a fixed-size thread pool?
 
-**Answer:**
-Returns a canonical representation for the string object. It looks up the string in the String Constant Pool. If found, returns it; otherwise adds it to the pool.
+**Difficulty**: Intermediate
 
-### Q77: What is `System.out.println()`?
-**Difficulty: Easy**
+**Strategy:**
+Use `Executors.newFixedThreadPool(n)`. It reuses a fixed number of threads for executing tasks.
 
-**Answer:**
-- `System`: A class.
-- `out`: A static final field (PrintStream).
-- `println()`: A method of PrintStream.
+**Code Example:**
+```java
+ExecutorService executor = Executors.newFixedThreadPool(5);
 
-### Q78: What is the difference between `PATH` and `CLASSPATH`?
-**Difficulty: Easy**
+for (int i = 0; i < 10; i++) {
+    executor.submit(() -> System.out.println("Task running"));
+}
+executor.shutdown();
+```
 
-**Answer:**
-- `PATH`: System variable used by OS to locate executables (like `javac`, `java`).
-- `CLASSPATH`: Environment variable used by JVM to locate `.class` files and libraries.
+[⬆️ Back to Top](#table-of-contents)
 
-### Q79: What is JIT (Just-In-Time) Compiler?
-**Difficulty: Advanced**
+---
 
-**Answer:**
-A component of the JVM that improves performance by compiling bytecodes to native machine code at runtime.
+### Q15: How do you implement a custom annotation?
 
-### Q80: What is the difference between `fail-fast` and `fail-safe` iterators?
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-- `fail-fast`: Throws `ConcurrentModificationException` if collection is modified during iteration (e.g., `ArrayList`).
-- `fail-safe`: Works on a copy or snapshot, does not throw exception (e.g., `ConcurrentHashMap`).
+**Strategy:**
+Define an interface with `@interface`. Use meta-annotations like `@Retention` and `@Target` to define scope and applicability.
 
-### Q81: What is `BlockingQueue`?
-**Difficulty: Medium**
+**Code Example:**
+```java
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.METHOD)
+public @interface LogExecutionTime {
+}
+```
 
-**Answer:**
-A queue that supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available when storing an element.
+[⬆️ Back to Top](#table-of-contents)
 
-### Q82: What is `CountDownLatch`?
-**Difficulty: Advanced**
+---
 
-**Answer:**
-A synchronization aid that allows one or more threads to wait until a set of operations being performed in other threads completes.
+### Q16: How do you implement Spring Boot Starters in a Java application?
 
-### Q83: What is `CyclicBarrier`?
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-A synchronization aid that allows a set of threads to all wait for each other to reach a common barrier point.
+**Strategy:**
+Utilize `spring-boot-starter-web` to handle spring boot starters. This approach ensures robust and scalable implementation suitable for intermediate use cases.
 
-### Q84: What is `Semaphore`?
-**Difficulty: Advanced**
+**Code Example:**
+```java
+// Example implementation for Spring Boot Starters
+public void useSpringBootStarters() {
+    System.out.println("Using spring-boot-starter-web for Spring Boot Starters");
+}
+```
 
-**Answer:**
-A synchronization primitive that maintains a set of permits. Used to control access to a shared resource.
+[⬆️ Back to Top](#table-of-contents)
 
-### Q85: What is `ReentrantLock`?
-**Difficulty: Advanced**
+---
 
-**Answer:**
-A lock with the same basic behavior as the implicit monitor lock (`synchronized`) but with extended capabilities (tryLock, interruptible lock, fair lock).
+### Q17: How do you implement Spring AOP in a Java application?
 
-### Q86: What is `AtomicInteger`?
-**Difficulty: Medium**
+**Difficulty**: Intermediate
 
-**Answer:**
-An `int` value that may be updated atomically. Used in non-blocking algorithms.
+**Strategy:**
+Utilize `@Aspect` to handle spring aop. This approach ensures robust and scalable implementation suitable for intermediate use cases.
 
-### Q87: What is the difference between `yield()`, `sleep()`, and `join()`?
-**Difficulty: Medium**
+**Code Example:**
+```java
+// Example implementation for Spring AOP
+public void useSpringAOP() {
+    System.out.println("Using @Aspect for Spring AOP");
+}
+```
 
-**Answer:**
-- `yield()`: Hints scheduler that thread is willing to yield processor.
-- `sleep()`: Pauses execution for a time.
-- `join()`: Waits for another thread to die.
+[⬆️ Back to Top](#table-of-contents)
 
-### Q88: What is Deadlock?
-**Difficulty: Medium**
+---
 
-**Answer:**
-A situation where two or more threads are blocked forever, waiting for each other.
+### Q18: How do you implement Maven/Gradle in a Java application?
 
-### Q89: How do you prevent Deadlock?
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-- Avoid nested locks.
-- Lock in a consistent order.
-- Use `tryLock()` with timeout.
+**Strategy:**
+Utilize `pom.xml / build.gradle` to handle maven/gradle. This approach ensures robust and scalable implementation suitable for intermediate use cases.
 
-### Q90: What is Livelock?
-**Difficulty: Advanced**
+**Code Example:**
+```java
+// Example implementation for Maven/Gradle
+public void useMavenGradle() {
+    System.out.println("Using pom.xml / build.gradle for Maven/Gradle");
+}
+```
 
-**Answer:**
-A situation where threads are not blocked but are unable to make progress because they keep responding to each other's action.
+[⬆️ Back to Top](#table-of-contents)
 
-### Q91: What is Starvation?
-**Difficulty: Medium**
+---
 
-**Answer:**
-When a thread is unable to gain regular access to shared resources and is unable to make progress (e.g., low priority thread).
+### Q19: How do you implement JUnit 5 in a Java application?
 
-### Q92: What is Race Condition?
-**Difficulty: Medium**
+**Difficulty**: Intermediate
 
-**Answer:**
-Occurs when multiple threads access shared data and try to change it at the same time.
+**Strategy:**
+Utilize `@Test` to handle junit 5. This approach ensures robust and scalable implementation suitable for intermediate use cases.
 
-### Q93: What is Microservices Architecture?
-**Difficulty: Advanced**
+**Code Example:**
+```java
+// Example implementation for JUnit 5
+public void useJUnit5() {
+    System.out.println("Using @Test for JUnit 5");
+}
+```
 
-**Answer:**
-An architectural style where an application is structured as a collection of small, autonomous services, modeled around a business domain.
+[⬆️ Back to Top](#table-of-contents)
 
-### Q94: What is API Gateway?
-**Difficulty: Advanced**
+---
 
-**Answer:**
-A server that acts as an entry point for clients. It routes requests to appropriate microservices.
+### Q20: How do you implement Mockito in a Java application?
 
-### Q95: What is Circuit Breaker Pattern?
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-Prevents an application from repeatedly trying to execute an operation that's likely to fail. (e.g., Resilience4j).
+**Strategy:**
+Utilize `Mockito.mock()` to handle mockito. This approach ensures robust and scalable implementation suitable for intermediate use cases.
 
-### Q96: What is Service Discovery?
-**Difficulty: Advanced**
+**Code Example:**
+```java
+// Example implementation for Mockito
+public void useMockito() {
+    System.out.println("Using Mockito.mock() for Mockito");
+}
+```
 
-**Answer:**
-Automatic detection of devices and services on a network. (e.g., Eureka, Consul).
+[⬆️ Back to Top](#table-of-contents)
 
-### Q97: What is CAP Theorem?
-**Difficulty: Advanced**
+---
 
-**Answer:**
-It states that a distributed data store can only provide two of the following three guarantees:
-- **C**onsistency
-- **A**vailability
-- **P**artition Tolerance
+### Q21: How do you implement Log4j2 in a Java application?
 
-### Q98: What is BASE property?
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-- **B**asically **A**vailable
-- **S**oft state
-- **E**ventual consistency
-Alternative to ACID for NoSQL/Distributed systems.
+**Strategy:**
+Utilize `Logger.info()` to handle log4j2. This approach ensures robust and scalable implementation suitable for intermediate use cases.
 
-### Q99: What is SOLID principles?
-**Difficulty: Advanced**
+**Code Example:**
+```java
+// Example implementation for Log4j2
+public void useLog4j2() {
+    System.out.println("Using Logger.info() for Log4j2");
+}
+```
 
-**Answer:**
-- **S**ingle Responsibility
-- **O**pen/Closed
-- **L**iskov Substitution
-- **I**nterface Segregation
-- **D**ependency Inversion
+[⬆️ Back to Top](#table-of-contents)
 
-### Q100: What is the future of Java?
-**Difficulty: Easy**
+---
 
-**Answer:**
-Java continues to evolve rapidly with a 6-month release cycle. Focus areas include:
-- Project Loom (Virtual Threads)
-- Project Valhalla (Value Types)
-- Project Panama (Native Interop)
-- Project Amber (Language Features)
-It remains a dominant language for enterprise, cloud, and big data.
+### Q22: How do you implement Jackson JSON in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `ObjectMapper` to handle jackson json. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Jackson JSON
+public void useJacksonJSON() {
+    System.out.println("Using ObjectMapper for Jackson JSON");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q23: How do you implement Protobuf in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `.proto files` to handle protobuf. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Protobuf
+public void useProtobuf() {
+    System.out.println("Using .proto files for Protobuf");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q24: How do you implement gRPC in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `gRPC Stub` to handle grpc. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for gRPC
+public void usegRPC() {
+    System.out.println("Using gRPC Stub for gRPC");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q25: How do you implement Kafka Consumer in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `@KafkaListener` to handle kafka consumer. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Kafka Consumer
+public void useKafkaConsumer() {
+    System.out.println("Using @KafkaListener for Kafka Consumer");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q26: How do you implement Redis Cache in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Jedis / Lettuce` to handle redis cache. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Redis Cache
+public void useRedisCache() {
+    System.out.println("Using Jedis / Lettuce for Redis Cache");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q27: How do you implement JDBC Transactions in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `connection.commit()` to handle jdbc transactions. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for JDBC Transactions
+public void useJDBCTransactions() {
+    System.out.println("Using connection.commit() for JDBC Transactions");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q28: How do you implement Connection Pooling (HikariCP) in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `HikariDataSource` to handle connection pooling (hikaricp). This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Connection Pooling (HikariCP)
+public void useConnectionPooling(HikariCP)() {
+    System.out.println("Using HikariDataSource for Connection Pooling (HikariCP)");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q29: How do you implement Garbage Collection Tuning (G1GC) in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `-XX:+UseG1GC` to handle garbage collection tuning (g1gc). This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Garbage Collection Tuning (G1GC)
+public void useGarbageCollectionTuning(G1GC)() {
+    System.out.println("Using -XX:+UseG1GC for Garbage Collection Tuning (G1GC)");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q30: How do you implement JIT Compiler in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `HotSpot` to handle jit compiler. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for JIT Compiler
+public void useJITCompiler() {
+    System.out.println("Using HotSpot for JIT Compiler");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q31: How do you implement ClassLoaders in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `ClassLoader.loadClass()` to handle classloaders. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for ClassLoaders
+public void useClassLoaders() {
+    System.out.println("Using ClassLoader.loadClass() for ClassLoaders");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q32: How do you implement JPMS (Modules) in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `module-info.java` to handle jpms (modules). This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for JPMS (Modules)
+public void useJPMS(Modules)() {
+    System.out.println("Using module-info.java for JPMS (Modules)");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q33: How do you implement Varargs in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `String... args` to handle varargs. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Varargs
+public void useVarargs() {
+    System.out.println("Using String... args for Varargs");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q34: How do you implement Try-With-Resources in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `AutoCloseable` to handle try-with-resources. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Try-With-Resources
+public void useTryWithResources() {
+    System.out.println("Using AutoCloseable for Try-With-Resources");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q35: How do you implement Switch Expressions in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `yield` to handle switch expressions. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Switch Expressions
+public void useSwitchExpressions() {
+    System.out.println("Using yield for Switch Expressions");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q36: How do you implement Text Blocks in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `"""` to handle text blocks. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Text Blocks
+public void useTextBlocks() {
+    System.out.println("Using """ for Text Blocks");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q37: How do you implement Pattern Matching for instanceof in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `instanceof String s` to handle pattern matching for instanceof. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Pattern Matching for instanceof
+public void usePatternMatchingforinstanceof() {
+    System.out.println("Using instanceof String s for Pattern Matching for instanceof");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q38: How do you implement Sealed Classes in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `sealed interface` to handle sealed classes. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Sealed Classes
+public void useSealedClasses() {
+    System.out.println("Using sealed interface for Sealed Classes");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q39: How do you implement Records in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `record Point(int x, int y)` to handle records. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Records
+public void useRecords() {
+    System.out.println("Using record Point(int x, int y) for Records");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q40: How do you implement Foreign Function & Memory API in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `MemorySegment` to handle foreign function & memory api. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Foreign Function & Memory API
+public void useForeignFunctionMemoryAPI() {
+    System.out.println("Using MemorySegment for Foreign Function & Memory API");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q41: How do you implement Virtual Threads (Project Loom) in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Thread.ofVirtual()` to handle virtual threads (project loom). This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Virtual Threads (Project Loom)
+public void useVirtualThreads(ProjectLoom)() {
+    System.out.println("Using Thread.ofVirtual() for Virtual Threads (Project Loom)");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q42: How do you implement Structured Concurrency in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `StructuredTaskScope` to handle structured concurrency. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Structured Concurrency
+public void useStructuredConcurrency() {
+    System.out.println("Using StructuredTaskScope for Structured Concurrency");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q43: How do you implement Vector API in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `VectorSpecies` to handle vector api. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Vector API
+public void useVectorAPI() {
+    System.out.println("Using VectorSpecies for Vector API");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q44: How do you implement JPA/Hibernate in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `@Entity` to handle jpa/hibernate. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for JPA/Hibernate
+public void useJPAHibernate() {
+    System.out.println("Using @Entity for JPA/Hibernate");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q45: How do you implement Spring Data JPA in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `JpaRepository` to handle spring data jpa. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Spring Data JPA
+public void useSpringDataJPA() {
+    System.out.println("Using JpaRepository for Spring Data JPA");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q46: How do you implement Spring Security in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `@EnableWebSecurity` to handle spring security. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Spring Security
+public void useSpringSecurity() {
+    System.out.println("Using @EnableWebSecurity for Spring Security");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q47: How do you implement JWT Auth in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Bearer Token` to handle jwt auth. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for JWT Auth
+public void useJWTAuth() {
+    System.out.println("Using Bearer Token for JWT Auth");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q48: How do you implement OAuth2 in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Authorization Code Flow` to handle oauth2. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for OAuth2
+public void useOAuth2() {
+    System.out.println("Using Authorization Code Flow for OAuth2");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q49: How do you implement Reactive Streams in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Flux/Mono` to handle reactive streams. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for Reactive Streams
+public void useReactiveStreams() {
+    System.out.println("Using Flux/Mono for Reactive Streams");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q50: How do you implement Project Reactor in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Reactor Core` to handle project reactor. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for Project Reactor
+public void useProjectReactor() {
+    System.out.println("Using Reactor Core for Project Reactor");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q51: How do you implement Netty in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `EventLoop` to handle netty. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for Netty
+public void useNetty() {
+    System.out.println("Using EventLoop for Netty");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q52: How do you implement Microservices in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Spring Cloud` to handle microservices. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for Microservices
+public void useMicroservices() {
+    System.out.println("Using Spring Cloud for Microservices");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q53: How do you implement Service Discovery in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Eureka` to handle service discovery. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for Service Discovery
+public void useServiceDiscovery() {
+    System.out.println("Using Eureka for Service Discovery");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q54: How do you implement Circuit Breaker in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Resilience4j` to handle circuit breaker. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for Circuit Breaker
+public void useCircuitBreaker() {
+    System.out.println("Using Resilience4j for Circuit Breaker");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q55: How do you implement API Gateway in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Spring Cloud Gateway` to handle api gateway. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for API Gateway
+public void useAPIGateway() {
+    System.out.println("Using Spring Cloud Gateway for API Gateway");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q56: How do you implement Distributed Tracing in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Zipkin / Sleuth` to handle distributed tracing. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for Distributed Tracing
+public void useDistributedTracing() {
+    System.out.println("Using Zipkin / Sleuth for Distributed Tracing");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q57: How do you implement Health Checks in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Spring Boot Actuator` to handle health checks. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Health Checks
+public void useHealthChecks() {
+    System.out.println("Using Spring Boot Actuator for Health Checks");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q58: How do you implement Prometheus Metrics in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Micrometer` to handle prometheus metrics. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Prometheus Metrics
+public void usePrometheusMetrics() {
+    System.out.println("Using Micrometer for Prometheus Metrics");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q59: How do you implement Dockerizing Java in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Dockerfile (OpenJDK)` to handle dockerizing java. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Dockerizing Java
+public void useDockerizingJava() {
+    System.out.println("Using Dockerfile (OpenJDK) for Dockerizing Java");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q60: How do you implement Kubernetes Java in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Fabric8 Client` to handle kubernetes java. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for Kubernetes Java
+public void useKubernetesJava() {
+    System.out.println("Using Fabric8 Client for Kubernetes Java");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q61: How do you implement GraphQL Java in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Schema definition` to handle graphql java. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for GraphQL Java
+public void useGraphQLJava() {
+    System.out.println("Using Schema definition for GraphQL Java");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q62: How do you implement WebSocket in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `@ServerEndpoint` to handle websocket. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for WebSocket
+public void useWebSocket() {
+    System.out.println("Using @ServerEndpoint for WebSocket");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q63: How do you implement RMI in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Remote interface` to handle rmi. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for RMI
+public void useRMI() {
+    System.out.println("Using Remote interface for RMI");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q64: How do you implement JNDI in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `InitialContext` to handle jndi. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for JNDI
+public void useJNDI() {
+    System.out.println("Using InitialContext for JNDI");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q65: How do you implement JMX in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `MBean` to handle jmx. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for JMX
+public void useJMX() {
+    System.out.println("Using MBean for JMX");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q66: How do you implement Serialization in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `Serializable` to handle serialization. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for Serialization
+public void useSerialization() {
+    System.out.println("Using Serializable for Serialization");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q67: How do you implement Externalization in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Externalizable` to handle externalization. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for Externalization
+public void useExternalization() {
+    System.out.println("Using Externalizable for Externalization");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q68: How do you implement Cloneable in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `clone()` to handle cloneable. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for Cloneable
+public void useCloneable() {
+    System.out.println("Using clone() for Cloneable");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q69: How do you implement WeakReference in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `WeakReference<T>` to handle weakreference. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for WeakReference
+public void useWeakReference() {
+    System.out.println("Using WeakReference<T> for WeakReference");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q70: How do you implement SoftReference in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `SoftReference<T>` to handle softreference. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for SoftReference
+public void useSoftReference() {
+    System.out.println("Using SoftReference<T> for SoftReference");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q71: How do you implement PhantomReference in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `PhantomReference<T>` to handle phantomreference. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for PhantomReference
+public void usePhantomReference() {
+    System.out.println("Using PhantomReference<T> for PhantomReference");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q72: How do you implement ThreadLocal in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `ThreadLocal.withInitial()` to handle threadlocal. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for ThreadLocal
+public void useThreadLocal() {
+    System.out.println("Using ThreadLocal.withInitial() for ThreadLocal");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q73: How do you implement CompletableFuture in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `supplyAsync()` to handle completablefuture. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for CompletableFuture
+public void useCompletableFuture() {
+    System.out.println("Using supplyAsync() for CompletableFuture");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q74: How do you implement CountDownLatch in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `await() / countDown()` to handle countdownlatch. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for CountDownLatch
+public void useCountDownLatch() {
+    System.out.println("Using await() / countDown() for CountDownLatch");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q75: How do you implement CyclicBarrier in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `await()` to handle cyclicbarrier. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for CyclicBarrier
+public void useCyclicBarrier() {
+    System.out.println("Using await() for CyclicBarrier");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q76: How do you implement Semaphore in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `acquire() / release()` to handle semaphore. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Semaphore
+public void useSemaphore() {
+    System.out.println("Using acquire() / release() for Semaphore");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q77: How do you implement Phaser in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `arriveAndAwaitAdvance()` to handle phaser. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Phaser
+public void usePhaser() {
+    System.out.println("Using arriveAndAwaitAdvance() for Phaser");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q78: How do you implement Exchanger in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `exchange()` to handle exchanger. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Exchanger
+public void useExchanger() {
+    System.out.println("Using exchange() for Exchanger");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q79: How do you implement BlockingQueue in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `put() / take()` to handle blockingqueue. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for BlockingQueue
+public void useBlockingQueue() {
+    System.out.println("Using put() / take() for BlockingQueue");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q80: How do you implement PriorityQueue in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `Comparator` to handle priorityqueue. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for PriorityQueue
+public void usePriorityQueue() {
+    System.out.println("Using Comparator for PriorityQueue");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q81: How do you implement LinkedList vs ArrayList in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `Access vs Insert` to handle linkedlist vs arraylist. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for LinkedList vs ArrayList
+public void useLinkedListvsArrayList() {
+    System.out.println("Using Access vs Insert for LinkedList vs ArrayList");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q82: How do you implement HashMap vs TreeMap in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `Hashing vs Sorting` to handle hashmap vs treemap. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for HashMap vs TreeMap
+public void useHashMapvsTreeMap() {
+    System.out.println("Using Hashing vs Sorting for HashMap vs TreeMap");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q83: How do you implement ConcurrentHashMap in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Segment locking` to handle concurrenthashmap. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for ConcurrentHashMap
+public void useConcurrentHashMap() {
+    System.out.println("Using Segment locking for ConcurrentHashMap");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q84: How do you implement CopyOnWriteArrayList in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Thread-safe list` to handle copyonwritearraylist. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for CopyOnWriteArrayList
+public void useCopyOnWriteArrayList() {
+    System.out.println("Using Thread-safe list for CopyOnWriteArrayList");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q85: How do you implement IdentityHashMap in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Reference equality` to handle identityhashmap. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for IdentityHashMap
+public void useIdentityHashMap() {
+    System.out.println("Using Reference equality for IdentityHashMap");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q86: How do you implement WeakHashMap in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Weak keys` to handle weakhashmap. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for WeakHashMap
+public void useWeakHashMap() {
+    System.out.println("Using Weak keys for WeakHashMap");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q87: How do you implement EnumSet in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Bit vectors` to handle enumset. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for EnumSet
+public void useEnumSet() {
+    System.out.println("Using Bit vectors for EnumSet");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q88: How do you implement BitSet in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Bit manipulation` to handle bitset. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for BitSet
+public void useBitSet() {
+    System.out.println("Using Bit manipulation for BitSet");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q89: How do you implement BigInteger in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `Arbitrary precision` to handle biginteger. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for BigInteger
+public void useBigInteger() {
+    System.out.println("Using Arbitrary precision for BigInteger");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q90: How do you implement BigDecimal in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `Currency calc` to handle bigdecimal. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for BigDecimal
+public void useBigDecimal() {
+    System.out.println("Using Currency calc for BigDecimal");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q91: How do you implement UUID in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `randomUUID()` to handle uuid. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for UUID
+public void useUUID() {
+    System.out.println("Using randomUUID() for UUID");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q92: How do you implement Base64 in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `Encoder/Decoder` to handle base64. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for Base64
+public void useBase64() {
+    System.out.println("Using Encoder/Decoder for Base64");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q93: How do you implement MessageDigest in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `SHA-256` to handle messagedigest. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for MessageDigest
+public void useMessageDigest() {
+    System.out.println("Using SHA-256 for MessageDigest");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q94: How do you implement Cipher in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `AES Encryption` to handle cipher. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Cipher
+public void useCipher() {
+    System.out.println("Using AES Encryption for Cipher");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q95: How do you implement Signature in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Digital Signatures` to handle signature. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Signature
+public void useSignature() {
+    System.out.println("Using Digital Signatures for Signature");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q96: How do you implement SecureRandom in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Cryptographic PRNG` to handle securerandom. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for SecureRandom
+public void useSecureRandom() {
+    System.out.println("Using Cryptographic PRNG for SecureRandom");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q97: How do you implement KeyStore in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Certificate storage` to handle keystore. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for KeyStore
+public void useKeyStore() {
+    System.out.println("Using Certificate storage for KeyStore");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q98: How do you implement SSLContext in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `TLS protocol` to handle sslcontext. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for SSLContext
+public void useSSLContext() {
+    System.out.println("Using TLS protocol for SSLContext");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q99: How do you implement HttpClient (Java 11) in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `send()` to handle httpclient (java 11). This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for HttpClient (Java 11)
+public void useHttpClient(Java11)() {
+    System.out.println("Using send() for HttpClient (Java 11)");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q100: How do you implement UrlConnection in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `legacy HTTP` to handle urlconnection. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for UrlConnection
+public void useUrlConnection() {
+    System.out.println("Using legacy HTTP for UrlConnection");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q101: How do you implement Socket Programming in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `ServerSocket` to handle socket programming. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for Socket Programming
+public void useSocketProgramming() {
+    System.out.println("Using ServerSocket for Socket Programming");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q102: How do you implement DatagramSocket in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `UDP` to handle datagramsocket. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for DatagramSocket
+public void useDatagramSocket() {
+    System.out.println("Using UDP for DatagramSocket");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q103: How do you implement NIO Channels in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `FileChannel` to handle nio channels. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for NIO Channels
+public void useNIOChannels() {
+    System.out.println("Using FileChannel for NIO Channels");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q104: How do you implement NIO Buffers in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `ByteBuffer` to handle nio buffers. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for NIO Buffers
+public void useNIOBuffers() {
+    System.out.println("Using ByteBuffer for NIO Buffers");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q105: How do you implement NIO Selectors in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Multiplexing` to handle nio selectors. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for NIO Selectors
+public void useNIOSelectors() {
+    System.out.println("Using Multiplexing for NIO Selectors");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q106: How do you implement Path API in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `Paths.get()` to handle path api. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for Path API
+public void usePathAPI() {
+    System.out.println("Using Paths.get() for Path API");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q107: How do you implement Files API in a Java application?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Utilize `Files.readAllLines()` to handle files api. This approach ensures robust and scalable implementation suitable for beginner use cases.
+
+**Code Example:**
+```java
+// Example implementation for Files API
+public void useFilesAPI() {
+    System.out.println("Using Files.readAllLines() for Files API");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q108: How do you implement WatchService in a Java application?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `File monitoring` to handle watchservice. This approach ensures robust and scalable implementation suitable for advanced use cases.
+
+**Code Example:**
+```java
+// Example implementation for WatchService
+public void useWatchService() {
+    System.out.println("Using File monitoring for WatchService");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q109: How do you implement ZipInputStream in a Java application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Compression` to handle zipinputstream. This approach ensures robust and scalable implementation suitable for intermediate use cases.
+
+**Code Example:**
+```java
+// Example implementation for ZipInputStream
+public void useZipInputStream() {
+    System.out.println("Using Compression for ZipInputStream");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+

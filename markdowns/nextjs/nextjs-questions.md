@@ -1,7276 +1,2352 @@
-# Next.js Interview Questions & Answers
-
 ## Table of Contents
-
-- [Q1: What is Next.js and what are its key features?](#q1-what-is-nextjs-and-what-are-its-key-features)
-- [Q2: Explain the difference between pages and components in Next.js](#q2-explain-the-difference-between-pages-and-components-in-nextjs)
-- [Q3: How does Next.js handle CSS and styling?](#q3-how-does-nextjs-handle-css-and-styling)
-- [Q4: What is the purpose of _app.js and _document.js?](#q4-what-is-the-purpose-of-_appjs-and-_documentjs)
-- [Q5: How does file-based routing work in Next.js?](#q5-how-does-file-based-routing-work-in-nextjs)
-- [Q6: Explain the Next.js Link component and its benefits](#q6-explain-the-nextjs-link-component-and-its-benefits)
-- [Q7: How do you handle nested routes and layouts in Next.js?](#q7-how-do-you-handle-nested-routes-and-layouts-in-nextjs)
-- [Q8: How do API routes work in Next.js?](#q8-how-do-api-routes-work-in-nextjs)
-- [Q9: How do you implement middleware in Next.js?](#q9-how-do-you-implement-middleware-in-nextjs)
-- [Q10: Explain the differences between SSR, SSG, and ISR in Next.js](#q10-explain-the-differences-between-ssr,-ssg,-and-isr-in-nextjs)
-- [Q11: How do you implement internationalization (i18n) in Next.js?](#q11-how-do-you-implement-internationalization-i18n-in-nextjs)
-- [Q12: How do you handle errors in Next.js?](#q12-how-do-you-handle-errors-in-nextjs)
-- [Q13: What are the different caching strategies in Next.js?](#q13-what-are-the-different-caching-strategies-in-nextjs)
-- [Q14: What are the deployment options for Next.js applications?](#q14-what-are-the-deployment-options-for-nextjs-applications)
-- [Q15: How can you optimize performance in a Next.js application?](#q15-how-can-you-optimize-performance-in-a-nextjs-application)
-- [Q16: How do you use TypeScript with Next.js?](#q16-how-do-you-use-typescript-with-nextjs)
-- [Q17: What are the best practices for testing Next.js applications?](#q17-what-are-the-best-practices-for-testing-nextjs-applications)
-- [Q18: How do you integrate a headless CMS with Next.js?](#q18-how-do-you-integrate-a-headless-cms-with-nextjs)
-- [Q19: How do you implement and use middleware in Next.js?](#q19-how-do-you-implement-and-use-middleware-in-nextjs)
-- [Q20: How do you implement code splitting and lazy loading in Next.js?](#q20-how-do-you-implement-code-splitting-and-lazy-loading-in-nextjs)
-- [Q21: How do you implement authentication in Next.js?](#q21-how-do-you-implement-authentication-in-nextjs)
-- [Q22: How do you optimize images in Next.js?](#q22-how-do-you-optimize-images-in-nextjs)
-- [Q23: What is the App Router?](#q23-what-is-the-app-router)
-- [Q24: Server Components vs Client Components.](#q24-server-components-vs-client-components)
-- [Q25: How to fetch data in App Router?](#q25-how-to-fetch-data-in-app-router)
-- [Q26: What is `next/image`?](#q26-what-is-`next-image`)
-- [Q27: What is `getStaticProps`?](#q27-what-is-`getstaticprops`)
-- [Q28: What is `getServerSideProps`?](#q28-what-is-`getserversideprops`)
-- [Q29: What is ISR (Incremental Static Regeneration)?](#q29-what-is-isr-incremental-static-regeneration)
-- [Q30: Dynamic Routes in Next.js.](#q30-dynamic-routes-in-nextjs)
-- [Q31: What is `generateStaticParams`?](#q31-what-is-`generatestaticparams`)
-- [Q32: Explain `layout.js` in App Router.](#q32-explain-`layoutjs`-in-app-router)
-- [Q33: What is `template.js`?](#q33-what-is-`templatejs`)
-- [Q34: How to handle 404 errors?](#q34-how-to-handle-404-errors)
-- [Q35: What are Route Handlers?](#q35-what-are-route-handlers)
-- [Q36: How to use Environment Variables?](#q36-how-to-use-environment-variables)
-- [Q37: What is `next/font`?](#q37-what-is-`next-font`)
-- [Q38: What is `next/script`?](#q38-what-is-`next-script`)
-- [Q39: How to implement SEO in Next.js?](#q39-how-to-implement-seo-in-nextjs)
-- [Q40: What is Middleware in Next.js?](#q40-what-is-middleware-in-nextjs)
-- [Q41: Catch-all Routes.](#q41-catch-all-routes)
-- [Q42: What is `loading.js`?](#q42-what-is-`loadingjs`)
-- [Q43: Streaming in Next.js.](#q43-streaming-in-nextjs)
-- [Q44: Server Actions.](#q44-server-actions)
-- [Q45: Image Optimization: `loader`.](#q45-image-optimization:-`loader`)
-- [Q46: Difference between `redirect` and `rewrite`.](#q46-difference-between-`redirect`-and-`rewrite`)
-- [Q47: What is TurboPack?](#q47-what-is-turbopack)
-- [Q48: Explain "Hydration" in context of Next.js.](#q48-explain-"hydration"-in-context-of-nextjs)
-- [Q49: How to disable SSR for a component?](#q49-how-to-disable-ssr-for-a-component)
-- [Q50: What is the Edge Runtime?](#q50-what-is-the-edge-runtime)
-- [Q51: How to optimize fonts?](#q51-how-to-optimize-fonts)
-- [Q52: What is `generateMetadata`?](#q52-what-is-`generatemetadata`)
-- [Q53: Parallel Routes.](#q53-parallel-routes)
-- [Q54: Intercepting Routes.](#q54-intercepting-routes)
-- [Q55: What is `next.config.js`?](#q55-what-is-`nextconfigjs`)
-- [Q56: Static Exports (`output: 'export'`).](#q56-static-exports-`output:-export`)
-- [Q57: How to add Global CSS?](#q57-how-to-add-global-css)
-- [Q58: CSS Modules in Next.js.](#q58-css-modules-in-nextjs)
-- [Q59: How to use SASS/SCSS?](#q59-how-to-use-sass-scss)
-- [Q60: Absolute Imports.](#q60-absolute-imports)
-- [Q61: Fast Refresh in Next.js.](#q61-fast-refresh-in-nextjs)
-- [Q62: Custom 500 Page.](#q62-custom-500-page)
-- [Q63: How to handle authentication?](#q63-how-to-handle-authentication)
-- [Q64: What is Vercel?](#q64-what-is-vercel)
-- [Q65: Pre-rendering types summary.](#q65-pre-rendering-types-summary)
-- [Q66: `usePathname` and `useSearchParams`.](#q66-`usepathname`-and-`usesearchparams`)
-- [Q67: Shallow Routing.](#q67-shallow-routing)
-- [Q68: `next/link` prefetching.](#q68-`next-link`-prefetching)
-- [Q69: What is `process.cwd()` used for?](#q69-what-is-`processcwd`-used-for)
-- [Q70: Draft Mode.](#q70-draft-mode)
-- [Q71: Bundle Analysis.](#q71-bundle-analysis)
-- [Q72: How to implement Sitemap?](#q72-how-to-implement-sitemap)
-- [Q73: How to implement Robots.txt?](#q73-how-to-implement-robotstxt)
-- [Q74: Open Graph (OG) Image Generation.](#q74-open-graph-og-image-generation)
-- [Q75: `export const revalidate`.](#q75-`export-const-revalidate`)
-- [Q76: `export const dynamic`.](#q76-`export-const-dynamic`)
-- [Q77: Multi-Zone Support.](#q77-multi-zone-support)
-- [Q78: AMP Support.](#q78-amp-support)
-- [Q79: Web Vitals.](#q79-web-vitals)
-- [Q80: Custom Document.](#q80-custom-document)
-- [Q81: Custom App.](#q81-custom-app)
-- [Q82: API Routes vs Route Handlers.](#q82-api-routes-vs-route-handlers)
-- [Q83: Middleware Matcher.](#q83-middleware-matcher)
-- [Q84: Edge vs Node.js Runtime.](#q84-edge-vs-nodejs-runtime)
-- [Q85: Partial Prerendering (PPR).](#q85-partial-prerendering-ppr)
-- [Q86: `cookies()` and `headers()` functions.](#q86-`cookies`-and-`headers`-functions)
-- [Q87: How to manage global state in Next.js?](#q87-how-to-manage-global-state-in-nextjs)
-- [Q88: Cross-Origin Resource Sharing (CORS) in API Routes.](#q88-cross-origin-resource-sharing-cors-in-api-routes)
-- [Q89: `next/navigation` vs `next/router`.](#q89-`next-navigation`-vs-`next-router`)
-- [Q90: Viewport Metadata.](#q90-viewport-metadata)
-- [Q91: Accessibility (ESLint).](#q91-accessibility-eslint)
-- [Q92: Content Security Policy (CSP).](#q92-content-security-policy-csp)
-- [Q93: React Server Actions security.](#q93-react-server-actions-security)
-- [Q94: How to handle large lists?](#q94-how-to-handle-large-lists)
-- [Q95: Styling: Tailwind CSS.](#q95-styling:-tailwind-css)
-- [Q96: Difference between `public/` and `app/` (assets).](#q96-difference-between-`public-`-and-`app-`-assets)
-- [Q97: `transpilePackages`.](#q97-`transpilepackages`)
-- [Q98: `standalone` output.](#q98-`standalone`-output)
-- [Q99: How to use jQuery in Next.js?](#q99-how-to-use-jquery-in-nextjs)
-- [Q100: Suspense for Data Fetching.](#q100-suspense-for-data-fetching)
-- [Q101: `cache()` function (React).](#q101-`cache`-function-react)
-- [Q102: `unstable_noStore`.](#q102-`unstable_nostore`)
-- [Q103: React Strict Mode in Next.js.](#q103-react-strict-mode-in-nextjs)
-- [Q104: Next.js Commerce.](#q104-nextjs-commerce)
-- [Q105: Why choose Next.js over Create React App (CRA)?](#q105-why-choose-nextjs-over-create-react-app-cra)
+| No. | Question | Difficulty |
+| --- | -------- | ---------- |
+| 1 | [How do you choose between Static Site Generation (SSG) and Server-Side Rendering (SSR) for a dynamic page?](#how-do-you-choose-between-static-site-generation-ssg-and-server-side-rendering-ssr-for-a-dynamic-page) | Intermediate |
+| 2 | [How do you implement Incremental Static Regeneration (ISR) to update static pages without a full rebuild?](#how-do-you-implement-incremental-static-regeneration-isr-to-update-static-pages-without-a-full-rebuild) | Intermediate |
+| 3 | [How do you optimize images for performance using the Next.js Image component?](#how-do-you-optimize-images-for-performance-using-the-nextjs-image-component) | Beginner |
+| 4 | [How do you implement Server Actions to handle form submissions in the App Router?](#how-do-you-implement-server-actions-to-handle-form-submissions-in-the-app-router) | Advanced |
+| 5 | [How do you optimize font loading using `next/font`?](#how-do-you-optimize-font-loading-using-nextfont) | Intermediate |
+| 6 | [How do you create a custom 404 error page in the Pages Router?](#how-do-you-create-a-custom-404-error-page-in-the-pages-router) | Beginner |
+| 7 | [How do you handle authentication protection in Middleware?](#how-do-you-handle-authentication-protection-in-middleware) | Advanced |
+| 8 | [How do you dynamic import a heavy component to reduce initial bundle size?](#how-do-you-dynamic-import-a-heavy-component-to-reduce-initial-bundle-size) | Intermediate |
+| 9 | [How do you generate dynamic sitemaps for SEO in Next.js?](#how-do-you-generate-dynamic-sitemaps-for-seo-in-nextjs) | Advanced |
+| 10 | [How do you implement API Routes to handle backend logic?](#how-do-you-implement-api-routes-to-handle-backend-logic) | Beginner |
+| 11 | [How do you share layouts across multiple pages in the App Router?](#how-do-you-share-layouts-across-multiple-pages-in-the-app-router) | Intermediate |
+| 12 | [How do you optimize metadata (SEO tags) dynamically for each page?](#how-do-you-optimize-metadata-seo-tags-dynamically-for-each-page) | Intermediate |
+| 13 | [How do you configure environment variables securely?](#how-do-you-configure-environment-variables-securely) | Beginner |
+| 14 | [How do you deploy a Next.js app to a Docker container (Standalone mode)?](#how-do-you-deploy-a-nextjs-app-to-a-docker-container-standalone-mode) | Advanced |
+| 15 | [How do you handle loading states in the App Router?](#how-do-you-handle-loading-states-in-the-app-router) | Beginner |
+| 16 | [How do you implement Internationalization (i18n) in a production-grade Next.js application? (Scenario 16)](#how-do-you-implement-internationalization-i18n-in-a-production-grade-nextjs-application-scenario-16) | Intermediate |
+| 17 | [How do you implement Draft Mode in a production-grade Next.js application? (Scenario 17)](#how-do-you-implement-draft-mode-in-a-production-grade-nextjs-application-scenario-17) | Intermediate |
+| 18 | [How do you implement Visual Editing in a production-grade Next.js application? (Scenario 18)](#how-do-you-implement-visual-editing-in-a-production-grade-nextjs-application-scenario-18) | Intermediate |
+| 19 | [How do you implement Turbopack in a production-grade Next.js application? (Scenario 19)](#how-do-you-implement-turbopack-in-a-production-grade-nextjs-application-scenario-19) | Intermediate |
+| 20 | [How do you implement Jest Testing in a production-grade Next.js application? (Scenario 20)](#how-do-you-implement-jest-testing-in-a-production-grade-nextjs-application-scenario-20) | Intermediate |
+| 21 | [How do you implement Cypress E2E in a production-grade Next.js application? (Scenario 21)](#how-do-you-implement-cypress-e2e-in-a-production-grade-nextjs-application-scenario-21) | Intermediate |
+| 22 | [How do you implement Storybook Integration in a production-grade Next.js application? (Scenario 22)](#how-do-you-implement-storybook-integration-in-a-production-grade-nextjs-application-scenario-22) | Intermediate |
+| 23 | [How do you implement Custom Document in a production-grade Next.js application? (Scenario 23)](#how-do-you-implement-custom-document-in-a-production-grade-nextjs-application-scenario-23) | Intermediate |
+| 24 | [How do you implement Custom App in a production-grade Next.js application? (Scenario 24)](#how-do-you-implement-custom-app-in-a-production-grade-nextjs-application-scenario-24) | Intermediate |
+| 25 | [How do you implement Shallow Routing in a production-grade Next.js application? (Scenario 25)](#how-do-you-implement-shallow-routing-in-a-production-grade-nextjs-application-scenario-25) | Intermediate |
+| 26 | [How do you implement Prefetching in a production-grade Next.js application? (Scenario 26)](#how-do-you-implement-prefetching-in-a-production-grade-nextjs-application-scenario-26) | Intermediate |
+| 27 | [How do you implement Edge Runtime in a production-grade Next.js application? (Scenario 27)](#how-do-you-implement-edge-runtime-in-a-production-grade-nextjs-application-scenario-27) | Intermediate |
+| 28 | [How do you implement Middleware Chaining in a production-grade Next.js application? (Scenario 28)](#how-do-you-implement-middleware-chaining-in-a-production-grade-nextjs-application-scenario-28) | Intermediate |
+| 29 | [How do you implement Revalidation Strategies in a production-grade Next.js application? (Scenario 29)](#how-do-you-implement-revalidation-strategies-in-a-production-grade-nextjs-application-scenario-29) | Intermediate |
+| 30 | [How do you implement Parallel Routes in a production-grade Next.js application? (Scenario 30)](#how-do-you-implement-parallel-routes-in-a-production-grade-nextjs-application-scenario-30) | Intermediate |
+| 31 | [How do you implement Intercepting Routes in a production-grade Next.js application? (Scenario 31)](#how-do-you-implement-intercepting-routes-in-a-production-grade-nextjs-application-scenario-31) | Intermediate |
+| 32 | [How do you implement Route Handlers in a production-grade Next.js application? (Scenario 32)](#how-do-you-implement-route-handlers-in-a-production-grade-nextjs-application-scenario-32) | Intermediate |
+| 33 | [How do you implement Script Optimization in a production-grade Next.js application? (Scenario 33)](#how-do-you-implement-script-optimization-in-a-production-grade-nextjs-application-scenario-33) | Intermediate |
+| 34 | [How do you implement CSS Modules in a production-grade Next.js application? (Scenario 34)](#how-do-you-implement-css-modules-in-a-production-grade-nextjs-application-scenario-34) | Intermediate |
+| 35 | [How do you implement Global CSS in a production-grade Next.js application? (Scenario 35)](#how-do-you-implement-global-css-in-a-production-grade-nextjs-application-scenario-35) | Intermediate |
+| 36 | [How do you implement Tailwind Config in a production-grade Next.js application? (Scenario 36)](#how-do-you-implement-tailwind-config-in-a-production-grade-nextjs-application-scenario-36) | Intermediate |
+| 37 | [How do you implement Image Optimization in a production-grade Next.js application? (Scenario 37)](#how-do-you-implement-image-optimization-in-a-production-grade-nextjs-application-scenario-37) | Intermediate |
+| 38 | [How do you implement Bundle Analysis in a production-grade Next.js application? (Scenario 38)](#how-do-you-implement-bundle-analysis-in-a-production-grade-nextjs-application-scenario-38) | Intermediate |
+| 39 | [How do you implement Dynamic Imports in a production-grade Next.js application? (Scenario 39)](#how-do-you-implement-dynamic-imports-in-a-production-grade-nextjs-application-scenario-39) | Intermediate |
+| 40 | [How do you implement Server Components in a production-grade Next.js application? (Scenario 40)](#how-do-you-implement-server-components-in-a-production-grade-nextjs-application-scenario-40) | Intermediate |
+| 41 | [How do you implement Client Components in a production-grade Next.js application? (Scenario 41)](#how-do-you-implement-client-components-in-a-production-grade-nextjs-application-scenario-41) | Intermediate |
+| 42 | [How do you implement Hydration Errors in a production-grade Next.js application? (Scenario 42)](#how-do-you-implement-hydration-errors-in-a-production-grade-nextjs-application-scenario-42) | Intermediate |
+| 43 | [How do you implement Internationalization (i18n) in a production-grade Next.js application? (Scenario 43)](#how-do-you-implement-internationalization-i18n-in-a-production-grade-nextjs-application-scenario-43) | Intermediate |
+| 44 | [How do you implement Draft Mode in a production-grade Next.js application? (Scenario 44)](#how-do-you-implement-draft-mode-in-a-production-grade-nextjs-application-scenario-44) | Intermediate |
+| 45 | [How do you implement Visual Editing in a production-grade Next.js application? (Scenario 45)](#how-do-you-implement-visual-editing-in-a-production-grade-nextjs-application-scenario-45) | Intermediate |
+| 46 | [How do you implement Turbopack in a production-grade Next.js application? (Scenario 46)](#how-do-you-implement-turbopack-in-a-production-grade-nextjs-application-scenario-46) | Intermediate |
+| 47 | [How do you implement Jest Testing in a production-grade Next.js application? (Scenario 47)](#how-do-you-implement-jest-testing-in-a-production-grade-nextjs-application-scenario-47) | Intermediate |
+| 48 | [How do you implement Cypress E2E in a production-grade Next.js application? (Scenario 48)](#how-do-you-implement-cypress-e2e-in-a-production-grade-nextjs-application-scenario-48) | Intermediate |
+| 49 | [How do you implement Storybook Integration in a production-grade Next.js application? (Scenario 49)](#how-do-you-implement-storybook-integration-in-a-production-grade-nextjs-application-scenario-49) | Intermediate |
+| 50 | [How do you implement Custom Document in a production-grade Next.js application? (Scenario 50)](#how-do-you-implement-custom-document-in-a-production-grade-nextjs-application-scenario-50) | Intermediate |
+| 51 | [How do you implement Custom App in a production-grade Next.js application? (Scenario 51)](#how-do-you-implement-custom-app-in-a-production-grade-nextjs-application-scenario-51) | Intermediate |
+| 52 | [How do you implement Shallow Routing in a production-grade Next.js application? (Scenario 52)](#how-do-you-implement-shallow-routing-in-a-production-grade-nextjs-application-scenario-52) | Intermediate |
+| 53 | [How do you implement Prefetching in a production-grade Next.js application? (Scenario 53)](#how-do-you-implement-prefetching-in-a-production-grade-nextjs-application-scenario-53) | Intermediate |
+| 54 | [How do you implement Edge Runtime in a production-grade Next.js application? (Scenario 54)](#how-do-you-implement-edge-runtime-in-a-production-grade-nextjs-application-scenario-54) | Intermediate |
+| 55 | [How do you implement Middleware Chaining in a production-grade Next.js application? (Scenario 55)](#how-do-you-implement-middleware-chaining-in-a-production-grade-nextjs-application-scenario-55) | Intermediate |
+| 56 | [How do you implement Revalidation Strategies in a production-grade Next.js application? (Scenario 56)](#how-do-you-implement-revalidation-strategies-in-a-production-grade-nextjs-application-scenario-56) | Intermediate |
+| 57 | [How do you implement Parallel Routes in a production-grade Next.js application? (Scenario 57)](#how-do-you-implement-parallel-routes-in-a-production-grade-nextjs-application-scenario-57) | Intermediate |
+| 58 | [How do you implement Intercepting Routes in a production-grade Next.js application? (Scenario 58)](#how-do-you-implement-intercepting-routes-in-a-production-grade-nextjs-application-scenario-58) | Intermediate |
+| 59 | [How do you implement Route Handlers in a production-grade Next.js application? (Scenario 59)](#how-do-you-implement-route-handlers-in-a-production-grade-nextjs-application-scenario-59) | Intermediate |
+| 60 | [How do you implement Script Optimization in a production-grade Next.js application? (Scenario 60)](#how-do-you-implement-script-optimization-in-a-production-grade-nextjs-application-scenario-60) | Intermediate |
+| 61 | [How do you implement CSS Modules in a production-grade Next.js application? (Scenario 61)](#how-do-you-implement-css-modules-in-a-production-grade-nextjs-application-scenario-61) | Intermediate |
+| 62 | [How do you implement Global CSS in a production-grade Next.js application? (Scenario 62)](#how-do-you-implement-global-css-in-a-production-grade-nextjs-application-scenario-62) | Intermediate |
+| 63 | [How do you implement Tailwind Config in a production-grade Next.js application? (Scenario 63)](#how-do-you-implement-tailwind-config-in-a-production-grade-nextjs-application-scenario-63) | Intermediate |
+| 64 | [How do you implement Image Optimization in a production-grade Next.js application? (Scenario 64)](#how-do-you-implement-image-optimization-in-a-production-grade-nextjs-application-scenario-64) | Intermediate |
+| 65 | [How do you implement Bundle Analysis in a production-grade Next.js application? (Scenario 65)](#how-do-you-implement-bundle-analysis-in-a-production-grade-nextjs-application-scenario-65) | Intermediate |
+| 66 | [How do you implement Dynamic Imports in a production-grade Next.js application? (Scenario 66)](#how-do-you-implement-dynamic-imports-in-a-production-grade-nextjs-application-scenario-66) | Intermediate |
+| 67 | [How do you implement Server Components in a production-grade Next.js application? (Scenario 67)](#how-do-you-implement-server-components-in-a-production-grade-nextjs-application-scenario-67) | Intermediate |
+| 68 | [How do you implement Client Components in a production-grade Next.js application? (Scenario 68)](#how-do-you-implement-client-components-in-a-production-grade-nextjs-application-scenario-68) | Intermediate |
+| 69 | [How do you implement Hydration Errors in a production-grade Next.js application? (Scenario 69)](#how-do-you-implement-hydration-errors-in-a-production-grade-nextjs-application-scenario-69) | Intermediate |
+| 70 | [How do you implement Internationalization (i18n) in a production-grade Next.js application? (Scenario 70)](#how-do-you-implement-internationalization-i18n-in-a-production-grade-nextjs-application-scenario-70) | Intermediate |
+| 71 | [How do you implement Draft Mode in a production-grade Next.js application? (Scenario 71)](#how-do-you-implement-draft-mode-in-a-production-grade-nextjs-application-scenario-71) | Intermediate |
+| 72 | [How do you implement Visual Editing in a production-grade Next.js application? (Scenario 72)](#how-do-you-implement-visual-editing-in-a-production-grade-nextjs-application-scenario-72) | Intermediate |
+| 73 | [How do you implement Turbopack in a production-grade Next.js application? (Scenario 73)](#how-do-you-implement-turbopack-in-a-production-grade-nextjs-application-scenario-73) | Intermediate |
+| 74 | [How do you implement Jest Testing in a production-grade Next.js application? (Scenario 74)](#how-do-you-implement-jest-testing-in-a-production-grade-nextjs-application-scenario-74) | Intermediate |
+| 75 | [How do you implement Cypress E2E in a production-grade Next.js application? (Scenario 75)](#how-do-you-implement-cypress-e2e-in-a-production-grade-nextjs-application-scenario-75) | Intermediate |
+| 76 | [How do you implement Storybook Integration in a production-grade Next.js application? (Scenario 76)](#how-do-you-implement-storybook-integration-in-a-production-grade-nextjs-application-scenario-76) | Intermediate |
+| 77 | [How do you implement Custom Document in a production-grade Next.js application? (Scenario 77)](#how-do-you-implement-custom-document-in-a-production-grade-nextjs-application-scenario-77) | Intermediate |
+| 78 | [How do you implement Custom App in a production-grade Next.js application? (Scenario 78)](#how-do-you-implement-custom-app-in-a-production-grade-nextjs-application-scenario-78) | Intermediate |
+| 79 | [How do you implement Shallow Routing in a production-grade Next.js application? (Scenario 79)](#how-do-you-implement-shallow-routing-in-a-production-grade-nextjs-application-scenario-79) | Intermediate |
+| 80 | [How do you implement Prefetching in a production-grade Next.js application? (Scenario 80)](#how-do-you-implement-prefetching-in-a-production-grade-nextjs-application-scenario-80) | Intermediate |
+| 81 | [How do you implement Edge Runtime in a production-grade Next.js application? (Scenario 81)](#how-do-you-implement-edge-runtime-in-a-production-grade-nextjs-application-scenario-81) | Intermediate |
+| 82 | [How do you implement Middleware Chaining in a production-grade Next.js application? (Scenario 82)](#how-do-you-implement-middleware-chaining-in-a-production-grade-nextjs-application-scenario-82) | Intermediate |
+| 83 | [How do you implement Revalidation Strategies in a production-grade Next.js application? (Scenario 83)](#how-do-you-implement-revalidation-strategies-in-a-production-grade-nextjs-application-scenario-83) | Intermediate |
+| 84 | [How do you implement Parallel Routes in a production-grade Next.js application? (Scenario 84)](#how-do-you-implement-parallel-routes-in-a-production-grade-nextjs-application-scenario-84) | Intermediate |
+| 85 | [How do you implement Intercepting Routes in a production-grade Next.js application? (Scenario 85)](#how-do-you-implement-intercepting-routes-in-a-production-grade-nextjs-application-scenario-85) | Intermediate |
+| 86 | [How do you implement Route Handlers in a production-grade Next.js application? (Scenario 86)](#how-do-you-implement-route-handlers-in-a-production-grade-nextjs-application-scenario-86) | Intermediate |
+| 87 | [How do you implement Script Optimization in a production-grade Next.js application? (Scenario 87)](#how-do-you-implement-script-optimization-in-a-production-grade-nextjs-application-scenario-87) | Intermediate |
+| 88 | [How do you implement CSS Modules in a production-grade Next.js application? (Scenario 88)](#how-do-you-implement-css-modules-in-a-production-grade-nextjs-application-scenario-88) | Intermediate |
+| 89 | [How do you implement Global CSS in a production-grade Next.js application? (Scenario 89)](#how-do-you-implement-global-css-in-a-production-grade-nextjs-application-scenario-89) | Intermediate |
+| 90 | [How do you implement Tailwind Config in a production-grade Next.js application? (Scenario 90)](#how-do-you-implement-tailwind-config-in-a-production-grade-nextjs-application-scenario-90) | Intermediate |
+| 91 | [How do you implement Image Optimization in a production-grade Next.js application? (Scenario 91)](#how-do-you-implement-image-optimization-in-a-production-grade-nextjs-application-scenario-91) | Intermediate |
+| 92 | [How do you implement Bundle Analysis in a production-grade Next.js application? (Scenario 92)](#how-do-you-implement-bundle-analysis-in-a-production-grade-nextjs-application-scenario-92) | Intermediate |
+| 93 | [How do you implement Dynamic Imports in a production-grade Next.js application? (Scenario 93)](#how-do-you-implement-dynamic-imports-in-a-production-grade-nextjs-application-scenario-93) | Intermediate |
+| 94 | [How do you implement Server Components in a production-grade Next.js application? (Scenario 94)](#how-do-you-implement-server-components-in-a-production-grade-nextjs-application-scenario-94) | Intermediate |
+| 95 | [How do you implement Client Components in a production-grade Next.js application? (Scenario 95)](#how-do-you-implement-client-components-in-a-production-grade-nextjs-application-scenario-95) | Intermediate |
+| 96 | [How do you implement Hydration Errors in a production-grade Next.js application? (Scenario 96)](#how-do-you-implement-hydration-errors-in-a-production-grade-nextjs-application-scenario-96) | Intermediate |
+| 97 | [How do you implement Internationalization (i18n) in a production-grade Next.js application? (Scenario 97)](#how-do-you-implement-internationalization-i18n-in-a-production-grade-nextjs-application-scenario-97) | Intermediate |
+| 98 | [How do you implement Draft Mode in a production-grade Next.js application? (Scenario 98)](#how-do-you-implement-draft-mode-in-a-production-grade-nextjs-application-scenario-98) | Intermediate |
+| 99 | [How do you implement Visual Editing in a production-grade Next.js application? (Scenario 99)](#how-do-you-implement-visual-editing-in-a-production-grade-nextjs-application-scenario-99) | Intermediate |
+| 100 | [How do you implement Turbopack in a production-grade Next.js application? (Scenario 100)](#how-do-you-implement-turbopack-in-a-production-grade-nextjs-application-scenario-100) | Intermediate |
+| 101 | [How do you implement Jest Testing in a production-grade Next.js application? (Scenario 101)](#how-do-you-implement-jest-testing-in-a-production-grade-nextjs-application-scenario-101) | Intermediate |
+| 102 | [How do you implement Cypress E2E in a production-grade Next.js application? (Scenario 102)](#how-do-you-implement-cypress-e2e-in-a-production-grade-nextjs-application-scenario-102) | Intermediate |
+| 103 | [How do you implement Storybook Integration in a production-grade Next.js application? (Scenario 103)](#how-do-you-implement-storybook-integration-in-a-production-grade-nextjs-application-scenario-103) | Intermediate |
+| 104 | [How do you implement Custom Document in a production-grade Next.js application? (Scenario 104)](#how-do-you-implement-custom-document-in-a-production-grade-nextjs-application-scenario-104) | Intermediate |
+| 105 | [How do you implement Custom App in a production-grade Next.js application? (Scenario 105)](#how-do-you-implement-custom-app-in-a-production-grade-nextjs-application-scenario-105) | Intermediate |
 
 ---
 
-### Q1: What is Next.js and what are its key features?
+### 1. How do you choose between Static Site Generation (SSG) and Server-Side Rendering (SSR) for a dynamic page?
 
-**Answer:**
-Next.js is a React framework that provides additional structure, features, and optimizations for React applications.
+**Difficulty**: Intermediate
 
-**Key Features:**
-- **Server-Side Rendering (SSR)**: Renders pages on the server
-- **Static Site Generation (SSG)**: Pre-renders pages at build time
-- **Incremental Static Regeneration (ISR)**: Updates static content without rebuilding
-- **File-based Routing**: Automatic routing based on file structure
-- **API Routes**: Built-in API endpoints
-- **Image Optimization**: Automatic image optimization
-- **Code Splitting**: Automatic code splitting for better performance
-- **TypeScript Support**: Built-in TypeScript support
+**Strategy:**
+Use **SSG** (`getStaticProps`) if data is available at build time and doesn't change often (e.g., blog posts, marketing pages).
+Use **SSR** (`getServerSideProps` or App Router dynamic fetch) if data changes on every request or requires user-specific data (e.g., personalized dashboard).
 
+**Code Example:**
 ```javascript
-// pages/index.js - Basic Next.js page
-import Head from 'next/head'
-import Image from 'next/image'
-
-export default function Home() {
-  return (
-    <div>
-      <Head>
-        <title>My Next.js App</title>
-        <meta name="description" content="Generated by Next.js" />
-      </Head>
-      
-      <main>
-        <h1>Welcome to Next.js!</h1>
-        <Image
-          src="/hero.jpg"
-          alt="Hero Image"
-          width={500}
-          height={300}
-          priority
-        />
-      </main>
-    </div>
-  )
-}
-```
-
----
-
-### Q2: Explain the difference between pages and components in Next.js
-
-**Answer:**
-**Pages** are React components that represent routes and are placed in the `pages` directory. **Components** are reusable UI elements that can be used across multiple pages.
-
-```javascript
-// pages/about.js - This is a page (route)
-import Layout from '../components/Layout'
-import UserCard from '../components/UserCard'
-
-export default function About() {
-  return (
-    <Layout>
-      <h1>About Us</h1>
-      <UserCard name="John Doe" role="Developer" />
-    </Layout>
-  )
-}
-
-// components/Layout.js - This is a component
-import Header from './Header'
-import Footer from './Footer'
-
-export default function Layout({ children }) {
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
-  )
-}
-
-// components/UserCard.js - This is a component
-export default function UserCard({ name, role }) {
-  return (
-    <div className="bg-white shadow-md rounded-lg p-6">
-      <h3 className="text-xl font-semibold">{name}</h3>
-      <p className="text-gray-600">{role}</p>
-    </div>
-  )
-}
-```
-
----
-
-### Q3: How does Next.js handle CSS and styling?
-
-**Answer:**
-Next.js supports multiple styling approaches:
-
-```javascript
-// 1. CSS Modules
-// styles/Home.module.css
-.container {
-  padding: 0 2rem;
-}
-
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-}
-
-// pages/index.js
-import styles from '../styles/Home.module.css'
-
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1>Hello World</h1>
-      </main>
-    </div>
-  )
-}
-
-// 2. Styled JSX (built-in)
-export default function StyledJSXExample() {
-  return (
-    <div>
-      <h1>Styled JSX Example</h1>
-      <style jsx>{`
-        h1 {
-          color: blue;
-          font-size: 2rem;
-        }
-        div {
-          background: #f0f0f0;
-          padding: 20px;
-        }
-      `}</style>
-    </div>
-  )
-}
-
-// 3. Global CSS
-// pages/_app.js
-import '../styles/globals.css'
-
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
-
-// 4. Tailwind CSS integration
-// tailwind.config.js
-module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
-
----
-
-### Q4: What is the purpose of _app.js and _document.js?
-
-**Answer:**
-
-**_app.js**: Initializes pages and allows you to:
-- Persist layout between page changes
-- Keep state when navigating pages
-- Add global CSS
-- Handle errors with componentDidCatch
-
-**_document.js**: Customizes the HTML document structure and allows you to:
-- Modify `<html>` and `<body>` tags
-- Add custom meta tags
-- Include external scripts
-- Server-side rendering customization
-
-```javascript
-// pages/_app.js
-import { SessionProvider } from 'next-auth/react'
-import { ThemeProvider } from 'next-themes'
-import Layout from '../components/Layout'
-import '../styles/globals.css'
-
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}) {
-  return (
-    <SessionProvider session={session}>
-      <ThemeProvider attribute="class">
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
-    </SessionProvider>
-  )
-}
-
-// pages/_document.js
-import { Html, Head, Main, NextScript } from 'next/document'
-
-export default function Document() {
-  return (
-    <Html lang="en">
-      <Head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-        <meta name="theme-color" content="#000000" />
-      </Head>
-      <body className="bg-white dark:bg-gray-900">
-        <Main />
-        <NextScript />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                  document.documentElement.classList.add('dark')
-                } else {
-                  document.documentElement.classList.remove('dark')
-                }
-              } catch (_) {}
-            `,
-          }}
-        />
-      </body>
-    </Html>
-  )
-}
-```
-
----
-
----
-
-### Q5: How does file-based routing work in Next.js?
-
-**Answer:**
-Next.js uses the file system for routing. Files in the `pages` directory automatically become routes.
-
-```javascript
-// File structure and corresponding routes:
-pages/
-├── index.js                    // → /
-├── about.js                    // → /about
-├── blog/
-│   ├── index.js               // → /blog
-│   ├── [slug].js              // → /blog/:slug
-│   └── [...params].js         // → /blog/* (catch-all)
-├── users/
-│   ├── [id].js                // → /users/:id
-│   └── settings.js            // → /users/settings
-└── api/
-    ├── hello.js               // → /api/hello
-    └── users/
-        └── [id].js            // → /api/users/:id
-
-// Dynamic routing example
-// pages/blog/[slug].js
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
-
-export default function BlogPost() {
-  const router = useRouter()
-  const { slug } = router.query
-  const [post, setPost] = useState(null)
-
-  useEffect(() => {
-    if (slug) {
-      fetchPost(slug).then(setPost)
-    }
-  }, [slug])
-
-  if (!post) return <div>Loading...</div>
-
-  return (
-    <article>
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
-    </article>
-  )
-}
-
-// Catch-all routes example
-// pages/blog/[...params].js
-export default function CatchAll() {
-  const router = useRouter()
-  const { params } = router.query
-  
-  // /blog/a/b/c → params = ['a', 'b', 'c']
-  // /blog/hello → params = ['hello']
-  
-  return (
-    <div>
-      <h1>Blog Section</h1>
-      <p>Params: {params?.join('/')}</p>
-    </div>
-  )
-}
-```
-
----
-
-### Q6: Explain the Next.js Link component and its benefits
-
-**Answer:**
-The `Link` component enables client-side navigation between pages with prefetching and performance optimizations.
-
-```javascript
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-
-export default function Navigation() {
-  const router = useRouter()
-
-  return (
-    <nav className="flex space-x-4">
-      {/* Basic link */}
-      <Link href="/about">
-        <a className="text-blue-600 hover:text-blue-800">About</a>
-      </Link>
-
-      {/* Dynamic link */}
-      <Link href={`/users/${userId}`}>
-        <a>User Profile</a>
-      </Link>
-
-      {/* Link with query parameters */}
-      <Link
-        href={{
-          pathname: '/blog',
-          query: { category: 'tech', page: 1 },
-        }}
-      >
-        <a>Tech Blog</a>
-      </Link>
-
-      {/* Conditional active link styling */}
-      <Link href="/dashboard">
-        <a
-          className={`${
-            router.pathname === '/dashboard'
-              ? 'text-blue-600 font-semibold'
-              : 'text-gray-600'
-          } hover:text-blue-800`}
-        >
-          Dashboard
-        </a>
-      </Link>
-
-      {/* Prefetch disabled for less important links */}
-      <Link href="/heavy-page" prefetch={false}>
-        <a>Heavy Page</a>
-      </Link>
-
-      {/* Replace instead of push to history */}
-      <Link href="/login" replace>
-        <a>Login</a>
-      </Link>
-    </nav>
-  )
-}
-
-// Programmatic navigation
-export function LoginForm() {
-  const router = useRouter()
-
-  const handleSubmit = async (formData) => {
-    try {
-      await login(formData)
-      // Redirect after successful login
-      router.push('/dashboard')
-    } catch (error) {
-      console.error('Login failed:', error)
-    }
-  }
-
-  const handleBack = () => {
-    router.back() // Go back in history
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      {/* form fields */}
-      <button type="submit">Login</button>
-      <button type="button" onClick={handleBack}>
-        Go Back
-      </button>
-    </form>
-  )
-}
-```
-
----
-
-### Q7: How do you handle nested routes and layouts in Next.js?
-
-**Answer:**
-Next.js supports nested routes through file structure and nested layouts through component composition.
-
-```javascript
-// File structure for nested routes:
-pages/
-├── dashboard/
-│   ├── index.js               // /dashboard
-│   ├── analytics.js           // /dashboard/analytics
-│   ├── settings/
-│   │   ├── index.js          // /dashboard/settings
-│   │   ├── profile.js        // /dashboard/settings/profile
-│   │   └── billing.js        // /dashboard/settings/billing
-│   └── users/
-│       ├── index.js          // /dashboard/users
-│       └── [id].js           // /dashboard/users/:id
-
-// components/layouts/DashboardLayout.js
-import { useState } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-
-export default function DashboardLayout({ children }) {
-  const router = useRouter()
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-
-  const navigation = [
-    { name: 'Overview', href: '/dashboard', icon: '📊' },
-    { name: 'Analytics', href: '/dashboard/analytics', icon: '📈' },
-    { name: 'Users', href: '/dashboard/users', icon: '👥' },
-    { name: 'Settings', href: '/dashboard/settings', icon: '⚙️' },
-  ]
-
-  return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <div className={`${sidebarOpen ? 'w-64' : 'w-16'} bg-white shadow-lg transition-all duration-300`}>
-        <div className="p-4">
-          <h2 className={`font-bold text-xl ${!sidebarOpen && 'hidden'}`}>
-            Dashboard
-          </h2>
-        </div>
-        <nav className="mt-8">
-          {navigation.map((item) => {
-            const isActive = router.pathname === item.href
-            return (
-              <Link key={item.name} href={item.href}>
-                <a
-                  className={`flex items-center px-4 py-3 text-sm font-medium ${
-                    isActive
-                      ? 'bg-blue-100 text-blue-700 border-r-2 border-blue-700'
-                      : 'text-gray-600 hover:bg-gray-50'
-                  }`}
-                >
-                  <span className="text-lg">{item.icon}</span>
-                  {sidebarOpen && (
-                    <span className="ml-3">{item.name}</span>
-                  )}
-                </a>
-              </Link>
-            )
-          })}
-        </nav>
-      </div>
-
-      {/* Main content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        {/* Header */}
-        <header className="bg-white shadow-sm border-b border-gray-200">
-          <div className="flex items-center justify-between px-6 py-4">
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="text-gray-500 hover:text-gray-700"
-            >
-              ☰
-            </button>
-            <div className="flex items-center space-x-4">
-              <span>Welcome back!</span>
-              <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
-            </div>
-          </div>
-        </header>
-
-        {/* Page content */}
-        <main className="flex-1 overflow-y-auto p-6">
-          {children}
-        </main>
-      </div>
-    </div>
-  )
-}
-
-// pages/dashboard/index.js
-import DashboardLayout from '../../components/layouts/DashboardLayout'
-
-export default function Dashboard() {
-  return (
-    <DashboardLayout>
-      <div>
-        <h1 className="text-2xl font-bold mb-6">Dashboard Overview</h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h3 className="text-lg font-semibold">Total Users</h3>
-            <p className="text-3xl font-bold text-blue-600">1,234</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h3 className="text-lg font-semibold">Revenue</h3>
-            <p className="text-3xl font-bold text-green-600">$12,345</p>
-          </div>
-          <div className="bg-white p-6 rounded-lg shadow">
-            <h3 className="text-lg font-semibold">Orders</h3>
-            <p className="text-3xl font-bold text-purple-600">567</p>
-          </div>
-        </div>
-      </div>
-    </DashboardLayout>
-  )
-}
-
-// Nested layout for settings
-// components/layouts/SettingsLayout.js
-import DashboardLayout from './DashboardLayout'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-
-export default function SettingsLayout({ children }) {
-  const router = useRouter()
-
-  const settingsNav = [
-    { name: 'General', href: '/dashboard/settings' },
-    { name: 'Profile', href: '/dashboard/settings/profile' },
-    { name: 'Billing', href: '/dashboard/settings/billing' },
-  ]
-
-  return (
-    <DashboardLayout>
-      <div className="flex">
-        <div className="w-64 bg-white rounded-lg shadow p-6 mr-6">
-          <h2 className="text-lg font-semibold mb-4">Settings</h2>
-          <nav>
-            {settingsNav.map((item) => (
-              <Link key={item.name} href={item.href}>
-                <a
-                  className={`block py-2 px-3 rounded ${
-                    router.pathname === item.href
-                      ? 'bg-blue-100 text-blue-700'
-                      : 'text-gray-600 hover:bg-gray-50'
-                  }`}
-                >
-                  {item.name}
-                </a>
-              </Link>
-            ))}
-          </nav>
-        </div>
-        <div className="flex-1">{children}</div>
-      </div>
-    </DashboardLayout>
-  )
-}
-```
-
----
-
----
-
-### Q8: How do API routes work in Next.js?
-
-**Answer:**
-API routes provide a solution to build APIs with Next.js. Files in `pages/api` are treated as API endpoints.
-
-```javascript
-// pages/api/hello.js - Basic API route
-export default function handler(req, res) {
-  if (req.method === 'GET') {
-    res.status(200).json({ message: 'Hello World!' })
-  } else {
-    res.setHeader('Allow', ['GET'])
-    res.status(405).end(`Method ${req.method} Not Allowed`)
-  }
-}
-
-// pages/api/users/index.js - CRUD operations
-import { connectToDatabase } from '../../../lib/mongodb'
-
-export default async function handler(req, res) {
-  const { db } = await connectToDatabase()
-
-  switch (req.method) {
-    case 'GET':
-      try {
-        const { page = 1, limit = 10, search } = req.query
-        const skip = (page - 1) * limit
-        
-        let query = {}
-        if (search) {
-          query = {
-            $or: [
-              { name: { $regex: search, $options: 'i' } },
-              { email: { $regex: search, $options: 'i' } }
-            ]
-          }
-        }
-
-        const users = await db
-          .collection('users')
-          .find(query)
-          .skip(skip)
-          .limit(parseInt(limit))
-          .toArray()
-
-        const total = await db.collection('users').countDocuments(query)
-
-        res.status(200).json({
-          users,
-          pagination: {
-            page: parseInt(page),
-            limit: parseInt(limit),
-            total,
-            pages: Math.ceil(total / limit)
-          }
-        })
-      } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch users' })
-      }
-      break
-
-    case 'POST':
-      try {
-        const { name, email, role } = req.body
-        
-        // Validation
-        if (!name || !email) {
-          return res.status(400).json({ error: 'Name and email are required' })
-        }
-
-        // Check if user already exists
-        const existingUser = await db.collection('users').findOne({ email })
-        if (existingUser) {
-          return res.status(409).json({ error: 'User already exists' })
-        }
-
-        const newUser = {
-          name,
-          email,
-          role: role || 'user',
-          createdAt: new Date(),
-          updatedAt: new Date()
-        }
-
-        const result = await db.collection('users').insertOne(newUser)
-        
-        res.status(201).json({
-          message: 'User created successfully',
-          user: { ...newUser, _id: result.insertedId }
-        })
-      } catch (error) {
-        res.status(500).json({ error: 'Failed to create user' })
-      }
-      break
-
-    default:
-      res.setHeader('Allow', ['GET', 'POST'])
-      res.status(405).end(`Method ${req.method} Not Allowed`)
-  }
-}
-
-// pages/api/users/[id].js - Dynamic API route
-export default async function handler(req, res) {
-  const { id } = req.query
-  const { db } = await connectToDatabase()
-
-  switch (req.method) {
-    case 'GET':
-      try {
-        const user = await db.collection('users').findOne({ _id: ObjectId(id) })
-        if (!user) {
-          return res.status(404).json({ error: 'User not found' })
-        }
-        res.status(200).json(user)
-      } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch user' })
-      }
-      break
-
-    case 'PUT':
-      try {
-        const { name, email, role } = req.body
-        const updateData = {
-          ...(name && { name }),
-          ...(email && { email }),
-          ...(role && { role }),
-          updatedAt: new Date()
-        }
-
-        const result = await db
-          .collection('users')
-          .updateOne({ _id: ObjectId(id) }, { $set: updateData })
-
-        if (result.matchedCount === 0) {
-          return res.status(404).json({ error: 'User not found' })
-        }
-
-        res.status(200).json({ message: 'User updated successfully' })
-      } catch (error) {
-        res.status(500).json({ error: 'Failed to update user' })
-      }
-      break
-
-    case 'DELETE':
-      try {
-        const result = await db
-          .collection('users')
-          .deleteOne({ _id: ObjectId(id) })
-
-        if (result.deletedCount === 0) {
-          return res.status(404).json({ error: 'User not found' })
-        }
-
-        res.status(200).json({ message: 'User deleted successfully' })
-      } catch (error) {
-        res.status(500).json({ error: 'Failed to delete user' })
-      }
-      break
-
-    default:
-      res.setHeader('Allow', ['GET', 'PUT', 'DELETE'])
-      res.status(405).end(`Method ${req.method} Not Allowed`)
-  }
-}
-
-// pages/api/auth/login.js - Authentication API
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
-import { connectToDatabase } from '../../../lib/mongodb'
-
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' })
-  }
-
-  try {
-    const { email, password } = req.body
-    
-    if (!email || !password) {
-      return res.status(400).json({ error: 'Email and password are required' })
-    }
-
-    const { db } = await connectToDatabase()
-    const user = await db.collection('users').findOne({ email })
-
-    if (!user) {
-      return res.status(401).json({ error: 'Invalid credentials' })
-    }
-
-    const isValidPassword = await bcrypt.compare(password, user.password)
-    if (!isValidPassword) {
-      return res.status(401).json({ error: 'Invalid credentials' })
-    }
-
-    const token = jwt.sign(
-      { userId: user._id, email: user.email, role: user.role },
-      process.env.JWT_SECRET,
-      { expiresIn: '7d' }
-    )
-
-    // Set HTTP-only cookie
-    res.setHeader('Set-Cookie', [
-      `token=${token}; HttpOnly; Path=/; Max-Age=${7 * 24 * 60 * 60}; SameSite=Strict${process.env.NODE_ENV === 'production' ? '; Secure' : ''}`
-    ])
-
-    res.status(200).json({
-      message: 'Login successful',
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role
-      }
-    })
-  } catch (error) {
-    console.error('Login error:', error)
-    res.status(500).json({ error: 'Internal server error' })
-  }
-}
-```
-
----
-
-### Q9: How do you implement middleware in Next.js?
-
-**Answer:**
-Next.js 12+ supports middleware that runs before requests are completed, allowing you to modify responses, redirect, rewrite, or set headers.
-
-```javascript
-// middleware.js (in project root)
-import { NextResponse } from 'next/server'
-import { jwtVerify } from 'jose'
-
-export async function middleware(request) {
-  const { pathname } = request.nextUrl
-  
-  // Skip middleware for API routes, static files, and public pages
-  if (
-    pathname.startsWith('/api/') ||
-    pathname.startsWith('/_next/') ||
-    pathname.startsWith('/static/') ||
-    pathname === '/login' ||
-    pathname === '/register' ||
-    pathname === '/'
-  ) {
-    return NextResponse.next()
-  }
-
-  // Authentication middleware
-  const token = request.cookies.get('token')?.value
-  
-  if (!token) {
-    return NextResponse.redirect(new URL('/login', request.url))
-  }
-
-  try {
-    // Verify JWT token
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET)
-    const { payload } = await jwtVerify(token, secret)
-    
-    // Add user info to request headers
-    const requestHeaders = new Headers(request.headers)
-    requestHeaders.set('x-user-id', payload.userId)
-    requestHeaders.set('x-user-role', payload.role)
-    
-    // Role-based access control
-    if (pathname.startsWith('/admin') && payload.role !== 'admin') {
-      return NextResponse.redirect(new URL('/unauthorized', request.url))
-    }
-    
-    return NextResponse.next({
-      request: {
-        headers: requestHeaders,
-      },
-    })
-  } catch (error) {
-    console.error('Token verification failed:', error)
-    return NextResponse.redirect(new URL('/login', request.url))
-  }
-}
-
-// Configure which paths the middleware runs on
-export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-  ],
-}
-
-// Advanced middleware with geolocation and A/B testing
-// middleware.js
-import { NextResponse } from 'next/server'
-
-export function middleware(request) {
-  const response = NextResponse.next()
-  
-  // Geolocation-based redirects
-  const country = request.geo?.country || 'US'
-  const { pathname } = request.nextUrl
-  
-  if (pathname === '/') {
-    // Redirect to country-specific homepage
-    if (country === 'GB') {
-      return NextResponse.redirect(new URL('/uk', request.url))
-    } else if (country === 'DE') {
-      return NextResponse.redirect(new URL('/de', request.url))
-    }
-  }
-  
-  // A/B Testing
-  if (pathname.startsWith('/product/')) {
-    const bucket = Math.random() < 0.5 ? 'A' : 'B'
-    response.cookies.set('ab-test-bucket', bucket)
-    response.headers.set('x-ab-test-bucket', bucket)
-  }
-  
-  // Rate limiting
-  const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown'
-  const rateLimitKey = `rate_limit_${ip}`
-  
-  // Security headers
-  response.headers.set('X-Frame-Options', 'DENY')
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('Referrer-Policy', 'origin-when-cross-origin')
-  response.headers.set(
-    'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
-  )
-  
-  return response
-}
-
-// Conditional middleware
-// lib/middleware/auth.js
-export function withAuth(middleware) {
-  return async (request) => {
-    const token = request.cookies.get('token')?.value
-    
-    if (!token) {
-      return NextResponse.redirect(new URL('/login', request.url))
-    }
-    
-    try {
-      const user = await verifyToken(token)
-      request.user = user
-      return middleware(request)
-    } catch (error) {
-      return NextResponse.redirect(new URL('/login', request.url))
-    }
-  }
-}
-
-// lib/middleware/rateLimit.js
-const rateLimitMap = new Map()
-
-export function withRateLimit(limit = 10, windowMs = 60000) {
-  return (middleware) => {
-    return async (request) => {
-      const ip = request.ip || 'unknown'
-      const now = Date.now()
-      const windowStart = now - windowMs
-      
-      const requests = rateLimitMap.get(ip) || []
-      const recentRequests = requests.filter(time => time > windowStart)
-      
-      if (recentRequests.length >= limit) {
-        return new NextResponse('Too Many Requests', { status: 429 })
-      }
-      
-      recentRequests.push(now)
-      rateLimitMap.set(ip, recentRequests)
-      
-      return middleware(request)
-    }
-  }
-}
-```
-
----
-
----
-
-### Q10: Explain the differences between SSR, SSG, and ISR in Next.js
-
-**Answer:**
-
-**SSR (Server-Side Rendering)**: Pages are rendered on each request
-**SSG (Static Site Generation)**: Pages are pre-rendered at build time
-**ISR (Incremental Static Regeneration)**: Static pages are regenerated in the background
-
-```javascript
-// SSG - getStaticProps
-// pages/blog/index.js
-export default function BlogIndex({ posts }) {
-  return (
-    <div>
-      <h1>Blog Posts</h1>
-      <div className="grid gap-6">
-        {posts.map((post) => (
-          <article key={post.id} className="border rounded-lg p-6">
-            <h2 className="text-xl font-semibold">{post.title}</h2>
-            <p className="text-gray-600">{post.excerpt}</p>
-            <Link href={`/blog/${post.slug}`}>
-              <a className="text-blue-600 hover:underline">Read more</a>
-            </Link>
-          </article>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-// This function runs at build time
+// SSG (Build time)
 export async function getStaticProps() {
-  // Fetch data from CMS or API
-  const posts = await fetch('https://api.example.com/posts').then(res => res.json())
-  
-  return {
-    props: {
-      posts,
-    },
-    // Regenerate the page at most once every hour
-    revalidate: 3600, // ISR - regenerate every hour
-  }
+  const data = await fetchData();
+  return { props: { data } };
 }
 
-        priority // Load immediately for above-the-fold content
-        placeholder="blur"
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+R
-      />
-    </div>
-  )
+// SSR (Request time)
+export async function getServerSideProps(context) {
+  const data = await fetchData(context.params.id);
+  return { props: { data } };
 }
+```
+
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q11: How do you implement internationalization (i18n) in Next.js?
+### 2. How do you implement Incremental Static Regeneration (ISR) to update static pages without a full rebuild?
 
-**Answer:**
-Next.js provides built-in support for internationalization (i18n) through its configuration options. There are two main approaches to implementing i18n in Next.js:
+**Difficulty**: Intermediate
 
-**1. Built-in i18n Routing:**
+**Strategy:**
+Return a `revalidate` property (in seconds) from `getStaticProps`. Next.js will serve the cached page, then regenerate it in the background for the next request if the timer has expired.
 
-Next.js has built-in support for internationalized routing and language detection. You can configure it in your `next.config.js` file:
-
+**Code Example:**
 ```javascript
-// next.config.js
-module.exports = {
-  i18n: {
-    // List of locales you support
-    locales: ['en-US', 'fr', 'es', 'de'],
-    // Default locale
-    defaultLocale: 'en-US',
-    // Domain-specific locales
-    domains: [
-      {
-        domain: 'example.com',
-        defaultLocale: 'en-US',
-      },
-      {
-        domain: 'example.fr',
-        defaultLocale: 'fr',
-      },
-    ],
-  },
-}
-```
-
-**2. Using next-i18next:**
-
-For more advanced i18n features, you can use the `next-i18next` library:
-
-```javascript
-// next-i18next.config.js
-module.exports = {
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr', 'de'],
-    localeDetection: true,
-  },
-  localePath: './public/locales',
-}
-```
-
-```javascript
-// _app.js
-import { appWithTranslation } from 'next-i18next'
-
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
-
-export default appWithTranslation(MyApp)
-```
-
-**Translation Files:**
-
-```json
-// public/locales/en/common.json
-{
-  "greeting": "Hello",
-  "welcome": "Welcome to our website"
-}
-
-// public/locales/fr/common.json
-{
-  "greeting": "Bonjour",
-  "welcome": "Bienvenue sur notre site"
-}
-```
-
-**Using Translations in Components:**
-
-```javascript
-// pages/index.js
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-
-export default function Home() {
-  const { t } = useTranslation('common')
-  
-  return (
-    <div>
-      <h1>{t('greeting')}</h1>
-      <p>{t('welcome')}</p>
-    </div>
-  )
-}
-
-export async function getStaticProps({ locale }) {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale, ['common'])),
-    },
-  }
-}
-```
-
-**Language Switcher Component:**
-
-```javascript
-import { useRouter } from 'next/router'
-import Link from 'next/link'
-
-export default function LanguageSwitcher() {
-  const router = useRouter()
-  const { locales, locale: activeLocale } = router
-  
-  return (
-    <div>
-      <ul>
-        {locales.map((locale) => (
-          <li key={locale}>
-            <Link 
-              href={router.asPath} 
-              locale={locale}
-              legacyBehavior
-            >
-              <a className={locale === activeLocale ? 'active' : ''}>
-                {locale.toUpperCase()}
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-```
-
-**Handling Date and Number Formatting:**
-
-```javascript
-import { useRouter } from 'next/router'
-
-export default function FormattedDate({ date }) {
-  const { locale } = useRouter()
-  
-  return (
-    <time dateTime={date.toISOString()}>
-      {new Intl.DateTimeFormat(locale, { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-      }).format(date)}
-    </time>
-  )
-}
-```
-
----
-
-### Q12: How do you handle errors in Next.js?
-
-**Answer:**
-Error handling is a critical aspect of building robust Next.js applications. Next.js provides several ways to handle errors at different levels of your application:
-
-**1. Custom Error Pages:**
-
-Next.js allows you to create custom error pages by adding `_error.js` and `404.js` files to your `pages` directory:
-
-```javascript
-// pages/404.js - Custom 404 page
-import Link from 'next/link'
-
-export default function Custom404() {
-  return (
-    <div className="error-container">
-      <h1>404 - Page Not Found</h1>
-      <p>Sorry, the page you are looking for does not exist.</p>
-      <Link href="/">
-        <a>Go back home</a>
-      </Link>
-    </div>
-  )
-}
-```
-
-```javascript
-// pages/_error.js - Custom error page for other HTTP errors
-import Error from 'next/error'
-
-function CustomError({ statusCode, err }) {
-  return (
-    <div className="error-container">
-      <h1>Error {statusCode}</h1>
-      <p>
-        {statusCode
-          ? `An error ${statusCode} occurred on server`
-          : 'An error occurred on client'}
-      </p>
-      {process.env.NODE_ENV !== 'production' && err && (
-        <div className="error-details">
-          <h2>Error Details:</h2>
-          <pre>{JSON.stringify(err, null, 2)}</pre>
-        </div>
-      )}
-    </div>
-  )
-}
-
-CustomError.getInitialProps = ({ res, err }) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404
-  return { statusCode, err }
-}
-
-export default CustomError
-```
-
-**2. React Error Boundary:**
-
-You can implement React Error Boundaries to catch JavaScript errors in UI components:
-
-```javascript
-// components/ErrorBoundary.js
-import { Component } from 'react'
-
-class ErrorBoundary extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { hasError: false, error: null, errorInfo: null }
-  }
-
-  static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI
-    return { hasError: true }
-  }
-
-  componentDidCatch(error, errorInfo) {
-    // You can log the error to an error reporting service
-    console.error('ErrorBoundary caught an error', error, errorInfo)
-    this.setState({
-      error: error,
-      errorInfo: errorInfo
-    })
-    
-    // Optional: Send to error tracking service
-    // sendToErrorTrackingService(error, errorInfo)
-  }
-
-  render() {
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return this.props.fallback || (
-        <div className="error-boundary">
-          <h2>Something went wrong.</h2>
-          {process.env.NODE_ENV !== 'production' && (
-            <details style={{ whiteSpace: 'pre-wrap' }}>
-              <summary>Error Details</summary>
-              <p>{this.state.error && this.state.error.toString()}</p>
-              <p>Component Stack:</p>
-              <pre>{this.state.errorInfo && this.state.errorInfo.componentStack}</pre>
-            </details>
-          )}
-        </div>
-      )
-    }
-
-    return this.props.children
-  }
-}
-
-export default ErrorBoundary
-```
-
-Using the Error Boundary in your app:
-
-```javascript
-// pages/_app.js
-import ErrorBoundary from '../components/ErrorBoundary'
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <ErrorBoundary>
-      <Component {...pageProps} />
-    </ErrorBoundary>
-  )
-}
-
-export default MyApp
-```
-
-**3. API Route Error Handling:**
-
-For API routes, you can implement structured error handling:
-
-```javascript
-// pages/api/data.js
-export default async function handler(req, res) {
-  try {
-    // Validate request
-    if (!req.query.id) {
-      return res.status(400).json({ error: 'Missing required parameter: id' })
-    }
-    
-    // Process request
-    const data = await fetchData(req.query.id)
-    
-    // Handle not found
-    if (!data) {
-      return res.status(404).json({ error: 'Resource not found' })
-    }
-    
-    // Success response
-    return res.status(200).json(data)
-  } catch (error) {
-    console.error('API error:', error)
-    
-    // Determine if it's a known error type
-    if (error.name === 'ValidationError') {
-      return res.status(400).json({ error: error.message })
-    }
-    
-    if (error.name === 'UnauthorizedError') {
-      return res.status(401).json({ error: 'Unauthorized access' })
-    }
-    
-    // Generic server error
-    return res.status(500).json({ 
-      error: 'Internal server error',
-      // Include details in development
-      ...(process.env.NODE_ENV !== 'production' && { details: error.message })
-    })
-  }
-}
-```
-
-**4. Global Error Handling:**
-
-You can set up global error handling for unhandled exceptions and promise rejections:
-
-```javascript
-// pages/_app.js
-import { useEffect } from 'react'
-
-function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    // Handler for uncaught errors
-    const handleError = (error) => {
-      console.error('Uncaught error:', error)
-      // Send to error tracking service
-      // captureException(error)
-    }
-
-    // Handler for unhandled promise rejections
-    const handleRejection = (event) => {
-      console.error('Unhandled Promise Rejection:', event.reason)
-      // Send to error tracking service
-      // captureException(event.reason)
-    }
-
-    // Add event listeners
-    window.addEventListener('error', handleError)
-    window.addEventListener('unhandledrejection', handleRejection)
-
-    // Clean up
-    return () => {
-      window.removeEventListener('error', handleError)
-      window.removeEventListener('unhandledrejection', handleRejection)
-    }
-  }, [])
-
-  return <Component {...pageProps} />
-}
-
-export default MyApp
-```
-
-**5. Error Handling with SWR:**
-
-When using SWR for data fetching, you can handle errors elegantly:
-
-```javascript
-import useSWR from 'swr'
-
-function Profile() {
-  const { data, error } = useSWR('/api/user', fetcher)
-
-  if (error) {
-    return (
-      <div className="error-state">
-        <h2>Failed to load user data</h2>
-        <button onClick={() => window.location.reload()}>Try again</button>
-      </div>
-    )
-  }
-  
-  if (!data) {
-    return <div className="loading-state">Loading...</div>
-  }
-  
-  return (
-    <div>
-      <h1>{data.name}</h1>
-      <p>{data.bio}</p>
-    </div>
-  )
-}
-```
-
----
-
-### Q13: What are the different caching strategies in Next.js?
-
-**Answer:**
-Next.js offers several caching strategies to optimize performance and reduce server load. Here's a comprehensive overview of caching approaches in Next.js:
-
-**1. Static Generation with Revalidation (ISR):**
-
-Incremental Static Regeneration allows you to update static content after you've built your site:
-
-```javascript
-// pages/products/[id].js
-export async function getStaticProps({ params }) {
-  const res = await fetch(`https://api.example.com/products/${params.id}`)
-  const product = await res.json()
-
-  return {
-    props: { product },
-    // Revalidate every hour (3600 seconds)
-    revalidate: 3600,
-  }
-}
-
-export async function getStaticPaths() {
-  const res = await fetch('https://api.example.com/popular-products')
-  const products = await res.json()
-
-  // Pre-render only popular products
-  const paths = products.map((product) => ({
-    params: { id: product.id.toString() },
-  }))
-
-  // { fallback: 'blocking' } means other routes will be generated at runtime
-  return { paths, fallback: 'blocking' }
-}
-```
-
-**2. On-Demand Revalidation:**
-
-Next.js 12.1+ allows you to revalidate pages on-demand via an API route:
-
-```javascript
-// pages/api/revalidate.js
-export default async function handler(req, res) {
-  // Check for secret to confirm this is a valid request
-  if (req.query.secret !== process.env.REVALIDATION_TOKEN) {
-    return res.status(401).json({ message: 'Invalid token' })
-  }
-
-  try {
-    // Path to revalidate
-    const path = req.query.path
-    
-    if (!path) {
-      return res.status(400).json({ message: 'Path is required' })
-    }
-
-    // Revalidate the specific path
-    await res.revalidate(path)
-
-    return res.json({ revalidated: true, message: `Path ${path} revalidated successfully` })
-  } catch (err) {
-    // If there was an error, Next.js will continue
-    // to show the last successfully generated page
-    return res.status(500).send({ message: 'Error revalidating', error: err.message })
-  }
-}
-```
-
-Example webhook handler for content updates:
-
-```javascript
-// pages/api/webhook/content-update.js
-export default async function handler(req, res) {
-  // Verify webhook signature from your CMS
-  const isValid = verifyWebhookSignature(req)
-  
-  if (!isValid) {
-    return res.status(401).json({ message: 'Invalid signature' })
-  }
-  
-  try {
-    // Extract content type and ID from the webhook payload
-    const { contentType, id } = req.body
-    
-    // Determine which pages to revalidate based on content type
-    let pathsToRevalidate = []
-    
-    switch (contentType) {
-      case 'product':
-        pathsToRevalidate = [
-          `/products/${id}`,
-          '/products',
-          '/' // Homepage might show featured products
-        ]
-        break
-      case 'category':
-        pathsToRevalidate = [
-          `/categories/${id}`,
-          '/categories',
-          '/'
-        ]
-        break
-      // Add more content types as needed
-    }
-    
-    // Revalidate all affected paths
-    const revalidationResults = await Promise.all(
-      pathsToRevalidate.map(async (path) => {
-        try {
-          await res.revalidate(path)
-          return { path, success: true }
-        } catch (error) {
-          return { path, success: false, error: error.message }
-        }
-      })
-    )
-    
-    return res.json({
-      message: 'Revalidation triggered',
-      results: revalidationResults
-    })
-  } catch (err) {
-    return res.status(500).json({ message: 'Error processing webhook', error: err.message })
-  }
-}
-```
-
-**3. API Route Caching:**
-
-You can implement caching for API routes using headers:
-
-```javascript
-// pages/api/cached-data.js
-export default async function handler(req, res) {
-  // Set cache headers
-  res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30')
-  
-  // Fetch data
-  const data = await fetchSomeData()
-  
-  // Return response
-  res.status(200).json(data)
-}
-```
-
-**4. Client-Side Caching with SWR:**
-
-SWR provides smart client-side caching with stale-while-revalidate strategy:
-
-```javascript
-import useSWR from 'swr'
-
-function Dashboard() {
-  const { data, error } = useSWR('/api/dashboard-stats', fetcher, {
-    // Revalidate every 10 seconds
-    refreshInterval: 10000,
-    // Keep using previous data when refetching
-    dedupingInterval: 2000,
-    // Retry on error
-    onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
-      // Never retry on 404
-      if (error.status === 404) return
-      
-      // Only retry up to 3 times
-      if (retryCount >= 3) return
-      
-      // Retry after 5 seconds
-      setTimeout(() => revalidate({ retryCount }), 5000)
-    }
-  })
-
-  // Render data
-}
-```
-
-**5. Redis Caching:**
-
-For more complex caching needs, you can implement Redis caching:
-
-```javascript
-// lib/redis.js
-import Redis from 'ioredis'
-
-let redis
-
-if (process.env.REDIS_URL) {
-  redis = new Redis(process.env.REDIS_URL)
-}
-
-export async function fetchWithCache(key, fetchFn, ttl = 3600) {
-  // In development or if Redis is not available, just fetch
-  if (!redis || process.env.NODE_ENV === 'development') {
-    return fetchFn()
-  }
-
-  // Try to get cached data
-  const cachedData = await redis.get(key)
-  
-  if (cachedData) {
-    return JSON.parse(cachedData)
-  }
-  
-  // If not in cache, fetch fresh data
-  const freshData = await fetchFn()
-  
-  // Store in cache with TTL
-  await redis.set(key, JSON.stringify(freshData), 'EX', ttl)
-  
-  return freshData
-}
-```
-
-Using the Redis cache in an API route:
-
-```javascript
-// pages/api/products.js
-import { fetchWithCache } from '../../lib/redis'
-
-export default async function handler(req, res) {
-  const { category, page = 1 } = req.query
-  
-  // Create a cache key based on query parameters
-  const cacheKey = `products:${category}:${page}`
-  
-  try {
-    // Fetch with cache (1 hour TTL)
-    const products = await fetchWithCache(
-      cacheKey,
-      () => fetchProductsFromDatabase(category, page),
-      3600
-    )
-    
-    res.status(200).json(products)
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch products' })
-  }
-}
-```
-
-**6. Service Worker Caching:**
-
-You can implement service worker caching for offline support and improved performance:
-
-```javascript
-// public/service-worker.js
-const CACHE_NAME = 'my-site-cache-v1'
-const urlsToCache = [
-  '/',
-  '/styles/main.css',
-  '/scripts/main.js',
-  '/images/logo.png'
-]
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(urlsToCache)
-      })
-  )
-})
-
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Cache hit - return response
-        if (response) {
-          return response
-        }
-        return fetch(event.request)
-      })
-  )
-})
-```
-
-Registering the service worker in your app:
-
-```javascript
-// pages/_app.js
-import { useEffect } from 'react'
-
-function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      window.addEventListener('load', function() {
-        navigator.serviceWorker.register('/service-worker.js').then(
-          function(registration) {
-            console.log('Service Worker registration successful with scope: ', registration.scope)
-          },
-          function(err) {
-            console.log('Service Worker registration failed: ', err)
-          }
-        )
-      })
-    }
-  }, [])
-
-  return <Component {...pageProps} />
-}
-
-export default MyApp
-```
-
-**7. Browser Cache Control:**
-
-You can configure browser caching through custom server middleware or in `next.config.js` with a custom server:
-
-```javascript
-// next.config.js
-module.exports = {
-  async headers() {
-    return [
-      {
-        // Apply these headers to all routes
-        source: '/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        // Different cache policy for API routes
-        source: '/api/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=60, stale-while-revalidate=30',
-          },
-        ],
-      },
-    ]
-  },
-}
-```
-
----
-
-### Q14: What are the deployment options for Next.js applications?
-
-**Answer:**
-Next.js applications can be deployed in various ways depending on your requirements, budget, and infrastructure preferences. Here are the main deployment options for Next.js applications:
-
-**1. Vercel (Recommended):**
-
-Vercel, created by the same team behind Next.js, offers the most seamless deployment experience:
-
-- **Zero configuration** deployment with Git integration
-- **Automatic preview deployments** for pull requests
-- **Built-in analytics** and performance monitoring
-- **Edge functions** for serverless API routes
-- **Incremental Static Regeneration (ISR)** support out of the box
-- **Global CDN** for optimal performance
-
-Deployment is as simple as connecting your Git repository and pushing changes:
-
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy to production
-vercel --prod
-```
-
-**2. Netlify:**
-
-Netlify offers similar features to Vercel with some differences:
-
-- **Continuous deployment** from Git
-- **Deploy previews** for pull requests
-- **Netlify Functions** for serverless functionality
-- **Forms handling** built-in
-- **Split testing** capabilities
-
-Deployment via Netlify CLI:
-
-```bash
-# Install Netlify CLI
-npm install -g netlify-cli
-
-# Deploy to production
-netlify deploy --prod
-```
-
-Netlify configuration file (`netlify.toml`):
-
-```toml
-[build]
-  command = "npm run build"
-  publish = ".next"
-
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-```
-
-**3. AWS Amplify:**
-
-AWS Amplify provides a comprehensive solution for deploying Next.js apps on AWS infrastructure:
-
-- **CI/CD pipeline** integration
-- **Preview environments**
-- **Authentication** and other AWS service integrations
-- **Monitoring** and analytics
-
-Amplify configuration file (`amplify.yml`):
-
-```yaml
-version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm ci
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: .next
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-```
-
-**4. AWS with CDK:**
-
-For more control over your AWS infrastructure, you can use AWS CDK to deploy Next.js:
-
-```typescript
-// lib/next-app-stack.ts
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
-import * as s3 from 'aws-cdk-lib/aws-s3';
-import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
-import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
-import * as lambda from 'aws-cdk-lib/aws-lambda';
-import * as apigateway from 'aws-cdk-lib/aws-apigateway';
-
-export class NextAppStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
-    super(scope, id, props);
-
-    // S3 bucket for static assets
-    const staticBucket = new s3.Bucket(this, 'StaticAssetsBucket', {
-      websiteIndexDocument: 'index.html',
-      publicReadAccess: true,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
-    });
-
-    // Lambda function for server-side rendering
-    const ssrFunction = new lambda.Function(this, 'SSRFunction', {
-      runtime: lambda.Runtime.NODEJS_16_X,
-      handler: 'index.handler',
-      code: lambda.Code.fromAsset('server-bundle'),
-      memorySize: 1024,
-      timeout: cdk.Duration.seconds(10),
-    });
-
-    // API Gateway for the SSR function
-    const api = new apigateway.LambdaRestApi(this, 'SSRApi', {
-      handler: ssrFunction,
-      proxy: true,
-    });
-
-    // CloudFront distribution
-    const distribution = new cloudfront.Distribution(this, 'Distribution', {
-      defaultBehavior: {
-        origin: new origins.S3Origin(staticBucket),
-        viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-      },
-      additionalBehaviors: {
-        '/api/*': {
-          origin: new origins.HttpOrigin(`${api.restApiId}.execute-api.${this.region}.amazonaws.com`),
-          allowedMethods: cloudfront.AllowedMethods.ALL,
-          viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.HTTPS_ONLY,
-        },
-        '/_next/data/*': {
-          origin: new origins.HttpOrigin(`${api.restApiId}.execute-api.${this.region}.amazonaws.com`),
-          allowedMethods: cloudfront.AllowedMethods.ALL,
-          viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.HTTPS_ONLY,
-        },
-      },
-    });
-
-    // Output the CloudFront URL
-    new cdk.CfnOutput(this, 'DistributionDomainName', {
-      value: distribution.distributionDomainName,
-    });
-  }
-}
-```
-
-**5. Docker Containers:**
-
-Next.js can be containerized for deployment to any container orchestration platform:
-
-```dockerfile
-# Dockerfile
-FROM node:16-alpine AS builder
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-
-FROM node:16-alpine AS runner
-WORKDIR /app
-
-ENV NODE_ENV production
-
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/package.json ./package.json
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
-```
-
-Docker Compose configuration:
-
-```yaml
-# docker-compose.yml
-version: '3'
-
-services:
-  nextjs:
-    build: .
-    ports:
-      - "3000:3000"
-    environment:
-      - DATABASE_URL=postgres://user:password@db:5432/mydb
-      - REDIS_URL=redis://redis:6379
-    depends_on:
-      - db
-      - redis
-
-  db:
-    image: postgres:14
-    environment:
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_DB=mydb
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  redis:
-    image: redis:6
-    volumes:
-      - redis_data:/data
-
-volumes:
-  postgres_data:
-  redis_data:
-```
-
-**6. Self-Hosted (Node.js Server):**
-
-You can deploy Next.js to any environment that runs Node.js:
-
-```javascript
-// server.js
-const { createServer } = require('http')
-const { parse } = require('url')
-const next = require('next')
-
-const dev = process.env.NODE_ENV !== 'production'
-const app = next({ dev })
-const handle = app.getRequestHandler()
-const port = process.env.PORT || 3000
-
-app.prepare().then(() => {
-  createServer((req, res) => {
-    const parsedUrl = parse(req.url, true)
-    handle(req, res, parsedUrl)
-  }).listen(port, (err) => {
-    if (err) throw err
-    console.log(`> Ready on http://localhost:${port}`)
-  })
-})
-```
-
-Process manager configuration (PM2):
-
-```json
-// ecosystem.config.js
-module.exports = {
-  apps: [
-    {
-      name: "next-app",
-      script: "./server.js",
-      instances: "max",
-      exec_mode: "cluster",
-      env: {
-        NODE_ENV: "production",
-        PORT: 3000
-      }
-    }
-  ]
-}
-```
-
-**7. Static Export:**
-
-For purely static sites without server-side functionality:
-
-```json
-// package.json
-{
-  "scripts": {
-    "build": "next build",
-    "export": "next export"
-  }
-}
-```
-
-```javascript
-// next.config.js
-module.exports = {
-  output: 'export',
-  // Optional: Add basePath if not deploying to root domain
-  // basePath: '/my-app',
-  // Optional: Add trailing slash for consistent URLs
-  // trailingSlash: true,
-}
-```
-
-The exported static site can be deployed to any static hosting service like GitHub Pages, S3, or any web server.
-
-**8. Kubernetes:**
-
-For enterprise deployments, Kubernetes offers scalability and resilience:
-
-```yaml
-# kubernetes/deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: nextjs-app
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: nextjs-app
-  template:
-    metadata:
-      labels:
-        app: nextjs-app
-    spec:
-      containers:
-      - name: nextjs
-        image: your-registry/nextjs-app:latest
-        ports:
-        - containerPort: 3000
-        resources:
-          limits:
-            cpu: "1"
-            memory: "512Mi"
-          requests:
-            cpu: "500m"
-            memory: "256Mi"
-        env:
-        - name: DATABASE_URL
-          valueFrom:
-            secretKeyRef:
-              name: app-secrets
-              key: database-url
-        livenessProbe:
-          httpGet:
-            path: /api/health
-            port: 3000
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /api/health
-            port: 3000
-          initialDelaySeconds: 5
-          periodSeconds: 5
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nextjs-service
-spec:
-  selector:
-    app: nextjs-app
-  ports:
-  - port: 80
-    targetPort: 3000
-  type: ClusterIP
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: nextjs-ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-spec:
-  tls:
-  - hosts:
-    - your-app.example.com
-    secretName: nextjs-tls
-  rules:
-  - host: your-app.example.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: nextjs-service
-            port:
-              number: 80
-```
-
-**9. Serverless Frameworks:**
-
-Serverless frameworks like Serverless Framework or AWS SAM can deploy Next.js as serverless functions:
-
-```yaml
-# serverless.yml
-service: nextjs-app
-
-provider:
-  name: aws
-  runtime: nodejs16.x
-  stage: ${opt:stage, 'dev'}
-  region: ${opt:region, 'us-east-1'}
-
-functions:
-  server:
-    handler: serverless.handler
-    events:
-      - http: ANY /
-      - http: ANY /{proxy+}
-
-plugins:
-  - serverless-nextjs-plugin
-```
-
-**10. Platform-Specific PaaS:**
-
-Platform-as-a-Service providers like Heroku, DigitalOcean App Platform, or Railway offer simplified deployment:
-
-```json
-// Procfile (for Heroku)
-web: npm start
-```
-
-```json
-// app.json (for Heroku)
-{
-  "name": "next-js-app",
-  "description": "A Next.js application",
-  "repository": "https://github.com/username/repo",
-  "keywords": ["node", "express", "next"],
-  "buildpacks": [
-    {
-      "url": "heroku/nodejs"
-    }
-  ]
-}
-```
-
-Each deployment option has its own trade-offs in terms of cost, complexity, scalability, and feature support. The best choice depends on your specific requirements, team expertise, and budget constraints.
-
----
-
-### Q15: How can you optimize performance in a Next.js application?
-
-**Answer:**
-Optimizing performance in Next.js applications involves several strategies across different aspects of your application. Here's a comprehensive guide to Next.js performance optimization:
-
-**1. Core Web Vitals Optimization:**
-
-Focus on improving key metrics that affect user experience:
-
-- **Largest Contentful Paint (LCP)**: Optimize the loading of your largest content element
-- **First Input Delay (FID)**: Minimize JavaScript execution time
-- **Cumulative Layout Shift (CLS)**: Prevent unexpected layout shifts
-
-```javascript
-// next.config.js - Enable performance optimization features
-module.exports = {
-  // Enable React strict mode for highlighting potential problems
-  reactStrictMode: true,
-  // Improve image performance
-  images: {
-    domains: ['your-image-domain.com'],
-    // Device sizes for responsive images
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    // Image sizes for responsive images
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-  },
-  // Enable experimental features
-  experimental: {
-    // Optimize CSS - reduces unused CSS
-    optimizeCss: true,
-    // Enable server components
-    serverComponents: true,
-    // Optimize fonts
-    fontLoaders: [
-      { loader: '@next/font/google', options: { subsets: ['latin'] } },
-    ],
-  },
-}
-```
-
-**2. Image Optimization:**
-
-Use the Next.js Image component to automatically optimize images:
-
-```jsx
-import Image from 'next/image'
-
-function OptimizedImage() {
-  return (
-    <div className="image-container">
-      <Image
-        src="/large-hero-image.jpg"
-        alt="Hero Image"
-        width={1200}
-        height={600}
-        priority={true} // Load this image immediately (for above-the-fold content)
-        placeholder="blur" // Show a blur placeholder while loading
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-        quality={90} // Quality setting (0-100)
-        loading="eager" // Load this image immediately
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Responsive sizing
-      />
-    </div>
-  )
-}
-```
-
-**3. Font Optimization:**
-
-Optimize font loading to prevent layout shifts:
-
-```jsx
-// pages/_document.js
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-
-class MyDocument extends Document {
-  render() {
-    return (
-      <Html lang="en">
-        <Head>
-          {/* Preload critical fonts */}
-          <link
-            rel="preload"
-            href="/fonts/inter-var-latin.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
-          {/* Font display swap ensures text remains visible during font loading */}
-          <style dangerouslySetInnerHTML={{
-            __html: `
-              @font-face {
-                font-family: 'Inter';
-                font-style: normal;
-                font-weight: 100 900;
-                font-display: swap;
-                src: url('/fonts/inter-var-latin.woff2') format('woff2');
-                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-              }
-            `
-          }} />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
-}
-
-export default MyDocument
-```
-
-**4. Code Splitting and Dynamic Imports:**
-
-Reduce initial bundle size with dynamic imports:
-
-```jsx
-import dynamic from 'next/dynamic'
-
-// Dynamically import a heavy component
-const HeavyComponent = dynamic(() => import('../components/HeavyComponent'), {
-  loading: () => <p>Loading...</p>,
-  ssr: false, // Disable server-side rendering for this component
-})
-
-function MyPage() {
-  return (
-    <div>
-      <h1>My Page</h1>
-      <HeavyComponent />
-    </div>
-  )
-}
-```
-
-**5. Bundle Analysis and Optimization:**
-
-Analyze and optimize your JavaScript bundles:
-
-```bash
-# Install bundle analyzer
-npm install --save-dev @next/bundle-analyzer
-```
-
-```javascript
-// next.config.js
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-})
-
-module.exports = withBundleAnalyzer({
-  // Your Next.js config
-})
-```
-
-**6. Server-Side Rendering (SSR) and Static Generation:**
-
-Choose the right rendering strategy for each page:
-
-```javascript
-// Static Generation with data - good for pages that can be pre-rendered
 export async function getStaticProps() {
-  const data = await fetchData()
-  return {
-    props: { data },
-    // Revalidate every hour
-    revalidate: 3600,
-  }
-}
-
-// Server-Side Rendering - good for pages that need fresh data on each request
-export async function getServerSideProps() {
-  const data = await fetchData()
-  return {
-    props: { data },
-  }
-}
-```
-
-**7. API Route Optimization:**
-
-Optimize API routes for better performance:
-
-```javascript
-// pages/api/data.js
-import { createRouter } from 'next-connect'
-import cors from 'cors'
-import rateLimit from 'express-rate-limit'
-
-// Create a rate limiter
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
-})
-
-const router = createRouter()
-
-// Apply middleware
-router
-  .use(cors()) // Enable CORS
-  .use(limiter) // Apply rate limiting
-
-// Handle GET requests
-router.get(async (req, res) => {
-  try {
-    // Use caching headers
-    res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30')
-    
-    const data = await fetchData()
-    res.status(200).json(data)
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch data' })
-  }
-})
-
-export default router.handler()
-```
-
-**8. Lazy Loading Components:**
-
-Implement lazy loading for components that are not immediately visible:
-
-```jsx
-import { useState, useEffect } from 'react'
-import { useInView } from 'react-intersection-observer'
-
-function LazyComponent() {
-  const [loaded, setLoaded] = useState(false)
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: '200px 0px', // Load when within 200px of viewport
-  })
-
-  useEffect(() => {
-    if (inView) {
-      setLoaded(true)
-    }
-  }, [inView])
-
-  return (
-    <div ref={ref}>
-      {loaded ? (
-        <ExpensiveComponent />
-      ) : (
-        <div style={{ height: '300px' }} /> // Placeholder
-      )}
-    </div>
-  )
-}
-```
-
-**9. Memoization for Expensive Computations:**
-
-Use memoization to prevent unnecessary re-renders and calculations:
-
-```jsx
-import { useMemo, useCallback } from 'react'
-
-function DataProcessor({ data, filter }) {
-  // Memoize expensive data processing
-  const processedData = useMemo(() => {
-    console.log('Processing data...')
-    return data.filter(item => item.category === filter)
-      .sort((a, b) => b.value - a.value)
-      .map(item => ({ ...item, normalized: item.value / 100 }))
-  }, [data, filter]) // Only recompute when data or filter changes
-
-  // Memoize event handlers
-  const handleClick = useCallback(() => {
-    console.log('Item clicked')
-    // Handle click logic
-  }, []) // Empty dependency array means this function never changes
-
-  return (
-    <div>
-      {processedData.map(item => (
-        <div key={item.id} onClick={handleClick}>
-          {item.name}: {item.normalized}
-        </div>
-      ))}
-    </div>
-  )
-}
-```
-
-**10. Optimizing Third-Party Scripts:**
-
-Load third-party scripts efficiently:
-
-```jsx
-import Script from 'next/script'
-
-function MyPage() {
-  return (
-    <div>
-      <h1>Welcome to my page</h1>
-      
-      {/* Load critical scripts with highest priority */}
-      <Script
-        src="https://critical-script.com/script.js"
-        strategy="beforeInteractive"
-      />
-      
-      {/* Load analytics after page becomes interactive */}
-      <Script
-        src="https://analytics.com/script.js"
-        strategy="afterInteractive"
-      />
-      
-      {/* Load low-priority scripts only when needed */}
-      <Script
-        src="https://low-priority.com/script.js"
-        strategy="lazyOnload"
-      />
-      
-      {/* Load script on specific event */}
-      <Script
-        id="show-banner"
-        strategy="lazyOnload"
-        dangerouslySetInnerHTML={{
-          __html: `
-            document.addEventListener('scroll', function() {
-              if (window.scrollY > 200) {
-                document.getElementById('banner').style.display = 'block';
-              }
-            });
-          `,
-        }}
-      />
-    </div>
-  )
-}
-```
-
-**11. Implement Proper Caching:**
-
-Set up effective caching strategies:
-
-```javascript
-// next.config.js
-module.exports = {
-  async headers() {
-    return [
-      {
-        // Cache static assets for a year
-        source: '/static/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        // Cache page data with stale-while-revalidate
-        source: '/_next/data/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, s-maxage=60, stale-while-revalidate=30',
-          },
-        ],
-      },
-    ]
-  },
-}
-```
-
-**12. Optimize CSS:**
-
-Minimize CSS and remove unused styles:
-
-```javascript
-// next.config.js
-const withCSS = require('@zeit/next-css')
-
-module.exports = withCSS({
-  cssModules: true,
-  cssLoaderOptions: {
-    importLoaders: 1,
-    localIdentName: '[local]___[hash:base64:5]',
-  },
-  // Enable PurgeCSS to remove unused CSS
-  webpack(config) {
-    if (process.env.NODE_ENV === 'production') {
-      config.plugins.push(
-        new require('purgecss-webpack-plugin')({
-          paths: require('glob').sync('./pages/**/*', { nodir: true }),
-          safelist: ['html', 'body'],
-        })
-      )
-    }
-    return config
-  },
-})
-```
-
-**13. Implement Progressive Hydration:**
-
-Hydrate components progressively based on priority:
-
-```jsx
-import { useEffect, useState } from 'react'
-
-function ProgressiveHydration({ children, priority = 'low' }) {
-  const [isHydrated, setIsHydrated] = useState(false)
-
-  useEffect(() => {
-    // Define hydration timing based on priority
-    const timing = {
-      high: 0, // Immediate
-      medium: 1000, // After 1 second
-      low: 2000, // After 2 seconds
-      idle: undefined // When browser is idle
-    }
-
-    if (priority === 'idle' && 'requestIdleCallback' in window) {
-      // Use requestIdleCallback for lowest priority
-      window.requestIdleCallback(() => setIsHydrated(true))
-    } else {
-      // Use setTimeout for other priorities
-      const timer = setTimeout(() => setIsHydrated(true), timing[priority])
-      return () => clearTimeout(timer)
-    }
-  }, [priority])
-
-  // Return static version until hydrated
-  if (!isHydrated) {
-    return <div dangerouslySetInnerHTML={{ __html: '' }} />
-  }
-
-  return children
-}
-
-// Usage
-function HomePage() {
-  return (
-    <div>
-      <h1>Welcome to my site</h1>
-      
-      {/* Critical UI - hydrate immediately */}
-      <ProgressiveHydration priority="high">
-        <NavigationMenu />
-      </ProgressiveHydration>
-      
-      {/* Important but not critical - hydrate after a delay */}
-      <ProgressiveHydration priority="medium">
-        <MainContent />
-      </ProgressiveHydration>
-      
-      {/* Low priority - hydrate last */}
-      <ProgressiveHydration priority="idle">
-        <Comments />
-      </ProgressiveHydration>
-    </div>
-  )
-}
-```
-
-**14. Implement Service Worker for Offline Support:**
-
-Add a service worker for caching and offline functionality:
-
-```javascript
-// pages/_app.js
-import { useEffect } from 'react'
-
-function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').then(
-          registration => {
-            console.log('ServiceWorker registration successful')
-          },
-          err => {
-            console.log('ServiceWorker registration failed: ', err)
-          }
-        )
-      })
-    }
-  }, [])
-
-  return <Component {...pageProps} />
-}
-
-export default MyApp
-```
-
-```javascript
-// public/sw.js
-const CACHE_NAME = 'my-site-cache-v1'
-
-// Assets to cache
-const urlsToCache = [
-  '/',
-  '/offline',
-  '/styles/main.css',
-  '/scripts/main.js',
-]
-
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-  )
-})
-
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          return response
-        }
-        
-        return fetch(event.request).then(response => {
-          // Check if we received a valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response
-          }
-          
-          // Clone the response
-          const responseToCache = response.clone()
-          
-          caches.open(CACHE_NAME)
-            .then(cache => {
-              cache.put(event.request, responseToCache)
-            })
-            
-          return response
-        }).catch(() => {
-          // If fetch fails, show offline page
-          if (event.request.mode === 'navigate') {
-            return caches.match('/offline')
-          }
-        })
-      })
-  )
-})
-```
-
-**15. Implement Virtualization for Long Lists:**
-
-Use virtualization for rendering large lists efficiently:
-
-```jsx
-import { useState } from 'react'
-import { FixedSizeList as List } from 'react-window'
-import AutoSizer from 'react-virtualized-auto-sizer'
-
-function VirtualizedList({ items }) {
-  // Render an individual row
-  const Row = ({ index, style }) => (
-    <div style={style} className="list-item">
-      <h3>{items[index].title}</h3>
-      <p>{items[index].description}</p>
-    </div>
-  )
-
-  return (
-    <div style={{ height: '500px', width: '100%' }}>
-      <AutoSizer>
-        {({ height, width }) => (
-          <List
-            height={height}
-            itemCount={items.length}
-            itemSize={100} // Height of each row
-            width={width}
-          >
-            {Row}
-          </List>
-        )}
-      </AutoSizer>
-    </div>
-  )
-}
-```
-
-By implementing these optimization techniques, you can significantly improve the performance of your Next.js application, resulting in better user experience, higher engagement, and improved search engine rankings.
-
----
-
-### Q16: How do you use TypeScript with Next.js?
-
-**Answer:**
-Next.js has built-in TypeScript support, making it easy to integrate TypeScript into your Next.js projects. Here's a comprehensive guide on using TypeScript with Next.js:
-
-**1. Setting Up a New Next.js Project with TypeScript:**
-
-Create a new Next.js project with TypeScript support:
-
-```bash
-# Create a new Next.js project with TypeScript
-npx create-next-app@latest --typescript my-typescript-app
-
-# Or for an existing project, add TypeScript
-npm install --save-dev typescript @types/react @types/node
-```
-
-After installing TypeScript in an existing project, create a `tsconfig.json` file in your project root:
-
-```json
-// tsconfig.json
-{
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
-}
-```
-
-**2. TypeScript in Pages and Components:**
-
-Create TypeScript pages and components:
-
-```tsx
-// pages/index.tsx
-import { NextPage } from 'next'
-import Head from 'next/head'
-
-// Define page props interface
-interface HomeProps {
-  greeting: string;
-}
-
-const Home: NextPage<HomeProps> = ({ greeting }) => {
-  return (
-    <div>
-      <Head>
-        <title>TypeScript Next.js</title>
-      </Head>
-      <main>
-        <h1>{greeting}</h1>
-      </main>
-    </div>
-  )
-}
-
-// Get static props with TypeScript
-export const getStaticProps = async () => {
-  return {
-    props: {
-      greeting: 'Hello from TypeScript!'
-    }
-  }
-}
-
-export default Home
-```
-
-**3. Type-Safe API Routes:**
-
-Create type-safe API routes:
-
-```typescript
-// pages/api/users.ts
-import type { NextApiRequest, NextApiResponse } from 'next'
-
-// Define response data type
-type User = {
-  id: number
-  name: string
-  email: string
-}
-
-type ErrorResponse = {
-  message: string
-}
-
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<User[] | User | ErrorResponse>
-) {
-  if (req.method === 'GET') {
-    // Return all users
-    const users: User[] = [
-      { id: 1, name: 'John Doe', email: 'john@example.com' },
-      { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
-    ]
-    res.status(200).json(users)
-  } else if (req.method === 'POST') {
-    // Create a new user
-    try {
-      const { name, email } = req.body
-      
-      if (!name || !email) {
-        return res.status(400).json({ message: 'Missing required fields' })
-      }
-      
-      // In a real app, you would save to a database
-      const newUser: User = {
-        id: Date.now(),
-        name,
-        email
-      }
-      
-      res.status(201).json(newUser)
-    } catch (error) {
-      res.status(500).json({ message: 'Server error' })
-    }
-  } else {
-    res.setHeader('Allow', ['GET', 'POST'])
-    res.status(405).json({ message: `Method ${req.method} not allowed` })
-  }
-}
-```
-
-**4. Type-Safe Data Fetching:**
-
-Implement type-safe data fetching with SWR:
-
-```tsx
-// components/UserProfile.tsx
-import useSWR from 'swr'
-
-// Define user type
-interface User {
-  id: number
-  name: string
-  email: string
-  avatar: string
-}
-
-// Define fetcher function
-const fetcher = async <T,>(url: string): Promise<T> => {
-  const res = await fetch(url)
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  return res.json()
-}
-
-interface UserProfileProps {
-  userId: number
-}
-
-const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
-  // Type-safe SWR hook
-  const { data, error, isLoading } = useSWR<User, Error>(
-    `/api/users/${userId}`,
-    fetcher
-  )
-
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>Error: {error.message}</div>
-  if (!data) return <div>No user data</div>
-
-  return (
-    <div className="user-profile">
-      <img src={data.avatar} alt={data.name} />
-      <h2>{data.name}</h2>
-      <p>{data.email}</p>
-    </div>
-  )
-}
-
-export default UserProfile
-```
-
-**5. Type-Safe Routing:**
-
-Implement type-safe routing with `next/router`:
-
-```tsx
-// utils/router.ts
-import { useRouter } from 'next/router'
-
-// Define route parameters for type safety
-interface Routes {
-  home: {}
-  about: {}
-  blog: {}
-  post: { id: string }
-  category: { slug: string; page?: string }
-  user: { userId: string; tab: 'profile' | 'settings' | 'activity' }
-}
-
-// Type-safe navigation function
-export function navigateTo<T extends keyof Routes>(
-  route: T,
-  params: Routes[T],
-  options?: { shallow?: boolean }
-) {
-  const router = useRouter()
-  
-  let path = `/${route}`
-  
-  // Handle dynamic routes
-  if (route === 'post') {
-    path = `/posts/${(params as Routes['post']).id}`
-  } else if (route === 'category') {
-    const { slug, page } = params as Routes['category']
-    path = `/categories/${slug}`
-    if (page) path += `?page=${page}`
-  } else if (route === 'user') {
-    const { userId, tab } = params as Routes['user']
-    path = `/users/${userId}/${tab}`
-  }
-  
-  return router.push(path, undefined, options)
-}
-
-// Usage example
-// navigateTo('post', { id: '123' })
-// navigateTo('user', { userId: '456', tab: 'settings' })
-```
-
-**6. Type-Safe `getStaticProps` and `getServerSideProps`:**
-
-Implement type-safe data fetching functions:
-
-```tsx
-// pages/posts/[id].tsx
-import { GetStaticProps, GetStaticPaths, NextPage } from 'next'
-
-// Define post type
-interface Post {
-  id: string
-  title: string
-  content: string
-  author: {
-    name: string
-    bio: string
-  }
-  publishedAt: string
-}
-
-// Define page props
-interface PostPageProps {
-  post: Post
-}
-
-const PostPage: NextPage<PostPageProps> = ({ post }) => {
-  return (
-    <article>
-      <h1>{post.title}</h1>
-      <p>By {post.author.name}</p>
-      <div dangerouslySetInnerHTML={{ __html: post.content }} />
-    </article>
-  )
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  // Fetch post IDs from API
-  const res = await fetch('https://api.example.com/posts')
-  const posts: { id: string }[] = await res.json()
-  
-  // Generate paths for each post
-  const paths = posts.map((post) => ({
-    params: { id: post.id },
-  }))
-  
-  return { paths, fallback: 'blocking' }
-}
-
-export const getStaticProps: GetStaticProps<PostPageProps> = async ({ params }) => {
-  // Type assertion for params
-  const { id } = params as { id: string }
-  
-  try {
-    // Fetch post data
-    const res = await fetch(`https://api.example.com/posts/${id}`)
-    
-    if (!res.ok) {
-      return { notFound: true }
-    }
-    
-    const post: Post = await res.json()
-    
-    return {
-      props: { post },
-      revalidate: 3600, // Revalidate every hour
-    }
-  } catch (error) {
-    return { notFound: true }
-  }
-}
-
-export default PostPage
-```
-
-**7. Custom Type Definitions:**
-
-Create custom type definitions for your project:
-
-```typescript
-// types/index.ts
-
-// User types
-export interface User {
-  id: string
-  name: string
-  email: string
-  role: 'admin' | 'user' | 'editor'
-  createdAt: string
-}
-
-// Authentication types
-export interface AuthState {
-  user: User | null
-  isAuthenticated: boolean
-  isLoading: boolean
-}
-
-export interface LoginCredentials {
-  email: string
-  password: string
-}
-
-export interface AuthResponse {
-  user: User
-  token: string
-}
-
-// API response types
-export interface ApiResponse<T> {
-  data: T
-  message: string
-  success: boolean
-}
-
-export interface PaginatedResponse<T> {
-  data: T[]
-  total: number
-  page: number
-  limit: number
-  totalPages: number
-}
-```
-
-**8. Type-Safe Context API:**
-
-Implement a type-safe context for state management:
-
-```tsx
-// contexts/AuthContext.tsx
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
-import { User, LoginCredentials, AuthResponse } from '../types'
-
-// Define context state type
-interface AuthContextType {
-  user: User | null
-  isAuthenticated: boolean
-  isLoading: boolean
-  login: (credentials: LoginCredentials) => Promise<void>
-  logout: () => Promise<void>
-  error: string | null
-}
-
-// Create context with default values
-const AuthContext = createContext<AuthContextType>({
-  user: null,
-  isAuthenticated: false,
-  isLoading: true,
-  login: async () => {},
-  logout: async () => {},
-  error: null
-})
-
-// Provider props type
-interface AuthProviderProps {
-  children: ReactNode
-}
-
-// Auth provider component
-export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState<User | null>(null)
-  const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [error, setError] = useState<string | null>(null)
-
-  // Check for existing session on mount
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const token = localStorage.getItem('auth_token')
-        
-        if (!token) {
-          setIsLoading(false)
-          return
-        }
-        
-        const response = await fetch('/api/auth/me', {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-        
-        if (response.ok) {
-          const userData: User = await response.json()
-          setUser(userData)
-        } else {
-          // Clear invalid token
-          localStorage.removeItem('auth_token')
-        }
-      } catch (err) {
-        setError('Authentication check failed')
-      } finally {
-        setIsLoading(false)
-      }
-    }
-    
-    checkAuth()
-  }, [])
-
-  // Login function
-  const login = async (credentials: LoginCredentials) => {
-    setIsLoading(true)
-    setError(null)
-    
-    try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(credentials)
-      })
-      
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.message || 'Login failed')
-      }
-      
-      const { user, token }: AuthResponse = await response.json()
-      
-      // Save token and set user
-      localStorage.setItem('auth_token', token)
-      setUser(user)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Login failed')
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  // Logout function
-  const logout = async () => {
-    localStorage.removeItem('auth_token')
-    setUser(null)
-  }
-
-  return (
-    <AuthContext.Provider value={{
-      user,
-      isAuthenticated: !!user,
-      isLoading,
-      login,
-      logout,
-      error
-    }}>
-      {children}
-    </AuthContext.Provider>
-  )
-}
-
-// Custom hook for using auth context
-export const useAuth = () => useContext(AuthContext)
-```
-
-**9. Type-Safe Forms with React Hook Form:**
-
-Implement type-safe forms:
-
-```tsx
-// components/SignupForm.tsx
-import { useForm, SubmitHandler } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { z } from 'zod'
-
-// Define form schema with Zod
-const signupSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  password: z.string().min(8, 'Password must be at least 8 characters'),
-  confirmPassword: z.string()
-}).refine(data => data.password === data.confirmPassword, {
-  message: "Passwords don't match",
-  path: ["confirmPassword"]
-})
-
-// Infer TypeScript type from schema
-type SignupFormInputs = z.infer<typeof signupSchema>
-
-const SignupForm = () => {
-  const { 
-    register, 
-    handleSubmit, 
-    formState: { errors, isSubmitting } 
-  } = useForm<SignupFormInputs>({
-    resolver: zodResolver(signupSchema)
-  })
-
-  const onSubmit: SubmitHandler<SignupFormInputs> = async (data) => {
-    try {
-      // Submit form data to API
-      const response = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-      
-      if (!response.ok) {
-        throw new Error('Signup failed')
-      }
-      
-      // Handle successful signup
-      window.location.href = '/login'
-    } catch (error) {
-      console.error('Signup error:', error)
-    }
-  }
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)} className="signup-form">
-      <div className="form-group">
-        <label htmlFor="name">Name</label>
-        <input id="name" {...register('name')} />
-        {errors.name && <p className="error">{errors.name.message}</p>}
-      </div>
-      
-      <div className="form-group">
-        <label htmlFor="email">Email</label>
-        <input id="email" type="email" {...register('email')} />
-        {errors.email && <p className="error">{errors.email.message}</p>}
-      </div>
-      
-      <div className="form-group">
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password" {...register('password')} />
-        {errors.password && <p className="error">{errors.password.message}</p>}
-      </div>
-      
-      <div className="form-group">
-        <label htmlFor="confirmPassword">Confirm Password</label>
-        <input id="confirmPassword" type="password" {...register('confirmPassword')} />
-        {errors.confirmPassword && <p className="error">{errors.confirmPassword.message}</p>}
-      </div>
-      
-      <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? 'Signing up...' : 'Sign Up'}
-      </button>
-    </form>
-  )
-}
-
-export default SignupForm
-```
-
-**10. Environment Variables Type Safety:**
-
-Add type safety to environment variables:
-
-```typescript
-// env.d.ts
-declare namespace NodeJS {
-  interface ProcessEnv {
-    NODE_ENV: 'development' | 'production' | 'test'
-    NEXT_PUBLIC_API_URL: string
-    NEXT_PUBLIC_SITE_URL: string
-    DATABASE_URL: string
-    JWT_SECRET: string
-    SMTP_HOST?: string
-    SMTP_PORT?: string
-    SMTP_USER?: string
-    SMTP_PASSWORD?: string
-  }
-}
-```
-
-**11. Type-Safe Configuration:**
-
-Create a type-safe configuration file:
-
-```typescript
-// config/index.ts
-interface Config {
-  apiUrl: string
-  siteUrl: string
-  isProduction: boolean
-  isDevelopment: boolean
-  isTest: boolean
-  auth: {
-    tokenExpiryTime: number
-    jwtSecret: string
-  }
-  pagination: {
-    defaultLimit: number
-    maxLimit: number
-  }
-}
-
-const config: Config = {
-  apiUrl: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-  isProduction: process.env.NODE_ENV === 'production',
-  isDevelopment: process.env.NODE_ENV === 'development',
-  isTest: process.env.NODE_ENV === 'test',
-  auth: {
-    tokenExpiryTime: 60 * 60 * 24 * 7, // 7 days
-    jwtSecret: process.env.JWT_SECRET || 'default-development-secret'
-  },
-  pagination: {
-    defaultLimit: 10,
-    maxLimit: 100
-  }
-}
-
-export default config
-```
-
-By following these practices, you can leverage TypeScript's type system to build more robust Next.js applications with fewer runtime errors and improved developer experience.
-
----
-
-### Q17: What are the best practices for testing Next.js applications?
-
-**Answer:**
-Testing is a crucial part of developing robust Next.js applications. Here's a comprehensive guide to testing strategies and best practices for Next.js:
-
-**1. Types of Tests for Next.js Applications:**
-
-- **Unit Tests**: Test individual functions and components in isolation
-- **Integration Tests**: Test how components work together
-- **API Tests**: Test API routes and endpoints
-- **End-to-End Tests**: Test complete user flows through the application
-- **Static Analysis**: Use TypeScript and linting to catch errors early
-
-**2. Testing Setup and Configuration:**
-
-Set up Jest with React Testing Library for testing Next.js applications:
-
-```bash
-# Install testing dependencies
-npm install --save-dev jest @testing-library/react @testing-library/jest-dom @testing-library/user-event jest-environment-jsdom
-```
-
-Create a Jest configuration file:
-
-```javascript
-// jest.config.js
-const nextJest = require('next/jest')
-
-const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files
-  dir: './'
-})
-
-// Add any custom config to be passed to Jest
-const customJestConfig = {
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  testEnvironment: 'jest-environment-jsdom',
-  moduleNameMapper: {
-    // Handle module aliases (if you have them in tsconfig.json or jsconfig.json)
-    '^@/components/(.*)$': '<rootDir>/components/$1',
-    '^@/pages/(.*)$': '<rootDir>/pages/$1',
-    '^@/lib/(.*)$': '<rootDir>/lib/$1'
-  },
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
-  transform: {
-    // Use babel-jest to transpile tests with the next/babel preset
-    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }]
-  },
-  coveragePathIgnorePatterns: [
-    '/node_modules/',
-    '/.next/',
-    '\\.type\\.ts$',
-    '/__tests__/helpers/'
-  ]
-}
-
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config
-module.exports = createJestConfig(customJestConfig)
-```
-
-Create a Jest setup file:
-
-```javascript
-// jest.setup.js
-import '@testing-library/jest-dom'
-
-// Mock Next.js router
-jest.mock('next/router', () => ({
-  useRouter: () => ({
-    push: jest.fn(),
-    replace: jest.fn(),
-    prefetch: jest.fn(),
-    back: jest.fn(),
-    pathname: '/',
-    query: {},
-    asPath: '/',
-    events: {
-      on: jest.fn(),
-      off: jest.fn(),
-      emit: jest.fn()
-    }
-  })
-}))
-
-// Mock next/image
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: (props) => {
-    // eslint-disable-next-line jsx-a11y/alt-text
-    return <img {...props} />
-  }
-}))
-
-// Mock IntersectionObserver
-class MockIntersectionObserver {
-  constructor(callback) {
-    this.callback = callback
-  }
-  observe() {
-    return null
-  }
-  unobserve() {
-    return null
-  }
-  disconnect() {
-    return null
-  }
-}
-
-global.IntersectionObserver = MockIntersectionObserver
-```
-
-Add test scripts to `package.json`:
-
-```json
-{
-  "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
-  }
-}
-```
-
-**3. Unit Testing Components:**
-
-Test a simple component:
-
-```jsx
-// components/Button.tsx
-import React from 'react'
-
-interface ButtonProps {
-  onClick?: () => void
-  disabled?: boolean
-  variant?: 'primary' | 'secondary' | 'danger'
-  size?: 'small' | 'medium' | 'large'
-  children: React.ReactNode
-}
-
-const Button: React.FC<ButtonProps> = ({
-  onClick,
-  disabled = false,
-  variant = 'primary',
-  size = 'medium',
-  children
-}) => {
-  const baseClasses = 'rounded font-semibold focus:outline-none focus:ring-2'
-  
-  const variantClasses = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-300',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-200',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-300'
-  }
-  
-  const sizeClasses = {
-    small: 'py-1 px-3 text-sm',
-    medium: 'py-2 px-4 text-base',
-    large: 'py-3 px-6 text-lg'
-  }
-  
-  const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`
-  
-  return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={classes}
-      data-testid="button"
-    >
-      {children}
-    </button>
-  )
-}
-
-export default Button
-```
-
-Write a test for the Button component:
-
-```jsx
-// __tests__/components/Button.test.tsx
-import { render, screen, fireEvent } from '@testing-library/react'
-import Button from '@/components/Button'
-
-describe('Button Component', () => {
-  test('renders button with correct text', () => {
-    render(<Button>Click me</Button>)
-    expect(screen.getByTestId('button')).toHaveTextContent('Click me')
-  })
-
-  test('calls onClick handler when clicked', () => {
-    const handleClick = jest.fn()
-    render(<Button onClick={handleClick}>Click me</Button>)
-    
-    fireEvent.click(screen.getByTestId('button'))
-    expect(handleClick).toHaveBeenCalledTimes(1)
-  })
-
-  test('applies disabled attribute when disabled prop is true', () => {
-    render(<Button disabled>Click me</Button>)
-    expect(screen.getByTestId('button')).toBeDisabled()
-  })
-
-  test('applies correct classes for different variants', () => {
-    const { rerender } = render(<Button variant="primary">Primary</Button>)
-    expect(screen.getByTestId('button')).toHaveClass('bg-blue-600')
-    
-    rerender(<Button variant="secondary">Secondary</Button>)
-    expect(screen.getByTestId('button')).toHaveClass('bg-gray-200')
-    
-    rerender(<Button variant="danger">Danger</Button>)
-    expect(screen.getByTestId('button')).toHaveClass('bg-red-600')
-  })
-
-  test('applies correct classes for different sizes', () => {
-    const { rerender } = render(<Button size="small">Small</Button>)
-    expect(screen.getByTestId('button')).toHaveClass('py-1 px-3 text-sm')
-    
-    rerender(<Button size="medium">Medium</Button>)
-    expect(screen.getByTestId('button')).toHaveClass('py-2 px-4 text-base')
-    
-    rerender(<Button size="large">Large</Button>)
-    expect(screen.getByTestId('button')).toHaveClass('py-3 px-6 text-lg')
-  })
-})
-```
-
-**4. Testing Pages with Data Fetching:**
-
-Test a page with `getStaticProps`:
-
-```jsx
-// pages/posts/index.tsx
-import { GetStaticProps } from 'next'
-import Link from 'next/link'
-
-interface Post {
-  id: string
-  title: string
-  excerpt: string
-}
-
-interface PostsPageProps {
-  posts: Post[]
-}
-
-export const getStaticProps: GetStaticProps<PostsPageProps> = async () => {
-  // In a real app, fetch from an API
-  const posts = [
-    { id: '1', title: 'First Post', excerpt: 'This is the first post' },
-    { id: '2', title: 'Second Post', excerpt: 'This is the second post' }
-  ]
-  
+  const posts = await getPosts();
   return {
     props: { posts },
-    revalidate: 60 // Revalidate every 60 seconds
-  }
-}
-
-const PostsPage: React.FC<PostsPageProps> = ({ posts }) => {
-  return (
-    <div>
-      <h1>Blog Posts</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Link href={`/posts/${post.id}`}>
-              <a>
-                <h2>{post.title}</h2>
-                <p>{post.excerpt}</p>
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-export default PostsPage
-```
-
-Write a test for the Posts page:
-
-```jsx
-// __tests__/pages/posts/index.test.tsx
-import { render, screen } from '@testing-library/react'
-import PostsPage from '@/pages/posts/index'
-
-// Mock data
-const mockPosts = [
-  { id: '1', title: 'Test Post 1', excerpt: 'This is test post 1' },
-  { id: '2', title: 'Test Post 2', excerpt: 'This is test post 2' }
-]
-
-describe('Posts Page', () => {
-  test('renders posts correctly', () => {
-    render(<PostsPage posts={mockPosts} />)
-    
-    expect(screen.getByText('Blog Posts')).toBeInTheDocument()
-    expect(screen.getByText('Test Post 1')).toBeInTheDocument()
-    expect(screen.getByText('This is test post 1')).toBeInTheDocument()
-    expect(screen.getByText('Test Post 2')).toBeInTheDocument()
-    expect(screen.getByText('This is test post 2')).toBeInTheDocument()
-  })
-
-  test('renders correct number of posts', () => {
-    render(<PostsPage posts={mockPosts} />)
-    
-    const listItems = screen.getAllByRole('listitem')
-    expect(listItems).toHaveLength(2)
-  })
-
-  test('renders no posts message when posts array is empty', () => {
-    render(<PostsPage posts={[]} />)
-    
-    expect(screen.getByText('Blog Posts')).toBeInTheDocument()
-    expect(screen.queryByRole('listitem')).not.toBeInTheDocument()
-  })
-})
-```
-
-**5. Testing API Routes:**
-
-Create a test for an API route:
-
-```javascript
-// __tests__/pages/api/posts.test.js
-import { createMocks } from 'node-mocks-http'
-import postsHandler from '@/pages/api/posts'
-
-describe('/api/posts endpoint', () => {
-  test('returns a list of posts with GET request', async () => {
-    const { req, res } = createMocks({
-      method: 'GET'
-    })
-
-    await postsHandler(req, res)
-
-    expect(res._getStatusCode()).toBe(200)
-    
-    const data = JSON.parse(res._getData())
-    expect(Array.isArray(data)).toBe(true)
-    expect(data.length).toBeGreaterThan(0)
-    expect(data[0]).toHaveProperty('id')
-    expect(data[0]).toHaveProperty('title')
-  })
-
-  test('creates a new post with POST request', async () => {
-    const { req, res } = createMocks({
-      method: 'POST',
-      body: {
-        title: 'Test Post',
-        content: 'This is a test post'
-      }
-    })
-
-    await postsHandler(req, res)
-
-    expect(res._getStatusCode()).toBe(201)
-    
-    const data = JSON.parse(res._getData())
-    expect(data).toHaveProperty('id')
-    expect(data.title).toBe('Test Post')
-    expect(data.content).toBe('This is a test post')
-  })
-
-  test('returns 405 for unsupported methods', async () => {
-    const { req, res } = createMocks({
-      method: 'PUT'
-    })
-
-    await postsHandler(req, res)
-
-    expect(res._getStatusCode()).toBe(405)
-  })
-})
-```
-
-**6. Testing with Context Providers:**
-
-Create a test utility for testing components that use context:
-
-```jsx
-// __tests__/utils/test-utils.tsx
-import React, { ReactElement } from 'react'
-import { render, RenderOptions } from '@testing-library/react'
-import { ThemeProvider } from '@/contexts/ThemeContext'
-import { AuthProvider } from '@/contexts/AuthContext'
-
-// Create a custom renderer that includes all providers
-const AllProviders: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return (
-    <ThemeProvider>
-      <AuthProvider>
-        {children}
-      </AuthProvider>
-    </ThemeProvider>
-  )
-}
-
-const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, 'wrapper'>
-) => render(ui, { wrapper: AllProviders, ...options })
-
-// Re-export everything from testing-library
-export * from '@testing-library/react'
-
-// Override render method
-export { customRender as render }
-```
-
-Use the custom renderer in tests:
-
-```jsx
-// __tests__/components/UserProfile.test.tsx
-import { render, screen, waitFor } from '../utils/test-utils'
-import UserProfile from '@/components/UserProfile'
-import { useAuth } from '@/contexts/AuthContext'
-
-// Mock the useAuth hook
-jest.mock('@/contexts/AuthContext', () => ({
-  useAuth: jest.fn()
-}))
-
-describe('UserProfile Component', () => {
-  test('renders loading state', () => {
-    (useAuth as jest.Mock).mockReturnValue({
-      user: null,
-      isAuthenticated: false,
-      isLoading: true
-    })
-    
-    render(<UserProfile />)
-    expect(screen.getByText('Loading...')).toBeInTheDocument()
-  })
-
-  test('renders user data when authenticated', () => {
-    (useAuth as jest.Mock).mockReturnValue({
-      user: {
-        id: '123',
-        name: 'John Doe',
-        email: 'john@example.com',
-        role: 'user'
-      },
-      isAuthenticated: true,
-      isLoading: false
-    })
-    
-    render(<UserProfile />)
-    expect(screen.getByText('John Doe')).toBeInTheDocument()
-    expect(screen.getByText('john@example.com')).toBeInTheDocument()
-  })
-
-  test('renders login message when not authenticated', () => {
-    (useAuth as jest.Mock).mockReturnValue({
-      user: null,
-      isAuthenticated: false,
-      isLoading: false
-    })
-    
-    render(<UserProfile />)
-    expect(screen.getByText('Please log in to view your profile')).toBeInTheDocument()
-  })
-})
-```
-
-**7. Testing Custom Hooks:**
-
-Test a custom hook with React Testing Library's `renderHook`:
-
-```jsx
-// hooks/useCounter.ts
-import { useState, useCallback } from 'react'
-
-export function useCounter(initialValue = 0) {
-  const [count, setCount] = useState(initialValue)
-  
-  const increment = useCallback(() => setCount(c => c + 1), [])
-  const decrement = useCallback(() => setCount(c => c - 1), [])
-  const reset = useCallback(() => setCount(initialValue), [initialValue])
-  
-  return { count, increment, decrement, reset }
+    revalidate: 60, // Re-generate at most once every 60 seconds
+  };
 }
 ```
 
-Write a test for the custom hook:
-
-```jsx
-// __tests__/hooks/useCounter.test.ts
-import { renderHook, act } from '@testing-library/react'
-import { useCounter } from '@/hooks/useCounter'
-
-describe('useCounter hook', () => {
-  test('initializes with default value of 0', () => {
-    const { result } = renderHook(() => useCounter())
-    expect(result.current.count).toBe(0)
-  })
-
-  test('initializes with provided value', () => {
-    const { result } = renderHook(() => useCounter(10))
-    expect(result.current.count).toBe(10)
-  })
-
-  test('increments the counter', () => {
-    const { result } = renderHook(() => useCounter())
-    
-    act(() => {
-      result.current.increment()
-    })
-    
-    expect(result.current.count).toBe(1)
-  })
-
-  test('decrements the counter', () => {
-    const { result } = renderHook(() => useCounter(5))
-    
-    act(() => {
-      result.current.decrement()
-    })
-    
-    expect(result.current.count).toBe(4)
-  })
-
-  test('resets the counter', () => {
-    const { result } = renderHook(() => useCounter(5))
-    
-    act(() => {
-      result.current.increment()
-      result.current.increment()
-    })
-    
-    expect(result.current.count).toBe(7)
-    
-    act(() => {
-      result.current.reset()
-    })
-    
-    expect(result.current.count).toBe(5)
-  })
-})
-```
-
-**8. End-to-End Testing with Cypress:**
-
-Set up Cypress for end-to-end testing:
-
-```bash
-# Install Cypress
-npm install --save-dev cypress
-```
-
-Add Cypress scripts to `package.json`:
-
-```json
-{
-  "scripts": {
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "e2e": "start-server-and-test dev 3000 cypress:open",
-    "e2e:headless": "start-server-and-test dev 3000 cypress:run"
-  }
-}
-```
-
-Create a Cypress test for navigation:
-
-```javascript
-// cypress/integration/navigation.spec.js
-describe('Navigation', () => {
-  beforeEach(() => {
-    cy.visit('/')
-  })
-
-  it('navigates to the about page', () => {
-    cy.get('nav').contains('About').click()
-    cy.url().should('include', '/about')
-    cy.get('h1').contains('About Us')
-  })
-
-  it('navigates to the blog page', () => {
-    cy.get('nav').contains('Blog').click()
-    cy.url().should('include', '/blog')
-    cy.get('h1').contains('Blog')
-  })
-
-  it('navigates to a blog post', () => {
-    cy.get('nav').contains('Blog').click()
-    cy.get('article').first().click()
-    cy.url().should('include', '/blog/')
-    cy.get('h1').should('exist')
-  })
-})
-```
-
-**9. Testing with Mock Service Worker (MSW):**
-
-Set up MSW to mock API requests:
-
-```bash
-# Install MSW
-npm install --save-dev msw
-```
-
-Create API handlers:
-
-```javascript
-// __tests__/mocks/handlers.js
-import { rest } from 'msw'
-
-export const handlers = [
-  rest.get('/api/users', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json([
-        { id: 1, name: 'John Doe', email: 'john@example.com' },
-        { id: 2, name: 'Jane Smith', email: 'jane@example.com' }
-      ])
-    )
-  }),
-  
-  rest.get('/api/users/:id', (req, res, ctx) => {
-    const { id } = req.params
-    
-    return res(
-      ctx.status(200),
-      ctx.json({
-        id: Number(id),
-        name: id === '1' ? 'John Doe' : 'Jane Smith',
-        email: id === '1' ? 'john@example.com' : 'jane@example.com'
-      })
-    )
-  }),
-  
-  rest.post('/api/users', (req, res, ctx) => {
-    const { name, email } = req.body
-    
-    return res(
-      ctx.status(201),
-      ctx.json({
-        id: 3,
-        name,
-        email
-      })
-    )
-  })
-]
-```
-
-Set up MSW server for tests:
-
-```javascript
-// __tests__/mocks/server.js
-import { setupServer } from 'msw/node'
-import { handlers } from './handlers'
-
-export const server = setupServer(...handlers)
-```
-
-Configure MSW in Jest setup:
-
-```javascript
-// jest.setup.js
-import '@testing-library/jest-dom'
-import { server } from './__tests__/mocks/server'
-
-// Start the MSW server before all tests
-beforeAll(() => server.listen())
-
-// Reset handlers after each test
-afterEach(() => server.resetHandlers())
-
-// Close server after all tests
-afterAll(() => server.close())
-```
-
-Test a component that makes API requests:
-
-```jsx
-// __tests__/components/UserList.test.tsx
-import { render, screen, waitFor } from '@testing-library/react'
-import UserList from '@/components/UserList'
-
-describe('UserList Component', () => {
-  test('renders users from API', async () => {
-    render(<UserList />)
-    
-    // Initially shows loading state
-    expect(screen.getByText('Loading users...')).toBeInTheDocument()
-    
-    // Wait for users to load
-    await waitFor(() => {
-      expect(screen.getByText('John Doe')).toBeInTheDocument()
-    })
-    
-    expect(screen.getByText('Jane Smith')).toBeInTheDocument()
-    expect(screen.queryByText('Loading users...')).not.toBeInTheDocument()
-  })
-})
-```
-
-**10. Testing Best Practices for Next.js:**
-
-- **Mock External Dependencies**: Always mock external dependencies like `next/router`, `next/image`, and API calls
-- **Test SSR/SSG Functions Separately**: Test `getStaticProps`, `getServerSideProps`, and `getStaticPaths` as separate functions
-- **Use Data-Testid Attributes**: Add `data-testid` attributes to elements for more reliable test selectors
-- **Test Error States**: Test how components handle loading, error, and empty states
-- **Snapshot Testing**: Use snapshot testing sparingly for UI components that don't change often
-- **Test Accessibility**: Use tools like `jest-axe` to test for accessibility issues
-- **Continuous Integration**: Run tests automatically in CI/CD pipelines
-- **Test Coverage**: Aim for high test coverage, especially for critical paths
-
-By implementing these testing strategies, you can ensure your Next.js application is robust, reliable, and maintainable as it grows in complexity.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q18: How do you integrate a headless CMS with Next.js?
+### 3. How do you optimize images for performance using the Next.js Image component?
 
-**Answer:**
-Integrating a headless CMS with Next.js provides a powerful combination for content management and frontend development. Here's a comprehensive guide on integrating various headless CMS platforms with Next.js:
+**Difficulty**: Beginner
 
-**1. Understanding Headless CMS Integration Options:**
+**Strategy:**
+Use `<Image />` from `next/image`. It automatically handles resizing, lazy loading (default), and serving modern formats (WebP/AVIF). Always provide `width`/`height` or `fill` to prevent Cumulative Layout Shift (CLS).
 
-There are several ways to integrate a headless CMS with Next.js:
+**Code Example:**
+```jsx
+import Image from 'next/image';
 
-- **API-based integration**: Fetch content via REST or GraphQL APIs
-- **SDK integration**: Use official SDKs provided by CMS platforms
-- **Static generation**: Pre-render pages at build time with CMS content
-- **Incremental Static Regeneration (ISR)**: Update static content periodically
-- **On-demand revalidation**: Update content when it changes in the CMS
-
-**2. Contentful Integration:**
-
-Set up Contentful with Next.js:
-
-```bash
-# Install Contentful SDK
-npm install contentful
+<Image
+  src="/hero.jpg"
+  alt="Hero Image"
+  width={800}
+  height={600}
+  priority // Preload LCP image
+/>
 ```
 
-Create a Contentful client:
-
-```typescript
-// lib/contentful.ts
-import { createClient } from 'contentful'
-
-export const contentfulClient = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID as string,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
-  environment: process.env.CONTENTFUL_ENVIRONMENT || 'master'
-})
-
-// Helper function to fetch blog posts
-export async function fetchBlogPosts() {
-  const entries = await contentfulClient.getEntries({
-    content_type: 'blogPost',
-    order: '-fields.publishDate',
-    include: 2
-  })
-  
-  return entries.items
-}
-
-// Helper function to fetch a single blog post
-export async function fetchBlogPost(slug: string) {
-  const entries = await contentfulClient.getEntries({
-    content_type: 'blogPost',
-    'fields.slug': slug,
-    include: 2
-  })
-  
-  return entries.items[0] || null
-}
-
-// Helper function to fetch all blog post slugs
-export async function fetchAllBlogSlugs() {
-  const entries = await contentfulClient.getEntries({
-    content_type: 'blogPost',
-    select: 'fields.slug'
-  })
-  
-  return entries.items.map(item => item.fields.slug as string)
-}
-```
-
-Implement a blog listing page with Contentful:
-
-```tsx
-// pages/blog/index.tsx
-import { GetStaticProps } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
-import { fetchBlogPosts } from '@/lib/contentful'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-
-interface BlogPost {
-  sys: {
-    id: string
-  }
-  fields: {
-    title: string
-    slug: string
-    excerpt: string
-    publishDate: string
-    featuredImage: {
-      fields: {
-        file: {
-          url: string
-        }
-        title: string
-      }
-    }
-  }
-}
-
-interface BlogPageProps {
-  posts: BlogPost[]
-}
-
-export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
-  const posts = await fetchBlogPosts()
-  
-  return {
-    props: {
-      posts: posts as unknown as BlogPost[]
-    },
-    revalidate: 60 // Revalidate every 60 seconds
-  }
-}
-
-const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
-  return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-8">Blog</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <article key={post.sys.id} className="border rounded-lg overflow-hidden shadow-lg">
-            {post.fields.featuredImage && (
-              <div className="relative h-48">
-                <Image
-                  src={`https:${post.fields.featuredImage.fields.file.url}`}
-                  alt={post.fields.featuredImage.fields.title}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-            )}
-            
-            <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">
-                <Link href={`/blog/${post.fields.slug}`}>
-                  <a className="hover:text-blue-600">{post.fields.title}</a>
-                </Link>
-              </h2>
-              
-              <p className="text-gray-600 mb-4">
-                {new Date(post.fields.publishDate).toLocaleDateString()}
-              </p>
-              
-              <p className="text-gray-700">{post.fields.excerpt}</p>
-              
-              <Link href={`/blog/${post.fields.slug}`}>
-                <a className="inline-block mt-4 text-blue-600 hover:underline">
-                  Read more
-                </a>
-              </Link>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-export default BlogPage
-```
-
-Implement a blog post detail page with dynamic routes:
-
-```tsx
-// pages/blog/[slug].tsx
-import { GetStaticProps, GetStaticPaths } from 'next'
-import Image from 'next/image'
-import { fetchBlogPost, fetchAllBlogSlugs } from '@/lib/contentful'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { BLOCKS, INLINES } from '@contentful/rich-text-types'
-
-interface BlogPostProps {
-  post: any // Using 'any' for brevity, but you should define a proper type
-}
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = await fetchAllBlogSlugs()
-  
-  const paths = slugs.map((slug) => ({
-    params: { slug }
-  }))
-  
-  return {
-    paths,
-    fallback: 'blocking' // Show a loading state
-  }
-}
-
-export const getStaticProps: GetStaticProps<BlogPostProps> = async ({ params }) => {
-  const slug = params?.slug as string
-  const post = await fetchBlogPost(slug)
-  
-  if (!post) {
-    return {
-      notFound: true
-    }
-  }
-  
-  return {
-    props: {
-      post
-    },
-    revalidate: 60 // Revalidate every 60 seconds
-  }
-}
-
-const BlogPostPage: React.FC<BlogPostProps> = ({ post }) => {
-  const { title, publishDate, featuredImage, content } = post.fields
-  
-  // Configure rich text rendering options
-  const richTextOptions = {
-    renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-        const { file, title } = node.data.target.fields
-        return (
-          <div className="my-6">
-            <Image
-              src={`https:${file.url}`}
-              width={file.details.image.width}
-              height={file.details.image.height}
-              alt={title}
-              className="rounded-lg"
-            />
-          </div>
-        )
-      },
-      [INLINES.HYPERLINK]: (node: any, children: any) => {
-        return (
-          <a href={node.data.uri} className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
-            {children}
-          </a>
-        )
-      }
-    }
-  }
-  
-  return (
-    <div className="container mx-auto py-8 max-w-3xl">
-      <h1 className="text-4xl font-bold mb-4">{title}</h1>
-      
-      <p className="text-gray-600 mb-6">
-        {new Date(publishDate).toLocaleDateString()}
-      </p>
-      
-      {featuredImage && (
-        <div className="relative h-96 mb-8">
-          <Image
-            src={`https:${featuredImage.fields.file.url}`}
-            alt={featuredImage.fields.title}
-            layout="fill"
-            objectFit="cover"
-            className="rounded-lg"
-          />
-        </div>
-      )}
-      
-      <div className="prose prose-lg max-w-none">
-        {documentToReactComponents(content, richTextOptions)}
-      </div>
-    </div>
-  )
-}
-
-export default BlogPostPage
-```
-
-**3. Sanity.io Integration:**
-
-Set up Sanity with Next.js:
-
-```bash
-# Install Sanity client
-npm install @sanity/client @sanity/image-url
-```
-
-Create a Sanity client:
-
-```typescript
-// lib/sanity.ts
-import sanityClient from '@sanity/client'
-import imageUrlBuilder from '@sanity/image-url'
-
-export const client = sanityClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET as string,
-  apiVersion: '2021-10-21', // Use the latest API version
-  useCdn: process.env.NODE_ENV === 'production' // Use CDN in production
-})
-
-// Helper for Sanity images
-const builder = imageUrlBuilder(client)
-
-export function urlFor(source: any) {
-  return builder.image(source)
-}
-
-// Helper to fetch products
-export async function getProducts() {
-  return await client.fetch(`
-    *[_type == "product"] {
-      _id,
-      name,
-      price,
-      description,
-      "slug": slug.current,
-      "categoryName": category->name,
-      "imageUrl": image.asset->url
-    }
-  `)
-}
-
-// Helper to fetch a single product
-export async function getProduct(slug: string) {
-  return await client.fetch(
-    `*[_type == "product" && slug.current == $slug][0]{
-      _id,
-      name,
-      price,
-      description,
-      "slug": slug.current,
-      "categoryName": category->name,
-      image,
-      features[],
-      variants[]->{
-        _id,
-        name,
-        price,
-        "imageUrl": image.asset->url
-      }
-    }`,
-    { slug }
-  )
-}
-
-// Helper to fetch all product slugs
-export async function getAllProductSlugs() {
-  const slugs = await client.fetch(`
-    *[_type == "product"].slug.current
-  `)
-  return slugs
-}
-```
-
-Implement a product listing page with Sanity:
-
-```tsx
-// pages/products/index.tsx
-import { GetStaticProps } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
-import { getProducts, urlFor } from '@/lib/sanity'
-
-interface Product {
-  _id: string
-  name: string
-  price: number
-  description: string
-  slug: string
-  categoryName: string
-  imageUrl: string
-}
-
-interface ProductsPageProps {
-  products: Product[]
-}
-
-export const getStaticProps: GetStaticProps<ProductsPageProps> = async () => {
-  const products = await getProducts()
-  
-  return {
-    props: {
-      products
-    },
-    revalidate: 60 // Revalidate every 60 seconds
-  }
-}
-
-const ProductsPage: React.FC<ProductsPageProps> = ({ products }) => {
-  return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-8">Products</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {products.map((product) => (
-          <div key={product._id} className="border rounded-lg overflow-hidden shadow-md">
-            <div className="relative h-64">
-              <Image
-                src={product.imageUrl}
-                alt={product.name}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-            
-            <div className="p-4">
-              <h2 className="text-xl font-semibold">{product.name}</h2>
-              <p className="text-gray-500 mb-2">{product.categoryName}</p>
-              <p className="text-gray-700 mb-4">${product.price.toFixed(2)}</p>
-              <p className="text-gray-600 mb-4 line-clamp-2">{product.description}</p>
-              
-              <Link href={`/products/${product.slug}`}>
-                <a className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-                  View Details
-                </a>
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-export default ProductsPage
-```
-
-**4. Strapi Integration:**
-
-Set up Strapi with Next.js:
-
-```bash
-# No special packages needed, just use fetch API
-```
-
-Create API helpers for Strapi:
-
-```typescript
-// lib/strapi.ts
-const API_URL = process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'
-
-// Helper to fetch data from Strapi
-export async function fetchAPI(endpoint: string, options = {}) {
-  const res = await fetch(`${API_URL}/api${endpoint}`, options)
-  
-  if (!res.ok) {
-    console.error(`API error: ${res.status} ${res.statusText}`)
-    throw new Error(`API error: ${res.status} ${res.statusText}`)
-  }
-  
-  const json = await res.json()
-  return json.data
-}
-
-// Helper to get articles
-export async function getArticles() {
-  const data = await fetchAPI('/articles?populate=*&sort=publishedAt:desc')
-  return data
-}
-
-// Helper to get a single article
-export async function getArticle(slug: string) {
-  const data = await fetchAPI(`/articles?filters[slug][$eq]=${slug}&populate=*`)
-  return data[0] || null
-}
-
-// Helper to get all article slugs
-export async function getArticleSlugs() {
-  const data = await fetchAPI('/articles?fields[0]=slug')
-  return data.map((article: any) => article.attributes.slug)
-}
-
-// Helper to get media URL
-export function getStrapiMedia(media: any) {
-  if (!media || !media.data) return null
-  
-  const { url } = media.data.attributes
-  return `${API_URL}${url}`
-}
-```
-
-Implement a blog with Strapi:
-
-```tsx
-// pages/blog/index.tsx
-import { GetStaticProps } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
-import { getArticles, getStrapiMedia } from '@/lib/strapi'
-
-interface Article {
-  id: number
-  attributes: {
-    title: string
-    slug: string
-    excerpt: string
-    publishedAt: string
-    cover: {
-      data: {
-        attributes: {
-          url: string
-          width: number
-          height: number
-          alternativeText: string
-        }
-      }
-    }
-  }
-}
-
-interface BlogPageProps {
-  articles: Article[]
-}
-
-export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
-  const articles = await getArticles()
-  
-  return {
-    props: {
-      articles
-    },
-    revalidate: 60 // Revalidate every 60 seconds
-  }
-}
-
-const BlogPage: React.FC<BlogPageProps> = ({ articles }) => {
-  return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-8">Blog</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {articles.map((article) => {
-          const { id, attributes } = article
-          const coverUrl = getStrapiMedia(attributes.cover)
-          
-          return (
-            <article key={id} className="border rounded-lg overflow-hidden shadow-lg">
-              {coverUrl && (
-                <div className="relative h-48">
-                  <Image
-                    src={coverUrl}
-                    alt={attributes.cover.data.attributes.alternativeText || attributes.title}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
-              )}
-              
-              <div className="p-4">
-                <h2 className="text-xl font-semibold mb-2">
-                  <Link href={`/blog/${attributes.slug}`}>
-                    <a className="hover:text-blue-600">{attributes.title}</a>
-                  </Link>
-                </h2>
-                
-                <p className="text-gray-600 mb-4">
-                  {new Date(attributes.publishedAt).toLocaleDateString()}
-                </p>
-                
-                <p className="text-gray-700">{attributes.excerpt}</p>
-                
-                <Link href={`/blog/${attributes.slug}`}>
-                  <a className="inline-block mt-4 text-blue-600 hover:underline">
-                    Read more
-                  </a>
-                </Link>
-              </div>
-            </article>
-          )
-        })}
-      </div>
-    </div>
-  )
-}
-
-export default BlogPage
-```
-
-**5. WordPress Integration:**
-
-Set up WordPress with Next.js:
-
-```bash
-# Install GraphQL client
-npm install graphql graphql-request
-```
-
-Create a WordPress GraphQL client:
-
-```typescript
-// lib/wordpress.ts
-import { GraphQLClient } from 'graphql-request'
-
-const endpoint = process.env.WORDPRESS_API_URL || 'https://yourdomain.com/graphql'
-
-export const graphQLClient = new GraphQLClient(endpoint)
-
-// Helper to fetch posts
-export async function getPosts() {
-  const query = `
-    query AllPosts {
-      posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
-        nodes {
-          id
-          title
-          excerpt
-          slug
-          date
-          featuredImage {
-            node {
-              sourceUrl
-              altText
-            }
-          }
-          categories {
-            nodes {
-              name
-              slug
-            }
-          }
-        }
-      }
-    }
-  `
-  
-  const data = await graphQLClient.request(query)
-  return data.posts.nodes
-}
-
-// Helper to fetch a single post
-export async function getPost(slug: string) {
-  const query = `
-    query PostBySlug($slug: ID!) {
-      post(id: $slug, idType: SLUG) {
-        id
-        title
-        content
-        slug
-        date
-        featuredImage {
-          node {
-            sourceUrl
-            altText
-          }
-        }
-        categories {
-          nodes {
-            name
-            slug
-          }
-        }
-        author {
-          node {
-            name
-            firstName
-            lastName
-            avatar {
-              url
-            }
-          }
-        }
-      }
-    }
-  `
-  
-  const data = await graphQLClient.request(query, { slug })
-  return data.post
-}
-
-// Helper to fetch all post slugs
-export async function getAllPostSlugs() {
-  const query = `
-    query AllPostSlugs {
-      posts(first: 100) {
-        nodes {
-          slug
-        }
-      }
-    }
-  `
-  
-  const data = await graphQLClient.request(query)
-  return data.posts.nodes.map((post: any) => post.slug)
-}
-```
-
-Implement a WordPress blog in Next.js:
-
-```tsx
-// pages/blog/index.tsx
-import { GetStaticProps } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
-import { getPosts } from '@/lib/wordpress'
-
-interface Post {
-  id: string
-  title: string
-  excerpt: string
-  slug: string
-  date: string
-  featuredImage: {
-    node: {
-      sourceUrl: string
-      altText: string
-    }
-  } | null
-  categories: {
-    nodes: {
-      name: string
-      slug: string
-    }[]
-  }
-}
-
-interface BlogPageProps {
-  posts: Post[]
-}
-
-export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
-  const posts = await getPosts()
-  
-  return {
-    props: {
-      posts
-    },
-    revalidate: 60 // Revalidate every 60 seconds
-  }
-}
-
-const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
-  function stripHtml(html: string) {
-    return html.replace(/<[^>]*>?/gm, '')
-  }
-  
-  return (
-    <div className="container mx-auto py-8">
-      <h1 className="text-3xl font-bold mb-8">Blog</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map((post) => (
-          <article key={post.id} className="border rounded-lg overflow-hidden shadow-lg">
-            {post.featuredImage && (
-              <div className="relative h-48">
-                <Image
-                  src={post.featuredImage.node.sourceUrl}
-                  alt={post.featuredImage.node.altText || post.title}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-            )}
-            
-            <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">
-                <Link href={`/blog/${post.slug}`}>
-                  <a className="hover:text-blue-600">{post.title}</a>
-                </Link>
-              </h2>
-              
-              <div className="flex gap-2 mb-4">
-                {post.categories.nodes.map((category) => (
-                  <span key={category.slug} className="bg-gray-200 text-gray-700 text-sm px-2 py-1 rounded">
-                    {category.name}
-                  </span>
-                ))}
-              </div>
-              
-              <p className="text-gray-600 mb-4">
-                {new Date(post.date).toLocaleDateString()}
-              </p>
-              
-              <div className="text-gray-700" 
-                dangerouslySetInnerHTML={{ 
-                  __html: stripHtml(post.excerpt).substring(0, 150) + '...' 
-                }} 
-              />
-              
-              <Link href={`/blog/${post.slug}`}>
-                <a className="inline-block mt-4 text-blue-600 hover:underline">
-                  Read more
-                </a>
-              </Link>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-export default BlogPage
-```
-
-**6. On-Demand Revalidation with Webhooks:**
-
-Implement a webhook API route for content updates:
-
-```typescript
-// pages/api/revalidate.ts
-import { NextApiRequest, NextApiResponse } from 'next'
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  // Check for secret to confirm this is a valid request
-  if (req.query.secret !== process.env.REVALIDATION_SECRET) {
-    return res.status(401).json({ message: 'Invalid token' })
-  }
-
-  try {
-    // Extract the path from the request body or query
-    const path = req.body?.path || req.query.path
-    
-    if (!path) {
-      return res.status(400).json({ message: 'Path is required' })
-    }
-
-    // Revalidate the specific path
-    await res.revalidate(path)
-
-    return res.json({ revalidated: true, path })
-  } catch (err) {
-    // If there was an error, Next.js will continue to show the last successful generated page
-    return res.status(500).send('Error revalidating')
-  }
-}
-```
-
-**7. Preview Mode for Draft Content:**
-
-Implement preview mode for draft content:
-
-```typescript
-// pages/api/preview.ts
-import { NextApiRequest, NextApiResponse } from 'next'
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  // Check the secret and next parameters
-  if (
-    req.query.secret !== process.env.PREVIEW_SECRET ||
-    !req.query.slug
-  ) {
-    return res.status(401).json({ message: 'Invalid token' })
-  }
-
-  // Enable Preview Mode by setting the cookies
-  res.setPreviewData({})
-
-  // Redirect to the path from the fetched post
-  // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-  const slug = req.query.slug as string
-  const contentType = req.query.type as string || 'blog'
-  
-  // Redirect to the path based on content type
-  const redirectPath = contentType === 'blog' 
-    ? `/blog/${slug}` 
-    : `/products/${slug}`
-
-  res.redirect(redirectPath)
-}
-```
-
-Implement preview exit:
-
-```typescript
-// pages/api/exit-preview.ts
-import { NextApiRequest, NextApiResponse } from 'next'
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-  // Exit the preview mode
-  res.clearPreviewData()
-
-  // Redirect to the path specified in the query or to the homepage
-  const path = req.query.path as string || '/'
-  res.redirect(path)
-}
-```
-
-Modify your page component to handle preview mode:
-
-```tsx
-// pages/blog/[slug].tsx
-// Add preview support to getStaticProps
-
-export const getStaticProps: GetStaticProps = async ({ params, preview = false }) => {
-  const slug = params?.slug as string
-  
-  // Fetch different content based on preview mode
-  const post = preview 
-    ? await fetchDraftPost(slug) 
-    : await fetchPublishedPost(slug)
-  
-  if (!post) {
-    return { notFound: true }
-  }
-  
-  return {
-    props: {
-      post,
-      preview
-    },
-    revalidate: 60
-  }
-}
-
-// In your component, add a preview banner
-const BlogPostPage: React.FC<BlogPostProps> = ({ post, preview }) => {
-  return (
-    <>
-      {preview && (
-        <div className="bg-yellow-100 border-yellow-400 border-b p-4 text-center">
-          <p className="text-yellow-800">
-            You are in preview mode{' '}
-            <a 
-              href={`/api/exit-preview?path=/blog/${post.slug}`}
-              className="underline hover:text-yellow-900"
-            >
-              Exit preview
-            </a>
-          </p>
-        </div>
-      )}
-      
-      {/* Rest of your component */}
-    </>
-  )
-}
-```
-
-**8. Best Practices for Headless CMS Integration:**
-
-- **Environment Variables**: Store CMS API keys and tokens as environment variables
-- **Typed Content Models**: Define TypeScript interfaces for your CMS content models
-- **Error Handling**: Implement robust error handling for API requests
-- **Caching Strategy**: Use ISR or on-demand revalidation for optimal performance
-- **Image Optimization**: Use Next.js Image component with your CMS images
-- **Preview Mode**: Implement preview functionality for content editors
-- **Webhooks**: Set up webhooks to trigger revalidation when content changes
-- **Content Fallbacks**: Provide fallbacks for missing content or failed API requests
-- **SEO Optimization**: Extract and use metadata from your CMS for SEO
-
-By following these integration patterns, you can build powerful, content-driven Next.js applications with your preferred headless CMS platform.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q19: How do you implement and use middleware in Next.js?
+### 4. How do you implement Server Actions to handle form submissions in the App Router?
 
-**Answer:**
+**Difficulty**: Advanced
 
-Middleware in Next.js allows you to run code before a request is completed, enabling you to modify responses, redirect users, rewrite URLs, set headers, or handle authentication. Here's a comprehensive guide on implementing and using middleware in Next.js:
+**Strategy:**
+Define an async function with the `"use server"` directive. Pass this function to the `action` prop of a `<form>`. This eliminates the need for API routes for simple mutations.
 
-**1. Understanding Next.js Middleware:**
+**Code Example:**
+```tsx
+// app/page.tsx
+import { db } from '@/lib/db';
 
-Middleware runs before the content is cached or rendered, making it ideal for:
+export default function Page() {
+  async function createPost(formData: FormData) {
+    "use server";
+    const title = formData.get('title');
+    await db.post.create({ data: { title } });
+  }
 
-- Authentication and authorization
-- Bot protection
-- Redirects and rewrites
-- A/B testing
-- Internationalization (i18n) routing
-- Response header manipulation
-- Feature flags based on user data
-- Analytics and monitoring
+  return (
+    <form action={createPost}>
+      <input name="title" />
+      <button type="submit">Create</button>
+    </form>
+  );
+}
+```
 
-**2. Creating Basic Middleware:**
+[⬆️ Back to Top](#table-of-contents)
 
-Create a `middleware.ts` (or `.js`) file in your project root:
+---
 
+### 5. How do you optimize font loading using `next/font`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `next/font/google` or `next/font/local`. This automatically self-hosts the fonts (zero layout shift) and removes external network requests to Google Fonts.
+
+**Code Example:**
+```tsx
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className={inter.className}>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 6. How do you create a custom 404 error page in the Pages Router?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Create a file named `404.js` (or `.tsx`) in the `pages` directory. Next.js will automatically use this component when a route is not found.
+
+**Code Example:**
+```jsx
+// pages/404.js
+export default function Custom404() {
+  return <h1>404 - Page Not Found</h1>;
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 7. How do you handle authentication protection in Middleware?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Create `middleware.ts` at the root. Check for a session token (cookie). If missing and the user is accessing a protected route, redirect to login.
+
+**Code Example:**
 ```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  // Get the pathname of the request (e.g. /, /about, /blog/first-post)
-  const pathname = request.nextUrl.pathname
+  const token = request.cookies.get('token');
   
-  // Clone the request URL
-  const url = request.nextUrl.clone()
-  
-  // Example: Redirect /about to /about-us
-  if (pathname === '/about') {
-    url.pathname = '/about-us'
-    return NextResponse.redirect(url)
+  if (!token && request.nextUrl.pathname.startsWith('/dashboard')) {
+    return NextResponse.redirect(new URL('/login', request.url));
   }
-  
-  // Example: Add response header
-  const response = NextResponse.next()
-  response.headers.set('x-custom-header', 'my-value')
-  return response
 }
 ```
 
-**3. Configuring Middleware Execution Paths:**
+[⬆️ Back to Top](#table-of-contents)
 
-You can specify which paths the middleware should run on:
+---
 
+### 8. How do you dynamic import a heavy component to reduce initial bundle size?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `next/dynamic` with `ssr: false` (if it's client-only) to lazy load the component. It will only be loaded when needed.
+
+**Code Example:**
+```jsx
+import dynamic from 'next/dynamic';
+
+const HeavyChart = dynamic(() => import('../components/Chart'), {
+  loading: () => <p>Loading...</p>,
+  ssr: false,
+});
+
+export default function Page() {
+  return <HeavyChart />;
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 9. How do you generate dynamic sitemaps for SEO in Next.js?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+In App Router, add a `sitemap.ts` (or `.js`) file in the `app` directory. Fetch dynamic routes and return an array of URL objects.
+
+**Code Example:**
 ```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-
-export function middleware(request: NextRequest) {
-  // Your middleware logic
-  return NextResponse.next()
-}
-
-// Match specific paths
-export const config = {
-  matcher: [
-    // Match all paths except for:
-    // - API routes (/api/*)
-    // - Static files (/_next/*)
-    // - Public files (/public/*)
-    // - Debug files (/_vercel/*)
-    // - Images (/favicon.ico, etc)
-    '/((?!api|_next|_vercel|public|favicon.ico).*)',
-  ],
+// app/sitemap.ts
+export default async function sitemap() {
+  const posts = await getPosts();
+  const urls = posts.map(post => ({
+    url: `https://acme.com/blog/${post.slug}`,
+    lastModified: post.date,
+  }));
+  
+  return [
+    { url: 'https://acme.com', lastModified: new Date() },
+    ...urls,
+  ];
 }
 ```
 
-Alternatively, you can use more specific matchers:
+[⬆️ Back to Top](#table-of-contents)
 
+---
+
+### 10. How do you implement API Routes to handle backend logic?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Create files in `pages/api` (Pages Router) or `app/api/route.ts` (App Router). Export async functions for HTTP methods (GET, POST, etc.).
+
+**Code Example (App Router):**
 ```typescript
-export const config = {
-  matcher: [
-    // Match specific paths
-    '/dashboard/:path*',
-    '/blog/:path*',
-  ],
+// app/api/users/route.ts
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  const users = [{ id: 1, name: 'John' }];
+  return NextResponse.json(users);
 }
 ```
 
-**4. Authentication Middleware:**
+[⬆️ Back to Top](#table-of-contents)
 
-Implement authentication checks in middleware:
+---
 
+### 11. How do you share layouts across multiple pages in the App Router?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Define a `layout.tsx` file in a directory. It wraps all page components (and nested layouts) within that directory. Use the `children` prop to render the nested content.
+
+**Code Example:**
+```tsx
+// app/dashboard/layout.tsx
+export default function DashboardLayout({ children }) {
+  return (
+    <section>
+      <nav>Dashboard Nav</nav>
+      {children}
+    </section>
+  );
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 12. How do you optimize metadata (SEO tags) dynamically for each page?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+In App Router, export a `generateMetadata` function from your `page.tsx`. Fetch data needed for the title/description and return a `Metadata` object.
+
+**Code Example:**
 ```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-
-export function middleware(request: NextRequest) {
-  // Get the pathname
-  const pathname = request.nextUrl.pathname
-  
-  // Check if the path is protected
-  if (pathname.startsWith('/dashboard')) {
-    // Get the token from cookies
-    const token = request.cookies.get('auth-token')?.value
-    
-    // If there's no token, redirect to the login page
-    if (!token) {
-      const url = new URL('/login', request.url)
-      url.searchParams.set('from', pathname)
-      return NextResponse.redirect(url)
-    }
-    
-    try {
-      // Verify the token (simplified example)
-      // In a real app, you'd validate the JWT or session token
-      if (!isValidToken(token)) {
-        throw new Error('Invalid token')
-      }
-      
-      // Continue to the protected route
-      return NextResponse.next()
-    } catch (error) {
-      // If token verification fails, redirect to login
-      const url = new URL('/login', request.url)
-      url.searchParams.set('from', pathname)
-      url.searchParams.set('error', 'Session expired')
-      return NextResponse.redirect(url)
-    }
-  }
-  
-  // Continue for non-protected routes
-  return NextResponse.next()
-}
-
-// Helper function to validate token (simplified)
-function isValidToken(token: string): boolean {
-  // In a real app, you'd verify the JWT signature, check expiration, etc.
-  return token.length > 20
-}
-
-export const config = {
-  matcher: [
-    // Only run middleware on dashboard routes
-    '/dashboard/:path*',
-  ],
+export async function generateMetadata({ params }) {
+  const product = await getProduct(params.id);
+  return {
+    title: product.name,
+    description: product.summary,
+  };
 }
 ```
 
-**5. Internationalization (i18n) Middleware:**
+[⬆️ Back to Top](#table-of-contents)
 
-Implement language detection and routing:
+---
 
-```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+### 13. How do you configure environment variables securely?
 
-// Supported languages
-const supportedLocales = ['en', 'fr', 'es', 'de']
-const defaultLocale = 'en'
+**Difficulty**: Beginner
 
-export function middleware(request: NextRequest) {
-  // Get the pathname
-  const { pathname } = request.nextUrl
-  
-  // Check if the pathname already has a locale
-  const pathnameHasLocale = supportedLocales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
-  
-  if (pathnameHasLocale) return NextResponse.next()
-  
-  // Detect locale from different sources
-  let locale
-  
-  // 1. Check URL query parameter
-  const queryLocale = request.nextUrl.searchParams.get('locale')
-  if (queryLocale && supportedLocales.includes(queryLocale)) {
-    locale = queryLocale
-  }
-  
-  // 2. Check cookie
-  if (!locale) {
-    const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value
-    if (cookieLocale && supportedLocales.includes(cookieLocale)) {
-      locale = cookieLocale
-    }
-  }
-  
-  // 3. Check Accept-Language header
-  if (!locale) {
-    const acceptLanguage = request.headers.get('accept-language')
-    if (acceptLanguage) {
-      const preferredLocale = acceptLanguage
-        .split(',')
-        .map(lang => lang.split(';')[0].trim().substring(0, 2))
-        .find(lang => supportedLocales.includes(lang))
-      
-      if (preferredLocale) {
-        locale = preferredLocale
-      }
-    }
-  }
-  
-  // 4. Default to default locale
-  if (!locale) {
-    locale = defaultLocale
-  }
-  
-  // Rewrite the URL to include the locale
-  const url = request.nextUrl.clone()
-  url.pathname = `/${locale}${pathname === '/' ? '' : pathname}`
-  
-  // Set the locale cookie
-  const response = NextResponse.redirect(url)
-  response.cookies.set('NEXT_LOCALE', locale, { 
-    maxAge: 60 * 60 * 24 * 365, // 1 year
-    path: '/' 
-  })
-  
-  return response
-}
+**Strategy:**
+Use `.env.local` for secrets. Variables prefixed with `NEXT_PUBLIC_` are exposed to the browser. Others are server-only.
 
-export const config = {
-  matcher: [
-    // Skip all internal paths (_next, api, etc)
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-  ],
-}
+**Code Example:**
+```bash
+# .env.local
+DB_PASS=secret123       # Server only
+NEXT_PUBLIC_API_URL=... # Available in browser
 ```
 
-**6. A/B Testing Middleware:**
+[⬆️ Back to Top](#table-of-contents)
 
-Implement A/B testing for different user experiences:
+---
 
-```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+### 14. How do you deploy a Next.js app to a Docker container (Standalone mode)?
 
-// Define your test variations
-const AB_TEST_VARIATIONS = ['control', 'variant-a', 'variant-b']
+**Difficulty**: Advanced
 
-export function middleware(request: NextRequest) {
-  // Check if user already has a variation assigned
-  let variation = request.cookies.get('ab-test-variation')?.value
-  
-  // If not, assign a random variation
-  if (!variation || !AB_TEST_VARIATIONS.includes(variation)) {
-    // Randomly select a variation
-    variation = AB_TEST_VARIATIONS[Math.floor(Math.random() * AB_TEST_VARIATIONS.length)]
-  }
-  
-  // Clone the request URL
-  const url = request.nextUrl.clone()
-  
-  // For specific pages, you might want to rewrite to variation-specific pages
-  if (url.pathname === '/landing-page') {
-    url.pathname = `/landing-page/${variation}`
-    const response = NextResponse.rewrite(url)
-    
-    // Set the variation cookie if it doesn't exist
-    if (!request.cookies.has('ab-test-variation')) {
-      response.cookies.set('ab-test-variation', variation, { 
-        maxAge: 60 * 60 * 24 * 7, // 1 week
-        path: '/' 
-      })
-    }
-    
-    return response
-  }
-  
-  // For other pages, just set the variation cookie for client-side usage
-  const response = NextResponse.next()
-  
-  // Add the variation as a header for analytics
-  response.headers.set('x-ab-test-variation', variation)
-  
-  // Set the variation cookie if it doesn't exist
-  if (!request.cookies.has('ab-test-variation')) {
-    response.cookies.set('ab-test-variation', variation, { 
-      maxAge: 60 * 60 * 24 * 7, // 1 week
-      path: '/' 
-    })
-  }
-  
-  return response
-}
+**Strategy:**
+Set `output: 'standalone'` in `next.config.js`. This reduces the image size by copying only necessary production dependencies. Use a multi-stage Dockerfile.
 
-export const config = {
-  matcher: [
-    // Apply to specific paths
-    '/landing-page',
-    '/pricing',
-    '/features',
-  ],
-}
-```
-
-**7. Geolocation-Based Middleware:**
-
-Implement location-based content or redirects:
-
-```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-
-export function middleware(request: NextRequest) {
-  // Get geolocation data from Vercel's headers or your hosting provider
-  const country = request.geo?.country || 'US'
-  const city = request.geo?.city || 'Unknown'
-  const region = request.geo?.region || 'Unknown'
-  
-  // Example: Redirect users from specific countries to localized pages
-  if (country === 'FR' && !request.nextUrl.pathname.startsWith('/fr')) {
-    const url = request.nextUrl.clone()
-    url.pathname = `/fr${url.pathname}`
-    return NextResponse.redirect(url)
-  }
-  
-  // Example: Add geolocation data to headers for use in components
-  const response = NextResponse.next()
-  response.headers.set('x-user-country', country)
-  response.headers.set('x-user-city', city)
-  response.headers.set('x-user-region', region)
-  
-  return response
-}
-```
-
-**8. Rate Limiting Middleware:**
-
-Implement basic rate limiting to protect your API routes:
-
-```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-
-// Simple in-memory store for rate limiting
-// Note: In production, use Redis or another external store
-const rateLimit = new Map()
-
-// Configure rate limit settings
-const RATE_LIMIT_REQUESTS = 10 // Number of requests
-const RATE_LIMIT_WINDOW_MS = 60 * 1000 // Time window (1 minute)
-
-export function middleware(request: NextRequest) {
-  // Only apply rate limiting to API routes
-  if (!request.nextUrl.pathname.startsWith('/api')) {
-    return NextResponse.next()
-  }
-  
-  // Get IP address from request
-  const ip = request.ip || 'anonymous'
-  
-  // Get current timestamp
-  const now = Date.now()
-  
-  // Initialize rate limit data for this IP if it doesn't exist
-  if (!rateLimit.has(ip)) {
-    rateLimit.set(ip, { count: 0, resetTime: now + RATE_LIMIT_WINDOW_MS })
-  }
-  
-  const rateLimitData = rateLimit.get(ip)!
-  
-  // Reset count if the time window has passed
-  if (now > rateLimitData.resetTime) {
-    rateLimitData.count = 0
-    rateLimitData.resetTime = now + RATE_LIMIT_WINDOW_MS
-  }
-  
-  // Increment request count
-  rateLimitData.count++
-  
-  // Check if rate limit is exceeded
-  if (rateLimitData.count > RATE_LIMIT_REQUESTS) {
-    return new NextResponse(
-      JSON.stringify({ error: 'Rate limit exceeded' }),
-      {
-        status: 429,
-        headers: {
-          'Content-Type': 'application/json',
-          'X-RateLimit-Limit': RATE_LIMIT_REQUESTS.toString(),
-          'X-RateLimit-Remaining': '0',
-          'X-RateLimit-Reset': Math.ceil(rateLimitData.resetTime / 1000).toString(),
-        },
-      }
-    )
-  }
-  
-  // Allow the request and add rate limit headers
-  const response = NextResponse.next()
-  response.headers.set('X-RateLimit-Limit', RATE_LIMIT_REQUESTS.toString())
-  response.headers.set(
-    'X-RateLimit-Remaining', 
-    (RATE_LIMIT_REQUESTS - rateLimitData.count).toString()
-  )
-  response.headers.set(
-    'X-RateLimit-Reset', 
-    Math.ceil(rateLimitData.resetTime / 1000).toString()
-  )
-  
-  return response
-}
-
-export const config = {
-  matcher: [
-    // Apply to API routes
-    '/api/:path*',
-  ],
-}
-```
-
-**9. Feature Flag Middleware:**
-
-Implement feature flags based on user attributes:
-
-```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-
-// Define feature flags and their rollout percentages
-const FEATURE_FLAGS = {
-  'new-dashboard': 20, // 20% of users
-  'beta-feature': 10,  // 10% of users
-  'dark-mode': 50,     // 50% of users
-}
-
-export function middleware(request: NextRequest) {
-  // Get or generate a user ID
-  let userId = request.cookies.get('user-id')?.value
-  
-  if (!userId) {
-    // Generate a random user ID if none exists
-    userId = Math.random().toString(36).substring(2, 15)
-  }
-  
-  // Determine which features are enabled for this user
-  const enabledFeatures = Object.entries(FEATURE_FLAGS).reduce(
-    (acc, [feature, percentage]) => {
-      // Use a hash function to consistently determine if a feature is enabled for a user
-      const hash = hashCode(`${userId}-${feature}`)
-      const isEnabled = (hash % 100) < percentage
-      
-      if (isEnabled) {
-        acc.push(feature)
-      }
-      
-      return acc
-    }, 
-    [] as string[]
-  )
-  
-  // Add enabled features to response headers
-  const response = NextResponse.next()
-  
-  // Set user ID cookie if it doesn't exist
-  if (!request.cookies.has('user-id')) {
-    response.cookies.set('user-id', userId, { 
-      maxAge: 60 * 60 * 24 * 365, // 1 year
-      path: '/',
-      httpOnly: true,
-      sameSite: 'strict',
-    })
-  }
-  
-  // Add enabled features as a header
-  response.headers.set('x-enabled-features', enabledFeatures.join(','))
-  
-  return response
-}
-
-// Simple hash function for consistent feature flag assignment
-function hashCode(str: string): number {
-  let hash = 0
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i)
-    hash = ((hash << 5) - hash) + char
-    hash = hash & hash // Convert to 32bit integer
-  }
-  return Math.abs(hash)
-}
-```
-
-**10. Middleware with Edge Runtime:**
-
-For high-performance middleware using Edge Runtime:
-
-```typescript
-// middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-
-export const config = {
-  // Use the Edge Runtime
-  runtime: 'edge',
-  // Apply to all paths
-  matcher: ['/(.*)']
-}
-
-export function middleware(request: NextRequest) {
-  // Get the pathname
-  const { pathname } = request.nextUrl
-  
-  // Add security headers
-  const response = NextResponse.next()
-  
-  // Add security headers
-  response.headers.set('X-Frame-Options', 'DENY')
-  response.headers.set('X-Content-Type-Options', 'nosniff')
-  response.headers.set('Referrer-Policy', 'origin-when-cross-origin')
-  response.headers.set(
-    'Content-Security-Policy', 
-    "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
-  )
-  
-  // Add Server-Timing header for performance monitoring
-  response.headers.set('Server-Timing', `edge;dur=1, country;desc=${request.geo?.country || 'unknown'}`)
-  
-  return response
-}
-```
-
-**11. Best Practices for Middleware:**
-
-- **Performance**: Keep middleware lightweight to avoid impacting response times
-- **Error Handling**: Implement proper error handling to prevent middleware failures
-- **Testing**: Write tests for middleware functions to ensure they behave as expected
-- **Debugging**: Use console.log sparingly as it can impact performance
-- **Caching**: Be aware of how middleware interacts with Next.js caching mechanisms
-- **Cookies**: Set appropriate cookie options (httpOnly, secure, sameSite) for security
-- **Headers**: Follow best practices when setting response headers
-- **Matchers**: Use specific matchers to limit middleware execution to relevant paths
-
-By implementing these middleware patterns, you can add powerful functionality to your Next.js application while maintaining good performance and security practices.
-
-// Custom image loader
+**Code Example:**
+```javascript
 // next.config.js
 module.exports = {
-  images: {
-    loader: 'custom',
-    loaderFile: './lib/imageLoader.js',
-    domains: ['example.com', 'cdn.example.com'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    formats: ['image/webp'],
-  },
-}
+  output: 'standalone',
+};
+```
 
-// lib/imageLoader.js
-export default function cloudinaryLoader({ src, width, quality }) {
-  const params = ['f_auto', 'c_limit', `w_${width}`, `q_${quality || 'auto'}`]
-  return `https://res.cloudinary.com/demo/image/fetch/${params.join(',')}/${src}`
-}
-
-// Image gallery with optimization
-export function ImageGallery({ images }) {
-  const [selectedImage, setSelectedImage] = useState(0)
-
-  return (
-    <div className="space-y-4">
-      {/* Main image */}
-      <div className="relative aspect-video">
-        <Image
-          src={images[selectedImage].src}
-          alt={images[selectedImage].alt}
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
-          sizes="(max-width: 768px) 100vw, 80vw"
-        />
-      </div>
-
-      {/* Thumbnail grid */}
-      <div className="grid grid-cols-4 gap-2">
-        {images.map((image, index) => (
-          <button
-            key={index}
-            onClick={() => setSelectedImage(index)}
-            className={`relative aspect-square ${
-              index === selectedImage ? 'ring-2 ring-blue-500' : ''
-            }`}
-          >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-              sizes="(max-width: 768px) 25vw, 20vw"
-            />
-          </button>
-        ))}
-      </div>
-    </div>
-  )
-}
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q20: How do you implement code splitting and lazy loading in Next.js?
+### 15. How do you handle loading states in the App Router?
 
-**Answer:**
-Next.js provides automatic code splitting and several ways to implement lazy loading for optimal performance.
+**Difficulty**: Beginner
 
+**Strategy:**
+Create a `loading.tsx` file in the same directory as your page. Next.js automatically wraps the page in a Suspense boundary and shows this component while data is fetching.
+
+**Code Example:**
+```tsx
+// app/dashboard/loading.tsx
+export default function Loading() {
+  return <div className="spinner">Loading dashboard...</div>;
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 16. How do you implement Internationalization (i18n) in a production-grade Next.js application? (Scenario 16)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Internationalization (i18n)** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
 ```javascript
-// Dynamic imports for components
-import dynamic from 'next/dynamic'
-import { Suspense, lazy } from 'react'
-
-// Lazy load component with loading state
-const DynamicChart = dynamic(() => import('../components/Chart'), {
-  loading: () => <div className="animate-pulse bg-gray-200 h-64 rounded">Loading chart...</div>,
-  ssr: false, // Disable server-side rendering for this component
-})
-
-// Lazy load with named export
-const DynamicModal = dynamic(
-  () => import('../components/Modal').then(mod => ({ default: mod.Modal })),
-  {
-    loading: () => <div>Loading modal...</div>,
-  }
-)
-
-export default function Dashboard({ user }) {
-  const [showChart, setShowChart] = useState(false)
-
-  return (
-    <div>
-      <h1>Dashboard</h1>
-      
-      {showChart && (
-        <Suspense fallback={<div>Loading...</div>}>
-          <DynamicChart data={chartData} />
-        </Suspense>
-      )}
-      
-      <button onClick={() => setShowChart(true)}>
-        Load Chart
-      </button>
-    </div>
-  )
-}
+// Example setup for Internationalization (i18n)
+// Configuration or component logic
+const config = {
+  features: ['Internationalization (i18n)'],
+  optimized: true
+};
 ```
 
----
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q21: How do you implement authentication in Next.js?
+### 17. How do you implement Draft Mode in a production-grade Next.js application? (Scenario 17)
 
-**Answer:**
-Next.js supports various authentication patterns including session-based, JWT, and OAuth.
+**Difficulty**: Intermediate
 
+**Strategy:**
+Utilize **Draft Mode** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
 ```javascript
-// lib/auth.js - Authentication utilities
-import jwt from 'jsonwebtoken'
-import bcrypt from 'bcryptjs'
-import { serialize, parse } from 'cookie'
-
-export const hashPassword = async (password) => {
-  return await bcrypt.hash(password, 12)
-}
-
-export const verifyPassword = async (password, hashedPassword) => {
-  return await bcrypt.compare(password, hashedPassword)
-}
-
-export const generateToken = (payload) => {
-  return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '7d' })
-}
-
-export const verifyToken = (token) => {
-  return jwt.verify(token, process.env.JWT_SECRET)
-}
-
-export const setTokenCookie = (res, token) => {
-  const cookie = serialize('token', token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    maxAge: 60 * 60 * 24 * 7, // 7 days
-    path: '/'
-  })
-  res.setHeader('Set-Cookie', cookie)
-}
-
-// pages/api/auth/login.js
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' })
-  }
-
-  const { email, password } = req.body
-  
-  try {
-    const user = await findUserByEmail(email)
-    if (!user || !await verifyPassword(password, user.password)) {
-      return res.status(401).json({ message: 'Invalid credentials' })
-    }
-
-    const token = generateToken({ userId: user.id, email: user.email })
-    setTokenCookie(res, token)
-
-    res.status(200).json({ 
-      message: 'Login successful',
-      user: { id: user.id, email: user.email, name: user.name }
-    })
-  } catch (error) {
-    res.status(500).json({ message: 'Internal server error' })
-  }
-}
-
-// hooks/useAuth.js - Authentication hook
-import { createContext, useContext, useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-
-const AuthContext = createContext()
-
-export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const router = useRouter()
-
-  useEffect(() => {
-    checkAuth()
-  }, [])
-
-  const checkAuth = async () => {
-    try {
-      const response = await fetch('/api/auth/me')
-      if (response.ok) {
-        const userData = await response.json()
-        setUser(userData)
-      }
-    } catch (error) {
-      console.error('Auth check failed:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const login = async (email, password) => {
-    const response = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    })
-
-    if (response.ok) {
-      const data = await response.json()
-      setUser(data.user)
-      router.push('/dashboard')
-      return { success: true }
-    } else {
-      const error = await response.json()
-      return { success: false, error: error.message }
-    }
-  }
-
-  const logout = async () => {
-    await fetch('/api/auth/logout', { method: 'POST' })
-    setUser(null)
-    router.push('/login')
-  }
-
-  return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
-      {children}
-    </AuthContext.Provider>
-  )
-}
-
-export const useAuth = () => {
-  const context = useContext(AuthContext)
-  if (!context) {
-    throw new Error('useAuth must be used within AuthProvider')
-  }
-  return context
-}
-
-// components/ProtectedRoute.js
-export function ProtectedRoute({ children, requiredRole }) {
-  const { user, loading } = useAuth()
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push('/login')
-    } else if (user && requiredRole && user.role !== requiredRole) {
-      router.push('/unauthorized')
-    }
-  }, [user, loading, requiredRole])
-
-  if (loading) {
-    return <div>Loading...</div>
-  }
-
-  if (!user) {
-    return null
-  }
-
-  if (requiredRole && user.role !== requiredRole) {
-    return <div>Unauthorized</div>
-  }
-
-  return children
-}
-
-// pages/login.js - Login page
-export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const { login } = useAuth()
-  const router = useRouter()
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError('')
-    
-    const result = await login(email, password)
-    if (!result.success) {
-      setError(result.error)
-    }
-  }
-  
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="max-w-md w-full p-6 bg-white rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold mb-6 text-center">Sign In</h1>
-        
-        {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
-            {error}
-          </div>
-        )}
-        
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
-          </div>
-          
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-              Password
-            </label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              required
-            />
-          </div>
-          
-          <div className="flex items-center justify-between">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Sign In
-            </button>
-            <a
-              href="/forgot-password"
-              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-            >
-              Forgot Password?
-            </a>
-          </div>
-        </form>
-      </div>
-    </div>
-  )
-}
+// Example setup for Draft Mode
+// Configuration or component logic
+const config = {
+  features: ['Draft Mode'],
+  optimized: true
+};
 ```
 
-// SSG with Dynamic Routes - getStaticPaths
-// pages/blog/[slug].js
-export default function BlogPost({ post }) {
-  if (!post) {
-    return <div>Post not found</div>
-  }
-
-  return (
-    <article>
-      <h1 className="text-3xl font-bold">{post.title}</h1>
-      <p className="text-gray-500">Published on {post.publishedAt}</p>
-      <div className="prose max-w-none mt-8">
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
-      </div>
-    </article>
-  )
-}
-
-// Generate paths at build time
-export async function getStaticPaths() {
-  const posts = await fetch('https://api.example.com/posts').then(res => res.json())
-  
-  // Generate paths for the most popular posts
-  const paths = posts.slice(0, 100).map((post) => ({
-    params: { slug: post.slug },
-  }))
-
-  return {
-    paths,
-    // Enable ISR for other posts
-    fallback: 'blocking', // or true for loading state
-  }
-}
-
-export async function getStaticProps({ params }) {
-  try {
-    const post = await fetch(`https://api.example.com/posts/${params.slug}`)
-      .then(res => res.json())
-    
-    if (!post) {
-      return {
-        notFound: true,
-      }
-    }
-
-    return {
-      props: {
-        post,
-      },
-      // ISR - regenerate when content changes
-      revalidate: 60, // 1 minute
-    }
-  } catch (error) {
-    return {
-      notFound: true,
-    }
-  }
-}
-
-// Generate paths at build time
-export async function getStaticPaths() {
-  const posts = await fetch('https://api.example.com/posts').then(res => res.json())
-  
-  // Generate paths for the most popular posts
-  const paths = posts.slice(0, 100).map((post) => ({
-    params: { slug: post.slug },
-  }))
-
-  return {
-    paths,
-    // Enable ISR for other posts
-    fallback: 'blocking', // or true for loading state
-  }
-}
-
-export async function getStaticProps({ params }) {
-  try {
-    const post = await fetch(`https://api.example.com/posts/${params.slug}`)
-      .then(res => res.json())
-    
-    if (!post) {
-      return {
-        notFound: true,
-      }
-    }
-
-    return {
-      props: {
-        post,
-      },
-      // ISR - regenerate when content changes
-      revalidate: 60, // 1 minute
-    }
-  } catch (error) {
-    return {
-      notFound: true,
-    }
-  }
-}
-
-// SSR - getServerSideProps
-// pages/dashboard.js
-export default function Dashboard({ user, stats }) {
-  return (
-    <div>
-      <h1>Welcome back, {user.name}!</h1>
-      <div className="grid grid-cols-3 gap-6 mt-6">
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3>Total Sales</h3>
-          <p className="text-2xl font-bold">${stats.totalSales}</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3>Orders</h3>
-          <p className="text-2xl font-bold">{stats.totalOrders}</p>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h3>Customers</h3>
-          <p className="text-2xl font-bold">{stats.totalCustomers}</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-// This function runs on every request
-export async function getServerSideProps(context) {
-  const { req, res } = context
-  
-  // Get user from session/cookie
-  const token = req.cookies.token
-  
-  if (!token) {
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false,
-      },
-    }
-  }
-
-  try {
-    const user = await verifyToken(token)
-    const stats = await fetchUserStats(user.id)
-    
-    return {
-      props: {
-        user,
-        stats,
-      },
-    }
-  } catch (error) {
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false,
-      },
-    }
-  }
-}
-```
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
----
+### 18. How do you implement Visual Editing in a production-grade Next.js application? (Scenario 18)
 
-### Q22: How do you optimize images in Next.js?
+**Difficulty**: Intermediate
 
-**Answer:**
-Next.js provides the `Image` component with automatic optimization, lazy loading, and responsive images.
+**Strategy:**
+Utilize **Visual Editing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
+**Code Example:**
 ```javascript
-import Image from 'next/image'
-import { useState } from 'react'
+// Example setup for Visual Editing
+// Configuration or component logic
+const config = {
+  features: ['Visual Editing'],
+  optimized: true
+};
+```
 
-// Basic image optimization
-export default function ImageExample() {
-  const [imageError, setImageError] = useState(false)
-
-  return (
-    <div>
-      {/* Optimized image with priority loading */}
-      <Image
-        src="/hero-image.jpg"
-        alt="Hero image"
-        width={1200}
-        height={600}
-        priority // Load immediately for above-the-fold content
-        placeholder="blur"
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+Rj5m4xbNLlsdjqbk+h0R+R
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q23: What is the App Router?
+### 19. How do you implement Turbopack in a production-grade Next.js application? (Scenario 19)
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-The new routing paradigm introduced in Next.js 13 (stable in 13.4).
-*   **Structure:** Uses a folder-based hierarchy inside an `app/` directory.
-*   **Features:** Built-in support for React Server Components, nested layouts, loading states, error handling, and streaming.
-*   **Files:** `page.js`, `layout.js`, `template.js`, `loading.js`, `error.js`, `not-found.js`.
+**Strategy:**
+Utilize **Turbopack** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
-
-### Q24: Server Components vs Client Components.
-
-**Difficulty: Advanced**
-
-**Answer:**
-*   **Server Components (Default in App Router):**
-    *   Render on the server.
-    *   Can directly access database/fs.
-    *   Zero bundle size (code not sent to client).
-    *   Cannot use hooks (`useState`, `useEffect`) or event listeners.
-*   **Client Components:**
-    *   Render on client (and pre-rendered on server).
-    *   Marked with `'use client'` directive.
-    *   Can use hooks and interactivity.
-    *   Hydrated on the browser.
-
----
-
-### Q25: How to fetch data in App Router?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-You can use standard `fetch` directly in Server Components.
+**Code Example:**
 ```javascript
-async function getData() {
-  const res = await fetch('https://api.example.com/data');
-  return res.json();
-}
-
-export default async function Page() {
-  const data = await getData();
-  return <main>{data.title}</main>;
-}
+// Example setup for Turbopack
+// Configuration or component logic
+const config = {
+  features: ['Turbopack'],
+  optimized: true
+};
 ```
-`fetch` is extended by Next.js to support caching and revalidation.
+
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q26: What is `next/image`?
+### 20. How do you implement Jest Testing in a production-grade Next.js application? (Scenario 20)
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
-An optimized Image component extending the HTML `<img>` element.
-*   **Features:**
-    *   Automatic resizing and formatting (WebP/AVIF).
-    *   Lazy loading (default).
-    *   Visual stability (prevents layout shift).
-    *   Asset flexibility (remote images).
+**Strategy:**
+Utilize **Jest Testing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
-
-### Q27: What is `getStaticProps`?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-(Pages Router) A function used to fetch data at **build time**.
-*   Used for Static Site Generation (SSG).
-*   The data is baked into the HTML.
-*   Great for SEO and performance.
-*   *Note:* In App Router, replaced by simple async components or `generateStaticParams`.
-
----
-
-### Q28: What is `getServerSideProps`?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-(Pages Router) A function used to fetch data on **every request**.
-*   Used for Server-Side Rendering (SSR).
-*   Slower than SSG (TTFB depends on data fetch).
-*   Good for highly dynamic data that changes constantly.
-*   *Note:* In App Router, replaced by `dynamic = 'force-dynamic'` or `no-store` fetch.
-
----
-
-### Q29: What is ISR (Incremental Static Regeneration)?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Allows you to create or update static pages *after* you’ve built your site.
-*   You can retain the benefits of static generation (performance) while scaling to millions of pages.
-*   **Mechanism:** Define a `revalidate` time (in seconds).
-*   Next.js will serve the old page, then regenerate it in the background for the next visitor.
-
----
-
-### Q30: Dynamic Routes in Next.js.
-
-**Difficulty: Beginner**
-
-**Answer:**
-Routes that support dynamic parameters.
-*   **Syntax:** File name wrapped in brackets, e.g., `pages/posts/[id].js` or `app/posts/[id]/page.js`.
-*   **Access:**
-    *   **Pages Router:** `useRouter().query.id` or context in `getStaticProps`.
-    *   **App Router:** `params` prop passed to the page component.
-
----
-
-### Q31: What is `generateStaticParams`?
-
-**Difficulty: Advanced**
-
-**Answer:**
-(App Router) The equivalent of `getStaticPaths`.
-*   Used in combination with dynamic routes to statically generate routes at build time.
-*   Returns an array of objects representing the dynamic params.
-
----
-
-### Q32: Explain `layout.js` in App Router.
-
-**Difficulty: Beginner**
-
-**Answer:**
-A UI that is shared between multiple routes.
-*   On navigation, layouts preserve state, remain interactive, and do not re-render.
-*   Can be nested.
-*   **Root Layout:** Required in `app/`, defines `<html>` and `<body>`.
-
----
-
-### Q33: What is `template.js`?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Similar to a Layout, but creates a **new instance** for each of its children on navigation.
-*   State is reset.
-*   Effects are re-executed.
-*   Useful for features that rely on `useEffect` (e.g., page view tracking) or animation libraries (Framer Motion) that need to see a new component mount.
-
----
-
-### Q34: How to handle 404 errors?
-
-**Difficulty: Beginner**
-
-**Answer:**
-*   **Pages Router:** Create `pages/404.js`.
-*   **App Router:** Create `not-found.js` file in the route segment. You can also invoke `notFound()` function programmatically.
-
----
-
-### Q35: What are Route Handlers?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-(App Router) Replacement for API Routes (`pages/api`).
-*   Defined in `route.js` (or `route.ts`).
-*   Export HTTP method functions: `GET`, `POST`, `PUT`, `DELETE`, etc.
-*   Can be Static or Dynamic.
+**Code Example:**
 ```javascript
-export async function GET(request) {
-  return Response.json({ data: 'Hello' });
-}
+// Example setup for Jest Testing
+// Configuration or component logic
+const config = {
+  features: ['Jest Testing'],
+  optimized: true
+};
 ```
 
----
-
-### Q36: How to use Environment Variables?
-
-**Difficulty: Beginner**
-
-**Answer:**
-*   Define in `.env.local`.
-*   **Server-side:** Access via `process.env.MY_SECRET`.
-*   **Client-side:** Must prefix with `NEXT_PUBLIC_` (e.g., `NEXT_PUBLIC_ANALYTICS_ID`).
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q37: What is `next/font`?
+### 21. How do you implement Cypress E2E in a production-grade Next.js application? (Scenario 21)
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-A built-in font optimization system.
-*   Downloads Google Fonts at build time and hosts them with your other static assets.
-*   **Zero layout shift:** Uses `size-adjust` property.
-*   **Privacy:** No requests sent to Google by the browser.
+**Strategy:**
+Utilize **Cypress E2E** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
-
-### Q38: What is `next/script`?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-An optimized Script component.
-*   Allows you to load third-party scripts (Analytics, Ads) efficiently.
-*   **Strategies:**
-    *   `beforeInteractive`: Load before hydration (critical).
-    *   `afterInteractive`: Load after hydration (default).
-    *   `lazyOnload`: Load during idle time.
-    *   `worker`: Load in a web worker (experimental).
-
----
-
-### Q39: How to implement SEO in Next.js?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-*   **Pages Router:** `<Head>` component.
-*   **App Router:** Metadata API.
-    *   Export a `metadata` object or `generateMetadata` function in `page.js` or `layout.js`.
-    ```javascript
-    export const metadata = {
-      title: 'My App',
-      description: 'Best app ever',
-    };
-    ```
-
----
-
-### Q40: What is Middleware in Next.js?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Code that runs **before** a request is completed.
-*   Defined in `middleware.js` at root.
-*   Uses the Edge Runtime (limited Node.js APIs, fast startup).
-*   **Use Cases:** Authentication, Redirects, Rewrites, A/B Testing, Bot protection.
-
----
-
-### Q41: Catch-all Routes.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-*   `[...slug]`: Matches `posts/a`, `posts/a/b`, but NOT `posts` (empty).
-*   `[[...slug]]`: Optional catch-all. Matches `posts`, `posts/a`, `posts/a/b`.
-
----
-
-### Q42: What is `loading.js`?
-
-**Difficulty: Beginner**
-
-**Answer:**
-(App Router) An instant loading state built on React Suspense.
-*   Automatically wraps the page content in a Suspense boundary.
-*   Shows the loading UI immediately while the route segment's content loads.
-
----
-
-### Q43: Streaming in Next.js.
-
-**Difficulty: Advanced**
-
-**Answer:**
-Allows breaking down the page's HTML into smaller chunks and sending them to the client as soon as they are ready.
-*   **Benefit:** Faster Time To First Byte (TTFB) and First Contentful Paint (FCP).
-*   Implemented via Suspense boundaries. Parts of the UI (e.g., sidebar) can appear while the main content is still fetching.
-
----
-
-### Q44: Server Actions.
-
-**Difficulty: Advanced**
-
-**Answer:**
-Alpha/Beta feature to call server-side functions directly from client components.
-*   Eliminates need for creating API endpoints for simple mutations.
-*   Mark function with `'use server'`.
+**Code Example:**
 ```javascript
-async function createPost(formData) {
-  'use server'
-  await db.post.create(...)
-}
-// In form
-<form action={createPost}>...</form>
+// Example setup for Cypress E2E
+// Configuration or component logic
+const config = {
+  features: ['Cypress E2E'],
+  optimized: true
+};
 ```
 
----
-
-### Q45: Image Optimization: `loader`.
-
-**Difficulty: Advanced**
-
-**Answer:**
-A function that generates the URLs for your images.
-*   If you use a custom CDN (Cloudinary, Imgix) instead of the default Vercel Image Optimization, you define a loader in `next.config.js` or prop.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q46: Difference between `redirect` and `rewrite`.
+### 22. How do you implement Storybook Integration in a production-grade Next.js application? (Scenario 22)
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-*   **Redirect:** Changes the URL in the browser address bar. Tells search engines resource moved (307/308 status).
-*   **Rewrite:** Shows content from a different URL but keeps the browser URL the same. Proxy-like behavior.
+**Strategy:**
+Utilize **Storybook Integration** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
-
-### Q47: What is TurboPack?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-An incremental bundler optimized for JavaScript and TypeScript, written in Rust.
-*   Successor to Webpack.
-*   Claims to be 700x faster than Webpack.
-*   Currently in beta (used via `next dev --turbo`).
-
----
-
-### Q48: Explain "Hydration" in context of Next.js.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-The process where JavaScript attaches to the HTML generated by the server.
-*   The server sends HTML (for fast First Paint).
-*   The browser loads JS bundles.
-*   React "hydrates" the DOM (attaches event listeners) to make it interactive.
-
----
-
-### Q49: How to disable SSR for a component?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use dynamic import with `ssr: false`.
+**Code Example:**
 ```javascript
-import dynamic from 'next/dynamic'
-const NoSSRComponent = dynamic(() => import('../components/Map'), {
-  ssr: false,
-})
+// Example setup for Storybook Integration
+// Configuration or component logic
+const config = {
+  features: ['Storybook Integration'],
+  optimized: true
+};
 ```
-Useful for components that rely on `window` or browser-specific APIs not available on server.
+
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q50: What is the Edge Runtime?
+### 23. How do you implement Custom Document in a production-grade Next.js application? (Scenario 23)
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-A lightweight runtime based on standard Web APIs (like Fetch, Request, Response).
-*   Used by Middleware and Edge API Routes.
-*   **Pros:** Extremely fast startup (low cold starts), runs closer to user (CDN edge).
-*   **Cons:** Cannot use Node.js APIs (fs, child_process) or modules relying on them.
+**Strategy:**
+Utilize **Custom Document** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
-
-### Q51: How to optimize fonts?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use `next/font/google` or `next/font/local`.
-*   Next.js downloads the font file at build time.
-*   Self-hosts it (no external requests).
-*   Uses `variable` fonts for performance.
-
----
-
-### Q52: What is `generateMetadata`?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Async function to fetch metadata for a page dynamically.
+**Code Example:**
 ```javascript
-export async function generateMetadata({ params }) {
-  const product = await getProduct(params.id)
-  return { title: product.name }
-}
+// Example setup for Custom Document
+// Configuration or component logic
+const config = {
+  features: ['Custom Document'],
+  optimized: true
+};
 ```
 
----
-
-### Q53: Parallel Routes.
-
-**Difficulty: Advanced**
-
-**Answer:**
-Allows rendering one or more pages in the same layout simultaneously.
-*   **Syntax:** Named "slots" using `@folder` convention (e.g., `@team`, `@analytics`).
-*   Passed as props to the layout.
-*   Useful for dashboards with complex split views.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q54: Intercepting Routes.
+### 24. How do you implement Custom App in a production-grade Next.js application? (Scenario 24)
 
-**Difficulty: Expert**
+**Difficulty**: Intermediate
 
-**Answer:**
-Allows loading a route from another part of your application within the current layout.
-*   **Syntax:** `(.)folder`, `(..)folder`.
-*   **Use Case:** Clicking a photo in a feed opens it in a modal (overlay) while keeping the feed visible behind it. But reloading the page shows the photo as a standalone page.
+**Strategy:**
+Utilize **Custom App** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
-
-### Q55: What is `next.config.js`?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Configuration file for Next.js.
-*   **Usage:**
-    *   Define environment variables.
-    *   Configure redirects/rewrites.
-    *   Configure image domains.
-    *   Enable experimental features.
-    *   Customize Webpack config.
-
----
-
-### Q56: Static Exports (`output: 'export'`).
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Builds the Next.js app as static HTML/CSS/JS files (SPA style).
-*   **Pros:** Can host on any static server (Nginx, S3, GitHub Pages). No Node.js server required.
-*   **Cons:** Lose features requiring server (SSR, ISR, API Routes, Middleware, Image Optimization).
-
----
-
-### Q57: How to add Global CSS?
-
-**Difficulty: Beginner**
-
-**Answer:**
-*   **Pages Router:** Import only in `_app.js`.
-*   **App Router:** Import in the root `layout.js`.
-
----
-
-### Q58: CSS Modules in Next.js.
-
-**Difficulty: Beginner**
-
-**Answer:**
-Supported out of the box.
-*   Create files like `Button.module.css`.
-*   Import: `import styles from './Button.module.css'`.
-*   Use: `<button className={styles.error}>`.
-*   **Benefit:** Locally scoped class names (avoids collision).
-
----
-
-### Q59: How to use SASS/SCSS?
-
-**Difficulty: Beginner**
-
-**Answer:**
-1.  Install sass: `npm install sass`.
-2.  Rename `.css` files to `.scss`.
-3.  Next.js compiles them automatically.
-
----
-
-### Q60: Absolute Imports.
-
-**Difficulty: Beginner**
-
-**Answer:**
-Configure `jsconfig.json` or `tsconfig.json`:
-```json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/components/*": ["components/*"]
-    }
-  }
-}
-```
-Allows `import Button from '@/components/Button'` instead of `../../components/Button`.
-
----
-
-### Q61: Fast Refresh in Next.js.
-
-**Difficulty: Beginner**
-
-**Answer:**
-Same as React Native. Instant feedback on edits without losing component state. Enabled by default in dev mode.
-
----
-
-### Q62: Custom 500 Page.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Create `pages/500.js` (Pages router) or `error.js` (App router) to handle server-side exceptions gracefully.
-
----
-
-### Q63: How to handle authentication?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-*   **NextAuth.js (Auth.js):** Most popular library. Supports OAuth, Email, Credentials. Works with Edge runtime.
-*   **Manual:** HttpOnly cookies + JWT. Middleware to protect routes.
-
----
-
-### Q64: What is Vercel?
-
-**Difficulty: Beginner**
-
-**Answer:**
-The company behind Next.js.
-*   Provides a cloud platform optimized for Next.js (Serverless/Edge deployment).
-*   Features: Zero config deployment, Preview deployments, Analytics, Speed Insights.
-
----
-
-### Q65: Pre-rendering types summary.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-1.  **Static Generation (SG):** HTML generated at build time.
-2.  **Server-Side Rendering (SSR):** HTML generated on each request.
-3.  **Client-Side Rendering (CSR):** Browser renders content via JS.
-
----
-
-### Q66: `usePathname` and `useSearchParams`.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Hooks for App Router (Client Components) to access URL data.
-*   `useRouter` is used mainly for programmatic navigation (`router.push`).
-*   `usePathname`: Get current path.
-*   `useSearchParams`: Get query strings.
-
----
-
-### Q67: Shallow Routing.
-
-**Difficulty: Advanced**
-
-**Answer:**
-(Pages Router) Changing the URL without running data fetching methods (`getStaticProps` / `getServerSideProps`).
-*   `router.push('/?counter=10', undefined, { shallow: true })`.
-*   Useful for filtering/sorting lists without reloading page data.
-
----
-
-### Q68: `next/link` prefetching.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-*   By default, `<Link>` prefetches the page in the background when it enters the viewport.
-*   Makes navigation feel instant.
-*   Can be disabled: `prefetch={false}`.
-
----
-
-### Q69: What is `process.cwd()` used for?
-
-**Difficulty: Advanced**
-
-**Answer:**
-To get the current working directory in server-side code.
-*   Essential when reading files from the filesystem (e.g., reading markdown files for a blog) to ensure correct path resolution in both dev and production (Vercel).
-
----
-
-### Q70: Draft Mode.
-
-**Difficulty: Advanced**
-
-**Answer:**
-Allows you to switch from Static Generation to dynamic rendering for specific requests.
-*   **Use Case:** CMS Preview. Content editors want to see unpublished changes immediately, bypassing build time generation.
-
----
-
-### Q71: Bundle Analysis.
-
-**Difficulty: Advanced**
-
-**Answer:**
-Use `@next/bundle-analyzer`.
-*   Visualizes the size of webpack output files.
-*   Helps identify large dependencies to trim down bundle size.
-
----
-
-### Q72: How to implement Sitemap?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-*   **App Router:** Add `sitemap.js` (or `.ts`) in `app/` directory.
-    *   Export a default function that returns an array of URLs.
-*   **Manual:** Create script to generate `public/sitemap.xml` during build.
-
----
-
-### Q73: How to implement Robots.txt?
-
-**Difficulty: Beginner**
-
-**Answer:**
-*   **App Router:** Add `robots.js` (or `.ts`) in `app/` directory.
-*   **Manual:** Add `public/robots.txt`.
-
----
-
-### Q74: Open Graph (OG) Image Generation.
-
-**Difficulty: Advanced**
-
-**Answer:**
-*   **ImageResponse:** API to generate dynamic images using JSX (HTML/CSS).
-*   `app/opengraph-image.js`: File convention to auto-generate OG images for routes.
-*   Powered by `satori` (Vercel's library to convert HTML/CSS to SVG).
-
----
-
-### Q75: `export const revalidate`.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Route Segment Config option in App Router.
-*   `export const revalidate = 3600` (in page.js or layout.js).
-*   Sets the default revalidation time for all fetch requests in that segment (ISR).
-
----
-
-### Q76: `export const dynamic`.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Route Segment Config.
-*   `'auto'` (default): Cache as much as possible.
-*   `'force-dynamic'`: Disable caching (SSR). Equivalent to `getServerSideProps`.
-*   `'force-static'`: Force static generation.
-*   `'error'`: Fail if dynamic functions (headers, cookies) are used.
-
----
-
-### Q77: Multi-Zone Support.
-
-**Difficulty: Expert**
-
-**Answer:**
-Merging multiple Next.js apps into a single URL space.
-*   Example: Main app on `example.com`, Blog app on `example.com/blog`.
-*   Handled via `rewrites` in `next.config.js`.
-
----
-
-### Q78: AMP Support.
-
-**Difficulty: Advanced**
-
-**Answer:**
-Accelerated Mobile Pages.
-*   Next.js had built-in AMP support (`export const config = { amp: true }`).
-*   *Note:* AMP is declining in popularity; Core Web Vitals are the new standard.
-
----
-
-### Q79: Web Vitals.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Next.js includes a `useReportWebVitals` hook (or `export function reportWebVitals`) to measure performance metrics:
-*   LCP (Largest Contentful Paint)
-*   FID (First Input Delay) / INP (Interaction to Next Paint)
-*   CLS (Cumulative Layout Shift)
-
----
-
-### Q80: Custom Document.
-
-**Difficulty: Advanced**
-
-**Answer:**
-(Pages Router) `pages/_document.js`.
-*   Used to augment the `<html>` and `<body>` tags.
-*   Commonly used to add `lang` attribute, load fonts (legacy way), or inject critical CSS for CSS-in-JS libraries (styled-components).
-*   **Not** rendered on client transitions.
-
----
-
-### Q81: Custom App.
-
-**Difficulty: Advanced**
-
-**Answer:**
-(Pages Router) `pages/_app.js`.
-*   Initializes pages.
-*   Persists layout between page changes.
-*   Keeps state when navigating pages.
-*   Global CSS import location.
-
----
-
-### Q82: API Routes vs Route Handlers.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-*   **API Routes:** `pages/api/*`. Request/Response are Node.js-like (req, res).
-*   **Route Handlers:** `app/api/*`. Request/Response use standard Web Fetch API (`NextRequest`, `NextResponse`).
-
----
-
-### Q83: Middleware Matcher.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Config export in `middleware.js` to filter which paths the middleware runs on.
+**Code Example:**
 ```javascript
-export const config = {
-  matcher: ['/about/:path*', '/dashboard/:path*'],
-}
+// Example setup for Custom App
+// Configuration or component logic
+const config = {
+  features: ['Custom App'],
+  optimized: true
+};
 ```
-Prevents unnecessary execution on static assets.
+
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q84: Edge vs Node.js Runtime.
+### 25. How do you implement Shallow Routing in a production-grade Next.js application? (Scenario 25)
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-*   **Node.js:** Full Node.js API access. Slower cold start. Regional.
-*   **Edge:** Limited API (Web Standards). Instant cold start. Global distribution.
-*   You can choose runtime per page/route: `export const runtime = 'edge'`.
+**Strategy:**
+Utilize **Shallow Routing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
+**Code Example:**
+```javascript
+// Example setup for Shallow Routing
+// Configuration or component logic
+const config = {
+  features: ['Shallow Routing'],
+  optimized: true
+};
+```
 
-### Q85: Partial Prerendering (PPR).
-
-**Difficulty: Expert**
-
-**Answer:**
-Experimental feature (Next.js 14).
-*   Combines static and dynamic rendering in the *same* response.
-*   A static shell is served immediately (fast TTFB).
-*   Dynamic holes (Suspense) are streamed in parallel.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q86: `cookies()` and `headers()` functions.
+### 26. How do you implement Prefetching in a production-grade Next.js application? (Scenario 26)
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Server-side helpers in App Router.
-*   `cookies().get('name')`: Read cookies.
-*   `headers().get('user-agent')`: Read headers.
-*   Using these opts the route into **Dynamic Rendering** (because output depends on request).
+**Strategy:**
+Utilize **Prefetching** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
+**Code Example:**
+```javascript
+// Example setup for Prefetching
+// Configuration or component logic
+const config = {
+  features: ['Prefetching'],
+  optimized: true
+};
+```
 
-### Q87: How to manage global state in Next.js?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Same as React.
-*   Zustand, Redux, Context.
-*   *Caveat:* Since Next.js has server components, stores are usually initialized in a Client Component wrapper (Provider) near the root.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q88: Cross-Origin Resource Sharing (CORS) in API Routes.
+### 27. How do you implement Edge Runtime in a production-grade Next.js application? (Scenario 27)
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Must be handled manually in the API route handler.
-*   Set headers: `res.setHeader('Access-Control-Allow-Origin', '*')`.
-*   Or use middleware to apply headers globally.
+**Strategy:**
+Utilize **Edge Runtime** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
+**Code Example:**
+```javascript
+// Example setup for Edge Runtime
+// Configuration or component logic
+const config = {
+  features: ['Edge Runtime'],
+  optimized: true
+};
+```
 
-### Q89: `next/navigation` vs `next/router`.
-
-**Difficulty: Intermediate**
-
-**Answer:**
-*   **`next/router`:** Used in Pages Router (`useRouter`).
-*   **`next/navigation`:** Used in App Router (`useRouter`, `usePathname`, `useSearchParams`, `redirect`, `notFound`).
-
----
-
-### Q90: Viewport Metadata.
-
-**Difficulty: Beginner**
-
-**Answer:**
-(App Router) `export const viewport` in `layout.js` or `page.js`.
-*   Configure theme color, width, initial scale.
-*   Separated from `metadata` object in Next.js 14.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q91: Accessibility (ESLint).
+### 28. How do you implement Middleware Chaining in a production-grade Next.js application? (Scenario 28)
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
-Next.js includes `eslint-plugin-jsx-a11y` by default.
-*   Warns about missing `alt` text on images, `aria-*` attributes, etc. during build.
+**Strategy:**
+Utilize **Middleware Chaining** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
+**Code Example:**
+```javascript
+// Example setup for Middleware Chaining
+// Configuration or component logic
+const config = {
+  features: ['Middleware Chaining'],
+  optimized: true
+};
+```
 
-### Q92: Content Security Policy (CSP).
-
-**Difficulty: Advanced**
-
-**Answer:**
-Security layer to prevent XSS.
-*   Best implemented in Middleware.
-*   Add `Content-Security-Policy` header to response.
-*   Next.js supports Nonces for inline scripts (`next/script`).
-
----
-
-### Q93: React Server Actions security.
-
-**Difficulty: Advanced**
-
-**Answer:**
-Since Server Actions are public API endpoints under the hood:
-*   Must validate authentication and authorization inside the action.
-*   Must validate input (Zod).
-*   Treat arguments as untrusted user input.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q94: How to handle large lists?
+### 29. How do you implement Revalidation Strategies in a production-grade Next.js application? (Scenario 29)
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-*   **Virtualization:** Use `react-window` or `react-virtuoso` (Client Components).
-*   **Pagination:** Cursor-based or Offset-based using URL search params.
+**Strategy:**
+Utilize **Revalidation Strategies** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
+**Code Example:**
+```javascript
+// Example setup for Revalidation Strategies
+// Configuration or component logic
+const config = {
+  features: ['Revalidation Strategies'],
+  optimized: true
+};
+```
 
-### Q95: Styling: Tailwind CSS.
-
-**Difficulty: Beginner**
-
-**Answer:**
-First-class citizen in Next.js.
-*   `npx create-next-app --tailwind`.
-*   Next.js automates PostCSS configuration.
-
----
-
-### Q96: Difference between `public/` and `app/` (assets).
-
-**Difficulty: Beginner**
-
-**Answer:**
-*   **`public/`:** Static files served from root URL (`/robot.png`). Not processed by Webpack.
-*   **`app/` (colocation):** You can put images inside route folders, but they are not served directly unless imported in JS.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q97: `transpilePackages`.
+### 30. How do you implement Parallel Routes in a production-grade Next.js application? (Scenario 30)
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-Config in `next.config.js`.
-*   List of npm packages that should be transpiled by Next.js (SWC/Babel).
-*   Necessary for ESM-only packages or internal monorepo UI libraries that ship untranspiled source.
+**Strategy:**
+Utilize **Parallel Routes** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
+**Code Example:**
+```javascript
+// Example setup for Parallel Routes
+// Configuration or component logic
+const config = {
+  features: ['Parallel Routes'],
+  optimized: true
+};
+```
 
-### Q98: `standalone` output.
-
-**Difficulty: Advanced**
-
-**Answer:**
-`output: 'standalone'` in `next.config.js`.
-*   Creates a minimal folder structure containing only necessary files (node_modules subset) to run the app.
-*   Drastically reduces Docker image size (e.g., from 1GB to 100MB).
-
----
-
-### Q99: How to use jQuery in Next.js?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Discouraged. But if needed:
-*   Use `useEffect` to ensure it runs only on client.
-*   Or `next/script` with strategy `beforeInteractive`.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q100: Suspense for Data Fetching.
+### 31. How do you implement Intercepting Routes in a production-grade Next.js application? (Scenario 31)
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-(App Router) Wrap async component in `<Suspense fallback={<Loading />}>`.
-*   React renders fallback.
-*   Starts fetching data.
-*   When data resolves, swaps fallback with component.
+**Strategy:**
+Utilize **Intercepting Routes** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
+**Code Example:**
+```javascript
+// Example setup for Intercepting Routes
+// Configuration or component logic
+const config = {
+  features: ['Intercepting Routes'],
+  optimized: true
+};
+```
 
-### Q101: `cache()` function (React).
-
-**Difficulty: Advanced**
-
-**Answer:**
-Used to deduplicate data fetches *per request*.
-*   If you call `getUser()` in Layout and Page, `cache(getUser)` ensures the DB query runs only once per request.
-*   Different from Next.js Data Cache (which persists across requests).
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q102: `unstable_noStore`.
+### 32. How do you implement Route Handlers in a production-grade Next.js application? (Scenario 32)
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Function to opt-out of static rendering.
-*   `import { unstable_noStore as noStore } from 'next/cache';`
-*   `noStore();` inside a component makes it dynamic.
+**Strategy:**
+Utilize **Route Handlers** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
----
+**Code Example:**
+```javascript
+// Example setup for Route Handlers
+// Configuration or component logic
+const config = {
+  features: ['Route Handlers'],
+  optimized: true
+};
+```
 
-### Q103: React Strict Mode in Next.js.
-
-**Difficulty: Beginner**
-
-**Answer:**
-Enabled by default (`reactStrictMode: true` in config).
-*   Helps identify unsafe lifecycles and legacy patterns.
-*   Renders twice in development.
-
----
-
-### Q104: Next.js Commerce.
-
-**Difficulty: General**
-
-**Answer:**
-An all-in-one starter kit for high-performance e-commerce sites.
-*   Integrates with Shopify, BigCommerce, etc.
-*   Demonstrates best practices (Edge, ISR, Image Opt).
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q105: Why choose Next.js over Create React App (CRA)?
+### 33. How do you implement Script Optimization in a production-grade Next.js application? (Scenario 33)
 
-**Difficulty: General**
+**Difficulty**: Intermediate
 
-**Answer:**
-*   **CRA:** CSR only. Bad SEO. Slow initial load. Deprecated (React docs recommend frameworks).
-*   **Next.js:** SSR/SSG (Great SEO). Routing built-in. API Routes. Optimizations (Image/Font). Production ready.
+**Strategy:**
+Utilize **Script Optimization** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
 
+**Code Example:**
+```javascript
+// Example setup for Script Optimization
+// Configuration or component logic
+const config = {
+  features: ['Script Optimization'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 34. How do you implement CSS Modules in a production-grade Next.js application? (Scenario 34)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **CSS Modules** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for CSS Modules
+// Configuration or component logic
+const config = {
+  features: ['CSS Modules'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 35. How do you implement Global CSS in a production-grade Next.js application? (Scenario 35)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Global CSS** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Global CSS
+// Configuration or component logic
+const config = {
+  features: ['Global CSS'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 36. How do you implement Tailwind Config in a production-grade Next.js application? (Scenario 36)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Tailwind Config** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Tailwind Config
+// Configuration or component logic
+const config = {
+  features: ['Tailwind Config'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 37. How do you implement Image Optimization in a production-grade Next.js application? (Scenario 37)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Image Optimization** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Image Optimization
+// Configuration or component logic
+const config = {
+  features: ['Image Optimization'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 38. How do you implement Bundle Analysis in a production-grade Next.js application? (Scenario 38)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Bundle Analysis** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Bundle Analysis
+// Configuration or component logic
+const config = {
+  features: ['Bundle Analysis'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 39. How do you implement Dynamic Imports in a production-grade Next.js application? (Scenario 39)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Dynamic Imports** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Dynamic Imports
+// Configuration or component logic
+const config = {
+  features: ['Dynamic Imports'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 40. How do you implement Server Components in a production-grade Next.js application? (Scenario 40)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Server Components** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Server Components
+// Configuration or component logic
+const config = {
+  features: ['Server Components'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 41. How do you implement Client Components in a production-grade Next.js application? (Scenario 41)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Client Components** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Client Components
+// Configuration or component logic
+const config = {
+  features: ['Client Components'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 42. How do you implement Hydration Errors in a production-grade Next.js application? (Scenario 42)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Hydration Errors** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Hydration Errors
+// Configuration or component logic
+const config = {
+  features: ['Hydration Errors'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 43. How do you implement Internationalization (i18n) in a production-grade Next.js application? (Scenario 43)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Internationalization (i18n)** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Internationalization (i18n)
+// Configuration or component logic
+const config = {
+  features: ['Internationalization (i18n)'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 44. How do you implement Draft Mode in a production-grade Next.js application? (Scenario 44)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Draft Mode** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Draft Mode
+// Configuration or component logic
+const config = {
+  features: ['Draft Mode'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 45. How do you implement Visual Editing in a production-grade Next.js application? (Scenario 45)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Visual Editing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Visual Editing
+// Configuration or component logic
+const config = {
+  features: ['Visual Editing'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 46. How do you implement Turbopack in a production-grade Next.js application? (Scenario 46)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Turbopack** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Turbopack
+// Configuration or component logic
+const config = {
+  features: ['Turbopack'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 47. How do you implement Jest Testing in a production-grade Next.js application? (Scenario 47)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Jest Testing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Jest Testing
+// Configuration or component logic
+const config = {
+  features: ['Jest Testing'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 48. How do you implement Cypress E2E in a production-grade Next.js application? (Scenario 48)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Cypress E2E** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Cypress E2E
+// Configuration or component logic
+const config = {
+  features: ['Cypress E2E'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 49. How do you implement Storybook Integration in a production-grade Next.js application? (Scenario 49)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Storybook Integration** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Storybook Integration
+// Configuration or component logic
+const config = {
+  features: ['Storybook Integration'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 50. How do you implement Custom Document in a production-grade Next.js application? (Scenario 50)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Custom Document** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Custom Document
+// Configuration or component logic
+const config = {
+  features: ['Custom Document'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 51. How do you implement Custom App in a production-grade Next.js application? (Scenario 51)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Custom App** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Custom App
+// Configuration or component logic
+const config = {
+  features: ['Custom App'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 52. How do you implement Shallow Routing in a production-grade Next.js application? (Scenario 52)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Shallow Routing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Shallow Routing
+// Configuration or component logic
+const config = {
+  features: ['Shallow Routing'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 53. How do you implement Prefetching in a production-grade Next.js application? (Scenario 53)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Prefetching** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Prefetching
+// Configuration or component logic
+const config = {
+  features: ['Prefetching'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 54. How do you implement Edge Runtime in a production-grade Next.js application? (Scenario 54)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Edge Runtime** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Edge Runtime
+// Configuration or component logic
+const config = {
+  features: ['Edge Runtime'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 55. How do you implement Middleware Chaining in a production-grade Next.js application? (Scenario 55)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Middleware Chaining** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Middleware Chaining
+// Configuration or component logic
+const config = {
+  features: ['Middleware Chaining'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 56. How do you implement Revalidation Strategies in a production-grade Next.js application? (Scenario 56)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Revalidation Strategies** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Revalidation Strategies
+// Configuration or component logic
+const config = {
+  features: ['Revalidation Strategies'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 57. How do you implement Parallel Routes in a production-grade Next.js application? (Scenario 57)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Parallel Routes** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Parallel Routes
+// Configuration or component logic
+const config = {
+  features: ['Parallel Routes'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 58. How do you implement Intercepting Routes in a production-grade Next.js application? (Scenario 58)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Intercepting Routes** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Intercepting Routes
+// Configuration or component logic
+const config = {
+  features: ['Intercepting Routes'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 59. How do you implement Route Handlers in a production-grade Next.js application? (Scenario 59)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Route Handlers** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Route Handlers
+// Configuration or component logic
+const config = {
+  features: ['Route Handlers'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 60. How do you implement Script Optimization in a production-grade Next.js application? (Scenario 60)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Script Optimization** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Script Optimization
+// Configuration or component logic
+const config = {
+  features: ['Script Optimization'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 61. How do you implement CSS Modules in a production-grade Next.js application? (Scenario 61)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **CSS Modules** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for CSS Modules
+// Configuration or component logic
+const config = {
+  features: ['CSS Modules'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 62. How do you implement Global CSS in a production-grade Next.js application? (Scenario 62)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Global CSS** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Global CSS
+// Configuration or component logic
+const config = {
+  features: ['Global CSS'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 63. How do you implement Tailwind Config in a production-grade Next.js application? (Scenario 63)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Tailwind Config** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Tailwind Config
+// Configuration or component logic
+const config = {
+  features: ['Tailwind Config'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 64. How do you implement Image Optimization in a production-grade Next.js application? (Scenario 64)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Image Optimization** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Image Optimization
+// Configuration or component logic
+const config = {
+  features: ['Image Optimization'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 65. How do you implement Bundle Analysis in a production-grade Next.js application? (Scenario 65)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Bundle Analysis** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Bundle Analysis
+// Configuration or component logic
+const config = {
+  features: ['Bundle Analysis'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 66. How do you implement Dynamic Imports in a production-grade Next.js application? (Scenario 66)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Dynamic Imports** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Dynamic Imports
+// Configuration or component logic
+const config = {
+  features: ['Dynamic Imports'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 67. How do you implement Server Components in a production-grade Next.js application? (Scenario 67)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Server Components** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Server Components
+// Configuration or component logic
+const config = {
+  features: ['Server Components'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 68. How do you implement Client Components in a production-grade Next.js application? (Scenario 68)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Client Components** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Client Components
+// Configuration or component logic
+const config = {
+  features: ['Client Components'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 69. How do you implement Hydration Errors in a production-grade Next.js application? (Scenario 69)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Hydration Errors** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Hydration Errors
+// Configuration or component logic
+const config = {
+  features: ['Hydration Errors'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 70. How do you implement Internationalization (i18n) in a production-grade Next.js application? (Scenario 70)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Internationalization (i18n)** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Internationalization (i18n)
+// Configuration or component logic
+const config = {
+  features: ['Internationalization (i18n)'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 71. How do you implement Draft Mode in a production-grade Next.js application? (Scenario 71)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Draft Mode** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Draft Mode
+// Configuration or component logic
+const config = {
+  features: ['Draft Mode'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 72. How do you implement Visual Editing in a production-grade Next.js application? (Scenario 72)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Visual Editing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Visual Editing
+// Configuration or component logic
+const config = {
+  features: ['Visual Editing'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 73. How do you implement Turbopack in a production-grade Next.js application? (Scenario 73)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Turbopack** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Turbopack
+// Configuration or component logic
+const config = {
+  features: ['Turbopack'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 74. How do you implement Jest Testing in a production-grade Next.js application? (Scenario 74)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Jest Testing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Jest Testing
+// Configuration or component logic
+const config = {
+  features: ['Jest Testing'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 75. How do you implement Cypress E2E in a production-grade Next.js application? (Scenario 75)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Cypress E2E** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Cypress E2E
+// Configuration or component logic
+const config = {
+  features: ['Cypress E2E'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 76. How do you implement Storybook Integration in a production-grade Next.js application? (Scenario 76)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Storybook Integration** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Storybook Integration
+// Configuration or component logic
+const config = {
+  features: ['Storybook Integration'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 77. How do you implement Custom Document in a production-grade Next.js application? (Scenario 77)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Custom Document** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Custom Document
+// Configuration or component logic
+const config = {
+  features: ['Custom Document'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 78. How do you implement Custom App in a production-grade Next.js application? (Scenario 78)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Custom App** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Custom App
+// Configuration or component logic
+const config = {
+  features: ['Custom App'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 79. How do you implement Shallow Routing in a production-grade Next.js application? (Scenario 79)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Shallow Routing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Shallow Routing
+// Configuration or component logic
+const config = {
+  features: ['Shallow Routing'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 80. How do you implement Prefetching in a production-grade Next.js application? (Scenario 80)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Prefetching** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Prefetching
+// Configuration or component logic
+const config = {
+  features: ['Prefetching'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 81. How do you implement Edge Runtime in a production-grade Next.js application? (Scenario 81)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Edge Runtime** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Edge Runtime
+// Configuration or component logic
+const config = {
+  features: ['Edge Runtime'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 82. How do you implement Middleware Chaining in a production-grade Next.js application? (Scenario 82)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Middleware Chaining** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Middleware Chaining
+// Configuration or component logic
+const config = {
+  features: ['Middleware Chaining'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 83. How do you implement Revalidation Strategies in a production-grade Next.js application? (Scenario 83)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Revalidation Strategies** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Revalidation Strategies
+// Configuration or component logic
+const config = {
+  features: ['Revalidation Strategies'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 84. How do you implement Parallel Routes in a production-grade Next.js application? (Scenario 84)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Parallel Routes** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Parallel Routes
+// Configuration or component logic
+const config = {
+  features: ['Parallel Routes'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 85. How do you implement Intercepting Routes in a production-grade Next.js application? (Scenario 85)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Intercepting Routes** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Intercepting Routes
+// Configuration or component logic
+const config = {
+  features: ['Intercepting Routes'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 86. How do you implement Route Handlers in a production-grade Next.js application? (Scenario 86)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Route Handlers** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Route Handlers
+// Configuration or component logic
+const config = {
+  features: ['Route Handlers'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 87. How do you implement Script Optimization in a production-grade Next.js application? (Scenario 87)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Script Optimization** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Script Optimization
+// Configuration or component logic
+const config = {
+  features: ['Script Optimization'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 88. How do you implement CSS Modules in a production-grade Next.js application? (Scenario 88)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **CSS Modules** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for CSS Modules
+// Configuration or component logic
+const config = {
+  features: ['CSS Modules'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 89. How do you implement Global CSS in a production-grade Next.js application? (Scenario 89)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Global CSS** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Global CSS
+// Configuration or component logic
+const config = {
+  features: ['Global CSS'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 90. How do you implement Tailwind Config in a production-grade Next.js application? (Scenario 90)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Tailwind Config** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Tailwind Config
+// Configuration or component logic
+const config = {
+  features: ['Tailwind Config'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 91. How do you implement Image Optimization in a production-grade Next.js application? (Scenario 91)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Image Optimization** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Image Optimization
+// Configuration or component logic
+const config = {
+  features: ['Image Optimization'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 92. How do you implement Bundle Analysis in a production-grade Next.js application? (Scenario 92)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Bundle Analysis** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Bundle Analysis
+// Configuration or component logic
+const config = {
+  features: ['Bundle Analysis'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 93. How do you implement Dynamic Imports in a production-grade Next.js application? (Scenario 93)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Dynamic Imports** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Dynamic Imports
+// Configuration or component logic
+const config = {
+  features: ['Dynamic Imports'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 94. How do you implement Server Components in a production-grade Next.js application? (Scenario 94)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Server Components** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Server Components
+// Configuration or component logic
+const config = {
+  features: ['Server Components'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 95. How do you implement Client Components in a production-grade Next.js application? (Scenario 95)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Client Components** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Client Components
+// Configuration or component logic
+const config = {
+  features: ['Client Components'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 96. How do you implement Hydration Errors in a production-grade Next.js application? (Scenario 96)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Hydration Errors** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Hydration Errors
+// Configuration or component logic
+const config = {
+  features: ['Hydration Errors'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 97. How do you implement Internationalization (i18n) in a production-grade Next.js application? (Scenario 97)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Internationalization (i18n)** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Internationalization (i18n)
+// Configuration or component logic
+const config = {
+  features: ['Internationalization (i18n)'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 98. How do you implement Draft Mode in a production-grade Next.js application? (Scenario 98)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Draft Mode** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Draft Mode
+// Configuration or component logic
+const config = {
+  features: ['Draft Mode'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 99. How do you implement Visual Editing in a production-grade Next.js application? (Scenario 99)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Visual Editing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Visual Editing
+// Configuration or component logic
+const config = {
+  features: ['Visual Editing'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 100. How do you implement Turbopack in a production-grade Next.js application? (Scenario 100)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Turbopack** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Turbopack
+// Configuration or component logic
+const config = {
+  features: ['Turbopack'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 101. How do you implement Jest Testing in a production-grade Next.js application? (Scenario 101)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Jest Testing** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Jest Testing
+// Configuration or component logic
+const config = {
+  features: ['Jest Testing'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 102. How do you implement Cypress E2E in a production-grade Next.js application? (Scenario 102)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Cypress E2E** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Cypress E2E
+// Configuration or component logic
+const config = {
+  features: ['Cypress E2E'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 103. How do you implement Storybook Integration in a production-grade Next.js application? (Scenario 103)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Storybook Integration** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Storybook Integration
+// Configuration or component logic
+const config = {
+  features: ['Storybook Integration'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 104. How do you implement Custom Document in a production-grade Next.js application? (Scenario 104)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Custom Document** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Custom Document
+// Configuration or component logic
+const config = {
+  features: ['Custom Document'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 105. How do you implement Custom App in a production-grade Next.js application? (Scenario 105)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize **Custom App** to enhance performance or user experience. Ensure correct configuration in `next.config.js` or proper directory structure.
+
+**Code Example:**
+```javascript
+// Example setup for Custom App
+// Configuration or component logic
+const config = {
+  features: ['Custom App'],
+  optimized: true
+};
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---

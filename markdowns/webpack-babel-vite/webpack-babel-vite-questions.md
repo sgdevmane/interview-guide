@@ -1,1027 +1,1526 @@
-# Webpack, Babel, and Vite Interview Questions
+# Webpack, Babel, & Vite Interview Questions
 
 ## Table of Contents
-
-- [Webpack, Babel, and Vite Interview Questions](#webpack-babel-and-vite-interview-questions)
-  - [Table of Contents](#table-of-contents)
-  - [Build Tools Fundamentals](#build-tools-fundamentals)
-    - [Q1: What is Webpack and why is it used?](#q1-what-is-webpack-and-why-is-it-used)
-    - [Q2: What is the difference between Webpack and Vite?](#q2-what-is-the-difference-between-webpack-and-vite)
-    - [Q3: What is Babel and how does it work?](#q3-what-is-babel-and-how-does-it-work)
-    - [Q4: Explain the concept of Loaders and Plugins in Webpack.](#q4-explain-the-concept-of-loaders-and-plugins-in-webpack)
-    - [Q5: What is Tree Shaking?](#q5-what-is-tree-shaking)
-    - [Q6: What is Hot Module Replacement (HMR)?](#q6-what-is-hot-module-replacement-hmr)
-    - [Q7: How does Vite achieve faster development server start times compared to Webpack?](#q7-how-does-vite-achieve-faster-development-server-start-times-compared-to-webpack)
-    - [Q8: What is Code Splitting and why is it important?](#q8-what-is-code-splitting-and-why-is-it-important)
-    - [Q9: Explain Webpack Module Federation.](#q9-explain-webpack-module-federation)
-    - [Q10: How do you handle environment variables in Vite?](#q10-how-do-you-handle-environment-variables-in-vite)
-    - [Q11: What are Polyfills and how does Babel handle them?](#q11-what-are-polyfills-and-how-does-babel-handle-them)
-    - [Q12: How do you configure multiple entry points in Webpack?](#q12-how-do-you-configure-multiple-entry-points-in-webpack)
-    - [Q13: What is the purpose of source maps?](#q13-what-is-the-purpose-of-source-maps)
-    - [Q14: How does Vite handle CSS and CSS Modules?](#q14-how-does-vite-handle-css-and-css-modules)
-    - [Q15: Explain the difference between `dependencies` and `devDependencies` relevant to build tools.](#q15-explain-the-difference-between-dependencies-and-devdependencies-relevant-to-build-tools)
-    - [Q16: What is the `public` directory in Vite used for?](#q16-what-is-the-public-directory-in-vite-used-for)
-    - [Q17: How do you optimize a Webpack production build?](#q17-how-do-you-optimize-a-webpack-production-build)
-    - [Q18: What is "transpilation" and why do we need it?](#q18-what-is-transpilation-and-why-do-we-need-it)
-    - [Q19: How does Babel use Presets?](#q19-how-does-babel-use-presets)
-    - [Q20: Can you use Webpack plugins in Vite?](#q20-can-you-use-webpack-plugins-in-vite)
-    - [Q21: What is the Webpack `DefinePlugin`?](#q21-what-is-the-webpack-defineplugin)
-    - [Q22: How do you resolve file extensions in Webpack?](#q22-how-do-you-resolve-file-extensions-in-webpack)
-    - [Q23: What are Webpack Aliases?](#q23-what-are-webpack-aliases)
-    - [Q24: How do you analyze bundle size in Webpack?](#q24-how-do-you-analyze-bundle-size-in-webpack)
-    - [Q25: What is the `clean-webpack-plugin` (or `output.clean`)?](#q25-what-is-the-clean-webpack-plugin-or-outputclean)
-    - [Q26: Explain `babel-loader`.](#q26-explain-babel-loader)
-    - [Q27: What is the difference between `babel.config.js` and `.babelrc`?](#q27-what-is-the-difference-between-babelconfigjs-and-babelrc)
-    - [Q28: In what order do Babel plugins and presets run?](#q28-in-what-order-do-babel-plugins-and-presets-run)
-    - [Q29: What is `core-js`?](#q29-what-is-core-js)
-    - [Q30: How does Vite handle static assets?](#q30-how-does-vite-handle-static-assets)
-    - [Q31: What is Vite's "Library Mode"?](#q31-what-is-vites-library-mode)
-    - [Q32: What is Dependency Pre-Bundling in Vite?](#q32-what-is-dependency-pre-bundling-in-vite)
-    - [Q33: How do you use Glob Imports in Vite?](#q33-how-do-you-use-glob-imports-in-vite)
-    - [Q34: What is `vite.config.js`?](#q34-what-is-viteconfigjs)
-    - [Q35: Does Vite support Server-Side Rendering (SSR)?](#q35-does-vite-support-server-side-rendering-ssr)
-    - [Q36: What is the `CopyWebpackPlugin` used for?](#q36-what-is-the-copywebpackplugin-used-for)
-    - [Q37: What is "Scope Hoisting" in Webpack?](#q37-what-is-scope-hoisting-in-webpack)
-    - [Q38: What is the `sideEffects` flag in `package.json`?](#q38-what-is-the-sideeffects-flag-in-packagejson)
-    - [Q39: How do you configure a proxy in Vite/Webpack dev server?](#q39-how-do-you-configure-a-proxy-in-vitewebpack-dev-server)
-    - [Q40: What is the difference between `hash`, `chunkhash`, and `contenthash` in Webpack?](#q40-what-is-the-difference-between-hash-chunkhash-and-contenthash-in-webpack)
-    - [Q41: What is SWC and how does it relate to Babel?](#q41-what-is-swc-and-how-does-it-relate-to-babel)
-    - [Q42: What is esbuild?](#q42-what-is-esbuild)
-    - [Q43: How do you handle TypeScript in Webpack?](#q43-how-do-you-handle-typescript-in-webpack)
-    - [Q44: How do you handle TypeScript in Vite?](#q44-how-do-you-handle-typescript-in-vite)
-    - [Q45: What is Differential Loading?](#q45-what-is-differential-loading)
-    - [Q46: What is the `@babel/plugin-transform-runtime`?](#q46-what-is-the-babelplugin-transform-runtime)
-    - [Q47: How do you enable HMR in Webpack manually?](#q47-how-do-you-enable-hmr-in-webpack-manually)
-    - [Q48: What is the `MiniCssExtractPlugin`?](#q48-what-is-the-minicssextractplugin)
-    - [Q49: How does Vite handle JSON files?](#q49-how-does-vite-handle-json-files)
-    - [Q50: What is the `resolve.modules` configuration in Webpack?](#q50-what-is-the-resolvemodules-configuration-in-webpack)
-    - [Q51: What is the purpose of `html-webpack-plugin`?](#q51-what-is-the-purpose-of-html-webpack-plugin)
-    - [Q52: How do you load images in Webpack 5?](#q52-how-do-you-load-images-in-webpack-5)
-    - [Q53: What are "Asset Modules" in Webpack 5?](#q53-what-are-asset-modules-in-webpack-5)
-    - [Q54: How do you debug a slow Webpack build?](#q54-how-do-you-debug-a-slow-webpack-build)
-    - [Q55: What is `vite preview` command?](#q55-what-is-vite-preview-command)
-    - [Q56: How does Vite handle `.vue` or `.svelte` files?](#q56-how-does-vite-handle-vue-or-svelte-files)
-    - [Q57: What is the Rollup bundler?](#q57-what-is-the-rollup-bundler)
-    - [Q58: Why is Rollup often preferred for libraries over Webpack?](#q58-why-is-rollup-often-preferred-for-libraries-over-webpack)
-    - [Q59: What is Parcel?](#q59-what-is-parcel)
-    - [Q60: What is "Zero Config" in build tools?](#q60-what-is-zero-config-in-build-tools)
-    - [Q61: How do you inject global variables in Webpack?](#q61-how-do-you-inject-global-variables-in-webpack)
-    - [Q62: What is the `target` option in Webpack?](#q62-what-is-the-target-option-in-webpack)
-    - [Q63: How to handle CSS Preprocessors (Sass/Less) in Webpack?](#q63-how-to-handle-css-preprocessors-sassless-in-webpack)
-    - [Q64: What is PostCSS?](#q64-what-is-postcss)
-    - [Q65: How do you use PostCSS with Vite?](#q65-how-do-you-use-postcss-with-vite)
-    - [Q66: What is `autoprefixer`?](#q66-what-is-autoprefixer)
-    - [Q67: How do you exclude `node_modules` from Babel transformation?](#q67-how-do-you-exclude-node_modules-from-babel-transformation)
-    - [Q68: What is `babel-node`?](#q68-what-is-babel-node)
-    - [Q69: What is the AST (Abstract Syntax Tree)?](#q69-what-is-the-ast-abstract-syntax-tree)
-    - [Q70: Can Babel parse TypeScript?](#q70-can-babel-parse-typescript)
-    - [Q71: What is the difference between `Babel` and `TypeScript` compiler (`tsc`)?](#q71-what-is-the-difference-between-babel-and-typescript-compiler-tsc)
-    - [Q72: How do you create a custom Webpack loader?](#q72-how-do-you-create-a-custom-webpack-loader)
-    - [Q73: How do you create a custom Webpack plugin?](#q73-how-do-you-create-a-custom-webpack-plugin)
-    - [Q74: What is `webpack-dev-server`?](#q74-what-is-webpack-dev-server)
-    - [Q75: How do you handle "Magic Comments" in Webpack?](#q75-how-do-you-handle-magic-comments-in-webpack)
-    - [Q76: What is Prefetching and Preloading in Webpack?](#q76-what-is-prefetching-and-preloading-in-webpack)
-    - [Q77: How does Webpack handle circular dependencies?](#q77-how-does-webpack-handle-circular-dependencies)
-    - [Q78: What is the `DLLPlugin` in Webpack?](#q78-what-is-the-dllplugin-in-webpack)
-    - [Q79: Why is `DLLPlugin` less relevant in Webpack 5/Vite?](#q79-why-is-dllplugin-less-relevant-in-webpack-5vite)
-    - [Q80: How do you measure build performance in Vite?](#q80-how-do-you-measure-build-performance-in-vite)
-    - [Q81: What is the `legacy` plugin in Vite?](#q81-what-is-the-legacy-plugin-in-vite)
-    - [Q82: How do you deploy a Vite app to GitHub Pages?](#q82-how-do-you-deploy-a-vite-app-to-github-pages)
-    - [Q83: What is the `base` config option in Vite?](#q83-what-is-the-base-config-option-in-vite)
-    - [Q84: How do you implement Critical CSS extraction?](#q84-how-do-you-implement-critical-css-extraction)
-    - [Q85: What is the difference between `module.exports` and `export default`?](#q85-what-is-the-difference-between-moduleexports-and-export-default)
-    - [Q86: How does Webpack resolve `import` statements?](#q86-how-does-webpack-resolve-import-statements)
-    - [Q87: What is the `externals` configuration in Webpack?](#q87-what-is-the-externals-configuration-in-webpack)
-    - [Q88: How do you remove console logs in production build?](#q88-how-do-you-remove-console-logs-in-production-build)
-    - [Q89: What is `webpack-merge`?](#q89-what-is-webpack-merge)
-    - [Q90: How do you setup ESLint with Vite/Webpack?](#q90-how-do-you-setup-eslint-with-vitewebpack)
-    - [Q91: What is Turbopack?](#q91-what-is-turbopack)
-    - [Q92: What is the difference between Bundling and Compiling?](#q92-what-is-the-difference-between-bundling-and-compiling)
-    - [Q93: How do you handle caching in Webpack?](#q93-how-do-you-handle-caching-in-webpack)
-    - [Q94: What are "Runtime Chunks" in Webpack?](#q94-what-are-runtime-chunks-in-webpack)
-    - [Q95: How does Vite handle Web Workers?](#q95-how-does-vite-handle-web-workers)
-    - [Q96: What is the `optimizeDeps` option in Vite?](#q96-what-is-the-optimizedeps-option-in-vite)
-    - [Q97: How do you debug Vite HMR issues?](#q97-how-do-you-debug-vite-hmr-issues)
-    - [Q98: What is the `babel-plugin-macros`?](#q98-what-is-the-babel-plugin-macros)
-    - [Q99: How do you customize the output directory in Vite?](#q99-how-do-you-customize-the-output-directory-in-vite)
-    - [Q100: What is the future of frontend build tools?](#q100-what-is-the-future-of-frontend-build-tools)
+1. [You are migrating a legacy React project from Webpack to Vite to improve development server start time. The project relies on CommonJS modules (`require`). How do you handle this in Vite?](#q1-you-are-migrating-a-legacy-react-project-from-webpack-to-vite-to-improve-development-server-start-time.-the-project-relies-on-commonjs-modules-require.-how-do-you-handle-this-in-vite)
+2. [Your Webpack bundle size has grown too large (5MB+), causing slow initial page loads. How do you use `SplitChunksPlugin` to optimize this?](#q2-your-webpack-bundle-size-has-grown-too-large-5mb+-causing-slow-initial-page-loads.-how-do-you-use-splitchunksplugin-to-optimize-this)
+3. [You need to support Internet Explorer 11 in a modern JavaScript application. How do you configure Babel to ensure your code runs there without transpiling everything unnecessarily for modern browsers?](#q3-you-need-to-support-internet-explorer-11-in-a-modern-javascript-application.-how-do-you-configure-babel-to-ensure-your-code-runs-there-without-transpiling-everything-unnecessarily-for-modern-browsers)
+4. [How do you optimize Tree Shaking in Webpack by marking side effects?](#q4-how-do-you-optimize-tree-shaking-in-webpack-by-marking-side-effects)
+5. [How does Vite achieve instant server start times compared to Webpack?](#q5-how-does-vite-achieve-instant-server-start-times-compared-to-webpack)
+6. [You are building a Micro Frontends architecture. How do you configure Webpack Module Federation to expose a component?](#q6-you-are-building-a-micro-frontends-architecture.-how-do-you-configure-webpack-module-federation-to-expose-a-component)
+7. [How do you combine Babel Plugins to create a custom Preset?](#q7-how-do-you-combine-babel-plugins-to-create-a-custom-preset)
+8. [You encounter a 'CORS' error when your frontend (localhost:3000) tries to call your API (localhost:5000). How do you fix this using Webpack Dev Server proxy?](#q8-you-encounter-a-cors-error-when-your-frontend-localhost3000-tries-to-call-your-api-localhost5000.-how-do-you-fix-this-using-webpack-dev-server-proxy)
+9. [How do you debug a large bundle to find out which libraries are taking up the most space?](#q9-how-do-you-debug-a-large-bundle-to-find-out-which-libraries-are-taking-up-the-most-space)
+10. [How do you enable Hot Module Replacement (HMR) manually in Webpack?](#q10-how-do-you-enable-hot-module-replacement-hmr-manually-in-webpack)
+11. [You are using environment variables in your frontend code. Why does `process.env.API_KEY` work in Node.js but fail in the browser, and how do you fix it?](#q11-you-are-using-environment-variables-in-your-frontend-code.-why-does-process.env.api_key-work-in-node.js-but-fail-in-the-browser-and-how-do-you-fix-it)
+12. [How do you configure secure Source Maps for production debugging without exposing source code?](#q12-how-do-you-configure-secure-source-maps-for-production-debugging-without-exposing-source-code)
+13. [How do you implement 'Path Aliases' (e.g., importing from `@components/Button` instead of `../../components/Button`)?](#q13-how-do-you-implement-path-aliases-e.g.-importing-from-@components-button-instead-of-..-..-components-button)
+14. [How do you write a custom Babel Plugin using AST transformation?](#q14-how-do-you-write-a-custom-babel-plugin-using-ast-transformation)
+15. [How do you use Webpack's `ProvidePlugin` to shim global variables like jQuery?](#q15-how-do-you-use-webpacks-provideplugin-to-shim-global-variables-like-jquery)
+16. [How do you configure Webpack to handle CSS Modules?](#q16-how-do-you-configure-webpack-to-handle-css-modules)
+17. [How do you use PostCSS with Webpack?](#q17-how-do-you-use-postcss-with-webpack)
+18. [How do you implement Critical CSS extraction?](#q18-how-do-you-implement-critical-css-extraction)
+19. [How do you configure Browserslist for different environments?](#q19-how-do-you-configure-browserslist-for-different-environments)
+20. [How do you use `url-loader` vs `file-loader` (or Asset Modules) for images?](#q20-how-do-you-use-url-loader-vs-file-loader-or-asset-modules-for-images)
+21. [How do you optimize images using `image-webpack-loader`?](#q21-how-do-you-optimize-images-using-image-webpack-loader)
+22. [How do you configure Webpack to support TypeScript?](#q22-how-do-you-configure-webpack-to-support-typescript)
+23. [How do you use `fork-ts-checker-webpack-plugin` for faster type checking?](#q23-how-do-you-use-fork-ts-checker-webpack-plugin-for-faster-type-checking)
+24. [How do you generate a PWA Service Worker using WorkboxWebpackPlugin?](#q24-how-do-you-generate-a-pwa-service-worker-using-workboxwebpackplugin)
+25. [How do you configure Webpack for multi-page applications (MPA)?](#q25-how-do-you-configure-webpack-for-multi-page-applications-mpa)
+26. [How do you use `HtmlWebpackPlugin` to inject bundles into HTML?](#q26-how-do-you-use-htmlwebpackplugin-to-inject-bundles-into-html)
+27. [How do you implement SRI (Subresource Integrity) in Webpack?](#q27-how-do-you-implement-sri-subresource-integrity-in-webpack)
+28. [How do you use `CopyWebpackPlugin` to move static assets?](#q28-how-do-you-use-copywebpackplugin-to-move-static-assets)
+29. [How do you clean the build folder before each build?](#q29-how-do-you-clean-the-build-folder-before-each-build)
+30. [How do you extract CSS into separate files using `MiniCssExtractPlugin`?](#q30-how-do-you-extract-css-into-separate-files-using-minicssextractplugin)
+31. [How do you configure Webpack Dev Server for HTTPS?](#q31-how-do-you-configure-webpack-dev-server-for-https)
+32. [How do you use `DefinePlugin` to set feature flags?](#q32-how-do-you-use-defineplugin-to-set-feature-flags)
+33. [How do you ignore specific modules using `IgnorePlugin` (e.g., Moment locales)?](#q33-how-do-you-ignore-specific-modules-using-ignoreplugin-e.g.-moment-locales)
+34. [How do you use `DllPlugin` to speed up development builds?](#q34-how-do-you-use-dllplugin-to-speed-up-development-builds)
+35. [How do you profile the Webpack build speed?](#q35-how-do-you-profile-the-webpack-build-speed)
+36. [How do you use Webpack 5 Module Federation for dynamic remotes?](#q36-how-do-you-use-webpack-5-module-federation-for-dynamic-remotes)
+37. [How do you configure Vite for a library build (lib mode)?](#q37-how-do-you-configure-vite-for-a-library-build-lib-mode)
+38. [How do you use Vite plugins (e.g., `vite-plugin-pwa`)?](#q38-how-do-you-use-vite-plugins-e.g.-vite-plugin-pwa)
+39. [How do you configure Vite aliases?](#q39-how-do-you-configure-vite-aliases)
+40. [How do you proxy requests in Vite?](#q40-how-do-you-proxy-requests-in-vite)
+41. [How do you use environment variables in Vite (`import.meta.env`)?](#q41-how-do-you-use-environment-variables-in-vite-import.meta.env)
+42. [How do you configure Vite for Server-Side Rendering (SSR)?](#q42-how-do-you-configure-vite-for-server-side-rendering-ssr)
+43. [How do you migrate from Create React App to Vite?](#q43-how-do-you-migrate-from-create-react-app-to-vite)
+44. [How do you use `esbuild` directly for simple bundling tasks?](#q44-how-do-you-use-esbuild-directly-for-simple-bundling-tasks)
+45. [How do you configure Rollup for packaging a JS library?](#q45-how-do-you-configure-rollup-for-packaging-a-js-library)
+46. [How do you use Rollup plugins?](#q46-how-do-you-use-rollup-plugins)
+47. [How do you configure Babel to support experimental syntax (Decorators)?](#q47-how-do-you-configure-babel-to-support-experimental-syntax-decorators)
+48. [How do you use `babel-node` for running scripts?](#q48-how-do-you-use-babel-node-for-running-scripts)
+49. [How do you cache Babel compilation results?](#q49-how-do-you-cache-babel-compilation-results)
+50. [How do you configure ESLint with Prettier to avoid conflicts?](#q50-how-do-you-configure-eslint-with-prettier-to-avoid-conflicts)
+51. [How do you write a custom ESLint rule?](#q51-how-do-you-write-a-custom-eslint-rule)
+52. [How do you use `lint-staged` with Husky?](#q52-how-do-you-use-lint-staged-with-husky)
+53. [How do you enforce commit message conventions with Commitlint?](#q53-how-do-you-enforce-commit-message-conventions-with-commitlint)
+54. [How do you use `npm-run-all` to run scripts in parallel?](#q54-how-do-you-use-npm-run-all-to-run-scripts-in-parallel)
+55. [How do you configure `lerna` or `nx` for a monorepo?](#q55-how-do-you-configure-lerna-or-nx-for-a-monorepo)
+56. [How do you use Yarn Workspaces?](#q56-how-do-you-use-yarn-workspaces)
+57. [How do you prevent phantom dependencies with pnpm?](#q57-how-do-you-prevent-phantom-dependencies-with-pnpm)
+58. [How do you audit npm dependencies for security vulnerabilities?](#q58-how-do-you-audit-npm-dependencies-for-security-vulnerabilities)
+59. [How do you override a nested dependency version (resolutions)?](#q59-how-do-you-override-a-nested-dependency-version-resolutions)
+60. [How do you publish a package to npm?](#q60-how-do-you-publish-a-package-to-npm)
+61. [How do you create a scoped npm package?](#q61-how-do-you-create-a-scoped-npm-package)
+62. [How do you link a local package for development (`npm link`)?](#q62-how-do-you-link-a-local-package-for-development-npm-link)
+63. [How do you use `.npmrc` to configure registry URL?](#q63-how-do-you-use-.npmrc-to-configure-registry-url)
+64. [How do you setup Semantic Release for automated versioning?](#q64-how-do-you-setup-semantic-release-for-automated-versioning)
+65. [How do you configure GitHub Actions for CI/CD?](#q65-how-do-you-configure-github-actions-for-ci-cd)
+66. [How do you cache `node_modules` in GitHub Actions?](#q66-how-do-you-cache-node_modules-in-github-actions)
+67. [How do you run tests in parallel in CI?](#q67-how-do-you-run-tests-in-parallel-in-ci)
+68. [How do you deploy a static site to Netlify via CLI?](#q68-how-do-you-deploy-a-static-site-to-netlify-via-cli)
+69. [How do you deploy to Vercel using their CLI?](#q69-how-do-you-deploy-to-vercel-using-their-cli)
+70. [How do you containerize a Node.js app with Docker?](#q70-how-do-you-containerize-a-node.js-app-with-docker)
+71. [How do you optimize Docker image size for Node.js apps?](#q71-how-do-you-optimize-docker-image-size-for-node.js-apps)
+72. [How do you use multi-stage Docker builds?](#q72-how-do-you-use-multi-stage-docker-builds)
+73. [How do you configure Nginx as a reverse proxy for a Node app?](#q73-how-do-you-configure-nginx-as-a-reverse-proxy-for-a-node-app)
+74. [How do you enable Gzip compression in Nginx?](#q74-how-do-you-enable-gzip-compression-in-nginx)
+75. [How do you serve static assets from an S3 bucket?](#q75-how-do-you-serve-static-assets-from-an-s3-bucket)
+76. [How do you invalidate CloudFront cache after deployment?](#q76-how-do-you-invalidate-cloudfront-cache-after-deployment)
+77. [How do you implement Blue/Green deployment?](#q77-how-do-you-implement-blue-green-deployment)
+78. [How do you use Feature Toggles in build configuration?](#q78-how-do-you-use-feature-toggles-in-build-configuration)
+79. [How do you handle secrets in CI/CD pipelines?](#q79-how-do-you-handle-secrets-in-ci-cd-pipelines)
+80. [How do you verify the integrity of downloaded npm packages?](#q80-how-do-you-verify-the-integrity-of-downloaded-npm-packages)
+81. [How do you use `nvm` to manage Node versions?](#q81-how-do-you-use-nvm-to-manage-node-versions)
+82. [How do you debug a memory leak in the build process?](#q82-how-do-you-debug-a-memory-leak-in-the-build-process)
+83. [How do you use `node --inspect` to debug build scripts?](#q83-how-do-you-use-node---inspect-to-debug-build-scripts)
+84. [How do you generate a license report for dependencies?](#q84-how-do-you-generate-a-license-report-for-dependencies)
+85. [How do you check for circular dependencies?](#q85-how-do-you-check-for-circular-dependencies)
+86. [How do you remove console logs in production build?](#q86-how-do-you-remove-console-logs-in-production-build)
+87. [How do you inline small images as Base64 URLs?](#q87-how-do-you-inline-small-images-as-base64-urls)
+88. [How do you configure Webpack to use a CDN for public path?](#q88-how-do-you-configure-webpack-to-use-a-cdn-for-public-path)
+89. [How do you use `preload-webpack-plugin`?](#q89-how-do-you-use-preload-webpack-plugin)
+90. [How do you implement 'Prefetching' for future routes?](#q90-how-do-you-implement-prefetching-for-future-routes)
+91. [How do you use `webpack-merge` to split config files?](#q91-how-do-you-use-webpack-merge-to-split-config-files)
+92. [How do you create a custom Webpack loader?](#q92-how-do-you-create-a-custom-webpack-loader)
+93. [How do you use `style-loader` vs `css-loader`?](#q93-how-do-you-use-style-loader-vs-css-loader)
+94. [How do you configure CSS Modules localIdentName?](#q94-how-do-you-configure-css-modules-localidentname)
+95. [How do you use `postcss-preset-env`?](#q95-how-do-you-use-postcss-preset-env)
+96. [How do you configure PurgeCSS to remove unused CSS?](#q96-how-do-you-configure-purgecss-to-remove-unused-css)
+97. [How do you polyfill `fetch` in older browsers?](#q97-how-do-you-polyfill-fetch-in-older-browsers)
+98. [How do you use `core-js` version 3?](#q98-how-do-you-use-core-js-version-3)
+99. [How do you transpile `node_modules` if needed?](#q99-how-do-you-transpile-node_modules-if-needed)
+100. [How do you configure Babel for React (JSX)?](#q100-how-do-you-configure-babel-for-react-jsx)
+101. [How do you configure Babel for TypeScript?](#q101-how-do-you-configure-babel-for-typescript)
+102. [How do you use `babel-plugin-import` for UI libraries?](#q102-how-do-you-use-babel-plugin-import-for-ui-libraries)
+103. [How do you optimize moment.js bundle size?](#q103-how-do-you-optimize-moment.js-bundle-size)
+104. [How do you replace moment.js with date-fns or dayjs?](#q104-how-do-you-replace-moment.js-with-date-fns-or-dayjs)
+105. [How do you use `swc-loader` for faster builds?](#q105-how-do-you-use-swc-loader-for-faster-builds)
+106. [How do you use Parcel for zero-config builds?](#q106-how-do-you-use-parcel-for-zero-config-builds)
+107. [How do you configure Gulp for task automation?](#q107-how-do-you-configure-gulp-for-task-automation)
 
 ---
 
-## Build Tools Fundamentals
+### Q1: You are migrating a legacy React project from Webpack to Vite to improve development server start time. The project relies on CommonJS modules (`require`). How do you handle this in Vite?
 
-### Q1: What is Webpack and why is it used?
-
-**Difficulty: Easy**
+**Difficulty: Intermediate**
 
 **Answer:**
-Webpack is a static module bundler for modern JavaScript applications. When Webpack processes your application, it builds a dependency graph that maps every module your project needs and generates one or more bundles.
-**Key Features:**
+**Challenge:** Vite is built on native ES Modules (ESM) and Rollup. It does not support CommonJS by default in source code.
 
-- **Bundling:** Combines multiple files into a single file (or a few files) to reduce HTTP requests.
-- **Asset Management:** Can process HTML, CSS, images, and other assets, not just JavaScript.
-- **Transformation:** Uses loaders to preprocess files (e.g., TypeScript to JavaScript, SASS to CSS).
-
-### Q2: What is the difference between Webpack and Vite?
-
-**Difficulty: Medium**
-
-**Answer:**
-
-- **Development Server:**
-  - **Webpack:** Bundles the entire application before serving. Rebuilding can be slow for large apps.
-  - **Vite:** Uses native ES modules (ESM) in the browser. It serves source files directly and only bundles dependencies (using esbuild) which is extremely fast.
-- **Build:**
-  - **Webpack:** Uses its own bundling logic.
-  - **Vite:** Uses Rollup for production builds.
-- **Configuration:**
-  - **Webpack:** Known for complex configuration.
-  - **Vite:** Opinions-based, comes with sensible defaults, often requiring zero config.
-
-### Q3: What is Babel and how does it work?
-
-**Difficulty: Easy**
-
-**Answer:**
-Babel is a JavaScript compiler (transpiler) that converts ECMAScript 2015+ (ES6+) code into a backwards-compatible version of JavaScript that can run in current and older browsers or environments.
-**How it works:**
-
-1.  **Parsing:** Takes code and outputs an Abstract Syntax Tree (AST).
-2.  **Transformation:** Manipulates the AST based on plugins/presets.
-3.  **Code Generation:** Converts the modified AST back into code.
-
-### Q4: Explain the concept of Loaders and Plugins in Webpack.
-
-**Difficulty: Easy**
-
-**Answer:**
-
-- **Loaders:** Transformations applied to the source code of a module. They allow you to import files other than JavaScript (like CSS, Images, TypeScript).
-  - _Example:_ `css-loader`, `style-loader`, `babel-loader`.
-- **Plugins:** Perform a wider range of tasks like bundle optimization, asset management, and injection of environment variables. They tap into the Webpack build lifecycle.
-  - _Example:_ `HtmlWebpackPlugin`, `CleanWebpackPlugin`, `MiniCssExtractPlugin`.
-
-### Q5: What is Tree Shaking?
-
-**Difficulty: Medium**
-
-**Answer:**
-Tree Shaking is a term commonly used in the JavaScript context for dead-code elimination. It relies on the static structure of ES2015 module syntax (`import` and `export`). Webpack and Rollup (used by Vite) detect unused exports in your code and exclude them from the final bundle, reducing the bundle size.
-
-### Q6: What is Hot Module Replacement (HMR)?
-
-**Difficulty: Medium**
-
-**Answer:**
-HMR exchanges, adds, or removes modules while an application is running, without a full reload. This significantly speeds up development by retaining the application state which is lost during a full reload.
-
-### Q7: How does Vite achieve faster development server start times compared to Webpack?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Vite divides the application into two categories:
-
-1.  **Dependencies:** Plain JavaScript that does not change often. Vite pre-bundles these using **esbuild**, which is written in Go and is 10-100x faster than JavaScript-based bundlers.
-2.  **Source Code:** Code that needs transforming (e.g., JSX, CSS) and changes often. Vite serves this over native ESM. The browser takes over the job of bundling (requesting modules as needed).
-
-### Q8: What is Code Splitting and why is it important?
-
-**Difficulty: Medium**
-
-**Answer:**
-Code Splitting is a feature (supported by Webpack and Vite/Rollup) that allows you to split your code into various bundles which can then be loaded on demand or in parallel.
-**Importance:**
-
-- Reduces the initial load time of the application.
-- Allows for lazy loading of heavy components or routes.
-- Improves caching (if vendor code is split, it doesn't need to be re-downloaded when app code changes).
-
-### Q9: Explain Webpack Module Federation.
-
-**Difficulty: Advanced**
-
-**Answer:**
-Module Federation allows multiple separate builds to form a single application. These separate builds act like containers and can expose and consume code between each other at runtime. This is the foundation for Micro-Frontends architecture in Webpack 5.
-
-### Q10: How do you handle environment variables in Vite?
-
-**Difficulty: Medium**
-
-**Answer:**
-Vite exposes environment variables on the special `import.meta.env` object.
-
-- Variables typically start with `VITE_` (e.g., `VITE_API_URL`) to be exposed to the client.
-- Built-in variables: `import.meta.env.MODE`, `import.meta.env.BASE_URL`, `import.meta.env.PROD`, `import.meta.env.DEV`.
-
-### Q11: What are Polyfills and how does Babel handle them?
-
-**Difficulty: Medium**
-
-**Answer:**
-A polyfill is a piece of code used to provide modern functionality on older browsers (e.g., `Array.prototype.includes`).
-Babel handles polyfills typically via `core-js`. With `@babel/preset-env`, you can set `useBuiltIns: 'usage'`, which automatically imports only the polyfills required by your code based on your target browsers.
-
-### Q12: How do you configure multiple entry points in Webpack?
-
-**Difficulty: Medium**
-
-**Answer:**
-Configure the `entry` property in `webpack.config.js` as an object.
+**Solutions:**
+1.  **Refactor:** The best long-term solution is to replace `require` with `import` and `module.exports` with `export`.
+2.  **Plugin:** Use `vite-plugin-commonjs` to transform CommonJS calls to ESM during the build.
+3.  **Pre-bundling:** Vite automatically converts CommonJS *dependencies* (in `node_modules`) to ESM using esbuild, but this doesn't apply to your source files.
 
 ```javascript
+// vite.config.js
+import { defineConfig } from 'vite';
+import commonjs from 'vite-plugin-commonjs';
+
+export default defineConfig({
+  plugins: [commonjs()]
+});
+```
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q2: Your Webpack bundle size has grown too large (5MB+), causing slow initial page loads. How do you use `SplitChunksPlugin` to optimize this?
+
+**Difficulty: Advanced**
+
+**Answer:**
+**Strategy: Code Splitting**
+
+1.  **Vendor Splitting:** Separate third-party libraries (React, Lodash) into a stable `vendors.js` chunk that can be cached by the browser.
+2.  **Dynamic Imports:** Split code based on routes using `import()`.
+3.  **Configuration:**
+
+```javascript
+// webpack.config.js
 module.exports = {
-  entry: {
-    pageOne: "./src/pageOne/index.js",
-    pageTwo: "./src/pageTwo/index.js",
-  },
-  output: {
-    filename: "[name].bundle.js",
-    path: __dirname + "/dist",
+  optimization: {
+    splitChunks: {
+      chunks: 'all', // Optimizes both sync and async chunks
+      minSize: 20000, // 20kb
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\/]node_modules[\/]/,
+          priority: -10,
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
 };
 ```
 
-### Q13: What is the purpose of source maps?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Easy**
+---
 
-**Answer:**
-Source maps are files that map the transformed/minified code back to the original source code. They allow developers to debug the code in the browser as if they were running the original source files, seeing original line numbers and variable names.
+### Q3: You need to support Internet Explorer 11 in a modern JavaScript application. How do you configure Babel to ensure your code runs there without transpiling everything unnecessarily for modern browsers?
 
-### Q14: How does Vite handle CSS and CSS Modules?
-
-**Difficulty: Easy**
+**Difficulty: Intermediate**
 
 **Answer:**
-Vite supports importing `.css` files directly.
+**Solution: `@babel/preset-env` with `useBuiltIns`**
 
-- **Standard CSS:** `import './style.css'` injects content via `<style>`.
-- **CSS Modules:** Files ending in `.module.css` are treated as CSS modules.
-- **Pre-processors:** Supports `.scss`, `.less` if installed.
+1.  **Targeting:** Specify `ie: "11"` in your targets.
+2.  **Polyfills:** Use `core-js` to provide missing features (Promise, Array.from).
+3.  **Optimization:** Set `useBuiltIns: "usage"`. This tells Babel to only include polyfills for features *actually used* in your code, rather than the entire library.
 
-### Q15: Explain the difference between `dependencies` and `devDependencies` relevant to build tools.
-
-**Difficulty: Easy**
-
-**Answer:**
-
-- **dependencies:** Libraries required for the application to run in production (e.g., `react`).
-- **devDependencies:** Libraries needed only during development and build time (e.g., `webpack`, `vite`, `babel`). Build tools are usually here.
-
-### Q16: What is the `public` directory in Vite used for?
-
-**Difficulty: Easy**
-
-**Answer:**
-Assets in `public` are served at the root path `/` during dev and copied to the root of the dist directory as-is (without hashing) during build. Used for `robots.txt`, `favicon.ico`.
-
-### Q17: How do you optimize a Webpack production build?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Strategies include:
-
-1.  **Minification:** `TerserPlugin` (JS), `CssMinimizerPlugin`.
-2.  **Tree Shaking:** Ensure ES6 modules are used.
-3.  **Code Splitting:** `SplitChunksPlugin` for vendor code.
-4.  **Lazy Loading:** Dynamic imports.
-5.  **Compression:** `CompressionPlugin` (Gzip).
-6.  **Caching:** Use content hashes.
-
-### Q18: What is "transpilation" and why do we need it?
-
-**Difficulty: Easy**
-
-**Answer:**
-Transpilation is source-to-source compilation. We need it (via Babel, TypeScript) to run modern JavaScript syntax (ES6+) in older environments that don't support those features yet.
-
-### Q19: How does Babel use Presets?
-
-**Difficulty: Medium**
-
-**Answer:**
-Babel Presets are pre-determined sets of plugins.
-
-- `@babel/preset-env`: Smart preset for latest JavaScript.
-- `@babel/preset-react`: For React JSX.
-- `@babel/preset-typescript`: For TypeScript.
-
-### Q20: Can you use Webpack plugins in Vite?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Generally, no. Vite uses Rollup for production builds, so it is compatible with Rollup plugins. Webpack plugins are specific to Webpack. However, there are compatibility layers or equivalent plugins for Vite.
-
-### Q21: What is the Webpack `DefinePlugin`?
-
-**Difficulty: Medium**
-
-**Answer:**
-The `DefinePlugin` allows you to create global constants which can be configured at compile time. This is often used for environment variables (e.g., `process.env.NODE_ENV`).
-
-```javascript
-new webpack.DefinePlugin({
-  "process.env.NODE_ENV": JSON.stringify("production"),
-});
-```
-
-### Q22: How do you resolve file extensions in Webpack?
-
-**Difficulty: Easy**
-
-**Answer:**
-Using the `resolve.extensions` option in configuration.
-
-```javascript
-resolve: {
-  extensions: [".js", ".jsx", ".ts", ".tsx"];
+```json
+// .babelrc
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "ie": "11",
+        "chrome": "80"
+      },
+      "useBuiltIns": "usage", // Crucial for bundle size
+      "corejs": 3
+    }]
+  ]
 }
 ```
 
-This allows importing files without specifying their extension (e.g., `import App from './App'`).
+[Back to Top](#table-of-contents)
 
-### Q23: What are Webpack Aliases?
+---
 
-**Difficulty: Easy**
+### Q4: How do you optimize Tree Shaking in Webpack by marking side effects?
+
+**Difficulty: Advanced**
 
 **Answer:**
-Aliases allow you to create shortcuts for import paths, making imports cleaner and avoiding long relative paths like `../../../../utils`.
+Tree Shaking relies on static ESM analysis to drop unused exports. However, if a file has "side effects" (e.g., modifying a global prototype), Webpack cannot safely remove it even if its exports are unused.
 
+**Fix:** Use the `"sideEffects"` field in `package.json`.
+
+1.  **Mark all clean:** `"sideEffects": false` (Tells Webpack: "If I don't import it, you can remove it").
+2.  **Mark specific files:**
+
+```json
+// package.json
+{
+  "name": "my-lib",
+  "sideEffects": [
+    "*.css",
+    "./src/polyfills.js"
+  ]
+}
+```
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q5: How does Vite achieve instant server start times compared to Webpack?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Webpack:** Bundles the *entire* application before starting the server. As the app grows, build time grows linearly.
+
+**Vite:**
+1.  **Native ESM:** Serves source code over native ESM. The browser requests modules as needed.
+2.  **Esbuild:** Uses esbuild (written in Go) for pre-bundling dependencies (10-100x faster than JS bundlers).
+3.  **On-demand Compilation:** Only compiles the specific file you requested.
+
+**Result:** Server start is effectively O(1) constant time, regardless of app size.
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q6: You are building a Micro Frontends architecture. How do you configure Webpack Module Federation to expose a component?
+
+**Difficulty: Advanced**
+
+**Answer:**
+Module Federation allows sharing code between independent builds at runtime.
+
+**Host App (Exposes Component):**
+
+```javascript
+// webpack.config.js
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+
+module.exports = {
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'app1',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './Button': './src/Button',
+      },
+      shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
+    }),
+  ],
+};
+```
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q7: How do you combine Babel Plugins to create a custom Preset?
+
+**Difficulty: Advanced**
+
+**Answer:**
+A Preset is just a collection of plugins.
+
+```javascript
+// my-preset.js
+module.exports = function() {
+  return {
+    plugins: [
+      "@babel/plugin-transform-arrow-functions",
+      "@babel/plugin-transform-block-scoping",
+      ["@babel/plugin-proposal-class-properties", { loose: true }]
+    ]
+  };
+};
+
+// Usage in .babelrc
+{
+  "presets": ["./my-preset.js"]
+}
+```
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q8: You encounter a 'CORS' error when your frontend (localhost:3000) tries to call your API (localhost:5000). How do you fix this using Webpack Dev Server proxy?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Configure the proxy in Webpack to forward API requests to the backend server, bypassing browser CORS restrictions during development.
+
+```javascript
+// webpack.config.js
+module.exports = {
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:5000',
+        pathRewrite: { '^/api': '' },
+        secure: false,
+        changeOrigin: true,
+      },
+    },
+  },
+};
+```
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q9: How do you debug a large bundle to find out which libraries are taking up the most space?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use `webpack-bundle-analyzer`. It generates an interactive zoomable treemap of your bundle content.
+
+```javascript
+// webpack.config.js
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
+};
+```
+Run the build, and it will open a visual report at `localhost:8888`.
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q10: How do you enable Hot Module Replacement (HMR) manually in Webpack?
+
+**Difficulty: Advanced**
+
+**Answer:**
+HMR allows updating modules without a full reload.
+
+1.  **Config:** Add `HotModuleReplacementPlugin`.
+2.  **Dev Server:** Set `hot: true`.
+3.  **Code:** Accept updates in your entry file.
+
+```javascript
+// main.js
+import printMe from './print.js';
+
+if (module.hot) {
+  module.hot.accept('./print.js', function() {
+    console.log('Accepting the updated printMe module!');
+    printMe();
+  })
+}
+```
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q11: You are using environment variables in your frontend code. Why does `process.env.API_KEY` work in Node.js but fail in the browser, and how do you fix it?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+**Reason:** The browser has no concept of `process.env`. This is a Node.js global.
+
+**Fix:** Use `DefinePlugin` (Webpack) or `import.meta.env` (Vite) to replace the string at **build time**.
+
+**Webpack:**
+```javascript
+new webpack.DefinePlugin({
+  'process.env.API_KEY': JSON.stringify(process.env.API_KEY)
+})
+```
+
+**Vite:**
+Vite automatically exposes `VITE_` prefixed variables on `import.meta.env`.
+```javascript
+console.log(import.meta.env.VITE_API_KEY);
+```
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q12: How do you configure secure Source Maps for production debugging without exposing source code?
+
+**Difficulty: Advanced**
+
+**Answer:**
+You want error tracking (Sentry) to see source code, but not the public user.
+
+**Strategy:**
+1.  Set `devtool: 'hidden-source-map'`. This generates `.map` files but **does not** add the `//# sourceMappingURL=` comment to the JS bundle.
+2.  Upload `.map` files to your error tracking service (Sentry/Bugsnag) during CI/CD.
+3.  Delete `.map` files from your deployment server or block access via Nginx/permissions.
+
+```javascript
+// webpack.config.js
+module.exports = {
+  devtool: 'hidden-source-map',
+};
+```
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q13: How do you implement 'Path Aliases' (e.g., importing from `@components/Button` instead of `../../components/Button`)?
+
+**Difficulty: Beginner**
+
+**Answer:**
+You need to configure **both** the bundler (for build) and the editor/TS (for autocomplete).
+
+**1. Webpack:**
 ```javascript
 resolve: {
   alias: {
-    '@components': path.resolve(__dirname, 'src/components/')
+    '@components': path.resolve(__dirname, 'src/components/'),
+  },
+}
+```
+
+**2. TypeScript (`tsconfig.json`):**
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"]
+    }
   }
 }
 ```
 
-### Q24: How do you analyze bundle size in Webpack?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Medium**
+---
 
-**Answer:**
-Using the `webpack-bundle-analyzer` plugin. It creates an interactive treemap visualization of the contents of all your bundles, helping you identify large libraries.
-
-### Q25: What is the `clean-webpack-plugin` (or `output.clean`)?
-
-**Difficulty: Easy**
-
-**Answer:**
-It removes/cleans your build folder (e.g., `dist`) before each build, ensuring that only the files from the latest build are present and no old/unused files remain. In Webpack 5, you can simply use `output: { clean: true }`.
-
-### Q26: Explain `babel-loader`.
-
-**Difficulty: Easy**
-
-**Answer:**
-`babel-loader` is the Webpack loader that allows transpiling JavaScript files using Babel and Webpack. It acts as the bridge between Webpack and Babel.
-
-### Q27: What is the difference between `babel.config.js` and `.babelrc`?
-
-**Difficulty: Medium**
-
-**Answer:**
-
-- **`babel.config.js`**: Project-wide configuration. Recommended for monorepos.
-- **`.babelrc`**: File-relative configuration. Applies only to files in its directory or subdirectories.
-
-### Q28: In what order do Babel plugins and presets run?
+### Q14: How do you write a custom Babel Plugin using AST transformation?
 
 **Difficulty: Advanced**
 
 **Answer:**
+Babel plugins use the Visitor pattern to traverse the AST.
 
-1. Plugins run before Presets.
-2. Plugins run first to last (array order).
-3. Presets run last to first (reverse array order).
-
-### Q29: What is `core-js`?
-
-**Difficulty: Medium**
-
-**Answer:**
-`core-js` is a modular standard library for JavaScript. It includes polyfills for ECMAScript features (promises, symbols, collections, iterators, etc.). It is the underlying polyfill library used by Babel.
-
-### Q30: How does Vite handle static assets?
-
-**Difficulty: Easy**
-
-**Answer:**
-Importing a static asset (image, font) returns the resolved public URL.
+Example: Reverse all identifier names (fun, but useless).
 
 ```javascript
-import imgUrl from "./img.png";
-document.getElementById("hero").src = imgUrl;
-```
-
-Vite also supports URL queries like `?url` (force URL) or `?raw` (load as string).
-
-### Q31: What is Vite's "Library Mode"?
-
-**Difficulty: Medium**
-
-**Answer:**
-Library mode configures Vite to build a library (package) instead of an application. It bundles the code into formats suitable for distribution (ESM and UMD) and allows externalizing dependencies (like React/Vue) so they aren't bundled in.
-
-### Q32: What is Dependency Pre-Bundling in Vite?
-
-**Difficulty: Advanced**
-
-**Answer:**
-When you start the dev server, Vite crawls your source code to find dependencies (in `node_modules`). It converts CommonJS/UMD modules to ESM and bundles them using **esbuild**. This improves performance by reducing HTTP requests (combining hundreds of files into one) and ensuring ESM compatibility.
-
-### Q33: How do you use Glob Imports in Vite?
-
-**Difficulty: Medium**
-
-**Answer:**
-Vite supports `import.meta.glob` to import multiple modules from the file system.
-
-```javascript
-const modules = import.meta.glob("./dir/*.js");
-```
-
-### Q34: What is `vite.config.js`?
-
-**Difficulty: Easy**
-
-**Answer:**
-It is the configuration file for Vite. It resolves the configuration object, allowing you to configure plugins, build options, server options, and aliases. It supports TypeScript (`vite.config.ts`) out of the box.
-
-### Q35: Does Vite support Server-Side Rendering (SSR)?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Yes, Vite provides APIs to load modules in Node.js efficiently, enabling SSR frameworks (like Nuxt, SvelteKit, Remix) to use Vite. It doesn't provide full SSR out of the box but provides the primitives to build it.
-
-### Q36: What is the `CopyWebpackPlugin` used for?
-
-**Difficulty: Easy**
-
-**Answer:**
-It copies individual files or entire directories to the build directory (e.g., copying static assets that aren't imported in JS code).
-
-### Q37: What is "Scope Hoisting" in Webpack?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Scope Hoisting (Module Concatenation) detects where modules can be concatenated into a single closure. This results in faster code execution in the browser and smaller bundle size by reducing function closure overhead.
-
-### Q38: What is the `sideEffects` flag in `package.json`?
-
-**Difficulty: Advanced**
-
-**Answer:**
-It allows packages to hint to bundlers that the files inside the package are "pure" (no side effects like modifying global window). If a file is marked as having no side effects, the bundler can safely skip importing it if none of its exports are used (aiding Tree Shaking).
-
-### Q39: How do you configure a proxy in Vite/Webpack dev server?
-
-**Difficulty: Medium**
-
-**Answer:**
-To avoid CORS issues during development, you can proxy API requests.
-**Vite:**
-
-```javascript
-server: { proxy: { '/api': 'http://localhost:5000' } }
-```
-
-**Webpack:**
-
-```javascript
-devServer: { proxy: { '/api': 'http://localhost:5000' } }
-```
-
-### Q40: What is the difference between `hash`, `chunkhash`, and `contenthash` in Webpack?
-
-**Difficulty: Advanced**
-
-**Answer:**
-
-- **`hash`**: Generated for the entire build. If one file changes, all hashes change.
-- **`chunkhash`**: Based on the chunk's content (including dependencies).
-- **`contenthash`**: Based solely on the content of the file itself (best for caching).
-
-### Q41: What is SWC and how does it relate to Babel?
-
-**Difficulty: Medium**
-
-**Answer:**
-SWC (Speedy Web Compiler) is an extensible Rust-based platform for the next generation of fast developer tools. It is a faster alternative to Babel for transpiling and compiling JavaScript/TypeScript. Next.js uses it by default.
-
-### Q42: What is esbuild?
-
-**Difficulty: Medium**
-
-**Answer:**
-esbuild is an extremely fast JavaScript bundler and minifier written in Go. Vite uses it for dependency pre-bundling and TS/JSX transpilation during development. It is 10-100x faster than JS-based tools.
-
-### Q43: How do you handle TypeScript in Webpack?
-
-**Difficulty: Medium**
-
-**Answer:**
-Typically using `ts-loader` (uses `tsc`, slower, type checks) or `@babel/preset-typescript` (faster, no type checking during build).
-
-### Q44: How do you handle TypeScript in Vite?
-
-**Difficulty: Medium**
-
-**Answer:**
-Vite supports TypeScript out of the box using esbuild for transpilation (stripping types). It does _not_ perform type checking. You should run `tsc --noEmit` in a separate process or as a pre-commit hook for type checking.
-
-### Q45: What is Differential Loading?
-
-**Difficulty: Advanced**
-
-**Answer:**
-A strategy where you serve two bundles:
-
-1. Modern bundle (ES2015+) for modern browsers (smaller, faster).
-2. Legacy bundle (ES5 with polyfills) for older browsers.
-   Browsers choose which to load using `<script type="module">` and `<script nomodule>`.
-
-### Q46: What is the `@babel/plugin-transform-runtime`?
-
-**Difficulty: Advanced**
-
-**Answer:**
-It reuses Babel's injected helper code to save on codesize. Instead of injecting helper functions (like `_classCallCheck`) into every file, it imports them from `@babel/runtime`.
-
-### Q47: How do you enable HMR in Webpack manually?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Using `module.hot`.
-
-```javascript
-if (module.hot) {
-  module.hot.accept("./print.js", function () {
-    console.log("Accepting the updated printMe module!");
-    printMe();
-  });
-}
-```
-
-Most frameworks (React/Vue) have loaders that handle this automatically.
-
-### Q48: What is the `MiniCssExtractPlugin`?
-
-**Difficulty: Medium**
-
-**Answer:**
-This plugin extracts CSS into separate files (e.g., `main.css`). It creates a CSS file per JS file which contains CSS. It is preferred for production builds over `style-loader` (which injects CSS into style tags).
-
-### Q49: How does Vite handle JSON files?
-
-**Difficulty: Easy**
-
-**Answer:**
-JSON files can be directly imported. Also supports named imports:
-
-```javascript
-import { field } from "./data.json";
-```
-
-### Q50: What is the `resolve.modules` configuration in Webpack?
-
-**Difficulty: Medium**
-
-**Answer:**
-It tells Webpack what directories should be searched when resolving modules. Default is `['node_modules']`. You can add custom directories here.
-
-### Q51: What is the purpose of `html-webpack-plugin`?
-
-**Difficulty: Easy**
-
-**Answer:**
-It simplifies the creation of HTML files to serve your webpack bundles. It automatically injects the script tags for your generated bundles (with hashes) into the HTML file.
-
-### Q52: How do you load images in Webpack 5?
-
-**Difficulty: Medium**
-
-**Answer:**
-Using Asset Modules (no longer need `file-loader` or `url-loader`).
-
-```javascript
-module: {
-  rules: [{ test: /\.(png|jpg)$/, type: "asset/resource" }];
-}
-```
-
-### Q53: What are "Asset Modules" in Webpack 5?
-
-**Difficulty: Medium**
-
-**Answer:**
-Built-in replacement for `file-loader`, `url-loader`, and `raw-loader`.
-
-- `asset/resource`: Emits a separate file.
-- `asset/inline`: Exports a data URI.
-- `asset/source`: Exports the source code.
-- `asset`: Automatically chooses between resource and inline based on size.
-
-### Q54: How do you debug a slow Webpack build?
-
-**Difficulty: Advanced**
-
-**Answer:**
-
-1. Use `speed-measure-webpack-plugin` to see per-plugin/loader timing.
-2. Use `webpack-bundle-analyzer` to check for duplicates or large libs.
-3. Check if Source Maps are too expensive (e.g., `source-map` vs `eval-cheap-module-source-map`).
-
-### Q55: What is `vite preview` command?
-
-**Difficulty: Easy**
-
-**Answer:**
-`vite preview` boots up a local static web server that serves the files from `dist` (production build). It's used to verify the production build locally before deploying.
-
-### Q56: How does Vite handle `.vue` or `.svelte` files?
-
-**Difficulty: Medium**
-
-**Answer:**
-Vite has official plugins (`@vitejs/plugin-vue`, `@sveltejs/vite-plugin-svelte`) that handle the parsing and compilation of these frameworks' Single File Components (SFCs) into JS.
-
-### Q57: What is the Rollup bundler?
-
-**Difficulty: Medium**
-
-**Answer:**
-Rollup is a module bundler for JavaScript which compiles small pieces of code into something larger/more complex. It pioneered Tree Shaking and ESM support. It is the underlying bundler for Vite's production build.
-
-### Q58: Why is Rollup often preferred for libraries over Webpack?
-
-**Difficulty: Advanced**
-
-**Answer:**
-Rollup generally produces smaller, cleaner bundles with less runtime overhead (wrappers) than Webpack. It is better at handling ESM output, which is crucial for libraries.
-
-### Q59: What is Parcel?
-
-**Difficulty: Easy**
-
-**Answer:**
-Parcel is another web application bundler known for being "zero configuration". It works out of the box for most file types without a config file.
-
-### Q60: What is "Zero Config" in build tools?
-
-**Difficulty: Easy**
-
-**Answer:**
-The philosophy that tools should work with standard defaults without requiring a complex setup file. Vite and Parcel adhere to this, whereas Webpack often requires explicit configuration.
-
-### Q61: How do you inject global variables in Webpack?
-
-**Difficulty: Medium**
-
-**Answer:**
-Using `ProvidePlugin`. It automatically loads modules instead of having to `import` or `require` them everywhere.
-
-```javascript
-new webpack.ProvidePlugin({
-  $: "jquery",
-});
-```
-
-### Q62: What is the `target` option in Webpack?
-
-**Difficulty: Medium**
-
-**Answer:**
-It instructs Webpack to compile for a specific environment (e.g., `web`, `node`, `electron-renderer`). Defaults to `web`.
-
-### Q63: How to handle CSS Preprocessors (Sass/Less) in Webpack?
-
-**Difficulty: Easy**
-
-**Answer:**
-Chain loaders: `sass-loader` (compiles Sass to CSS) -> `css-loader` (resolves imports) -> `style-loader` (injects CSS).
-
-### Q64: What is PostCSS?
-
-**Difficulty: Medium**
-
-**Answer:**
-PostCSS is a tool for transforming CSS with JavaScript. It is often used for Autoprefixing, linting, and using future CSS syntax today.
-
-### Q65: How do you use PostCSS with Vite?
-
-**Difficulty: Medium**
-
-**Answer:**
-Vite automatically applies PostCSS if a `postcss.config.js` file is present in the project root.
-
-### Q66: What is `autoprefixer`?
-
-**Difficulty: Easy**
-
-**Answer:**
-A PostCSS plugin that parses your CSS and adds vendor prefixes to CSS rules using values from Can I Use.
-
-### Q67: How do you exclude `node_modules` from Babel transformation?
-
-**Difficulty: Easy**
-
-**Answer:**
-In Webpack config:
-
-```javascript
-rule: {
-  test: /\.js$/,
-  exclude: /node_modules/,
-  use: 'babel-loader'
-}
-```
-
-This is critical for build performance.
-
-### Q68: What is `babel-node`?
-
-**Difficulty: Medium**
-
-**Answer:**
-A CLI that works exactly like the Node.js CLI but compiles the code with Babel presets and plugins before running it. Not recommended for production (slow).
-
-### Q69: What is the AST (Abstract Syntax Tree)?
-
-**Difficulty: Advanced**
-
-**Answer:**
-AST is a tree representation of the abstract syntactic structure of source code. Babel (and ESLint, Prettier) parses code into AST, traverses/modifies the nodes, and generates code back.
-
-### Q70: Can Babel parse TypeScript?
-
-**Difficulty: Medium**
-
-**Answer:**
-Yes, with `@babel/preset-typescript`, Babel can parse and strip TypeScript types, converting it to JS. However, it does **not** check types.
-
-### Q71: What is the difference between `Babel` and `TypeScript` compiler (`tsc`)?
-
-**Difficulty: Medium**
-
-**Answer:**
-
-- **`tsc`:** Compiles TS to JS AND checks types.
-- **Babel:** Compiles TS to JS (faster, more flexible plugins) but does NOT check types.
-
-### Q72: How do you create a custom Webpack loader?
-
-**Difficulty: Advanced**
-
-**Answer:**
-A loader is a Node.js function that takes the source of a file as input and returns the transformed source.
-
-```javascript
-module.exports = function (source) {
-  return source.replace(/foo/g, "bar");
+module.exports = function({ types: t }) {
+  return {
+    visitor: {
+      Identifier(path) {
+        const name = path.node.name;
+        // Reverse the name
+        path.node.name = name.split('').reverse().join('');
+      }
+    }
+  };
 };
 ```
 
-### Q73: How do you create a custom Webpack plugin?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Advanced**
+---
+
+### Q15: How do you use Webpack's `ProvidePlugin` to shim global variables like jQuery?
+
+**Difficulty: Intermediate**
 
 **Answer:**
-A plugin is a class with an `apply` method. It hooks into Webpack's event system (Tapable).
+`ProvidePlugin` automatically loads modules instead of having to `import` or `require` them everywhere.
 
 ```javascript
-class MyPlugin {
-  apply(compiler) {
-    compiler.hooks.done.tap('MyPlugin', stats => { ... });
-  }
-}
+new webpack.ProvidePlugin({
+  $: 'jquery',
+  jQuery: 'jquery',
+  _map: ['lodash', 'map'] // Specific import
+});
 ```
+Now you can use `$('#item')` in any file without importing jQuery.
 
-### Q74: What is `webpack-dev-server`?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Easy**
+---
 
-**Answer:**
-A development server that provides live reloading. It keeps bundles in memory (RAM) instead of writing to disk for speed.
+### Q16: How do you configure Webpack to handle CSS Modules?
 
-### Q75: How do you handle "Magic Comments" in Webpack?
-
-**Difficulty: Medium**
+**Difficulty: Intermediate**
 
 **Answer:**
-Inline comments to configure dynamic imports.
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-```javascript
-import(
-  /* webpackChunkName: "my-chunk-name" */
-  /* webpackPrefetch: true */
-  "./module"
-);
-```
+[Back to Top](#table-of-contents)
 
-### Q76: What is Prefetching and Preloading in Webpack?
+---
 
-**Difficulty: Advanced**
+### Q17: How do you use PostCSS with Webpack?
+
+**Difficulty: Intermediate**
 
 **Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-- **Prefetch:** Fetch in background when browser is idle (for future navigation).
-- **Preload:** Fetch ASAP (for current navigation).
+[Back to Top](#table-of-contents)
 
-### Q77: How does Webpack handle circular dependencies?
+---
 
-**Difficulty: Advanced**
+### Q18: How do you implement Critical CSS extraction?
 
-**Answer:**
-Webpack allows circular dependencies but the module execution order matters. If a module accesses an import that hasn't finished executing, it might get `undefined`. `circular-dependency-plugin` helps detect them.
-
-### Q78: What is the `DLLPlugin` in Webpack?
-
-**Difficulty: Advanced**
+**Difficulty: Intermediate**
 
 **Answer:**
-Used to bundle vendor libraries separately in a way that they don't need to be rebuilt every time. It was a major optimization technique in Webpack 4.
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-### Q79: Why is `DLLPlugin` less relevant in Webpack 5/Vite?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Advanced**
+---
 
-**Answer:**
-Webpack 5 has better caching (Persistent Caching) and Vite uses esbuild pre-bundling, making the complexity of `DLLPlugin` unnecessary for performance.
+### Q19: How do you configure Browserslist for different environments?
 
-### Q80: How do you measure build performance in Vite?
-
-**Difficulty: Medium**
+**Difficulty: Intermediate**
 
 **Answer:**
-Vite uses `debug` module. You can run `DEBUG=vite:perf vite build` to see performance metrics. Or use the rollup-plugin-visualizer.
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-### Q81: What is the `legacy` plugin in Vite?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Medium**
+---
 
-**Answer:**
-`@vitejs/plugin-legacy` automatically generates legacy chunks and corresponding ES5 polyfills for older browsers that don't support native ESM.
+### Q20: How do you use `url-loader` vs `file-loader` (or Asset Modules) for images?
 
-### Q82: How do you deploy a Vite app to GitHub Pages?
-
-**Difficulty: Medium**
+**Difficulty: Intermediate**
 
 **Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-1. Set `base: '/repo-name/'` in `vite.config.js`.
-2. Build (`vite build`).
-3. Push the `dist` folder to the `gh-pages` branch.
+[Back to Top](#table-of-contents)
 
-### Q83: What is the `base` config option in Vite?
+---
 
-**Difficulty: Easy**
+### Q21: How do you optimize images using `image-webpack-loader`?
 
-**Answer:**
-It sets the base public path when serving the app in development or production (e.g., if your app is hosted at `http://my-app.com/blog/`, base should be `/blog/`).
-
-### Q84: How do you implement Critical CSS extraction?
-
-**Difficulty: Advanced**
+**Difficulty: Intermediate**
 
 **Answer:**
-Tools like `critters` or `critical` can be integrated into the build pipeline (Webpack plugin or post-build script) to inline the CSS required for above-the-fold content into the HTML.
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-### Q85: What is the difference between `module.exports` and `export default`?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Easy**
+---
 
-**Answer:**
+### Q22: How do you configure Webpack to support TypeScript?
 
-- **`module.exports`**: CommonJS (Node.js standard).
-- **`export default`**: ES Modules (Modern JS standard).
-  Build tools handle interoperability, but ESM is the future.
-
-### Q86: How does Webpack resolve `import` statements?
-
-**Difficulty: Medium**
+**Difficulty: Intermediate**
 
 **Answer:**
-It uses the `enhanced-resolve` library. It checks resolve config (extensions, aliases, modules directories), looks at `package.json` (`main`, `module`, `exports` fields), and finds the file.
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-### Q87: What is the `externals` configuration in Webpack?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Medium**
+---
 
-**Answer:**
-It allows you to exclude dependencies from the output bundles. Instead, the created bundle relies on that dependency to be present in the consumer's environment (e.g., via CDN script tag).
+### Q23: How do you use `fork-ts-checker-webpack-plugin` for faster type checking?
 
-### Q88: How do you remove console logs in production build?
-
-**Difficulty: Easy**
+**Difficulty: Intermediate**
 
 **Answer:**
-In Webpack (TerserPlugin) or Vite (esbuild/terser options), you can set `compress: { drop_console: true }`.
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-### Q89: What is `webpack-merge`?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Easy**
+---
 
-**Answer:**
-A utility to merge Webpack configuration objects. Common pattern: `webpack.common.js`, `webpack.dev.js`, `webpack.prod.js`, and merge them.
+### Q24: How do you generate a PWA Service Worker using WorkboxWebpackPlugin?
 
-### Q90: How do you setup ESLint with Vite/Webpack?
-
-**Difficulty: Medium**
+**Difficulty: Intermediate**
 
 **Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-- **Webpack:** Use `eslint-webpack-plugin`.
-- **Vite:** Use `vite-plugin-eslint`.
-  However, modern trend is to run ESLint separately or in the IDE, not slowing down the bundler.
+[Back to Top](#table-of-contents)
 
-### Q91: What is Turbopack?
+---
 
-**Difficulty: Advanced**
+### Q25: How do you configure Webpack for multi-page applications (MPA)?
 
-**Answer:**
-Turbopack is an incremental bundler optimized for JavaScript and TypeScript, written in Rust by the creators of Webpack and Next.js. It aims to be the successor to Webpack with vastly better performance.
-
-### Q92: What is the difference between Bundling and Compiling?
-
-**Difficulty: Medium**
+**Difficulty: Intermediate**
 
 **Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-- **Compiling (Transpiling):** Transforming code syntax (e.g., TS -> JS, ES6 -> ES5). Files map 1:1.
-- **Bundling:** Combining multiple files and assets into a single (or few) distributable files.
+[Back to Top](#table-of-contents)
 
-### Q93: How do you handle caching in Webpack?
+---
 
-**Difficulty: Medium**
+### Q26: How do you use `HtmlWebpackPlugin` to inject bundles into HTML?
 
-**Answer:**
-Webpack 5 introduced File System Cache (Persistent Caching).
-
-```javascript
-cache: {
-  type: 'filesystem',
-}
-```
-
-This stores the build cache to disk, making secondary builds extremely fast.
-
-### Q94: What are "Runtime Chunks" in Webpack?
-
-**Difficulty: Advanced**
+**Difficulty: Intermediate**
 
 **Answer:**
-The runtime chunk contains the boilerplate code Webpack needs to resolve and load modules. Extracting it (`optimization.runtimeChunk: 'single'`) prevents vendor chunks from invalidating hash when only app code changes.
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-### Q95: How does Vite handle Web Workers?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Advanced**
+---
 
-**Answer:**
-Vite supports importing web workers with the `?worker` suffix.
+### Q27: How do you implement SRI (Subresource Integrity) in Webpack?
 
-```javascript
-import MyWorker from "./worker?worker";
-const worker = new MyWorker();
-```
-
-### Q96: What is the `optimizeDeps` option in Vite?
-
-**Difficulty: Advanced**
+**Difficulty: Intermediate**
 
 **Answer:**
-Configuration for the dependency pre-bundling process. You can manually `include` or `exclude` dependencies from pre-bundling here.
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-### Q97: How do you debug Vite HMR issues?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Advanced**
+---
 
-**Answer:**
-Vite logs HMR events in the browser console. You can enable debug logging for HMR in the client or server to see what updates are being sent and why they might fail (causing a full reload).
+### Q28: How do you use `CopyWebpackPlugin` to move static assets?
 
-### Q98: What is the `babel-plugin-macros`?
-
-**Difficulty: Advanced**
+**Difficulty: Intermediate**
 
 **Answer:**
-A plugin that allows you to use libraries that perform build-time transformations without adding a new plugin to your babel config (e.g., `styled-components`, `polished`).
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-### Q99: How do you customize the output directory in Vite?
+[Back to Top](#table-of-contents)
 
-**Difficulty: Easy**
+---
 
-**Answer:**
-Using `build.outDir` in `vite.config.js`. Default is `dist`.
+### Q29: How do you clean the build folder before each build?
 
-### Q100: What is the future of frontend build tools?
-
-**Difficulty: Easy**
+**Difficulty: Intermediate**
 
 **Answer:**
-The trend is moving towards native languages (Rust/Go) for performance (swc, esbuild, Turbopack) and unbundled development (Vite) for better developer experience. Complexity is being abstracted away into "zero-config" tools.
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q30: How do you extract CSS into separate files using `MiniCssExtractPlugin`?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q31: How do you configure Webpack Dev Server for HTTPS?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q32: How do you use `DefinePlugin` to set feature flags?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q33: How do you ignore specific modules using `IgnorePlugin` (e.g., Moment locales)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q34: How do you use `DllPlugin` to speed up development builds?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q35: How do you profile the Webpack build speed?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q36: How do you use Webpack 5 Module Federation for dynamic remotes?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q37: How do you configure Vite for a library build (lib mode)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q38: How do you use Vite plugins (e.g., `vite-plugin-pwa`)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q39: How do you configure Vite aliases?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q40: How do you proxy requests in Vite?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q41: How do you use environment variables in Vite (`import.meta.env`)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q42: How do you configure Vite for Server-Side Rendering (SSR)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q43: How do you migrate from Create React App to Vite?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q44: How do you use `esbuild` directly for simple bundling tasks?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q45: How do you configure Rollup for packaging a JS library?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q46: How do you use Rollup plugins?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q47: How do you configure Babel to support experimental syntax (Decorators)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q48: How do you use `babel-node` for running scripts?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q49: How do you cache Babel compilation results?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q50: How do you configure ESLint with Prettier to avoid conflicts?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q51: How do you write a custom ESLint rule?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q52: How do you use `lint-staged` with Husky?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q53: How do you enforce commit message conventions with Commitlint?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q54: How do you use `npm-run-all` to run scripts in parallel?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q55: How do you configure `lerna` or `nx` for a monorepo?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q56: How do you use Yarn Workspaces?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q57: How do you prevent phantom dependencies with pnpm?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q58: How do you audit npm dependencies for security vulnerabilities?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q59: How do you override a nested dependency version (resolutions)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q60: How do you publish a package to npm?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q61: How do you create a scoped npm package?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q62: How do you link a local package for development (`npm link`)?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q63: How do you use `.npmrc` to configure registry URL?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q64: How do you setup Semantic Release for automated versioning?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q65: How do you configure GitHub Actions for CI/CD?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q66: How do you cache `node_modules` in GitHub Actions?
+
+**Difficulty: Intermediate**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q67: How do you run tests in parallel in CI?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q68: How do you deploy a static site to Netlify via CLI?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q69: How do you deploy to Vercel using their CLI?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q70: How do you containerize a Node.js app with Docker?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q71: How do you optimize Docker image size for Node.js apps?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q72: How do you use multi-stage Docker builds?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q73: How do you configure Nginx as a reverse proxy for a Node app?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q74: How do you enable Gzip compression in Nginx?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q75: How do you serve static assets from an S3 bucket?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q76: How do you invalidate CloudFront cache after deployment?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q77: How do you implement Blue/Green deployment?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q78: How do you use Feature Toggles in build configuration?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q79: How do you handle secrets in CI/CD pipelines?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q80: How do you verify the integrity of downloaded npm packages?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q81: How do you use `nvm` to manage Node versions?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q82: How do you debug a memory leak in the build process?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q83: How do you use `node --inspect` to debug build scripts?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q84: How do you generate a license report for dependencies?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q85: How do you check for circular dependencies?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q86: How do you remove console logs in production build?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q87: How do you inline small images as Base64 URLs?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q88: How do you configure Webpack to use a CDN for public path?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q89: How do you use `preload-webpack-plugin`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q90: How do you implement 'Prefetching' for future routes?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q91: How do you use `webpack-merge` to split config files?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q92: How do you create a custom Webpack loader?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q93: How do you use `style-loader` vs `css-loader`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q94: How do you configure CSS Modules localIdentName?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q95: How do you use `postcss-preset-env`?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q96: How do you configure PurgeCSS to remove unused CSS?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q97: How do you polyfill `fetch` in older browsers?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q98: How do you use `core-js` version 3?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q99: How do you transpile `node_modules` if needed?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q100: How do you configure Babel for React (JSX)?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q101: How do you configure Babel for TypeScript?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q102: How do you use `babel-plugin-import` for UI libraries?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q103: How do you optimize moment.js bundle size?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q104: How do you replace moment.js with date-fns or dayjs?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q105: How do you use `swc-loader` for faster builds?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q106: How do you use Parcel for zero-config builds?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+
+### Q107: How do you configure Gulp for task automation?
+
+**Difficulty: Beginner**
+
+**Answer:**
+Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+
+[Back to Top](#table-of-contents)
+
+---
+

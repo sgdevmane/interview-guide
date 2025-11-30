@@ -1,790 +1,1977 @@
 # .NET Interview Questions
 
 ## Table of Contents
-- [.NET Interview Questions](#net-interview-questions)
-  - [Table of Contents](#table-of-contents)
-    - [Q1: What is the difference between the .NET Framework, .NET Core, and .NET 5/6/7+? Explain the evolution of the .NET platform.](#q1-what-is-the-difference-between-the-net-framework-net-core-and-net-567-explain-the-evolution-of-the-net-platform)
-    - [Q2: What is the Common Language Runtime (CLR)?](#q2-what-is-the-common-language-runtime-clr)
-    - [Q3: Explain the difference between managed and unmanaged code.](#q3-explain-the-difference-between-managed-and-unmanaged-code)
-    - [Q4: What is the Global Assembly Cache (GAC)?](#q4-what-is-the-global-assembly-cache-gac)
-    - [Q5: What is LINQ (Language Integrated Query)?](#q5-what-is-linq-language-integrated-query)
-    - [Q6: What is ASP.NET Core?](#q6-what-is-aspnet-core)
-    - [Q7: Explain middleware in ASP.NET Core.](#q7-explain-middleware-in-aspnet-core)
-    - [Q8: What is dependency injection in .NET?](#q8-what-is-dependency-injection-in-net)
-    - [Q9: What is Entity Framework Core?](#q9-what-is-entity-framework-core)
-    - [Q10: What is the difference between `IQueryable` and `IEnumerable`?](#q10-what-is-the-difference-between-iqueryable-and-ienumerable)
-    - [Q11: What is Razor Pages?](#q11-what-is-razor-pages)
-    - [Q12: What is Blazor?](#q12-what-is-blazor)
-    - [Q13: What is SignalR?](#q13-what-is-signalr)
-    - [Q14: What is a `Task` in .NET?](#q14-what-is-a-task-in-net)
-    - [Q15: What is the purpose of the `using` statement in C#?](#q15-what-is-the-purpose-of-the-using-statement-in-c)
-    - [Q16: What are delegates in C#?](#q16-what-are-delegates-in-c)
-    - [Q17: What are extension methods in C#?](#q17-what-are-extension-methods-in-c)
-    - [Q18: What is the difference between `struct` and `class` in C#?](#q18-what-is-the-difference-between-struct-and-class-in-c)
-    - [Q19: What is boxing and unboxing?](#q19-what-is-boxing-and-unboxing)
-    - [Q20: What is NuGet?](#q20-what-is-nuget)
-    - [Q21: What are C# Records (C# 9.0)?](#q21-what-are-c-records-c-90)
-    - [Q22: What are Nullable Reference Types (C# 8.0)?](#q22-what-are-nullable-reference-types-c-80)
-    - [Q23: What is Pattern Matching in C#?](#q23-what-is-pattern-matching-in-c)
-    - [Q24: What are Async Streams (C# 8.0)?](#q24-what-are-async-streams-c-80)
-    - [Q25: What is the difference between `Task` and `ValueTask`?](#q25-what-is-the-difference-between-task-and-valuetask)
-    - [Q26: What is `Span<T>` and `Memory<T>`?](#q26-what-is-spant-and-memoryt)
-    - [Q27: What is Garbage Collection (GC) in .NET?](#q27-what-is-garbage-collection-gc-in-net)
-    - [Q28: What is the `IDisposable` interface?](#q28-what-is-the-idisposable-interface)
-    - [Q29: What is the difference between `ref` and `out` parameters?](#q29-what-is-the-difference-between-ref-and-out-parameters)
-    - [Q30: What is `in` parameter modifier?](#q30-what-is-in-parameter-modifier)
-    - [Q31: What is Reflection in .NET?](#q31-what-is-reflection-in-net)
-    - [Q32: What are Attributes in C#?](#q32-what-are-attributes-in-c)
-    - [Q33: What is Kestrel?](#q33-what-is-kestrel)
-    - [Q34: What is the Startup class in ASP.NET Core?](#q34-what-is-the-startup-class-in-aspnet-core)
-    - [Q35: What is the difference between `AddTransient`, `AddScoped`, and `AddSingleton`?](#q35-what-is-the-difference-between-addtransient-addscoped-and-addsingleton)
-    - [Q36: What is Model Binding?](#q36-what-is-model-binding)
-    - [Q37: What are Tag Helpers?](#q37-what-are-tag-helpers)
-    - [Q38: What is gRPC?](#q38-what-is-grpc)
-    - [Q39: What is SignalR used for?](#q39-what-is-signalr-used-for)
-    - [Q40: What is Blazor WebAssembly vs. Blazor Server?](#q40-what-is-blazor-webassembly-vs-blazor-server)
-    - [Q41: What is Minimal APIs (C# 10)?](#q41-what-is-minimal-apis-c-10)
-    - [Q42: What is AutoMapper?](#q42-what-is-automapper)
-    - [Q43: What is FluentValidation?](#q43-what-is-fluentvalidation)
-    - [Q44: What is MediatR?](#q44-what-is-mediatr)
-    - [Q45: What is CQRS (Command Query Responsibility Segregation)?](#q45-what-is-cqrs-command-query-responsibility-segregation)
-    - [Q46: What is xUnit?](#q46-what-is-xunit)
-    - [Q47: What is Moq?](#q47-what-is-moq)
-    - [Q48: What is `IHttpClientFactory`?](#q48-what-is-ihttpclientfactory)
-    - [Q49: What is Polly?](#q49-what-is-polly)
-    - [Q50: What is Serilog?](#q50-what-is-serilog)
-    - [Q51: What is Swagger/OpenAPI?](#q51-what-is-swaggeropenapi)
-    - [Q52: What is JWT (JSON Web Token)?](#q52-what-is-jwt-json-web-token)
-    - [Q53: What is CORS (Cross-Origin Resource Sharing)?](#q53-what-is-cors-cross-origin-resource-sharing)
-    - [Q54: What is OAuth 2.0?](#q54-what-is-oauth-20)
-    - [Q55: What is OpenID Connect?](#q55-what-is-openid-connect)
-    - [Q56: What is IdentityServer?](#q56-what-is-identityserver)
-    - [Q57: What is Docker support in .NET?](#q57-what-is-docker-support-in-net)
-    - [Q58: What is the difference between `IEnumerable` and `IEnumerator`?](#q58-what-is-the-difference-between-ienumerable-and-ienumerator)
-    - [Q59: What is `yield return`?](#q59-what-is-yield-return)
-    - [Q60: What is the `params` keyword?](#q60-what-is-the-params-keyword)
-    - [Q61: What is the `dynamic` type?](#q61-what-is-the-dynamic-type)
-    - [Q62: What is the `sealed` keyword?](#q62-what-is-the-sealed-keyword)
-    - [Q63: What is the `abstract` keyword?](#q63-what-is-the-abstract-keyword)
-    - [Q64: What is an Interface?](#q64-what-is-an-interface)
-    - [Q65: What is Multiple Inheritance in C#?](#q65-what-is-multiple-inheritance-in-c)
-    - [Q66: What is `Lazy<T>`?](#q66-what-is-lazyt)
-    - [Q67: What is the difference between `AppDomain` and `Process`?](#q67-what-is-the-difference-between-appdomain-and-process)
-    - [Q68: What is JIT Compilation?](#q68-what-is-jit-compilation)
-    - [Q69: What is AOT (Ahead-of-Time) Compilation?](#q69-what-is-aot-ahead-of-time-compilation)
-    - [Q70: What is Roslyn?](#q70-what-is-roslyn)
-    - [Q71: What is LINQ to SQL vs. Entity Framework?](#q71-what-is-linq-to-sql-vs-entity-framework)
-    - [Q72: What is Code First vs. Database First?](#q72-what-is-code-first-vs-database-first)
-    - [Q73: What is the Repository Pattern?](#q73-what-is-the-repository-pattern)
-    - [Q74: What is the Unit of Work Pattern?](#q74-what-is-the-unit-of-work-pattern)
-    - [Q75: What is OData?](#q75-what-is-odata)
-    - [Q76: What is GraphQL hot chocolate?](#q76-what-is-graphql-hot-chocolate)
-    - [Q77: What is RabbitMQ?](#q77-what-is-rabbitmq)
-    - [Q78: What is Azure Functions?](#q78-what-is-azure-functions)
-    - [Q79: What is App settings (`appsettings.json`)?](#q79-what-is-app-settings-appsettingsjson)
-    - [Q80: What is the Options Pattern?](#q80-what-is-the-options-pattern)
-    - [Q81: What is Middleware?](#q81-what-is-middleware)
-    - [Q82: What is the difference between `Run`, `Use`, and `Map` in Middleware?](#q82-what-is-the-difference-between-run-use-and-map-in-middleware)
-    - [Q83: What are Global Exception Handlers?](#q83-what-are-global-exception-handlers)
-    - [Q84: What is Health Checks?](#q84-what-is-health-checks)
-    - [Q85: What is Output Caching?](#q85-what-is-output-caching)
-    - [Q86: What is Distributed Caching?](#q86-what-is-distributed-caching)
-    - [Q87: What is Data Protection API?](#q87-what-is-data-protection-api)
-    - [Q88: What is User Secrets?](#q88-what-is-user-secrets)
-    - [Q89: What is Environment Variables?](#q89-what-is-environment-variables)
-    - [Q90: What is `IHostedService`?](#q90-what-is-ihostedservice)
-    - [Q91: What is BackgroundService?](#q91-what-is-backgroundservice)
-    - [Q92: What is `System.Text.Json`?](#q92-what-is-systemtextjson)
-    - [Q93: What is `IAsyncEnumerable`?](#q93-what-is-iasyncenumerable)
-    - [Q94: What is Channels?](#q94-what-is-channels)
-    - [Q95: What is Rate Limiting?](#q95-what-is-rate-limiting)
-    - [Q96: What is HybridCache (.NET 9)?](#q96-what-is-hybridcache-net-9)
-    - [Q97: What is .NET MAUI?](#q97-what-is-net-maui)
-    - [Q98: What is Blazor Hybrid?](#q98-what-is-blazor-hybrid)
-    - [Q99: What is Upgrade Assistant?](#q99-what-is-upgrade-assistant)
-    - [Q100: What is the future of .NET?](#q100-what-is-the-future-of-net)
+- [Q1: How do you optimize a high-throughput API using `Span<T>` and `Memory<T>` to reduce allocations?](#q1-how-do-you-optimize-a-high-throughput-api-using-spant-and-memoryt-to-reduce-allocations)
+- [Q2: How do you prevent thread-pool starvation in a high-concurrency .NET application?](#q2-how-do-you-prevent-thread-pool-starvation-in-a-high-concurrency-net-application)
+- [Q3: How do you implement efficient caching with automatic expiration using `IMemoryCache`?](#q3-how-do-you-implement-efficient-caching-with-automatic-expiration-using-imemorycache)
+- [Q4: How do you handle background tasks in ASP.NET Core without blocking the request thread?](#q4-how-do-you-handle-background-tasks-in-aspnet-core-without-blocking-the-request-thread)
+- [Q5: How do you optimize Entity Framework Core queries to avoid the N+1 problem?](#q5-how-do-you-optimize-entity-framework-core-queries-to-avoid-the-n+1-problem)
+- [Q6: How do you implement the Outbox Pattern in .NET to ensure reliable messaging?](#q6-how-do-you-implement-the-outbox-pattern-in-net-to-ensure-reliable-messaging)
+- [Q7: How do you use `IAsyncEnumerable<T>` to stream data efficiently from a database or API?](#q7-how-do-you-use-iasyncenumerablet-to-stream-data-efficiently-from-a-database-or-api)
+- [Q8: How do you implement custom middleware in ASP.NET Core to handle global exceptions?](#q8-how-do-you-implement-custom-middleware-in-aspnet-core-to-handle-global-exceptions)
+- [Q9: How do you use `ValueTask` to reduce allocations in hot paths?](#q9-how-do-you-use-valuetask-to-reduce-allocations-in-hot-paths)
+- [Q10: How do you implement dependency injection for a service that requires a runtime parameter?](#q10-how-do-you-implement-dependency-injection-for-a-service-that-requires-a-runtime-parameter)
+- [Q11: How do you cancel a long-running async operation properly?](#q11-how-do-you-cancel-a-long-running-async-operation-properly)
+- [Q12: How do you optimize string concatenation in a tight loop?](#q12-how-do-you-optimize-string-concatenation-in-a-tight-loop)
+- [Q13: How do you implement structured logging using Serilog in .NET Core?](#q13-how-do-you-implement-structured-logging-using-serilog-in-net-core)
+- [Q14: How do you ensure a singleton service is thread-safe?](#q14-how-do-you-ensure-a-singleton-service-is-thread-safe)
+- [Q15: How do you handle database migrations in a CI/CD pipeline using EF Core?](#q15-how-do-you-handle-database-migrations-in-a-cicd-pipeline-using-ef-core)
+- [Q16: How do you implement Garbage Collection in .NET for generations and optimization?](#q16-how-do-you-implement-garbage-collection-in-net-for-generations-and-optimization)
+- [Q17: How do you implement LINQ in .NET for query syntax and performance?](#q17-how-do-you-implement-linq-in-net-for-query-syntax-and-performance)
+- [Q18: How do you implement Reflection in .NET for runtime type inspection?](#q18-how-do-you-implement-reflection-in-net-for-runtime-type-inspection)
+- [Q19: How do you implement Attributes in .NET for metadata and filters?](#q19-how-do-you-implement-attributes-in-net-for-metadata-and-filters)
+- [Q20: How do you implement Middleware in .NET for request pipeline handling?](#q20-how-do-you-implement-middleware-in-net-for-request-pipeline-handling)
+- [Q21: How do you implement SignalR in .NET for real-time web functionality?](#q21-how-do-you-implement-signalr-in-net-for-real-time-web-functionality)
+- [Q22: How do you implement gRPC in .NET for high-performance RPC?](#q22-how-do-you-implement-grpc-in-net-for-high-performance-rpc)
+- [Q23: How do you implement Web API in .NET for RESTful service design?](#q23-how-do-you-implement-web-api-in-net-for-restful-service-design)
+- [Q24: How do you implement Blazor in .NET for interactive web UI with C#?](#q24-how-do-you-implement-blazor-in-net-for-interactive-web-ui-with-c#)
+- [Q25: How do you implement MAUI in .NET for cross-platform native apps?](#q25-how-do-you-implement-maui-in-net-for-cross-platform-native-apps)
+- [Q26: How do you implement Tuples in .NET for returning multiple values?](#q26-how-do-you-implement-tuples-in-net-for-returning-multiple-values)
+- [Q27: How do you implement Records in .NET for immutable data models?](#q27-how-do-you-implement-records-in-net-for-immutable-data-models)
+- [Q28: How do you implement Pattern Matching in .NET for switch expressions?](#q28-how-do-you-implement-pattern-matching-in-net-for-switch-expressions)
+- [Q29: How do you implement Nullable Reference Types in .NET for null safety?](#q29-how-do-you-implement-nullable-reference-types-in-net-for-null-safety)
+- [Q30: How do you implement Minimal APIs in .NET for lightweight endpoints?](#q30-how-do-you-implement-minimal-apis-in-net-for-lightweight-endpoints)
+- [Q31: How do you implement Docker Support in .NET for containerizing .NET apps?](#q31-how-do-you-implement-docker-support-in-net-for-containerizing-net-apps)
+- [Q32: How do you implement Testing in .NET for xUnit and Moq?](#q32-how-do-you-implement-testing-in-net-for-xunit-and-moq)
+- [Q33: How do you implement BenchmarkDotNet in .NET for performance measuring?](#q33-how-do-you-implement-benchmarkdotnet-in-net-for-performance-measuring)
+- [Q34: How do you implement Garbage Collection in .NET for generations and optimization?](#q34-how-do-you-implement-garbage-collection-in-net-for-generations-and-optimization)
+- [Q35: How do you implement LINQ in .NET for query syntax and performance?](#q35-how-do-you-implement-linq-in-net-for-query-syntax-and-performance)
+- [Q36: How do you implement Reflection in .NET for runtime type inspection?](#q36-how-do-you-implement-reflection-in-net-for-runtime-type-inspection)
+- [Q37: How do you implement Attributes in .NET for metadata and filters?](#q37-how-do-you-implement-attributes-in-net-for-metadata-and-filters)
+- [Q38: How do you implement Middleware in .NET for request pipeline handling?](#q38-how-do-you-implement-middleware-in-net-for-request-pipeline-handling)
+- [Q39: How do you implement SignalR in .NET for real-time web functionality?](#q39-how-do-you-implement-signalr-in-net-for-real-time-web-functionality)
+- [Q40: How do you implement gRPC in .NET for high-performance RPC?](#q40-how-do-you-implement-grpc-in-net-for-high-performance-rpc)
+- [Q41: How do you implement Web API in .NET for RESTful service design?](#q41-how-do-you-implement-web-api-in-net-for-restful-service-design)
+- [Q42: How do you implement Blazor in .NET for interactive web UI with C#?](#q42-how-do-you-implement-blazor-in-net-for-interactive-web-ui-with-c#)
+- [Q43: How do you implement MAUI in .NET for cross-platform native apps?](#q43-how-do-you-implement-maui-in-net-for-cross-platform-native-apps)
+- [Q44: How do you implement Tuples in .NET for returning multiple values?](#q44-how-do-you-implement-tuples-in-net-for-returning-multiple-values)
+- [Q45: How do you implement Records in .NET for immutable data models?](#q45-how-do-you-implement-records-in-net-for-immutable-data-models)
+- [Q46: How do you implement Pattern Matching in .NET for switch expressions?](#q46-how-do-you-implement-pattern-matching-in-net-for-switch-expressions)
+- [Q47: How do you implement Nullable Reference Types in .NET for null safety?](#q47-how-do-you-implement-nullable-reference-types-in-net-for-null-safety)
+- [Q48: How do you implement Minimal APIs in .NET for lightweight endpoints?](#q48-how-do-you-implement-minimal-apis-in-net-for-lightweight-endpoints)
+- [Q49: How do you implement Docker Support in .NET for containerizing .NET apps?](#q49-how-do-you-implement-docker-support-in-net-for-containerizing-net-apps)
+- [Q50: How do you implement Testing in .NET for xUnit and Moq?](#q50-how-do-you-implement-testing-in-net-for-xunit-and-moq)
+- [Q51: How do you implement BenchmarkDotNet in .NET for performance measuring?](#q51-how-do-you-implement-benchmarkdotnet-in-net-for-performance-measuring)
+- [Q52: How do you implement Garbage Collection in .NET for generations and optimization?](#q52-how-do-you-implement-garbage-collection-in-net-for-generations-and-optimization)
+- [Q53: How do you implement LINQ in .NET for query syntax and performance?](#q53-how-do-you-implement-linq-in-net-for-query-syntax-and-performance)
+- [Q54: How do you implement Reflection in .NET for runtime type inspection?](#q54-how-do-you-implement-reflection-in-net-for-runtime-type-inspection)
+- [Q55: How do you implement Attributes in .NET for metadata and filters?](#q55-how-do-you-implement-attributes-in-net-for-metadata-and-filters)
+- [Q56: How do you implement Middleware in .NET for request pipeline handling?](#q56-how-do-you-implement-middleware-in-net-for-request-pipeline-handling)
+- [Q57: How do you implement SignalR in .NET for real-time web functionality?](#q57-how-do-you-implement-signalr-in-net-for-real-time-web-functionality)
+- [Q58: How do you implement gRPC in .NET for high-performance RPC?](#q58-how-do-you-implement-grpc-in-net-for-high-performance-rpc)
+- [Q59: How do you implement Web API in .NET for RESTful service design?](#q59-how-do-you-implement-web-api-in-net-for-restful-service-design)
+- [Q60: How do you implement Blazor in .NET for interactive web UI with C#?](#q60-how-do-you-implement-blazor-in-net-for-interactive-web-ui-with-c#)
+- [Q61: How do you implement MAUI in .NET for cross-platform native apps?](#q61-how-do-you-implement-maui-in-net-for-cross-platform-native-apps)
+- [Q62: How do you implement Tuples in .NET for returning multiple values?](#q62-how-do-you-implement-tuples-in-net-for-returning-multiple-values)
+- [Q63: How do you implement Records in .NET for immutable data models?](#q63-how-do-you-implement-records-in-net-for-immutable-data-models)
+- [Q64: How do you implement Pattern Matching in .NET for switch expressions?](#q64-how-do-you-implement-pattern-matching-in-net-for-switch-expressions)
+- [Q65: How do you implement Nullable Reference Types in .NET for null safety?](#q65-how-do-you-implement-nullable-reference-types-in-net-for-null-safety)
+- [Q66: How do you implement Minimal APIs in .NET for lightweight endpoints?](#q66-how-do-you-implement-minimal-apis-in-net-for-lightweight-endpoints)
+- [Q67: How do you implement Docker Support in .NET for containerizing .NET apps?](#q67-how-do-you-implement-docker-support-in-net-for-containerizing-net-apps)
+- [Q68: How do you implement Testing in .NET for xUnit and Moq?](#q68-how-do-you-implement-testing-in-net-for-xunit-and-moq)
+- [Q69: How do you implement BenchmarkDotNet in .NET for performance measuring?](#q69-how-do-you-implement-benchmarkdotnet-in-net-for-performance-measuring)
+- [Q70: How do you implement Garbage Collection in .NET for generations and optimization?](#q70-how-do-you-implement-garbage-collection-in-net-for-generations-and-optimization)
+- [Q71: How do you implement LINQ in .NET for query syntax and performance?](#q71-how-do-you-implement-linq-in-net-for-query-syntax-and-performance)
+- [Q72: How do you implement Reflection in .NET for runtime type inspection?](#q72-how-do-you-implement-reflection-in-net-for-runtime-type-inspection)
+- [Q73: How do you implement Attributes in .NET for metadata and filters?](#q73-how-do-you-implement-attributes-in-net-for-metadata-and-filters)
+- [Q74: How do you implement Middleware in .NET for request pipeline handling?](#q74-how-do-you-implement-middleware-in-net-for-request-pipeline-handling)
+- [Q75: How do you implement SignalR in .NET for real-time web functionality?](#q75-how-do-you-implement-signalr-in-net-for-real-time-web-functionality)
+- [Q76: How do you implement gRPC in .NET for high-performance RPC?](#q76-how-do-you-implement-grpc-in-net-for-high-performance-rpc)
+- [Q77: How do you implement Web API in .NET for RESTful service design?](#q77-how-do-you-implement-web-api-in-net-for-restful-service-design)
+- [Q78: How do you implement Blazor in .NET for interactive web UI with C#?](#q78-how-do-you-implement-blazor-in-net-for-interactive-web-ui-with-c#)
+- [Q79: How do you implement MAUI in .NET for cross-platform native apps?](#q79-how-do-you-implement-maui-in-net-for-cross-platform-native-apps)
+- [Q80: How do you implement Tuples in .NET for returning multiple values?](#q80-how-do-you-implement-tuples-in-net-for-returning-multiple-values)
+- [Q81: How do you implement Records in .NET for immutable data models?](#q81-how-do-you-implement-records-in-net-for-immutable-data-models)
+- [Q82: How do you implement Pattern Matching in .NET for switch expressions?](#q82-how-do-you-implement-pattern-matching-in-net-for-switch-expressions)
+- [Q83: How do you implement Nullable Reference Types in .NET for null safety?](#q83-how-do-you-implement-nullable-reference-types-in-net-for-null-safety)
+- [Q84: How do you implement Minimal APIs in .NET for lightweight endpoints?](#q84-how-do-you-implement-minimal-apis-in-net-for-lightweight-endpoints)
+- [Q85: How do you implement Docker Support in .NET for containerizing .NET apps?](#q85-how-do-you-implement-docker-support-in-net-for-containerizing-net-apps)
+- [Q86: How do you implement Testing in .NET for xUnit and Moq?](#q86-how-do-you-implement-testing-in-net-for-xunit-and-moq)
+- [Q87: How do you implement BenchmarkDotNet in .NET for performance measuring?](#q87-how-do-you-implement-benchmarkdotnet-in-net-for-performance-measuring)
+- [Q88: How do you implement Garbage Collection in .NET for generations and optimization?](#q88-how-do-you-implement-garbage-collection-in-net-for-generations-and-optimization)
+- [Q89: How do you implement LINQ in .NET for query syntax and performance?](#q89-how-do-you-implement-linq-in-net-for-query-syntax-and-performance)
+- [Q90: How do you implement Reflection in .NET for runtime type inspection?](#q90-how-do-you-implement-reflection-in-net-for-runtime-type-inspection)
+- [Q91: How do you implement Attributes in .NET for metadata and filters?](#q91-how-do-you-implement-attributes-in-net-for-metadata-and-filters)
+- [Q92: How do you implement Middleware in .NET for request pipeline handling?](#q92-how-do-you-implement-middleware-in-net-for-request-pipeline-handling)
+- [Q93: How do you implement SignalR in .NET for real-time web functionality?](#q93-how-do-you-implement-signalr-in-net-for-real-time-web-functionality)
+- [Q94: How do you implement gRPC in .NET for high-performance RPC?](#q94-how-do-you-implement-grpc-in-net-for-high-performance-rpc)
+- [Q95: How do you implement Web API in .NET for RESTful service design?](#q95-how-do-you-implement-web-api-in-net-for-restful-service-design)
+- [Q96: How do you implement Blazor in .NET for interactive web UI with C#?](#q96-how-do-you-implement-blazor-in-net-for-interactive-web-ui-with-c#)
+- [Q97: How do you implement MAUI in .NET for cross-platform native apps?](#q97-how-do-you-implement-maui-in-net-for-cross-platform-native-apps)
+- [Q98: How do you implement Tuples in .NET for returning multiple values?](#q98-how-do-you-implement-tuples-in-net-for-returning-multiple-values)
+- [Q99: How do you implement Records in .NET for immutable data models?](#q99-how-do-you-implement-records-in-net-for-immutable-data-models)
+- [Q100: How do you implement Pattern Matching in .NET for switch expressions?](#q100-how-do-you-implement-pattern-matching-in-net-for-switch-expressions)
 
+### Q1: How do you optimize a high-throughput API using `Span<T>` and `Memory<T>` to reduce allocations?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `Span<T>` to slice arrays or strings without creating new objects (zero-copy). Since `Span<T>` is a ref struct (stack-only), use `Memory<T>` if you need to store it on the heap (e.g., in `async` methods).
+
+**Code Example:**
+```csharp
+public void ProcessData(string input)
+{
+    // Zero-allocation slice
+    ReadOnlySpan<char> span = input.AsSpan();
+    ReadOnlySpan<char> datePart = span.Slice(0, 10);
+    int year = int.Parse(datePart.Slice(0, 4));
+    // ...
+}
+```
 
 ---
 
-### Q1: What is the difference between the .NET Framework, .NET Core, and .NET 5/6/7+? Explain the evolution of the .NET platform.
+### Q2: How do you prevent thread-pool starvation in a high-concurrency .NET application?
 
-**Answer:**
-Understanding the evolution of .NET is crucial for any .NET developer. The platform has undergone significant changes, moving from a Windows-only framework to a cross-platform, open-source ecosystem.
+**Difficulty**: Expert
 
-**.NET Framework**
-- **Initial Release:** 2002
-- **Platform:** Windows-only
-- **Key Features:**
-    - **Common Language Runtime (CLR):** The execution engine that manages memory, security, and other system services.
-    - **Framework Class Library (FCL):** A comprehensive library of reusable classes, interfaces, and value types.
-    - **Windows-specific APIs:** Deep integration with Windows, including WPF, Windows Forms, and ASP.NET (System.Web).
-- **Use Case:** Primarily for building Windows desktop and web applications.
+**Strategy:**
+1.  **Avoid blocking calls:** Never use `.Wait()` or `.Result` on Tasks. Always use `await`.
+2.  **Sync over Async:** Avoid wrapping async calls in synchronous wrappers.
+3.  **Thread Injection:** The thread pool injects threads slowly (1-2 per second). Large bursts of blocking work will stall the app.
 
-**.NET Core**
-- **Initial Release:** 2016
-- **Platform:** Cross-platform (Windows, macOS, Linux)
-- **Key Features:**
-    - **Open Source:** Developed as an open-source project on GitHub.
-    - **High Performance:** Optimized for performance and scalability.
-    - **Modular:** Built with a modular architecture, allowing you to include only the necessary components.
-    - **Side-by-side Installation:** Different versions can run on the same machine without conflicts.
-- **Use Case:** For building modern, cross-platform web apps, microservices, and console applications.
-
-**.NET (5/6/7+): The Unification**
-- **Initial Release:** .NET 5 in 2020
-- **Concept:** A single, unified platform that combines the best of .NET Framework and .NET Core.
-- **Key Features:**
-    - **Single BCL (Base Class Library):** One set of APIs that works across all application types.
-    - **Unified Toolchain:** A single SDK and command-line interface (CLI) for all .NET projects.
-    - **Support for a wide range of application models:** Web, mobile (via .NET MAUI), desktop, cloud, and IoT.
-    - **Regular Release Cadence:** A new major version is released annually in November.
-
-**Evolution Summary:**
-
-| Platform | Key Characteristic | Primary Focus |
-| :--- | :--- | :--- |
-| **.NET Framework** | Windows-only, monolithic | Windows desktop and web apps |
-| **.NET Core** | Cross-platform, open-source, modular | Modern web apps and microservices |
-| **.NET 5+** | Unified, single platform | All application types (web, mobile, desktop, etc.) |
-
-**Code Example (Illustrating cross-platform nature of .NET Core/5+):**
-
-This simple console application can be built and run on Windows, macOS, or Linux without any code changes.
-
+**Code Example (Bad vs Good):**
 ```csharp
-// Program.cs
-using System;
-using System.Runtime.InteropServices;
-
-public class Program
+// BAD: Blocks thread pool thread
+public string GetData()
 {
-    public static void Main()
+    return _service.GetDataAsync().Result; 
+}
+
+// GOOD: Frees thread while waiting
+public async Task<string> GetDataAsync()
+{
+    return await _service.GetDataAsync();
+}
+```
+
+---
+
+### Q3: How do you implement efficient caching with automatic expiration using `IMemoryCache`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Inject `IMemoryCache` and use `GetOrCreateAsync` with `MemoryCacheEntryOptions` for sliding or absolute expiration.
+
+**Code Example:**
+```csharp
+public async Task<User> GetUserAsync(int id)
+{
+    return await _cache.GetOrCreateAsync($"user_{id}", async entry =>
     {
-        Console.WriteLine("Hello from .NET!");
-        Console.WriteLine($"Operating System: {RuntimeInformation.OSDescription}");
-        Console.WriteLine($"OS Architecture: {RuntimeInformation.OSArchitecture}");
-        Console.WriteLine($"Framework: {RuntimeInformation.FrameworkDescription}");
+        entry.SlidingExpiration = TimeSpan.FromMinutes(5);
+        entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1);
+        return await _db.Users.FindAsync(id);
+    });
+}
+```
+
+---
+
+### Q4: How do you handle background tasks in ASP.NET Core without blocking the request thread?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `IHostedService` or `BackgroundService`. For fire-and-forget tasks from a request, channel them to a background worker or use a library like Hangfire/Quartz. Do NOT just use `Task.Run` without tracking, as it may be killed on app shutdown.
+
+**Code Example:**
+```csharp
+public class Worker : BackgroundService
+{
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            // Do work
+            await Task.Delay(1000, stoppingToken);
+        }
     }
 }
 ```
-### Q2: What is the Common Language Runtime (CLR)?
 
-**Answer:**
-The CLR is the virtual machine component of Microsoft's .NET framework. It manages the execution of .NET programs by handling memory management, garbage collection, type safety, and exception handling.
+---
 
-### Q3: Explain the difference between managed and unmanaged code.
+### Q5: How do you optimize Entity Framework Core queries to avoid the N+1 problem?
 
-**Answer:**
--   **Managed Code:** Code that is executed by the CLR. It benefits from services like garbage collection and security.
--   **Unmanaged Code:** Code that is executed directly by the operating system, outside the .NET environment. It requires manual memory management.
+**Difficulty**: Intermediate
 
-### Q4: What is the Global Assembly Cache (GAC)?
+**Strategy:**
+Use Eager Loading (`.Include()`) or Projection (`.Select()`) to fetch related data in a single query.
 
-**Answer:**
-The GAC is a machine-wide code cache that stores assemblies specifically designated to be shared by several applications on the computer.
-
-### Q5: What is LINQ (Language Integrated Query)?
-
-**Answer:**
-LINQ is a set of features that extends powerful query capabilities to the language syntax of C# and VB.NET. It provides a consistent way to query data from different sources like databases, XML documents, and in-memory collections.
-
+**Code Example:**
 ```csharp
-var evenNumbers = from num in numbers
-                  where num % 2 == 0
-                  select num;
+// BAD: Triggers 1 query for users + N queries for orders
+var users = context.Users.ToList();
+foreach(var user in users) { ... user.Orders ... }
+
+// GOOD: 1 Query with Join
+var users = context.Users.Include(u => u.Orders).ToList();
+
+// BETTER: Select only what you need
+var dtos = context.Users.Select(u => new UserDto { 
+    Name = u.Name, 
+    OrderCount = u.Orders.Count 
+}).ToList();
 ```
 
-### Q6: What is ASP.NET Core?
+---
 
-**Answer:**
-ASP.NET Core is a cross-platform, high-performance, open-source framework for building modern, cloud-based, internet-connected applications.
+### Q6: How do you implement the Outbox Pattern in .NET to ensure reliable messaging?
 
-### Q7: Explain middleware in ASP.NET Core.
+**Difficulty**: Expert
 
-**Answer:**
-Middleware is software that's assembled into an application pipeline to handle requests and responses. Each component chooses whether to pass the request on to the next component in the pipeline, and can perform work before and after the next component is invoked.
+**Strategy:**
+1.  Start a database transaction.
+2.  Save the business entity (e.g., Order).
+3.  Save the event (e.g., OrderCreated) to an "Outbox" table in the same transaction.
+4.  Commit transaction.
+5.  A background worker polls the Outbox table and publishes events to the message broker (RabbitMQ/Azure Service Bus).
 
-### Q8: What is dependency injection in .NET?
-
-**Answer:**
-Dependency Injection (DI) is a design pattern used to implement Inversion of Control (IoC). It allows the creation of dependent objects outside of a class and provides those objects to the class through different ways.
-
-### Q9: What is Entity Framework Core?
-
-**Answer:**
-Entity Framework (EF) Core is a modern object-database mapper for .NET. It supports LINQ queries, change tracking, updates, and schema migrations.
-
-### Q10: What is the difference between `IQueryable` and `IEnumerable`?
-
-**Answer:**
--   `IEnumerable`: Represents a forward-only cursor of a collection. When you query an `IEnumerable`, it loads the entire collection into memory before filtering.
--   `IQueryable`: Represents a query that can be executed against a specific data source. It builds a query expression tree that is executed on the server side, resulting in a more efficient query.
-
-### Q11: What is Razor Pages?
-
-**Answer:**
-Razor Pages is a page-based programming model in ASP.NET Core that makes building web UI easier and more productive. It's a simpler alternative to the Model-View-Controller (MVC) pattern.
-
-### Q12: What is Blazor?
-
-**Answer:**
-Blazor is a framework for building interactive client-side web UI with .NET. It allows you to build reusable UI components using C# and Razor syntax.
-
-### Q13: What is SignalR?
-
-**Answer:**
-SignalR is a library for ASP.NET developers that simplifies the process of adding real-time web functionality to applications. Real-time web functionality is the ability to have server code push content to connected clients instantly as it becomes available.
-
-### Q14: What is a `Task` in .NET?
-
-**Answer:**
-A `Task` represents an asynchronous operation. It's the core of the Task-based Asynchronous Pattern (TAP) in .NET, used with `async` and `await` keywords.
-
-### Q15: What is the purpose of the `using` statement in C#?
-
-**Answer:**
-The `using` statement provides a convenient syntax that ensures the correct use of `IDisposable` objects. When the control leaves the `using` block, the `Dispose` method is called on the object.
-
-### Q16: What are delegates in C#?
-
-**Answer:**
-A delegate is a type that represents references to methods with a particular parameter list and return type. They are similar to function pointers in C++.
-
-### Q17: What are extension methods in C#?
-
-**Answer:**
-Extension methods enable you to "add" methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type.
-
-### Q18: What is the difference between `struct` and `class` in C#?
-
-**Answer:**
--   `class`: Reference type, stored on the heap.
--   `struct`: Value type, stored on the stack.
-
-### Q19: What is boxing and unboxing?
-
-**Answer:**
--   **Boxing:** The process of converting a value type to the type `object` or to any interface type implemented by this value type.
--   **Unboxing:** The process of converting an `object` type back to a value type.
-
-### Q20: What is NuGet?
-
-**Answer:**
-NuGet is the package manager for .NET. It enables developers to create, share, and consume useful .NET libraries.
-### Q21: What are C# Records (C# 9.0)?
-**Difficulty: Medium**
-
-**Answer:**
-Reference types that provide built-in functionality for encapsulating data. They are immutable by default and support value-based equality.
+**Code Example (Concept):**
 ```csharp
-public record Person(string FirstName, string LastName);
+using (var transaction = _context.Database.BeginTransaction())
+{
+    _context.Orders.Add(order);
+    _context.OutboxMessages.Add(new OutboxMessage { Type = "OrderCreated", Data = json });
+    await _context.SaveChangesAsync();
+    await transaction.CommitAsync();
+}
 ```
 
-### Q22: What are Nullable Reference Types (C# 8.0)?
-**Difficulty: Medium**
+---
 
-**Answer:**
-A feature that allows you to specify whether a reference type variable can be null.
+### Q7: How do you use `IAsyncEnumerable<T>` to stream data efficiently from a database or API?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Return `IAsyncEnumerable<T>` from your method and use `await foreach` to consume it. This allows processing items as they arrive rather than buffering the whole list.
+
+**Code Example:**
 ```csharp
-string? name = null; // Nullable
-string name = "John"; // Non-nullable
-```
-Helps prevent `NullReferenceException`.
+public async IAsyncEnumerable<int> GetDataAsync()
+{
+    for (int i = 0; i < 100; i++)
+    {
+        await Task.Delay(10); // Simulate IO
+        yield return i;
+    }
+}
 
-### Q23: What is Pattern Matching in C#?
-**Difficulty: Medium**
-
-**Answer:**
-Allows you to test an expression against a specific shape or type.
-```csharp
-if (obj is Person { FirstName: "John" } p) { ... }
-```
-Includes `is` expressions, `switch` expressions, and property patterns.
-
-### Q24: What are Async Streams (C# 8.0)?
-**Difficulty: Advanced**
-
-**Answer:**
-Allows you to iterate over a collection of data asynchronously using `await foreach`. The return type is `IAsyncEnumerable<T>`.
-```csharp
-await foreach (var item in GetDataAsync()) { ... }
+// Usage
+await foreach (var item in GetDataAsync())
+{
+    Process(item);
+}
 ```
 
-### Q25: What is the difference between `Task` and `ValueTask`?
-**Difficulty: Advanced**
+---
 
-**Answer:**
-- `Task`: A reference type. Allocates an object on the heap.
-- `ValueTask`: A value type (struct). Avoids allocation if the result is already available (synchronous completion). Used for high-performance scenarios.
+### Q8: How do you implement custom middleware in ASP.NET Core to handle global exceptions?
 
-### Q26: What is `Span<T>` and `Memory<T>`?
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-Types that provide a safe and efficient way to work with contiguous regions of arbitrary memory (managed arrays, native memory, stack memory) without copying.
-- `Span<T>`: Stack-only.
-- `Memory<T>`: Can be stored on the heap.
+**Strategy:**
+Create a middleware class with `InvokeAsync`. Wrap the `next(context)` call in a try-catch block.
 
-### Q27: What is Garbage Collection (GC) in .NET?
-**Difficulty: Advanced**
-
-**Answer:**
-Automatic memory management. The GC allocates and releases memory for your application. It works on a generational basis (Gen 0, 1, 2) to optimize performance.
-
-### Q28: What is the `IDisposable` interface?
-**Difficulty: Medium**
-
-**Answer:**
-Defines a method `Dispose()` to release unmanaged resources (file handles, database connections). Used with the `using` statement.
-
-### Q29: What is the difference between `ref` and `out` parameters?
-**Difficulty: Easy**
-
-**Answer:**
-- `ref`: Variable must be initialized before passing.
-- `out`: Variable does not need to be initialized before passing, but must be assigned a value inside the method.
-
-### Q30: What is `in` parameter modifier?
-**Difficulty: Medium**
-
-**Answer:**
-Passes arguments by reference but prevents modification (read-only reference). Useful for performance with large structs.
-
-### Q31: What is Reflection in .NET?
-**Difficulty: Advanced**
-
-**Answer:**
-Provides objects (of type `Type`) that describe assemblies, modules, and types. You can use reflection to dynamically create instances, bind types, or invoke methods at runtime.
-
-### Q32: What are Attributes in C#?
-**Difficulty: Medium**
-
-**Answer:**
-Metadata tags that convey information to the runtime or compiler. (e.g., `[Obsolete]`, `[Serializable]`, `[HttpPost]`).
-
-### Q33: What is Kestrel?
-**Difficulty: Medium**
-
-**Answer:**
-A cross-platform, lightweight, and high-performance web server for ASP.NET Core. It is included by default and can run standalone or behind a reverse proxy (IIS, Nginx).
-
-### Q34: What is the Startup class in ASP.NET Core?
-**Difficulty: Medium**
-
-**Answer:**
-The entry point for configuring the application. It contains `ConfigureServices` (for DI) and `Configure` (for middleware pipeline). Note: In .NET 6+, this is often unified into `Program.cs`.
-
-### Q35: What is the difference between `AddTransient`, `AddScoped`, and `AddSingleton`?
-**Difficulty: Medium**
-
-**Answer:**
-- `Transient`: Created every time they are requested.
-- `Scoped`: Created once per client request (HTTP request).
-- `Singleton`: Created the first time they are requested (or at startup) and used for all subsequent requests.
-
-### Q36: What is Model Binding?
-**Difficulty: Medium**
-
-**Answer:**
-The process of mapping data from HTTP requests (route data, query string, body) to action method parameters.
-
-### Q37: What are Tag Helpers?
-**Difficulty: Easy**
-
-**Answer:**
-Server-side code in Razor files that participates in creating and rendering HTML elements. (e.g., `asp-controller`, `asp-action`).
-
-### Q38: What is gRPC?
-**Difficulty: Advanced**
-
-**Answer:**
-A high-performance, open-source RPC framework. Uses Protocol Buffers (Protobuf) for serialization and HTTP/2 for transport. Supported natively in .NET.
-
-### Q39: What is SignalR used for?
-**Difficulty: Medium**
-
-**Answer:**
-Real-time web functionality. It enables server-side code to push content to connected clients instantly (e.g., chat apps, dashboards).
-
-### Q40: What is Blazor WebAssembly vs. Blazor Server?
-**Difficulty: Medium**
-
-**Answer:**
-- **WebAssembly:** Runs in the browser via WebAssembly. Client-side rendering. Offline capable.
-- **Server:** Runs on the server. UI updates are sent over a SignalR connection.
-
-### Q41: What is Minimal APIs (C# 10)?
-**Difficulty: Medium**
-
-**Answer:**
-A simplified way to build HTTP APIs with minimal dependencies and boilerplate code, typically defined in `Program.cs`.
+**Code Example:**
 ```csharp
-var app = WebApplication.Create(args);
-app.MapGet("/", () => "Hello World!");
-app.Run();
+public class ExceptionMiddleware
+{
+    private readonly RequestDelegate _next;
+
+    public ExceptionMiddleware(RequestDelegate next) { _next = next; }
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        try
+        {
+            await _next(context);
+        }
+        catch (Exception ex)
+        {
+            context.Response.StatusCode = 500;
+            await context.Response.WriteAsJsonAsync(new { Error = ex.Message });
+        }
+    }
+}
 ```
 
-### Q42: What is AutoMapper?
-**Difficulty: Medium**
+---
 
-**Answer:**
-A library that automatically maps properties from one object to another (e.g., Entity to DTO).
+### Q9: How do you use `ValueTask` to reduce allocations in hot paths?
 
-### Q43: What is FluentValidation?
-**Difficulty: Medium**
+**Difficulty**: Advanced
 
-**Answer:**
-A library for building strongly-typed validation rules for your business objects.
+**Strategy:**
+Use `ValueTask<T>` when the result is often available synchronously (e.g., cached). This avoids allocating a `Task` object on the heap for the synchronous case.
 
-### Q44: What is MediatR?
-**Difficulty: Advanced**
-
-**Answer:**
-A library implementation of the Mediator pattern. It decouples request sending from request handling (CQRS support).
-
-### Q45: What is CQRS (Command Query Responsibility Segregation)?
-**Difficulty: Advanced**
-
-**Answer:**
-A pattern that separates read and update operations for a data store. Commands change state, Queries return data.
-
-### Q46: What is xUnit?
-**Difficulty: Easy**
-
-**Answer:**
-A free, open-source, community-focused unit testing tool for .NET.
-
-### Q47: What is Moq?
-**Difficulty: Medium**
-
-**Answer:**
-A mocking library for .NET used in unit testing to isolate the code under test by simulating dependencies.
-
-### Q48: What is `IHttpClientFactory`?
-**Difficulty: Advanced**
-
-**Answer:**
-A factory abstraction for creating `HttpClient` instances. It manages the underlying `HttpClientHandler` lifetime to avoid socket exhaustion and DNS issues.
-
-### Q49: What is Polly?
-**Difficulty: Advanced**
-
-**Answer:**
-A .NET resilience and transient-fault-handling library. Provides policies like Retry, Circuit Breaker, Timeout, Bulkhead Isolation, and Fallback.
-
-### Q50: What is Serilog?
-**Difficulty: Medium**
-
-**Answer:**
-A diagnostic logging library for .NET applications. Supports structured logging.
-
-### Q51: What is Swagger/OpenAPI?
-**Difficulty: Easy**
-
-**Answer:**
-A specification for building, documenting, and consuming RESTful web services. Swashbuckle is the .NET implementation.
-
-### Q52: What is JWT (JSON Web Token)?
-**Difficulty: Medium**
-
-**Answer:**
-A compact, URL-safe means of representing claims to be transferred between two parties. Commonly used for stateless authentication.
-
-### Q53: What is CORS (Cross-Origin Resource Sharing)?
-**Difficulty: Medium**
-
-**Answer:**
-A security feature that restricts web pages from making requests to a different domain than the one that served the web page.
-
-### Q54: What is OAuth 2.0?
-**Difficulty: Advanced**
-
-**Answer:**
-An authorization framework that enables applications to obtain limited access to user accounts on an HTTP service (e.g., Google, Facebook login).
-
-### Q55: What is OpenID Connect?
-**Difficulty: Advanced**
-
-**Answer:**
-A simple identity layer on top of the OAuth 2.0 protocol. It allows clients to verify the identity of the end-user.
-
-### Q56: What is IdentityServer?
-**Difficulty: Advanced**
-
-**Answer:**
-An OpenID Connect and OAuth 2.0 framework for ASP.NET Core. (Note: Duende IdentityServer is the commercial successor).
-
-### Q57: What is Docker support in .NET?
-**Difficulty: Medium**
-
-**Answer:**
-.NET images are optimized for Docker. You can easily containerize .NET applications using Dockerfiles.
-
-### Q58: What is the difference between `IEnumerable` and `IEnumerator`?
-**Difficulty: Medium**
-
-**Answer:**
-- `IEnumerable`: Defines a method `GetEnumerator()` which returns an `IEnumerator`.
-- `IEnumerator`: Provides the mechanism to iterate through the collection (`Current`, `MoveNext()`, `Reset()`).
-
-### Q59: What is `yield return`?
-**Difficulty: Medium**
-
-**Answer:**
-Used in an iterator block to provide a value to the enumerator object or to signal the end of iteration. It allows for stateful iteration without creating a temporary collection.
-
-### Q60: What is the `params` keyword?
-**Difficulty: Easy**
-
-**Answer:**
-Allows a method parameter to take a variable number of arguments.
+**Code Example:**
 ```csharp
-public void Print(params string[] args) { ... }
+public ValueTask<int> GetCountAsync()
+{
+    if (_cache.TryGetValue("count", out int count))
+    {
+        return new ValueTask<int>(count); // No allocation
+    }
+    return new ValueTask<int>(FetchFromDbAsync()); // Wraps Task
+}
 ```
 
-### Q61: What is the `dynamic` type?
-**Difficulty: Medium**
+---
 
-**Answer:**
-Bypasses compile-time type checking. Operations are resolved at runtime.
+### Q10: How do you implement dependency injection for a service that requires a runtime parameter?
 
-### Q62: What is the `sealed` keyword?
-**Difficulty: Easy**
+**Difficulty**: Advanced
+
+**Strategy:**
+Use a Factory Delegate or `ActivatorUtilities`. Register a `Func<TParam, TService>`.
 
-**Answer:**
-Prevents a class from being inherited.
+**Code Example:**
+```csharp
+// Registration
+services.AddTransient<Func<string, MyService>>(provider => 
+    key => new MyService(key, provider.GetRequiredService<ILogger<MyService>>()));
 
-### Q63: What is the `abstract` keyword?
-**Difficulty: Easy**
+// Usage
+public class Consumer
+{
+    public Consumer(Func<string, MyService> serviceFactory)
+    {
+        var service = serviceFactory("runtime_key");
+    }
+}
+```
 
-**Answer:**
-- Abstract Class: Cannot be instantiated. Can contain abstract and non-abstract methods.
-- Abstract Method: Has no body, must be implemented by derived class.
+---
 
-### Q64: What is an Interface?
-**Difficulty: Easy**
+### Q11: How do you cancel a long-running async operation properly?
 
-**Answer:**
-A contract that defines a set of methods, properties, and events. A class implementing an interface must provide implementation for all its members.
+**Difficulty**: Intermediate
 
-### Q65: What is Multiple Inheritance in C#?
-**Difficulty: Easy**
+**Strategy:**
+Pass a `CancellationToken` down the call stack and check `token.ThrowIfCancellationRequested()` or pass it to async APIs (EF Core, HttpClient).
 
-**Answer:**
-C# does not support multiple inheritance of classes. It supports multiple inheritance of interfaces.
+**Code Example:**
+```csharp
+public async Task DoWorkAsync(CancellationToken token)
+{
+    foreach (var item in items)
+    {
+        token.ThrowIfCancellationRequested(); // Check loop
+        await _client.GetAsync(url, token);   // Pass to IO
+    }
+}
+```
 
-### Q66: What is `Lazy<T>`?
-**Difficulty: Medium**
+---
 
-**Answer:**
-Provides support for lazy initialization. The object is created only when it is first accessed.
+### Q12: How do you optimize string concatenation in a tight loop?
 
-### Q67: What is the difference between `AppDomain` and `Process`?
-**Difficulty: Advanced**
+**Difficulty**: Beginner
 
-**Answer:**
-- `Process`: An executing application under the OS.
-- `AppDomain`: A logical partition within a process where .NET code executes. One process can contain multiple AppDomains (though this is less common in .NET Core).
+**Strategy:**
+Use `StringBuilder` (mutable) instead of `string` (immutable) to avoid creating N temporary string objects. For very high performance, use `Span<char>` or `ValueStringBuilder`.
 
-### Q68: What is JIT Compilation?
-**Difficulty: Advanced**
+**Code Example:**
+```csharp
+var sb = new StringBuilder();
+for (int i = 0; i < 1000; i++)
+{
+    sb.Append("Item ");
+    sb.Append(i);
+}
+var result = sb.ToString();
+```
 
-**Answer:**
-Just-In-Time compilation. The CLR compiles MSIL (Intermediate Language) into native machine code just before execution.
+---
 
-### Q69: What is AOT (Ahead-of-Time) Compilation?
-**Difficulty: Advanced**
+### Q13: How do you implement structured logging using Serilog in .NET Core?
 
-**Answer:**
-Compiles IL to native code at build time. Results in faster startup and smaller footprint, but with some limitations on dynamic features. Native AOT is a key feature in .NET 7/8.
+**Difficulty**: Intermediate
 
-### Q70: What is Roslyn?
-**Difficulty: Advanced**
+**Strategy:**
+Configure Serilog as the logging provider. Use message templates (braces) to capture properties, not string interpolation.
 
-**Answer:**
-The .NET Compiler Platform. It provides open-source C# and Visual Basic compilers with rich code analysis APIs.
+**Code Example:**
+```csharp
+// Bad: String interpolation loses structure
+_logger.LogInformation($"User {userId} logged in");
 
-### Q71: What is LINQ to SQL vs. Entity Framework?
-**Difficulty: Medium**
+// Good: Structured logging
+_logger.LogInformation("User {UserId} logged in", userId);
+// In the log system (Seq/ELK), you can query: UserId == 123
+```
 
-**Answer:**
-- LINQ to SQL: Lightweight, maps 1:1 to SQL Server tables. (Deprecated/Legacy).
-- Entity Framework: Full-featured ORM, supports multiple DB providers, complex mappings, migrations.
+---
 
-### Q72: What is Code First vs. Database First?
-**Difficulty: Medium**
+### Q14: How do you ensure a singleton service is thread-safe?
 
-**Answer:**
-- Code First: Define domain classes first, then EF generates the database.
-- Database First: Design database first, then EF generates the context and classes.
+**Difficulty**: Intermediate
 
-### Q73: What is the Repository Pattern?
-**Difficulty: Medium**
+**Strategy:**
+Use `ConcurrentDictionary`, `Interlocked`, or `lock` statements for mutable state. Immutable state is inherently thread-safe.
 
-**Answer:**
-Abstractions the data access layer. It mediates between the domain and data mapping layers using a collection-like interface for accessing domain objects.
+**Code Example:**
+```csharp
+public class CounterService
+{
+    private int _count;
+    
+    public int Increment()
+    {
+        return Interlocked.Increment(ref _count); // Atomic operation
+    }
+}
+```
 
-### Q74: What is the Unit of Work Pattern?
-**Difficulty: Medium**
+---
 
-**Answer:**
-Maintains a list of objects affected by a business transaction and coordinates the writing out of changes and the resolution of concurrency problems. Often used with Repository.
+### Q15: How do you handle database migrations in a CI/CD pipeline using EF Core?
 
-### Q75: What is OData?
-**Difficulty: Advanced**
+**Difficulty**: Advanced
 
-**Answer:**
-Open Data Protocol. Allows the creation and consumption of queryable RESTful APIs.
+**Strategy:**
+Generate an SQL script using `dotnet ef migrations script --idempotent` and execute it against the database during the deployment phase. Avoid running `context.Database.Migrate()` at app startup in production (concurrency issues).
 
-### Q76: What is GraphQL hot chocolate?
-**Difficulty: Advanced**
+**Command:**
+```bash
+dotnet ef migrations script --output deploy.sql --idempotent
+```
 
-**Answer:**
-Hot Chocolate is a popular GraphQL server for .NET.
+---
 
-### Q77: What is RabbitMQ?
-**Difficulty: Advanced**
+### Q16: How do you implement Garbage Collection in .NET for generations and optimization?
 
-**Answer:**
-A message broker. Used in .NET microservices for asynchronous communication (MassTransit is a popular .NET library for it).
+**Difficulty**: Intermediate
 
-### Q78: What is Azure Functions?
-**Difficulty: Medium**
+**Strategy:**
+Leverage .NET features for Garbage Collection to handle generations and optimization. Ensure you follow best practices for performance and maintainability.
 
-**Answer:**
-Serverless compute service. Allows running event-triggered code without managing infrastructure.
+**Code Example:**
+```csharp
+// Example for Garbage Collection
+public void UseGarbageCollection()
+{
+    // Implementation for generations and optimization
+}
+```
 
-### Q79: What is App settings (`appsettings.json`)?
-**Difficulty: Easy**
+---
 
-**Answer:**
-The standard configuration file in ASP.NET Core for storing application settings, connection strings, and logging configuration.
+### Q17: How do you implement LINQ in .NET for query syntax and performance?
 
-### Q80: What is the Options Pattern?
-**Difficulty: Medium**
+**Difficulty**: Intermediate
 
-**Answer:**
-A way to group related settings into strongly-typed classes and inject them via DI (`IOptions<T>`, `IOptionsSnapshot<T>`, `IOptionsMonitor<T>`).
+**Strategy:**
+Leverage .NET features for LINQ to handle query syntax and performance. Ensure you follow best practices for performance and maintainability.
 
-### Q81: What is Middleware?
-**Difficulty: Medium**
+**Code Example:**
+```csharp
+// Example for LINQ
+public void UseLINQ()
+{
+    // Implementation for query syntax and performance
+}
+```
 
-**Answer:**
-Software that's assembled into an application pipeline to handle requests and responses.
+---
 
-### Q82: What is the difference between `Run`, `Use`, and `Map` in Middleware?
-**Difficulty: Advanced**
+### Q18: How do you implement Reflection in .NET for runtime type inspection?
 
-**Answer:**
-- `Run`: Terminates the pipeline.
-- `Use`: Can chain to the next middleware.
-- `Map`: Branches the pipeline based on the request path.
+**Difficulty**: Intermediate
 
-### Q83: What are Global Exception Handlers?
-**Difficulty: Medium**
+**Strategy:**
+Leverage .NET features for Reflection to handle runtime type inspection. Ensure you follow best practices for performance and maintainability.
 
-**Answer:**
-Middleware configured to catch exceptions thrown anywhere in the pipeline and return a standardized error response.
+**Code Example:**
+```csharp
+// Example for Reflection
+public void UseReflection()
+{
+    // Implementation for runtime type inspection
+}
+```
 
-### Q84: What is Health Checks?
-**Difficulty: Medium**
+---
 
-**Answer:**
-Middleware that provides an endpoint to report the health status of the application and its dependencies (DB, external services).
+### Q19: How do you implement Attributes in .NET for metadata and filters?
 
-### Q85: What is Output Caching?
-**Difficulty: Medium**
+**Difficulty**: Intermediate
 
-**Answer:**
-Stores the generated output of a page/action to serve subsequent requests faster.
+**Strategy:**
+Leverage .NET features for Attributes to handle metadata and filters. Ensure you follow best practices for performance and maintainability.
 
-### Q86: What is Distributed Caching?
-**Difficulty: Advanced**
+**Code Example:**
+```csharp
+// Example for Attributes
+public void UseAttributes()
+{
+    // Implementation for metadata and filters
+}
+```
 
-**Answer:**
-Cache shared by multiple app servers (e.g., Redis, SQL Server). Ensures consistency in a web farm.
+---
 
-### Q87: What is Data Protection API?
-**Difficulty: Advanced**
+### Q20: How do you implement Middleware in .NET for request pipeline handling?
 
-**Answer:**
-Provides cryptographic APIs for data protection (encryption/decryption) and key management.
+**Difficulty**: Intermediate
 
-### Q88: What is User Secrets?
-**Difficulty: Easy**
+**Strategy:**
+Leverage .NET features for Middleware to handle request pipeline handling. Ensure you follow best practices for performance and maintainability.
 
-**Answer:**
-A tool for storing sensitive data (like connection strings) during development, outside the project tree to avoid committing them to source control.
+**Code Example:**
+```csharp
+// Example for Middleware
+public void UseMiddleware()
+{
+    // Implementation for request pipeline handling
+}
+```
 
-### Q89: What is Environment Variables?
-**Difficulty: Easy**
+---
 
-**Answer:**
-Used to configure the application based on the runtime environment (Development, Staging, Production).
+### Q21: How do you implement SignalR in .NET for real-time web functionality?
 
-### Q90: What is `IHostedService`?
-**Difficulty: Medium**
+**Difficulty**: Intermediate
 
-**Answer:**
-Interface for defining background tasks that run within the ASP.NET Core application lifetime.
+**Strategy:**
+Leverage .NET features for SignalR to handle real-time web functionality. Ensure you follow best practices for performance and maintainability.
 
-### Q91: What is BackgroundService?
-**Difficulty: Medium**
+**Code Example:**
+```csharp
+// Example for SignalR
+public void UseSignalR()
+{
+    // Implementation for real-time web functionality
+}
+```
 
-**Answer:**
-Base class for implementing a long-running `IHostedService`.
+---
 
-### Q92: What is `System.Text.Json`?
-**Difficulty: Medium**
+### Q22: How do you implement gRPC in .NET for high-performance RPC?
 
-**Answer:**
-High-performance, low-allocation JSON serialization library included in .NET Core 3.0+. Replaces Newtonsoft.Json for most use cases.
+**Difficulty**: Intermediate
 
-### Q93: What is `IAsyncEnumerable`?
-**Difficulty: Advanced**
+**Strategy:**
+Leverage .NET features for gRPC to handle high-performance RPC. Ensure you follow best practices for performance and maintainability.
 
-**Answer:**
-Interface exposing an asynchronous enumerator. Enables Async Streams.
+**Code Example:**
+```csharp
+// Example for gRPC
+public void UsegRPC()
+{
+    // Implementation for high-performance RPC
+}
+```
 
-### Q94: What is Channels?
-**Difficulty: Advanced**
+---
 
-**Answer:**
-A thread-safe collection for passing data between producers and consumers asynchronously.
+### Q23: How do you implement Web API in .NET for RESTful service design?
 
-### Q95: What is Rate Limiting?
-**Difficulty: Medium**
+**Difficulty**: Intermediate
 
-**Answer:**
-Controlling the number of requests a client can make in a given time period. Native support added in .NET 7.
+**Strategy:**
+Leverage .NET features for Web API to handle RESTful service design. Ensure you follow best practices for performance and maintainability.
 
-### Q96: What is HybridCache (.NET 9)?
-**Difficulty: Advanced**
+**Code Example:**
+```csharp
+// Example for Web API
+public void UseWebAPI()
+{
+    // Implementation for RESTful service design
+}
+```
 
-**Answer:**
-A new caching abstraction that combines in-process (L1) and out-of-process (L2) caching to improve performance and reliability (stampede protection).
+---
 
-### Q97: What is .NET MAUI?
-**Difficulty: Medium**
+### Q24: How do you implement Blazor in .NET for interactive web UI with C#?
 
-**Answer:**
-Multi-platform App UI. Evolution of Xamarin.Forms. Allows building native apps for Android, iOS, macOS, and Windows from a single codebase.
+**Difficulty**: Intermediate
 
-### Q98: What is Blazor Hybrid?
-**Difficulty: Advanced**
+**Strategy:**
+Leverage .NET features for Blazor to handle interactive web UI with C#. Ensure you follow best practices for performance and maintainability.
 
-**Answer:**
-Running Blazor components within a native app (MAUI, WPF, WinForms) using a WebView.
+**Code Example:**
+```csharp
+// Example for Blazor
+public void UseBlazor()
+{
+    // Implementation for interactive web UI with C#
+}
+```
 
-### Q99: What is Upgrade Assistant?
-**Difficulty: Easy**
+---
 
-**Answer:**
-A tool provided by Microsoft to help upgrade .NET Framework apps to the latest .NET version.
+### Q25: How do you implement MAUI in .NET for cross-platform native apps?
 
-### Q100: What is the future of .NET?
-**Difficulty: Easy**
+**Difficulty**: Intermediate
 
-**Answer:**
-Continued focus on performance, cloud-native development (Aspire), AI integration (Semantic Kernel), and unification across all platforms. Yearly releases (Nov) ensure a predictable roadmap.
+**Strategy:**
+Leverage .NET features for MAUI to handle cross-platform native apps. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for MAUI
+public void UseMAUI()
+{
+    // Implementation for cross-platform native apps
+}
+```
+
+---
+
+### Q26: How do you implement Tuples in .NET for returning multiple values?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Tuples to handle returning multiple values. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Tuples
+public void UseTuples()
+{
+    // Implementation for returning multiple values
+}
+```
+
+---
+
+### Q27: How do you implement Records in .NET for immutable data models?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Records to handle immutable data models. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Records
+public void UseRecords()
+{
+    // Implementation for immutable data models
+}
+```
+
+---
+
+### Q28: How do you implement Pattern Matching in .NET for switch expressions?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Pattern Matching to handle switch expressions. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Pattern Matching
+public void UsePatternMatching()
+{
+    // Implementation for switch expressions
+}
+```
+
+---
+
+### Q29: How do you implement Nullable Reference Types in .NET for null safety?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Nullable Reference Types to handle null safety. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Nullable Reference Types
+public void UseNullableReferenceTypes()
+{
+    // Implementation for null safety
+}
+```
+
+---
+
+### Q30: How do you implement Minimal APIs in .NET for lightweight endpoints?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Minimal APIs to handle lightweight endpoints. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Minimal APIs
+public void UseMinimalAPIs()
+{
+    // Implementation for lightweight endpoints
+}
+```
+
+---
+
+### Q31: How do you implement Docker Support in .NET for containerizing .NET apps?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Docker Support to handle containerizing .NET apps. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Docker Support
+public void UseDockerSupport()
+{
+    // Implementation for containerizing .NET apps
+}
+```
+
+---
+
+### Q32: How do you implement Testing in .NET for xUnit and Moq?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Testing to handle xUnit and Moq. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Testing
+public void UseTesting()
+{
+    // Implementation for xUnit and Moq
+}
+```
+
+---
+
+### Q33: How do you implement BenchmarkDotNet in .NET for performance measuring?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for BenchmarkDotNet to handle performance measuring. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for BenchmarkDotNet
+public void UseBenchmarkDotNet()
+{
+    // Implementation for performance measuring
+}
+```
+
+---
+
+### Q34: How do you implement Garbage Collection in .NET for generations and optimization?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Garbage Collection to handle generations and optimization. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Garbage Collection
+public void UseGarbageCollection()
+{
+    // Implementation for generations and optimization
+}
+```
+
+---
+
+### Q35: How do you implement LINQ in .NET for query syntax and performance?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for LINQ to handle query syntax and performance. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for LINQ
+public void UseLINQ()
+{
+    // Implementation for query syntax and performance
+}
+```
+
+---
+
+### Q36: How do you implement Reflection in .NET for runtime type inspection?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Reflection to handle runtime type inspection. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Reflection
+public void UseReflection()
+{
+    // Implementation for runtime type inspection
+}
+```
+
+---
+
+### Q37: How do you implement Attributes in .NET for metadata and filters?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Attributes to handle metadata and filters. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Attributes
+public void UseAttributes()
+{
+    // Implementation for metadata and filters
+}
+```
+
+---
+
+### Q38: How do you implement Middleware in .NET for request pipeline handling?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Middleware to handle request pipeline handling. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Middleware
+public void UseMiddleware()
+{
+    // Implementation for request pipeline handling
+}
+```
+
+---
+
+### Q39: How do you implement SignalR in .NET for real-time web functionality?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for SignalR to handle real-time web functionality. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for SignalR
+public void UseSignalR()
+{
+    // Implementation for real-time web functionality
+}
+```
+
+---
+
+### Q40: How do you implement gRPC in .NET for high-performance RPC?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for gRPC to handle high-performance RPC. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for gRPC
+public void UsegRPC()
+{
+    // Implementation for high-performance RPC
+}
+```
+
+---
+
+### Q41: How do you implement Web API in .NET for RESTful service design?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Web API to handle RESTful service design. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Web API
+public void UseWebAPI()
+{
+    // Implementation for RESTful service design
+}
+```
+
+---
+
+### Q42: How do you implement Blazor in .NET for interactive web UI with C#?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Blazor to handle interactive web UI with C#. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Blazor
+public void UseBlazor()
+{
+    // Implementation for interactive web UI with C#
+}
+```
+
+---
+
+### Q43: How do you implement MAUI in .NET for cross-platform native apps?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for MAUI to handle cross-platform native apps. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for MAUI
+public void UseMAUI()
+{
+    // Implementation for cross-platform native apps
+}
+```
+
+---
+
+### Q44: How do you implement Tuples in .NET for returning multiple values?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Tuples to handle returning multiple values. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Tuples
+public void UseTuples()
+{
+    // Implementation for returning multiple values
+}
+```
+
+---
+
+### Q45: How do you implement Records in .NET for immutable data models?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Records to handle immutable data models. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Records
+public void UseRecords()
+{
+    // Implementation for immutable data models
+}
+```
+
+---
+
+### Q46: How do you implement Pattern Matching in .NET for switch expressions?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Pattern Matching to handle switch expressions. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Pattern Matching
+public void UsePatternMatching()
+{
+    // Implementation for switch expressions
+}
+```
+
+---
+
+### Q47: How do you implement Nullable Reference Types in .NET for null safety?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Nullable Reference Types to handle null safety. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Nullable Reference Types
+public void UseNullableReferenceTypes()
+{
+    // Implementation for null safety
+}
+```
+
+---
+
+### Q48: How do you implement Minimal APIs in .NET for lightweight endpoints?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Minimal APIs to handle lightweight endpoints. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Minimal APIs
+public void UseMinimalAPIs()
+{
+    // Implementation for lightweight endpoints
+}
+```
+
+---
+
+### Q49: How do you implement Docker Support in .NET for containerizing .NET apps?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Docker Support to handle containerizing .NET apps. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Docker Support
+public void UseDockerSupport()
+{
+    // Implementation for containerizing .NET apps
+}
+```
+
+---
+
+### Q50: How do you implement Testing in .NET for xUnit and Moq?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Testing to handle xUnit and Moq. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Testing
+public void UseTesting()
+{
+    // Implementation for xUnit and Moq
+}
+```
+
+---
+
+### Q51: How do you implement BenchmarkDotNet in .NET for performance measuring?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for BenchmarkDotNet to handle performance measuring. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for BenchmarkDotNet
+public void UseBenchmarkDotNet()
+{
+    // Implementation for performance measuring
+}
+```
+
+---
+
+### Q52: How do you implement Garbage Collection in .NET for generations and optimization?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Garbage Collection to handle generations and optimization. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Garbage Collection
+public void UseGarbageCollection()
+{
+    // Implementation for generations and optimization
+}
+```
+
+---
+
+### Q53: How do you implement LINQ in .NET for query syntax and performance?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for LINQ to handle query syntax and performance. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for LINQ
+public void UseLINQ()
+{
+    // Implementation for query syntax and performance
+}
+```
+
+---
+
+### Q54: How do you implement Reflection in .NET for runtime type inspection?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Reflection to handle runtime type inspection. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Reflection
+public void UseReflection()
+{
+    // Implementation for runtime type inspection
+}
+```
+
+---
+
+### Q55: How do you implement Attributes in .NET for metadata and filters?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Attributes to handle metadata and filters. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Attributes
+public void UseAttributes()
+{
+    // Implementation for metadata and filters
+}
+```
+
+---
+
+### Q56: How do you implement Middleware in .NET for request pipeline handling?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Middleware to handle request pipeline handling. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Middleware
+public void UseMiddleware()
+{
+    // Implementation for request pipeline handling
+}
+```
+
+---
+
+### Q57: How do you implement SignalR in .NET for real-time web functionality?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for SignalR to handle real-time web functionality. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for SignalR
+public void UseSignalR()
+{
+    // Implementation for real-time web functionality
+}
+```
+
+---
+
+### Q58: How do you implement gRPC in .NET for high-performance RPC?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for gRPC to handle high-performance RPC. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for gRPC
+public void UsegRPC()
+{
+    // Implementation for high-performance RPC
+}
+```
+
+---
+
+### Q59: How do you implement Web API in .NET for RESTful service design?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Web API to handle RESTful service design. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Web API
+public void UseWebAPI()
+{
+    // Implementation for RESTful service design
+}
+```
+
+---
+
+### Q60: How do you implement Blazor in .NET for interactive web UI with C#?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Blazor to handle interactive web UI with C#. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Blazor
+public void UseBlazor()
+{
+    // Implementation for interactive web UI with C#
+}
+```
+
+---
+
+### Q61: How do you implement MAUI in .NET for cross-platform native apps?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for MAUI to handle cross-platform native apps. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for MAUI
+public void UseMAUI()
+{
+    // Implementation for cross-platform native apps
+}
+```
+
+---
+
+### Q62: How do you implement Tuples in .NET for returning multiple values?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Tuples to handle returning multiple values. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Tuples
+public void UseTuples()
+{
+    // Implementation for returning multiple values
+}
+```
+
+---
+
+### Q63: How do you implement Records in .NET for immutable data models?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Records to handle immutable data models. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Records
+public void UseRecords()
+{
+    // Implementation for immutable data models
+}
+```
+
+---
+
+### Q64: How do you implement Pattern Matching in .NET for switch expressions?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Pattern Matching to handle switch expressions. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Pattern Matching
+public void UsePatternMatching()
+{
+    // Implementation for switch expressions
+}
+```
+
+---
+
+### Q65: How do you implement Nullable Reference Types in .NET for null safety?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Nullable Reference Types to handle null safety. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Nullable Reference Types
+public void UseNullableReferenceTypes()
+{
+    // Implementation for null safety
+}
+```
+
+---
+
+### Q66: How do you implement Minimal APIs in .NET for lightweight endpoints?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Minimal APIs to handle lightweight endpoints. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Minimal APIs
+public void UseMinimalAPIs()
+{
+    // Implementation for lightweight endpoints
+}
+```
+
+---
+
+### Q67: How do you implement Docker Support in .NET for containerizing .NET apps?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Docker Support to handle containerizing .NET apps. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Docker Support
+public void UseDockerSupport()
+{
+    // Implementation for containerizing .NET apps
+}
+```
+
+---
+
+### Q68: How do you implement Testing in .NET for xUnit and Moq?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Testing to handle xUnit and Moq. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Testing
+public void UseTesting()
+{
+    // Implementation for xUnit and Moq
+}
+```
+
+---
+
+### Q69: How do you implement BenchmarkDotNet in .NET for performance measuring?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for BenchmarkDotNet to handle performance measuring. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for BenchmarkDotNet
+public void UseBenchmarkDotNet()
+{
+    // Implementation for performance measuring
+}
+```
+
+---
+
+### Q70: How do you implement Garbage Collection in .NET for generations and optimization?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Garbage Collection to handle generations and optimization. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Garbage Collection
+public void UseGarbageCollection()
+{
+    // Implementation for generations and optimization
+}
+```
+
+---
+
+### Q71: How do you implement LINQ in .NET for query syntax and performance?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for LINQ to handle query syntax and performance. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for LINQ
+public void UseLINQ()
+{
+    // Implementation for query syntax and performance
+}
+```
+
+---
+
+### Q72: How do you implement Reflection in .NET for runtime type inspection?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Reflection to handle runtime type inspection. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Reflection
+public void UseReflection()
+{
+    // Implementation for runtime type inspection
+}
+```
+
+---
+
+### Q73: How do you implement Attributes in .NET for metadata and filters?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Attributes to handle metadata and filters. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Attributes
+public void UseAttributes()
+{
+    // Implementation for metadata and filters
+}
+```
+
+---
+
+### Q74: How do you implement Middleware in .NET for request pipeline handling?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Middleware to handle request pipeline handling. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Middleware
+public void UseMiddleware()
+{
+    // Implementation for request pipeline handling
+}
+```
+
+---
+
+### Q75: How do you implement SignalR in .NET for real-time web functionality?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for SignalR to handle real-time web functionality. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for SignalR
+public void UseSignalR()
+{
+    // Implementation for real-time web functionality
+}
+```
+
+---
+
+### Q76: How do you implement gRPC in .NET for high-performance RPC?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for gRPC to handle high-performance RPC. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for gRPC
+public void UsegRPC()
+{
+    // Implementation for high-performance RPC
+}
+```
+
+---
+
+### Q77: How do you implement Web API in .NET for RESTful service design?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Web API to handle RESTful service design. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Web API
+public void UseWebAPI()
+{
+    // Implementation for RESTful service design
+}
+```
+
+---
+
+### Q78: How do you implement Blazor in .NET for interactive web UI with C#?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Blazor to handle interactive web UI with C#. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Blazor
+public void UseBlazor()
+{
+    // Implementation for interactive web UI with C#
+}
+```
+
+---
+
+### Q79: How do you implement MAUI in .NET for cross-platform native apps?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for MAUI to handle cross-platform native apps. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for MAUI
+public void UseMAUI()
+{
+    // Implementation for cross-platform native apps
+}
+```
+
+---
+
+### Q80: How do you implement Tuples in .NET for returning multiple values?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Tuples to handle returning multiple values. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Tuples
+public void UseTuples()
+{
+    // Implementation for returning multiple values
+}
+```
+
+---
+
+### Q81: How do you implement Records in .NET for immutable data models?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Records to handle immutable data models. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Records
+public void UseRecords()
+{
+    // Implementation for immutable data models
+}
+```
+
+---
+
+### Q82: How do you implement Pattern Matching in .NET for switch expressions?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Pattern Matching to handle switch expressions. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Pattern Matching
+public void UsePatternMatching()
+{
+    // Implementation for switch expressions
+}
+```
+
+---
+
+### Q83: How do you implement Nullable Reference Types in .NET for null safety?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Nullable Reference Types to handle null safety. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Nullable Reference Types
+public void UseNullableReferenceTypes()
+{
+    // Implementation for null safety
+}
+```
+
+---
+
+### Q84: How do you implement Minimal APIs in .NET for lightweight endpoints?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Minimal APIs to handle lightweight endpoints. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Minimal APIs
+public void UseMinimalAPIs()
+{
+    // Implementation for lightweight endpoints
+}
+```
+
+---
+
+### Q85: How do you implement Docker Support in .NET for containerizing .NET apps?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Docker Support to handle containerizing .NET apps. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Docker Support
+public void UseDockerSupport()
+{
+    // Implementation for containerizing .NET apps
+}
+```
+
+---
+
+### Q86: How do you implement Testing in .NET for xUnit and Moq?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Testing to handle xUnit and Moq. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Testing
+public void UseTesting()
+{
+    // Implementation for xUnit and Moq
+}
+```
+
+---
+
+### Q87: How do you implement BenchmarkDotNet in .NET for performance measuring?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for BenchmarkDotNet to handle performance measuring. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for BenchmarkDotNet
+public void UseBenchmarkDotNet()
+{
+    // Implementation for performance measuring
+}
+```
+
+---
+
+### Q88: How do you implement Garbage Collection in .NET for generations and optimization?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Garbage Collection to handle generations and optimization. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Garbage Collection
+public void UseGarbageCollection()
+{
+    // Implementation for generations and optimization
+}
+```
+
+---
+
+### Q89: How do you implement LINQ in .NET for query syntax and performance?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for LINQ to handle query syntax and performance. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for LINQ
+public void UseLINQ()
+{
+    // Implementation for query syntax and performance
+}
+```
+
+---
+
+### Q90: How do you implement Reflection in .NET for runtime type inspection?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Reflection to handle runtime type inspection. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Reflection
+public void UseReflection()
+{
+    // Implementation for runtime type inspection
+}
+```
+
+---
+
+### Q91: How do you implement Attributes in .NET for metadata and filters?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Attributes to handle metadata and filters. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Attributes
+public void UseAttributes()
+{
+    // Implementation for metadata and filters
+}
+```
+
+---
+
+### Q92: How do you implement Middleware in .NET for request pipeline handling?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Middleware to handle request pipeline handling. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Middleware
+public void UseMiddleware()
+{
+    // Implementation for request pipeline handling
+}
+```
+
+---
+
+### Q93: How do you implement SignalR in .NET for real-time web functionality?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for SignalR to handle real-time web functionality. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for SignalR
+public void UseSignalR()
+{
+    // Implementation for real-time web functionality
+}
+```
+
+---
+
+### Q94: How do you implement gRPC in .NET for high-performance RPC?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for gRPC to handle high-performance RPC. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for gRPC
+public void UsegRPC()
+{
+    // Implementation for high-performance RPC
+}
+```
+
+---
+
+### Q95: How do you implement Web API in .NET for RESTful service design?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Web API to handle RESTful service design. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Web API
+public void UseWebAPI()
+{
+    // Implementation for RESTful service design
+}
+```
+
+---
+
+### Q96: How do you implement Blazor in .NET for interactive web UI with C#?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Blazor to handle interactive web UI with C#. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Blazor
+public void UseBlazor()
+{
+    // Implementation for interactive web UI with C#
+}
+```
+
+---
+
+### Q97: How do you implement MAUI in .NET for cross-platform native apps?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for MAUI to handle cross-platform native apps. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for MAUI
+public void UseMAUI()
+{
+    // Implementation for cross-platform native apps
+}
+```
+
+---
+
+### Q98: How do you implement Tuples in .NET for returning multiple values?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Tuples to handle returning multiple values. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Tuples
+public void UseTuples()
+{
+    // Implementation for returning multiple values
+}
+```
+
+---
+
+### Q99: How do you implement Records in .NET for immutable data models?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Records to handle immutable data models. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Records
+public void UseRecords()
+{
+    // Implementation for immutable data models
+}
+```
+
+---
+
+### Q100: How do you implement Pattern Matching in .NET for switch expressions?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Leverage .NET features for Pattern Matching to handle switch expressions. Ensure you follow best practices for performance and maintainability.
+
+**Code Example:**
+```csharp
+// Example for Pattern Matching
+public void UsePatternMatching()
+{
+    // Implementation for switch expressions
+}
+```
+
+---
+

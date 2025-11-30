@@ -1,800 +1,2164 @@
-# Rust Interview Questions
-
 ## Table of Contents
-
-1. [Q1: What is Rust and what are its key features?](#q1-what-is-rust-and-what-are-its-key-features)
-2. [Q2: Explain the concept of Ownership in Rust.](#q2-explain-the-concept-of-ownership-in-rust)
-3. [Q3: What is Borrowing?](#q3-what-is-borrowing)
-4. [Q4: What is the difference between `String` and `&str`?](#q4-what-is-the-difference-between-string-and-str)
-5. [Q5: What are Lifetimes in Rust?](#q5-what-are-lifetimes-in-rust)
-6. [Q6: Explain the `Option` and `Result` enums.](#q6-explain-the-option-and-result-enums)
-7. [Q7: What is the difference between `unwrap()` and `expect()`?](#q7-what-is-the-difference-between-unwrap-and-expect)
-8. [Q8: What are Traits?](#q8-what-are-traits)
-9. [Q9: How does Rust handle concurrency?](#q9-how-does-rust-handle-concurrency)
-10. [Q10: What is `unsafe` Rust?](#q10-what-is-unsafe-rust)
-11. [Q11: What is the difference between `Copy` and `Clone`?](#q11-what-is-the-difference-between-copy-and-clone)
-12. [Q12: Explain Smart Pointers (`Box`, `Rc`, `Arc`, `RefCell`).](#q12-explain-smart-pointers-box-rc-arc-refcell)
-13. [Q13: How does Rust ensure memory safety without a Garbage Collector?](#q13-how-does-rust-ensure-memory-safety-without-a-garbage-collector)
-14. [Q14: What is the purpose of the `mut` keyword?](#q14-what-is-the-purpose-of-the-mut-keyword)
-15. [Q15: What are Closures in Rust?](#q15-what-are-closures-in-rust)
-16. [Q16: What is Cargo?](#q16-what-is-cargo)
-17. [Q17: Explain Pattern Matching with `match`.](#q17-explain-pattern-matching-with-match)
-18. [Q18: What is the `impl` block used for?](#q18-what-is-the-impl-block-used-for)
-19. [Q19: What is a Crate?](#q19-what-is-a-crate)
-20. [Q20: What is the difference between `const` and `static`?](#q20-what-is-the-difference-between-const-and-static)
-21. [Q21: What is the `?` operator?](#q21-what-is-the-operator)
-22. [Q22: What is a module in Rust?](#q22-what-is-a-module-in-rust)
-23. [Q23: Explain visibility modifiers (`pub`).](#q23-explain-visibility-modifiers-pub)
-24. [Q24: What is the `use` keyword?](#q24-what-is-the-use-keyword)
-25. [Q25: What is the `vec!` macro?](#q25-what-is-the-vec-macro)
-26. [Q26: Difference between `String::from` and `.to_string()`.](#q26-difference-between-stringfrom-and-tostring)
-27. [Q27: What is a Slice?](#q27-what-is-a-slice)
-28. [Q28: How do `for` loops work with Iterators?](#q28-how-do-for-loops-work-with-iterators)
-29. [Q29: What is the `collect()` method?](#q29-what-is-the-collect-method)
-30. [Q30: What is the `derive` attribute?](#q30-what-is-the-derive-attribute)
-31. [Q31: Difference between `Debug` and `Display` traits.](#q31-difference-between-debug-and-display-traits)
-32. [Q32: Difference between `PartialEq` and `Eq`.](#q32-difference-between-partialeq-and-eq)
-33. [Q33: What is the `Drop` trait?](#q33-what-is-the-drop-trait)
-34. [Q34: Explain `From` and `Into` traits.](#q34-explain-from-and-into-traits)
-35. [Q35: What are `AsRef` and `AsMut`?](#q35-what-are-asref-and-asmut)
-36. [Q36: How do Generics work in Rust?](#q36-how-do-generics-work-in-rust)
-37. [Q37: What are Trait Bounds?](#q37-what-are-trait-bounds)
-38. [Q38: What is the `where` clause?](#q38-what-is-the-where-clause)
-39. [Q39: Associated Types vs Generics.](#q39-associated-types-vs-generics)
-40. [Q40: What is the `move` keyword in closures?](#q40-what-is-the-move-keyword-in-closures)
-41. [Q41: Difference between `Fn`, `FnMut`, and `FnOnce`.](#q41-difference-between-fn-fnmut-and-fnonce)
-42. [Q42: What are Iterator Adaptors?](#q42-what-are-iterator-adaptors)
-43. [Q43: What are Consuming Adaptors?](#q43-what-are-consuming-adaptors)
-44. [Q44: What are Trait Objects?](#q44-what-are-trait-objects)
-45. [Q45: Static Dispatch vs Dynamic Dispatch.](#q45-static-dispatch-vs-dynamic-dispatch)
-46. [Q46: What is Object Safety?](#q46-what-is-object-safety)
-47. [Q47: What is the `Deref` trait?](#q47-what-is-the-deref-trait)
-48. [Q48: What is Deref Coercion?](#q48-what-is-deref-coercion)
-49. [Q49: What is `Cow` (Clone on Write)?](#q49-what-is-cow-clone-on-write)
-50. [Q50: Detailed difference between `Rc` and `Arc`.](#q50-detailed-difference-between-rc-and-arc)
-51. [Q51: `RefCell` vs `Mutex`.](#q51-refcell-vs-mutex)
-52. [Q52: What is Interior Mutability?](#q52-what-is-interior-mutability)
-53. [Q53: What is the `Cell` type?](#q53-what-is-the-cell-type)
-54. [Q54: How do you handle Reference Cycles?](#q54-how-do-you-handle-reference-cycles)
-55. [Q55: How to create Global Variables in Rust?](#q55-how-to-create-global-variables-in-rust)
-56. [Q56: What are Macros in Rust?](#q56-what-are-macros-in-rust)
-57. [Q57: What are Declarative Macros?](#q57-what-are-declarative-macros)
-58. [Q58: What are Procedural Macros?](#q58-what-are-procedural-macros)
-59. [Q59: What is a Custom Derive macro?](#q59-what-is-a-custom-derive-macro)
-60. [Q60: What are Attribute-like macros?](#q60-what-are-attribute-like-macros)
-61. [Q61: Explain Async/Await in Rust.](#q61-explain-asyncawait-in-rust)
-62. [Q62: What is a Future?](#q62-what-is-a-future)
-63. [Q63: What is the Tokio runtime?](#q63-what-is-the-tokio-runtime)
-64. [Q64: What is an `async` block?](#q64-what-is-an-async-block)
-65. [Q65: What does `.await` do?](#q65-what-does-await-do)
-66. [Q66: What is Pinning (`Pin`)?](#q66-what-is-pinning-pin)
-67. [Q67: What is the `Unpin` trait?](#q67-what-is-the-unpin-trait)
-68. [Q68: `Send` vs `Sync` in depth.](#q68-send-vs-sync-in-depth)
-69. [Q69: How does `std::thread::spawn` work?](#q69-how-does-stdthreadspawn-work)
-70. [Q70: How do Channels (`mpsc`) work?](#q70-how-do-channels-mpsc-work)
-71. [Q71: `Mutex` vs `RwLock`.](#q71-mutex-vs-rwlock)
-72. [Q72: What are Atomics?](#q72-what-are-atomics)
-73. [Q73: What is a `Condvar`?](#q73-what-is-a-condvar)
-74. [Q74: What is FFI?](#q74-what-is-ffi)
-75. [Q75: What is `extern "C"`?](#q75-what-is-extern-c)
-76. [Q76: What is `#[no_mangle]`?](#q76-what-is-no_mangle)
-77. [Q77: What are Raw Pointers?](#q77-what-are-raw-pointers)
-78. [Q78: What is `mem::transmute`?](#q78-what-is-memtransmute)
-79. [Q79: What is `MaybeUninit`?](#q79-what-is-maybeuninit)
-80. [Q80: How do you write Unit Tests?](#q80-how-do-you-write-unit-tests)
-81. [Q81: What are Integration Tests?](#q81-what-are-integration-tests)
-82. [Q82: How do you benchmark Rust code?](#q82-how-do-you-benchmark-rust-code)
-83. [Q83: Explain Documentation Comments.](#q83-explain-documentation-comments)
-84. [Q84: What are Doc Tests?](#q84-what-are-doc-tests)
-85. [Q85: What is `Cargo.toml` vs `Cargo.lock`?](#q85-what-is-cargotoml-vs-cargolock)
-86. [Q86: Explain Semantic Versioning in Cargo.](#q86-explain-semantic-versioning-in-cargo)
-87. [Q87: What are Cargo Workspaces?](#q87-what-are-cargo-workspaces)
-88. [Q88: What is a Build Script (`build.rs`)?](#q88-what-is-a-build-script-buildrs)
-89. [Q89: What is Cross-Compilation?](#q89-what-is-cross-compilation)
-90. [Q90: What is `rustfmt`?](#q90-what-is-rustfmt)
-91. [Q91: What is `clippy`?](#q91-what-is-clippy)
-92. [Q92: `cargo check` vs `cargo build`.](#q92-cargo-check-vs-cargo-build)
-93. [Q93: What is the Release Profile?](#q93-what-is-the-release-profile)
-94. [Q94: Explain `HashMap` in Rust.](#q94-explain-hashmap-in-rust)
-95. [Q95: What is `BTreeMap`?](#q95-what-is-btreemap)
-96. [Q96: What is `HashSet`?](#q96-what-is-hashset)
-97. [Q97: What is `VecDeque`?](#q97-what-is-vecdeque)
-98. [Q98: What is `BinaryHeap`?](#q98-what-is-binaryheap)
-99. [Q99: What is Type Inference in Rust?](#q99-what-is-type-inference-in-rust)
-100. [Q100: What is the Never Type (`!`)?](#q100-what-is-the-never-type)
+| No. | Question | Difficulty |
+| --- | -------- | ---------- |
+| 1 | [How do you handle errors without using exceptions?](#how-do-you-handle-errors-without-using-exceptions) | Beginner |
+| 2 | [How do you share data between threads safely?](#how-do-you-share-data-between-threads-safely) | Intermediate |
+| 3 | [How do you prevent 'use after free' errors?](#how-do-you-prevent-use-after-free-errors) | Beginner |
+| 4 | [How do you implement polymorphism in Rust?](#how-do-you-implement-polymorphism-in-rust) | Intermediate |
+| 5 | [How do you manage memory without a Garbage Collector?](#how-do-you-manage-memory-without-a-garbage-collector) | Intermediate |
+| 6 | [How do you modify a variable inside a closure?](#how-do-you-modify-a-variable-inside-a-closure) | Intermediate |
+| 7 | [How do you handle global state?](#how-do-you-handle-global-state) | Advanced |
+| 8 | [How do you optimize string concatenation?](#how-do-you-optimize-string-concatenation) | Intermediate |
+| 9 | [How do you return multiple values from a function?](#how-do-you-return-multiple-values-from-a-function) | Beginner |
+| 10 | [How do you create a custom error type?](#how-do-you-create-a-custom-error-type) | Intermediate |
+| 11 | [How do you iterate over a collection without consuming it?](#how-do-you-iterate-over-a-collection-without-consuming-it) | Beginner |
+| 12 | [How do you implement an asynchronous function?](#how-do-you-implement-an-asynchronous-function) | Intermediate |
+| 13 | [How do you create a macro to reduce boilerplate?](#how-do-you-create-a-macro-to-reduce-boilerplate) | Advanced |
+| 14 | [How do you reference a slice of an array?](#how-do-you-reference-a-slice-of-an-array) | Beginner |
+| 15 | [How do you use unsafe code for performance?](#how-do-you-use-unsafe-code-for-performance) | Advanced |
+| 16 | [How do you implement Pattern Matching Guards in a Rust project? (Scenario 16)](#how-do-you-implement-pattern-matching-guards-in-a-rust-project-scenario-16) | Intermediate |
+| 17 | [How do you implement Modules and Visibility in a Rust project? (Scenario 17)](#how-do-you-implement-modules-and-visibility-in-a-rust-project-scenario-17) | Intermediate |
+| 18 | [How do you implement Cargo Workspaces in a Rust project? (Scenario 18)](#how-do-you-implement-cargo-workspaces-in-a-rust-project-scenario-18) | Intermediate |
+| 19 | [How do you implement Criterion (Benchmarking) in a Rust project? (Scenario 19)](#how-do-you-implement-criterion-benchmarking-in-a-rust-project-scenario-19) | Intermediate |
+| 20 | [How do you implement Rustdoc in a Rust project? (Scenario 20)](#how-do-you-implement-rustdoc-in-a-rust-project-scenario-20) | Intermediate |
+| 21 | [How do you implement Clippy in a Rust project? (Scenario 21)](#how-do-you-implement-clippy-in-a-rust-project-scenario-21) | Intermediate |
+| 22 | [How do you implement Build Scripts (build.rs) in a Rust project? (Scenario 22)](#how-do-you-implement-build-scripts-buildrs-in-a-rust-project-scenario-22) | Intermediate |
+| 23 | [How do you implement Environment Variables in a Rust project? (Scenario 23)](#how-do-you-implement-environment-variables-in-a-rust-project-scenario-23) | Intermediate |
+| 24 | [How do you implement Signal Handling in a Rust project? (Scenario 24)](#how-do-you-implement-signal-handling-in-a-rust-project-scenario-24) | Intermediate |
+| 25 | [How do you implement SIMD in a Rust project? (Scenario 25)](#how-do-you-implement-simd-in-a-rust-project-scenario-25) | Intermediate |
+| 26 | [How do you implement Embedded Rust (no_std) in a Rust project? (Scenario 26)](#how-do-you-implement-embedded-rust-no_std-in-a-rust-project-scenario-26) | Intermediate |
+| 27 | [How do you implement Logging (tracing) in a Rust project? (Scenario 27)](#how-do-you-implement-logging-tracing-in-a-rust-project-scenario-27) | Intermediate |
+| 28 | [How do you implement Config Parsing in a Rust project? (Scenario 28)](#how-do-you-implement-config-parsing-in-a-rust-project-scenario-28) | Intermediate |
+| 29 | [How do you implement Smart Pointers (Rc/RefCell) in a Rust project? (Scenario 29)](#how-do-you-implement-smart-pointers-rcrefcell-in-a-rust-project-scenario-29) | Intermediate |
+| 30 | [How do you implement Cow (Copy on Write) in a Rust project? (Scenario 30)](#how-do-you-implement-cow-copy-on-write-in-a-rust-project-scenario-30) | Intermediate |
+| 31 | [How do you implement Pinning in a Rust project? (Scenario 31)](#how-do-you-implement-pinning-in-a-rust-project-scenario-31) | Intermediate |
+| 32 | [How do you implement FFI (Foreign Function Interface) in a Rust project? (Scenario 32)](#how-do-you-implement-ffi-foreign-function-interface-in-a-rust-project-scenario-32) | Intermediate |
+| 33 | [How do you implement Serde (Serialization) in a Rust project? (Scenario 33)](#how-do-you-implement-serde-serialization-in-a-rust-project-scenario-33) | Intermediate |
+| 34 | [How do you implement Clap (CLI Parsing) in a Rust project? (Scenario 34)](#how-do-you-implement-clap-cli-parsing-in-a-rust-project-scenario-34) | Intermediate |
+| 35 | [How do you implement Rayon (Data Parallelism) in a Rust project? (Scenario 35)](#how-do-you-implement-rayon-data-parallelism-in-a-rust-project-scenario-35) | Intermediate |
+| 36 | [How do you implement Crossbeam (Concurrency) in a Rust project? (Scenario 36)](#how-do-you-implement-crossbeam-concurrency-in-a-rust-project-scenario-36) | Intermediate |
+| 37 | [How do you implement WebAssembly (Wasm) in a Rust project? (Scenario 37)](#how-do-you-implement-webassembly-wasm-in-a-rust-project-scenario-37) | Intermediate |
+| 38 | [How do you implement Actix-web/Axum in a Rust project? (Scenario 38)](#how-do-you-implement-actix-webaxum-in-a-rust-project-scenario-38) | Intermediate |
+| 39 | [How do you implement Diesel/SQLx (ORM) in a Rust project? (Scenario 39)](#how-do-you-implement-dieselsqlx-orm-in-a-rust-project-scenario-39) | Intermediate |
+| 40 | [How do you implement Generics and Lifetimes in a Rust project? (Scenario 40)](#how-do-you-implement-generics-and-lifetimes-in-a-rust-project-scenario-40) | Intermediate |
+| 41 | [How do you implement PhantomData in a Rust project? (Scenario 41)](#how-do-you-implement-phantomdata-in-a-rust-project-scenario-41) | Intermediate |
+| 42 | [How do you implement Interior Mutability in a Rust project? (Scenario 42)](#how-do-you-implement-interior-mutability-in-a-rust-project-scenario-42) | Intermediate |
+| 43 | [How do you implement Drop Trait in a Rust project? (Scenario 43)](#how-do-you-implement-drop-trait-in-a-rust-project-scenario-43) | Intermediate |
+| 44 | [How do you implement Iterator Adapters in a Rust project? (Scenario 44)](#how-do-you-implement-iterator-adapters-in-a-rust-project-scenario-44) | Intermediate |
+| 45 | [How do you implement Pattern Matching Guards in a Rust project? (Scenario 45)](#how-do-you-implement-pattern-matching-guards-in-a-rust-project-scenario-45) | Intermediate |
+| 46 | [How do you implement Modules and Visibility in a Rust project? (Scenario 46)](#how-do-you-implement-modules-and-visibility-in-a-rust-project-scenario-46) | Intermediate |
+| 47 | [How do you implement Cargo Workspaces in a Rust project? (Scenario 47)](#how-do-you-implement-cargo-workspaces-in-a-rust-project-scenario-47) | Intermediate |
+| 48 | [How do you implement Criterion (Benchmarking) in a Rust project? (Scenario 48)](#how-do-you-implement-criterion-benchmarking-in-a-rust-project-scenario-48) | Intermediate |
+| 49 | [How do you implement Rustdoc in a Rust project? (Scenario 49)](#how-do-you-implement-rustdoc-in-a-rust-project-scenario-49) | Intermediate |
+| 50 | [How do you implement Clippy in a Rust project? (Scenario 50)](#how-do-you-implement-clippy-in-a-rust-project-scenario-50) | Intermediate |
+| 51 | [How do you implement Build Scripts (build.rs) in a Rust project? (Scenario 51)](#how-do-you-implement-build-scripts-buildrs-in-a-rust-project-scenario-51) | Intermediate |
+| 52 | [How do you implement Environment Variables in a Rust project? (Scenario 52)](#how-do-you-implement-environment-variables-in-a-rust-project-scenario-52) | Intermediate |
+| 53 | [How do you implement Signal Handling in a Rust project? (Scenario 53)](#how-do-you-implement-signal-handling-in-a-rust-project-scenario-53) | Intermediate |
+| 54 | [How do you implement SIMD in a Rust project? (Scenario 54)](#how-do-you-implement-simd-in-a-rust-project-scenario-54) | Intermediate |
+| 55 | [How do you implement Embedded Rust (no_std) in a Rust project? (Scenario 55)](#how-do-you-implement-embedded-rust-no_std-in-a-rust-project-scenario-55) | Intermediate |
+| 56 | [How do you implement Logging (tracing) in a Rust project? (Scenario 56)](#how-do-you-implement-logging-tracing-in-a-rust-project-scenario-56) | Intermediate |
+| 57 | [How do you implement Config Parsing in a Rust project? (Scenario 57)](#how-do-you-implement-config-parsing-in-a-rust-project-scenario-57) | Intermediate |
+| 58 | [How do you implement Smart Pointers (Rc/RefCell) in a Rust project? (Scenario 58)](#how-do-you-implement-smart-pointers-rcrefcell-in-a-rust-project-scenario-58) | Intermediate |
+| 59 | [How do you implement Cow (Copy on Write) in a Rust project? (Scenario 59)](#how-do-you-implement-cow-copy-on-write-in-a-rust-project-scenario-59) | Intermediate |
+| 60 | [How do you implement Pinning in a Rust project? (Scenario 60)](#how-do-you-implement-pinning-in-a-rust-project-scenario-60) | Intermediate |
+| 61 | [How do you implement FFI (Foreign Function Interface) in a Rust project? (Scenario 61)](#how-do-you-implement-ffi-foreign-function-interface-in-a-rust-project-scenario-61) | Intermediate |
+| 62 | [How do you implement Serde (Serialization) in a Rust project? (Scenario 62)](#how-do-you-implement-serde-serialization-in-a-rust-project-scenario-62) | Intermediate |
+| 63 | [How do you implement Clap (CLI Parsing) in a Rust project? (Scenario 63)](#how-do-you-implement-clap-cli-parsing-in-a-rust-project-scenario-63) | Intermediate |
+| 64 | [How do you implement Rayon (Data Parallelism) in a Rust project? (Scenario 64)](#how-do-you-implement-rayon-data-parallelism-in-a-rust-project-scenario-64) | Intermediate |
+| 65 | [How do you implement Crossbeam (Concurrency) in a Rust project? (Scenario 65)](#how-do-you-implement-crossbeam-concurrency-in-a-rust-project-scenario-65) | Intermediate |
+| 66 | [How do you implement WebAssembly (Wasm) in a Rust project? (Scenario 66)](#how-do-you-implement-webassembly-wasm-in-a-rust-project-scenario-66) | Intermediate |
+| 67 | [How do you implement Actix-web/Axum in a Rust project? (Scenario 67)](#how-do-you-implement-actix-webaxum-in-a-rust-project-scenario-67) | Intermediate |
+| 68 | [How do you implement Diesel/SQLx (ORM) in a Rust project? (Scenario 68)](#how-do-you-implement-dieselsqlx-orm-in-a-rust-project-scenario-68) | Intermediate |
+| 69 | [How do you implement Generics and Lifetimes in a Rust project? (Scenario 69)](#how-do-you-implement-generics-and-lifetimes-in-a-rust-project-scenario-69) | Intermediate |
+| 70 | [How do you implement PhantomData in a Rust project? (Scenario 70)](#how-do-you-implement-phantomdata-in-a-rust-project-scenario-70) | Intermediate |
+| 71 | [How do you implement Interior Mutability in a Rust project? (Scenario 71)](#how-do-you-implement-interior-mutability-in-a-rust-project-scenario-71) | Intermediate |
+| 72 | [How do you implement Drop Trait in a Rust project? (Scenario 72)](#how-do-you-implement-drop-trait-in-a-rust-project-scenario-72) | Intermediate |
+| 73 | [How do you implement Iterator Adapters in a Rust project? (Scenario 73)](#how-do-you-implement-iterator-adapters-in-a-rust-project-scenario-73) | Intermediate |
+| 74 | [How do you implement Pattern Matching Guards in a Rust project? (Scenario 74)](#how-do-you-implement-pattern-matching-guards-in-a-rust-project-scenario-74) | Intermediate |
+| 75 | [How do you implement Modules and Visibility in a Rust project? (Scenario 75)](#how-do-you-implement-modules-and-visibility-in-a-rust-project-scenario-75) | Intermediate |
+| 76 | [How do you implement Cargo Workspaces in a Rust project? (Scenario 76)](#how-do-you-implement-cargo-workspaces-in-a-rust-project-scenario-76) | Intermediate |
+| 77 | [How do you implement Criterion (Benchmarking) in a Rust project? (Scenario 77)](#how-do-you-implement-criterion-benchmarking-in-a-rust-project-scenario-77) | Intermediate |
+| 78 | [How do you implement Rustdoc in a Rust project? (Scenario 78)](#how-do-you-implement-rustdoc-in-a-rust-project-scenario-78) | Intermediate |
+| 79 | [How do you implement Clippy in a Rust project? (Scenario 79)](#how-do-you-implement-clippy-in-a-rust-project-scenario-79) | Intermediate |
+| 80 | [How do you implement Build Scripts (build.rs) in a Rust project? (Scenario 80)](#how-do-you-implement-build-scripts-buildrs-in-a-rust-project-scenario-80) | Intermediate |
+| 81 | [How do you implement Environment Variables in a Rust project? (Scenario 81)](#how-do-you-implement-environment-variables-in-a-rust-project-scenario-81) | Intermediate |
+| 82 | [How do you implement Signal Handling in a Rust project? (Scenario 82)](#how-do-you-implement-signal-handling-in-a-rust-project-scenario-82) | Intermediate |
+| 83 | [How do you implement SIMD in a Rust project? (Scenario 83)](#how-do-you-implement-simd-in-a-rust-project-scenario-83) | Intermediate |
+| 84 | [How do you implement Embedded Rust (no_std) in a Rust project? (Scenario 84)](#how-do-you-implement-embedded-rust-no_std-in-a-rust-project-scenario-84) | Intermediate |
+| 85 | [How do you implement Logging (tracing) in a Rust project? (Scenario 85)](#how-do-you-implement-logging-tracing-in-a-rust-project-scenario-85) | Intermediate |
+| 86 | [How do you implement Config Parsing in a Rust project? (Scenario 86)](#how-do-you-implement-config-parsing-in-a-rust-project-scenario-86) | Intermediate |
+| 87 | [How do you implement Smart Pointers (Rc/RefCell) in a Rust project? (Scenario 87)](#how-do-you-implement-smart-pointers-rcrefcell-in-a-rust-project-scenario-87) | Intermediate |
+| 88 | [How do you implement Cow (Copy on Write) in a Rust project? (Scenario 88)](#how-do-you-implement-cow-copy-on-write-in-a-rust-project-scenario-88) | Intermediate |
+| 89 | [How do you implement Pinning in a Rust project? (Scenario 89)](#how-do-you-implement-pinning-in-a-rust-project-scenario-89) | Intermediate |
+| 90 | [How do you implement FFI (Foreign Function Interface) in a Rust project? (Scenario 90)](#how-do-you-implement-ffi-foreign-function-interface-in-a-rust-project-scenario-90) | Intermediate |
+| 91 | [How do you implement Serde (Serialization) in a Rust project? (Scenario 91)](#how-do-you-implement-serde-serialization-in-a-rust-project-scenario-91) | Intermediate |
+| 92 | [How do you implement Clap (CLI Parsing) in a Rust project? (Scenario 92)](#how-do-you-implement-clap-cli-parsing-in-a-rust-project-scenario-92) | Intermediate |
+| 93 | [How do you implement Rayon (Data Parallelism) in a Rust project? (Scenario 93)](#how-do-you-implement-rayon-data-parallelism-in-a-rust-project-scenario-93) | Intermediate |
+| 94 | [How do you implement Crossbeam (Concurrency) in a Rust project? (Scenario 94)](#how-do-you-implement-crossbeam-concurrency-in-a-rust-project-scenario-94) | Intermediate |
+| 95 | [How do you implement WebAssembly (Wasm) in a Rust project? (Scenario 95)](#how-do-you-implement-webassembly-wasm-in-a-rust-project-scenario-95) | Intermediate |
+| 96 | [How do you implement Actix-web/Axum in a Rust project? (Scenario 96)](#how-do-you-implement-actix-webaxum-in-a-rust-project-scenario-96) | Intermediate |
+| 97 | [How do you implement Diesel/SQLx (ORM) in a Rust project? (Scenario 97)](#how-do-you-implement-dieselsqlx-orm-in-a-rust-project-scenario-97) | Intermediate |
+| 98 | [How do you implement Generics and Lifetimes in a Rust project? (Scenario 98)](#how-do-you-implement-generics-and-lifetimes-in-a-rust-project-scenario-98) | Intermediate |
+| 99 | [How do you implement PhantomData in a Rust project? (Scenario 99)](#how-do-you-implement-phantomdata-in-a-rust-project-scenario-99) | Intermediate |
+| 100 | [How do you implement Interior Mutability in a Rust project? (Scenario 100)](#how-do-you-implement-interior-mutability-in-a-rust-project-scenario-100) | Intermediate |
+| 101 | [How do you implement Drop Trait in a Rust project? (Scenario 101)](#how-do-you-implement-drop-trait-in-a-rust-project-scenario-101) | Intermediate |
+| 102 | [How do you implement Iterator Adapters in a Rust project? (Scenario 102)](#how-do-you-implement-iterator-adapters-in-a-rust-project-scenario-102) | Intermediate |
+| 103 | [How do you implement Pattern Matching Guards in a Rust project? (Scenario 103)](#how-do-you-implement-pattern-matching-guards-in-a-rust-project-scenario-103) | Intermediate |
+| 104 | [How do you implement Modules and Visibility in a Rust project? (Scenario 104)](#how-do-you-implement-modules-and-visibility-in-a-rust-project-scenario-104) | Intermediate |
+| 105 | [How do you implement Cargo Workspaces in a Rust project? (Scenario 105)](#how-do-you-implement-cargo-workspaces-in-a-rust-project-scenario-105) | Intermediate |
 
 ---
 
-## Rust Fundamentals
+### 1. How do you handle errors without using exceptions?
 
-### Q1: What is Rust and what are its key features?
-**Difficulty: Easy**
+**Difficulty**: Beginner
 
-**Answer:**
-Rust is a systems programming language focused on safety, speed, and concurrency. It is designed to provide the performance of C/C++ but with memory safety guarantees.
-**Key Features:**
-- **Memory Safety:** Guaranteed at compile-time via ownership and borrowing (no segfaults).
-- **No Garbage Collector:** Manages memory deterministically.
-- **Concurrency:** "Fearless concurrency" prevents data races at compile time.
-- **Zero-cost Abstractions:** High-level syntax with low-level performance.
+**Strategy:**
+Use the `Result<T, E>` enum for recoverable errors and `Option<T>` for optional values. Use pattern matching (`match`) or helper methods like `.unwrap_or()`, `?` operator.
 
-### Q2: Explain the concept of Ownership in Rust.
-**Difficulty: Medium**
-
-**Answer:**
-Ownership is Rust's most unique feature. It enables Rust to make memory safety guarantees without needing a garbage collector.
-**Rules of Ownership:**
-1.  Each value in Rust has a variable that's called its *owner*.
-2.  There can only be one owner at a time.
-3.  When the owner goes out of scope, the value will be dropped (freed).
-
-### Q3: What is Borrowing?
-**Difficulty: Medium**
-
-**Answer:**
-Borrowing allows you to access data without taking ownership of it. This is done via references (`&T` for immutable, `&mut T` for mutable).
-**Rules of Borrowing:**
-- At any given time, you can have either *one mutable reference* OR *any number of immutable references*.
-- References must always be valid.
-
-### Q4: What is the difference between `String` and `&str`?
-**Difficulty: Easy**
-
-**Answer:**
-- **`String`:** A heap-allocated, growable, owned UTF-8 string. You have ownership of it and can modify it.
-- **`&str` (String Slice):** An immutable reference to a string slice (a view into a string). It can point to a `String` in the heap or a string literal in the binary. It is often faster as it doesn't involve allocation.
-
-### Q5: What are Lifetimes in Rust?
-**Difficulty: Advanced**
-
-**Answer:**
-Lifetimes are a way for the Rust compiler to ensure that references are valid as long as they are needed. Every reference has a lifetime, which is the scope for which that reference is valid. Most of the time, lifetimes are inferred (lifetime elision), but sometimes you must annotate them explicitly (e.g., `'a`) to tell the compiler how the lifetimes of arguments and return values relate to each other.
-
+**Code Example:**
 ```rust
-// Example of lifetime annotation
-fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
-    if x.len() > y.len() { x } else { y }
+fn divide(a: f64, b: f64) -> Result<f64, String> {
+    if b == 0.0 {
+        Err("Division by zero".to_string())
+    } else {
+        Ok(a / b)
+    }
+}
+
+fn main() {
+    match divide(10.0, 2.0) {
+        Ok(val) => println!("Result: {}", val),
+        Err(e) => println!("Error: {}", e),
+    }
 }
 ```
 
-### Q6: Explain the `Option` and `Result` enums.
-**Difficulty: Easy**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-Rust does not have `null`. Instead, it uses enums to handle absence of value or errors.
-- **`Option<T>`:** Represents a value that can be `Some(T)` or `None`.
-- **`Result<T, E>`:** Used for error handling. It can be `Ok(T)` (success) or `Err(E)` (failure).
+---
 
-### Q7: What is the difference between `unwrap()` and `expect()`?
-**Difficulty: Easy**
+### 2. How do you share data between threads safely?
 
-**Answer:**
-Both are used to extract the value from an `Option` or `Result`. If the value is `None` or `Err`, both will panic (crash the program).
-- **`unwrap()`:** Panics with a generic message.
-- **`expect("msg")`:** Panics with a custom message provided by the developer, making debugging easier.
+**Difficulty**: Intermediate
 
-### Q8: What are Traits?
-**Difficulty: Medium**
+**Strategy:**
+Use `Arc` (Atomic Reference Counting) for shared ownership and `Mutex` (Mutual Exclusion) or `RwLock` for synchronization.
 
-**Answer:**
-Traits are similar to interfaces in other languages. They define shared behavior that types can implement. A trait tells the Rust compiler about functionality a particular type has and can share with other types.
-*Example:* `Display`, `Debug`, `Clone`, `Copy`.
-
-### Q9: How does Rust handle concurrency?
-**Difficulty: Advanced**
-
-**Answer:**
-Rust leverages its ownership and type system to ensure thread safety.
-- **`Send` Trait:** Indicates that ownership of values of the type can be transferred to another thread.
-- **`Sync` Trait:** Indicates that it is safe for the type to be referenced from multiple threads.
-- **Mutex:** `std::sync::Mutex` allows safe mutable access across threads.
-- **Arc:** `std::sync::Arc` (Atomic Reference Counting) allows shared ownership across threads.
-The compiler prevents data races by ensuring you cannot have multiple mutable references to the same data across threads without synchronization.
-
-### Q10: What is `unsafe` Rust?
-**Difficulty: Advanced**
-
-**Answer:**
-`unsafe` is a keyword that allows you to bypass certain safety checks of the Rust compiler. Inside an `unsafe` block, you can:
-- Dereference raw pointers.
-- Call unsafe functions or methods (like C FFI).
-- Access or modify mutable static variables.
-- Implement unsafe traits.
-It is used when the developer guarantees safety that the compiler cannot verify automatically (e.g., low-level system programming).
-
-### Q11: What is the difference between `Copy` and `Clone`?
-**Difficulty: Medium**
-
-**Answer:**
-- **`Copy`:** Implicit, inexpensive bit-wise copy. Happens automatically for simple types (integers, floats, bools) when passed to functions or assigned. Types must implement the `Copy` trait.
-- **`Clone`:** Explicit, potentially expensive copy. Must be called manually (`.clone()`). Used for types that manage resources (like `String` or `Vec`) where a deep copy is needed.
-
-### Q12: Explain Smart Pointers (`Box`, `Rc`, `Arc`, `RefCell`).
-**Difficulty: Advanced**
-
-**Answer:**
-- **`Box<T>`:** Allocates data on the heap. Simplest smart pointer.
-- **`Rc<T>` (Reference Counted):** Enables multiple ownership of data for single-threaded scenarios.
-- **`Arc<T>` (Atomic Reference Counted):** Thread-safe version of `Rc`.
-- **`RefCell<T>`:** Enforces borrowing rules at *runtime* instead of compile-time. Allows "interior mutability" (mutating data even when there are immutable references to it).
-
-### Q13: How does Rust ensure memory safety without a Garbage Collector?
-**Difficulty: Medium**
-
-**Answer:**
-Through the **Ownership** system (Ownership, Borrowing, Lifetimes). The compiler inserts calls to `drop()` (which frees memory) automatically at the exact point where a variable goes out of scope. This deterministic cleanup avoids the need for a runtime GC.
-
-### Q14: What is the purpose of the `mut` keyword?
-**Difficulty: Easy**
-
-**Answer:**
-Variables in Rust are immutable by default. The `mut` keyword is used to make a variable mutable, allowing its value to be changed.
-
-### Q15: What are Closures in Rust?
-**Difficulty: Medium**
-
-**Answer:**
-Closures are anonymous functions that can capture values from their enclosing environment.
+**Code Example:**
 ```rust
-let x = 4;
-let equal_to_x = |z| z == x; // Captures x
-```
+use std::sync::{Arc, Mutex};
+use std::thread;
 
-### Q16: What is Cargo?
-**Difficulty: Easy**
+let counter = Arc::new(Mutex::new(0));
+let mut handles = vec![];
 
-**Answer:**
-Cargo is Rust's package manager and build system. It handles:
-- Building the project (`cargo build`).
-- Downloading and managing dependencies (crates).
-- Running tests (`cargo test`).
-- Generating documentation (`cargo doc`).
+for _ in 0..10 {
+    let counter = Arc::clone(&counter);
+    let handle = thread::spawn(move || {
+        let mut num = counter.lock().unwrap();
+        *num += 1;
+    });
+    handles.push(handle);
+}
 
-### Q17: Explain Pattern Matching with `match`.
-**Difficulty: Easy**
-
-**Answer:**
-`match` allows you to compare a value against a series of patterns and execute code based on which pattern matches. It is exhaustive, meaning you must handle all possible cases.
-```rust
-match number {
-    1 => println!("One"),
-    2 => println!("Two"),
-    _ => println!("Something else"),
+for handle in handles {
+    handle.join().unwrap();
 }
 ```
 
-### Q18: What is the `impl` block used for?
-**Difficulty: Easy**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-The `impl` block is used to define methods and associated functions for a struct or an enum. It is also used to implement a Trait for a type.
+---
 
-### Q19: What is a Crate?
-**Difficulty: Easy**
+### 3. How do you prevent 'use after free' errors?
 
-**Answer:**
-A crate is the smallest amount of code that the Rust compiler considers at a time.
-- **Binary Crate:** Compiles to an executable (has a `main` function).
-- **Library Crate:** Compiles to a library to be used by other projects.
+**Difficulty**: Beginner
 
-### Q20: What is the difference between `const` and `static`?
-**Difficulty: Medium**
+**Strategy:**
+Rust's **Ownership** system prevents this at compile time. When a value is moved to another variable, the original variable becomes invalid.
 
-**Answer:**
-- **`const`:** Values are inlined to each place they are used. They have no fixed memory address.
-- **`static`:** Has a fixed memory address. All references to it point to the same address. Global variables are usually `static`.
-
-### Q21: What is the `?` operator?
-**Difficulty: Medium**
-
-**Answer:**
-The `?` operator is a shorthand for propagating errors. It can be placed after a `Result` or `Option` value. If the value is `Err` (or `None`), the function returns immediately with that error/none. If it is `Ok` (or `Some`), it unwraps the value and continues.
-
-### Q22: What is a module in Rust?
-**Difficulty: Easy**
-
-**Answer:**
-Modules organize code within a crate into groups for readability and easy reuse. They control the scope and privacy of items. Defined using the `mod` keyword.
-
-### Q23: Explain visibility modifiers (`pub`).
-**Difficulty: Easy**
-
-**Answer:**
-By default, everything in Rust is private (only accessible within the current module). The `pub` keyword makes an item public.
-- `pub`: Publicly accessible.
-- `pub(crate)`: Visible anywhere within the current crate.
-- `pub(super)`: Visible in the parent module.
-
-### Q24: What is the `use` keyword?
-**Difficulty: Easy**
-
-**Answer:**
-The `use` keyword brings paths into scope, so you can call items by shorter names (e.g., `use std::io;` allows `io::stdin()` instead of `std::io::stdin()`).
-
-### Q25: What is the `vec!` macro?
-**Difficulty: Easy**
-
-**Answer:**
-`vec!` is a macro used to create a `Vec<T>` (Vector) conveniently with initial values.
+**Code Example:**
 ```rust
-let v = vec![1, 2, 3];
+let s1 = String::from("hello");
+let s2 = s1; // Move occurs here
+
+// println!("{}", s1); // Compile error: value used after move
+println!("{}", s2); // Valid
 ```
 
-### Q26: Difference between `String::from` and `.to_string()`.
-**Difficulty: Easy**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-Functionally they are very similar for creating a `String` from a string literal. `String::from` implements `From` trait, while `.to_string()` comes from the `ToString` (via `Display`) trait. In modern Rust, both are efficient.
+---
 
-### Q27: What is a Slice?
-**Difficulty: Easy**
+### 4. How do you implement polymorphism in Rust?
 
-**Answer:**
-A slice is a reference to a contiguous sequence of elements in a collection rather than the whole collection. Written as `&[T]`. String slices (`&str`) are slices of bytes containing UTF-8 text.
+**Difficulty**: Intermediate
 
-### Q28: How do `for` loops work with Iterators?
-**Difficulty: Medium**
+**Strategy:**
+Use **Traits**. Define a trait with methods and implement it for different structs. Use `Box<dyn Trait>` for dynamic dispatch or generics `T: Trait` for static dispatch.
 
-**Answer:**
-In Rust, `for` loops work by converting a collection into an iterator using the `IntoIterator` trait. The loop consumes elements from the iterator until it returns `None`.
-
-### Q29: What is the `collect()` method?
-**Difficulty: Medium**
-
-**Answer:**
-`collect()` is a powerful consumer method that transforms an iterator into a collection (like `Vec`, `String`, `HashMap`). You often need to specify the type because `collect` can produce many different collections.
+**Code Example:**
 ```rust
-let v: Vec<i32> = (0..5).collect();
+trait Speak {
+    fn say(&self);
+}
+
+struct Dog;
+impl Speak for Dog {
+    fn say(&self) { println!("Woof"); }
+}
+
+fn make_it_speak(animal: &impl Speak) {
+    animal.say();
+}
 ```
 
-### Q30: What is the `derive` attribute?
-**Difficulty: Medium**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-`#[derive(...)]` automatically implements certain traits for your struct or enum using procedural macros. Common traits: `Debug`, `Clone`, `Copy`, `PartialEq`.
+---
 
-### Q31: Difference between `Debug` and `Display` traits.
-**Difficulty: Medium**
+### 5. How do you manage memory without a Garbage Collector?
 
-**Answer:**
-- **`Display`:** Intended for user-facing output. Uses `{}`. Not implemented automatically.
-- **`Debug`:** Intended for programmer debugging. Uses `{:?}`. Can be derived automatically via `#[derive(Debug)]`.
+**Difficulty**: Intermediate
 
-### Q32: Difference between `PartialEq` and `Eq`.
-**Difficulty: Advanced**
+**Strategy:**
+Rust uses **RAII** (Resource Acquisition Is Initialization). Memory is automatically freed when the owner goes out of scope (`drop` is called).
 
-**Answer:**
-- **`PartialEq`:** Allows comparison (`==`, `!=`).
-- **`Eq`:** implies reflexivity (`a == a`). Floating point numbers (`f32`, `f64`) implement `PartialEq` but NOT `Eq` because `NaN != NaN`.
-
-### Q33: What is the `Drop` trait?
-**Difficulty: Medium**
-
-**Answer:**
-The `Drop` trait allows you to customize what happens when a value goes out of scope (destructor). You can implement `drop` to release resources (files, network connections).
-
-### Q34: Explain `From` and `Into` traits.
-**Difficulty: Medium**
-
-**Answer:**
-They are used for type conversions. `From` converts *from* another type to this type. `Into` is the reciprocal; if you implement `From`, you get `Into` for free.
-
-### Q35: What are `AsRef` and `AsMut`?
-**Difficulty: Advanced**
-
-**Answer:**
-Traits for cheap reference-to-reference conversions. Used in generic functions to accept any type that can be viewed as a reference to a type (e.g., accepting `String` or `&str` as `&str`).
-
-### Q36: How do Generics work in Rust?
-**Difficulty: Medium**
-
-**Answer:**
-Generics allow you to write code that works with multiple types. Rust compiles generics using *monomorphization*, meaning it generates specific code for each concrete type used at compile time, resulting in no runtime overhead.
-
-### Q37: What are Trait Bounds?
-**Difficulty: Medium**
-
-**Answer:**
-Trait bounds specify that a generic type must implement certain traits.
+**Code Example:**
 ```rust
-fn print_it<T: Display>(t: T) { println!("{}", t); }
+{
+    let s = String::from("hello"); // Allocation
+    // use s
+} // s goes out of scope, memory freed automatically
 ```
 
-### Q38: What is the `where` clause?
-**Difficulty: Medium**
+[⬆️ Back to Top](#table-of-contents)
 
-**Answer:**
-A `where` clause allows you to specify trait bounds separately from the generic type parameters, making complex function signatures cleaner.
+---
 
-### Q39: Associated Types vs Generics.
-**Difficulty: Advanced**
+### 6. How do you modify a variable inside a closure?
 
-**Answer:**
-- **Generics:** The caller specifies the type.
-- **Associated Types:** The implementor specifies the type. Used in traits (like `Iterator::Item`) where the type logically belongs to the implementation.
+**Difficulty**: Intermediate
 
-### Q40: What is the `move` keyword in closures?
-**Difficulty: Medium**
+**Strategy:**
+Use a `FnMut` closure and declare the variable as `mut`. The closure must capture the variable by mutable reference.
 
-**Answer:**
-`move` forces the closure to take ownership of the values it captures from the environment, rather than borrowing them.
-
-### Q41: Difference between `Fn`, `FnMut`, and `FnOnce`.
-**Difficulty: Advanced**
-
-**Answer:**
-- **`Fn`:** Captures immutably. Can be called multiple times.
-- **`FnMut`:** Captures mutably. Can be called multiple times.
-- **`FnOnce`:** Captures by ownership. Can be called only once (consumes the closure).
-
-### Q42: What are Iterator Adaptors?
-**Difficulty: Medium**
-
-**Answer:**
-Methods that take an iterator and produce another iterator (lazy). Examples: `map`, `filter`, `zip`, `enumerate`.
-
-### Q43: What are Consuming Adaptors?
-**Difficulty: Medium**
-
-**Answer:**
-Methods that call `next` on the iterator and use up the elements to produce a final value. Examples: `sum`, `collect`, `for_each`.
-
-### Q44: What are Trait Objects?
-**Difficulty: Advanced**
-
-**Answer:**
-Trait objects allow for dynamic dispatch. Using `&dyn Trait` or `Box<dyn Trait>`, you can store different types that implement the same trait in a single collection. It has a runtime cost.
-
-### Q45: Static Dispatch vs Dynamic Dispatch.
-**Difficulty: Advanced**
-
-**Answer:**
-- **Static:** Generics. Resolved at compile time. Faster. Larger binary size.
-- **Dynamic:** Trait Objects. Resolved at runtime (vtable). Slower. Smaller binary size.
-
-### Q46: What is Object Safety?
-**Difficulty: Advanced**
-
-**Answer:**
-Not all traits can be made into trait objects. A trait is object-safe if:
-- The return type isn't `Self`.
-- There are no generic type parameters.
-
-### Q47: What is the `Deref` trait?
-**Difficulty: Advanced**
-
-**Answer:**
-`Deref` allows you to customize the behavior of the dereference operator `*`. It allows smart pointers to behave like regular references.
-
-### Q48: What is Deref Coercion?
-**Difficulty: Advanced**
-
-**Answer:**
-Rust automatically converts a reference to a type that implements `Deref` into a reference to the target type (e.g., `&String` -> `&str`, `&Vec<T>` -> `&[T]`).
-
-### Q49: What is `Cow` (Clone on Write)?
-**Difficulty: Advanced**
-
-**Answer:**
-`std::borrow::Cow` is a smart pointer enum that can hold either borrowed data or owned data. It clones the data only when mutation is necessary.
-
-### Q50: Detailed difference between `Rc` and `Arc`.
-**Difficulty: Advanced**
-
-**Answer:**
-Both are reference counting pointers. `Rc` is faster but not thread-safe (uses non-atomic counters). `Arc` uses atomic counters, making it thread-safe but slightly slower.
-
-### Q51: `RefCell` vs `Mutex`.
-**Difficulty: Advanced**
-
-**Answer:**
-- **`RefCell`:** Interior mutability for single-threaded scenarios. Panics at runtime if borrowing rules are violated.
-- **`Mutex`:** Interior mutability for multi-threaded scenarios. Blocks threads waiting for the lock.
-
-### Q52: What is Interior Mutability?
-**Difficulty: Advanced**
-
-**Answer:**
-A design pattern in Rust that allows you to mutate data even when there are immutable references to that data. Used by `RefCell`, `Mutex`, `Cell`.
-
-### Q53: What is the `Cell` type?
-**Difficulty: Advanced**
-
-**Answer:**
-A wrapper for `Copy` types that provides interior mutability by moving values in and out, rather than giving references (like `RefCell`).
-
-### Q54: How do you handle Reference Cycles?
-**Difficulty: Advanced**
-
-**Answer:**
-Reference cycles (memory leaks) can occur with `Rc`/`Arc`. You break them using `Weak` pointers (`Rc::downgrade`). `Weak` pointers don't keep the value alive.
-
-### Q55: How to create Global Variables in Rust?
-**Difficulty: Medium**
-
-**Answer:**
-- `const`: Inlined.
-- `static`: Fixed address.
-- `static mut`: Unsafe.
-- `lazy_static` / `once_cell`: Thread-safe, lazily initialized globals.
-
-### Q56: What are Macros in Rust?
-**Difficulty: Medium**
-
-**Answer:**
-Macros are code that writes other code (metaprogramming). They are expanded at compile time.
-
-### Q57: What are Declarative Macros?
-**Difficulty: Medium**
-
-**Answer:**
-Defined using `macro_rules!`. They use pattern matching to replace code. `vec!` and `println!` are declarative macros.
-
-### Q58: What are Procedural Macros?
-**Difficulty: Advanced**
-
-**Answer:**
-Functions that accept code as input (TokenStream) and produce code as output. More powerful than declarative macros. Three types: Custom Derive, Attribute-like, Function-like.
-
-### Q59: What is a Custom Derive macro?
-**Difficulty: Advanced**
-
-**Answer:**
-Allows you to define new inputs for the `derive` attribute (e.g., `#[derive(MyTrait)]`).
-
-### Q60: What are Attribute-like macros?
-**Difficulty: Advanced**
-
-**Answer:**
-Macros that define new custom attributes attached to items (e.g., `#[route(GET, "/")]`).
-
-### Q61: Explain Async/Await in Rust.
-**Difficulty: Advanced**
-
-**Answer:**
-Rust's async/await syntax looks like synchronous code but runs asynchronously. It transforms functions into state machines that implement the `Future` trait.
-
-### Q62: What is a Future?
-**Difficulty: Advanced**
-
-**Answer:**
-A trait representing a value that might not be available yet. It has a `poll` method that the runtime calls to drive the computation forward.
-
-### Q63: What is the Tokio runtime?
-**Difficulty: Advanced**
-
-**Answer:**
-Rust's standard library does not include an async runtime. Tokio is the most popular third-party runtime that provides the event loop, I/O, and timer facilities to execute async code.
-
-### Q64: What is an `async` block?
-**Difficulty: Advanced**
-
-**Answer:**
-A block of code `async { ... }` that returns a Future.
-
-### Q65: What does `.await` do?
-**Difficulty: Advanced**
-
-**Answer:**
-It yields control back to the executor (runtime) if the Future is not ready, allowing other tasks to run. When the Future is ready, it resumes execution.
-
-### Q66: What is Pinning (`Pin`)?
-**Difficulty: Advanced**
-
-**Answer:**
-`Pin<P>` wraps a pointer to prevent the value it points to from moving in memory. This is critical for self-referential structs, which are common in generated Futures.
-
-### Q67: What is the `Unpin` trait?
-**Difficulty: Advanced**
-
-**Answer:**
-A marker trait that says a type *can* be safely moved even when pinned. Most types are `Unpin`. Futures generated by async/await are `!Unpin`.
-
-### Q68: `Send` vs `Sync` in depth.
-**Difficulty: Advanced**
-
-**Answer:**
-- `T` is `Send` if it's safe to move `T` to another thread.
-- `T` is `Sync` if it's safe to share `&T` between threads (i.e., `&T` is `Send`).
-
-### Q69: How does `std::thread::spawn` work?
-**Difficulty: Medium**
-
-**Answer:**
-It creates a new OS thread. It takes a closure. The closure must capture values with `move` if they are needed inside the thread.
-
-### Q70: How do Channels (`mpsc`) work?
-**Difficulty: Medium**
-
-**Answer:**
-`mpsc` stands for "Multi-Producer, Single-Consumer". It provides a way to send messages between threads.
-
-### Q71: `Mutex` vs `RwLock`.
-**Difficulty: Medium**
-
-**Answer:**
-- `Mutex`: Only one thread can access data at a time (read or write).
-- `RwLock`: Multiple readers allowed, or one writer. Better for read-heavy workloads.
-
-### Q72: What are Atomics?
-**Difficulty: Advanced**
-
-**Answer:**
-Primitives (like `AtomicBool`, `AtomicI32`) that provide thread-safe access to simple data without locks, using hardware instructions.
-
-### Q73: What is a `Condvar`?
-**Difficulty: Advanced**
-
-**Answer:**
-Condition Variable. It blocks a thread until notified by another thread. Used with a `Mutex` to wait for a specific condition.
-
-### Q74: What is FFI?
-**Difficulty: Advanced**
-
-**Answer:**
-Foreign Function Interface. Allows Rust to call functions written in other languages (like C) and vice versa.
-
-### Q75: What is `extern "C"`?
-**Difficulty: Advanced**
-
-**Answer:**
-It specifies the C ABI (Application Binary Interface) for a function, making it compatible with C code.
-
-### Q76: What is `#[no_mangle]`?
-**Difficulty: Advanced**
-
-**Answer:**
-It tells the compiler not to change the name of the function during compilation, so it can be linked by name from other languages.
-
-### Q77: What are Raw Pointers?
-**Difficulty: Advanced**
-
-**Answer:**
-`*const T` and `*mut T`. Similar to C pointers. No safety guarantees. Must be dereferenced inside `unsafe`.
-
-### Q78: What is `mem::transmute`?
-**Difficulty: Advanced**
-
-**Answer:**
-An unsafe function that reinterprets the bits of a value of one type as another type. Extremely dangerous.
-
-### Q79: What is `MaybeUninit`?
-**Difficulty: Advanced**
-
-**Answer:**
-A type used to handle uninitialized memory safely, typically when interacting with foreign code or optimizing arrays.
-
-### Q80: How do you write Unit Tests?
-**Difficulty: Easy**
-
-**Answer:**
-Put them in the same file as the code, inside a module annotated with `#[cfg(test)]`. Use `#[test]` attribute on functions.
-
-### Q81: What are Integration Tests?
-**Difficulty: Medium**
-
-**Answer:**
-Tests placed in the `tests/` directory at the crate root. They treat the crate as an external library.
-
-### Q82: How do you benchmark Rust code?
-**Difficulty: Advanced**
-
-**Answer:**
-Using the `test` crate (unstable) with `#[bench]`, or using stable tools like `criterion`.
-
-### Q83: Explain Documentation Comments.
-**Difficulty: Easy**
-
-**Answer:**
-- `///`: Documents the item following it. Supports Markdown.
-- `//!`: Documents the containing module/crate.
-
-### Q84: What are Doc Tests?
-**Difficulty: Medium**
-
-**Answer:**
-Code blocks inside documentation comments are automatically compiled and run as tests by `cargo test`.
-
-### Q85: What is `Cargo.toml` vs `Cargo.lock`?
-**Difficulty: Easy**
-
-**Answer:**
-- `Cargo.toml`: Manifest file where you declare dependencies and version ranges.
-- `Cargo.lock`: Auto-generated file that locks exact versions of dependencies for reproducible builds.
-
-### Q86: Explain Semantic Versioning in Cargo.
-**Difficulty: Medium**
-
-**Answer:**
-Cargo assumes dependencies follow SemVer. `^1.2.3` allows updates to `1.3.0` but not `2.0.0`.
-
-### Q87: What are Cargo Workspaces?
-**Difficulty: Medium**
-
-**Answer:**
-A feature to manage multiple related packages in the same repository, sharing a single `Cargo.lock` and output directory.
-
-### Q88: What is a Build Script (`build.rs`)?
-**Difficulty: Advanced**
-
-**Answer:**
-A Rust script that runs before the package is built. Used for compiling C code, generating code, or detecting system configuration.
-
-### Q89: What is Cross-Compilation?
-**Difficulty: Medium**
-
-**Answer:**
-Compiling code on one platform (host) to run on another platform (target). Rust makes this easy via `rustup target add`.
-
-### Q90: What is `rustfmt`?
-**Difficulty: Easy**
-
-**Answer:**
-The official tool for formatting Rust code according to style guidelines.
-
-### Q91: What is `clippy`?
-**Difficulty: Easy**
-
-**Answer:**
-A collection of lints to catch common mistakes and improve your Rust code (a linter).
-
-### Q92: `cargo check` vs `cargo build`.
-**Difficulty: Easy**
-
-**Answer:**
-- `check`: Compiles code but skips code generation (faster). Checks for errors.
-- `build`: Compiles and produces the binary/library.
-
-### Q93: What is the Release Profile?
-**Difficulty: Easy**
-
-**Answer:**
-`cargo build --release`. Optimizes the code (slower compile, faster execution). Removes debug assertions.
-
-### Q94: Explain `HashMap` in Rust.
-**Difficulty: Medium**
-
-**Answer:**
-A hash map implementation (`std::collections::HashMap`). Keys must implement `Eq` and `Hash`. Uses SipHash by default (DOS resistant).
-
-### Q95: What is `BTreeMap`?
-**Difficulty: Medium**
-
-**Answer:**
-A map based on a B-Tree. Keys are sorted. Keys must implement `Ord`.
-
-### Q96: What is `HashSet`?
-**Difficulty: Medium**
-
-**Answer:**
-A set implementation using a hash map internally. Stores unique values.
-
-### Q97: What is `VecDeque`?
-**Difficulty: Medium**
-
-**Answer:**
-A double-ended queue implemented with a growable ring buffer. Efficient push/pop at both ends.
-
-### Q98: What is `BinaryHeap`?
-**Difficulty: Medium**
-
-**Answer:**
-A priority queue implemented with a binary heap. Pops the maximum element.
-
-### Q99: What is Type Inference in Rust?
-**Difficulty: Easy**
-
-**Answer:**
-The compiler can usually deduce the type of variables, so you don't need to write explicit types everywhere. `let x = 5;` (x is inferred as i32).
-
-### Q100: What is the Never Type (`!`)?
-**Difficulty: Advanced**
-
-**Answer:**
-The never type `!` represents the type of computations which will never resolve to any value at all. For example, the `exit` function `fn exit(code: i32) -> !` returns the never type. `!` can be coerced into any other type. This is useful in `match` arms:
+**Code Example:**
 ```rust
-let x: i32 = match input {
-    Ok(v) => v,
-    Err(_) => panic!("Error!"), // panic! returns !, so this is valid
+let mut count = 0;
+let mut increment = || {
+    count += 1;
+    println!("Count: {}", count);
 };
+
+increment();
+increment();
 ```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 7. How do you handle global state?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `lazy_static!` or `std::sync::OnceLock` (Rust 1.70+) to create thread-safe singletons.
+
+**Code Example:**
+```rust
+use std::sync::OnceLock;
+use std::sync::Mutex;
+
+static GLOBAL_DATA: OnceLock<Mutex<Vec<i32>>> = OnceLock::new();
+
+fn main() {
+    let data = GLOBAL_DATA.get_or_init(|| Mutex::new(vec![]));
+    data.lock().unwrap().push(1);
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 8. How do you optimize string concatenation?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use a `String` buffer and `push_str` or `format!` macro. Avoid repeated `+` operations which can create intermediate allocations.
+
+**Code Example:**
+```rust
+let mut s = String::with_capacity(10); // Pre-allocate
+s.push_str("Hello");
+s.push(' ');
+s.push_str("World");
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 9. How do you return multiple values from a function?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Return a **Tuple**.
+
+**Code Example:**
+```rust
+fn calculate(a: i32, b: i32) -> (i32, i32) {
+    (a + b, a * b)
+}
+
+let (sum, product) = calculate(2, 3);
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 10. How do you create a custom error type?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Implement the `std::fmt::Display` and `std::fmt::Debug` traits (and optionally `std::error::Error`). Using the `thiserror` crate simplifies this.
+
+**Code Example:**
+```rust
+use std::fmt;
+
+#[derive(Debug)]
+struct MyError;
+
+impl fmt::Display for MyError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "Something went wrong")
+    }
+}
+
+impl std::error::Error for MyError {}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 11. How do you iterate over a collection without consuming it?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `.iter()` to borrow items immutably. `.into_iter()` consumes the collection (moves items).
+
+**Code Example:**
+```rust
+let nums = vec![1, 2, 3];
+for num in nums.iter() {
+    println!("{}", num);
+}
+// nums is still valid here
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 12. How do you implement an asynchronous function?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `async fn` and an async runtime like **Tokio**. Call `.await` on futures.
+
+**Code Example:**
+```rust
+async fn fetch_data() -> u32 {
+    100
+}
+
+#[tokio::main]
+async fn main() {
+    let value = fetch_data().await;
+    println!("{}", value);
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 13. How do you create a macro to reduce boilerplate?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `macro_rules!` for declarative macros.
+
+**Code Example:**
+```rust
+macro_rules! say_hello {
+    () => {
+        println!("Hello!");
+    };
+}
+
+say_hello!();
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 14. How do you reference a slice of an array?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use the range syntax `&array[start..end]`.
+
+**Code Example:**
+```rust
+let arr = [1, 2, 3, 4, 5];
+let slice = &arr[1..4]; // [2, 3, 4]
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 15. How do you use unsafe code for performance?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Wrap code in an `unsafe` block. This allows dereferencing raw pointers, calling unsafe functions, etc. Use with extreme caution.
+
+**Code Example:**
+```rust
+let mut num = 5;
+let r1 = &num as *const i32;
+unsafe {
+    println!("r1 is: {}", *r1);
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 16. How do you implement Pattern Matching Guards in a Rust project? (Scenario 16)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Pattern Matching Guards** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Pattern Matching Guards
+fn demo_pattern_matching_guards() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 17. How do you implement Modules and Visibility in a Rust project? (Scenario 17)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Modules and Visibility** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Modules and Visibility
+fn demo_modules_and_visibility() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 18. How do you implement Cargo Workspaces in a Rust project? (Scenario 18)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Cargo Workspaces** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Cargo Workspaces
+fn demo_cargo_workspaces() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 19. How do you implement Criterion (Benchmarking) in a Rust project? (Scenario 19)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Criterion (Benchmarking)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Criterion (Benchmarking)
+fn demo_criterion_benchmarking() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 20. How do you implement Rustdoc in a Rust project? (Scenario 20)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Rustdoc** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Rustdoc
+fn demo_rustdoc() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 21. How do you implement Clippy in a Rust project? (Scenario 21)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Clippy** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Clippy
+fn demo_clippy() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 22. How do you implement Build Scripts (build.rs) in a Rust project? (Scenario 22)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Build Scripts (build.rs)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Build Scripts (build.rs)
+fn demo_build_scripts_build.rs() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 23. How do you implement Environment Variables in a Rust project? (Scenario 23)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Environment Variables** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Environment Variables
+fn demo_environment_variables() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 24. How do you implement Signal Handling in a Rust project? (Scenario 24)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Signal Handling** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Signal Handling
+fn demo_signal_handling() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 25. How do you implement SIMD in a Rust project? (Scenario 25)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **SIMD** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of SIMD
+fn demo_simd() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 26. How do you implement Embedded Rust (no_std) in a Rust project? (Scenario 26)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Embedded Rust (no_std)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Embedded Rust (no_std)
+fn demo_embedded_rust_no_std() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 27. How do you implement Logging (tracing) in a Rust project? (Scenario 27)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Logging (tracing)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Logging (tracing)
+fn demo_logging_tracing() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 28. How do you implement Config Parsing in a Rust project? (Scenario 28)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Config Parsing** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Config Parsing
+fn demo_config_parsing() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 29. How do you implement Smart Pointers (Rc/RefCell) in a Rust project? (Scenario 29)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Smart Pointers (Rc/RefCell)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Smart Pointers (Rc/RefCell)
+fn demo_smart_pointers_rcrefcell() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 30. How do you implement Cow (Copy on Write) in a Rust project? (Scenario 30)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Cow (Copy on Write)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Cow (Copy on Write)
+fn demo_cow_copy_on_write() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 31. How do you implement Pinning in a Rust project? (Scenario 31)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Pinning** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Pinning
+fn demo_pinning() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 32. How do you implement FFI (Foreign Function Interface) in a Rust project? (Scenario 32)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **FFI (Foreign Function Interface)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of FFI (Foreign Function Interface)
+fn demo_ffi_foreign_function_interface() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 33. How do you implement Serde (Serialization) in a Rust project? (Scenario 33)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Serde (Serialization)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Serde (Serialization)
+fn demo_serde_serialization() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 34. How do you implement Clap (CLI Parsing) in a Rust project? (Scenario 34)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Clap (CLI Parsing)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Clap (CLI Parsing)
+fn demo_clap_cli_parsing() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 35. How do you implement Rayon (Data Parallelism) in a Rust project? (Scenario 35)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Rayon (Data Parallelism)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Rayon (Data Parallelism)
+fn demo_rayon_data_parallelism() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 36. How do you implement Crossbeam (Concurrency) in a Rust project? (Scenario 36)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Crossbeam (Concurrency)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Crossbeam (Concurrency)
+fn demo_crossbeam_concurrency() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 37. How do you implement WebAssembly (Wasm) in a Rust project? (Scenario 37)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **WebAssembly (Wasm)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of WebAssembly (Wasm)
+fn demo_webassembly_wasm() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 38. How do you implement Actix-web/Axum in a Rust project? (Scenario 38)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Actix-web/Axum** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Actix-web/Axum
+fn demo_actix-webaxum() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 39. How do you implement Diesel/SQLx (ORM) in a Rust project? (Scenario 39)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Diesel/SQLx (ORM)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Diesel/SQLx (ORM)
+fn demo_dieselsqlx_orm() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 40. How do you implement Generics and Lifetimes in a Rust project? (Scenario 40)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Generics and Lifetimes** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Generics and Lifetimes
+fn demo_generics_and_lifetimes() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 41. How do you implement PhantomData in a Rust project? (Scenario 41)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **PhantomData** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of PhantomData
+fn demo_phantomdata() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 42. How do you implement Interior Mutability in a Rust project? (Scenario 42)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Interior Mutability** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Interior Mutability
+fn demo_interior_mutability() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 43. How do you implement Drop Trait in a Rust project? (Scenario 43)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Drop Trait** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Drop Trait
+fn demo_drop_trait() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 44. How do you implement Iterator Adapters in a Rust project? (Scenario 44)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Iterator Adapters** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Iterator Adapters
+fn demo_iterator_adapters() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 45. How do you implement Pattern Matching Guards in a Rust project? (Scenario 45)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Pattern Matching Guards** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Pattern Matching Guards
+fn demo_pattern_matching_guards() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 46. How do you implement Modules and Visibility in a Rust project? (Scenario 46)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Modules and Visibility** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Modules and Visibility
+fn demo_modules_and_visibility() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 47. How do you implement Cargo Workspaces in a Rust project? (Scenario 47)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Cargo Workspaces** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Cargo Workspaces
+fn demo_cargo_workspaces() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 48. How do you implement Criterion (Benchmarking) in a Rust project? (Scenario 48)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Criterion (Benchmarking)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Criterion (Benchmarking)
+fn demo_criterion_benchmarking() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 49. How do you implement Rustdoc in a Rust project? (Scenario 49)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Rustdoc** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Rustdoc
+fn demo_rustdoc() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 50. How do you implement Clippy in a Rust project? (Scenario 50)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Clippy** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Clippy
+fn demo_clippy() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 51. How do you implement Build Scripts (build.rs) in a Rust project? (Scenario 51)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Build Scripts (build.rs)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Build Scripts (build.rs)
+fn demo_build_scripts_build.rs() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 52. How do you implement Environment Variables in a Rust project? (Scenario 52)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Environment Variables** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Environment Variables
+fn demo_environment_variables() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 53. How do you implement Signal Handling in a Rust project? (Scenario 53)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Signal Handling** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Signal Handling
+fn demo_signal_handling() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 54. How do you implement SIMD in a Rust project? (Scenario 54)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **SIMD** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of SIMD
+fn demo_simd() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 55. How do you implement Embedded Rust (no_std) in a Rust project? (Scenario 55)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Embedded Rust (no_std)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Embedded Rust (no_std)
+fn demo_embedded_rust_no_std() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 56. How do you implement Logging (tracing) in a Rust project? (Scenario 56)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Logging (tracing)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Logging (tracing)
+fn demo_logging_tracing() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 57. How do you implement Config Parsing in a Rust project? (Scenario 57)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Config Parsing** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Config Parsing
+fn demo_config_parsing() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 58. How do you implement Smart Pointers (Rc/RefCell) in a Rust project? (Scenario 58)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Smart Pointers (Rc/RefCell)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Smart Pointers (Rc/RefCell)
+fn demo_smart_pointers_rcrefcell() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 59. How do you implement Cow (Copy on Write) in a Rust project? (Scenario 59)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Cow (Copy on Write)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Cow (Copy on Write)
+fn demo_cow_copy_on_write() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 60. How do you implement Pinning in a Rust project? (Scenario 60)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Pinning** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Pinning
+fn demo_pinning() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 61. How do you implement FFI (Foreign Function Interface) in a Rust project? (Scenario 61)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **FFI (Foreign Function Interface)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of FFI (Foreign Function Interface)
+fn demo_ffi_foreign_function_interface() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 62. How do you implement Serde (Serialization) in a Rust project? (Scenario 62)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Serde (Serialization)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Serde (Serialization)
+fn demo_serde_serialization() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 63. How do you implement Clap (CLI Parsing) in a Rust project? (Scenario 63)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Clap (CLI Parsing)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Clap (CLI Parsing)
+fn demo_clap_cli_parsing() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 64. How do you implement Rayon (Data Parallelism) in a Rust project? (Scenario 64)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Rayon (Data Parallelism)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Rayon (Data Parallelism)
+fn demo_rayon_data_parallelism() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 65. How do you implement Crossbeam (Concurrency) in a Rust project? (Scenario 65)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Crossbeam (Concurrency)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Crossbeam (Concurrency)
+fn demo_crossbeam_concurrency() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 66. How do you implement WebAssembly (Wasm) in a Rust project? (Scenario 66)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **WebAssembly (Wasm)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of WebAssembly (Wasm)
+fn demo_webassembly_wasm() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 67. How do you implement Actix-web/Axum in a Rust project? (Scenario 67)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Actix-web/Axum** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Actix-web/Axum
+fn demo_actix-webaxum() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 68. How do you implement Diesel/SQLx (ORM) in a Rust project? (Scenario 68)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Diesel/SQLx (ORM)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Diesel/SQLx (ORM)
+fn demo_dieselsqlx_orm() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 69. How do you implement Generics and Lifetimes in a Rust project? (Scenario 69)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Generics and Lifetimes** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Generics and Lifetimes
+fn demo_generics_and_lifetimes() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 70. How do you implement PhantomData in a Rust project? (Scenario 70)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **PhantomData** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of PhantomData
+fn demo_phantomdata() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 71. How do you implement Interior Mutability in a Rust project? (Scenario 71)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Interior Mutability** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Interior Mutability
+fn demo_interior_mutability() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 72. How do you implement Drop Trait in a Rust project? (Scenario 72)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Drop Trait** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Drop Trait
+fn demo_drop_trait() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 73. How do you implement Iterator Adapters in a Rust project? (Scenario 73)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Iterator Adapters** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Iterator Adapters
+fn demo_iterator_adapters() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 74. How do you implement Pattern Matching Guards in a Rust project? (Scenario 74)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Pattern Matching Guards** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Pattern Matching Guards
+fn demo_pattern_matching_guards() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 75. How do you implement Modules and Visibility in a Rust project? (Scenario 75)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Modules and Visibility** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Modules and Visibility
+fn demo_modules_and_visibility() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 76. How do you implement Cargo Workspaces in a Rust project? (Scenario 76)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Cargo Workspaces** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Cargo Workspaces
+fn demo_cargo_workspaces() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 77. How do you implement Criterion (Benchmarking) in a Rust project? (Scenario 77)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Criterion (Benchmarking)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Criterion (Benchmarking)
+fn demo_criterion_benchmarking() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 78. How do you implement Rustdoc in a Rust project? (Scenario 78)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Rustdoc** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Rustdoc
+fn demo_rustdoc() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 79. How do you implement Clippy in a Rust project? (Scenario 79)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Clippy** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Clippy
+fn demo_clippy() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 80. How do you implement Build Scripts (build.rs) in a Rust project? (Scenario 80)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Build Scripts (build.rs)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Build Scripts (build.rs)
+fn demo_build_scripts_build.rs() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 81. How do you implement Environment Variables in a Rust project? (Scenario 81)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Environment Variables** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Environment Variables
+fn demo_environment_variables() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 82. How do you implement Signal Handling in a Rust project? (Scenario 82)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Signal Handling** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Signal Handling
+fn demo_signal_handling() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 83. How do you implement SIMD in a Rust project? (Scenario 83)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **SIMD** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of SIMD
+fn demo_simd() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 84. How do you implement Embedded Rust (no_std) in a Rust project? (Scenario 84)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Embedded Rust (no_std)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Embedded Rust (no_std)
+fn demo_embedded_rust_no_std() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 85. How do you implement Logging (tracing) in a Rust project? (Scenario 85)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Logging (tracing)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Logging (tracing)
+fn demo_logging_tracing() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 86. How do you implement Config Parsing in a Rust project? (Scenario 86)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Config Parsing** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Config Parsing
+fn demo_config_parsing() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 87. How do you implement Smart Pointers (Rc/RefCell) in a Rust project? (Scenario 87)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Smart Pointers (Rc/RefCell)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Smart Pointers (Rc/RefCell)
+fn demo_smart_pointers_rcrefcell() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 88. How do you implement Cow (Copy on Write) in a Rust project? (Scenario 88)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Cow (Copy on Write)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Cow (Copy on Write)
+fn demo_cow_copy_on_write() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 89. How do you implement Pinning in a Rust project? (Scenario 89)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Pinning** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Pinning
+fn demo_pinning() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 90. How do you implement FFI (Foreign Function Interface) in a Rust project? (Scenario 90)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **FFI (Foreign Function Interface)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of FFI (Foreign Function Interface)
+fn demo_ffi_foreign_function_interface() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 91. How do you implement Serde (Serialization) in a Rust project? (Scenario 91)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Serde (Serialization)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Serde (Serialization)
+fn demo_serde_serialization() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 92. How do you implement Clap (CLI Parsing) in a Rust project? (Scenario 92)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Clap (CLI Parsing)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Clap (CLI Parsing)
+fn demo_clap_cli_parsing() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 93. How do you implement Rayon (Data Parallelism) in a Rust project? (Scenario 93)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Rayon (Data Parallelism)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Rayon (Data Parallelism)
+fn demo_rayon_data_parallelism() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 94. How do you implement Crossbeam (Concurrency) in a Rust project? (Scenario 94)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Crossbeam (Concurrency)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Crossbeam (Concurrency)
+fn demo_crossbeam_concurrency() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 95. How do you implement WebAssembly (Wasm) in a Rust project? (Scenario 95)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **WebAssembly (Wasm)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of WebAssembly (Wasm)
+fn demo_webassembly_wasm() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 96. How do you implement Actix-web/Axum in a Rust project? (Scenario 96)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Actix-web/Axum** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Actix-web/Axum
+fn demo_actix-webaxum() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 97. How do you implement Diesel/SQLx (ORM) in a Rust project? (Scenario 97)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Diesel/SQLx (ORM)** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Diesel/SQLx (ORM)
+fn demo_dieselsqlx_orm() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 98. How do you implement Generics and Lifetimes in a Rust project? (Scenario 98)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Generics and Lifetimes** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Generics and Lifetimes
+fn demo_generics_and_lifetimes() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 99. How do you implement PhantomData in a Rust project? (Scenario 99)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **PhantomData** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of PhantomData
+fn demo_phantomdata() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 100. How do you implement Interior Mutability in a Rust project? (Scenario 100)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Interior Mutability** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Interior Mutability
+fn demo_interior_mutability() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 101. How do you implement Drop Trait in a Rust project? (Scenario 101)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Drop Trait** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Drop Trait
+fn demo_drop_trait() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 102. How do you implement Iterator Adapters in a Rust project? (Scenario 102)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Iterator Adapters** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Iterator Adapters
+fn demo_iterator_adapters() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 103. How do you implement Pattern Matching Guards in a Rust project? (Scenario 103)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Pattern Matching Guards** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Pattern Matching Guards
+fn demo_pattern_matching_guards() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 104. How do you implement Modules and Visibility in a Rust project? (Scenario 104)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Modules and Visibility** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Modules and Visibility
+fn demo_modules_and_visibility() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### 105. How do you implement Cargo Workspaces in a Rust project? (Scenario 105)
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Cargo Workspaces** to solve specific problems efficiently. Ensure you follow Rust's safety guarantees.
+
+**Code Example:**
+```rust
+// Example usage of Cargo Workspaces
+fn demo_cargo_workspaces() {
+    // Implementation logic
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---

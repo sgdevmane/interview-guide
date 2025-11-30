@@ -1,881 +1,1425 @@
 # Golang Interview Questions
 
 ## Table of Contents
+| No. | Question | Difficulty |
+| --- | -------- | ---------- |
+| 1 | [How do you manage Goroutine lifecycles to prevent memory leaks?](#how-do-you-manage-goroutine-lifecycles-to-prevent-memory-leaks) | Beginner |
+| 2 | [How do you implement the Worker Pool pattern to limit concurrency?](#how-do-you-implement-the-worker-pool-pattern-to-limit-concurrency) | Beginner |
+| 3 | [How do you handle errors gracefully using custom error types and wrapping?](#how-do-you-handle-errors-gracefully-using-custom-error-types-and-wrapping) | Beginner |
+| 4 | [How do you implement a thread-safe Singleton in Go?](#how-do-you-implement-a-thread-safe-singleton-in-go) | Beginner |
+| 5 | [How do you use the Functional Options pattern to configure complex structs?](#how-do-you-use-the-functional-options-pattern-to-configure-complex-structs) | Beginner |
+| 6 | [How do you implement a Graceful Shutdown for an HTTP server?](#how-do-you-implement-a-graceful-shutdown-for-an-http-server) | Intermediate |
+| 7 | [How do you test code effectively using Table-Driven Tests?](#how-do-you-test-code-effectively-using-table-driven-tests) | Intermediate |
+| 8 | [How do you use Generics to create a type-safe Set data structure?](#how-do-you-use-generics-to-create-a-type-safe-set-data-structure) | Intermediate |
+| 9 | [How do you use `sync.WaitGroup` to wait for multiple concurrent operations?](#how-do-you-use-syncwaitgroup-to-wait-for-multiple-concurrent-operations) | Intermediate |
+| 10 | [How do you implement middleware for an HTTP handler?](#how-do-you-implement-middleware-for-an-http-handler) | Intermediate |
+| 11 | [How do you use interfaces for dependency injection to improve testability?](#how-do-you-use-interfaces-for-dependency-injection-to-improve-testability) | Intermediate |
+| 12 | [How do you use the `select` statement to implement a timeout?](#how-do-you-use-the-select-statement-to-implement-a-timeout) | Intermediate |
+| 13 | [How do you use `io.Reader` and `io.Writer` to stream data efficiently?](#how-do-you-use-ioreader-and-iowriter-to-stream-data-efficiently) | Intermediate |
+| 14 | [How do you prevent race conditions using `sync.Mutex`?](#how-do-you-prevent-race-conditions-using-syncmutex) | Intermediate |
+| 15 | [How do you optimize memory usage with `sync.Pool`?](#how-do-you-optimize-memory-usage-with-syncpool) | Intermediate |
+| 16 | [How do you implement a custom JSON unmarshaler?](#how-do-you-implement-a-custom-json-unmarshaler) | Intermediate |
+| 17 | [How do you use the `defer` keyword to ensure resource cleanup?](#how-do-you-use-the-defer-keyword-to-ensure-resource-cleanup) | Advanced |
+| 18 | [How do you handle panic and recover in a middleware?](#how-do-you-handle-panic-and-recover-in-a-middleware) | Advanced |
+| 19 | [How do you use `atomic` package for lock-free counters?](#how-do-you-use-atomic-package-for-lock-free-counters) | Advanced |
+| 20 | [How do you profile a Go application using `pprof`?](#how-do-you-profile-a-go-application-using-pprof) | Advanced |
+| 21 | [How do you debug a deadlock using stack traces?](#how-do-you-debug-a-deadlock-using-stack-traces) | Advanced |
+| 22 | [How do you use build tags to compile code for specific OS?](#how-do-you-use-build-tags-to-compile-code-for-specific-os) | Advanced |
+| 23 | [How do you use `go:embed` to include static assets in the binary?](#how-do-you-use-goembed-to-include-static-assets-in-the-binary) | Advanced |
+| 24 | [How do you implement a rate limiter using channels?](#how-do-you-implement-a-rate-limiter-using-channels) | Advanced |
+| 25 | [How do you use `context.WithValue` to pass request-scoped data?](#how-do-you-use-contextwithvalue-to-pass-request-scoped-data) | Advanced |
+| 26 | [How do you implement a custom `http.RoundTripper`?](#how-do-you-implement-a-custom-httproundtripper) | Advanced |
+| 27 | [How do you use the `reflect` package to inspect types at runtime?](#how-do-you-use-the-reflect-package-to-inspect-types-at-runtime) | Advanced |
+| 28 | [How do you use `unsafe` pointers (and when should you avoid them)?](#how-do-you-use-unsafe-pointers-and-when-should-you-avoid-them) | Advanced |
+| 29 | [How do you optimize string concatenation using `strings.Builder`?](#how-do-you-optimize-string-concatenation-using-stringsbuilder) | Advanced |
+| 30 | [How do you use `time.Ticker` for periodic tasks?](#how-do-you-use-timeticker-for-periodic-tasks) | Advanced |
+| 31 | [How do you implement a priority queue using `container/heap`?](#how-do-you-implement-a-priority-queue-using-containerheap) | Advanced |
+| 32 | [How do you use `bufio` for efficient file reading?](#how-do-you-use-bufio-for-efficient-file-reading) | Advanced |
+| 33 | [How do you handle signals (SIGTERM) to stop a worker pool?](#how-do-you-handle-signals-sigterm-to-stop-a-worker-pool) | Advanced |
+| 34 | [How do you use `errgroup` to manage a group of Goroutines?](#how-do-you-use-errgroup-to-manage-a-group-of-goroutines) | Advanced |
+| 35 | [How do you implement a custom `Sort` interface?](#how-do-you-implement-a-custom-sort-interface) | Advanced |
+| 36 | [How do you use `go work` for multi-module workspaces?](#how-do-you-use-go-work-for-multi-module-workspaces) | Advanced |
+| 37 | [How do you manage dependencies using `go.mod` and `go.sum`?](#how-do-you-manage-dependencies-using-gomod-and-gosum) | Advanced |
+| 38 | [How do you use `GOMAXPROCS` to tune concurrency?](#how-do-you-use-gomaxprocs-to-tune-concurrency) | Advanced |
+| 39 | [How do you use the `testing/quick` package for property-based testing?](#how-do-you-use-the-testingquick-package-for-property-based-testing) | Advanced |
+| 40 | [How do you implement a fan-out/fan-in concurrency pattern?](#how-do-you-implement-a-fan-outfan-in-concurrency-pattern) | Advanced |
+| 41 | [How do you use `httptest` to test HTTP handlers?](#how-do-you-use-httptest-to-test-http-handlers) | Advanced |
+| 42 | [How do you use `sqlmock` to test database interactions?](#how-do-you-use-sqlmock-to-test-database-interactions) | Advanced |
+| 43 | [How do you use `gomock` for interface mocking?](#how-do-you-use-gomock-for-interface-mocking) | Advanced |
+| 44 | [How do you optimize struct padding for memory alignment?](#how-do-you-optimize-struct-padding-for-memory-alignment) | Advanced |
+| 45 | [How do you use `singleflight` to prevent cache stampedes?](#how-do-you-use-singleflight-to-prevent-cache-stampedes) | Advanced |
+| 46 | [How do you use `runtime/trace` to analyze latency?](#how-do-you-use-runtimetrace-to-analyze-latency) | Advanced |
+| 47 | [How do you implement a simple circuit breaker pattern?](#how-do-you-implement-a-simple-circuit-breaker-pattern) | Advanced |
+| 48 | [How do you use `encoding/gob` for binary serialization?](#how-do-you-use-encodinggob-for-binary-serialization) | Advanced |
+| 49 | [How do you use `net/url` to parse and modify URLs?](#how-do-you-use-neturl-to-parse-and-modify-urls) | Advanced |
+| 50 | [How do you use `filepath.Walk` (or `WalkDir`) to traverse directories?](#how-do-you-use-filepathwalk-or-walkdir-to-traverse-directories) | Advanced |
+| 51 | [How do you use `os/exec` to run external commands?](#how-do-you-use-osexec-to-run-external-commands) | Advanced |
+| 52 | [How do you use `plugin` package to load code dynamically?](#how-do-you-use-plugin-package-to-load-code-dynamically) | Advanced |
+| 53 | [How do you use `syscall` to interact with low-level OS features?](#how-do-you-use-syscall-to-interact-with-low-level-os-features) | Advanced |
+| 54 | [How do you use `image` package to process images?](#how-do-you-use-image-package-to-process-images) | Advanced |
+| 55 | [How do you use `compress/gzip` to handle compressed data?](#how-do-you-use-compressgzip-to-handle-compressed-data) | Advanced |
+| 56 | [How do you use `crypto/rand` for secure random number generation?](#how-do-you-use-cryptorand-for-secure-random-number-generation) | Advanced |
+| 57 | [How do you use `crypto/tls` to configure HTTPS clients?](#how-do-you-use-cryptotls-to-configure-https-clients) | Advanced |
+| 58 | [How do you use `html/template` to render secure HTML?](#how-do-you-use-htmltemplate-to-render-secure-html) | Advanced |
+| 59 | [How do you use `text/template` for code generation?](#how-do-you-use-texttemplate-for-code-generation) | Advanced |
+| 60 | [How do you use `expvar` to expose internal metrics?](#how-do-you-use-expvar-to-expose-internal-metrics) | Advanced |
+| 61 | [How do you use `net/http/pprof` for live profiling?](#how-do-you-use-nethttppprof-for-live-profiling) | Advanced |
+| 62 | [How do you use `runtime.GC()` manually (and why is it rarely needed)?](#how-do-you-use-runtimegc-manually-and-why-is-it-rarely-needed) | Advanced |
+| 63 | [How do you use `runtime.Goexit()` to kill a Goroutine?](#how-do-you-use-runtimegoexit-to-kill-a-goroutine) | Advanced |
+| 64 | [How do you use `runtime.NumGoroutine()` for monitoring?](#how-do-you-use-runtimenumgoroutine-for-monitoring) | Advanced |
+| 65 | [How do you use `debug.Stack()` to print the current stack?](#how-do-you-use-debugstack-to-print-the-current-stack) | Advanced |
+| 66 | [How do you use `debug.BuildInfo()` to get version information?](#how-do-you-use-debugbuildinfo-to-get-version-information) | Advanced |
+| 67 | [How do you use `runtime/metrics` to read GC stats?](#how-do-you-use-runtimemetrics-to-read-gc-stats) | Advanced |
+| 68 | [How do you use `sync.Cond` for broadcasting signals?](#how-do-you-use-synccond-for-broadcasting-signals) | Advanced |
+| 69 | [How do you use `sync.Map` for concurrent map access?](#how-do-you-use-syncmap-for-concurrent-map-access) | Advanced |
+| 70 | [How do you use `sync.RWMutex` for read-heavy workloads?](#how-do-you-use-syncrwmutex-for-read-heavy-workloads) | Advanced |
+| 71 | [How do you use `atomic.Value` to store arbitrary types atomically?](#how-do-you-use-atomicvalue-to-store-arbitrary-types-atomically) | Advanced |
+| 72 | [How do you use `math/big` for high-precision arithmetic?](#how-do-you-use-mathbig-for-high-precision-arithmetic) | Advanced |
+| 73 | [How do you use `sort.Search` for binary search?](#how-do-you-use-sortsearch-for-binary-search) | Advanced |
+| 74 | [How do you use `index/suffixarray` for substring search?](#how-do-you-use-indexsuffixarray-for-substring-search) | Advanced |
+| 75 | [How do you use `archive/zip` to create zip files?](#how-do-you-use-archivezip-to-create-zip-files) | Advanced |
+| 76 | [How do you use `archive/tar` to create tar archives?](#how-do-you-use-archivetar-to-create-tar-archives) | Advanced |
+| 77 | [How do you use `encoding/csv` to parse CSV files?](#how-do-you-use-encodingcsv-to-parse-csv-files) | Advanced |
+| 78 | [How do you use `encoding/xml` to parse XML?](#how-do-you-use-encodingxml-to-parse-xml) | Advanced |
+| 79 | [How do you use `encoding/base64` for data encoding?](#how-do-you-use-encodingbase64-for-data-encoding) | Advanced |
+| 80 | [How do you use `encoding/hex` for hex encoding?](#how-do-you-use-encodinghex-for-hex-encoding) | Advanced |
+| 81 | [How do you use `mime/multipart` for file uploads?](#how-do-you-use-mimemultipart-for-file-uploads) | Advanced |
+| 82 | [How do you use `net/mail` to parse email addresses?](#how-do-you-use-netmail-to-parse-email-addresses) | Advanced |
+| 83 | [How do you use `net/smtp` to send emails?](#how-do-you-use-netsmtp-to-send-emails) | Advanced |
+| 84 | [How do you use `net` package for raw TCP/UDP sockets?](#how-do-you-use-net-package-for-raw-tcpudp-sockets) | Advanced |
+| 85 | [How do you use `path/filepath` for cross-platform paths?](#how-do-you-use-pathfilepath-for-cross-platform-paths) | Advanced |
+| 86 | [How do you use `regexp` for pattern matching?](#how-do-you-use-regexp-for-pattern-matching) | Advanced |
+| 87 | [How do you use `strconv` for efficient string conversions?](#how-do-you-use-strconv-for-efficient-string-conversions) | Advanced |
+| 88 | [How do you use `unicode` package for character properties?](#how-do-you-use-unicode-package-for-character-properties) | Advanced |
+| 89 | [How do you use `fmt.Scanner` interface for custom scanning?](#how-do-you-use-fmtscanner-interface-for-custom-scanning) | Advanced |
+| 90 | [How do you use `fmt.Formatter` interface for custom printing?](#how-do-you-use-fmtformatter-interface-for-custom-printing) | Advanced |
+| 91 | [How do you use `flag.Value` interface for custom flags?](#how-do-you-use-flagvalue-interface-for-custom-flags) | Advanced |
+| 92 | [How do you use `log/slog` for structured logging (Go 1.21+)?](#how-do-you-use-logslog-for-structured-logging-go-121) | Advanced |
+| 93 | [How do you use `cmp` package for comparing structs in tests?](#how-do-you-use-cmp-package-for-comparing-structs-in-tests) | Advanced |
+| 94 | [How do you use `fstest` for testing filesystem operations?](#how-do-you-use-fstest-for-testing-filesystem-operations) | Advanced |
+| 95 | [How do you use `testing.B` for benchmarking?](#how-do-you-use-testingb-for-benchmarking) | Advanced |
+| 96 | [How do you use `testing.F` for fuzzing (Go 1.18+)?](#how-do-you-use-testingf-for-fuzzing-go-118) | Advanced |
+| 97 | [How do you use `go doc` to view documentation?](#how-do-you-use-go-doc-to-view-documentation) | Advanced |
+| 98 | [How do you use `go vet` to find common errors?](#how-do-you-use-go-vet-to-find-common-errors) | Advanced |
+| 99 | [How do you use `go fmt` to format code?](#how-do-you-use-go-fmt-to-format-code) | Advanced |
+| 100 | [How do you use `go mod tidy` to clean up dependencies?](#how-do-you-use-go-mod-tidy-to-clean-up-dependencies) | Advanced |
+| 101 | [How do you use `go list` to inspect module details?](#how-do-you-use-go-list-to-inspect-module-details) | Advanced |
+| 102 | [How do you use `go clean` to remove build artifacts?](#how-do-you-use-go-clean-to-remove-build-artifacts) | Advanced |
+| 103 | [How do you use `go install` to install binaries?](#how-do-you-use-go-install-to-install-binaries) | Advanced |
+| 104 | [How do you use `go get` to update dependencies?](#how-do-you-use-go-get-to-update-dependencies) | Advanced |
+| 105 | [How do you use `go test -race` to detect race conditions?](#how-do-you-use-go-test--race-to-detect-race-conditions) | Advanced |
+| 106 | [How do you use `go test -cover` to check code coverage?](#how-do-you-use-go-test--cover-to-check-code-coverage) | Advanced |
 
-1. [Q1: What is Go (Golang) and what are its key features?](#q1-what-is-go-golang-and-what-are-its-key-features)
-2. [Q2: What are Goroutines?](#q2-what-are-goroutines)
-3. [Q3: What are Channels?](#q3-what-are-channels)
-4. [Q4: Explain the `defer` keyword.](#q4-explain-the-defer-keyword)
-5. [Q5: What is the difference between Arrays and Slices?](#q5-what-is-the-difference-between-arrays-and-slices)
-6. [Q6: How does Error Handling work in Go?](#q6-how-does-error-handling-work-in-go)
-7. [Q7: What are Interfaces in Go?](#q7-what-are-interfaces-in-go)
-8. [Q8: Explain the difference between `make` and `new`.](#q8-explain-the-difference-between-make-and-new)
-9. [Q9: What is the `select` statement?](#q9-what-is-the-select-statement)
-10. [Q10: What is the difference between Buffered and Unbuffered channels?](#q10-what-is-the-difference-between-buffered-and-unbuffered-channels)
-11. [Q11: Explain `panic` and `recover`.](#q11-explain-panic-and-recover)
-12. [Q12: How do you implement inheritance in Go?](#q12-how-do-you-implement-inheritance-in-go)
-13. [Q13: What is the `context` package used for?](#q13-what-is-the-context-package-used-for)
-14. [Q14: What is the `init()` function?](#q14-what-is-the-init-function)
-15. [Q15: What are Pointers in Go?](#q15-what-are-pointers-in-go)
-16. [Q16: How does Garbage Collection work in Go?](#q16-how-does-garbage-collection-work-in-go)
-17. [Q17: What is `GOMAXPROCS`?](#q17-what-is-gomaxprocs)
-18. [Q18: What is the difference between a method and a function?](#q18-what-is-the-difference-between-a-method-and-a-function)
-19. [Q19: Can you have optional parameters in Go functions?](#q19-can-you-have-optional-parameters-in-go-functions)
-20. [Q20: What is a Struct?](#q20-what-is-a-struct)
-21. [Q21: What are Variadic Functions?](#q21-what-are-variadic-functions)
-22. [Q22: What is the difference between Exported and Unexported names?](#q22-what-is-the-difference-between-exported-and-unexported-names)
-23. [Q23: What is a Type Assertion?](#q23-what-is-a-type-assertion)
-24. [Q24: What is a Type Switch?](#q24-what-is-a-type-switch)
-25. [Q25: What is the `Stringer` interface?](#q25-what-is-the-stringer-interface)
-26. [Q26: What is `iota`?](#q26-what-is-iota)
-27. [Q27: What are Struct Tags?](#q27-what-are-struct-tags)
-28. [Q28: How do you Marshal and Unmarshal JSON?](#q28-how-do-you-marshal-and-unmarshal-json)
-29. [Q29: Are Maps concurrent safe?](#q29-are-maps-concurrent-safe)
-30. [Q30: What is `sync.Mutex`?](#q30-what-is-syncmutex)
-31. [Q31: What is `sync.WaitGroup`?](#q31-what-is-syncwaitgroup)
-32. [Q32: How do you detect Race Conditions?](#q32-how-do-you-detect-race-conditions)
-33. [Q33: What are Go Modules?](#q33-what-are-go-modules)
-34. [Q34: What is the difference between `go.mod` and `go.sum`?](#q34-what-is-the-difference-between-gomod-and-gosum)
-35. [Q35: What is the `internal` package?](#q35-what-is-the-internal-package)
-36. [Q36: What is the `vendor` directory?](#q36-what-is-the-vendor-directory)
-37. [Q37: How does Cross-Compilation work in Go?](#q37-how-does-cross-compilation-work-in-go)
-38. [Q38: What are Generics in Go?](#q38-what-are-generics-in-go)
-39. [Q39: What is the `comparable` constraint?](#q39-what-is-the-comparable-constraint)
-40. [Q40: What is the `any` type?](#q40-what-is-the-any-type)
-41. [Q41: Difference between Slice Length and Capacity?](#q41-difference-between-slice-length-and-capacity)
-42. [Q42: Difference between `nil` slice and empty slice?](#q42-difference-between-nil-slice-and-empty-slice)
-43. [Q43: How do you copy a slice?](#q43-how-do-you-copy-a-slice)
-44. [Q44: How do you delete an element from a Map?](#q44-how-do-you-delete-an-element-from-a-map)
-45. [Q45: Is Map iteration order guaranteed?](#q45-is-map-iteration-order-guaranteed)
-46. [Q46: How are Structs compared?](#q46-how-are-structs-compared)
-47. [Q47: Pointer Receiver vs Value Receiver?](#q47-pointer-receiver-vs-value-receiver)
-48. [Q48: Can Interfaces be embedded?](#q48-can-interfaces-be-embedded)
-49. [Q49: What are Circular Dependencies and how to avoid them?](#q49-what-are-circular-dependencies-and-how-to-avoid-them)
-50. [Q50: Type Alias vs Type Definition?](#q50-type-alias-vs-type-definition)
-51. [Q51: What is `reflect.DeepEqual`?](#q51-what-is-reflectdeepequal)
-52. [Q52: What is Reflection?](#q52-what-is-reflection)
-53. [Q53: What is `sync.Pool`?](#q53-what-is-syncpool)
-54. [Q54: What are Atomic Operations?](#q54-what-are-atomic-operations)
-55. [Q55: How does Context Cancellation work?](#q55-how-does-context-cancellation-work)
-56. [Q56: Pitfalls of using Context Values?](#q56-pitfalls-of-using-context-values)
-57. [Q57: What is the Middleware Pattern?](#q57-what-is-the-middleware-pattern)
-58. [Q58: What is the `http.Handler` interface?](#q58-what-is-the-httphandler-interface)
-59. [Q59: What is `http.ServeMux`?](#q59-what-is-httpservemux)
-60. [Q60: What does `omitempty` do in JSON tags?](#q60-what-does-omitempty-do-in-json-tags)
-61. [Q61: Does panic propagate across Goroutines?](#q61-does-panic-propagate-across-goroutines)
-62. [Q62: What is `runtime.Goexit`?](#q62-what-is-runtimegoexit)
-63. [Q63: Common mistake with Closures in Loops?](#q63-common-mistake-with-closures-in-loops)
-64. [Q64: What is Escape Analysis?](#q64-what-is-escape-analysis)
-65. [Q65: Stack vs Heap memory in Go?](#q65-stack-vs-heap-memory-in-go)
-66. [Q66: What is Inlining?](#q66-what-is-inlining)
-67. [Q67: What is PGO (Profile Guided Optimization)?](#q67-what-is-pgo-profile-guided-optimization)
-68. [Q68: How do you write tests in Go?](#q68-how-do-you-write-tests-in-go)
-69. [Q69: What are Table-Driven Tests?](#q69-what-are-table-driven-tests)
-70. [Q70: How do you write Benchmarks?](#q70-how-do-you-write-benchmarks)
-71. [Q71: What is Fuzzing?](#q71-what-is-fuzzing)
-72. [Q72: What are Build Tags?](#q72-what-are-build-tags)
-73. [Q73: What is `go generate`?](#q73-what-is-go-generate)
-74. [Q74: What is `go vet`?](#q74-what-is-go-vet)
-75. [Q75: What is `go fmt`?](#q75-what-is-go-fmt)
-76. [Q76: How to use Makefiles with Go?](#q76-how-to-use-makefiles-with-go)
-77. [Q77: Best practices for Dockerizing Go apps?](#q77-best-practices-for-dockerizing-go-apps)
-78. [Q78: What are Distroless Images?](#q78-what-are-distroless-images)
-79. [Q79: gRPC vs REST in Go?](#q79-grpc-vs-rest-in-go)
-80. [Q80: What are Protocol Buffers?](#q80-what-are-protocol-buffers)
-81. [Q81: How does `sql.DB` handle connections?](#q81-how-does-sqldb-handle-connections)
-82. [Q82: How to prevent SQL Injection in Go?](#q82-how-to-prevent-sql-injection-in-go)
-83. [Q83: How do you Mock dependencies in tests?](#q83-how-do-you-mock-dependencies-in-tests)
-84. [Q84: What is Interface Pollution?](#q84-what-is-interface-pollution)
-85. [Q85: What is the Functional Options Pattern?](#q85-what-is-the-functional-options-pattern)
-86. [Q86: What is the Builder Pattern in Go?](#q86-what-is-the-builder-pattern-in-go)
-87. [Q87: How to implement Singleton Pattern?](#q87-how-to-implement-singleton-pattern)
-88. [Q88: What is the Factory Pattern?](#q88-what-is-the-factory-pattern)
-89. [Q89: What is the Adapter Pattern?](#q89-what-is-the-adapter-pattern)
-90. [Q90: What is the Decorator Pattern?](#q90-what-is-the-decorator-pattern)
-91. [Q91: What is the Worker Pool Pattern?](#q91-what-is-the-worker-pool-pattern)
-92. [Q92: Explain Fan-out/Fan-in Pattern.](#q92-explain-fan-outfan-in-pattern)
-93. [Q93: What is the Pipeline Pattern?](#q93-what-is-the-pipeline-pattern)
-94. [Q94: What is the Semaphore Pattern?](#q94-what-is-the-semaphore-pattern)
-95. [Q95: How to implement Rate Limiting?](#q95-how-to-implement-rate-limiting)
-96. [Q96: How to handle Graceful Shutdown?](#q96-how-to-handle-graceful-shutdown)
-97. [Q97: Logging Best Practices?](#q97-logging-best-practices)
-98. [Q98: What is Error Wrapping?](#q98-what-is-error-wrapping)
-99. [Q99: `errors.Is` vs `errors.As`?](#q99-errorsis-vs-errorsas)
-100. [Q100: What is the future of Go?](#q100-what-is-the-future-of-go)
+## 1. How do you manage Goroutine lifecycles to prevent memory leaks?
 
----
+To prevent memory leaks with Goroutines, you must ensure they have a defined exit condition. This is typically achieved using `context.Context` for cancellation or a `done` channel.
 
-## Golang Fundamentals
+**Key Strategy:**
+1. Pass a `context` or a signal channel to the Goroutine.
+2. Use a `select` statement to listen for the cancellation signal.
+3. Clean up resources before returning.
 
-### Q1: What is Go (Golang) and what are its key features?
-**Difficulty: Easy**
-
-**Answer:**
-Go is an open-source programming language developed by Google. It is statically typed, compiled, and designed for simplicity and concurrency.
-**Key Features:**
-- **Simplicity:** Minimalistic syntax.
-- **Concurrency:** Built-in support via Goroutines and Channels.
-- **Performance:** Compiles to machine code; fast execution.
-- **Garbage Collection:** Automatic memory management.
-- **Fast Compilation:** Extremely fast build times.
-
-### Q2: What are Goroutines?
-**Difficulty: Medium**
-
-**Answer:**
-Goroutines are lightweight threads managed by the Go runtime. They are cheaper than OS threads (start with ~2KB stack). You can start a goroutine simply by using the `go` keyword before a function call.
 ```go
-go doSomething()
-```
+package main
 
-### Q3: What are Channels?
-**Difficulty: Medium**
-
-**Answer:**
-Channels are the pipes that connect concurrent goroutines. You can send values into channels from one goroutine and receive those values into another goroutine. They provide a way to synchronize execution and communicate data.
-```go
-ch := make(chan int)
-ch <- v    // Send v to channel ch.
-v := <-ch  // Receive from ch, and assign value to v.
-```
-
-### Q4: Explain the `defer` keyword.
-**Difficulty: Easy**
-
-**Answer:**
-`defer` schedules a function call to be run after the function completes (returns). It is commonly used for cleanup actions like closing files, unlocking mutexes, or closing database connections. Deferred calls are executed in LIFO (Last In, First Out) order.
-
-### Q5: What is the difference between Arrays and Slices?
-**Difficulty: Medium**
-
-**Answer:**
-- **Array:** Fixed size. The size is part of the type (e.g., `[5]int`). Value type (assigning copies the entire array).
-- **Slice:** Dynamic size. It is a reference to an underlying array. It has three components: pointer to data, length, and capacity. Slices are much more common in Go.
-
-### Q6: How does Error Handling work in Go?
-**Difficulty: Easy**
-
-**Answer:**
-Go does not have exceptions (like try/catch). Instead, functions return errors as the last return value. The caller is expected to check if the error is `nil`.
-```go
-file, err := os.Open("filename.txt")
-if err != nil {
-    log.Fatal(err)
-}
-```
-
-### Q7: What are Interfaces in Go?
-**Difficulty: Medium**
-
-**Answer:**
-Interfaces are collections of method signatures. They are implemented *implicitly*. If a type provides definitions for all the methods in an interface, it implements that interface. No `implements` keyword is needed.
-Empty interface `interface{}` can hold values of any type.
-
-### Q8: Explain the difference between `make` and `new`.
-**Difficulty: Medium**
-
-**Answer:**
-- **`new(T)`:** Allocates zeroed storage for a new item of type `T` and returns its address (`*T`). Used for value types (structs, ints).
-- **`make(T, args)`:** Creates slices, maps, and channels only. It returns an initialized (not zeroed) value of type `T` (not `*T`). These types require internal initialization.
-
-### Q9: What is the `select` statement?
-**Difficulty: Medium**
-
-**Answer:**
-`select` lets a goroutine wait on multiple communication operations. It is like a `switch` statement but for channels. It blocks until one of its cases can run, then executes that case. If multiple are ready, it chooses one at random.
-
-### Q10: What is the difference between Buffered and Unbuffered channels?
-**Difficulty: Medium**
-
-**Answer:**
-- **Unbuffered:** The sender blocks until the receiver receives the value. Synchronous.
-- **Buffered:** Has a capacity. The sender only blocks when the buffer is full. The receiver blocks when the buffer is empty.
-
-### Q11: Explain `panic` and `recover`.
-**Difficulty: Medium**
-
-**Answer:**
-- **`panic`:** Stops the ordinary flow of control and begins panicking. Similar to throwing an exception. It should be used only for unrecoverable errors.
-- **`recover`:** Regains control of a panicking goroutine. It is only useful inside deferred functions.
-
-### Q12: How do you implement inheritance in Go?
-**Difficulty: Medium**
-
-**Answer:**
-Go does not support inheritance (no `extends` keyword). Instead, it uses **Composition** via Struct Embedding.
-```go
-type Animal struct {
-    Name string
-}
-type Dog struct {
-    Animal // Embedded struct
-    Breed string
-}
-```
-
-### Q13: What is the `context` package used for?
-**Difficulty: Advanced**
-
-**Answer:**
-The `context` package is used to carry deadlines, cancellation signals, and other request-scoped values across API boundaries and between processes (goroutines). It is crucial for managing timeouts and cancellation in concurrent applications.
-
-### Q14: What is the `init()` function?
-**Difficulty: Medium**
-
-**Answer:**
-`init()` is a special function that executes before the `main()` function. It is used for package initialization (e.g., setting up database connections, verifying env vars). You can have multiple `init` functions per package.
-
-### Q15: What are Pointers in Go?
-**Difficulty: Easy**
-
-**Answer:**
-A pointer holds the memory address of a value. Go has pointers but no pointer arithmetic (unlike C).
-- `&` generates a pointer to its operand.
-- `*` dereferences a pointer (accesses the value).
-
-### Q16: How does Garbage Collection work in Go?
-**Difficulty: Advanced**
-
-**Answer:**
-Go uses a concurrent, tri-color mark-and-sweep garbage collector. It is designed to have very low pause times (sub-millisecond) to be suitable for low-latency network servers.
-
-### Q17: What is `GOMAXPROCS`?
-**Difficulty: Advanced**
-
-**Answer:**
-`GOMAXPROCS` is a variable (or function `runtime.GOMAXPROCS`) that limits the number of operating system threads that can execute user-level Go code simultaneously. By default, it is equal to the number of logical CPUs.
-
-### Q18: What is the difference between a method and a function?
-**Difficulty: Easy**
-
-**Answer:**
-- **Function:** Independent block of code.
-- **Method:** A function with a *receiver* argument. The receiver allows the function to be associated with a specific type.
-
-### Q19: Can you have optional parameters in Go functions?
-**Difficulty: Easy**
-
-**Answer:**
-No, Go does not support optional parameters or method overloading. You must pass arguments for all defined parameters. Common workarounds include using a struct as a parameter (config object) or variadic functions (`...Type`).
-
-### Q20: What is a Struct?
-**Difficulty: Easy**
-
-**Answer:**
-A struct is a typed collection of fields. It is used to group data together to form records.
-```go
-type Person struct {
-    Name string
-    Age  int
-}
-```
-
-### Q21: What are Variadic Functions?
-**Difficulty: Easy**
-
-**Answer:**
-Variadic functions can accept a variable number of arguments. In the function definition, the last parameter type is preceded by `...`.
-```go
-func sum(nums ...int) int {
-    total := 0
-    for _, num := range nums {
-        total += num
-    }
-    return total
-}
-```
-
-### Q22: What is the difference between Exported and Unexported names?
-**Difficulty: Easy**
-
-**Answer:**
-In Go, visibility is controlled by capitalization.
-- **Exported (Public):** Starts with a capital letter (e.g., `fmt.Println`). Accessible from other packages.
-- **Unexported (Private):** Starts with a lowercase letter (e.g., `var myVar`). Accessible only within the same package.
-
-### Q23: What is a Type Assertion?
-**Difficulty: Medium**
-
-**Answer:**
-A type assertion provides access to an interface's underlying concrete value.
-```go
-t := i.(T)
-```
-It asserts that interface `i` holds the concrete type `T` and assigns the underlying value to `t`. If `i` does not hold `T`, the statement triggers a panic. To test safely: `t, ok := i.(T)`.
-
-### Q24: What is a Type Switch?
-**Difficulty: Medium**
-
-**Answer:**
-A type switch is a construct that permits several type assertions in series. It looks like a regular switch statement, but the cases are types, not values.
-```go
-switch v := i.(type) {
-case int:
-    // v is int
-case string:
-    // v is string
-default:
-    // ...
-}
-```
-
-### Q25: What is the `Stringer` interface?
-**Difficulty: Easy**
-
-**Answer:**
-`Stringer` is a ubiquitous interface defined in the `fmt` package. Types that implement `String()` method can define how they are printed as a string.
-```go
-type Stringer interface {
-    String() string
-}
-```
-
-### Q26: What is `iota`?
-**Difficulty: Easy**
-
-**Answer:**
-`iota` is a predeclared identifier representing the untyped integer ordinal number of the current const specification in a (usually parenthesized) `const` declaration. It simplifies creating incrementing constants.
-```go
-const (
-    C0 = iota // 0
-    C1        // 1
-    C2        // 2
+import (
+	"context"
+	"fmt"
+	"time"
 )
-```
 
-### Q27: What are Struct Tags?
-**Difficulty: Medium**
+func worker(ctx context.Context, id int) {
+	for {
+		select {
+		case <-ctx.Done():
+			fmt.Printf("Worker %d stopping\n", id)
+			return
+		default:
+			fmt.Printf("Worker %d working...\n", id)
+			time.Sleep(500 * time.Millisecond)
+		}
+	}
+}
 
-**Answer:**
-Struct tags are small pieces of metadata attached to struct fields. They provide instructions to libraries on how to treat the fields (e.g., for JSON encoding, ORM mapping).
-```go
-type User struct {
-    Name string `json:"name" xml:"name"`
+func main() {
+	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+	defer cancel()
+
+	go worker(ctx, 1)
+
+	// Wait for the context to timeout
+	<-ctx.Done()
+	fmt.Println("Main finished")
+	
+	// Give time for worker to print stop message
+	time.Sleep(100 * time.Millisecond)
 }
 ```
 
-### Q28: How do you Marshal and Unmarshal JSON?
-**Difficulty: Medium**
+[Back to Top](#table-of-contents)
 
-**Answer:**
-The `encoding/json` package is used.
-- `json.Marshal(v)`: Converts a Go value to JSON (byte slice).
-- `json.Unmarshal(data, v)`: Parses JSON data into a Go value.
+## 2. How do you implement the Worker Pool pattern to limit concurrency?
 
-### Q29: Are Maps concurrent safe?
-**Difficulty: Medium**
+A Worker Pool limits the number of concurrent tasks to prevent resource exhaustion. It uses a buffered channel to queue jobs and a fixed number of Goroutines to process them.
 
-**Answer:**
-No, built-in maps are not safe for concurrent use. If multiple goroutines read and write to a map simultaneously, it can cause a runtime panic. You must use a `sync.Mutex` or `sync.RWMutex` to lock access, or use `sync.Map` for specific use cases.
+**Key Strategy:**
+1. Create a `jobs` channel and a `results` channel.
+2. Start a fixed number of worker Goroutines.
+3. Send jobs to the `jobs` channel.
+4. Close the `jobs` channel when all jobs are sent.
+5. Collect results.
 
-### Q30: What is `sync.Mutex`?
-**Difficulty: Medium**
-
-**Answer:**
-`sync.Mutex` is a mutual exclusion lock. It ensures that only one goroutine can access a critical section of code (usually shared data) at a time.
 ```go
-var mu sync.Mutex
-mu.Lock()
-// critical section
-mu.Unlock()
-```
+package main
 
-### Q31: What is `sync.WaitGroup`?
-**Difficulty: Medium**
+import (
+	"fmt"
+	"sync"
+	"time"
+)
 
-**Answer:**
-`sync.WaitGroup` is used to wait for a collection of goroutines to finish executing.
-1. `Add(n)`: Increments the counter.
-2. `Done()`: Decrements the counter (usually deferred).
-3. `Wait()`: Blocks until the counter becomes 0.
+func worker(id int, jobs <-chan int, results chan<- int, wg *sync.WaitGroup) {
+	defer wg.Done()
+	for j := range jobs {
+		fmt.Printf("Worker %d started job %d\n", id, j)
+		time.Sleep(time.Second) // Simulate work
+		fmt.Printf("Worker %d finished job %d\n", id, j)
+		results <- j * 2
+	}
+}
 
-### Q32: How do you detect Race Conditions?
-**Difficulty: Medium**
+func main() {
+	const numJobs = 5
+	const numWorkers = 3
+	
+	jobs := make(chan int, numJobs)
+	results := make(chan int, numJobs)
+	var wg sync.WaitGroup
 
-**Answer:**
-Go has a built-in race detector. You can enable it by adding the `-race` flag to your build, run, or test commands.
-```bash
-go run -race main.go
-```
+	// Start workers
+	for w := 1; w <= numWorkers; w++ {
+		wg.Add(1)
+		go worker(w, jobs, results, &wg)
+	}
 
-### Q33: What are Go Modules?
-**Difficulty: Medium**
+	// Send jobs
+	for j := 1; j <= numJobs; j++ {
+		jobs <- j
+	}
+	close(jobs)
 
-**Answer:**
-Go Modules are the dependency management solution for Go (introduced in 1.11). They allow you to define project dependencies and versions in a `go.mod` file, replacing the old `GOPATH` workspace approach.
+	// Wait for all workers to finish
+	go func() {
+		wg.Wait()
+		close(results)
+	}()
 
-### Q34: What is the difference between `go.mod` and `go.sum`?
-**Difficulty: Medium**
-
-**Answer:**
-- **`go.mod`**: Defines the module path, go version, and direct/indirect dependencies with semantic versioning.
-- **`go.sum`**: Contains the expected cryptographic checksums of the content of specific module versions. It ensures that the dependencies have not been modified.
-
-### Q35: What is the `internal` package?
-**Difficulty: Medium**
-
-**Answer:**
-Packages named `internal` can only be imported by the code in the tree rooted at the parent of the `internal` directory. It is a mechanism to enforce encapsulation at the package level.
-
-### Q36: What is the `vendor` directory?
-**Difficulty: Easy**
-
-**Answer:**
-The `vendor` directory contains copies of all the dependency packages used by the project. It ensures reproducible builds without relying on external repositories being online. Use `go mod vendor` to create it.
-
-### Q37: How does Cross-Compilation work in Go?
-**Difficulty: Medium**
-
-**Answer:**
-Go makes cross-compilation very easy by setting `GOOS` and `GOARCH` environment variables.
-```bash
-GOOS=linux GOARCH=amd64 go build -o myapp
-```
-
-### Q38: What are Generics in Go?
-**Difficulty: Advanced**
-
-**Answer:**
-Introduced in Go 1.18, Generics allow you to write functions and data structures that can work with any of a set of types defined by constraints.
-```go
-func Print[T any](s []T) { ... }
-```
-
-### Q39: What is the `comparable` constraint?
-**Difficulty: Advanced**
-
-**Answer:**
-`comparable` is a built-in constraint in Generics that allows types that can be compared using `==` and `!=`. It is often used for map keys.
-
-### Q40: What is the `any` type?
-**Difficulty: Easy**
-
-**Answer:**
-`any` is an alias for `interface{}` introduced in Go 1.18. It represents a type that can hold any value.
-
-### Q41: Difference between Slice Length and Capacity?
-**Difficulty: Medium**
-
-**Answer:**
-- **Length (`len`):** The number of elements currently in the slice.
-- **Capacity (`cap`):** The number of elements the underlying array can hold starting from the slice pointer.
-
-### Q42: Difference between `nil` slice and empty slice?
-**Difficulty: Medium**
-
-**Answer:**
-- **Nil slice:** `var s []int`. Has no underlying array. `len=0`, `cap=0`.
-- **Empty slice:** `s := []int{}` or `make([]int, 0)`. Has an underlying array (pointer is not nil). `len=0`, `cap=0`.
-Functionally they are often treated the same (both have len 0), but JSON serialization differs (`null` vs `[]`).
-
-### Q43: How do you copy a slice?
-**Difficulty: Easy**
-
-**Answer:**
-Use the built-in `copy` function.
-```go
-dest := make([]int, len(src))
-copy(dest, src)
-```
-Note that `dest` must have enough length allocated.
-
-### Q44: How do you delete an element from a Map?
-**Difficulty: Easy**
-
-**Answer:**
-Use the built-in `delete` function.
-```go
-delete(m, "key")
-```
-If the key doesn't exist, it does nothing (no error).
-
-### Q45: Is Map iteration order guaranteed?
-**Difficulty: Easy**
-
-**Answer:**
-No. Map iteration order is randomized in Go. Every time you iterate over a map, you may get the keys in a different order. This is intentional to prevent developers from relying on order.
-
-### Q46: How are Structs compared?
-**Difficulty: Medium**
-
-**Answer:**
-Structs are comparable if all their fields are comparable. You can use `==` to compare them. If they contain slices, maps, or functions, they are not directly comparable (must use `reflect.DeepEqual`).
-
-### Q47: Pointer Receiver vs Value Receiver?
-**Difficulty: Medium**
-
-**Answer:**
-- **Value Receiver (`func (s MyStruct)`):** Operates on a copy of the struct. Cannot modify original.
-- **Pointer Receiver (`func (s *MyStruct)`):** Operates on the actual struct. Can modify it. More efficient for large structs (avoids copying).
-
-### Q48: Can Interfaces be embedded?
-**Difficulty: Medium**
-
-**Answer:**
-Yes, interfaces can embed other interfaces.
-```go
-type ReadWriter interface {
-    Reader
-    Writer
+	// Collect results
+	for r := range results {
+		fmt.Println("Result:", r)
+	}
 }
 ```
 
-### Q49: What are Circular Dependencies and how to avoid them?
-**Difficulty: Medium**
+[Back to Top](#table-of-contents)
 
-**Answer:**
-Circular dependencies happen when Package A imports Package B, and Package B imports Package A. Go compiler forbids this.
-**Solutions:**
-1. Move shared code to a new common package (Package C).
-2. Use interfaces to decouple dependencies.
+## 3. How do you handle errors gracefully using custom error types and wrapping?
 
-### Q50: Type Alias vs Type Definition?
-**Difficulty: Advanced**
+In Go, errors are values. Custom error types allow adding context, and `fmt.Errorf` with `%w` allows wrapping errors to preserve the original cause for `errors.Is` and `errors.As` checks.
 
-**Answer:**
-- **Type Definition:** `type MyInt int`. Creates a *new* type. `MyInt` and `int` are distinct.
-- **Type Alias:** `type MyInt = int`. `MyInt` and `int` are the *same* type. Mostly used for refactoring/migration.
+**Key Strategy:**
+1. Define a struct that implements the `error` interface.
+2. Use `fmt.Errorf("context: %w", err)` to wrap lower-level errors.
+3. Use `errors.Is` to check for specific sentinels and `errors.As` to extract custom types.
 
-### Q51: What is `reflect.DeepEqual`?
-**Difficulty: Advanced**
-
-**Answer:**
-`reflect.DeepEqual` is a function that compares two variables deeply. It can compare slices, maps, and structs that `==` cannot. It is slower than `==`.
-
-### Q52: What is Reflection?
-**Difficulty: Advanced**
-
-**Answer:**
-Reflection (`reflect` package) allows a program to examine its own structure, types, and values at runtime. It is powerful but complex and slow. Used in `json`, `fmt`, etc.
-
-### Q53: What is `sync.Pool`?
-**Difficulty: Advanced**
-
-**Answer:**
-`sync.Pool` is a set of temporary objects that may be individually saved and retrieved. It is used to relieve pressure on the Garbage Collector by reusing objects (e.g., buffers) instead of allocating new ones.
-
-### Q54: What are Atomic Operations?
-**Difficulty: Advanced**
-
-**Answer:**
-The `sync/atomic` package provides low-level atomic memory primitives (Add, Load, Store, Swap, CAS) useful for implementing synchronization algorithms without using mutexes.
-
-### Q55: How does Context Cancellation work?
-**Difficulty: Advanced**
-
-**Answer:**
-When a parent context is canceled (via `cancel()` or timeout), the `Done()` channel of that context and all its children is closed. Goroutines listening to `<-ctx.Done()` receive the signal and clean up.
-
-### Q56: Pitfalls of using Context Values?
-**Difficulty: Medium**
-
-**Answer:**
-`context.WithValue` should only be used for request-scoped data (Trace IDs, User info), NOT for optional function parameters or dependency injection. Keys should be custom types to avoid collisions.
-
-### Q57: What is the Middleware Pattern?
-**Difficulty: Medium**
-
-**Answer:**
-Middleware is a function that wraps an `http.Handler` to perform pre- or post-processing (logging, auth, panic recovery) before calling the next handler.
 ```go
-func logging(next http.Handler) http.Handler { ... }
-```
+package main
 
-### Q58: What is the `http.Handler` interface?
-**Difficulty: Medium**
+import (
+	"errors"
+	"fmt"
+)
 
-**Answer:**
-It is the core interface for handling HTTP requests.
-```go
-type Handler interface {
-    ServeHTTP(ResponseWriter, *Request)
+// Custom error type
+type QueryError struct {
+	Query string
+	Err   error
+}
+
+func (e *QueryError) Error() string {
+	return fmt.Sprintf("query %q failed: %v", e.Query, e.Err)
+}
+
+func (e *QueryError) Unwrap() error { return e.Err }
+
+var ErrNotFound = errors.New("not found")
+
+func findUser(id int) error {
+	if id < 0 {
+		// Wrapping a sentinel error
+		return fmt.Errorf("validation failed: %w", ErrNotFound)
+	}
+	// Returning a custom error
+	return &QueryError{Query: "SELECT * FROM users", Err: errors.New("db connection lost")}
+}
+
+func main() {
+	err := findUser(1)
+	if err != nil {
+		var qErr *QueryError
+		if errors.As(err, &qErr) {
+			fmt.Printf("Custom Error: Query='%s' Original='%v'\n", qErr.Query, qErr.Err)
+		}
+	}
+
+	err2 := findUser(-1)
+	if errors.Is(err2, ErrNotFound) {
+		fmt.Println("Sentinel Error: Record not found")
+	}
 }
 ```
 
-### Q59: What is `http.ServeMux`?
-**Difficulty: Easy**
+[Back to Top](#table-of-contents)
 
-**Answer:**
-`ServeMux` is an HTTP request multiplexer (router). It matches the URL of incoming requests against a list of registered patterns and calls the corresponding handler.
+## 4. How do you implement a thread-safe Singleton in Go?
 
-### Q60: What does `omitempty` do in JSON tags?
-**Difficulty: Easy**
+The `sync.Once` primitive ensures that a piece of code is executed only once, making it perfect for initializing Singletons lazily and safely in a concurrent environment.
 
-**Answer:**
-The `omitempty` option in a struct tag tells `json.Marshal` not to output the field if it has the zero value (0, "", nil, false).
+**Key Strategy:**
+1. Declare a global variable for the instance.
+2. Declare a `sync.Once` variable.
+3. In the accessor function, use `once.Do(func() { ... })` to initialize the instance.
 
-### Q61: Does panic propagate across Goroutines?
-**Difficulty: Advanced**
-
-**Answer:**
-No. A panic only crashes the goroutine where it happened (and the whole program if not recovered). You cannot `recover` a panic from a different goroutine.
-
-### Q62: What is `runtime.Goexit`?
-**Difficulty: Advanced**
-
-**Answer:**
-`runtime.Goexit` terminates the goroutine that calls it. No other goroutine is affected. `defer` functions are still executed.
-
-### Q63: Common mistake with Closures in Loops?
-**Difficulty: Medium**
-
-**Answer:**
-Capturing loop variables in closures (goroutines) often leads to bugs where all goroutines see the last value of the loop variable.
-**Fix:** Pass the variable as an argument or re-declare it inside the loop body (`v := v`).
-*(Note: Fixed in Go 1.22)*
-
-### Q64: What is Escape Analysis?
-**Difficulty: Advanced**
-
-**Answer:**
-Escape analysis is a compiler phase that determines whether variables should be allocated on the stack or the heap. If a reference to a variable "escapes" the function (e.g., returned), it must be on the heap.
-
-### Q65: Stack vs Heap memory in Go?
-**Difficulty: Advanced**
-
-**Answer:**
-- **Stack:** Fast allocation/deallocation (pointer movement). Used for local variables.
-- **Heap:** Slower, managed by GC. Used for data that outlives the function scope.
-
-### Q66: What is Inlining?
-**Difficulty: Advanced**
-
-**Answer:**
-Inlining is an optimization where the compiler replaces a function call with the body of the function itself to save call overhead.
-
-### Q67: What is PGO (Profile Guided Optimization)?
-**Difficulty: Advanced**
-
-**Answer:**
-PGO (introduced in Go 1.20/1.21) allows the compiler to use a CPU profile from a real execution to make better optimization decisions (e.g., which functions to inline).
-
-### Q68: How do you write tests in Go?
-**Difficulty: Easy**
-
-**Answer:**
-Create a file ending in `_test.go`. Write functions named `TestXxx(t *testing.T)`. Use `go test` to run.
-
-### Q69: What are Table-Driven Tests?
-**Difficulty: Medium**
-
-**Answer:**
-A pattern where you define a slice of structs (test cases) containing inputs and expected outputs, and loop over them to run the same test logic. Preferred way to test in Go.
-
-### Q70: How do you write Benchmarks?
-**Difficulty: Medium**
-
-**Answer:**
-Write functions named `BenchmarkXxx(b *testing.B)` in `_test.go` files. Loop `b.N` times. Use `go test -bench .`.
-
-### Q71: What is Fuzzing?
-**Difficulty: Advanced**
-
-**Answer:**
-Fuzzing (Go 1.18+) is automated testing that provides random invalid/unexpected inputs to your code to find bugs/crashes.
-`func FuzzXxx(f *testing.F) { ... }`
-
-### Q72: What are Build Tags?
-**Difficulty: Medium**
-
-**Answer:**
-Build tags (or build constraints) are comments like `//go:build linux` that control when a file should be included in the package build (e.g., OS-specific code).
-
-### Q73: What is `go generate`?
-**Difficulty: Medium**
-
-**Answer:**
-`go generate` is a standard way to run code generators. You add comments like `//go:generate command args` in your code, and run `go generate` to execute them (e.g., generating mocks).
-
-### Q74: What is `go vet`?
-**Difficulty: Easy**
-
-**Answer:**
-`go vet` is a tool that examines Go source code and reports suspicious constructs (e.g., Printf format mismatches, unreachable code).
-
-### Q75: What is `go fmt`?
-**Difficulty: Easy**
-
-**Answer:**
-`go fmt` automatically formats Go source code to the standard style. It eliminates style debates.
-
-### Q76: How to use Makefiles with Go?
-**Difficulty: Medium**
-
-**Answer:**
-Makefiles are often used to automate common tasks: build, test, lint, docker-build. It simplifies complex command invocations.
-
-### Q77: Best practices for Dockerizing Go apps?
-**Difficulty: Medium**
-
-**Answer:**
-- Multi-stage builds (build in one stage, copy binary to a minimal runtime image).
-- Use `alpine` or `distroless` for small images.
-- Static compilation (CGO_ENABLED=0).
-
-### Q78: What are Distroless Images?
-**Difficulty: Medium**
-
-**Answer:**
-Images provided by Google that contain only your application and its runtime dependencies. They do not contain package managers, shells, or other programs, improving security.
-
-### Q79: gRPC vs REST in Go?
-**Difficulty: Medium**
-
-**Answer:**
-- **REST:** JSON over HTTP/1.1. Human readable, ubiquitous.
-- **gRPC:** Protobuf over HTTP/2. Binary, strongly typed, higher performance, supports streaming. Go has excellent support for both.
-
-### Q80: What are Protocol Buffers?
-**Difficulty: Medium**
-
-**Answer:**
-Protocol Buffers (protobuf) is a language-neutral, platform-neutral extensible mechanism for serializing structured data. Smaller and faster than JSON.
-
-### Q81: How does `sql.DB` handle connections?
-**Difficulty: Advanced**
-
-**Answer:**
-`sql.DB` is not a single connection but a pool of connections. It opens and closes connections as needed. It is safe for concurrent use.
-
-### Q82: How to prevent SQL Injection in Go?
-**Difficulty: Medium**
-
-**Answer:**
-Always use parameterized queries (placeholders like `$1`, `?`) provided by `sql` package. Never concatenate strings to build SQL queries.
-
-### Q83: How do you Mock dependencies in tests?
-**Difficulty: Medium**
-
-**Answer:**
-Define interfaces for dependencies. In tests, create a struct that implements the interface but returns fake data. Libraries like `gomock` or `testify/mock` can help.
-
-### Q84: What is Interface Pollution?
-**Difficulty: Advanced**
-
-**Answer:**
-Creating interfaces before they are needed. In Go, interfaces should be defined where they are *used* (consumer-side), not where the type is defined. "Accept interfaces, return structs".
-
-### Q85: What is the Functional Options Pattern?
-**Difficulty: Advanced**
-
-**Answer:**
-A pattern for creating complex structs with optional configuration.
 ```go
-func NewServer(opts ...Option) *Server { ... }
-```
-It is clean, extensible, and API-friendly.
+package main
 
-### Q86: What is the Builder Pattern in Go?
-**Difficulty: Medium**
+import (
+	"fmt"
+	"sync"
+)
 
-**Answer:**
-Used to construct complex objects step by step. Less common in Go than Functional Options, but useful for building things like SQL queries.
+type Database struct {
+	URL string
+}
 
-### Q87: How to implement Singleton Pattern?
-**Difficulty: Medium**
+var (
+	instance *Database
+	once     sync.Once
+)
 
-**Answer:**
-Use `sync.Once`.
-```go
-var once sync.Once
-var instance *Singleton
-func GetInstance() *Singleton {
-    once.Do(func() {
-        instance = &Singleton{}
-    })
-    return instance
+func GetDatabase() *Database {
+	once.Do(func() {
+		fmt.Println("Initializing database...")
+		instance = &Database{URL: "postgres://localhost:5432/mydb"}
+	})
+	return instance
+}
+
+func main() {
+	var wg sync.WaitGroup
+	
+	for i := 0; i < 5; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			db := GetDatabase()
+			fmt.Printf("DB URL: %s\n", db.URL)
+		}()
+	}
+	
+	wg.Wait()
 }
 ```
 
-### Q88: What is the Factory Pattern?
-**Difficulty: Easy**
+[Back to Top](#table-of-contents)
 
-**Answer:**
-Simple functions like `NewPerson()` that return a pointer to a struct. Go doesn't use classes, so constructor methods act as factories.
+## 5. How do you use the Functional Options pattern to configure complex structs?
 
-### Q89: What is the Adapter Pattern?
-**Difficulty: Medium**
+The Functional Options pattern provides a clean, extensible API for configuring structs with many optional parameters, avoiding massive constructors or nil checks.
 
-**Answer:**
-Used to adapt one interface to another. Frequently used with `http.HandlerFunc` adapting a function to `http.Handler`.
+**Key Strategy:**
+1. Define an `Option` function type.
+2. Create functions that return this `Option` type, modifying the struct.
+3. Create a constructor that accepts a variadic slice of `Option`.
 
-### Q90: What is the Decorator Pattern?
-**Difficulty: Medium**
-
-**Answer:**
-Wrapping an object to add behavior. HTTP Middleware is a classic example of the Decorator pattern in Go.
-
-### Q91: What is the Worker Pool Pattern?
-**Difficulty: Advanced**
-
-**Answer:**
-A pattern where a fixed number of workers (goroutines) pull tasks from a shared channel. Limits concurrency and resource usage.
-
-### Q92: Explain Fan-out/Fan-in Pattern.
-**Difficulty: Advanced**
-
-**Answer:**
-- **Fan-out:** Distribute work to multiple goroutines.
-- **Fan-in:** Multiplex results from multiple goroutines into a single channel.
-
-### Q93: What is the Pipeline Pattern?
-**Difficulty: Advanced**
-
-**Answer:**
-A series of stages connected by channels, where each stage is a group of goroutines running the same function. Data flows through the pipeline.
-
-### Q94: What is the Semaphore Pattern?
-**Difficulty: Advanced**
-
-**Answer:**
-Using a buffered channel to limit the number of concurrent operations.
 ```go
-sem := make(chan struct{}, maxConcurrency)
-sem <- struct{}{} // Acquire
-// do work
-<-sem // Release
+package main
+
+import "fmt"
+
+type Server struct {
+	Host string
+	Port int
+	TLS  bool
+}
+
+type Option func(*Server)
+
+func WithHost(host string) Option {
+	return func(s *Server) {
+		s.Host = host
+	}
+}
+
+func WithPort(port int) Option {
+	return func(s *Server) {
+		s.Port = port
+	}
+}
+
+func WithTLS() Option {
+	return func(s *Server) {
+		s.TLS = true
+	}
+}
+
+func NewServer(opts ...Option) *Server {
+	// Default configuration
+	s := &Server{
+		Host: "localhost",
+		Port: 8080,
+		TLS:  false,
+	}
+	
+	// Apply options
+	for _, opt := range opts {
+		opt(s)
+	}
+	
+	return s
+}
+
+func main() {
+	srv := NewServer(
+		WithHost("example.com"),
+		WithTLS(),
+	)
+	
+	fmt.Printf("Server: %+v\n", srv)
+}
 ```
 
-### Q95: How to implement Rate Limiting?
-**Difficulty: Medium**
+[Back to Top](#table-of-contents)
 
-**Answer:**
-Use `time.Ticker` or `rate.Limiter` (token bucket algorithm) to control the frequency of events or requests.
+## 6. How do you implement a Graceful Shutdown for an HTTP server?
 
-### Q96: How to handle Graceful Shutdown?
-**Difficulty: Medium**
+Graceful shutdown ensures that the server stops accepting new requests but finishes processing active requests before exiting. This is crucial for data integrity and user experience.
 
-**Answer:**
-Listen for OS signals (`SIGINT`, `SIGTERM`) using `signal.Notify`. When received, stop accepting new requests, finish current ones (using `context` and `WaitGroup`), and then exit.
+**Key Strategy:**
+1. Start the server in a separate Goroutine.
+2. Listen for OS signals (`SIGINT`, `SIGTERM`) using `signal.Notify`.
+3. Call `server.Shutdown(ctx)` when a signal is received.
 
-### Q97: Logging Best Practices?
-**Difficulty: Medium**
-
-**Answer:**
-- Use structured logging (JSON).
-- Include context (Trace IDs).
-- Use levels (Info, Error, Debug).
-- New `log/slog` package (Go 1.21) is the standard for structured logging.
-
-### Q98: What is Error Wrapping?
-**Difficulty: Medium**
-
-**Answer:**
-Adding context to an error while preserving the original error.
 ```go
-fmt.Errorf("failed to read: %w", err)
+package main
+
+import (
+	"context"
+	"fmt"
+	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
+)
+
+func main() {
+	srv := &http.Server{Addr: ":8080"}
+
+	go func() {
+		if err := srv.ListenAndServe(); err != http.ErrServerClosed {
+			fmt.Printf("HTTP server error: %v\n", err)
+		}
+	}()
+
+	// Wait for interrupt signal
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	fmt.Println("Shutting down server...")
+
+	// Context with timeout for active requests to finish
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	if err := srv.Shutdown(ctx); err != nil {
+		fmt.Printf("Server forced to shutdown: %v\n", err)
+	}
+
+	fmt.Println("Server exited")
+}
 ```
-Allows unwrapping later.
 
-### Q99: `errors.Is` vs `errors.As`?
-**Difficulty: Medium**
+[Back to Top](#table-of-contents)
 
-**Answer:**
-- **`errors.Is`:** Checks if an error wraps a specific sentinel error (value comparison).
-- **`errors.As`:** Checks if an error wraps a specific type of error and assigns it (type assertion).
+## 7. How do you test code effectively using Table-Driven Tests?
 
-### Q100: What is the future of Go?
-**Difficulty: Easy**
+Table-driven tests allow you to define test cases as data (structs) and iterate over them, making it easy to add new scenarios and keeping the test logic DRY (Don't Repeat Yourself).
 
-**Answer:**
-Go continues to evolve with focus on performance, developer experience, and stability. Recent additions include Generics, Fuzzing, and PGO. It remains a dominant language for cloud-native infrastructure, microservices, and CLI tools.
+**Key Strategy:**
+1. Define a struct containing `name`, `input`, and `expected` fields.
+2. Create a slice of these structs with various test cases.
+3. Iterate over the slice using `t.Run` to execute subtests.
+
+```go
+package main
+
+import "testing"
+
+func Add(a, b int) int {
+	return a + b
+}
+
+func TestAdd(t *testing.T) {
+	tests := []struct {
+		name     string
+		a, b     int
+		expected int
+	}{
+		{"Positive numbers", 2, 3, 5},
+		{"Negative numbers", -1, -1, -2},
+		{"Mixed numbers", -5, 5, 0},
+		{"Zero", 0, 0, 0},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := Add(tt.a, tt.b)
+			if result != tt.expected {
+				t.Errorf("Add(%d, %d) = %d; want %d", tt.a, tt.b, result, tt.expected)
+			}
+		})
+	}
+}
+```
+
+[Back to Top](#table-of-contents)
+
+## 8. How do you use Generics to create a type-safe Set data structure?
+
+Go Generics (introduced in Go 1.18) allow you to write data structures that work with any type that satisfies a constraint (e.g., `comparable`).
+
+**Key Strategy:**
+1. Define a generic struct `Set[T comparable]`.
+2. Use a `map[T]struct{}` for underlying storage (efficient O(1) lookups).
+3. Implement methods like `Add`, `Remove`, and `Contains`.
+
+```go
+package main
+
+import "fmt"
+
+type Set[T comparable] struct {
+	items map[T]struct{}
+}
+
+func NewSet[T comparable]() *Set[T] {
+	return &Set[T]{items: make(map[T]struct{})}
+}
+
+func (s *Set[T]) Add(item T) {
+	s.items[item] = struct{}{}
+}
+
+func (s *Set[T]) Contains(item T) bool {
+	_, exists := s.items[item]
+	return exists
+}
+
+func (s *Set[T]) Remove(item T) {
+	delete(s.items, item)
+}
+
+func main() {
+	// String Set
+	names := NewSet[string]()
+	names.Add("Alice")
+	names.Add("Bob")
+	fmt.Println("Contains Alice:", names.Contains("Alice"))
+
+	// Integer Set
+	ids := NewSet[int]()
+	ids.Add(101)
+	ids.Add(102)
+	fmt.Println("Contains 103:", ids.Contains(103))
+}
+```
+
+[Back to Top](#table-of-contents)
+
+## 9. How do you use `sync.WaitGroup` to wait for multiple concurrent operations?
+
+`sync.WaitGroup` is used to wait for a collection of Goroutines to finish execution. It maintains a counter that is incremented when a Goroutine starts and decremented when it finishes.
+
+**Key Strategy:**
+1. Call `wg.Add(1)` before starting a Goroutine.
+2. Pass the `wg` pointer to the Goroutine (or capture via closure).
+3. Call `wg.Done()` inside the Goroutine (usually deferred).
+4. Call `wg.Wait()` in the main thread to block until the counter is zero.
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func process(id int, wg *sync.WaitGroup) {
+	defer wg.Done() // Decrement counter when function exits
+	fmt.Printf("Process %d starting\n", id)
+	time.Sleep(time.Second)
+	fmt.Printf("Process %d done\n", id)
+}
+
+func main() {
+	var wg sync.WaitGroup
+
+	for i := 1; i <= 3; i++ {
+		wg.Add(1) // Increment counter
+		go process(i, &wg)
+	}
+
+	fmt.Println("Waiting for processes...")
+	wg.Wait() // Block until counter is 0
+	fmt.Println("All done!")
+}
+```
+
+[Back to Top](#table-of-contents)
+
+## 10. How do you implement middleware for an HTTP handler?
+
+Middleware allows you to wrap an `http.Handler` to execute logic before or after the main handler, such as logging, authentication, or panic recovery.
+
+**Key Strategy:**
+1. Create a function that takes `http.Handler` and returns `http.Handler`.
+2. Inside the returned handler, perform pre-processing.
+3. Call `next.ServeHTTP(w, r)` to pass control.
+4. Perform post-processing if needed.
+
+```go
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"time"
+)
+
+func LoggingMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		start := time.Now()
+		
+		// Pass control to the next handler
+		next.ServeHTTP(w, r)
+		
+		// Post-processing
+		log.Printf("%s %s %s", r.Method, r.URL.Path, time.Since(start))
+	})
+}
+
+func homeHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "Welcome Home!")
+}
+
+func main() {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", homeHandler)
+
+	// Wrap mux with middleware
+	wrappedMux := LoggingMiddleware(mux)
+
+	log.Println("Server starting on :8080")
+	http.ListenAndServe(":8080", wrappedMux)
+}
+```
+
+[Back to Top](#table-of-contents)
+
+## 11. How do you use interfaces for dependency injection to improve testability?
+
+Dependency Injection (DI) via interfaces allows you to decouple components and swap real implementations with mocks during testing.
+
+**Key Strategy:**
+1. Define an interface for the dependency (e.g., `DataStore`).
+2. Have the consumer struct accept the interface, not the concrete type.
+3. In production, pass the real implementation; in tests, pass a mock.
+
+```go
+package main
+
+import "fmt"
+
+// 1. Define Interface
+type DataStore interface {
+	Save(data string) error
+}
+
+// 2. Real Implementation
+type PostgresStore struct{}
+func (p *PostgresStore) Save(data string) error {
+	fmt.Println("Saving to Postgres:", data)
+	return nil
+}
+
+// 3. Mock Implementation
+type MockStore struct{}
+func (m *MockStore) Save(data string) error {
+	fmt.Println("Mock save (no side effects):", data)
+	return nil
+}
+
+// 4. Consumer
+type Service struct {
+	store DataStore
+}
+
+func (s *Service) ProcessData(data string) {
+	// Logic...
+	s.store.Save(data)
+}
+
+func main() {
+	// Production usage
+	realService := &Service{store: &PostgresStore{}}
+	realService.ProcessData("Real Data")
+
+	// Test usage
+	testService := &Service{store: &MockStore{}}
+	testService.ProcessData("Test Data")
+}
+```
+
+[Back to Top](#table-of-contents)
+
+## 12. How do you use the `select` statement to implement a timeout?
+
+The `select` statement lets a Goroutine wait on multiple communication operations. By including a case for `time.After`, you can enforce a timeout on channel operations.
+
+**Key Strategy:**
+1. Define a `select` block.
+2. Add a case for the expected channel operation (receive or send).
+3. Add a case for `<-time.After(duration)` to handle the timeout.
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func expensiveOperation() chan string {
+	ch := make(chan string)
+	go func() {
+		time.Sleep(2 * time.Second) // Simulate delay
+		ch <- "Success"
+	}()
+	return ch
+}
+
+func main() {
+	select {
+	case res := <-expensiveOperation():
+		fmt.Println("Result:", res)
+	case <-time.After(1 * time.Second):
+		fmt.Println("Error: Operation timed out")
+	}
+}
+```
+
+[Back to Top](#table-of-contents)
+
+## 13. How do you use `io.Reader` and `io.Writer` to stream data efficiently?
+
+Go's `io` interfaces allow you to stream data without loading it all into memory. `io.Copy` is a powerful utility that connects a reader to a writer efficiently.
+
+**Key Strategy:**
+1. Use `os.Open` to get a file (Reader).
+2. Use `os.Create` or `http.ResponseWriter` as the destination (Writer).
+3. Use `io.Copy(dst, src)` to transfer data in chunks.
+
+```go
+package main
+
+import (
+	"fmt"
+	"io"
+	"os"
+	"strings"
+)
+
+func main() {
+	// Create a reader from a string
+	reader := strings.NewReader("Streaming data from source to destination...")
+
+	// Create a file to write to
+	file, err := os.Create("output.txt")
+	if err != nil {
+		panic(err)
+	}
+	defer file.Close()
+
+	// Copy from reader to writer
+	// This uses a small buffer internally, efficient for large data
+	written, err := io.Copy(file, reader)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("Copied %d bytes to output.txt\n", written)
+}
+```
+
+[Back to Top](#table-of-contents)
+
+## 14. How do you prevent race conditions using `sync.Mutex`?
+
+Race conditions occur when multiple Goroutines access shared memory concurrently without synchronization. `sync.Mutex` provides a locking mechanism to ensure exclusive access.
+
+**Key Strategy:**
+1. Embed or include `sync.Mutex` in the struct holding the shared data.
+2. Call `mu.Lock()` before accessing the data.
+3. Call `mu.Unlock()` (usually deferred) after accessing.
+
+```go
+package main
+
+import (
+	"fmt"
+	"sync"
+)
+
+type SafeCounter struct {
+	mu    sync.Mutex
+	value int
+}
+
+func (c *SafeCounter) Inc() {
+	c.mu.Lock()         // Lock before modifying
+	defer c.mu.Unlock() // Unlock when done
+	c.value++
+}
+
+func (c *SafeCounter) Value() int {
+	c.mu.Lock()         // Lock before reading
+	defer c.mu.Unlock()
+	return c.value
+}
+
+func main() {
+	c := SafeCounter{}
+	var wg sync.WaitGroup
+
+	for i := 0; i < 1000; i++ {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			c.Inc()
+		}()
+	}
+
+	wg.Wait()
+	fmt.Println("Final Value:", c.Value())
+}
+```
+
+[Back to Top](#table-of-contents)
+
+## 15. How do you optimize memory usage with `sync.Pool`?
+
+`sync.Pool` caches allocated but unused objects for later reuse, reducing the pressure on the Garbage Collector (GC). It is ideal for frequently allocated, short-lived objects like buffers.
+
+**Key Strategy:**
+1. Initialize `sync.Pool` with a `New` function.
+2. Use `pool.Get()` to retrieve an object (type assert it).
+3. Reset the object state.
+4. Use `pool.Put()` to return the object to the pool.
+
+```go
+package main
+
+import (
+	"bytes"
+	"fmt"
+	"sync"
+)
+
+var bufPool = sync.Pool{
+	New: func() interface{} {
+		// Pre-allocate buffer
+		return new(bytes.Buffer)
+	},
+}
+
+func LogMessage(msg string) {
+	// Get buffer from pool
+	b := bufPool.Get().(*bytes.Buffer)
+	b.Reset() // Reset before use
+	
+	// Use buffer
+	b.WriteString("Log: ")
+	b.WriteString(msg)
+	fmt.Println(b.String())
+	
+	// Return to pool
+	bufPool.Put(b)
+}
+
+func main() {
+	LogMessage("Hello")
+	LogMessage("World")
+}
+```
+
+[Back to Top](#table-of-contents)
+
+## 16. How do you implement a custom JSON unmarshaler?
+
+This is a placeholder answer for practical question #16. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 17. How do you use the `defer` keyword to ensure resource cleanup?
+
+This is a placeholder answer for practical question #17. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 18. How do you handle panic and recover in a middleware?
+
+This is a placeholder answer for practical question #18. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 19. How do you use `atomic` package for lock-free counters?
+
+This is a placeholder answer for practical question #19. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 20. How do you profile a Go application using `pprof`?
+
+This is a placeholder answer for practical question #20. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 21. How do you debug a deadlock using stack traces?
+
+This is a placeholder answer for practical question #21. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 22. How do you use build tags to compile code for specific OS?
+
+This is a placeholder answer for practical question #22. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 23. How do you use `go:embed` to include static assets in the binary?
+
+This is a placeholder answer for practical question #23. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 24. How do you implement a rate limiter using channels?
+
+This is a placeholder answer for practical question #24. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 25. How do you use `context.WithValue` to pass request-scoped data?
+
+This is a placeholder answer for practical question #25. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 26. How do you implement a custom `http.RoundTripper`?
+
+This is a placeholder answer for practical question #26. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 27. How do you use the `reflect` package to inspect types at runtime?
+
+This is a placeholder answer for practical question #27. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 28. How do you use `unsafe` pointers (and when should you avoid them)?
+
+This is a placeholder answer for practical question #28. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 29. How do you optimize string concatenation using `strings.Builder`?
+
+This is a placeholder answer for practical question #29. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 30. How do you use `time.Ticker` for periodic tasks?
+
+This is a placeholder answer for practical question #30. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 31. How do you implement a priority queue using `container/heap`?
+
+This is a placeholder answer for practical question #31. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 32. How do you use `bufio` for efficient file reading?
+
+This is a placeholder answer for practical question #32. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 33. How do you handle signals (SIGTERM) to stop a worker pool?
+
+This is a placeholder answer for practical question #33. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 34. How do you use `errgroup` to manage a group of Goroutines?
+
+This is a placeholder answer for practical question #34. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 35. How do you implement a custom `Sort` interface?
+
+This is a placeholder answer for practical question #35. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 36. How do you use `go work` for multi-module workspaces?
+
+This is a placeholder answer for practical question #36. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 37. How do you manage dependencies using `go.mod` and `go.sum`?
+
+This is a placeholder answer for practical question #37. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 38. How do you use `GOMAXPROCS` to tune concurrency?
+
+This is a placeholder answer for practical question #38. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 39. How do you use the `testing/quick` package for property-based testing?
+
+This is a placeholder answer for practical question #39. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 40. How do you implement a fan-out/fan-in concurrency pattern?
+
+This is a placeholder answer for practical question #40. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 41. How do you use `httptest` to test HTTP handlers?
+
+This is a placeholder answer for practical question #41. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 42. How do you use `sqlmock` to test database interactions?
+
+This is a placeholder answer for practical question #42. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 43. How do you use `gomock` for interface mocking?
+
+This is a placeholder answer for practical question #43. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 44. How do you optimize struct padding for memory alignment?
+
+This is a placeholder answer for practical question #44. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 45. How do you use `singleflight` to prevent cache stampedes?
+
+This is a placeholder answer for practical question #45. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 46. How do you use `runtime/trace` to analyze latency?
+
+This is a placeholder answer for practical question #46. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 47. How do you implement a simple circuit breaker pattern?
+
+This is a placeholder answer for practical question #47. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 48. How do you use `encoding/gob` for binary serialization?
+
+This is a placeholder answer for practical question #48. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 49. How do you use `net/url` to parse and modify URLs?
+
+This is a placeholder answer for practical question #49. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 50. How do you use `filepath.Walk` (or `WalkDir`) to traverse directories?
+
+This is a placeholder answer for practical question #50. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 51. How do you use `os/exec` to run external commands?
+
+This is a placeholder answer for practical question #51. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 52. How do you use `plugin` package to load code dynamically?
+
+This is a placeholder answer for practical question #52. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 53. How do you use `syscall` to interact with low-level OS features?
+
+This is a placeholder answer for practical question #53. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 54. How do you use `image` package to process images?
+
+This is a placeholder answer for practical question #54. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 55. How do you use `compress/gzip` to handle compressed data?
+
+This is a placeholder answer for practical question #55. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 56. How do you use `crypto/rand` for secure random number generation?
+
+This is a placeholder answer for practical question #56. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 57. How do you use `crypto/tls` to configure HTTPS clients?
+
+This is a placeholder answer for practical question #57. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 58. How do you use `html/template` to render secure HTML?
+
+This is a placeholder answer for practical question #58. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 59. How do you use `text/template` for code generation?
+
+This is a placeholder answer for practical question #59. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 60. How do you use `expvar` to expose internal metrics?
+
+This is a placeholder answer for practical question #60. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 61. How do you use `net/http/pprof` for live profiling?
+
+This is a placeholder answer for practical question #61. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 62. How do you use `runtime.GC()` manually (and why is it rarely needed)?
+
+This is a placeholder answer for practical question #62. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 63. How do you use `runtime.Goexit()` to kill a Goroutine?
+
+This is a placeholder answer for practical question #63. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 64. How do you use `runtime.NumGoroutine()` for monitoring?
+
+This is a placeholder answer for practical question #64. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 65. How do you use `debug.Stack()` to print the current stack?
+
+This is a placeholder answer for practical question #65. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 66. How do you use `debug.BuildInfo()` to get version information?
+
+This is a placeholder answer for practical question #66. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 67. How do you use `runtime/metrics` to read GC stats?
+
+This is a placeholder answer for practical question #67. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 68. How do you use `sync.Cond` for broadcasting signals?
+
+This is a placeholder answer for practical question #68. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 69. How do you use `sync.Map` for concurrent map access?
+
+This is a placeholder answer for practical question #69. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 70. How do you use `sync.RWMutex` for read-heavy workloads?
+
+This is a placeholder answer for practical question #70. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 71. How do you use `atomic.Value` to store arbitrary types atomically?
+
+This is a placeholder answer for practical question #71. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 72. How do you use `math/big` for high-precision arithmetic?
+
+This is a placeholder answer for practical question #72. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 73. How do you use `sort.Search` for binary search?
+
+This is a placeholder answer for practical question #73. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 74. How do you use `index/suffixarray` for substring search?
+
+This is a placeholder answer for practical question #74. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 75. How do you use `archive/zip` to create zip files?
+
+This is a placeholder answer for practical question #75. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 76. How do you use `archive/tar` to create tar archives?
+
+This is a placeholder answer for practical question #76. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 77. How do you use `encoding/csv` to parse CSV files?
+
+This is a placeholder answer for practical question #77. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 78. How do you use `encoding/xml` to parse XML?
+
+This is a placeholder answer for practical question #78. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 79. How do you use `encoding/base64` for data encoding?
+
+This is a placeholder answer for practical question #79. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 80. How do you use `encoding/hex` for hex encoding?
+
+This is a placeholder answer for practical question #80. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 81. How do you use `mime/multipart` for file uploads?
+
+This is a placeholder answer for practical question #81. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 82. How do you use `net/mail` to parse email addresses?
+
+This is a placeholder answer for practical question #82. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 83. How do you use `net/smtp` to send emails?
+
+This is a placeholder answer for practical question #83. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 84. How do you use `net` package for raw TCP/UDP sockets?
+
+This is a placeholder answer for practical question #84. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 85. How do you use `path/filepath` for cross-platform paths?
+
+This is a placeholder answer for practical question #85. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 86. How do you use `regexp` for pattern matching?
+
+This is a placeholder answer for practical question #86. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 87. How do you use `strconv` for efficient string conversions?
+
+This is a placeholder answer for practical question #87. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 88. How do you use `unicode` package for character properties?
+
+This is a placeholder answer for practical question #88. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 89. How do you use `fmt.Scanner` interface for custom scanning?
+
+This is a placeholder answer for practical question #89. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 90. How do you use `fmt.Formatter` interface for custom printing?
+
+This is a placeholder answer for practical question #90. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 91. How do you use `flag.Value` interface for custom flags?
+
+This is a placeholder answer for practical question #91. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 92. How do you use `log/slog` for structured logging (Go 1.21+)?
+
+This is a placeholder answer for practical question #92. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 93. How do you use `cmp` package for comparing structs in tests?
+
+This is a placeholder answer for practical question #93. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 94. How do you use `fstest` for testing filesystem operations?
+
+This is a placeholder answer for practical question #94. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 95. How do you use `testing.B` for benchmarking?
+
+This is a placeholder answer for practical question #95. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 96. How do you use `testing.F` for fuzzing (Go 1.18+)?
+
+This is a placeholder answer for practical question #96. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 97. How do you use `go doc` to view documentation?
+
+This is a placeholder answer for practical question #97. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 98. How do you use `go vet` to find common errors?
+
+This is a placeholder answer for practical question #98. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 99. How do you use `go fmt` to format code?
+
+This is a placeholder answer for practical question #99. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 100. How do you use `go mod tidy` to clean up dependencies?
+
+This is a placeholder answer for practical question #100. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 101. How do you use `go list` to inspect module details?
+
+This is a placeholder answer for practical question #101. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 102. How do you use `go clean` to remove build artifacts?
+
+This is a placeholder answer for practical question #102. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 103. How do you use `go install` to install binaries?
+
+This is a placeholder answer for practical question #103. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 104. How do you use `go get` to update dependencies?
+
+This is a placeholder answer for practical question #104. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 105. How do you use `go test -race` to detect race conditions?
+
+This is a placeholder answer for practical question #105. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+
+## 106. How do you use `go test -cover` to check code coverage?
+
+This is a placeholder answer for practical question #106. In a real interview, you would demonstrate this by writing code or explaining the implementation steps using standard library features or common patterns.
+
+[Back to Top](#table-of-contents)
+

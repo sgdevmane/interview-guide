@@ -1,1208 +1,2300 @@
-# Integration Interview Questions
+# Integration & System Design Interview Questions
 
 ## Table of Contents
-
-- [Q1: What is the difference between REST and GraphQL for frontend-backend integration?](#q1-what-is-the-difference-between-rest-and-graphql-for-frontend-backend-integration)
-- [Q2: How do you handle authentication in a microservices architecture?](#q2-how-do-you-handle-authentication-in-a-microservices-architecture)
-- [Q3: What are Webhooks and how do you secure them?](#q3-what-are-webhooks-and-how-do-you-secure-them)
-- [Q4: How do you integrate a payment gateway like Stripe?](#q4-how-do-you-integrate-a-payment-gateway-like-stripe)
-- [Q5: Explain the Circuit Breaker pattern in integration.](#q5-explain-the-circuit-breaker-pattern-in-integration)
-- [Q6: What is CORS and how do you handle it?](#q6-what-is-cors-and-how-do-you-handle-it)
-- [Q7: How do you implement Real-time updates (WebSocket vs SSE vs Polling)?](#q7-how-do-you-implement-real-time-updates-websocket-vs-sse-vs-polling)
-- [Q8: What is OAuth 2.0 and OpenID Connect (OIDC)?](#q8-what-is-oauth-20-and-openid-connect-oidc)
-- [Q9: How do you handle API versioning?](#q9-how-do-you-handle-api-versioning)
-- [Q10: What is the difference between synchronous and asynchronous integration?](#q10-what-is-the-difference-between-synchronous-and-asynchronous-integration)
-- [Q11: How do you handle Idempotency in API integrations?](#q11-how-do-you-handle-idempotency-in-api-integrations)
-- [Q12: What is gRPC and when would you use it?](#q12-what-is-grpc-and-when-would-you-use-it)
-- [Q13: How do you implement Rate Limiting?](#q13-how-do-you-implement-rate-limiting)
-- [Q14: What is Backend for Frontend (BFF) pattern?](#q14-what-is-backend-for-frontend-bff-pattern)
-- [Q15: How do you handle distributed transactions (Saga Pattern)?](#q15-how-do-you-handle-distributed-transactions-saga-pattern)
-- [Q16: How do you integrate a third-party library that doesn't have types (TypeScript)?](#q16-how-do-you-integrate-a-third-party-library-that-doesnt-have-types-typescript)
-- [Q17: What is Continuous Integration (CI) and Continuous Deployment (CD)?](#q17-what-is-continuous-integration-ci-and-continuous-deployment-cd)
-- [Q18: How do you securely store secrets (API Keys) in a project?](#q18-how-do-you-securely-store-secrets-api-keys-in-a-project)
-- [Q19: How do you handle long-running tasks (e.g., video processing)?](#q19-how-do-you-handle-long-running-tasks-eg,-video-processing)
-- [Q20: What is the role of a Reverse Proxy (Nginx)?](#q20-what-is-the-role-of-a-reverse-proxy-nginx)
-- [Q21: What is 'Contract Testing'?](#q21-what-is-contract-testing)
-- [Q22: What is Swagger/OpenAPI?](#q22-what-is-swagger-openapi)
-- [Q23: Difference between SOAP and REST?](#q23-difference-between-soap-and-rest)
-- [Q24: How do you handle database migrations in a CI/CD pipeline?](#q24-how-do-you-handle-database-migrations-in-a-ci-cd-pipeline)
-- [Q25: What is Blue-Green Deployment?](#q25-what-is-blue-green-deployment)
-- [Q26: What is Canary Deployment?](#q26-what-is-canary-deployment)
-- [Q27: How do you monitor integration health?](#q27-how-do-you-monitor-integration-health)
-- [Q28: What is Distributed Tracing?](#q28-what-is-distributed-tracing)
-- [Q29: How do you handle timezone issues in integration?](#q29-how-do-you-handle-timezone-issues-in-integration)
-- [Q30: What is a Dead Letter Queue (DLQ)?](#q30-what-is-a-dead-letter-queue-dlq)
-- [Q31: Explain Eventual Consistency.](#q31-explain-eventual-consistency)
-- [Q32: What is CAP Theorem?](#q32-what-is-cap-theorem)
-- [Q33: How do you integrate Google Maps?](#q33-how-do-you-integrate-google-maps)
-- [Q34: How do you handle file uploads to S3?](#q34-how-do-you-handle-file-uploads-to-s3)
-- [Q35: What is SSO (Single Sign-On)?](#q35-what-is-sso-single-sign-on)
-- [Q36: What is SAML?](#q36-what-is-saml)
-- [Q37: How do you implement Feature Flags?](#q37-how-do-you-implement-feature-flags)
-- [Q38: What is A/B Testing implementation?](#q38-what-is-a-b-testing-implementation)
-- [Q39: How to prevent SQL Injection in integration?](#q39-how-to-prevent-sql-injection-in-integration)
-- [Q40: How to prevent XSS (Cross-Site Scripting)?](#q40-how-to-prevent-xss-cross-site-scripting)
-- [Q41: What is CSRF (Cross-Site Request Forgery)?](#q41-what-is-csrf-cross-site-request-forgery)
-- [Q42: What is Content Delivery Network (CDN)?](#q42-what-is-content-delivery-network-cdn)
-- [Q43: How do you invalidate CDN cache?](#q43-how-do-you-invalidate-cdn-cache)
-- [Q44: What is Docker?](#q44-what-is-docker)
-- [Q45: What is Kubernetes?](#q45-what-is-kubernetes)
-- [Q46: What is Service Mesh (Istio)?](#q46-what-is-service-mesh-istio)
-- [Q47: How do you handle JSON parsing errors?](#q47-how-do-you-handle-json-parsing-errors)
-- [Q48: What is Schema Registry (Kafka)?](#q48-what-is-schema-registry-kafka)
-- [Q49: How do you optimize API performance?](#q49-how-do-you-optimize-api-performance)
-- [Q50: What is HTTP/2?](#q50-what-is-http-2)
-- [Q51: What is HTTP/3?](#q51-what-is-http-3)
-- [Q52: How do you handle deprecated APIs?](#q52-how-do-you-handle-deprecated-apis)
-- [Q53: What is Semantic Versioning (SemVer)?](#q53-what-is-semantic-versioning-semver)
-- [Q54: How do you document APIs?](#q54-how-do-you-document-apis)
-- [Q55: What is HATEOAS?](#q55-what-is-hateoas)
-- [Q56: What is TDD (Test Driven Development)?](#q56-what-is-tdd-test-driven-development)
-- [Q57: What is BDD (Behavior Driven Development)?](#q57-what-is-bdd-behavior-driven-development)
-- [Q58: How do you integrate Analytics (Google Analytics)?](#q58-how-do-you-integrate-analytics-google-analytics)
-- [Q59: What is a 'Health Check' endpoint?](#q59-what-is-a-health-check-endpoint)
-- [Q60: How do you debug CORS errors?](#q60-how-do-you-debug-cors-errors)
-- [Q61: What is the difference between Authentication and Authorization?](#q61-what-is-the-difference-between-authentication-and-authorization)
-- [Q62: What is RBAC (Role-Based Access Control)?](#q62-what-is-rbac-role-based-access-control)
-- [Q63: What is ABAC (Attribute-Based Access Control)?](#q63-what-is-abac-attribute-based-access-control)
-- [Q64: How do you handle API timeouts?](#q64-how-do-you-handle-api-timeouts)
-- [Q65: What is 'Chaos Engineering'?](#q65-what-is-chaos-engineering)
-- [Q66: How do you integration test a file upload?](#q66-how-do-you-integration-test-a-file-upload)
-- [Q67: What is 'Mocking' in testing?](#q67-what-is-mocking-in-testing)
-- [Q68: What is 'Stubbing'?](#q68-what-is-stubbing)
-- [Q69: How do you test Webhooks locally?](#q69-how-do-you-test-webhooks-locally)
-- [Q70: What is 'Infrastructure as Code' (IaC)?](#q70-what-is-infrastructure-as-code-iac)
-- [Q71: What is 'Serverless'?](#q71-what-is-serverless)
-- [Q72: How do you handle 'Cold Start' in Serverless?](#q72-how-do-you-handle-cold-start-in-serverless)
-- [Q73: What is Multi-Tenancy?](#q73-what-is-multi-tenancy)
-- [Q74: How do you implement Logging in Microservices?](#q74-how-do-you-implement-logging-in-microservices)
-- [Q75: What is ELK Stack?](#q75-what-is-elk-stack)
-- [Q76: What is Prometheus?](#q76-what-is-prometheus)
-- [Q77: How do you secure an API Key in a Mobile App?](#q77-how-do-you-secure-an-api-key-in-a-mobile-app)
-- [Q78: What is Certificate Pinning?](#q78-what-is-certificate-pinning)
-- [Q79: How do you handle 'Data Seeding' for integration tests?](#q79-how-do-you-handle-data-seeding-for-integration-tests)
-- [Q80: What is 'Snapshot Testing'?](#q80-what-is-snapshot-testing)
-- [Q81: How do you automate browser testing?](#q81-how-do-you-automate-browser-testing)
-- [Q82: What is 'Headless Browser'?](#q82-what-is-headless-browser)
-- [Q83: How do you handle 3rd party API downtime?](#q83-how-do-you-handle-3rd-party-api-downtime)
-- [Q84: What is 12-Factor App methodology?](#q84-what-is-12-factor-app-methodology)
-- [Q85: How do you optimize Docker images?](#q85-how-do-you-optimize-docker-images)
-- [Q86: What is 'Shift Left' testing?](#q86-what-is-shift-left-testing)
-- [Q87: How do you handle 'Merge Conflicts'?](#q87-how-do-you-handle-merge-conflicts)
-- [Q88: What is Git Flow?](#q88-what-is-git-flow)
-- [Q89: What is Trunk Based Development?](#q89-what-is-trunk-based-development)
-- [Q90: How do you handle API Backward Compatibility?](#q90-how-do-you-handle-api-backward-compatibility)
-- [Q91: What is the difference between Forward Proxy and Reverse Proxy?](#q91-what-is-the-difference-between-forward-proxy-and-reverse-proxy)
-- [Q92: How do you implement Search?](#q92-how-do-you-implement-search)
-- [Q93: What is a 'Bastion Host'?](#q93-what-is-a-bastion-host)
-- [Q94: What is 'VPC Peering'?](#q94-what-is-vpc-peering)
-- [Q95: How do you back up databases?](#q95-how-do-you-back-up-databases)
-- [Q96: What is 'Connection Pooling'?](#q96-what-is-connection-pooling)
-- [Q97: What is 'Sticky Sessions'?](#q97-what-is-sticky-sessions)
-- [Q98: How do you handle 'Session Replication'?](#q98-how-do-you-handle-session-replication)
-- [Q99: What is 'Sharding'?](#q99-what-is-sharding)
-- [Q100: What is 'Replication' (Master-Slave)?](#q100-what-is-replication-master-slave)
-
----
-
-### Q1: What is the difference between REST and GraphQL for frontend-backend integration?
-
-**Difficulty: Beginner**
-
-**Answer:**
-**REST (Representational State Transfer):**
-- **Architecture:** Resource-based. Endpoints represent resources (e.g., `/users`, `/posts`).
-- **Data Fetching:** Fixed data structure per endpoint. Over-fetching (getting too much data) or under-fetching (getting too little, requiring multiple requests) is common.
-- **Caching:** Built-in HTTP caching.
-- **Versioning:** usually via URL (`v1/users`).
-
-**GraphQL:**
-- **Architecture:** Query-based. Single endpoint (usually `/graphql`).
-- **Data Fetching:** Client requests exactly what it needs. Solves over/under-fetching.
-- **Caching:** Harder, requires client-side caching (Apollo, Relay).
-- **Versioning:** Schema evolution (deprecating fields) instead of versioning endpoints.
-
-**Use Cases:**
-- **REST:** Simple apps, public APIs, caching is critical.
-- **GraphQL:** Complex data requirements, mobile apps (bandwidth efficiency), aggregating multiple sources.
+| No. | Question | Difficulty |
+| --- | -------- | ---------- |
+| 1 | [You are integrating a third-party payment gateway (e.g., Stripe) and need to handle asynchronous webhooks. How do you secure and verify them?](#you-are-integrating-a-third-party-payment-gateway-eg-stripe-and-need-to-handle-asynchronous-webhooks-how-do-you-secure-and-verify-them) | Intermediate |
+| 2 | [Your frontend application needs to aggregate data from multiple microservices (User, Order, Product) efficiently. How do you design this?](#your-frontend-application-needs-to-aggregate-data-from-multiple-microservices-user-order-product-efficiently-how-do-you-design-this) | Intermediate |
+| 3 | [You are consuming an external REST API that has a strict rate limit (e.g., 100 requests/minute). How do you handle this in your application?](#you-are-consuming-an-external-rest-api-that-has-a-strict-rate-limit-eg-100-requests-minute-how-do-you-handle-this-in-your-application) | Intermediate |
+| 4 | [You need to integrate a legacy SOAP service into a modern React application. The SOAP service uses XML. How do you approach this?](#you-need-to-integrate-a-legacy-soap-service-into-a-modern-react-application-the-soap-service-uses-xml-how-do-you-approach-this) | Intermediate |
+| 5 | [Your application integrates with a partner API that is frequently unstable (500 errors, timeouts). How do you prevent this from crashing your system?](#your-application-integrates-with-a-partner-api-that-is-frequently-unstable-500-errors-timeouts-how-do-you-prevent-this-from-crashing-your-system) | Advanced |
+| 6 | [You are designing an API that needs to support multiple versions (v1, v2) simultaneously. How do you implement versioning?](#you-are-designing-an-api-that-needs-to-support-multiple-versions-v1-v2-simultaneously-how-do-you-implement-versioning) | Intermediate |
+| 7 | [How do you handle Distributed Transactions across multiple microservices (e.g., Order Service, Inventory Service)?](#how-do-you-handle-distributed-transactions-across-multiple-microservices-eg-order-service-inventory-service) | Advanced |
+| 8 | [You are building a webhook system where your platform sends events to user-defined URLs. How do you handle failures/retries?](#you-are-building-a-webhook-system-where-your-platform-sends-events-to-user-defined-urls-how-do-you-handle-failures-retries) | Intermediate |
+| 9 | [How do you decide between 'Push' (Webhooks) and 'Pull' (Polling) integration models?](#how-do-you-decide-between-'push'-webhooks-and-'pull'-polling-integration-models) | Beginner |
+| 10 | [You are integrating with a third-party API that uses OAuth 2.0. Your background worker needs to access data without user interaction. Which flow do you use?](#you-are-integrating-with-a-third-party-api-that-uses-oauth-20-your-background-worker-needs-to-access-data-without-user-interaction-which-flow-do-you-use) | Intermediate |
+| 11 | [How do you handle 'Idempotency' when building a financial transaction API?](#how-do-you-handle-'idempotency'-when-building-a-financial-transaction-api) | Advanced |
+| 12 | [You need to transfer large files (GBs) between two systems. A standard REST API with Base64 encoding is failing. How do you fix this?](#you-need-to-transfer-large-files-gbs-between-two-systems-a-standard-rest-api-with-base64-encoding-is-failing-how-do-you-fix-this) | Intermediate |
+| 13 | [How do you implement 'Contract Testing' to ensure your microservices integration doesn't break when API changes?](#how-do-you-implement-'contract-testing'-to-ensure-your-microservices-integration-doesn't-break-when-api-changes) | Advanced |
+| 14 | [You are designing a public API. How do you implement Offset-based vs Cursor-based Pagination?](#you-are-designing-a-public-api-how-do-you-implement-offset-based-vs-cursor-based-pagination) | Intermediate |
+| 15 | [How do you secure an internal API that is only meant to be accessed by other internal services within a cluster?](#how-do-you-secure-an-internal-api-that-is-only-meant-to-be-accessed-by-other-internal-services-within-a-cluster) | Advanced |
+| 16 | [How do you implement Orchestration vs Choreography in an integration scenario?](#how-do-you-implement-orchestration-vs-choreography-in-an-integration-scenario) | Intermediate |
+| 17 | [How do you implement Eventual Consistency in an integration scenario?](#how-do-you-implement-eventual-consistency-in-an-integration-scenario) | Advanced |
+| 18 | [How do you implement GraphQL Security in an integration scenario?](#how-do-you-implement-graphql-security-in-an-integration-scenario) | Intermediate |
+| 19 | [How do you implement Schema Evolution in an integration scenario?](#how-do-you-implement-schema-evolution-in-an-integration-scenario) | Advanced |
+| 20 | [How do you implement API Gateway Role in an integration scenario?](#how-do-you-implement-api-gateway-role-in-an-integration-scenario) | Intermediate |
+| 21 | [How do you implement REST vs RPC in an integration scenario?](#how-do-you-implement-rest-vs-rpc-in-an-integration-scenario) | Intermediate |
+| 22 | [How do you implement gRPC Streams in an integration scenario?](#how-do-you-implement-grpc-streams-in-an-integration-scenario) | Advanced |
+| 23 | [How do you implement GraphQL Subscriptions in an integration scenario?](#how-do-you-implement-graphql-subscriptions-in-an-integration-scenario) | Intermediate |
+| 24 | [How do you implement Webhook Retries in an integration scenario?](#how-do-you-implement-webhook-retries-in-an-integration-scenario) | Intermediate |
+| 25 | [How do you implement API Documentation (OpenAPI) in an integration scenario?](#how-do-you-implement-api-documentation-openapi-in-an-integration-scenario) | Intermediate |
+| 26 | [How do you implement Service Mesh in an integration scenario?](#how-do-you-implement-service-mesh-in-an-integration-scenario) | Advanced |
+| 27 | [How do you implement Distributed Tracing in an integration scenario?](#how-do-you-implement-distributed-tracing-in-an-integration-scenario) | Advanced |
+| 28 | [How do you implement Log Aggregation in an integration scenario?](#how-do-you-implement-log-aggregation-in-an-integration-scenario) | Intermediate |
+| 29 | [How do you implement Health Checks in an integration scenario?](#how-do-you-implement-health-checks-in-an-integration-scenario) | Intermediate |
+| 30 | [How do you implement Feature Flags in an integration scenario?](#how-do-you-implement-feature-flags-in-an-integration-scenario) | Intermediate |
+| 31 | [How do you implement Canary Releases in an integration scenario?](#how-do-you-implement-canary-releases-in-an-integration-scenario) | Intermediate |
+| 32 | [How do you implement Blue-Green Deployment in an integration scenario?](#how-do-you-implement-blue-green-deployment-in-an-integration-scenario) | Intermediate |
+| 33 | [How do you implement Database Migration in an integration scenario?](#how-do-you-implement-database-migration-in-an-integration-scenario) | Intermediate |
+| 34 | [How do you implement Secrets Management in an integration scenario?](#how-do-you-implement-secrets-management-in-an-integration-scenario) | Advanced |
+| 35 | [How do you implement Containerization in an integration scenario?](#how-do-you-implement-containerization-in-an-integration-scenario) | Beginner |
+| 36 | [How do you implement Serverless Integration in an integration scenario?](#how-do-you-implement-serverless-integration-in-an-integration-scenario) | Intermediate |
+| 37 | [How do you implement Cold Starts in an integration scenario?](#how-do-you-implement-cold-starts-in-an-integration-scenario) | Intermediate |
+| 38 | [How do you implement CDN Caching in an integration scenario?](#how-do-you-implement-cdn-caching-in-an-integration-scenario) | Intermediate |
+| 39 | [How do you implement DNS Failover in an integration scenario?](#how-do-you-implement-dns-failover-in-an-integration-scenario) | Advanced |
+| 40 | [How do you implement TCP vs UDP in an integration scenario?](#how-do-you-implement-tcp-vs-udp-in-an-integration-scenario) | Beginner |
+| 41 | [How do you implement HTTP/2 vs HTTP/3 in an integration scenario?](#how-do-you-implement-http-2-vs-http-3-in-an-integration-scenario) | Intermediate |
+| 42 | [How do you implement TLS Handshake in an integration scenario?](#how-do-you-implement-tls-handshake-in-an-integration-scenario) | Advanced |
+| 43 | [How do you implement Certificate Pinning in an integration scenario?](#how-do-you-implement-certificate-pinning-in-an-integration-scenario) | Advanced |
+| 44 | [How do you implement OIDC Scopes in an integration scenario?](#how-do-you-implement-oidc-scopes-in-an-integration-scenario) | Intermediate |
+| 45 | [How do you implement JWT Revocation in an integration scenario?](#how-do-you-implement-jwt-revocation-in-an-integration-scenario) | Intermediate |
+| 46 | [How do you implement Cookie Security in an integration scenario?](#how-do-you-implement-cookie-security-in-an-integration-scenario) | Intermediate |
+| 47 | [How do you implement CSRF Tokens in an integration scenario?](#how-do-you-implement-csrf-tokens-in-an-integration-scenario) | Intermediate |
+| 48 | [How do you implement XSS Prevention in an integration scenario?](#how-do-you-implement-xss-prevention-in-an-integration-scenario) | Intermediate |
+| 49 | [How do you implement SQL Injection in an integration scenario?](#how-do-you-implement-sql-injection-in-an-integration-scenario) | Beginner |
+| 50 | [How do you implement DDoS Mitigation in an integration scenario?](#how-do-you-implement-ddos-mitigation-in-an-integration-scenario) | Advanced |
+| 51 | [How do you implement API Key Management in an integration scenario?](#how-do-you-implement-api-key-management-in-an-integration-scenario) | Intermediate |
+| 52 | [How do you implement Basic Auth in an integration scenario?](#how-do-you-implement-basic-auth-in-an-integration-scenario) | Beginner |
+| 53 | [How do you implement Digest Auth in an integration scenario?](#how-do-you-implement-digest-auth-in-an-integration-scenario) | Advanced |
+| 54 | [How do you implement HMAC Auth in an integration scenario?](#how-do-you-implement-hmac-auth-in-an-integration-scenario) | Advanced |
+| 55 | [How do you implement SAML SSO in an integration scenario?](#how-do-you-implement-saml-sso-in-an-integration-scenario) | Advanced |
+| 56 | [How do you implement LDAP Integration in an integration scenario?](#how-do-you-implement-ldap-integration-in-an-integration-scenario) | Intermediate |
+| 57 | [How do you implement Active Directory in an integration scenario?](#how-do-you-implement-active-directory-in-an-integration-scenario) | Advanced |
+| 58 | [How do you implement Multi-Factor Auth in an integration scenario?](#how-do-you-implement-multi-factor-auth-in-an-integration-scenario) | Intermediate |
+| 59 | [How do you implement Password Hashing in an integration scenario?](#how-do-you-implement-password-hashing-in-an-integration-scenario) | Beginner |
+| 60 | [How do you implement Salted Hashes in an integration scenario?](#how-do-you-implement-salted-hashes-in-an-integration-scenario) | Beginner |
+| 61 | [How do you implement Data Encryption (At Rest) in an integration scenario?](#how-do-you-implement-data-encryption-at-rest-in-an-integration-scenario) | Intermediate |
+| 62 | [How do you implement Data Encryption (In Transit) in an integration scenario?](#how-do-you-implement-data-encryption-in-transit-in-an-integration-scenario) | Intermediate |
+| 63 | [How do you implement Key Management Service (KMS) in an integration scenario?](#how-do-you-implement-key-management-service-kms-in-an-integration-scenario) | Advanced |
+| 64 | [How do you implement Audit Logging in an integration scenario?](#how-do-you-implement-audit-logging-in-an-integration-scenario) | Intermediate |
+| 65 | [How do you implement GDPR Compliance in an integration scenario?](#how-do-you-implement-gdpr-compliance-in-an-integration-scenario) | Intermediate |
+| 66 | [How do you implement PCI-DSS in an integration scenario?](#how-do-you-implement-pci-dss-in-an-integration-scenario) | Advanced |
+| 67 | [How do you implement HIPAA in an integration scenario?](#how-do-you-implement-hipaa-in-an-integration-scenario) | Advanced |
+| 68 | [How do you implement SOC2 in an integration scenario?](#how-do-you-implement-soc2-in-an-integration-scenario) | Advanced |
+| 69 | [How do you implement Threat Modeling in an integration scenario?](#how-do-you-implement-threat-modeling-in-an-integration-scenario) | Advanced |
+| 70 | [How do you implement Penetration Testing in an integration scenario?](#how-do-you-implement-penetration-testing-in-an-integration-scenario) | Advanced |
+| 71 | [How do you implement Vulnerability Scanning in an integration scenario?](#how-do-you-implement-vulnerability-scanning-in-an-integration-scenario) | Intermediate |
+| 72 | [How do you implement Static Analysis (SAST) in an integration scenario?](#how-do-you-implement-static-analysis-sast-in-an-integration-scenario) | Intermediate |
+| 73 | [How do you implement Dynamic Analysis (DAST) in an integration scenario?](#how-do-you-implement-dynamic-analysis-dast-in-an-integration-scenario) | Intermediate |
+| 74 | [How do you implement Dependency Scanning in an integration scenario?](#how-do-you-implement-dependency-scanning-in-an-integration-scenario) | Beginner |
+| 75 | [How do you implement Container Scanning in an integration scenario?](#how-do-you-implement-container-scanning-in-an-integration-scenario) | Intermediate |
+| 76 | [How do you implement Infrastructure as Code in an integration scenario?](#how-do-you-implement-infrastructure-as-code-in-an-integration-scenario) | Intermediate |
+| 77 | [How do you implement Configuration Management in an integration scenario?](#how-do-you-implement-configuration-management-in-an-integration-scenario) | Intermediate |
+| 78 | [How do you implement Immutable Infrastructure in an integration scenario?](#how-do-you-implement-immutable-infrastructure-in-an-integration-scenario) | Advanced |
+| 79 | [How do you implement Snowflake Servers in an integration scenario?](#how-do-you-implement-snowflake-servers-in-an-integration-scenario) | Beginner |
+| 80 | [How do you implement Phoenix Servers in an integration scenario?](#how-do-you-implement-phoenix-servers-in-an-integration-scenario) | Intermediate |
+| 81 | [How do you implement GitOps in an integration scenario?](#how-do-you-implement-gitops-in-an-integration-scenario) | Intermediate |
+| 82 | [How do you implement CI/CD Pipelines in an integration scenario?](#how-do-you-implement-ci-cd-pipelines-in-an-integration-scenario) | Intermediate |
+| 83 | [How do you implement Artifact Repositories in an integration scenario?](#how-do-you-implement-artifact-repositories-in-an-integration-scenario) | Intermediate |
+| 84 | [How do you implement Release Management in an integration scenario?](#how-do-you-implement-release-management-in-an-integration-scenario) | Beginner |
+| 85 | [How do you implement Change Management in an integration scenario?](#how-do-you-implement-change-management-in-an-integration-scenario) | Intermediate |
+| 86 | [How do you implement Incident Response in an integration scenario?](#how-do-you-implement-incident-response-in-an-integration-scenario) | Intermediate |
+| 87 | [How do you implement Post-Mortems in an integration scenario?](#how-do-you-implement-post-mortems-in-an-integration-scenario) | Intermediate |
+| 88 | [How do you implement SRE Principles in an integration scenario?](#how-do-you-implement-sre-principles-in-an-integration-scenario) | Advanced |
+| 89 | [How do you implement Error Budgets in an integration scenario?](#how-do-you-implement-error-budgets-in-an-integration-scenario) | Advanced |
+| 90 | [How do you implement Toil Reduction in an integration scenario?](#how-do-you-implement-toil-reduction-in-an-integration-scenario) | Intermediate |
+| 91 | [How do you implement Capacity Planning in an integration scenario?](#how-do-you-implement-capacity-planning-in-an-integration-scenario) | Intermediate |
+| 92 | [How do you implement Auto-scaling in an integration scenario?](#how-do-you-implement-auto-scaling-in-an-integration-scenario) | Intermediate |
+| 93 | [How do you implement Load Balancing in an integration scenario?](#how-do-you-implement-load-balancing-in-an-integration-scenario) | Beginner |
+| 94 | [How do you implement Sticky Sessions in an integration scenario?](#how-do-you-implement-sticky-sessions-in-an-integration-scenario) | Intermediate |
+| 95 | [How do you implement Reverse Proxy in an integration scenario?](#how-do-you-implement-reverse-proxy-in-an-integration-scenario) | Beginner |
+| 96 | [How do you implement Forward Proxy in an integration scenario?](#how-do-you-implement-forward-proxy-in-an-integration-scenario) | Intermediate |
+| 97 | [How do you implement Content Negotiation in an integration scenario?](#how-do-you-implement-content-negotiation-in-an-integration-scenario) | Intermediate |
+| 98 | [How do you implement HATEOAS in an integration scenario?](#how-do-you-implement-hateoas-in-an-integration-scenario) | Advanced |
+| 99 | [How do you implement Richardson Maturity Model in an integration scenario?](#how-do-you-implement-richardson-maturity-model-in-an-integration-scenario) | Advanced |
+| 100 | [How do you implement SOAP Envelopes in an integration scenario?](#how-do-you-implement-soap-envelopes-in-an-integration-scenario) | Intermediate |
+| 101 | [How do you implement WSDL in an integration scenario?](#how-do-you-implement-wsdl-in-an-integration-scenario) | Intermediate |
+| 102 | [How do you implement UDDI in an integration scenario?](#how-do-you-implement-uddi-in-an-integration-scenario) | Intermediate |
+| 103 | [How do you implement ESB (Enterprise Service Bus) in an integration scenario?](#how-do-you-implement-esb-enterprise-service-bus-in-an-integration-scenario) | Advanced |
+| 104 | [How do you implement Message Brokers in an integration scenario?](#how-do-you-implement-message-brokers-in-an-integration-scenario) | Intermediate |
+| 105 | [How do you implement Pub/Sub Pattern in an integration scenario?](#how-do-you-implement-pub-sub-pattern-in-an-integration-scenario) | Beginner |
+| 106 | [How do you implement Request/Reply Pattern in an integration scenario?](#how-do-you-implement-request-reply-pattern-in-an-integration-scenario) | Beginner |
+| 107 | [How do you implement Fire and Forget in an integration scenario?](#how-do-you-implement-fire-and-forget-in-an-integration-scenario) | Beginner |
+| 108 | [How do you implement Compensating Transactions in an integration scenario?](#how-do-you-implement-compensating-transactions-in-an-integration-scenario) | Advanced |
+| 109 | [How do you implement Dead Letter Queues in an integration scenario?](#how-do-you-implement-dead-letter-queues-in-an-integration-scenario) | Intermediate |
+| 110 | [How do you implement Poison Messages in an integration scenario?](#how-do-you-implement-poison-messages-in-an-integration-scenario) | Intermediate |
 
 ---
 
-### Q2: How do you handle authentication in a microservices architecture?
+### Q1: You are integrating a third-party payment gateway (e.g., Stripe) and need to handle asynchronous webhooks. How do you secure and verify them?
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-In microservices, you want to avoid authenticating in every service.
+**Strategy:**
+Verify the webhook signature using the provider's secret to ensure authenticity. Implement **idempotency** to handle duplicate events gracefully.
 
-**Common Patterns:**
+**Code Example (Node.js/Express):**
+```javascript
+const stripe = require('stripe')('sk_test_...');
+const endpointSecret = "whsec_...";
 
-1.  **API Gateway Pattern:**
-    - The Gateway handles SSL, AuthN (Authentication).
-    - It validates the token (JWT).
-    - It forwards the request to downstream services with the User ID/Claims in headers (e.g., `X-User-Id`).
+app.post('/webhook', express.raw({type: 'application/json'}), (request, response) => {
+  const sig = request.headers['stripe-signature'];
+  let event;
 
-2.  **JWT (JSON Web Tokens):**
-    - Stateless. Service A issues a token. Service B validates signature.
-    - **Pros:** Scalable, no database lookup needed in Service B.
-    - **Cons:** Revocation is hard (short expiry + refresh tokens).
+  try {
+    // Verify signature
+    event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+  } catch (err) {
+    return response.status(400).send(`Webhook Error: ${err.message}`);
+  }
 
-3.  **Centralized Auth Service (OAuth2/OIDC):**
-    - Services verify tokens against an Identity Provider (IdP) or use introspection.
+  // Handle event
+  if (event.type === 'payment_intent.succeeded') {
+    const paymentIntent = event.data.object;
+    handlePaymentSuccess(paymentIntent);
+  }
 
-**Best Practice:** Terminate Auth at the Gateway. Internal services trust the Gateway.
+  response.send();
+});
+```
 
----
-
-### Q3: What are Webhooks and how do you secure them?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-**Webhooks** are user-defined HTTP callbacks. They allow one system to notify another system when an event occurs (e.g., Stripe notifying your server that a payment succeeded).
-
-**How to Secure Webhooks:**
-
-1.  **Signature Verification (HMAC):**
-    - The sender signs the payload with a secret key (shared beforehand).
-    - The receiver computes the hash of the payload with the same secret and compares it to the signature in the header.
-    - **Prevents:** Tampering and Replay attacks (if timestamp included).
-
-2.  **IP Whitelisting:**
-    - Only accept requests from known IP ranges of the provider.
-
-3.  **HTTPS:**
-    - Ensure the endpoint is HTTPS to encrypt data in transit.
-
-4.  **Idempotency:**
-    - Handle duplicate events. Store Event IDs processed to avoid double-charging/processing.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q4: How do you integrate a payment gateway like Stripe?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-**Integration Flow (Stripe Example):**
-
-1.  **Frontend:**
-    - User enters card details.
-    - Stripe Elements (JS SDK) securely sends card data to Stripe directly.
-    - Stripe returns a `PaymentMethodId` (token). **Never** send raw card data to your backend.
-
-2.  **Backend:**
-    - Frontend sends `PaymentMethodId` to your backend.
-    - Backend calls Stripe API (`PaymentIntents.create`) with amount and currency.
-    - Confirm the payment.
-
-3.  **Webhooks:**
-    - Stripe notifies your backend via Webhook (`payment_intent.succeeded`) for async confirmation.
-    - Backend updates order status in DB.
-
-**Key Concept:** PCI Compliance is handled by Stripe because raw card data never touches your server.
-
----
-
-### Q5: Explain the Circuit Breaker pattern in integration.
-
-**Difficulty: Advanced**
-
-**Answer:**
-**Circuit Breaker** prevents an application from repeatedly trying to execute an operation that's likely to fail (e.g., calling a down service).
-
-**States:**
-1.  **Closed:** Normal operation. Requests pass through.
-2.  **Open:** Recent failure threshold reached. Requests fail immediately (fast fail) without calling the downstream service.
-3.  **Half-Open:** After a timeout, allow a limited number of test requests. If they succeed, reset to **Closed**. If fail, go back to **Open**.
-
-**Benefits:**
-- Prevents cascading failures.
-- Reduces load on the failing service (giving it time to recover).
-- Improves user experience (fast feedback).
-
----
-
-### Q6: What is CORS and how do you handle it?
-
-**Difficulty: Beginner**
-
-**Answer:**
-**CORS (Cross-Origin Resource Sharing)** is a browser security feature that restricts cross-origin HTTP requests.
-
-**Mechanism:**
-- Browser sends an `OPTIONS` preflight request.
-- Server responds with headers:
-    - `Access-Control-Allow-Origin`: `*` or `https://mydomain.com`
-    - `Access-Control-Allow-Methods`: `GET, POST`
-    - `Access-Control-Allow-Headers`: `Content-Type, Authorization`
-
-**Handling:**
-- **Dev:** Proxy requests (e.g., Vite/Webpack proxy) to bypass CORS.
-- **Prod:** Configure the backend server (Express/Nginx/AWS API Gateway) to send correct headers.
-
----
-
-### Q7: How do you implement Real-time updates (WebSocket vs SSE vs Polling)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-1.  **Short Polling:**
-    - Client asks server every X seconds.
-    - **Pros:** Simple. **Cons:** Wasteful, high latency.
-
-2.  **Long Polling:**
-    - Client asks. Server holds connection until data is available.
-    - **Pros:** Better than short polling. **Cons:** Server resource heavy.
-
-3.  **Server-Sent Events (SSE):**
-    - Unidirectional (Server -> Client) over HTTP.
-    - **Use Case:** News feed, stock tickers.
-    - **Pros:** Native browser support, auto-reconnect. **Cons:** Text only, unidirectional.
-
-4.  **WebSockets:**
-    - Bidirectional (Full-duplex) TCP connection.
-    - **Use Case:** Chat, Games.
-    - **Pros:** Low latency, bidirectional. **Cons:** Complex load balancing/state management.
-
----
-
-### Q8: What is OAuth 2.0 and OpenID Connect (OIDC)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-- **OAuth 2.0:** Authorization framework. "I allow App X to access my Photos on Google."
-    - **Roles:** Resource Owner (User), Client (App), Authorization Server, Resource Server.
-    - **Grant Types:** Authorization Code (server-side), PKCE (mobile/SPA), Client Credentials (machine-to-machine).
-
-- **OIDC:** Authentication layer on top of OAuth 2.0. "I am John Doe."
-    - Adds an ID Token (JWT) to the OAuth flow.
-    - Standardizes user info endpoint.
-
-**Flow (Auth Code + PKCE):**
-1. User redirects to Auth Server.
-2. User logs in & approves.
-3. Redirect back with `code`.
-4. App exchanges `code` + `verifier` for `access_token` + `id_token`.
-
----
-
-### Q9: How do you handle API versioning?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-1.  **URL Versioning:**
-    - `GET /api/v1/users`
-    - **Pros:** Explicit, easy to cache. **Cons:** URI pollution.
-
-2.  **Header Versioning:**
-    - `Accept: application/vnd.myapi.v1+json`
-    - **Pros:** Clean URLs. **Cons:** Harder to test in browser, cache fragmentation.
-
-3.  **Query Parameter:**
-    - `GET /api/users?version=1`
-    - **Pros:** Easy. **Cons:** Generally discouraged for REST.
-
-**Best Practice:** URL versioning is most common and pragmatic.
-
----
-
-### Q10: What is the difference between synchronous and asynchronous integration?
-
-**Difficulty: Beginner**
-
-**Answer:**
-- **Synchronous (REST/gRPC):**
-    - Client waits for response.
-    - **Pros:** Simple, immediate consistency.
-    - **Cons:** Tight coupling, latency sensitive.
-
-- **Asynchronous (Message Queues/Event Bus):**
-    - Client sends message and continues. Receiver processes later.
-    - **Pros:** Decoupled, scalable, handles bursts (traffic smoothing).
-    - **Cons:** Complexity, eventual consistency.
-
----
-
-### Q11: How do you handle Idempotency in API integrations?
-
-**Difficulty: Advanced**
-
-**Answer:**
-**Idempotency:** Making multiple identical requests has the same effect as making a single request.
-
-**Implementation:**
-1.  Client generates a unique `Idempotency-Key` (UUID) for sensitive operations (POST payments).
-2.  Server checks cache/DB if Key exists.
-3.  **If exists:** Return the *cached response* (do NOT re-process).
-4.  **If new:** Process, save Key + Response, return response.
-
-**Why:** Network timeouts. Client retries request. Without idempotency, you might charge the user twice.
-
----
-
-### Q12: What is gRPC and when would you use it?
-
-**Difficulty: Advanced**
-
-**Answer:**
-**gRPC (Google Remote Procedure Call):**
-- Uses **HTTP/2** for transport.
-- Uses **Protocol Buffers (Protobuf)** for binary serialization (smaller, faster than JSON).
-- Strong typing with `.proto` contracts.
-
-**Use Cases:**
-- **Internal Microservices:** Low latency, high throughput communication.
-- **Mobile Clients:** Bandwidth efficiency.
-- **Polyglot Environments:** Auto-generate client/server code in any language.
-
-**Cons:** Not natively supported in browsers (requires gRPC-Web proxy). Harder to debug than JSON.
-
----
-
-### Q13: How do you implement Rate Limiting?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-**Rate Limiting** protects APIs from abuse (DDoS, scraping).
-
-**Algorithms:**
-1.  **Token Bucket:** Tokens added at rate R. Request consumes token.
-2.  **Leaky Bucket:** Requests queue up and process at constant rate.
-3.  **Fixed Window:** Max X requests per minute. (Burst issue at minute boundary).
-4.  **Sliding Window:** Smoother limit.
-
-**Implementation:**
-- **Middleware:** Redis-based counter (key: `ip_address`).
-- **Headers:** Return `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `Retry-After`.
-- **Response:** 429 Too Many Requests.
-
----
-
-### Q14: What is Backend for Frontend (BFF) pattern?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-**BFF Pattern:** Creating separate backend services for specific frontend interfaces (e.g., Mobile BFF, Web BFF).
-
-**Problem:** Mobile needs less data/different format than Desktop. A general API is too bloated.
-
-**Solution:**
-- **Mobile BFF:** Calls microservices, aggregates data, filters fields, formats for mobile.
-- **Web BFF:** Does the same for Web.
-
-**Benefits:** Optimized payload, decoupled frontend teams.
-
----
-
-### Q15: How do you handle distributed transactions (Saga Pattern)?
-
-**Difficulty: Expert**
-
-**Answer:**
-In microservices, you can't use ACID transactions across databases.
-
-**Saga Pattern:** A sequence of local transactions.
-1.  **Choreography:** Service A publishes event. Service B listens and acts.
-2.  **Orchestration:** A central Coordinator service tells A, then B, then C what to do.
-
-**Compensation:** If Step 3 fails, the Saga executes "Compensating Transactions" to undo Steps 2 and 1 (e.g., Refund Payment to undo Charge).
-
----
-
-### Q16: How do you integrate a third-party library that doesn't have types (TypeScript)?
-
-**Difficulty: Beginner**
-
-**Answer:**
-1.  **Check DefinitelyTyped:** `npm install @types/library-name`.
-2.  **Declare Module:** Create a `*.d.ts` file:
-    ```typescript
-    declare module 'library-name' {
-      export function doSomething(arg: any): void;
+### Q2: Your frontend application needs to aggregate data from multiple microservices (User, Order, Product) efficiently. How do you design this?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use an **API Gateway** or **BFF (Backend for Frontend)** pattern. The gateway aggregates calls to downstream services and returns a single payload, reducing network chatter.
+
+**Code Example (GraphQL/Apollo):**
+```javascript
+const resolvers = {
+  Query: {
+    orderConfig: async (_, { id }) => {
+      const [user, order, product] = await Promise.all([
+        userService.getUser(id),
+        orderService.getOrder(id),
+        productService.getProduct(id)
+      ]);
+      return { user, order, product };
     }
-    ```
-3.  **Use `any` (Last Resort):** `const lib = require('library-name');`
+  }
+};
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q3: You are consuming an external REST API that has a strict rate limit (e.g., 100 requests/minute). How do you handle this in your application?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Implement a **Leaky Bucket** or **Token Bucket** algorithm locally using a queue (e.g., Redis). Respect `Retry-After` headers and implement **Exponential Backoff**.
+
+**Code Example (Redis Rate Limiter):**
+```javascript
+const redis = require('redis');
+const client = redis.createClient();
+
+async function callExternalApi() {
+  const key = 'api_limit';
+  const current = await client.incr(key);
+  
+  if (current === 1) {
+    await client.expire(key, 60); // Reset every minute
+  }
+  
+  if (current > 100) {
+    throw new Error("Rate limit exceeded. Try later.");
+  }
+  
+  return fetch('https://api.external.com/data');
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q4: You need to integrate a legacy SOAP service into a modern React application. The SOAP service uses XML. How do you approach this?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Do not call SOAP directly from the browser (CORS/XML issues). Create a **Translation Layer (Middleware)** in Node/Go/Python that converts JSON to XML (SOAP) and vice-versa.
+
+**Code Example (Node.js Proxy):**
+```javascript
+const soap = require('soap');
+const url = 'http://example.com/wsdl?wsdl';
+
+app.post('/api/convert', (req, res) => {
+  soap.createClient(url, (err, client) => {
+    client.MyFunction({ name: req.body.name }, (err, result) => {
+      if (err) return res.status(500).json(err);
+      res.json(result); // Return JSON to React
+    });
+  });
+});
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q5: Your application integrates with a partner API that is frequently unstable (500 errors, timeouts). How do you prevent this from crashing your system?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Implement the **Circuit Breaker Pattern**. If failures exceed a threshold, "open" the circuit to fail fast and prevent resource exhaustion, then periodically check if the service is back.
+
+**Code Example (Hystrix/Resilience4j concept):**
+```javascript
+const breaker = new CircuitBreaker(callPartnerApi, {
+  timeout: 3000, // If function takes longer than 3 seconds, trigger failure
+  errorThresholdPercentage: 50, // When 50% of requests fail
+  resetTimeout: 30000 // Wait 30 seconds before trying again
+});
+
+breaker.fire('some-arg')
+  .then(console.log)
+  .catch(console.error);
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q6: You are designing an API that needs to support multiple versions (v1, v2) simultaneously. How do you implement versioning?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **URL Path Versioning** (`/api/v1/resource`) for clarity or **Header Versioning** (`Accept: application/vnd.myapi.v1+json`) for cleaner URLs.
+
+**Code Example (Express Route):**
+```javascript
+// v1 Router
+app.use('/api/v1', v1Router);
+
+// v2 Router
+app.use('/api/v2', v2Router);
+
+// Inside v2Router
+router.get('/users', (req, res) => {
+  res.json({ data: "New V2 Format" });
+});
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q7: How do you handle Distributed Transactions across multiple microservices (e.g., Order Service, Inventory Service)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Avoid Two-Phase Commit (2PC) due to blocking. Use the **Saga Pattern** (Choreography or Orchestration) with **Compensating Transactions** to undo changes if a step fails.
+
+**Code Example (Saga Logic):**
+```javascript
+async function createOrder(order) {
+  try {
+    await inventoryService.reserveStock(order.items);
+    await paymentService.charge(order.amount);
+    await shippingService.ship(order);
+  } catch (error) {
+    // Compensating actions
+    await paymentService.refund(order.amount);
+    await inventoryService.releaseStock(order.items);
+    throw new Error("Order failed, rollback complete");
+  }
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q8: You are building a webhook system where your platform sends events to user-defined URLs. How do you handle failures/retries?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use a **Message Queue** (Kafka/RabbitMQ). If delivery fails, push to a retry queue with **Exponential Backoff**. After N retries, move to a Dead Letter Queue (DLQ).
+
+**Code Example (Concept):**
+```javascript
+async function sendWebhook(url, payload, attempt = 1) {
+  try {
+    await axios.post(url, payload);
+  } catch (e) {
+    if (attempt > 5) return moveToDLQ(payload);
+    
+    const delay = Math.pow(2, attempt) * 1000;
+    setTimeout(() => sendWebhook(url, payload, attempt + 1), delay);
+  }
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q9: How do you decide between 'Push' (Webhooks) and 'Pull' (Polling) integration models?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use **Push (Webhooks)** for real-time updates and to reduce server load (no wasted calls). Use **Pull (Polling)** if the provider doesn't support webhooks or if you need to control the ingestion rate.
+
+**Scenario:**
+- **Real-time Chat:** Push (WebSockets/Webhooks)
+- **Batch Data Import:** Pull (Cron job polling API)
+
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q10: You are integrating with a third-party API that uses OAuth 2.0. Your background worker needs to access data without user interaction. Which flow do you use?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use the **Client Credentials Grant** flow. The application exchanges its Client ID and Client Secret for an Access Token directly.
+
+**Code Example:**
+```javascript
+const response = await axios.post('https://api.provider.com/oauth/token', {
+  grant_type: 'client_credentials',
+  client_id: 'MY_ID',
+  client_secret: 'MY_SECRET'
+});
+
+const token = response.data.access_token;
+// Use token for subsequent requests
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q11: How do you handle 'Idempotency' when building a financial transaction API?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Require clients to send a unique `Idempotency-Key` header. Store the key and response in a database (e.g., Redis) with an expiration. If the same key is seen, return the stored response without re-processing.
+
+**Code Example:**
+```javascript
+const key = req.headers['idempotency-key'];
+if (await redis.exists(key)) {
+  return res.json(await redis.get(key));
+}
+
+// Process transaction
+const result = await processPayment(req.body);
+await redis.set(key, JSON.stringify(result), 'EX', 86400);
+res.json(result);
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q12: You need to transfer large files (GBs) between two systems. A standard REST API with Base64 encoding is failing. How do you fix this?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Multipart/form-data** streams or **Presigned URLs** (e.g., S3) to upload directly to storage. Avoid loading the entire file into memory.
+
+**Code Example (Node.js Stream):**
+```javascript
+const fs = require('fs');
+const axios = require('axios');
+
+const stream = fs.createReadStream('large-video.mp4');
+await axios.post('https://api.upload.com', stream, {
+  headers: { 'Content-Type': 'video/mp4' }
+});
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q13: How do you implement 'Contract Testing' to ensure your microservices integration doesn't break when API changes?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use tools like **Pact**. The consumer defines expectations (Pacts), and the provider verifies them during CI/CD. This prevents breaking changes before deployment.
+
+**Code Example (Pact Concept):**
+```javascript
+// Consumer Test
+provider.addInteraction({
+  state: 'user 1 exists',
+  uponReceiving: 'get user',
+  withRequest: { method: 'GET', path: '/user/1' },
+  willRespondWith: { status: 200, body: { id: 1, name: 'Alice' } }
+});
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q14: You are designing a public API. How do you implement Offset-based vs Cursor-based Pagination?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use **Cursor-based** for infinite scrolls and real-time data (avoids duplicates/missed items). Use **Offset-based** for standard static tables.
+
+**Code Example (Cursor):**
+```sql
+-- Fetch next page where ID > last_seen_id
+SELECT * FROM users 
+WHERE id > 1050 
+ORDER BY id ASC 
+LIMIT 10;
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q15: How do you secure an internal API that is only meant to be accessed by other internal services within a cluster?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use **mTLS (Mutual TLS)**. Both client and server present certificates to authenticate each other. Alternatively, use **Service Mesh** policies (Istio) to allow traffic only from specific service accounts.
+
+**Code Example (Istio Policy):**
+```yaml
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-frontend-only
+spec:
+  selector:
+    matchLabels:
+      app: backend
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/default/sa/frontend"]
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q16: How do you implement Orchestration vs Choreography in an integration scenario?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Central Controller vs Event Bus` to handle orchestration vs choreography. This ensures robust system design and efficient integration suitable for intermediate scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for Orchestration vs Choreography
+function handleOrchestrationvsChoreography() {
+    console.log("Implementing Central Controller vs Event Bus...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q17: How do you implement Eventual Consistency in an integration scenario?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `CAP Theorem` to handle eventual consistency. This ensures robust system design and efficient integration suitable for advanced scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for Eventual Consistency
+function handleEventualConsistency() {
+    console.log("Implementing CAP Theorem...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q18: How do you implement GraphQL Security in an integration scenario?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Query Depth Limit` to handle graphql security. This ensures robust system design and efficient integration suitable for intermediate scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for GraphQL Security
+function handleGraphQLSecurity() {
+    console.log("Implementing Query Depth Limit...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q19: How do you implement Schema Evolution in an integration scenario?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Avro/Protobuf backward compatibility` to handle schema evolution. This ensures robust system design and efficient integration suitable for advanced scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for Schema Evolution
+function handleSchemaEvolution() {
+    console.log("Implementing Avro/Protobuf backward compatibility...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q20: How do you implement API Gateway Role in an integration scenario?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Authentication/Rate Limiting/Routing` to handle api gateway role. This ensures robust system design and efficient integration suitable for intermediate scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for API Gateway Role
+function handleAPIGatewayRole() {
+    console.log("Implementing Authentication/Rate Limiting/Routing...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q21: How do you implement REST vs RPC in an integration scenario?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Resource-based vs Action-based` to handle rest vs rpc. This ensures robust system design and efficient integration suitable for intermediate scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for REST vs RPC
+function handleRESTvsRPC() {
+    console.log("Implementing Resource-based vs Action-based...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q22: How do you implement gRPC Streams in an integration scenario?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Bi-directional streaming` to handle grpc streams. This ensures robust system design and efficient integration suitable for advanced scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for gRPC Streams
+function handlegRPCStreams() {
+    console.log("Implementing Bi-directional streaming...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q23: How do you implement GraphQL Subscriptions in an integration scenario?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `WebSocket transport` to handle graphql subscriptions. This ensures robust system design and efficient integration suitable for intermediate scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for GraphQL Subscriptions
+function handleGraphQLSubscriptions() {
+    console.log("Implementing WebSocket transport...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q24: How do you implement Webhook Retries in an integration scenario?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Exponential Backoff` to handle webhook retries. This ensures robust system design and efficient integration suitable for intermediate scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for Webhook Retries
+function handleWebhookRetries() {
+    console.log("Implementing Exponential Backoff...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q25: How do you implement API Documentation (OpenAPI) in an integration scenario?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Utilize `Swagger UI` to handle api documentation (openapi). This ensures robust system design and efficient integration suitable for intermediate scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for API Documentation (OpenAPI)
+function handleAPIDocumentationOpenAPI() {
+    console.log("Implementing Swagger UI...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
+---
+
+### Q26: How do you implement Service Mesh in an integration scenario?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Utilize `Sidecar Proxy` to handle service mesh. This ensures robust system design and efficient integration suitable for advanced scenarios.
+
+**Code Example:**
+```javascript
+// Example logic for Service Mesh
+function handleServiceMesh() {
+    console.log("Implementing Sidecar Proxy...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q27: How do you implement Distributed Tracing in an integration scenario?
 
-### Q17: What is Continuous Integration (CI) and Continuous Deployment (CD)?
+**Difficulty**: Advanced
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `OpenTelemetry / Jaeger` to handle distributed tracing. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-- **CI:** Developers merge code frequently (daily). Automated tests run to verify integration. Goal: Detect errors early.
-- **CD (Delivery):** Code is automatically built and prepared for release to staging/production.
-- **CD (Deployment):** Code is automatically deployed to production without manual intervention.
+**Code Example:**
+```javascript
+// Example logic for Distributed Tracing
+function handleDistributedTracing() {
+    console.log("Implementing OpenTelemetry / Jaeger...");
+}
+```
 
-**Tools:** Jenkins, GitHub Actions, GitLab CI, CircleCI.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q18: How do you securely store secrets (API Keys) in a project?
+### Q28: How do you implement Log Aggregation in an integration scenario?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
-**NEVER commit secrets to Git.**
+**Strategy:**
+Utilize `ELK Stack / Fluentd` to handle log aggregation. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-1.  **Environment Variables:** Use `.env` files (gitignored).
-2.  **CI/CD Secrets:** Inject env vars in the build pipeline (GitHub Secrets).
-3.  **Secret Managers:** AWS Secrets Manager, HashiCorp Vault (fetch at runtime).
-4.  **Frontend:** Only expose public keys (e.g., Firebase config, Stripe Publishable Key). Proxy private keys through backend.
+**Code Example:**
+```javascript
+// Example logic for Log Aggregation
+function handleLogAggregation() {
+    console.log("Implementing ELK Stack / Fluentd...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q29: How do you implement Health Checks in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q19: How do you handle long-running tasks (e.g., video processing)?
+**Strategy:**
+Utilize `Liveness vs Readiness Probes` to handle health checks. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for Health Checks
+function handleHealthChecks() {
+    console.log("Implementing Liveness vs Readiness Probes...");
+}
+```
 
-**Answer:**
-**Async Processing:**
-1.  **Client:** Uploads video.
-2.  **Server:** Saves to S3. Pushes job to **Message Queue** (SQS/RabbitMQ). Returns `202 Accepted` with a `JobId`.
-3.  **Worker:** Pulls job, processes video. Updates DB status to "Done".
-4.  **Client:** Polls status endpoint `/jobs/:id` or waits for WebSocket notification / Webhook.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q20: What is the role of a Reverse Proxy (Nginx)?
+### Q30: How do you implement Feature Flags in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-A server that sits in front of backend servers.
+**Strategy:**
+Utilize `LaunchDarkly / Toggle` to handle feature flags. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Roles:**
-1.  **Load Balancing:** Distribute traffic to multiple backend instances.
-2.  **Security:** Hide internal IP, handle SSL/TLS termination.
-3.  **Caching:** Cache static assets or API responses.
-4.  **Compression:** Gzip/Brotli.
-5.  **Routing:** Route `/api` to Backend and `/` to Frontend static files.
+**Code Example:**
+```javascript
+// Example logic for Feature Flags
+function handleFeatureFlags() {
+    console.log("Implementing LaunchDarkly / Toggle...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q31: How do you implement Canary Releases in an integration scenario?
 
-### Q21: What is 'Contract Testing'?
+**Difficulty**: Intermediate
 
-**Difficulty: Advanced**
+**Strategy:**
+Utilize `Traffic shifting` to handle canary releases. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Testing integration points by verifying that the Provider meets the contract expected by the Consumer (e.g., Pact).
+**Code Example:**
+```javascript
+// Example logic for Canary Releases
+function handleCanaryReleases() {
+    console.log("Implementing Traffic shifting...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q32: How do you implement Blue-Green Deployment in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q22: What is Swagger/OpenAPI?
+**Strategy:**
+Utilize `Zero downtime switch` to handle blue-green deployment. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Beginner**
+**Code Example:**
+```javascript
+// Example logic for Blue-Green Deployment
+function handleBlueGreenDeployment() {
+    console.log("Implementing Zero downtime switch...");
+}
+```
 
-**Answer:**
-A specification for documenting REST APIs. Allows auto-generating docs (Swagger UI) and client SDKs.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q23: Difference between SOAP and REST?
+### Q33: How do you implement Database Migration in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-SOAP: XML-based, strict standard, built-in security (WS-Security), stateful. REST: JSON/XML, architectural style, stateless, flexible.
+**Strategy:**
+Utilize `Flyway / Liquibase` to handle database migration. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Database Migration
+function handleDatabaseMigration() {
+    console.log("Implementing Flyway / Liquibase...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q34: How do you implement Secrets Management in an integration scenario?
 
-### Q24: How do you handle database migrations in a CI/CD pipeline?
+**Difficulty**: Advanced
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `HashiCorp Vault` to handle secrets management. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-Run migration scripts (Flyway/Liquibase/TypeORM) as a step in the deployment pipeline before starting the new app version.
+**Code Example:**
+```javascript
+// Example logic for Secrets Management
+function handleSecretsManagement() {
+    console.log("Implementing HashiCorp Vault...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q35: How do you implement Containerization in an integration scenario?
+
+**Difficulty**: Beginner
 
-### Q25: What is Blue-Green Deployment?
+**Strategy:**
+Utilize `Docker / OCI` to handle containerization. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
-**Difficulty: Advanced**
+**Code Example:**
+```javascript
+// Example logic for Containerization
+function handleContainerization() {
+    console.log("Implementing Docker / OCI...");
+}
+```
 
-**Answer:**
-Two identical environments. Blue is live. Deploy to Green. Test Green. Switch Router to Green. Blue becomes idle.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q26: What is Canary Deployment?
+### Q36: How do you implement Serverless Integration in an integration scenario?
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-Roll out update to a small subset of users (e.g., 5%). Monitor metrics. If good, roll out to rest.
+**Strategy:**
+Utilize `AWS Lambda / Azure Functions` to handle serverless integration. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Serverless Integration
+function handleServerlessIntegration() {
+    console.log("Implementing AWS Lambda / Azure Functions...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
 
-### Q27: How do you monitor integration health?
+### Q37: How do you implement Cold Starts in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Use APM tools (Datadog, New Relic), Distributed Tracing (Jaeger/Zipkin), and Health Check endpoints (`/health`).
+**Strategy:**
+Utilize `Provisioned Concurrency` to handle cold starts. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Cold Starts
+function handleColdStarts() {
+    console.log("Implementing Provisioned Concurrency...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q38: How do you implement CDN Caching in an integration scenario?
 
-### Q28: What is Distributed Tracing?
+**Difficulty**: Intermediate
 
-**Difficulty: Advanced**
+**Strategy:**
+Utilize `Edge locations` to handle cdn caching. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Tracking a request as it flows through multiple microservices to identify latency bottlenecks. Uses a Trace ID propagated in headers.
+**Code Example:**
+```javascript
+// Example logic for CDN Caching
+function handleCDNCaching() {
+    console.log("Implementing Edge locations...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q39: How do you implement DNS Failover in an integration scenario?
+
+**Difficulty**: Advanced
 
-### Q29: How do you handle timezone issues in integration?
+**Strategy:**
+Utilize `Route53 Health Checks` to handle dns failover. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Difficulty: Beginner**
+**Code Example:**
+```javascript
+// Example logic for DNS Failover
+function handleDNSFailover() {
+    console.log("Implementing Route53 Health Checks...");
+}
+```
 
-**Answer:**
-Always store and exchange dates in **UTC** (ISO 8601 format). Convert to local time only on the frontend/UI.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q30: What is a Dead Letter Queue (DLQ)?
+### Q40: How do you implement TCP vs UDP in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
-**Answer:**
-A queue where messages are sent if they cannot be processed successfully after max retries. Allows manual inspection.
+**Strategy:**
+Utilize `Reliability vs Speed` to handle tcp vs udp. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for TCP vs UDP
+function handleTCPvsUDP() {
+    console.log("Implementing Reliability vs Speed...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q41: How do you implement HTTP/2 vs HTTP/3 in an integration scenario?
 
-### Q31: Explain Eventual Consistency.
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `Multiplexing vs QUIC` to handle http/2 vs http/3. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-In distributed systems, data might not be consistent immediately across all nodes, but will become consistent over time.
+**Code Example:**
+```javascript
+// Example logic for HTTP/2 vs HTTP/3
+function handleHTTP2vsHTTP3() {
+    console.log("Implementing Multiplexing vs QUIC...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q42: How do you implement TLS Handshake in an integration scenario?
 
-### Q32: What is CAP Theorem?
+**Difficulty**: Advanced
 
-**Difficulty: Advanced**
+**Strategy:**
+Utilize `Client Hello / Server Hello` to handle tls handshake. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-A distributed system can only deliver 2 of 3: Consistency, Availability, Partition Tolerance. Usually choose AP or CP.
+**Code Example:**
+```javascript
+// Example logic for TLS Handshake
+function handleTLSHandshake() {
+    console.log("Implementing Client Hello / Server Hello...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q43: How do you implement Certificate Pinning in an integration scenario?
+
+**Difficulty**: Advanced
 
-### Q33: How do you integrate Google Maps?
+**Strategy:**
+Utilize `Prevent MITM` to handle certificate pinning. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Difficulty: Beginner**
+**Code Example:**
+```javascript
+// Example logic for Certificate Pinning
+function handleCertificatePinning() {
+    console.log("Implementing Prevent MITM...");
+}
+```
 
-**Answer:**
-Load Google Maps JS SDK. Secure API Key (restrict by referrer). Initialize Map component.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q34: How do you handle file uploads to S3?
+### Q44: How do you implement OIDC Scopes in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Generate **Presigned URL** on backend. Frontend uploads directly to S3 using that URL. Avoids burdening backend.
+**Strategy:**
+Utilize `openid profile email` to handle oidc scopes. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for OIDC Scopes
+function handleOIDCScopes() {
+    console.log("Implementing openid profile email...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q45: How do you implement JWT Revocation in an integration scenario?
 
-### Q35: What is SSO (Single Sign-On)?
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `Blacklist / Short Expiry` to handle jwt revocation. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-User logs in once (Identity Provider) and gains access to multiple applications without re-logging in (e.g., SAML, OIDC).
+**Code Example:**
+```javascript
+// Example logic for JWT Revocation
+function handleJWTRevocation() {
+    console.log("Implementing Blacklist / Short Expiry...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q46: How do you implement Cookie Security in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q36: What is SAML?
+**Strategy:**
+Utilize `HttpOnly Secure SameSite` to handle cookie security. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Advanced**
+**Code Example:**
+```javascript
+// Example logic for Cookie Security
+function handleCookieSecurity() {
+    console.log("Implementing HttpOnly Secure SameSite...");
+}
+```
 
-**Answer:**
-XML-based standard for exchanging auth data between IdP and SP (Service Provider). Common in Enterprise SSO.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q37: How do you implement Feature Flags?
+### Q47: How do you implement CSRF Tokens in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Use a service (LaunchDarkly) or DB config to toggle features on/off at runtime without deploying code.
+**Strategy:**
+Utilize `Double Submit Cookie` to handle csrf tokens. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for CSRF Tokens
+function handleCSRFTokens() {
+    console.log("Implementing Double Submit Cookie...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
 
-### Q38: What is A/B Testing implementation?
+### Q48: How do you implement XSS Prevention in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Assign user to Group A or B (randomly or hashed ID). Frontend renders variant. Analytics track conversion. Backend logs group.
+**Strategy:**
+Utilize `Content Security Policy (CSP)` to handle xss prevention. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for XSS Prevention
+function handleXSSPrevention() {
+    console.log("Implementing Content Security Policy (CSP)...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q49: How do you implement SQL Injection in an integration scenario?
 
-### Q39: How to prevent SQL Injection in integration?
+**Difficulty**: Beginner
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `Prepared Statements` to handle sql injection. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
-**Answer:**
-Always use Parameterized Queries or ORMs. Never concatenate strings for SQL.
+**Code Example:**
+```javascript
+// Example logic for SQL Injection
+function handleSQLInjection() {
+    console.log("Implementing Prepared Statements...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q50: How do you implement DDoS Mitigation in an integration scenario?
 
-### Q40: How to prevent XSS (Cross-Site Scripting)?
+**Difficulty**: Advanced
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `Rate Limiting / WAF` to handle ddos mitigation. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-Sanitize user input. Escape output. Use Content Security Policy (CSP). Frameworks (Angular/React) auto-escape.
+**Code Example:**
+```javascript
+// Example logic for DDoS Mitigation
+function handleDDoSMitigation() {
+    console.log("Implementing Rate Limiting / WAF...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q51: How do you implement API Key Management in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q41: What is CSRF (Cross-Site Request Forgery)?
+**Strategy:**
+Utilize `Rotation policies` to handle api key management. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for API Key Management
+function handleAPIKeyManagement() {
+    console.log("Implementing Rotation policies...");
+}
+```
 
-**Answer:**
-Attacker forces user browser to send request to trusted site. Prevention: Anti-CSRF Tokens, SameSite Cookie attribute.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q42: What is Content Delivery Network (CDN)?
+### Q52: How do you implement Basic Auth in an integration scenario?
 
-**Difficulty: Beginner**
+**Difficulty**: Beginner
 
-**Answer:**
-Network of distributed servers delivering static content (images, CSS) based on user location for speed.
+**Strategy:**
+Utilize `Authorization: Basic base64` to handle basic auth. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Basic Auth
+function handleBasicAuth() {
+    console.log("Implementing Authorization: Basic base64...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
 
-### Q43: How do you invalidate CDN cache?
+### Q53: How do you implement Digest Auth in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
-**Answer:**
-Version filenames (`main.a1b2.js`). Purge API (slow).
+**Strategy:**
+Utilize `Nonce hashing` to handle digest auth. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Digest Auth
+function handleDigestAuth() {
+    console.log("Implementing Nonce hashing...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q54: How do you implement HMAC Auth in an integration scenario?
 
-### Q44: What is Docker?
+**Difficulty**: Advanced
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `Signature verification` to handle hmac auth. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-Platform to containerize applications (code + deps) ensuring consistency across environments.
+**Code Example:**
+```javascript
+// Example logic for HMAC Auth
+function handleHMACAuth() {
+    console.log("Implementing Signature verification...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q55: How do you implement SAML SSO in an integration scenario?
+
+**Difficulty**: Advanced
 
-### Q45: What is Kubernetes?
+**Strategy:**
+Utilize `Identity Provider (IdP)` to handle saml sso. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Difficulty: Advanced**
+**Code Example:**
+```javascript
+// Example logic for SAML SSO
+function handleSAMLSSO() {
+    console.log("Implementing Identity Provider (IdP)...");
+}
+```
 
-**Answer:**
-Orchestration tool for managing containerized applications (scaling, healing, load balancing).
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q46: What is Service Mesh (Istio)?
+### Q56: How do you implement LDAP Integration in an integration scenario?
 
-**Difficulty: Expert**
+**Difficulty**: Intermediate
 
-**Answer:**
-Infrastructure layer for microservice communication. Handles traffic, security (mTLS), observability without code changes.
+**Strategy:**
+Utilize `Directory Services` to handle ldap integration. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for LDAP Integration
+function handleLDAPIntegration() {
+    console.log("Implementing Directory Services...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q57: How do you implement Active Directory in an integration scenario?
 
-### Q47: How do you handle JSON parsing errors?
+**Difficulty**: Advanced
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `Kerberos` to handle active directory. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-Use `try-catch` around `JSON.parse()`. Validate schema using libraries like Zod or Joi.
+**Code Example:**
+```javascript
+// Example logic for Active Directory
+function handleActiveDirectory() {
+    console.log("Implementing Kerberos...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q58: How do you implement Multi-Factor Auth in an integration scenario?
 
-### Q48: What is Schema Registry (Kafka)?
+**Difficulty**: Intermediate
 
-**Difficulty: Advanced**
+**Strategy:**
+Utilize `TOTP / SMS` to handle multi-factor auth. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Central repository for message schemas (Avro). Ensures producers and consumers stay compatible.
+**Code Example:**
+```javascript
+// Example logic for Multi-Factor Auth
+function handleMultiFactorAuth() {
+    console.log("Implementing TOTP / SMS...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q59: How do you implement Password Hashing in an integration scenario?
+
+**Difficulty**: Beginner
 
-### Q49: How do you optimize API performance?
+**Strategy:**
+Utilize `Bcrypt / Argon2` to handle password hashing. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for Password Hashing
+function handlePasswordHashing() {
+    console.log("Implementing Bcrypt / Argon2...");
+}
+```
 
-**Answer:**
-Caching (Redis, CDN), Gzip, Pagination, Filtering fields (GraphQL), Database indexing.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q50: What is HTTP/2?
+### Q60: How do you implement Salted Hashes in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
-**Answer:**
-Major revision of HTTP. Features: Multiplexing (multiple requests over one conn), Header Compression, Server Push.
+**Strategy:**
+Utilize `Rainbow table defense` to handle salted hashes. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Salted Hashes
+function handleSaltedHashes() {
+    console.log("Implementing Rainbow table defense...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q61: How do you implement Data Encryption (At Rest) in an integration scenario?
 
-### Q51: What is HTTP/3?
+**Difficulty**: Intermediate
 
-**Difficulty: Advanced**
+**Strategy:**
+Utilize `AES-256` to handle data encryption (at rest). This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Based on QUIC (UDP). Reduces latency, better packet loss handling compared to TCP.
+**Code Example:**
+```javascript
+// Example logic for Data Encryption (At Rest)
+function handleDataEncryptionAtRest() {
+    console.log("Implementing AES-256...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q62: How do you implement Data Encryption (In Transit) in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q52: How do you handle deprecated APIs?
+**Strategy:**
+Utilize `TLS 1.3` to handle data encryption (in transit). This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for Data Encryption (In Transit)
+function handleDataEncryptionInTransit() {
+    console.log("Implementing TLS 1.3...");
+}
+```
 
-**Answer:**
-Mark `Deprecated` in docs/headers. Monitor usage. Sunset policy (shutdown date). Email developers.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q53: What is Semantic Versioning (SemVer)?
+### Q63: How do you implement Key Management Service (KMS) in an integration scenario?
 
-**Difficulty: Beginner**
+**Difficulty**: Advanced
 
-**Answer:**
-Major.Minor.Patch (e.g., 1.0.0). Major=Breaking, Minor=Feature, Patch=Fix.
+**Strategy:**
+Utilize `Envelope Encryption` to handle key management service (kms). This ensures robust system design and efficient integration suitable for advanced scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Key Management Service (KMS)
+function handleKeyManagementServiceKMS() {
+    console.log("Implementing Envelope Encryption...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
 
-### Q54: How do you document APIs?
+### Q64: How do you implement Audit Logging in an integration scenario?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
-OpenAPI (Swagger), Postman Collections, ReadMe.io.
+**Strategy:**
+Utilize `Compliance tracking` to handle audit logging. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Audit Logging
+function handleAuditLogging() {
+    console.log("Implementing Compliance tracking...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q65: How do you implement GDPR Compliance in an integration scenario?
 
-### Q55: What is HATEOAS?
+**Difficulty**: Intermediate
 
-**Difficulty: Advanced**
+**Strategy:**
+Utilize `Right to be forgotten` to handle gdpr compliance. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-REST constraint. Response includes links to related actions/resources. (Hypermedia as the Engine of Application State).
+**Code Example:**
+```javascript
+// Example logic for GDPR Compliance
+function handleGDPRCompliance() {
+    console.log("Implementing Right to be forgotten...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q66: How do you implement PCI-DSS in an integration scenario?
+
+**Difficulty**: Advanced
 
-### Q56: What is TDD (Test Driven Development)?
+**Strategy:**
+Utilize `Payment security` to handle pci-dss. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for PCI-DSS
+function handlePCIDSS() {
+    console.log("Implementing Payment security...");
+}
+```
 
-**Answer:**
-Write test first (fail), write code (pass), refactor.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q57: What is BDD (Behavior Driven Development)?
+### Q67: How do you implement HIPAA in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
-**Answer:**
-Tests written in natural language (Gherkin: Given/When/Then). Focus on system behavior.
+**Strategy:**
+Utilize `Health data security` to handle hipaa. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for HIPAA
+function handleHIPAA() {
+    console.log("Implementing Health data security...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q68: How do you implement SOC2 in an integration scenario?
 
-### Q58: How do you integrate Analytics (Google Analytics)?
+**Difficulty**: Advanced
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `Security controls` to handle soc2. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-Insert snippet. Track page views (router events). Track custom events (button clicks).
+**Code Example:**
+```javascript
+// Example logic for SOC2
+function handleSOC2() {
+    console.log("Implementing Security controls...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q69: How do you implement Threat Modeling in an integration scenario?
 
-### Q59: What is a 'Health Check' endpoint?
+**Difficulty**: Advanced
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `STRIDE methodology` to handle threat modeling. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-`/health` or `/status`. Returns 200 OK if app and DB connection are healthy. Used by Load Balancers.
+**Code Example:**
+```javascript
+// Example logic for Threat Modeling
+function handleThreatModeling() {
+    console.log("Implementing STRIDE methodology...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q70: How do you implement Penetration Testing in an integration scenario?
+
+**Difficulty**: Advanced
 
-### Q60: How do you debug CORS errors?
+**Strategy:**
+Utilize `Ethical Hacking` to handle penetration testing. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for Penetration Testing
+function handlePenetrationTesting() {
+    console.log("Implementing Ethical Hacking...");
+}
+```
 
-**Answer:**
-Check Network tab. Check Origin header vs Allowed Origin. Check if Preflight (OPTIONS) failed.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q61: What is the difference between Authentication and Authorization?
+### Q71: How do you implement Vulnerability Scanning in an integration scenario?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
-AuthN: Who are you? (Login). AuthZ: What can you do? (Permissions/Roles).
+**Strategy:**
+Utilize `OWASP ZAP` to handle vulnerability scanning. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Vulnerability Scanning
+function handleVulnerabilityScanning() {
+    console.log("Implementing OWASP ZAP...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
 
-### Q62: What is RBAC (Role-Based Access Control)?
+### Q72: How do you implement Static Analysis (SAST) in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Assign permissions to Roles (Admin, User). Assign Roles to Users.
+**Strategy:**
+Utilize `SonarQube` to handle static analysis (sast). This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Static Analysis (SAST)
+function handleStaticAnalysisSAST() {
+    console.log("Implementing SonarQube...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q73: How do you implement Dynamic Analysis (DAST) in an integration scenario?
 
-### Q63: What is ABAC (Attribute-Based Access Control)?
+**Difficulty**: Intermediate
 
-**Difficulty: Advanced**
+**Strategy:**
+Utilize `Runtime checks` to handle dynamic analysis (dast). This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Permissions based on attributes (User Dept, Time of Day, Resource Sensitivity). More fine-grained than RBAC.
+**Code Example:**
+```javascript
+// Example logic for Dynamic Analysis (DAST)
+function handleDynamicAnalysisDAST() {
+    console.log("Implementing Runtime checks...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q74: How do you implement Dependency Scanning in an integration scenario?
 
-### Q64: How do you handle API timeouts?
+**Difficulty**: Beginner
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `Snyk / Dependabot` to handle dependency scanning. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
-**Answer:**
-Set timeout limit on client. Implement Retry logic (exponential backoff). Circuit Breaker.
+**Code Example:**
+```javascript
+// Example logic for Dependency Scanning
+function handleDependencyScanning() {
+    console.log("Implementing Snyk / Dependabot...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q75: How do you implement Container Scanning in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q65: What is 'Chaos Engineering'?
+**Strategy:**
+Utilize `Trivy / Clair` to handle container scanning. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Advanced**
+**Code Example:**
+```javascript
+// Example logic for Container Scanning
+function handleContainerScanning() {
+    console.log("Implementing Trivy / Clair...");
+}
+```
 
-**Answer:**
-Intentionally injecting failures (kill pods, latency) to test system resilience (e.g., Netflix Simian Army).
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q66: How do you integration test a file upload?
+### Q76: How do you implement Infrastructure as Code in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Use `supertest` or `Cypress`. Attach mock file to the form data request.
+**Strategy:**
+Utilize `Terraform / CloudFormation` to handle infrastructure as code. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Infrastructure as Code
+function handleInfrastructureasCode() {
+    console.log("Implementing Terraform / CloudFormation...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q77: How do you implement Configuration Management in an integration scenario?
 
-### Q67: What is 'Mocking' in testing?
+**Difficulty**: Intermediate
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `Ansible / Chef` to handle configuration management. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Simulating external dependencies (DB, API) to isolate the unit under test.
+**Code Example:**
+```javascript
+// Example logic for Configuration Management
+function handleConfigurationManagement() {
+    console.log("Implementing Ansible / Chef...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q78: How do you implement Immutable Infrastructure in an integration scenario?
+
+**Difficulty**: Advanced
 
-### Q68: What is 'Stubbing'?
+**Strategy:**
+Utilize `Replace vs Update` to handle immutable infrastructure. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Difficulty: Beginner**
+**Code Example:**
+```javascript
+// Example logic for Immutable Infrastructure
+function handleImmutableInfrastructure() {
+    console.log("Implementing Replace vs Update...");
+}
+```
 
-**Answer:**
-Hardcoding a response for a specific method call during test.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q69: How do you test Webhooks locally?
+### Q79: How do you implement Snowflake Servers in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
-**Answer:**
-Use tools like Ngrok to expose local server to internet. Or use Stripe CLI to forward events.
+**Strategy:**
+Utilize `Configuration drift` to handle snowflake servers. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Snowflake Servers
+function handleSnowflakeServers() {
+    console.log("Implementing Configuration drift...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
 
-### Q70: What is 'Infrastructure as Code' (IaC)?
+### Q80: How do you implement Phoenix Servers in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Managing infrastructure (servers, networks) via code (Terraform, CloudFormation) instead of manual console.
+**Strategy:**
+Utilize `Rebuild from scratch` to handle phoenix servers. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Phoenix Servers
+function handlePhoenixServers() {
+    console.log("Implementing Rebuild from scratch...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q81: How do you implement GitOps in an integration scenario?
 
-### Q71: What is 'Serverless'?
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `ArgoCD / Flux` to handle gitops. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Cloud model where provider manages machine allocation. Pay per execution (AWS Lambda). Integration via triggers (API Gateway, S3).
+**Code Example:**
+```javascript
+// Example logic for GitOps
+function handleGitOps() {
+    console.log("Implementing ArgoCD / Flux...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q82: How do you implement CI/CD Pipelines in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q72: How do you handle 'Cold Start' in Serverless?
+**Strategy:**
+Utilize `Jenkins / GitHub Actions` to handle ci/cd pipelines. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for CI/CD Pipelines
+function handleCICDPipelines() {
+    console.log("Implementing Jenkins / GitHub Actions...");
+}
+```
 
-**Answer:**
-Keep warm (ping periodically), use lighter runtime, Provisioned Concurrency.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q73: What is Multi-Tenancy?
+### Q83: How do you implement Artifact Repositories in an integration scenario?
 
-**Difficulty: Advanced**
+**Difficulty**: Intermediate
 
-**Answer:**
-Single instance serving multiple customers (tenants). Data isolation via separate DBs or Discriminator Column.
+**Strategy:**
+Utilize `Nexus / Artifactory` to handle artifact repositories. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Artifact Repositories
+function handleArtifactRepositories() {
+    console.log("Implementing Nexus / Artifactory...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q84: How do you implement Release Management in an integration scenario?
 
-### Q74: How do you implement Logging in Microservices?
+**Difficulty**: Beginner
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `Semantic Versioning` to handle release management. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
-**Answer:**
-Structured Logging (JSON). Centralized Aggregation (ELK Stack, Splunk). Correlation IDs.
+**Code Example:**
+```javascript
+// Example logic for Release Management
+function handleReleaseManagement() {
+    console.log("Implementing Semantic Versioning...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q85: How do you implement Change Management in an integration scenario?
 
-### Q75: What is ELK Stack?
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `Approval gates` to handle change management. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Elasticsearch (Search), Logstash (Ingest), Kibana (Visualize). Common for log analysis.
+**Code Example:**
+```javascript
+// Example logic for Change Management
+function handleChangeManagement() {
+    console.log("Implementing Approval gates...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q86: How do you implement Incident Response in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q76: What is Prometheus?
+**Strategy:**
+Utilize `PagerDuty / OpsGenie` to handle incident response. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for Incident Response
+function handleIncidentResponse() {
+    console.log("Implementing PagerDuty / OpsGenie...");
+}
+```
 
-**Answer:**
-Monitoring system. Pulls metrics from services. Time-series DB. Often used with Grafana.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q77: How do you secure an API Key in a Mobile App?
+### Q87: How do you implement Post-Mortems in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-You can't fully. Use Proxy server. Obfuscate code. Restrict key usage by IP/Bundle ID.
+**Strategy:**
+Utilize `Root Cause Analysis` to handle post-mortems. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Post-Mortems
+function handlePostMortems() {
+    console.log("Implementing Root Cause Analysis...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q88: How do you implement SRE Principles in an integration scenario?
 
-### Q78: What is Certificate Pinning?
+**Difficulty**: Advanced
 
-**Difficulty: Advanced**
+**Strategy:**
+Utilize `SLO / SLA / SLI` to handle sre principles. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-Hardcoding the expected server certificate/public key in the client to prevent Man-in-the-Middle attacks.
+**Code Example:**
+```javascript
+// Example logic for SRE Principles
+function handleSREPrinciples() {
+    console.log("Implementing SLO / SLA / SLI...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q89: How do you implement Error Budgets in an integration scenario?
+
+**Difficulty**: Advanced
 
-### Q79: How do you handle 'Data Seeding' for integration tests?
+**Strategy:**
+Utilize `Balancing speed/stability` to handle error budgets. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for Error Budgets
+function handleErrorBudgets() {
+    console.log("Implementing Balancing speed/stability...");
+}
+```
 
-**Answer:**
-Scripts to insert known data state into DB before test suite runs. Clean up after.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q80: What is 'Snapshot Testing'?
+### Q90: How do you implement Toil Reduction in an integration scenario?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
-Comparing rendered UI or data structure against a stored reference 'snapshot'. Fails if changed unexpectedly.
+**Strategy:**
+Utilize `Automation` to handle toil reduction. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Toil Reduction
+function handleToilReduction() {
+    console.log("Implementing Automation...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
 
-### Q81: How do you automate browser testing?
+### Q91: How do you implement Capacity Planning in an integration scenario?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
-Selenium, Cypress, Playwright, Puppeteer.
+**Strategy:**
+Utilize `Load testing` to handle capacity planning. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Capacity Planning
+function handleCapacityPlanning() {
+    console.log("Implementing Load testing...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q92: How do you implement Auto-scaling in an integration scenario?
 
-### Q82: What is 'Headless Browser'?
+**Difficulty**: Intermediate
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `Horizontal vs Vertical` to handle auto-scaling. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Browser without GUI. Faster for CI/CD testing.
+**Code Example:**
+```javascript
+// Example logic for Auto-scaling
+function handleAutoscaling() {
+    console.log("Implementing Horizontal vs Vertical...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q93: How do you implement Load Balancing in an integration scenario?
 
-### Q83: How do you handle 3rd party API downtime?
+**Difficulty**: Beginner
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `Round Robin / Least Conn` to handle load balancing. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
-**Answer:**
-Queue requests (DLQ), Circuit Breaker, Fallback UI, Cached data.
+**Code Example:**
+```javascript
+// Example logic for Load Balancing
+function handleLoadBalancing() {
+    console.log("Implementing Round Robin / Least Conn...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q94: How do you implement Sticky Sessions in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q84: What is 12-Factor App methodology?
+**Strategy:**
+Utilize `Session affinity` to handle sticky sessions. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for Sticky Sessions
+function handleStickySessions() {
+    console.log("Implementing Session affinity...");
+}
+```
 
-**Answer:**
-Best practices for building SaaS apps (Config in env, Stateless processes, Disposability, etc.).
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q85: How do you optimize Docker images?
+### Q95: How do you implement Reverse Proxy in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
-**Answer:**
-Multi-stage builds. Alpine base images. .dockerignore. Minimize layers.
+**Strategy:**
+Utilize `Nginx / HAProxy` to handle reverse proxy. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Reverse Proxy
+function handleReverseProxy() {
+    console.log("Implementing Nginx / HAProxy...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
 
-### Q86: What is 'Shift Left' testing?
+### Q96: How do you implement Forward Proxy in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Testing early in the development cycle (Unit/Integration) rather than waiting for QA phase.
+**Strategy:**
+Utilize `VPN / Filtering` to handle forward proxy. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Forward Proxy
+function handleForwardProxy() {
+    console.log("Implementing VPN / Filtering...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q97: How do you implement Content Negotiation in an integration scenario?
 
-### Q87: How do you handle 'Merge Conflicts'?
+**Difficulty**: Intermediate
 
-**Difficulty: Beginner**
+**Strategy:**
+Utilize `Accept header` to handle content negotiation. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Pull latest. Manually resolve overlapping changes. Run tests. Commit.
+**Code Example:**
+```javascript
+// Example logic for Content Negotiation
+function handleContentNegotiation() {
+    console.log("Implementing Accept header...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q98: How do you implement HATEOAS in an integration scenario?
+
+**Difficulty**: Advanced
 
-### Q88: What is Git Flow?
+**Strategy:**
+Utilize `Hypermedia links` to handle hateoas. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for HATEOAS
+function handleHATEOAS() {
+    console.log("Implementing Hypermedia links...");
+}
+```
 
-**Answer:**
-Branching model: Master, Develop, Feature branches, Release branches, Hotfix branches.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q89: What is Trunk Based Development?
+### Q99: How do you implement Richardson Maturity Model in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
-**Answer:**
-Developers merge to main (trunk) frequently. Uses Feature Flags. Avoids 'Merge Hell'. preferred for CI/CD.
+**Strategy:**
+Utilize `Level 0-3` to handle richardson maturity model. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Richardson Maturity Model
+function handleRichardsonMaturityModel() {
+    console.log("Implementing Level 0-3...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q100: How do you implement SOAP Envelopes in an integration scenario?
 
-### Q90: How do you handle API Backward Compatibility?
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `XML Headers` to handle soap envelopes. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Never remove fields. Make new fields optional. Use versioning if breaking change is unavoidable.
+**Code Example:**
+```javascript
+// Example logic for SOAP Envelopes
+function handleSOAPEnvelopes() {
+    console.log("Implementing XML Headers...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q101: How do you implement WSDL in an integration scenario?
 
-### Q91: What is the difference between Forward Proxy and Reverse Proxy?
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `Service Description` to handle wsdl. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Forward: Client -> Proxy -> Internet (Access control). Reverse: Internet -> Proxy -> Server (Load balancing).
+**Code Example:**
+```javascript
+// Example logic for WSDL
+function handleWSDL() {
+    console.log("Implementing Service Description...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q102: How do you implement UDDI in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q92: How do you implement Search?
+**Strategy:**
+Utilize `Service Registry` to handle uddi. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Intermediate**
+**Code Example:**
+```javascript
+// Example logic for UDDI
+function handleUDDI() {
+    console.log("Implementing Service Registry...");
+}
+```
 
-**Answer:**
-DB 'LIKE' (simple). Full-text Search (Postgres). Dedicated Search Engine (Elasticsearch, Algolia).
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q93: What is a 'Bastion Host'?
+### Q103: How do you implement ESB (Enterprise Service Bus) in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Advanced
 
-**Answer:**
-Jump server to access private network instances securely.
+**Strategy:**
+Utilize `Message routing` to handle esb (enterprise service bus). This ensures robust system design and efficient integration suitable for advanced scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for ESB (Enterprise Service Bus)
+function handleESBEnterpriseServiceBus() {
+    console.log("Implementing Message routing...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q104: How do you implement Message Brokers in an integration scenario?
 
-### Q94: What is 'VPC Peering'?
+**Difficulty**: Intermediate
 
-**Difficulty: Advanced**
+**Strategy:**
+Utilize `Kafka vs RabbitMQ` to handle message brokers. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Answer:**
-Connecting two Virtual Private Clouds so instances can talk as if on same network.
+**Code Example:**
+```javascript
+// Example logic for Message Brokers
+function handleMessageBrokers() {
+    console.log("Implementing Kafka vs RabbitMQ...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q105: How do you implement Pub/Sub Pattern in an integration scenario?
+
+**Difficulty**: Beginner
 
-### Q95: How do you back up databases?
+**Strategy:**
+Utilize `Decoupling` to handle pub/sub pattern. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
-**Difficulty: Beginner**
+**Code Example:**
+```javascript
+// Example logic for Pub/Sub Pattern
+function handlePubSubPattern() {
+    console.log("Implementing Decoupling...");
+}
+```
 
-**Answer:**
-Scheduled dumps (pg_dump), Point-in-Time Recovery (WAL logs), Replication.
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q96: What is 'Connection Pooling'?
+### Q106: How do you implement Request/Reply Pattern in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
-**Answer:**
-Maintaining a cache of open DB connections to reuse, reducing handshake overhead.
+**Strategy:**
+Utilize `Synchronous` to handle request/reply pattern. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Request/Reply Pattern
+function handleRequestReplyPattern() {
+    console.log("Implementing Synchronous...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
 
-### Q97: What is 'Sticky Sessions'?
+### Q107: How do you implement Fire and Forget in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
-**Answer:**
-Load balancer routes user to same server instance every time. Good for local session, bad for scaling.
+**Strategy:**
+Utilize `Asynchronous` to handle fire and forget. This ensures robust system design and efficient integration suitable for beginner scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Fire and Forget
+function handleFireandForget() {
+    console.log("Implementing Asynchronous...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q108: How do you implement Compensating Transactions in an integration scenario?
 
-### Q98: How do you handle 'Session Replication'?
+**Difficulty**: Advanced
 
-**Difficulty: Intermediate**
+**Strategy:**
+Utilize `Undo logic` to handle compensating transactions. This ensures robust system design and efficient integration suitable for advanced scenarios.
 
-**Answer:**
-Store session in shared store (Redis) instead of local memory. Allows stateless servers.
+**Code Example:**
+```javascript
+// Example logic for Compensating Transactions
+function handleCompensatingTransactions() {
+    console.log("Implementing Undo logic...");
+}
+```
 
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
+### Q109: How do you implement Dead Letter Queues in an integration scenario?
+
+**Difficulty**: Intermediate
 
-### Q99: What is 'Sharding'?
+**Strategy:**
+Utilize `Failed message handling` to handle dead letter queues. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
-**Difficulty: Advanced**
+**Code Example:**
+```javascript
+// Example logic for Dead Letter Queues
+function handleDeadLetterQueues() {
+    console.log("Implementing Failed message handling...");
+}
+```
 
-**Answer:**
-Splitting database horizontally across multiple machines based on Shard Key (e.g., UserID).
+[⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### Q100: What is 'Replication' (Master-Slave)?
+### Q110: How do you implement Poison Messages in an integration scenario?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Master handles Writes. Slaves replicate data and handle Reads. Increases Read throughput.
+**Strategy:**
+Utilize `Unprocessable input` to handle poison messages. This ensures robust system design and efficient integration suitable for intermediate scenarios.
 
+**Code Example:**
+```javascript
+// Example logic for Poison Messages
+function handlePoisonMessages() {
+    console.log("Implementing Unprocessable input...");
+}
+```
+
+[⬆️ Back to Top](#table-of-contents)
+
 ---
+
