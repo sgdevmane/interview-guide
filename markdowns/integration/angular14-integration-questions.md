@@ -1,115 +1,117 @@
 # Angular 14 Integration Interview Questions
 
 ## Table of Contents
-1. [What are the key new features introduced in Angular 14?](#q1-what-are-the-key-new-features-introduced-in-angular-14)
-2. [How do you migrate from NgModules to Standalone Components?](#q2-how-do-you-migrate-from-ngmodules-to-standalone-components)
-3. [How do you set up and use Angular CLI auto-completion?](#q3-how-do-you-set-up-and-use-angular-cli-auto-completion)
-4. [How do you use optional injectors in embedded views?](#q4-how-do-you-use-optional-injectors-in-embedded-views)
-5. [How do you implement micro-frontend architecture with Angular 14?](#q5-how-do-you-implement-micro-frontend-architecture-with-angular-14)
-6. [How do you implement advanced state sharing between Angular 14 applications?](#q6-how-do-you-implement-advanced-state-sharing-between-angular-14-applications)
-7. [How do you implement real-time collaboration features in Angular 14?](#q7-how-do-you-implement-real-time-collaboration-features-in-angular-14)
-8. [How would you implement advanced Angular 14+ integration with modern development tools and CI/CD pipelines?](#q8-how-would-you-implement-advanced-angular-14+-integration-with-modern-development-tools-and-ci-cd-pipelines)
-9. [How would you implement advanced Angular 14+ integration with modern monitoring, analytics, and observability tools?](#q9-how-would-you-implement-advanced-angular-14+-integration-with-modern-monitoring-analytics-and-observability-tools)
-10. [How do you integrate Angular with Firebase using AngularFire?](#q10-how-do-you-integrate-angular-with-firebase-using-angularfire)
-11. [How do you integrate Redux DevTools with NgRx?](#q11-how-do-you-integrate-redux-devtools-with-ngrx)
-12. [How do you integrate Tailwind CSS with Angular?](#q12-how-do-you-integrate-tailwind-css-with-angular)
-13. [How do you integrate Angular Material?](#q13-how-do-you-integrate-angular-material)
-14. [How do you integrate GraphQL with Apollo in Angular?](#q14-how-do-you-integrate-graphql-with-apollo-in-angular)
-15. [How do you integrate Storybook with Angular?](#q15-how-do-you-integrate-storybook-with-angular)
-16. [How do you integrate Jest for testing in Angular?](#q16-how-do-you-integrate-jest-for-testing-in-angular)
-17. [How do you integrate Cypress for E2E testing?](#q17-how-do-you-integrate-cypress-for-e2e-testing)
-18. [How do you integrate Google Maps?](#q18-how-do-you-integrate-google-maps)
-19. [How do you integrate Socket.io with Angular?](#q19-how-do-you-integrate-socketio-with-angular)
-20. [How do you integrate Stripe Elements?](#q20-how-do-you-integrate-stripe-elements)
-21. [How do you integrate Chart.js?](#q21-how-do-you-integrate-chartjs)
-22. [How do you integrate Auth0?](#q22-how-do-you-integrate-auth0)
-23. [How do you integrate Angular with Docker?](#q23-how-do-you-integrate-angular-with-docker)
-24. [How do you integrate Internationalization (i18n)?](#q24-how-do-you-integrate-internationalization-i18n)
-25. [How do you integrate `ngx-translate` for dynamic i18n?](#q25-how-do-you-integrate-`ngx-translate`-for-dynamic-i18n)
-26. [How do you integrate Sentry for error tracking?](#q26-how-do-you-integrate-sentry-for-error-tracking)
-27. [How do you integrate Prettier and ESLint?](#q27-how-do-you-integrate-prettier-and-eslint)
-28. [How do you integrate Husky for git hooks?](#q28-how-do-you-integrate-husky-for-git-hooks)
-29. [How do you integrate a mock server (JSON Server)?](#q29-how-do-you-integrate-a-mock-server-json-server)
-30. [How do you integrate Keycloak for IAM?](#q30-how-do-you-integrate-keycloak-for-iam)
-31. [How do you integrate AG Grid?](#q31-how-do-you-integrate-ag-grid)
-32. [How do you integrate RxJS Operators for HTTP retry strategies?](#q32-how-do-you-integrate-rxjs-operators-for-http-retry-strategies)
-33. [How do you integrate Web Workers in Angular?](#q33-how-do-you-integrate-web-workers-in-angular)
-34. [How do you integrate Service Workers (PWA)?](#q34-how-do-you-integrate-service-workers-pwa)
-35. [How do you integrate Module Federation (Micro-frontends)?](#q35-how-do-you-integrate-module-federation-micro-frontends)
-36. [How do you integrate Angular Universal (SSR)?](#q36-how-do-you-integrate-angular-universal-ssr)
-37. [How do you integrate a Virtual Scroller (CDK)?](#q37-how-do-you-integrate-a-virtual-scroller-cdk)
-38. [How do you integrate Drag and Drop (CDK)?](#q38-how-do-you-integrate-drag-and-drop-cdk)
-39. [How do you integrate Lottie Animations?](#q39-how-do-you-integrate-lottie-animations)
-40. [How do you integrate Markdown rendering?](#q40-how-do-you-integrate-markdown-rendering)
-41. [How do you integrate a Date Picker (Material)?](#q41-how-do-you-integrate-a-date-picker-material)
-42. [How do you integrate Form Validation (Reactive)?](#q42-how-do-you-integrate-form-validation-reactive)
-43. [How do you integrate File Upload?](#q43-how-do-you-integrate-file-upload)
-44. [How do you integrate JWT Handling?](#q44-how-do-you-integrate-jwt-handling)
-45. [How do you integrate FontAwesome?](#q45-how-do-you-integrate-fontawesome)
-46. [How do you integrate Google Analytics 4 (GA4)?](#q46-how-do-you-integrate-google-analytics-4-ga4)
-47. [How do you integrate Hotjar?](#q47-how-do-you-integrate-hotjar)
-48. [How do you integrate Bootstrap 5?](#q48-how-do-you-integrate-bootstrap-5)
-49. [How do you integrate PrimeNG?](#q49-how-do-you-integrate-primeng)
-50. [How do you integrate Lodash?](#q50-how-do-you-integrate-lodash)
-51. [How do you integrate Moment.js (or Day.js)?](#q51-how-do-you-integrate-momentjs-or-dayjs)
-52. [How do you integrate PDF generation (`jspdf`)?](#q52-how-do-you-integrate-pdf-generation-`jspdf`)
-53. [How do you integrate Excel export (`xlsx`)?](#q53-how-do-you-integrate-excel-export-`xlsx`)
-54. [How do you integrate Clipboard copy?](#q54-how-do-you-integrate-clipboard-copy)
-55. [How do you integrate QR Code generation?](#q55-how-do-you-integrate-qr-code-generation)
-56. [How do you integrate Toast Notifications (`ngx-toastr`)?](#q56-how-do-you-integrate-toast-notifications-`ngx-toastr`)
-57. [How do you integrate Loading Spinner (Overlay)?](#q57-how-do-you-integrate-loading-spinner-overlay)
-58. [How do you integrate Environment Variables?](#q58-how-do-you-integrate-environment-variables)
-59. [How do you integrate Custom Web Elements?](#q59-how-do-you-integrate-custom-web-elements)
-60. [How do you integrate Angular with Electron?](#q60-how-do-you-integrate-angular-with-electron)
-61. [How do you integrate Angular with Tauri?](#q61-how-do-you-integrate-angular-with-tauri)
-62. [How do you integrate Angular with Ionic?](#q62-how-do-you-integrate-angular-with-ionic)
-63. [How do you integrate Push Notifications?](#q63-how-do-you-integrate-push-notifications)
-64. [How do you integrate Biometric Auth (WebAuthn)?](#q64-how-do-you-integrate-biometric-auth-webauthn)
-65. [How do you integrate Voice Recognition (Web Speech API)?](#q65-how-do-you-integrate-voice-recognition-web-speech-api)
-66. [How do you integrate Text-to-Speech?](#q66-how-do-you-integrate-text-to-speech)
-67. [How do you integrate Drag and Drop File Upload?](#q67-how-do-you-integrate-drag-and-drop-file-upload)
-68. [How do you integrate Infinite Scroll?](#q68-how-do-you-integrate-infinite-scroll)
-69. [How do you integrate Skeleton Loading?](#q69-how-do-you-integrate-skeleton-loading)
-70. [How do you integrate Image Cropping?](#q70-how-do-you-integrate-image-cropping)
-71. [How do you integrate PDF Viewer?](#q71-how-do-you-integrate-pdf-viewer)
-72. [How do you integrate Video Player?](#q72-how-do-you-integrate-video-player)
-73. [How do you integrate Rich Text Editor (WYSIWYG)?](#q73-how-do-you-integrate-rich-text-editor-wysiwyg)
-74. [How do you integrate Code Highlighting?](#q74-how-do-you-integrate-code-highlighting)
-75. [How do you integrate Cookie Handling?](#q75-how-do-you-integrate-cookie-handling)
-76. [How do you integrate LocalStorage/SessionStorage?](#q76-how-do-you-integrate-localstorage-sessionstorage)
-77. [How do you integrate Key Bindings (Hotkeys)?](#q77-how-do-you-integrate-key-bindings-hotkeys)
-78. [How do you integrate Screen/Device Detection?](#q78-how-do-you-integrate-screen-device-detection)
-79. [How do you integrate FullCalendar?](#q79-how-do-you-integrate-fullcalendar)
-80. [How do you integrate Tooltips?](#q80-how-do-you-integrate-tooltips)
-81. [How do you integrate Popovers?](#q81-how-do-you-integrate-popovers)
-82. [How do you integrate Modals/Dialogs?](#q82-how-do-you-integrate-modals-dialogs)
-83. [How do you integrate Side Navigation (Drawer)?](#q83-how-do-you-integrate-side-navigation-drawer)
-84. [How do you integrate Tabs?](#q84-how-do-you-integrate-tabs)
-85. [How do you integrate Stepper?](#q85-how-do-you-integrate-stepper)
-86. [How do you integrate Tree View?](#q86-how-do-you-integrate-tree-view)
-87. [How do you integrate Autocomplete?](#q87-how-do-you-integrate-autocomplete)
-88. [How do you integrate Slider?](#q88-how-do-you-integrate-slider)
-89. [How do you integrate Toggle Switch?](#q89-how-do-you-integrate-toggle-switch)
-90. [How do you integrate Badge?](#q90-how-do-you-integrate-badge)
-91. [How do you integrate Progress Bar/Spinner?](#q91-how-do-you-integrate-progress-bar-spinner)
-92. [How do you integrate Snackbar/Toast?](#q92-how-do-you-integrate-snackbar-toast)
-93. [How do you integrate Bottom Sheet?](#q93-how-do-you-integrate-bottom-sheet)
-94. [How do you integrate Expansion Panel (Accordion)?](#q94-how-do-you-integrate-expansion-panel-accordion)
-95. [How do you integrate Divider?](#q95-how-do-you-integrate-divider)
-96. [How do you integrate Grid List?](#q96-how-do-you-integrate-grid-list)
-97. [How do you integrate Virtual Keyboard?](#q97-how-do-you-integrate-virtual-keyboard)
-98. [How do you integrate Signature Pad?](#q98-how-do-you-integrate-signature-pad)
-99. [How do you integrate Barcode Scanner?](#q99-how-do-you-integrate-barcode-scanner)
-100. [How do you integrate Geolocation?](#q100-how-do-you-integrate-geolocation)
-101. [How do you integrate Vibration?](#q101-how-do-you-integrate-vibration)
-102. [How do you integrate Battery Status?](#q102-how-do-you-integrate-battery-status)
-103. [How do you integrate Network Status Detection?](#q103-how-do-you-integrate-network-status-detection)
-104. [How do you integrate Page Visibility API?](#q104-how-do-you-integrate-page-visibility-api)
-105. [How do you integrate Fullscreen API?](#q105-how-do-you-integrate-fullscreen-api)
-106. [How do you integrate Picture-in-Picture?](#q106-how-do-you-integrate-picture-in-picture)
-107. [How do you integrate Share API (Web Share)?](#q107-how-do-you-integrate-share-api-web-share)
-108. [How do you integrate Payment Request API?](#q108-how-do-you-integrate-payment-request-api)
-109. [How do you integrate Bluetooth (Web Bluetooth)?](#q109-how-do-you-integrate-bluetooth-web-bluetooth)
+
+1. [What are the key new features introduced in Angular 14?](#q1-what-are-the-key-new-features-introduced-in-angular-14) <span class="beginner">Beginner</span>
+2. [How do you migrate from NgModules to Standalone Components?](#q2-how-do-you-migrate-from-ngmodules-to-standalone-components) <span class="beginner">Beginner</span>
+3. [How do you set up and use Angular CLI auto-completion?](#q3-how-do-you-set-up-and-use-angular-cli-auto-completion) <span class="beginner">Beginner</span>
+4. [How do you use optional injectors in embedded views?](#q4-how-do-you-use-optional-injectors-in-embedded-views) <span class="beginner">Beginner</span>
+5. [How do you implement micro-frontend architecture with Angular 14?](#q5-how-do-you-implement-micro-frontend-architecture-with-angular-14) <span class="beginner">Beginner</span>
+6. [How do you implement advanced state sharing between Angular 14 applications?](#q6-how-do-you-implement-advanced-state-sharing-between-angular-14-applications) <span class="beginner">Beginner</span>
+7. [How do you implement real-time collaboration features in Angular 14?](#q7-how-do-you-implement-real-time-collaboration-features-in-angular-14) <span class="beginner">Beginner</span>
+8. [How would you implement advanced Angular 14+ integration with modern development tools and CI/CD pipelines?](#q8-how-would-you-implement-advanced-angular-14+-integration-with-modern-development-tools-and-cicd-pipelines) <span class="beginner">Beginner</span>
+9. [How would you implement advanced Angular 14+ integration with modern monitoring, analytics, and observability tools?](#q9-how-would-you-implement-advanced-angular-14+-integration-with-modern-monitoring-analytics-and-observability-tools) <span class="beginner">Beginner</span>
+10. [How do you integrate Angular with Firebase using AngularFire?](#q10-how-do-you-integrate-angular-with-firebase-using-angularfire) <span class="beginner">Beginner</span>
+11. [How do you integrate Redux DevTools with NgRx?](#q11-how-do-you-integrate-redux-devtools-with-ngrx) <span class="beginner">Beginner</span>
+12. [How do you integrate Tailwind CSS with Angular?](#q12-how-do-you-integrate-tailwind-css-with-angular) <span class="beginner">Beginner</span>
+13. [How do you integrate Angular Material?](#q13-how-do-you-integrate-angular-material) <span class="beginner">Beginner</span>
+14. [How do you integrate GraphQL with Apollo in Angular?](#q14-how-do-you-integrate-graphql-with-apollo-in-angular) <span class="beginner">Beginner</span>
+15. [How do you integrate Storybook with Angular?](#q15-how-do-you-integrate-storybook-with-angular) <span class="beginner">Beginner</span>
+16. [How do you integrate Jest for testing in Angular?](#q16-how-do-you-integrate-jest-for-testing-in-angular) <span class="beginner">Beginner</span>
+17. [How do you integrate Cypress for E2E testing?](#q17-how-do-you-integrate-cypress-for-e2e-testing) <span class="beginner">Beginner</span>
+18. [How do you integrate Google Maps?](#q18-how-do-you-integrate-google-maps) <span class="beginner">Beginner</span>
+19. [How do you integrate Socket.io with Angular?](#q19-how-do-you-integrate-socket.io-with-angular) <span class="beginner">Beginner</span>
+20. [How do you integrate Stripe Elements?](#q20-how-do-you-integrate-stripe-elements) <span class="beginner">Beginner</span>
+21. [How do you integrate Chart.js?](#q21-how-do-you-integrate-chart.js) <span class="beginner">Beginner</span>
+22. [How do you integrate Auth0?](#q22-how-do-you-integrate-auth0) <span class="beginner">Beginner</span>
+23. [How do you integrate Angular with Docker?](#q23-how-do-you-integrate-angular-with-docker) <span class="beginner">Beginner</span>
+24. [How do you integrate Internationalization (i18n)?](#q24-how-do-you-integrate-internationalization-i18n) <span class="beginner">Beginner</span>
+25. [How do you integrate `ngx-translate` for dynamic i18n?](#q25-how-do-you-integrate-ngx-translate-for-dynamic-i18n) <span class="beginner">Beginner</span>
+26. [How do you integrate Sentry for error tracking?](#q26-how-do-you-integrate-sentry-for-error-tracking) <span class="beginner">Beginner</span>
+27. [How do you integrate Prettier and ESLint?](#q27-how-do-you-integrate-prettier-and-eslint) <span class="beginner">Beginner</span>
+28. [How do you integrate Husky for git hooks?](#q28-how-do-you-integrate-husky-for-git-hooks) <span class="beginner">Beginner</span>
+29. [How do you integrate a mock server (JSON Server)?](#q29-how-do-you-integrate-a-mock-server-json-server) <span class="beginner">Beginner</span>
+30. [How do you integrate Keycloak for IAM?](#q30-how-do-you-integrate-keycloak-for-iam) <span class="beginner">Beginner</span>
+31. [How do you integrate AG Grid?](#q31-how-do-you-integrate-ag-grid) <span class="beginner">Beginner</span>
+32. [How do you integrate RxJS Operators for HTTP retry strategies?](#q32-how-do-you-integrate-rxjs-operators-for-http-retry-strategies) <span class="beginner">Beginner</span>
+33. [How do you integrate Web Workers in Angular?](#q33-how-do-you-integrate-web-workers-in-angular) <span class="beginner">Beginner</span>
+34. [How do you integrate Service Workers (PWA)?](#q34-how-do-you-integrate-service-workers-pwa) <span class="beginner">Beginner</span>
+35. [How do you integrate Module Federation (Micro-frontends)?](#q35-how-do-you-integrate-module-federation-micro-frontends) <span class="beginner">Beginner</span>
+36. [How do you integrate Angular Universal (SSR)?](#q36-how-do-you-integrate-angular-universal-ssr) <span class="beginner">Beginner</span>
+37. [How do you integrate a Virtual Scroller (CDK)?](#q37-how-do-you-integrate-a-virtual-scroller-cdk) <span class="beginner">Beginner</span>
+38. [How do you integrate Drag and Drop (CDK)?](#q38-how-do-you-integrate-drag-and-drop-cdk) <span class="beginner">Beginner</span>
+39. [How do you integrate Lottie Animations?](#q39-how-do-you-integrate-lottie-animations) <span class="beginner">Beginner</span>
+40. [How do you integrate Markdown rendering?](#q40-how-do-you-integrate-markdown-rendering) <span class="beginner">Beginner</span>
+41. [How do you integrate a Date Picker (Material)?](#q41-how-do-you-integrate-a-date-picker-material) <span class="beginner">Beginner</span>
+42. [How do you integrate Form Validation (Reactive)?](#q42-how-do-you-integrate-form-validation-reactive) <span class="beginner">Beginner</span>
+43. [How do you integrate File Upload?](#q43-how-do-you-integrate-file-upload) <span class="beginner">Beginner</span>
+44. [How do you integrate JWT Handling?](#q44-how-do-you-integrate-jwt-handling) <span class="beginner">Beginner</span>
+45. [How do you integrate FontAwesome?](#q45-how-do-you-integrate-fontawesome) <span class="beginner">Beginner</span>
+46. [How do you integrate Google Analytics 4 (GA4)?](#q46-how-do-you-integrate-google-analytics-4-ga4) <span class="beginner">Beginner</span>
+47. [How do you integrate Hotjar?](#q47-how-do-you-integrate-hotjar) <span class="beginner">Beginner</span>
+48. [How do you integrate Bootstrap 5?](#q48-how-do-you-integrate-bootstrap-5) <span class="beginner">Beginner</span>
+49. [How do you integrate PrimeNG?](#q49-how-do-you-integrate-primeng) <span class="beginner">Beginner</span>
+50. [How do you integrate Lodash?](#q50-how-do-you-integrate-lodash) <span class="beginner">Beginner</span>
+51. [How do you integrate Moment.js (or Day.js)?](#q51-how-do-you-integrate-moment.js-or-day.js) <span class="beginner">Beginner</span>
+52. [How do you integrate PDF generation (`jspdf`)?](#q52-how-do-you-integrate-pdf-generation-jspdf) <span class="beginner">Beginner</span>
+53. [How do you integrate Excel export (`xlsx`)?](#q53-how-do-you-integrate-excel-export-xlsx) <span class="beginner">Beginner</span>
+54. [How do you integrate Clipboard copy?](#q54-how-do-you-integrate-clipboard-copy) <span class="beginner">Beginner</span>
+55. [How do you integrate QR Code generation?](#q55-how-do-you-integrate-qr-code-generation) <span class="beginner">Beginner</span>
+56. [How do you integrate Toast Notifications (`ngx-toastr`)?](#q56-how-do-you-integrate-toast-notifications-ngx-toastr) <span class="beginner">Beginner</span>
+57. [How do you integrate Loading Spinner (Overlay)?](#q57-how-do-you-integrate-loading-spinner-overlay) <span class="beginner">Beginner</span>
+58. [How do you integrate Environment Variables?](#q58-how-do-you-integrate-environment-variables) <span class="beginner">Beginner</span>
+59. [How do you integrate Custom Web Elements?](#q59-how-do-you-integrate-custom-web-elements) <span class="beginner">Beginner</span>
+60. [How do you integrate Angular with Electron?](#q60-how-do-you-integrate-angular-with-electron) <span class="beginner">Beginner</span>
+61. [How do you integrate Angular with Tauri?](#q61-how-do-you-integrate-angular-with-tauri) <span class="beginner">Beginner</span>
+62. [How do you integrate Angular with Ionic?](#q62-how-do-you-integrate-angular-with-ionic) <span class="beginner">Beginner</span>
+63. [How do you integrate Push Notifications?](#q63-how-do-you-integrate-push-notifications) <span class="beginner">Beginner</span>
+64. [How do you integrate Biometric Auth (WebAuthn)?](#q64-how-do-you-integrate-biometric-auth-webauthn) <span class="beginner">Beginner</span>
+65. [How do you integrate Voice Recognition (Web Speech API)?](#q65-how-do-you-integrate-voice-recognition-web-speech-api) <span class="beginner">Beginner</span>
+66. [How do you integrate Text-to-Speech?](#q66-how-do-you-integrate-text-to-speech) <span class="beginner">Beginner</span>
+67. [How do you integrate Drag and Drop File Upload?](#q67-how-do-you-integrate-drag-and-drop-file-upload) <span class="beginner">Beginner</span>
+68. [How do you integrate Infinite Scroll?](#q68-how-do-you-integrate-infinite-scroll) <span class="beginner">Beginner</span>
+69. [How do you integrate Skeleton Loading?](#q69-how-do-you-integrate-skeleton-loading) <span class="beginner">Beginner</span>
+70. [How do you integrate Image Cropping?](#q70-how-do-you-integrate-image-cropping) <span class="beginner">Beginner</span>
+71. [How do you integrate PDF Viewer?](#q71-how-do-you-integrate-pdf-viewer) <span class="beginner">Beginner</span>
+72. [How do you integrate Video Player?](#q72-how-do-you-integrate-video-player) <span class="beginner">Beginner</span>
+73. [How do you integrate Rich Text Editor (WYSIWYG)?](#q73-how-do-you-integrate-rich-text-editor-wysiwyg) <span class="beginner">Beginner</span>
+74. [How do you integrate Code Highlighting?](#q74-how-do-you-integrate-code-highlighting) <span class="beginner">Beginner</span>
+75. [How do you integrate Cookie Handling?](#q75-how-do-you-integrate-cookie-handling) <span class="beginner">Beginner</span>
+76. [How do you integrate LocalStorage/SessionStorage?](#q76-how-do-you-integrate-localstoragesessionstorage) <span class="beginner">Beginner</span>
+77. [How do you integrate Key Bindings (Hotkeys)?](#q77-how-do-you-integrate-key-bindings-hotkeys) <span class="beginner">Beginner</span>
+78. [How do you integrate Screen/Device Detection?](#q78-how-do-you-integrate-screendevice-detection) <span class="beginner">Beginner</span>
+79. [How do you integrate FullCalendar?](#q79-how-do-you-integrate-fullcalendar) <span class="beginner">Beginner</span>
+80. [How do you integrate Tooltips?](#q80-how-do-you-integrate-tooltips) <span class="beginner">Beginner</span>
+81. [How do you integrate Popovers?](#q81-how-do-you-integrate-popovers) <span class="beginner">Beginner</span>
+82. [How do you integrate Modals/Dialogs?](#q82-how-do-you-integrate-modalsdialogs) <span class="beginner">Beginner</span>
+83. [How do you integrate Side Navigation (Drawer)?](#q83-how-do-you-integrate-side-navigation-drawer) <span class="beginner">Beginner</span>
+84. [How do you integrate Tabs?](#q84-how-do-you-integrate-tabs) <span class="beginner">Beginner</span>
+85. [How do you integrate Stepper?](#q85-how-do-you-integrate-stepper) <span class="beginner">Beginner</span>
+86. [How do you integrate Tree View?](#q86-how-do-you-integrate-tree-view) <span class="beginner">Beginner</span>
+87. [How do you integrate Autocomplete?](#q87-how-do-you-integrate-autocomplete) <span class="beginner">Beginner</span>
+88. [How do you integrate Slider?](#q88-how-do-you-integrate-slider) <span class="beginner">Beginner</span>
+89. [How do you integrate Toggle Switch?](#q89-how-do-you-integrate-toggle-switch) <span class="beginner">Beginner</span>
+90. [How do you integrate Badge?](#q90-how-do-you-integrate-badge) <span class="beginner">Beginner</span>
+91. [How do you integrate Progress Bar/Spinner?](#q91-how-do-you-integrate-progress-barspinner) <span class="beginner">Beginner</span>
+92. [How do you integrate Snackbar/Toast?](#q92-how-do-you-integrate-snackbartoast) <span class="beginner">Beginner</span>
+93. [How do you integrate Bottom Sheet?](#q93-how-do-you-integrate-bottom-sheet) <span class="beginner">Beginner</span>
+94. [How do you integrate Expansion Panel (Accordion)?](#q94-how-do-you-integrate-expansion-panel-accordion) <span class="beginner">Beginner</span>
+95. [How do you integrate Divider?](#q95-how-do-you-integrate-divider) <span class="beginner">Beginner</span>
+96. [How do you integrate Grid List?](#q96-how-do-you-integrate-grid-list) <span class="beginner">Beginner</span>
+97. [How do you integrate Virtual Keyboard?](#q97-how-do-you-integrate-virtual-keyboard) <span class="beginner">Beginner</span>
+98. [How do you integrate Signature Pad?](#q98-how-do-you-integrate-signature-pad) <span class="beginner">Beginner</span>
+99. [How do you integrate Barcode Scanner?](#q99-how-do-you-integrate-barcode-scanner) <span class="beginner">Beginner</span>
+100. [How do you integrate Geolocation?](#q100-how-do-you-integrate-geolocation) <span class="beginner">Beginner</span>
+101. [How do you integrate Vibration?](#q101-how-do-you-integrate-vibration) <span class="beginner">Beginner</span>
+102. [How do you integrate Battery Status?](#q102-how-do-you-integrate-battery-status) <span class="beginner">Beginner</span>
+103. [How do you integrate Network Status Detection?](#q103-how-do-you-integrate-network-status-detection) <span class="beginner">Beginner</span>
+104. [How do you integrate Page Visibility API?](#q104-how-do-you-integrate-page-visibility-api) <span class="beginner">Beginner</span>
+105. [How do you integrate Fullscreen API?](#q105-how-do-you-integrate-fullscreen-api) <span class="beginner">Beginner</span>
+106. [How do you integrate Picture-in-Picture?](#q106-how-do-you-integrate-picture-in-picture) <span class="beginner">Beginner</span>
+107. [How do you integrate Share API (Web Share)?](#q107-how-do-you-integrate-share-api-web-share) <span class="beginner">Beginner</span>
+108. [How do you integrate Payment Request API?](#q108-how-do-you-integrate-payment-request-api) <span class="beginner">Beginner</span>
+109. [How do you integrate Bluetooth (Web Bluetooth)?](#q109-how-do-you-integrate-bluetooth-web-bluetooth) <span class="beginner">Beginner</span>
+
 ---
 
 ## Angular 14 New Features

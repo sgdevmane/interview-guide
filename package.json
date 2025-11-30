@@ -1,0 +1,21 @@
+{
+  "name": "tech-interview-guide",
+  "version": "1.0.0",
+  "description": "Premium Tech Interview Guide with 100+ Questions per Topic",
+  "scripts": {
+    "start": "http-server . -p 8080 -c-1",
+    "build": "echo 'Static site: no build required. Copying assets...' && mkdir -p dist && cp -r *.html assets markdowns dist/",
+    "docker-deploy": "docker build -t tech-interview-guide . && docker run -d -p 8080:80 tech-interview-guide"
+  },
+  "keywords": [
+    "interview",
+    "guide",
+    "programming",
+    "fullstack"
+  ],
+  "author": "Trae AI",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
