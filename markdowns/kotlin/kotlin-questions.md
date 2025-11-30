@@ -1,115 +1,59 @@
 ## Table of Contents
-| No. | Question | Difficulty |
-| --- | -------- | ---------- |
-| 1 | [How do you prevent blocking the Main Thread when performing network operations in Kotlin?](#how-do-you-prevent-blocking-the-main-thread-when-performing-network-operations-in-kotlin) | Beginner |
-| 2 | [How do you choose between `val`, `var`, `const val`, and `lateinit var`?](#how-do-you-choose-between-val-var-const-val-and-lateinit-var) | Beginner |
-| 3 | [How do you use Sealed Classes to model UI state effectively?](#how-do-you-use-sealed-classes-to-model-ui-state-effectively) | Intermediate |
-| 4 | [How do you safely handle null values without using the `!!` operator?](#how-do-you-safely-handle-null-values-without-using-the-!!-operator) | Beginner |
-| 5 | [How do you optimize collection processing using Sequences?](#how-do-you-optimize-collection-processing-using-sequences) | Intermediate |
-| 6 | [How do you implement the Singleton pattern in Kotlin?](#how-do-you-implement-the-singleton-pattern-in-kotlin) | Beginner |
-| 7 | [How do you extend a class functionality without inheriting from it (Extension Functions)?](#how-do-you-extend-a-class-functionality-without-inheriting-from-it-extension-functions) | Intermediate |
-| 8 | [How do you use `StateFlow` vs `SharedFlow` for event handling?](#how-do-you-use-stateflow-vs-sharedflow-for-event-handling) | Advanced |
-| 9 | [How do you delegate property logic using the `by` keyword?](#how-do-you-delegate-property-logic-using-the-by-keyword) | Intermediate |
-| 10 | [How do you handle structured concurrency to ensure no coroutines leak?](#how-do-you-handle-structured-concurrency-to-ensure-no-coroutines-leak) | Advanced |
-| 11 | [How do you access the reified type parameter in an inline function?](#how-do-you-access-the-reified-type-parameter-in-an-inline-function) | Advanced |
-| 12 | [How do you filter a list of objects and return a new list containing only non-null results?](#how-do-you-filter-a-list-of-objects-and-return-a-new-list-containing-only-non-null-results) | Beginner |
-| 13 | [How do you create a Domain Specific Language (DSL) in Kotlin?](#how-do-you-create-a-domain-specific-language-dsl-in-kotlin) | Expert |
-| 14 | [How do you use Destructuring Declarations to return multiple values?](#how-do-you-use-destructuring-declarations-to-return-multiple-values) | Beginner |
-| 15 | [How do you choose between `apply`, `also`, `let`, `run`, and `with`?](#how-do-you-choose-between-apply-also-let-run-and-with) | Intermediate |
-| 16 | [How do you utilize Nothing Type effectively in Kotlin? (Scenario 16)](#how-do-you-utilize-nothing-type-effectively-in-kotlin-scenario-16) | Intermediate |
-| 17 | [How do you utilize Unit Type effectively in Kotlin? (Scenario 17)](#how-do-you-utilize-unit-type-effectively-in-kotlin-scenario-17) | Intermediate |
-| 18 | [How do you utilize Functional Interfaces (SAM) effectively in Kotlin? (Scenario 18)](#how-do-you-utilize-functional-interfaces-sam-effectively-in-kotlin-scenario-18) | Intermediate |
-| 19 | [How do you utilize Destructuring effectively in Kotlin? (Scenario 19)](#how-do-you-utilize-destructuring-effectively-in-kotlin-scenario-19) | Intermediate |
-| 20 | [How do you utilize Range Expressions effectively in Kotlin? (Scenario 20)](#how-do-you-utilize-range-expressions-effectively-in-kotlin-scenario-20) | Intermediate |
-| 21 | [How do you utilize Exception Handling effectively in Kotlin? (Scenario 21)](#how-do-you-utilize-exception-handling-effectively-in-kotlin-scenario-21) | Intermediate |
-| 22 | [How do you utilize Try-with-resources (use) effectively in Kotlin? (Scenario 22)](#how-do-you-utilize-try-with-resources-use-effectively-in-kotlin-scenario-22) | Intermediate |
-| 23 | [How do you utilize Sequence Builders effectively in Kotlin? (Scenario 23)](#how-do-you-utilize-sequence-builders-effectively-in-kotlin-scenario-23) | Intermediate |
-| 24 | [How do you utilize Yield effectively in Kotlin? (Scenario 24)](#how-do-you-utilize-yield-effectively-in-kotlin-scenario-24) | Intermediate |
-| 25 | [How do you utilize Actor Model (Obsolete) effectively in Kotlin? (Scenario 25)](#how-do-you-utilize-actor-model-obsolete-effectively-in-kotlin-scenario-25) | Intermediate |
-| 26 | [How do you utilize Channels effectively in Kotlin? (Scenario 26)](#how-do-you-utilize-channels-effectively-in-kotlin-scenario-26) | Intermediate |
-| 27 | [How do you utilize Select Expression effectively in Kotlin? (Scenario 27)](#how-do-you-utilize-select-expression-effectively-in-kotlin-scenario-27) | Intermediate |
-| 28 | [How do you utilize Inline Classes effectively in Kotlin? (Scenario 28)](#how-do-you-utilize-inline-classes-effectively-in-kotlin-scenario-28) | Intermediate |
-| 29 | [How do you utilize Type Aliases effectively in Kotlin? (Scenario 29)](#how-do-you-utilize-type-aliases-effectively-in-kotlin-scenario-29) | Intermediate |
-| 30 | [How do you utilize Covariance (out) effectively in Kotlin? (Scenario 30)](#how-do-you-utilize-covariance-out-effectively-in-kotlin-scenario-30) | Intermediate |
-| 31 | [How do you utilize Contravariance (in) effectively in Kotlin? (Scenario 31)](#how-do-you-utilize-contravariance-in-effectively-in-kotlin-scenario-31) | Intermediate |
-| 32 | [How do you utilize Star Projections effectively in Kotlin? (Scenario 32)](#how-do-you-utilize-star-projections-effectively-in-kotlin-scenario-32) | Intermediate |
-| 33 | [How do you utilize Annotation Processing (KAPT/KSP) effectively in Kotlin? (Scenario 33)](#how-do-you-utilize-annotation-processing-kaptksp-effectively-in-kotlin-scenario-33) | Intermediate |
-| 34 | [How do you utilize Multiplatform (KMP) effectively in Kotlin? (Scenario 34)](#how-do-you-utilize-multiplatform-kmp-effectively-in-kotlin-scenario-34) | Intermediate |
-| 35 | [How do you utilize Native Interop effectively in Kotlin? (Scenario 35)](#how-do-you-utilize-native-interop-effectively-in-kotlin-scenario-35) | Intermediate |
-| 36 | [How do you utilize Reflection effectively in Kotlin? (Scenario 36)](#how-do-you-utilize-reflection-effectively-in-kotlin-scenario-36) | Intermediate |
-| 37 | [How do you utilize Operator Overloading effectively in Kotlin? (Scenario 37)](#how-do-you-utilize-operator-overloading-effectively-in-kotlin-scenario-37) | Intermediate |
-| 38 | [How do you utilize Infix Functions effectively in Kotlin? (Scenario 38)](#how-do-you-utilize-infix-functions-effectively-in-kotlin-scenario-38) | Intermediate |
-| 39 | [How do you utilize Tail Recursion effectively in Kotlin? (Scenario 39)](#how-do-you-utilize-tail-recursion-effectively-in-kotlin-scenario-39) | Intermediate |
-| 40 | [How do you utilize Backing Fields effectively in Kotlin? (Scenario 40)](#how-do-you-utilize-backing-fields-effectively-in-kotlin-scenario-40) | Intermediate |
-| 41 | [How do you utilize Constructors (Primary/Secondary) effectively in Kotlin? (Scenario 41)](#how-do-you-utilize-constructors-primarysecondary-effectively-in-kotlin-scenario-41) | Intermediate |
-| 42 | [How do you utilize Visibility Modifiers effectively in Kotlin? (Scenario 42)](#how-do-you-utilize-visibility-modifiers-effectively-in-kotlin-scenario-42) | Intermediate |
-| 43 | [How do you utilize Companion Objects effectively in Kotlin? (Scenario 43)](#how-do-you-utilize-companion-objects-effectively-in-kotlin-scenario-43) | Intermediate |
-| 44 | [How do you utilize Nothing Type effectively in Kotlin? (Scenario 44)](#how-do-you-utilize-nothing-type-effectively-in-kotlin-scenario-44) | Intermediate |
-| 45 | [How do you utilize Unit Type effectively in Kotlin? (Scenario 45)](#how-do-you-utilize-unit-type-effectively-in-kotlin-scenario-45) | Intermediate |
-| 46 | [How do you utilize Functional Interfaces (SAM) effectively in Kotlin? (Scenario 46)](#how-do-you-utilize-functional-interfaces-sam-effectively-in-kotlin-scenario-46) | Intermediate |
-| 47 | [How do you utilize Destructuring effectively in Kotlin? (Scenario 47)](#how-do-you-utilize-destructuring-effectively-in-kotlin-scenario-47) | Intermediate |
-| 48 | [How do you utilize Range Expressions effectively in Kotlin? (Scenario 48)](#how-do-you-utilize-range-expressions-effectively-in-kotlin-scenario-48) | Intermediate |
-| 49 | [How do you utilize Exception Handling effectively in Kotlin? (Scenario 49)](#how-do-you-utilize-exception-handling-effectively-in-kotlin-scenario-49) | Intermediate |
-| 50 | [How do you utilize Try-with-resources (use) effectively in Kotlin? (Scenario 50)](#how-do-you-utilize-try-with-resources-use-effectively-in-kotlin-scenario-50) | Intermediate |
-| 51 | [How do you utilize Sequence Builders effectively in Kotlin? (Scenario 51)](#how-do-you-utilize-sequence-builders-effectively-in-kotlin-scenario-51) | Intermediate |
-| 52 | [How do you utilize Yield effectively in Kotlin? (Scenario 52)](#how-do-you-utilize-yield-effectively-in-kotlin-scenario-52) | Intermediate |
-| 53 | [How do you utilize Actor Model (Obsolete) effectively in Kotlin? (Scenario 53)](#how-do-you-utilize-actor-model-obsolete-effectively-in-kotlin-scenario-53) | Intermediate |
-| 54 | [How do you utilize Channels effectively in Kotlin? (Scenario 54)](#how-do-you-utilize-channels-effectively-in-kotlin-scenario-54) | Intermediate |
-| 55 | [How do you utilize Select Expression effectively in Kotlin? (Scenario 55)](#how-do-you-utilize-select-expression-effectively-in-kotlin-scenario-55) | Intermediate |
-| 56 | [How do you utilize Inline Classes effectively in Kotlin? (Scenario 56)](#how-do-you-utilize-inline-classes-effectively-in-kotlin-scenario-56) | Intermediate |
-| 57 | [How do you utilize Type Aliases effectively in Kotlin? (Scenario 57)](#how-do-you-utilize-type-aliases-effectively-in-kotlin-scenario-57) | Intermediate |
-| 58 | [How do you utilize Covariance (out) effectively in Kotlin? (Scenario 58)](#how-do-you-utilize-covariance-out-effectively-in-kotlin-scenario-58) | Intermediate |
-| 59 | [How do you utilize Contravariance (in) effectively in Kotlin? (Scenario 59)](#how-do-you-utilize-contravariance-in-effectively-in-kotlin-scenario-59) | Intermediate |
-| 60 | [How do you utilize Star Projections effectively in Kotlin? (Scenario 60)](#how-do-you-utilize-star-projections-effectively-in-kotlin-scenario-60) | Intermediate |
-| 61 | [How do you utilize Annotation Processing (KAPT/KSP) effectively in Kotlin? (Scenario 61)](#how-do-you-utilize-annotation-processing-kaptksp-effectively-in-kotlin-scenario-61) | Intermediate |
-| 62 | [How do you utilize Multiplatform (KMP) effectively in Kotlin? (Scenario 62)](#how-do-you-utilize-multiplatform-kmp-effectively-in-kotlin-scenario-62) | Intermediate |
-| 63 | [How do you utilize Native Interop effectively in Kotlin? (Scenario 63)](#how-do-you-utilize-native-interop-effectively-in-kotlin-scenario-63) | Intermediate |
-| 64 | [How do you utilize Reflection effectively in Kotlin? (Scenario 64)](#how-do-you-utilize-reflection-effectively-in-kotlin-scenario-64) | Intermediate |
-| 65 | [How do you utilize Operator Overloading effectively in Kotlin? (Scenario 65)](#how-do-you-utilize-operator-overloading-effectively-in-kotlin-scenario-65) | Intermediate |
-| 66 | [How do you utilize Infix Functions effectively in Kotlin? (Scenario 66)](#how-do-you-utilize-infix-functions-effectively-in-kotlin-scenario-66) | Intermediate |
-| 67 | [How do you utilize Tail Recursion effectively in Kotlin? (Scenario 67)](#how-do-you-utilize-tail-recursion-effectively-in-kotlin-scenario-67) | Intermediate |
-| 68 | [How do you utilize Backing Fields effectively in Kotlin? (Scenario 68)](#how-do-you-utilize-backing-fields-effectively-in-kotlin-scenario-68) | Intermediate |
-| 69 | [How do you utilize Constructors (Primary/Secondary) effectively in Kotlin? (Scenario 69)](#how-do-you-utilize-constructors-primarysecondary-effectively-in-kotlin-scenario-69) | Intermediate |
-| 70 | [How do you utilize Visibility Modifiers effectively in Kotlin? (Scenario 70)](#how-do-you-utilize-visibility-modifiers-effectively-in-kotlin-scenario-70) | Intermediate |
-| 71 | [How do you utilize Companion Objects effectively in Kotlin? (Scenario 71)](#how-do-you-utilize-companion-objects-effectively-in-kotlin-scenario-71) | Intermediate |
-| 72 | [How do you utilize Nothing Type effectively in Kotlin? (Scenario 72)](#how-do-you-utilize-nothing-type-effectively-in-kotlin-scenario-72) | Intermediate |
-| 73 | [How do you utilize Unit Type effectively in Kotlin? (Scenario 73)](#how-do-you-utilize-unit-type-effectively-in-kotlin-scenario-73) | Intermediate |
-| 74 | [How do you utilize Functional Interfaces (SAM) effectively in Kotlin? (Scenario 74)](#how-do-you-utilize-functional-interfaces-sam-effectively-in-kotlin-scenario-74) | Intermediate |
-| 75 | [How do you utilize Destructuring effectively in Kotlin? (Scenario 75)](#how-do-you-utilize-destructuring-effectively-in-kotlin-scenario-75) | Intermediate |
-| 76 | [How do you utilize Range Expressions effectively in Kotlin? (Scenario 76)](#how-do-you-utilize-range-expressions-effectively-in-kotlin-scenario-76) | Intermediate |
-| 77 | [How do you utilize Exception Handling effectively in Kotlin? (Scenario 77)](#how-do-you-utilize-exception-handling-effectively-in-kotlin-scenario-77) | Intermediate |
-| 78 | [How do you utilize Try-with-resources (use) effectively in Kotlin? (Scenario 78)](#how-do-you-utilize-try-with-resources-use-effectively-in-kotlin-scenario-78) | Intermediate |
-| 79 | [How do you utilize Sequence Builders effectively in Kotlin? (Scenario 79)](#how-do-you-utilize-sequence-builders-effectively-in-kotlin-scenario-79) | Intermediate |
-| 80 | [How do you utilize Yield effectively in Kotlin? (Scenario 80)](#how-do-you-utilize-yield-effectively-in-kotlin-scenario-80) | Intermediate |
-| 81 | [How do you utilize Actor Model (Obsolete) effectively in Kotlin? (Scenario 81)](#how-do-you-utilize-actor-model-obsolete-effectively-in-kotlin-scenario-81) | Intermediate |
-| 82 | [How do you utilize Channels effectively in Kotlin? (Scenario 82)](#how-do-you-utilize-channels-effectively-in-kotlin-scenario-82) | Intermediate |
-| 83 | [How do you utilize Select Expression effectively in Kotlin? (Scenario 83)](#how-do-you-utilize-select-expression-effectively-in-kotlin-scenario-83) | Intermediate |
-| 84 | [How do you utilize Inline Classes effectively in Kotlin? (Scenario 84)](#how-do-you-utilize-inline-classes-effectively-in-kotlin-scenario-84) | Intermediate |
-| 85 | [How do you utilize Type Aliases effectively in Kotlin? (Scenario 85)](#how-do-you-utilize-type-aliases-effectively-in-kotlin-scenario-85) | Intermediate |
-| 86 | [How do you utilize Covariance (out) effectively in Kotlin? (Scenario 86)](#how-do-you-utilize-covariance-out-effectively-in-kotlin-scenario-86) | Intermediate |
-| 87 | [How do you utilize Contravariance (in) effectively in Kotlin? (Scenario 87)](#how-do-you-utilize-contravariance-in-effectively-in-kotlin-scenario-87) | Intermediate |
-| 88 | [How do you utilize Star Projections effectively in Kotlin? (Scenario 88)](#how-do-you-utilize-star-projections-effectively-in-kotlin-scenario-88) | Intermediate |
-| 89 | [How do you utilize Annotation Processing (KAPT/KSP) effectively in Kotlin? (Scenario 89)](#how-do-you-utilize-annotation-processing-kaptksp-effectively-in-kotlin-scenario-89) | Intermediate |
-| 90 | [How do you utilize Multiplatform (KMP) effectively in Kotlin? (Scenario 90)](#how-do-you-utilize-multiplatform-kmp-effectively-in-kotlin-scenario-90) | Intermediate |
-| 91 | [How do you utilize Native Interop effectively in Kotlin? (Scenario 91)](#how-do-you-utilize-native-interop-effectively-in-kotlin-scenario-91) | Intermediate |
-| 92 | [How do you utilize Reflection effectively in Kotlin? (Scenario 92)](#how-do-you-utilize-reflection-effectively-in-kotlin-scenario-92) | Intermediate |
-| 93 | [How do you utilize Operator Overloading effectively in Kotlin? (Scenario 93)](#how-do-you-utilize-operator-overloading-effectively-in-kotlin-scenario-93) | Intermediate |
-| 94 | [How do you utilize Infix Functions effectively in Kotlin? (Scenario 94)](#how-do-you-utilize-infix-functions-effectively-in-kotlin-scenario-94) | Intermediate |
-| 95 | [How do you utilize Tail Recursion effectively in Kotlin? (Scenario 95)](#how-do-you-utilize-tail-recursion-effectively-in-kotlin-scenario-95) | Intermediate |
-| 96 | [How do you utilize Backing Fields effectively in Kotlin? (Scenario 96)](#how-do-you-utilize-backing-fields-effectively-in-kotlin-scenario-96) | Intermediate |
-| 97 | [How do you utilize Constructors (Primary/Secondary) effectively in Kotlin? (Scenario 97)](#how-do-you-utilize-constructors-primarysecondary-effectively-in-kotlin-scenario-97) | Intermediate |
-| 98 | [How do you utilize Visibility Modifiers effectively in Kotlin? (Scenario 98)](#how-do-you-utilize-visibility-modifiers-effectively-in-kotlin-scenario-98) | Intermediate |
-| 99 | [How do you utilize Companion Objects effectively in Kotlin? (Scenario 99)](#how-do-you-utilize-companion-objects-effectively-in-kotlin-scenario-99) | Intermediate |
-| 100 | [How do you utilize Nothing Type effectively in Kotlin? (Scenario 100)](#how-do-you-utilize-nothing-type-effectively-in-kotlin-scenario-100) | Intermediate |
-| 101 | [How do you utilize Unit Type effectively in Kotlin? (Scenario 101)](#how-do-you-utilize-unit-type-effectively-in-kotlin-scenario-101) | Intermediate |
-| 102 | [How do you utilize Functional Interfaces (SAM) effectively in Kotlin? (Scenario 102)](#how-do-you-utilize-functional-interfaces-sam-effectively-in-kotlin-scenario-102) | Intermediate |
-| 103 | [How do you utilize Destructuring effectively in Kotlin? (Scenario 103)](#how-do-you-utilize-destructuring-effectively-in-kotlin-scenario-103) | Intermediate |
-| 104 | [How do you utilize Range Expressions effectively in Kotlin? (Scenario 104)](#how-do-you-utilize-range-expressions-effectively-in-kotlin-scenario-104) | Intermediate |
-| 105 | [How do you utilize Exception Handling effectively in Kotlin? (Scenario 105)](#how-do-you-utilize-exception-handling-effectively-in-kotlin-scenario-105) | Intermediate |
+
+1. [How do you prevent blocking the Main Thread when performing network operations in Kotlin?](#q1-how-do-you-prevent-blocking-the-main-thread-when-performing-network-operations-in-kotlin) <span class="beginner">Beginner</span>
+2. [How do you choose between `val`, `var`, `const val`, and `lateinit var`?](#q2-how-do-you-choose-between-val-var-const-val-and-lateinit-var) <span class="beginner">Beginner</span>
+3. [How do you use Sealed Classes to model UI state effectively?](#q3-how-do-you-use-sealed-classes-to-model-ui-state-effectively) <span class="intermediate">Intermediate</span>
+4. [How do you safely handle null values without using the `!!` operator?](#q4-how-do-you-safely-handle-null-values-without-using-the--operator) <span class="beginner">Beginner</span>
+5. [How do you optimize collection processing using Sequences?](#q5-how-do-you-optimize-collection-processing-using-sequences) <span class="intermediate">Intermediate</span>
+6. [How do you implement the Singleton pattern in Kotlin?](#q6-how-do-you-implement-the-singleton-pattern-in-kotlin) <span class="beginner">Beginner</span>
+7. [How do you extend a class functionality without inheriting from it (Extension Functions)?](#q7-how-do-you-extend-a-class-functionality-without-inheriting-from-it-extension-functions) <span class="intermediate">Intermediate</span>
+8. [How do you use `StateFlow` vs `SharedFlow` for event handling?](#q8-how-do-you-use-stateflow-vs-sharedflow-for-event-handling) <span class="advanced">Advanced</span>
+9. [How do you delegate property logic using the `by` keyword?](#q9-how-do-you-delegate-property-logic-using-the-by-keyword) <span class="intermediate">Intermediate</span>
+10. [How do you handle structured concurrency to ensure no coroutines leak?](#q10-how-do-you-handle-structured-concurrency-to-ensure-no-coroutines-leak) <span class="advanced">Advanced</span>
+11. [How do you access the reified type parameter in an inline function?](#q11-how-do-you-access-the-reified-type-parameter-in-an-inline-function) <span class="advanced">Advanced</span>
+12. [How do you filter a list of objects and return a new list containing only non-null results?](#q12-how-do-you-filter-a-list-of-objects-and-return-a-new-list-containing-only-non-null-results) <span class="beginner">Beginner</span>
+13. [How do you create a Domain Specific Language (DSL) in Kotlin?](#q13-how-do-you-create-a-domain-specific-language-dsl-in-kotlin) <span class="expert">Expert</span>
+14. [How do you use Destructuring Declarations to return multiple values?](#q14-how-do-you-use-destructuring-declarations-to-return-multiple-values) <span class="beginner">Beginner</span>
+15. [How do you choose between `apply`, `also`, `let`, `run`, and `with`?](#q15-how-do-you-choose-between-apply-also-let-run-and-with) <span class="intermediate">Intermediate</span>
+16. [How do you use `value class` (Inline Classes) to optimize memory?](#q16-how-do-you-use-value-class-inline-classes-to-optimize-memory) <span class="intermediate">Intermediate</span>
+17. [What is the difference between `sealed class` and `sealed interface`?](#q17-what-is-the-difference-between-sealed-class-and-sealed-interface) <span class="intermediate">Intermediate</span>
+18. [When should you use `init` blocks?](#q18-when-should-you-use-init-blocks) <span class="beginner">Beginner</span>
+19. [How do you make Kotlin code Java-friendly using `@JvmStatic` and `@JvmOverloads`?](#q19-how-do-you-make-kotlin-code-java-friendly-using-jvmstatic-and-jvmoverloads) <span class="intermediate">Intermediate</span>
+20. [How do you optimize recursion using `tailrec`?](#q20-how-do-you-optimize-recursion-using-tailrec) <span class="intermediate">Intermediate</span>
+21. [How do you create readable DSL-like code using `infix` functions?](#q21-how-do-you-create-readable-dsl-like-code-using-infix-functions) <span class="intermediate">Intermediate</span>
+22. [How do you overload operators (e.g., `+`, `[]`)?](#q22-how-do-you-overload-operators-eg--) <span class="intermediate">Intermediate</span>
+23. [How do you validate arguments using `check`, `require`, and `assert`?](#q23-how-do-you-validate-arguments-using-check-require-and-assert) <span class="beginner">Beginner</span>
+24. [What is the difference between `runBlocking` and `coroutineScope`?](#q24-what-is-the-difference-between-runblocking-and-coroutinescope) <span class="intermediate">Intermediate</span>
+25. [How do you handle Flow emissions with `collect` vs `collectLatest`?](#q25-how-do-you-handle-flow-emissions-with-collect-vs-collectlatest) <span class="advanced">Advanced</span>
+26. [How do you convert a callback-based API to a Flow (`callbackFlow`)?](#q26-how-do-you-convert-a-callback-based-api-to-a-flow-callbackflow) <span class="advanced">Advanced</span>
+27. [How do you ensure thread safety using `Mutex`?](#q27-how-do-you-ensure-thread-safety-using-mutex) <span class="advanced">Advanced</span>
+28. [How do you handle exceptions in Coroutines globally?](#q28-how-do-you-handle-exceptions-in-coroutines-globally) <span class="advanced">Advanced</span>
+29. [How do you use `SupervisorJob` to prevent failure propagation?](#q29-how-do-you-use-supervisorjob-to-prevent-failure-propagation) <span class="advanced">Advanced</span>
+30. [How do you define multiplatform code using `expect` and `actual`?](#q30-how-do-you-define-multiplatform-code-using-expect-and-actual) <span class="intermediate">Intermediate</span>
+31. [How do you generate a Sequence using `sequence { yield }`?](#q31-how-do-you-generate-a-sequence-using-sequence--yield-) <span class="intermediate">Intermediate</span>
+32. [How do you use `Nothing` type to represent unreachable code?](#q32-how-do-you-use-nothing-type-to-represent-unreachable-code) <span class="intermediate">Intermediate</span>
+33. [What is a `typealias` and when to use it?](#q33-what-is-a-typealias-and-when-to-use-it) <span class="beginner">Beginner</span>
+34. [How do you control backing fields using the `field` identifier?](#q34-how-do-you-control-backing-fields-using-the-field-identifier) <span class="intermediate">Intermediate</span>
+35. [How do you prevent a lambda parameter from being inlined (`noinline`, `crossinline`)?](#q35-how-do-you-prevent-a-lambda-parameter-from-being-inlined-noinline-crossinline) <span class="advanced">Advanced</span>
+36. [How do you use Contracts to help the compiler with smart casts?](#q36-how-do-you-use-contracts-to-help-the-compiler-with-smart-casts) <span class="advanced">Advanced</span>
+37. [How do you use Functional (SAM) interfaces?](#q37-how-do-you-use-functional-sam-interfaces) <span class="intermediate">Intermediate</span>
+38. [How do you use Destructuring in lambdas?](#q38-how-do-you-use-destructuring-in-lambdas) <span class="beginner">Beginner</span>
+39. [How do you use Receiver Functions (`String.() -> Unit`)?](#q39-how-do-you-use-receiver-functions-string---unit) <span class="advanced">Advanced</span>
+40. [How do you delegate properties to a Map?](#q40-how-do-you-delegate-properties-to-a-map) <span class="intermediate">Intermediate</span>
+41. [How do you perform bitwise operations in Kotlin?](#q41-how-do-you-perform-bitwise-operations-in-kotlin) <span class="beginner">Beginner</span>
+42. [What is Covariance (`out`) and Contravariance (`in`)?](#q42-what-is-covariance-out-and-contravariance-in) <span class="advanced">Advanced</span>
+43. [How do you use `Dispatchers.Unconfined`?](#q43-how-do-you-use-dispatchersunconfined) <span class="advanced">Advanced</span>
+44. [How do you buffer a Flow?](#q44-how-do-you-buffer-a-flow) <span class="intermediate">Intermediate</span>
+45. [How do you combine multiple Flows (`zip`, `combine`)?](#q45-how-do-you-combine-multiple-flows-zip-combine) <span class="intermediate">Intermediate</span>
+46. [How do you use `ConflatedBroadcastChannel` (or `StateFlow`)?](#q46-how-do-you-use-conflatedbroadcastchannel-or-stateflow) <span class="advanced">Advanced</span>
+47. [How do you mock final classes in Kotlin with Mockito?](#q47-how-do-you-mock-final-classes-in-kotlin-with-mockito) <span class="intermediate">Intermediate</span>
+48. [How do you use `measureTimeMillis` for benchmarking?](#q48-how-do-you-use-measuretimemillis-for-benchmarking) <span class="beginner">Beginner</span>
+49. [How do you create a singleton with arguments?](#q49-how-do-you-create-a-singleton-with-arguments) <span class="intermediate">Intermediate</span>
+50. [How do you use `remember` in Jetpack Compose (Kotlin context)?](#q50-how-do-you-use-remember-in-jetpack-compose-kotlin-context) <span class="intermediate">Intermediate</span>
 
 ---
 
-### 1. How do you prevent blocking the Main Thread when performing network operations in Kotlin?
+### Q1: How do you prevent blocking the Main Thread when performing network operations in Kotlin?
 
 **Difficulty**: Beginner
 
@@ -136,7 +80,7 @@ fun loadData() {
 
 ---
 
-### 2. How do you choose between `val`, `var`, `const val`, and `lateinit var`?
+### Q2: How do you choose between `val`, `var`, `const val`, and `lateinit var`?
 
 **Difficulty**: Beginner
 
@@ -160,7 +104,7 @@ class Service {
 
 ---
 
-### 3. How do you use Sealed Classes to model UI state effectively?
+### Q3: How do you use Sealed Classes to model UI state effectively?
 
 **Difficulty**: Intermediate
 
@@ -188,7 +132,7 @@ fun render(state: UiState) {
 
 ---
 
-### 4. How do you safely handle null values without using the `!!` operator?
+### Q4: How do you safely handle null values without using the `!!` operator?
 
 **Difficulty**: Beginner
 
@@ -213,7 +157,7 @@ val len = name?.length ?: return
 
 ---
 
-### 5. How do you optimize collection processing using Sequences?
+### Q5: How do you optimize collection processing using Sequences?
 
 **Difficulty**: Intermediate
 
@@ -238,7 +182,7 @@ list.asSequence()
 
 ---
 
-### 6. How do you implement the Singleton pattern in Kotlin?
+### Q6: How do you implement the Singleton pattern in Kotlin?
 
 **Difficulty**: Beginner
 
@@ -260,7 +204,7 @@ DatabaseConnection.connect()
 
 ---
 
-### 7. How do you extend a class functionality without inheriting from it (Extension Functions)?
+### Q7: How do you extend a class functionality without inheriting from it (Extension Functions)?
 
 **Difficulty**: Intermediate
 
@@ -281,7 +225,7 @@ val clean = "Hello World".removeSpaces() // "HelloWorld"
 
 ---
 
-### 8. How do you use `StateFlow` vs `SharedFlow` for event handling?
+### Q8: How do you use `StateFlow` vs `SharedFlow` for event handling?
 
 **Difficulty**: Advanced
 
@@ -304,7 +248,7 @@ val events = _events.asSharedFlow()
 
 ---
 
-### 9. How do you delegate property logic using the `by` keyword?
+### Q9: How do you delegate property logic using the `by` keyword?
 
 **Difficulty**: Intermediate
 
@@ -328,7 +272,7 @@ var user: User by Delegates.observable(initialUser) { prop, old, new ->
 
 ---
 
-### 10. How do you handle structured concurrency to ensure no coroutines leak?
+### Q10: How do you handle structured concurrency to ensure no coroutines leak?
 
 **Difficulty**: Advanced
 
@@ -351,7 +295,7 @@ suspend fun loadTwoThings() = coroutineScope {
 
 ---
 
-### 11. How do you access the reified type parameter in an inline function?
+### Q11: How do you access the reified type parameter in an inline function?
 
 **Difficulty**: Advanced
 
@@ -372,7 +316,7 @@ val user: User = parseJson(jsonString)
 
 ---
 
-### 12. How do you filter a list of objects and return a new list containing only non-null results?
+### Q12: How do you filter a list of objects and return a new list containing only non-null results?
 
 **Difficulty**: Beginner
 
@@ -390,7 +334,7 @@ val numbers = inputs.mapNotNull { it.toIntOrNull() }
 
 ---
 
-### 13. How do you create a Domain Specific Language (DSL) in Kotlin?
+### Q13: How do you create a Domain Specific Language (DSL) in Kotlin?
 
 **Difficulty**: Expert
 
@@ -420,7 +364,7 @@ html {
 
 ---
 
-### 14. How do you use Destructuring Declarations to return multiple values?
+### Q14: How do you use Destructuring Declarations to return multiple values?
 
 **Difficulty**: Beginner
 
@@ -443,7 +387,7 @@ fun main() {
 
 ---
 
-### 15. How do you choose between `apply`, `also`, `let`, `run`, and `with`?
+### Q15: How do you choose between `apply`, `also`, `let`, `run`, and `with`?
 
 **Difficulty**: Intermediate
 
@@ -471,1712 +415,639 @@ val len = str?.let {
 
 ---
 
-### 16. How do you utilize Nothing Type effectively in Kotlin? (Scenario 16)
+### Q16: How do you use `value class` (Inline Classes) to optimize memory?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Nothing Type** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use `value class` (formerly `inline class`) to wrap a single value without allocating a new object on the heap. Useful for type safety (e.g., Password, ID).
 
 **Code Example:**
-```kotlin
-// Demonstration of Nothing Type
-fun useNothingType() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 17. How do you utilize Unit Type effectively in Kotlin? (Scenario 17)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Unit Type** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Unit Type
-fun useUnitType() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 18. How do you utilize Functional Interfaces (SAM) effectively in Kotlin? (Scenario 18)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Functional Interfaces (SAM)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Functional Interfaces (SAM)
-fun useFunctionalInterfaces(SAM)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 19. How do you utilize Destructuring effectively in Kotlin? (Scenario 19)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Destructuring** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Destructuring
-fun useDestructuring() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 20. How do you utilize Range Expressions effectively in Kotlin? (Scenario 20)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Range Expressions** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Range Expressions
-fun useRangeExpressions() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 21. How do you utilize Exception Handling effectively in Kotlin? (Scenario 21)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Exception Handling** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Exception Handling
-fun useExceptionHandling() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 22. How do you utilize Try-with-resources (use) effectively in Kotlin? (Scenario 22)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Try-with-resources (use)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Try-with-resources (use)
-fun useTry-with-resources(use)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 23. How do you utilize Sequence Builders effectively in Kotlin? (Scenario 23)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Sequence Builders** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Sequence Builders
-fun useSequenceBuilders() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 24. How do you utilize Yield effectively in Kotlin? (Scenario 24)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Yield** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Yield
-fun useYield() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 25. How do you utilize Actor Model (Obsolete) effectively in Kotlin? (Scenario 25)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Actor Model (Obsolete)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Actor Model (Obsolete)
-fun useActorModel(Obsolete)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 26. How do you utilize Channels effectively in Kotlin? (Scenario 26)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Channels** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Channels
-fun useChannels() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 27. How do you utilize Select Expression effectively in Kotlin? (Scenario 27)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Select Expression** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Select Expression
-fun useSelectExpression() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 28. How do you utilize Inline Classes effectively in Kotlin? (Scenario 28)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Inline Classes** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Inline Classes
-fun useInlineClasses() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 29. How do you utilize Type Aliases effectively in Kotlin? (Scenario 29)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Type Aliases** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Type Aliases
-fun useTypeAliases() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 30. How do you utilize Covariance (out) effectively in Kotlin? (Scenario 30)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Covariance (out)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Covariance (out)
-fun useCovariance(out)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 31. How do you utilize Contravariance (in) effectively in Kotlin? (Scenario 31)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Contravariance (in)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Contravariance (in)
-fun useContravariance(in)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 32. How do you utilize Star Projections effectively in Kotlin? (Scenario 32)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Star Projections** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Star Projections
-fun useStarProjections() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 33. How do you utilize Annotation Processing (KAPT/KSP) effectively in Kotlin? (Scenario 33)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Annotation Processing (KAPT/KSP)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Annotation Processing (KAPT/KSP)
-fun useAnnotationProcessing(KAPT/KSP)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 34. How do you utilize Multiplatform (KMP) effectively in Kotlin? (Scenario 34)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Multiplatform (KMP)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Multiplatform (KMP)
-fun useMultiplatform(KMP)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 35. How do you utilize Native Interop effectively in Kotlin? (Scenario 35)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Native Interop** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Native Interop
-fun useNativeInterop() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 36. How do you utilize Reflection effectively in Kotlin? (Scenario 36)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Reflection** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Reflection
-fun useReflection() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 37. How do you utilize Operator Overloading effectively in Kotlin? (Scenario 37)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Operator Overloading** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Operator Overloading
-fun useOperatorOverloading() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 38. How do you utilize Infix Functions effectively in Kotlin? (Scenario 38)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Infix Functions** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Infix Functions
-fun useInfixFunctions() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 39. How do you utilize Tail Recursion effectively in Kotlin? (Scenario 39)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Tail Recursion** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Tail Recursion
-fun useTailRecursion() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 40. How do you utilize Backing Fields effectively in Kotlin? (Scenario 40)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Backing Fields** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Backing Fields
-fun useBackingFields() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 41. How do you utilize Constructors (Primary/Secondary) effectively in Kotlin? (Scenario 41)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Constructors (Primary/Secondary)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Constructors (Primary/Secondary)
-fun useConstructors(Primary/Secondary)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 42. How do you utilize Visibility Modifiers effectively in Kotlin? (Scenario 42)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Visibility Modifiers** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Visibility Modifiers
-fun useVisibilityModifiers() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 43. How do you utilize Companion Objects effectively in Kotlin? (Scenario 43)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Companion Objects** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Companion Objects
-fun useCompanionObjects() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 44. How do you utilize Nothing Type effectively in Kotlin? (Scenario 44)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Nothing Type** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Nothing Type
-fun useNothingType() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 45. How do you utilize Unit Type effectively in Kotlin? (Scenario 45)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Unit Type** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Unit Type
-fun useUnitType() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 46. How do you utilize Functional Interfaces (SAM) effectively in Kotlin? (Scenario 46)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Functional Interfaces (SAM)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Functional Interfaces (SAM)
-fun useFunctionalInterfaces(SAM)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 47. How do you utilize Destructuring effectively in Kotlin? (Scenario 47)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Destructuring** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Destructuring
-fun useDestructuring() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 48. How do you utilize Range Expressions effectively in Kotlin? (Scenario 48)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Range Expressions** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Range Expressions
-fun useRangeExpressions() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 49. How do you utilize Exception Handling effectively in Kotlin? (Scenario 49)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Exception Handling** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Exception Handling
-fun useExceptionHandling() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 50. How do you utilize Try-with-resources (use) effectively in Kotlin? (Scenario 50)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Try-with-resources (use)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Try-with-resources (use)
-fun useTry-with-resources(use)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 51. How do you utilize Sequence Builders effectively in Kotlin? (Scenario 51)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Sequence Builders** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Sequence Builders
-fun useSequenceBuilders() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 52. How do you utilize Yield effectively in Kotlin? (Scenario 52)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Yield** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Yield
-fun useYield() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 53. How do you utilize Actor Model (Obsolete) effectively in Kotlin? (Scenario 53)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Actor Model (Obsolete)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Actor Model (Obsolete)
-fun useActorModel(Obsolete)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 54. How do you utilize Channels effectively in Kotlin? (Scenario 54)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Channels** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Channels
-fun useChannels() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 55. How do you utilize Select Expression effectively in Kotlin? (Scenario 55)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Select Expression** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Select Expression
-fun useSelectExpression() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 56. How do you utilize Inline Classes effectively in Kotlin? (Scenario 56)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Inline Classes** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Inline Classes
-fun useInlineClasses() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 57. How do you utilize Type Aliases effectively in Kotlin? (Scenario 57)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Type Aliases** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Type Aliases
-fun useTypeAliases() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
+@JvmInline
+value class Password(val s: String)
 
----
-
-### 58. How do you utilize Covariance (out) effectively in Kotlin? (Scenario 58)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Covariance (out)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Covariance (out)
-fun useCovariance(out)() {
-    // Code logic here
-}
-```
+// At runtime, this is just a String, but compile-time checks prevent mixing it with other Strings.
+fun login(p: Password) {}
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 59. How do you utilize Contravariance (in) effectively in Kotlin? (Scenario 59)
+### Q17: What is the difference between `sealed class` and `sealed interface`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Contravariance (in)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Both restrict hierarchy. `sealed class` allows state (constructor parameters) and default behavior. `sealed interface` allows a class to inherit from multiple sealed hierarchies (multiple inheritance of types).
 
 **Code Example:**
-```kotlin
-// Demonstration of Contravariance (in)
-fun useContravariance(in)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 60. How do you utilize Star Projections effectively in Kotlin? (Scenario 60)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Star Projections** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+sealed interface Error
+sealed class NetworkError : Error
 
-**Code Example:**
-```kotlin
-// Demonstration of Star Projections
-fun useStarProjections() {
-    // Code logic here
-}
-```
+data class Timeout(val time: Long) : NetworkError()
+// Can implement multiple sealed interfaces
+class ComplexError : Error, Serializable
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 61. How do you utilize Annotation Processing (KAPT/KSP) effectively in Kotlin? (Scenario 61)
+### Q18: When should you use `init` blocks?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Apply **Annotation Processing (KAPT/KSP)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use `init` blocks to run code during object instantiation, immediately after the primary constructor. You can have multiple `init` blocks, executed in order.
 
 **Code Example:**
-```kotlin
-// Demonstration of Annotation Processing (KAPT/KSP)
-fun useAnnotationProcessing(KAPT/KSP)() {
-    // Code logic here
+class User(val name: String) {
+  init {
+    require(name.isNotEmpty()) { "Name cannot be empty" }
+  }
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 62. How do you utilize Multiplatform (KMP) effectively in Kotlin? (Scenario 62)
+### Q19: How do you make Kotlin code Java-friendly using `@JvmStatic` and `@JvmOverloads`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Multiplatform (KMP)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+- `@JvmStatic`: Generates a static method in the bytecode (instead of instance method on companion).
+- `@JvmOverloads`: Generates multiple overloads for functions with default parameters.
 
 **Code Example:**
-```kotlin
-// Demonstration of Multiplatform (KMP)
-fun useMultiplatform(KMP)() {
-    // Code logic here
+object Utils {
+  @JvmStatic
+  @JvmOverloads
+  fun greet(name: String = "World") {
+    println("Hello, $name")
+  }
 }
-```
+// Java: Utils.greet(); Utils.greet("John");
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 63. How do you utilize Native Interop effectively in Kotlin? (Scenario 63)
+### Q20: How do you optimize recursion using `tailrec`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Native Interop** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Mark a function as `tailrec` if the recursive call is the last operation. The compiler optimizes it into a fast loop, preventing StackOverflowError.
 
 **Code Example:**
-```kotlin
-// Demonstration of Native Interop
-fun useNativeInterop() {
-    // Code logic here
+tailrec fun factorial(n: Int, run: Int = 1): Int {
+    return if (n == 1) run else factorial(n - 1, run * n)
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 64. How do you utilize Reflection effectively in Kotlin? (Scenario 64)
+### Q21: How do you create readable DSL-like code using `infix` functions?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Reflection** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Mark a member or extension function as `infix` to call it without dots and parentheses. It must take exactly one parameter.
 
 **Code Example:**
-```kotlin
-// Demonstration of Reflection
-fun useReflection() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 65. How do you utilize Operator Overloading effectively in Kotlin? (Scenario 65)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Operator Overloading** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+infix fun Int.times(str: String) = str.repeat(this)
 
-**Code Example:**
-```kotlin
-// Demonstration of Operator Overloading
-fun useOperatorOverloading() {
-    // Code logic here
-}
-```
+// Usage
+val result = 3 times "Hello " // "Hello Hello Hello " 
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 66. How do you utilize Infix Functions effectively in Kotlin? (Scenario 66)
+### Q22: How do you overload operators (e.g., `+`, `[]`)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Infix Functions** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Define a function with a specific name (`plus`, `get`, `set`, etc.) and mark it with `operator` modifier.
 
 **Code Example:**
-```kotlin
-// Demonstration of Infix Functions
-fun useInfixFunctions() {
-    // Code logic here
+data class Point(val x: Int, val y: Int) {
+    operator fun plus(other: Point) = Point(x + other.x, y + other.y)
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 67. How do you utilize Tail Recursion effectively in Kotlin? (Scenario 67)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Tail Recursion** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
 
-**Code Example:**
-```kotlin
-// Demonstration of Tail Recursion
-fun useTailRecursion() {
-    // Code logic here
-}
-```
+val p1 = Point(1, 2)
+val p2 = Point(3, 4)
+val p3 = p1 + p2 // Point(4, 6)
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 68. How do you utilize Backing Fields effectively in Kotlin? (Scenario 68)
+### Q23: How do you validate arguments using `check`, `require`, and `assert`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Apply **Backing Fields** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+- `require(Boolean)`: Throws `IllegalArgumentException` (Argument validation).
+- `check(Boolean)`: Throws `IllegalStateException` (State validation).
+- `assert(Boolean)`: Throws `AssertionError` (Only if assertions enabled, `-ea`).
 
 **Code Example:**
-```kotlin
-// Demonstration of Backing Fields
-fun useBackingFields() {
-    // Code logic here
+fun setAge(age: Int) {
+    require(age >= 0) { "Age must be positive" }
+    check(isInitialized) { "Not initialized" }
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 69. How do you utilize Constructors (Primary/Secondary) effectively in Kotlin? (Scenario 69)
+### Q24: What is the difference between `runBlocking` and `coroutineScope`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Constructors (Primary/Secondary)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+`runBlocking` blocks the current thread until the coroutine completes (use in main/tests). `coroutineScope` suspends (does not block thread) and waits for children.
 
 **Code Example:**
-```kotlin
-// Demonstration of Constructors (Primary/Secondary)
-fun useConstructors(Primary/Secondary)() {
-    // Code logic here
+fun main() = runBlocking { // Blocks main thread
+    launch { delay(1000) }
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
 
----
-
-### 70. How do you utilize Visibility Modifiers effectively in Kotlin? (Scenario 70)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Visibility Modifiers** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Visibility Modifiers
-fun useVisibilityModifiers() {
-    // Code logic here
+suspend fun work() = coroutineScope { // Suspends
+    launch { delay(1000) }
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 71. How do you utilize Companion Objects effectively in Kotlin? (Scenario 71)
+### Q25: How do you handle Flow emissions with `collect` vs `collectLatest`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Companion Objects** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+`collect` processes every emission sequentially. `collectLatest` cancels the processing of the previous value if a new value arrives.
 
 **Code Example:**
-```kotlin
-// Demonstration of Companion Objects
-fun useCompanionObjects() {
-    // Code logic here
+flow.collectLatest { value ->
+    // If new value emits while this is running, this block is cancelled
+    delay(100) 
+    println(value)
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 72. How do you utilize Nothing Type effectively in Kotlin? (Scenario 72)
+### Q26: How do you convert a callback-based API to a Flow (`callbackFlow`)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Nothing Type** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use `callbackFlow`. Register the callback inside, `trySend` elements, and use `awaitClose` to unregister the callback.
 
 **Code Example:**
-```kotlin
-// Demonstration of Nothing Type
-fun useNothingType() {
-    // Code logic here
+fun getLocationFlow(): Flow<Location> = callbackFlow {
+    val listener = object : LocationListener {
+        override fun onLocationChanged(loc: Location) { trySend(loc) }
+    }
+    locationManager.register(listener)
+    awaitClose { locationManager.unregister(listener) }
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 73. How do you utilize Unit Type effectively in Kotlin? (Scenario 73)
+### Q27: How do you ensure thread safety using `Mutex`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Unit Type** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use `Mutex` (Mutual Exclusion) lock. It suspends the coroutine instead of blocking the thread like `synchronized`.
 
 **Code Example:**
-```kotlin
-// Demonstration of Unit Type
-fun useUnitType() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
+val mutex = Mutex()
+var counter = 0
 
-### 74. How do you utilize Functional Interfaces (SAM) effectively in Kotlin? (Scenario 74)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Functional Interfaces (SAM)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Functional Interfaces (SAM)
-fun useFunctionalInterfaces(SAM)() {
-    // Code logic here
+suspend fun increment() {
+    mutex.withLock {
+        counter++
+    }
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 75. How do you utilize Destructuring effectively in Kotlin? (Scenario 75)
+### Q28: How do you handle exceptions in Coroutines globally?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Destructuring** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use `CoroutineExceptionHandler` attached to the scope or root coroutine. Note: It only catches uncaught exceptions (not valid for `async` which expects user to call `await`).
 
 **Code Example:**
-```kotlin
-// Demonstration of Destructuring
-fun useDestructuring() {
-    // Code logic here
+val handler = CoroutineExceptionHandler { _, exception ->
+    println("Caught $exception")
 }
-```
+val scope = CoroutineScope(Job() + handler)
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 76. How do you utilize Range Expressions effectively in Kotlin? (Scenario 76)
+### Q29: How do you use `SupervisorJob` to prevent failure propagation?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Range Expressions** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+With a standard `Job`, if one child fails, the parent and all siblings are cancelled. With `SupervisorJob`, children can fail independently.
 
 **Code Example:**
-```kotlin
-// Demonstration of Range Expressions
-fun useRangeExpressions() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 77. How do you utilize Exception Handling effectively in Kotlin? (Scenario 77)
-
-**Difficulty**: Intermediate
+val scope = CoroutineScope(SupervisorJob())
 
-**Strategy:**
-Apply **Exception Handling** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Exception Handling
-fun useExceptionHandling() {
-    // Code logic here
+scope.launch { throw Error("Fail") }
+scope.launch { 
+    delay(100)
+    println("I am still alive") 
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 78. How do you utilize Try-with-resources (use) effectively in Kotlin? (Scenario 78)
+### Q30: How do you define multiplatform code using `expect` and `actual`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Try-with-resources (use)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+In the `common` module, define an `expect` class/function. In platform-specific modules (android, ios), provide the `actual` implementation.
 
 **Code Example:**
-```kotlin
-// Demonstration of Try-with-resources (use)
-fun useTry-with-resources(use)() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
+// Common
+expect fun getPlatformName(): String
 
-### 79. How do you utilize Sequence Builders effectively in Kotlin? (Scenario 79)
+// Android
+actual fun getPlatformName(): String = "Android"
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Sequence Builders** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Sequence Builders
-fun useSequenceBuilders() {
-    // Code logic here
-}
-```
+// iOS
+actual fun getPlatformName(): String = "iOS" 
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 80. How do you utilize Yield effectively in Kotlin? (Scenario 80)
+### Q31: How do you generate a Sequence using `sequence { yield }`?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Yield** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use the `sequence` builder and `yield()` to produce values lazily. Execution suspends at `yield` and resumes when the next value is requested.
 
 **Code Example:**
-```kotlin
-// Demonstration of Yield
-fun useYield() {
-    // Code logic here
+val fibonacci = sequence {
+    var a = 0
+    var b = 1
+    while (true) {
+        yield(a)
+        val next = a + b
+        a = b
+        b = next
+    }
 }
-```
+println(fibonacci.take(5).toList())
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 81. How do you utilize Actor Model (Obsolete) effectively in Kotlin? (Scenario 81)
+### Q32: How do you use `Nothing` type to represent unreachable code?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Actor Model (Obsolete)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+`Nothing` has no instances. It's used as a return type for functions that never return (throw exception or infinite loop), allowing compiler optimizations.
 
 **Code Example:**
-```kotlin
-// Demonstration of Actor Model (Obsolete)
-fun useActorModel(Obsolete)() {
-    // Code logic here
+fun fail(msg: String): Nothing {
+    throw IllegalArgumentException(msg)
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
 
----
-
-### 82. How do you utilize Channels effectively in Kotlin? (Scenario 82)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Channels** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Channels
-fun useChannels() {
-    // Code logic here
-}
-```
+val data = nullableData ?: fail("Data is null")
+// Compiler knows 'data' is non-null here
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 83. How do you utilize Select Expression effectively in Kotlin? (Scenario 83)
+### Q33: What is a `typealias` and when to use it?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Apply **Select Expression** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+It provides an alternative name for an existing type. Useful for shortening long generic types or function types.
 
 **Code Example:**
-```kotlin
-// Demonstration of Select Expression
-fun useSelectExpression() {
-    // Code logic here
-}
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 84. How do you utilize Inline Classes effectively in Kotlin? (Scenario 84)
+typealias Handler = (Int, String, Boolean) -> Unit
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Inline Classes** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Inline Classes
-fun useInlineClasses() {
-    // Code logic here
-}
-```
+fun register(h: Handler) {}
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 85. How do you utilize Type Aliases effectively in Kotlin? (Scenario 85)
+### Q34: How do you control backing fields using the `field` identifier?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Type Aliases** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Inside a custom setter, use `field` to access the backing memory of the property to avoid infinite recursion.
 
 **Code Example:**
-```kotlin
-// Demonstration of Type Aliases
-fun useTypeAliases() {
-    // Code logic here
-}
-```
+var counter = 0
+    set(value) {
+        if (value >= 0) field = value
+    }
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 86. How do you utilize Covariance (out) effectively in Kotlin? (Scenario 86)
+### Q35: How do you prevent a lambda parameter from being inlined (`noinline`, `crossinline`)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Covariance (out)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+- `noinline`: Do not inline this lambda (e.g., passing it to another function).
+- `crossinline`: Allow inlining but forbid non-local returns (e.g., using inside a nested lambda/runnable).
 
 **Code Example:**
-```kotlin
-// Demonstration of Covariance (out)
-fun useCovariance(out)() {
-    // Code logic here
+inline fun execute(crossinline task: () -> Unit) {
+    runOnThread { task() } // allowed because of crossinline
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 87. How do you utilize Contravariance (in) effectively in Kotlin? (Scenario 87)
+### Q36: How do you use Contracts to help the compiler with smart casts?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Contravariance (in)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use the `contract` builder to tell the compiler about function effects (e.g., if this function returns, argument is not null).
 
 **Code Example:**
-```kotlin
-// Demonstration of Contravariance (in)
-fun useContravariance(in)() {
-    // Code logic here
+@OptIn(ExperimentalContracts::class)
+fun isValid(s: String?): Boolean {
+    contract {
+        returns(true) implies (s != null)
+    }
+    return s != null && s.isNotEmpty()
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 88. How do you utilize Star Projections effectively in Kotlin? (Scenario 88)
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Apply **Star Projections** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Star Projections
-fun useStarProjections() {
-    // Code logic here
+if (isValid(name)) {
+    println(name.length) // Smart cast to String
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 89. How do you utilize Annotation Processing (KAPT/KSP) effectively in Kotlin? (Scenario 89)
+### Q37: How do you use Functional (SAM) interfaces?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Annotation Processing (KAPT/KSP)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Define an interface with `fun interface`. You can then instantiate it using a lambda.
 
 **Code Example:**
-```kotlin
-// Demonstration of Annotation Processing (KAPT/KSP)
-fun useAnnotationProcessing(KAPT/KSP)() {
-    // Code logic here
+fun interface Predicate {
+    fun accept(i: Int): Boolean
 }
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 90. How do you utilize Multiplatform (KMP) effectively in Kotlin? (Scenario 90)
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Multiplatform (KMP)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Multiplatform (KMP)
-fun useMultiplatform(KMP)() {
-    // Code logic here
-}
-```
+val isEven = Predicate { it % 2 == 0 }
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 91. How do you utilize Native Interop effectively in Kotlin? (Scenario 91)
+### Q38: How do you use Destructuring in lambdas?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Apply **Native Interop** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+If a lambda parameter is a data class or Map.Entry, you can destructure it directly in the parameter list.
 
 **Code Example:**
-```kotlin
-// Demonstration of Native Interop
-fun useNativeInterop() {
-    // Code logic here
+map.forEach { (key, value) ->
+    println("$key -> $value")
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 92. How do you utilize Reflection effectively in Kotlin? (Scenario 92)
+### Q39: How do you use Receiver Functions (`String.() -> Unit`)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Reflection** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+A lambda with a receiver type allows you to access members of the receiver object implicitly (used in DSLs and `apply`).
 
 **Code Example:**
-```kotlin
-// Demonstration of Reflection
-fun useReflection() {
-    // Code logic here
+val buildString: StringBuilder.() -> Unit = {
+    append("Hello")
+    append(" World")
 }
-```
 
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 93. How do you utilize Operator Overloading effectively in Kotlin? (Scenario 93)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Operator Overloading** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+val sb = StringBuilder()
+sb.buildString()
 
-**Code Example:**
-```kotlin
-// Demonstration of Operator Overloading
-fun useOperatorOverloading() {
-    // Code logic here
-}
-```
-
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 94. How do you utilize Infix Functions effectively in Kotlin? (Scenario 94)
+### Q40: How do you delegate properties to a Map?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Infix Functions** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use a Map instance as a delegate for properties. The map keys must match property names.
 
 **Code Example:**
-```kotlin
-// Demonstration of Infix Functions
-fun useInfixFunctions() {
-    // Code logic here
+class User(val map: Map<String, Any?>) {
+    val name: String by map
+    val age: Int by map
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 95. How do you utilize Tail Recursion effectively in Kotlin? (Scenario 95)
+### Q41: How do you perform bitwise operations in Kotlin?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Apply **Tail Recursion** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use named infix functions: `shl` (shift left), `shr` (shift right), `and`, `or`, `xor`, `inv`.
 
 **Code Example:**
-```kotlin
-// Demonstration of Tail Recursion
-fun useTailRecursion() {
-    // Code logic here
-}
-```
+val flags = 0b1010
+val mask = 0b0010
+val result = flags and mask // 0b0010
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 96. How do you utilize Backing Fields effectively in Kotlin? (Scenario 96)
+### Q42: What is Covariance (`out`) and Contravariance (`in`)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Backing Fields** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+- `out T` (Producer): Can only read T. `List<out String>` can accept `String` or `Any` (subtype to supertype).
+- `in T` (Consumer): Can only write T. `Comparable<in Number>` can compare `Number` or `Double`.
 
 **Code Example:**
-```kotlin
-// Demonstration of Backing Fields
-fun useBackingFields() {
-    // Code logic here
-}
-```
+interface Source<out T> { fun next(): T }
+interface Sink<in T> { fun put(x: T) }
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 97. How do you utilize Constructors (Primary/Secondary) effectively in Kotlin? (Scenario 97)
+### Q43: How do you use `Dispatchers.Unconfined`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Constructors (Primary/Secondary)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+It starts the coroutine in the current thread, but resumes in whatever thread the suspending function used. Generally avoided in application code.
 
 **Code Example:**
-```kotlin
-// Demonstration of Constructors (Primary/Secondary)
-fun useConstructors(Primary/Secondary)() {
-    // Code logic here
+launch(Dispatchers.Unconfined) {
+    println(Thread.currentThread().name) // Main
+    delay(100)
+    println(Thread.currentThread().name) // DefaultExecutor
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 98. How do you utilize Visibility Modifiers effectively in Kotlin? (Scenario 98)
+### Q44: How do you buffer a Flow?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Visibility Modifiers** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Use the `buffer()` operator. It allows the emitter to continue emitting without waiting for the collector to finish processing the previous item.
 
 **Code Example:**
-```kotlin
-// Demonstration of Visibility Modifiers
-fun useVisibilityModifiers() {
-    // Code logic here
-}
-```
+flow.buffer().collect { ... }
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 99. How do you utilize Companion Objects effectively in Kotlin? (Scenario 99)
+### Q45: How do you combine multiple Flows (`zip`, `combine`)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Companion Objects** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+- `zip`: Waits for both flows to emit, pairs them 1-to-1.
+- `combine`: Emits whenever *any* flow emits, using the latest value from the others.
 
 **Code Example:**
-```kotlin
-// Demonstration of Companion Objects
-fun useCompanionObjects() {
-    // Code logic here
-}
-```
+flowA.combine(flowB) { a, b -> "$a-$b" }
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 100. How do you utilize Nothing Type effectively in Kotlin? (Scenario 100)
+### Q46: How do you use `ConflatedBroadcastChannel` (or `StateFlow`)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Apply **Nothing Type** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+`ConflatedBroadcastChannel` is deprecated. Use `StateFlow` or `SharedFlow` with `replay=1, onBufferOverflow=DROP_OLDEST`.
 
 **Code Example:**
-```kotlin
-// Demonstration of Nothing Type
-fun useNothingType() {
-    // Code logic here
-}
-```
+val shared = MutableSharedFlow<Int>(replay = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+shared.tryEmit(1)
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 101. How do you utilize Unit Type effectively in Kotlin? (Scenario 101)
+### Q47: How do you mock final classes in Kotlin with Mockito?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Unit Type** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Kotlin classes are final by default. Use `mockito-inline` dependency or open the class/methods with `open` modifier (not recommended just for tests).
 
 **Code Example:**
-```kotlin
-// Demonstration of Unit Type
-fun useUnitType() {
-    // Code logic here
-}
-```
+// build.gradle
+testImplementation "org.mockito:mockito-inline:4.0.0" 
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 102. How do you utilize Functional Interfaces (SAM) effectively in Kotlin? (Scenario 102)
+### Q48: How do you use `measureTimeMillis` for benchmarking?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Apply **Functional Interfaces (SAM)** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Wrap code in `measureTimeMillis` to get execution time in milliseconds.
 
 **Code Example:**
-```kotlin
-// Demonstration of Functional Interfaces (SAM)
-fun useFunctionalInterfaces(SAM)() {
-    // Code logic here
+val time = measureTimeMillis {
+    heavyTask()
 }
-```
+println("Took $time ms")
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 103. How do you utilize Destructuring effectively in Kotlin? (Scenario 103)
+### Q49: How do you create a singleton with arguments?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Destructuring** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Kotlin `object` cannot have constructors. Use a class with a `companion object` containing a `getInstance(arg)` method (checking for null/instance).
 
 **Code Example:**
-```kotlin
-// Demonstration of Destructuring
-fun useDestructuring() {
-    // Code logic here
+class Singleton private constructor(val arg: String) {
+    companion object {
+        private var instance: Singleton? = null
+        fun getInstance(arg: String) = instance ?: Singleton(arg).also { instance = it }
+    }
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 104. How do you utilize Range Expressions effectively in Kotlin? (Scenario 104)
+### Q50: How do you use `remember` in Jetpack Compose (Kotlin context)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Apply **Range Expressions** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
+Although Compose specific, `remember` caches objects across recompositions. It works by storing values in the slot table.
 
 **Code Example:**
-```kotlin
-// Demonstration of Range Expressions
-fun useRangeExpressions() {
-    // Code logic here
+@Composable
+fun MyWidget() {
+    val interactionSource = remember { MutableInteractionSource() }
 }
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
-
-### 105. How do you utilize Exception Handling effectively in Kotlin? (Scenario 105)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply **Exception Handling** to solve specific problems concisely. Kotlin's syntax often allows for more readable and safer code compared to Java when using this feature.
-
-**Code Example:**
-```kotlin
-// Demonstration of Exception Handling
-fun useExceptionHandling() {
-    // Code logic here
-}
-```
 
-[⬆️ Back to Top](#table-of-contents)
-
----

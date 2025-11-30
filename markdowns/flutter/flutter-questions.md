@@ -40,6 +40,26 @@
 28. [How do you handle asynchronous data in Riverpod with AsyncValue?](#q28-how-do-you-handle-asynchronous-data-in-riverpod-with-asyncvalue) <span class="intermediate">Intermediate</span>
 29. [How do you validate a Form in Flutter?](#q29-how-do-you-validate-a-form-in-flutter) <span class="beginner">Beginner</span>
 30. [How do you embed a native Android/iOS view in Flutter?](#q30-how-do-you-embed-a-native-androidios-view-in-flutter) <span class="advanced">Advanced</span>
+31. [How do you implement Pull-to-Refresh functionality?](#q31-how-do-you-implement-pull-to-refresh-functionality) <span class="beginner">Beginner</span>
+32. [How do you create a Hero animation between two screens?](#q32-how-do-you-create-a-hero-animation-between-two-screens) <span class="intermediate">Intermediate</span>
+33. [How do you create a rounded image using `ClipRRect`?](#q33-how-do-you-create-a-rounded-image-using-cliprrect) <span class="beginner">Beginner</span>
+34. [How do you create a blur effect (Glassmorphism)?](#q34-how-do-you-create-a-blur-effect-glassmorphism) <span class="intermediate">Intermediate</span>
+35. [How do you implement Drag and Drop?](#q35-how-do-you-implement-drag-and-drop) <span class="intermediate">Intermediate</span>
+36. [How do you allow users to pinch-to-zoom and pan an image?](#q36-how-do-you-allow-users-to-pinch-to-zoom-and-pan-an-image) <span class="intermediate">Intermediate</span>
+37. [How do you implement a page view (swiping between screens)?](#q37-how-do-you-implement-a-page-view-swiping-between-screens) <span class="beginner">Beginner</span>
+38. [How do you create a Tab Bar layout?](#q38-how-do-you-create-a-tab-bar-layout) <span class="beginner">Beginner</span>
+39. [How do you implement search functionality using `SearchDelegate`?](#q39-how-do-you-implement-search-functionality-using-searchdelegate) <span class="intermediate">Intermediate</span>
+40. [How do you use `InheritedWidget` to pass data down the tree?](#q40-how-do-you-use-inheritedwidget-to-pass-data-down-the-tree) <span class="advanced">Advanced</span>
+41. [How do you handle keyboard shortcuts (Web/Desktop)?](#q41-how-do-you-handle-keyboard-shortcuts-webdesktop) <span class="intermediate">Intermediate</span>
+42. [How do you group multiple semantics into one (`MergeSemantics`)?](#q42-how-do-you-group-multiple-semantics-into-one-mergesemantics) <span class="intermediate">Intermediate</span>
+43. [How do you create a gradient text effect?](#q43-how-do-you-create-a-gradient-text-effect) <span class="intermediate">Intermediate</span>
+44. [How do you use `RepaintBoundary` to improve performance?](#q44-how-do-you-use-repaintboundary-to-improve-performance) <span class="advanced">Advanced</span>
+45. [What is the difference between `Offstage`, `Visibility`, and `Opacity`?](#q45-what-is-the-difference-between-offstage-visibility-and-opacity) <span class="intermediate">Intermediate</span>
+46. [What is the difference between `Flexible` and `Expanded`?](#q46-what-is-the-difference-between-flexible-and-expanded) <span class="beginner">Beginner</span>
+47. [How do you make responsive layouts based on parent size (`LayoutBuilder`)?](#q47-how-do-you-make-responsive-layouts-based-on-parent-size-layoutbuilder) <span class="intermediate">Intermediate</span>
+48. [How do you size a widget relative to its parent (`FractionallySizedBox`)?](#q48-how-do-you-size-a-widget-relative-to-its-parent-fractionallysizedbox) <span class="intermediate">Intermediate</span>
+49. [How do you create complex flow layouts (`Flow`)?](#q49-how-do-you-create-complex-flow-layouts-flow) <span class="advanced">Advanced</span>
+50. [How do you check if the device is online?](#q50-how-do-you-check-if-the-device-is-online) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -839,6 +859,425 @@ UiKitView(
   creationParamsCodec: const StandardMessageCodec(),
 );
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+
+### Q31: How do you implement Pull-to-Refresh functionality?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Wrap a scrollable widget (like `ListView`) in a `RefreshIndicator`. Provide an `onRefresh` callback that returns a Future.
+
+**Code Example:**
+RefreshIndicator(
+  onRefresh: () async {
+    await Future.delayed(const Duration(seconds: 1));
+    // Update data
+  },
+  child: ListView(children: [...]),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: How do you create a Hero animation between two screens?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Wrap the shared element (e.g., image) in a `Hero` widget with the same `tag` on both the source and destination screens.
+
+**Code Example:**
+// Screen 1
+Hero(
+  tag: 'profile-pic',
+  child: Image.asset('profile.jpg'),
+)
+
+// Screen 2
+Hero(
+  tag: 'profile-pic',
+  child: Image.asset('profile.jpg'),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you create a rounded image using `ClipRRect`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Wrap the widget (Image, Container) in a `ClipRRect` and define a `borderRadius`.
+
+**Code Example:**
+ClipRRect(
+  borderRadius: BorderRadius.circular(20.0),
+  child: Image.network('https://example.com/image.jpg'),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you create a blur effect (Glassmorphism)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `BackdropFilter` with an `ImageFilter.blur`. Typically combined with a semi-transparent container.
+
+**Code Example:**
+Stack(
+  children: [
+    Image.network('bg.jpg'),
+    BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+      child: Container(color: Colors.black.withOpacity(0.2)),
+    ),
+  ],
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you implement Drag and Drop?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `Draggable<T>` for the moving item and `DragTarget<T>` for the drop zone.
+
+**Code Example:**
+Draggable<int>(
+  data: 10,
+  feedback: Container(color: Colors.red, width: 50, height: 50),
+  child: Container(color: Colors.blue, width: 50, height: 50),
+)
+
+DragTarget<int>(
+  onAccept: (data) => print('Accepted $data'),
+  builder: (context, candidates, rejects) {
+    return Container(width: 100, height: 100, color: Colors.green);
+  },
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: How do you allow users to pinch-to-zoom and pan an image?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Wrap the content in an `InteractiveViewer` widget.
+
+**Code Example:**
+InteractiveViewer(
+  minScale: 0.5,
+  maxScale: 4.0,
+  child: Image.asset('map.png'),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: How do you implement a page view (swiping between screens)?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `PageView` or `PageView.builder`. Use a `PageController` to control the current page programmatically.
+
+**Code Example:**
+final controller = PageController(initialPage: 0);
+
+PageView(
+  controller: controller,
+  children: [
+    Container(color: Colors.red),
+    Container(color: Colors.green),
+    Container(color: Colors.blue),
+  ],
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: How do you create a Tab Bar layout?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `DefaultTabController` (simplest) wrapping a `Scaffold`. Place `TabBar` in the `appBar` and `TabBarView` in the `body`.
+
+**Code Example:**
+DefaultTabController(
+  length: 3,
+  child: Scaffold(
+    appBar: AppBar(
+      bottom: TabBar(tabs: [Tab(text: 'A'), Tab(text: 'B'), Tab(text: 'C')]),
+    ),
+    body: TabBarView(
+      children: [PageA(), PageB(), PageC()],
+    ),
+  ),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: How do you implement search functionality using `SearchDelegate`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Create a class extending `SearchDelegate`. Use `showSearch(context: context, delegate: MySearchDelegate())`.
+
+**Code Example:**
+class MySearchDelegate extends SearchDelegate {
+  @override
+  List<Widget> buildActions(BuildContext context) => [IconButton(icon: Icon(Icons.clear), onPressed: () => query = '')];
+
+  @override
+  Widget buildLeading(BuildContext context) => IconButton(icon: Icon(Icons.arrow_back), onPressed: () => close(context, null));
+
+  @override
+  Widget buildResults(BuildContext context) => Text('Result: $query');
+
+  @override
+  Widget buildSuggestions(BuildContext context) => Text('Suggestions for $query');
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you use `InheritedWidget` to pass data down the tree?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Subclass `InheritedWidget`, implement `updateShouldNotify`. Child widgets access data via `context.dependOnInheritedWidgetOfExactType`.
+
+**Code Example:**
+class MyColor extends InheritedWidget {
+  final Color color;
+  MyColor({required this.color, required Widget child}) : super(child: child);
+
+  @override
+  bool updateShouldNotify(MyColor oldWidget) => color != oldWidget.color;
+
+  static MyColor? of(BuildContext context) => context.dependOnInheritedWidgetOfExactType<MyColor>();
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you handle keyboard shortcuts (Web/Desktop)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use the `Shortcuts` and `Actions` widgets, or `CallbackShortcuts` for simpler cases.
+
+**Code Example:**
+CallbackShortcuts(
+  bindings: {
+    const SingleActivator(LogicalKeyboardKey.keyS, control: true): () => save(),
+  },
+  child: Focus(autofocus: true, child: Container()),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you group multiple semantics into one (`MergeSemantics`)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Wrap a widget subtree in `MergeSemantics` so screen readers treat it as a single focusable element (e.g., a custom list item with text and icon).
+
+**Code Example:**
+MergeSemantics(
+  child: Row(
+    children: [
+      Text('Title'),
+      Text('Subtitle'), // Read together as "Title, Subtitle"
+    ],
+  ),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you create a gradient text effect?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `ShaderMask` to paint a gradient over the text.
+
+**Code Example:**
+ShaderMask(
+  shaderCallback: (bounds) => LinearGradient(
+    colors: [Colors.blue, Colors.red],
+  ).createShader(bounds),
+  child: Text(
+    'Gradient Text',
+    style: TextStyle(color: Colors.white, fontSize: 40),
+  ),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you use `RepaintBoundary` to improve performance?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Wrap a widget in `RepaintBoundary` if it repaints frequently (e.g., animation) but its parent does not. This isolates the painting layer.
+
+**Code Example:**
+RepaintBoundary(
+  child: CircularProgressIndicator(), // Repaints independently of the rest of the UI
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: What is the difference between `Offstage`, `Visibility`, and `Opacity`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+- `Offstage`: Lays out but doesn't paint/hit-test (hidden but takes space logic depends on parent).
+- `Visibility`: Can hide, not paint, and remove from layout (`gone`).
+- `Opacity`: Paints fully transparent (expensive if 0, still takes space/hits).
+
+**Code Example:**
+Visibility(
+  visible: false,
+  maintainState: true, // Keeps state
+  child: Text('Hidden'),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: What is the difference between `Flexible` and `Expanded`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`Expanded` forces the child to fill available space (`flex: 1`, `fit: FlexFit.tight`). `Flexible` allows the child to size itself up to the available space (default `fit: FlexFit.loose`).
+
+**Code Example:**
+Row(
+  children: [
+    Expanded(child: Container(color: Colors.red)), // Fills space
+    Flexible(child: Container(color: Colors.blue)), // Sizes to child
+  ],
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you make responsive layouts based on parent size (`LayoutBuilder`)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `LayoutBuilder` to get `BoxConstraints` of the parent. `MediaQuery` gets screen size.
+
+**Code Example:**
+LayoutBuilder(
+  builder: (context, constraints) {
+    if (constraints.maxWidth > 600) {
+      return WideLayout();
+    } else {
+      return NarrowLayout();
+    }
+  },
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you size a widget relative to its parent (`FractionallySizedBox`)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `FractionallySizedBox` to size a child as a fraction (percentage) of the available space.
+
+**Code Example:**
+Container(
+  height: 200,
+  width: 200,
+  child: FractionallySizedBox(
+    widthFactor: 0.5, // 50% of parent width
+    heightFactor: 0.5,
+    child: Container(color: Colors.red),
+  ),
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you create complex flow layouts (`Flow`)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use the `Flow` widget with a `FlowDelegate`. It's highly optimized for transformations and positioning of children during animation.
+
+**Code Example:**
+Flow(
+  delegate: MyFlowDelegate(),
+  children: menuItems,
+)
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you check if the device is online?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use the `connectivity_plus` package (check network type) or `internet_connection_checker` (ping test).
+
+**Code Example:**
+import 'package:connectivity_plus/connectivity_plus.dart';
+
+final connectivityResult = await (Connectivity().checkConnectivity());
+if (connectivityResult == ConnectivityResult.mobile) {
+  // I am connected to a mobile network.
+}
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 

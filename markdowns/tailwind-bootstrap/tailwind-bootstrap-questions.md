@@ -1,133 +1,57 @@
 # Tailwind CSS & Bootstrap Interview Questions
 
 ## Table of Contents
-- [Q1: How do you dynamically toggle Tailwind CSS classes in a React component without using string concatenation?](#q1-how-do-you-dynamically-toggle-tailwind-css-classes-in-a-react-component-without-using-string-concatenation)
-- [Q2: How do you customize the Bootstrap 5 theme colors using SASS variables?](#q2-how-do-you-customize-the-bootstrap-5-theme-colors-using-sass-variables)
-- [Q3: How do you extend Tailwind CSS configuration to add custom breakpoints?](#q3-how-do-you-extend-tailwind-css-configuration-to-add-custom-breakpoints)
-- [Q4: How do you create a reusable component style in Tailwind using the `@apply` directive?](#q4-how-do-you-create-a-reusable-component-style-in-tailwind-using-the-apply-directive)
-- [Q5: How do you implement a responsive grid layout in Bootstrap 5 without using custom CSS?](#q5-how-do-you-implement-a-responsive-grid-layout-in-bootstrap-5-without-using-custom-css)
-- [Q6: How do you enable and use arbitrary values in Tailwind CSS for one-off styles?](#q6-how-do-you-enable-and-use-arbitrary-values-in-tailwind-css-for-one-off-styles)
-- [Q7: How do you optimize Tailwind CSS for production to remove unused styles?](#q7-how-do-you-optimize-tailwind-css-for-production-to-remove-unused-styles)
-- [Q8: How do you use Bootstrap 5's Utility API to generate custom utility classes?](#q8-how-do-you-use-bootstrap-5s-utility-api-to-generate-custom-utility-classes)
-- [Q9: How do you implement Dark Mode support in Tailwind CSS?](#q9-how-do-you-implement-dark-mode-support-in-tailwind-css)
-- [Q10: How do you use Bootstrap components (like Modals) in a React application without jQuery?](#q10-how-do-you-use-bootstrap-components-like-modals-in-a-react-application-without-jquery)
-- [Q11: How do you create a custom Tailwind CSS plugin to add new variants?](#q11-how-do-you-create-a-custom-tailwind-css-plugin-to-add-new-variants)
-- [Q12: How do you handle z-index values in Tailwind to avoid conflicts?](#q12-how-do-you-handle-z-index-values-in-tailwind-to-avoid-conflicts)
-- [Q13: How do you center a div both vertically and horizontally using Bootstrap classes?](#q13-how-do-you-center-a-div-both-vertically-and-horizontally-using-bootstrap-classes)
-- [Q14: How do you apply styles to children elements in Tailwind without adding classes to each child?](#q14-how-do-you-apply-styles-to-children-elements-in-tailwind-without-adding-classes-to-each-child)
-- [Q15: How do you implement a sticky footer in Tailwind CSS?](#q15-how-do-you-implement-a-sticky-footer-in-tailwind-css)
-- [Q16: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?](#q16-how-do-you-implement-grid-layout-in-tailwind-css-for-complex-2d-layouts)
-- [Q17: How do you implement Flexbox in Bootstrap for 1D layout alignment?](#q17-how-do-you-implement-flexbox-in-bootstrap-for-1d-layout-alignment)
-- [Q18: How do you implement Typography in Tailwind CSS for font sizing and spacing?](#q18-how-do-you-implement-typography-in-tailwind-css-for-font-sizing-and-spacing)
-- [Q19: How do you implement Spacing in Bootstrap for padding and margin utilities?](#q19-how-do-you-implement-spacing-in-bootstrap-for-padding-and-margin-utilities)
-- [Q20: How do you implement Borders in Tailwind CSS for radius, width, and color?](#q20-how-do-you-implement-borders-in-tailwind-css-for-radius-width-and-color)
-- [Q21: How do you implement Effects in Bootstrap for box shadows and opacity?](#q21-how-do-you-implement-effects-in-bootstrap-for-box-shadows-and-opacity)
-- [Q22: How do you implement Filters in Tailwind CSS for blur and brightness?](#q22-how-do-you-implement-filters-in-tailwind-css-for-blur-and-brightness)
-- [Q23: How do you implement Transitions in Bootstrap for animation duration and easing?](#q23-how-do-you-implement-transitions-in-bootstrap-for-animation-duration-and-easing)
-- [Q24: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?](#q24-how-do-you-implement-transforms-in-tailwind-css-for-scale-rotate-and-translate)
-- [Q25: How do you implement Interactivity in Bootstrap for cursor and user-select?](#q25-how-do-you-implement-interactivity-in-bootstrap-for-cursor-and-user-select)
-- [Q26: How do you implement SVG in Tailwind CSS for fill and stroke styling?](#q26-how-do-you-implement-svg-in-tailwind-css-for-fill-and-stroke-styling)
-- [Q27: How do you implement Accessibility in Bootstrap for screen reader utilities?](#q27-how-do-you-implement-accessibility-in-bootstrap-for-screen-reader-utilities)
-- [Q28: How do you implement Forms in Tailwind CSS for input styling and validation states?](#q28-how-do-you-implement-forms-in-tailwind-css-for-input-styling-and-validation-states)
-- [Q29: How do you implement Tables in Bootstrap for responsive table layouts?](#q29-how-do-you-implement-tables-in-bootstrap-for-responsive-table-layouts)
-- [Q30: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?](#q30-how-do-you-implement-navigation-in-tailwind-css-for-navbars-and-breadcrumbs)
-- [Q31: How do you implement Cards in Bootstrap for card components layout?](#q31-how-do-you-implement-cards-in-bootstrap-for-card-components-layout)
-- [Q32: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?](#q32-how-do-you-implement-grid-layout-in-tailwind-css-for-complex-2d-layouts)
-- [Q33: How do you implement Flexbox in Bootstrap for 1D layout alignment?](#q33-how-do-you-implement-flexbox-in-bootstrap-for-1d-layout-alignment)
-- [Q34: How do you implement Typography in Tailwind CSS for font sizing and spacing?](#q34-how-do-you-implement-typography-in-tailwind-css-for-font-sizing-and-spacing)
-- [Q35: How do you implement Spacing in Bootstrap for padding and margin utilities?](#q35-how-do-you-implement-spacing-in-bootstrap-for-padding-and-margin-utilities)
-- [Q36: How do you implement Borders in Tailwind CSS for radius, width, and color?](#q36-how-do-you-implement-borders-in-tailwind-css-for-radius-width-and-color)
-- [Q37: How do you implement Effects in Bootstrap for box shadows and opacity?](#q37-how-do-you-implement-effects-in-bootstrap-for-box-shadows-and-opacity)
-- [Q38: How do you implement Filters in Tailwind CSS for blur and brightness?](#q38-how-do-you-implement-filters-in-tailwind-css-for-blur-and-brightness)
-- [Q39: How do you implement Transitions in Bootstrap for animation duration and easing?](#q39-how-do-you-implement-transitions-in-bootstrap-for-animation-duration-and-easing)
-- [Q40: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?](#q40-how-do-you-implement-transforms-in-tailwind-css-for-scale-rotate-and-translate)
-- [Q41: How do you implement Interactivity in Bootstrap for cursor and user-select?](#q41-how-do-you-implement-interactivity-in-bootstrap-for-cursor-and-user-select)
-- [Q42: How do you implement SVG in Tailwind CSS for fill and stroke styling?](#q42-how-do-you-implement-svg-in-tailwind-css-for-fill-and-stroke-styling)
-- [Q43: How do you implement Accessibility in Bootstrap for screen reader utilities?](#q43-how-do-you-implement-accessibility-in-bootstrap-for-screen-reader-utilities)
-- [Q44: How do you implement Forms in Tailwind CSS for input styling and validation states?](#q44-how-do-you-implement-forms-in-tailwind-css-for-input-styling-and-validation-states)
-- [Q45: How do you implement Tables in Bootstrap for responsive table layouts?](#q45-how-do-you-implement-tables-in-bootstrap-for-responsive-table-layouts)
-- [Q46: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?](#q46-how-do-you-implement-navigation-in-tailwind-css-for-navbars-and-breadcrumbs)
-- [Q47: How do you implement Cards in Bootstrap for card components layout?](#q47-how-do-you-implement-cards-in-bootstrap-for-card-components-layout)
-- [Q48: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?](#q48-how-do-you-implement-grid-layout-in-tailwind-css-for-complex-2d-layouts)
-- [Q49: How do you implement Flexbox in Bootstrap for 1D layout alignment?](#q49-how-do-you-implement-flexbox-in-bootstrap-for-1d-layout-alignment)
-- [Q50: How do you implement Typography in Tailwind CSS for font sizing and spacing?](#q50-how-do-you-implement-typography-in-tailwind-css-for-font-sizing-and-spacing)
-- [Q51: How do you implement Spacing in Bootstrap for padding and margin utilities?](#q51-how-do-you-implement-spacing-in-bootstrap-for-padding-and-margin-utilities)
-- [Q52: How do you implement Borders in Tailwind CSS for radius, width, and color?](#q52-how-do-you-implement-borders-in-tailwind-css-for-radius-width-and-color)
-- [Q53: How do you implement Effects in Bootstrap for box shadows and opacity?](#q53-how-do-you-implement-effects-in-bootstrap-for-box-shadows-and-opacity)
-- [Q54: How do you implement Filters in Tailwind CSS for blur and brightness?](#q54-how-do-you-implement-filters-in-tailwind-css-for-blur-and-brightness)
-- [Q55: How do you implement Transitions in Bootstrap for animation duration and easing?](#q55-how-do-you-implement-transitions-in-bootstrap-for-animation-duration-and-easing)
-- [Q56: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?](#q56-how-do-you-implement-transforms-in-tailwind-css-for-scale-rotate-and-translate)
-- [Q57: How do you implement Interactivity in Bootstrap for cursor and user-select?](#q57-how-do-you-implement-interactivity-in-bootstrap-for-cursor-and-user-select)
-- [Q58: How do you implement SVG in Tailwind CSS for fill and stroke styling?](#q58-how-do-you-implement-svg-in-tailwind-css-for-fill-and-stroke-styling)
-- [Q59: How do you implement Accessibility in Bootstrap for screen reader utilities?](#q59-how-do-you-implement-accessibility-in-bootstrap-for-screen-reader-utilities)
-- [Q60: How do you implement Forms in Tailwind CSS for input styling and validation states?](#q60-how-do-you-implement-forms-in-tailwind-css-for-input-styling-and-validation-states)
-- [Q61: How do you implement Tables in Bootstrap for responsive table layouts?](#q61-how-do-you-implement-tables-in-bootstrap-for-responsive-table-layouts)
-- [Q62: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?](#q62-how-do-you-implement-navigation-in-tailwind-css-for-navbars-and-breadcrumbs)
-- [Q63: How do you implement Cards in Bootstrap for card components layout?](#q63-how-do-you-implement-cards-in-bootstrap-for-card-components-layout)
-- [Q64: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?](#q64-how-do-you-implement-grid-layout-in-tailwind-css-for-complex-2d-layouts)
-- [Q65: How do you implement Flexbox in Bootstrap for 1D layout alignment?](#q65-how-do-you-implement-flexbox-in-bootstrap-for-1d-layout-alignment)
-- [Q66: How do you implement Typography in Tailwind CSS for font sizing and spacing?](#q66-how-do-you-implement-typography-in-tailwind-css-for-font-sizing-and-spacing)
-- [Q67: How do you implement Spacing in Bootstrap for padding and margin utilities?](#q67-how-do-you-implement-spacing-in-bootstrap-for-padding-and-margin-utilities)
-- [Q68: How do you implement Borders in Tailwind CSS for radius, width, and color?](#q68-how-do-you-implement-borders-in-tailwind-css-for-radius-width-and-color)
-- [Q69: How do you implement Effects in Bootstrap for box shadows and opacity?](#q69-how-do-you-implement-effects-in-bootstrap-for-box-shadows-and-opacity)
-- [Q70: How do you implement Filters in Tailwind CSS for blur and brightness?](#q70-how-do-you-implement-filters-in-tailwind-css-for-blur-and-brightness)
-- [Q71: How do you implement Transitions in Bootstrap for animation duration and easing?](#q71-how-do-you-implement-transitions-in-bootstrap-for-animation-duration-and-easing)
-- [Q72: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?](#q72-how-do-you-implement-transforms-in-tailwind-css-for-scale-rotate-and-translate)
-- [Q73: How do you implement Interactivity in Bootstrap for cursor and user-select?](#q73-how-do-you-implement-interactivity-in-bootstrap-for-cursor-and-user-select)
-- [Q74: How do you implement SVG in Tailwind CSS for fill and stroke styling?](#q74-how-do-you-implement-svg-in-tailwind-css-for-fill-and-stroke-styling)
-- [Q75: How do you implement Accessibility in Bootstrap for screen reader utilities?](#q75-how-do-you-implement-accessibility-in-bootstrap-for-screen-reader-utilities)
-- [Q76: How do you implement Forms in Tailwind CSS for input styling and validation states?](#q76-how-do-you-implement-forms-in-tailwind-css-for-input-styling-and-validation-states)
-- [Q77: How do you implement Tables in Bootstrap for responsive table layouts?](#q77-how-do-you-implement-tables-in-bootstrap-for-responsive-table-layouts)
-- [Q78: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?](#q78-how-do-you-implement-navigation-in-tailwind-css-for-navbars-and-breadcrumbs)
-- [Q79: How do you implement Cards in Bootstrap for card components layout?](#q79-how-do-you-implement-cards-in-bootstrap-for-card-components-layout)
-- [Q80: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?](#q80-how-do-you-implement-grid-layout-in-tailwind-css-for-complex-2d-layouts)
-- [Q81: How do you implement Flexbox in Bootstrap for 1D layout alignment?](#q81-how-do-you-implement-flexbox-in-bootstrap-for-1d-layout-alignment)
-- [Q82: How do you implement Typography in Tailwind CSS for font sizing and spacing?](#q82-how-do-you-implement-typography-in-tailwind-css-for-font-sizing-and-spacing)
-- [Q83: How do you implement Spacing in Bootstrap for padding and margin utilities?](#q83-how-do-you-implement-spacing-in-bootstrap-for-padding-and-margin-utilities)
-- [Q84: How do you implement Borders in Tailwind CSS for radius, width, and color?](#q84-how-do-you-implement-borders-in-tailwind-css-for-radius-width-and-color)
-- [Q85: How do you implement Effects in Bootstrap for box shadows and opacity?](#q85-how-do-you-implement-effects-in-bootstrap-for-box-shadows-and-opacity)
-- [Q86: How do you implement Filters in Tailwind CSS for blur and brightness?](#q86-how-do-you-implement-filters-in-tailwind-css-for-blur-and-brightness)
-- [Q87: How do you implement Transitions in Bootstrap for animation duration and easing?](#q87-how-do-you-implement-transitions-in-bootstrap-for-animation-duration-and-easing)
-- [Q88: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?](#q88-how-do-you-implement-transforms-in-tailwind-css-for-scale-rotate-and-translate)
-- [Q89: How do you implement Interactivity in Bootstrap for cursor and user-select?](#q89-how-do-you-implement-interactivity-in-bootstrap-for-cursor-and-user-select)
-- [Q90: How do you implement SVG in Tailwind CSS for fill and stroke styling?](#q90-how-do-you-implement-svg-in-tailwind-css-for-fill-and-stroke-styling)
-- [Q91: How do you implement Accessibility in Bootstrap for screen reader utilities?](#q91-how-do-you-implement-accessibility-in-bootstrap-for-screen-reader-utilities)
-- [Q92: How do you implement Forms in Tailwind CSS for input styling and validation states?](#q92-how-do-you-implement-forms-in-tailwind-css-for-input-styling-and-validation-states)
-- [Q93: How do you implement Tables in Bootstrap for responsive table layouts?](#q93-how-do-you-implement-tables-in-bootstrap-for-responsive-table-layouts)
-- [Q94: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?](#q94-how-do-you-implement-navigation-in-tailwind-css-for-navbars-and-breadcrumbs)
-- [Q95: How do you implement Cards in Bootstrap for card components layout?](#q95-how-do-you-implement-cards-in-bootstrap-for-card-components-layout)
-- [Q96: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?](#q96-how-do-you-implement-grid-layout-in-tailwind-css-for-complex-2d-layouts)
-- [Q97: How do you implement Flexbox in Bootstrap for 1D layout alignment?](#q97-how-do-you-implement-flexbox-in-bootstrap-for-1d-layout-alignment)
-- [Q98: How do you implement Typography in Tailwind CSS for font sizing and spacing?](#q98-how-do-you-implement-typography-in-tailwind-css-for-font-sizing-and-spacing)
-- [Q99: How do you implement Spacing in Bootstrap for padding and margin utilities?](#q99-how-do-you-implement-spacing-in-bootstrap-for-padding-and-margin-utilities)
-- [Q100: How do you implement Borders in Tailwind CSS for radius, width, and color?](#q100-how-do-you-implement-borders-in-tailwind-css-for-radius-width-and-color)
 
-### Q1: How do you dynamically toggle Tailwind CSS classes in a React component without using string concatenation?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use libraries like `clsx` or `tailwind-merge` to handle conditional logic and resolve class conflicts.
-
-**Code Example:**
-```jsx
-import { twMerge } from 'tailwind-merge';
-import clsx from 'clsx';
-
-function Button({ variant, className }) {
-    // merges default styles with conditional variant and custom className
-    const classes = twMerge(clsx(
-        'px-4 py-2 rounded font-bold transition-colors',
-        {
-            'bg-blue-500 text-white hover:bg-blue-600': variant === 'primary',
-            'bg-gray-200 text-gray-800 hover:bg-gray-300': variant === 'secondary',
-        },
-        className
-    ));
-
-    return <button className={classes}>Click Me</button>;
-}
-```
+1. [How do you dynamically toggle Tailwind CSS classes in a React component without using string concatenation?](#q1-how-do-you-dynamically-toggle-tailwind-css-classes-in-a-react-component-without-using-string-concatenation) <span class="intermediate">Intermediate</span>
+2. [How do you customize the Bootstrap 5 theme colors using SASS variables?](#q2-how-do-you-customize-the-bootstrap-5-theme-colors-using-sass-variables) <span class="intermediate">Intermediate</span>
+3. [How do you extend Tailwind CSS configuration to add custom breakpoints?](#q3-how-do-you-extend-tailwind-css-configuration-to-add-custom-breakpoints) <span class="intermediate">Intermediate</span>
+4. [How do you create a reusable component style in Tailwind using the `@apply` directive?](#q4-how-do-you-create-a-reusable-component-style-in-tailwind-using-the-apply-directive) <span class="beginner">Beginner</span>
+5. [How do you implement a responsive grid layout in Bootstrap 5 without using custom CSS?](#q5-how-do-you-implement-a-responsive-grid-layout-in-bootstrap-5-without-using-custom-css) <span class="beginner">Beginner</span>
+6. [How do you enable and use arbitrary values in Tailwind CSS for one-off styles?](#q6-how-do-you-enable-and-use-arbitrary-values-in-tailwind-css-for-one-off-styles) <span class="intermediate">Intermediate</span>
+7. [How do you optimize Tailwind CSS for production to remove unused styles?](#q7-how-do-you-optimize-tailwind-css-for-production-to-remove-unused-styles) <span class="advanced">Advanced</span>
+8. [How do you use Bootstrap 5's Utility API to generate custom utility classes?](#q8-how-do-you-use-bootstrap-5s-utility-api-to-generate-custom-utility-classes) <span class="advanced">Advanced</span>
+9. [How do you implement Dark Mode support in Tailwind CSS?](#q9-how-do-you-implement-dark-mode-support-in-tailwind-css) <span class="intermediate">Intermediate</span>
+10. [How do you use Bootstrap components (like Modals) in a React application without jQuery?](#q10-how-do-you-use-bootstrap-components-like-modals-in-a-react-application-without-jquery) <span class="intermediate">Intermediate</span>
+11. [How do you create a custom Tailwind CSS plugin to add new variants?](#q11-how-do-you-create-a-custom-tailwind-css-plugin-to-add-new-variants) <span class="advanced">Advanced</span>
+12. [How do you handle z-index values in Tailwind to avoid conflicts?](#q12-how-do-you-handle-z-index-values-in-tailwind-to-avoid-conflicts) <span class="intermediate">Intermediate</span>
+13. [How do you center a div both vertically and horizontally using Bootstrap classes?](#q13-how-do-you-center-a-div-both-vertically-and-horizontally-using-bootstrap-classes) <span class="beginner">Beginner</span>
+14. [How do you apply styles to children elements in Tailwind without adding classes to each child?](#q14-how-do-you-apply-styles-to-children-elements-in-tailwind-without-adding-classes-to-each-child) <span class="advanced">Advanced</span>
+15. [How do you implement a sticky footer in Tailwind CSS?](#q15-how-do-you-implement-a-sticky-footer-in-tailwind-css) <span class="intermediate">Intermediate</span>
+16. [How do you implement a responsive Grid Layout in Tailwind CSS?](#q16-how-do-you-implement-a-responsive-grid-layout-in-tailwind-css) <span class="beginner">Beginner</span>
+17. [How do you align items using Flexbox in Bootstrap?](#q17-how-do-you-align-items-using-flexbox-in-bootstrap) <span class="beginner">Beginner</span>
+18. [How do you style Markdown content using Tailwind Typography?](#q18-how-do-you-style-markdown-content-using-tailwind-typography) <span class="intermediate">Intermediate</span>
+19. [How do you apply Spacing (Margin/Padding) in Bootstrap?](#q19-how-do-you-apply-spacing-marginpadding-in-bootstrap) <span class="beginner">Beginner</span>
+20. [How do you create circular images with borders in Tailwind?](#q20-how-do-you-create-circular-images-with-borders-in-tailwind) <span class="beginner">Beginner</span>
+21. [How do you add shadows in Bootstrap?](#q21-how-do-you-add-shadows-in-bootstrap) <span class="beginner">Beginner</span>
+22. [How do you apply a blur filter in Tailwind?](#q22-how-do-you-apply-a-blur-filter-in-tailwind) <span class="intermediate">Intermediate</span>
+23. [How do you make a link stretch to cover the entire parent card in Bootstrap?](#q23-how-do-you-make-a-link-stretch-to-cover-the-entire-parent-card-in-bootstrap) <span class="intermediate">Intermediate</span>
+24. [How do you rotate an element in Tailwind?](#q24-how-do-you-rotate-an-element-in-tailwind) <span class="beginner">Beginner</span>
+25. [How do you prevent text selection in Bootstrap?](#q25-how-do-you-prevent-text-selection-in-bootstrap) <span class="beginner">Beginner</span>
+26. [How do you style an SVG icon's color in Tailwind?](#q26-how-do-you-style-an-svg-icons-color-in-tailwind) <span class="intermediate">Intermediate</span>
+27. [How do you hide elements visually but keep them accessible to screen readers in Bootstrap?](#q27-how-do-you-hide-elements-visually-but-keep-them-accessible-to-screen-readers-in-bootstrap) <span class="beginner">Beginner</span>
+28. [How do you style form inputs easily in Tailwind?](#q28-how-do-you-style-form-inputs-easily-in-tailwind) <span class="intermediate">Intermediate</span>
+29. [How do you make a table responsive in Bootstrap?](#q29-how-do-you-make-a-table-responsive-in-bootstrap) <span class="beginner">Beginner</span>
+30. [How do you style a sibling element based on the state of another in Tailwind (Peer)?](#q30-how-do-you-style-a-sibling-element-based-on-the-state-of-another-in-tailwind-peer) <span class="advanced">Advanced</span>
+31. [How do you indicate form validation errors in Bootstrap?](#q31-how-do-you-indicate-form-validation-errors-in-bootstrap) <span class="intermediate">Intermediate</span>
+32. [How do you style children when hovering the parent in Tailwind (Group)?](#q32-how-do-you-style-children-when-hovering-the-parent-in-tailwind-group) <span class="intermediate">Intermediate</span>
+33. [How do you create a full-screen modal in Bootstrap?](#q33-how-do-you-create-a-full-screen-modal-in-bootstrap) <span class="intermediate">Intermediate</span>
+34. [How do you enforce an aspect ratio in Tailwind?](#q34-how-do-you-enforce-an-aspect-ratio-in-tailwind) <span class="intermediate">Intermediate</span>
+35. [How do you limit text to a specific number of lines in Tailwind?](#q35-how-do-you-limit-text-to-a-specific-number-of-lines-in-tailwind) <span class="intermediate">Intermediate</span>
+36. [How do you position Toasts in Bootstrap?](#q36-how-do-you-position-toasts-in-bootstrap) <span class="intermediate">Intermediate</span>
+37. [How do you create a loading spinner animation in Tailwind?](#q37-how-do-you-create-a-loading-spinner-animation-in-tailwind) <span class="beginner">Beginner</span>
+38. [How do you implement Scrollspy in Bootstrap?](#q38-how-do-you-implement-scrollspy-in-bootstrap) <span class="advanced">Advanced</span>
+39. [How do you create gradient text in Tailwind?](#q39-how-do-you-create-gradient-text-in-tailwind) <span class="intermediate">Intermediate</span>
+40. [How do you create an Offcanvas sidebar in Bootstrap?](#q40-how-do-you-create-an-offcanvas-sidebar-in-bootstrap) <span class="intermediate">Intermediate</span>
+41. [How do you add dividers between children in Tailwind?](#q41-how-do-you-add-dividers-between-children-in-tailwind) <span class="intermediate">Intermediate</span>
+42. [How do you remove borders from an Accordion in Bootstrap (Flush)?](#q42-how-do-you-remove-borders-from-an-accordion-in-bootstrap-flush) <span class="beginner">Beginner</span>
+43. [How do you add space between children in Tailwind (Space Between)?](#q43-how-do-you-add-space-between-children-in-tailwind-space-between) <span class="intermediate">Intermediate</span>
+44. [How do you make a Badge rounded like a pill in Bootstrap?](#q44-how-do-you-make-a-badge-rounded-like-a-pill-in-bootstrap) <span class="beginner">Beginner</span>
+45. [How do you add a focus ring to an element in Tailwind?](#q45-how-do-you-add-a-focus-ring-to-an-element-in-tailwind) <span class="beginner">Beginner</span>
+46. [How do you group buttons together in Bootstrap?](#q46-how-do-you-group-buttons-together-in-bootstrap) <span class="beginner">Beginner</span>
+47. [How do you use Container Queries in Tailwind?](#q47-how-do-you-use-container-queries-in-tailwind) <span class="advanced">Advanced</span>
+48. [How do you vertically center content in a Bootstrap column?](#q48-how-do-you-vertically-center-content-in-a-bootstrap-column) <span class="intermediate">Intermediate</span>
+49. [How do you invert colors in Tailwind (Dark Mode manual)?](#q49-how-do-you-invert-colors-in-tailwind-dark-mode-manual) <span class="intermediate">Intermediate</span>
+50. [How do you create a Dismissible Alert in Bootstrap?](#q50-how-do-you-create-a-dismissible-alert-in-bootstrap) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -479,1448 +403,566 @@ Use Flexbox on the body/wrapper with `flex-col` and `min-h-screen`, then set the
 
 ---
 
-### Q16: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?
+### Q16: How do you implement a responsive Grid Layout in Tailwind CSS?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for grid layout to manage complex 2D layouts. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Grid Layout -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q17: How do you implement Flexbox in Bootstrap for 1D layout alignment?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Bootstrap's utilities for flexbox to manage 1D layout alignment. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Bootstrap example for Flexbox -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q18: How do you implement Typography in Tailwind CSS for font sizing and spacing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for typography to manage font sizing and spacing. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Typography -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q19: How do you implement Spacing in Bootstrap for padding and margin utilities?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Bootstrap's utilities for spacing to manage padding and margin utilities. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Bootstrap example for Spacing -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q20: How do you implement Borders in Tailwind CSS for radius, width, and color?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for borders to manage radius, width, and color. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Borders -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q21: How do you implement Effects in Bootstrap for box shadows and opacity?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Bootstrap's utilities for effects to manage box shadows and opacity. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Bootstrap example for Effects -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q22: How do you implement Filters in Tailwind CSS for blur and brightness?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for filters to manage blur and brightness. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Filters -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q23: How do you implement Transitions in Bootstrap for animation duration and easing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Bootstrap's utilities for transitions to manage animation duration and easing. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Bootstrap example for Transitions -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q24: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for transforms to manage scale, rotate, and translate. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Transforms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q25: How do you implement Interactivity in Bootstrap for cursor and user-select?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Bootstrap's utilities for interactivity to manage cursor and user-select. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Bootstrap example for Interactivity -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q26: How do you implement SVG in Tailwind CSS for fill and stroke styling?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for svg to manage fill and stroke styling. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for SVG -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q27: How do you implement Accessibility in Bootstrap for screen reader utilities?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Bootstrap's utilities for accessibility to manage screen reader utilities. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Bootstrap example for Accessibility -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q28: How do you implement Forms in Tailwind CSS for input styling and validation states?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for forms to manage input styling and validation states. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Forms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q29: How do you implement Tables in Bootstrap for responsive table layouts?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Bootstrap's utilities for tables to manage responsive table layouts. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Bootstrap example for Tables -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q30: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?
+**Difficulty**: Beginner
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for navigation to manage navbars and breadcrumbs. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Navigation -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q31: How do you implement Cards in Bootstrap for card components layout?
-
-**Difficulty**: Intermediate
-
 **Strategy:**
-Utilize Bootstrap's utilities for cards to manage card components layout. Customization can be achieved via configuration files.
+Use `grid` and `grid-cols-{n}` utilities. Use breakpoints like `md:grid-cols-3` to change layout on different screens.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Cards -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div class="bg-red-200">1</div>
+  <div class="bg-blue-200">2</div>
+  <div class="bg-green-200">3</div>
 </div>
-```
-
----
-
-### Q32: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for grid layout to manage complex 2D layouts. Customization can be achieved via configuration files.
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Grid Layout -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q33: How do you implement Flexbox in Bootstrap for 1D layout alignment?
+### Q17: How do you align items using Flexbox in Bootstrap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for flexbox to manage 1D layout alignment. Customization can be achieved via configuration files.
+Use `d-flex` to enable flexbox. Use `justify-content-*` for main axis and `align-items-*` for cross axis.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Flexbox -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="d-flex justify-content-between align-items-center">
+  <div>Left</div>
+  <div>Right</div>
 </div>
-```
-
----
-
-### Q34: How do you implement Typography in Tailwind CSS for font sizing and spacing?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for typography to manage font sizing and spacing. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Typography -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q35: How do you implement Spacing in Bootstrap for padding and margin utilities?
+### Q18: How do you style Markdown content using Tailwind Typography?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for spacing to manage padding and margin utilities. Customization can be achieved via configuration files.
+Install `@tailwindcss/typography` and use the `prose` class on the container.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Spacing -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q36: How do you implement Borders in Tailwind CSS for radius, width, and color?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for borders to manage radius, width, and color. Customization can be achieved via configuration files.
+<article class="prose lg:prose-xl">
+  <h1>Heading</h1>
+  <p>Content...</p>
+</article>
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Borders -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q37: How do you implement Effects in Bootstrap for box shadows and opacity?
+### Q19: How do you apply Spacing (Margin/Padding) in Bootstrap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for effects to manage box shadows and opacity. Customization can be achieved via configuration files.
+Use `{property}{sides}-{size}` syntax. Property: `m` (margin), `p` (padding). Sides: `t`, `b`, `s` (start), `e` (end), `x`, `y`. Size: 0-5.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Effects -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="m-3 p-4 bg-light">
+  Margin 3, Padding 4
 </div>
-```
-
----
-
-### Q38: How do you implement Filters in Tailwind CSS for blur and brightness?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for filters to manage blur and brightness. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Filters -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q39: How do you implement Transitions in Bootstrap for animation duration and easing?
+### Q20: How do you create circular images with borders in Tailwind?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for transitions to manage animation duration and easing. Customization can be achieved via configuration files.
+Use `rounded-full` for circle, and `border-{width}` `border-{color}`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Transitions -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q40: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?
-
-**Difficulty**: Intermediate
+<img class="rounded-full border-4 border-white h-24 w-24" src="avatar.jpg" />
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for transforms to manage scale, rotate, and translate. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Transforms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q41: How do you implement Interactivity in Bootstrap for cursor and user-select?
+### Q21: How do you add shadows in Bootstrap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for interactivity to manage cursor and user-select. Customization can be achieved via configuration files.
+Use `shadow-sm`, `shadow`, `shadow-lg` classes.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Interactivity -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="shadow-lg p-3 mb-5 bg-body rounded">
+  Larger shadow
 </div>
-```
-
----
-
-### Q42: How do you implement SVG in Tailwind CSS for fill and stroke styling?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for svg to manage fill and stroke styling. Customization can be achieved via configuration files.
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for SVG -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q43: How do you implement Accessibility in Bootstrap for screen reader utilities?
+### Q22: How do you apply a blur filter in Tailwind?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for accessibility to manage screen reader utilities. Customization can be achieved via configuration files.
+Use `blur-{amount}` utilities (e.g., `blur-sm`, `blur-md`). Often used with `backdrop-blur` for glassmorphism.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Accessibility -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="backdrop-blur-md bg-white/30 p-4">
+  Frosted Glass
 </div>
-```
-
----
-
-### Q44: How do you implement Forms in Tailwind CSS for input styling and validation states?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for forms to manage input styling and validation states. Customization can be achieved via configuration files.
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Forms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q45: How do you implement Tables in Bootstrap for responsive table layouts?
+### Q23: How do you make a link stretch to cover the entire parent card in Bootstrap?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for tables to manage responsive table layouts. Customization can be achieved via configuration files.
+Use the `stretched-link` class on the link inside a `position-relative` container (like a card).
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Tables -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Card with stretched link</h5>
+    <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
+  </div>
 </div>
-```
-
----
-
-### Q46: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for navigation to manage navbars and breadcrumbs. Customization can be achieved via configuration files.
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Navigation -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q47: How do you implement Cards in Bootstrap for card components layout?
+### Q24: How do you rotate an element in Tailwind?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for cards to manage card components layout. Customization can be achieved via configuration files.
+Use `rotate-{degree}` utilities.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Cards -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q48: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?
-
-**Difficulty**: Intermediate
+<div class="transform rotate-45 bg-blue-500 h-10 w-10"></div>
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for grid layout to manage complex 2D layouts. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Grid Layout -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q49: How do you implement Flexbox in Bootstrap for 1D layout alignment?
+### Q25: How do you prevent text selection in Bootstrap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for flexbox to manage 1D layout alignment. Customization can be achieved via configuration files.
+Use `user-select-none`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Flexbox -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q50: How do you implement Typography in Tailwind CSS for font sizing and spacing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for typography to manage font sizing and spacing. Customization can be achieved via configuration files.
+<p class="user-select-none">You cannot select this text.</p>
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Typography -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q51: How do you implement Spacing in Bootstrap for padding and margin utilities?
+### Q26: How do you style an SVG icon's color in Tailwind?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for spacing to manage padding and margin utilities. Customization can be achieved via configuration files.
+Use `text-{color}` and `fill-current` or `stroke-current` on the SVG.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Spacing -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q52: How do you implement Borders in Tailwind CSS for radius, width, and color?
+<svg class="h-6 w-6 text-blue-500 fill-current" ...></svg>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for borders to manage radius, width, and color. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Borders -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q53: How do you implement Effects in Bootstrap for box shadows and opacity?
+### Q27: How do you hide elements visually but keep them accessible to screen readers in Bootstrap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for effects to manage box shadows and opacity. Customization can be achieved via configuration files.
+Use the `visually-hidden` class.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Effects -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
+<h2 class="visually-hidden">Title for Screen Readers</h2>
 
----
-
-### Q54: How do you implement Filters in Tailwind CSS for blur and brightness?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for filters to manage blur and brightness. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Filters -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q55: How do you implement Transitions in Bootstrap for animation duration and easing?
+### Q28: How do you style form inputs easily in Tailwind?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for transitions to manage animation duration and easing. Customization can be achieved via configuration files.
+Install `@tailwindcss/forms` plugin. It resets form styles to be easier to override.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Transitions -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
+// tailwind.config.js
+plugins: [require('@tailwindcss/forms')],
 
-### Q56: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for transforms to manage scale, rotate, and translate. Customization can be achieved via configuration files.
+// HTML
+<input type="text" class="form-input px-4 py-3 rounded-full">
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Transforms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you implement Interactivity in Bootstrap for cursor and user-select?
+### Q29: How do you make a table responsive in Bootstrap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for interactivity to manage cursor and user-select. Customization can be achieved via configuration files.
+Wrap the `.table` in a container with `.table-responsive`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Interactivity -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="table-responsive">
+  <table class="table">
+    ...
+  </table>
 </div>
-```
-
----
-
-### Q58: How do you implement SVG in Tailwind CSS for fill and stroke styling?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for svg to manage fill and stroke styling. Customization can be achieved via configuration files.
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for SVG -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you implement Accessibility in Bootstrap for screen reader utilities?
+### Q30: How do you style a sibling element based on the state of another in Tailwind (Peer)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Utilize Bootstrap's utilities for accessibility to manage screen reader utilities. Customization can be achieved via configuration files.
+Add `peer` class to the trigger element, and `peer-{modifier}:` to the target sibling.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Accessibility -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q60: How do you implement Forms in Tailwind CSS for input styling and validation states?
-
-**Difficulty**: Intermediate
+<input type="checkbox" class="peer" />
+<p class="invisible peer-checked:visible">Checked!</p>
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for forms to manage input styling and validation states. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Forms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q61: How do you implement Tables in Bootstrap for responsive table layouts?
+### Q31: How do you indicate form validation errors in Bootstrap?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for tables to manage responsive table layouts. Customization can be achieved via configuration files.
+Add `.was-validated` to the form or `.is-invalid` to the input. Provide `.invalid-feedback` div.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Tables -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<input type="text" class="form-control is-invalid" required>
+<div class="invalid-feedback">
+  Please choose a username.
 </div>
-```
 
----
-
-### Q62: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for navigation to manage navbars and breadcrumbs. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Navigation -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: How do you implement Cards in Bootstrap for card components layout?
+### Q32: How do you style children when hovering the parent in Tailwind (Group)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for cards to manage card components layout. Customization can be achieved via configuration files.
+Add `group` class to the parent, and `group-hover:` to the child.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Cards -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="group bg-white hover:bg-blue-500">
+  <p class="text-black group-hover:text-white">Text changes color on parent hover</p>
 </div>
-```
-
----
-
-### Q64: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for grid layout to manage complex 2D layouts. Customization can be achieved via configuration files.
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Grid Layout -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you implement Flexbox in Bootstrap for 1D layout alignment?
+### Q33: How do you create a full-screen modal in Bootstrap?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for flexbox to manage 1D layout alignment. Customization can be achieved via configuration files.
+Use `.modal-fullscreen` class on the `.modal-dialog`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Flexbox -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="modal-dialog modal-fullscreen">
+  ...
 </div>
-```
-
----
-
-### Q66: How do you implement Typography in Tailwind CSS for font sizing and spacing?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for typography to manage font sizing and spacing. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Typography -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you implement Spacing in Bootstrap for padding and margin utilities?
+### Q34: How do you enforce an aspect ratio in Tailwind?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for spacing to manage padding and margin utilities. Customization can be achieved via configuration files.
+Use `aspect-{ratio}` utilities (e.g., `aspect-video`, `aspect-square`).
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Spacing -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q68: How do you implement Borders in Tailwind CSS for radius, width, and color?
+<iframe class="w-full aspect-video" src="..."></iframe>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for borders to manage radius, width, and color. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Borders -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you implement Effects in Bootstrap for box shadows and opacity?
+### Q35: How do you limit text to a specific number of lines in Tailwind?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for effects to manage box shadows and opacity. Customization can be achieved via configuration files.
+Install `@tailwindcss/line-clamp` (included in v3.3+) and use `line-clamp-{n}`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Effects -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q70: How do you implement Filters in Tailwind CSS for blur and brightness?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for filters to manage blur and brightness. Customization can be achieved via configuration files.
+<p class="line-clamp-3">
+  Long text that will be truncated after three lines...
+</p>
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Filters -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you implement Transitions in Bootstrap for animation duration and easing?
+### Q36: How do you position Toasts in Bootstrap?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for transitions to manage animation duration and easing. Customization can be achieved via configuration files.
+Wrap toasts in a `.toast-container` and use positioning utilities like `top-0 end-0`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Transitions -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div class="toast show">...</div>
 </div>
-```
-
----
-
-### Q72: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for transforms to manage scale, rotate, and translate. Customization can be achieved via configuration files.
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Transforms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you implement Interactivity in Bootstrap for cursor and user-select?
+### Q37: How do you create a loading spinner animation in Tailwind?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for interactivity to manage cursor and user-select. Customization can be achieved via configuration files.
+Use `animate-spin`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Interactivity -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q74: How do you implement SVG in Tailwind CSS for fill and stroke styling?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for svg to manage fill and stroke styling. Customization can be achieved via configuration files.
+<svg class="animate-spin h-5 w-5 mr-3" ...></svg>
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for SVG -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q75: How do you implement Accessibility in Bootstrap for screen reader utilities?
+### Q38: How do you implement Scrollspy in Bootstrap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Utilize Bootstrap's utilities for accessibility to manage screen reader utilities. Customization can be achieved via configuration files.
+Add `data-bs-spy='scroll'` to the scrollable element and `data-bs-target` pointing to the navigation.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Accessibility -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q76: How do you implement Forms in Tailwind CSS for input styling and validation states?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for forms to manage input styling and validation states. Customization can be achieved via configuration files.
+<body data-bs-spy="scroll" data-bs-target="#navbar-example">
+  ...
+</body>
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Forms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q77: How do you implement Tables in Bootstrap for responsive table layouts?
+### Q39: How do you create gradient text in Tailwind?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for tables to manage responsive table layouts. Customization can be achieved via configuration files.
+Use `bg-gradient-to-r`, `from-{color}`, `to-{color}`, `bg-clip-text`, and `text-transparent`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Tables -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q78: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for navigation to manage navbars and breadcrumbs. Customization can be achieved via configuration files.
+<h1 class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+  Gradient Text
+</h1>
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Navigation -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you implement Cards in Bootstrap for card components layout?
+### Q40: How do you create an Offcanvas sidebar in Bootstrap?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for cards to manage card components layout. Customization can be achieved via configuration files.
+Use `.offcanvas` component.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Cards -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="offcanvas offcanvas-start" id="demo">
+  <div class="offcanvas-header">...</div>
+  <div class="offcanvas-body">...</div>
 </div>
-```
-
----
-
-### Q80: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for grid layout to manage complex 2D layouts. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Grid Layout -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you implement Flexbox in Bootstrap for 1D layout alignment?
+### Q41: How do you add dividers between children in Tailwind?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for flexbox to manage 1D layout alignment. Customization can be achieved via configuration files.
+Use `divide-y` or `divide-x` on the parent container.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Flexbox -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="divide-y divide-gray-200">
+  <div>Item 1</div>
+  <div>Item 2</div>
 </div>
-```
-
----
-
-### Q82: How do you implement Typography in Tailwind CSS for font sizing and spacing?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for typography to manage font sizing and spacing. Customization can be achieved via configuration files.
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Typography -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you implement Spacing in Bootstrap for padding and margin utilities?
+### Q42: How do you remove borders from an Accordion in Bootstrap (Flush)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for spacing to manage padding and margin utilities. Customization can be achieved via configuration files.
+Use `.accordion-flush` class.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Spacing -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  ...
 </div>
-```
-
----
-
-### Q84: How do you implement Borders in Tailwind CSS for radius, width, and color?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for borders to manage radius, width, and color. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Borders -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q85: How do you implement Effects in Bootstrap for box shadows and opacity?
+### Q43: How do you add space between children in Tailwind (Space Between)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for effects to manage box shadows and opacity. Customization can be achieved via configuration files.
+Use `space-x-{n}` or `space-y-{n}` on the parent. Note: It adds margin to children except the first.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Effects -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="flex space-x-4">
+  <div>1</div>
+  <div>2</div>
 </div>
-```
 
----
-
-### Q86: How do you implement Filters in Tailwind CSS for blur and brightness?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for filters to manage blur and brightness. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Filters -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you implement Transitions in Bootstrap for animation duration and easing?
+### Q44: How do you make a Badge rounded like a pill in Bootstrap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for transitions to manage animation duration and easing. Customization can be achieved via configuration files.
+Use `.rounded-pill` utility along with `.badge`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Transitions -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q88: How do you implement Transforms in Tailwind CSS for scale, rotate, and translate?
-
-**Difficulty**: Intermediate
+<span class="badge rounded-pill bg-primary">New</span>
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for transforms to manage scale, rotate, and translate. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Transforms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you implement Interactivity in Bootstrap for cursor and user-select?
+### Q45: How do you add a focus ring to an element in Tailwind?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for interactivity to manage cursor and user-select. Customization can be achieved via configuration files.
+Use `ring-{width}`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Interactivity -->
-<div class="row g-3">
-  <!-- Implementation details -->
-</div>
-```
-
----
-
-### Q90: How do you implement SVG in Tailwind CSS for fill and stroke styling?
-
-**Difficulty**: Intermediate
+<button class="focus:ring-2 focus:ring-blue-600">
+  Button
+</button>
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for svg to manage fill and stroke styling. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for SVG -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q91: How do you implement Accessibility in Bootstrap for screen reader utilities?
+### Q46: How do you group buttons together in Bootstrap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Utilize Bootstrap's utilities for accessibility to manage screen reader utilities. Customization can be achieved via configuration files.
+Wrap buttons in `.btn-group`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Accessibility -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="btn-group" role="group">
+  <button type="button" class="btn btn-primary">Left</button>
+  <button type="button" class="btn btn-primary">Middle</button>
+  <button type="button" class="btn btn-primary">Right</button>
 </div>
-```
-
----
-
-### Q92: How do you implement Forms in Tailwind CSS for input styling and validation states?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for forms to manage input styling and validation states. Customization can be achieved via configuration files.
 
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Forms -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: How do you implement Tables in Bootstrap for responsive table layouts?
+### Q47: How do you use Container Queries in Tailwind?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Utilize Bootstrap's utilities for tables to manage responsive table layouts. Customization can be achieved via configuration files.
+Install `@tailwindcss/container-queries`. Mark parent as `@container`. Use `@lg:text-xl` etc. on children.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Tables -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="@container">
+  <div class="@lg:underline">
+    Underlined when container is large
+  </div>
 </div>
-```
-
----
-
-### Q94: How do you implement Navigation in Tailwind CSS for navbars and breadcrumbs?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for navigation to manage navbars and breadcrumbs. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Navigation -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you implement Cards in Bootstrap for card components layout?
+### Q48: How do you vertically center content in a Bootstrap column?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for cards to manage card components layout. Customization can be achieved via configuration files.
+Use `align-items-center` on the `.row`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Cards -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="row align-items-center">
+  <div class="col">Centered Vertically</div>
 </div>
-```
-
----
-
-### Q96: How do you implement Grid Layout in Tailwind CSS for complex 2D layouts?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for grid layout to manage complex 2D layouts. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Grid Layout -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you implement Flexbox in Bootstrap for 1D layout alignment?
+### Q49: How do you invert colors in Tailwind (Dark Mode manual)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for flexbox to manage 1D layout alignment. Customization can be achieved via configuration files.
+Tailwind doesn't have a built-in 'invert' utility for colors specifically, but you can use `invert` filter or explicit dark mode classes.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Flexbox -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="invert filter">
+  <!-- Content colors inverted -->
 </div>
-```
-
----
 
-### Q98: How do you implement Typography in Tailwind CSS for font sizing and spacing?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Utilize Tailwind CSS's utilities for typography to manage font sizing and spacing. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Typography -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
-
 ---
 
-### Q99: How do you implement Spacing in Bootstrap for padding and margin utilities?
+### Q50: How do you create a Dismissible Alert in Bootstrap?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Utilize Bootstrap's utilities for spacing to manage padding and margin utilities. Customization can be achieved via configuration files.
+Add `.alert-dismissible` and a close button with `data-bs-dismiss='alert'`.
 
 **Code Example:**
-```html
-<!-- Bootstrap example for Spacing -->
-<div class="row g-3">
-  <!-- Implementation details -->
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  Error!
+  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 </div>
-```
-
----
-
-### Q100: How do you implement Borders in Tailwind CSS for radius, width, and color?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Utilize Tailwind CSS's utilities for borders to manage radius, width, and color. Customization can be achieved via configuration files.
-
-**Code Example:**
-```html
-<!-- Tailwind CSS example for Borders -->
-<div class="grid gap-4">
-  <!-- Implementation details -->
-</div>
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

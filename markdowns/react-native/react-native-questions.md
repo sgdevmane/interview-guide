@@ -1,135 +1,57 @@
 # React Native Interview Questions
 
 ## Table of Contents
-- [Q1: How do you optimize the performance of a long FlatList with thousands of items?](#q1-how-do-you-optimize-the-performance-of-a-long-flatlist-with-thousands-of-items)
-- [Q2: How do you implement platform-specific code for iOS and Android?](#q2-how-do-you-implement-platform-specific-code-for-ios-and-android)
-- [Q3: How do you handle deep linking in a React Native app using React Navigation?](#q3-how-do-you-handle-deep-linking-in-a-react-native-app-using-react-navigation)
-- [Q4: How do you implement high-performance animations using React Native Reanimated?](#q4-how-do-you-implement-high-performance-animations-using-react-native-reanimated)
-- [Q5: How do you persist global state data using AsyncStorage?](#q5-how-do-you-persist-global-state-data-using-asyncstorage)
-- [Q6: How do you create a custom Native Module for Android (Java/Kotlin)?](#q6-how-do-you-create-a-custom-native-module-for-android-javakotlin)
-- [Q7: How do you handle safe area insets on devices with notches?](#q7-how-do-you-handle-safe-area-insets-on-devices-with-notches)
-- [Q8: How do you debug React Native apps effectively?](#q8-how-do-you-debug-react-native-apps-effectively)
-- [Q9: How do you prevent the on-screen keyboard from covering input fields?](#q9-how-do-you-prevent-the-on-screen-keyboard-from-covering-input-fields)
-- [Q10: How do you implement an infinite scroll list?](#q10-how-do-you-implement-an-infinite-scroll-list)
-- [Q11: How do you use custom fonts in React Native (CLI workflow)?](#q11-how-do-you-use-custom-fonts-in-react-native-cli-workflow)
-- [Q12: How do you handle offline network connectivity?](#q12-how-do-you-handle-offline-network-connectivity)
-- [Q13: How do you optimize image loading and caching?](#q13-how-do-you-optimize-image-loading-and-caching)
-- [Q14: How do you create a translucent status bar on Android?](#q14-how-do-you-create-a-translucent-status-bar-on-android)
-- [Q15: How do you upgrade React Native to a newer version?](#q15-how-do-you-upgrade-react-native-to-a-newer-version)
-- [Q16: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?](#q16-how-do-you-implement-react-navigation-in-react-native-for-stack-tab-and-drawer-navigation)
-- [Q17: How do you implement Redux Toolkit in React Native for managing global state efficiently?](#q17-how-do-you-implement-redux-toolkit-in-react-native-for-managing-global-state-efficiently)
-- [Q18: How do you implement Context API in React Native for passing data through component tree?](#q18-how-do-you-implement-context-api-in-react-native-for-passing-data-through-component-tree)
-- [Q19: How do you implement Expo in React Native for managed workflow vs bare workflow?](#q19-how-do-you-implement-expo-in-react-native-for-managed-workflow-vs-bare-workflow)
-- [Q20: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?](#q20-how-do-you-implement-hermes-engine-in-react-native-for-optimizing-js-execution-on-androidios)
-- [Q21: How do you implement TurboModules in React Native for new architecture for native modules?](#q21-how-do-you-implement-turbomodules-in-react-native-for-new-architecture-for-native-modules)
-- [Q22: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?](#q22-how-do-you-implement-fabric-renderer-in-react-native-for-new-concurrent-rendering-architecture)
-- [Q23: How do you implement Push Notifications in React Native for FCM and APNs integration?](#q23-how-do-you-implement-push-notifications-in-react-native-for-fcm-and-apns-integration)
-- [Q24: How do you implement Maps in React Native for Google Maps and Apple Maps integration?](#q24-how-do-you-implement-maps-in-react-native-for-google-maps-and-apple-maps-integration)
-- [Q25: How do you implement Camera in React Native for capturing photos and videos?](#q25-how-do-you-implement-camera-in-react-native-for-capturing-photos-and-videos)
-- [Q26: How do you implement Biometrics in React Native for FaceID and TouchID authentication?](#q26-how-do-you-implement-biometrics-in-react-native-for-faceid-and-touchid-authentication)
-- [Q27: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?](#q27-how-do-you-implement-accessibility-in-react-native-for-talkback-and-voiceover-support)
-- [Q28: How do you implement Internationalization in React Native for multi-language support with i18n?](#q28-how-do-you-implement-internationalization-in-react-native-for-multi-language-support-with-i18n)
-- [Q29: How do you implement CodePush in React Native for over-the-air updates?](#q29-how-do-you-implement-codepush-in-react-native-for-over-the-air-updates)
-- [Q30: How do you implement WebView in React Native for embedding web content?](#q30-how-do-you-implement-webview-in-react-native-for-embedding-web-content)
-- [Q31: How do you implement SVG in React Native for rendering vector graphics?](#q31-how-do-you-implement-svg-in-react-native-for-rendering-vector-graphics)
-- [Q32: How do you implement Gestures in React Native for handling complex touch interactions?](#q32-how-do-you-implement-gestures-in-react-native-for-handling-complex-touch-interactions)
-- [Q33: How do you implement Share API in React Native for sharing content with other apps?](#q33-how-do-you-implement-share-api-in-react-native-for-sharing-content-with-other-apps)
-- [Q34: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?](#q34-how-do-you-implement-react-navigation-in-react-native-for-stack-tab-and-drawer-navigation)
-- [Q35: How do you implement Redux Toolkit in React Native for managing global state efficiently?](#q35-how-do-you-implement-redux-toolkit-in-react-native-for-managing-global-state-efficiently)
-- [Q36: How do you implement Context API in React Native for passing data through component tree?](#q36-how-do-you-implement-context-api-in-react-native-for-passing-data-through-component-tree)
-- [Q37: How do you implement Expo in React Native for managed workflow vs bare workflow?](#q37-how-do-you-implement-expo-in-react-native-for-managed-workflow-vs-bare-workflow)
-- [Q38: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?](#q38-how-do-you-implement-hermes-engine-in-react-native-for-optimizing-js-execution-on-androidios)
-- [Q39: How do you implement TurboModules in React Native for new architecture for native modules?](#q39-how-do-you-implement-turbomodules-in-react-native-for-new-architecture-for-native-modules)
-- [Q40: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?](#q40-how-do-you-implement-fabric-renderer-in-react-native-for-new-concurrent-rendering-architecture)
-- [Q41: How do you implement Push Notifications in React Native for FCM and APNs integration?](#q41-how-do-you-implement-push-notifications-in-react-native-for-fcm-and-apns-integration)
-- [Q42: How do you implement Maps in React Native for Google Maps and Apple Maps integration?](#q42-how-do-you-implement-maps-in-react-native-for-google-maps-and-apple-maps-integration)
-- [Q43: How do you implement Camera in React Native for capturing photos and videos?](#q43-how-do-you-implement-camera-in-react-native-for-capturing-photos-and-videos)
-- [Q44: How do you implement Biometrics in React Native for FaceID and TouchID authentication?](#q44-how-do-you-implement-biometrics-in-react-native-for-faceid-and-touchid-authentication)
-- [Q45: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?](#q45-how-do-you-implement-accessibility-in-react-native-for-talkback-and-voiceover-support)
-- [Q46: How do you implement Internationalization in React Native for multi-language support with i18n?](#q46-how-do-you-implement-internationalization-in-react-native-for-multi-language-support-with-i18n)
-- [Q47: How do you implement CodePush in React Native for over-the-air updates?](#q47-how-do-you-implement-codepush-in-react-native-for-over-the-air-updates)
-- [Q48: How do you implement WebView in React Native for embedding web content?](#q48-how-do-you-implement-webview-in-react-native-for-embedding-web-content)
-- [Q49: How do you implement SVG in React Native for rendering vector graphics?](#q49-how-do-you-implement-svg-in-react-native-for-rendering-vector-graphics)
-- [Q50: How do you implement Gestures in React Native for handling complex touch interactions?](#q50-how-do-you-implement-gestures-in-react-native-for-handling-complex-touch-interactions)
-- [Q51: How do you implement Share API in React Native for sharing content with other apps?](#q51-how-do-you-implement-share-api-in-react-native-for-sharing-content-with-other-apps)
-- [Q52: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?](#q52-how-do-you-implement-react-navigation-in-react-native-for-stack-tab-and-drawer-navigation)
-- [Q53: How do you implement Redux Toolkit in React Native for managing global state efficiently?](#q53-how-do-you-implement-redux-toolkit-in-react-native-for-managing-global-state-efficiently)
-- [Q54: How do you implement Context API in React Native for passing data through component tree?](#q54-how-do-you-implement-context-api-in-react-native-for-passing-data-through-component-tree)
-- [Q55: How do you implement Expo in React Native for managed workflow vs bare workflow?](#q55-how-do-you-implement-expo-in-react-native-for-managed-workflow-vs-bare-workflow)
-- [Q56: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?](#q56-how-do-you-implement-hermes-engine-in-react-native-for-optimizing-js-execution-on-androidios)
-- [Q57: How do you implement TurboModules in React Native for new architecture for native modules?](#q57-how-do-you-implement-turbomodules-in-react-native-for-new-architecture-for-native-modules)
-- [Q58: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?](#q58-how-do-you-implement-fabric-renderer-in-react-native-for-new-concurrent-rendering-architecture)
-- [Q59: How do you implement Push Notifications in React Native for FCM and APNs integration?](#q59-how-do-you-implement-push-notifications-in-react-native-for-fcm-and-apns-integration)
-- [Q60: How do you implement Maps in React Native for Google Maps and Apple Maps integration?](#q60-how-do-you-implement-maps-in-react-native-for-google-maps-and-apple-maps-integration)
-- [Q61: How do you implement Camera in React Native for capturing photos and videos?](#q61-how-do-you-implement-camera-in-react-native-for-capturing-photos-and-videos)
-- [Q62: How do you implement Biometrics in React Native for FaceID and TouchID authentication?](#q62-how-do-you-implement-biometrics-in-react-native-for-faceid-and-touchid-authentication)
-- [Q63: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?](#q63-how-do-you-implement-accessibility-in-react-native-for-talkback-and-voiceover-support)
-- [Q64: How do you implement Internationalization in React Native for multi-language support with i18n?](#q64-how-do-you-implement-internationalization-in-react-native-for-multi-language-support-with-i18n)
-- [Q65: How do you implement CodePush in React Native for over-the-air updates?](#q65-how-do-you-implement-codepush-in-react-native-for-over-the-air-updates)
-- [Q66: How do you implement WebView in React Native for embedding web content?](#q66-how-do-you-implement-webview-in-react-native-for-embedding-web-content)
-- [Q67: How do you implement SVG in React Native for rendering vector graphics?](#q67-how-do-you-implement-svg-in-react-native-for-rendering-vector-graphics)
-- [Q68: How do you implement Gestures in React Native for handling complex touch interactions?](#q68-how-do-you-implement-gestures-in-react-native-for-handling-complex-touch-interactions)
-- [Q69: How do you implement Share API in React Native for sharing content with other apps?](#q69-how-do-you-implement-share-api-in-react-native-for-sharing-content-with-other-apps)
-- [Q70: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?](#q70-how-do-you-implement-react-navigation-in-react-native-for-stack-tab-and-drawer-navigation)
-- [Q71: How do you implement Redux Toolkit in React Native for managing global state efficiently?](#q71-how-do-you-implement-redux-toolkit-in-react-native-for-managing-global-state-efficiently)
-- [Q72: How do you implement Context API in React Native for passing data through component tree?](#q72-how-do-you-implement-context-api-in-react-native-for-passing-data-through-component-tree)
-- [Q73: How do you implement Expo in React Native for managed workflow vs bare workflow?](#q73-how-do-you-implement-expo-in-react-native-for-managed-workflow-vs-bare-workflow)
-- [Q74: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?](#q74-how-do-you-implement-hermes-engine-in-react-native-for-optimizing-js-execution-on-androidios)
-- [Q75: How do you implement TurboModules in React Native for new architecture for native modules?](#q75-how-do-you-implement-turbomodules-in-react-native-for-new-architecture-for-native-modules)
-- [Q76: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?](#q76-how-do-you-implement-fabric-renderer-in-react-native-for-new-concurrent-rendering-architecture)
-- [Q77: How do you implement Push Notifications in React Native for FCM and APNs integration?](#q77-how-do-you-implement-push-notifications-in-react-native-for-fcm-and-apns-integration)
-- [Q78: How do you implement Maps in React Native for Google Maps and Apple Maps integration?](#q78-how-do-you-implement-maps-in-react-native-for-google-maps-and-apple-maps-integration)
-- [Q79: How do you implement Camera in React Native for capturing photos and videos?](#q79-how-do-you-implement-camera-in-react-native-for-capturing-photos-and-videos)
-- [Q80: How do you implement Biometrics in React Native for FaceID and TouchID authentication?](#q80-how-do-you-implement-biometrics-in-react-native-for-faceid-and-touchid-authentication)
-- [Q81: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?](#q81-how-do-you-implement-accessibility-in-react-native-for-talkback-and-voiceover-support)
-- [Q82: How do you implement Internationalization in React Native for multi-language support with i18n?](#q82-how-do-you-implement-internationalization-in-react-native-for-multi-language-support-with-i18n)
-- [Q83: How do you implement CodePush in React Native for over-the-air updates?](#q83-how-do-you-implement-codepush-in-react-native-for-over-the-air-updates)
-- [Q84: How do you implement WebView in React Native for embedding web content?](#q84-how-do-you-implement-webview-in-react-native-for-embedding-web-content)
-- [Q85: How do you implement SVG in React Native for rendering vector graphics?](#q85-how-do-you-implement-svg-in-react-native-for-rendering-vector-graphics)
-- [Q86: How do you implement Gestures in React Native for handling complex touch interactions?](#q86-how-do-you-implement-gestures-in-react-native-for-handling-complex-touch-interactions)
-- [Q87: How do you implement Share API in React Native for sharing content with other apps?](#q87-how-do-you-implement-share-api-in-react-native-for-sharing-content-with-other-apps)
-- [Q88: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?](#q88-how-do-you-implement-react-navigation-in-react-native-for-stack-tab-and-drawer-navigation)
-- [Q89: How do you implement Redux Toolkit in React Native for managing global state efficiently?](#q89-how-do-you-implement-redux-toolkit-in-react-native-for-managing-global-state-efficiently)
-- [Q90: How do you implement Context API in React Native for passing data through component tree?](#q90-how-do-you-implement-context-api-in-react-native-for-passing-data-through-component-tree)
-- [Q91: How do you implement Expo in React Native for managed workflow vs bare workflow?](#q91-how-do-you-implement-expo-in-react-native-for-managed-workflow-vs-bare-workflow)
-- [Q92: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?](#q92-how-do-you-implement-hermes-engine-in-react-native-for-optimizing-js-execution-on-androidios)
-- [Q93: How do you implement TurboModules in React Native for new architecture for native modules?](#q93-how-do-you-implement-turbomodules-in-react-native-for-new-architecture-for-native-modules)
-- [Q94: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?](#q94-how-do-you-implement-fabric-renderer-in-react-native-for-new-concurrent-rendering-architecture)
-- [Q95: How do you implement Push Notifications in React Native for FCM and APNs integration?](#q95-how-do-you-implement-push-notifications-in-react-native-for-fcm-and-apns-integration)
-- [Q96: How do you implement Maps in React Native for Google Maps and Apple Maps integration?](#q96-how-do-you-implement-maps-in-react-native-for-google-maps-and-apple-maps-integration)
-- [Q97: How do you implement Camera in React Native for capturing photos and videos?](#q97-how-do-you-implement-camera-in-react-native-for-capturing-photos-and-videos)
-- [Q98: How do you implement Biometrics in React Native for FaceID and TouchID authentication?](#q98-how-do-you-implement-biometrics-in-react-native-for-faceid-and-touchid-authentication)
-- [Q99: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?](#q99-how-do-you-implement-accessibility-in-react-native-for-talkback-and-voiceover-support)
-- [Q100: How do you implement Internationalization in React Native for multi-language support with i18n?](#q100-how-do-you-implement-internationalization-in-react-native-for-multi-language-support-with-i18n)
 
-### Q1: How do you optimize the performance of a long FlatList with thousands of items?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-1.  **`getItemLayout`:** Pre-calculate item height to avoid dynamic measurement.
-2.  **`windowSize`:** Reduce the rendering window.
-3.  **`removeClippedSubviews`:** Unmount off-screen views (Android mostly).
-4.  **`initialNumToRender`:** Render only what fits the screen initially.
-5.  **`keyExtractor`:** Ensure unique keys.
-6.  **Memoization:** Wrap renderItem in `useCallback` or `React.memo`.
-
-**Code Example:**
-```jsx
-const renderItem = useCallback(({ item }) => <Item title={item.title} />, []);
-
-<FlatList
-  data={data}
-  renderItem={renderItem}
-  keyExtractor={item => item.id}
-  getItemLayout={(data, index) => (
-    {length: 50, offset: 50 * index, index}
-  )}
-  initialNumToRender={10}
-  windowSize={5}
-  removeClippedSubviews={true}
-/>
-```
+1. [How do you optimize the performance of a long FlatList with thousands of items?](#q1-how-do-you-optimize-the-performance-of-a-long-flatlist-with-thousands-of-items) <span class="advanced">Advanced</span>
+2. [How do you implement platform-specific code for iOS and Android?](#q2-how-do-you-implement-platform-specific-code-for-ios-and-android) <span class="beginner">Beginner</span>
+3. [How do you handle deep linking in a React Native app using React Navigation?](#q3-how-do-you-handle-deep-linking-in-a-react-native-app-using-react-navigation) <span class="intermediate">Intermediate</span>
+4. [How do you implement high-performance animations using React Native Reanimated?](#q4-how-do-you-implement-high-performance-animations-using-react-native-reanimated) <span class="advanced">Advanced</span>
+5. [How do you persist global state data using AsyncStorage?](#q5-how-do-you-persist-global-state-data-using-asyncstorage) <span class="beginner">Beginner</span>
+6. [How do you create a custom Native Module for Android (Java/Kotlin)?](#q6-how-do-you-create-a-custom-native-module-for-android-javakotlin) <span class="expert">Expert</span>
+7. [How do you handle safe area insets on devices with notches?](#q7-how-do-you-handle-safe-area-insets-on-devices-with-notches) <span class="beginner">Beginner</span>
+8. [How do you debug React Native apps effectively?](#q8-how-do-you-debug-react-native-apps-effectively) <span class="intermediate">Intermediate</span>
+9. [How do you prevent the on-screen keyboard from covering input fields?](#q9-how-do-you-prevent-the-on-screen-keyboard-from-covering-input-fields) <span class="intermediate">Intermediate</span>
+10. [How do you implement an infinite scroll list?](#q10-how-do-you-implement-an-infinite-scroll-list) <span class="intermediate">Intermediate</span>
+11. [How do you use custom fonts in React Native (CLI workflow)?](#q11-how-do-you-use-custom-fonts-in-react-native-cli-workflow) <span class="intermediate">Intermediate</span>
+12. [How do you handle offline network connectivity?](#q12-how-do-you-handle-offline-network-connectivity) <span class="intermediate">Intermediate</span>
+13. [How do you optimize image loading and caching?](#q13-how-do-you-optimize-image-loading-and-caching) <span class="intermediate">Intermediate</span>
+14. [How do you create a translucent status bar on Android?](#q14-how-do-you-create-a-translucent-status-bar-on-android) <span class="intermediate">Intermediate</span>
+15. [How do you upgrade React Native to a newer version?](#q15-how-do-you-upgrade-react-native-to-a-newer-version) <span class="advanced">Advanced</span>
+16. [How do you implement Stack Navigation using React Navigation?](#q16-how-do-you-implement-stack-navigation-using-react-navigation) <span class="beginner">Beginner</span>
+17. [How do you use Redux Toolkit in React Native?](#q17-how-do-you-use-redux-toolkit-in-react-native) <span class="intermediate">Intermediate</span>
+18. [How do you use Context API for theming?](#q18-how-do-you-use-context-api-for-theming) <span class="intermediate">Intermediate</span>
+19. [What is the difference between Expo Managed and Bare workflows?](#q19-what-is-the-difference-between-expo-managed-and-bare-workflows) <span class="beginner">Beginner</span>
+20. [How do you enable Hermes Engine on Android?](#q20-how-do-you-enable-hermes-engine-on-android) <span class="intermediate">Intermediate</span>
+21. [What are TurboModules?](#q21-what-are-turbomodules) <span class="advanced">Advanced</span>
+22. [What is the Fabric Renderer?](#q22-what-is-the-fabric-renderer) <span class="advanced">Advanced</span>
+23. [How do you handle Push Notifications with Firebase (FCM)?](#q23-how-do-you-handle-push-notifications-with-firebase-fcm) <span class="intermediate">Intermediate</span>
+24. [How do you integrate Google Maps?](#q24-how-do-you-integrate-google-maps) <span class="intermediate">Intermediate</span>
+25. [How do you capture a photo using the Camera?](#q25-how-do-you-capture-a-photo-using-the-camera) <span class="intermediate">Intermediate</span>
+26. [How do you implement Biometric Authentication?](#q26-how-do-you-implement-biometric-authentication) <span class="intermediate">Intermediate</span>
+27. [How do you make a custom button accessible?](#q27-how-do-you-make-a-custom-button-accessible) <span class="beginner">Beginner</span>
+28. [How do you implement Internationalization (i18n)?](#q28-how-do-you-implement-internationalization-i18n) <span class="intermediate">Intermediate</span>
+29. [How do you perform Over-the-Air (OTA) updates?](#q29-how-do-you-perform-over-the-air-ota-updates) <span class="advanced">Advanced</span>
+30. [How do you display a WebView?](#q30-how-do-you-display-a-webview) <span class="beginner">Beginner</span>
+31. [How do you render SVG images?](#q31-how-do-you-render-svg-images) <span class="intermediate">Intermediate</span>
+32. [How do you handle complex gestures (Drag/Swipe)?](#q32-how-do-you-handle-complex-gestures-dragswipe) <span class="intermediate">Intermediate</span>
+33. [How do you share content with other apps?](#q33-how-do-you-share-content-with-other-apps) <span class="beginner">Beginner</span>
+34. [How do you detect App State changes (Background/Active)?](#q34-how-do-you-detect-app-state-changes-backgroundactive) <span class="beginner">Beginner</span>
+35. [How do you open the device Settings?](#q35-how-do-you-open-the-device-settings) <span class="beginner">Beginner</span>
+36. [How do you securely store sensitive data (Tokens)?](#q36-how-do-you-securely-store-sensitive-data-tokens) <span class="intermediate">Intermediate</span>
+37. [How do you use Vector Icons?](#q37-how-do-you-use-vector-icons) <span class="beginner">Beginner</span>
+38. [How do you display Lottie animations?](#q38-how-do-you-display-lottie-animations) <span class="intermediate">Intermediate</span>
+39. [How do you implement a Blur effect?](#q39-how-do-you-implement-a-blur-effect) <span class="intermediate">Intermediate</span>
+40. [How do you implement a Linear Gradient?](#q40-how-do-you-implement-a-linear-gradient) <span class="beginner">Beginner</span>
+41. [How do you handle the hardware back button on Android?](#q41-how-do-you-handle-the-hardware-back-button-on-android) <span class="beginner">Beginner</span>
+42. [How do you get device information (Model, System Version)?](#q42-how-do-you-get-device-information-model-system-version) <span class="beginner">Beginner</span>
+43. [How do you copy text to the clipboard?](#q43-how-do-you-copy-text-to-the-clipboard) <span class="beginner">Beginner</span>
+44. [How do you implement a modal?](#q44-how-do-you-implement-a-modal) <span class="beginner">Beginner</span>
+45. [How do you check internet connectivity type (WiFi/Cellular)?](#q45-how-do-you-check-internet-connectivity-type-wificellular) <span class="beginner">Beginner</span>
+46. [How do you implement a Pager View (ViewPager)?](#q46-how-do-you-implement-a-pager-view-viewpager) <span class="intermediate">Intermediate</span>
+47. [How do you debug Network Requests?](#q47-how-do-you-debug-network-requests) <span class="intermediate">Intermediate</span>
+48. [How do you use Native Driver for Animations?](#q48-how-do-you-use-native-driver-for-animations) <span class="intermediate">Intermediate</span>
+49. [How do you measure the dimensions of a View?](#q49-how-do-you-measure-the-dimensions-of-a-view) <span class="beginner">Beginner</span>
+50. [How do you implement a Shadow on Android?](#q50-how-do-you-implement-a-shadow-on-android) <span class="beginner">Beginner</span>
 
 ---
 
@@ -456,1618 +378,693 @@ Run `npx react-native upgrade` (automated) or manually apply changes to `android
 
 ---
 
-### Q16: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?
+### Q16: How do you implement Stack Navigation using React Navigation?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for React Navigation. Configure it to handle stack, tab, and drawer navigation and ensure smooth user experience.
+Install `@react-navigation/native` and `@react-navigation/stack`. Wrap screens in `Stack.Navigator`.
 
 **Code Example:**
-```javascript
-// Example for React Navigation
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for stack, tab, and drawer navigation
-}
-```
-
----
-
-### Q17: How do you implement Redux Toolkit in React Native for managing global state efficiently?
-
-**Difficulty**: Intermediate
+import { createStackNavigator } from '@react-navigation/stack';
 
-**Strategy:**
-Use the appropriate library or API for Redux Toolkit. Configure it to handle managing global state efficiently and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Redux Toolkit
-import { ... } from 'library-name';
+const Stack = createStackNavigator();
 
-function Feature() {
-  // Implementation for managing global state efficiently
+function MyStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+    </Stack.Navigator>
+  );
 }
-```
-
----
-
-### Q18: How do you implement Context API in React Native for passing data through component tree?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Use the appropriate library or API for Context API. Configure it to handle passing data through component tree and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Context API
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for passing data through component tree
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q19: How do you implement Expo in React Native for managed workflow vs bare workflow?
+### Q17: How do you use Redux Toolkit in React Native?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Expo. Configure it to handle managed workflow vs bare workflow and ensure smooth user experience.
+Create a slice, configure the store, and wrap the app in `Provider`. Use `useSelector` and `useDispatch` hooks.
 
 **Code Example:**
-```javascript
-// Example for Expo
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for managed workflow vs bare workflow
-}
-```
-
----
-
-### Q20: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?
-
-**Difficulty**: Intermediate
+// slice.js
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState: { value: 0 },
+  reducers: { increment: state => { state.value += 1 } }
+});
 
-**Strategy:**
-Use the appropriate library or API for Hermes Engine. Configure it to handle optimizing JS execution on Android/iOS and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Hermes Engine
-import { ... } from 'library-name';
+// Component
+const count = useSelector(state => state.counter.value);
+const dispatch = useDispatch();
 
-function Feature() {
-  // Implementation for optimizing JS execution on Android/iOS
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q21: How do you implement TurboModules in React Native for new architecture for native modules?
+### Q18: How do you use Context API for theming?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for TurboModules. Configure it to handle new architecture for native modules and ensure smooth user experience.
+Create a `ThemeContext`. Provide the theme value. Consume it using `useContext`.
 
 **Code Example:**
-```javascript
-// Example for TurboModules
-import { ... } from 'library-name';
+const ThemeContext = createContext('light');
 
-function Feature() {
-  // Implementation for new architecture for native modules
+export default function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <Toolbar />
+    </ThemeContext.Provider>
+  );
 }
-```
 
----
-
-### Q22: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Fabric Renderer. Configure it to handle new concurrent rendering architecture and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Fabric Renderer
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for new concurrent rendering architecture
+function Toolbar() {
+  const theme = useContext(ThemeContext);
+  return <Text style={{ color: theme === 'dark' ? 'white' : 'black' }}>Text</Text>;
 }
-```
-
----
-
-### Q23: How do you implement Push Notifications in React Native for FCM and APNs integration?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Push Notifications. Configure it to handle FCM and APNs integration and ensure smooth user experience.
 
-**Code Example:**
-```javascript
-// Example for Push Notifications
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for FCM and APNs integration
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q24: How do you implement Maps in React Native for Google Maps and Apple Maps integration?
+### Q19: What is the difference between Expo Managed and Bare workflows?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Maps. Configure it to handle Google Maps and Apple Maps integration and ensure smooth user experience.
+- **Managed:** Expo handles native code. You write only JS. limited native modules support (unless using config plugins/dev client).
+- **Bare:** You have full access to android/ios folders. Can use any native code.
 
 **Code Example:**
-```javascript
-// Example for Maps
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for Google Maps and Apple Maps integration
-}
-```
-
----
+// Managed (app.json)
+{ "expo": { "name": "MyApp" } }
 
-### Q25: How do you implement Camera in React Native for capturing photos and videos?
+// Bare
+// You have android/ and ios/ directories.
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Camera. Configure it to handle capturing photos and videos and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Camera
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for capturing photos and videos
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q26: How do you implement Biometrics in React Native for FaceID and TouchID authentication?
+### Q20: How do you enable Hermes Engine on Android?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Biometrics. Configure it to handle FaceID and TouchID authentication and ensure smooth user experience.
+In `android/app/build.gradle`, set `enableHermes: true`.
 
 **Code Example:**
-```javascript
-// Example for Biometrics
-import { ... } from 'library-name';
+project.ext.react = [
+    enableHermes: true  // clean and rebuild
+]
 
-function Feature() {
-  // Implementation for FaceID and TouchID authentication
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q27: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?
+### Q21: What are TurboModules?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use the appropriate library or API for Accessibility. Configure it to handle TalkBack and VoiceOver support and ensure smooth user experience.
+TurboModules are part of the New Architecture (JSI). They allow lazy loading of native modules and direct C++ to JS communication without the asynchronous bridge serialization overhead.
 
 **Code Example:**
-```javascript
-// Example for Accessibility
-import { ... } from 'library-name';
+// C++ implementation required for TurboModules
+// JS side accesses it synchronously via JSI
 
-function Feature() {
-  // Implementation for TalkBack and VoiceOver support
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q28: How do you implement Internationalization in React Native for multi-language support with i18n?
+### Q22: What is the Fabric Renderer?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use the appropriate library or API for Internationalization. Configure it to handle multi-language support with i18n and ensure smooth user experience.
+Fabric is the new UI rendering system. It moves rendering logic to C++, improving performance, interoperability with host platforms, and enabling concurrent React features.
 
 **Code Example:**
-```javascript
-// Example for Internationalization
-import { ... } from 'library-name';
+// Enabled via newArchEnabled=true in gradle/podfile
+// Uses JSI to manipulate UI directly
 
-function Feature() {
-  // Implementation for multi-language support with i18n
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q29: How do you implement CodePush in React Native for over-the-air updates?
+### Q23: How do you handle Push Notifications with Firebase (FCM)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for CodePush. Configure it to handle over-the-air updates and ensure smooth user experience.
+Use `@react-native-firebase/messaging`. Request permission, get token, and listen for messages.
 
 **Code Example:**
-```javascript
-// Example for CodePush
-import { ... } from 'library-name';
+import messaging from '@react-native-firebase/messaging';
 
-function Feature() {
-  // Implementation for over-the-air updates
+async function requestUserPermission() {
+  const authStatus = await messaging().requestPermission();
+  const enabled = authStatus === messaging.AuthorizationStatus.AUTHORIZED;
 }
-```
-
----
-
-### Q30: How do you implement WebView in React Native for embedding web content?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for WebView. Configure it to handle embedding web content and ensure smooth user experience.
 
-**Code Example:**
-```javascript
-// Example for WebView
-import { ... } from 'library-name';
+useEffect(() => {
+  const unsubscribe = messaging().onMessage(async remoteMessage => {
+    Alert.alert('New Message', remoteMessage.notification.body);
+  });
+  return unsubscribe;
+}, []);
 
-function Feature() {
-  // Implementation for embedding web content
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q31: How do you implement SVG in React Native for rendering vector graphics?
+### Q24: How do you integrate Google Maps?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for SVG. Configure it to handle rendering vector graphics and ensure smooth user experience.
+Use `react-native-maps`. Configure API key in AndroidManifest and AppDelegate.
 
 **Code Example:**
-```javascript
-// Example for SVG
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for rendering vector graphics
-}
-```
-
----
-
-### Q32: How do you implement Gestures in React Native for handling complex touch interactions?
-
-**Difficulty**: Intermediate
+import MapView, { Marker } from 'react-native-maps';
 
-**Strategy:**
-Use the appropriate library or API for Gestures. Configure it to handle handling complex touch interactions and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Gestures
-import { ... } from 'library-name';
+<MapView
+  style={{ flex: 1 }}
+  initialRegion={{
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  }}
+>
+  <Marker coordinate={{ latitude: 37.78825, longitude: -122.4324 }} />
+</MapView>
 
-function Feature() {
-  // Implementation for handling complex touch interactions
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q33: How do you implement Share API in React Native for sharing content with other apps?
+### Q25: How do you capture a photo using the Camera?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Share API. Configure it to handle sharing content with other apps and ensure smooth user experience.
+Use `react-native-vision-camera` (performance) or `expo-camera`. Request permissions first.
 
 **Code Example:**
-```javascript
-// Example for Share API
-import { ... } from 'library-name';
+import { Camera, useCameraDevices } from 'react-native-vision-camera';
 
-function Feature() {
-  // Implementation for sharing content with other apps
-}
-```
-
----
-
-### Q34: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for React Navigation. Configure it to handle stack, tab, and drawer navigation and ensure smooth user experience.
+const devices = useCameraDevices();
+const device = devices.back;
 
-**Code Example:**
-```javascript
-// Example for React Navigation
-import { ... } from 'library-name';
+if (device == null) return <LoadingView />;
+return <Camera style={StyleSheet.absoluteFill} device={device} isActive={true} />;
 
-function Feature() {
-  // Implementation for stack, tab, and drawer navigation
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q35: How do you implement Redux Toolkit in React Native for managing global state efficiently?
+### Q26: How do you implement Biometric Authentication?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Redux Toolkit. Configure it to handle managing global state efficiently and ensure smooth user experience.
+Use `expo-local-authentication` or `react-native-biometrics`.
 
 **Code Example:**
-```javascript
-// Example for Redux Toolkit
-import { ... } from 'library-name';
+import * as LocalAuthentication from 'expo-local-authentication';
 
-function Feature() {
-  // Implementation for managing global state efficiently
+async function authenticate() {
+  const result = await LocalAuthentication.authenticateAsync();
+  if (result.success) {
+    // Authenticated
+  }
 }
-```
-
----
-
-### Q36: How do you implement Context API in React Native for passing data through component tree?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Context API. Configure it to handle passing data through component tree and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Context API
-import { ... } from 'library-name';
 
-function Feature() {
-  // Implementation for passing data through component tree
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q37: How do you implement Expo in React Native for managed workflow vs bare workflow?
+### Q27: How do you make a custom button accessible?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Expo. Configure it to handle managed workflow vs bare workflow and ensure smooth user experience.
+Use `accessible`, `accessibilityLabel`, and `accessibilityHint` props.
 
 **Code Example:**
-```javascript
-// Example for Expo
-import { ... } from 'library-name';
+<TouchableOpacity
+  accessible={true}
+  accessibilityLabel="Tap me"
+  accessibilityHint="Navigates to the home screen"
+  onPress={handlePress}
+>
+  <Text>Press me</Text>
+</TouchableOpacity>
 
-function Feature() {
-  // Implementation for managed workflow vs bare workflow
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q38: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?
+### Q28: How do you implement Internationalization (i18n)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Hermes Engine. Configure it to handle optimizing JS execution on Android/iOS and ensure smooth user experience.
+Use `i18next` and `react-i18next`. Define resources and init.
 
 **Code Example:**
-```javascript
-// Example for Hermes Engine
-import { ... } from 'library-name';
+import { useTranslation } from 'react-i18next';
 
-function Feature() {
-  // Implementation for optimizing JS execution on Android/iOS
+function MyComponent() {
+  const { t } = useTranslation();
+  return <Text>{t('welcome')}</Text>;
 }
-```
-
----
 
-### Q39: How do you implement TurboModules in React Native for new architecture for native modules?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for TurboModules. Configure it to handle new architecture for native modules and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for TurboModules
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for new architecture for native modules
-}
-```
-
 ---
 
-### Q40: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?
+### Q29: How do you perform Over-the-Air (OTA) updates?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use the appropriate library or API for Fabric Renderer. Configure it to handle new concurrent rendering architecture and ensure smooth user experience.
+Use `react-native-code-push` (Microsoft) or `expo-updates`.
 
 **Code Example:**
-```javascript
-// Example for Fabric Renderer
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for new concurrent rendering architecture
-}
-```
-
----
-
-### Q41: How do you implement Push Notifications in React Native for FCM and APNs integration?
-
-**Difficulty**: Intermediate
+import CodePush from 'react-native-code-push';
 
-**Strategy:**
-Use the appropriate library or API for Push Notifications. Configure it to handle FCM and APNs integration and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Push Notifications
-import { ... } from 'library-name';
+let App = () => <Root />;
+App = CodePush(App); // Wrap root component
 
-function Feature() {
-  // Implementation for FCM and APNs integration
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q42: How do you implement Maps in React Native for Google Maps and Apple Maps integration?
+### Q30: How do you display a WebView?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Maps. Configure it to handle Google Maps and Apple Maps integration and ensure smooth user experience.
+Use `react-native-webview`.
 
 **Code Example:**
-```javascript
-// Example for Maps
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for Google Maps and Apple Maps integration
-}
-```
-
----
-
-### Q43: How do you implement Camera in React Native for capturing photos and videos?
-
-**Difficulty**: Intermediate
+import { WebView } from 'react-native-webview';
 
-**Strategy:**
-Use the appropriate library or API for Camera. Configure it to handle capturing photos and videos and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Camera
-import { ... } from 'library-name';
+<WebView source={{ uri: 'https://reactnative.dev/' }} />
 
-function Feature() {
-  // Implementation for capturing photos and videos
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q44: How do you implement Biometrics in React Native for FaceID and TouchID authentication?
+### Q31: How do you render SVG images?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Biometrics. Configure it to handle FaceID and TouchID authentication and ensure smooth user experience.
+Use `react-native-svg`. Import `Svg`, `Path`, `Circle` etc., or use `react-native-svg-transformer` to import .svg files.
 
 **Code Example:**
-```javascript
-// Example for Biometrics
-import { ... } from 'library-name';
+import Svg, { Circle } from 'react-native-svg';
 
-function Feature() {
-  // Implementation for FaceID and TouchID authentication
-}
-```
-
----
-
-### Q45: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Accessibility. Configure it to handle TalkBack and VoiceOver support and ensure smooth user experience.
+<Svg height="100" width="100">
+  <Circle cx="50" cy="50" r="45" stroke="blue" strokeWidth="2.5" fill="green" />
+</Svg>
 
-**Code Example:**
-```javascript
-// Example for Accessibility
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for TalkBack and VoiceOver support
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q46: How do you implement Internationalization in React Native for multi-language support with i18n?
+### Q32: How do you handle complex gestures (Drag/Swipe)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Internationalization. Configure it to handle multi-language support with i18n and ensure smooth user experience.
+Use `react-native-gesture-handler` (GestureDetector) and `react-native-reanimated`.
 
 **Code Example:**
-```javascript
-// Example for Internationalization
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for multi-language support with i18n
-}
-```
-
----
-
-### Q47: How do you implement CodePush in React Native for over-the-air updates?
+import { GestureDetector, Gesture } from 'react-native-gesture-handler';
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for CodePush. Configure it to handle over-the-air updates and ensure smooth user experience.
+const gesture = Gesture.Pan()
+  .onUpdate((e) => {
+    offset.value = e.translationX;
+  });
 
-**Code Example:**
-```javascript
-// Example for CodePush
-import { ... } from 'library-name';
+<GestureDetector gesture={gesture}>
+  <Animated.View />
+</GestureDetector>
 
-function Feature() {
-  // Implementation for over-the-air updates
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q48: How do you implement WebView in React Native for embedding web content?
+### Q33: How do you share content with other apps?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for WebView. Configure it to handle embedding web content and ensure smooth user experience.
+Use the `Share` API.
 
 **Code Example:**
-```javascript
-// Example for WebView
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for embedding web content
-}
-```
+import { Share } from 'react-native';
 
----
-
-### Q49: How do you implement SVG in React Native for rendering vector graphics?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for SVG. Configure it to handle rendering vector graphics and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for SVG
-import { ... } from 'library-name';
+const onShare = async () => {
+  await Share.share({
+    message: 'Check out this cool app!',
+  });
+};
 
-function Feature() {
-  // Implementation for rendering vector graphics
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q50: How do you implement Gestures in React Native for handling complex touch interactions?
+### Q34: How do you detect App State changes (Background/Active)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Gestures. Configure it to handle handling complex touch interactions and ensure smooth user experience.
+Use `AppState` API.
 
 **Code Example:**
-```javascript
-// Example for Gestures
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for handling complex touch interactions
-}
-```
-
----
-
-### Q51: How do you implement Share API in React Native for sharing content with other apps?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Share API. Configure it to handle sharing content with other apps and ensure smooth user experience.
+import { AppState } from 'react-native';
 
-**Code Example:**
-```javascript
-// Example for Share API
-import { ... } from 'library-name';
+useEffect(() => {
+  const subscription = AppState.addEventListener('change', nextAppState => {
+    if (nextAppState === 'active') {
+      console.log('App is active');
+    }
+  });
+  return () => subscription.remove();
+}, []);
 
-function Feature() {
-  // Implementation for sharing content with other apps
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?
+### Q35: How do you open the device Settings?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for React Navigation. Configure it to handle stack, tab, and drawer navigation and ensure smooth user experience.
+Use `Linking.openSettings()`.
 
 **Code Example:**
-```javascript
-// Example for React Navigation
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for stack, tab, and drawer navigation
-}
-```
+import { Linking } from 'react-native';
 
----
-
-### Q53: How do you implement Redux Toolkit in React Native for managing global state efficiently?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Redux Toolkit. Configure it to handle managing global state efficiently and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Redux Toolkit
-import { ... } from 'library-name';
+<Button title="Open Settings" onPress={() => Linking.openSettings()} />
 
-function Feature() {
-  // Implementation for managing global state efficiently
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q54: How do you implement Context API in React Native for passing data through component tree?
+### Q36: How do you securely store sensitive data (Tokens)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Context API. Configure it to handle passing data through component tree and ensure smooth user experience.
+Do NOT use AsyncStorage. Use `expo-secure-store` or `react-native-keychain` or `react-native-encrypted-storage`.
 
 **Code Example:**
-```javascript
-// Example for Context API
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for passing data through component tree
-}
-```
-
----
-
-### Q55: How do you implement Expo in React Native for managed workflow vs bare workflow?
-
-**Difficulty**: Intermediate
+import * as SecureStore from 'expo-secure-store';
 
-**Strategy:**
-Use the appropriate library or API for Expo. Configure it to handle managed workflow vs bare workflow and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Expo
-import { ... } from 'library-name';
+await SecureStore.setItemAsync('secure_token', 'secret-value');
+const token = await SecureStore.getItemAsync('secure_token');
 
-function Feature() {
-  // Implementation for managed workflow vs bare workflow
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?
+### Q37: How do you use Vector Icons?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Hermes Engine. Configure it to handle optimizing JS execution on Android/iOS and ensure smooth user experience.
+Use `react-native-vector-icons`.
 
 **Code Example:**
-```javascript
-// Example for Hermes Engine
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for optimizing JS execution on Android/iOS
-}
-```
-
----
-
-### Q57: How do you implement TurboModules in React Native for new architecture for native modules?
-
-**Difficulty**: Intermediate
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-**Strategy:**
-Use the appropriate library or API for TurboModules. Configure it to handle new architecture for native modules and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for TurboModules
-import { ... } from 'library-name';
+<Icon name="rocket" size={30} color="#900" />
 
-function Feature() {
-  // Implementation for new architecture for native modules
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q58: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?
+### Q38: How do you display Lottie animations?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Fabric Renderer. Configure it to handle new concurrent rendering architecture and ensure smooth user experience.
+Use `lottie-react-native`. Import the JSON file.
 
 **Code Example:**
-```javascript
-// Example for Fabric Renderer
-import { ... } from 'library-name';
+import LottieView from 'lottie-react-native';
 
-function Feature() {
-  // Implementation for new concurrent rendering architecture
-}
-```
+<LottieView source={require('./animation.json')} autoPlay loop />
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you implement Push Notifications in React Native for FCM and APNs integration?
+### Q39: How do you implement a Blur effect?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Push Notifications. Configure it to handle FCM and APNs integration and ensure smooth user experience.
+Use `@react-native-community/blur` (BlurView).
 
 **Code Example:**
-```javascript
-// Example for Push Notifications
-import { ... } from 'library-name';
+import { BlurView } from "@react-native-community/blur";
 
-function Feature() {
-  // Implementation for FCM and APNs integration
-}
-```
+<BlurView
+  style={styles.absolute}
+  blurType="light"
+  blurAmount={10}
+/>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q60: How do you implement Maps in React Native for Google Maps and Apple Maps integration?
+### Q40: How do you implement a Linear Gradient?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Maps. Configure it to handle Google Maps and Apple Maps integration and ensure smooth user experience.
+Use `react-native-linear-gradient` (or `expo-linear-gradient`).
 
 **Code Example:**
-```javascript
-// Example for Maps
-import { ... } from 'library-name';
+import LinearGradient from 'react-native-linear-gradient';
 
-function Feature() {
-  // Implementation for Google Maps and Apple Maps integration
-}
-```
+<LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
+  <Text>Sign in with Facebook</Text>
+</LinearGradient>
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 ---
 
-### Q61: How do you implement Camera in React Native for capturing photos and videos?
+### Q41: How do you handle the hardware back button on Android?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Camera. Configure it to handle capturing photos and videos and ensure smooth user experience.
+Use `BackHandler` API.
 
 **Code Example:**
-```javascript
-// Example for Camera
-import { ... } from 'library-name';
+useEffect(() => {
+  const backAction = () => {
+    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+      { text: "Cancel", onPress: () => null, style: "cancel" },
+      { text: "YES", onPress: () => BackHandler.exitApp() }
+    ]);
+    return true; // Prevent default behavior
+  };
 
-function Feature() {
-  // Implementation for capturing photos and videos
-}
-```
+  const backHandler = BackHandler.addEventListener("hardwareBackPress", backAction);
+  return () => backHandler.remove();
+}, []);
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q62: How do you implement Biometrics in React Native for FaceID and TouchID authentication?
+### Q42: How do you get device information (Model, System Version)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Biometrics. Configure it to handle FaceID and TouchID authentication and ensure smooth user experience.
+Use `react-native-device-info`.
 
 **Code Example:**
-```javascript
-// Example for Biometrics
-import { ... } from 'library-name';
+import DeviceInfo from 'react-native-device-info';
 
-function Feature() {
-  // Implementation for FaceID and TouchID authentication
-}
-```
+let systemVersion = DeviceInfo.getSystemVersion();
+let model = DeviceInfo.getModel();
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 ---
 
-### Q63: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?
+### Q43: How do you copy text to the clipboard?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Accessibility. Configure it to handle TalkBack and VoiceOver support and ensure smooth user experience.
+Use `@react-native-clipboard/clipboard`.
 
 **Code Example:**
-```javascript
-// Example for Accessibility
-import { ... } from 'library-name';
+import Clipboard from '@react-native-clipboard/clipboard';
 
-function Feature() {
-  // Implementation for TalkBack and VoiceOver support
-}
-```
+const copyToClipboard = () => {
+  Clipboard.setString('hello world');
+};
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you implement Internationalization in React Native for multi-language support with i18n?
+### Q44: How do you implement a modal?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Internationalization. Configure it to handle multi-language support with i18n and ensure smooth user experience.
+Use the `Modal` component.
 
 **Code Example:**
-```javascript
-// Example for Internationalization
-import { ... } from 'library-name';
+<Modal
+  animationType="slide"
+  transparent={true}
+  visible={modalVisible}
+  onRequestClose={() => setModalVisible(!modalVisible)}
+>
+  <View style={styles.centeredView}>
+    <View style={styles.modalView}>
+      <Text>Hello World!</Text>
+    </View>
+  </View>
+</Modal>
 
-function Feature() {
-  // Implementation for multi-language support with i18n
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you implement CodePush in React Native for over-the-air updates?
+### Q45: How do you check internet connectivity type (WiFi/Cellular)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for CodePush. Configure it to handle over-the-air updates and ensure smooth user experience.
+Use `NetInfo`.
 
 **Code Example:**
-```javascript
-// Example for CodePush
-import { ... } from 'library-name';
+NetInfo.fetch().then(state => {
+  console.log('Connection type', state.type);
+  console.log('Is connected?', state.isConnected);
+});
 
-function Feature() {
-  // Implementation for over-the-air updates
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q66: How do you implement WebView in React Native for embedding web content?
+### Q46: How do you implement a Pager View (ViewPager)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for WebView. Configure it to handle embedding web content and ensure smooth user experience.
+Use `react-native-pager-view`.
 
 **Code Example:**
-```javascript
-// Example for WebView
-import { ... } from 'library-name';
+import PagerView from 'react-native-pager-view';
 
-function Feature() {
-  // Implementation for embedding web content
-}
-```
+<PagerView style={styles.pagerView} initialPage={0}>
+  <View key="1"><Text>First page</Text></View>
+  <View key="2"><Text>Second page</Text></View>
+</PagerView>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you implement SVG in React Native for rendering vector graphics?
+### Q47: How do you debug Network Requests?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for SVG. Configure it to handle rendering vector graphics and ensure smooth user experience.
+Use React Native Debugger (includes Network tab) or Flipper.
 
 **Code Example:**
-```javascript
-// Example for SVG
-import { ... } from 'library-name';
+// No code needed, just tooling setup.
+// Flipper is enabled by default in newer RN versions.
 
-function Feature() {
-  // Implementation for rendering vector graphics
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you implement Gestures in React Native for handling complex touch interactions?
+### Q48: How do you use Native Driver for Animations?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use the appropriate library or API for Gestures. Configure it to handle handling complex touch interactions and ensure smooth user experience.
+Set `useNativeDriver: true` in `Animated` configurations to offload animation to the UI thread.
 
 **Code Example:**
-```javascript
-// Example for Gestures
-import { ... } from 'library-name';
+Animated.timing(fadeAnim, {
+  toValue: 1,
+  duration: 1000,
+  useNativeDriver: true // Critical for performance
+}).start();
 
-function Feature() {
-  // Implementation for handling complex touch interactions
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you implement Share API in React Native for sharing content with other apps?
+### Q49: How do you measure the dimensions of a View?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for Share API. Configure it to handle sharing content with other apps and ensure smooth user experience.
+Use the `onLayout` prop.
 
 **Code Example:**
-```javascript
-// Example for Share API
-import { ... } from 'library-name';
+<View onLayout={(event) => {
+  const {x, y, width, height} = event.nativeEvent.layout;
+  console.log(width, height);
+}} />
 
-function Feature() {
-  // Implementation for sharing content with other apps
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q70: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?
+### Q50: How do you implement a Shadow on Android?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use the appropriate library or API for React Navigation. Configure it to handle stack, tab, and drawer navigation and ensure smooth user experience.
+Use `elevation` style property (Android only). For iOS, use `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowRadius`.
 
 **Code Example:**
-```javascript
-// Example for React Navigation
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for stack, tab, and drawer navigation
+style: {
+  ...Platform.select({
+    ios: {
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 2,
+    },
+    android: {
+      elevation: 5,
+    },
+  }),
 }
-```
-
----
-
-### Q71: How do you implement Redux Toolkit in React Native for managing global state efficiently?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Use the appropriate library or API for Redux Toolkit. Configure it to handle managing global state efficiently and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Redux Toolkit
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for managing global state efficiently
-}
-```
-
----
-
-### Q72: How do you implement Context API in React Native for passing data through component tree?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Context API. Configure it to handle passing data through component tree and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Context API
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for passing data through component tree
-}
-```
-
----
-
-### Q73: How do you implement Expo in React Native for managed workflow vs bare workflow?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Expo. Configure it to handle managed workflow vs bare workflow and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Expo
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for managed workflow vs bare workflow
-}
-```
-
----
-
-### Q74: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Hermes Engine. Configure it to handle optimizing JS execution on Android/iOS and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Hermes Engine
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for optimizing JS execution on Android/iOS
-}
-```
-
----
-
-### Q75: How do you implement TurboModules in React Native for new architecture for native modules?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for TurboModules. Configure it to handle new architecture for native modules and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for TurboModules
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for new architecture for native modules
-}
-```
-
----
-
-### Q76: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Fabric Renderer. Configure it to handle new concurrent rendering architecture and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Fabric Renderer
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for new concurrent rendering architecture
-}
-```
-
----
-
-### Q77: How do you implement Push Notifications in React Native for FCM and APNs integration?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Push Notifications. Configure it to handle FCM and APNs integration and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Push Notifications
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for FCM and APNs integration
-}
-```
-
----
-
-### Q78: How do you implement Maps in React Native for Google Maps and Apple Maps integration?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Maps. Configure it to handle Google Maps and Apple Maps integration and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Maps
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for Google Maps and Apple Maps integration
-}
-```
-
----
-
-### Q79: How do you implement Camera in React Native for capturing photos and videos?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Camera. Configure it to handle capturing photos and videos and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Camera
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for capturing photos and videos
-}
-```
-
----
-
-### Q80: How do you implement Biometrics in React Native for FaceID and TouchID authentication?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Biometrics. Configure it to handle FaceID and TouchID authentication and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Biometrics
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for FaceID and TouchID authentication
-}
-```
-
----
-
-### Q81: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Accessibility. Configure it to handle TalkBack and VoiceOver support and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Accessibility
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for TalkBack and VoiceOver support
-}
-```
-
----
-
-### Q82: How do you implement Internationalization in React Native for multi-language support with i18n?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Internationalization. Configure it to handle multi-language support with i18n and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Internationalization
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for multi-language support with i18n
-}
-```
-
----
-
-### Q83: How do you implement CodePush in React Native for over-the-air updates?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for CodePush. Configure it to handle over-the-air updates and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for CodePush
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for over-the-air updates
-}
-```
-
----
-
-### Q84: How do you implement WebView in React Native for embedding web content?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for WebView. Configure it to handle embedding web content and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for WebView
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for embedding web content
-}
-```
-
----
-
-### Q85: How do you implement SVG in React Native for rendering vector graphics?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for SVG. Configure it to handle rendering vector graphics and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for SVG
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for rendering vector graphics
-}
-```
-
----
-
-### Q86: How do you implement Gestures in React Native for handling complex touch interactions?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Gestures. Configure it to handle handling complex touch interactions and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Gestures
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for handling complex touch interactions
-}
-```
-
----
-
-### Q87: How do you implement Share API in React Native for sharing content with other apps?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Share API. Configure it to handle sharing content with other apps and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Share API
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for sharing content with other apps
-}
-```
-
----
-
-### Q88: How do you implement React Navigation in React Native for stack, tab, and drawer navigation?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for React Navigation. Configure it to handle stack, tab, and drawer navigation and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for React Navigation
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for stack, tab, and drawer navigation
-}
-```
-
----
-
-### Q89: How do you implement Redux Toolkit in React Native for managing global state efficiently?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Redux Toolkit. Configure it to handle managing global state efficiently and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Redux Toolkit
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for managing global state efficiently
-}
-```
-
----
-
-### Q90: How do you implement Context API in React Native for passing data through component tree?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Context API. Configure it to handle passing data through component tree and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Context API
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for passing data through component tree
-}
-```
-
----
-
-### Q91: How do you implement Expo in React Native for managed workflow vs bare workflow?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Expo. Configure it to handle managed workflow vs bare workflow and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Expo
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for managed workflow vs bare workflow
-}
-```
-
----
-
-### Q92: How do you implement Hermes Engine in React Native for optimizing JS execution on Android/iOS?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Hermes Engine. Configure it to handle optimizing JS execution on Android/iOS and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Hermes Engine
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for optimizing JS execution on Android/iOS
-}
-```
-
----
-
-### Q93: How do you implement TurboModules in React Native for new architecture for native modules?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for TurboModules. Configure it to handle new architecture for native modules and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for TurboModules
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for new architecture for native modules
-}
-```
-
----
-
-### Q94: How do you implement Fabric Renderer in React Native for new concurrent rendering architecture?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Fabric Renderer. Configure it to handle new concurrent rendering architecture and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Fabric Renderer
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for new concurrent rendering architecture
-}
-```
-
----
-
-### Q95: How do you implement Push Notifications in React Native for FCM and APNs integration?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Push Notifications. Configure it to handle FCM and APNs integration and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Push Notifications
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for FCM and APNs integration
-}
-```
-
----
-
-### Q96: How do you implement Maps in React Native for Google Maps and Apple Maps integration?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Maps. Configure it to handle Google Maps and Apple Maps integration and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Maps
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for Google Maps and Apple Maps integration
-}
-```
-
----
-
-### Q97: How do you implement Camera in React Native for capturing photos and videos?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Camera. Configure it to handle capturing photos and videos and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Camera
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for capturing photos and videos
-}
-```
-
----
-
-### Q98: How do you implement Biometrics in React Native for FaceID and TouchID authentication?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Biometrics. Configure it to handle FaceID and TouchID authentication and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Biometrics
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for FaceID and TouchID authentication
-}
-```
-
----
-
-### Q99: How do you implement Accessibility in React Native for TalkBack and VoiceOver support?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Accessibility. Configure it to handle TalkBack and VoiceOver support and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Accessibility
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for TalkBack and VoiceOver support
-}
-```
-
----
-
-### Q100: How do you implement Internationalization in React Native for multi-language support with i18n?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use the appropriate library or API for Internationalization. Configure it to handle multi-language support with i18n and ensure smooth user experience.
-
-**Code Example:**
-```javascript
-// Example for Internationalization
-import { ... } from 'library-name';
-
-function Feature() {
-  // Implementation for multi-language support with i18n
-}
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

@@ -1,115 +1,59 @@
 ## Table of Contents
-| No. | Question | Difficulty |
-| --- | -------- | ---------- |
-| 1 | [How do you minimize unnecessary re-renders in a React component using Zustand?](#how-do-you-minimize-unnecessary-re-renders-in-a-react-component-using-zustand) | Intermediate |
-| 2 | [How do you implement optimistic UI updates using Redux Toolkit (RTK)?](#how-do-you-implement-optimistic-ui-updates-using-redux-toolkit-rtk) | Advanced |
-| 3 | [How do you persist Zustand state to `localStorage` and rehydrate it on app start?](#how-do-you-persist-zustand-state-to-localstorage-and-rehydrate-it-on-app-start) | Beginner |
-| 4 | [How do you handle complex asynchronous logic (like debouncing or cancellation) in Redux Toolkit?](#how-do-you-handle-complex-asynchronous-logic-like-debouncing-or-cancellation-in-redux-toolkit) | Advanced |
-| 5 | [How do you normalize nested API data (e.g., Users with Posts) in a Redux store?](#how-do-you-normalize-nested-api-data-eg-users-with-posts-in-a-redux-store) | Intermediate |
-| 6 | [How do you type a Redux Toolkit slice and dispatch correctly in TypeScript?](#how-do-you-type-a-redux-toolkit-slice-and-dispatch-correctly-in-typescript) | Beginner |
-| 7 | [How do you access the Zustand store state outside of a React component (e.g., in a utility function)?](#how-do-you-access-the-zustand-store-state-outside-of-a-react-component-eg-in-a-utility-function) | Intermediate |
-| 8 | [How do you split a large Redux store into manageable chunks (Code Splitting)?](#how-do-you-split-a-large-redux-store-into-manageable-chunks-code-splitting) | Advanced |
-| 9 | [How do you unit test a Redux Toolkit slice logic?](#how-do-you-unit-test-a-redux-toolkit-slice-logic) | Intermediate |
-| 10 | [How do you handle side effects in Zustand without middleware?](#how-do-you-handle-side-effects-in-zustand-without-middleware) | Beginner |
-| 11 | [How do you create a 'derived state' selector in Redux that is memoized?](#how-do-you-create-a-derived-state-selector-in-redux-that-is-memoized) | Intermediate |
-| 12 | [How do you reset the entire Redux state (e.g., on user logout)?](#how-do-you-reset-the-entire-redux-state-eg-on-user-logout) | Intermediate |
-| 13 | [How do you share state between multiple tabs/windows using Zustand?](#how-do-you-share-state-between-multiple-tabswindows-using-zustand) | Advanced |
-| 14 | [How do you prevent a specific Redux action from being logged in DevTools (e.g., sensitive data)?](#how-do-you-prevent-a-specific-redux-action-from-being-logged-in-devtools-eg-sensitive-data) | Intermediate |
-| 15 | [How do you implement undo/redo functionality in a Redux store?](#how-do-you-implement-undoredo-functionality-in-a-redux-store) | Advanced |
-| 16 | [How do you optimize TypeScript Generics in a scalable state management architecture? (Scenario 16)](#how-do-you-optimize-typescript-generics-in-a-scalable-state-management-architecture-scenario-16) | Intermediate |
-| 17 | [How do you optimize Thunks vs Sagas in a scalable state management architecture? (Scenario 17)](#how-do-you-optimize-thunks-vs-sagas-in-a-scalable-state-management-architecture-scenario-17) | Intermediate |
-| 18 | [How do you optimize Observables in a scalable state management architecture? (Scenario 18)](#how-do-you-optimize-observables-in-a-scalable-state-management-architecture-scenario-18) | Intermediate |
-| 19 | [How do you optimize Action Creators in a scalable state management architecture? (Scenario 19)](#how-do-you-optimize-action-creators-in-a-scalable-state-management-architecture-scenario-19) | Intermediate |
-| 20 | [How do you optimize Reducer Composition in a scalable state management architecture? (Scenario 20)](#how-do-you-optimize-reducer-composition-in-a-scalable-state-management-architecture-scenario-20) | Intermediate |
-| 21 | [How do you optimize Higher Order Reducers in a scalable state management architecture? (Scenario 21)](#how-do-you-optimize-higher-order-reducers-in-a-scalable-state-management-architecture-scenario-21) | Intermediate |
-| 22 | [How do you optimize State Rehydration in a scalable state management architecture? (Scenario 22)](#how-do-you-optimize-state-rehydration-in-a-scalable-state-management-architecture-scenario-22) | Intermediate |
-| 23 | [How do you optimize Security in State in a scalable state management architecture? (Scenario 23)](#how-do-you-optimize-security-in-state-in-a-scalable-state-management-architecture-scenario-23) | Intermediate |
-| 24 | [How do you optimize Performance Profiling in a scalable state management architecture? (Scenario 24)](#how-do-you-optimize-performance-profiling-in-a-scalable-state-management-architecture-scenario-24) | Intermediate |
-| 25 | [How do you optimize Atomic State in a scalable state management architecture? (Scenario 25)](#how-do-you-optimize-atomic-state-in-a-scalable-state-management-architecture-scenario-25) | Intermediate |
-| 26 | [How do you optimize Computed Properties in a scalable state management architecture? (Scenario 26)](#how-do-you-optimize-computed-properties-in-a-scalable-state-management-architecture-scenario-26) | Intermediate |
-| 27 | [How do you optimize Dependency Injection in a scalable state management architecture? (Scenario 27)](#how-do-you-optimize-dependency-injection-in-a-scalable-state-management-architecture-scenario-27) | Intermediate |
-| 28 | [How do you optimize Testing Sagas in a scalable state management architecture? (Scenario 28)](#how-do-you-optimize-testing-sagas-in-a-scalable-state-management-architecture-scenario-28) | Intermediate |
-| 29 | [How do you optimize Middleware Creation in a scalable state management architecture? (Scenario 29)](#how-do-you-optimize-middleware-creation-in-a-scalable-state-management-architecture-scenario-29) | Intermediate |
-| 30 | [How do you optimize Store Enhancers in a scalable state management architecture? (Scenario 30)](#how-do-you-optimize-store-enhancers-in-a-scalable-state-management-architecture-scenario-30) | Intermediate |
-| 31 | [How do you optimize RTK Query in a scalable state management architecture? (Scenario 31)](#how-do-you-optimize-rtk-query-in-a-scalable-state-management-architecture-scenario-31) | Intermediate |
-| 32 | [How do you optimize Data Fetching in a scalable state management architecture? (Scenario 32)](#how-do-you-optimize-data-fetching-in-a-scalable-state-management-architecture-scenario-32) | Intermediate |
-| 33 | [How do you optimize Caching Strategies in a scalable state management architecture? (Scenario 33)](#how-do-you-optimize-caching-strategies-in-a-scalable-state-management-architecture-scenario-33) | Intermediate |
-| 34 | [How do you optimize Error Handling in a scalable state management architecture? (Scenario 34)](#how-do-you-optimize-error-handling-in-a-scalable-state-management-architecture-scenario-34) | Intermediate |
-| 35 | [How do you optimize State Structure Design in a scalable state management architecture? (Scenario 35)](#how-do-you-optimize-state-structure-design-in-a-scalable-state-management-architecture-scenario-35) | Intermediate |
-| 36 | [How do you optimize Immutability (Immer) in a scalable state management architecture? (Scenario 36)](#how-do-you-optimize-immutability-immer-in-a-scalable-state-management-architecture-scenario-36) | Intermediate |
-| 37 | [How do you optimize Selectors Performance in a scalable state management architecture? (Scenario 37)](#how-do-you-optimize-selectors-performance-in-a-scalable-state-management-architecture-scenario-37) | Intermediate |
-| 38 | [How do you optimize DevTools Extension in a scalable state management architecture? (Scenario 38)](#how-do-you-optimize-devtools-extension-in-a-scalable-state-management-architecture-scenario-38) | Intermediate |
-| 39 | [How do you optimize React Context vs Redux in a scalable state management architecture? (Scenario 39)](#how-do-you-optimize-react-context-vs-redux-in-a-scalable-state-management-architecture-scenario-39) | Intermediate |
-| 40 | [How do you optimize Recoil Comparison in a scalable state management architecture? (Scenario 40)](#how-do-you-optimize-recoil-comparison-in-a-scalable-state-management-architecture-scenario-40) | Intermediate |
-| 41 | [How do you optimize Jotai Comparison in a scalable state management architecture? (Scenario 41)](#how-do-you-optimize-jotai-comparison-in-a-scalable-state-management-architecture-scenario-41) | Intermediate |
-| 42 | [How do you optimize Server-Side Rendering (SSR) in a scalable state management architecture? (Scenario 42)](#how-do-you-optimize-server-side-rendering-ssr-in-a-scalable-state-management-architecture-scenario-42) | Intermediate |
-| 43 | [How do you optimize Hydration in a scalable state management architecture? (Scenario 43)](#how-do-you-optimize-hydration-in-a-scalable-state-management-architecture-scenario-43) | Intermediate |
-| 44 | [How do you optimize Code Splitting in a scalable state management architecture? (Scenario 44)](#how-do-you-optimize-code-splitting-in-a-scalable-state-management-architecture-scenario-44) | Intermediate |
-| 45 | [How do you optimize TypeScript Generics in a scalable state management architecture? (Scenario 45)](#how-do-you-optimize-typescript-generics-in-a-scalable-state-management-architecture-scenario-45) | Intermediate |
-| 46 | [How do you optimize Thunks vs Sagas in a scalable state management architecture? (Scenario 46)](#how-do-you-optimize-thunks-vs-sagas-in-a-scalable-state-management-architecture-scenario-46) | Intermediate |
-| 47 | [How do you optimize Observables in a scalable state management architecture? (Scenario 47)](#how-do-you-optimize-observables-in-a-scalable-state-management-architecture-scenario-47) | Intermediate |
-| 48 | [How do you optimize Action Creators in a scalable state management architecture? (Scenario 48)](#how-do-you-optimize-action-creators-in-a-scalable-state-management-architecture-scenario-48) | Intermediate |
-| 49 | [How do you optimize Reducer Composition in a scalable state management architecture? (Scenario 49)](#how-do-you-optimize-reducer-composition-in-a-scalable-state-management-architecture-scenario-49) | Intermediate |
-| 50 | [How do you optimize Higher Order Reducers in a scalable state management architecture? (Scenario 50)](#how-do-you-optimize-higher-order-reducers-in-a-scalable-state-management-architecture-scenario-50) | Intermediate |
-| 51 | [How do you optimize State Rehydration in a scalable state management architecture? (Scenario 51)](#how-do-you-optimize-state-rehydration-in-a-scalable-state-management-architecture-scenario-51) | Intermediate |
-| 52 | [How do you optimize Security in State in a scalable state management architecture? (Scenario 52)](#how-do-you-optimize-security-in-state-in-a-scalable-state-management-architecture-scenario-52) | Intermediate |
-| 53 | [How do you optimize Performance Profiling in a scalable state management architecture? (Scenario 53)](#how-do-you-optimize-performance-profiling-in-a-scalable-state-management-architecture-scenario-53) | Intermediate |
-| 54 | [How do you optimize Atomic State in a scalable state management architecture? (Scenario 54)](#how-do-you-optimize-atomic-state-in-a-scalable-state-management-architecture-scenario-54) | Intermediate |
-| 55 | [How do you optimize Computed Properties in a scalable state management architecture? (Scenario 55)](#how-do-you-optimize-computed-properties-in-a-scalable-state-management-architecture-scenario-55) | Intermediate |
-| 56 | [How do you optimize Dependency Injection in a scalable state management architecture? (Scenario 56)](#how-do-you-optimize-dependency-injection-in-a-scalable-state-management-architecture-scenario-56) | Intermediate |
-| 57 | [How do you optimize Testing Sagas in a scalable state management architecture? (Scenario 57)](#how-do-you-optimize-testing-sagas-in-a-scalable-state-management-architecture-scenario-57) | Intermediate |
-| 58 | [How do you optimize Middleware Creation in a scalable state management architecture? (Scenario 58)](#how-do-you-optimize-middleware-creation-in-a-scalable-state-management-architecture-scenario-58) | Intermediate |
-| 59 | [How do you optimize Store Enhancers in a scalable state management architecture? (Scenario 59)](#how-do-you-optimize-store-enhancers-in-a-scalable-state-management-architecture-scenario-59) | Intermediate |
-| 60 | [How do you optimize RTK Query in a scalable state management architecture? (Scenario 60)](#how-do-you-optimize-rtk-query-in-a-scalable-state-management-architecture-scenario-60) | Intermediate |
-| 61 | [How do you optimize Data Fetching in a scalable state management architecture? (Scenario 61)](#how-do-you-optimize-data-fetching-in-a-scalable-state-management-architecture-scenario-61) | Intermediate |
-| 62 | [How do you optimize Caching Strategies in a scalable state management architecture? (Scenario 62)](#how-do-you-optimize-caching-strategies-in-a-scalable-state-management-architecture-scenario-62) | Intermediate |
-| 63 | [How do you optimize Error Handling in a scalable state management architecture? (Scenario 63)](#how-do-you-optimize-error-handling-in-a-scalable-state-management-architecture-scenario-63) | Intermediate |
-| 64 | [How do you optimize State Structure Design in a scalable state management architecture? (Scenario 64)](#how-do-you-optimize-state-structure-design-in-a-scalable-state-management-architecture-scenario-64) | Intermediate |
-| 65 | [How do you optimize Immutability (Immer) in a scalable state management architecture? (Scenario 65)](#how-do-you-optimize-immutability-immer-in-a-scalable-state-management-architecture-scenario-65) | Intermediate |
-| 66 | [How do you optimize Selectors Performance in a scalable state management architecture? (Scenario 66)](#how-do-you-optimize-selectors-performance-in-a-scalable-state-management-architecture-scenario-66) | Intermediate |
-| 67 | [How do you optimize DevTools Extension in a scalable state management architecture? (Scenario 67)](#how-do-you-optimize-devtools-extension-in-a-scalable-state-management-architecture-scenario-67) | Intermediate |
-| 68 | [How do you optimize React Context vs Redux in a scalable state management architecture? (Scenario 68)](#how-do-you-optimize-react-context-vs-redux-in-a-scalable-state-management-architecture-scenario-68) | Intermediate |
-| 69 | [How do you optimize Recoil Comparison in a scalable state management architecture? (Scenario 69)](#how-do-you-optimize-recoil-comparison-in-a-scalable-state-management-architecture-scenario-69) | Intermediate |
-| 70 | [How do you optimize Jotai Comparison in a scalable state management architecture? (Scenario 70)](#how-do-you-optimize-jotai-comparison-in-a-scalable-state-management-architecture-scenario-70) | Intermediate |
-| 71 | [How do you optimize Server-Side Rendering (SSR) in a scalable state management architecture? (Scenario 71)](#how-do-you-optimize-server-side-rendering-ssr-in-a-scalable-state-management-architecture-scenario-71) | Intermediate |
-| 72 | [How do you optimize Hydration in a scalable state management architecture? (Scenario 72)](#how-do-you-optimize-hydration-in-a-scalable-state-management-architecture-scenario-72) | Intermediate |
-| 73 | [How do you optimize Code Splitting in a scalable state management architecture? (Scenario 73)](#how-do-you-optimize-code-splitting-in-a-scalable-state-management-architecture-scenario-73) | Intermediate |
-| 74 | [How do you optimize TypeScript Generics in a scalable state management architecture? (Scenario 74)](#how-do-you-optimize-typescript-generics-in-a-scalable-state-management-architecture-scenario-74) | Intermediate |
-| 75 | [How do you optimize Thunks vs Sagas in a scalable state management architecture? (Scenario 75)](#how-do-you-optimize-thunks-vs-sagas-in-a-scalable-state-management-architecture-scenario-75) | Intermediate |
-| 76 | [How do you optimize Observables in a scalable state management architecture? (Scenario 76)](#how-do-you-optimize-observables-in-a-scalable-state-management-architecture-scenario-76) | Intermediate |
-| 77 | [How do you optimize Action Creators in a scalable state management architecture? (Scenario 77)](#how-do-you-optimize-action-creators-in-a-scalable-state-management-architecture-scenario-77) | Intermediate |
-| 78 | [How do you optimize Reducer Composition in a scalable state management architecture? (Scenario 78)](#how-do-you-optimize-reducer-composition-in-a-scalable-state-management-architecture-scenario-78) | Intermediate |
-| 79 | [How do you optimize Higher Order Reducers in a scalable state management architecture? (Scenario 79)](#how-do-you-optimize-higher-order-reducers-in-a-scalable-state-management-architecture-scenario-79) | Intermediate |
-| 80 | [How do you optimize State Rehydration in a scalable state management architecture? (Scenario 80)](#how-do-you-optimize-state-rehydration-in-a-scalable-state-management-architecture-scenario-80) | Intermediate |
-| 81 | [How do you optimize Security in State in a scalable state management architecture? (Scenario 81)](#how-do-you-optimize-security-in-state-in-a-scalable-state-management-architecture-scenario-81) | Intermediate |
-| 82 | [How do you optimize Performance Profiling in a scalable state management architecture? (Scenario 82)](#how-do-you-optimize-performance-profiling-in-a-scalable-state-management-architecture-scenario-82) | Intermediate |
-| 83 | [How do you optimize Atomic State in a scalable state management architecture? (Scenario 83)](#how-do-you-optimize-atomic-state-in-a-scalable-state-management-architecture-scenario-83) | Intermediate |
-| 84 | [How do you optimize Computed Properties in a scalable state management architecture? (Scenario 84)](#how-do-you-optimize-computed-properties-in-a-scalable-state-management-architecture-scenario-84) | Intermediate |
-| 85 | [How do you optimize Dependency Injection in a scalable state management architecture? (Scenario 85)](#how-do-you-optimize-dependency-injection-in-a-scalable-state-management-architecture-scenario-85) | Intermediate |
-| 86 | [How do you optimize Testing Sagas in a scalable state management architecture? (Scenario 86)](#how-do-you-optimize-testing-sagas-in-a-scalable-state-management-architecture-scenario-86) | Intermediate |
-| 87 | [How do you optimize Middleware Creation in a scalable state management architecture? (Scenario 87)](#how-do-you-optimize-middleware-creation-in-a-scalable-state-management-architecture-scenario-87) | Intermediate |
-| 88 | [How do you optimize Store Enhancers in a scalable state management architecture? (Scenario 88)](#how-do-you-optimize-store-enhancers-in-a-scalable-state-management-architecture-scenario-88) | Intermediate |
-| 89 | [How do you optimize RTK Query in a scalable state management architecture? (Scenario 89)](#how-do-you-optimize-rtk-query-in-a-scalable-state-management-architecture-scenario-89) | Intermediate |
-| 90 | [How do you optimize Data Fetching in a scalable state management architecture? (Scenario 90)](#how-do-you-optimize-data-fetching-in-a-scalable-state-management-architecture-scenario-90) | Intermediate |
-| 91 | [How do you optimize Caching Strategies in a scalable state management architecture? (Scenario 91)](#how-do-you-optimize-caching-strategies-in-a-scalable-state-management-architecture-scenario-91) | Intermediate |
-| 92 | [How do you optimize Error Handling in a scalable state management architecture? (Scenario 92)](#how-do-you-optimize-error-handling-in-a-scalable-state-management-architecture-scenario-92) | Intermediate |
-| 93 | [How do you optimize State Structure Design in a scalable state management architecture? (Scenario 93)](#how-do-you-optimize-state-structure-design-in-a-scalable-state-management-architecture-scenario-93) | Intermediate |
-| 94 | [How do you optimize Immutability (Immer) in a scalable state management architecture? (Scenario 94)](#how-do-you-optimize-immutability-immer-in-a-scalable-state-management-architecture-scenario-94) | Intermediate |
-| 95 | [How do you optimize Selectors Performance in a scalable state management architecture? (Scenario 95)](#how-do-you-optimize-selectors-performance-in-a-scalable-state-management-architecture-scenario-95) | Intermediate |
-| 96 | [How do you optimize DevTools Extension in a scalable state management architecture? (Scenario 96)](#how-do-you-optimize-devtools-extension-in-a-scalable-state-management-architecture-scenario-96) | Intermediate |
-| 97 | [How do you optimize React Context vs Redux in a scalable state management architecture? (Scenario 97)](#how-do-you-optimize-react-context-vs-redux-in-a-scalable-state-management-architecture-scenario-97) | Intermediate |
-| 98 | [How do you optimize Recoil Comparison in a scalable state management architecture? (Scenario 98)](#how-do-you-optimize-recoil-comparison-in-a-scalable-state-management-architecture-scenario-98) | Intermediate |
-| 99 | [How do you optimize Jotai Comparison in a scalable state management architecture? (Scenario 99)](#how-do-you-optimize-jotai-comparison-in-a-scalable-state-management-architecture-scenario-99) | Intermediate |
-| 100 | [How do you optimize Server-Side Rendering (SSR) in a scalable state management architecture? (Scenario 100)](#how-do-you-optimize-server-side-rendering-ssr-in-a-scalable-state-management-architecture-scenario-100) | Intermediate |
-| 101 | [How do you optimize Hydration in a scalable state management architecture? (Scenario 101)](#how-do-you-optimize-hydration-in-a-scalable-state-management-architecture-scenario-101) | Intermediate |
-| 102 | [How do you optimize Code Splitting in a scalable state management architecture? (Scenario 102)](#how-do-you-optimize-code-splitting-in-a-scalable-state-management-architecture-scenario-102) | Intermediate |
-| 103 | [How do you optimize TypeScript Generics in a scalable state management architecture? (Scenario 103)](#how-do-you-optimize-typescript-generics-in-a-scalable-state-management-architecture-scenario-103) | Intermediate |
-| 104 | [How do you optimize Thunks vs Sagas in a scalable state management architecture? (Scenario 104)](#how-do-you-optimize-thunks-vs-sagas-in-a-scalable-state-management-architecture-scenario-104) | Intermediate |
-| 105 | [How do you optimize Observables in a scalable state management architecture? (Scenario 105)](#how-do-you-optimize-observables-in-a-scalable-state-management-architecture-scenario-105) | Intermediate |
+
+1. [How do you minimize unnecessary re-renders in a React component using Zustand?](#q1-how-do-you-minimize-unnecessary-re-renders-in-a-react-component-using-zustand) <span class="intermediate">Intermediate</span>
+2. [How do you implement optimistic UI updates using Redux Toolkit (RTK)?](#q2-how-do-you-implement-optimistic-ui-updates-using-redux-toolkit-rtk) <span class="advanced">Advanced</span>
+3. [How do you persist Zustand state to `localStorage` and rehydrate it on app start?](#q3-how-do-you-persist-zustand-state-to-localstorage-and-rehydrate-it-on-app-start) <span class="beginner">Beginner</span>
+4. [How do you handle complex asynchronous logic (like debouncing or cancellation) in Redux Toolkit?](#q4-how-do-you-handle-complex-asynchronous-logic-like-debouncing-or-cancellation-in-redux-toolkit) <span class="advanced">Advanced</span>
+5. [How do you normalize nested API data (e.g., Users with Posts) in a Redux store?](#q5-how-do-you-normalize-nested-api-data-eg-users-with-posts-in-a-redux-store) <span class="intermediate">Intermediate</span>
+6. [How do you type a Redux Toolkit slice and dispatch correctly in TypeScript?](#q6-how-do-you-type-a-redux-toolkit-slice-and-dispatch-correctly-in-typescript) <span class="beginner">Beginner</span>
+7. [How do you access the Zustand store state outside of a React component (e.g., in a utility function)?](#q7-how-do-you-access-the-zustand-store-state-outside-of-a-react-component-eg-in-a-utility-function) <span class="intermediate">Intermediate</span>
+8. [How do you split a large Redux store into manageable chunks (Code Splitting)?](#q8-how-do-you-split-a-large-redux-store-into-manageable-chunks-code-splitting) <span class="advanced">Advanced</span>
+9. [How do you unit test a Redux Toolkit slice logic?](#q9-how-do-you-unit-test-a-redux-toolkit-slice-logic) <span class="intermediate">Intermediate</span>
+10. [How do you handle side effects in Zustand without middleware?](#q10-how-do-you-handle-side-effects-in-zustand-without-middleware) <span class="beginner">Beginner</span>
+11. [How do you create a 'derived state' selector in Redux that is memoized?](#q11-how-do-you-create-a-derived-state-selector-in-redux-that-is-memoized) <span class="intermediate">Intermediate</span>
+12. [How do you reset the entire Redux state (e.g., on user logout)?](#q12-how-do-you-reset-the-entire-redux-state-eg-on-user-logout) <span class="intermediate">Intermediate</span>
+13. [How do you share state between multiple tabs/windows using Zustand?](#q13-how-do-you-share-state-between-multiple-tabswindows-using-zustand) <span class="advanced">Advanced</span>
+14. [How do you prevent a specific Redux action from being logged in DevTools (e.g., sensitive data)?](#q14-how-do-you-prevent-a-specific-redux-action-from-being-logged-in-devtools-eg-sensitive-data) <span class="intermediate">Intermediate</span>
+15. [How do you implement undo/redo functionality in a Redux store?](#q15-how-do-you-implement-undoredo-functionality-in-a-redux-store) <span class="advanced">Advanced</span>
+16. [How do you use the DevTools middleware in Zustand?](#q16-how-do-you-use-the-devtools-middleware-in-zustand) <span class="beginner">Beginner</span>
+17. [How do you create a parameterized selector in Redux?](#q17-how-do-you-create-a-parameterized-selector-in-redux) <span class="intermediate">Intermediate</span>
+18. [How do you listen to transient state changes in Zustand without re-rendering?](#q18-how-do-you-listen-to-transient-state-changes-in-zustand-without-re-rendering) <span class="advanced">Advanced</span>
+19. [How do you transform API responses in RTK Query?](#q19-how-do-you-transform-api-responses-in-rtk-query) <span class="intermediate">Intermediate</span>
+20. [How do you implement Cache Invalidation in RTK Query?](#q20-how-do-you-implement-cache-invalidation-in-rtk-query) <span class="intermediate">Intermediate</span>
+21. [How do you organize a large Zustand store using Slices?](#q21-how-do-you-organize-a-large-zustand-store-using-slices) <span class="advanced">Advanced</span>
+22. [What is the `prepare` callback in Redux Toolkit reducers?](#q22-what-is-the-prepare-callback-in-redux-toolkit-reducers) <span class="intermediate">Intermediate</span>
+23. [How do you implement polling in RTK Query?](#q23-how-do-you-implement-polling-in-rtk-query) <span class="beginner">Beginner</span>
+24. [How do you inject an Authentication Token into RTK Query requests?](#q24-how-do-you-inject-an-authentication-token-into-rtk-query-requests) <span class="intermediate">Intermediate</span>
+25. [How do you use Immer manually in Redux Toolkit?](#q25-how-do-you-use-immer-manually-in-redux-toolkit) <span class="advanced">Advanced</span>
+26. [How do you handle multiple action types in one reducer (RTK)?](#q26-how-do-you-handle-multiple-action-types-in-one-reducer-rtk) <span class="intermediate">Intermediate</span>
+27. [How do you create a Component-Scoped Zustand Store?](#q27-how-do-you-create-a-component-scoped-zustand-store) <span class="advanced">Advanced</span>
+28. [How do you prefetch data with RTK Query?](#q28-how-do-you-prefetch-data-with-rtk-query) <span class="intermediate">Intermediate</span>
+29. [How do you code-split RTK Query endpoints?](#q29-how-do-you-code-split-rtk-query-endpoints) <span class="advanced">Advanced</span>
+30. [How do you debug the current state in an RTK reducer?](#q30-how-do-you-debug-the-current-state-in-an-rtk-reducer) <span class="beginner">Beginner</span>
+31. [How do you skip a query in RTK Query?](#q31-how-do-you-skip-a-query-in-rtk-query) <span class="beginner">Beginner</span>
+32. [How do you automatically refetch data on window focus?](#q32-how-do-you-automatically-refetch-data-on-window-focus) <span class="beginner">Beginner</span>
+33. [How do you use the Immer middleware in Zustand?](#q33-how-do-you-use-the-immer-middleware-in-zustand) <span class="intermediate">Intermediate</span>
+34. [How do you inject extra arguments (like an API client) into Thunks?](#q34-how-do-you-inject-extra-arguments-like-an-api-client-into-thunks) <span class="intermediate">Intermediate</span>
+35. [How do you bypass `baseQuery` for a specific endpoint in RTK Query?](#q35-how-do-you-bypass-basequery-for-a-specific-endpoint-in-rtk-query) <span class="advanced">Advanced</span>
+36. [How do you optimize RTK Query selection performance?](#q36-how-do-you-optimize-rtk-query-selection-performance) <span class="advanced">Advanced</span>
+37. [How do you handle optimistic updates in Zustand?](#q37-how-do-you-handle-optimistic-updates-in-zustand) <span class="intermediate">Intermediate</span>
+38. [How do you reset the RTK Query cache?](#q38-how-do-you-reset-the-rtk-query-cache) <span class="intermediate">Intermediate</span>
+39. [How do you use `combine` middleware in Zustand for type inference?](#q39-how-do-you-use-combine-middleware-in-zustand-for-type-inference) <span class="advanced">Advanced</span>
+40. [How do you ensure strict state immutability checks in Redux Toolkit?](#q40-how-do-you-ensure-strict-state-immutability-checks-in-redux-toolkit) <span class="beginner">Beginner</span>
+41. [How do you perform Server-Side Rendering (SSR) with Redux Toolkit?](#q41-how-do-you-perform-server-side-rendering-ssr-with-redux-toolkit) <span class="advanced">Advanced</span>
+42. [How do you perform Server-Side Rendering (SSR) with Zustand?](#q42-how-do-you-perform-server-side-rendering-ssr-with-zustand) <span class="advanced">Advanced</span>
+43. [How do you use the `autoBatchEnhancer` in Redux Toolkit?](#q43-how-do-you-use-the-autobatchenhancer-in-redux-toolkit) <span class="advanced">Advanced</span>
+44. [How do you test a Zustand store?](#q44-how-do-you-test-a-zustand-store) <span class="intermediate">Intermediate</span>
+45. [How do you wait for a specific action in Redux?](#q45-how-do-you-wait-for-a-specific-action-in-redux) <span class="advanced">Advanced</span>
+46. [How do you use `mutative` with Zustand?](#q46-how-do-you-use-mutative-with-zustand) <span class="intermediate">Intermediate</span>
+47. [How do you create a bidirectional sync between Redux and URL params?](#q47-how-do-you-create-a-bidirectional-sync-between-redux-and-url-params) <span class="advanced">Advanced</span>
+48. [How do you handle non-serializable data in Redux?](#q48-how-do-you-handle-non-serializable-data-in-redux) <span class="intermediate">Intermediate</span>
+49. [How do you implement a 'Draft' feature using Redux?](#q49-how-do-you-implement-a-draft-feature-using-redux) <span class="intermediate">Intermediate</span>
+50. [How do you use `createStore` (Vanilla) in Zustand?](#q50-how-do-you-use-createstore-vanilla-in-zustand) <span class="intermediate">Intermediate</span>
 
 ---
 
-### 1. How do you minimize unnecessary re-renders in a React component using Zustand?
+### Q1: How do you minimize unnecessary re-renders in a React component using Zustand?
 
 **Difficulty**: Intermediate
 
@@ -138,7 +82,7 @@ const Component = () => {
 
 ---
 
-### 2. How do you implement optimistic UI updates using Redux Toolkit (RTK)?
+### Q2: How do you implement optimistic UI updates using Redux Toolkit (RTK)?
 
 **Difficulty**: Advanced
 
@@ -163,7 +107,7 @@ const updatePost = createAsyncThunk(
 
 ---
 
-### 3. How do you persist Zustand state to `localStorage` and rehydrate it on app start?
+### Q3: How do you persist Zustand state to `localStorage` and rehydrate it on app start?
 
 **Difficulty**: Beginner
 
@@ -193,7 +137,7 @@ const useStore = create(
 
 ---
 
-### 4. How do you handle complex asynchronous logic (like debouncing or cancellation) in Redux Toolkit?
+### Q4: How do you handle complex asynchronous logic (like debouncing or cancellation) in Redux Toolkit?
 
 **Difficulty**: Advanced
 
@@ -220,7 +164,7 @@ listenerMiddleware.startListening({
 
 ---
 
-### 5. How do you normalize nested API data (e.g., Users with Posts) in a Redux store?
+### Q5: How do you normalize nested API data (e.g., Users with Posts) in a Redux store?
 
 **Difficulty**: Intermediate
 
@@ -248,7 +192,7 @@ export const { selectAll: selectAllUsers } = usersAdapter.getSelectors();
 
 ---
 
-### 6. How do you type a Redux Toolkit slice and dispatch correctly in TypeScript?
+### Q6: How do you type a Redux Toolkit slice and dispatch correctly in TypeScript?
 
 **Difficulty**: Beginner
 
@@ -270,7 +214,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 ---
 
-### 7. How do you access the Zustand store state outside of a React component (e.g., in a utility function)?
+### Q7: How do you access the Zustand store state outside of a React component (e.g., in a utility function)?
 
 **Difficulty**: Intermediate
 
@@ -295,7 +239,7 @@ export const resetBears = () => {
 
 ---
 
-### 8. How do you split a large Redux store into manageable chunks (Code Splitting)?
+### Q8: How do you split a large Redux store into manageable chunks (Code Splitting)?
 
 **Difficulty**: Advanced
 
@@ -315,7 +259,7 @@ export function injectReducer(key, reducer) {
 
 ---
 
-### 9. How do you unit test a Redux Toolkit slice logic?
+### Q9: How do you unit test a Redux Toolkit slice logic?
 
 **Difficulty**: Intermediate
 
@@ -335,7 +279,7 @@ test('should handle increment', () => {
 
 ---
 
-### 10. How do you handle side effects in Zustand without middleware?
+### Q10: How do you handle side effects in Zustand without middleware?
 
 **Difficulty**: Beginner
 
@@ -359,7 +303,7 @@ const useStore = create((set) => ({
 
 ---
 
-### 11. How do you create a 'derived state' selector in Redux that is memoized?
+### Q11: How do you create a 'derived state' selector in Redux that is memoized?
 
 **Difficulty**: Intermediate
 
@@ -381,7 +325,7 @@ export const selectFilteredItems = createSelector(
 
 ---
 
-### 12. How do you reset the entire Redux state (e.g., on user logout)?
+### Q12: How do you reset the entire Redux state (e.g., on user logout)?
 
 **Difficulty**: Intermediate
 
@@ -404,7 +348,7 @@ const appReducer = (state, action) => {
 
 ---
 
-### 13. How do you share state between multiple tabs/windows using Zustand?
+### Q13: How do you share state between multiple tabs/windows using Zustand?
 
 **Difficulty**: Advanced
 
@@ -425,7 +369,7 @@ window.addEventListener('storage', (e) => {
 
 ---
 
-### 14. How do you prevent a specific Redux action from being logged in DevTools (e.g., sensitive data)?
+### Q14: How do you prevent a specific Redux action from being logged in DevTools (e.g., sensitive data)?
 
 **Difficulty**: Intermediate
 
@@ -450,7 +394,7 @@ const store = configureStore({
 
 ---
 
-### 15. How do you implement undo/redo functionality in a Redux store?
+### Q15: How do you implement undo/redo functionality in a Redux store?
 
 **Difficulty**: Advanced
 
@@ -476,1892 +420,615 @@ dispatch(ActionCreators.redo());
 
 ---
 
-### 16. How do you optimize TypeScript Generics in a scalable state management architecture? (Scenario 16)
+### Q16: How do you use the DevTools middleware in Zustand?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **TypeScript Generics** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for TypeScript Generics
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific TypeScript Generics settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 17. How do you optimize Thunks vs Sagas in a scalable state management architecture? (Scenario 17)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Thunks vs Sagas** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Thunks vs Sagas
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Thunks vs Sagas settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 18. How do you optimize Observables in a scalable state management architecture? (Scenario 18)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Observables** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Observables
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Observables settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 19. How do you optimize Action Creators in a scalable state management architecture? (Scenario 19)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Action Creators** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Action Creators
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Action Creators settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 20. How do you optimize Reducer Composition in a scalable state management architecture? (Scenario 20)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Reducer Composition** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Reducer Composition
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Reducer Composition settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 21. How do you optimize Higher Order Reducers in a scalable state management architecture? (Scenario 21)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Higher Order Reducers** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Higher Order Reducers
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Higher Order Reducers settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 22. How do you optimize State Rehydration in a scalable state management architecture? (Scenario 22)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **State Rehydration** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for State Rehydration
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific State Rehydration settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 23. How do you optimize Security in State in a scalable state management architecture? (Scenario 23)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Security in State** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Security in State
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Security in State settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 24. How do you optimize Performance Profiling in a scalable state management architecture? (Scenario 24)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Performance Profiling** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Performance Profiling
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Performance Profiling settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 25. How do you optimize Atomic State in a scalable state management architecture? (Scenario 25)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Atomic State** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Atomic State
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Atomic State settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 26. How do you optimize Computed Properties in a scalable state management architecture? (Scenario 26)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Computed Properties** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Computed Properties
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Computed Properties settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 27. How do you optimize Dependency Injection in a scalable state management architecture? (Scenario 27)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Dependency Injection** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Dependency Injection
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Dependency Injection settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 28. How do you optimize Testing Sagas in a scalable state management architecture? (Scenario 28)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Testing Sagas** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Testing Sagas
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Testing Sagas settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 29. How do you optimize Middleware Creation in a scalable state management architecture? (Scenario 29)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Middleware Creation** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Middleware Creation
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Middleware Creation settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 30. How do you optimize Store Enhancers in a scalable state management architecture? (Scenario 30)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Store Enhancers** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Store Enhancers
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Store Enhancers settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 31. How do you optimize RTK Query in a scalable state management architecture? (Scenario 31)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **RTK Query** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for RTK Query
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific RTK Query settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 32. How do you optimize Data Fetching in a scalable state management architecture? (Scenario 32)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Data Fetching** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Data Fetching
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Data Fetching settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 33. How do you optimize Caching Strategies in a scalable state management architecture? (Scenario 33)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Caching Strategies** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Caching Strategies
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Caching Strategies settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 34. How do you optimize Error Handling in a scalable state management architecture? (Scenario 34)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Error Handling** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Error Handling
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Error Handling settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 35. How do you optimize State Structure Design in a scalable state management architecture? (Scenario 35)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **State Structure Design** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for State Structure Design
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific State Structure Design settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 36. How do you optimize Immutability (Immer) in a scalable state management architecture? (Scenario 36)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Immutability (Immer)** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Immutability (Immer)
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Immutability (Immer) settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 37. How do you optimize Selectors Performance in a scalable state management architecture? (Scenario 37)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Selectors Performance** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Selectors Performance
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Selectors Performance settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 38. How do you optimize DevTools Extension in a scalable state management architecture? (Scenario 38)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **DevTools Extension** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for DevTools Extension
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific DevTools Extension settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 39. How do you optimize React Context vs Redux in a scalable state management architecture? (Scenario 39)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **React Context vs Redux** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for React Context vs Redux
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific React Context vs Redux settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 40. How do you optimize Recoil Comparison in a scalable state management architecture? (Scenario 40)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Recoil Comparison** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Recoil Comparison
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Recoil Comparison settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 41. How do you optimize Jotai Comparison in a scalable state management architecture? (Scenario 41)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Jotai Comparison** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Jotai Comparison
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Jotai Comparison settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 42. How do you optimize Server-Side Rendering (SSR) in a scalable state management architecture? (Scenario 42)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Server-Side Rendering (SSR)** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Server-Side Rendering (SSR)
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Server-Side Rendering (SSR) settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 43. How do you optimize Hydration in a scalable state management architecture? (Scenario 43)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Hydration** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Hydration
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Hydration settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 44. How do you optimize Code Splitting in a scalable state management architecture? (Scenario 44)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Code Splitting** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Code Splitting
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Code Splitting settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 45. How do you optimize TypeScript Generics in a scalable state management architecture? (Scenario 45)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **TypeScript Generics** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for TypeScript Generics
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific TypeScript Generics settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 46. How do you optimize Thunks vs Sagas in a scalable state management architecture? (Scenario 46)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Thunks vs Sagas** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Thunks vs Sagas
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Thunks vs Sagas settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 47. How do you optimize Observables in a scalable state management architecture? (Scenario 47)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Observables** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Observables
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Observables settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 48. How do you optimize Action Creators in a scalable state management architecture? (Scenario 48)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Action Creators** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Action Creators
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Action Creators settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 49. How do you optimize Reducer Composition in a scalable state management architecture? (Scenario 49)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Reducer Composition** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Reducer Composition
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Reducer Composition settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 50. How do you optimize Higher Order Reducers in a scalable state management architecture? (Scenario 50)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Higher Order Reducers** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Higher Order Reducers
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Higher Order Reducers settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 51. How do you optimize State Rehydration in a scalable state management architecture? (Scenario 51)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **State Rehydration** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for State Rehydration
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific State Rehydration settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 52. How do you optimize Security in State in a scalable state management architecture? (Scenario 52)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Security in State** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Security in State
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Security in State settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 53. How do you optimize Performance Profiling in a scalable state management architecture? (Scenario 53)
+**Difficulty**: Beginner
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Performance Profiling** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Performance Profiling
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Performance Profiling settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 54. How do you optimize Atomic State in a scalable state management architecture? (Scenario 54)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Atomic State** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Atomic State
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Atomic State settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 55. How do you optimize Computed Properties in a scalable state management architecture? (Scenario 55)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Computed Properties** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Computed Properties
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Computed Properties settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 56. How do you optimize Dependency Injection in a scalable state management architecture? (Scenario 56)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Dependency Injection** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Dependency Injection
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Dependency Injection settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 57. How do you optimize Testing Sagas in a scalable state management architecture? (Scenario 57)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Testing Sagas** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Testing Sagas
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Testing Sagas settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 58. How do you optimize Middleware Creation in a scalable state management architecture? (Scenario 58)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Middleware Creation** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Middleware Creation
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Middleware Creation settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 59. How do you optimize Store Enhancers in a scalable state management architecture? (Scenario 59)
-
-**Difficulty**: Intermediate
-
 **Strategy:**
-Implement robust patterns for **Store Enhancers** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Wrap the store creator with `devtools`. It connects to the Redux DevTools extension.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Store Enhancers
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Store Enhancers settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 60. How do you optimize RTK Query in a scalable state management architecture? (Scenario 60)
+import { devtools } from 'zustand/middleware';
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **RTK Query** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for RTK Query
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific RTK Query settings
-};
-```
+const useStore = create(devtools((set) => ({
+  bears: 0,
+  increase: () => set((state) => ({ bears: state.bears + 1 }))
+}), { name: 'MyStore' }));
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 61. How do you optimize Data Fetching in a scalable state management architecture? (Scenario 61)
+### Q17: How do you create a parameterized selector in Redux?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Data Fetching** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Return a function from the selector or use a factory function if memoization is needed per instance.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Data Fetching
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Data Fetching settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 62. How do you optimize Caching Strategies in a scalable state management architecture? (Scenario 62)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Caching Strategies** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+const selectItemById = (state, itemId) => state.items[itemId];
 
-**Code Example:**
-```typescript
-// Optimization pattern for Caching Strategies
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Caching Strategies settings
-};
-```
+// Usage
+const item = useSelector(state => selectItemById(state, props.id));
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 63. How do you optimize Error Handling in a scalable state management architecture? (Scenario 63)
+### Q18: How do you listen to transient state changes in Zustand without re-rendering?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **Error Handling** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use `useStore.subscribe`. It allows running logic on state change without causing a component render.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Error Handling
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Error Handling settings
-};
-```
+useEffect(() => {
+  const unsub = useStore.subscribe((state, prevState) => {
+    console.log('State changed:', state);
+  });
+  return unsub;
+}, []);
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 64. How do you optimize State Structure Design in a scalable state management architecture? (Scenario 64)
+### Q19: How do you transform API responses in RTK Query?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **State Structure Design** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use `transformResponse` in the endpoint definition.
 
 **Code Example:**
-```typescript
-// Optimization pattern for State Structure Design
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific State Structure Design settings
-};
-```
+getPost: builder.query({
+  query: (id) => `post/${id}`,
+  transformResponse: (response: { data: Post }) => response.data,
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 65. How do you optimize Immutability (Immer) in a scalable state management architecture? (Scenario 65)
+### Q20: How do you implement Cache Invalidation in RTK Query?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Immutability (Immer)** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use `providesTags` on queries and `invalidatesTags` on mutations.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Immutability (Immer)
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Immutability (Immer) settings
-};
-```
+getPosts: builder.query({
+  providesTags: ['Post'],
+  query: () => '/posts',
+}),
+addPost: builder.mutation({
+  invalidatesTags: ['Post'],
+  query: (body) => ({ url: '/posts', method: 'POST', body }),
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 66. How do you optimize Selectors Performance in a scalable state management architecture? (Scenario 66)
+### Q21: How do you organize a large Zustand store using Slices?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **Selectors Performance** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Create separate slice creators and combine them in the main store creation.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Selectors Performance
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Selectors Performance settings
-};
-```
+const createBearSlice = (set) => ({
+  bears: 0,
+  addBear: () => set((state) => ({ bears: state.bears + 1 })),
+});
 
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 67. How do you optimize DevTools Extension in a scalable state management architecture? (Scenario 67)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **DevTools Extension** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+const createFishSlice = (set) => ({
+  fishes: 0,
+  addFish: () => set((state) => ({ fishes: state.fishes + 1 })),
+});
 
-**Code Example:**
-```typescript
-// Optimization pattern for DevTools Extension
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific DevTools Extension settings
-};
-```
+const useStore = create((...a) => ({
+  ...createBearSlice(...a),
+  ...createFishSlice(...a),
+}));
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 68. How do you optimize React Context vs Redux in a scalable state management architecture? (Scenario 68)
+### Q22: What is the `prepare` callback in Redux Toolkit reducers?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **React Context vs Redux** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+It allows customizing the payload (e.g., generating IDs, formatting dates) before the action is dispatched.
 
 **Code Example:**
-```typescript
-// Optimization pattern for React Context vs Redux
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific React Context vs Redux settings
-};
-```
+reducers: {
+  addPost: {
+    reducer: (state, action) => { state.push(action.payload) },
+    prepare: (text) => ({
+      payload: { id: nanoid(), text, date: new Date().toISOString() }
+    }),
+  },
+}
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 69. How do you optimize Recoil Comparison in a scalable state management architecture? (Scenario 69)
+### Q23: How do you implement polling in RTK Query?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement robust patterns for **Recoil Comparison** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Pass `pollingInterval` (in ms) to the `useQuery` hook.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Recoil Comparison
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Recoil Comparison settings
-};
-```
+const { data } = useGetStatusQuery(undefined, {
+  pollingInterval: 3000,
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 70. How do you optimize Jotai Comparison in a scalable state management architecture? (Scenario 70)
+### Q24: How do you inject an Authentication Token into RTK Query requests?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Jotai Comparison** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Wrap `fetchBaseQuery` and add the `Authorization` header in the `prepareHeaders` callback.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Jotai Comparison
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Jotai Comparison settings
-};
-```
+fetchBaseQuery({
+  baseUrl: '/api',
+  prepareHeaders: (headers, { getState }) => {
+    const token = (getState() as RootState).auth.token;
+    if (token) headers.set('authorization', `Bearer ${token}`);
+    return headers;
+  },
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 71. How do you optimize Server-Side Rendering (SSR) in a scalable state management architecture? (Scenario 71)
+### Q25: How do you use Immer manually in Redux Toolkit?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **Server-Side Rendering (SSR)** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use `createNextState` (exported as `produce` usually in Immer) if you need immutable updates outside of reducers.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Server-Side Rendering (SSR)
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Server-Side Rendering (SSR) settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 72. How do you optimize Hydration in a scalable state management architecture? (Scenario 72)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Hydration** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+import { createNextState } from '@reduxjs/toolkit';
 
-**Code Example:**
-```typescript
-// Optimization pattern for Hydration
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Hydration settings
-};
-```
+const nextState = createNextState(baseState, draft => {
+  draft.todo = 'done';
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 73. How do you optimize Code Splitting in a scalable state management architecture? (Scenario 73)
+### Q26: How do you handle multiple action types in one reducer (RTK)?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Code Splitting** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use `builder.addMatcher` with `isAnyOf` in `extraReducers`.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Code Splitting
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Code Splitting settings
-};
-```
+builder.addMatcher(
+  isAnyOf(action1, action2),
+  (state, action) => { state.loading = false; }
+);
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 74. How do you optimize TypeScript Generics in a scalable state management architecture? (Scenario 74)
+### Q27: How do you create a Component-Scoped Zustand Store?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **TypeScript Generics** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Create the store inside a component (or factory) and pass it via React Context. This prevents sharing state across all instances of the component.
 
 **Code Example:**
-```typescript
-// Optimization pattern for TypeScript Generics
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific TypeScript Generics settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
+const StoreContext = createContext(null);
 
----
-
-### 75. How do you optimize Thunks vs Sagas in a scalable state management architecture? (Scenario 75)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Thunks vs Sagas** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Thunks vs Sagas
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Thunks vs Sagas settings
+const Provider = ({ children }) => {
+  const storeRef = useRef(createStore(...));
+  return <StoreContext.Provider value={storeRef.current}>{children}</StoreContext.Provider>;
 };
-```
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 76. How do you optimize Observables in a scalable state management architecture? (Scenario 76)
+### Q28: How do you prefetch data with RTK Query?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Observables** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use the `usePrefetch` hook or dispatch `initiate` manually.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Observables
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Observables settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 77. How do you optimize Action Creators in a scalable state management architecture? (Scenario 77)
-
-**Difficulty**: Intermediate
+const prefetchUser = usePrefetch('getUser');
 
-**Strategy:**
-Implement robust patterns for **Action Creators** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Action Creators
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Action Creators settings
-};
-```
+<button onMouseEnter={() => prefetchUser(id)}>Hover to load</button>
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 78. How do you optimize Reducer Composition in a scalable state management architecture? (Scenario 78)
+### Q29: How do you code-split RTK Query endpoints?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **Reducer Composition** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use `injectEndpoints`. Create an empty API slice first, then inject endpoints in separate files.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Reducer Composition
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Reducer Composition settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
+// emptyApi.ts
+export const api = createApi({ endpoints: () => ({}) });
 
----
-
-### 79. How do you optimize Higher Order Reducers in a scalable state management architecture? (Scenario 79)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Higher Order Reducers** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Higher Order Reducers
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Higher Order Reducers settings
-};
-```
+// extendedApi.ts
+const extendedApi = api.injectEndpoints({
+  endpoints: (build) => ({
+    getPosts: build.query(...)
+  }),
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 80. How do you optimize State Rehydration in a scalable state management architecture? (Scenario 80)
+### Q30: How do you debug the current state in an RTK reducer?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement robust patterns for **State Rehydration** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use the `current` utility to unwrap the Immer draft proxy and log the plain JS object.
 
 **Code Example:**
-```typescript
-// Optimization pattern for State Rehydration
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific State Rehydration settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 81. How do you optimize Security in State in a scalable state management architecture? (Scenario 81)
+import { current } from '@reduxjs/toolkit';
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Security in State** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Security in State
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Security in State settings
-};
-```
+// Inside reducer
+console.log(current(state));
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 82. How do you optimize Performance Profiling in a scalable state management architecture? (Scenario 82)
+### Q31: How do you skip a query in RTK Query?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement robust patterns for **Performance Profiling** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use the `skip` option (boolean) or pass `skipToken`.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Performance Profiling
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Performance Profiling settings
-};
-```
+const { data } = useGetUserQuery(id, { skip: !id });
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 83. How do you optimize Atomic State in a scalable state management architecture? (Scenario 83)
+### Q32: How do you automatically refetch data on window focus?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement robust patterns for **Atomic State** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Enable `refetchOnFocus: true` in `setupListeners` or individual query options.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Atomic State
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Atomic State settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 84. How do you optimize Computed Properties in a scalable state management architecture? (Scenario 84)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Computed Properties** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+setupListeners(store.dispatch); // Global setup
 
-**Code Example:**
-```typescript
-// Optimization pattern for Computed Properties
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Computed Properties settings
-};
-```
+// or per hook
+useQuery(id, { refetchOnFocus: true });
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 85. How do you optimize Dependency Injection in a scalable state management architecture? (Scenario 85)
+### Q33: How do you use the Immer middleware in Zustand?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Dependency Injection** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Wrap the setter with `immer`. It allows mutating state directly.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Dependency Injection
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Dependency Injection settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
+import { immer } from 'zustand/middleware/immer';
 
----
-
-### 86. How do you optimize Testing Sagas in a scalable state management architecture? (Scenario 86)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Testing Sagas** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Testing Sagas
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Testing Sagas settings
-};
-```
+const useStore = create(immer((set) => ({
+  nested: { count: 0 },
+  inc: () => set((state) => { state.nested.count += 1 }),
+})));
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 87. How do you optimize Middleware Creation in a scalable state management architecture? (Scenario 87)
+### Q34: How do you inject extra arguments (like an API client) into Thunks?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Middleware Creation** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use `thunk.extraArgument` in `configureStore`.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Middleware Creation
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Middleware Creation settings
-};
-```
+const store = configureStore({
+  middleware: (getDefault) => getDefault({
+    thunk: { extraArgument: myApiClient }
+  })
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 88. How do you optimize Store Enhancers in a scalable state management architecture? (Scenario 88)
+### Q35: How do you bypass `baseQuery` for a specific endpoint in RTK Query?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **Store Enhancers** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Provide a `queryFn` instead of `query`. Useful for one-off logic or Firebase SDK calls.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Store Enhancers
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Store Enhancers settings
-};
-```
+getCustomData: builder.query({
+  queryFn: async (arg) => {
+    const data = await someSdkFunction(arg);
+    return { data };
+  },
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 89. How do you optimize RTK Query in a scalable state management architecture? (Scenario 89)
+### Q36: How do you optimize RTK Query selection performance?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **RTK Query** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use `selectFromResult` to return a specific subset of data and prevent re-renders if other fields change.
 
 **Code Example:**
-```typescript
-// Optimization pattern for RTK Query
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific RTK Query settings
-};
-```
+useGetPostsQuery(undefined, {
+  selectFromResult: ({ data }) => ({
+    post: data?.find(p => p.id === id)
+  }),
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 90. How do you optimize Data Fetching in a scalable state management architecture? (Scenario 90)
+### Q37: How do you handle optimistic updates in Zustand?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Data Fetching** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Update state immediately, try the async action, and revert if it fails.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Data Fetching
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Data Fetching settings
-};
-```
+update: async (val) => {
+  const old = get().val;
+  set({ val }); // Optimistic
+  try {
+    await api.update(val);
+  } catch {
+    set({ val: old }); // Rollback
+  }
+}
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 91. How do you optimize Caching Strategies in a scalable state management architecture? (Scenario 91)
+### Q38: How do you reset the RTK Query cache?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Caching Strategies** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Dispatch `api.util.resetApiState()`.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Caching Strategies
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Caching Strategies settings
-};
-```
+dispatch(api.util.resetApiState());
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 92. How do you optimize Error Handling in a scalable state management architecture? (Scenario 92)
+### Q39: How do you use `combine` middleware in Zustand for type inference?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **Error Handling** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+`combine` merges an initial state object with actions, allowing TypeScript to infer types automatically without explicit interface definitions.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Error Handling
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Error Handling settings
-};
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-### 93. How do you optimize State Structure Design in a scalable state management architecture? (Scenario 93)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **State Structure Design** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+import { combine } from 'zustand/middleware';
 
-**Code Example:**
-```typescript
-// Optimization pattern for State Structure Design
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific State Structure Design settings
-};
-```
+const useStore = create(combine(
+  { count: 0 },
+  (set) => ({ inc: () => set(s => ({ count: s.count + 1 })) })
+));
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 94. How do you optimize Immutability (Immer) in a scalable state management architecture? (Scenario 94)
+### Q40: How do you ensure strict state immutability checks in Redux Toolkit?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement robust patterns for **Immutability (Immer)** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+RTK enables `immutableStateInvariantMiddleware` by default in development. It throws errors if you mutate state outside of Immer reducers.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Immutability (Immer)
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Immutability (Immer) settings
-};
-```
+// Enabled by default.
+// To disable (not recommended):
+getDefaultMiddleware({ immutableCheck: false })
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 95. How do you optimize Selectors Performance in a scalable state management architecture? (Scenario 95)
+### Q41: How do you perform Server-Side Rendering (SSR) with Redux Toolkit?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **Selectors Performance** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Initialize the store on the server, dispatch actions, wait for completion, and serialize the state to `preloadedState` on the client.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Selectors Performance
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Selectors Performance settings
-};
-```
+// Server
+await Promise.all(store.dispatch(api.util.getRunningQueriesThunk()));
+const preloadedState = store.getState();
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 96. How do you optimize DevTools Extension in a scalable state management architecture? (Scenario 96)
+### Q42: How do you perform Server-Side Rendering (SSR) with Zustand?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **DevTools Extension** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Avoid using `persist` with `localStorage` directly on server. Use `skipHydration` or a custom storage adapter that handles SSR.
 
 **Code Example:**
-```typescript
-// Optimization pattern for DevTools Extension
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific DevTools Extension settings
-};
-```
+// Skip hydration on init, hydrate in useEffect
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 97. How do you optimize React Context vs Redux in a scalable state management architecture? (Scenario 97)
+### Q43: How do you use the `autoBatchEnhancer` in Redux Toolkit?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **React Context vs Redux** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+It allows low-priority state updates to be batched together, reducing notify subscribers calls. Enabled via `enhancers`.
 
 **Code Example:**
-```typescript
-// Optimization pattern for React Context vs Redux
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific React Context vs Redux settings
-};
-```
+configureStore({
+  enhancers: (defaultEnhancers) => defaultEnhancers.concat(autoBatchEnhancer()),
+});
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 98. How do you optimize Recoil Comparison in a scalable state management architecture? (Scenario 98)
+### Q44: How do you test a Zustand store?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Recoil Comparison** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Since it's a hook, use `renderHook` from `@testing-library/react-hooks` or test the vanilla store via `useStore.getState()`.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Recoil Comparison
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Recoil Comparison settings
-};
-```
+const { result } = renderHook(() => useStore());
+act(() => result.current.inc());
+expect(result.current.count).toBe(1);
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 99. How do you optimize Jotai Comparison in a scalable state management architecture? (Scenario 99)
+### Q45: How do you wait for a specific action in Redux?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **Jotai Comparison** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use `listenerMiddleware` with `condition` or `take` effect.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Jotai Comparison
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Jotai Comparison settings
-};
-```
+await listenerApi.condition((action) => action.type === 'Success');
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 100. How do you optimize Server-Side Rendering (SSR) in a scalable state management architecture? (Scenario 100)
+### Q46: How do you use `mutative` with Zustand?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Server-Side Rendering (SSR)** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Similar to Immer, wrap the setter. `mutative` is often faster.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Server-Side Rendering (SSR)
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Server-Side Rendering (SSR) settings
-};
-```
+// Implementation depends on middleware wrapper
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 101. How do you optimize Hydration in a scalable state management architecture? (Scenario 101)
+### Q47: How do you create a bidirectional sync between Redux and URL params?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement robust patterns for **Hydration** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Use a listener that updates URL when state changes, and a router listener that dispatches actions when URL changes.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Hydration
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Hydration settings
-};
-```
+// Listener middleware
+listenerApi.dispatch(updateUrl(action.payload));
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 102. How do you optimize Code Splitting in a scalable state management architecture? (Scenario 102)
+### Q48: How do you handle non-serializable data in Redux?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Code Splitting** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Avoid putting it in the store. If necessary, disable the `serializableCheck` middleware.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Code Splitting
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Code Splitting settings
-};
-```
+getDefaultMiddleware({ serializableCheck: false })
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 103. How do you optimize TypeScript Generics in a scalable state management architecture? (Scenario 103)
+### Q49: How do you implement a 'Draft' feature using Redux?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **TypeScript Generics** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Keep a separate slice for the draft state. Sync it with the original data on 'Edit' and commit it on 'Save'.
 
 **Code Example:**
-```typescript
-// Optimization pattern for TypeScript Generics
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific TypeScript Generics settings
-};
-```
+// draftSlice
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
 
-### 104. How do you optimize Thunks vs Sagas in a scalable state management architecture? (Scenario 104)
+### Q50: How do you use `createStore` (Vanilla) in Zustand?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement robust patterns for **Thunks vs Sagas** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
+Import `createStore` instead of `create`. Useful for non-React usage.
 
 **Code Example:**
-```typescript
-// Optimization pattern for Thunks vs Sagas
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Thunks vs Sagas settings
-};
-```
+import { createStore } from 'zustand/vanilla';
+const store = createStore(() => ({ count: 0 }));
+store.subscribe(console.log);
 
 [⬆️ Back to Top](#table-of-contents)
 
 ---
-
-### 105. How do you optimize Observables in a scalable state management architecture? (Scenario 105)
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement robust patterns for **Observables** by leveraging framework-specific features (like RTK's `createEntityAdapter` or Zustand's middleware). Ensure types are strict and side effects are isolated.
-
-**Code Example:**
-```typescript
-// Optimization pattern for Observables
-const optimizedConfig = {
-  enableDevTools: process.env.NODE_ENV !== 'production',
-  middleware: (getDefault) => getDefault().concat(logger),
-  // Specific Observables settings
-};
-```
 
-[⬆️ Back to Top](#table-of-contents)
-
----

@@ -1,136 +1,57 @@
 # Swift & SwiftUI Interview Questions
 
 ## Table of Contents
-- [Q1: How do you debug and resolve a memory leak caused by a retain cycle in a Swift closure?](#q1-how-do-you-debug-and-resolve-a-memory-leak-caused-by-a-retain-cycle-in-a-swift-closure)
-- [Q2: How do you implement a thread-safe counter using Swift Actors?](#q2-how-do-you-implement-a-thread-safe-counter-using-swift-actors)
-- [Q3: How do you efficiently handle large lists of data in SwiftUI to avoid performance issues?](#q3-how-do-you-efficiently-handle-large-lists-of-data-in-swiftui-to-avoid-performance-issues)
-- [Q4: How do you migrate legacy callback-based code to Swift Concurrency (async/await)?](#q4-how-do-you-migrate-legacy-callback-based-code-to-swift-concurrency-asyncawait)
-- [Q5: How do you inject dependencies into a SwiftUI view hierarchy without passing them through every initializer?](#q5-how-do-you-inject-dependencies-into-a-swiftui-view-hierarchy-without-passing-them-through-every-initializer)
-- [Q6: How do you implement custom error handling in a Swift network layer?](#q6-how-do-you-implement-custom-error-handling-in-a-swift-network-layer)
-- [Q7: How do you optimize the performance of a SwiftUI view that updates too frequently?](#q7-how-do-you-optimize-the-performance-of-a-swiftui-view-that-updates-too-frequently)
-- [Q8: How do you integrate a UIKit view (e.g., MKMapView) into a SwiftUI app?](#q8-how-do-you-integrate-a-uikit-view-eg-mkmapview-into-a-swiftui-app)
-- [Q9: How do you implement Unit Tests for a ViewModel with async network calls?](#q9-how-do-you-implement-unit-tests-for-a-viewmodel-with-async-network-calls)
-- [Q10: How do you handle deep linking in a SwiftUI application using the new NavigationStack?](#q10-how-do-you-handle-deep-linking-in-a-swiftui-application-using-the-new-navigationstack)
-- [Q11: How do you manage the lifecycle of an `@ObservedObject` vs `@StateObject`?](#q11-how-do-you-manage-the-lifecycle-of-an-observedobject-vs-stateobject)
-- [Q12: How do you implement custom property wrappers to validate user input automatically?](#q12-how-do-you-implement-custom-property-wrappers-to-validate-user-input-automatically)
-- [Q13: How do you use the `some` and `any` keywords in Swift generics?](#q13-how-do-you-use-the-some-and-any-keywords-in-swift-generics)
-- [Q14: How do you implement Codable for a JSON response with dynamic keys?](#q14-how-do-you-implement-codable-for-a-json-response-with-dynamic-keys)
-- [Q15: How do you force a SwiftUI view to redraw without changing its state?](#q15-how-do-you-force-a-swiftui-view-to-redraw-without-changing-its-state)
-- [Q16: How do you implement Core Data for managing persistent storage in a production app?](#q16-how-do-you-implement-core-data-for-managing-persistent-storage-in-a-production-app)
-- [Q17: How do you implement Combine for reactive programming streams in a production app?](#q17-how-do-you-implement-combine-for-reactive-programming-streams-in-a-production-app)
-- [Q18: How do you implement Auto Layout for programmatic UI constraints in a production app?](#q18-how-do-you-implement-auto-layout-for-programmatic-ui-constraints-in-a-production-app)
-- [Q19: How do you implement Generics for reusable type-safe code in a production app?](#q19-how-do-you-implement-generics-for-reusable-type-safe-code-in-a-production-app)
-- [Q20: How do you implement Closures for capturing values and escaping closures in a production app?](#q20-how-do-you-implement-closures-for-capturing-values-and-escaping-closures-in-a-production-app)
-- [Q21: How do you implement Structs vs Classes for value types vs reference types in a production app?](#q21-how-do-you-implement-structs-vs-classes-for-value-types-vs-reference-types-in-a-production-app)
-- [Q22: How do you implement Protocols for protocol oriented programming in a production app?](#q22-how-do-you-implement-protocols-for-protocol-oriented-programming-in-a-production-app)
-- [Q23: How do you implement Extensions for adding functionality to existing types in a production app?](#q23-how-do-you-implement-extensions-for-adding-functionality-to-existing-types-in-a-production-app)
-- [Q24: How do you implement Error Handling for do-try-catch patterns in a production app?](#q24-how-do-you-implement-error-handling-for-do-try-catch-patterns-in-a-production-app)
-- [Q25: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?](#q25-how-do-you-implement-collections-for-arrays-sets-and-dictionaries-performance-in-a-production-app)
-- [Q26: How do you implement Accessibility for VoiceOver and dynamic type in a production app?](#q26-how-do-you-implement-accessibility-for-voiceover-and-dynamic-type-in-a-production-app)
-- [Q27: How do you implement Localization for NSLocalizedString and string catalogs in a production app?](#q27-how-do-you-implement-localization-for-nslocalizedstring-and-string-catalogs-in-a-production-app)
-- [Q28: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?](#q28-how-do-you-implement-app-life-cycle-for-scenedelegate-and-appdelegate-in-a-production-app)
-- [Q29: How do you implement Testing for XCTest and UI testing in a production app?](#q29-how-do-you-implement-testing-for-xctest-and-ui-testing-in-a-production-app)
-- [Q30: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?](#q30-how-do-you-implement-cicd-for-fastlane-and-xcode-cloud-in-a-production-app)
-- [Q31: How do you implement Frameworks for creating reusable Swift packages in a production app?](#q31-how-do-you-implement-frameworks-for-creating-reusable-swift-packages-in-a-production-app)
-- [Q32: How do you implement Core Data for managing persistent storage in a production app?](#q32-how-do-you-implement-core-data-for-managing-persistent-storage-in-a-production-app)
-- [Q33: How do you implement Combine for reactive programming streams in a production app?](#q33-how-do-you-implement-combine-for-reactive-programming-streams-in-a-production-app)
-- [Q34: How do you implement Auto Layout for programmatic UI constraints in a production app?](#q34-how-do-you-implement-auto-layout-for-programmatic-ui-constraints-in-a-production-app)
-- [Q35: How do you implement Generics for reusable type-safe code in a production app?](#q35-how-do-you-implement-generics-for-reusable-type-safe-code-in-a-production-app)
-- [Q36: How do you implement Closures for capturing values and escaping closures in a production app?](#q36-how-do-you-implement-closures-for-capturing-values-and-escaping-closures-in-a-production-app)
-- [Q37: How do you implement Structs vs Classes for value types vs reference types in a production app?](#q37-how-do-you-implement-structs-vs-classes-for-value-types-vs-reference-types-in-a-production-app)
-- [Q38: How do you implement Protocols for protocol oriented programming in a production app?](#q38-how-do-you-implement-protocols-for-protocol-oriented-programming-in-a-production-app)
-- [Q39: How do you implement Extensions for adding functionality to existing types in a production app?](#q39-how-do-you-implement-extensions-for-adding-functionality-to-existing-types-in-a-production-app)
-- [Q40: How do you implement Error Handling for do-try-catch patterns in a production app?](#q40-how-do-you-implement-error-handling-for-do-try-catch-patterns-in-a-production-app)
-- [Q41: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?](#q41-how-do-you-implement-collections-for-arrays-sets-and-dictionaries-performance-in-a-production-app)
-- [Q42: How do you implement Accessibility for VoiceOver and dynamic type in a production app?](#q42-how-do-you-implement-accessibility-for-voiceover-and-dynamic-type-in-a-production-app)
-- [Q43: How do you implement Localization for NSLocalizedString and string catalogs in a production app?](#q43-how-do-you-implement-localization-for-nslocalizedstring-and-string-catalogs-in-a-production-app)
-- [Q44: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?](#q44-how-do-you-implement-app-life-cycle-for-scenedelegate-and-appdelegate-in-a-production-app)
-- [Q45: How do you implement Testing for XCTest and UI testing in a production app?](#q45-how-do-you-implement-testing-for-xctest-and-ui-testing-in-a-production-app)
-- [Q46: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?](#q46-how-do-you-implement-cicd-for-fastlane-and-xcode-cloud-in-a-production-app)
-- [Q47: How do you implement Frameworks for creating reusable Swift packages in a production app?](#q47-how-do-you-implement-frameworks-for-creating-reusable-swift-packages-in-a-production-app)
-- [Q48: How do you implement Core Data for managing persistent storage in a production app?](#q48-how-do-you-implement-core-data-for-managing-persistent-storage-in-a-production-app)
-- [Q49: How do you implement Combine for reactive programming streams in a production app?](#q49-how-do-you-implement-combine-for-reactive-programming-streams-in-a-production-app)
-- [Q50: How do you implement Auto Layout for programmatic UI constraints in a production app?](#q50-how-do-you-implement-auto-layout-for-programmatic-ui-constraints-in-a-production-app)
-- [Q51: How do you implement Generics for reusable type-safe code in a production app?](#q51-how-do-you-implement-generics-for-reusable-type-safe-code-in-a-production-app)
-- [Q52: How do you implement Closures for capturing values and escaping closures in a production app?](#q52-how-do-you-implement-closures-for-capturing-values-and-escaping-closures-in-a-production-app)
-- [Q53: How do you implement Structs vs Classes for value types vs reference types in a production app?](#q53-how-do-you-implement-structs-vs-classes-for-value-types-vs-reference-types-in-a-production-app)
-- [Q54: How do you implement Protocols for protocol oriented programming in a production app?](#q54-how-do-you-implement-protocols-for-protocol-oriented-programming-in-a-production-app)
-- [Q55: How do you implement Extensions for adding functionality to existing types in a production app?](#q55-how-do-you-implement-extensions-for-adding-functionality-to-existing-types-in-a-production-app)
-- [Q56: How do you implement Error Handling for do-try-catch patterns in a production app?](#q56-how-do-you-implement-error-handling-for-do-try-catch-patterns-in-a-production-app)
-- [Q57: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?](#q57-how-do-you-implement-collections-for-arrays-sets-and-dictionaries-performance-in-a-production-app)
-- [Q58: How do you implement Accessibility for VoiceOver and dynamic type in a production app?](#q58-how-do-you-implement-accessibility-for-voiceover-and-dynamic-type-in-a-production-app)
-- [Q59: How do you implement Localization for NSLocalizedString and string catalogs in a production app?](#q59-how-do-you-implement-localization-for-nslocalizedstring-and-string-catalogs-in-a-production-app)
-- [Q60: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?](#q60-how-do-you-implement-app-life-cycle-for-scenedelegate-and-appdelegate-in-a-production-app)
-- [Q61: How do you implement Testing for XCTest and UI testing in a production app?](#q61-how-do-you-implement-testing-for-xctest-and-ui-testing-in-a-production-app)
-- [Q62: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?](#q62-how-do-you-implement-cicd-for-fastlane-and-xcode-cloud-in-a-production-app)
-- [Q63: How do you implement Frameworks for creating reusable Swift packages in a production app?](#q63-how-do-you-implement-frameworks-for-creating-reusable-swift-packages-in-a-production-app)
-- [Q64: How do you implement Core Data for managing persistent storage in a production app?](#q64-how-do-you-implement-core-data-for-managing-persistent-storage-in-a-production-app)
-- [Q65: How do you implement Combine for reactive programming streams in a production app?](#q65-how-do-you-implement-combine-for-reactive-programming-streams-in-a-production-app)
-- [Q66: How do you implement Auto Layout for programmatic UI constraints in a production app?](#q66-how-do-you-implement-auto-layout-for-programmatic-ui-constraints-in-a-production-app)
-- [Q67: How do you implement Generics for reusable type-safe code in a production app?](#q67-how-do-you-implement-generics-for-reusable-type-safe-code-in-a-production-app)
-- [Q68: How do you implement Closures for capturing values and escaping closures in a production app?](#q68-how-do-you-implement-closures-for-capturing-values-and-escaping-closures-in-a-production-app)
-- [Q69: How do you implement Structs vs Classes for value types vs reference types in a production app?](#q69-how-do-you-implement-structs-vs-classes-for-value-types-vs-reference-types-in-a-production-app)
-- [Q70: How do you implement Protocols for protocol oriented programming in a production app?](#q70-how-do-you-implement-protocols-for-protocol-oriented-programming-in-a-production-app)
-- [Q71: How do you implement Extensions for adding functionality to existing types in a production app?](#q71-how-do-you-implement-extensions-for-adding-functionality-to-existing-types-in-a-production-app)
-- [Q72: How do you implement Error Handling for do-try-catch patterns in a production app?](#q72-how-do-you-implement-error-handling-for-do-try-catch-patterns-in-a-production-app)
-- [Q73: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?](#q73-how-do-you-implement-collections-for-arrays-sets-and-dictionaries-performance-in-a-production-app)
-- [Q74: How do you implement Accessibility for VoiceOver and dynamic type in a production app?](#q74-how-do-you-implement-accessibility-for-voiceover-and-dynamic-type-in-a-production-app)
-- [Q75: How do you implement Localization for NSLocalizedString and string catalogs in a production app?](#q75-how-do-you-implement-localization-for-nslocalizedstring-and-string-catalogs-in-a-production-app)
-- [Q76: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?](#q76-how-do-you-implement-app-life-cycle-for-scenedelegate-and-appdelegate-in-a-production-app)
-- [Q77: How do you implement Testing for XCTest and UI testing in a production app?](#q77-how-do-you-implement-testing-for-xctest-and-ui-testing-in-a-production-app)
-- [Q78: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?](#q78-how-do-you-implement-cicd-for-fastlane-and-xcode-cloud-in-a-production-app)
-- [Q79: How do you implement Frameworks for creating reusable Swift packages in a production app?](#q79-how-do-you-implement-frameworks-for-creating-reusable-swift-packages-in-a-production-app)
-- [Q80: How do you implement Core Data for managing persistent storage in a production app?](#q80-how-do-you-implement-core-data-for-managing-persistent-storage-in-a-production-app)
-- [Q81: How do you implement Combine for reactive programming streams in a production app?](#q81-how-do-you-implement-combine-for-reactive-programming-streams-in-a-production-app)
-- [Q82: How do you implement Auto Layout for programmatic UI constraints in a production app?](#q82-how-do-you-implement-auto-layout-for-programmatic-ui-constraints-in-a-production-app)
-- [Q83: How do you implement Generics for reusable type-safe code in a production app?](#q83-how-do-you-implement-generics-for-reusable-type-safe-code-in-a-production-app)
-- [Q84: How do you implement Closures for capturing values and escaping closures in a production app?](#q84-how-do-you-implement-closures-for-capturing-values-and-escaping-closures-in-a-production-app)
-- [Q85: How do you implement Structs vs Classes for value types vs reference types in a production app?](#q85-how-do-you-implement-structs-vs-classes-for-value-types-vs-reference-types-in-a-production-app)
-- [Q86: How do you implement Protocols for protocol oriented programming in a production app?](#q86-how-do-you-implement-protocols-for-protocol-oriented-programming-in-a-production-app)
-- [Q87: How do you implement Extensions for adding functionality to existing types in a production app?](#q87-how-do-you-implement-extensions-for-adding-functionality-to-existing-types-in-a-production-app)
-- [Q88: How do you implement Error Handling for do-try-catch patterns in a production app?](#q88-how-do-you-implement-error-handling-for-do-try-catch-patterns-in-a-production-app)
-- [Q89: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?](#q89-how-do-you-implement-collections-for-arrays-sets-and-dictionaries-performance-in-a-production-app)
-- [Q90: How do you implement Accessibility for VoiceOver and dynamic type in a production app?](#q90-how-do-you-implement-accessibility-for-voiceover-and-dynamic-type-in-a-production-app)
-- [Q91: How do you implement Localization for NSLocalizedString and string catalogs in a production app?](#q91-how-do-you-implement-localization-for-nslocalizedstring-and-string-catalogs-in-a-production-app)
-- [Q92: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?](#q92-how-do-you-implement-app-life-cycle-for-scenedelegate-and-appdelegate-in-a-production-app)
-- [Q93: How do you implement Testing for XCTest and UI testing in a production app?](#q93-how-do-you-implement-testing-for-xctest-and-ui-testing-in-a-production-app)
-- [Q94: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?](#q94-how-do-you-implement-cicd-for-fastlane-and-xcode-cloud-in-a-production-app)
-- [Q95: How do you implement Frameworks for creating reusable Swift packages in a production app?](#q95-how-do-you-implement-frameworks-for-creating-reusable-swift-packages-in-a-production-app)
-- [Q96: How do you implement Core Data for managing persistent storage in a production app?](#q96-how-do-you-implement-core-data-for-managing-persistent-storage-in-a-production-app)
-- [Q97: How do you implement Combine for reactive programming streams in a production app?](#q97-how-do-you-implement-combine-for-reactive-programming-streams-in-a-production-app)
-- [Q98: How do you implement Auto Layout for programmatic UI constraints in a production app?](#q98-how-do-you-implement-auto-layout-for-programmatic-ui-constraints-in-a-production-app)
-- [Q99: How do you implement Generics for reusable type-safe code in a production app?](#q99-how-do-you-implement-generics-for-reusable-type-safe-code-in-a-production-app)
-- [Q100: How do you implement Closures for capturing values and escaping closures in a production app?](#q100-how-do-you-implement-closures-for-capturing-values-and-escaping-closures-in-a-production-app)
 
-### Q1: How do you debug and resolve a memory leak caused by a retain cycle in a Swift closure?
-
-**Difficulty**: Expert
-
-**Diagnosis:**
-1.  **Instruments:** Use the 'Leaks' and 'Allocations' instruments.
-2.  **Memory Graph Debugger:** Check for strong reference cycles in Xcode.
-
-**Resolution:**
-Use a `weak` or `unowned` reference in the closure's capture list.
-
-**Code Example:**
-```swift
-class NetworkManager {
-    var onCompletion: (() -> Void)?
-    
-    func fetchData() {
-        // Retain cycle if 'self' is captured strongly
-        onCompletion = { [weak self] in
-            guard let self = self else { return }
-            self.processData()
-        }
-    }
-    
-    func processData() {
-        print("Data processed")
-    }
-}
-```
+1. [How do you debug and resolve a memory leak caused by a retain cycle in a Swift closure?](#q1-how-do-you-debug-and-resolve-a-memory-leak-caused-by-a-retain-cycle-in-a-swift-closure) <span class="expert">Expert</span>
+2. [How do you implement a thread-safe counter using Swift Actors?](#q2-how-do-you-implement-a-thread-safe-counter-using-swift-actors) <span class="advanced">Advanced</span>
+3. [How do you efficiently handle large lists of data in SwiftUI to avoid performance issues?](#q3-how-do-you-efficiently-handle-large-lists-of-data-in-swiftui-to-avoid-performance-issues) <span class="intermediate">Intermediate</span>
+4. [How do you migrate legacy callback-based code to Swift Concurrency (async/await)?](#q4-how-do-you-migrate-legacy-callback-based-code-to-swift-concurrency-asyncawait) <span class="advanced">Advanced</span>
+5. [How do you inject dependencies into a SwiftUI view hierarchy without passing them through every initializer?](#q5-how-do-you-inject-dependencies-into-a-swiftui-view-hierarchy-without-passing-them-through-every-initializer) <span class="intermediate">Intermediate</span>
+6. [How do you implement custom error handling in a Swift network layer?](#q6-how-do-you-implement-custom-error-handling-in-a-swift-network-layer) <span class="intermediate">Intermediate</span>
+7. [How do you optimize the performance of a SwiftUI view that updates too frequently?](#q7-how-do-you-optimize-the-performance-of-a-swiftui-view-that-updates-too-frequently) <span class="advanced">Advanced</span>
+8. [How do you integrate a UIKit view (e.g., MKMapView) into a SwiftUI app?](#q8-how-do-you-integrate-a-uikit-view-eg-mkmapview-into-a-swiftui-app) <span class="intermediate">Intermediate</span>
+9. [How do you implement Unit Tests for a ViewModel with async network calls?](#q9-how-do-you-implement-unit-tests-for-a-viewmodel-with-async-network-calls) <span class="advanced">Advanced</span>
+10. [How do you handle deep linking in a SwiftUI application using the new NavigationStack?](#q10-how-do-you-handle-deep-linking-in-a-swiftui-application-using-the-new-navigationstack) <span class="advanced">Advanced</span>
+11. [How do you manage the lifecycle of an `@ObservedObject` vs `@StateObject`?](#q11-how-do-you-manage-the-lifecycle-of-an-observedobject-vs-stateobject) <span class="beginner">Beginner</span>
+12. [How do you implement custom property wrappers to validate user input automatically?](#q12-how-do-you-implement-custom-property-wrappers-to-validate-user-input-automatically) <span class="advanced">Advanced</span>
+13. [How do you use the `some` and `any` keywords in Swift generics?](#q13-how-do-you-use-the-some-and-any-keywords-in-swift-generics) <span class="advanced">Advanced</span>
+14. [How do you implement Codable for a JSON response with dynamic keys?](#q14-how-do-you-implement-codable-for-a-json-response-with-dynamic-keys) <span class="expert">Expert</span>
+15. [How do you force a SwiftUI view to redraw without changing its state?](#q15-how-do-you-force-a-swiftui-view-to-redraw-without-changing-its-state) <span class="intermediate">Intermediate</span>
+16. [How do you set up a basic Core Data Stack?](#q16-how-do-you-set-up-a-basic-core-data-stack) <span class="intermediate">Intermediate</span>
+17. [How do you use Combine to handle a text field input with debounce?](#q17-how-do-you-use-combine-to-handle-a-text-field-input-with-debounce) <span class="intermediate">Intermediate</span>
+18. [How do you create programmatic Auto Layout constraints?](#q18-how-do-you-create-programmatic-auto-layout-constraints) <span class="intermediate">Intermediate</span>
+19. [How do you write a generic function that works with any Numeric type?](#q19-how-do-you-write-a-generic-function-that-works-with-any-numeric-type) <span class="beginner">Beginner</span>
+20. [What is an escaping closure and when do you use it?](#q20-what-is-an-escaping-closure-and-when-do-you-use-it) <span class="intermediate">Intermediate</span>
+21. [How do Structs (Value Types) differ from Classes (Reference Types) in mutation?](#q21-how-do-structs-value-types-differ-from-classes-reference-types-in-mutation) <span class="beginner">Beginner</span>
+22. [How do you provide a default implementation for a Protocol method?](#q22-how-do-you-provide-a-default-implementation-for-a-protocol-method) <span class="intermediate">Intermediate</span>
+23. [How do you add a computed property to an existing type using Extensions?](#q23-how-do-you-add-a-computed-property-to-an-existing-type-using-extensions) <span class="beginner">Beginner</span>
+24. [How do you define and throw a custom Error?](#q24-how-do-you-define-and-throw-a-custom-error) <span class="beginner">Beginner</span>
+25. [Why is Set lookup faster than Array lookup?](#q25-why-is-set-lookup-faster-than-array-lookup) <span class="intermediate">Intermediate</span>
+26. [How do you support Dynamic Type (text scaling) in SwiftUI?](#q26-how-do-you-support-dynamic-type-text-scaling-in-swiftui) <span class="beginner">Beginner</span>
+27. [How do you localize strings using NSLocalizedString?](#q27-how-do-you-localize-strings-using-nslocalizedstring) <span class="beginner">Beginner</span>
+28. [What is the role of SceneDelegate vs AppDelegate?](#q28-what-is-the-role-of-scenedelegate-vs-appdelegate) <span class="intermediate">Intermediate</span>
+29. [How do you write an async unit test with XCTest?](#q29-how-do-you-write-an-async-unit-test-with-xctest) <span class="intermediate">Intermediate</span>
+30. [How do you configure a basic Fastfile for Fastlane?](#q30-how-do-you-configure-a-basic-fastfile-for-fastlane) <span class="intermediate">Intermediate</span>
+31. [How do you define dependencies in Swift Package Manager?](#q31-how-do-you-define-dependencies-in-swift-package-manager) <span class="beginner">Beginner</span>
+32. [How do you use `@MainActor` to ensure UI updates on the main thread?](#q32-how-do-you-use-mainactor-to-ensure-ui-updates-on-the-main-thread) <span class="intermediate">Intermediate</span>
+33. [When should you use the `defer` keyword?](#q33-when-should-you-use-the-defer-keyword) <span class="beginner">Beginner</span>
+34. [How do you use a `lazy` stored property?](#q34-how-do-you-use-a-lazy-stored-property) <span class="beginner">Beginner</span>
+35. [What is the difference between Computed and Stored properties?](#q35-what-is-the-difference-between-computed-and-stored-properties) <span class="beginner">Beginner</span>
+36. [What is the difference between `guard` and `if let`?](#q36-what-is-the-difference-between-guard-and-if-let) <span class="beginner">Beginner</span>
+37. [How do you handle custom date formats with Codable?](#q37-how-do-you-handle-custom-date-formats-with-codable) <span class="intermediate">Intermediate</span>
+38. [How do you use the `Result` type?](#q38-how-do-you-use-the-result-type) <span class="intermediate">Intermediate</span>
+39. [How do you use `map`, `filter`, and `reduce`?](#q39-how-do-you-use-map-filter-and-reduce) <span class="beginner">Beginner</span>
+40. [How do you use KeyPaths in Swift?](#q40-how-do-you-use-keypaths-in-swift) <span class="intermediate">Intermediate</span>
+41. [How do you implement the Singleton pattern correctly?](#q41-how-do-you-implement-the-singleton-pattern-correctly) <span class="beginner">Beginner</span>
+42. [How do you use `DispatchGroup` to wait for multiple async tasks?](#q42-how-do-you-use-dispatchgroup-to-wait-for-multiple-async-tasks) <span class="intermediate">Intermediate</span>
+43. [How do you use `OperationQueue` for dependent tasks?](#q43-how-do-you-use-operationqueue-for-dependent-tasks) <span class="advanced">Advanced</span>
+44. [How do you configure `URLSession` caching?](#q44-how-do-you-configure-urlsession-caching) <span class="intermediate">Intermediate</span>
+45. [How do you implement the Factory Pattern?](#q45-how-do-you-implement-the-factory-pattern) <span class="intermediate">Intermediate</span>
+46. [How do you implement the Observer Pattern using NotificationCenter?](#q46-how-do-you-implement-the-observer-pattern-using-notificationcenter) <span class="intermediate">Intermediate</span>
+47. [How do you use the Coordinator Pattern for navigation?](#q47-how-do-you-use-the-coordinator-pattern-for-navigation) <span class="advanced">Advanced</span>
+48. [How do you optimize memory using `autoreleasepool`?](#q48-how-do-you-optimize-memory-using-autoreleasepool) <span class="advanced">Advanced</span>
+49. [How do you check for API availability?](#q49-how-do-you-check-for-api-availability) <span class="beginner">Beginner</span>
+50. [How do you prevent a retain cycle in a Delegate?](#q50-how-do-you-prevent-a-retain-cycle-in-a-delegate) <span class="beginner">Beginner</span>
 
 ---
 
@@ -534,1533 +455,646 @@ struct ContentView: View {
 
 ---
 
-### Q16: How do you implement Core Data for managing persistent storage in a production app?
+### Q16: How do you set up a basic Core Data Stack?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Core Data by focusing on managing persistent storage. Ensure proper error handling and performance optimization.
+Initialize an `NSPersistentContainer`. Load persistent stores. Provide a `viewContext` for the main thread.
 
 **Code Example:**
-```swift
-// Example implementation for Core Data
-func implementCoreData() {
-    // Implementation details for managing persistent storage
-    print("Configuring Core Data...")
-}
-```
-
----
-
-### Q17: How do you implement Combine for reactive programming streams in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Combine by focusing on reactive programming streams. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Combine
-func implementCombine() {
-    // Implementation details for reactive programming streams
-    print("Configuring Combine...")
-}
-```
-
----
-
-### Q18: How do you implement Auto Layout for programmatic UI constraints in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Auto Layout by focusing on programmatic UI constraints. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Auto Layout
-func implementAutoLayout() {
-    // Implementation details for programmatic UI constraints
-    print("Configuring Auto Layout...")
-}
-```
-
----
-
-### Q19: How do you implement Generics for reusable type-safe code in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Generics by focusing on reusable type-safe code. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Generics
-func implementGenerics() {
-    // Implementation details for reusable type-safe code
-    print("Configuring Generics...")
-}
-```
-
----
-
-### Q20: How do you implement Closures for capturing values and escaping closures in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Closures by focusing on capturing values and escaping closures. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Closures
-func implementClosures() {
-    // Implementation details for capturing values and escaping closures
-    print("Configuring Closures...")
-}
-```
-
----
-
-### Q21: How do you implement Structs vs Classes for value types vs reference types in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Structs vs Classes by focusing on value types vs reference types. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Structs vs Classes
-func implementStructsvsClasses() {
-    // Implementation details for value types vs reference types
-    print("Configuring Structs vs Classes...")
-}
-```
-
----
-
-### Q22: How do you implement Protocols for protocol oriented programming in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Protocols by focusing on protocol oriented programming. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Protocols
-func implementProtocols() {
-    // Implementation details for protocol oriented programming
-    print("Configuring Protocols...")
-}
-```
-
----
-
-### Q23: How do you implement Extensions for adding functionality to existing types in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Extensions by focusing on adding functionality to existing types. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Extensions
-func implementExtensions() {
-    // Implementation details for adding functionality to existing types
-    print("Configuring Extensions...")
-}
-```
-
----
-
-### Q24: How do you implement Error Handling for do-try-catch patterns in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Error Handling by focusing on do-try-catch patterns. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Error Handling
-func implementErrorHandling() {
-    // Implementation details for do-try-catch patterns
-    print("Configuring Error Handling...")
-}
-```
-
----
-
-### Q25: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Collections by focusing on arrays, sets, and dictionaries performance. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Collections
-func implementCollections() {
-    // Implementation details for arrays, sets, and dictionaries performance
-    print("Configuring Collections...")
-}
-```
-
----
-
-### Q26: How do you implement Accessibility for VoiceOver and dynamic type in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Accessibility by focusing on VoiceOver and dynamic type. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Accessibility
-func implementAccessibility() {
-    // Implementation details for VoiceOver and dynamic type
-    print("Configuring Accessibility...")
-}
-```
-
----
-
-### Q27: How do you implement Localization for NSLocalizedString and string catalogs in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Localization by focusing on NSLocalizedString and string catalogs. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Localization
-func implementLocalization() {
-    // Implementation details for NSLocalizedString and string catalogs
-    print("Configuring Localization...")
-}
-```
-
----
-
-### Q28: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement App Life Cycle by focusing on SceneDelegate and AppDelegate. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for App Life Cycle
-func implementAppLifeCycle() {
-    // Implementation details for SceneDelegate and AppDelegate
-    print("Configuring App Life Cycle...")
-}
-```
-
----
-
-### Q29: How do you implement Testing for XCTest and UI testing in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Testing by focusing on XCTest and UI testing. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Testing
-func implementTesting() {
-    // Implementation details for XCTest and UI testing
-    print("Configuring Testing...")
-}
-```
-
----
-
-### Q30: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement CI/CD by focusing on Fastlane and Xcode Cloud. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for CI/CD
-func implementCI/CD() {
-    // Implementation details for Fastlane and Xcode Cloud
-    print("Configuring CI/CD...")
-}
-```
-
----
-
-### Q31: How do you implement Frameworks for creating reusable Swift packages in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Frameworks by focusing on creating reusable Swift packages. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Frameworks
-func implementFrameworks() {
-    // Implementation details for creating reusable Swift packages
-    print("Configuring Frameworks...")
-}
-```
-
----
-
-### Q32: How do you implement Core Data for managing persistent storage in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Core Data by focusing on managing persistent storage. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Core Data
-func implementCoreData() {
-    // Implementation details for managing persistent storage
-    print("Configuring Core Data...")
-}
-```
-
----
-
-### Q33: How do you implement Combine for reactive programming streams in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Combine by focusing on reactive programming streams. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Combine
-func implementCombine() {
-    // Implementation details for reactive programming streams
-    print("Configuring Combine...")
-}
-```
-
----
-
-### Q34: How do you implement Auto Layout for programmatic UI constraints in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Auto Layout by focusing on programmatic UI constraints. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Auto Layout
-func implementAutoLayout() {
-    // Implementation details for programmatic UI constraints
-    print("Configuring Auto Layout...")
-}
-```
-
----
-
-### Q35: How do you implement Generics for reusable type-safe code in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Generics by focusing on reusable type-safe code. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Generics
-func implementGenerics() {
-    // Implementation details for reusable type-safe code
-    print("Configuring Generics...")
-}
-```
-
----
-
-### Q36: How do you implement Closures for capturing values and escaping closures in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Closures by focusing on capturing values and escaping closures. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Closures
-func implementClosures() {
-    // Implementation details for capturing values and escaping closures
-    print("Configuring Closures...")
-}
-```
-
----
-
-### Q37: How do you implement Structs vs Classes for value types vs reference types in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Structs vs Classes by focusing on value types vs reference types. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Structs vs Classes
-func implementStructsvsClasses() {
-    // Implementation details for value types vs reference types
-    print("Configuring Structs vs Classes...")
-}
-```
-
----
-
-### Q38: How do you implement Protocols for protocol oriented programming in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Protocols by focusing on protocol oriented programming. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Protocols
-func implementProtocols() {
-    // Implementation details for protocol oriented programming
-    print("Configuring Protocols...")
-}
-```
-
----
-
-### Q39: How do you implement Extensions for adding functionality to existing types in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Extensions by focusing on adding functionality to existing types. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Extensions
-func implementExtensions() {
-    // Implementation details for adding functionality to existing types
-    print("Configuring Extensions...")
-}
-```
-
----
-
-### Q40: How do you implement Error Handling for do-try-catch patterns in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Error Handling by focusing on do-try-catch patterns. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Error Handling
-func implementErrorHandling() {
-    // Implementation details for do-try-catch patterns
-    print("Configuring Error Handling...")
-}
-```
-
----
-
-### Q41: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Collections by focusing on arrays, sets, and dictionaries performance. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Collections
-func implementCollections() {
-    // Implementation details for arrays, sets, and dictionaries performance
-    print("Configuring Collections...")
-}
-```
-
----
-
-### Q42: How do you implement Accessibility for VoiceOver and dynamic type in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Accessibility by focusing on VoiceOver and dynamic type. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Accessibility
-func implementAccessibility() {
-    // Implementation details for VoiceOver and dynamic type
-    print("Configuring Accessibility...")
-}
-```
-
----
-
-### Q43: How do you implement Localization for NSLocalizedString and string catalogs in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Localization by focusing on NSLocalizedString and string catalogs. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Localization
-func implementLocalization() {
-    // Implementation details for NSLocalizedString and string catalogs
-    print("Configuring Localization...")
-}
-```
-
----
-
-### Q44: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement App Life Cycle by focusing on SceneDelegate and AppDelegate. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for App Life Cycle
-func implementAppLifeCycle() {
-    // Implementation details for SceneDelegate and AppDelegate
-    print("Configuring App Life Cycle...")
-}
-```
-
----
-
-### Q45: How do you implement Testing for XCTest and UI testing in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Testing by focusing on XCTest and UI testing. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Testing
-func implementTesting() {
-    // Implementation details for XCTest and UI testing
-    print("Configuring Testing...")
-}
-```
-
----
-
-### Q46: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement CI/CD by focusing on Fastlane and Xcode Cloud. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for CI/CD
-func implementCI/CD() {
-    // Implementation details for Fastlane and Xcode Cloud
-    print("Configuring CI/CD...")
-}
-```
-
----
+import CoreData
 
-### Q47: How do you implement Frameworks for creating reusable Swift packages in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Frameworks by focusing on creating reusable Swift packages. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Frameworks
-func implementFrameworks() {
-    // Implementation details for creating reusable Swift packages
-    print("Configuring Frameworks...")
+class CoreDataStack {
+    static let shared = CoreDataStack()
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Model")
+        container.loadPersistentStores { _, error in
+            if let error = error { fatalError("Failed to load: \(error)") }
+        }
+        return container
+    }()
+    
+    var context: NSManagedObjectContext { persistentContainer.viewContext }
 }
-```
 
 ---
 
-### Q48: How do you implement Core Data for managing persistent storage in a production app?
+### Q17: How do you use Combine to handle a text field input with debounce?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Core Data by focusing on managing persistent storage. Ensure proper error handling and performance optimization.
+Use `@Published` property, listen to it with `$`, apply `debounce`, `removeDuplicates`, and `sink`.
 
 **Code Example:**
-```swift
-// Example implementation for Core Data
-func implementCoreData() {
-    // Implementation details for managing persistent storage
-    print("Configuring Core Data...")
+class ViewModel: ObservableObject {
+    @Published var text = ""
+    private var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        $text
+            .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
+            .removeDuplicates()
+            .sink { print("Search: \($0)") }
+            .store(in: &cancellables)
+    }
 }
-```
 
 ---
 
-### Q49: How do you implement Combine for reactive programming streams in a production app?
+### Q18: How do you create programmatic Auto Layout constraints?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Combine by focusing on reactive programming streams. Ensure proper error handling and performance optimization.
+Set `translatesAutoresizingMaskIntoConstraints = false`. Use `NSLayoutConstraint.activate` with anchors.
 
 **Code Example:**
-```swift
-// Example implementation for Combine
-func implementCombine() {
-    // Implementation details for reactive programming streams
-    print("Configuring Combine...")
-}
-```
-
----
-
-### Q50: How do you implement Auto Layout for programmatic UI constraints in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Auto Layout by focusing on programmatic UI constraints. Ensure proper error handling and performance optimization.
+let view = UIView()
+view.translatesAutoresizingMaskIntoConstraints = false
+parentView.addSubview(view)
 
-**Code Example:**
-```swift
-// Example implementation for Auto Layout
-func implementAutoLayout() {
-    // Implementation details for programmatic UI constraints
-    print("Configuring Auto Layout...")
-}
-```
+NSLayoutConstraint.activate([
+    view.centerXAnchor.constraint(equalTo: parentView.centerXAnchor),
+    view.centerYAnchor.constraint(equalTo: parentView.centerYAnchor),
+    view.widthAnchor.constraint(equalToConstant: 100),
+    view.heightAnchor.constraint(equalToConstant: 100)
+])
 
 ---
 
-### Q51: How do you implement Generics for reusable type-safe code in a production app?
+### Q19: How do you write a generic function that works with any Numeric type?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Generics by focusing on reusable type-safe code. Ensure proper error handling and performance optimization.
+Use a generic type parameter constrained to the `Numeric` protocol.
 
 **Code Example:**
-```swift
-// Example implementation for Generics
-func implementGenerics() {
-    // Implementation details for reusable type-safe code
-    print("Configuring Generics...")
+func square<T: Numeric>(_ value: T) -> T {
+    return value * value
 }
-```
-
----
-
-### Q52: How do you implement Closures for capturing values and escaping closures in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Closures by focusing on capturing values and escaping closures. Ensure proper error handling and performance optimization.
 
-**Code Example:**
-```swift
-// Example implementation for Closures
-func implementClosures() {
-    // Implementation details for capturing values and escaping closures
-    print("Configuring Closures...")
-}
-```
+print(square(5))       // 25
+print(square(5.5))     // 30.25
 
 ---
 
-### Q53: How do you implement Structs vs Classes for value types vs reference types in a production app?
+### Q20: What is an escaping closure and when do you use it?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Structs vs Classes by focusing on value types vs reference types. Ensure proper error handling and performance optimization.
+An `@escaping` closure is called *after* the function returns (e.g., async callbacks). Non-escaping is default.
 
 **Code Example:**
-```swift
-// Example implementation for Structs vs Classes
-func implementStructsvsClasses() {
-    // Implementation details for value types vs reference types
-    print("Configuring Structs vs Classes...")
+func fetchData(completion: @escaping (String) -> Void) {
+    DispatchQueue.global().async {
+        completion("Data") // Called later
+    }
 }
-```
 
 ---
 
-### Q54: How do you implement Protocols for protocol oriented programming in a production app?
+### Q21: How do Structs (Value Types) differ from Classes (Reference Types) in mutation?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Protocols by focusing on protocol oriented programming. Ensure proper error handling and performance optimization.
+Struct methods mutating properties must be marked `mutating`. Classes don't need this as they are reference types.
 
 **Code Example:**
-```swift
-// Example implementation for Protocols
-func implementProtocols() {
-    // Implementation details for protocol oriented programming
-    print("Configuring Protocols...")
+struct Point {
+    var x = 0
+    mutating func moveBy(delta: Int) {
+        x += delta
+    }
 }
-```
-
----
-
-### Q55: How do you implement Extensions for adding functionality to existing types in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Extensions by focusing on adding functionality to existing types. Ensure proper error handling and performance optimization.
 
-**Code Example:**
-```swift
-// Example implementation for Extensions
-func implementExtensions() {
-    // Implementation details for adding functionality to existing types
-    print("Configuring Extensions...")
+class Mover {
+    var x = 0
+    func moveBy(delta: Int) { // No mutating needed
+        x += delta
+    }
 }
-```
 
 ---
 
-### Q56: How do you implement Error Handling for do-try-catch patterns in a production app?
+### Q22: How do you provide a default implementation for a Protocol method?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Error Handling by focusing on do-try-catch patterns. Ensure proper error handling and performance optimization.
+Use a Protocol Extension.
 
 **Code Example:**
-```swift
-// Example implementation for Error Handling
-func implementErrorHandling() {
-    // Implementation details for do-try-catch patterns
-    print("Configuring Error Handling...")
+protocol Greeter {
+    func greet()
 }
-```
-
----
-
-### Q57: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Collections by focusing on arrays, sets, and dictionaries performance. Ensure proper error handling and performance optimization.
 
-**Code Example:**
-```swift
-// Example implementation for Collections
-func implementCollections() {
-    // Implementation details for arrays, sets, and dictionaries performance
-    print("Configuring Collections...")
+extension Greeter {
+    func greet() {
+        print("Hello")
+    }
 }
-```
-
----
-
-### Q58: How do you implement Accessibility for VoiceOver and dynamic type in a production app?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Accessibility by focusing on VoiceOver and dynamic type. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Accessibility
-func implementAccessibility() {
-    // Implementation details for VoiceOver and dynamic type
-    print("Configuring Accessibility...")
-}
-```
+struct Person: Greeter {}
+Person().greet() // "Hello" 
 
 ---
 
-### Q59: How do you implement Localization for NSLocalizedString and string catalogs in a production app?
+### Q23: How do you add a computed property to an existing type using Extensions?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Localization by focusing on NSLocalizedString and string catalogs. Ensure proper error handling and performance optimization.
+Extensions can add computed properties but not stored properties.
 
 **Code Example:**
-```swift
-// Example implementation for Localization
-func implementLocalization() {
-    // Implementation details for NSLocalizedString and string catalogs
-    print("Configuring Localization...")
+extension Double {
+    var km: Double { return this * 1000.0 }
+    var m: Double { return this }
 }
-```
-
----
-
-### Q60: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Implement App Life Cycle by focusing on SceneDelegate and AppDelegate. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for App Life Cycle
-func implementAppLifeCycle() {
-    // Implementation details for SceneDelegate and AppDelegate
-    print("Configuring App Life Cycle...")
-}
-```
+let distance = 5.0.km
 
 ---
 
-### Q61: How do you implement Testing for XCTest and UI testing in a production app?
+### Q24: How do you define and throw a custom Error?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Testing by focusing on XCTest and UI testing. Ensure proper error handling and performance optimization.
+Conform an enum to `Error` protocol. Use `throw` keyword.
 
 **Code Example:**
-```swift
-// Example implementation for Testing
-func implementTesting() {
-    // Implementation details for XCTest and UI testing
-    print("Configuring Testing...")
+enum ValidationError: Error {
+    case empty
 }
-```
-
----
-
-### Q62: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement CI/CD by focusing on Fastlane and Xcode Cloud. Ensure proper error handling and performance optimization.
 
-**Code Example:**
-```swift
-// Example implementation for CI/CD
-func implementCI/CD() {
-    // Implementation details for Fastlane and Xcode Cloud
-    print("Configuring CI/CD...")
+func validate(_ text: String) throws {
+    if text.isEmpty { throw ValidationError.empty }
 }
-```
-
----
-
-### Q63: How do you implement Frameworks for creating reusable Swift packages in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Frameworks by focusing on creating reusable Swift packages. Ensure proper error handling and performance optimization.
 
-**Code Example:**
-```swift
-// Example implementation for Frameworks
-func implementFrameworks() {
-    // Implementation details for creating reusable Swift packages
-    print("Configuring Frameworks...")
+do {
+    try validate("")
+} catch {
+    print(error)
 }
-```
 
 ---
 
-### Q64: How do you implement Core Data for managing persistent storage in a production app?
+### Q25: Why is Set lookup faster than Array lookup?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Core Data by focusing on managing persistent storage. Ensure proper error handling and performance optimization.
+Sets use hash tables (O(1) complexity), while Arrays require iterating through elements (O(n) complexity) to find a value.
 
 **Code Example:**
-```swift
-// Example implementation for Core Data
-func implementCoreData() {
-    // Implementation details for managing persistent storage
-    print("Configuring Core Data...")
-}
-```
-
----
-
-### Q65: How do you implement Combine for reactive programming streams in a production app?
-
-**Difficulty**: Intermediate
+let set: Set = [1, 2, 3]
+let array = [1, 2, 3]
 
-**Strategy:**
-Implement Combine by focusing on reactive programming streams. Ensure proper error handling and performance optimization.
+// O(1)
+set.contains(2) 
 
-**Code Example:**
-```swift
-// Example implementation for Combine
-func implementCombine() {
-    // Implementation details for reactive programming streams
-    print("Configuring Combine...")
-}
-```
+// O(n)
+array.contains(2)
 
 ---
 
-### Q66: How do you implement Auto Layout for programmatic UI constraints in a production app?
+### Q26: How do you support Dynamic Type (text scaling) in SwiftUI?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Auto Layout by focusing on programmatic UI constraints. Ensure proper error handling and performance optimization.
+Use standard fonts (`.body`, `.headline`) or `scaledMetric`. SwiftUI handles scaling automatically.
 
 **Code Example:**
-```swift
-// Example implementation for Auto Layout
-func implementAutoLayout() {
-    // Implementation details for programmatic UI constraints
-    print("Configuring Auto Layout...")
-}
-```
-
----
-
-### Q67: How do you implement Generics for reusable type-safe code in a production app?
+Text("Scalable Text")
+    .font(.body) // Scales with system settings
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Generics by focusing on reusable type-safe code. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Generics
-func implementGenerics() {
-    // Implementation details for reusable type-safe code
-    print("Configuring Generics...")
-}
-```
+@ScaledMetric var size: CGFloat = 20
+Image(systemName: "star").frame(width: size, height: size)
 
 ---
 
-### Q68: How do you implement Closures for capturing values and escaping closures in a production app?
+### Q27: How do you localize strings using NSLocalizedString?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Closures by focusing on capturing values and escaping closures. Ensure proper error handling and performance optimization.
+Use `NSLocalizedString` with a key and comment. Provide `Localizable.strings` files for languages.
 
 **Code Example:**
-```swift
-// Example implementation for Closures
-func implementClosures() {
-    // Implementation details for capturing values and escaping closures
-    print("Configuring Closures...")
-}
-```
+let greeting = NSLocalizedString("hello_key", comment: "Greeting")
 
----
-
-### Q69: How do you implement Structs vs Classes for value types vs reference types in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Structs vs Classes by focusing on value types vs reference types. Ensure proper error handling and performance optimization.
+// Localizable.strings (en)
+// "hello_key" = "Hello";
 
-**Code Example:**
-```swift
-// Example implementation for Structs vs Classes
-func implementStructsvsClasses() {
-    // Implementation details for value types vs reference types
-    print("Configuring Structs vs Classes...")
-}
-```
+// Localizable.strings (es)
+// "hello_key" = "Hola";
 
 ---
 
-### Q70: How do you implement Protocols for protocol oriented programming in a production app?
+### Q28: What is the role of SceneDelegate vs AppDelegate?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Protocols by focusing on protocol oriented programming. Ensure proper error handling and performance optimization.
+AppDelegate handles app-level lifecycle (launch, termination). SceneDelegate (iOS 13+) handles UI lifecycle (foreground, background) for multi-window support.
 
 **Code Example:**
-```swift
-// Example implementation for Protocols
-func implementProtocols() {
-    // Implementation details for protocol oriented programming
-    print("Configuring Protocols...")
+// SceneDelegate.swift
+func sceneDidBecomeActive(_ scene: UIScene) {
+    // UI is active
 }
-```
-
----
-
-### Q71: How do you implement Extensions for adding functionality to existing types in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Extensions by focusing on adding functionality to existing types. Ensure proper error handling and performance optimization.
 
-**Code Example:**
-```swift
-// Example implementation for Extensions
-func implementExtensions() {
-    // Implementation details for adding functionality to existing types
-    print("Configuring Extensions...")
+// AppDelegate.swift
+func application(_ app: UIApplication, didFinishLaunchingWithOptions...) {
+    // App launched
 }
-```
 
 ---
 
-### Q72: How do you implement Error Handling for do-try-catch patterns in a production app?
+### Q29: How do you write an async unit test with XCTest?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Error Handling by focusing on do-try-catch patterns. Ensure proper error handling and performance optimization.
+Mark the test method as `async` and use `await`.
 
 **Code Example:**
-```swift
-// Example implementation for Error Handling
-func implementErrorHandling() {
-    // Implementation details for do-try-catch patterns
-    print("Configuring Error Handling...")
+func testAsyncFetch() async throws {
+    let data = try await service.fetch()
+    XCTAssertNotNil(data)
 }
-```
 
 ---
 
-### Q73: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?
+### Q30: How do you configure a basic Fastfile for Fastlane?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Collections by focusing on arrays, sets, and dictionaries performance. Ensure proper error handling and performance optimization.
+Define lanes in `Fastfile` (Ruby) to automate tasks like testing and beta deployment.
 
 **Code Example:**
-```swift
-// Example implementation for Collections
-func implementCollections() {
-    // Implementation details for arrays, sets, and dictionaries performance
-    print("Configuring Collections...")
-}
-```
-
----
-
-### Q74: How do you implement Accessibility for VoiceOver and dynamic type in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Accessibility by focusing on VoiceOver and dynamic type. Ensure proper error handling and performance optimization.
+default_platform(:ios)
 
-**Code Example:**
-```swift
-// Example implementation for Accessibility
-func implementAccessibility() {
-    // Implementation details for VoiceOver and dynamic type
-    print("Configuring Accessibility...")
-}
-```
+platform :ios do
+  lane :beta do
+    build_app(scheme: "MyApp")
+    upload_to_testflight
+  end
+  
+  lane :tests do
+    run_tests(scheme: "MyApp")
+  end
+end
 
 ---
 
-### Q75: How do you implement Localization for NSLocalizedString and string catalogs in a production app?
+### Q31: How do you define dependencies in Swift Package Manager?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Localization by focusing on NSLocalizedString and string catalogs. Ensure proper error handling and performance optimization.
+Edit `Package.swift` and add dependencies in the `dependencies` array.
 
 **Code Example:**
-```swift
-// Example implementation for Localization
-func implementLocalization() {
-    // Implementation details for NSLocalizedString and string catalogs
-    print("Configuring Localization...")
-}
-```
+dependencies: [
+    .package(url: "https://github.com/Alamofire/Alamofire.git", .upToNextMajor(from: "5.0.0"))
+],
+targets: [
+    .target(name: "MyApp", dependencies: ["Alamofire"])
+]
 
 ---
 
-### Q76: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?
+### Q32: How do you use `@MainActor` to ensure UI updates on the main thread?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement App Life Cycle by focusing on SceneDelegate and AppDelegate. Ensure proper error handling and performance optimization.
+Annotate a class, function, or property with `@MainActor`. The compiler enforces main thread execution.
 
 **Code Example:**
-```swift
-// Example implementation for App Life Cycle
-func implementAppLifeCycle() {
-    // Implementation details for SceneDelegate and AppDelegate
-    print("Configuring App Life Cycle...")
+@MainActor
+class ViewModel: ObservableObject {
+    @Published var data = ""
+    
+    func update() {
+        data = "Updated" // Guaranteed main thread
+    }
 }
-```
 
 ---
 
-### Q77: How do you implement Testing for XCTest and UI testing in a production app?
+### Q33: When should you use the `defer` keyword?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Testing by focusing on XCTest and UI testing. Ensure proper error handling and performance optimization.
+Use `defer` to execute code just before the current scope exits (cleanup, closing files/locks). Executed in reverse order of declaration.
 
 **Code Example:**
-```swift
-// Example implementation for Testing
-func implementTesting() {
-    // Implementation details for XCTest and UI testing
-    print("Configuring Testing...")
+func process() {
+    print("Start")
+    defer { print("Cleanup") }
+    print("Work")
 }
-```
+// Output: Start, Work, Cleanup
 
 ---
 
-### Q78: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?
+### Q34: How do you use a `lazy` stored property?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement CI/CD by focusing on Fastlane and Xcode Cloud. Ensure proper error handling and performance optimization.
+Mark a property as `lazy var`. It is initialized only when first accessed. Must be mutable (`var`).
 
 **Code Example:**
-```swift
-// Example implementation for CI/CD
-func implementCI/CD() {
-    // Implementation details for Fastlane and Xcode Cloud
-    print("Configuring CI/CD...")
+class Manager {
+    lazy var importer = Importer() // Expensive creation
 }
-```
 
 ---
 
-### Q79: How do you implement Frameworks for creating reusable Swift packages in a production app?
+### Q35: What is the difference between Computed and Stored properties?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Frameworks by focusing on creating reusable Swift packages. Ensure proper error handling and performance optimization.
+Stored properties store a value in memory. Computed properties calculate a value every time they are accessed.
 
 **Code Example:**
-```swift
-// Example implementation for Frameworks
-func implementFrameworks() {
-    // Implementation details for creating reusable Swift packages
-    print("Configuring Frameworks...")
+struct Rect {
+    var width = 0.0 // Stored
+    var height = 0.0
+    
+    var area: Double { // Computed
+        return width * height
+    }
 }
-```
 
 ---
 
-### Q80: How do you implement Core Data for managing persistent storage in a production app?
+### Q36: What is the difference between `guard` and `if let`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Core Data by focusing on managing persistent storage. Ensure proper error handling and performance optimization.
+`if let` unwrap optionals for a specific block. `guard let` unwrap optionals for the rest of the scope and requires an early exit (`return`, `throw`) if it fails.
 
 **Code Example:**
-```swift
-// Example implementation for Core Data
-func implementCoreData() {
-    // Implementation details for managing persistent storage
-    print("Configuring Core Data...")
+func printName(_ name: String?) {
+    guard let name = name else { return }
+    print(name) // Available here
 }
-```
 
 ---
 
-### Q81: How do you implement Combine for reactive programming streams in a production app?
+### Q37: How do you handle custom date formats with Codable?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Combine by focusing on reactive programming streams. Ensure proper error handling and performance optimization.
+Set `dateDecodingStrategy` on `JSONDecoder`.
 
 **Code Example:**
-```swift
-// Example implementation for Combine
-func implementCombine() {
-    // Implementation details for reactive programming streams
-    print("Configuring Combine...")
-}
-```
+let decoder = JSONDecoder()
+let formatter = DateFormatter()
+formatter.dateFormat = "yyyy-MM-dd"
+decoder.dateDecodingStrategy = .formatted(formatter)
 
 ---
 
-### Q82: How do you implement Auto Layout for programmatic UI constraints in a production app?
+### Q38: How do you use the `Result` type?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Auto Layout by focusing on programmatic UI constraints. Ensure proper error handling and performance optimization.
+`Result<Success, Failure>` is an enum representing success or failure. Useful for completion handlers.
 
 **Code Example:**
-```swift
-// Example implementation for Auto Layout
-func implementAutoLayout() {
-    // Implementation details for programmatic UI constraints
-    print("Configuring Auto Layout...")
+func fetch(completion: (Result<String, Error>) -> Void) {
+    if success { completion(.success("Data")) }
+    else { completion(.failure(MyError.fail)) }
 }
-```
 
 ---
 
-### Q83: How do you implement Generics for reusable type-safe code in a production app?
+### Q39: How do you use `map`, `filter`, and `reduce`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Generics by focusing on reusable type-safe code. Ensure proper error handling and performance optimization.
+Functional methods for collections. `map` transforms, `filter` selects, `reduce` combines.
 
 **Code Example:**
-```swift
-// Example implementation for Generics
-func implementGenerics() {
-    // Implementation details for reusable type-safe code
-    print("Configuring Generics...")
-}
-```
+let nums = [1, 2, 3, 4]
+let squaredEvens = nums.filter { $0 % 2 == 0 }.map { $0 * $0 }
+let sum = nums.reduce(0, +)
 
 ---
 
-### Q84: How do you implement Closures for capturing values and escaping closures in a production app?
+### Q40: How do you use KeyPaths in Swift?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Closures by focusing on capturing values and escaping closures. Ensure proper error handling and performance optimization.
+KeyPaths allow referring to a property without accessing it. Syntax: `\Type.property`.
 
 **Code Example:**
-```swift
-// Example implementation for Closures
-func implementClosures() {
-    // Implementation details for capturing values and escaping closures
-    print("Configuring Closures...")
-}
-```
+struct User { var name: String }
+let users = [User(name: "A"), User(name: "B")]
+let names = users.map(\.name)
 
 ---
 
-### Q85: How do you implement Structs vs Classes for value types vs reference types in a production app?
+### Q41: How do you implement the Singleton pattern correctly?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Structs vs Classes by focusing on value types vs reference types. Ensure proper error handling and performance optimization.
+Use a `static let shared` property and a `private init()` to prevent external instantiation.
 
 **Code Example:**
-```swift
-// Example implementation for Structs vs Classes
-func implementStructsvsClasses() {
-    // Implementation details for value types vs reference types
-    print("Configuring Structs vs Classes...")
+class Settings {
+    static let shared = Settings()
+    private init() {}
 }
-```
 
 ---
 
-### Q86: How do you implement Protocols for protocol oriented programming in a production app?
+### Q42: How do you use `DispatchGroup` to wait for multiple async tasks?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Protocols by focusing on protocol oriented programming. Ensure proper error handling and performance optimization.
+Use `enter()`, `leave()`, and `notify()`. `notify` block runs when enter/leave counts balance.
 
 **Code Example:**
-```swift
-// Example implementation for Protocols
-func implementProtocols() {
-    // Implementation details for protocol oriented programming
-    print("Configuring Protocols...")
-}
-```
+let group = DispatchGroup()
 
----
-
-### Q87: How do you implement Extensions for adding functionality to existing types in a production app?
-
-**Difficulty**: Intermediate
+group.enter()
+asyncTask1 { group.leave() }
 
-**Strategy:**
-Implement Extensions by focusing on adding functionality to existing types. Ensure proper error handling and performance optimization.
+group.enter()
+asyncTask2 { group.leave() }
 
-**Code Example:**
-```swift
-// Example implementation for Extensions
-func implementExtensions() {
-    // Implementation details for adding functionality to existing types
-    print("Configuring Extensions...")
+group.notify(queue: .main) {
+    print("All done")
 }
-```
 
 ---
 
-### Q88: How do you implement Error Handling for do-try-catch patterns in a production app?
+### Q43: How do you use `OperationQueue` for dependent tasks?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement Error Handling by focusing on do-try-catch patterns. Ensure proper error handling and performance optimization.
+Create `Operation` objects and use `addDependency`.
 
 **Code Example:**
-```swift
-// Example implementation for Error Handling
-func implementErrorHandling() {
-    // Implementation details for do-try-catch patterns
-    print("Configuring Error Handling...")
-}
-```
+let queue = OperationQueue()
+let op1 = BlockOperation { print("1") }
+let op2 = BlockOperation { print("2") }
 
----
-
-### Q89: How do you implement Collections for arrays, sets, and dictionaries performance in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Collections by focusing on arrays, sets, and dictionaries performance. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Collections
-func implementCollections() {
-    // Implementation details for arrays, sets, and dictionaries performance
-    print("Configuring Collections...")
-}
-```
+op2.addDependency(op1) // op1 runs first
+queue.addOperations([op1, op2], waitUntilFinished: false)
 
 ---
 
-### Q90: How do you implement Accessibility for VoiceOver and dynamic type in a production app?
+### Q44: How do you configure `URLSession` caching?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Accessibility by focusing on VoiceOver and dynamic type. Ensure proper error handling and performance optimization.
+Use `URLCache` and configure `URLSessionConfiguration`.
 
 **Code Example:**
-```swift
-// Example implementation for Accessibility
-func implementAccessibility() {
-    // Implementation details for VoiceOver and dynamic type
-    print("Configuring Accessibility...")
-}
-```
+let config = URLSessionConfiguration.default
+config.requestCachePolicy = .returnCacheDataElseLoad
+config.urlCache = URLCache(memoryCapacity: 50*1024*1024, diskCapacity: 0)
+let session = URLSession(configuration: config)
 
 ---
 
-### Q91: How do you implement Localization for NSLocalizedString and string catalogs in a production app?
+### Q45: How do you implement the Factory Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Localization by focusing on NSLocalizedString and string catalogs. Ensure proper error handling and performance optimization.
+Use a factory class/method to create objects without exposing instantiation logic.
 
 **Code Example:**
-```swift
-// Example implementation for Localization
-func implementLocalization() {
-    // Implementation details for NSLocalizedString and string catalogs
-    print("Configuring Localization...")
-}
-```
-
----
-
-### Q92: How do you implement App Life Cycle for SceneDelegate and AppDelegate in a production app?
-
-**Difficulty**: Intermediate
+protocol Button { func render() }
+class IOSButton: Button { func render() {} }
+class AndroidButton: Button { func render() {} }
 
-**Strategy:**
-Implement App Life Cycle by focusing on SceneDelegate and AppDelegate. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for App Life Cycle
-func implementAppLifeCycle() {
-    // Implementation details for SceneDelegate and AppDelegate
-    print("Configuring App Life Cycle...")
+class ButtonFactory {
+    static func create(type: String) -> Button {
+        return type == "iOS" ? IOSButton() : AndroidButton()
+    }
 }
-```
 
 ---
 
-### Q93: How do you implement Testing for XCTest and UI testing in a production app?
+### Q46: How do you implement the Observer Pattern using NotificationCenter?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Implement Testing by focusing on XCTest and UI testing. Ensure proper error handling and performance optimization.
+Post notifications and add observers. Remember to remove observers (though simpler in iOS 9+).
 
 **Code Example:**
-```swift
-// Example implementation for Testing
-func implementTesting() {
-    // Implementation details for XCTest and UI testing
-    print("Configuring Testing...")
-}
-```
-
----
-
-### Q94: How do you implement CI/CD for Fastlane and Xcode Cloud in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement CI/CD by focusing on Fastlane and Xcode Cloud. Ensure proper error handling and performance optimization.
+NotificationCenter.default.post(name: .myNotif, object: nil)
 
-**Code Example:**
-```swift
-// Example implementation for CI/CD
-func implementCI/CD() {
-    // Implementation details for Fastlane and Xcode Cloud
-    print("Configuring CI/CD...")
+NotificationCenter.default.addObserver(forName: .myNotif, object: nil, queue: .main) { _ in
+    print("Received")
 }
-```
 
 ---
 
-### Q95: How do you implement Frameworks for creating reusable Swift packages in a production app?
+### Q47: How do you use the Coordinator Pattern for navigation?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement Frameworks by focusing on creating reusable Swift packages. Ensure proper error handling and performance optimization.
+Delegate navigation responsibility to a Coordinator object instead of ViewControllers pushing others directly.
 
 **Code Example:**
-```swift
-// Example implementation for Frameworks
-func implementFrameworks() {
-    // Implementation details for creating reusable Swift packages
-    print("Configuring Frameworks...")
+protocol Coordinator {
+    var nav: UINavigationController { get }
+    func start()
 }
-```
-
----
-
-### Q96: How do you implement Core Data for managing persistent storage in a production app?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Core Data by focusing on managing persistent storage. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Core Data
-func implementCoreData() {
-    // Implementation details for managing persistent storage
-    print("Configuring Core Data...")
+class MainCoordinator: Coordinator {
+    var nav: UINavigationController
+    init(nav: UINavigationController) { self.nav = nav }
+    
+    func start() {
+        let vc = ViewController()
+        vc.coordinator = self
+        nav.pushViewController(vc, animated: false)
+    }
 }
-```
 
 ---
 
-### Q97: How do you implement Combine for reactive programming streams in a production app?
+### Q48: How do you optimize memory using `autoreleasepool`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Implement Combine by focusing on reactive programming streams. Ensure proper error handling and performance optimization.
+Use `autoreleasepool` inside loops creating many temporary objects to free memory immediately.
 
 **Code Example:**
-```swift
-// Example implementation for Combine
-func implementCombine() {
-    // Implementation details for reactive programming streams
-    print("Configuring Combine...")
+for _ in 0..<10000 {
+    autoreleasepool {
+        let image = UIImage(named: "large")
+        // Process image
+    } // image released here
 }
-```
 
 ---
 
-### Q98: How do you implement Auto Layout for programmatic UI constraints in a production app?
+### Q49: How do you check for API availability?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Auto Layout by focusing on programmatic UI constraints. Ensure proper error handling and performance optimization.
+Use `#available` check.
 
 **Code Example:**
-```swift
-// Example implementation for Auto Layout
-func implementAutoLayout() {
-    // Implementation details for programmatic UI constraints
-    print("Configuring Auto Layout...")
+if #available(iOS 15, *) {
+    // Use iOS 15 APIs
+} else {
+    // Fallback
 }
-```
 
 ---
 
-### Q99: How do you implement Generics for reusable type-safe code in a production app?
+### Q50: How do you prevent a retain cycle in a Delegate?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Implement Generics by focusing on reusable type-safe code. Ensure proper error handling and performance optimization.
+Mark the delegate property as `weak`.
 
 **Code Example:**
-```swift
-// Example implementation for Generics
-func implementGenerics() {
-    // Implementation details for reusable type-safe code
-    print("Configuring Generics...")
+protocol MyDelegate: AnyObject {
+    func didSomething()
 }
-```
 
----
-
-### Q100: How do you implement Closures for capturing values and escaping closures in a production app?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Implement Closures by focusing on capturing values and escaping closures. Ensure proper error handling and performance optimization.
-
-**Code Example:**
-```swift
-// Example implementation for Closures
-func implementClosures() {
-    // Implementation details for capturing values and escaping closures
-    print("Configuring Closures...")
+class MyClass {
+    weak var delegate: MyDelegate?
 }
-```
 
 ---
 

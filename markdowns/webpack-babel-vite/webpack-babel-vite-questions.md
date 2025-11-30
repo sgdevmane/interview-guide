@@ -1,113 +1,57 @@
 # Webpack, Babel, & Vite Interview Questions
 
 ## Table of Contents
-1. [You are migrating a legacy React project from Webpack to Vite to improve development server start time. The project relies on CommonJS modules (`require`). How do you handle this in Vite?](#q1-you-are-migrating-a-legacy-react-project-from-webpack-to-vite-to-improve-development-server-start-time.-the-project-relies-on-commonjs-modules-require.-how-do-you-handle-this-in-vite)
-2. [Your Webpack bundle size has grown too large (5MB+), causing slow initial page loads. How do you use `SplitChunksPlugin` to optimize this?](#q2-your-webpack-bundle-size-has-grown-too-large-5mb+-causing-slow-initial-page-loads.-how-do-you-use-splitchunksplugin-to-optimize-this)
-3. [You need to support Internet Explorer 11 in a modern JavaScript application. How do you configure Babel to ensure your code runs there without transpiling everything unnecessarily for modern browsers?](#q3-you-need-to-support-internet-explorer-11-in-a-modern-javascript-application.-how-do-you-configure-babel-to-ensure-your-code-runs-there-without-transpiling-everything-unnecessarily-for-modern-browsers)
-4. [How do you optimize Tree Shaking in Webpack by marking side effects?](#q4-how-do-you-optimize-tree-shaking-in-webpack-by-marking-side-effects)
-5. [How does Vite achieve instant server start times compared to Webpack?](#q5-how-does-vite-achieve-instant-server-start-times-compared-to-webpack)
-6. [You are building a Micro Frontends architecture. How do you configure Webpack Module Federation to expose a component?](#q6-you-are-building-a-micro-frontends-architecture.-how-do-you-configure-webpack-module-federation-to-expose-a-component)
-7. [How do you combine Babel Plugins to create a custom Preset?](#q7-how-do-you-combine-babel-plugins-to-create-a-custom-preset)
-8. [You encounter a 'CORS' error when your frontend (localhost:3000) tries to call your API (localhost:5000). How do you fix this using Webpack Dev Server proxy?](#q8-you-encounter-a-cors-error-when-your-frontend-localhost3000-tries-to-call-your-api-localhost5000.-how-do-you-fix-this-using-webpack-dev-server-proxy)
-9. [How do you debug a large bundle to find out which libraries are taking up the most space?](#q9-how-do-you-debug-a-large-bundle-to-find-out-which-libraries-are-taking-up-the-most-space)
-10. [How do you enable Hot Module Replacement (HMR) manually in Webpack?](#q10-how-do-you-enable-hot-module-replacement-hmr-manually-in-webpack)
-11. [You are using environment variables in your frontend code. Why does `process.env.API_KEY` work in Node.js but fail in the browser, and how do you fix it?](#q11-you-are-using-environment-variables-in-your-frontend-code.-why-does-process.env.api_key-work-in-node.js-but-fail-in-the-browser-and-how-do-you-fix-it)
-12. [How do you configure secure Source Maps for production debugging without exposing source code?](#q12-how-do-you-configure-secure-source-maps-for-production-debugging-without-exposing-source-code)
-13. [How do you implement 'Path Aliases' (e.g., importing from `@components/Button` instead of `../../components/Button`)?](#q13-how-do-you-implement-path-aliases-e.g.-importing-from-@components-button-instead-of-..-..-components-button)
-14. [How do you write a custom Babel Plugin using AST transformation?](#q14-how-do-you-write-a-custom-babel-plugin-using-ast-transformation)
-15. [How do you use Webpack's `ProvidePlugin` to shim global variables like jQuery?](#q15-how-do-you-use-webpacks-provideplugin-to-shim-global-variables-like-jquery)
-16. [How do you configure Webpack to handle CSS Modules?](#q16-how-do-you-configure-webpack-to-handle-css-modules)
-17. [How do you use PostCSS with Webpack?](#q17-how-do-you-use-postcss-with-webpack)
-18. [How do you implement Critical CSS extraction?](#q18-how-do-you-implement-critical-css-extraction)
-19. [How do you configure Browserslist for different environments?](#q19-how-do-you-configure-browserslist-for-different-environments)
-20. [How do you use `url-loader` vs `file-loader` (or Asset Modules) for images?](#q20-how-do-you-use-url-loader-vs-file-loader-or-asset-modules-for-images)
-21. [How do you optimize images using `image-webpack-loader`?](#q21-how-do-you-optimize-images-using-image-webpack-loader)
-22. [How do you configure Webpack to support TypeScript?](#q22-how-do-you-configure-webpack-to-support-typescript)
-23. [How do you use `fork-ts-checker-webpack-plugin` for faster type checking?](#q23-how-do-you-use-fork-ts-checker-webpack-plugin-for-faster-type-checking)
-24. [How do you generate a PWA Service Worker using WorkboxWebpackPlugin?](#q24-how-do-you-generate-a-pwa-service-worker-using-workboxwebpackplugin)
-25. [How do you configure Webpack for multi-page applications (MPA)?](#q25-how-do-you-configure-webpack-for-multi-page-applications-mpa)
-26. [How do you use `HtmlWebpackPlugin` to inject bundles into HTML?](#q26-how-do-you-use-htmlwebpackplugin-to-inject-bundles-into-html)
-27. [How do you implement SRI (Subresource Integrity) in Webpack?](#q27-how-do-you-implement-sri-subresource-integrity-in-webpack)
-28. [How do you use `CopyWebpackPlugin` to move static assets?](#q28-how-do-you-use-copywebpackplugin-to-move-static-assets)
-29. [How do you clean the build folder before each build?](#q29-how-do-you-clean-the-build-folder-before-each-build)
-30. [How do you extract CSS into separate files using `MiniCssExtractPlugin`?](#q30-how-do-you-extract-css-into-separate-files-using-minicssextractplugin)
-31. [How do you configure Webpack Dev Server for HTTPS?](#q31-how-do-you-configure-webpack-dev-server-for-https)
-32. [How do you use `DefinePlugin` to set feature flags?](#q32-how-do-you-use-defineplugin-to-set-feature-flags)
-33. [How do you ignore specific modules using `IgnorePlugin` (e.g., Moment locales)?](#q33-how-do-you-ignore-specific-modules-using-ignoreplugin-e.g.-moment-locales)
-34. [How do you use `DllPlugin` to speed up development builds?](#q34-how-do-you-use-dllplugin-to-speed-up-development-builds)
-35. [How do you profile the Webpack build speed?](#q35-how-do-you-profile-the-webpack-build-speed)
-36. [How do you use Webpack 5 Module Federation for dynamic remotes?](#q36-how-do-you-use-webpack-5-module-federation-for-dynamic-remotes)
-37. [How do you configure Vite for a library build (lib mode)?](#q37-how-do-you-configure-vite-for-a-library-build-lib-mode)
-38. [How do you use Vite plugins (e.g., `vite-plugin-pwa`)?](#q38-how-do-you-use-vite-plugins-e.g.-vite-plugin-pwa)
-39. [How do you configure Vite aliases?](#q39-how-do-you-configure-vite-aliases)
-40. [How do you proxy requests in Vite?](#q40-how-do-you-proxy-requests-in-vite)
-41. [How do you use environment variables in Vite (`import.meta.env`)?](#q41-how-do-you-use-environment-variables-in-vite-import.meta.env)
-42. [How do you configure Vite for Server-Side Rendering (SSR)?](#q42-how-do-you-configure-vite-for-server-side-rendering-ssr)
-43. [How do you migrate from Create React App to Vite?](#q43-how-do-you-migrate-from-create-react-app-to-vite)
-44. [How do you use `esbuild` directly for simple bundling tasks?](#q44-how-do-you-use-esbuild-directly-for-simple-bundling-tasks)
-45. [How do you configure Rollup for packaging a JS library?](#q45-how-do-you-configure-rollup-for-packaging-a-js-library)
-46. [How do you use Rollup plugins?](#q46-how-do-you-use-rollup-plugins)
-47. [How do you configure Babel to support experimental syntax (Decorators)?](#q47-how-do-you-configure-babel-to-support-experimental-syntax-decorators)
-48. [How do you use `babel-node` for running scripts?](#q48-how-do-you-use-babel-node-for-running-scripts)
-49. [How do you cache Babel compilation results?](#q49-how-do-you-cache-babel-compilation-results)
-50. [How do you configure ESLint with Prettier to avoid conflicts?](#q50-how-do-you-configure-eslint-with-prettier-to-avoid-conflicts)
-51. [How do you write a custom ESLint rule?](#q51-how-do-you-write-a-custom-eslint-rule)
-52. [How do you use `lint-staged` with Husky?](#q52-how-do-you-use-lint-staged-with-husky)
-53. [How do you enforce commit message conventions with Commitlint?](#q53-how-do-you-enforce-commit-message-conventions-with-commitlint)
-54. [How do you use `npm-run-all` to run scripts in parallel?](#q54-how-do-you-use-npm-run-all-to-run-scripts-in-parallel)
-55. [How do you configure `lerna` or `nx` for a monorepo?](#q55-how-do-you-configure-lerna-or-nx-for-a-monorepo)
-56. [How do you use Yarn Workspaces?](#q56-how-do-you-use-yarn-workspaces)
-57. [How do you prevent phantom dependencies with pnpm?](#q57-how-do-you-prevent-phantom-dependencies-with-pnpm)
-58. [How do you audit npm dependencies for security vulnerabilities?](#q58-how-do-you-audit-npm-dependencies-for-security-vulnerabilities)
-59. [How do you override a nested dependency version (resolutions)?](#q59-how-do-you-override-a-nested-dependency-version-resolutions)
-60. [How do you publish a package to npm?](#q60-how-do-you-publish-a-package-to-npm)
-61. [How do you create a scoped npm package?](#q61-how-do-you-create-a-scoped-npm-package)
-62. [How do you link a local package for development (`npm link`)?](#q62-how-do-you-link-a-local-package-for-development-npm-link)
-63. [How do you use `.npmrc` to configure registry URL?](#q63-how-do-you-use-.npmrc-to-configure-registry-url)
-64. [How do you setup Semantic Release for automated versioning?](#q64-how-do-you-setup-semantic-release-for-automated-versioning)
-65. [How do you configure GitHub Actions for CI/CD?](#q65-how-do-you-configure-github-actions-for-ci-cd)
-66. [How do you cache `node_modules` in GitHub Actions?](#q66-how-do-you-cache-node_modules-in-github-actions)
-67. [How do you run tests in parallel in CI?](#q67-how-do-you-run-tests-in-parallel-in-ci)
-68. [How do you deploy a static site to Netlify via CLI?](#q68-how-do-you-deploy-a-static-site-to-netlify-via-cli)
-69. [How do you deploy to Vercel using their CLI?](#q69-how-do-you-deploy-to-vercel-using-their-cli)
-70. [How do you containerize a Node.js app with Docker?](#q70-how-do-you-containerize-a-node.js-app-with-docker)
-71. [How do you optimize Docker image size for Node.js apps?](#q71-how-do-you-optimize-docker-image-size-for-node.js-apps)
-72. [How do you use multi-stage Docker builds?](#q72-how-do-you-use-multi-stage-docker-builds)
-73. [How do you configure Nginx as a reverse proxy for a Node app?](#q73-how-do-you-configure-nginx-as-a-reverse-proxy-for-a-node-app)
-74. [How do you enable Gzip compression in Nginx?](#q74-how-do-you-enable-gzip-compression-in-nginx)
-75. [How do you serve static assets from an S3 bucket?](#q75-how-do-you-serve-static-assets-from-an-s3-bucket)
-76. [How do you invalidate CloudFront cache after deployment?](#q76-how-do-you-invalidate-cloudfront-cache-after-deployment)
-77. [How do you implement Blue/Green deployment?](#q77-how-do-you-implement-blue-green-deployment)
-78. [How do you use Feature Toggles in build configuration?](#q78-how-do-you-use-feature-toggles-in-build-configuration)
-79. [How do you handle secrets in CI/CD pipelines?](#q79-how-do-you-handle-secrets-in-ci-cd-pipelines)
-80. [How do you verify the integrity of downloaded npm packages?](#q80-how-do-you-verify-the-integrity-of-downloaded-npm-packages)
-81. [How do you use `nvm` to manage Node versions?](#q81-how-do-you-use-nvm-to-manage-node-versions)
-82. [How do you debug a memory leak in the build process?](#q82-how-do-you-debug-a-memory-leak-in-the-build-process)
-83. [How do you use `node --inspect` to debug build scripts?](#q83-how-do-you-use-node---inspect-to-debug-build-scripts)
-84. [How do you generate a license report for dependencies?](#q84-how-do-you-generate-a-license-report-for-dependencies)
-85. [How do you check for circular dependencies?](#q85-how-do-you-check-for-circular-dependencies)
-86. [How do you remove console logs in production build?](#q86-how-do-you-remove-console-logs-in-production-build)
-87. [How do you inline small images as Base64 URLs?](#q87-how-do-you-inline-small-images-as-base64-urls)
-88. [How do you configure Webpack to use a CDN for public path?](#q88-how-do-you-configure-webpack-to-use-a-cdn-for-public-path)
-89. [How do you use `preload-webpack-plugin`?](#q89-how-do-you-use-preload-webpack-plugin)
-90. [How do you implement 'Prefetching' for future routes?](#q90-how-do-you-implement-prefetching-for-future-routes)
-91. [How do you use `webpack-merge` to split config files?](#q91-how-do-you-use-webpack-merge-to-split-config-files)
-92. [How do you create a custom Webpack loader?](#q92-how-do-you-create-a-custom-webpack-loader)
-93. [How do you use `style-loader` vs `css-loader`?](#q93-how-do-you-use-style-loader-vs-css-loader)
-94. [How do you configure CSS Modules localIdentName?](#q94-how-do-you-configure-css-modules-localidentname)
-95. [How do you use `postcss-preset-env`?](#q95-how-do-you-use-postcss-preset-env)
-96. [How do you configure PurgeCSS to remove unused CSS?](#q96-how-do-you-configure-purgecss-to-remove-unused-css)
-97. [How do you polyfill `fetch` in older browsers?](#q97-how-do-you-polyfill-fetch-in-older-browsers)
-98. [How do you use `core-js` version 3?](#q98-how-do-you-use-core-js-version-3)
-99. [How do you transpile `node_modules` if needed?](#q99-how-do-you-transpile-node_modules-if-needed)
-100. [How do you configure Babel for React (JSX)?](#q100-how-do-you-configure-babel-for-react-jsx)
-101. [How do you configure Babel for TypeScript?](#q101-how-do-you-configure-babel-for-typescript)
-102. [How do you use `babel-plugin-import` for UI libraries?](#q102-how-do-you-use-babel-plugin-import-for-ui-libraries)
-103. [How do you optimize moment.js bundle size?](#q103-how-do-you-optimize-moment.js-bundle-size)
-104. [How do you replace moment.js with date-fns or dayjs?](#q104-how-do-you-replace-moment.js-with-date-fns-or-dayjs)
-105. [How do you use `swc-loader` for faster builds?](#q105-how-do-you-use-swc-loader-for-faster-builds)
-106. [How do you use Parcel for zero-config builds?](#q106-how-do-you-use-parcel-for-zero-config-builds)
-107. [How do you configure Gulp for task automation?](#q107-how-do-you-configure-gulp-for-task-automation)
+
+1. [You are migrating a legacy React project from Webpack to Vite to improve development server start time. The project relies on CommonJS modules (`require`). How do you handle this in Vite?](#q1-you-are-migrating-a-legacy-react-project-from-webpack-to-vite-to-improve-development-server-start-time-the-project-relies-on-commonjs-modules-require-how-do-you-handle-this-in-vite) <span class="intermediate">Intermediate</span>
+2. [Your Webpack bundle size has grown too large (5MB+), causing slow initial page loads. How do you use `SplitChunksPlugin` to optimize this?](#q2-your-webpack-bundle-size-has-grown-too-large-5mb-causing-slow-initial-page-loads-how-do-you-use-splitchunksplugin-to-optimize-this) <span class="intermediate">Intermediate</span>
+3. [You need to support Internet Explorer 11 in a modern JavaScript application. How do you configure Babel to ensure your code runs there without transpiling everything unnecessarily for modern browsers?](#q3-you-need-to-support-internet-explorer-11-in-a-modern-javascript-application-how-do-you-configure-babel-to-ensure-your-code-runs-there-without-transpiling-everything-unnecessarily-for-modern-browsers) <span class="intermediate">Intermediate</span>
+4. [How do you optimize Tree Shaking in Webpack by marking side effects?](#q4-how-do-you-optimize-tree-shaking-in-webpack-by-marking-side-effects) <span class="intermediate">Intermediate</span>
+5. [How does Vite achieve instant server start times compared to Webpack?](#q5-how-does-vite-achieve-instant-server-start-times-compared-to-webpack) <span class="intermediate">Intermediate</span>
+6. [You are building a Micro Frontends architecture. How do you configure Webpack Module Federation to expose a component?](#q6-you-are-building-a-micro-frontends-architecture-how-do-you-configure-webpack-module-federation-to-expose-a-component) <span class="intermediate">Intermediate</span>
+7. [How do you combine Babel Plugins to create a custom Preset?](#q7-how-do-you-combine-babel-plugins-to-create-a-custom-preset) <span class="intermediate">Intermediate</span>
+8. [You encounter a 'CORS' error when your frontend (localhost:3000) tries to call your API (localhost:5000). How do you fix this using Webpack Dev Server proxy?](#q8-you-encounter-a-cors-error-when-your-frontend-localhost3000-tries-to-call-your-api-localhost5000-how-do-you-fix-this-using-webpack-dev-server-proxy) <span class="intermediate">Intermediate</span>
+9. [How do you debug a large bundle to find out which libraries are taking up the most space?](#q9-how-do-you-debug-a-large-bundle-to-find-out-which-libraries-are-taking-up-the-most-space) <span class="intermediate">Intermediate</span>
+10. [How do you enable Hot Module Replacement (HMR) manually in Webpack?](#q10-how-do-you-enable-hot-module-replacement-hmr-manually-in-webpack) <span class="intermediate">Intermediate</span>
+11. [You are using environment variables in your frontend code. Why does `process.env.API_KEY` work in Node.js but fail in the browser, and how do you fix it?](#q11-you-are-using-environment-variables-in-your-frontend-code-why-does-processenvapi_key-work-in-nodejs-but-fail-in-the-browser-and-how-do-you-fix-it) <span class="intermediate">Intermediate</span>
+12. [How do you configure secure Source Maps for production debugging without exposing source code?](#q12-how-do-you-configure-secure-source-maps-for-production-debugging-without-exposing-source-code) <span class="intermediate">Intermediate</span>
+13. [How do you implement 'Path Aliases' (e.g., importing from `@components/Button` instead of `../../components/Button`)?](#q13-how-do-you-implement-path-aliases-eg-importing-from-componentsbutton-instead-of-componentsbutton) <span class="intermediate">Intermediate</span>
+14. [How do you write a custom Babel Plugin using AST transformation?](#q14-how-do-you-write-a-custom-babel-plugin-using-ast-transformation) <span class="intermediate">Intermediate</span>
+15. [How do you use Webpack's `ProvidePlugin` to shim global variables like jQuery?](#q15-how-do-you-use-webpacks-provideplugin-to-shim-global-variables-like-jquery) <span class="intermediate">Intermediate</span>
+16. [How do you configure Webpack to use CSS Modules?](#q16-how-do-you-configure-webpack-to-use-css-modules) <span class="intermediate">Intermediate</span>
+17. [How do you set up PostCSS with Webpack?](#q17-how-do-you-set-up-postcss-with-webpack) <span class="intermediate">Intermediate</span>
+18. [How do you handle images and fonts in Webpack 5 (Asset Modules)?](#q18-how-do-you-handle-images-and-fonts-in-webpack-5-asset-modules) <span class="beginner">Beginner</span>
+19. [Should you use `ts-loader` or `babel-loader` for TypeScript?](#q19-should-you-use-ts-loader-or-babel-loader-for-typescript) <span class="intermediate">Intermediate</span>
+20. [How do you inject the bundle into HTML automatically?](#q20-how-do-you-inject-the-bundle-into-html-automatically) <span class="beginner">Beginner</span>
+21. [How do you use `DefinePlugin` to pass environment variables?](#q21-how-do-you-use-defineplugin-to-pass-environment-variables) <span class="intermediate">Intermediate</span>
+22. [How do you extract CSS into separate files for production?](#q22-how-do-you-extract-css-into-separate-files-for-production) <span class="intermediate">Intermediate</span>
+23. [How do you copy static assets (like favicon) to the build folder?](#q23-how-do-you-copy-static-assets-like-favicon-to-the-build-folder) <span class="beginner">Beginner</span>
+24. [How do you configure a Proxy in Webpack Dev Server?](#q24-how-do-you-configure-a-proxy-in-webpack-dev-server) <span class="intermediate">Intermediate</span>
+25. [What is Webpack Module Federation?](#q25-what-is-webpack-module-federation) <span class="advanced">Advanced</span>
+26. [How do you build a library using Vite?](#q26-how-do-you-build-a-library-using-vite) <span class="intermediate">Intermediate</span>
+27. [How do you access Environment Variables in Vite?](#q27-how-do-you-access-environment-variables-in-vite) <span class="beginner">Beginner</span>
+28. [How do you configure a Proxy in Vite?](#q28-how-do-you-configure-a-proxy-in-vite) <span class="intermediate">Intermediate</span>
+29. [How do you import multiple files at once in Vite (Glob Import)?](#q29-how-do-you-import-multiple-files-at-once-in-vite-glob-import) <span class="intermediate">Intermediate</span>
+30. [How do you enable Server-Side Rendering (SSR) in Vite?](#q30-how-do-you-enable-server-side-rendering-ssr-in-vite) <span class="advanced">Advanced</span>
+31. [How do you specify target browsers in Babel?](#q31-how-do-you-specify-target-browsers-in-babel) <span class="beginner">Beginner</span>
+32. [In what order do Babel plugins run?](#q32-in-what-order-do-babel-plugins-run) <span class="advanced">Advanced</span>
+33. [Why use `@babel/plugin-transform-runtime`?](#q33-why-use-babelplugin-transform-runtime) <span class="intermediate">Intermediate</span>
+34. [How do you configure Babel for React?](#q34-how-do-you-configure-babel-for-react) <span class="beginner">Beginner</span>
+35. [How do you configure Babel for TypeScript?](#q35-how-do-you-configure-babel-for-typescript) <span class="beginner">Beginner</span>
+36. [How does Rollup's Tree Shaking compare to Webpack?](#q36-how-does-rollups-tree-shaking-compare-to-webpack) <span class="advanced">Advanced</span>
+37. [What are the common Output Formats (CJS, ESM, UMD)?](#q37-what-are-the-common-output-formats-cjs-esm-umd) <span class="beginner">Beginner</span>
+38. [Why is esbuild so fast?](#q38-why-is-esbuild-so-fast) <span class="intermediate">Intermediate</span>
+39. [How do you setup `lint-staged` and `husky`?](#q39-how-do-you-setup-lint-staged-and-husky) <span class="intermediate">Intermediate</span>
+40. [How do you enforce Conventional Commits?](#q40-how-do-you-enforce-conventional-commits) <span class="intermediate">Intermediate</span>
+41. [How do you run npm scripts in parallel?](#q41-how-do-you-run-npm-scripts-in-parallel) <span class="beginner">Beginner</span>
+42. [How do you setup Yarn Workspaces for a monorepo?](#q42-how-do-you-setup-yarn-workspaces-for-a-monorepo) <span class="intermediate">Intermediate</span>
+43. [What is Nx or Turborepo used for?](#q43-what-is-nx-or-turborepo-used-for) <span class="advanced">Advanced</span>
+44. [Why use `pnpm` over `npm` or `yarn`?](#q44-why-use-pnpm-over-npm-or-yarn) <span class="intermediate">Intermediate</span>
+45. [How do you automate semantic versioning and publishing?](#q45-how-do-you-automate-semantic-versioning-and-publishing) <span class="advanced">Advanced</span>
+46. [How do you cache `node_modules` in GitHub Actions?](#q46-how-do-you-cache-node_modules-in-github-actions) <span class="intermediate">Intermediate</span>
+47. [How do you optimize a Docker build for Node.js app?](#q47-how-do-you-optimize-a-docker-build-for-nodejs-app) <span class="intermediate">Intermediate</span>
+48. [How do you visualize the Webpack bundle size?](#q48-how-do-you-visualize-the-webpack-bundle-size) <span class="beginner">Beginner</span>
+49. [How do you visualize the Vite/Rollup bundle size?](#q49-how-do-you-visualize-the-viterollup-bundle-size) <span class="beginner">Beginner</span>
+50. [How do you manually polyfill features using `core-js`?](#q50-how-do-you-manually-polyfill-features-using-core-js) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -512,1015 +456,617 @@ Now you can use `$('#item')` in any file without importing jQuery.
 
 ---
 
-### Q16: How do you configure Webpack to handle CSS Modules?
+### Q16: How do you configure Webpack to use CSS Modules?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+Enable the `modules` option in `css-loader`. This scopes CSS class names locally.
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+module: {
+  rules: [
+    {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            modules: true, // Enable CSS Modules
+          },
+        },
+      ],
+    },
+  ],
+}
 
----
-
-### Q17: How do you use PostCSS with Webpack?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q18: How do you implement Critical CSS extraction?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q19: How do you configure Browserslist for different environments?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q20: How do you use `url-loader` vs `file-loader` (or Asset Modules) for images?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q21: How do you optimize images using `image-webpack-loader`?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q22: How do you configure Webpack to support TypeScript?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q23: How do you use `fork-ts-checker-webpack-plugin` for faster type checking?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q24: How do you generate a PWA Service Worker using WorkboxWebpackPlugin?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q25: How do you configure Webpack for multi-page applications (MPA)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q26: How do you use `HtmlWebpackPlugin` to inject bundles into HTML?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q27: How do you implement SRI (Subresource Integrity) in Webpack?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q28: How do you use `CopyWebpackPlugin` to move static assets?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q29: How do you clean the build folder before each build?
-
-**Difficulty: Intermediate**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q30: How do you extract CSS into separate files using `MiniCssExtractPlugin`?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q31: How do you configure Webpack Dev Server for HTTPS?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q32: How do you use `DefinePlugin` to set feature flags?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q33: How do you ignore specific modules using `IgnorePlugin` (e.g., Moment locales)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q34: How do you use `DllPlugin` to speed up development builds?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q35: How do you profile the Webpack build speed?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
 ---
 
-### Q36: How do you use Webpack 5 Module Federation for dynamic remotes?
+### Q17: How do you set up PostCSS with Webpack?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+Use `postcss-loader`. Create a `postcss.config.js` file to define plugins like `autoprefixer` or `tailwindcss`.
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+// webpack.config.js
+use: ['style-loader', 'css-loader', 'postcss-loader']
 
----
-
-### Q37: How do you configure Vite for a library build (lib mode)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q38: How do you use Vite plugins (e.g., `vite-plugin-pwa`)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q39: How do you configure Vite aliases?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
+// postcss.config.js
+module.exports = {
+  plugins: [require('autoprefixer')],
+}
 
-### Q40: How do you proxy requests in Vite?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
-
-### Q41: How do you use environment variables in Vite (`import.meta.env`)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
 ---
 
-### Q42: How do you configure Vite for Server-Side Rendering (SSR)?
+### Q18: How do you handle images and fonts in Webpack 5 (Asset Modules)?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+Use `type: 'asset/resource'` (file), `asset/inline` (base64), or `asset` (auto). No more `file-loader` needed.
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+rules: [
+  {
+    test: /\.(png|jpg|gif)$/,
+    type: 'asset/resource',
+  },
+  {
+    test: /\.svg$/,
+    type: 'asset/inline',
+  }
+]
 
----
-
-### Q43: How do you migrate from Create React App to Vite?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q44: How do you use `esbuild` directly for simple bundling tasks?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
+### Q19: Should you use `ts-loader` or `babel-loader` for TypeScript?
 
-### Q45: How do you configure Rollup for packaging a JS library?
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+- `ts-loader`: Handles type checking during build (slower).
+- `babel-loader` (@babel/preset-typescript): Transpiles only (faster), no type checking. Use `fork-ts-checker-webpack-plugin` for types.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+// Recommended for speed:
+use: ['babel-loader'],
+plugins: [new ForkTsCheckerWebpackPlugin()]
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q46: How do you use Rollup plugins?
+### Q20: How do you inject the bundle into HTML automatically?
 
-**Difficulty: Intermediate**
+**Difficulty**: Beginner
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+Use `HtmlWebpackPlugin`. It generates an `index.html` with the correct `<script>` tags.
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+plugins: [
+  new HtmlWebpackPlugin({
+    template: './src/index.html',
+  }),
+]
 
----
-
-### Q47: How do you configure Babel to support experimental syntax (Decorators)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q48: How do you use `babel-node` for running scripts?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
 
----
+### Q21: How do you use `DefinePlugin` to pass environment variables?
 
-### Q49: How do you cache Babel compilation results?
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+Use `webpack.DefinePlugin`. Remember to stringify the values.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+new webpack.DefinePlugin({
+  'process.env.API_URL': JSON.stringify('https://api.example.com'),
+  'process.env.VERSION': JSON.stringify('1.0.0'),
+})
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q50: How do you configure ESLint with Prettier to avoid conflicts?
 
-**Difficulty: Intermediate**
+### Q22: How do you extract CSS into separate files for production?
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
+**Difficulty**: Intermediate
 
-### Q51: How do you write a custom ESLint rule?
+**Strategy:**
+Use `MiniCssExtractPlugin.loader` instead of `style-loader` in production mode.
 
-**Difficulty: Intermediate**
+**Code Example:**
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+use: [MiniCssExtractPlugin.loader, 'css-loader'],
+plugins: [new MiniCssExtractPlugin()]
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you use `lint-staged` with Husky?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
+### Q23: How do you copy static assets (like favicon) to the build folder?
 
-### Q53: How do you enforce commit message conventions with Commitlint?
+**Difficulty**: Beginner
 
-**Difficulty: Intermediate**
+**Strategy:**
+Use `CopyWebpackPlugin`.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+new CopyWebpackPlugin({
+  patterns: [
+    { from: 'public/favicon.ico', to: 'favicon.ico' },
+  ],
+})
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q54: How do you use `npm-run-all` to run scripts in parallel?
+### Q24: How do you configure a Proxy in Webpack Dev Server?
 
-**Difficulty: Intermediate**
+**Difficulty**: Intermediate
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+Set `devServer.proxy` to forward API requests to your backend, avoiding CORS issues during dev.
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+devServer: {
+  proxy: {
+    '/api': 'http://localhost:3000',
+  },
+}
 
----
-
-### Q55: How do you configure `lerna` or `nx` for a monorepo?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q56: How do you use Yarn Workspaces?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
 
----
+### Q25: What is Webpack Module Federation?
 
-### Q57: How do you prevent phantom dependencies with pnpm?
+**Difficulty**: Advanced
 
-**Difficulty: Intermediate**
+**Strategy:**
+It allows multiple independent builds to share code (components, libraries) at runtime. Key for Micro-Frontends.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+new ModuleFederationPlugin({
+  name: 'app1',
+  exposes: {
+    './Button': './src/Button',
+  },
+  shared: ['react', 'react-dom'],
+})
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q58: How do you audit npm dependencies for security vulnerabilities?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
 
----
+### Q26: How do you build a library using Vite?
 
-### Q59: How do you override a nested dependency version (resolutions)?
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+Configure `build.lib` in `vite.config.js`. Specify entry and formats (es, cjs).
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+build: {
+  lib: {
+    entry: path.resolve(__dirname, 'src/main.ts'),
+    name: 'MyLib',
+    fileName: (format) => `my-lib.${format}.js`
+  }
+}
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q60: How do you publish a package to npm?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
 
----
+### Q27: How do you access Environment Variables in Vite?
 
-### Q61: How do you create a scoped npm package?
+**Difficulty**: Beginner
 
-**Difficulty: Intermediate**
+**Strategy:**
+Use `import.meta.env`. Variables must be prefixed with `VITE_` (except built-ins like `MODE`, `BASE_URL`).
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+console.log(import.meta.env.VITE_API_KEY);
+console.log(import.meta.env.MODE); // 'development' or 'production'
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q62: How do you link a local package for development (`npm link`)?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-[Back to Top](#table-of-contents)
+### Q28: How do you configure a Proxy in Vite?
 
----
-
-### Q63: How do you use `.npmrc` to configure registry URL?
+**Difficulty**: Intermediate
 
-**Difficulty: Intermediate**
+**Strategy:**
+Use `server.proxy` in `vite.config.js`.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+server: {
+  proxy: {
+    '/api': {
+      target: 'http://localhost:5000',
+      changeOrigin: true,
+      rewrite: (path) => path.replace(/^\/api/, '')
+    }
+  }
+}
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q64: How do you setup Semantic Release for automated versioning?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-[Back to Top](#table-of-contents)
+### Q29: How do you import multiple files at once in Vite (Glob Import)?
 
----
+**Difficulty**: Intermediate
 
-### Q65: How do you configure GitHub Actions for CI/CD?
+**Strategy:**
+Use `import.meta.glob`. It returns an object with keys as file paths and values as dynamic import functions.
 
-**Difficulty: Intermediate**
+**Code Example:**
+const modules = import.meta.glob('./dir/*.js');
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+for (const path in modules) {
+  modules[path]().then((mod) => {
+    console.log(path, mod);
+  });
+}
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q66: How do you cache `node_modules` in GitHub Actions?
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
 
----
+### Q30: How do you enable Server-Side Rendering (SSR) in Vite?
 
-### Q67: How do you run tests in parallel in CI?
+**Difficulty**: Advanced
 
-**Difficulty: Beginner**
+**Strategy:**
+Use `vite.ssrLoadModule` in your Node.js server to load the entry point. Build with `--ssr` flag.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+// server.js
+const { createServer } = require('vite');
+const vite = await createServer({ server: { middlewareMode: true } });
+const { render } = await vite.ssrLoadModule('/src/entry-server.js');
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q68: How do you deploy a static site to Netlify via CLI?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
 
----
+### Q31: How do you specify target browsers in Babel?
 
-### Q69: How do you deploy to Vercel using their CLI?
+**Difficulty**: Beginner
 
-**Difficulty: Beginner**
+**Strategy:**
+Use the `targets` option in `@babel/preset-env` or a `.browserslistrc` file.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+["@babel/preset-env", {
+  "targets": "> 0.25%, not dead"
+}]
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q70: How do you containerize a Node.js app with Docker?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-[Back to Top](#table-of-contents)
+### Q32: In what order do Babel plugins run?
 
----
-
-### Q71: How do you optimize Docker image size for Node.js apps?
+**Difficulty**: Advanced
 
-**Difficulty: Beginner**
+**Strategy:**
+Plugins run **before** Presets. Plugins run **first to last**. Presets run **last to first** (reverse order).
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+// plugins: [A, B] -> A runs then B
+// presets: [C, D] -> D runs then C
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q72: How do you use multi-stage Docker builds?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-[Back to Top](#table-of-contents)
+### Q33: Why use `@babel/plugin-transform-runtime`?
 
----
-
-### Q73: How do you configure Nginx as a reverse proxy for a Node app?
+**Difficulty**: Intermediate
 
-**Difficulty: Beginner**
+**Strategy:**
+It reuses Babel's injected helper code (like classCallCheck) from a shared module instead of duplicating it in every file, reducing bundle size.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+plugins: [
+  ["@babel/plugin-transform-runtime", { "corejs": 3 }]
+]
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q74: How do you enable Gzip compression in Nginx?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-[Back to Top](#table-of-contents)
+### Q34: How do you configure Babel for React?
 
----
-
-### Q75: How do you serve static assets from an S3 bucket?
+**Difficulty**: Beginner
 
-**Difficulty: Beginner**
+**Strategy:**
+Use `@babel/preset-react`. Enable the new JSX transform (`runtime: 'automatic'`) to avoid importing React.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+["@babel/preset-react", {
+  "runtime": "automatic"
+}]
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q76: How do you invalidate CloudFront cache after deployment?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
 
-[Back to Top](#table-of-contents)
+### Q35: How do you configure Babel for TypeScript?
 
----
-
-### Q77: How do you implement Blue/Green deployment?
+**Difficulty**: Beginner
 
-**Difficulty: Beginner**
+**Strategy:**
+Use `@babel/preset-typescript`. It strips type annotations.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+presets: [
+  "@babel/preset-env",
+  "@babel/preset-typescript"
+]
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-### Q78: How do you use Feature Toggles in build configuration?
-
-**Difficulty: Beginner**
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+### Q36: How does Rollup's Tree Shaking compare to Webpack?
 
-[Back to Top](#table-of-contents)
+**Difficulty**: Advanced
 
----
-
-### Q79: How do you handle secrets in CI/CD pipelines?
+**Strategy:**
+Rollup relies on ESM structure and statically analyzes the code graph to exclude unused exports. It's generally considered more efficient for libraries (flat bundling) than Webpack.
 
-**Difficulty: Beginner**
+**Code Example:**
+// Rollup config
+output: {
+  format: 'es',
+  // Tree shaking is enabled by default
+}
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q80: How do you verify the integrity of downloaded npm packages?
-
-**Difficulty: Beginner**
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+### Q37: What are the common Output Formats (CJS, ESM, UMD)?
 
-[Back to Top](#table-of-contents)
+**Difficulty**: Beginner
 
----
-
-### Q81: How do you use `nvm` to manage Node versions?
+**Strategy:**
+- **CJS**: CommonJS (Node.js).
+- **ESM**: ES Modules (Modern Browsers, Bundlers).
+- **UMD**: Universal (Browser script tag + Node).
+- **IIFE**: Immediately Invoked Function (Browser script tag).
 
-**Difficulty: Beginner**
+**Code Example:**
+// Library authors typically distribute both ESM and CJS.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q82: How do you debug a memory leak in the build process?
-
-**Difficulty: Beginner**
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+### Q38: Why is esbuild so fast?
 
-[Back to Top](#table-of-contents)
+**Difficulty**: Intermediate
 
----
-
-### Q83: How do you use `node --inspect` to debug build scripts?
+**Strategy:**
+It's written in Go (compiled to machine code), utilizes parallelism heavily, and avoids expensive AST transformations where possible.
 
-**Difficulty: Beginner**
+**Code Example:**
+// Vite uses esbuild for pre-bundling dependencies.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q84: How do you generate a license report for dependencies?
-
-**Difficulty: Beginner**
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+### Q39: How do you setup `lint-staged` and `husky`?
 
-[Back to Top](#table-of-contents)
+**Difficulty**: Intermediate
 
----
-
-### Q85: How do you check for circular dependencies?
+**Strategy:**
+Install them. Configure `lint-staged` in package.json to run linters only on changed files. Use Husky to trigger the pre-commit hook.
 
-**Difficulty: Beginner**
+**Code Example:**
+// package.json
+"lint-staged": {
+  "*.js": "eslint --fix"
+}
+// .husky/pre-commit
+npx lint-staged
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q86: How do you remove console logs in production build?
 
-**Difficulty: Beginner**
+### Q40: How do you enforce Conventional Commits?
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Difficulty**: Intermediate
 
-[Back to Top](#table-of-contents)
+**Strategy:**
+Use `@commitlint/cli` and `@commitlint/config-conventional` with a `commit-msg` Husky hook.
 
----
-
-### Q87: How do you inline small images as Base64 URLs?
+**Code Example:**
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
 
-**Difficulty: Beginner**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q88: How do you configure Webpack to use a CDN for public path?
 
-**Difficulty: Beginner**
+### Q41: How do you run npm scripts in parallel?
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Difficulty**: Beginner
 
-[Back to Top](#table-of-contents)
+**Strategy:**
+Use `npm-run-all` (or `concurrently`).
 
----
-
-### Q89: How do you use `preload-webpack-plugin`?
+**Code Example:**
+// package.json
+"dev": "npm-run-all --parallel server client" 
 
-**Difficulty: Beginner**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q90: How do you implement 'Prefetching' for future routes?
 
-**Difficulty: Beginner**
+### Q42: How do you setup Yarn Workspaces for a monorepo?
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Difficulty**: Intermediate
 
-[Back to Top](#table-of-contents)
+**Strategy:**
+Set `private: true` and define `workspaces` array in root `package.json`.
 
----
-
-### Q91: How do you use `webpack-merge` to split config files?
+**Code Example:**
+{
+  "private": true,
+  "workspaces": ["packages/*"]
+}
 
-**Difficulty: Beginner**
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
 ---
-
-### Q92: How do you create a custom Webpack loader?
 
-**Difficulty: Beginner**
+### Q43: What is Nx or Turborepo used for?
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Difficulty**: Advanced
 
-[Back to Top](#table-of-contents)
+**Strategy:**
+They are build systems for monorepos. They provide caching (local and remote) and task orchestration (running tasks in parallel based on dependency graph).
 
----
-
-### Q93: How do you use `style-loader` vs `css-loader`?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+// turbo.json
+{
+  "pipeline": {
+    "build": { "dependsOn": ["^build"], "outputs": ["dist/**"] }
+  }
+}
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you configure CSS Modules localIdentName?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
+### Q44: Why use `pnpm` over `npm` or `yarn`?
 
-### Q95: How do you use `postcss-preset-env`?
+**Difficulty**: Intermediate
 
-**Difficulty: Beginner**
+**Strategy:**
+`pnpm` uses a content-addressable store and hard links, saving disk space. It also enforces strict dependency access (preventing phantom dependencies).
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+// node_modules structure in pnpm is symlinked, not flat.
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q96: How do you configure PurgeCSS to remove unused CSS?
+### Q45: How do you automate semantic versioning and publishing?
 
-**Difficulty: Beginner**
+**Difficulty**: Advanced
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+Use `semantic-release`. It analyzes commit messages (Conventional Commits) to determine the next version number, generates changelog, and publishes to npm.
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+// CI pipeline
+npx semantic-release
 
----
-
-### Q97: How do you polyfill `fetch` in older browsers?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you use `core-js` version 3?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
+### Q46: How do you cache `node_modules` in GitHub Actions?
 
-### Q99: How do you transpile `node_modules` if needed?
+**Difficulty**: Intermediate
 
-**Difficulty: Beginner**
+**Strategy:**
+Use `actions/setup-node` with the `cache` option.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+- uses: actions/setup-node@v3
+  with:
+    node-version: 16
+    cache: 'npm'
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q100: How do you configure Babel for React (JSX)?
+### Q47: How do you optimize a Docker build for Node.js app?
 
-**Difficulty: Beginner**
+**Difficulty**: Intermediate
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+Use multi-stage builds. Install `dependencies` (prod only) in one stage, build in another, and copy only necessary files to a lightweight `alpine` image.
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+FROM node:16 AS builder
+RUN npm ci && npm run build
 
----
-
-### Q101: How do you configure Babel for TypeScript?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+FROM node:16-alpine
+COPY --from=builder /app/dist ./dist
+CMD ["node", "dist/main.js"]
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q102: How do you use `babel-plugin-import` for UI libraries?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
+### Q48: How do you visualize the Webpack bundle size?
 
-### Q103: How do you optimize moment.js bundle size?
+**Difficulty**: Beginner
 
-**Difficulty: Beginner**
+**Strategy:**
+Use `webpack-bundle-analyzer` plugin.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+plugins: [new BundleAnalyzerPlugin()]
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q104: How do you replace moment.js with date-fns or dayjs?
+### Q49: How do you visualize the Vite/Rollup bundle size?
 
-**Difficulty: Beginner**
+**Difficulty**: Beginner
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Strategy:**
+Use `rollup-plugin-visualizer`.
 
-[Back to Top](#table-of-contents)
+**Code Example:**
+import { visualizer } from 'rollup-plugin-visualizer';
+plugins: [visualizer()]
 
----
-
-### Q105: How do you use `swc-loader` for faster builds?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q106: How do you use Parcel for zero-config builds?
-
-**Difficulty: Beginner**
-
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
-
-[Back to Top](#table-of-contents)
-
----
+### Q50: How do you manually polyfill features using `core-js`?
 
-### Q107: How do you configure Gulp for task automation?
+**Difficulty**: Intermediate
 
-**Difficulty: Beginner**
+**Strategy:**
+Import specific features from `core-js` in your entry file if you aren't using `@babel/preset-env`'s automatic injection.
 
-**Answer:**
-Use the appropriate configuration or plugin. (Practical implementation would involve specific syntax shown in core examples).
+**Code Example:**
+import 'core-js/stable/array/from';
+import 'core-js/stable/promise';
 
-[Back to Top](#table-of-contents)
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

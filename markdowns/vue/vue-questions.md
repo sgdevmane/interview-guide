@@ -14,7 +14,7 @@
 2. [When using the Composition API, should you use `ref` or `reactive` for declaring state? What are the trade-offs?](#q2-when-using-the-composition-api-should-you-use-ref-or-reactive-for-declaring-state-what-are-the-trade-offs) <span class="intermediate">Intermediate</span>
 3. [You have a large list of items and `v-if` / `v-for` on the same element. Why is this considered a bad practice and how do you fix it?](#q3-you-have-a-large-list-of-items-and-v-if--v-for-on-the-same-element-why-is-this-considered-a-bad-practice-and-how-do-you-fix-it) <span class="intermediate">Intermediate</span>
 4. [How do you share logic between components in Vue 3 using Composables?](#q4-how-do-you-share-logic-between-components-in-vue-3-using-composables) <span class="intermediate">Intermediate</span>
-5. [You need to render a modal that is visually separate from the main app layout (e.g., outside `overflow: hidden` containers). How do you achieve this in Vue 3?](#q5-you-need-to-render-a-modal-that-is-visually-separate-from-the-main-app-layout-eg-outside-overflow:-hidden-containers-how-do-you-achieve-this-in-vue-3) <span class="intermediate">Intermediate</span>
+5. [You need to render a modal that is visually separate from the main app layout (e.g., outside `overflow: hidden` containers). How do you achieve this in Vue 3?](#q5-you-need-to-render-a-modal-that-is-visually-separate-from-the-main-app-layout-eg-outside-overflow-hidden-containers-how-do-you-achieve-this-in-vue-3) <span class="intermediate">Intermediate</span>
 6. [How do you ensure the DOM has updated before performing an action using `nextTick`?](#q6-how-do-you-ensure-the-dom-has-updated-before-performing-an-action-using-nexttick) <span class="intermediate">Intermediate</span>
 7. [How do you scope styles to a component effectively using CSS Modules vs Scoped Styles?](#q7-how-do-you-scope-styles-to-a-component-effectively-using-css-modules-vs-scoped-styles) <span class="intermediate">Intermediate</span>
 8. [How do you map Options API lifecycle hooks to Composition API `setup()` hooks?](#q8-how-do-you-map-options-api-lifecycle-hooks-to-composition-api-setup-hooks) <span class="intermediate">Intermediate</span>
@@ -50,6 +50,16 @@
 38. [How do you force a component to re-render correctly?](#q38-how-do-you-force-a-component-to-re-render-correctly) <span class="intermediate">Intermediate</span>
 39. [How do you create a generic component with Props (TypeScript)?](#q39-how-do-you-create-a-generic-component-with-props-typescript) <span class="advanced">Advanced</span>
 40. [How do you implement a composable that manages Event Listeners safely?](#q40-how-do-you-implement-a-composable-that-manages-event-listeners-safely) <span class="intermediate">Intermediate</span>
+41. [How do you expose methods/state to a parent component using `defineExpose`?](#q41-how-do-you-expose-methodsstate-to-a-parent-component-using-defineexpose) <span class="intermediate">Intermediate</span>
+42. [How do you animate element entry/leave using `<Transition>`?](#q42-how-do-you-animate-element-entryleave-using-transition) <span class="beginner">Beginner</span>
+43. [How do you access Slots and Attributes in `<script setup>`?](#q43-how-do-you-access-slots-and-attributes-in-script-setup) <span class="intermediate">Intermediate</span>
+44. [How do you simplify `v-model` implementation using `defineModel` (Vue 3.4+)?](#q44-how-do-you-simplify-v-model-implementation-using-definemodel-vue-34) <span class="intermediate">Intermediate</span>
+45. [How do you normalize refs, getters, or values using `toValue` (Vue 3.3+)?](#q45-how-do-you-normalize-refs-getters-or-values-using-tovalue-vue-33) <span class="advanced">Advanced</span>
+46. [How do you fetch data on the server before rendering (SSR) using `serverPrefetch`?](#q46-how-do-you-fetch-data-on-the-server-before-rendering-ssr-using-serverprefetch) <span class="advanced">Advanced</span>
+47. [How do you set component options (like `name`) in `<script setup>` using `defineOptions`?](#q47-how-do-you-set-component-options-like-name-in-script-setup-using-defineoptions) <span class="beginner">Beginner</span>
+48. [How do you create a debounced ref using `customRef`?](#q48-how-do-you-create-a-debounced-ref-using-customref) <span class="advanced">Advanced</span>
+49. [How do you create a Web Component using Vue (`defineCustomElement`)?](#q49-how-do-you-create-a-web-component-using-vue-definecustomelement) <span class="advanced">Advanced</span>
+50. [How do you handle Global Errors in a Vue App?](#q50-how-do-you-handle-global-errors-in-a-vue-app) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1149,6 +1159,243 @@ export function useEventListener(target, event, callback) {
 // Usage
 useEventListener(window, 'resize', handleResize)
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+
+### Q41: How do you expose methods/state to a parent component using `defineExpose`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+By default, `<script setup>` components are closed. Use `defineExpose` to explicitly expose properties to the parent (accessible via template ref).
+
+**Code Example:**
+<!-- Child.vue -->
+<script setup>
+import { ref } from 'vue'
+const count = ref(0)
+function reset() { count.value = 0 }
+
+defineExpose({ count, reset })
+</script>
+
+<!-- Parent.vue -->
+<script setup>
+import { ref } from 'vue'
+const childRef = ref(null)
+
+function handleReset() {
+  childRef.value.reset() // Works because of defineExpose
+}
+</script>
+<template>
+  <Child ref="childRef" />
+</template>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you animate element entry/leave using `<Transition>`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Wrap the element (v-if/v-show) in `<Transition>`. Define CSS classes like `.v-enter-active`, `.v-leave-active`.
+
+**Code Example:**
+<template>
+  <button @click="show = !show">Toggle</button>
+  <Transition>
+    <p v-if="show">Hello</p>
+  </Transition>
+</template>
+
+<style>
+.v-enter-active, .v-leave-active {
+  transition: opacity 0.5s ease;
+}
+.v-enter-from, .v-leave-to {
+  opacity: 0;
+}
+</style>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you access Slots and Attributes in `<script setup>`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `useSlots()` and `useAttrs()` helpers. Note that these are rarely needed as `$slots` and `$attrs` are available in templates directly.
+
+**Code Example:**
+<script setup>
+import { useSlots, useAttrs } from 'vue'
+
+const slots = useSlots()
+const attrs = useAttrs()
+
+if (slots.default) {
+  console.log('Default slot is present')
+}
+</script>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you simplify `v-model` implementation using `defineModel` (Vue 3.4+)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`defineModel` creates a ref that syncs with the parent's v-model automatically, removing the need for manual props/emits.
+
+**Code Example:**
+<!-- Child.vue -->
+<script setup>
+const model = defineModel()
+
+function update() {
+  model.value++ // Emits 'update:modelValue' automatically
+}
+</script>
+
+<template>
+  <input v-model="model" />
+</template>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you normalize refs, getters, or values using `toValue` (Vue 3.3+)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`toValue` un-nests a value, ref, or getter function into the plain value. Useful in composables that accept flexible arguments.
+
+**Code Example:**
+import { toValue } from 'vue'
+
+function useFeature(arg) {
+  const value = toValue(arg) // Works if arg is 1, ref(1), or () => 1
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you fetch data on the server before rendering (SSR) using `serverPrefetch`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+The `serverPrefetch` hook (Options API) or `await` in `setup()` (Composition API with Suspense) allows waiting for async data during SSR.
+
+**Code Example:**
+<!-- Composition API -->
+<script setup>
+const data = await fetchData() // Suspense handles this on client, SSR waits for it
+</script>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you set component options (like `name`) in `<script setup>` using `defineOptions`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`defineOptions` allows declaring options that cannot be expressed in `<script setup>`, such as `name`, `inheritAttrs`, or custom options.
+
+**Code Example:**
+<script setup>
+defineOptions({
+  name: 'MyComponent',
+  inheritAttrs: false
+})
+</script>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you create a debounced ref using `customRef`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`customRef` allows controlling the dependency tracking and update triggering of a ref. Useful for debounce or throttle.
+
+**Code Example:**
+import { customRef } from 'vue'
+
+function useDebouncedRef(value, delay = 200) {
+  let timeout
+  return customRef((track, trigger) => {
+    return {
+      get() {
+        track()
+        return value
+      },
+      set(newValue) {
+        clearTimeout(timeout)
+        timeout = setTimeout(() => {
+          value = newValue
+          trigger()
+        }, delay)
+      }
+    }
+  })
+}
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you create a Web Component using Vue (`defineCustomElement`)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `defineCustomElement` to create a native Custom Element class from a Vue component, then register it with `customElements.define`.
+
+**Code Example:**
+import { defineCustomElement } from 'vue'
+import MyVueComponent from './MyVueComponent.vue'
+
+const MyElement = defineCustomElement(MyVueComponent)
+customElements.define('my-element', MyElement)
+
+// Usage in HTML: <my-element></my-element>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you handle Global Errors in a Vue App?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Assign a handler to `app.config.errorHandler`. It catches errors from all components, lifecycle hooks, and directives.
+
+**Code Example:**
+const app = createApp(App)
+
+app.config.errorHandler = (err, instance, info) => {
+  console.error('Global Error:', err)
+  // Send to logging service (Sentry, etc.)
+}
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 

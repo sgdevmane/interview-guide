@@ -1,126 +1,57 @@
 # NgRx Interview Questions
 
 ## Table of Contents
-- [Q1: How do you handle optimistic UI updates using NgRx Effects?](#q1-how-do-you-handle-optimistic-ui-updates-using-ngrx-effects)
-- [Q2: How do you prevent selector re-computation when using arguments (props)?](#q2-how-do-you-prevent-selector-re-computation-when-using-arguments-props)
-- [Q3: How do you manage local component state using NgRx ComponentStore?](#q3-how-do-you-manage-local-component-state-using-ngrx-componentstore)
-- [Q4: How do you implement the Facade pattern with NgRx to hide store complexity?](#q4-how-do-you-implement-the-facade-pattern-with-ngrx-to-hide-store-complexity)
-- [Q5: How do you handle race conditions in NgRx Effects (e.g., typeahead search)?](#q5-how-do-you-handle-race-conditions-in-ngrx-effects-eg-typeahead-search)
-- [Q6: How do you normalize deeply nested API data using NgRx Entity?](#q6-how-do-you-normalize-deeply-nested-api-data-using-ngrx-entity)
-- [Q7: How do you implement runtime checks to ensure state immutability?](#q7-how-do-you-implement-runtime-checks-to-ensure-state-immutability)
-- [Q8: How do you handle multiple actions triggering the same reducer logic?](#q8-how-do-you-handle-multiple-actions-triggering-the-same-reducer-logic)
-- [Q9: How do you hydrate NgRx state from LocalStorage on app startup?](#q9-how-do-you-hydrate-ngrx-state-from-localstorage-on-app-startup)
-- [Q10: How do you implement undo/redo functionality with NgRx?](#q10-how-do-you-implement-undoredo-functionality-with-ngrx)
-- [Q11: How do you test an NgRx Effect that uses `debounceTime`?](#q11-how-do-you-test-an-ngrx-effect-that-uses-debouncetime)
-- [Q12: How do you combine data from multiple feature stores in a single selector?](#q12-how-do-you-combine-data-from-multiple-feature-stores-in-a-single-selector)
-- [Q13: How do you implement authentication flow (login/logout) using NgRx?](#q13-how-do-you-implement-authentication-flow-loginlogout-using-ngrx)
-- [Q14: How do you optimize performance when dealing with large collections in NgRx?](#q14-how-do-you-optimize-performance-when-dealing-with-large-collections-in-ngrx)
-- [Q15: How do you migrate a legacy service-based state to NgRx?](#q15-how-do-you-migrate-a-legacy-service-based-state-to-ngrx)
-- [Q16: How do you implement NgRx Store in NgRx for global state management?](#q16-how-do-you-implement-ngrx-store-in-ngrx-for-global-state-management)
-- [Q17: How do you implement NgRx Effects in NgRx for handling side effects?](#q17-how-do-you-implement-ngrx-effects-in-ngrx-for-handling-side-effects)
-- [Q18: How do you implement NgRx Entity in NgRx for managing collections?](#q18-how-do-you-implement-ngrx-entity-in-ngrx-for-managing-collections)
-- [Q19: How do you implement NgRx ComponentStore in NgRx for local state management?](#q19-how-do-you-implement-ngrx-componentstore-in-ngrx-for-local-state-management)
-- [Q20: How do you implement NgRx RouterStore in NgRx for binding router to store?](#q20-how-do-you-implement-ngrx-routerstore-in-ngrx-for-binding-router-to-store)
-- [Q21: How do you implement NgRx Signals in NgRx for signal-based state management?](#q21-how-do-you-implement-ngrx-signals-in-ngrx-for-signal-based-state-management)
-- [Q22: How do you implement NgRx Data in NgRx for zero-boilerplate data management?](#q22-how-do-you-implement-ngrx-data-in-ngrx-for-zero-boilerplate-data-management)
-- [Q23: How do you implement NgRx Schematics in NgRx for scaffolding code?](#q23-how-do-you-implement-ngrx-schematics-in-ngrx-for-scaffolding-code)
-- [Q24: How do you implement Meta-Reducers in NgRx for higher-order reducers?](#q24-how-do-you-implement-meta-reducers-in-ngrx-for-higher-order-reducers)
-- [Q25: How do you implement Selectors in NgRx for deriving state data?](#q25-how-do-you-implement-selectors-in-ngrx-for-deriving-state-data)
-- [Q26: How do you implement Actions in NgRx for describing state changes?](#q26-how-do-you-implement-actions-in-ngrx-for-describing-state-changes)
-- [Q27: How do you implement Reducers in NgRx for pure functions for state updates?](#q27-how-do-you-implement-reducers-in-ngrx-for-pure-functions-for-state-updates)
-- [Q28: How do you implement Testing in NgRx for unit testing store and effects?](#q28-how-do-you-implement-testing-in-ngrx-for-unit-testing-store-and-effects)
-- [Q29: How do you implement DevTools in NgRx for debugging time-travel?](#q29-how-do-you-implement-devtools-in-ngrx-for-debugging-time-travel)
-- [Q30: How do you implement Feature State in NgRx for lazy loading state?](#q30-how-do-you-implement-feature-state-in-ngrx-for-lazy-loading-state)
-- [Q31: How do you implement Root State in NgRx for app-wide configuration?](#q31-how-do-you-implement-root-state-in-ngrx-for-app-wide-configuration)
-- [Q32: How do you implement NgRx Store in NgRx for global state management?](#q32-how-do-you-implement-ngrx-store-in-ngrx-for-global-state-management)
-- [Q33: How do you implement NgRx Effects in NgRx for handling side effects?](#q33-how-do-you-implement-ngrx-effects-in-ngrx-for-handling-side-effects)
-- [Q34: How do you implement NgRx Entity in NgRx for managing collections?](#q34-how-do-you-implement-ngrx-entity-in-ngrx-for-managing-collections)
-- [Q35: How do you implement NgRx ComponentStore in NgRx for local state management?](#q35-how-do-you-implement-ngrx-componentstore-in-ngrx-for-local-state-management)
-- [Q36: How do you implement NgRx RouterStore in NgRx for binding router to store?](#q36-how-do-you-implement-ngrx-routerstore-in-ngrx-for-binding-router-to-store)
-- [Q37: How do you implement NgRx Signals in NgRx for signal-based state management?](#q37-how-do-you-implement-ngrx-signals-in-ngrx-for-signal-based-state-management)
-- [Q38: How do you implement NgRx Data in NgRx for zero-boilerplate data management?](#q38-how-do-you-implement-ngrx-data-in-ngrx-for-zero-boilerplate-data-management)
-- [Q39: How do you implement NgRx Schematics in NgRx for scaffolding code?](#q39-how-do-you-implement-ngrx-schematics-in-ngrx-for-scaffolding-code)
-- [Q40: How do you implement Meta-Reducers in NgRx for higher-order reducers?](#q40-how-do-you-implement-meta-reducers-in-ngrx-for-higher-order-reducers)
-- [Q41: How do you implement Selectors in NgRx for deriving state data?](#q41-how-do-you-implement-selectors-in-ngrx-for-deriving-state-data)
-- [Q42: How do you implement Actions in NgRx for describing state changes?](#q42-how-do-you-implement-actions-in-ngrx-for-describing-state-changes)
-- [Q43: How do you implement Reducers in NgRx for pure functions for state updates?](#q43-how-do-you-implement-reducers-in-ngrx-for-pure-functions-for-state-updates)
-- [Q44: How do you implement Testing in NgRx for unit testing store and effects?](#q44-how-do-you-implement-testing-in-ngrx-for-unit-testing-store-and-effects)
-- [Q45: How do you implement DevTools in NgRx for debugging time-travel?](#q45-how-do-you-implement-devtools-in-ngrx-for-debugging-time-travel)
-- [Q46: How do you implement Feature State in NgRx for lazy loading state?](#q46-how-do-you-implement-feature-state-in-ngrx-for-lazy-loading-state)
-- [Q47: How do you implement Root State in NgRx for app-wide configuration?](#q47-how-do-you-implement-root-state-in-ngrx-for-app-wide-configuration)
-- [Q48: How do you implement NgRx Store in NgRx for global state management?](#q48-how-do-you-implement-ngrx-store-in-ngrx-for-global-state-management)
-- [Q49: How do you implement NgRx Effects in NgRx for handling side effects?](#q49-how-do-you-implement-ngrx-effects-in-ngrx-for-handling-side-effects)
-- [Q50: How do you implement NgRx Entity in NgRx for managing collections?](#q50-how-do-you-implement-ngrx-entity-in-ngrx-for-managing-collections)
-- [Q51: How do you implement NgRx ComponentStore in NgRx for local state management?](#q51-how-do-you-implement-ngrx-componentstore-in-ngrx-for-local-state-management)
-- [Q52: How do you implement NgRx RouterStore in NgRx for binding router to store?](#q52-how-do-you-implement-ngrx-routerstore-in-ngrx-for-binding-router-to-store)
-- [Q53: How do you implement NgRx Signals in NgRx for signal-based state management?](#q53-how-do-you-implement-ngrx-signals-in-ngrx-for-signal-based-state-management)
-- [Q54: How do you implement NgRx Data in NgRx for zero-boilerplate data management?](#q54-how-do-you-implement-ngrx-data-in-ngrx-for-zero-boilerplate-data-management)
-- [Q55: How do you implement NgRx Schematics in NgRx for scaffolding code?](#q55-how-do-you-implement-ngrx-schematics-in-ngrx-for-scaffolding-code)
-- [Q56: How do you implement Meta-Reducers in NgRx for higher-order reducers?](#q56-how-do-you-implement-meta-reducers-in-ngrx-for-higher-order-reducers)
-- [Q57: How do you implement Selectors in NgRx for deriving state data?](#q57-how-do-you-implement-selectors-in-ngrx-for-deriving-state-data)
-- [Q58: How do you implement Actions in NgRx for describing state changes?](#q58-how-do-you-implement-actions-in-ngrx-for-describing-state-changes)
-- [Q59: How do you implement Reducers in NgRx for pure functions for state updates?](#q59-how-do-you-implement-reducers-in-ngrx-for-pure-functions-for-state-updates)
-- [Q60: How do you implement Testing in NgRx for unit testing store and effects?](#q60-how-do-you-implement-testing-in-ngrx-for-unit-testing-store-and-effects)
-- [Q61: How do you implement DevTools in NgRx for debugging time-travel?](#q61-how-do-you-implement-devtools-in-ngrx-for-debugging-time-travel)
-- [Q62: How do you implement Feature State in NgRx for lazy loading state?](#q62-how-do-you-implement-feature-state-in-ngrx-for-lazy-loading-state)
-- [Q63: How do you implement Root State in NgRx for app-wide configuration?](#q63-how-do-you-implement-root-state-in-ngrx-for-app-wide-configuration)
-- [Q64: How do you implement NgRx Store in NgRx for global state management?](#q64-how-do-you-implement-ngrx-store-in-ngrx-for-global-state-management)
-- [Q65: How do you implement NgRx Effects in NgRx for handling side effects?](#q65-how-do-you-implement-ngrx-effects-in-ngrx-for-handling-side-effects)
-- [Q66: How do you implement NgRx Entity in NgRx for managing collections?](#q66-how-do-you-implement-ngrx-entity-in-ngrx-for-managing-collections)
-- [Q67: How do you implement NgRx ComponentStore in NgRx for local state management?](#q67-how-do-you-implement-ngrx-componentstore-in-ngrx-for-local-state-management)
-- [Q68: How do you implement NgRx RouterStore in NgRx for binding router to store?](#q68-how-do-you-implement-ngrx-routerstore-in-ngrx-for-binding-router-to-store)
-- [Q69: How do you implement NgRx Signals in NgRx for signal-based state management?](#q69-how-do-you-implement-ngrx-signals-in-ngrx-for-signal-based-state-management)
-- [Q70: How do you implement NgRx Data in NgRx for zero-boilerplate data management?](#q70-how-do-you-implement-ngrx-data-in-ngrx-for-zero-boilerplate-data-management)
-- [Q71: How do you implement NgRx Schematics in NgRx for scaffolding code?](#q71-how-do-you-implement-ngrx-schematics-in-ngrx-for-scaffolding-code)
-- [Q72: How do you implement Meta-Reducers in NgRx for higher-order reducers?](#q72-how-do-you-implement-meta-reducers-in-ngrx-for-higher-order-reducers)
-- [Q73: How do you implement Selectors in NgRx for deriving state data?](#q73-how-do-you-implement-selectors-in-ngrx-for-deriving-state-data)
-- [Q74: How do you implement Actions in NgRx for describing state changes?](#q74-how-do-you-implement-actions-in-ngrx-for-describing-state-changes)
-- [Q75: How do you implement Reducers in NgRx for pure functions for state updates?](#q75-how-do-you-implement-reducers-in-ngrx-for-pure-functions-for-state-updates)
-- [Q76: How do you implement Testing in NgRx for unit testing store and effects?](#q76-how-do-you-implement-testing-in-ngrx-for-unit-testing-store-and-effects)
-- [Q77: How do you implement DevTools in NgRx for debugging time-travel?](#q77-how-do-you-implement-devtools-in-ngrx-for-debugging-time-travel)
-- [Q78: How do you implement Feature State in NgRx for lazy loading state?](#q78-how-do-you-implement-feature-state-in-ngrx-for-lazy-loading-state)
-- [Q79: How do you implement Root State in NgRx for app-wide configuration?](#q79-how-do-you-implement-root-state-in-ngrx-for-app-wide-configuration)
-- [Q80: How do you implement NgRx Store in NgRx for global state management?](#q80-how-do-you-implement-ngrx-store-in-ngrx-for-global-state-management)
-- [Q81: How do you implement NgRx Effects in NgRx for handling side effects?](#q81-how-do-you-implement-ngrx-effects-in-ngrx-for-handling-side-effects)
-- [Q82: How do you implement NgRx Entity in NgRx for managing collections?](#q82-how-do-you-implement-ngrx-entity-in-ngrx-for-managing-collections)
-- [Q83: How do you implement NgRx ComponentStore in NgRx for local state management?](#q83-how-do-you-implement-ngrx-componentstore-in-ngrx-for-local-state-management)
-- [Q84: How do you implement NgRx RouterStore in NgRx for binding router to store?](#q84-how-do-you-implement-ngrx-routerstore-in-ngrx-for-binding-router-to-store)
-- [Q85: How do you implement NgRx Signals in NgRx for signal-based state management?](#q85-how-do-you-implement-ngrx-signals-in-ngrx-for-signal-based-state-management)
-- [Q86: How do you implement NgRx Data in NgRx for zero-boilerplate data management?](#q86-how-do-you-implement-ngrx-data-in-ngrx-for-zero-boilerplate-data-management)
-- [Q87: How do you implement NgRx Schematics in NgRx for scaffolding code?](#q87-how-do-you-implement-ngrx-schematics-in-ngrx-for-scaffolding-code)
-- [Q88: How do you implement Meta-Reducers in NgRx for higher-order reducers?](#q88-how-do-you-implement-meta-reducers-in-ngrx-for-higher-order-reducers)
-- [Q89: How do you implement Selectors in NgRx for deriving state data?](#q89-how-do-you-implement-selectors-in-ngrx-for-deriving-state-data)
-- [Q90: How do you implement Actions in NgRx for describing state changes?](#q90-how-do-you-implement-actions-in-ngrx-for-describing-state-changes)
-- [Q91: How do you implement Reducers in NgRx for pure functions for state updates?](#q91-how-do-you-implement-reducers-in-ngrx-for-pure-functions-for-state-updates)
-- [Q92: How do you implement Testing in NgRx for unit testing store and effects?](#q92-how-do-you-implement-testing-in-ngrx-for-unit-testing-store-and-effects)
-- [Q93: How do you implement DevTools in NgRx for debugging time-travel?](#q93-how-do-you-implement-devtools-in-ngrx-for-debugging-time-travel)
-- [Q94: How do you implement Feature State in NgRx for lazy loading state?](#q94-how-do-you-implement-feature-state-in-ngrx-for-lazy-loading-state)
-- [Q95: How do you implement Root State in NgRx for app-wide configuration?](#q95-how-do-you-implement-root-state-in-ngrx-for-app-wide-configuration)
-- [Q96: How do you implement NgRx Store in NgRx for global state management?](#q96-how-do-you-implement-ngrx-store-in-ngrx-for-global-state-management)
-- [Q97: How do you implement NgRx Effects in NgRx for handling side effects?](#q97-how-do-you-implement-ngrx-effects-in-ngrx-for-handling-side-effects)
-- [Q98: How do you implement NgRx Entity in NgRx for managing collections?](#q98-how-do-you-implement-ngrx-entity-in-ngrx-for-managing-collections)
-- [Q99: How do you implement NgRx ComponentStore in NgRx for local state management?](#q99-how-do-you-implement-ngrx-componentstore-in-ngrx-for-local-state-management)
-- [Q100: How do you implement NgRx RouterStore in NgRx for binding router to store?](#q100-how-do-you-implement-ngrx-routerstore-in-ngrx-for-binding-router-to-store)
 
-### Q1: How do you handle optimistic UI updates using NgRx Effects?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Dispatch a success action immediately (optimistic update) and then call the API. If the API fails, dispatch a failure action to rollback the state.
-
-**Code Example:**
-```typescript
-updateTodo$ = createEffect(() => this.actions$.pipe(
-  ofType(TodoActions.updateTodo),
-  // Optimistic: State is already updated by reducer listening to updateTodo
-  switchMap(({ todo }) => this.service.update(todo).pipe(
-    map(() => TodoActions.updateTodoSuccess({ todo })),
-    catchError(error => of(TodoActions.updateTodoFailure({ todo, error })))
-    // Reducer for updateTodoFailure should revert the change
-  ))
-));
-```
+1. [How do you handle optimistic UI updates using NgRx Effects?](#q1-how-do-you-handle-optimistic-ui-updates-using-ngrx-effects) <span class="advanced">Advanced</span>
+2. [How do you prevent selector re-computation when using arguments (props)?](#q2-how-do-you-prevent-selector-re-computation-when-using-arguments-props) <span class="advanced">Advanced</span>
+3. [How do you manage local component state using NgRx ComponentStore?](#q3-how-do-you-manage-local-component-state-using-ngrx-componentstore) <span class="intermediate">Intermediate</span>
+4. [How do you implement the Facade pattern with NgRx to hide store complexity?](#q4-how-do-you-implement-the-facade-pattern-with-ngrx-to-hide-store-complexity) <span class="intermediate">Intermediate</span>
+5. [How do you handle race conditions in NgRx Effects (e.g., typeahead search)?](#q5-how-do-you-handle-race-conditions-in-ngrx-effects-eg-typeahead-search) <span class="intermediate">Intermediate</span>
+6. [How do you normalize deeply nested API data using NgRx Entity?](#q6-how-do-you-normalize-deeply-nested-api-data-using-ngrx-entity) <span class="advanced">Advanced</span>
+7. [How do you implement runtime checks to ensure state immutability?](#q7-how-do-you-implement-runtime-checks-to-ensure-state-immutability) <span class="intermediate">Intermediate</span>
+8. [How do you handle multiple actions triggering the same reducer logic?](#q8-how-do-you-handle-multiple-actions-triggering-the-same-reducer-logic) <span class="beginner">Beginner</span>
+9. [How do you hydrate NgRx state from LocalStorage on app startup?](#q9-how-do-you-hydrate-ngrx-state-from-localstorage-on-app-startup) <span class="advanced">Advanced</span>
+10. [How do you implement undo/redo functionality with NgRx?](#q10-how-do-you-implement-undoredo-functionality-with-ngrx) <span class="expert">Expert</span>
+11. [How do you test an NgRx Effect that uses `debounceTime`?](#q11-how-do-you-test-an-ngrx-effect-that-uses-debouncetime) <span class="advanced">Advanced</span>
+12. [How do you combine data from multiple feature stores in a single selector?](#q12-how-do-you-combine-data-from-multiple-feature-stores-in-a-single-selector) <span class="intermediate">Intermediate</span>
+13. [How do you implement authentication flow (login/logout) using NgRx?](#q13-how-do-you-implement-authentication-flow-loginlogout-using-ngrx) <span class="intermediate">Intermediate</span>
+14. [How do you optimize performance when dealing with large collections in NgRx?](#q14-how-do-you-optimize-performance-when-dealing-with-large-collections-in-ngrx) <span class="advanced">Advanced</span>
+15. [How do you migrate a legacy service-based state to NgRx?](#q15-how-do-you-migrate-a-legacy-service-based-state-to-ngrx) <span class="expert">Expert</span>
+16. [How do you test NgRx Effects using Marble Diagrams?](#q16-how-do-you-test-ngrx-effects-using-marble-diagrams) <span class="expert">Expert</span>
+17. [How does NgRx interact with `OnPush` Change Detection?](#q17-how-does-ngrx-interact-with-onpush-change-detection) <span class="intermediate">Intermediate</span>
+18. [How do you implement a Polling Effect (Start/Stop)?](#q18-how-do-you-implement-a-polling-effect-startstop) <span class="advanced">Advanced</span>
+19. [How do you create a Meta-Reducer for logging actions?](#q19-how-do-you-create-a-meta-reducer-for-logging-actions) <span class="intermediate">Intermediate</span>
+20. [How do you sort entities automatically using NgRx Entity?](#q20-how-do-you-sort-entities-automatically-using-ngrx-entity) <span class="intermediate">Intermediate</span>
+21. [How do you use `tapResponse` in ComponentStore?](#q21-how-do-you-use-tapresponse-in-componentstore) <span class="intermediate">Intermediate</span>
+22. [How do you define a SignalStore with state and methods?](#q22-how-do-you-define-a-signalstore-with-state-and-methods) <span class="advanced">Advanced</span>
+23. [How do you connect an Observable to a SignalStore using `rxMethod`?](#q23-how-do-you-connect-an-observable-to-a-signalstore-using-rxmethod) <span class="advanced">Advanced</span>
+24. [How do you group related actions using `createActionGroup`?](#q24-how-do-you-group-related-actions-using-createactiongroup) <span class="beginner">Beginner</span>
+25. [How do you set up NgRx with Standalone APIs?](#q25-how-do-you-set-up-ngrx-with-standalone-apis) <span class="intermediate">Intermediate</span>
+26. [How do you create Functional Effects?](#q26-how-do-you-create-functional-effects) <span class="intermediate">Intermediate</span>
+27. [How do you enforce serializability checks for actions and state?](#q27-how-do-you-enforce-serializability-checks-for-actions-and-state) <span class="intermediate">Intermediate</span>
+28. [How do you create a Custom Router Serializer?](#q28-how-do-you-create-a-custom-router-serializer) <span class="advanced">Advanced</span>
+29. [How do you mock the Store in unit tests?](#q29-how-do-you-mock-the-store-in-unit-tests) <span class="intermediate">Intermediate</span>
+30. [How do you use `createFeature` to reduce boilerplate?](#q30-how-do-you-use-createfeature-to-reduce-boilerplate) <span class="intermediate">Intermediate</span>
+31. [How do you handle non-dispatching effects?](#q31-how-do-you-handle-non-dispatching-effects) <span class="beginner">Beginner</span>
+32. [How do you select a Signal from the Store?](#q32-how-do-you-select-a-signal-from-the-store) <span class="intermediate">Intermediate</span>
+33. [How do you handle global error reporting via Effects?](#q33-how-do-you-handle-global-error-reporting-via-effects) <span class="intermediate">Intermediate</span>
+34. [How do you use Deep Signals in SignalStore?](#q34-how-do-you-use-deep-signals-in-signalstore) <span class="advanced">Advanced</span>
+35. [How do you implement 'Load on Demand' (Lazy Loading) of state?](#q35-how-do-you-implement-load-on-demand-lazy-loading-of-state) <span class="advanced">Advanced</span>
+36. [How do you use `concatLatestFrom` in Effects?](#q36-how-do-you-use-concatlatestfrom-in-effects) <span class="intermediate">Intermediate</span>
+37. [How do you implement a 'Reset State' meta-reducer?](#q37-how-do-you-implement-a-reset-state-meta-reducer) <span class="intermediate">Intermediate</span>
+38. [How do you test ComponentStore?](#q38-how-do-you-test-componentstore) <span class="intermediate">Intermediate</span>
+39. [How do you manage loading/error states generically?](#q39-how-do-you-manage-loadingerror-states-generically) <span class="intermediate">Intermediate</span>
+40. [How do you use the `routerNavigated` action?](#q40-how-do-you-use-the-routernavigated-action) <span class="intermediate">Intermediate</span>
+41. [How do you implement Undo/Redo with SignalStore?](#q41-how-do-you-implement-undoredo-with-signalstore) <span class="advanced">Advanced</span>
+42. [How do you select data based on route params?](#q42-how-do-you-select-data-based-on-route-params) <span class="advanced">Advanced</span>
+43. [How do you optimize `OnPush` components with deep objects?](#q43-how-do-you-optimize-onpush-components-with-deep-objects) <span class="advanced">Advanced</span>
+44. [How do you handle WebSocket messages in NgRx?](#q44-how-do-you-handle-websocket-messages-in-ngrx) <span class="advanced">Advanced</span>
+45. [How do you use `provideStoreDevtools`?](#q45-how-do-you-use-providestoredevtools) <span class="beginner">Beginner</span>
+46. [How do you implement Pagination with NgRx?](#q46-how-do-you-implement-pagination-with-ngrx) <span class="intermediate">Intermediate</span>
+47. [How do you cancel an HTTP request when the component is destroyed?](#q47-how-do-you-cancel-an-http-request-when-the-component-is-destroyed) <span class="intermediate">Intermediate</span>
+48. [How do you manage Forms with NgRx?](#q48-how-do-you-manage-forms-with-ngrx) <span class="intermediate">Intermediate</span>
+49. [How do you use `ngrx-data`?](#q49-how-do-you-use-ngrx-data) <span class="advanced">Advanced</span>
+50. [How do you migrate from NgRx Global Store to SignalStore?](#q50-how-do-you-migrate-from-ngrx-global-store-to-signalstore) <span class="advanced">Advanced</span>
 
 ---
 
@@ -455,1448 +386,597 @@ const reducer = createReducer(
 
 ---
 
-### Q16: How do you implement NgRx Store in NgRx for global state management?
+### Q16: How do you test NgRx Effects using Marble Diagrams?
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Store to manage global state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Store
-export const example = createStore(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q17: How do you implement NgRx Effects in NgRx for handling side effects?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Effects to manage handling side effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Effects
-export const example = createEffects(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q18: How do you implement NgRx Entity in NgRx for managing collections?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Entity to manage managing collections. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Entity
-export const example = createEntity(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q19: How do you implement NgRx ComponentStore in NgRx for local state management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx ComponentStore to manage local state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx ComponentStore
-export const example = createComponentStore(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q20: How do you implement NgRx RouterStore in NgRx for binding router to store?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx RouterStore to manage binding router to store. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx RouterStore
-export const example = createRouterStore(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q21: How do you implement NgRx Signals in NgRx for signal-based state management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Signals to manage signal-based state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Signals
-export const example = createSignals(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q22: How do you implement NgRx Data in NgRx for zero-boilerplate data management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Data to manage zero-boilerplate data management. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Data
-export const example = createData(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q23: How do you implement NgRx Schematics in NgRx for scaffolding code?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Schematics to manage scaffolding code. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Schematics
-export const example = createSchematics(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q24: How do you implement Meta-Reducers in NgRx for higher-order reducers?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Meta-Reducers to manage higher-order reducers. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Meta-Reducers
-export const example = createMeta-Reducers(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q25: How do you implement Selectors in NgRx for deriving state data?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Selectors to manage deriving state data. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Selectors
-export const example = createSelectors(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q26: How do you implement Actions in NgRx for describing state changes?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Actions to manage describing state changes. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Actions
-export const example = createActions(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q27: How do you implement Reducers in NgRx for pure functions for state updates?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Reducers to manage pure functions for state updates. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Reducers
-export const example = createReducers(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q28: How do you implement Testing in NgRx for unit testing store and effects?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Testing to manage unit testing store and effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Testing
-export const example = createTesting(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q29: How do you implement DevTools in NgRx for debugging time-travel?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use DevTools to manage debugging time-travel. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for DevTools
-export const example = createDevTools(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q30: How do you implement Feature State in NgRx for lazy loading state?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Feature State to manage lazy loading state. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Feature State
-export const example = createState(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q31: How do you implement Root State in NgRx for app-wide configuration?
-
-**Difficulty**: Intermediate
+**Difficulty**: Expert
 
 **Strategy:**
-Use Root State to manage app-wide configuration. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Use `jasmine-marbles` or `rxjs/testing` to represent time and streams visually. Hot observables (`-a-`) simulate actions, cold (`-a|`) simulate service responses.
 
 **Code Example:**
-```typescript
-// Example for Root State
-export const example = createState(() => {
-  // Implementation details
-});
-```
-
----
+actions$ = hot('-a-', { a: load() });
+const response = cold('-b|', { b: success() });
+service.getAll.and.returnValue(response);
 
-### Q32: How do you implement NgRx Store in NgRx for global state management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Store to manage global state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+expectObservable(effects.load$).toBe('--c', { c: success() });
 
-**Code Example:**
-```typescript
-// Example for NgRx Store
-export const example = createStore(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q33: How do you implement NgRx Effects in NgRx for handling side effects?
+### Q17: How does NgRx interact with `OnPush` Change Detection?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use NgRx Effects to manage handling side effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
+NgRx streams (Observables) used with the `async` pipe automatically trigger change detection when a new value is emitted, making `OnPush` highly efficient.
 
 **Code Example:**
-```typescript
-// Example for NgRx Effects
-export const example = createEffects(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q34: How do you implement NgRx Entity in NgRx for managing collections?
-
-**Difficulty**: Intermediate
+@Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `{{ count$ | async }}`
+})
 
-**Strategy:**
-Use NgRx Entity to manage managing collections. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Entity
-export const example = createEntity(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q35: How do you implement NgRx ComponentStore in NgRx for local state management?
+### Q18: How do you implement a Polling Effect (Start/Stop)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx ComponentStore to manage local state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Listen for a 'Start' action, switchMap to a timer/interval, and `takeUntil` a 'Stop' action.
 
 **Code Example:**
-```typescript
-// Example for NgRx ComponentStore
-export const example = createComponentStore(() => {
-  // Implementation details
-});
-```
-
----
+startPolling$ = createEffect(() => actions$.pipe(
+  ofType(start),
+  switchMap(() => interval(5000).pipe(
+    map(() => fetchUpdate()),
+    takeUntil(actions$.pipe(ofType(stop)))
+  ))
+));
 
-### Q36: How do you implement NgRx RouterStore in NgRx for binding router to store?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx RouterStore to manage binding router to store. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx RouterStore
-export const example = createRouterStore(() => {
-  // Implementation details
-});
-```
-
 ---
 
-### Q37: How do you implement NgRx Signals in NgRx for signal-based state management?
+### Q19: How do you create a Meta-Reducer for logging actions?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use NgRx Signals to manage signal-based state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+A meta-reducer wraps the main reducer. It can inspect/log the action and state before/after the inner reducer runs.
 
 **Code Example:**
-```typescript
-// Example for NgRx Signals
-export const example = createSignals(() => {
-  // Implementation details
-});
-```
+export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
+  return (state, action) => {
+    console.log('action', action);
+    return reducer(state, action);
+  };
+}
 
----
-
-### Q38: How do you implement NgRx Data in NgRx for zero-boilerplate data management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Data to manage zero-boilerplate data management. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Data
-export const example = createData(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q39: How do you implement NgRx Schematics in NgRx for scaffolding code?
+### Q20: How do you sort entities automatically using NgRx Entity?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use NgRx Schematics to manage scaffolding code. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Provide a `sortComparer` function to `createEntityAdapter`. The collection will maintain sort order on insertion/update.
 
 **Code Example:**
-```typescript
-// Example for NgRx Schematics
-export const example = createSchematics(() => {
-  // Implementation details
+export const adapter = createEntityAdapter<User>({
+  sortComparer: (a, b) => a.name.localeCompare(b.name)
 });
-```
-
----
-
-### Q40: How do you implement Meta-Reducers in NgRx for higher-order reducers?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Meta-Reducers to manage higher-order reducers. Ensure you follow the Redux pattern and keep functions pure where applicable.
 
-**Code Example:**
-```typescript
-// Example for Meta-Reducers
-export const example = createMeta-Reducers(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q41: How do you implement Selectors in NgRx for deriving state data?
+### Q21: How do you use `tapResponse` in ComponentStore?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use Selectors to manage deriving state data. Ensure you follow the Redux pattern and keep functions pure where applicable.
+`tapResponse` safely handles side effects (success/error) in an Effect without breaking the stream on error (unlike a simple `subscribe`).
 
 **Code Example:**
-```typescript
-// Example for Selectors
-export const example = createSelectors(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q42: How do you implement Actions in NgRx for describing state changes?
-
-**Difficulty**: Intermediate
+this.effect(trigger$ => trigger$.pipe(
+  switchMap(() => api.get().pipe(
+    tapResponse(
+      (data) => this.updateState(data),
+      (error) => this.logError(error)
+    )
+  ))
+));
 
-**Strategy:**
-Use Actions to manage describing state changes. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Actions
-export const example = createActions(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q43: How do you implement Reducers in NgRx for pure functions for state updates?
+### Q22: How do you define a SignalStore with state and methods?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use Reducers to manage pure functions for state updates. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Use `signalStore` with `withState`, `withComputed`, and `withMethods`.
 
 **Code Example:**
-```typescript
-// Example for Reducers
-export const example = createReducers(() => {
-  // Implementation details
-});
-```
-
----
+export const CounterStore = signalStore(
+  withState({ count: 0 }),
+  withComputed(({ count }) => ({ double: computed(() => count() * 2) })),
+  withMethods((store) => ({
+    increment: () => patchState(store, (state) => ({ count: state.count + 1 }))
+  }))
+);
 
-### Q44: How do you implement Testing in NgRx for unit testing store and effects?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Testing to manage unit testing store and effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Testing
-export const example = createTesting(() => {
-  // Implementation details
-});
-```
-
 ---
 
-### Q45: How do you implement DevTools in NgRx for debugging time-travel?
+### Q23: How do you connect an Observable to a SignalStore using `rxMethod`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use DevTools to manage debugging time-travel. Ensure you follow the Redux pattern and keep functions pure where applicable.
+`rxMethod` creates a reactive method that can accept a value, Signal, or Observable, and run a pipeline (like Effects).
 
 **Code Example:**
-```typescript
-// Example for DevTools
-export const example = createDevTools(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q46: How do you implement Feature State in NgRx for lazy loading state?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Feature State to manage lazy loading state. Ensure you follow the Redux pattern and keep functions pure where applicable.
+load = rxMethod<void>(pipe(
+  switchMap(() => service.load().pipe(
+    tapResponse({ next: c => patchState(store, { c }), error: console.error })
+  ))
+));
 
-**Code Example:**
-```typescript
-// Example for Feature State
-export const example = createState(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q47: How do you implement Root State in NgRx for app-wide configuration?
+### Q24: How do you group related actions using `createActionGroup`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use Root State to manage app-wide configuration. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Use `createActionGroup` to define a source and event dictionary. Reduces boilerplate and enforces consistent naming.
 
 **Code Example:**
-```typescript
-// Example for Root State
-export const example = createState(() => {
-  // Implementation details
+export const AuthActions = createActionGroup({
+  source: 'Auth API',
+  events: {
+    'Login': props<{ user: string }>(),
+    'Login Success': props<{ token: string }>(),
+    'Login Failure': props<{ error: any }>()
+  }
 });
-```
-
----
-
-### Q48: How do you implement NgRx Store in NgRx for global state management?
-
-**Difficulty**: Intermediate
 
-**Strategy:**
-Use NgRx Store to manage global state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Store
-export const example = createStore(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q49: How do you implement NgRx Effects in NgRx for handling side effects?
+### Q25: How do you set up NgRx with Standalone APIs?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use NgRx Effects to manage handling side effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Use `provideStore` and `provideEffects` in the `app.config.ts` providers array.
 
 **Code Example:**
-```typescript
-// Example for NgRx Effects
-export const example = createEffects(() => {
-  // Implementation details
+bootstrapApplication(App, {
+  providers: [
+    provideStore(reducers),
+    provideEffects(AppEffects),
+    provideStoreDevtools()
+  ]
 });
-```
-
----
-
-### Q50: How do you implement NgRx Entity in NgRx for managing collections?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Entity to manage managing collections. Ensure you follow the Redux pattern and keep functions pure where applicable.
 
-**Code Example:**
-```typescript
-// Example for NgRx Entity
-export const example = createEntity(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q51: How do you implement NgRx ComponentStore in NgRx for local state management?
+### Q26: How do you create Functional Effects?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use NgRx ComponentStore to manage local state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Define effects as functions using `createEffect` with `inject`. No class needed.
 
 **Code Example:**
-```typescript
-// Example for NgRx ComponentStore
-export const example = createComponentStore(() => {
-  // Implementation details
-});
-```
-
----
+export const loadUsers = createEffect(
+  (actions$ = inject(Actions), service = inject(UserService)) => actions$.pipe(...)
+, { functional: true });
 
-### Q52: How do you implement NgRx RouterStore in NgRx for binding router to store?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx RouterStore to manage binding router to store. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx RouterStore
-export const example = createRouterStore(() => {
-  // Implementation details
-});
-```
-
 ---
 
-### Q53: How do you implement NgRx Signals in NgRx for signal-based state management?
+### Q27: How do you enforce serializability checks for actions and state?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use NgRx Signals to manage signal-based state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Enable `strictActionSerializability` and `strictStateSerializability` in store config. This prevents putting non-serializable objects (like Dates, Class instances) in the store.
 
 **Code Example:**
-```typescript
-// Example for NgRx Signals
-export const example = createSignals(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q54: How do you implement NgRx Data in NgRx for zero-boilerplate data management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Data to manage zero-boilerplate data management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+provideStore(reducers, {
+  runtimeChecks: {
+    strictStateSerializability: true,
+    strictActionSerializability: true
+  }
+})
 
-**Code Example:**
-```typescript
-// Example for NgRx Data
-export const example = createData(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q55: How do you implement NgRx Schematics in NgRx for scaffolding code?
+### Q28: How do you create a Custom Router Serializer?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx Schematics to manage scaffolding code. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Implement `RouterStateSerializer` to extract only necessary router data (url, params, queryParams) into the store, keeping the state clean.
 
 **Code Example:**
-```typescript
-// Example for NgRx Schematics
-export const example = createSchematics(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q56: How do you implement Meta-Reducers in NgRx for higher-order reducers?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Meta-Reducers to manage higher-order reducers. Ensure you follow the Redux pattern and keep functions pure where applicable.
+export class CustomSerializer implements RouterStateSerializer<MinimalRouterState> {
+  serialize(routerState: RouterStateSnapshot): MinimalRouterState {
+    // Extract logic
+  }
+}
 
-**Code Example:**
-```typescript
-// Example for Meta-Reducers
-export const example = createMeta-Reducers(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you implement Selectors in NgRx for deriving state data?
+### Q29: How do you mock the Store in unit tests?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use Selectors to manage deriving state data. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Use `provideMockStore` and `MockStore`. You can override selectors to return specific test data.
 
 **Code Example:**
-```typescript
-// Example for Selectors
-export const example = createSelectors(() => {
-  // Implementation details
+TestBed.configureTestingModule({
+  providers: [provideMockStore({ initialState })]
 });
-```
-
----
-
-### Q58: How do you implement Actions in NgRx for describing state changes?
+store.overrideSelector(selectUser, { name: 'Test' });
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Actions to manage describing state changes. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Actions
-export const example = createActions(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you implement Reducers in NgRx for pure functions for state updates?
+### Q30: How do you use `createFeature` to reduce boilerplate?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use Reducers to manage pure functions for state updates. Ensure you follow the Redux pattern and keep functions pure where applicable.
+`createFeature` generates the reducer, selectors, and feature name in one go.
 
 **Code Example:**
-```typescript
-// Example for Reducers
-export const example = createReducers(() => {
-  // Implementation details
+export const counterFeature = createFeature({
+  name: 'counter',
+  reducer: createReducer(...)
 });
-```
-
----
 
-### Q60: How do you implement Testing in NgRx for unit testing store and effects?
+const { selectCount } = counterFeature;
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Testing to manage unit testing store and effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Testing
-export const example = createTesting(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q61: How do you implement DevTools in NgRx for debugging time-travel?
+### Q31: How do you handle non-dispatching effects?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use DevTools to manage debugging time-travel. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Set `{ dispatch: false }`. Use this for side effects that don't update state (e.g., navigation, alerts, logging).
 
 **Code Example:**
-```typescript
-// Example for DevTools
-export const example = createDevTools(() => {
-  // Implementation details
-});
-```
+log$ = createEffect(() => actions$.pipe(
+  tap(action => console.log(action))
+), { dispatch: false });
 
----
-
-### Q62: How do you implement Feature State in NgRx for lazy loading state?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Feature State to manage lazy loading state. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Feature State
-export const example = createState(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: How do you implement Root State in NgRx for app-wide configuration?
+### Q32: How do you select a Signal from the Store?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use Root State to manage app-wide configuration. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Use `store.selectSignal(selector)`. It returns a Signal instead of an Observable, useful for Angular 17+ signal-based components.
 
 **Code Example:**
-```typescript
-// Example for Root State
-export const example = createState(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q64: How do you implement NgRx Store in NgRx for global state management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Store to manage global state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+count = this.store.selectSignal(selectCount);
+// In template: {{ count() }}
 
-**Code Example:**
-```typescript
-// Example for NgRx Store
-export const example = createStore(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you implement NgRx Effects in NgRx for handling side effects?
+### Q33: How do you handle global error reporting via Effects?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use NgRx Effects to manage handling side effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Catch errors in feature effects and dispatch a shared `GlobalActions.error` action. A central effect listens for this and shows a toast/snackbar.
 
 **Code Example:**
-```typescript
-// Example for NgRx Effects
-export const example = createEffects(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q66: How do you implement NgRx Entity in NgRx for managing collections?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Entity to manage managing collections. Ensure you follow the Redux pattern and keep functions pure where applicable.
+catchError(error => of(GlobalActions.error({ message: error.message })))
 
-**Code Example:**
-```typescript
-// Example for NgRx Entity
-export const example = createEntity(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you implement NgRx ComponentStore in NgRx for local state management?
+### Q34: How do you use Deep Signals in SignalStore?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx ComponentStore to manage local state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+SignalStore creates deep signals for nested state automatically. You can access nested properties directly as signals.
 
 **Code Example:**
-```typescript
-// Example for NgRx ComponentStore
-export const example = createComponentStore(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q68: How do you implement NgRx RouterStore in NgRx for binding router to store?
-
-**Difficulty**: Intermediate
+const store = inject(UserStore);
+// If state is { user: { address: { city: 'NY' } } }
+effect(() => console.log(store.user.address.city()));
 
-**Strategy:**
-Use NgRx RouterStore to manage binding router to store. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx RouterStore
-export const example = createRouterStore(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you implement NgRx Signals in NgRx for signal-based state management?
+### Q35: How do you implement 'Load on Demand' (Lazy Loading) of state?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx Signals to manage signal-based state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Register the feature state (`StoreModule.forFeature`) in the lazy-loaded module/route. The state slice is created only when the module loads.
 
 **Code Example:**
-```typescript
-// Example for NgRx Signals
-export const example = createSignals(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q70: How do you implement NgRx Data in NgRx for zero-boilerplate data management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Data to manage zero-boilerplate data management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+providers: [
+  provideState(featureName, featureReducer)
+]
 
-**Code Example:**
-```typescript
-// Example for NgRx Data
-export const example = createData(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you implement NgRx Schematics in NgRx for scaffolding code?
+### Q36: How do you use `concatLatestFrom` in Effects?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use NgRx Schematics to manage scaffolding code. Ensure you follow the Redux pattern and keep functions pure where applicable.
+`concatLatestFrom` (from `@ngrx/effects`) safely selects state within an effect without subscribing to the store manually. It's lazy and non-blocking.
 
 **Code Example:**
-```typescript
-// Example for NgRx Schematics
-export const example = createSchematics(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q72: How do you implement Meta-Reducers in NgRx for higher-order reducers?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Meta-Reducers to manage higher-order reducers. Ensure you follow the Redux pattern and keep functions pure where applicable.
+concatLatestFrom(() => this.store.select(selectUser)),
+tap(([action, user]) => ...)
 
-**Code Example:**
-```typescript
-// Example for Meta-Reducers
-export const example = createMeta-Reducers(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you implement Selectors in NgRx for deriving state data?
+### Q37: How do you implement a 'Reset State' meta-reducer?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use Selectors to manage deriving state data. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Listen for a `LOGOUT` action. If received, return `undefined` to the inner reducer, forcing it to re-initialize state.
 
 **Code Example:**
-```typescript
-// Example for Selectors
-export const example = createSelectors(() => {
-  // Implementation details
-});
-```
-
----
+if (action.type === 'LOGOUT') {
+  return reducer(undefined, action);
+}
 
-### Q74: How do you implement Actions in NgRx for describing state changes?
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Actions to manage describing state changes. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Actions
-export const example = createActions(() => {
-  // Implementation details
-});
-```
-
 ---
 
-### Q75: How do you implement Reducers in NgRx for pure functions for state updates?
+### Q38: How do you test ComponentStore?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use Reducers to manage pure functions for state updates. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Test it like a service. Subscribe to selectors or call effects and verify state changes or spy on dependencies.
 
 **Code Example:**
-```typescript
-// Example for Reducers
-export const example = createReducers(() => {
-  // Implementation details
-});
-```
+store.addTodo(todo);
+store.todos$.subscribe(t => expect(t).toContain(todo));
 
----
-
-### Q76: How do you implement Testing in NgRx for unit testing store and effects?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Testing to manage unit testing store and effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Testing
-export const example = createTesting(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q77: How do you implement DevTools in NgRx for debugging time-travel?
+### Q39: How do you manage loading/error states generically?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use DevTools to manage debugging time-travel. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Use a higher-order state interface (e.g., `CallState` pattern) or a shared utility to wrap entity state with `loading` and `error` flags.
 
 **Code Example:**
-```typescript
-// Example for DevTools
-export const example = createDevTools(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q78: How do you implement Feature State in NgRx for lazy loading state?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Feature State to manage lazy loading state. Ensure you follow the Redux pattern and keep functions pure where applicable.
+interface State<T> {
+  data: T;
+  status: 'init' | 'loading' | 'loaded' | 'error';
+}
 
-**Code Example:**
-```typescript
-// Example for Feature State
-export const example = createState(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you implement Root State in NgRx for app-wide configuration?
+### Q40: How do you use the `routerNavigated` action?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use Root State to manage app-wide configuration. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Listen to `routerNavigated` from `@ngrx/router-store` in an effect to trigger actions based on successful navigation (e.g., analytics).
 
 **Code Example:**
-```typescript
-// Example for Root State
-export const example = createState(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q80: How do you implement NgRx Store in NgRx for global state management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Store to manage global state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+ofType(routerNavigated),
+tap(action => trackPageView(action.payload.routerState.url))
 
-**Code Example:**
-```typescript
-// Example for NgRx Store
-export const example = createStore(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you implement NgRx Effects in NgRx for handling side effects?
+### Q41: How do you implement Undo/Redo with SignalStore?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx Effects to manage handling side effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Use `withUndoRedo` custom feature (community or manual). Maintain a history stack signal and update current state on undo.
 
 **Code Example:**
-```typescript
-// Example for NgRx Effects
-export const example = createEffects(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q82: How do you implement NgRx Entity in NgRx for managing collections?
-
-**Difficulty**: Intermediate
+// Custom feature implementation
 
-**Strategy:**
-Use NgRx Entity to manage managing collections. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Entity
-export const example = createEntity(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you implement NgRx ComponentStore in NgRx for local state management?
+### Q42: How do you select data based on route params?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx ComponentStore to manage local state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Use `selectRouteParams` from RouterStore selectors combined with entity selectors.
 
 **Code Example:**
-```typescript
-// Example for NgRx ComponentStore
-export const example = createComponentStore(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q84: How do you implement NgRx RouterStore in NgRx for binding router to store?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx RouterStore to manage binding router to store. Ensure you follow the Redux pattern and keep functions pure where applicable.
+export const selectSelectedUser = createSelector(
+  selectUserEntities,
+  selectRouteParam('id'),
+  (users, id) => users[id]
+);
 
-**Code Example:**
-```typescript
-// Example for NgRx RouterStore
-export const example = createRouterStore(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q85: How do you implement NgRx Signals in NgRx for signal-based state management?
+### Q43: How do you optimize `OnPush` components with deep objects?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx Signals to manage signal-based state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Ensure selectors return new references only when data actually changes (memoization). Avoid returning new objects `{...}` in selectors if data is unchanged.
 
 **Code Example:**
-```typescript
-// Example for NgRx Signals
-export const example = createSignals(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q86: How do you implement NgRx Data in NgRx for zero-boilerplate data management?
+// Good
+createSelector(s1, s2, (a, b) => a.id === b.id ? a : { ...a, ...b })
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Data to manage zero-boilerplate data management. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx Data
-export const example = createData(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you implement NgRx Schematics in NgRx for scaffolding code?
+### Q44: How do you handle WebSocket messages in NgRx?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx Schematics to manage scaffolding code. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Create an effect that connects to the socket and maps incoming messages to Actions. Dispatch actions to update state.
 
 **Code Example:**
-```typescript
-// Example for NgRx Schematics
-export const example = createSchematics(() => {
-  // Implementation details
-});
-```
+return socket.messages$.pipe(
+  map(msg => Actions.messageReceived({ msg }))
+);
 
----
-
-### Q88: How do you implement Meta-Reducers in NgRx for higher-order reducers?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Meta-Reducers to manage higher-order reducers. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Meta-Reducers
-export const example = createMeta-Reducers(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you implement Selectors in NgRx for deriving state data?
+### Q45: How do you use `provideStoreDevtools`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy:**
-Use Selectors to manage deriving state data. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Add it to providers. Configure `maxAge` and `logOnly` for production.
 
 **Code Example:**
-```typescript
-// Example for Selectors
-export const example = createSelectors(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q90: How do you implement Actions in NgRx for describing state changes?
-
-**Difficulty**: Intermediate
+provideStoreDevtools({
+  maxAge: 25,
+  logOnly: environment.production
+})
 
-**Strategy:**
-Use Actions to manage describing state changes. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Actions
-export const example = createActions(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q91: How do you implement Reducers in NgRx for pure functions for state updates?
+### Q46: How do you implement Pagination with NgRx?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use Reducers to manage pure functions for state updates. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Store `page`, `pageSize`, and `total` in state. Effects trigger API calls with these params. Selectors derive the current page slice.
 
 **Code Example:**
-```typescript
-// Example for Reducers
-export const example = createReducers(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q92: How do you implement Testing in NgRx for unit testing store and effects?
+loadPage$ = createEffect(() => this.actions$.pipe(
+  ofType(PageActions.next),
+  withLatestFrom(this.store.select(selectPageParams)),
+  switchMap(([_, params]) => api.get(params))
+));
 
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use Testing to manage unit testing store and effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Testing
-export const example = createTesting(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: How do you implement DevTools in NgRx for debugging time-travel?
+### Q47: How do you cancel an HTTP request when the component is destroyed?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use DevTools to manage debugging time-travel. Ensure you follow the Redux pattern and keep functions pure where applicable.
+If using `ComponentStore`, the effect is tied to the lifecycle and cancels automatically. In global Effects, listen for a specific Cancel action dispatch in `ngOnDestroy`.
 
 **Code Example:**
-```typescript
-// Example for DevTools
-export const example = createDevTools(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q94: How do you implement Feature State in NgRx for lazy loading state?
-
-**Difficulty**: Intermediate
+takeUntil(this.actions$.pipe(ofType(PageActions.destroyed)))
 
-**Strategy:**
-Use Feature State to manage lazy loading state. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for Feature State
-export const example = createState(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you implement Root State in NgRx for app-wide configuration?
+### Q48: How do you manage Forms with NgRx?
 
 **Difficulty**: Intermediate
 
 **Strategy:**
-Use Root State to manage app-wide configuration. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Avoid storing every keystroke in Redux. Use local state for the form, and dispatch a single action on Submit. Or use Reactive Forms with `ngrx-forms` (if complex).
 
 **Code Example:**
-```typescript
-// Example for Root State
-export const example = createState(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q96: How do you implement NgRx Store in NgRx for global state management?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Store to manage global state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+onSubmit() {
+  if (form.valid) this.store.dispatch(save({ data: form.value }));
+}
 
-**Code Example:**
-```typescript
-// Example for NgRx Store
-export const example = createStore(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you implement NgRx Effects in NgRx for handling side effects?
+### Q49: How do you use `ngrx-data`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx Effects to manage handling side effects. Ensure you follow the Redux pattern and keep functions pure where applicable.
+`ngrx-data` automates standard CRUD. Define `EntityMetadataMap`, register it, and inject `EntityCollectionService<T>`.
 
 **Code Example:**
-```typescript
-// Example for NgRx Effects
-export const example = createEffects(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q98: How do you implement NgRx Entity in NgRx for managing collections?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use NgRx Entity to manage managing collections. Ensure you follow the Redux pattern and keep functions pure where applicable.
+const entityMetadata: EntityMetadataMap = { Hero: {} };
+// Service
+constructor(service: EntityCollectionService<Hero>) {
+  service.getAll(); // Auto-dispatches, effects, reducer
+}
 
-**Code Example:**
-```typescript
-// Example for NgRx Entity
-export const example = createEntity(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you implement NgRx ComponentStore in NgRx for local state management?
+### Q50: How do you migrate from NgRx Global Store to SignalStore?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy:**
-Use NgRx ComponentStore to manage local state management. Ensure you follow the Redux pattern and keep functions pure where applicable.
+Refactor Feature States to SignalStores. Replace Selectors with computed signals. Replace Actions/Effects with `rxMethod`. Keep Global Store for truly global data (Auth).
 
 **Code Example:**
-```typescript
-// Example for NgRx ComponentStore
-export const example = createComponentStore(() => {
-  // Implementation details
-});
-```
-
----
-
-### Q100: How do you implement NgRx RouterStore in NgRx for binding router to store?
-
-**Difficulty**: Intermediate
+// Incremental adoption allowed
 
-**Strategy:**
-Use NgRx RouterStore to manage binding router to store. Ensure you follow the Redux pattern and keep functions pure where applicable.
-
-**Code Example:**
-```typescript
-// Example for NgRx RouterStore
-export const example = createRouterStore(() => {
-  // Implementation details
-});
-```
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

@@ -11,13 +11,13 @@
 ## Table of Contents
 
 1. [How do you structure a web page using Semantic HTML for better Accessibility and SEO?](#q1-how-do-you-structure-a-web-page-using-semantic-html-for-better-accessibility-and-seo) <span class="intermediate">Intermediate</span>
-2. [Implement a responsive image strategy using `srcset` and `<picture>`.](#q2-implement-a-responsive-image-strategy-using-srcset-and-<picture>) <span class="intermediate">Intermediate</span>
+2. [Implement a responsive image strategy using `srcset` and `<picture>`.](#q2-implement-a-responsive-image-strategy-using-srcset-and-picture) <span class="intermediate">Intermediate</span>
 3. [How do you ensure a web form is accessible to screen reader users?](#q3-how-do-you-ensure-a-web-form-is-accessible-to-screen-reader-users) <span class="intermediate">Intermediate</span>
-4. [How do you implement a modal dialog using the native `<dialog>` element?](#q4-how-do-you-implement-a-modal-dialog-using-the-native-<dialog>-element) <span class="intermediate">Intermediate</span>
+4. [How do you implement a modal dialog using the native `<dialog>` element?](#q4-how-do-you-implement-a-modal-dialog-using-the-native-dialog-element) <span class="intermediate">Intermediate</span>
 5. [How do you optimize Critical Rendering Path using HTML tags?](#q5-how-do-you-optimize-critical-rendering-path-using-html-tags) <span class="intermediate">Intermediate</span>
-6. [How do you prevent tabnabbing attacks when using `target='_blank'`?](#q6-how-do-you-prevent-tabnabbing-attacks-when-using-target=_blank) <span class="intermediate">Intermediate</span>
+6. [How do you prevent tabnabbing attacks when using `target='_blank'`?](#q6-how-do-you-prevent-tabnabbing-attacks-when-using-target_blank) <span class="intermediate">Intermediate</span>
 7. [How do you implement Open Graph tags for Social Media sharing?](#q7-how-do-you-implement-open-graph-tags-for-social-media-sharing) <span class="intermediate">Intermediate</span>
-8. [How do you use the `<template>` tag for dynamic content?](#q8-how-do-you-use-the-<template>-tag-for-dynamic-content) <span class="intermediate">Intermediate</span>
+8. [How do you use the `<template>` tag for dynamic content?](#q8-how-do-you-use-the-template-tag-for-dynamic-content) <span class="intermediate">Intermediate</span>
 9. [How do you implement a secure Content Security Policy (CSP) via meta tag?](#q9-how-do-you-implement-a-secure-content-security-policy-csp-via-meta-tag) <span class="intermediate">Intermediate</span>
 10. [How do you encapsulate styles using Shadow DOM to prevent leakage?](#q10-how-do-you-encapsulate-styles-using-shadow-dom-to-prevent-leakage) <span class="intermediate">Intermediate</span>
 11. [How do you implement 'Lazy Loading' for iframes and images natively?](#q11-how-do-you-implement-lazy-loading-for-iframes-and-images-natively) <span class="intermediate">Intermediate</span>
@@ -28,11 +28,11 @@
 16. [How do you optimize font loading using `font-display`?](#q16-how-do-you-optimize-font-loading-using-font-display) <span class="intermediate">Intermediate</span>
 17. [How do you use JSON-LD for Structured Data (SEO)?](#q17-how-do-you-use-json-ld-for-structured-data-seo) <span class="intermediate">Intermediate</span>
 18. [How do you force a file download using the `download` attribute?](#q18-how-do-you-force-a-file-download-using-the-download-attribute) <span class="beginner">Beginner</span>
-19. [What is the semantic difference between `<code>`, `<pre>`, and `<kbd>`?](#q19-what-is-the-semantic-difference-between-<code>-<pre>-and-<kbd>) <span class="beginner">Beginner</span>
+19. [What is the semantic difference between `<code>`, `<pre>`, and `<kbd>`?](#q19-what-is-the-semantic-difference-between-code-pre-and-kbd) <span class="beginner">Beginner</span>
 20. [How do you implement an accessible Toggle Switch using HTML/CSS?](#q20-how-do-you-implement-an-accessible-toggle-switch-using-htmlcss) <span class="intermediate">Intermediate</span>
 21. [How do you optimize a page for printing using CSS media queries?](#q21-how-do-you-optimize-a-page-for-printing-using-css-media-queries) <span class="intermediate">Intermediate</span>
 22. [How do you semantically markup an image with a caption?](#q22-how-do-you-semantically-markup-an-image-with-a-caption) <span class="beginner">Beginner</span>
-23. [How do you group options in a `<select>` dropdown?](#q23-how-do-you-group-options-in-a-<select>-dropdown) <span class="beginner">Beginner</span>
+23. [How do you group options in a `<select>` dropdown?](#q23-how-do-you-group-options-in-a-select-dropdown) <span class="beginner">Beginner</span>
 24. [How do you specify the canonical URL to prevent duplicate content issues?](#q24-how-do-you-specify-the-canonical-url-to-prevent-duplicate-content-issues) <span class="intermediate">Intermediate</span>
 25. [How do you disable spellcheck for specific input fields?](#q25-how-do-you-disable-spellcheck-for-specific-input-fields) <span class="beginner">Beginner</span>
 26. [How do you create a 'Mailto' link with subject, body, and CC?](#q26-how-do-you-create-a-mailto-link-with-subject-body-and-cc) <span class="beginner">Beginner</span>
@@ -40,6 +40,26 @@
 28. [How do you make an iframe responsive with correct aspect ratio?](#q28-how-do-you-make-an-iframe-responsive-with-correct-aspect-ratio) <span class="intermediate">Intermediate</span>
 29. [How do you define a specific language for a part of the text?](#q29-how-do-you-define-a-specific-language-for-a-part-of-the-text) <span class="beginner">Beginner</span>
 30. [How do you use the `pattern` attribute for form validation?](#q30-how-do-you-use-the-pattern-attribute-for-form-validation) <span class="intermediate">Intermediate</span>
+31. [How do you create a native accordion using `details` and `summary`?](#q31-how-do-you-create-a-native-accordion-using-details-and-summary) <span class="beginner">Beginner</span>
+32. [What is the difference between `<meter>` and `<progress>`?](#q32-what-is-the-difference-between-meter-and-progress) <span class="intermediate">Intermediate</span>
+33. [How do you implement an autocomplete suggestion list using `<datalist>`?](#q33-how-do-you-implement-an-autocomplete-suggestion-list-using-datalist) <span class="beginner">Beginner</span>
+34. [How do you optimize the mobile keyboard layout using `inputmode`?](#q34-how-do-you-optimize-the-mobile-keyboard-layout-using-inputmode) <span class="intermediate">Intermediate</span>
+35. [How do you use the `<base>` tag to set relative URLs?](#q35-how-do-you-use-the-base-tag-to-set-relative-urls) <span class="intermediate">Intermediate</span>
+36. [How do you suggest a line break opportunity using `<wbr>`?](#q36-how-do-you-suggest-a-line-break-opportunity-using-wbr) <span class="advanced">Advanced</span>
+37. [When should you use `<blockquote>`, `<q>`, and `<cite>`?](#q37-when-should-you-use-blockquote-q-and-cite) <span class="beginner">Beginner</span>
+38. [What is the semantic difference between `<abbr>` and `<dfn>`?](#q38-what-is-the-semantic-difference-between-abbr-and-dfn) <span class="intermediate">Intermediate</span>
+39. [How do you provide contact information for the document author (`<address>`)?](#q39-how-do-you-provide-contact-information-for-the-document-author-address) <span class="beginner">Beginner</span>
+40. [How do you handle users with disabled JavaScript (`<noscript>`)?](#q40-how-do-you-handle-users-with-disabled-javascript-noscript) <span class="beginner">Beginner</span>
+41. [How do you secure an iframe using the `sandbox` attribute?](#q41-how-do-you-secure-an-iframe-using-the-sandbox-attribute) <span class="advanced">Advanced</span>
+42. [How do you make any element editable (`contenteditable`)?](#q42-how-do-you-make-any-element-editable-contenteditable) <span class="intermediate">Intermediate</span>
+43. [How do you enable native drag-and-drop (`draggable`)?](#q43-how-do-you-enable-native-drag-and-drop-draggable) <span class="intermediate">Intermediate</span>
+44. [How do you semantically hide content using the `hidden` attribute?](#q44-how-do-you-semantically-hide-content-using-the-hidden-attribute) <span class="beginner">Beginner</span>
+45. [How do you automatically focus an input field on page load?](#q45-how-do-you-automatically-focus-an-input-field-on-page-load) <span class="beginner">Beginner</span>
+46. [How do you prevent Google Translate from translating specific text?](#q46-how-do-you-prevent-google-translate-from-translating-specific-text) <span class="intermediate">Intermediate</span>
+47. [How do you link a Web App Manifest for PWA features?](#q47-how-do-you-link-a-web-app-manifest-for-pwa-features) <span class="intermediate">Intermediate</span>
+48. [How do you display the result of a calculation (`<output>`)?](#q48-how-do-you-display-the-result-of-a-calculation-output) <span class="intermediate">Intermediate</span>
+49. [How do you highlight text for reference or notation purposes (`<mark>`)?](#q49-how-do-you-highlight-text-for-reference-or-notation-purposes-mark) <span class="beginner">Beginner</span>
+50. [How do you handle Bi-directional text (Arabic/Hebrew) using `<bdi>`?](#q50-how-do-you-handle-bi-directional-text-arabichebrew-using-bdi) <span class="advanced">Advanced</span>
 
 ---
 
@@ -917,6 +937,359 @@ The `pattern` attribute accepts a Regular Expression that the input value must m
   <button>Submit</button>
 </form>
 ```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+
+### Q31: How do you create a native accordion using `details` and `summary`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use the `<details>` element as the container and `<summary>` for the visible heading. The content expands/collapses without JavaScript.
+
+**Code Example:**
+<details>
+  <summary>More Information</summary>
+  <p>This is the hidden content that appears when you click the summary.</p>
+</details>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: What is the difference between `<meter>` and `<progress>`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`<progress>` represents the completion progress of a task (dynamic). `<meter>` represents a scalar measurement within a known range (static/gauge), like disk usage.
+
+**Code Example:**
+<!-- Progress of a download -->
+<label for="file">Downloading:</label>
+<progress id="file" value="32" max="100"> 32% </progress>
+
+<!-- Disk usage -->
+<label for="disk">Disk Usage:</label>
+<meter id="disk" value="0.6"> 60% </meter>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: How do you implement an autocomplete suggestion list using `<datalist>`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Link an `<input>` element to a `<datalist>` via the `list` attribute. The browser provides native autocomplete options.
+
+**Code Example:**
+<label for="browser">Choose a browser:</label>
+<input list="browsers" name="browser" id="browser">
+
+<datalist id="browsers">
+  <option value="Chrome">
+  <option value="Firefox">
+  <option value="Safari">
+  <option value="Edge">
+</datalist>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: How do you optimize the mobile keyboard layout using `inputmode`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+The `inputmode` attribute hints at the type of data the user might enter, triggering the appropriate virtual keyboard (e.g., numeric, email, url).
+
+**Code Example:**
+<!-- Numeric keypad -->
+<input type="text" inputmode="numeric" pattern="[0-9]*">
+
+<!-- Email keyboard (@ symbol accessible) -->
+<input type="text" inputmode="email">
+
+<!-- Search key instead of Enter -->
+<input type="text" inputmode="search">
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: How do you use the `<base>` tag to set relative URLs?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+The `<base>` tag inside `<head>` specifies the base URL for all relative URLs in the document (links, images, scripts).
+
+**Code Example:**
+<head>
+  <base href="https://www.example.com/images/" target="_blank">
+</head>
+<body>
+  <!-- Resolves to https://www.example.com/images/logo.png -->
+  <img src="logo.png" alt="Logo">
+</body>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: How do you suggest a line break opportunity using `<wbr>`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+The `<wbr>` tag specifies where in a text it would be okay to add a line-break. Useful for long words or URLs to prevent layout breaking.
+
+**Code Example:**
+<p>
+  ThisIsAVeryLongWordThatMightBreakTheLayout<wbr>IfWeDoNotAddBreakPoints.
+</p>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: When should you use `<blockquote>`, `<q>`, and `<cite>`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`<blockquote>` for block-level quotations. `<q>` for inline quotations. `<cite>` for the title of a creative work (not the author).
+
+**Code Example:**
+<blockquote cite="https://www.example.com">
+  <p>The only true wisdom is in knowing you know nothing.</p>
+</blockquote>
+
+<p>As <cite>Hamlet</cite> says, <q>To be, or not to be.</q></p>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: What is the semantic difference between `<abbr>` and `<dfn>`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`<abbr>` is for abbreviations/acronyms (use `title` for expansion). `<dfn>` marks the instance of a term being defined.
+
+**Code Example:**
+<p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+<p>A <dfn>black hole</dfn> is a region of spacetime where gravity is so strong that nothing can escape.</p>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: How do you provide contact information for the document author (`<address>`)?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+The `<address>` element supplies contact information for its nearest `<article>` or `<body>` ancestor. It typically renders in italic.
+
+**Code Example:**
+<footer>
+  <address>
+    Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+    Visit us at: Box 564, Disneyland<br>
+    USA
+  </address>
+</footer>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you handle users with disabled JavaScript (`<noscript>`)?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `<noscript>` to define content that is displayed only when scripts are disabled or not supported.
+
+**Code Example:**
+<script>
+  document.write("Hello World!")
+</script>
+<noscript>
+  <p>Your browser does not support JavaScript!</p>
+</noscript>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you secure an iframe using the `sandbox` attribute?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+The `sandbox` attribute restricts the actions of the iframe content (no scripts, no forms, no popups) unless explicitly enabled.
+
+**Code Example:**
+<!-- Highly restrictive -->
+<iframe src="demo.html" sandbox></iframe>
+
+<!-- Allow scripts and same-origin access only -->
+<iframe src="demo.html" sandbox="allow-scripts allow-same-origin"></iframe>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you make any element editable (`contenteditable`)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Add the `contenteditable` attribute. Useful for building rich text editors.
+
+**Code Example:**
+<div contenteditable="true">
+  This text can be edited by the user.
+</div>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you enable native drag-and-drop (`draggable`)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Set `draggable='true'` on an element and handle drag events (`ondragstart`) in JavaScript.
+
+**Code Example:**
+<div draggable="true" ondragstart="event.dataTransfer.setData('text/plain', 'This text')">
+  Drag me!
+</div>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: How do you semantically hide content using the `hidden` attribute?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+The `hidden` attribute indicates the element is not yet, or is no longer, relevant. It functions like `display: none` but is semantic.
+
+**Code Example:**
+<p hidden>This content is hidden.</p>
+
+<script>
+  // Toggle visibility
+  document.querySelector('p').hidden = false;
+</script>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you automatically focus an input field on page load?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use the `autofocus` attribute. Only one element per page should have it.
+
+**Code Example:**
+<input type="text" name="search" autofocus placeholder="Search...">
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you prevent Google Translate from translating specific text?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use the `translate='no'` attribute. Useful for brand names, code snippets, or proper nouns.
+
+**Code Example:**
+<p>Welcome to <span translate="no">BrandName</span>.</p>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you link a Web App Manifest for PWA features?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `<link rel='manifest'>` in the head. It points to a JSON file controlling how the app appears when installed.
+
+**Code Example:**
+<head>
+  <link rel="manifest" href="/manifest.json">
+</head>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you display the result of a calculation (`<output>`)?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+The `<output>` element represents the result of a calculation or user action. It can be linked to inputs via the `for` attribute.
+
+**Code Example:**
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+  <input type="range" id="a" value="50"> +
+  <input type="number" id="b" value="50"> =
+  <output name="result" for="a b">100</output>
+</form>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you highlight text for reference or notation purposes (`<mark>`)?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use the `<mark>` tag. It represents text marked or highlighted for reference purposes, due to its relevance in another context.
+
+**Code Example:**
+<p>Search results for "HTML":</p>
+<p>The <mark>HTML</mark> element represents the root of the document.</p>
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you handle Bi-directional text (Arabic/Hebrew) using `<bdi>`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+`<bdi>` (Bi-directional Isolation) isolates a part of text that might be formatted in a different direction from other text outside it. Useful for user-generated content.
+
+**Code Example:**
+<ul>
+  <li>User: <bdi>سعيد</bdi> (Arabic)</li>
+  <li>User: <bdi>John</bdi> (English)</li>
+</ul>
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
