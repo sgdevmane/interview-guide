@@ -1177,6 +1177,1353 @@ process.on('unhandledRejection', (reason, promise) => {
   // Application specific logging, throwing an error, or other logic here
   process.exit(1); // Recommended to restart the process
 });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q32:  How do you optimize garbage collection in Node.js?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use flags like `--max-old-space-size` to increase heap limit. Use `--optimize_for_size` for smaller memory footprint. Avoid global variables and closures that retain large objects.
+
+**Code Example**:
+```bash
+node --max-old-space-size=4096 server.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q33:  How do you use Buffers safely?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `Buffer.alloc()` (initializes with zeros) instead of `Buffer.allocUnsafe()` (contains old memory data) unless performance is critical and you immediately overwrite it.
+
+**Code Example**:
+```javascript
+// Safe
+const buf = Buffer.alloc(1024);
+
+// Unsafe (faster, but potential security risk)
+const unsafeBuf = Buffer.allocUnsafe(1024);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q34:  How do you debug a Node.js application with the Inspector?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Start Node with `--inspect` or `--inspect-brk` (breaks on first line). Open Chrome and go to `chrome://inspect`.
+
+**Code Example**:
+```bash
+node --inspect-brk server.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q35:  How do you create a secure HTTPS server?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use the `https` module. You need an SSL certificate (key and cert files).
+
+**Code Example**:
+```javascript
+const https = require('https');
+const fs = require('fs');
+
+const options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
+
+https.createServer(options, (req, res) => {
+  res.writeHead(200);
+  res.end('hello world\n');
+}).listen(443);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q36:  How do you use `util.promisify` to convert callback-based functions?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`util.promisify` converts a function that accepts a callback (err, value) into a function that returns a Promise.
+
+**Code Example**:
+```javascript
+const util = require('util');
+const fs = require('fs');
+const readFile = util.promisify(fs.readFile);
+
+async function read() {
+  const data = await readFile('test.txt', 'utf8');
+  console.log(data);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q37:  How do you parse large JSON files without blocking the event loop?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use a streaming JSON parser like `stream-json` or `bfj` instead of `JSON.parse()` which is synchronous and blocks the loop for large strings.
+
+**Code Example**:
+```javascript
+const { parser } = require('stream-json');
+const fs = require('fs');
+
+fs.createReadStream('large.json')
+  .pipe(parser())
+  .on('data', data => console.log(data));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q38:  How do you implement a simple rate limiter using Redis?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use Redis `INCR` and `EXPIRE`. Increment a counter for the user's IP. If it exceeds the limit, reject.
+
+**Code Example**:
+```javascript
+const redis = require('redis');
+const client = redis.createClient();
+
+async function rateLimit(ip) {
+  const requests = await client.incr(ip);
+  if (requests === 1) await client.expire(ip, 60); // 60s window
+  
+  if (requests > 100) throw new Error('Too many requests');
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q39:  How do you use `vm` module to run untrusted code (Sandboxing)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+The `vm` module allows compiling and running code in V8 contexts. However, it is **not secure** for untrusted code. Use `vm2` or isolated processes/containers for real security.
+
+**Code Example**:
+```javascript
+const vm = require('vm');
+const context = { x: 2 };
+vm.createContext(context);
+vm.runInContext('x += 40; var y = 17;', context);
+console.log(context.x); // 42
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q40:  How do you prevent blocking the Event Loop with cryptographic operations?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use the async versions of `crypto` methods (e.g., `crypto.pbkdf2` instead of `crypto.pbkdf2Sync`). These run in the libuv thread pool.
+
+**Code Example**:
+```javascript
+const crypto = require('crypto');
+// Async - Non-blocking
+crypto.pbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, key) => {
+  console.log(key.toString('hex'));
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q41:  How do you use `require.resolve`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+It returns the absolute filename of a module without loading it. Useful for checking existence or getting paths.
+
+**Code Example**:
+```javascript
+const path = require.resolve('express');
+console.log(path); // /node_modules/express/index.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q42:  How do you implement simple middleware in pure Node.js?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Wrap the request handler. Execute logic before calling the next handler.
+
+**Code Example**:
+```javascript
+const logger = (req, res, next) => {
+  console.log(req.method, req.url);
+  next();
+};
+
+const server = http.createServer((req, res) => {
+  logger(req, res, () => {
+    res.end('Hello');
+  });
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q43:  How do you use the `repl` module to create a custom shell?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `repl.start()` to create an interactive shell with custom context.
+
+**Code Example**:
+```javascript
+const repl = require('repl');
+const r = repl.start('> ');
+r.context.myFunc = () => console.log('Custom function');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q44:  How do you benchmark Node.js code using `perf_hooks`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `performance.now()` for high-resolution timestamps to measure execution time.
+
+**Code Example**:
+```javascript
+const { performance } = require('perf_hooks');
+const start = performance.now();
+// ... operation ...
+const end = performance.now();
+console.log(`Time: ${end - start}ms`);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q45:  How do you serve static files without a framework?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Read the file using `fs` based on the URL path and write it to the response stream with the correct MIME type.
+
+**Code Example**:
+```javascript
+const fs = require('fs');
+const http = require('http');
+
+http.createServer((req, res) => {
+  if (req.url === '/style.css') {
+    res.writeHead(200, { 'Content-Type': 'text/css' });
+    fs.createReadStream('style.css').pipe(res);
+  }
+}).listen(3000);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q46:  What are the security implications of Node.js in real-time systems?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Real-time apps (WebSockets) maintain persistent connections. This increases exposure to DoS attacks (exhausting file descriptors). Use rate limiting and connection limits.
+
+**Code Example**:
+```javascript
+// Pseudo-code for connection limit
+if (activeConnections > MAX_CONNECTIONS) {
+  socket.destroy();
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q47:  How do you debug Node.js memory leaks in distributed systems?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use APM tools (Datadog, New Relic) or remote heap profiling (e.g., `heapdump` module triggering a snapshot on signal).
+
+**Code Example**:
+```javascript
+const heapdump = require('heapdump');
+process.kill(process.pid, 'SIGUSR2'); // Triggers snapshot
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q48:  Best practices for Node.js code organization in high-traffic sites?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Layered Architecture: Controllers (HTTP), Services (Business Logic), Data Access (DB). Keep controllers thin.
+
+**Code Example**:
+```javascript
+// user.controller.js -> calls userService.js -> calls userRepository.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q49:  How do you implement Node.js error handling for embedded systems?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+On embedded systems, you can't just crash. Use a supervisor (systemd/PM2) to restart, but also implement a "safe mode" or retry logic for hardware I/O errors.
+
+**Code Example**:
+```javascript
+try {
+  readSensor();
+} catch (e) {
+  logError(e);
+  setTimeout(readSensor, 5000); // Retry
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q50:  How do you test Node.js functionality in production environments?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use Canary Deployments or Feature Flags. Use "Synthetic Monitoring" (pings critical paths periodically).
+
+**Code Example**:
+```javascript
+// Health check endpoint that checks DB connection
+app.get('/health', async (req, res) => {
+  const dbUp = await checkDb();
+  res.status(dbUp ? 200 : 500).send();
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q51:  Explain the Node.js Event Loop phases.
+
+**Difficulty**: Advanced
+
+**Strategy**:
+1. Timers (setTimeout)
+2. Pending Callbacks (I/O)
+3. Idle, Prepare
+4. Poll (New I/O)
+5. Check (setImmediate)
+6. Close Callbacks
+
+**Code Example**:
+```javascript
+// Understanding order
+setTimeout(() => console.log('Timer'), 0);
+setImmediate(() => console.log('Check'));
+// 'Check' might run before 'Timer' depending on I/O cycle
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q52:  How does the `os` module help in scaling?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `os.cpus().length` to determine how many worker threads or cluster forks to create to maximize CPU usage.
+
+**Code Example**:
+```javascript
+const os = require('os');
+const numCPUs = os.cpus().length;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q53:  How do Worker Threads differ from Cluster module?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Cluster: Separate processes (share port, separate memory). Good for HTTP scaling.
+Worker Threads: Same process (share memory via SharedArrayBuffer). Good for CPU tasks within an app.
+
+**Code Example**:
+```javascript
+// Worker Thread sharing memory
+const { Worker, isMainThread } = require('worker_threads');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q54:  How do you handle Backpressure in Streams?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use `pipeline` which handles it automatically. If manual, check `write()` return value and wait for `drain`.
+
+**Code Example**:
+```javascript
+readable.pipe(writable); // Auto-handles backpressure
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q55:  How do you use `heapdump`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Generate a heap snapshot file programmatically to analyze memory usage in Chrome DevTools.
+
+**Code Example**:
+```javascript
+const heapdump = require('heapdump');
+heapdump.writeSnapshot('/var/local/' + Date.now() + '.heapsnapshot');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q56:  What is the Buffer class?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+A global class to handle raw binary data. Node.js was designed for networking, which requires binary.
+
+**Code Example**:
+```javascript
+Buffer.from('Hello');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q57:  How do you implement a custom Transform stream?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Implement `_transform` and `_flush`.
+
+**Code Example**:
+```javascript
+class MyTransform extends Transform {
+  _transform(chunk, enc, cb) {
+    this.push(chunk);
+    cb();
+  }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q58:  How do you handle uncaught exceptions?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`process.on('uncaughtException')`. Log and exit.
+
+**Code Example**:
+```javascript
+process.on('uncaughtException', (err) => process.exit(1));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q59:  What is libuv?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+The C library that provides the Event Loop and async I/O (file system, DNS, network) for Node.js.
+
+**Code Example**:
+```javascript
+// libuv handles the thread pool for fs operations
+fs.readFile(...); 
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q60:  How do you secure a Node.js app?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Helmet (headers), Rate Limit, Input Validation, CORS, no eval.
+
+**Code Example**:
+```javascript
+app.use(helmet());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q61:  Difference between `spawn` and `exec`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`spawn`: Returns a stream (good for large data).
+`exec`: Buffers output (good for small output, simple commands).
+
+**Code Example**:
+```javascript
+exec('ls', (err, stdout) => console.log(stdout));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q62:  How do you implement a graceful shutdown?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Handle `SIGTERM`. Close server and DB.
+
+**Code Example**:
+```javascript
+process.on('SIGTERM', () => server.close());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q63:  How do you use `util.promisify`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Converts callback style to promise style.
+
+**Code Example**:
+```javascript
+const stat = util.promisify(fs.stat);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q64:  What is middleware in Express?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Functions that access request/response objects and `next` function.
+
+**Code Example**:
+```javascript
+app.use((req, res, next) => next());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q65:  How do you handle file uploads in Node?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `multer` or `formidable`.
+
+**Code Example**:
+```javascript
+const upload = multer({ dest: 'uploads/' });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q66:  How do you implement JWT authentication?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Sign payload with secret. Send token.
+
+**Code Example**:
+```javascript
+jwt.sign({ id: 1 }, 'secret');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q67:  How do you optimize Node.js performance?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Clustering, Caching, Gzip, Async I/O.
+
+**Code Example**:
+```javascript
+compression();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q68:  What is the purpose of `package-lock.json`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Locks dependency versions to ensure consistent installs across environments.
+
+**Code Example**:
+```json
+"dependencies": { "express": { "version": "4.17.1" } }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q69:  How do you implement logging?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Winston or Pino.
+
+**Code Example**:
+```javascript
+logger.info('message');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q70:  How do you use Environment Variables?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`process.env`.
+
+**Code Example**:
+```javascript
+const db = process.env.DB_URI;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q71:  How do you handle CORS?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`cors` middleware.
+
+**Code Example**:
+```javascript
+app.use(cors());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q72:  How do you make an HTTP request?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`fetch` (Node 18+), `axios`, or `http.request`.
+
+**Code Example**:
+```javascript
+await fetch('https://api.com');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q73:  What is the Cluster module?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Multi-processing to use all cores.
+
+**Code Example**:
+```javascript
+cluster.fork();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q74:  How do you implement API rate limiting?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`express-rate-limit`.
+
+**Code Example**:
+```javascript
+rateLimit({ windowMs: 60000, max: 10 });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q75:  How do you parse JSON?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`JSON.parse()` or `express.json()` middleware.
+
+**Code Example**:
+```javascript
+app.use(express.json());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q76:  How do you implement a WebSocket server?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `ws` or `socket.io`.
+
+**Code Example**:
+```javascript
+const wss = new WebSocket.Server({ port: 8080 });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q77:  What is `console.dir`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Displays an interactive list of the properties of the specified JavaScript object.
+
+**Code Example**:
+```javascript
+console.dir(obj, { depth: null, colors: true });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q78:  How do you profile a Node app?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+`--prof` flag or `0x` tool.
+
+**Code Example**:
+```bash
+node --prof app.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q79:  How do you manage configuration?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`dotenv` or `config` module.
+
+**Code Example**:
+```javascript
+const config = require('config');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q80:  How do you schedule tasks?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`node-cron` or `agenda`.
+
+**Code Example**:
+```javascript
+cron.schedule('* * * * *', () => console.log('Task'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q81:  How do you write unit tests?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Jest, Mocha, Chai.
+
+**Code Example**:
+```javascript
+it('should return true', () => expect(true).toBe(true));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q82:  How do you handle large JSON payloads?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Increase limit in body parser.
+
+**Code Example**:
+```javascript
+express.json({ limit: '50mb' });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q83:  How do you use async/await with callbacks?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Wrap in Promise.
+
+**Code Example**:
+```javascript
+await new Promise(resolve => cb(resolve));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q84:  What is `module.exports` vs `exports`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+`exports` is a reference to `module.exports`. If you reassign `exports`, the link is broken.
+
+**Code Example**:
+```javascript
+exports.foo = 'bar'; // Works
+exports = { foo: 'bar' }; // Breaks
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q85:  How do you implement a health check endpoint?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Simple GET route.
+
+**Code Example**:
+```javascript
+app.get('/health', (req, res) => res.send('OK'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q86:  How do you compress HTTP responses?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`compression` middleware.
+
+**Code Example**:
+```javascript
+app.use(compression());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q87:  How do you protect against NoSQL Injection?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Sanitize input (remove `$` signs).
+
+**Code Example**:
+```javascript
+const clean = req.body.username.replace(/\$/g, '');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q88:  How do you implement role-based access control?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Middleware checking user role.
+
+**Code Example**:
+```javascript
+if (req.user.role !== 'admin') return res.sendStatus(403);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q89:  How do you use `EventEmitter`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Pub/Sub pattern.
+
+**Code Example**:
+```javascript
+emitter.on('event', () => {});
+emitter.emit('event');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q90:  How do you debug async code?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`async_hooks` or long stack traces.
+
+**Code Example**:
+```javascript
+require('longjohn');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q91:  How do you serve static files?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`express.static`.
+
+**Code Example**:
+```javascript
+app.use(express.static('public'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q92:  How do you implement request validation?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Joi or express-validator.
+
+**Code Example**:
+```javascript
+check('email').isEmail();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q93:  How do you mock dependencies in tests?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`jest.mock()`.
+
+**Code Example**:
+```javascript
+jest.mock('fs');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q94:  How do you handle timezones?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Store as UTC, display as local using Moment/Luxon.
+
+**Code Example**:
+```javascript
+moment().utc().format();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q95:  How do you implement hot reload?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Nodemon.
+
+**Code Example**:
+```bash
+nodemon app.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q96:  How do you use MongoDB with Node?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Mongoose or native driver.
+
+**Code Example**:
+```javascript
+mongoose.connect(uri);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q97:  How do you implement redis caching?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Check cache, if miss, fetch and set cache.
+
+**Code Example**:
+```javascript
+client.get('key', (err, val) => {});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q98:  How do you handle sticky sessions?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use a store (Redis) for sessions instead of memory, or configure Load Balancer.
+
+**Code Example**:
+```javascript
+const RedisStore = require('connect-redis')(session);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q99:  How do you implement OAuth?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Passport.js.
+
+**Code Example**:
+```javascript
+passport.use(new GoogleStrategy(...));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
+
+### Q100:  How do you parse command line arguments?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`process.argv` or `yargs`.
+
+**Code Example**:
+```javascript
+const args = process.argv.slice(2);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 
 Promise.reject(new Error('Fail!'));
 ```

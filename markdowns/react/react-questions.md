@@ -10,6 +10,36 @@
 
 ## Table of Contents
 
+1. [How do you implement a custom hook `useFetch` with caching and cancellation?](#q1-how-do-you-implement-a-custom-hook-usefetch-with-caching-and-cancellation) <span class="advanced">Advanced</span>
+2. [How do you optimize a React application using `useMemo` and `useCallback` correctly?](#q2-how-do-you-optimize-a-react-application-using-usememo-and-usecallback-correctly) <span class="advanced">Advanced</span>
+3. [How do you manage global state using React Context without triggering unnecessary re-renders?](#q3-how-do-you-manage-global-state-using-react-context-without-triggering-unnecessary-re-renders) <span class="advanced">Advanced</span>
+4. [How do you implement a Compound Component pattern (e.g., Tabs)?](#q4-how-do-you-implement-a-compound-component-pattern-eg-tabs) <span class="advanced">Advanced</span>
+5. [How do you create a Higher-Order Component (HOC) for authentication?](#q5-how-do-you-create-a-higher-order-component-hoc-for-authentication) <span class="advanced">Advanced</span>
+6. [How do you implement the Render Props pattern for code reuse?](#q6-how-do-you-implement-the-render-props-pattern-for-code-reuse) <span class="intermediate">Intermediate</span>
+7. [How do you implement an Error Boundary to catch crashes in child components?](#q7-how-do-you-implement-an-error-boundary-to-catch-crashes-in-child-components) <span class="intermediate">Intermediate</span>
+8. [How do you use `useImperativeHandle` to expose child methods to a parent?](#q8-how-do-you-use-useimperativehandle-to-expose-child-methods-to-a-parent) <span class="advanced">Advanced</span>
+9. [How do you implement a Portal to render children into a different part of the DOM?](#q9-how-do-you-implement-a-portal-to-render-children-into-a-different-part-of-the-dom) <span class="intermediate">Intermediate</span>
+10. [How do you optimize large lists using Virtualization (Windowing)?](#q10-how-do-you-optimize-large-lists-using-virtualization-windowing) <span class="advanced">Advanced</span>
+11. [How do you implement a custom `useDebounce` hook?](#q11-how-do-you-implement-a-custom-usedebounce-hook) <span class="intermediate">Intermediate</span>
+12. [How do you implement a custom `useLocalStorage` hook?](#q12-how-do-you-implement-a-custom-uselocalstorage-hook) <span class="intermediate">Intermediate</span>
+13. [How do you implement a custom `usePrevious` hook?](#q13-how-do-you-implement-a-custom-useprevious-hook) <span class="intermediate">Intermediate</span>
+14. [What is the difference between `useEffect` and `useLayoutEffect`?](#q14-what-is-the-difference-between-useeffect-and-uselayouteffect) <span class="intermediate">Intermediate</span>
+15. [How do you use `forwardRef` to pass refs to child components?](#q15-how-do-you-use-forwardref-to-pass-refs-to-child-components) <span class="intermediate">Intermediate</span>
+16. [Controlled vs Uncontrolled Components: When to use which?](#q16-controlled-vs-uncontrolled-components-when-to-use-which) <span class="beginner">Beginner</span>
+17. [How do you use `React.memo` to prevent re-renders?](#q17-how-do-you-use-reactmemo-to-prevent-re-renders) <span class="intermediate">Intermediate</span>
+18. [How do you implement Code Splitting using `React.lazy` and `Suspense`?](#q18-how-do-you-implement-code-splitting-using-reactlazy-and-suspense) <span class="intermediate">Intermediate</span>
+19. [How do you handle forms efficiently using React Hook Form?](#q19-how-do-you-handle-forms-efficiently-using-react-hook-form) <span class="intermediate">Intermediate</span>
+20. [How do you manage state with Redux Toolkit (Slice + Thunk)?](#q20-how-do-you-manage-state-with-redux-toolkit-slice--thunk) <span class="advanced">Advanced</span>
+21. [How do you create a simple store using Zustand?](#q21-how-do-you-create-a-simple-store-using-zustand) <span class="intermediate">Intermediate</span>
+22. [How do you implement Private Routes for authentication?](#q22-how-do-you-implement-private-routes-for-authentication) <span class="intermediate">Intermediate</span>
+23. [How do you handle JWT Authentication (Login/Logout)?](#q23-how-do-you-handle-jwt-authentication-loginlogout) <span class="intermediate">Intermediate</span>
+24. [How do you unit test a React component using Jest and React Testing Library?](#q24-how-do-you-unit-test-a-react-component-using-jest-and-react-testing-library) <span class="intermediate">Intermediate</span>
+25. [How do you mock API calls in Jest tests?](#q25-how-do-you-mock-api-calls-in-jest-tests) <span class="intermediate">Intermediate</span>
+26. [How do you prevent XSS attacks in React?](#q26-how-do-you-prevent-xss-attacks-in-react) <span class="intermediate">Intermediate</span>
+27. [How do you fix "Can't perform a React state update on an unmounted component"?](#q27-how-do-you-fix-cant-perform-a-react-state-update-on-an-unmounted-component) <span class="intermediate">Intermediate</span>
+28. [How do you manage focus for accessibility (A11y)?](#q28-how-do-you-manage-focus-for-accessibility-a11y) <span class="intermediate">Intermediate</span>
+29. [SSR vs CSR vs SSG: When to use what?](#q29-ssr-vs-csr-vs-ssg-when-to-use-what) <span class="intermediate">Intermediate</span>
+30. [What is React Fiber and how does it improve performance?](#q30-what-is-react-fiber-and-how-does-it-improve-performance) <span class="expert">Expert</span>
 31. [`useState` vs `useReducer`: When should you choose one over the other?](#q31-usestate-vs-usereducer:-when-should-you-choose-one-over-the-other) <span class="intermediate">Intermediate</span>
 32. [How do you implement a custom hook `useOnClickOutside` to close modals?](#q32-how-do-you-implement-a-custom-hook-useonclickoutside-to-close-modals) <span class="intermediate">Intermediate</span>
 33. [How do you implement a `useMediaQuery` hook for responsive designs?](#q33-how-do-you-implement-a-usemediaquery-hook-for-responsive-designs) <span class="intermediate">Intermediate</span>
@@ -2146,6 +2176,686 @@ useEffect(() => {
 ### Q64: What is Higher-Order Component (HOC)?
 
 **Difficulty**: Advanced
+
+**Strategy**:
+A function that takes a component and returns a new component. Used for reusing component logic (e.g., authentication, logging).
+
+**Code Example**:
+```javascript
+function withAuth(WrappedComponent) {
+  return function(props) {
+    return isAuthenticated ? <WrappedComponent {...props} /> : <Login />;
+  };
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q65: How does `setState` batch updates?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+React groups multiple state updates into a single re-render for better performance. React 18 introduced Automatic Batching for promises and timeouts too.
+
+**Code Example**:
+```javascript
+function handleClick() {
+  setCount(c => c + 1);
+  setFlag(f => !f);
+  // Re-renders once, not twice
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q66: What is the Rules of Hooks?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+1. Only call Hooks at the top level (no loops, conditions, or nested functions).
+2. Only call Hooks from React function components or custom Hooks.
+
+**Code Example**:
+```javascript
+// ❌ Bad
+if (condition) { useEffect(...) }
+
+// ✅ Good
+useEffect(() => {
+  if (condition) { ... }
+}, []);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q67: How do you test a React component?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use **React Testing Library** to test interaction and **Jest** for assertions. Focus on user-centric testing (what user sees), not implementation details.
+
+**Code Example**:
+```javascript
+test('renders button', () => {
+  render(<Button />);
+  expect(screen.getByRole('button')).toBeInTheDocument();
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q68: What is Code Splitting?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Splitting code into smaller bundles to load on demand. Implemented using `React.lazy()` and `Suspense` or dynamic imports in Webpack/Vite.
+
+**Code Example**:
+```javascript
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q69: How do you handle forms in React?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use Controlled components (state) for simple forms, or `react-hook-form` (uncontrolled) for performance and complex validation.
+
+**Code Example**:
+```javascript
+const { register, handleSubmit } = useForm();
+<input {...register("firstName")} />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q70: What is Reconciliation?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+The process by which React updates the DOM. It compares the new Virtual DOM with the old one (diffing) and applies the minimal set of changes to the real DOM.
+
+**Code Example**:
+```javascript
+// React compares element types.
+// <div> -> <span> : Full rebuild.
+// <div className="a"> -> <div className="b"> : Update attribute only.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q71: How do you force a re-render?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Ideally, you shouldn't. If needed, update a dummy state or use `useReducer`.
+
+**Code Example**:
+```javascript
+const [, forceUpdate] = useReducer(x => x + 1, 0);
+// Call forceUpdate() to re-render
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q72: What is Strict Mode?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+A tool for highlighting potential problems in an application. It activates additional checks and warnings for its descendants (e.g., double-invoking effects in dev).
+
+**Code Example**:
+```javascript
+<React.StrictMode>
+  <App />
+</React.StrictMode>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q73: How do you use Context API effectively?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use it for global data (theme, user, language). Avoid using it for high-frequency updates as it triggers re-renders in all consumers. Split contexts to optimize.
+
+**Code Example**:
+```javascript
+const ThemeContext = createContext('light');
+const theme = useContext(ThemeContext);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q74: What is Hydration?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+The process where React attaches event listeners to the HTML rendered by the server (SSR) to make it interactive.
+
+**Code Example**:
+```javascript
+// Client-side
+hydrateRoot(document.getElementById('root'), <App />);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q75: How do you implement dark mode?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use a Context to hold the theme state. Toggle a CSS class on the `body` or root element, or use a `ThemeProvider` (Styled Components/Emotion).
+
+**Code Example**:
+```javascript
+// In Context Provider
+useEffect(() => {
+  document.body.className = theme;
+}, [theme]);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q76: What is prop types?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Runtime type checking for React props. Less common now with TypeScript, but useful in JS projects.
+
+**Code Example**:
+```javascript
+import PropTypes from 'prop-types';
+MyComponent.propTypes = {
+  name: PropTypes.string.isRequired
+};
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q77: How do you optimize Context re-renders?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Split context into State and Dispatch. Memoize the value passed to `Provider`.
+
+**Code Example**:
+```javascript
+const value = useMemo(() => ({ state, dispatch }), [state]);
+<Ctx.Provider value={value}>...</Ctx.Provider>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q78: React Server Components vs Client Components?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Server Components run on the server (zero bundle size). Client Components run in the browser (interactivity).
+
+**Code Example**:
+```javascript
+// Server Component (default in Next.js app dir)
+async function getData() { ... }
+export default async function Page() {
+  const data = await getData();
+  return <div>{data.title}</div>;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q79: How do you handle images in React?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Import them or use the `public` folder. For optimization, use `<img loading="lazy" />` or Next.js `<Image />`.
+
+**Code Example**:
+```javascript
+import logo from './logo.png';
+<img src={logo} alt="Logo" />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q80: What is the Virtual DOM?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+A lightweight copy of the DOM in memory. React modifies this first, diffs it, and then updates the real DOM efficiently.
+
+**Code Example**:
+```javascript
+// Conceptual Object
+const vNode = {
+  type: 'div',
+  props: { className: 'container', children: 'Hello' }
+};
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q81: How do you implement authentication in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Store JWT in localStorage/cookies. Use a Context to provide user state. specific `PrivateRoute` component to protect routes.
+
+**Code Example**:
+```javascript
+const { user } = useAuth();
+return user ? <Dashboard /> : <Navigate to="/login" />;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q82: How do you handle multiple environments?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `.env` files (`.env.development`, `.env.production`). Access via `process.env.REACT_APP_*` or `import.meta.env.VITE_*`.
+
+**Code Example**:
+```javascript
+const apiUrl = import.meta.env.VITE_API_URL;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q83: How do you debug performance issues?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use React DevTools **Profiler**. Look for unnecessary re-renders. Use `why-did-you-render` library.
+
+**Code Example**:
+```javascript
+// wdyr.js
+import React from 'react';
+if (process.env.NODE_ENV === 'development') {
+  const whyDidYouRender = require('@welldone-software/why-did-you-render');
+  whyDidYouRender(React, { trackAllPureComponents: true });
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q84: What is Render Props pattern?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Passing a function as a prop to share code.
+
+**Code Example**:
+```javascript
+<Mouse render={mouse => (
+  <p>Mouse: {mouse.x}, {mouse.y}</p>
+)}/>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: How do you create a compound component?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Components that work together (like `<select>` and `<option>`). Use Context to share state implicitly.
+
+**Code Example**:
+```javascript
+<Menu>
+  <Menu.Button>Open</Menu.Button>
+  <Menu.List>
+    <Menu.Item>Copy</Menu.Item>
+  </Menu.List>
+</Menu>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q86: How do you manage global state without Redux?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Context API + `useReducer` for medium complexity. Zustand or Jotai for simpler, atomic state.
+
+**Code Example**:
+```javascript
+// Zustand
+const useStore = create(set => ({ count: 0, inc: () => set(s => ({ count: s.count + 1 })) }));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q87: How do you implement infinite scroll?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `IntersectionObserver` to detect when the user scrolls to the bottom, then fetch the next page.
+
+**Code Example**:
+```javascript
+const { ref, inView } = useInView();
+useEffect(() => {
+  if (inView) loadMore();
+}, [inView]);
+return <div ref={ref}>Loading...</div>;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q88: How do you secure React apps?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+1. Validate all inputs.
+2. Sanitize HTML (`dompurify`).
+3. Use HttpOnly cookies for tokens.
+4. Implement CSP (Content Security Policy).
+
+**Code Example**:
+```javascript
+// CSP Header in index.html meta tag
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*;" />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: How do you unit test hooks?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `renderHook` from `@testing-library/react`.
+
+**Code Example**:
+```javascript
+const { result } = renderHook(() => useCounter());
+act(() => result.current.increment());
+expect(result.current.count).toBe(1);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: What is `flushSync`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Forces React to flush updates synchronously. Use sparingly, e.g., when you need to measure the DOM immediately after an update.
+
+**Code Example**:
+```javascript
+flushSync(() => {
+  setCount(c => c + 1);
+});
+// DOM is updated here
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: How do you handle race conditions in useEffect?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Use a cleanup flag or AbortController to ignore results from stale requests.
+
+**Code Example**:
+```javascript
+useEffect(() => {
+  let active = true;
+  fetch(url).then(data => {
+    if (active) setData(data);
+  });
+  return () => { active = false; };
+}, [url]);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: What is `dangerouslySetInnerHTML`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+React's replacement for `innerHTML`. It reminds you that setting HTML directly is dangerous (XSS).
+
+**Code Example**:
+```javascript
+<div dangerouslySetInnerHTML={{ __html: '<p>Hello</p>' }} />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: How do you implement drag and drop?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use HTML5 Drag and Drop API or libraries like `dnd-kit` or `react-beautiful-dnd`.
+
+**Code Example**:
+```javascript
+<div draggable onDragStart={e => e.dataTransfer.setData('text', 'id')} />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: How do you handle file uploads in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `input type="file"`. Access the file via `e.target.files[0]`. Use `FormData` to send it to the server.
+
+**Code Example**:
+```javascript
+const handleUpload = (e) => {
+  const file = e.target.files[0];
+  const formData = new FormData();
+  formData.append('file', file);
+  fetch('/upload', { method: 'POST', body: formData });
+};
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: How do you implement a carousel?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+State tracks current index. `setInterval` for auto-play. CSS transform to slide.
+
+**Code Example**:
+```javascript
+const [index, setIndex] = useState(0);
+const next = () => setIndex((i + 1) % images.length);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: How do you mock API calls in tests?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `jest.spyOn(global, 'fetch')` or `msw` (Mock Service Worker) to intercept network requests.
+
+**Code Example**:
+```javascript
+server.use(
+  rest.get('/api/user', (req, res, ctx) => {
+    return res(ctx.json({ name: 'John' }));
+  })
+);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: What is `React.memo`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Memoizes a component to prevent re-renders if props haven't changed.
+
+**Code Example**:
+```javascript
+const MyComponent = React.memo(function MyComponent(props) {
+  /* render using props */
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: How do you implement a tooltip?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Track hover state (`onMouseEnter`, `onMouseLeave`). Render a positioned div.
+
+**Code Example**:
+```javascript
+{isHovered && <div className="tooltip">Info</div>}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: How do you handle window resize events?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`useEffect` to add `resize` listener. Update state. Debounce for performance.
+
+**Code Example**:
+```javascript
+useEffect(() => {
+  const handleResize = () => setWidth(window.innerWidth);
+  window.addEventListener('resize', handleResize);
+  return () => window.removeEventListener('resize', handleResize);
+}, []);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: How do you implement A/B testing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use a Feature Flag service (LaunchDarkly) or random logic. Render different components based on the flag.
+
+**Code Example**:
+```javascript
+const variant = useExperiment('new-signup-flow');
+return variant === 'B' ? <SignupB /> : <SignupA />;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
 
 **Strategy**:
 A function that takes a component and returns a new component. Used for cross-cutting concerns.

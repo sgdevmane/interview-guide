@@ -1189,6 +1189,1073 @@ type T1 = Exclude<"a" | "b" | "c", "a">;
 interface Todo {
   title: string;
   completed: boolean;
+}
+type TodoPreview = Omit<Todo, "completed">;
+// { title: string; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: How do you use `Record<K, T>` to create a dictionary?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`Record<K, T>` constructs an object type with keys of type `K` and values of type `T`.
+
+**Code Example**:
+```typescript
+type Roles = "admin" | "user" | "guest";
+const permissions: Record<Roles, number> = {
+  admin: 100,
+  user: 50,
+  guest: 10
+};
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: How do you implement Mixins in TypeScript?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+A mixin is a function that takes a class constructor and returns a new class extending it.
+
+**Code Example**:
+```typescript
+type Constructor = new (...args: any[]) => {};
+
+function Timestamped<TBase extends Constructor>(Base: TBase) {
+  return class extends Base {
+    timestamp = Date.now();
+  };
+}
+
+class User {
+  name = "Alice";
+}
+
+const TimestampedUser = Timestamped(User);
+const user = new TimestampedUser();
+console.log(user.timestamp);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you use `ConstructorParameters<T>`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Extracts the tuple of argument types from a class constructor.
+
+**Code Example**:
+```typescript
+class Point {
+  constructor(public x: number, public y: number) {}
+}
+
+type PointParams = ConstructorParameters<typeof Point>;
+// [number, number]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: How do you force a type to be partially optional using a utility type?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Create a type that picks required keys and intersects with a partial of optional keys.
+
+**Code Example**:
+```typescript
+type PartialBy<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+type UserOptionalEmail = PartialBy<User, "email">;
+// { id: number; name: string; email?: string; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: What is Covariance vs Contravariance in TypeScript?
+
+**Difficulty**: Expert
+
+**Strategy**:
+*   **Covariance**: Allows assignment of a subtype to a supertype (e.g., `Promise<Dog>` -> `Promise<Animal>`).
+*   **Contravariance**: Allows assignment of a supertype to a subtype (e.g., function arguments: `(a: Animal) => void` -> `(d: Dog) => void`).
+
+**Code Example**:
+```typescript
+class Animal {}
+class Dog extends Animal { bark() {} }
+
+// Contravariance in function arguments
+type Handler<T> = (arg: T) => void;
+let handleAnimal: Handler<Animal> = (a) => {};
+let handleDog: Handler<Dog> = handleAnimal; // OK: Dog is Animal
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: How do you make a class property private at runtime vs compile time?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+*   `private`: TypeScript check only. Available at runtime.
+*   `#`: ECMAScript private field. Truly inaccessible outside the class at runtime.
+
+**Code Example**:
+```typescript
+class Box {
+  private tsPrivate = 1;
+  #jsPrivate = 2;
+}
+const b = new Box();
+// (b as any).tsPrivate; // 1
+// (b as any).#jsPrivate; // Syntax Error
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: How do you handle circular dependencies in types?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Interfaces support recursive definitions automatically. Type aliases can also be recursive.
+
+**Code Example**:
+```typescript
+interface Category {
+  name: string;
+  subcategories: Category[];
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: How do you assert that a value is defined (Not Null Assertion)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use the `!` operator. Use it only when you are sure the value exists but TS doesn't know.
+
+**Code Example**:
+```typescript
+const input = document.querySelector("input")!;
+console.log(input.value);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you use `Partial<T>` to update objects?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Useful for update functions where not all fields are required.
+
+**Code Example**:
+```typescript
+function update(id: number, changes: Partial<User>) {
+  // ...
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: How do you use `ReturnType` to create a type from a function implementation?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Extracts the return type of a function type.
+
+**Code Example**:
+```typescript
+function getData() {
+  return { id: 1, val: "test" };
+}
+type Data = ReturnType<typeof getData>;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you strictly type the `this` context in a function?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Declare `this` as the first parameter.
+
+**Code Example**:
+```typescript
+function myCallback(this: HTMLButtonElement, e: Event) {
+  this.disabled = true;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q51: How do you use `Required<T>`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Makes all properties required.
+
+**Code Example**:
+```typescript
+type Props = { a?: number };
+type All = Required<Props>; // { a: number }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q52: How do you use `Readonly<T>`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Makes all properties readonly.
+
+**Code Example**:
+```typescript
+type Config = { url: string };
+const c: Readonly<Config> = { url: "/" };
+// c.url = "/api"; // Error
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q53: How do you enforce generic constraints using `extends`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Restricts the generic type to a subset.
+
+**Code Example**:
+```typescript
+function logId<T extends { id: number }>(obj: T) {
+  console.log(obj.id);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q54: How do you provide default generic types?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `=` to provide a default.
+
+**Code Example**:
+```typescript
+type Response<T = string> = { data: T; error: string | null };
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q55: How do you define a Recursive Type (e.g., JSON)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+A type alias referencing itself.
+
+**Code Example**:
+```typescript
+type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: What are Abstract Classes?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Classes that cannot be instantiated and serve as base classes.
+
+**Code Example**:
+```typescript
+abstract class Base {
+  abstract getName(): string;
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q57: How do you create a Class Decorator?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+A function applied to a class declaration.
+
+**Code Example**:
+```typescript
+function Sealed(constructor: Function) {
+  Object.seal(constructor);
+  Object.seal(constructor.prototype);
+}
+@Sealed
+class BugReport {}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q58: How do you handle errors with `unknown` in catch blocks?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Since TS 4.0, catch variables can be `unknown`.
+
+**Code Example**:
+```typescript
+try {
+} catch (e: unknown) {
+  if (e instanceof Error) console.log(e.message);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q59: What is the `override` keyword?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Ensures a method overrides a parent method.
+
+**Code Example**:
+```typescript
+class Child extends Parent {
+  override method() {}
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q60: How do you use the `satisfies` operator?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Checks type compatibility without widening.
+
+**Code Example**:
+```typescript
+const config = {
+  colors: { red: "red", green: "green" }
+} satisfies Config;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q61: How do you use the `in` operator for type narrowing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Checks property existence.
+
+**Code Example**:
+```typescript
+if ("radius" in shape) {
+  // shape is Circle
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q62: What are type predicates (`is`)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Returns boolean to narrow type.
+
+**Code Example**:
+```typescript
+function isString(x: any): x is string {
+  return typeof x === "string";
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q63: Difference between `implements` and `extends`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`extends` for inheritance, `implements` for interfaces.
+
+**Code Example**:
+```typescript
+class C implements I {}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q64: What is Declaration Merging?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Merging two interface declarations.
+
+**Code Example**:
+```typescript
+interface User { name: string; }
+interface User { age: number; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q65: Numeric vs String Enums?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+String enums are debuggable.
+
+**Code Example**:
+```typescript
+enum Color { Red = "RED" }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q66: Namespaces vs Modules?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use ES Modules (`import`/`export`). Namespaces are legacy.
+
+**Code Example**:
+```typescript
+export const x = 1;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q67: What are Triple-Slash Directives?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Dependencies in `.d.ts`.
+
+**Code Example**:
+```typescript
+/// <reference path="..." />
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q68: What does strict mode enable?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+All strict checks.
+
+**Code Example**:
+```json
+"strict": true
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q69: What is `noImplicitAny`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Bans implicit `any`.
+
+**Code Example**:
+```typescript
+function f(x) {} // Error
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q70: What is the difference between `target` and `lib` in tsconfig?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`target` is output version. `lib` is environment types.
+
+**Code Example**:
+```json
+"target": "es6", "lib": ["dom"]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q71: How do you use Path Aliases?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Map paths in tsconfig.
+
+**Code Example**:
+```json
+"paths": { "@/*": ["src/*"] }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q72: What are Ambient Declarations (`declare`)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Define types for existing vars.
+
+**Code Example**:
+```typescript
+declare var $: any;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q73: What are `.d.ts` files?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Type definitions.
+
+**Code Example**:
+```typescript
+export declare function f(): void;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q74: How do you handle legacy CommonJS imports?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`import = require()`.
+
+**Code Example**:
+```typescript
+import fs = require('fs');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q75: How do you get the type of a Class (Constructor)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`typeof Class`.
+
+**Code Example**:
+```typescript
+const C: typeof MyClass = MyClass;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q76: What is `ThisParameterType`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Extracts `this` type.
+
+**Code Example**:
+```typescript
+type T = ThisParameterType<typeof fn>;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q77: What is `OmitThisParameter`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Removes `this` param.
+
+**Code Example**:
+```typescript
+type F = OmitThisParameter<typeof fn>;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q78: What is `NoInfer`?
+
+**Difficulty**: Expert
+
+**Strategy**:
+Blocks inference.
+
+**Code Example**:
+```typescript
+function f<T>(a: T, b: NoInfer<T>) {}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q79: What is `Object.groupBy` return type?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`Partial<Record<K, T[]>>`.
+
+**Code Example**:
+```typescript
+Object.groupBy(items, x => x.id);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q80: What are Variadic Tuple Types?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Spread in tuples.
+
+**Code Example**:
+```typescript
+type T = [...A, ...B];
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q81: What are Labeled Tuple Elements?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Names in tuples.
+
+**Code Example**:
+```typescript
+type Point = [x: number, y: number];
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q82: `keyof` vs `typeof`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`keyof` keys, `typeof` value type.
+
+**Code Example**:
+```typescript
+type K = keyof typeof obj;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q83: What are Index Signatures?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Dynamic keys.
+
+**Code Example**:
+```typescript
+{ [k: string]: number }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q84: How do you mark properties readonly in classes?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`readonly`.
+
+**Code Example**:
+```typescript
+class C { readonly x = 1; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: How are Getters/Setters typed?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Inferred.
+
+**Code Example**:
+```typescript
+get x(): number { return 1; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q86: What are `public`, `private`, `protected`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Access modifiers.
+
+**Code Example**:
+```typescript
+class C { private x = 1; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q87: What are static blocks?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Init static fields.
+
+**Code Example**:
+```typescript
+static { this.x = 1; }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q88: What is the `using` keyword?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Dispose resources.
+
+**Code Example**:
+```typescript
+using x = resource();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: How do you use Symbols as keys?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`unique symbol`.
+
+**Code Example**:
+```typescript
+const s: unique symbol = Symbol();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: What are Intrinsic String Manipulation Types?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`Uppercase`, `Lowercase`.
+
+**Code Example**:
+```typescript
+type U = Uppercase<"a">;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: How do you export a type?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`export type`.
+
+**Code Example**:
+```typescript
+export type T = number;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: What is `verbatimModuleSyntax`?
+
+**Difficulty**: Expert
+
+**Strategy**:
+Simplifies imports.
+
+**Code Example**:
+```json
+"verbatimModuleSyntax": true
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: What is `skipLibCheck`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Skip d.ts check.
+
+**Code Example**:
+```json
+"skipLibCheck": true
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: What is `incremental` build?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Faster rebuilds.
+
+**Code Example**:
+```json
+"incremental": true
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: How do you use Project References?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Monorepos.
+
+**Code Example**:
+```json
+"references": []
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: What is `composite` mode?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+For referenced projects.
+
+**Code Example**:
+```json
+"composite": true
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: How do you declare a module?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+`declare module`.
+
+**Code Example**:
+```typescript
+declare module "foo";
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: How do you use `globalThis` in TypeScript?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Global scope.
+
+**Code Example**:
+```typescript
+globalThis.x = 1;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: What is `Array<T>` vs `T[]`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Same.
+
+**Code Example**:
+```typescript
+number[]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: How do you create an immutable type?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`Readonly<T>`.
+
+**Code Example**:
+```typescript
+type T = Readonly<{x: 1}>;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+  title: string;
+  completed: boolean;
   createdAt: number;
 }
 type TodoPreview = Omit<Todo, "completed" | "createdAt">;

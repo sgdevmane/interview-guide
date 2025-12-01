@@ -1,2899 +1,701 @@
-<div align="center">
-  <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
-  </a>
-  <h1>JavaScript Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for frontend developers</b></p>
-</div>
-
----
+# JavaScript Interview Questions & Answers
 
 ## Table of Contents
 
-1. [How do you implement a robust debounce function with immediate execution option?](#q1-how-do-you-implement-a-robust-debounce-function-with-immediate-execution-option) <span class="beginner">Beginner</span>
-2. [How do you deeply clone an object handling circular references and special types?](#q2-how-do-you-deeply-clone-an-object-handling-circular-references-and-special-types) <span class="beginner">Beginner</span>
-3. [How do you implement a custom Promise.allSettled() polyfill?](#q3-how-do-you-implement-a-custom-promise.allsettled-polyfill) <span class="beginner">Beginner</span>
-4. [How do you efficiently flatten a deeply nested array without using `Array.prototype.flat`?](#q4-how-do-you-efficiently-flatten-a-deeply-nested-array-without-using-array.prototype.flat) <span class="beginner">Beginner</span>
-5. [How do you implement function composition (pipe) from scratch?](#q5-how-do-you-implement-function-composition-pipe-from-scratch) <span class="beginner">Beginner</span>
-6. [How do you implement an event emitter (Pub/Sub pattern) from scratch?](#q6-how-do-you-implement-an-event-emitter-pubsub-pattern-from-scratch) <span class="beginner">Beginner</span>
-7. [How do you throttle a function to ensure it runs at most once every X milliseconds?](#q7-how-do-you-throttle-a-function-to-ensure-it-runs-at-most-once-every-x-milliseconds) <span class="beginner">Beginner</span>
-8. [How do you implement a memoization function to cache expensive calculation results?](#q8-how-do-you-implement-a-memoization-function-to-cache-expensive-calculation-results) <span class="beginner">Beginner</span>
-9. [How do you parallelize async tasks with a concurrency limit?](#q9-how-do-you-parallelize-async-tasks-with-a-concurrency-limit) <span class="beginner">Beginner</span>
-10. [How do you implement a custom `instanceof` operator?](#q10-how-do-you-implement-a-custom-instanceof-operator) <span class="beginner">Beginner</span>
-11. [How do you implement currying to transform a function?](#q11-how-do-you-implement-currying-to-transform-a-function) <span class="beginner">Beginner</span>
-12. [How do you implement a custom Iterable using Symbol.iterator?](#q12-how-do-you-implement-a-custom-iterable-using-symbol.iterator) <span class="beginner">Beginner</span>
-13. [How do you use Generators for asynchronous flow control?](#q13-how-do-you-use-generators-for-asynchronous-flow-control) <span class="beginner">Beginner</span>
-14. [How do you use the IntersectionObserver API for lazy loading images?](#q14-how-do-you-use-the-intersectionobserver-api-for-lazy-loading-images) <span class="beginner">Beginner</span>
-15. [How do you use the MutationObserver API to track DOM changes?](#q15-how-do-you-use-the-mutationobserver-api-to-track-dom-changes) <span class="beginner">Beginner</span>
-16. [How do you implement a virtual list (windowing) for large datasets?](#q16-how-do-you-implement-a-virtual-list-windowing-for-large-datasets) <span class="beginner">Beginner</span>
-17. [How do you optimize event listeners using event delegation?](#q17-how-do-you-optimize-event-listeners-using-event-delegation) <span class="beginner">Beginner</span>
-18. [How do you prevent prototype pollution attacks?](#q18-how-do-you-prevent-prototype-pollution-attacks) <span class="beginner">Beginner</span>
-19. [How do you securely store tokens in the browser?](#q19-how-do-you-securely-store-tokens-in-the-browser) <span class="beginner">Beginner</span>
-20. [How do you implement CSRF protection in AJAX requests?](#q20-how-do-you-implement-csrf-protection-in-ajax-requests) <span class="beginner">Beginner</span>
-21. [How do you sanitize user input to prevent XSS?](#q21-how-do-you-sanitize-user-input-to-prevent-xss) <span class="beginner">Beginner</span>
-22. [How do you use the BroadcastChannel API for tab communication?](#q22-how-do-you-use-the-broadcastchannel-api-for-tab-communication) <span class="beginner">Beginner</span>
-23. [How do you use SharedWorkers for shared state between tabs?](#q23-how-do-you-use-sharedworkers-for-shared-state-between-tabs) <span class="beginner">Beginner</span>
-24. [How do you implement a simple state management system from scratch?](#q24-how-do-you-implement-a-simple-state-management-system-from-scratch) <span class="beginner">Beginner</span>
-25. [How do you implement a client-side router from scratch?](#q25-how-do-you-implement-a-client-side-router-from-scratch) <span class="beginner">Beginner</span>
-26. [How do you parse query string parameters without a library?](#q26-how-do-you-parse-query-string-parameters-without-a-library) <span class="beginner">Beginner</span>
-27. [How do you check if two objects are deeply equal?](#q27-how-do-you-check-if-two-objects-are-deeply-equal) <span class="beginner">Beginner</span>
-28. [How do you retry a failed API call with exponential backoff?](#q28-how-do-you-retry-a-failed-api-call-with-exponential-backoff) <span class="beginner">Beginner</span>
-29. [How do you cancel a fetch request using AbortController?](#q29-how-do-you-cancel-a-fetch-request-using-abortcontroller) <span class="beginner">Beginner</span>
-30. [How do you implement a custom `bind` function?](#q30-how-do-you-implement-a-custom-bind-function) <span class="beginner">Beginner</span>
-31. [How do you use the Proxy API to validate object property assignments?](#q31-how-do-you-use-the-proxy-api-to-validate-object-property-assignments) <span class="advanced">Advanced</span>
-32. [What is the Reflect API and how does it relate to Proxy?](#q32-what-is-the-reflect-api-and-how-does-it-relate-to-proxy) <span class="advanced">Advanced</span>
-33. [When should you use a Map over a plain Object?](#q33-when-should-you-use-a-map-over-a-plain-object) <span class="intermediate">Intermediate</span>
-34. [How do you efficiently remove duplicates from an array using Set?](#q34-how-do-you-efficiently-remove-duplicates-from-an-array-using-set) <span class="beginner">Beginner</span>
-35. [What is a WeakMap and why is it useful for memory management?](#q35-what-is-a-weakmap-and-why-is-it-useful-for-memory-management) <span class="advanced">Advanced</span>
-36. [How do you implement an ID generator using Generators?](#q36-how-do-you-implement-an-id-generator-using-generators) <span class="intermediate">Intermediate</span>
-37. [Why is `requestAnimationFrame` better than `setTimeout` for animations?](#q37-why-is-requestanimationframe-better-than-settimeout-for-animations) <span class="intermediate">Intermediate</span>
-38. [How do you offload heavy CPU tasks using Web Workers?](#q38-how-do-you-offload-heavy-cpu-tasks-using-web-workers) <span class="advanced">Advanced</span>
-39. [What is the difference between `null` and `undefined`?](#q39-what-is-the-difference-between-null-and-undefined) <span class="beginner">Beginner</span>
-40. [How do you use the `Intl` API for language-sensitive formatting?](#q40-how-do-you-use-the-intl-api-for-language-sensitive-formatting) <span class="intermediate">Intermediate</span>
-41. [What is `BigInt` and when should you use it?](#q41-what-is-bigint-and-when-should-you-use-it) <span class="intermediate">Intermediate</span>
-42. [What is the difference between Nullish Coalescing (`??`) and Logical OR (`||`)?](#q42-what-is-the-difference-between-nullish-coalescing--and-logical-or-||) <span class="intermediate">Intermediate</span>
-43. [How does Optional Chaining (`?.`) simplify object access?](#q43-how-does-optional-chaining-.-simplify-object-access) <span class="beginner">Beginner</span>
-44. [What is `globalThis`?](#q44-what-is-globalthis) <span class="intermediate">Intermediate</span>
-45. [Explain the 'Classic Closure Loop' problem and how to fix it.](#q45-explain-the-classic-closure-loop-problem-and-how-to-fix-it.) <span class="intermediate">Intermediate</span>
-46. [What is the difference between Function Declaration and Function Expression regarding Hoisting?](#q46-what-is-the-difference-between-function-declaration-and-function-expression-regarding-hoisting) <span class="beginner">Beginner</span>
-47. [How do you perform a deep equality check manually?](#q47-how-do-you-perform-a-deep-equality-check-manually) <span class="intermediate">Intermediate</span>
-48. [How do you use `Array.prototype.reduce` to group objects by a property?](#q48-how-do-you-use-array.prototype.reduce-to-group-objects-by-a-property) <span class="intermediate">Intermediate</span>
-49. [How do you implement a custom `Promise.race`?](#q49-how-do-you-implement-a-custom-promise.race) <span class="advanced">Advanced</span>
-50. [How do you use `Symbol.iterator` to make an object iterable?](#q50-how-do-you-use-symbol.iterator-to-make-an-object-iterable) <span class="advanced">Advanced</span>
-31. [How do you use the Proxy API to validate object property assignments?](#q31-how-do-you-use-the-proxy-api-to-validate-object-property-assignments) <span class="advanced">Advanced</span>
-32. [What is the Reflect API and how does it differ from Proxy?](#q32-what-is-the-reflect-api-and-how-does-it-differ-from-proxy) <span class="advanced">Advanced</span>
-33. [How do you implement a deep equality check for two objects?](#q33-how-do-you-implement-a-deep-equality-check-for-two-objects) <span class="advanced">Advanced</span>
-34. [How can you use Set to remove duplicates from an array?](#q34-how-can-you-use-set-to-remove-duplicates-from-an-array) <span class="intermediate">Intermediate</span>
-35. [What is a WeakMap and why is it useful for memory management?](#q35-what-is-a-weakmap-and-why-is-it-useful-for-memory-management) <span class="advanced">Advanced</span>
-36. [How do you implement an ID generator using Generators?](#q36-how-do-you-implement-an-id-generator-using-generators) <span class="intermediate">Intermediate</span>
-37. [How does requestAnimationFrame differ from setTimeout for animations?](#q37-how-does-requestanimationframe-differ-from-settimeout-for-animations) <span class="intermediate">Intermediate</span>
-38. [How do you use Web Workers to offload CPU-intensive tasks?](#q38-how-do-you-use-web-workers-to-offload-cpu-intensive-tasks) <span class="advanced">Advanced</span>
-39. [Explain the difference between null and undefined with a practical example.](#q39-explain-the-difference-between-null-and-undefined-with-a-practical-example.) <span class="beginner">Beginner</span>
-40. [How do you use the Intl API for language-sensitive number formatting?](#q40-how-do-you-use-the-intl-api-for-language-sensitive-number-formatting) <span class="intermediate">Intermediate</span>
-41. [What is BigInt and when should you use it?](#q41-what-is-bigint-and-when-should-you-use-it) <span class="intermediate">Intermediate</span>
-42. [Explain the Nullish Coalescing Operator (??) vs Logical OR (||).](#q42-explain-the-nullish-coalescing-operator--vs-logical-or-||.) <span class="intermediate">Intermediate</span>
-43. [How does Optional Chaining (?.) simplify accessing nested properties?](#q43-how-does-optional-chaining-.-simplify-accessing-nested-properties) <span class="beginner">Beginner</span>
-44. [What is globalThis and why is it needed?](#q44-what-is-globalthis-and-why-is-it-needed) <span class="intermediate">Intermediate</span>
-45. [Explain the 'Classic Closure Loop' problem and how to fix it.](#q45-explain-the-classic-closure-loop-problem-and-how-to-fix-it.) <span class="intermediate">Intermediate</span>
-46. [Function Declaration vs Function Expression: What is the difference?](#q46-function-declaration-vs-function-expression:-what-is-the-difference) <span class="beginner">Beginner</span>
-47. [How do you implement a GroupBy function using Array.reduce?](#q47-how-do-you-implement-a-groupby-function-using-array.reduce) <span class="advanced">Advanced</span>
-48. [How do you implement Promise.race from scratch?](#q48-how-do-you-implement-promise.race-from-scratch) <span class="advanced">Advanced</span>
-49. [How do you make an object iterable (usable in for...of)?](#q49-how-do-you-make-an-object-iterable-usable-in-for...of) <span class="advanced">Advanced</span>
-50. [How can you flatten a nested array of arbitrary depth?](#q50-how-can-you-flatten-a-nested-array-of-arbitrary-depth) <span class="intermediate">Intermediate</span>
-51. [How does the Event Loop work?](#q51-how-does-the-event-loop-work) <span class="advanced">Advanced</span>
-52. [What is a Closure?](#q52-what-is-a-closure) <span class="intermediate">Intermediate</span>
-53. [Difference between `var`, `let`, and `const`?](#q53-difference-between-var-let-and-const) <span class="beginner">Beginner</span>
-54. [What is `this` keyword?](#q54-what-is-this-keyword) <span class="intermediate">Intermediate</span>
-55. [How does Prototypal Inheritance work?](#q55-how-does-prototypal-inheritance-work) <span class="advanced">Advanced</span>
-56. [What is a Promise?](#q56-what-is-a-promise) <span class="beginner">Beginner</span>
-57. [How does `async/await` work?](#q57-how-does-asyncawait-work) <span class="intermediate">Intermediate</span>
-58. [What is Hoisting?](#q58-what-is-hoisting) <span class="intermediate">Intermediate</span>
-59. [Difference between `null` and `undefined`?](#q59-difference-between-null-and-undefined) <span class="beginner">Beginner</span>
-60. [What is Event Bubbling vs Capturing?](#q60-what-is-event-bubbling-vs-capturing) <span class="intermediate">Intermediate</span>
-61. [How do you implement a deep clone?](#q61-how-do-you-implement-a-deep-clone) <span class="intermediate">Intermediate</span>
-62. [What is a Generator function?](#q62-what-is-a-generator-function) <span class="advanced">Advanced</span>
-63. [What is the Proxy object?](#q63-what-is-the-proxy-object) <span class="advanced">Advanced</span>
-64. [Difference between `==` and `===`?](#q64-difference-between-==-and-===) <span class="beginner">Beginner</span>
-65. [What is `bind`, `call`, and `apply`?](#q65-what-is-bind-call-and-apply) <span class="intermediate">Intermediate</span>
-66. [What is a WeakMap?](#q66-what-is-a-weakmap) <span class="advanced">Advanced</span>
-67. [How do you handle errors in Promises?](#q67-how-do-you-handle-errors-in-promises) <span class="intermediate">Intermediate</span>
-68. [What is Currying?](#q68-what-is-currying) <span class="intermediate">Intermediate</span>
-69. [What is the Temporal Dead Zone (TDZ)?](#q69-what-is-the-temporal-dead-zone-tdz) <span class="advanced">Advanced</span>
-70. [What is a Polyfill?](#q70-what-is-a-polyfill) <span class="beginner">Beginner</span>
-71. [How do you debounce a function?](#q71-how-do-you-debounce-a-function) <span class="intermediate">Intermediate</span>
-72. [How do you throttle a function?](#q72-how-do-you-throttle-a-function) <span class="intermediate">Intermediate</span>
-73. [What is the `module` pattern?](#q73-what-is-the-module-pattern) <span class="intermediate">Intermediate</span>
-74. [What is `localStorage` vs `sessionStorage`?](#q74-what-is-localstorage-vs-sessionstorage) <span class="beginner">Beginner</span>
-75. [How do you check array equality?](#q75-how-do-you-check-array-equality) <span class="intermediate">Intermediate</span>
-76. [What is `Symbol`?](#q76-what-is-symbol) <span class="intermediate">Intermediate</span>
-77. [What is `Reflect` API?](#q77-what-is-reflect-api) <span class="advanced">Advanced</span>
-78. [How do you flatten an array?](#q78-how-do-you-flatten-an-array) <span class="beginner">Beginner</span>
-79. [What is strict mode?](#q79-what-is-strict-mode) <span class="beginner">Beginner</span>
-80. [How do you implement a Set?](#q80-how-do-you-implement-a-set) <span class="beginner">Beginner</span>
-81. [What is `Intl` API?](#q81-what-is-intl-api) <span class="intermediate">Intermediate</span>
-82. [How do you detect browser vs node?](#q82-how-do-you-detect-browser-vs-node) <span class="beginner">Beginner</span>
-83. [What is an IIFE?](#q83-what-is-an-iife) <span class="beginner">Beginner</span>
-84. [How do you remove duplicates from array?](#q84-how-do-you-remove-duplicates-from-array) <span class="beginner">Beginner</span>
-85. [What is Object.freeze?](#q85-what-is-object.freeze) <span class="intermediate">Intermediate</span>
-86. [What is `requestAnimationFrame`?](#q86-what-is-requestanimationframe) <span class="intermediate">Intermediate</span>
-87. [How do you stop event propagation?](#q87-how-do-you-stop-event-propagation) <span class="beginner">Beginner</span>
-88. [What is `Promise.all`?](#q88-what-is-promise.all) <span class="intermediate">Intermediate</span>
-89. [What is `Promise.race`?](#q89-what-is-promise.race) <span class="intermediate">Intermediate</span>
-90. [What is `BigInt`?](#q90-what-is-bigint) <span class="beginner">Beginner</span>
-91. [How do you merge objects?](#q91-how-do-you-merge-objects) <span class="beginner">Beginner</span>
-92. [What is Optional Chaining?](#q92-what-is-optional-chaining) <span class="beginner">Beginner</span>
-93. [What is Nullish Coalescing?](#q93-what-is-nullish-coalescing) <span class="beginner">Beginner</span>
-94. [How do you iterate object keys?](#q94-how-do-you-iterate-object-keys) <span class="beginner">Beginner</span>
-95. [What is `globalThis`?](#q95-what-is-globalthis) <span class="beginner">Beginner</span>
-96. [How do you parse URL parameters?](#q96-how-do-you-parse-url-parameters) <span class="beginner">Beginner</span>
-97. [What is the difference between `slice` and `splice`?](#q97-what-is-the-difference-between-slice-and-splice) <span class="beginner">Beginner</span>
-98. [How do you copy to clipboard?](#q98-how-do-you-copy-to-clipboard) <span class="intermediate">Intermediate</span>
-99. [What is a service worker?](#q99-what-is-a-service-worker) <span class="advanced">Advanced</span>
-100. [How do you check for NaN?](#q100-how-do-you-check-for-nan) <span class="beginner">Beginner</span>
+1. [Explain Hoisting with examples?](#q1) <span class="beginner">Beginner</span>
+2. [Difference between `var`, `let`, and `const`?](#q2) <span class="beginner">Beginner</span>
+3. [Explain Closures with a practical example?](#q3) <span class="intermediate">Intermediate</span>
+4. [How does the Event Loop work?](#q4) <span class="advanced">Advanced</span>
+5. [Explain `this` keyword behavior?](#q5) <span class="intermediate">Intermediate</span>
+6. [Call vs Apply vs Bind?](#q6) <span class="intermediate">Intermediate</span>
+7. [What is Prototypal Inheritance?](#q7) <span class="advanced">Advanced</span>
+8. [Explain Promise and its states?](#q8) <span class="intermediate">Intermediate</span>
+9. [Async/Await vs Promises?](#q9) <span class="beginner">Beginner</span>
+10. [What is Event Bubbling vs Capturing?](#q10) <span class="intermediate">Intermediate</span>
+11. [How does Event Delegation work?](#q11) <span class="intermediate">Intermediate</span>
+12. [Deep Copy vs Shallow Copy?](#q12) <span class="intermediate">Intermediate</span>
+13. [What is the difference between `==` and `===`?](#q13) <span class="beginner">Beginner</span>
+14. [Explain Higher-Order Functions?](#q14) <span class="beginner">Beginner</span>
+15. [What is Currying?](#q15) <span class="intermediate">Intermediate</span>
+16. [What is Memoization?](#q16) <span class="intermediate">Intermediate</span>
+17. [Explain Debounce vs Throttle?](#q17) <span class="intermediate">Intermediate</span>
+18. [What are Generators?](#q18) <span class="advanced">Advanced</span>
+19. [Map vs WeakMap?](#q19) <span class="advanced">Advanced</span>
+20. [Set vs WeakSet?](#q20) <span class="advanced">Advanced</span>
+21. [What is a Proxy object?](#q21) <span class="advanced">Advanced</span>
+22. [Explain the Module System (ESM vs CommonJS)?](#q22) <span class="intermediate">Intermediate</span>
+23. [What is the Temporal Dead Zone (TDZ)?](#q23) <span class="intermediate">Intermediate</span>
+24. [How does Garbage Collection work in JS?](#q24) <span class="advanced">Advanced</span>
+25. [What is strict mode (`'use strict'`)?](#q25) <span class="beginner">Beginner</span>
+26. [Difference between `null` and `undefined`?](#q26) <span class="beginner">Beginner</span>
+27. [What is Type Coercion?](#q27) <span class="intermediate">Intermediate</span>
+28. [Explain `instanceof` operator?](#q28) <span class="intermediate">Intermediate</span>
+29. [What are Arrow Functions?](#q29) <span class="beginner">Beginner</span>
+30. [What is Destructuring Assignment?](#q30) <span class="beginner">Beginner</span>
+31. [Rest Operator vs Spread Operator?](#q31) <span class="beginner">Beginner</span>
+32. [What is a Polyfill?](#q32) <span class="beginner">Beginner</span>
+33. [What is a Transpiler (Babel)?](#q33) <span class="beginner">Beginner</span>
+34. [Explain `Symbol` primitive?](#q34) <span class="advanced">Advanced</span>
+35. [What is an Iterator?](#q35) <span class="advanced">Advanced</span>
+36. [Explain `Object.freeze()` vs `Object.seal()`?](#q36) <span class="intermediate">Intermediate</span>
+37. [How to check if an object is an array?](#q37) <span class="beginner">Beginner</span>
+38. [What is `NaN` and how to check for it?](#q38) <span class="beginner">Beginner</span>
+39. [Explain `preventDefault()` vs `stopPropagation()`?](#q39) <span class="beginner">Beginner</span>
+40. [What is the BOM (Browser Object Model)?](#q40) <span class="beginner">Beginner</span>
+41. [LocalStorage vs SessionStorage vs Cookies?](#q41) <span class="intermediate">Intermediate</span>
+42. [What is JSONP?](#q42) <span class="advanced">Advanced</span>
+43. [What is CORS?](#q43) <span class="intermediate">Intermediate</span>
+44. [Explain the Critical Rendering Path?](#q44) <span class="advanced">Advanced</span>
+45. [What are Web Workers?](#q45) <span class="advanced">Advanced</span>
+46. [Service Workers vs Web Workers?](#q46) <span class="advanced">Advanced</span>
+47. [What is the Shadow DOM?](#q47) <span class="advanced">Advanced</span>
+48. [Custom Elements (Web Components)?](#q48) <span class="advanced">Advanced</span>
+49. [Explain `requestAnimationFrame`?](#q49) <span class="intermediate">Intermediate</span>
+50. [MutationObserver API?](#q50) <span class="advanced">Advanced</span>
+51. [IntersectionObserver API?](#q51) <span class="intermediate">Intermediate</span>
+52. [What is the Fetch API?](#q52) <span class="beginner">Beginner</span>
+53. [How to abort a Fetch request?](#q53) <span class="intermediate">Intermediate</span>
+54. [Explain `Promise.all` vs `Promise.race`?](#q54) <span class="intermediate">Intermediate</span>
+55. [Explain `Promise.allSettled` vs `Promise.any`?](#q55) <span class="intermediate">Intermediate</span>
+56. [What is a Microtask vs Macrotask?](#q56) <span class="advanced">Advanced</span>
+57. [How to implement a Sleep function?](#q57) <span class="beginner">Beginner</span>
+58. [Flatten an array without flat()?](#q58) <span class="intermediate">Intermediate</span>
+59. [Remove duplicates from array?](#q59) <span class="beginner">Beginner</span>
+60. [Check for Anagrams?](#q60) <span class="beginner">Beginner</span>
+61. [Check for Palindrome?](#q61) <span class="beginner">Beginner</span>
+62. [Implement `map` polyfill?](#q62) <span class="intermediate">Intermediate</span>
+63. [Implement `filter` polyfill?](#q63) <span class="intermediate">Intermediate</span>
+64. [Implement `reduce` polyfill?](#q64) <span class="advanced">Advanced</span>
+65. [What is a Pure Function?](#q65) <span class="intermediate">Intermediate</span>
+66. [What is Side Effect?](#q66) <span class="beginner">Beginner</span>
+67. [Declarative vs Imperative Programming?](#q67) <span class="intermediate">Intermediate</span>
+68. [What is Tail Call Optimization (TCO)?](#q68) <span class="advanced">Advanced</span>
+69. [What is a Thunk?](#q69) <span class="advanced">Advanced</span>
+70. [Explain Function Composition?](#q70) <span class="intermediate">Intermediate</span>
+71. [What is `eval()` and why avoid it?](#q71) <span class="beginner">Beginner</span>
+72. [What is `void 0`?](#q72) <span class="advanced">Advanced</span>
+73. [Difference between property and attribute?](#q73) <span class="intermediate">Intermediate</span>
+74. [Data attributes (`data-*`)?](#q74) <span class="beginner">Beginner</span>
+75. [How to detect browser/device?](#q75) <span class="beginner">Beginner</span>
+76. [What is `document.createDocumentFragment()`?](#q76) <span class="intermediate">Intermediate</span>
+77. [Explain Reflow vs Repaint?](#q77) <span class="advanced">Advanced</span>
+78. [What is the Virtual DOM (concept)?](#q78) <span class="intermediate">Intermediate</span>
+79. [Server-Side Rendering (SSR) vs CSR?](#q79) <span class="intermediate">Intermediate</span>
+80. [What is a Single Page Application (SPA)?](#q80) <span class="beginner">Beginner</span>
+81. [What is Progressive Web App (PWA)?](#q81) <span class="intermediate">Intermediate</span>
+82. [Explain WebSocket Protocol?](#q82) <span class="advanced">Advanced</span>
+83. [Server-Sent Events (SSE)?](#q83) <span class="advanced">Advanced</span>
+84. [What is `Intl` API?](#q84) <span class="intermediate">Intermediate</span>
+85. [How to format dates (Date vs Intl)?](#q85) <span class="beginner">Beginner</span>
+86. [What is Regex?](#q86) <span class="intermediate">Intermediate</span>
+87. [Error Handling (try/catch/finally)?](#q87) <span class="beginner">Beginner</span>
+88. [Custom Error Classes?](#q88) <span class="intermediate">Intermediate</span>
+89. [What is a Memory Leak?](#q89) <span class="advanced">Advanced</span>
+90. [How to debug Memory Leaks?](#q90) <span class="advanced">Advanced</span>
+91. [What is `console.time()`?](#q91) <span class="beginner">Beginner</span>
+92. [What is `debugger` statement?](#q92) <span class="beginner">Beginner</span>
+93. [Strict Equality of Objects?](#q93) <span class="intermediate">Intermediate</span>
+94. [Chaining Optional Chaining (`?.`)?](#q94) <span class="beginner">Beginner</span>
+95. [Nullish Coalescing Operator (`??`)?](#q95) <span class="beginner">Beginner</span>
+96. [Dynamic Imports (`import()`)?](#q96) <span class="intermediate">Intermediate</span>
+97. [Top-level Await?](#q97) <span class="intermediate">Intermediate</span>
+98. [BigInt Type?](#q98) <span class="beginner">Beginner</span>
+99. [Private Class Fields (`#`)?](#q99) <span class="intermediate">Intermediate</span>
+100. [What is the TC39 Process?](#q100) <span class="advanced">Advanced</span>
 
 ---
 
-### Q1: How do you implement a robust debounce function with immediate execution option?
+<div id="q1" class="question">1. Explain Hoisting with examples? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Hoisting is JS's default behavior of moving declarations to the top. <code>var</code> is hoisted and initialized with <code>undefined</code>. <code>let</code>/<code>const</code> are hoisted but stay in the TDZ.</p>
+<pre><code class="language-javascript">console.log(a); // undefined
+var a = 5;
 
-**Difficulty:** Intermediate
+console.log(b); // ReferenceError
+let b = 10;</code></pre>
+</div>
 
-**Strategy:**
-Debouncing forces a function to wait a certain amount of time before running again. The function is built by using a timer variable that is cleared and reset on every call. If `immediate` is passed, the function triggers on the leading edge instead of the trailing edge.
+<div id="q2" class="question">2. Difference between `var`, `let`, and `const`? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <ul>
+    <li><strong>var:</strong> Function scoped, hoisted, re-declarable.</li>
+    <li><strong>let:</strong> Block scoped, not re-declarable in same scope.</li>
+    <li><strong>const:</strong> Block scoped, must be initialized, cannot be reassigned (but objects are mutable).</li>
+  </ul>
+</div>
 
-**Code Snippet:**
-```javascript
-function debounce(func, wait, immediate) {
-  let timeout;
-  return function(...args) {
-    const context = this;
-    const later = function() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
+<div id="q3" class="question">3. Explain Closures with a practical example? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>A closure is a function that remembers its outer variables even after the outer function has returned.</p>
+<pre><code class="language-javascript">function createCounter() {
+  let count = 0;
+  return function() {
+    count++;
+    return count;
   };
 }
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2</code></pre>
+</div>
 
-// Usage
-const myEfficientFn = debounce(function() {
-  // All the heavy lifting
-  console.log('Function executed');
-}, 250);
+<div id="q4" class="question">4. How does the Event Loop work? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>JS is single-threaded. The Event Loop checks if Call Stack is empty. If yes, it pushes tasks from Microtask Queue (Promises) first, then Macrotask Queue (setTimeout, I/O) to Call Stack.</p>
+</div>
 
-window.addEventListener('resize', myEfficientFn);
-```
+<div id="q5" class="question">5. Explain `this` keyword behavior? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Value depends on invocation:</p>
+  <ul>
+    <li><strong>Global:</strong> <code>window</code> (or undefined in strict).</li>
+    <li><strong>Method:</strong> Object calling it.</li>
+    <li><strong>Function:</strong> Global (or undefined).</li>
+    <li><strong>Arrow Function:</strong> Inherits from lexical scope (parent).</li>
+  </ul>
+</div>
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<div id="q6" class="question">6. Call vs Apply vs Bind? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <ul>
+    <li><code>call(thisArg, arg1, arg2)</code>: Invokes immediately.</li>
+    <li><code>apply(thisArg, [args])</code>: Invokes immediately with array.</li>
+    <li><code>bind(thisArg)</code>: Returns new function with bound <code>this</code>.</li>
+  </ul>
+</div>
 
----
+<div id="q7" class="question">7. What is Prototypal Inheritance? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Objects inherit properties from other objects via `__proto__` chain.</p>
+<pre><code class="language-javascript">const animal = { eats: true };
+const rabbit = Object.create(animal);
+console.log(rabbit.eats); // true</code></pre>
+</div>
 
-### Q2: How do you deeply clone an object handling circular references and special types?
+<div id="q8" class="question">8. Explain Promise and its states? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Object representing async completion. States: <strong>Pending, Fulfilled, Rejected</strong>.</p>
+<pre><code class="language-javascript">const p = new Promise((resolve, reject) => {
+  if (true) resolve('Success');
+});</code></pre>
+</div>
 
-**Difficulty:** Intermediate
+<div id="q9" class="question">9. Async/Await vs Promises? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Async/Await is syntactic sugar over Promises. Makes code look synchronous and easier to read.</p>
+</div>
 
-**Strategy:**
-`JSON.parse(JSON.stringify(obj))` is simple but fails on Dates, RegExps, functions, and circular references. A robust solution involves recursion and a `WeakMap` to track visited objects to handle circular references.
+<div id="q10" class="question">10. What is Event Bubbling vs Capturing? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <ul>
+    <li><strong>Bubbling (Default):</strong> Event starts at target and goes up to window.</li>
+    <li><strong>Capturing:</strong> Event goes down from window to target.</li>
+  </ul>
+</div>
 
-**Code Snippet:**
-```javascript
-function deepClone(obj, hash = new WeakMap()) {
-  if (Object(obj) !== obj) return obj; // primitives
-  if (hash.has(obj)) return hash.get(obj); // cyclic reference
+<div id="q11" class="question">11. How does Event Delegation work? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Attaching a single listener to a parent to handle events for all children (using Bubbling).</p>
+<pre><code class="language-javascript">document.getElementById('list').addEventListener('click', (e) => {
+  if (e.target.tagName === 'LI') console.log('Item clicked');
+});</code></pre>
+</div>
 
-  let result;
-  if (obj instanceof Set) {
-    result = new Set(obj); // See note below
-  } else if (obj instanceof Map) {
-    result = new Map(Array.from(obj, ([key, val]) => 
-      [key, deepClone(val, hash)]));
-  } else if (obj instanceof Date) {
-    result = new Date(obj);
-  } else if (obj instanceof RegExp) {
-    result = new RegExp(obj.source, obj.flags);
-  } else if (typeof obj === 'function') {
-    return obj; // functions are typically not cloned
-  } else {
-    result = Array.isArray(obj) ? [] : {};
-    hash.set(obj, result);
-    for (let key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        result[key] = deepClone(obj[key], hash);
-      }
-    }
-  }
-  return result;
+<div id="q12" class="question">12. Deep Copy vs Shallow Copy? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <ul>
+    <li><strong>Shallow:</strong> Copies references (e.g., <code>{...obj}</code>). Nested changes affect original.</li>
+    <li><strong>Deep:</strong> Copies values recursively (e.g., <code>JSON.parse(JSON.stringify(obj))</code> or <code>structuredClone()</code>).</li>
+  </ul>
+</div>
+
+<div id="q13" class="question">13. What is the difference between `==` and `===`? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p><code>==</code> performs type coercion. <code>===</code> checks value and type (Strict Equality).</p>
+</div>
+
+<div id="q14" class="question">14. Explain Higher-Order Functions? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Functions that take other functions as args or return them (e.g., <code>map</code>, <code>filter</code>).</p>
+</div>
+
+<div id="q15" class="question">15. What is Currying? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Transforming <code>f(a,b,c)</code> into <code>f(a)(b)(c)</code>.</p>
+<pre><code class="language-javascript">const add = a => b => a + b;
+add(2)(3); // 5</code></pre>
+</div>
+
+<div id="q16" class="question">16. What is Memoization? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Caching results of expensive function calls based on inputs.</p>
+</div>
+
+<div id="q17" class="question">17. Explain Debounce vs Throttle? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <ul>
+    <li><strong>Debounce:</strong> Wait for pause in events before running (e.g., Search input).</li>
+    <li><strong>Throttle:</strong> Run at most once every X ms (e.g., Scroll).</li>
+  </ul>
+</div>
+
+<div id="q18" class="question">18. What are Generators? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Functions that can pause (`yield`) and resume.</p>
+<pre><code class="language-javascript">function* gen() {
+  yield 1;
+  yield 2;
 }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q3: How do you implement a custom Promise.allSettled() polyfill?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-`Promise.allSettled` waits for all promises to finish, regardless of success or failure. We can map over the input array and transform each promise into one that always resolves with a status object.
-
-**Code Snippet:**
-```javascript
-function allSettled(promises) {
-  return Promise.all(
-    promises.map(promise =>
-      Promise.resolve(promise)
-        .then(value => ({ status: 'fulfilled', value }))
-        .catch(reason => ({ status: 'rejected', reason }))
-    )
-  );
-}
-
-// Usage
-allSettled([
-  Promise.resolve(1),
-  Promise.reject('error'),
-  Promise.resolve(3)
-]).then(console.log);
-// [{status: 'fulfilled', value: 1}, {status: 'rejected', reason: 'error'}, ...]
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q4: How do you efficiently flatten a deeply nested array without using `Array.prototype.flat`?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-We can use recursion or a stack-based iterative approach. The iterative approach (using a stack) is safer for very deep arrays to avoid stack overflow errors.
-
-**Code Snippet:**
-```javascript
-function flatten(arr) {
-  const result = [];
-  const stack = [...arr];
-  
-  while (stack.length) {
-    const next = stack.pop();
-    if (Array.isArray(next)) {
-      stack.push(...next);
-    } else {
-      result.push(next);
-    }
-  }
-  // The stack approach reverses order, so we reverse back
-  return result.reverse();
-}
-
-// Recursive one-liner (simpler but risk of stack overflow)
-const flattenRecursive = (arr) => 
-  arr.reduce((acc, val) => 
-    Array.isArray(val) ? acc.concat(flattenRecursive(val)) : acc.concat(val), 
-  []);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q5: How do you implement function composition (pipe) from scratch?
-
-**Difficulty:** Advanced
-
-**Strategy:**
-Composition combines multiple functions where the output of one becomes the input of the next. `pipe` goes left-to-right, while `compose` goes right-to-left.
-
-**Code Snippet:**
-```javascript
-const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x);
-
-const compose = (...fns) => (x) => fns.reduceRight((v, f) => f(v), x);
-
-// Usage
-const add5 = x => x + 5;
-const multiply2 = x => x * 2;
-const toString = x => `Result: ${x}`;
-
-const process = pipe(add5, multiply2, toString);
-console.log(process(5)); // (5+5)*2 = 20 -> "Result: 20"
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q6: How do you implement an event emitter (Pub/Sub pattern) from scratch?
-
-**Difficulty:** Advanced
-
-**Strategy:**
-Create a class with a storage object for events. Methods needed: `on` (subscribe), `off` (unsubscribe), `emit` (publish), and optionally `once`.
-
-**Code Snippet:**
-```javascript
-class EventEmitter {
-  constructor() {
-    this.events = {};
-  }
-
-  on(event, listener) {
-    if (!this.events[event]) {
-      this.events[event] = [];
-    }
-    this.events[event].push(listener);
-    return () => this.off(event, listener); // Return unsubscribe function
-  }
-
-  off(event, listenerToRemove) {
-    if (!this.events[event]) return;
-    this.events[event] = this.events[event].filter(l => l !== listenerToRemove);
-  }
-
-  emit(event, ...args) {
-    if (!this.events[event]) return;
-    this.events[event].forEach(listener => listener(...args));
-  }
-
-  once(event, listener) {
-    const remove = this.on(event, (...args) => {
-      remove();
-      listener(...args);
-    });
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q7: How do you throttle a function to ensure it runs at most once every X milliseconds?
-
-**Difficulty:** Advanced
-
-**Strategy:**
-Throttling ensures a function is called at most once in a specified time period. It's useful for scrolling events or window resizing where you don't want to block the UI.
-
-**Code Snippet:**
-```javascript
-function throttle(func, limit) {
-  let inThrottle;
-  return function(...args) {
-    const context = this;
-    if (!inThrottle) {
-      func.apply(context, args);
-      inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
-    }
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q8: How do you implement a memoization function to cache expensive calculation results?
-
-**Difficulty:** Advanced
-
-**Strategy:**
-Create a higher-order function that stores results in a cache (object or Map) keyed by the arguments. If called again with same args, return cached result.
-
-**Code Snippet:**
-```javascript
-function memoize(fn) {
-  const cache = new Map();
-  return function(...args) {
-    const key = JSON.stringify(args); // Simple key generation
-    if (cache.has(key)) {
-      return cache.get(key);
-    }
-    const result = fn.apply(this, args);
-    cache.set(key, result);
-    return result;
-  }
-}
-
-// Usage
-const factorial = memoize(n => (n <= 1 ? 1 : n * factorial(n - 1)));
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q9: How do you parallelize async tasks with a concurrency limit?
-
-**Difficulty:** Advanced
-
-**Strategy:**
-Use a queue or a recursive function that starts new tasks as old ones finish. This is crucial when scraping or making API calls to avoid rate limits.
-
-**Code Snippet:**
-```javascript
-async function asyncPool(poolLimit, array, iteratorFn) {
-  const ret = [];
-  const executing = [];
-  for (const item of array) {
-    const p = Promise.resolve().then(() => iteratorFn(item));
-    ret.push(p);
-
-    if (poolLimit <= array.length) {
-      const e = p.then(() => executing.splice(executing.indexOf(e), 1));
-      executing.push(e);
-      if (executing.length >= poolLimit) {
-        await Promise.race(executing);
-      }
-    }
-  }
-  return Promise.all(ret);
-}
-
-// Usage
-const timeout = i => new Promise(resolve => setTimeout(() => resolve(i), i));
-asyncPool(2, [1000, 5000, 3000, 2000], timeout).then(console.log);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q10: How do you implement a custom `instanceof` operator?
-
-**Difficulty:** Advanced
-
-**Strategy:**
-`instanceof` checks if the prototype property of a constructor appears anywhere in the prototype chain of an object.
-
-**Code Snippet:**
-```javascript
-function myInstanceOf(obj, constructor) {
-  if (obj == null) return false;
-  
-  let proto = Object.getPrototypeOf(obj);
-  while (proto) {
-    if (proto === constructor.prototype) {
-      return true;
-    }
-    proto = Object.getPrototypeOf(proto);
-  }
-  return false;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q11: How do you implement currying to transform a function?
-
-**Difficulty:** Advanced
-
-**Strategy:**
-Currying transforms `f(a, b, c)` into `f(a)(b)(c)`. It allows partial application of functions.
-
-**Code Snippet:**
-```javascript
-function curry(fn) {
-  return function curried(...args) {
-    if (args.length >= fn.length) {
-      return fn.apply(this, args);
-    } else {
-      return function(...args2) {
-        return curried.apply(this, args.concat(args2));
-      }
-    }
-  }
-}
-
-// Usage
-const sum = (a, b, c) => a + b + c;
-const curriedSum = curry(sum);
-console.log(curriedSum(1)(2)(3)); // 6
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q12: How do you implement a custom Iterable using Symbol.iterator?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Any object can be made iterable by implementing a method keyed by `Symbol.iterator` that returns an object with a `next()` method.
-
-**Code Snippet:**
-```javascript
-const range = {
-  from: 1,
-  to: 5,
-  [Symbol.iterator]() {
-    this.current = this.from;
-    return this;
-  },
-  next() {
-    if (this.current <= this.to) {
-      return { done: false, value: this.current++ };
-    } else {
-      return { done: true };
-    }
-  }
-};
-
-for (let num of range) {
-  console.log(num); // 1, 2, 3, 4, 5
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q13: How do you use Generators for asynchronous flow control?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Generators can pause execution with `yield`. When combined with Promises (async/await pattern precursor), they allow writing async code that looks synchronous.
-
-**Code Snippet:**
-```javascript
-function* fetchUserFlow() {
-  const user = yield fetch('/api/user').then(r => r.json());
-  const posts = yield fetch(`/api/posts/${user.id}`).then(r => r.json());
-  return posts;
-}
-
-function run(generator) {
-  const iterator = generator();
-  function iterate(iteration) {
-    if (iteration.done) return iteration.value;
-    const promise = iteration.value;
-    return promise.then(x => iterate(iterator.next(x)));
-  }
-  return iterate(iterator.next());
-}
-
-run(fetchUserFlow).then(posts => console.log(posts));
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q14: How do you use the IntersectionObserver API for lazy loading images?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-The IntersectionObserver API asynchronously observes changes in the intersection of a target element with an ancestor element or the viewport.
-
-**Code Snippet:**
-```javascript
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const img = entry.target;
-      img.src = img.dataset.src;
-      img.classList.remove('lazy');
-      observer.unobserve(img);
-    }
-  });
-});
-
-document.querySelectorAll('img.lazy').forEach(img => {
-  observer.observe(img);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q15: How do you use the MutationObserver API to track DOM changes?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-MutationObserver allows you to watch for changes being made to the DOM tree (attributes, child list, subtree).
-
-**Code Snippet:**
-```javascript
-const targetNode = document.getElementById('content');
-const config = { attributes: true, childList: true, subtree: true };
-
-const callback = function(mutationsList, observer) {
-  for(const mutation of mutationsList) {
-    if (mutation.type === 'childList') {
-      console.log('A child node has been added or removed.');
-    } else if (mutation.type === 'attributes') {
-      console.log('The ' + mutation.attributeName + ' attribute was modified.');
-    }
-  }
-};
-
-const observer = new MutationObserver(callback);
-observer.observe(targetNode, config);
-
-// Later: observer.disconnect();
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q16: How do you implement a virtual list (windowing) for large datasets?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Only render the items that are currently visible in the viewport plus a small buffer. Calculate the total height to maintain scrollbar size.
-
-**Code Snippet:**
-```javascript
-// Conceptual implementation
-class VirtualList {
-  constructor(container, itemHeight, totalItems) {
-    this.container = container;
-    this.itemHeight = itemHeight;
-    this.totalItems = totalItems;
-    this.render();
-    this.container.addEventListener('scroll', () => this.render());
-  }
-
-  render() {
-    const scrollTop = this.container.scrollTop;
-    const viewportHeight = this.container.clientHeight;
-    
-    const startIndex = Math.floor(scrollTop / this.itemHeight);
-    const endIndex = Math.min(
-      this.totalItems, 
-      Math.floor((scrollTop + viewportHeight) / this.itemHeight) + 5 // buffer
-    );
-    
-    // Clear and re-render visible items
-    this.container.innerHTML = '';
-    // Add padding top
-    const paddingTop = document.createElement('div');
-    paddingTop.style.height = `${startIndex * this.itemHeight}px`;
-    this.container.appendChild(paddingTop);
-    
-    for (let i = startIndex; i < endIndex; i++) {
-      const item = document.createElement('div');
-      item.innerText = `Item ${i}`;
-      item.style.height = `${this.itemHeight}px`;
-      this.container.appendChild(item);
-    }
-    
-    // Add padding bottom
-    const paddingBottom = document.createElement('div');
-    paddingBottom.style.height = `${(this.totalItems - endIndex) * this.itemHeight}px`;
-    this.container.appendChild(paddingBottom);
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q17: How do you optimize event listeners using event delegation?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Instead of attaching an event listener to every child element, attach a single listener to a common parent. Use `event.target` to identify which child was clicked.
-
-**Code Snippet:**
-```javascript
-document.getElementById('parent-list').addEventListener('click', function(e) {
-  // Check if the clicked element matches our target selector
-  if (e.target && e.target.matches('li.item')) {
-    console.log('List item clicked!', e.target.dataset.id);
-  }
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q18: How do you prevent prototype pollution attacks?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Prototype pollution occurs when attackers merge properties into `Object.prototype`. Prevent it by using `Object.create(null)`, freezing the prototype, or carefully validating keys during merge operations.
-
-**Code Snippet:**
-```javascript
-function safeMerge(target, source) {
-  for (let key in source) {
-    if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
-      continue; // Skip dangerous keys
-    }
-    if (typeof target[key] === 'object' && target[key] !== null) {
-      safeMerge(target[key], source[key]);
-    } else {
-      target[key] = source[key];
-    }
-  }
-  return target;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q19: How do you securely store tokens in the browser?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Do NOT store sensitive tokens (like JWTs giving access to sensitive data) in `localStorage` or `sessionStorage` due to XSS risks. Use **HttpOnly cookies** which are not accessible via JavaScript.
-
-**Code Snippet:**
-```javascript
-// Server-side (Node/Express example)
-res.cookie('token', jwt, {
-  httpOnly: true,
-  secure: true, // HTTPS only
-  sameSite: 'Strict', // CSRF protection
-  maxAge: 3600000
-});
-
-// Client-side: Browser handles sending the cookie automatically with requests.
-// No JavaScript code needed to read/write the token.
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q20: How do you implement CSRF protection in AJAX requests?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-For non-GET requests, the server should provide a CSRF token (e.g., in a meta tag or cookie). The client must read this token and send it in a custom HTTP header (e.g., `X-CSRF-Token`).
-
-**Code Snippet:**
-```javascript
-// 1. Get the token from meta tag (rendered by server)
-const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-// 2. Send it in headers
-fetch('/api/update', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'X-CSRF-Token': csrfToken
-  },
-  body: JSON.stringify({ data: 'value' })
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q21: How do you sanitize user input to prevent XSS?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Never trust user input. When rendering HTML, encode special characters. Libraries like DOMPurify are recommended.
-
-**Code Snippet:**
-```javascript
-function escapeHTML(str) {
-  return str.replace(/[&<>'"]/g, 
-    tag => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      "'": '&#39;',
-      '"': '&quot;'
-    }[tag])
-  );
-}
-
-const userInput = "<script>alert('xss')</script>";
-const safeOutput = escapeHTML(userInput);
-document.body.innerHTML = safeOutput; // &lt;script&gt;alert('xss')&lt;/script&gt;
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q22: How do you use the BroadcastChannel API for tab communication?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-`BroadcastChannel` allows simple communication between browsing contexts (windows, tabs, frames, or iframes) of the same origin.
-
-**Code Snippet:**
-```javascript
-// Tab 1: Sender
-const channel = new BroadcastChannel('my_channel');
-channel.postMessage('Hello from Tab 1');
-
-// Tab 2: Receiver
-const channel = new BroadcastChannel('my_channel');
-channel.onmessage = (event) => {
-  console.log('Received:', event.data);
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q23: How do you use SharedWorkers for shared state between tabs?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-`SharedWorker` is a script that can be accessed by multiple windows, iframes or even workers.
-
-**Code Snippet:**
-```javascript
-// worker.js
-let connections = 0;
-onconnect = function(e) {
-  const port = e.ports[0];
-  connections++;
-  port.postMessage('Connection count: ' + connections);
-  
-  port.onmessage = function(e) {
-    // Broadcast to logic would be more complex here
-    port.postMessage('You said: ' + e.data);
-  }
-}
-
-// main.js
-const myWorker = new SharedWorker('worker.js');
-myWorker.port.start();
-myWorker.port.onmessage = function(e) {
-  console.log('Worker said: ' + e.data);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q24: How do you implement a simple state management system from scratch?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Use the Pub/Sub pattern combined with a central store object.
-
-**Code Snippet:**
-```javascript
-class Store {
-  constructor(initialState = {}, reducer) {
-    this.state = initialState;
-    this.reducer = reducer;
-    this.listeners = [];
-  }
-
-  getState() {
-    return this.state;
-  }
-
-  dispatch(action) {
-    this.state = this.reducer(this.state, action);
-    this.listeners.forEach(listener => listener());
-  }
-
-  subscribe(listener) {
-    this.listeners.push(listener);
-    return () => {
-      this.listeners = this.listeners.filter(l => l !== listener);
-    };
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q25: How do you implement a client-side router from scratch?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Listen to `popstate` events for history changes and intercept link clicks to prevent page reload, using `history.pushState`.
-
-**Code Snippet:**
-```javascript
-class Router {
-  constructor(routes) {
-    this.routes = routes;
-    this.root = document.getElementById('app');
-    window.addEventListener('popstate', () => this.loadRoute());
-    document.body.addEventListener('click', e => {
-      if (e.target.matches('[data-link]')) {
-        e.preventDefault();
-        history.pushState(null, null, e.target.href);
-        this.loadRoute();
-      }
-    });
-    this.loadRoute();
-  }
-
-  loadRoute() {
-    const path = window.location.pathname;
-    const view = this.routes[path] || this.routes['/404'];
-    this.root.innerHTML = view;
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q26: How do you parse query string parameters without a library?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Use `URLSearchParams` (modern) or regex (legacy).
-
-**Code Snippet:**
-```javascript
-// Modern approach
-const params = new URLSearchParams(window.location.search);
-const name = params.get('name');
-
-// Legacy / Manual implementation
-function getQueryParams(url) {
-  const paramArr = url.slice(url.indexOf('?') + 1).split('&');
-  const params = {};
-  paramArr.map(param => {
-    const [key, val] = param.split('=');
-    params[key] = decodeURIComponent(val);
-  });
-  return params;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q27: How do you check if two objects are deeply equal?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Recursively compare keys and values.
-
-**Code Snippet:**
-```javascript
-function deepEqual(obj1, obj2) {
-  if (obj1 === obj2) return true;
-  
-  if (typeof obj1 !== 'object' || obj1 === null ||
-      typeof obj2 !== 'object' || obj2 === null) {
-    return false;
-  }
-  
-  const keys1 = Object.keys(obj1);
-  const keys2 = Object.keys(obj2);
-  
-  if (keys1.length !== keys2.length) return false;
-  
-  for (let key of keys1) {
-    if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
-      return false;
-    }
-  }
-  
-  return true;
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q28: How do you retry a failed API call with exponential backoff?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Recursively call the fetch function, increasing the delay on each failure.
-
-**Code Snippet:**
-```javascript
-async function fetchWithRetry(url, options = {}, retries = 3, delay = 1000) {
-  try {
-    const response = await fetch(url, options);
-    if (!response.ok) throw new Error('Request failed');
-    return response;
-  } catch (error) {
-    if (retries === 0) throw error;
-    await new Promise(resolve => setTimeout(resolve, delay));
-    return fetchWithRetry(url, options, retries - 1, delay * 2);
-  }
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q29: How do you cancel a fetch request using AbortController?
-
-**Difficulty:** Intermediate
-
-**Strategy:**
-Pass the `signal` from an `AbortController` to the fetch request. Call `controller.abort()` to cancel.
-
-**Code Snippet:**
-```javascript
-const controller = new AbortController();
-const signal = controller.signal;
-
-fetch('/api/data', { signal })
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(err => {
-    if (err.name === 'AbortError') {
-      console.log('Fetch aborted');
-    } else {
-      console.error('Fetch error:', err);
-    }
-  });
-
-// Cancel request
-controller.abort();
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q30: How do you implement a custom `bind` function?
-
-**Difficulty:** Advanced
-
-**Strategy:**
-`bind` returns a new function with `this` fixed to the passed context. It also needs to handle partial application of arguments.
-
-**Code Snippet:**
-```javascript
-Function.prototype.myBind = function(context, ...args) {
-  const fn = this;
-  return function(...newArgs) {
-    return fn.apply(context, [...args, ...newArgs]);
-  }
-}
-
-// Usage
-const person = { name: 'Alice' };
-function greet(greeting) { console.log(`${greeting}, ${this.name}`); }
-const greetAlice = greet.myBind(person, 'Hello');
-greetAlice(); // Hello, Alice
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
-### Q31: How do you use the Proxy API to validate object property assignments?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Proxies allow you to intercept and redefine fundamental operations for an object. A `set` trap can be used to validate data before it is written to the object.
-
-**Code Example:**
-const validator = {
-  set: function(obj, prop, value) {
-    if (prop === 'age') {
-      if (!Number.isInteger(value)) {
-        throw new TypeError('The age must be an integer');
-      }
-      if (value < 0 || value > 200) {
-        throw new RangeError('The age seems invalid');
-      }
-    }
-    // The default behavior to store the value
-    obj[prop] = value;
-    return true;
-  }
-};
-
-const person = new Proxy({}, validator);
-
-person.age = 100; // OK
-// person.age = 'young'; // Throws TypeError
-// person.age = 300; // Throws RangeError
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q32: What is the Reflect API and how does it relate to Proxy?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-`Reflect` is a built-in object that provides methods for interceptable JavaScript operations. It is often used inside Proxy handlers to forward the default behavior safely.
-
-**Code Example:**
-const handler = {
-  get(target, prop, receiver) {
-    console.log(`Getting ${prop}`);
-    // Reflect.get ensures correct 'this' binding (receiver)
-    return Reflect.get(target, prop, receiver);
-  }
-};
-
-const obj = new Proxy({ x: 1, get y() { return this.x; } }, handler);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q33: When should you use a Map over a plain Object?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `Map` when: keys are not strings (e.g., objects), key order matters (insertion order is preserved), or you need frequent size checks (`.size`). Use `Object` for simple key-value pairs where keys are strings/symbols.
-
-**Code Example:**
-const map = new Map();
-const keyObj = { id: 1 };
-
-map.set(keyObj, 'Metadata for object');
-console.log(map.get(keyObj)); // 'Metadata for object'
-
-console.log(map.size); // 1
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q34: How do you efficiently remove duplicates from an array using Set?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-`Set` only stores unique values. You can convert an array to a Set and back to an array to remove duplicates.
-
-**Code Example:**
-const numbers = [1, 2, 2, 3, 4, 4, 5];
-const uniqueNumbers = [...new Set(numbers)];
-// [1, 2, 3, 4, 5]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q35: What is a WeakMap and why is it useful for memory management?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-`WeakMap` holds 'weak' references to key objects, meaning if the key object is no longer referenced elsewhere, it can be garbage collected. This prevents memory leaks when associating data with DOM elements or objects.
-
-**Code Example:**
-let user = { name: "Alice" };
-
-const weakMap = new WeakMap();
-weakMap.set(user, "Secret Data");
-
-user = null; 
-// The entry in weakMap is now eligible for garbage collection automatically.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q36: How do you implement an ID generator using Generators?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Generators (`function*`) can maintain internal state and yield values one at a time, making them perfect for infinite sequences like IDs.
-
-**Code Example:**
-function* idGenerator() {
-  let id = 1;
-  while (true) {
-    yield id++;
-  }
-}
-
-const gen = idGenerator();
-console.log(gen.next().value); // 1
-console.log(gen.next().value); // 2
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q37: Why is `requestAnimationFrame` better than `setTimeout` for animations?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`requestAnimationFrame` syncs with the browser's refresh rate (usually 60fps), pausing when the tab is inactive to save battery, whereas `setTimeout` runs blindly and can cause jank.
-
-**Code Example:**
-function animate() {
-  // Update animation state
-  element.style.left = parseInt(element.style.left || 0) + 1 + 'px';
-  
-  // Schedule next frame
-  requestAnimationFrame(animate);
-}
-
-requestAnimationFrame(animate);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q38: How do you offload heavy CPU tasks using Web Workers?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Web Workers run scripts in background threads, preventing the main UI thread from blocking.
-
-**Code Example:**
-// worker.js
-self.onmessage = function(e) {
-  // Heavy computation
-  let result = 0;
-  for (let i = 0; i < 1000000000; i++) result += i;
-  self.postMessage(result);
-};
-
-// main.js
-const worker = new Worker('worker.js');
-worker.onmessage = function(e) {
-  console.log('Result:', e.data);
-};
-worker.postMessage('start');
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q39: What is the difference between `null` and `undefined`?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-`undefined` means a variable has been declared but not assigned a value. `null` is an assignment value that represents no value or no object.
-
-**Code Example:**
-let a; 
-console.log(a); // undefined
-
-let b = null;
-console.log(b); // null
-
-console.log(typeof undefined); // 'undefined'
-console.log(typeof null); // 'object' (legacy bug)
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q40: How do you use the `Intl` API for language-sensitive formatting?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`Intl` provides standard APIs for formatting dates, numbers, and currencies across different locales.
-
-**Code Example:**
-const number = 123456.789;
-
-console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number));
-// 123.456,79 €
-
-console.log(new Intl.NumberFormat('ja-JP', { style: 'currency', currency: 'JPY' }).format(number));
-// ￥123,457
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q41: What is `BigInt` and when should you use it?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`BigInt` is a primitive wrapper for whole numbers larger than `2^53 - 1` (Number.MAX_SAFE_INTEGER).
-
-**Code Example:**
-const max = Number.MAX_SAFE_INTEGER;
-console.log(max + 1 === max + 2); // true (Precision lost)
-
-const big = 9007199254740991n;
-console.log(big + 1n === big + 2n); // false (Precision kept)
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q42: What is the difference between Nullish Coalescing (`??`) and Logical OR (`||`)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`||` returns the right side if the left is *falsy* (null, undefined, 0, '', false). `??` returns the right side only if the left is *null* or *undefined*.
-
-**Code Example:**
-const count = 0;
-
-const a = count || 10; // 10 (0 is falsy)
-const b = count ?? 10; // 0 (0 is defined)
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q43: How does Optional Chaining (`?.`) simplify object access?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-It allows you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid.
-
-**Code Example:**
-const user = { address: null };
-
-// Old way
-const zip = user && user.address && user.address.zip;
-
-// New way
-const zipNew = user?.address?.zip; // undefined (no error thrown)
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q44: What is `globalThis`?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`globalThis` provides a standard way to access the global `this` value (window in browser, global in Node.js) across environments.
-
-**Code Example:**
-// Works in Browser, Node, and Workers
-console.log(globalThis); 
-
-if (typeof globalThis.setTimeout !== 'function') {
-  // ...
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q45: Explain the 'Classic Closure Loop' problem and how to fix it.
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Using `var` in a loop creates a single shared binding. Using `let` creates a new binding for each iteration.
-
-**Code Example:**
-// Problem (var)
-for (var i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 100);
-}
-// Output: 3, 3, 3
-
-// Fix (let)
-for (let i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 100);
-}
-// Output: 0, 1, 2
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q46: What is the difference between Function Declaration and Function Expression regarding Hoisting?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Function declarations are hoisted completely (can be called before definition). Function expressions (assigned to variables) are not hoisted (variable is hoisted but undefined).
-
-**Code Example:**
-sayHello(); // Works
-function sayHello() { console.log("Hello"); }
-
-// sayHi(); // Error: sayHi is not a function
-var sayHi = function() { console.log("Hi"); };
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q47: How do you perform a deep equality check manually?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Recursively compare keys and values. Handle primitives, arrays, and objects.
-
-**Code Example:**
-function deepEqual(obj1, obj2) {
-  if (obj1 === obj2) return true;
-  
-  if (typeof obj1 !== 'object' || obj1 === null ||
-      typeof obj2 !== 'object' || obj2 === null) {
-    return false;
-  }
-
-  const keys1 = Object.keys(obj1);
-  const keys2 = Object.keys(obj2);
-
-  if (keys1.length !== keys2.length) return false;
-
-  for (let key of keys1) {
-    if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
-      return false;
-    }
-  }
-  return true;
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q48: How do you use `Array.prototype.reduce` to group objects by a property?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `reduce` to accumulate an object where keys are the group names and values are arrays of items.
-
-**Code Example:**
-const people = [
-  { name: 'Alice', age: 20 },
-  { name: 'Bob', age: 20 },
-  { name: 'Charlie', age: 25 }
-];
-
-const grouped = people.reduce((acc, person) => {
-  const key = person.age;
-  if (!acc[key]) {
-    acc[key] = [];
-  }
-  acc[key].push(person);
+const g = gen();
+g.next().value; // 1</code></pre>
+</div>
+
+<div id="q19" class="question">19. Map vs WeakMap? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p><strong>WeakMap</strong> keys must be objects and are weakly referenced (garbage collected if no other ref exists). Not iterable.</p>
+</div>
+
+<div id="q20" class="question">20. Set vs WeakSet? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Similar to WeakMap, but for Sets. Stores objects weakly.</p>
+</div>
+
+<div id="q21" class="question">21. What is a Proxy object? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Wraps an object to intercept operations (get, set, etc.).</p>
+<pre><code class="language-javascript">const handler = {
+  get: (obj, prop) => prop in obj ? obj[prop] : 'Not Found'
+};</code></pre>
+</div>
+
+<div id="q22" class="question">22. Explain the Module System (ESM vs CommonJS)? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <ul>
+    <li><strong>CommonJS:</strong> <code>require</code> / <code>module.exports</code>. Sync. Node.js default.</li>
+    <li><strong>ESM:</strong> <code>import</code> / <code>export</code>. Async. Browser/Modern Node.</li>
+  </ul>
+</div>
+
+<div id="q23" class="question">23. What is the Temporal Dead Zone (TDZ)? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Time between entering scope and variable declaration where accessing <code>let</code>/<code>const</code> throws ReferenceError.</p>
+</div>
+
+<div id="q24" class="question">24. How does Garbage Collection work in JS? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Mark-and-Sweep algorithm. Roots are marked, reachable objects marked. Unmarked memory is freed.</p>
+</div>
+
+<div id="q25" class="question">25. What is strict mode (`'use strict'`)? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Enforces stricter parsing. Catches silent errors. Disables global <code>this</code>.</p>
+</div>
+
+<div id="q26" class="question">26. Difference between `null` and `undefined`? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p><code>undefined</code>: Variable declared but not assigned.<br><code>null</code>: Assignment value representing "no value".</p>
+</div>
+
+<div id="q27" class="question">27. What is Type Coercion? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Automatic conversion of values from one type to another (e.g., <code>"5" - 1 = 4</code>).</p>
+</div>
+
+<div id="q28" class="question">28. Explain `instanceof` operator? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Checks if prototype property of constructor appears in object's prototype chain.</p>
+</div>
+
+<div id="q29" class="question">29. What are Arrow Functions? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Concise syntax. No own <code>this</code>, <code>arguments</code>, or <code>super</code>.</p>
+</div>
+
+<div id="q30" class="question">30. What is Destructuring Assignment? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+<pre><code class="language-javascript">const { name, age } = user;
+const [first, second] = array;</code></pre>
+</div>
+
+<div id="q31" class="question">31. Rest Operator vs Spread Operator? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Both use `...`. <strong>Spread</strong> expands (unpacks). <strong>Rest</strong> collects (packs).</p>
+</div>
+
+<div id="q32" class="question">32. What is a Polyfill? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Code that implements a feature on browsers that don't support it.</p>
+</div>
+
+<div id="q33" class="question">33. What is a Transpiler (Babel)? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Converts modern JS (ES6+) into older JS (ES5) for compatibility.</p>
+</div>
+
+<div id="q34" class="question">34. Explain `Symbol` primitive? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Unique, immutable primitive. Used for object property keys to avoid collision.</p>
+</div>
+
+<div id="q35" class="question">35. What is an Iterator? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Object implementing `next()` method returning `{value, done}`. Used in `for..of`.</p>
+</div>
+
+<div id="q36" class="question">36. Explain `Object.freeze()` vs `Object.seal()`? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <ul>
+    <li><strong>Freeze:</strong> Immutable. Cannot add/remove/change properties.</li>
+    <li><strong>Seal:</strong> Cannot add/remove properties, but CAN change existing values.</li>
+  </ul>
+</div>
+
+<div id="q37" class="question">37. How to check if an object is an array? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <pre><code class="language-javascript">Array.isArray(obj)</code></pre>
+</div>
+
+<div id="q38" class="question">38. What is `NaN` and how to check for it? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Not-a-Number. Check with <code>Number.isNaN(val)</code>.</p>
+</div>
+
+<div id="q39" class="question">39. Explain `preventDefault()` vs `stopPropagation()`? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <ul>
+    <li><code>preventDefault()</code>: Stops default browser action (e.g., form submit).</li>
+    <li><code>stopPropagation()</code>: Stops bubbling.</li>
+  </ul>
+</div>
+
+<div id="q40" class="question">40. What is the BOM (Browser Object Model)? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Objects provided by browser to interact with window (location, history, screen).</p>
+</div>
+
+<div id="q41" class="question">41. LocalStorage vs SessionStorage vs Cookies? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <ul>
+    <li><strong>Local:</strong> Persistent, ~5MB.</li>
+    <li><strong>Session:</strong> Tab life, ~5MB.</li>
+    <li><strong>Cookie:</strong> Sent to server, ~4KB.</li>
+  </ul>
+</div>
+
+<div id="q42" class="question">42. What is JSONP? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Old hack for cross-domain requests using `&lt;script&gt;` tags. Insecure.</p>
+</div>
+
+<div id="q43" class="question">43. What is CORS? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Cross-Origin Resource Sharing. Browser mechanism allowing access to resources from different origins.</p>
+</div>
+
+<div id="q44" class="question">44. Explain the Critical Rendering Path? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>HTML -> DOM -> CSSOM -> Render Tree -> Layout -> Paint.</p>
+</div>
+
+<div id="q45" class="question">45. What are Web Workers? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Run JS in background thread. No DOM access. Used for heavy computation.</p>
+</div>
+
+<div id="q46" class="question">46. Service Workers vs Web Workers? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Service Workers act as network proxy (caching, offline). Web Workers do computation.</p>
+</div>
+
+<div id="q47" class="question">47. What is the Shadow DOM? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Encapsulated DOM tree attached to an element. Styles don't leak in/out. (Used in `&lt;video&gt;`).</p>
+</div>
+
+<div id="q48" class="question">48. Custom Elements (Web Components)? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Defining new HTML tags (`&lt;my-element&gt;`) with custom behavior.</p>
+</div>
+
+<div id="q49" class="question">49. Explain `requestAnimationFrame`? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Schedules function for next repaint (approx 60fps). More efficient than `setInterval` for animations.</p>
+</div>
+
+<div id="q50" class="question">50. MutationObserver API? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Watches for changes in the DOM tree (childList, attributes).</p>
+</div>
+
+<div id="q51" class="question">51. IntersectionObserver API? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Detects visibility of element (e.g., infinite scroll, lazy loading).</p>
+</div>
+
+<div id="q52" class="question">52. What is the Fetch API? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Modern promise-based replacement for XHR.</p>
+</div>
+
+<div id="q53" class="question">53. How to abort a Fetch request? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Use <code>AbortController</code>.</p>
+<pre><code class="language-javascript">const controller = new AbortController();
+fetch(url, { signal: controller.signal });
+controller.abort();</code></pre>
+</div>
+
+<div id="q54" class="question">54. Explain `Promise.all` vs `Promise.race`? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <ul>
+    <li><code>all</code>: Waits for all to resolve or one to reject.</li>
+    <li><code>race</code>: Waits for first to settle (resolve or reject).</li>
+  </ul>
+</div>
+
+<div id="q55" class="question">55. Explain `Promise.allSettled` vs `Promise.any`? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <ul>
+    <li><code>allSettled</code>: Waits for all to finish (status for each).</li>
+    <li><code>any</code>: Waits for first to fulfill.</li>
+  </ul>
+</div>
+
+<div id="q56" class="question">56. What is a Microtask vs Macrotask? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p><strong>Microtask:</strong> Promises, queueMicrotask (Higher priority).<br><strong>Macrotask:</strong> setTimeout, I/O.</p>
+</div>
+
+<div id="q57" class="question">57. How to implement a Sleep function? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <pre><code class="language-javascript">const sleep = ms => new Promise(r => setTimeout(r, ms));</code></pre>
+</div>
+
+<div id="q58" class="question">58. Flatten an array without flat()? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <pre><code class="language-javascript">const flat = arr => arr.reduce((acc, val) => 
+    Array.isArray(val) ? acc.concat(flat(val)) : acc.concat(val), []);</code></pre>
+</div>
+
+<div id="q59" class="question">59. Remove duplicates from array? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <pre><code class="language-javascript">[...new Set(arr)]</code></pre>
+</div>
+
+<div id="q60" class="question">60. Check for Anagrams? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <pre><code class="language-javascript">s1.split('').sort().join('') === s2.split('').sort().join('')</code></pre>
+</div>
+
+<div id="q61" class="question">61. Check for Palindrome? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <pre><code class="language-javascript">str === str.split('').reverse().join('')</code></pre>
+</div>
+
+<div id="q62" class="question">62. Implement `map` polyfill? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+<pre><code class="language-javascript">Array.prototype.myMap = function(cb) {
+  const res = [];
+  for (let i = 0; i < this.length; i++) res.push(cb(this[i], i, this));
+  return res;
+};</code></pre>
+</div>
+
+<div id="q63" class="question">63. Implement `filter` polyfill? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+<pre><code class="language-javascript">Array.prototype.myFilter = function(cb) {
+  const res = [];
+  for (let i = 0; i < this.length; i++) if (cb(this[i])) res.push(this[i]);
+  return res;
+};</code></pre>
+</div>
+
+<div id="q64" class="question">64. Implement `reduce` polyfill? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+<pre><code class="language-javascript">Array.prototype.myReduce = function(cb, init) {
+  let acc = init ?? this[0];
+  let start = init === undefined ? 1 : 0;
+  for (let i = start; i < this.length; i++) acc = cb(acc, this[i]);
   return acc;
-}, {});
-
-// { '20': [{...}, {...}], '25': [{...}] }
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q49: How do you implement a custom `Promise.race`?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Return a new Promise that resolves or rejects as soon as the first promise in the iterable resolves or rejects.
-
-**Code Example:**
-function race(promises) {
-  return new Promise((resolve, reject) => {
-    promises.forEach(promise => {
-      Promise.resolve(promise)
-        .then(resolve)
-        .catch(reject);
-    });
-  });
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q50: How do you use `Symbol.iterator` to make an object iterable?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Define a method with key `[Symbol.iterator]` that returns an iterator object (with a `next` method).
-
-**Code Example:**
-const range = {
-  from: 1,
-  to: 5,
-  [Symbol.iterator]() {
-    let current = this.from;
-    let last = this.to;
-    return {
-      next() {
-        if (current <= last) {
-          return { done: false, value: current++ };
-        } else {
-          return { done: true };
-        }
-      }
-    };
-  }
-};
-
-for (let num of range) {
-  console.log(num); // 1, 2, 3, 4, 5
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-
-### Q31: How do you use the Proxy API to validate object property assignments?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Proxies allow you to intercept and redefine fundamental operations for an object. A `set` trap can be used to validate data before it is written to the object.
-
-**Code Example:**
-const validator = {
-  set: function(obj, prop, value) {
-    if (prop === 'age') {
-      if (!Number.isInteger(value)) {
-        throw new TypeError('The age must be an integer');
-      }
-      if (value < 0 || value > 200) {
-        throw new RangeError('The age seems invalid');
-      }
-    }
-    // The default behavior to store the value
-    obj[prop] = value;
-    return true;
-  }
-};
-
-const person = new Proxy({}, validator);
-
-person.age = 100; // OK
-// person.age = 'young'; // Throws TypeError
-// person.age = 300; // Throws RangeError
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q32: What is the Reflect API and how does it differ from Proxy?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Reflect is a built-in object that provides methods for interceptable JavaScript operations. It is often used within Proxy traps to forward the default behavior to the target object safely.
-
-**Code Example:**
-const handler = {
-  get(target, prop, receiver) {
-    console.log(`Getting ${prop}`);
-    // Reflect.get forwards the operation to the original object
-    return Reflect.get(target, prop, receiver);
-  }
-};
-
-const obj = { name: "Alice" };
-const proxy = new Proxy(obj, handler);
-
-console.log(proxy.name); 
-// Output:
-// Getting name
-// Alice
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q33: How do you implement a deep equality check for two objects?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-A deep equality check recursively compares properties of objects. For simple cases, `JSON.stringify` works, but it handles dates and circular references poorly. A recursive function is more robust.
-
-**Code Example:**
-function deepEqual(obj1, obj2) {
-  if (obj1 === obj2) return true;
-
-  if (typeof obj1 !== 'object' || obj1 === null || 
-      typeof obj2 !== 'object' || obj2 === null) {
-    return false;
-  }
-
-  const keys1 = Object.keys(obj1);
-  const keys2 = Object.keys(obj2);
-
-  if (keys1.length !== keys2.length) return false;
-
-  for (let key of keys1) {
-    if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
-      return false;
-    }
-  }
-  return true;
-}
-
-const a = { x: 1, y: { z: 2 } };
-const b = { x: 1, y: { z: 2 } };
-console.log(deepEqual(a, b)); // true
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q34: How can you use Set to remove duplicates from an array?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`Set` objects are collections of values where each value must be unique. Converting an array to a Set and back to an array is a concise way to remove duplicates.
-
-**Code Example:**
-const numbers = [1, 2, 2, 3, 4, 4, 5];
-const uniqueNumbers = [...new Set(numbers)];
-
-console.log(uniqueNumbers); // [1, 2, 3, 4, 5]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q35: What is a WeakMap and why is it useful for memory management?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-`WeakMap` holds 'weak' references to key objects, meaning if the key object is no longer referenced elsewhere, it can be garbage collected. This prevents memory leaks when associating data with DOM elements or objects.
-
-**Code Example:**
-let user = { name: "Alice" };
-
-const weakMap = new WeakMap();
-weakMap.set(user, "Secret Data");
-
-// If we remove the reference to user...
-user = null; 
-
-// The entry in weakMap is now eligible for garbage collection automatically.
-// Unlike Map, you cannot iterate over keys in WeakMap.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q36: How do you implement an ID generator using Generators?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Generators can maintain internal state and yield values on demand, making them perfect for creating infinite sequences like unique IDs.
-
-**Code Example:**
-function* idGenerator() {
-  let id = 1;
-  while (true) {
-    yield id++;
-  }
-}
-
-const gen = idGenerator();
-
-console.log(gen.next().value); // 1
-console.log(gen.next().value); // 2
-console.log(gen.next().value); // 3
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q37: How does requestAnimationFrame differ from setTimeout for animations?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`requestAnimationFrame` tells the browser that you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint. It is more efficient than `setTimeout` because it pauses when the tab is inactive and syncs with the monitor's refresh rate.
-
-**Code Example:**
-function animate() {
-  const element = document.getElementById('box');
-  let pos = 0;
-
-  function step() {
-    pos++;
-    element.style.left = pos + 'px';
-    if (pos < 300) {
-      requestAnimationFrame(step);
-    }
-  }
-
-  requestAnimationFrame(step);
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q38: How do you use Web Workers to offload CPU-intensive tasks?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Web Workers run a script in the background, separate from the main execution thread of a web application. This allows the main thread (usually the UI) to run without being blocked/frozen.
-
-**Code Example:**
-// main.js
-const worker = new Worker('worker.js');
-
-worker.postMessage(1000000000); // Send data to worker
-
-worker.onmessage = function(e) {
-  console.log('Result from worker:', e.data);
-};
-
-// worker.js
-onmessage = function(e) {
-  let sum = 0;
-  for (let i = 0; i < e.data; i++) {
-    sum += i;
-  }
-  postMessage(sum); // Send result back to main thread
-};
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q39: Explain the difference between null and undefined with a practical example.
-
-**Difficulty**: Beginner
-
-**Strategy:**
-`undefined` means a variable has been declared but not defined. `null` is an assignment value that represents no value or no object. `null` is an object, `undefined` is a type.
-
-**Code Example:**
-let a;
-console.log(a); // undefined (automatically assigned)
-
-let b = null;
-console.log(b); // null (intentionally assigned)
-
-console.log(typeof a); // "undefined"
-console.log(typeof b); // "object" (a known JS quirk)
-
-// Practical difference in default parameters
-function greet(name = 'Guest') {
-  return `Hello, ${name}`;
-}
-
-console.log(greet(undefined)); // "Hello, Guest"
-console.log(greet(null));      // "Hello, null" 
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q40: How do you use the Intl API for language-sensitive number formatting?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-The `Intl.NumberFormat` object enables language-sensitive number formatting.
-
-**Code Example:**
-const number = 123456.789;
-
-// US English
-console.log(new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(number));
-// "$123,456.79"
-
-// German
-console.log(new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number));
-// "123.456,79 €" 
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q41: What is BigInt and when should you use it?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`BigInt` is a built-in object that provides a way to represent whole numbers larger than 2^53 - 1, which is the largest number JavaScript can reliably represent with the Number primitive.
-
-**Code Example:**
-const maxSafe = Number.MAX_SAFE_INTEGER;
-console.log(maxSafe + 1); // 9007199254740992
-console.log(maxSafe + 2); // 9007199254740992 (Error!)
-
-const bigInt = 9007199254740991n;
-console.log(bigInt + 2n); // 9007199254740993n (Correct)
-
-// Note: You cannot mix BigInt and other types
-// console.log(1n + 2); // TypeError
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q42: Explain the Nullish Coalescing Operator (??) vs Logical OR (||).
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-The logical OR (`||`) operator returns the right-hand side operand if the left-hand side is *falsy* (including 0, '', false). The nullish coalescing operator (`??`) returns the right-hand side only if the left-hand side is `null` or `undefined`.
-
-**Code Example:**
-const count = 0;
-const text = "";
-
-const qty = count || 42;
-const message = text || "Hello";
-
-console.log(qty);     // 42 (because 0 is falsy)
-console.log(message); // "Hello" (because "" is falsy)
-
-const qty2 = count ?? 42;
-const message2 = text ?? "Hello";
-
-console.log(qty2);     // 0 (0 is not null/undefined)
-console.log(message2); // "" ("" is not null/undefined)
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q43: How does Optional Chaining (?.) simplify accessing nested properties?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Optional chaining (`?.`) permits reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid.
-
-**Code Example:**
-const user = {
-  profile: {
-    // address is missing
-  }
-};
-
-// Old way
-const street = user && user.profile && user.profile.address && user.profile.address.street;
-
-// New way with Optional Chaining
-const street2 = user?.profile?.address?.street;
-
-console.log(street2); // undefined (no error thrown)
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q44: What is globalThis and why is it needed?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`globalThis` provides a standard way to access the global `this` value (and hence the global object) across environments (window in browser, global in Node.js, self in Workers).
-
-**Code Example:**
-// Before globalThis, accessing the global object was environment-specific:
-const getGlobal = () => {
-  if (typeof self !== 'undefined') { return self; }
-  if (typeof window !== 'undefined') { return window; }
-  if (typeof global !== 'undefined') { return global; }
-  throw new Error('unable to locate global object');
-};
-
-// With globalThis
-console.log(globalThis); // Works everywhere
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q45: Explain the 'Classic Closure Loop' problem and how to fix it.
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Using `var` in a loop with an asynchronous callback often leads to the same final value being used for all iterations because `var` is function-scoped. Using `let` (block-scoped) fixes this.
-
-**Code Example:**
-// Problematic code
-for (var i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 100);
-}
-// Output: 3, 3, 3
-
-// Fix with let
-for (let j = 0; j < 3; j++) {
-  setTimeout(() => console.log(j), 100);
-}
-// Output: 0, 1, 2
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q46: Function Declaration vs Function Expression: What is the difference?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Function declarations are hoisted, meaning they can be called before they are defined. Function expressions (assigned to variables) are not hoisted.
-
-**Code Example:**
-console.log(hoistedFunc()); // Works: "I am hoisted"
-// console.log(notHoisted()); // Error: notHoisted is not a function
-
-function hoistedFunc() {
-  return "I am hoisted";
-}
-
-var notHoisted = function() {
-  return "I am not hoisted";
-};
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q47: How do you implement a GroupBy function using Array.reduce?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-`Array.reduce` is a powerful method that can transform an array into any structure, including an object grouping elements by a key.
-
-**Code Example:**
-const people = [
-  { name: 'Alice', age: 21 },
-  { name: 'Bob', age: 25 },
-  { name: 'Charlie', age: 21 }
-];
-
-const groupedByAge = people.reduce((acc, person) => {
-  const key = person.age;
-  if (!acc[key]) {
-    acc[key] = [];
-  }
-  acc[key].push(person);
-  return acc;
-}, {});
-
-console.log(groupedByAge);
-/*
-{
-  '21': [ { name: 'Alice', age: 21 }, { name: 'Charlie', age: 21 } ],
-  '25': [ { name: 'Bob', age: 25 } ]
-}
-*/
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q48: How do you implement Promise.race from scratch?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-`Promise.race` returns a promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects.
-
-**Code Example:**
-function myPromiseRace(promises) {
-  return new Promise((resolve, reject) => {
-    for (const p of promises) {
-      Promise.resolve(p)
-        .then(resolve)
-        .catch(reject);
-    }
-  });
-}
-
-const p1 = new Promise(r => setTimeout(r, 500, 'one'));
-const p2 = new Promise(r => setTimeout(r, 100, 'two'));
-
-myPromiseRace([p1, p2]).then(value => {
-  console.log(value); // "two"
-});
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q49: How do you make an object iterable (usable in for...of)?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-To make an object iterable, you must implement the `[Symbol.iterator]` method, which returns an iterator (an object with a `next()` method).
-
-**Code Example:**
-const range = {
-  from: 1,
-  to: 5,
-  
-  [Symbol.iterator]() {
-    this.current = this.from;
-    return this;
-  },
-  
-  next() {
-    if (this.current <= this.to) {
-      return { done: false, value: this.current++ };
-    } else {
-      return { done: true };
-    }
-  }
-};
-
-for (let num of range) {
-  console.log(num); // 1, 2, 3, 4, 5
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q50: How can you flatten a nested array of arbitrary depth?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Modern JS has `Array.prototype.flat(Infinity)`, but implementing it recursively demonstrates understanding of recursion and array manipulation.
-
-**Code Example:**
-const nested = [1, [2, [3, [4]], 5]];
-
-// Modern way
-console.log(nested.flat(Infinity)); // [1, 2, 3, 4, 5]
-
-// Recursive implementation
-function flatten(arr) {
-  return arr.reduce((acc, val) => 
-    Array.isArray(val) ? acc.concat(flatten(val)) : acc.concat(val), 
-  []);
-}
-
-console.log(flatten(nested)); // [1, 2, 3, 4, 5]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-
-
-### Q51: How does the Event Loop work?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Call Stack -> Microtasks (Promises) -> Macrotasks (setTimeout) -> Render.
-
-**Code Example**:
-```javascript
-Promise.resolve().then(() => console.log('Micro'));
-setTimeout(() => console.log('Macro'), 0);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q52: What is a Closure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Function bundled with its lexical environment. Accesses outer variables.
-
-**Code Example**:
-```javascript
-function outer() { let x = 10; return () => x; }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q53: Difference between `var`, `let`, and `const`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-`var`: function scope, hoisted. `let`/`const`: block scope, TDZ. `const`: immutable reference.
-
-**Code Example**:
-```javascript
-const x = 1;
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: What is `this` keyword?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Refers to the object executing the function. Depends on call site.
-
-**Code Example**:
-```javascript
-obj.method() // this = obj
-func() // this = global/undefined
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How does Prototypal Inheritance work?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Objects inherit from other objects via `__proto__` chain.
-
-**Code Example**:
-```javascript
-function Dog() {}; Dog.prototype = Object.create(Animal.prototype);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: What is a Promise?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Object representing eventual completion of async operation.
-
-**Code Example**:
-```javascript
-new Promise((res, rej) => { ... })
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q57: How does `async/await` work?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Syntactic sugar over Promises/Generators.
-
-**Code Example**:
-```javascript
-async function() { await promise; }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: What is Hoisting?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Declarations moved to top of scope. `var` initialized undefined, `let`/`const` uninitialized.
-
-**Code Example**:
-```javascript
-console.log(a); var a = 1;
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q59: Difference between `null` and `undefined`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-`undefined`: variable declared but no value. `null`: intentional absence of value.
-
-**Code Example**:
-```javascript
-typeof null // 'object'
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: What is Event Bubbling vs Capturing?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Bubbling: Target -> Root. Capturing: Root -> Target.
-
-**Code Example**:
-```javascript
-elem.addEventListener('click', fn, { capture: true })
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q61: How do you implement a deep clone?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use `structuredClone()` or recursion.
-
-**Code Example**:
-```javascript
-const copy = structuredClone(original);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q62: What is a Generator function?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Function that can be paused and resumed (`yield`).
-
-**Code Example**:
-```javascript
-function* gen() { yield 1; }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: What is the Proxy object?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Intercepts operations on objects (get, set).
-
-**Code Example**:
-```javascript
-new Proxy(target, { get: (obj, prop) => ... })
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q64: Difference between `==` and `===`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-`===` checks type and value. `==` does type coercion.
-
-**Code Example**:
-```javascript
-1 == '1' // true
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q65: What is `bind`, `call`, and `apply`?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Methods to set `this` context explicitly.
-
-**Code Example**:
-```javascript
-fn.call(ctx, arg1); fn.apply(ctx, [args]); fn.bind(ctx);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q66: What is a WeakMap?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Map with weak keys (objects only). Garbage collected if key is unreachable.
-
-**Code Example**:
-```javascript
-const wm = new WeakMap();
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q67: How do you handle errors in Promises?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use `.catch()` or `try/catch` in async/await.
-
-**Code Example**:
-```javascript
-p.then().catch(err => ...);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q68: What is Currying?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Transforming function `f(a,b)` into `f(a)(b)`.
-
-**Code Example**:
-```javascript
-const add = a => b => a + b;
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: What is the Temporal Dead Zone (TDZ)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Time between entering scope and `let`/`const` declaration.
-
-**Code Example**:
-```javascript
-{ console.log(x); let x; } // ReferenceError
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: What is a Polyfill?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Code to provide modern functionality on older browsers.
-
-**Code Example**:
-```javascript
-if (!Array.prototype.map) { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q71: How do you debounce a function?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Delay execution until time elapses since last call.
-
-**Code Example**:
-```javascript
-function debounce(fn, delay) { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q72: How do you throttle a function?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Limit execution to once per time interval.
-
-**Code Example**:
-```javascript
-function throttle(fn, limit) { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: What is the `module` pattern?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Encapsulating private members using closures (IIFE).
-
-**Code Example**:
-```javascript
-const mod = (() => { let p = 1; return { get: () => p }; })();
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q74: What is `localStorage` vs `sessionStorage`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Local: persists. Session: clears on tab close.
-
-**Code Example**:
-```javascript
-localStorage.setItem('key', 'val');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you check array equality?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Loop or JSON.stringify (simple cases).
-
-**Code Example**:
-```javascript
-JSON.stringify(a) === JSON.stringify(b)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: What is `Symbol`?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Unique primitive type. Used for object keys.
-
-**Code Example**:
-```javascript
-const sym = Symbol('desc');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: What is `Reflect` API?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Methods for interceptable JavaScript operations.
-
-**Code Example**:
-```javascript
-Reflect.get(target, prop)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: How do you flatten an array?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use `flat()`.
-
-**Code Example**:
-```javascript
-arr.flat(Infinity)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q79: What is strict mode?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Enforces stricter parsing and error handling.
-
-**Code Example**:
-```javascript
-'use strict';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q80: How do you implement a Set?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use `Set` object for unique values.
-
-**Code Example**:
-```javascript
-new Set([1, 2, 2])
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q81: What is `Intl` API?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Internationalization helper.
-
-**Code Example**:
-```javascript
-new Intl.NumberFormat().format(1000)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q82: How do you detect browser vs node?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Check `typeof window` or `typeof process`.
-
-**Code Example**:
-```javascript
-typeof window !== 'undefined'
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q83: What is an IIFE?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Immediately Invoked Function Expression.
-
-**Code Example**:
-```javascript
-(() => { ... })()
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you remove duplicates from array?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use Set.
-
-**Code Example**:
-```javascript
-[...new Set(arr)]
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: What is Object.freeze?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Prevents modification of object.
-
-**Code Example**:
-```javascript
-Object.freeze(obj)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q86: What is `requestAnimationFrame`?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Schedule function for next repaint.
-
-**Code Example**:
-```javascript
-requestAnimationFrame(draw)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q87: How do you stop event propagation?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-`e.stopPropagation()`.
-
-**Code Example**:
-```javascript
-elem.onclick = e => e.stopPropagation()
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q88: What is `Promise.all`?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Wait for all promises to resolve.
-
-**Code Example**:
-```javascript
-Promise.all([p1, p2])
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q89: What is `Promise.race`?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Wait for first promise to settle.
-
-**Code Example**:
-```javascript
-Promise.race([p1, p2])
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: What is `BigInt`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Arbitrary precision integers.
-
-**Code Example**:
-```javascript
-const n = 123n;
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: How do you merge objects?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Spread operator or `Object.assign`.
-
-**Code Example**:
-```javascript
-{ ...obj1, ...obj2 }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q92: What is Optional Chaining?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Safe property access.
-
-**Code Example**:
-```javascript
-obj?.prop
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: What is Nullish Coalescing?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Default value for null/undefined.
-
-**Code Example**:
-```javascript
-x ?? 'default'
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q94: How do you iterate object keys?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-`Object.keys`, `Object.values`, `for...in`.
-
-**Code Example**:
-```javascript
-for (let k in obj) ...
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q95: What is `globalThis`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Universal global scope.
-
-**Code Example**:
-```javascript
-console.log(globalThis)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q96: How do you parse URL parameters?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use `URLSearchParams`.
-
-**Code Example**:
-```javascript
-new URLSearchParams(window.location.search)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q97: What is the difference between `slice` and `splice`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-`slice` returns new array. `splice` modifies in-place.
-
-**Code Example**:
-```javascript
-arr.slice(0, 1)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q98: How do you copy to clipboard?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Clipboard API.
-
-**Code Example**:
-```javascript
-navigator.clipboard.writeText('text')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q99: What is a service worker?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Script running in background (PWA).
-
-**Code Example**:
-```javascript
-navigator.serviceWorker.register('sw.js')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q100: How do you check for NaN?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-`Number.isNaN()`.
-
-**Code Example**:
-```javascript
-Number.isNaN(NaN)
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+};</code></pre>
+</div>
+
+<div id="q65" class="question">65. What is a Pure Function? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Function that always returns same output for same input and has no side effects.</p>
+</div>
+
+<div id="q66" class="question">66. What is Side Effect? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Modifying external state (DOM, global vars) or API calls.</p>
+</div>
+
+<div id="q67" class="question">67. Declarative vs Imperative Programming? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p><strong>Declarative:</strong> What to do (React, SQL).<br><strong>Imperative:</strong> How to do it (Loops, DOM manipulation).</p>
+</div>
+
+<div id="q68" class="question">68. What is Tail Call Optimization (TCO)? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Engine optimization where recursion doesn't grow stack if call is in tail position.</p>
+</div>
+
+<div id="q69" class="question">69. What is a Thunk? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Function that wraps an expression to delay its evaluation.</p>
+</div>
+
+<div id="q70" class="question">70. Explain Function Composition? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Combining functions: <code>f(g(x))</code>.</p>
+</div>
+
+<div id="q71" class="question">71. What is `eval()` and why avoid it? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Executes string as code. Security risk (XSS) and performance hit.</p>
+</div>
+
+<div id="q72" class="question">72. What is `void 0`? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Reliable way to get true `undefined` (since undefined variable can be overwritten in non-strict).</p>
+</div>
+
+<div id="q73" class="question">73. Difference between property and attribute? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p><strong>Attribute:</strong> HTML initial value.<br><strong>Property:</strong> DOM current value (e.g., input value).</p>
+</div>
+
+<div id="q74" class="question">74. Data attributes (`data-*`)? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Store custom data on HTML elements. Access via <code>dataset</code>.</p>
+</div>
+
+<div id="q75" class="question">75. How to detect browser/device? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p><code>navigator.userAgent</code> (though unreliable).</p>
+</div>
+
+<div id="q76" class="question">76. What is `document.createDocumentFragment()`? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Lightweight container. Appending to it doesn't trigger reflow. Appending fragment to DOM triggers one reflow.</p>
+</div>
+
+<div id="q77" class="question">77. Explain Reflow vs Repaint? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p><strong>Reflow:</strong> Layout calculation (Expensive).<br><strong>Repaint:</strong> Pixel update (Color change).</p>
+</div>
+
+<div id="q78" class="question">78. What is the Virtual DOM (concept)? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>In-memory representation of DOM. Diffs changes and updates real DOM efficiently.</p>
+</div>
+
+<div id="q79" class="question">79. Server-Side Rendering (SSR) vs CSR? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p><strong>SSR:</strong> Server sends HTML. Better SEO/First Paint.<br><strong>CSR:</strong> Browser builds HTML. Better interactivity.</p>
+</div>
+
+<div id="q80" class="question">80. What is a Single Page Application (SPA)? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Web app that loads one HTML page and dynamically updates content.</p>
+</div>
+
+<div id="q81" class="question">81. What is Progressive Web App (PWA)? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Web app behaving like native app (Offline, Installable, Push Notifications).</p>
+</div>
+
+<div id="q82" class="question">82. Explain WebSocket Protocol? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Full-duplex communication over single TCP connection.</p>
+</div>
+
+<div id="q83" class="question">83. Server-Sent Events (SSE)? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>One-way stream from Server to Client over HTTP.</p>
+</div>
+
+<div id="q84" class="question">84. What is `Intl` API? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Internationalization API for formatting numbers, dates, currencies.</p>
+</div>
+
+<div id="q85" class="question">85. How to format dates (Date vs Intl)? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <pre><code class="language-javascript">new Intl.DateTimeFormat('en-US').format(date)</code></pre>
+</div>
+
+<div id="q86" class="question">86. What is Regex? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Pattern matching for strings. <code>/pattern/.test(str)</code>.</p>
+</div>
+
+<div id="q87" class="question">87. Error Handling (try/catch/finally)? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Catch runtime errors. Finally runs always.</p>
+</div>
+
+<div id="q88" class="question">88. Custom Error Classes? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <pre><code class="language-javascript">class MyError extends Error { ... }</code></pre>
+</div>
+
+<div id="q89" class="question">89. What is a Memory Leak? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Memory allocated but not freed (e.g., Global vars, Detached DOM, Closures).</p>
+</div>
+
+<div id="q90" class="question">90. How to debug Memory Leaks? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Chrome DevTools > Memory > Heap Snapshot. Look for detached elements.</p>
+</div>
+
+<div id="q91" class="question">91. What is `console.time()`? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Measures time execution between <code>time()</code> and <code>timeEnd()</code>.</p>
+</div>
+
+<div id="q92" class="question">92. What is `debugger` statement? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Pauses execution if DevTools is open.</p>
+</div>
+
+<div id="q93" class="question">93. Strict Equality of Objects? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Compares references. Two identical objects are NOT equal.</p>
+</div>
+
+<div id="q94" class="question">94. Chaining Optional Chaining (`?.`)? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Safely access nested properties: <code>obj?.prop</code>.</p>
+</div>
+
+<div id="q95" class="question">95. Nullish Coalescing Operator (`??`)? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Returns right side if left is `null` or `undefined`. (Unlike `||` which handles all falsy).</p>
+</div>
+
+<div id="q96" class="question">96. Dynamic Imports (`import()`)? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Load modules on demand (Promise based). Good for Code Splitting.</p>
+</div>
+
+<div id="q97" class="question">97. Top-level Await? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <p>Using <code>await</code> outside async function in modules.</p>
+</div>
+
+<div id="q98" class="question">98. BigInt Type? <span class="difficulty beginner">Beginner</span></div>
+<div class="answer">
+  <p>Integer with arbitrary precision. <code>10n</code>.</p>
+</div>
+
+<div id="q99" class="question">99. Private Class Fields (`#`)? <span class="difficulty intermediate">Intermediate</span></div>
+<div class="answer">
+  <pre><code class="language-javascript">class A { #x = 1; }</code></pre>
+</div>
+
+<div id="q100" class="question">100. What is the TC39 Process? <span class="difficulty advanced">Advanced</span></div>
+<div class="answer">
+  <p>Stages (0-4) for adding new features to ECMAScript standard.</p>
+</div>
