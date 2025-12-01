@@ -434,12 +434,19 @@ class InterviewGuideApp {
       Prism.highlightAll();
 
       // Add line numbers to code blocks
-      document.querySelectorAll('pre[class*="language-"]').forEach((pre) => {
-        pre.classList.add("line-numbers");
-      });
+      const codeBlocks = document.querySelectorAll('pre[class*="language-"]');
+      if (codeBlocks) {
+        codeBlocks.forEach((pre) => {
+          if (pre && pre.classList) {
+            pre.classList.add("line-numbers");
+          }
+        });
+      }
 
       // Smooth scroll to top
-      contentArea.scrollTop = 0;
+      if (contentArea) {
+        contentArea.scrollTop = 0;
+      }
 
       // Add copy buttons to code blocks
       this.addCopyButtons();
@@ -450,6 +457,7 @@ class InterviewGuideApp {
       // Generate table of contents
       this.generateTOC();
     } catch (error) {
+      console.error("Render error:", error);
       this.showError(`Error rendering content: ${error.message}`);
     }
   }

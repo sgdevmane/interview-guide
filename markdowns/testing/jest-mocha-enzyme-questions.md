@@ -12,96 +12,88 @@
 8. [How do you test a React Hook?](#q8-how-do-you-test-a-react-hook) <span class="advanced">Advanced</span>
 9. [How do you mock a default export in Jest?](#q9-how-do-you-mock-a-default-export-in-jest) <span class="advanced">Advanced</span>
 10. [How do you test for an exception in Jest?](#q10-how-do-you-test-for-an-exception-in-jest) <span class="beginner">Beginner</span>
-11. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 1)?](#q11-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-1) <span class="intermediate">Intermediate</span>
-12. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 2)?](#q12-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-2) <span class="intermediate">Intermediate</span>
-13. [How do you handle Security scenarios in Jest/Enzyme (Scenario 3)?](#q13-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-3) <span class="intermediate">Intermediate</span>
-14. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 4)?](#q14-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-4) <span class="intermediate">Intermediate</span>
-15. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 5)?](#q15-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-5) <span class="intermediate">Intermediate</span>
-16. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 6)?](#q16-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-6) <span class="intermediate">Intermediate</span>
-17. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 7)?](#q17-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-7) <span class="intermediate">Intermediate</span>
-18. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 8)?](#q18-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-8) <span class="intermediate">Intermediate</span>
-19. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 9)?](#q19-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-9) <span class="intermediate">Intermediate</span>
-20. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 10)?](#q20-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-10) <span class="intermediate">Intermediate</span>
-21. [How do you handle Security scenarios in Jest/Enzyme (Scenario 11)?](#q21-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-11) <span class="intermediate">Intermediate</span>
-22. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 12)?](#q22-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-12) <span class="intermediate">Intermediate</span>
-23. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 13)?](#q23-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-13) <span class="intermediate">Intermediate</span>
-24. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 14)?](#q24-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-14) <span class="intermediate">Intermediate</span>
-25. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 15)?](#q25-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-15) <span class="intermediate">Intermediate</span>
-26. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 16)?](#q26-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-16) <span class="intermediate">Intermediate</span>
-27. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 17)?](#q27-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-17) <span class="intermediate">Intermediate</span>
-28. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 18)?](#q28-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-18) <span class="intermediate">Intermediate</span>
-29. [How do you handle Security scenarios in Jest/Enzyme (Scenario 19)?](#q29-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-19) <span class="intermediate">Intermediate</span>
-30. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 20)?](#q30-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-20) <span class="intermediate">Intermediate</span>
-31. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 21)?](#q31-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-21) <span class="intermediate">Intermediate</span>
-32. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 22)?](#q32-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-22) <span class="intermediate">Intermediate</span>
-33. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 23)?](#q33-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-23) <span class="intermediate">Intermediate</span>
-34. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 24)?](#q34-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-24) <span class="intermediate">Intermediate</span>
-35. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 25)?](#q35-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-25) <span class="intermediate">Intermediate</span>
-36. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 26)?](#q36-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-26) <span class="intermediate">Intermediate</span>
-37. [How do you handle Security scenarios in Jest/Enzyme (Scenario 27)?](#q37-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-27) <span class="intermediate">Intermediate</span>
-38. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 28)?](#q38-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-28) <span class="intermediate">Intermediate</span>
-39. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 29)?](#q39-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-29) <span class="intermediate">Intermediate</span>
-40. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 30)?](#q40-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-30) <span class="intermediate">Intermediate</span>
-41. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 31)?](#q41-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-31) <span class="intermediate">Intermediate</span>
-42. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 32)?](#q42-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-32) <span class="intermediate">Intermediate</span>
-43. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 33)?](#q43-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-33) <span class="intermediate">Intermediate</span>
-44. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 34)?](#q44-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-34) <span class="intermediate">Intermediate</span>
-45. [How do you handle Security scenarios in Jest/Enzyme (Scenario 35)?](#q45-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-35) <span class="intermediate">Intermediate</span>
-46. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 36)?](#q46-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-36) <span class="intermediate">Intermediate</span>
-47. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 37)?](#q47-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-37) <span class="intermediate">Intermediate</span>
-48. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 38)?](#q48-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-38) <span class="intermediate">Intermediate</span>
-49. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 39)?](#q49-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-39) <span class="intermediate">Intermediate</span>
-50. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 40)?](#q50-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-40) <span class="intermediate">Intermediate</span>
-51. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 41)?](#q51-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-41) <span class="intermediate">Intermediate</span>
-52. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 42)?](#q52-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-42) <span class="intermediate">Intermediate</span>
-53. [How do you handle Security scenarios in Jest/Enzyme (Scenario 43)?](#q53-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-43) <span class="intermediate">Intermediate</span>
-54. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 44)?](#q54-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-44) <span class="intermediate">Intermediate</span>
-55. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 45)?](#q55-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-45) <span class="intermediate">Intermediate</span>
-56. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 46)?](#q56-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-46) <span class="intermediate">Intermediate</span>
-57. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 47)?](#q57-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-47) <span class="intermediate">Intermediate</span>
-58. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 48)?](#q58-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-48) <span class="intermediate">Intermediate</span>
-59. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 49)?](#q59-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-49) <span class="intermediate">Intermediate</span>
-60. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 50)?](#q60-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-50) <span class="intermediate">Intermediate</span>
-61. [How do you handle Security scenarios in Jest/Enzyme (Scenario 51)?](#q61-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-51) <span class="intermediate">Intermediate</span>
-62. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 52)?](#q62-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-52) <span class="intermediate">Intermediate</span>
-63. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 53)?](#q63-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-53) <span class="intermediate">Intermediate</span>
-64. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 54)?](#q64-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-54) <span class="intermediate">Intermediate</span>
-65. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 55)?](#q65-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-55) <span class="intermediate">Intermediate</span>
-66. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 56)?](#q66-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-56) <span class="intermediate">Intermediate</span>
-67. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 57)?](#q67-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-57) <span class="intermediate">Intermediate</span>
-68. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 58)?](#q68-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-58) <span class="intermediate">Intermediate</span>
-69. [How do you handle Security scenarios in Jest/Enzyme (Scenario 59)?](#q69-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-59) <span class="intermediate">Intermediate</span>
-70. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 60)?](#q70-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-60) <span class="intermediate">Intermediate</span>
-71. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 61)?](#q71-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-61) <span class="intermediate">Intermediate</span>
-72. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 62)?](#q72-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-62) <span class="intermediate">Intermediate</span>
-73. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 63)?](#q73-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-63) <span class="intermediate">Intermediate</span>
-74. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 64)?](#q74-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-64) <span class="intermediate">Intermediate</span>
-75. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 65)?](#q75-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-65) <span class="intermediate">Intermediate</span>
-76. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 66)?](#q76-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-66) <span class="intermediate">Intermediate</span>
-77. [How do you handle Security scenarios in Jest/Enzyme (Scenario 67)?](#q77-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-67) <span class="intermediate">Intermediate</span>
-78. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 68)?](#q78-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-68) <span class="intermediate">Intermediate</span>
-79. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 69)?](#q79-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-69) <span class="intermediate">Intermediate</span>
-80. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 70)?](#q80-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-70) <span class="intermediate">Intermediate</span>
-81. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 71)?](#q81-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-71) <span class="intermediate">Intermediate</span>
-82. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 72)?](#q82-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-72) <span class="intermediate">Intermediate</span>
-83. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 73)?](#q83-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-73) <span class="intermediate">Intermediate</span>
-84. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 74)?](#q84-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-74) <span class="intermediate">Intermediate</span>
-85. [How do you handle Security scenarios in Jest/Enzyme (Scenario 75)?](#q85-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-75) <span class="intermediate">Intermediate</span>
-86. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 76)?](#q86-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-76) <span class="intermediate">Intermediate</span>
-87. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 77)?](#q87-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-77) <span class="intermediate">Intermediate</span>
-88. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 78)?](#q88-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-78) <span class="intermediate">Intermediate</span>
-89. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 79)?](#q89-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-79) <span class="intermediate">Intermediate</span>
-90. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 80)?](#q90-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-80) <span class="intermediate">Intermediate</span>
-91. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 81)?](#q91-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-81) <span class="intermediate">Intermediate</span>
-92. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 82)?](#q92-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-82) <span class="intermediate">Intermediate</span>
-93. [How do you handle Security scenarios in Jest/Enzyme (Scenario 83)?](#q93-how-do-you-handle-security-scenarios-in-jestenzyme-scenario-83) <span class="intermediate">Intermediate</span>
-94. [How do you handle Integration scenarios in Jest/Enzyme (Scenario 84)?](#q94-how-do-you-handle-integration-scenarios-in-jestenzyme-scenario-84) <span class="intermediate">Intermediate</span>
-95. [How do you handle Mocking scenarios in Jest/Enzyme (Scenario 85)?](#q95-how-do-you-handle-mocking-scenarios-in-jestenzyme-scenario-85) <span class="intermediate">Intermediate</span>
-96. [How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 86)?](#q96-how-do-you-handle-async-patterns-scenarios-in-jestenzyme-scenario-86) <span class="intermediate">Intermediate</span>
-97. [How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 87)?](#q97-how-do-you-handle-error-handling-scenarios-in-jestenzyme-scenario-87) <span class="intermediate">Intermediate</span>
-98. [How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 88)?](#q98-how-do-you-handle-cicd-scenarios-in-jestenzyme-scenario-88) <span class="intermediate">Intermediate</span>
-99. [How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 89)?](#q99-how-do-you-handle-edge-cases-scenarios-in-jestenzyme-scenario-89) <span class="intermediate">Intermediate</span>
-100. [How do you handle Performance scenarios in Jest/Enzyme (Scenario 90)?](#q100-how-do-you-handle-performance-scenarios-in-jestenzyme-scenario-90) <span class="intermediate">Intermediate</span>
+11. [What is the difference between `describe` and `test`?](#q11-what-is-the-difference-between-describe-and-test) <span class="beginner">Beginner</span>
+12. [How do you access the DOM in Jest?](#q12-how-do-you-access-the-dom-in-jest) <span class="intermediate">Intermediate</span>
+13. [What is `jest.fn()`?](#q13-what-is-jestfn) <span class="beginner">Beginner</span>
+14. [How do you skip a test?](#q14-how-do-you-skip-a-test) <span class="beginner">Beginner</span>
+15. [How do you run only one test?](#q15-how-do-you-run-only-one-test) <span class="beginner">Beginner</span>
+16. [How do you test React components without Enzyme?](#q16-how-do-you-test-react-components-without-enzyme) <span class="intermediate">Intermediate</span>
+17. [How do you mock global objects like `localStorage`?](#q17-how-do-you-mock-global-objects-like-localstorage) <span class="intermediate">Intermediate</span>
+18. [What is Code Coverage?](#q18-what-is-code-coverage) <span class="intermediate">Intermediate</span>
+19. [How do you parameterize tests in Jest?](#q19-how-do-you-parameterize-tests-in-jest) <span class="intermediate">Intermediate</span>
+20. [How do you reset mocks between tests?](#q20-how-do-you-reset-mocks-between-tests) <span class="intermediate">Intermediate</span>
+21. [What is a Spy in testing?](#q21-what-is-a-spy-in-testing) <span class="beginner">Beginner</span>
+22. [How do you test Redux connected components?](#q22-how-do-you-test-redux-connected-components) <span class="advanced">Advanced</span>
+23. [What is TDD?](#q23-what-is-tdd) <span class="beginner">Beginner</span>
+24. [What is BDD?](#q24-what-is-bdd) <span class="beginner">Beginner</span>
+25. [Difference between Unit and Integration tests?](#q25-difference-between-unit-and-integration-tests) <span class="beginner">Beginner</span>
+26. [What is E2E testing?](#q26-what-is-e2e-testing) <span class="beginner">Beginner</span>
+27. [What is Jest?](#q27-what-is-jest) <span class="beginner">Beginner</span>
+28. [What is Mocha?](#q28-what-is-mocha) <span class="beginner">Beginner</span>
+29. [What is Chai?](#q29-what-is-chai) <span class="beginner">Beginner</span>
+30. [What is Enzyme?](#q30-what-is-enzyme) <span class="intermediate">Intermediate</span>
+31. [What is React Testing Library (RTL)?](#q31-what-is-react-testing-library-rtl) <span class="intermediate">Intermediate</span>
+32. [How do you mock a function?](#q32-how-do-you-mock-a-function) <span class="beginner">Beginner</span>
+33. [How do you mock a module?](#q33-how-do-you-mock-a-module) <span class="intermediate">Intermediate</span>
+34. [What is Snapshot testing?](#q34-what-is-snapshot-testing) <span class="beginner">Beginner</span>
+35. [How do you update snapshots?](#q35-how-do-you-update-snapshots) <span class="beginner">Beginner</span>
+36. [What is `beforeAll`?](#q36-what-is-beforeall) <span class="beginner">Beginner</span>
+37. [What is `afterEach`?](#q37-what-is-aftereach) <span class="beginner">Beginner</span>
+38. [How do you test async code?](#q38-how-do-you-test-async-code) <span class="intermediate">Intermediate</span>
+39. [How do you mock timers?](#q39-how-do-you-mock-timers) <span class="advanced">Advanced</span>
+40. [What is `spyOn`?](#q40-what-is-spyon) <span class="intermediate">Intermediate</span>
+41. [How do you mock API calls?](#q41-how-do-you-mock-api-calls) <span class="intermediate">Intermediate</span>
+42. [What is Coverage?](#q42-what-is-coverage) <span class="beginner">Beginner</span>
+43. [How do you test hooks?](#q43-how-do-you-test-hooks) <span class="advanced">Advanced</span>
+44. [How do you test context?](#q44-how-do-you-test-context) <span class="intermediate">Intermediate</span>
+45. [What is `act`?](#q45-what-is-act) <span class="advanced">Advanced</span>
+46. [How do you find elements in RTL?](#q46-how-do-you-find-elements-in-rtl) <span class="beginner">Beginner</span>
+47. [Difference between `getBy` and `queryBy`?](#q47-difference-between-getby-and-queryby) <span class="intermediate">Intermediate</span>
+48. [Difference between `getBy` and `findBy`?](#q48-difference-between-getby-and-findby) <span class="intermediate">Intermediate</span>
+49. [How do you simulate events?](#q49-how-do-you-simulate-events) <span class="beginner">Beginner</span>
+50. [What is `user-event`?](#q50-what-is-user-event) <span class="intermediate">Intermediate</span>
+51. [How do you debug tests?](#q51-how-do-you-debug-tests) <span class="beginner">Beginner</span>
+52. [How do you skip a test?](#q52-how-do-you-skip-a-test) <span class="beginner">Beginner</span>
+53. [How do you focus a test?](#q53-how-do-you-focus-a-test) <span class="beginner">Beginner</span>
+54. [What is `describe`?](#q54-what-is-describe) <span class="beginner">Beginner</span>
+55. [How do you mock local storage?](#q55-how-do-you-mock-local-storage) <span class="intermediate">Intermediate</span>
+56. [How do you test routing?](#q56-how-do-you-test-routing) <span class="intermediate">Intermediate</span>
+57. [What is Cypress?](#q57-what-is-cypress) <span class="intermediate">Intermediate</span>
+58. [What is Playwright?](#q58-what-is-playwright) <span class="intermediate">Intermediate</span>
+59. [Difference between Mock and Stub?](#q59-difference-between-mock-and-stub) <span class="advanced">Advanced</span>
+60. [What is Mutation Testing?](#q60-what-is-mutation-testing) <span class="advanced">Advanced</span>
+61. [How do you test accessibility?](#q61-how-do-you-test-accessibility) <span class="intermediate">Intermediate</span>
+62. [What is Visual Regression Testing?](#q62-what-is-visual-regression-testing) <span class="advanced">Advanced</span>
+63. [How do you test Redux?](#q63-how-do-you-test-redux) <span class="intermediate">Intermediate</span>
+64. [How do you mock Date?](#q64-how-do-you-mock-date) <span class="intermediate">Intermediate</span>
+65. [What is `cleanup`?](#q65-what-is-cleanup) <span class="intermediate">Intermediate</span>
+66. [How do you test portals?](#q66-how-do-you-test-portals) <span class="advanced">Advanced</span>
+67. [What is Property Based Testing?](#q67-what-is-property-based-testing) <span class="advanced">Advanced</span>
+68. [How do you setup global config?](#q68-how-do-you-setup-global-config) <span class="intermediate">Intermediate</span>
+69. [What is the Pyramid of Testing?](#q69-what-is-the-pyramid-of-testing) <span class="beginner">Beginner</span>
+70. [How do you test strict mode?](#q70-how-do-you-test-strict-mode) <span class="intermediate">Intermediate</span>
+71. [How do you test error boundaries?](#q71-how-do-you-test-error-boundaries) <span class="advanced">Advanced</span>
+72. [What is shallow rendering?](#q72-what-is-shallow-rendering) <span class="intermediate">Intermediate</span>
+73. [Why prefer full rendering?](#q73-why-prefer-full-rendering) <span class="intermediate">Intermediate</span>
+74. [How do you test observables?](#q74-how-do-you-test-observables) <span class="advanced">Advanced</span>
+75. [What is CI/CD testing?](#q75-what-is-cicd-testing) <span class="intermediate">Intermediate</span>
+76. [How do you parallelize tests?](#q76-how-do-you-parallelize-tests) <span class="intermediate">Intermediate</span>
+77. [What is Flaky test?](#q77-what-is-flaky-test) <span class="beginner">Beginner</span>
+78. [How do you fix flaky tests?](#q78-how-do-you-fix-flaky-tests) <span class="intermediate">Intermediate</span>
+79. [What is Contract Testing?](#q79-what-is-contract-testing) <span class="advanced">Advanced</span>
+80. [How do you test WebSockets?](#q80-how-do-you-test-websockets) <span class="advanced">Advanced</span>
+81. [How do you test Service Workers?](#q81-how-do-you-test-service-workers) <span class="advanced">Advanced</span>
+82. [What is `test.todo`?](#q82-what-is-testtodo) <span class="beginner">Beginner</span>
+83. [How do you mock a module partially?](#q83-how-do-you-mock-a-module-partially) <span class="intermediate">Intermediate</span>
+84. [What is `__mocks__` folder?](#q84-what-is-mocks-folder) <span class="intermediate">Intermediate</span>
+85. [How do you test memory leaks?](#q85-how-do-you-test-memory-leaks) <span class="advanced">Advanced</span>
+86. [What is Static Analysis?](#q86-what-is-static-analysis) <span class="beginner">Beginner</span>
+87. [How do you test Canvas?](#q87-how-do-you-test-canvas) <span class="advanced">Advanced</span>
+88. [What is Headless Browser?](#q88-what-is-headless-browser) <span class="beginner">Beginner</span>
+89. [How do you test performance?](#q89-how-do-you-test-performance) <span class="advanced">Advanced</span>
+90. [What is Chaos Engineering?](#q90-what-is-chaos-engineering) <span class="advanced">Advanced</span>
+91. [How do you test i18n?](#q91-how-do-you-test-i18n) <span class="intermediate">Intermediate</span>
+92. [What is Snapshot serialization?](#q92-what-is-snapshot-serialization) <span class="advanced">Advanced</span>
 
 ---
 
@@ -110,16 +102,11 @@
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `jest.mock()` to automatically mock a module. You can also provide a factory function to return custom mock implementations.
+Use `jest.mock()`.
 
 **Code Example**:
 ```javascript
 jest.mock('axios');
-test('fetches data', async () => {
-  axios.get.mockResolvedValue({ data: 'mocked' });
-  const data = await fetchData();
-  expect(data).toBe('mocked');
-});
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -131,14 +118,11 @@ test('fetches data', async () => {
 **Difficulty**: Beginner
 
 **Strategy**:
-Snapshot testing captures the rendered output of a component and compares it to a stored reference file. Useful for detecting UI regressions.
+Captures rendered output and compares to a reference file.
 
 **Code Example**:
 ```javascript
-test('renders correctly', () => {
-  const tree = renderer.create(<Link page="http://www.facebook.com">Facebook</Link>).toJSON();
-  expect(tree).toMatchSnapshot();
-});
+expect(tree).toMatchSnapshot();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -150,14 +134,11 @@ test('renders correctly', () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Return the Promise, use `async/await`, or use the `done` callback (legacy). `async/await` is preferred for readability.
+Use `async/await`.
 
 **Code Example**:
 ```javascript
-test('data is peanut butter', async () => {
-  const data = await fetchData();
-  expect(data).toBe('peanut butter');
-});
+test('async', async () => { const data = await fetch(); expect(data).toBe('ok'); });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -169,17 +150,11 @@ test('data is peanut butter', async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-`shallow` renders only the current component (unit test). `mount` renders the full DOM tree including children (integration test).
+`shallow` renders only the current component. `mount` renders full DOM tree.
 
 **Code Example**:
 ```javascript
-import { shallow, mount } from 'enzyme';
-
-// Unit test
-const wrapper = shallow(<MyComponent />);
-
-// Integration test
-const fullWrapper = mount(<MyComponent />);
+shallow(<App />);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -191,14 +166,11 @@ const fullWrapper = mount(<MyComponent />);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `jest.spyOn(object, methodName)`. It allows you to track calls and optionally mock the implementation.
+Use `jest.spyOn`.
 
 **Code Example**:
 ```javascript
 const spy = jest.spyOn(video, 'play');
-video.play();
-expect(spy).toHaveBeenCalled();
-spy.mockRestore();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -210,19 +182,11 @@ spy.mockRestore();
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `before()`, `after()`, `beforeEach()`, and `afterEach()` hooks.
+Use `before`, `after`, `beforeEach`, `afterEach`.
 
 **Code Example**:
 ```javascript
-describe('Array', function() {
-  before(function() {
-    // runs once before the first test in this block
-  });
-
-  afterEach(function() {
-    // runs after each test in this block
-  });
-});
+beforeEach(() => { ... });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -234,17 +198,11 @@ describe('Array', function() {
 **Difficulty**: Advanced
 
 **Strategy**:
-Use `jest.useFakeTimers()` to control time. Then use `jest.advanceTimersByTime()` or `jest.runAllTimers()`.
+Use `jest.useFakeTimers()`.
 
 **Code Example**:
 ```javascript
-jest.useFakeTimers();
-test('waits 1 second', () => {
-  const callback = jest.fn();
-  timerGame(callback);
-  jest.advanceTimersByTime(1000);
-  expect(callback).toBeCalled();
-});
+jest.advanceTimersByTime(1000);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -256,18 +214,11 @@ test('waits 1 second', () => {
 **Difficulty**: Advanced
 
 **Strategy**:
-Use `renderHook` from `@testing-library/react-hooks` (or recent React versions). You cannot call hooks outside a component.
+Use `renderHook` from testing-library.
 
 **Code Example**:
 ```javascript
-import { renderHook, act } from '@testing-library/react-hooks';
-import useCounter from './useCounter';
-
-test('should increment counter', () => {
-  const { result } = renderHook(() => useCounter());
-  act(() => result.current.increment());
-  expect(result.current.count).toBe(1);
-});
+const { result } = renderHook(() => useCounter());
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -279,14 +230,11 @@ test('should increment counter', () => {
 **Difficulty**: Advanced
 
 **Strategy**:
-Use `jest.mock` and specify the `__esModule: true` property along with `default`.
+Use `__esModule: true`.
 
 **Code Example**:
 ```javascript
-jest.mock('./myModule', () => ({
-  __esModule: true,
-  default: jest.fn(() => 'mocked'),
-}));
+jest.mock('./mod', () => ({ __esModule: true, default: jest.fn() }));
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -298,2175 +246,1323 @@ jest.mock('./myModule', () => ({
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `expect(() => fn()).toThrow()`.
+Use `toThrow()`.
 
 **Code Example**:
 ```javascript
-test('throws on invalid input', () => {
-  expect(() => drinkFlavor('octopus')).toThrow('yuck');
-});
+expect(() => fn()).toThrow();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q11: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 1)?
+### Q11: What is the difference between `describe` and `test`?
 
-**Difficulty**: Intermediate
-
-**Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
-
-**Code Example**:
-```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 1', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q12: How do you handle Performance scenarios in Jest/Enzyme (Scenario 2)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
-
-**Code Example**:
-```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 2', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q13: How do you handle Security scenarios in Jest/Enzyme (Scenario 3)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
-
-**Code Example**:
-```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 3', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q14: How do you handle Integration scenarios in Jest/Enzyme (Scenario 4)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
-
-**Code Example**:
-```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 4', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q15: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 5)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
-
-**Code Example**:
-```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 5', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q16: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 6)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
-
-**Code Example**:
-```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 6', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q17: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 7)?
+**Difficulty**: Beginner
 
-**Difficulty**: Intermediate
-
-**Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
-
-**Code Example**:
-```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 7', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q18: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 8)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
-
-**Code Example**:
-```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 8', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q19: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 9)?
-
-**Difficulty**: Intermediate
-
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+`describe` groups tests. `test` (or `it`) runs the actual test case.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 9', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+describe('User', () => { test('has name', () => {}); });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q20: How do you handle Performance scenarios in Jest/Enzyme (Scenario 10)?
+### Q12: How do you access the DOM in Jest?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Jest uses jsdom to simulate a browser environment.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 10', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+document.body.innerHTML = '<div></div>';
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q21: How do you handle Security scenarios in Jest/Enzyme (Scenario 11)?
+### Q13: What is `jest.fn()`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Creates a mock function that tracks calls and returns values.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 11', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const mock = jest.fn(); mock(); expect(mock).toHaveBeenCalled();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q22: How do you handle Integration scenarios in Jest/Enzyme (Scenario 12)?
+### Q14: How do you skip a test?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Use `.skip`.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 12', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+test.skip('broken test', () => {});
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q23: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 13)?
+### Q15: How do you run only one test?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Use `.only`.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 13', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+test.only('focus this', () => {});
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q24: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 14)?
+### Q16: How do you test React components without Enzyme?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Use React Testing Library (RTL). It focuses on user interactions.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 14', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+render(<App />); fireEvent.click(screen.getByText('Go'));
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q25: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 15)?
+### Q17: How do you mock global objects like `localStorage`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Mock the prototype or assign to window.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 15', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+Storage.prototype.getItem = jest.fn();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q26: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 16)?
+### Q18: What is Code Coverage?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+A metric showing what percentage of your code is executed during tests.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 16', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Run jest --coverage
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q27: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 17)?
+### Q19: How do you parameterize tests in Jest?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Use `test.each`.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 17', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+test.each([[1, 2, 3], [2, 2, 4]])('adds %i + %i to equal %i', (a, b, expected) => { ... });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q28: How do you handle Performance scenarios in Jest/Enzyme (Scenario 18)?
+### Q20: How do you reset mocks between tests?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Use `jest.clearAllMocks()` or configure `clearMocks: true`.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 18', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+afterEach(() => jest.clearAllMocks());
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q29: How do you handle Security scenarios in Jest/Enzyme (Scenario 19)?
+### Q21: What is a Spy in testing?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+A test double that records information about how it is called.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 19', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Sinon.spy or Jest.spyOn
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q30: How do you handle Integration scenarios in Jest/Enzyme (Scenario 20)?
+### Q22: How do you test Redux connected components?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Wrap the component in a `<Provider store={store}>`.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 20', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+render(<Provider store={store}><App /></Provider>);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q31: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 21)?
+### Q23: What is TDD?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Test Driven Development.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 21', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Red, Green, Refactor
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q32: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 22)?
+### Q24: What is BDD?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Behavior Driven Development.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 22', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Given, When, Then
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q33: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 23)?
+### Q25: Difference between Unit and Integration tests?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Unit: isolated. Integration: combined.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 23', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Jest vs Cypress
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q34: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 24)?
+### Q26: What is E2E testing?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+End to End testing.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 24', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Test full flow
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q35: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 25)?
+### Q27: What is Jest?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Test runner by Facebook.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 25', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+expect(1).toBe(1)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q36: How do you handle Performance scenarios in Jest/Enzyme (Scenario 26)?
+### Q28: What is Mocha?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Test framework.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 26', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+describe('...', () => { ... })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q37: How do you handle Security scenarios in Jest/Enzyme (Scenario 27)?
+### Q29: What is Chai?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Assertion library.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 27', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+expect(x).to.equal(y)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q38: How do you handle Integration scenarios in Jest/Enzyme (Scenario 28)?
+### Q30: What is Enzyme?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+React testing utility (older).
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 28', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+shallow(<App />)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q39: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 29)?
+### Q31: What is React Testing Library (RTL)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Focus on user behavior.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 29', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+render(<App />); screen.getByText('Hi')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q40: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 30)?
+### Q32: How do you mock a function?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+jest.fn()
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 30', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const mock = jest.fn()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q41: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 31)?
+### Q33: How do you mock a module?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+jest.mock()
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 31', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+jest.mock('axios')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q42: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 32)?
+### Q34: What is Snapshot testing?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Compare UI to saved file.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 32', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+expect(tree).toMatchSnapshot()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q43: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 33)?
+### Q35: How do you update snapshots?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+jest -u
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 33', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// CLI command
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q44: How do you handle Performance scenarios in Jest/Enzyme (Scenario 34)?
+### Q36: What is `beforeAll`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Runs once before all tests.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 34', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+beforeAll(() => { ... })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q45: How do you handle Security scenarios in Jest/Enzyme (Scenario 35)?
+### Q37: What is `afterEach`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Runs after every test.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 35', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+afterEach(() => { ... })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q46: How do you handle Integration scenarios in Jest/Enzyme (Scenario 36)?
+### Q38: How do you test async code?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+async/await.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 36', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+test('x', async () => { ... })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q47: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 37)?
+### Q39: How do you mock timers?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+jest.useFakeTimers()
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 37', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+jest.advanceTimersByTime(1000)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q48: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 38)?
+### Q40: What is `spyOn`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Track calls to existing method.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 38', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+jest.spyOn(obj, 'method')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q49: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 39)?
+### Q41: How do you mock API calls?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Mock fetch or axios.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 39', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+global.fetch = jest.fn()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q50: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 40)?
+### Q42: What is Coverage?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+% of code tested.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 40', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+jest --coverage
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q51: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 41)?
+### Q43: How do you test hooks?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+renderHook from RTL.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 41', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const { result } = renderHook(() => useHook())
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you handle Performance scenarios in Jest/Enzyme (Scenario 42)?
+### Q44: How do you test context?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Wrap in Provider.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 42', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+render(<Provider><Comp /></Provider>)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q53: How do you handle Security scenarios in Jest/Enzyme (Scenario 43)?
+### Q45: What is `act`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Wrap state updates.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 43', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+act(() => { ... })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q54: How do you handle Integration scenarios in Jest/Enzyme (Scenario 44)?
+### Q46: How do you find elements in RTL?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+getBy, queryBy, findBy.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 44', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+screen.getByRole('button')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q55: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 45)?
+### Q47: Difference between `getBy` and `queryBy`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+getBy throws if not found, queryBy returns null.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 45', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// queryBy for non-existence
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 46)?
+### Q48: Difference between `getBy` and `findBy`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+findBy is async (waits).
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 46', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+await screen.findByText('Loaded')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 47)?
+### Q49: How do you simulate events?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+fireEvent or userEvent.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 47', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+fireEvent.click(btn)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q58: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 48)?
+### Q50: What is `user-event`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Simulates real user interactions.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 48', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+userEvent.type(input, 'text')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 49)?
+### Q51: How do you debug tests?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+screen.debug()
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 49', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+screen.debug()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q60: How do you handle Performance scenarios in Jest/Enzyme (Scenario 50)?
+### Q52: How do you skip a test?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+test.skip or xit.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 50', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+test.skip('...', () => {})
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q61: How do you handle Security scenarios in Jest/Enzyme (Scenario 51)?
+### Q53: How do you focus a test?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+test.only or fit.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 51', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+test.only('...', () => {})
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q62: How do you handle Integration scenarios in Jest/Enzyme (Scenario 52)?
+### Q54: What is `describe`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Group tests.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 52', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+describe('Group', () => {})
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 53)?
+### Q55: How do you mock local storage?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Mock window.localStorage.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 53', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+Storage.prototype.getItem = jest.fn()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 54)?
+### Q56: How do you test routing?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Wrap in MemoryRouter.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 54', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<MemoryRouter><App /></MemoryRouter>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 55)?
+### Q57: What is Cypress?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+E2E testing tool.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 55', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+cy.visit('/page')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q66: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 56)?
+### Q58: What is Playwright?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+E2E tool by Microsoft.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 56', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+await page.goto('/url')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 57)?
+### Q59: Difference between Mock and Stub?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Stub provides canned answer. Mock verifies behavior.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 57', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Mock expects call
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you handle Performance scenarios in Jest/Enzyme (Scenario 58)?
+### Q60: What is Mutation Testing?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Modifies code to ensure tests fail.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 58', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Stryker
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you handle Security scenarios in Jest/Enzyme (Scenario 59)?
+### Q61: How do you test accessibility?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+jest-axe.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 59', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+expect(await axe(container)).toHaveNoViolations()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q70: How do you handle Integration scenarios in Jest/Enzyme (Scenario 60)?
+### Q62: What is Visual Regression Testing?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Compare pixels.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 60', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Percy, Applitools
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 61)?
+### Q63: How do you test Redux?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Integration test with store.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 61', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+renderWithProviders(<App />)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 62)?
+### Q64: How do you mock Date?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+jest.setSystemTime()
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 62', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+jest.useFakeTimers().setSystemTime(...) 
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 63)?
+### Q65: What is `cleanup`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Unmounts trees after test.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 63', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// RTL does auto-cleanup
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 64)?
+### Q66: How do you test portals?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Check `baseElement`.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 64', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+within(baseElement).getByText(...) 
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q75: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 65)?
+### Q67: What is Property Based Testing?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Test with random data inputs.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 65', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// fast-check
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q76: How do you handle Performance scenarios in Jest/Enzyme (Scenario 66)?
+### Q68: How do you setup global config?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+jest.config.js setupFilesAfterEnv.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 66', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Global mocks
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q77: How do you handle Security scenarios in Jest/Enzyme (Scenario 67)?
+### Q69: What is the Pyramid of Testing?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Unit > Integration > E2E.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 67', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// More units, fewer E2E
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q78: How do you handle Integration scenarios in Jest/Enzyme (Scenario 68)?
+### Q70: How do you test strict mode?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Wrap in StrictMode.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 68', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<StrictMode><App /></StrictMode>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 69)?
+### Q71: How do you test error boundaries?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Throw in component, check fallback.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 69', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Console.error mock needed
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q80: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 70)?
+### Q72: What is shallow rendering?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Render one level deep.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 70', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Enzyme shallow
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 71)?
+### Q73: Why prefer full rendering?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Closer to real user usage.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 71', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// RTL default
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 72)?
+### Q74: How do you test observables?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Marble testing.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 72', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// RxJS testing
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 73)?
+### Q75: What is CI/CD testing?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Run tests in pipeline.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 73', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// GitHub Actions
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q84: How do you handle Performance scenarios in Jest/Enzyme (Scenario 74)?
+### Q76: How do you parallelize tests?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Jest does it by default.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 74', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Workers
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q85: How do you handle Security scenarios in Jest/Enzyme (Scenario 75)?
+### Q77: What is Flaky test?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Fails randomly.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 75', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Avoid race conditions
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q86: How do you handle Integration scenarios in Jest/Enzyme (Scenario 76)?
+### Q78: How do you fix flaky tests?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Isolate, fix async, mock time.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 76', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Debugging
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 77)?
+### Q79: What is Contract Testing?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Verify API contracts.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 77', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Pact
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q88: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 78)?
+### Q80: How do you test WebSockets?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Mock server.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 78', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// jest-websocket-mock
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 79)?
+### Q81: How do you test Service Workers?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Browser env needed.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 79', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Complex in Jest
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q90: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 80)?
+### Q82: What is `test.todo`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Placeholder.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 80', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+test.todo('implement later')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q91: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 81)?
+### Q83: How do you mock a module partially?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+requireActual.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 81', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+jest.requireActual('./mod')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q92: How do you handle Performance scenarios in Jest/Enzyme (Scenario 82)?
+### Q84: What is `__mocks__` folder?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Manual mocks location.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 82', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// __mocks__/fs.js
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: How do you handle Security scenarios in Jest/Enzyme (Scenario 83)?
+### Q85: How do you test memory leaks?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Heap snapshots.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Jest/Enzyme
-test('scenario 83', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Node --inspect
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you handle Integration scenarios in Jest/Enzyme (Scenario 84)?
+### Q86: What is Static Analysis?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Linting, Types.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Jest/Enzyme
-test('scenario 84', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// ESLint, TypeScript
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you handle Mocking scenarios in Jest/Enzyme (Scenario 85)?
+### Q87: How do you test Canvas?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+jest-canvas-mock.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Jest/Enzyme
-test('scenario 85', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Mock context
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q96: How do you handle Async Patterns scenarios in Jest/Enzyme (Scenario 86)?
+### Q88: What is Headless Browser?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Browser without UI.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Jest/Enzyme
-test('scenario 86', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Puppeteer
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you handle Error Handling scenarios in Jest/Enzyme (Scenario 87)?
+### Q89: How do you test performance?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Lighthouse CI.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Jest/Enzyme
-test('scenario 87', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Measures web vitals
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you handle CI/CD scenarios in Jest/Enzyme (Scenario 88)?
+### Q90: What is Chaos Engineering?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Break things on purpose.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Jest/Enzyme
-test('scenario 88', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Gremlin
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you handle Edge Cases scenarios in Jest/Enzyme (Scenario 89)?
+### Q91: How do you test i18n?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Mock translation function.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Jest/Enzyme
-test('scenario 89', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+t = (k) => k
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q100: How do you handle Performance scenarios in Jest/Enzyme (Scenario 90)?
+### Q92: What is Snapshot serialization?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Format snapshot output.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Jest/Enzyme
-test('scenario 90', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+expect.addSnapshotSerializer(...) 
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

@@ -3,7 +3,7 @@
 ## Table of Contents
 
 1. [Difference between Query and Mutation?](#q1-difference-between-query-and-mutation) <span class="beginner">Beginner</span>
-2. [How do you solve the N+1 problem in GraphQL?](#q2-how-do-you-solve-the-n+1-problem-in-graphql) <span class="advanced">Advanced</span>
+2. [How do you solve the N+1 problem in GraphQL?](#q2-how-do-you-solve-the-n1-problem-in-graphql) <span class="advanced">Advanced</span>
 3. [How do you handle error handling in GraphQL?](#q3-how-do-you-handle-error-handling-in-graphql) <span class="intermediate">Intermediate</span>
 4. [How do you implement pagination in GraphQL?](#q4-how-do-you-implement-pagination-in-graphql) <span class="intermediate">Intermediate</span>
 5. [How do you secure a GraphQL API?](#q5-how-do-you-secure-a-graphql-api) <span class="advanced">Advanced</span>
@@ -12,96 +12,90 @@
 8. [How do you handle file uploads?](#q8-how-do-you-handle-file-uploads) <span class="intermediate">Intermediate</span>
 9. [Schema First vs Code First?](#q9-schema-first-vs-code-first) <span class="intermediate">Intermediate</span>
 10. [How do you deprecate a field?](#q10-how-do-you-deprecate-a-field) <span class="beginner">Beginner</span>
-11. [How do you handle Optimization in GraphQL (Scenario 1)?](#q11-how-do-you-handle-optimization-in-graphql-scenario-1) <span class="intermediate">Intermediate</span>
-12. [How do you handle Security in GraphQL (Scenario 2)?](#q12-how-do-you-handle-security-in-graphql-scenario-2) <span class="intermediate">Intermediate</span>
-13. [How do you handle Scalability in GraphQL (Scenario 3)?](#q13-how-do-you-handle-scalability-in-graphql-scenario-3) <span class="intermediate">Intermediate</span>
-14. [How do you handle Debugging in GraphQL (Scenario 4)?](#q14-how-do-you-handle-debugging-in-graphql-scenario-4) <span class="intermediate">Intermediate</span>
-15. [How do you handle Configuration in GraphQL (Scenario 5)?](#q15-how-do-you-handle-configuration-in-graphql-scenario-5) <span class="intermediate">Intermediate</span>
-16. [How do you handle Best Practices in GraphQL (Scenario 6)?](#q16-how-do-you-handle-best-practices-in-graphql-scenario-6) <span class="intermediate">Intermediate</span>
-17. [How do you handle Edge Cases in GraphQL (Scenario 7)?](#q17-how-do-you-handle-edge-cases-in-graphql-scenario-7) <span class="intermediate">Intermediate</span>
-18. [How do you handle Automation in GraphQL (Scenario 8)?](#q18-how-do-you-handle-automation-in-graphql-scenario-8) <span class="intermediate">Intermediate</span>
-19. [How do you handle Optimization in GraphQL (Scenario 9)?](#q19-how-do-you-handle-optimization-in-graphql-scenario-9) <span class="intermediate">Intermediate</span>
-20. [How do you handle Security in GraphQL (Scenario 10)?](#q20-how-do-you-handle-security-in-graphql-scenario-10) <span class="intermediate">Intermediate</span>
-21. [How do you handle Scalability in GraphQL (Scenario 11)?](#q21-how-do-you-handle-scalability-in-graphql-scenario-11) <span class="intermediate">Intermediate</span>
-22. [How do you handle Debugging in GraphQL (Scenario 12)?](#q22-how-do-you-handle-debugging-in-graphql-scenario-12) <span class="intermediate">Intermediate</span>
-23. [How do you handle Configuration in GraphQL (Scenario 13)?](#q23-how-do-you-handle-configuration-in-graphql-scenario-13) <span class="intermediate">Intermediate</span>
-24. [How do you handle Best Practices in GraphQL (Scenario 14)?](#q24-how-do-you-handle-best-practices-in-graphql-scenario-14) <span class="intermediate">Intermediate</span>
-25. [How do you handle Edge Cases in GraphQL (Scenario 15)?](#q25-how-do-you-handle-edge-cases-in-graphql-scenario-15) <span class="intermediate">Intermediate</span>
-26. [How do you handle Automation in GraphQL (Scenario 16)?](#q26-how-do-you-handle-automation-in-graphql-scenario-16) <span class="intermediate">Intermediate</span>
-27. [How do you handle Optimization in GraphQL (Scenario 17)?](#q27-how-do-you-handle-optimization-in-graphql-scenario-17) <span class="intermediate">Intermediate</span>
-28. [How do you handle Security in GraphQL (Scenario 18)?](#q28-how-do-you-handle-security-in-graphql-scenario-18) <span class="intermediate">Intermediate</span>
-29. [How do you handle Scalability in GraphQL (Scenario 19)?](#q29-how-do-you-handle-scalability-in-graphql-scenario-19) <span class="intermediate">Intermediate</span>
-30. [How do you handle Debugging in GraphQL (Scenario 20)?](#q30-how-do-you-handle-debugging-in-graphql-scenario-20) <span class="intermediate">Intermediate</span>
-31. [How do you handle Configuration in GraphQL (Scenario 21)?](#q31-how-do-you-handle-configuration-in-graphql-scenario-21) <span class="intermediate">Intermediate</span>
-32. [How do you handle Best Practices in GraphQL (Scenario 22)?](#q32-how-do-you-handle-best-practices-in-graphql-scenario-22) <span class="intermediate">Intermediate</span>
-33. [How do you handle Edge Cases in GraphQL (Scenario 23)?](#q33-how-do-you-handle-edge-cases-in-graphql-scenario-23) <span class="intermediate">Intermediate</span>
-34. [How do you handle Automation in GraphQL (Scenario 24)?](#q34-how-do-you-handle-automation-in-graphql-scenario-24) <span class="intermediate">Intermediate</span>
-35. [How do you handle Optimization in GraphQL (Scenario 25)?](#q35-how-do-you-handle-optimization-in-graphql-scenario-25) <span class="intermediate">Intermediate</span>
-36. [How do you handle Security in GraphQL (Scenario 26)?](#q36-how-do-you-handle-security-in-graphql-scenario-26) <span class="intermediate">Intermediate</span>
-37. [How do you handle Scalability in GraphQL (Scenario 27)?](#q37-how-do-you-handle-scalability-in-graphql-scenario-27) <span class="intermediate">Intermediate</span>
-38. [How do you handle Debugging in GraphQL (Scenario 28)?](#q38-how-do-you-handle-debugging-in-graphql-scenario-28) <span class="intermediate">Intermediate</span>
-39. [How do you handle Configuration in GraphQL (Scenario 29)?](#q39-how-do-you-handle-configuration-in-graphql-scenario-29) <span class="intermediate">Intermediate</span>
-40. [How do you handle Best Practices in GraphQL (Scenario 30)?](#q40-how-do-you-handle-best-practices-in-graphql-scenario-30) <span class="intermediate">Intermediate</span>
-41. [How do you handle Edge Cases in GraphQL (Scenario 31)?](#q41-how-do-you-handle-edge-cases-in-graphql-scenario-31) <span class="intermediate">Intermediate</span>
-42. [How do you handle Automation in GraphQL (Scenario 32)?](#q42-how-do-you-handle-automation-in-graphql-scenario-32) <span class="intermediate">Intermediate</span>
-43. [How do you handle Optimization in GraphQL (Scenario 33)?](#q43-how-do-you-handle-optimization-in-graphql-scenario-33) <span class="intermediate">Intermediate</span>
-44. [How do you handle Security in GraphQL (Scenario 34)?](#q44-how-do-you-handle-security-in-graphql-scenario-34) <span class="intermediate">Intermediate</span>
-45. [How do you handle Scalability in GraphQL (Scenario 35)?](#q45-how-do-you-handle-scalability-in-graphql-scenario-35) <span class="intermediate">Intermediate</span>
-46. [How do you handle Debugging in GraphQL (Scenario 36)?](#q46-how-do-you-handle-debugging-in-graphql-scenario-36) <span class="intermediate">Intermediate</span>
-47. [How do you handle Configuration in GraphQL (Scenario 37)?](#q47-how-do-you-handle-configuration-in-graphql-scenario-37) <span class="intermediate">Intermediate</span>
-48. [How do you handle Best Practices in GraphQL (Scenario 38)?](#q48-how-do-you-handle-best-practices-in-graphql-scenario-38) <span class="intermediate">Intermediate</span>
-49. [How do you handle Edge Cases in GraphQL (Scenario 39)?](#q49-how-do-you-handle-edge-cases-in-graphql-scenario-39) <span class="intermediate">Intermediate</span>
-50. [How do you handle Automation in GraphQL (Scenario 40)?](#q50-how-do-you-handle-automation-in-graphql-scenario-40) <span class="intermediate">Intermediate</span>
-51. [How do you handle Optimization in GraphQL (Scenario 41)?](#q51-how-do-you-handle-optimization-in-graphql-scenario-41) <span class="intermediate">Intermediate</span>
-52. [How do you handle Security in GraphQL (Scenario 42)?](#q52-how-do-you-handle-security-in-graphql-scenario-42) <span class="intermediate">Intermediate</span>
-53. [How do you handle Scalability in GraphQL (Scenario 43)?](#q53-how-do-you-handle-scalability-in-graphql-scenario-43) <span class="intermediate">Intermediate</span>
-54. [How do you handle Debugging in GraphQL (Scenario 44)?](#q54-how-do-you-handle-debugging-in-graphql-scenario-44) <span class="intermediate">Intermediate</span>
-55. [How do you handle Configuration in GraphQL (Scenario 45)?](#q55-how-do-you-handle-configuration-in-graphql-scenario-45) <span class="intermediate">Intermediate</span>
-56. [How do you handle Best Practices in GraphQL (Scenario 46)?](#q56-how-do-you-handle-best-practices-in-graphql-scenario-46) <span class="intermediate">Intermediate</span>
-57. [How do you handle Edge Cases in GraphQL (Scenario 47)?](#q57-how-do-you-handle-edge-cases-in-graphql-scenario-47) <span class="intermediate">Intermediate</span>
-58. [How do you handle Automation in GraphQL (Scenario 48)?](#q58-how-do-you-handle-automation-in-graphql-scenario-48) <span class="intermediate">Intermediate</span>
-59. [How do you handle Optimization in GraphQL (Scenario 49)?](#q59-how-do-you-handle-optimization-in-graphql-scenario-49) <span class="intermediate">Intermediate</span>
-60. [How do you handle Security in GraphQL (Scenario 50)?](#q60-how-do-you-handle-security-in-graphql-scenario-50) <span class="intermediate">Intermediate</span>
-61. [How do you handle Scalability in GraphQL (Scenario 51)?](#q61-how-do-you-handle-scalability-in-graphql-scenario-51) <span class="intermediate">Intermediate</span>
-62. [How do you handle Debugging in GraphQL (Scenario 52)?](#q62-how-do-you-handle-debugging-in-graphql-scenario-52) <span class="intermediate">Intermediate</span>
-63. [How do you handle Configuration in GraphQL (Scenario 53)?](#q63-how-do-you-handle-configuration-in-graphql-scenario-53) <span class="intermediate">Intermediate</span>
-64. [How do you handle Best Practices in GraphQL (Scenario 54)?](#q64-how-do-you-handle-best-practices-in-graphql-scenario-54) <span class="intermediate">Intermediate</span>
-65. [How do you handle Edge Cases in GraphQL (Scenario 55)?](#q65-how-do-you-handle-edge-cases-in-graphql-scenario-55) <span class="intermediate">Intermediate</span>
-66. [How do you handle Automation in GraphQL (Scenario 56)?](#q66-how-do-you-handle-automation-in-graphql-scenario-56) <span class="intermediate">Intermediate</span>
-67. [How do you handle Optimization in GraphQL (Scenario 57)?](#q67-how-do-you-handle-optimization-in-graphql-scenario-57) <span class="intermediate">Intermediate</span>
-68. [How do you handle Security in GraphQL (Scenario 58)?](#q68-how-do-you-handle-security-in-graphql-scenario-58) <span class="intermediate">Intermediate</span>
-69. [How do you handle Scalability in GraphQL (Scenario 59)?](#q69-how-do-you-handle-scalability-in-graphql-scenario-59) <span class="intermediate">Intermediate</span>
-70. [How do you handle Debugging in GraphQL (Scenario 60)?](#q70-how-do-you-handle-debugging-in-graphql-scenario-60) <span class="intermediate">Intermediate</span>
-71. [How do you handle Configuration in GraphQL (Scenario 61)?](#q71-how-do-you-handle-configuration-in-graphql-scenario-61) <span class="intermediate">Intermediate</span>
-72. [How do you handle Best Practices in GraphQL (Scenario 62)?](#q72-how-do-you-handle-best-practices-in-graphql-scenario-62) <span class="intermediate">Intermediate</span>
-73. [How do you handle Edge Cases in GraphQL (Scenario 63)?](#q73-how-do-you-handle-edge-cases-in-graphql-scenario-63) <span class="intermediate">Intermediate</span>
-74. [How do you handle Automation in GraphQL (Scenario 64)?](#q74-how-do-you-handle-automation-in-graphql-scenario-64) <span class="intermediate">Intermediate</span>
-75. [How do you handle Optimization in GraphQL (Scenario 65)?](#q75-how-do-you-handle-optimization-in-graphql-scenario-65) <span class="intermediate">Intermediate</span>
-76. [How do you handle Security in GraphQL (Scenario 66)?](#q76-how-do-you-handle-security-in-graphql-scenario-66) <span class="intermediate">Intermediate</span>
-77. [How do you handle Scalability in GraphQL (Scenario 67)?](#q77-how-do-you-handle-scalability-in-graphql-scenario-67) <span class="intermediate">Intermediate</span>
-78. [How do you handle Debugging in GraphQL (Scenario 68)?](#q78-how-do-you-handle-debugging-in-graphql-scenario-68) <span class="intermediate">Intermediate</span>
-79. [How do you handle Configuration in GraphQL (Scenario 69)?](#q79-how-do-you-handle-configuration-in-graphql-scenario-69) <span class="intermediate">Intermediate</span>
-80. [How do you handle Best Practices in GraphQL (Scenario 70)?](#q80-how-do-you-handle-best-practices-in-graphql-scenario-70) <span class="intermediate">Intermediate</span>
-81. [How do you handle Edge Cases in GraphQL (Scenario 71)?](#q81-how-do-you-handle-edge-cases-in-graphql-scenario-71) <span class="intermediate">Intermediate</span>
-82. [How do you handle Automation in GraphQL (Scenario 72)?](#q82-how-do-you-handle-automation-in-graphql-scenario-72) <span class="intermediate">Intermediate</span>
-83. [How do you handle Optimization in GraphQL (Scenario 73)?](#q83-how-do-you-handle-optimization-in-graphql-scenario-73) <span class="intermediate">Intermediate</span>
-84. [How do you handle Security in GraphQL (Scenario 74)?](#q84-how-do-you-handle-security-in-graphql-scenario-74) <span class="intermediate">Intermediate</span>
-85. [How do you handle Scalability in GraphQL (Scenario 75)?](#q85-how-do-you-handle-scalability-in-graphql-scenario-75) <span class="intermediate">Intermediate</span>
-86. [How do you handle Debugging in GraphQL (Scenario 76)?](#q86-how-do-you-handle-debugging-in-graphql-scenario-76) <span class="intermediate">Intermediate</span>
-87. [How do you handle Configuration in GraphQL (Scenario 77)?](#q87-how-do-you-handle-configuration-in-graphql-scenario-77) <span class="intermediate">Intermediate</span>
-88. [How do you handle Best Practices in GraphQL (Scenario 78)?](#q88-how-do-you-handle-best-practices-in-graphql-scenario-78) <span class="intermediate">Intermediate</span>
-89. [How do you handle Edge Cases in GraphQL (Scenario 79)?](#q89-how-do-you-handle-edge-cases-in-graphql-scenario-79) <span class="intermediate">Intermediate</span>
-90. [How do you handle Automation in GraphQL (Scenario 80)?](#q90-how-do-you-handle-automation-in-graphql-scenario-80) <span class="intermediate">Intermediate</span>
-91. [How do you handle Optimization in GraphQL (Scenario 81)?](#q91-how-do-you-handle-optimization-in-graphql-scenario-81) <span class="intermediate">Intermediate</span>
-92. [How do you handle Security in GraphQL (Scenario 82)?](#q92-how-do-you-handle-security-in-graphql-scenario-82) <span class="intermediate">Intermediate</span>
-93. [How do you handle Scalability in GraphQL (Scenario 83)?](#q93-how-do-you-handle-scalability-in-graphql-scenario-83) <span class="intermediate">Intermediate</span>
-94. [How do you handle Debugging in GraphQL (Scenario 84)?](#q94-how-do-you-handle-debugging-in-graphql-scenario-84) <span class="intermediate">Intermediate</span>
-95. [How do you handle Configuration in GraphQL (Scenario 85)?](#q95-how-do-you-handle-configuration-in-graphql-scenario-85) <span class="intermediate">Intermediate</span>
-96. [How do you handle Best Practices in GraphQL (Scenario 86)?](#q96-how-do-you-handle-best-practices-in-graphql-scenario-86) <span class="intermediate">Intermediate</span>
-97. [How do you handle Edge Cases in GraphQL (Scenario 87)?](#q97-how-do-you-handle-edge-cases-in-graphql-scenario-87) <span class="intermediate">Intermediate</span>
-98. [How do you handle Automation in GraphQL (Scenario 88)?](#q98-how-do-you-handle-automation-in-graphql-scenario-88) <span class="intermediate">Intermediate</span>
-99. [How do you handle Optimization in GraphQL (Scenario 89)?](#q99-how-do-you-handle-optimization-in-graphql-scenario-89) <span class="intermediate">Intermediate</span>
-100. [How do you handle Security in GraphQL (Scenario 90)?](#q100-how-do-you-handle-security-in-graphql-scenario-90) <span class="intermediate">Intermediate</span>
+11. [What are Directives in GraphQL?](#q11-what-are-directives-in-graphql) <span class="intermediate">Intermediate</span>
+12. [What is Over-fetching and Under-fetching?](#q12-what-is-over-fetching-and-under-fetching) <span class="beginner">Beginner</span>
+13. [How do you handle Authentication in GraphQL?](#q13-how-do-you-handle-authentication-in-graphql) <span class="intermediate">Intermediate</span>
+14. [What are Resolvers?](#q14-what-are-resolvers) <span class="beginner">Beginner</span>
+15. [What is Introspection?](#q15-what-is-introspection) <span class="intermediate">Intermediate</span>
+16. [How do you handle caching in GraphQL?](#q16-how-do-you-handle-caching-in-graphql) <span class="advanced">Advanced</span>
+17. [What is a Union type?](#q17-what-is-a-union-type) <span class="intermediate">Intermediate</span>
+18. [What is an Interface type?](#q18-what-is-an-interface-type) <span class="intermediate">Intermediate</span>
+19. [How do you version a GraphQL API?](#q19-how-do-you-version-a-graphql-api) <span class="intermediate">Intermediate</span>
+20. [What are Enums in GraphQL?](#q20-what-are-enums-in-graphql) <span class="beginner">Beginner</span>
+21. [How do you handle input validation?](#q21-how-do-you-handle-input-validation) <span class="intermediate">Intermediate</span>
+22. [What is Apollo Federation?](#q22-what-is-apollo-federation) <span class="advanced">Advanced</span>
+23. [How do you test GraphQL resolvers?](#q23-how-do-you-test-graphql-resolvers) <span class="intermediate">Intermediate</span>
+24. [What is Schema Stitching?](#q24-what-is-schema-stitching) <span class="advanced">Advanced</span>
+25. [How do you handle aliases?](#q25-how-do-you-handle-aliases) <span class="beginner">Beginner</span>
+26. [What is a Scalar type?](#q26-what-is-a-scalar-type) <span class="beginner">Beginner</span>
+27. [What is an Object type?](#q27-what-is-an-object-type) <span class="beginner">Beginner</span>
+28. [What is the root Query type?](#q28-what-is-the-root-query-type) <span class="beginner">Beginner</span>
+29. [What is the root Mutation type?](#q29-what-is-the-root-mutation-type) <span class="beginner">Beginner</span>
+30. [What is the root Subscription type?](#q30-what-is-the-root-subscription-type) <span class="intermediate">Intermediate</span>
+31. [What are Input types?](#q31-what-are-input-types) <span class="intermediate">Intermediate</span>
+32. [What is Non-Null (!)?](#q32-what-is-non-null-) <span class="beginner">Beginner</span>
+33. [What is a List ([])?](#q33-what-is-a-list-) <span class="beginner">Beginner</span>
+34. [How do you define arguments?](#q34-how-do-you-define-arguments) <span class="beginner">Beginner</span>
+35. [What is GraphiQL?](#q35-what-is-graphiql) <span class="beginner">Beginner</span>
+36. [What is GraphQL Playground?](#q36-what-is-graphql-playground) <span class="beginner">Beginner</span>
+37. [What is Apollo Server?](#q37-what-is-apollo-server) <span class="intermediate">Intermediate</span>
+38. [What is `info` argument in resolver?](#q38-what-is-info-argument-in-resolver) <span class="advanced">Advanced</span>
+39. [How do you handle authentication?](#q39-how-do-you-handle-authentication) <span class="intermediate">Intermediate</span>
+40. [What is `context`?](#q40-what-is-context) <span class="intermediate">Intermediate</span>
+41. [How do you batch requests?](#q41-how-do-you-batch-requests) <span class="advanced">Advanced</span>
+42. [What is Persisted Queries?](#q42-what-is-persisted-queries) <span class="advanced">Advanced</span>
+43. [What is Schema Stitching?](#q43-what-is-schema-stitching) <span class="advanced">Advanced</span>
+44. [What is Federation?](#q44-what-is-federation) <span class="advanced">Advanced</span>
+45. [What is a Gateway?](#q45-what-is-a-gateway) <span class="advanced">Advanced</span>
+46. [How do you mock data?](#q46-how-do-you-mock-data) <span class="intermediate">Intermediate</span>
+47. [What is Schema Directives?](#q47-what-is-schema-directives) <span class="advanced">Advanced</span>
+48. [How do you handle pagination?](#q48-how-do-you-handle-pagination) <span class="intermediate">Intermediate</span>
+49. [What is Cursor Pagination?](#q49-what-is-cursor-pagination) <span class="intermediate">Intermediate</span>
+50. [What is Connection pattern?](#q50-what-is-connection-pattern) <span class="intermediate">Intermediate</span>
+51. [How do you handle N+1 problem?](#q51-how-do-you-handle-n1-problem) <span class="advanced">Advanced</span>
+52. [What is `dataloader` library?](#q52-what-is-dataloader-library) <span class="advanced">Advanced</span>
+53. [How do you upload files?](#q53-how-do-you-upload-files) <span class="intermediate">Intermediate</span>
+54. [What is Apollo Client?](#q54-what-is-apollo-client) <span class="beginner">Beginner</span>
+55. [What is Relay?](#q55-what-is-relay) <span class="advanced">Advanced</span>
+56. [What is Urql?](#q56-what-is-urql) <span class="intermediate">Intermediate</span>
+57. [How do you cache on client?](#q57-how-do-you-cache-on-client) <span class="intermediate">Intermediate</span>
+58. [What is `__typename`?](#q58-what-is-typename) <span class="intermediate">Intermediate</span>
+59. [How do you use fragments on client?](#q59-how-do-you-use-fragments-on-client) <span class="intermediate">Intermediate</span>
+60. [What is Inline Fragment?](#q60-what-is-inline-fragment) <span class="intermediate">Intermediate</span>
+61. [How do you handle errors on client?](#q61-how-do-you-handle-errors-on-client) <span class="intermediate">Intermediate</span>
+62. [What is Optimistic UI?](#q62-what-is-optimistic-ui) <span class="advanced">Advanced</span>
+63. [How do you refetch data?](#q63-how-do-you-refetch-data) <span class="beginner">Beginner</span>
+64. [What is Polling?](#q64-what-is-polling) <span class="intermediate">Intermediate</span>
+65. [What is `network-only` policy?](#q65-what-is-network-only-policy) <span class="intermediate">Intermediate</span>
+66. [What is `cache-first` policy?](#q66-what-is-cache-first-policy) <span class="intermediate">Intermediate</span>
+67. [What is `cache-and-network`?](#q67-what-is-cache-and-network) <span class="intermediate">Intermediate</span>
+68. [How do you update cache after mutation?](#q68-how-do-you-update-cache-after-mutation) <span class="advanced">Advanced</span>
+69. [What is `readQuery`?](#q69-what-is-readquery) <span class="advanced">Advanced</span>
+70. [What is `writeQuery`?](#q70-what-is-writequery) <span class="advanced">Advanced</span>
+71. [What is `client` directive?](#q71-what-is-client-directive) <span class="intermediate">Intermediate</span>
+72. [How do you manage local state?](#q72-how-do-you-manage-local-state) <span class="intermediate">Intermediate</span>
+73. [What is Code Generation?](#q73-what-is-code-generation) <span class="intermediate">Intermediate</span>
+74. [How do you document schema?](#q74-how-do-you-document-schema) <span class="beginner">Beginner</span>
+75. [What is Deprecation?](#q75-what-is-deprecation) <span class="beginner">Beginner</span>
+76. [How do you limit query depth?](#q76-how-do-you-limit-query-depth) <span class="advanced">Advanced</span>
+77. [What is Query Cost Analysis?](#q77-what-is-query-cost-analysis) <span class="advanced">Advanced</span>
+78. [How do you prevent introspection in prod?](#q78-how-do-you-prevent-introspection-in-prod) <span class="intermediate">Intermediate</span>
+79. [What is `graphql-tools`?](#q79-what-is-graphql-tools) <span class="intermediate">Intermediate</span>
+80. [How do you merge schemas?](#q80-how-do-you-merge-schemas) <span class="advanced">Advanced</span>
+81. [What is Type merging?](#q81-what-is-type-merging) <span class="advanced">Advanced</span>
+82. [How do you handle timeouts?](#q82-how-do-you-handle-timeouts) <span class="intermediate">Intermediate</span>
+83. [What is Tracing?](#q83-what-is-tracing) <span class="advanced">Advanced</span>
+84. [What is Apollo Studio?](#q84-what-is-apollo-studio) <span class="intermediate">Intermediate</span>
+85. [How do you secure against DoS?](#q85-how-do-you-secure-against-dos) <span class="advanced">Advanced</span>
+86. [What is JSON scalar?](#q86-what-is-json-scalar) <span class="intermediate">Intermediate</span>
+87. [How do you handle Date?](#q87-how-do-you-handle-date) <span class="intermediate">Intermediate</span>
+88. [What is the difference between REST and GraphQL?](#q88-what-is-the-difference-between-rest-and-graphql) <span class="beginner">Beginner</span>
+89. [When to use GraphQL?](#q89-when-to-use-graphql) <span class="beginner">Beginner</span>
+90. [When NOT to use GraphQL?](#q90-when-not-to-use-graphql) <span class="intermediate">Intermediate</span>
+91. [What is `extensions` field?](#q91-what-is-extensions-field) <span class="advanced">Advanced</span>
+92. [How do you debug resolvers?](#q92-how-do-you-debug-resolvers) <span class="beginner">Beginner</span>
+93. [What is `parent` argument?](#q93-what-is-parent-argument) <span class="beginner">Beginner</span>
+94. [How do you resolve abstract types?](#q94-how-do-you-resolve-abstract-types) <span class="advanced">Advanced</span>
 
 ---
 
@@ -115,7 +109,6 @@ Query reads data (GET). Mutation modifies data (POST/PUT/DELETE).
 **Code Example**:
 ```javascript
 query { user(id: 1) { name } }
-
 mutation { createUser(name: "Bob") { id } }
 ```
 
@@ -133,12 +126,6 @@ Use **DataLoaders** to batch and cache requests.
 **Code Example**:
 ```javascript
 const userLoader = new DataLoader(keys => db.batchGetUsers(keys));
-
-const resolvers = {
-  Post: {
-    author: (post) => userLoader.load(post.authorId)
-  }
-};
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -154,10 +141,6 @@ Return `null` for the field and populate the `errors` array. Or use Union types 
 
 **Code Example**:
 ```javascript
-type Mutation {
-  register(input: RegInput): RegisterResult
-}
-
 union RegisterResult = User | UserError
 ```
 
@@ -174,12 +157,7 @@ Use Cursor-based pagination (Relay style) with `edges` and `pageInfo`.
 
 **Code Example**:
 ```javascript
-query {
-  users(first: 10, after: "cursor123") {
-    edges { node { name } }
-    pageInfo { hasNextPage endCursor }
-  }
-}
+users(first: 10, after: "cursor") { edges { node { name } } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -195,11 +173,7 @@ Implement Depth Limiting, Query Cost Analysis, and Rate Limiting.
 
 **Code Example**:
 ```javascript
-import depthLimit from 'graphql-depth-limit';
-
-app.use('/graphql', graphqlHTTP({
-  validationRules: [depthLimit(10)],
-}));
+validationRules: [depthLimit(10)]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -215,11 +189,7 @@ Fragments allow reusing parts of a query.
 
 **Code Example**:
 ```javascript
-fragment UserFields on User { id name email }
-
-query { 
-  me { ...UserFields }
-}
+fragment UserFields on User { id name }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -235,9 +205,7 @@ Real-time updates using WebSockets.
 
 **Code Example**:
 ```javascript
-subscription {
-  messageAdded { id text }
-}
+subscription { messageAdded { text } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -254,10 +222,7 @@ Use `graphql-upload` scalar.
 **Code Example**:
 ```javascript
 scalar Upload
-
-mutation($file: Upload!) {
-  uploadFile(file: $file)
-}
+mutation($file: Upload!) { uploadFile(file: $file) }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -269,11 +234,11 @@ mutation($file: Upload!) {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Schema First: Write SDL then resolvers. Code First: Write TS/JS classes/functions that generate SDL.
+Schema First: Write SDL then resolvers. Code First: Write TS/JS classes that generate SDL.
 
 **Code Example**:
 ```javascript
-// Code First (Nexus/TypeGraphQL)
+// Code First
 t.field('name', { type: 'String' })
 ```
 
@@ -290,1901 +255,1351 @@ Use the `@deprecated` directive.
 
 **Code Example**:
 ```javascript
-type User {
-  fullname: String @deprecated(reason: "Use 'name' instead")
-}
+fullname: String @deprecated(reason: "Use 'name' instead")
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q11: How do you handle Optimization in GraphQL (Scenario 1)?
+### Q11: What are Directives in GraphQL?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Directives allow you to attach metadata to fields or arguments to alter execution behavior (e.g., `@include`, `@skip`).
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+query { hero(episode: JEDI) { name @include(if: $withFriends) } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q12: How do you handle Security in GraphQL (Scenario 2)?
+### Q12: What is Over-fetching and Under-fetching?
 
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q13: How do you handle Scalability in GraphQL (Scenario 3)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q14: How do you handle Debugging in GraphQL (Scenario 4)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q15: How do you handle Configuration in GraphQL (Scenario 5)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q16: How do you handle Best Practices in GraphQL (Scenario 6)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
+**Difficulty**: Beginner
 
-### Q17: How do you handle Edge Cases in GraphQL (Scenario 7)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
-
-**Code Example**:
-```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q18: How do you handle Automation in GraphQL (Scenario 8)?
-
-**Difficulty**: Intermediate
-
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Over-fetching: Downloading more data than needed. Under-fetching: Downloading less data, requiring multiple requests. GraphQL solves this by fetching exactly what is asked.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// REST might return full User object. GraphQL returns only { name } if requested.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q19: How do you handle Optimization in GraphQL (Scenario 9)?
+### Q13: How do you handle Authentication in GraphQL?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Pass the auth token in HTTP headers (e.g., Authorization: Bearer). Validate it in the context setup.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+const context = ({ req }) => { const user = getUser(req); return { user }; }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q20: How do you handle Security in GraphQL (Scenario 10)?
+### Q14: What are Resolvers?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+Functions that provide the instructions for turning a GraphQL operation into data. They resolve the value for a type or field.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+const resolvers = { Query: { user: (parent, args) => db.getUser(args.id) } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q21: How do you handle Scalability in GraphQL (Scenario 11)?
+### Q15: What is Introspection?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+The ability to query a GraphQL schema for information about itself (types, fields, etc.).
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+query { __schema { types { name } } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q22: How do you handle Debugging in GraphQL (Scenario 12)?
+### Q16: How do you handle caching in GraphQL?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+Since GraphQL uses POST, standard HTTP caching doesn't work well. Use client-side caching (Apollo Client) or persisted queries with CDNs.
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Apollo Client uses InMemoryCache by default
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q23: How do you handle Configuration in GraphQL (Scenario 13)?
+### Q17: What is a Union type?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+A type that represents one of several other types.
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+union SearchResult = Human | Droid | Starship
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q24: How do you handle Best Practices in GraphQL (Scenario 14)?
+### Q18: What is an Interface type?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+An abstract type that includes a certain set of fields that a type must include to implement the interface.
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+interface Character { id: ID! name: String! }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q25: How do you handle Edge Cases in GraphQL (Scenario 15)?
+### Q19: How do you version a GraphQL API?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+GraphQL promotes a continuous evolution of the schema (adding new fields, deprecating old ones) rather than version numbers (v1, v2).
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Just add new fields and @deprecated old ones
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q26: How do you handle Automation in GraphQL (Scenario 16)?
+### Q20: What are Enums in GraphQL?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+A special scalar type that is restricted to a particular set of allowed values.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+enum Episode { NEWHOPE EMPIRE JEDI }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q27: How do you handle Optimization in GraphQL (Scenario 17)?
+### Q21: How do you handle input validation?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Use custom scalars or throw errors inside resolvers.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+if (args.age < 0) throw new Error('Age must be positive');
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q28: How do you handle Security in GraphQL (Scenario 18)?
+### Q22: What is Apollo Federation?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+An architecture for composing multiple GraphQL services (subgraphs) into a single graph.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Subgraph 1: Users, Subgraph 2: Products -> Federated Gateway
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q29: How do you handle Scalability in GraphQL (Scenario 19)?
+### Q23: How do you test GraphQL resolvers?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+Treat resolvers as pure functions. Mock the context and arguments.
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+const result = await resolvers.Query.user(null, { id: 1 }, mockContext);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q30: How do you handle Debugging in GraphQL (Scenario 20)?
+### Q24: What is Schema Stitching?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+The process of creating a single GraphQL schema from multiple underlying GraphQL APIs. (Older alternative to Federation).
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+const gatewaySchema = stitchSchemas({ subschemas: [schema1, schema2] });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q31: How do you handle Configuration in GraphQL (Scenario 21)?
+### Q25: How do you handle aliases?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+Aliases let you rename the result of a field to avoid conflicts.
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+{ empireHero: hero(episode: EMPIRE) { name } jediHero: hero(episode: JEDI) { name } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q32: How do you handle Best Practices in GraphQL (Scenario 22)?
+### Q26: What is a Scalar type?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+Primitive type (Int, Float, String, Boolean, ID).
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+type User { id: ID! }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q33: How do you handle Edge Cases in GraphQL (Scenario 23)?
+### Q27: What is an Object type?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+Type with fields.
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+type User { name: String }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q34: How do you handle Automation in GraphQL (Scenario 24)?
+### Q28: What is the root Query type?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Entry point for reads.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+type Query { me: User }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q35: How do you handle Optimization in GraphQL (Scenario 25)?
+### Q29: What is the root Mutation type?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Entry point for writes.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+type Mutation { save: Boolean }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q36: How do you handle Security in GraphQL (Scenario 26)?
+### Q30: What is the root Subscription type?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+Entry point for streams.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+type Subscription { onAdd: User }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q37: How do you handle Scalability in GraphQL (Scenario 27)?
+### Q31: What are Input types?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+Complex objects as arguments.
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+input UserInput { name: String }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q38: How do you handle Debugging in GraphQL (Scenario 28)?
+### Q32: What is Non-Null (!)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+Field cannot be null.
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+name: String!
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q39: How do you handle Configuration in GraphQL (Scenario 29)?
+### Q33: What is a List ([])?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+Array of items.
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+tags: [String]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q40: How do you handle Best Practices in GraphQL (Scenario 30)?
+### Q34: How do you define arguments?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+Inside parentheses.
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+user(id: ID!): User
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q41: How do you handle Edge Cases in GraphQL (Scenario 31)?
+### Q35: What is GraphiQL?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+IDE for testing GraphQL.
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Browser tool
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q42: How do you handle Automation in GraphQL (Scenario 32)?
+### Q36: What is GraphQL Playground?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Another IDE (by Prisma).
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Similar to GraphiQL
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q43: How do you handle Optimization in GraphQL (Scenario 33)?
+### Q37: What is Apollo Server?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Library to build GraphQL servers.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+new ApolloServer({ typeDefs, resolvers })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q44: How do you handle Security in GraphQL (Scenario 34)?
+### Q38: What is `info` argument in resolver?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+AST of the query.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+resolve(parent, args, ctx, info)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q45: How do you handle Scalability in GraphQL (Scenario 35)?
+### Q39: How do you handle authentication?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+In context function.
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+context: ({ req }) => ({ user: verify(req) })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q46: How do you handle Debugging in GraphQL (Scenario 36)?
+### Q40: What is `context`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+Shared object passed to all resolvers.
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Access DB, User info
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q47: How do you handle Configuration in GraphQL (Scenario 37)?
+### Q41: How do you batch requests?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+Query batching (array of queries) or DataLoaders.
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// [ { query: ... }, { query: ... } ]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q48: How do you handle Best Practices in GraphQL (Scenario 38)?
+### Q42: What is Persisted Queries?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+Send hash instead of full query string.
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Saves bandwidth
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q49: How do you handle Edge Cases in GraphQL (Scenario 39)?
+### Q43: What is Schema Stitching?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+Combine schemas.
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+stitchSchemas({ subschemas: [...] })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q50: How do you handle Automation in GraphQL (Scenario 40)?
+### Q44: What is Federation?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Microservices architecture for GraphQL.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+buildSubgraphSchema(...) 
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q51: How do you handle Optimization in GraphQL (Scenario 41)?
+### Q45: What is a Gateway?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Entry point for federated graph.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+new ApolloGateway(...) 
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you handle Security in GraphQL (Scenario 42)?
+### Q46: How do you mock data?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+Use `mocks` option in Apollo.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+mocks: { Int: () => 6 }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q53: How do you handle Scalability in GraphQL (Scenario 43)?
+### Q47: What is Schema Directives?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+Custom logic on schema elements.
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+field: String @upper
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q54: How do you handle Debugging in GraphQL (Scenario 44)?
+### Q48: How do you handle pagination?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+Limit/Offset or Cursors.
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+users(first: 10, after: "abc")
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q55: How do you handle Configuration in GraphQL (Scenario 45)?
+### Q49: What is Cursor Pagination?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+Pagination based on pointer.
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+edges { cursor node { ... } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you handle Best Practices in GraphQL (Scenario 46)?
+### Q50: What is Connection pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+Standard for cursor pagination.
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+type UserConnection { edges: [UserEdge] }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you handle Edge Cases in GraphQL (Scenario 47)?
+### Q51: How do you handle N+1 problem?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+DataLoaders.
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+loader.load(id)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q58: How do you handle Automation in GraphQL (Scenario 48)?
+### Q52: What is `dataloader` library?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Batching and caching utility.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+new DataLoader(batchFn)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you handle Optimization in GraphQL (Scenario 49)?
+### Q53: How do you upload files?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Multipart request spec.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+scalar Upload
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q60: How do you handle Security in GraphQL (Scenario 50)?
+### Q54: What is Apollo Client?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+Client library.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+useQuery(GET_DOGS)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q61: How do you handle Scalability in GraphQL (Scenario 51)?
+### Q55: What is Relay?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+Facebook's client library.
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Optimized for performance
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q62: How do you handle Debugging in GraphQL (Scenario 52)?
+### Q56: What is Urql?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+Lightweight client.
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Simple & extensible
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: How do you handle Configuration in GraphQL (Scenario 53)?
+### Q57: How do you cache on client?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+Normalization (InMemoryCache).
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// cache-first, network-only
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you handle Best Practices in GraphQL (Scenario 54)?
+### Q58: What is `__typename`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+Meta field for type name.
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+{ name __typename }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you handle Edge Cases in GraphQL (Scenario 55)?
+### Q59: How do you use fragments on client?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+Reuse query parts.
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+fragment Name on User { name }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q66: How do you handle Automation in GraphQL (Scenario 56)?
+### Q60: What is Inline Fragment?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Fragment without name, for unions.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+... on Droid { primaryFunction }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you handle Optimization in GraphQL (Scenario 57)?
+### Q61: How do you handle errors on client?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Check `error` object.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+const { error } = useQuery(...)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you handle Security in GraphQL (Scenario 58)?
+### Q62: What is Optimistic UI?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+Update UI before server responds.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+optimisticResponse: { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you handle Scalability in GraphQL (Scenario 59)?
+### Q63: How do you refetch data?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+Call `refetch`.
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+const { refetch } = useQuery(...)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q70: How do you handle Debugging in GraphQL (Scenario 60)?
+### Q64: What is Polling?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+Periodically fetch data.
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+pollInterval: 500
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you handle Configuration in GraphQL (Scenario 61)?
+### Q65: What is `network-only` policy?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+Ignore cache.
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+fetchPolicy: 'network-only'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you handle Best Practices in GraphQL (Scenario 62)?
+### Q66: What is `cache-first` policy?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+Default. Use cache if available.
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+fetchPolicy: 'cache-first'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you handle Edge Cases in GraphQL (Scenario 63)?
+### Q67: What is `cache-and-network`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+Show cache, then update from network.
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+fetchPolicy: 'cache-and-network'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you handle Automation in GraphQL (Scenario 64)?
+### Q68: How do you update cache after mutation?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Use `update` function.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+update(cache, { data }) { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q75: How do you handle Optimization in GraphQL (Scenario 65)?
+### Q69: What is `readQuery`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Read direct from cache.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+cache.readQuery({ query })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q76: How do you handle Security in GraphQL (Scenario 66)?
+### Q70: What is `writeQuery`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+Write direct to cache.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+cache.writeQuery({ query, data })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q77: How do you handle Scalability in GraphQL (Scenario 67)?
+### Q71: What is `client` directive?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+Client-only field.
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+isLoggedIn @client
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q78: How do you handle Debugging in GraphQL (Scenario 68)?
+### Q72: How do you manage local state?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+Reactive variables or cache.
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+makeVar(false)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you handle Configuration in GraphQL (Scenario 69)?
+### Q73: What is Code Generation?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+Generate types from schema.
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+graphql-codegen
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q80: How do you handle Best Practices in GraphQL (Scenario 70)?
+### Q74: How do you document schema?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+Comments/Descriptions.
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+""" Description """
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you handle Edge Cases in GraphQL (Scenario 71)?
+### Q75: What is Deprecation?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+Mark field as old.
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+@deprecated(reason: "...")
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you handle Automation in GraphQL (Scenario 72)?
+### Q76: How do you limit query depth?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Validation rule.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+depthLimit(5)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you handle Optimization in GraphQL (Scenario 73)?
+### Q77: What is Query Cost Analysis?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Calculate complexity score.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Prevent expensive queries
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q84: How do you handle Security in GraphQL (Scenario 74)?
+### Q78: How do you prevent introspection in prod?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+Disable in server config.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+introspection: false
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q85: How do you handle Scalability in GraphQL (Scenario 75)?
+### Q79: What is `graphql-tools`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+Utilities for schema building.
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+makeExecutableSchema
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q86: How do you handle Debugging in GraphQL (Scenario 76)?
+### Q80: How do you merge schemas?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+mergeSchemas tool.
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+mergeSchemas({ schemas })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle Configuration in GraphQL (Scenario 77)?
+### Q81: What is Type merging?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+Merge types from different subgraphs.
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Federation feature
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q88: How do you handle Best Practices in GraphQL (Scenario 78)?
+### Q82: How do you handle timeouts?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+Server config or context cancellation.
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// HTTP timeout
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you handle Edge Cases in GraphQL (Scenario 79)?
+### Q83: What is Tracing?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+Performance metrics.
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+tracing: true
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q90: How do you handle Automation in GraphQL (Scenario 80)?
+### Q84: What is Apollo Studio?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Cloud dashboard.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Schema registry, metrics
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q91: How do you handle Optimization in GraphQL (Scenario 81)?
+### Q85: How do you secure against DoS?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Rate limiting, timeouts, complexity limits.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Security best practices
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q92: How do you handle Security in GraphQL (Scenario 82)?
+### Q86: What is JSON scalar?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+Arbitrary JSON blob.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+scalar JSON
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: How do you handle Scalability in GraphQL (Scenario 83)?
+### Q87: How do you handle Date?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss scalability strategies. Prioritize efficiency and maintainability.
+Custom scalar.
 
 **Code Example**:
 ```javascript
-// Example configuration for Scalability
-config.scalability = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+scalar Date
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you handle Debugging in GraphQL (Scenario 84)?
+### Q88: What is the difference between REST and GraphQL?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss debugging strategies. Prioritize efficiency and maintainability.
+Endpoint vs Schema, Overfetching fix.
 
 **Code Example**:
 ```javascript
-// Example configuration for Debugging
-config.debugging = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// GraphQL is flexible
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you handle Configuration in GraphQL (Scenario 85)?
+### Q89: When to use GraphQL?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss configuration strategies. Prioritize efficiency and maintainability.
+Complex data requirements, mobile apps.
 
 **Code Example**:
 ```javascript
-// Example configuration for Configuration
-config.configuration = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// Efficient data loading
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q96: How do you handle Best Practices in GraphQL (Scenario 86)?
+### Q90: When NOT to use GraphQL?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Discuss best practices strategies. Prioritize efficiency and maintainability.
+Simple APIs, file heavy, binary protocols.
 
 **Code Example**:
 ```javascript
-// Example configuration for Best Practices
-config.best practices = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+// REST might be simpler
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you handle Edge Cases in GraphQL (Scenario 87)?
+### Q91: What is `extensions` field?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss edge cases strategies. Prioritize efficiency and maintainability.
+Extra metadata in response.
 
 **Code Example**:
 ```javascript
-// Example configuration for Edge Cases
-config.edge cases = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+{ data, extensions: { tracing } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you handle Automation in GraphQL (Scenario 88)?
+### Q92: How do you debug resolvers?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss automation strategies. Prioritize efficiency and maintainability.
+Console log or debugger.
 
 **Code Example**:
 ```javascript
-// Example configuration for Automation
-config.automation = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+console.log(args)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you handle Optimization in GraphQL (Scenario 89)?
+### Q93: What is `parent` argument?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Discuss optimization strategies. Prioritize efficiency and maintainability.
+Result of previous resolver.
 
 **Code Example**:
 ```javascript
-// Example configuration for Optimization
-config.optimization = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+parent.id
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q100: How do you handle Security in GraphQL (Scenario 90)?
+### Q94: How do you resolve abstract types?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Discuss security strategies. Prioritize efficiency and maintainability.
+`__resolveType`.
 
 **Code Example**:
 ```javascript
-// Example configuration for Security
-config.security = {
-  enabled: true,
-  level: 'strict',
-  retries: 3
-};
+__resolveType(obj) { return 'User' }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

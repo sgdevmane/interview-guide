@@ -12,96 +12,95 @@
 8. [How do you create a custom styled component in MUI?](#q8-how-do-you-create-a-custom-styled-component-in-mui) <span class="intermediate">Intermediate</span>
 9. [How do you handle accessibility (a11y) in Radix UI?](#q9-how-do-you-handle-accessibility-a11y-in-radix-ui) <span class="beginner">Beginner</span>
 10. [How do you implement Dark Mode in MUI?](#q10-how-do-you-implement-dark-mode-in-mui) <span class="intermediate">Intermediate</span>
-11. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 1)?](#q11-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-1) <span class="intermediate">Intermediate</span>
-12. [How do you handle Performance scenarios in Material/Radix UI (Scenario 2)?](#q12-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-2) <span class="intermediate">Intermediate</span>
-13. [How do you handle Security scenarios in Material/Radix UI (Scenario 3)?](#q13-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-3) <span class="intermediate">Intermediate</span>
-14. [How do you handle Integration scenarios in Material/Radix UI (Scenario 4)?](#q14-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-4) <span class="intermediate">Intermediate</span>
-15. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 5)?](#q15-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-5) <span class="intermediate">Intermediate</span>
-16. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 6)?](#q16-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-6) <span class="intermediate">Intermediate</span>
-17. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 7)?](#q17-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-7) <span class="intermediate">Intermediate</span>
-18. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 8)?](#q18-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-8) <span class="intermediate">Intermediate</span>
-19. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 9)?](#q19-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-9) <span class="intermediate">Intermediate</span>
-20. [How do you handle Performance scenarios in Material/Radix UI (Scenario 10)?](#q20-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-10) <span class="intermediate">Intermediate</span>
-21. [How do you handle Security scenarios in Material/Radix UI (Scenario 11)?](#q21-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-11) <span class="intermediate">Intermediate</span>
-22. [How do you handle Integration scenarios in Material/Radix UI (Scenario 12)?](#q22-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-12) <span class="intermediate">Intermediate</span>
-23. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 13)?](#q23-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-13) <span class="intermediate">Intermediate</span>
-24. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 14)?](#q24-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-14) <span class="intermediate">Intermediate</span>
-25. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 15)?](#q25-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-15) <span class="intermediate">Intermediate</span>
-26. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 16)?](#q26-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-16) <span class="intermediate">Intermediate</span>
-27. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 17)?](#q27-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-17) <span class="intermediate">Intermediate</span>
-28. [How do you handle Performance scenarios in Material/Radix UI (Scenario 18)?](#q28-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-18) <span class="intermediate">Intermediate</span>
-29. [How do you handle Security scenarios in Material/Radix UI (Scenario 19)?](#q29-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-19) <span class="intermediate">Intermediate</span>
-30. [How do you handle Integration scenarios in Material/Radix UI (Scenario 20)?](#q30-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-20) <span class="intermediate">Intermediate</span>
-31. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 21)?](#q31-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-21) <span class="intermediate">Intermediate</span>
-32. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 22)?](#q32-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-22) <span class="intermediate">Intermediate</span>
-33. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 23)?](#q33-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-23) <span class="intermediate">Intermediate</span>
-34. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 24)?](#q34-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-24) <span class="intermediate">Intermediate</span>
-35. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 25)?](#q35-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-25) <span class="intermediate">Intermediate</span>
-36. [How do you handle Performance scenarios in Material/Radix UI (Scenario 26)?](#q36-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-26) <span class="intermediate">Intermediate</span>
-37. [How do you handle Security scenarios in Material/Radix UI (Scenario 27)?](#q37-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-27) <span class="intermediate">Intermediate</span>
-38. [How do you handle Integration scenarios in Material/Radix UI (Scenario 28)?](#q38-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-28) <span class="intermediate">Intermediate</span>
-39. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 29)?](#q39-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-29) <span class="intermediate">Intermediate</span>
-40. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 30)?](#q40-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-30) <span class="intermediate">Intermediate</span>
-41. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 31)?](#q41-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-31) <span class="intermediate">Intermediate</span>
-42. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 32)?](#q42-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-32) <span class="intermediate">Intermediate</span>
-43. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 33)?](#q43-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-33) <span class="intermediate">Intermediate</span>
-44. [How do you handle Performance scenarios in Material/Radix UI (Scenario 34)?](#q44-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-34) <span class="intermediate">Intermediate</span>
-45. [How do you handle Security scenarios in Material/Radix UI (Scenario 35)?](#q45-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-35) <span class="intermediate">Intermediate</span>
-46. [How do you handle Integration scenarios in Material/Radix UI (Scenario 36)?](#q46-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-36) <span class="intermediate">Intermediate</span>
-47. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 37)?](#q47-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-37) <span class="intermediate">Intermediate</span>
-48. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 38)?](#q48-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-38) <span class="intermediate">Intermediate</span>
-49. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 39)?](#q49-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-39) <span class="intermediate">Intermediate</span>
-50. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 40)?](#q50-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-40) <span class="intermediate">Intermediate</span>
-51. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 41)?](#q51-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-41) <span class="intermediate">Intermediate</span>
-52. [How do you handle Performance scenarios in Material/Radix UI (Scenario 42)?](#q52-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-42) <span class="intermediate">Intermediate</span>
-53. [How do you handle Security scenarios in Material/Radix UI (Scenario 43)?](#q53-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-43) <span class="intermediate">Intermediate</span>
-54. [How do you handle Integration scenarios in Material/Radix UI (Scenario 44)?](#q54-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-44) <span class="intermediate">Intermediate</span>
-55. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 45)?](#q55-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-45) <span class="intermediate">Intermediate</span>
-56. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 46)?](#q56-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-46) <span class="intermediate">Intermediate</span>
-57. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 47)?](#q57-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-47) <span class="intermediate">Intermediate</span>
-58. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 48)?](#q58-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-48) <span class="intermediate">Intermediate</span>
-59. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 49)?](#q59-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-49) <span class="intermediate">Intermediate</span>
-60. [How do you handle Performance scenarios in Material/Radix UI (Scenario 50)?](#q60-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-50) <span class="intermediate">Intermediate</span>
-61. [How do you handle Security scenarios in Material/Radix UI (Scenario 51)?](#q61-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-51) <span class="intermediate">Intermediate</span>
-62. [How do you handle Integration scenarios in Material/Radix UI (Scenario 52)?](#q62-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-52) <span class="intermediate">Intermediate</span>
-63. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 53)?](#q63-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-53) <span class="intermediate">Intermediate</span>
-64. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 54)?](#q64-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-54) <span class="intermediate">Intermediate</span>
-65. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 55)?](#q65-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-55) <span class="intermediate">Intermediate</span>
-66. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 56)?](#q66-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-56) <span class="intermediate">Intermediate</span>
-67. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 57)?](#q67-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-57) <span class="intermediate">Intermediate</span>
-68. [How do you handle Performance scenarios in Material/Radix UI (Scenario 58)?](#q68-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-58) <span class="intermediate">Intermediate</span>
-69. [How do you handle Security scenarios in Material/Radix UI (Scenario 59)?](#q69-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-59) <span class="intermediate">Intermediate</span>
-70. [How do you handle Integration scenarios in Material/Radix UI (Scenario 60)?](#q70-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-60) <span class="intermediate">Intermediate</span>
-71. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 61)?](#q71-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-61) <span class="intermediate">Intermediate</span>
-72. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 62)?](#q72-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-62) <span class="intermediate">Intermediate</span>
-73. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 63)?](#q73-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-63) <span class="intermediate">Intermediate</span>
-74. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 64)?](#q74-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-64) <span class="intermediate">Intermediate</span>
-75. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 65)?](#q75-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-65) <span class="intermediate">Intermediate</span>
-76. [How do you handle Performance scenarios in Material/Radix UI (Scenario 66)?](#q76-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-66) <span class="intermediate">Intermediate</span>
-77. [How do you handle Security scenarios in Material/Radix UI (Scenario 67)?](#q77-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-67) <span class="intermediate">Intermediate</span>
-78. [How do you handle Integration scenarios in Material/Radix UI (Scenario 68)?](#q78-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-68) <span class="intermediate">Intermediate</span>
-79. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 69)?](#q79-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-69) <span class="intermediate">Intermediate</span>
-80. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 70)?](#q80-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-70) <span class="intermediate">Intermediate</span>
-81. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 71)?](#q81-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-71) <span class="intermediate">Intermediate</span>
-82. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 72)?](#q82-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-72) <span class="intermediate">Intermediate</span>
-83. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 73)?](#q83-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-73) <span class="intermediate">Intermediate</span>
-84. [How do you handle Performance scenarios in Material/Radix UI (Scenario 74)?](#q84-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-74) <span class="intermediate">Intermediate</span>
-85. [How do you handle Security scenarios in Material/Radix UI (Scenario 75)?](#q85-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-75) <span class="intermediate">Intermediate</span>
-86. [How do you handle Integration scenarios in Material/Radix UI (Scenario 76)?](#q86-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-76) <span class="intermediate">Intermediate</span>
-87. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 77)?](#q87-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-77) <span class="intermediate">Intermediate</span>
-88. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 78)?](#q88-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-78) <span class="intermediate">Intermediate</span>
-89. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 79)?](#q89-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-79) <span class="intermediate">Intermediate</span>
-90. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 80)?](#q90-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-80) <span class="intermediate">Intermediate</span>
-91. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 81)?](#q91-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-81) <span class="intermediate">Intermediate</span>
-92. [How do you handle Performance scenarios in Material/Radix UI (Scenario 82)?](#q92-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-82) <span class="intermediate">Intermediate</span>
-93. [How do you handle Security scenarios in Material/Radix UI (Scenario 83)?](#q93-how-do-you-handle-security-scenarios-in-materialradix-ui-scenario-83) <span class="intermediate">Intermediate</span>
-94. [How do you handle Integration scenarios in Material/Radix UI (Scenario 84)?](#q94-how-do-you-handle-integration-scenarios-in-materialradix-ui-scenario-84) <span class="intermediate">Intermediate</span>
-95. [How do you handle Mocking scenarios in Material/Radix UI (Scenario 85)?](#q95-how-do-you-handle-mocking-scenarios-in-materialradix-ui-scenario-85) <span class="intermediate">Intermediate</span>
-96. [How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 86)?](#q96-how-do-you-handle-async-patterns-scenarios-in-materialradix-ui-scenario-86) <span class="intermediate">Intermediate</span>
-97. [How do you handle Error Handling scenarios in Material/Radix UI (Scenario 87)?](#q97-how-do-you-handle-error-handling-scenarios-in-materialradix-ui-scenario-87) <span class="intermediate">Intermediate</span>
-98. [How do you handle CI/CD scenarios in Material/Radix UI (Scenario 88)?](#q98-how-do-you-handle-cicd-scenarios-in-materialradix-ui-scenario-88) <span class="intermediate">Intermediate</span>
-99. [How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 89)?](#q99-how-do-you-handle-edge-cases-scenarios-in-materialradix-ui-scenario-89) <span class="intermediate">Intermediate</span>
-100. [How do you handle Performance scenarios in Material/Radix UI (Scenario 90)?](#q100-how-do-you-handle-performance-scenarios-in-materialradix-ui-scenario-90) <span class="intermediate">Intermediate</span>
+11. [What is the `asChild` prop in Radix UI?](#q11-what-is-the-aschild-prop-in-radix-ui) <span class="intermediate">Intermediate</span>
+12. [How do you override default MUI component styles globally?](#q12-how-do-you-override-default-mui-component-styles-globally) <span class="advanced">Advanced</span>
+13. [What is the Box component in MUI?](#q13-what-is-the-box-component-in-mui) <span class="beginner">Beginner</span>
+14. [How do you use useMediaQuery in MUI?](#q14-how-do-you-use-usemediaquery-in-mui) <span class="intermediate">Intermediate</span>
+15. [What is the difference between Radix UI and Headless UI?](#q15-what-is-the-difference-between-radix-ui-and-headless-ui) <span class="intermediate">Intermediate</span>
+16. [How do you handle z-index issues in MUI?](#q16-how-do-you-handle-z-index-issues-in-mui) <span class="intermediate">Intermediate</span>
+17. [How do you make a Radix UI Dialog accessible?](#q17-how-do-you-make-a-radix-ui-dialog-accessible) <span class="beginner">Beginner</span>
+18. [How do you create a layout with MUI Grid?](#q18-how-do-you-create-a-layout-with-mui-grid) <span class="beginner">Beginner</span>
+19. [What is the Portal component used for?](#q19-what-is-the-portal-component-used-for) <span class="intermediate">Intermediate</span>
+20. [How do you enable CSS variables in MUI?](#q20-how-do-you-enable-css-variables-in-mui) <span class="advanced">Advanced</span>
+21. [How do you handle form validation with MUI?](#q21-how-do-you-handle-form-validation-with-mui) <span class="intermediate">Intermediate</span>
+22. [What is the Typography component?](#q22-what-is-the-typography-component) <span class="beginner">Beginner</span>
+23. [What is the Grid system in MUI?](#q23-what-is-the-grid-system-in-mui) <span class="beginner">Beginner</span>
+24. [What is the Box component?](#q24-what-is-the-box-component) <span class="beginner">Beginner</span>
+25. [What is the Stack component?](#q25-what-is-the-stack-component) <span class="beginner">Beginner</span>
+26. [How do you override theme defaults?](#q26-how-do-you-override-theme-defaults) <span class="intermediate">Intermediate</span>
+27. [What is the `sx` prop performance cost?](#q27-what-is-the-sx-prop-performance-cost) <span class="advanced">Advanced</span>
+28. [How do you use Icons in MUI?](#q28-how-do-you-use-icons-in-mui) <span class="beginner">Beginner</span>
+29. [What is the Typography variants?](#q29-what-is-the-typography-variants) <span class="beginner">Beginner</span>
+30. [How do you handle Date Pickers?](#q30-how-do-you-handle-date-pickers) <span class="intermediate">Intermediate</span>
+31. [What is the DataGrid component?](#q31-what-is-the-datagrid-component) <span class="advanced">Advanced</span>
+32. [How do you make a responsive drawer?](#q32-how-do-you-make-a-responsive-drawer) <span class="intermediate">Intermediate</span>
+33. [What is `CssBaseline`?](#q33-what-is-cssbaseline) <span class="beginner">Beginner</span>
+34. [How do you use custom fonts?](#q34-how-do-you-use-custom-fonts) <span class="intermediate">Intermediate</span>
+35. [What is the `makeStyles` (legacy)?](#q35-what-is-the-makestyles-legacy) <span class="intermediate">Intermediate</span>
+36. [How do you migrate from v4 to v5?](#q36-how-do-you-migrate-from-v4-to-v5) <span class="advanced">Advanced</span>
+37. [What is Radix Primitives?](#q37-what-is-radix-primitives) <span class="beginner">Beginner</span>
+38. [How does Radix handle focus?](#q38-how-does-radix-handle-focus) <span class="intermediate">Intermediate</span>
+39. [What is `asChild` in Radix?](#q39-what-is-aschild-in-radix) <span class="intermediate">Intermediate</span>
+40. [How do you style Radix with CSS Modules?](#q40-how-do-you-style-radix-with-css-modules) <span class="beginner">Beginner</span>
+41. [How do you animate Radix components?](#q41-how-do-you-animate-radix-components) <span class="intermediate">Intermediate</span>
+42. [What is Radix Colors?](#q42-what-is-radix-colors) <span class="beginner">Beginner</span>
+43. [How do you use Radix Icons?](#q43-how-do-you-use-radix-icons) <span class="beginner">Beginner</span>
+44. [What is `Portal` in Radix?](#q44-what-is-portal-in-radix) <span class="intermediate">Intermediate</span>
+45. [Difference between Popover and Tooltip?](#q45-difference-between-popover-and-tooltip) <span class="intermediate">Intermediate</span>
+46. [What is Accordion in Radix?](#q46-what-is-accordion-in-radix) <span class="beginner">Beginner</span>
+47. [How do you handle form constraints in Radix?](#q47-how-do-you-handle-form-constraints-in-radix) <span class="intermediate">Intermediate</span>
+48. [What is the `Slot` utility?](#q48-what-is-the-slot-utility) <span class="advanced">Advanced</span>
+49. [How do you implement Toast?](#q49-how-do-you-implement-toast) <span class="intermediate">Intermediate</span>
+50. [What is `VisuallyHidden`?](#q50-what-is-visuallyhidden) <span class="beginner">Beginner</span>
+51. [How do you server render Radix?](#q51-how-do-you-server-render-radix) <span class="intermediate">Intermediate</span>
+52. [What is Shadcn UI?](#q52-what-is-shadcn-ui) <span class="intermediate">Intermediate</span>
+53. [How does Shadcn differ from MUI?](#q53-how-does-shadcn-differ-from-mui) <span class="intermediate">Intermediate</span>
+54. [What is Headless UI?](#q54-what-is-headless-ui) <span class="intermediate">Intermediate</span>
+55. [How do you create a dark mode switch in MUI?](#q55-how-do-you-create-a-dark-mode-switch-in-mui) <span class="beginner">Beginner</span>
+56. [What is `useTheme` hook?](#q56-what-is-usetheme-hook) <span class="beginner">Beginner</span>
+57. [How do you customize breakpoints?](#q57-how-do-you-customize-breakpoints) <span class="intermediate">Intermediate</span>
+58. [What is the `Container` component?](#q58-what-is-the-container-component) <span class="beginner">Beginner</span>
+59. [How do you use Skeleton loading?](#q59-how-do-you-use-skeleton-loading) <span class="beginner">Beginner</span>
+60. [What is the `Autocomplete` component?](#q60-what-is-the-autocomplete-component) <span class="intermediate">Intermediate</span>
+61. [How do you handle virtualized lists in MUI?](#q61-how-do-you-handle-virtualized-lists-in-mui) <span class="advanced">Advanced</span>
+62. [What is the `ClickAwayListener`?](#q62-what-is-the-clickawaylistener) <span class="intermediate">Intermediate</span>
+63. [How do you use `Backdrop`?](#q63-how-do-you-use-backdrop) <span class="beginner">Beginner</span>
+64. [What is `SpeedDial`?](#q64-what-is-speeddial) <span class="intermediate">Intermediate</span>
+65. [How do you customize scrollbars in MUI?](#q65-how-do-you-customize-scrollbars-in-mui) <span class="intermediate">Intermediate</span>
+66. [What is `Collapse` transition?](#q66-what-is-collapse-transition) <span class="beginner">Beginner</span>
+67. [How do you use `Zoom` transition?](#q67-how-do-you-use-zoom-transition) <span class="beginner">Beginner</span>
+68. [What is `Grow` transition?](#q68-what-is-grow-transition) <span class="beginner">Beginner</span>
+69. [What is `Slide` transition?](#q69-what-is-slide-transition) <span class="beginner">Beginner</span>
+70. [How do you use `Fade` transition?](#q70-how-do-you-use-fade-transition) <span class="beginner">Beginner</span>
+71. [What is `GlobalStyles`?](#q71-what-is-globalstyles) <span class="intermediate">Intermediate</span>
+72. [How do you theme variants?](#q72-how-do-you-theme-variants) <span class="intermediate">Intermediate</span>
+73. [What is `shouldForwardProp`?](#q73-what-is-shouldforwardprop) <span class="advanced">Advanced</span>
+74. [How do you use `alpha` utility?](#q74-how-do-you-use-alpha-utility) <span class="intermediate">Intermediate</span>
+75. [What is `darken`/`lighten`?](#q75-what-is-darkenlighten) <span class="intermediate">Intermediate</span>
+76. [How do you use `useScrollTrigger`?](#q76-how-do-you-use-usescrolltrigger) <span class="intermediate">Intermediate</span>
+77. [What is `FocusTrap`?](#q77-what-is-focustrap) <span class="intermediate">Intermediate</span>
+78. [How do you use `NoSsr`?](#q78-how-do-you-use-nossr) <span class="intermediate">Intermediate</span>
+79. [What is `TextareaAutosize`?](#q79-what-is-textareaautosize) <span class="beginner">Beginner</span>
+80. [How do you use `Rating`?](#q80-how-do-you-use-rating) <span class="beginner">Beginner</span>
+81. [What is `Timeline`?](#q81-what-is-timeline) <span class="intermediate">Intermediate</span>
+82. [How do you use `TreeView`?](#q82-how-do-you-use-treeview) <span class="intermediate">Intermediate</span>
+83. [What is `Masonry`?](#q83-what-is-masonry) <span class="intermediate">Intermediate</span>
+84. [How do you use `Snackbar`?](#q84-how-do-you-use-snackbar) <span class="beginner">Beginner</span>
+85. [What is `Alert`?](#q85-what-is-alert) <span class="beginner">Beginner</span>
+86. [How do you customize shadow?](#q86-how-do-you-customize-shadow) <span class="intermediate">Intermediate</span>
+87. [What is `Paper`?](#q87-what-is-paper) <span class="beginner">Beginner</span>
+88. [How do you use `Card`?](#q88-how-do-you-use-card) <span class="beginner">Beginner</span>
+89. [What is `Divider`?](#q89-what-is-divider) <span class="beginner">Beginner</span>
+90. [How do you use `Chip`?](#q90-how-do-you-use-chip) <span class="beginner">Beginner</span>
+91. [What is `Badge`?](#q91-what-is-badge) <span class="beginner">Beginner</span>
+92. [How do you use `Avatar`?](#q92-how-do-you-use-avatar) <span class="beginner">Beginner</span>
+93. [What is `LinearProgress`?](#q93-what-is-linearprogress) <span class="beginner">Beginner</span>
+94. [What is `CircularProgress`?](#q94-what-is-circularprogress) <span class="beginner">Beginner</span>
+95. [How do you use `Tabs`?](#q95-how-do-you-use-tabs) <span class="intermediate">Intermediate</span>
+96. [What is `BottomNavigation`?](#q96-what-is-bottomnavigation) <span class="intermediate">Intermediate</span>
+97. [How do you use `Breadcrumbs`?](#q97-how-do-you-use-breadcrumbs) <span class="beginner">Beginner</span>
+98. [What is `Link` component?](#q98-what-is-link-component) <span class="beginner">Beginner</span>
+99. [How do you use `Stepper`?](#q99-how-do-you-use-stepper) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -114,15 +113,7 @@ Use `createTheme` and `ThemeProvider`.
 
 **Code Example**:
 ```javascript
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#ff4400',
-    },
-  },
-});
-
-<ThemeProvider theme={theme}><App /></ThemeProvider>
+const theme = createTheme({ palette: { primary: { main: '#ff4400' } } });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -154,11 +145,7 @@ Radix primitives support both. Controlled uses `value`/`onValueChange`. Uncontro
 
 **Code Example**:
 ```javascript
-// Controlled
-<Accordion value={value} onValueChange={setValue} />
-
-// Uncontrolled
-<Accordion defaultValue="item-1" />
+<Accordion value={val} onValueChange={setVal} /> vs <Accordion defaultValue="1" />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -174,11 +161,7 @@ Use path imports instead of top-level imports to aid tree-shaking.
 
 **Code Example**:
 ```javascript
-// Good
-import Button from '@mui/material/Button';
-
-// Bad (sometimes)
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button'; // Better than import { Button }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -194,13 +177,7 @@ Radix provides `Dialog.Root`, `Dialog.Trigger`, `Dialog.Portal`, `Dialog.Overlay
 
 **Code Example**:
 ```javascript
-<Dialog.Root>
-  <Dialog.Trigger>Open</Dialog.Trigger>
-  <Dialog.Portal>
-    <Dialog.Overlay />
-    <Dialog.Content>...</Dialog.Content>
-  </Dialog.Portal>
-</Dialog.Root>
+<Dialog.Root><Dialog.Trigger>Open</Dialog.Trigger><Dialog.Content>...</Dialog.Content></Dialog.Root>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -232,7 +209,7 @@ Radix components are unstyled. Just add `className` with Tailwind classes.
 
 **Code Example**:
 ```javascript
-<Dialog.Content className="fixed top-[50%] left-[50%] bg-white p-4 rounded">
+<Dialog.Content className="fixed bg-white p-4 rounded">
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -248,10 +225,7 @@ Use the `styled` utility.
 
 **Code Example**:
 ```javascript
-const MyButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.primary.main,
-  padding: theme.spacing(2),
-}));
+const MyButton = styled(Button)({ color: 'red' });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -283,2173 +257,1431 @@ Pass a mode ('light' or 'dark') to the palette in `createTheme`.
 
 **Code Example**:
 ```javascript
-const theme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
+const theme = createTheme({ palette: { mode: 'dark' } });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q11: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 1)?
+### Q11: What is the `asChild` prop in Radix UI?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+It allows a Radix component to pass its functionality to its child element instead of rendering its own DOM node.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 1', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Dialog.Trigger asChild><button>Open</button></Dialog.Trigger>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q12: How do you handle Performance scenarios in Material/Radix UI (Scenario 2)?
+### Q12: How do you override default MUI component styles globally?
 
-**Difficulty**: Intermediate
-
-**Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
-
-**Code Example**:
-```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 2', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
-```
+**Difficulty**: Advanced
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q13: How do you handle Security scenarios in Material/Radix UI (Scenario 3)?
-
-**Difficulty**: Intermediate
-
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Use the `components` key in `createTheme`.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 3', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+createTheme({ components: { MuiButton: { styleOverrides: { root: { fontSize: '1rem' } } } } })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q14: How do you handle Integration scenarios in Material/Radix UI (Scenario 4)?
+### Q13: What is the Box component in MUI?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+A wrapper component that provides access to system props (margin, padding, colors, flexbox).
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 4', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Box m={2} p={1} bgcolor="grey.100">Content</Box>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q15: How do you handle Mocking scenarios in Material/Radix UI (Scenario 5)?
+### Q14: How do you use useMediaQuery in MUI?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+A hook to perform media queries in JS.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 5', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const matches = useMediaQuery('(min-width:600px)');
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q16: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 6)?
+### Q15: What is the difference between Radix UI and Headless UI?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Both are headless. Radix offers more complex primitives (like Dialog, Popover, Select) with robust a11y. Headless UI is by Tailwind Labs.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 6', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Choice depends on ecosystem preference
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q17: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 7)?
+### Q16: How do you handle z-index issues in MUI?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Use the `zIndex` value from the theme.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 7', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+sx={{ zIndex: 'tooltip' }}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q18: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 8)?
+### Q17: How do you make a Radix UI Dialog accessible?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Radix handles focus trapping and screen reader announcements automatically.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 8', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Just use the primitives correctly
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q19: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 9)?
+### Q18: How do you create a layout with MUI Grid?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Use `Grid` container and `Grid` items with `xs`, `md`, `lg` props.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 9', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Grid container><Grid item xs={6}>Left</Grid><Grid item xs={6}>Right</Grid></Grid>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q20: How do you handle Performance scenarios in Material/Radix UI (Scenario 10)?
+### Q19: What is the Portal component used for?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+To render children into a DOM node that exists outside the DOM hierarchy of the parent component (e.g., for Modals).
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 10', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Portal><div>I am outside root</div></Portal>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q21: How do you handle Security scenarios in Material/Radix UI (Scenario 11)?
+### Q20: How do you enable CSS variables in MUI?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Set `cssVariables: true` in the theme configuration (MUI v6+ or experimental in v5).
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 11', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+createTheme({ cssVariables: true })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q22: How do you handle Integration scenarios in Material/Radix UI (Scenario 12)?
+### Q21: How do you handle form validation with MUI?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+MUI integrates well with libraries like React Hook Form. Pass `error` and `helperText` props.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 12', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<TextField error={!!errors.email} helperText={errors.email?.message} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q23: How do you handle Mocking scenarios in Material/Radix UI (Scenario 13)?
+### Q22: What is the Typography component?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Used to present design and content clearly and efficiently. It maps to HTML tags like h1, p, span.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 13', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Typography variant="h4">Title</Typography>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q24: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 14)?
+### Q23: What is the Grid system in MUI?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+12-column responsive layout.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 14', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Grid container><Grid item xs={6}></Grid></Grid>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q25: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 15)?
+### Q24: What is the Box component?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Wrapper for CSS utilities.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 15', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Box m={2} bg='primary.main' />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q26: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 16)?
+### Q25: What is the Stack component?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Flexbox layout for 1D lists.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 16', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Stack spacing={2}>...</Stack>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q27: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 17)?
+### Q26: How do you override theme defaults?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Using `createTheme`.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 17', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+createTheme({ components: { MuiButton: ... } })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q28: How do you handle Performance scenarios in Material/Radix UI (Scenario 18)?
+### Q27: What is the `sx` prop performance cost?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Slightly slower than styled-components due to runtime calculation.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 18', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Use styled() for high perf lists
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q29: How do you handle Security scenarios in Material/Radix UI (Scenario 19)?
+### Q28: How do you use Icons in MUI?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Import from `@mui/icons-material`.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 19', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<DeleteIcon />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q30: How do you handle Integration scenarios in Material/Radix UI (Scenario 20)?
+### Q29: What is the Typography variants?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+h1-h6, subtitle, body, caption.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 20', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Typography variant='h1'>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q31: How do you handle Mocking scenarios in Material/Radix UI (Scenario 21)?
+### Q30: How do you handle Date Pickers?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Use `@mui/x-date-pickers`.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 21', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<DatePicker />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q32: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 22)?
+### Q31: What is the DataGrid component?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Powerful table for large datasets.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 22', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<DataGrid rows={rows} columns={cols} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q33: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 23)?
+### Q32: How do you make a responsive drawer?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Use `Drawer` with `hidden` props or `useMediaQuery`.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 23', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Drawer variant='temporary' />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q34: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 24)?
+### Q33: What is `CssBaseline`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Normalizes CSS across browsers.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 24', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<CssBaseline />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q35: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 25)?
+### Q34: How do you use custom fonts?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Load font and set `typography.fontFamily` in theme.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 25', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+theme.typography.fontFamily = 'Roboto'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q36: How do you handle Performance scenarios in Material/Radix UI (Scenario 26)?
+### Q35: What is the `makeStyles` (legacy)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+JSS hook in v4. Deprecated in v5.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 26', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const useStyles = makeStyles(...) 
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q37: How do you handle Security scenarios in Material/Radix UI (Scenario 27)?
+### Q36: How do you migrate from v4 to v5?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Run codemods, switch to emotion.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 27', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+npx @mui/codemod v5.0.0/preset-safe .
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q38: How do you handle Integration scenarios in Material/Radix UI (Scenario 28)?
+### Q37: What is Radix Primitives?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Unstyled, accessible UI components.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 28', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+import * as Dialog from '@radix-ui/react-dialog'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q39: How do you handle Mocking scenarios in Material/Radix UI (Scenario 29)?
+### Q38: How does Radix handle focus?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Automatically traps focus in modals.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 29', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Built-in FocusScope
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q40: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 30)?
+### Q39: What is `asChild` in Radix?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Merges props onto child element.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 30', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Trigger asChild><button>Open</button></Trigger>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q41: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 31)?
+### Q40: How do you style Radix with CSS Modules?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Pass `className`.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 31', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Dialog.Content className={styles.content} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q42: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 32)?
+### Q41: How do you animate Radix components?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Use CSS keyframes on `data-state` attribute.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 32', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+&[data-state='open'] { animation: fadeIn ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q43: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 33)?
+### Q42: What is Radix Colors?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Color system for accessible contrast.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 33', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+import { blue, slate } from '@radix-ui/colors'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q44: How do you handle Performance scenarios in Material/Radix UI (Scenario 34)?
+### Q43: How do you use Radix Icons?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+SVG icons.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 34', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<SunIcon />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q45: How do you handle Security scenarios in Material/Radix UI (Scenario 35)?
+### Q44: What is `Portal` in Radix?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Renders content into body.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 35', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Dialog.Portal>...</Dialog.Portal>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q46: How do you handle Integration scenarios in Material/Radix UI (Scenario 36)?
+### Q45: Difference between Popover and Tooltip?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Tooltip is for hover info, Popover is for interactive content.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 36', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Popover traps focus
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q47: How do you handle Mocking scenarios in Material/Radix UI (Scenario 37)?
+### Q46: What is Accordion in Radix?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Collapsible sections.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 37', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Accordion.Root>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q48: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 38)?
+### Q47: How do you handle form constraints in Radix?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Use `Label` and standard HTML constraints.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 38', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Label>Name</Label>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q49: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 39)?
+### Q48: What is the `Slot` utility?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Merges props for `asChild` pattern.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 39', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+import { Slot } from '@radix-ui/react-slot'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q50: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 40)?
+### Q49: How do you implement Toast?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Use `Toast` primitive.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 40', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Toast.Provider>...
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q51: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 41)?
+### Q50: What is `VisuallyHidden`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Hide content from screen but keep for screen readers.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 41', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<VisuallyHidden>Label</VisuallyHidden>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you handle Performance scenarios in Material/Radix UI (Scenario 42)?
+### Q51: How do you server render Radix?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Works with SSR, supports hydration.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 42', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Standard React SSR
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q53: How do you handle Security scenarios in Material/Radix UI (Scenario 43)?
+### Q52: What is Shadcn UI?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Copy-paste components built on Radix + Tailwind.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 43', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+npx shadcn-ui@latest add button
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q54: How do you handle Integration scenarios in Material/Radix UI (Scenario 44)?
+### Q53: How does Shadcn differ from MUI?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Shadcn is not a library, it's code you own. MUI is a library.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 44', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// You edit the component files directly
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q55: How do you handle Mocking scenarios in Material/Radix UI (Scenario 45)?
+### Q54: What is Headless UI?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Similar to Radix, by Tailwind team.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 45', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+import { Menu } from '@headlessui/react'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 46)?
+### Q55: How do you create a dark mode switch in MUI?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Toggle context that updates theme mode.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 46', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+setMode(prev => prev === 'light' ? 'dark' : 'light')
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 47)?
+### Q56: What is `useTheme` hook?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Access theme variables in component.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 47', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const theme = useTheme();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q58: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 48)?
+### Q57: How do you customize breakpoints?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+In `createTheme`.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 48', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+breakpoints: { values: { mobile: 0, tablet: 640 } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 49)?
+### Q58: What is the `Container` component?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Centers content horizontally.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 49', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Container maxWidth='lg'>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q60: How do you handle Performance scenarios in Material/Radix UI (Scenario 50)?
+### Q59: How do you use Skeleton loading?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Placeholder for loading states.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 50', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Skeleton variant='rectangular' />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q61: How do you handle Security scenarios in Material/Radix UI (Scenario 51)?
+### Q60: What is the `Autocomplete` component?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Input with suggestions.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 51', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Autocomplete options={...} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q62: How do you handle Integration scenarios in Material/Radix UI (Scenario 52)?
+### Q61: How do you handle virtualized lists in MUI?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Use `react-window` with MUI List.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 52', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Windowing for performance
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: How do you handle Mocking scenarios in Material/Radix UI (Scenario 53)?
+### Q62: What is the `ClickAwayListener`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Detect clicks outside element.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 53', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<ClickAwayListener onClickAway={...}>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 54)?
+### Q63: How do you use `Backdrop`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Dimmed layer behind overlays.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 54', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Backdrop open={true} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 55)?
+### Q64: What is `SpeedDial`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Floating action button that expands.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 55', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<SpeedDial icon={<SpeedDialIcon />} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q66: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 56)?
+### Q65: How do you customize scrollbars in MUI?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Global CSS override in CssBaseline.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 56', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+styleOverrides: { body: { '&::-webkit-scrollbar': ... } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 57)?
+### Q66: What is `Collapse` transition?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Vertical expand/collapse.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 57', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Collapse in={open}>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you handle Performance scenarios in Material/Radix UI (Scenario 58)?
+### Q67: How do you use `Zoom` transition?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Scale animation.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 58', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Zoom in={true}>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you handle Security scenarios in Material/Radix UI (Scenario 59)?
+### Q68: What is `Grow` transition?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Expand from center.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 59', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Grow in={true}>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q70: How do you handle Integration scenarios in Material/Radix UI (Scenario 60)?
+### Q69: What is `Slide` transition?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Slide from edge.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 60', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Slide direction='up' in={true}>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you handle Mocking scenarios in Material/Radix UI (Scenario 61)?
+### Q70: How do you use `Fade` transition?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Opacity animation.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 61', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Fade in={true}>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 62)?
+### Q71: What is `GlobalStyles`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Global CSS injection.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 62', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<GlobalStyles styles={{ h1: { color: 'red' } }} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 63)?
+### Q72: How do you theme variants?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Add new variants in theme.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 63', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+components: { MuiButton: { variants: [...] } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 64)?
+### Q73: What is `shouldForwardProp`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Filter props passed to DOM in styled components.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 64', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+styled('div', { shouldForwardProp: (p) => p !== 'active' })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q75: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 65)?
+### Q74: How do you use `alpha` utility?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Add opacity to color.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 65', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+bgcolor: alpha(theme.palette.primary.main, 0.5)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q76: How do you handle Performance scenarios in Material/Radix UI (Scenario 66)?
+### Q75: What is `darken`/`lighten`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Adjust color brightness.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 66', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+color: darken('red', 0.2)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q77: How do you handle Security scenarios in Material/Radix UI (Scenario 67)?
+### Q76: How do you use `useScrollTrigger`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Detect scroll events for app bars.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 67', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const trigger = useScrollTrigger();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q78: How do you handle Integration scenarios in Material/Radix UI (Scenario 68)?
+### Q77: What is `FocusTrap`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Keeps focus within element.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 68', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<FocusTrap open>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you handle Mocking scenarios in Material/Radix UI (Scenario 69)?
+### Q78: How do you use `NoSsr`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Defer rendering to client side.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 69', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<NoSsr>Client Only</NoSsr>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q80: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 70)?
+### Q79: What is `TextareaAutosize`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Textarea that grows with content.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 70', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<TextareaAutosize />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 71)?
+### Q80: How do you use `Rating`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Star rating input.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 71', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Rating value={4} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 72)?
+### Q81: What is `Timeline`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Vertical list of events.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 72', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Timeline>...</Timeline>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 73)?
+### Q82: How do you use `TreeView`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Hierarchical list.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 73', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<TreeView>...</TreeView>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q84: How do you handle Performance scenarios in Material/Radix UI (Scenario 74)?
+### Q83: What is `Masonry`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Masonry layout (Pinterest style).
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 74', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Masonry>...</Masonry>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q85: How do you handle Security scenarios in Material/Radix UI (Scenario 75)?
+### Q84: How do you use `Snackbar`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Brief notifications.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 75', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Snackbar message='Saved' />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q86: How do you handle Integration scenarios in Material/Radix UI (Scenario 76)?
+### Q85: What is `Alert`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Feedback message.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 76', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Alert severity='error'>Error</Alert>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle Mocking scenarios in Material/Radix UI (Scenario 77)?
+### Q86: How do you customize shadow?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Edit `shadows` array in theme.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 77', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+theme.shadows[1] = '0 2px 4px black'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q88: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 78)?
+### Q87: What is `Paper`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Surface with shadow.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 78', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Paper elevation={3} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 79)?
+### Q88: How do you use `Card`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Container for content.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 79', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Card><CardContent>...</CardContent></Card>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q90: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 80)?
+### Q89: What is `Divider`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Line separator.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 80', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Divider />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q91: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 81)?
+### Q90: How do you use `Chip`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Compact element (tag).
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 81', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Chip label='Tag' onDelete={...} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q92: How do you handle Performance scenarios in Material/Radix UI (Scenario 82)?
+### Q91: What is `Badge`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Small status indicator.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 82', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Badge badgeContent={4} color='primary'>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: How do you handle Security scenarios in Material/Radix UI (Scenario 83)?
+### Q92: How do you use `Avatar`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+User image.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Material/Radix UI
-test('scenario 83', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Avatar src='/img.jpg' />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you handle Integration scenarios in Material/Radix UI (Scenario 84)?
+### Q93: What is `LinearProgress`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Loading bar.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Material/Radix UI
-test('scenario 84', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<LinearProgress />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you handle Mocking scenarios in Material/Radix UI (Scenario 85)?
+### Q94: What is `CircularProgress`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Loading spinner.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Material/Radix UI
-test('scenario 85', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<CircularProgress />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q96: How do you handle Async Patterns scenarios in Material/Radix UI (Scenario 86)?
+### Q95: How do you use `Tabs`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Tabbed navigation.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Material/Radix UI
-test('scenario 86', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Tabs><Tab label='One' /></Tabs>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you handle Error Handling scenarios in Material/Radix UI (Scenario 87)?
+### Q96: What is `BottomNavigation`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Mobile nav bar.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Material/Radix UI
-test('scenario 87', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<BottomNavigation>...</BottomNavigation>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you handle CI/CD scenarios in Material/Radix UI (Scenario 88)?
+### Q97: How do you use `Breadcrumbs`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Navigation path.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Material/Radix UI
-test('scenario 88', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Breadcrumbs>...</Breadcrumbs>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you handle Edge Cases scenarios in Material/Radix UI (Scenario 89)?
+### Q98: What is `Link` component?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Styled anchor tag.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Material/Radix UI
-test('scenario 89', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Link href='#'>Link</Link>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q100: How do you handle Performance scenarios in Material/Radix UI (Scenario 90)?
+### Q99: How do you use `Stepper`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Step-by-step wizard.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Material/Radix UI
-test('scenario 90', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Stepper activeStep={1}>...</Stepper>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

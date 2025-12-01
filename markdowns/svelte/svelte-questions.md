@@ -3,105 +3,107 @@
 ## Table of Contents
 
 1. [What is the lifecycle of a Svelte component?](#q1-what-is-the-lifecycle-of-a-svelte-component) <span class="beginner">Beginner</span>
-2. [How do you create a reactive declaration in Svelte?](#q2-how-do-you-create-a-reactive-declaration-in-svelte) <span class="beginner">Beginner</span>
-3. [How do you share state between components in Svelte?](#q3-how-do-you-share-state-between-components-in-svelte) <span class="intermediate">Intermediate</span>
-4. [How do you dispatch custom events in Svelte?](#q4-how-do-you-dispatch-custom-events-in-svelte) <span class="intermediate">Intermediate</span>
-5. [How do you use slots in Svelte?](#q5-how-do-you-use-slots-in-svelte) <span class="beginner">Beginner</span>
+2. [How do you create a reactive declaration?](#q2-how-do-you-create-a-reactive-declaration) <span class="beginner">Beginner</span>
+3. [How do you share state between components?](#q3-how-do-you-share-state-between-components) <span class="intermediate">Intermediate</span>
+4. [How do you dispatch custom events?](#q4-how-do-you-dispatch-custom-events) <span class="intermediate">Intermediate</span>
+5. [How do you use slots?](#q5-how-do-you-use-slots) <span class="beginner">Beginner</span>
 6. [How do you optimize rendering with `keyed` each blocks?](#q6-how-do-you-optimize-rendering-with-keyed-each-blocks) <span class="intermediate">Intermediate</span>
-7. [How do you bind form inputs in Svelte?](#q7-how-do-you-bind-form-inputs-in-svelte) <span class="beginner">Beginner</span>
-8. [How do you use Svelte actions (`use:action`)?](#q8-how-do-you-use-svelte-actions-use:action) <span class="advanced">Advanced</span>
-9. [How do you handle transitions in Svelte?](#q9-how-do-you-handle-transitions-in-svelte) <span class="intermediate">Intermediate</span>
-10. [What is `tick()` in Svelte?](#q10-what-is-tick-in-svelte) <span class="advanced">Advanced</span>
-11. [How do you handle Edge Cases scenarios in Svelte (Scenario 1)?](#q11-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-1) <span class="intermediate">Intermediate</span>
-12. [How do you handle Performance scenarios in Svelte (Scenario 2)?](#q12-how-do-you-handle-performance-scenarios-in-svelte-scenario-2) <span class="intermediate">Intermediate</span>
-13. [How do you handle Security scenarios in Svelte (Scenario 3)?](#q13-how-do-you-handle-security-scenarios-in-svelte-scenario-3) <span class="intermediate">Intermediate</span>
-14. [How do you handle Integration scenarios in Svelte (Scenario 4)?](#q14-how-do-you-handle-integration-scenarios-in-svelte-scenario-4) <span class="intermediate">Intermediate</span>
-15. [How do you handle Mocking scenarios in Svelte (Scenario 5)?](#q15-how-do-you-handle-mocking-scenarios-in-svelte-scenario-5) <span class="intermediate">Intermediate</span>
-16. [How do you handle Async Patterns scenarios in Svelte (Scenario 6)?](#q16-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-6) <span class="intermediate">Intermediate</span>
-17. [How do you handle Error Handling scenarios in Svelte (Scenario 7)?](#q17-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-7) <span class="intermediate">Intermediate</span>
-18. [How do you handle CI/CD scenarios in Svelte (Scenario 8)?](#q18-how-do-you-handle-cicd-scenarios-in-svelte-scenario-8) <span class="intermediate">Intermediate</span>
-19. [How do you handle Edge Cases scenarios in Svelte (Scenario 9)?](#q19-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-9) <span class="intermediate">Intermediate</span>
-20. [How do you handle Performance scenarios in Svelte (Scenario 10)?](#q20-how-do-you-handle-performance-scenarios-in-svelte-scenario-10) <span class="intermediate">Intermediate</span>
-21. [How do you handle Security scenarios in Svelte (Scenario 11)?](#q21-how-do-you-handle-security-scenarios-in-svelte-scenario-11) <span class="intermediate">Intermediate</span>
-22. [How do you handle Integration scenarios in Svelte (Scenario 12)?](#q22-how-do-you-handle-integration-scenarios-in-svelte-scenario-12) <span class="intermediate">Intermediate</span>
-23. [How do you handle Mocking scenarios in Svelte (Scenario 13)?](#q23-how-do-you-handle-mocking-scenarios-in-svelte-scenario-13) <span class="intermediate">Intermediate</span>
-24. [How do you handle Async Patterns scenarios in Svelte (Scenario 14)?](#q24-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-14) <span class="intermediate">Intermediate</span>
-25. [How do you handle Error Handling scenarios in Svelte (Scenario 15)?](#q25-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-15) <span class="intermediate">Intermediate</span>
-26. [How do you handle CI/CD scenarios in Svelte (Scenario 16)?](#q26-how-do-you-handle-cicd-scenarios-in-svelte-scenario-16) <span class="intermediate">Intermediate</span>
-27. [How do you handle Edge Cases scenarios in Svelte (Scenario 17)?](#q27-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-17) <span class="intermediate">Intermediate</span>
-28. [How do you handle Performance scenarios in Svelte (Scenario 18)?](#q28-how-do-you-handle-performance-scenarios-in-svelte-scenario-18) <span class="intermediate">Intermediate</span>
-29. [How do you handle Security scenarios in Svelte (Scenario 19)?](#q29-how-do-you-handle-security-scenarios-in-svelte-scenario-19) <span class="intermediate">Intermediate</span>
-30. [How do you handle Integration scenarios in Svelte (Scenario 20)?](#q30-how-do-you-handle-integration-scenarios-in-svelte-scenario-20) <span class="intermediate">Intermediate</span>
-31. [How do you handle Mocking scenarios in Svelte (Scenario 21)?](#q31-how-do-you-handle-mocking-scenarios-in-svelte-scenario-21) <span class="intermediate">Intermediate</span>
-32. [How do you handle Async Patterns scenarios in Svelte (Scenario 22)?](#q32-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-22) <span class="intermediate">Intermediate</span>
-33. [How do you handle Error Handling scenarios in Svelte (Scenario 23)?](#q33-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-23) <span class="intermediate">Intermediate</span>
-34. [How do you handle CI/CD scenarios in Svelte (Scenario 24)?](#q34-how-do-you-handle-cicd-scenarios-in-svelte-scenario-24) <span class="intermediate">Intermediate</span>
-35. [How do you handle Edge Cases scenarios in Svelte (Scenario 25)?](#q35-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-25) <span class="intermediate">Intermediate</span>
-36. [How do you handle Performance scenarios in Svelte (Scenario 26)?](#q36-how-do-you-handle-performance-scenarios-in-svelte-scenario-26) <span class="intermediate">Intermediate</span>
-37. [How do you handle Security scenarios in Svelte (Scenario 27)?](#q37-how-do-you-handle-security-scenarios-in-svelte-scenario-27) <span class="intermediate">Intermediate</span>
-38. [How do you handle Integration scenarios in Svelte (Scenario 28)?](#q38-how-do-you-handle-integration-scenarios-in-svelte-scenario-28) <span class="intermediate">Intermediate</span>
-39. [How do you handle Mocking scenarios in Svelte (Scenario 29)?](#q39-how-do-you-handle-mocking-scenarios-in-svelte-scenario-29) <span class="intermediate">Intermediate</span>
-40. [How do you handle Async Patterns scenarios in Svelte (Scenario 30)?](#q40-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-30) <span class="intermediate">Intermediate</span>
-41. [How do you handle Error Handling scenarios in Svelte (Scenario 31)?](#q41-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-31) <span class="intermediate">Intermediate</span>
-42. [How do you handle CI/CD scenarios in Svelte (Scenario 32)?](#q42-how-do-you-handle-cicd-scenarios-in-svelte-scenario-32) <span class="intermediate">Intermediate</span>
-43. [How do you handle Edge Cases scenarios in Svelte (Scenario 33)?](#q43-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-33) <span class="intermediate">Intermediate</span>
-44. [How do you handle Performance scenarios in Svelte (Scenario 34)?](#q44-how-do-you-handle-performance-scenarios-in-svelte-scenario-34) <span class="intermediate">Intermediate</span>
-45. [How do you handle Security scenarios in Svelte (Scenario 35)?](#q45-how-do-you-handle-security-scenarios-in-svelte-scenario-35) <span class="intermediate">Intermediate</span>
-46. [How do you handle Integration scenarios in Svelte (Scenario 36)?](#q46-how-do-you-handle-integration-scenarios-in-svelte-scenario-36) <span class="intermediate">Intermediate</span>
-47. [How do you handle Mocking scenarios in Svelte (Scenario 37)?](#q47-how-do-you-handle-mocking-scenarios-in-svelte-scenario-37) <span class="intermediate">Intermediate</span>
-48. [How do you handle Async Patterns scenarios in Svelte (Scenario 38)?](#q48-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-38) <span class="intermediate">Intermediate</span>
-49. [How do you handle Error Handling scenarios in Svelte (Scenario 39)?](#q49-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-39) <span class="intermediate">Intermediate</span>
-50. [How do you handle CI/CD scenarios in Svelte (Scenario 40)?](#q50-how-do-you-handle-cicd-scenarios-in-svelte-scenario-40) <span class="intermediate">Intermediate</span>
-51. [How do you handle Edge Cases scenarios in Svelte (Scenario 41)?](#q51-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-41) <span class="intermediate">Intermediate</span>
-52. [How do you handle Performance scenarios in Svelte (Scenario 42)?](#q52-how-do-you-handle-performance-scenarios-in-svelte-scenario-42) <span class="intermediate">Intermediate</span>
-53. [How do you handle Security scenarios in Svelte (Scenario 43)?](#q53-how-do-you-handle-security-scenarios-in-svelte-scenario-43) <span class="intermediate">Intermediate</span>
-54. [How do you handle Integration scenarios in Svelte (Scenario 44)?](#q54-how-do-you-handle-integration-scenarios-in-svelte-scenario-44) <span class="intermediate">Intermediate</span>
-55. [How do you handle Mocking scenarios in Svelte (Scenario 45)?](#q55-how-do-you-handle-mocking-scenarios-in-svelte-scenario-45) <span class="intermediate">Intermediate</span>
-56. [How do you handle Async Patterns scenarios in Svelte (Scenario 46)?](#q56-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-46) <span class="intermediate">Intermediate</span>
-57. [How do you handle Error Handling scenarios in Svelte (Scenario 47)?](#q57-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-47) <span class="intermediate">Intermediate</span>
-58. [How do you handle CI/CD scenarios in Svelte (Scenario 48)?](#q58-how-do-you-handle-cicd-scenarios-in-svelte-scenario-48) <span class="intermediate">Intermediate</span>
-59. [How do you handle Edge Cases scenarios in Svelte (Scenario 49)?](#q59-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-49) <span class="intermediate">Intermediate</span>
-60. [How do you handle Performance scenarios in Svelte (Scenario 50)?](#q60-how-do-you-handle-performance-scenarios-in-svelte-scenario-50) <span class="intermediate">Intermediate</span>
-61. [How do you handle Security scenarios in Svelte (Scenario 51)?](#q61-how-do-you-handle-security-scenarios-in-svelte-scenario-51) <span class="intermediate">Intermediate</span>
-62. [How do you handle Integration scenarios in Svelte (Scenario 52)?](#q62-how-do-you-handle-integration-scenarios-in-svelte-scenario-52) <span class="intermediate">Intermediate</span>
-63. [How do you handle Mocking scenarios in Svelte (Scenario 53)?](#q63-how-do-you-handle-mocking-scenarios-in-svelte-scenario-53) <span class="intermediate">Intermediate</span>
-64. [How do you handle Async Patterns scenarios in Svelte (Scenario 54)?](#q64-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-54) <span class="intermediate">Intermediate</span>
-65. [How do you handle Error Handling scenarios in Svelte (Scenario 55)?](#q65-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-55) <span class="intermediate">Intermediate</span>
-66. [How do you handle CI/CD scenarios in Svelte (Scenario 56)?](#q66-how-do-you-handle-cicd-scenarios-in-svelte-scenario-56) <span class="intermediate">Intermediate</span>
-67. [How do you handle Edge Cases scenarios in Svelte (Scenario 57)?](#q67-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-57) <span class="intermediate">Intermediate</span>
-68. [How do you handle Performance scenarios in Svelte (Scenario 58)?](#q68-how-do-you-handle-performance-scenarios-in-svelte-scenario-58) <span class="intermediate">Intermediate</span>
-69. [How do you handle Security scenarios in Svelte (Scenario 59)?](#q69-how-do-you-handle-security-scenarios-in-svelte-scenario-59) <span class="intermediate">Intermediate</span>
-70. [How do you handle Integration scenarios in Svelte (Scenario 60)?](#q70-how-do-you-handle-integration-scenarios-in-svelte-scenario-60) <span class="intermediate">Intermediate</span>
-71. [How do you handle Mocking scenarios in Svelte (Scenario 61)?](#q71-how-do-you-handle-mocking-scenarios-in-svelte-scenario-61) <span class="intermediate">Intermediate</span>
-72. [How do you handle Async Patterns scenarios in Svelte (Scenario 62)?](#q72-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-62) <span class="intermediate">Intermediate</span>
-73. [How do you handle Error Handling scenarios in Svelte (Scenario 63)?](#q73-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-63) <span class="intermediate">Intermediate</span>
-74. [How do you handle CI/CD scenarios in Svelte (Scenario 64)?](#q74-how-do-you-handle-cicd-scenarios-in-svelte-scenario-64) <span class="intermediate">Intermediate</span>
-75. [How do you handle Edge Cases scenarios in Svelte (Scenario 65)?](#q75-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-65) <span class="intermediate">Intermediate</span>
-76. [How do you handle Performance scenarios in Svelte (Scenario 66)?](#q76-how-do-you-handle-performance-scenarios-in-svelte-scenario-66) <span class="intermediate">Intermediate</span>
-77. [How do you handle Security scenarios in Svelte (Scenario 67)?](#q77-how-do-you-handle-security-scenarios-in-svelte-scenario-67) <span class="intermediate">Intermediate</span>
-78. [How do you handle Integration scenarios in Svelte (Scenario 68)?](#q78-how-do-you-handle-integration-scenarios-in-svelte-scenario-68) <span class="intermediate">Intermediate</span>
-79. [How do you handle Mocking scenarios in Svelte (Scenario 69)?](#q79-how-do-you-handle-mocking-scenarios-in-svelte-scenario-69) <span class="intermediate">Intermediate</span>
-80. [How do you handle Async Patterns scenarios in Svelte (Scenario 70)?](#q80-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-70) <span class="intermediate">Intermediate</span>
-81. [How do you handle Error Handling scenarios in Svelte (Scenario 71)?](#q81-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-71) <span class="intermediate">Intermediate</span>
-82. [How do you handle CI/CD scenarios in Svelte (Scenario 72)?](#q82-how-do-you-handle-cicd-scenarios-in-svelte-scenario-72) <span class="intermediate">Intermediate</span>
-83. [How do you handle Edge Cases scenarios in Svelte (Scenario 73)?](#q83-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-73) <span class="intermediate">Intermediate</span>
-84. [How do you handle Performance scenarios in Svelte (Scenario 74)?](#q84-how-do-you-handle-performance-scenarios-in-svelte-scenario-74) <span class="intermediate">Intermediate</span>
-85. [How do you handle Security scenarios in Svelte (Scenario 75)?](#q85-how-do-you-handle-security-scenarios-in-svelte-scenario-75) <span class="intermediate">Intermediate</span>
-86. [How do you handle Integration scenarios in Svelte (Scenario 76)?](#q86-how-do-you-handle-integration-scenarios-in-svelte-scenario-76) <span class="intermediate">Intermediate</span>
-87. [How do you handle Mocking scenarios in Svelte (Scenario 77)?](#q87-how-do-you-handle-mocking-scenarios-in-svelte-scenario-77) <span class="intermediate">Intermediate</span>
-88. [How do you handle Async Patterns scenarios in Svelte (Scenario 78)?](#q88-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-78) <span class="intermediate">Intermediate</span>
-89. [How do you handle Error Handling scenarios in Svelte (Scenario 79)?](#q89-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-79) <span class="intermediate">Intermediate</span>
-90. [How do you handle CI/CD scenarios in Svelte (Scenario 80)?](#q90-how-do-you-handle-cicd-scenarios-in-svelte-scenario-80) <span class="intermediate">Intermediate</span>
-91. [How do you handle Edge Cases scenarios in Svelte (Scenario 81)?](#q91-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-81) <span class="intermediate">Intermediate</span>
-92. [How do you handle Performance scenarios in Svelte (Scenario 82)?](#q92-how-do-you-handle-performance-scenarios-in-svelte-scenario-82) <span class="intermediate">Intermediate</span>
-93. [How do you handle Security scenarios in Svelte (Scenario 83)?](#q93-how-do-you-handle-security-scenarios-in-svelte-scenario-83) <span class="intermediate">Intermediate</span>
-94. [How do you handle Integration scenarios in Svelte (Scenario 84)?](#q94-how-do-you-handle-integration-scenarios-in-svelte-scenario-84) <span class="intermediate">Intermediate</span>
-95. [How do you handle Mocking scenarios in Svelte (Scenario 85)?](#q95-how-do-you-handle-mocking-scenarios-in-svelte-scenario-85) <span class="intermediate">Intermediate</span>
-96. [How do you handle Async Patterns scenarios in Svelte (Scenario 86)?](#q96-how-do-you-handle-async-patterns-scenarios-in-svelte-scenario-86) <span class="intermediate">Intermediate</span>
-97. [How do you handle Error Handling scenarios in Svelte (Scenario 87)?](#q97-how-do-you-handle-error-handling-scenarios-in-svelte-scenario-87) <span class="intermediate">Intermediate</span>
-98. [How do you handle CI/CD scenarios in Svelte (Scenario 88)?](#q98-how-do-you-handle-cicd-scenarios-in-svelte-scenario-88) <span class="intermediate">Intermediate</span>
-99. [How do you handle Edge Cases scenarios in Svelte (Scenario 89)?](#q99-how-do-you-handle-edge-cases-scenarios-in-svelte-scenario-89) <span class="intermediate">Intermediate</span>
-100. [How do you handle Performance scenarios in Svelte (Scenario 90)?](#q100-how-do-you-handle-performance-scenarios-in-svelte-scenario-90) <span class="intermediate">Intermediate</span>
+7. [How do you bind form inputs?](#q7-how-do-you-bind-form-inputs) <span class="beginner">Beginner</span>
+8. [How do you use Svelte actions?](#q8-how-do-you-use-svelte-actions) <span class="advanced">Advanced</span>
+9. [How do you handle transitions?](#q9-how-do-you-handle-transitions) <span class="intermediate">Intermediate</span>
+10. [What is `tick()`?](#q10-what-is-tick) <span class="advanced">Advanced</span>
+11. [Difference between Svelte and React?](#q11-difference-between-svelte-and-react) <span class="beginner">Beginner</span>
+12. [How do you use the special element `<svelte:head>`?](#q12-how-do-you-use-the-special-element-sveltehead) <span class="intermediate">Intermediate</span>
+13. [What are Derived Stores?](#q13-what-are-derived-stores) <span class="intermediate">Intermediate</span>
+14. [How do you handle context in Svelte?](#q14-how-do-you-handle-context-in-svelte) <span class="intermediate">Intermediate</span>
+15. [What is the purpose of `<svelte:component>`?](#q15-what-is-the-purpose-of-sveltecomponent) <span class="advanced">Advanced</span>
+16. [How do you loop with an index in Svelte?](#q16-how-do-you-loop-with-an-index-in-svelte) <span class="beginner">Beginner</span>
+17. [What is the `bind:this` directive?](#q17-what-is-the-bindthis-directive) <span class="intermediate">Intermediate</span>
+18. [How do you prevent event bubbling in Svelte?](#q18-how-do-you-prevent-event-bubbling-in-svelte) <span class="beginner">Beginner</span>
+19. [What is SvelteKit?](#q19-what-is-sveltekit) <span class="intermediate">Intermediate</span>
+20. [How do you use the `await` block?](#q20-how-do-you-use-the-await-block) <span class="intermediate">Intermediate</span>
+21. [What are Custom Stores?](#q21-what-are-custom-stores) <span class="advanced">Advanced</span>
+22. [How do you style components in Svelte?](#q22-how-do-you-style-components-in-svelte) <span class="beginner">Beginner</span>
+23. [How do you use the @html tag?](#q23-how-do-you-use-the-html-tag) <span class="beginner">Beginner</span>
+24. [What is the difference between on:click and on:click|once?](#q24-what-is-the-difference-between-onclick-and-onclickonce) <span class="beginner">Beginner</span>
+25. [How do you forward events in Svelte?](#q25-how-do-you-forward-events-in-svelte) <span class="intermediate">Intermediate</span>
+26. [What is the `class:` directive?](#q26-what-is-the-class-directive) <span class="beginner">Beginner</span>
+27. [How do you use `<svelte:window>`?](#q27-how-do-you-use-sveltewindow) <span class="intermediate">Intermediate</span>
+28. [What is `<svelte:body>`?](#q28-what-is-sveltebody) <span class="intermediate">Intermediate</span>
+29. [How do you use `<svelte:head>`?](#q29-how-do-you-use-sveltehead) <span class="intermediate">Intermediate</span>
+30. [What are Module Context scripts?](#q30-what-are-module-context-scripts) <span class="advanced">Advanced</span>
+31. [How do you handle fallback content in slots?](#q31-how-do-you-handle-fallback-content-in-slots) <span class="beginner">Beginner</span>
+32. [What is `$$props`?](#q32-what-is-props) <span class="advanced">Advanced</span>
+33. [What is `$$restProps`?](#q33-what-is-restprops) <span class="intermediate">Intermediate</span>
+34. [How do you debug Svelte reactivity?](#q34-how-do-you-debug-svelte-reactivity) <span class="beginner">Beginner</span>
+35. [What is the `key` block?](#q35-what-is-the-key-block) <span class="intermediate">Intermediate</span>
+36. [How do you define props in Svelte?](#q36-how-do-you-define-props-in-svelte) <span class="beginner">Beginner</span>
+37. [What is `createEventDispatcher`?](#q37-what-is-createeventdispatcher) <span class="intermediate">Intermediate</span>
+38. [How do you use the `use:action` directive?](#q38-how-do-you-use-the-useaction-directive) <span class="advanced">Advanced</span>
+39. [What is the return value of an action?](#q39-what-is-the-return-value-of-an-action) <span class="advanced">Advanced</span>
+40. [How do you bind `this` in Svelte?](#q40-how-do-you-bind-this-in-svelte) <span class="intermediate">Intermediate</span>
+41. [How do you bind component props?](#q41-how-do-you-bind-component-props) <span class="intermediate">Intermediate</span>
+42. [What is the `store` contract?](#q42-what-is-the-store-contract) <span class="advanced">Advanced</span>
+43. [How do you auto-subscribe to a store?](#q43-how-do-you-auto-subscribe-to-a-store) <span class="beginner">Beginner</span>
+44. [What is `get` from `svelte/store`?](#q44-what-is-get-from-sveltestore) <span class="intermediate">Intermediate</span>
+45. [How do you make a store read-only?](#q45-how-do-you-make-a-store-read-only) <span class="intermediate">Intermediate</span>
+46. [What is `derived` store?](#q46-what-is-derived-store) <span class="intermediate">Intermediate</span>
+47. [How do you use `style:` directive?](#q47-how-do-you-use-style-directive) <span class="beginner">Beginner</span>
+48. [What is `svelte:options`?](#q48-what-is-svelteoptions) <span class="advanced">Advanced</span>
+49. [How do you detect if code is running in browser?](#q49-how-do-you-detect-if-code-is-running-in-browser) <span class="beginner">Beginner</span>
+50. [What is Hydration?](#q50-what-is-hydration) <span class="advanced">Advanced</span>
+51. [How do you create a transition?](#q51-how-do-you-create-a-transition) <span class="advanced">Advanced</span>
+52. [What is `crossfade`?](#q52-what-is-crossfade) <span class="advanced">Advanced</span>
+53. [How do you use `animate:flip`?](#q53-how-do-you-use-animateflip) <span class="intermediate">Intermediate</span>
+54. [What is `svelte:fragment`?](#q54-what-is-sveltefragment) <span class="intermediate">Intermediate</span>
+55. [How do you lazy load a component?](#q55-how-do-you-lazy-load-a-component) <span class="advanced">Advanced</span>
+56. [What is the difference between `bind:group` and `bind:value`?](#q56-what-is-the-difference-between-bindgroup-and-bindvalue) <span class="intermediate">Intermediate</span>
+57. [How do you handle multiple classes?](#q57-how-do-you-handle-multiple-classes) <span class="beginner">Beginner</span>
+58. [What is `svelte-ignore`?](#q58-what-is-svelte-ignore) <span class="intermediate">Intermediate</span>
+59. [How do you access the component instance?](#q59-how-do-you-access-the-component-instance) <span class="advanced">Advanced</span>
+60. [What is `beforeUpdate`?](#q60-what-is-beforeupdate) <span class="intermediate">Intermediate</span>
+61. [What is `afterUpdate`?](#q61-what-is-afterupdate) <span class="intermediate">Intermediate</span>
+62. [How do you create a custom store?](#q62-how-do-you-create-a-custom-store) <span class="intermediate">Intermediate</span>
+63. [What is `spring` motion?](#q63-what-is-spring-motion) <span class="intermediate">Intermediate</span>
+64. [What is `tweened` motion?](#q64-what-is-tweened-motion) <span class="intermediate">Intermediate</span>
+65. [How do you use `svelte:self`?](#q65-how-do-you-use-svelteself) <span class="intermediate">Intermediate</span>
+66. [What is the `src/routes` folder in SvelteKit?](#q66-what-is-the-srcroutes-folder-in-sveltekit) <span class="beginner">Beginner</span>
+67. [What is a `+page.svelte` file?](#q67-what-is-a-pagesvelte-file) <span class="beginner">Beginner</span>
+68. [What is a `+page.server.js` file?](#q68-what-is-a-pageserverjs-file) <span class="intermediate">Intermediate</span>
+69. [What is a `+layout.svelte` file?](#q69-what-is-a-layoutsvelte-file) <span class="beginner">Beginner</span>
+70. [How do you handle form actions in SvelteKit?](#q70-how-do-you-handle-form-actions-in-sveltekit) <span class="intermediate">Intermediate</span>
+71. [What is `enhance` in SvelteKit forms?](#q71-what-is-enhance-in-sveltekit-forms) <span class="intermediate">Intermediate</span>
+72. [How do you use environment variables?](#q72-how-do-you-use-environment-variables) <span class="intermediate">Intermediate</span>
+73. [What is adapter in SvelteKit?](#q73-what-is-adapter-in-sveltekit) <span class="intermediate">Intermediate</span>
+74. [How do you handle errors in SvelteKit?](#q74-how-do-you-handle-errors-in-sveltekit) <span class="intermediate">Intermediate</span>
+75. [What is `hooks.server.js`?](#q75-what-is-hooksserverjs) <span class="advanced">Advanced</span>
+76. [How do you prefetch data?](#q76-how-do-you-prefetch-data) <span class="intermediate">Intermediate</span>
+77. [What is the difference between `onMount` and `load`?](#q77-what-is-the-difference-between-onmount-and-load) <span class="intermediate">Intermediate</span>
+78. [How do you use global styles?](#q78-how-do-you-use-global-styles) <span class="beginner">Beginner</span>
+79. [What is accessibility warning in Svelte?](#q79-what-is-accessibility-warning-in-svelte) <span class="beginner">Beginner</span>
+80. [How do you optimize loops?](#q80-how-do-you-optimize-loops) <span class="intermediate">Intermediate</span>
+81. [What is the purpose of `tick` in tests?](#q81-what-is-the-purpose-of-tick-in-tests) <span class="advanced">Advanced</span>
+82. [How do you test Svelte components?](#q82-how-do-you-test-svelte-components) <span class="intermediate">Intermediate</span>
+83. [What is `vite` in Svelte context?](#q83-what-is-vite-in-svelte-context) <span class="beginner">Beginner</span>
+84. [How do you deploy a Svelte app?](#q84-how-do-you-deploy-a-svelte-app) <span class="beginner">Beginner</span>
+85. [What is `svelte-check`?](#q85-what-is-svelte-check) <span class="intermediate">Intermediate</span>
+86. [How do you use TypeScript with Svelte?](#q86-how-do-you-use-typescript-with-svelte) <span class="beginner">Beginner</span>
+87. [What is `$$slots`?](#q87-what-is-slots) <span class="advanced">Advanced</span>
+88. [How do you debounce an input?](#q88-how-do-you-debounce-an-input) <span class="intermediate">Intermediate</span>
+89. [What is `await` block `catch`?](#q89-what-is-await-block-catch) <span class="beginner">Beginner</span>
+90. [How do you use `placeholder` attribute on inputs?](#q90-how-do-you-use-placeholder-attribute-on-inputs) <span class="beginner">Beginner</span>
+91. [Can you have multiple script tags?](#q91-can-you-have-multiple-script-tags) <span class="advanced">Advanced</span>
+92. [What is `immutable` option?](#q92-what-is-immutable-option) <span class="advanced">Advanced</span>
+93. [How do you access `window` safely in SSR?](#q93-how-do-you-access-window-safely-in-ssr) <span class="intermediate">Intermediate</span>
+94. [What is `svelte/motion`?](#q94-what-is-sveltemotion) <span class="intermediate">Intermediate</span>
+95. [What is `svelte/easing`?](#q95-what-is-svelteeasing) <span class="beginner">Beginner</span>
+96. [How do you pass data to layout?](#q96-how-do-you-pass-data-to-layout) <span class="intermediate">Intermediate</span>
+97. [What is `page` store in SvelteKit?](#q97-what-is-page-store-in-sveltekit) <span class="intermediate">Intermediate</span>
+98. [How do you use `navigating` store?](#q98-how-do-you-use-navigating-store) <span class="intermediate">Intermediate</span>
+99. [What is `updated` store?](#q99-what-is-updated-store) <span class="advanced">Advanced</span>
+100. [How do you handle 404s?](#q100-how-do-you-handle-404s) <span class="beginner">Beginner</span>
+101. [What is `data-sveltekit-reload`?](#q101-what-is-data-sveltekit-reload) <span class="intermediate">Intermediate</span>
+102. [How do you reset a store?](#q102-how-do-you-reset-a-store) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -114,60 +116,46 @@ Svelte has `onMount`, `onDestroy`, `beforeUpdate`, and `afterUpdate`.
 
 **Code Example**:
 ```javascript
-import { onMount } from 'svelte';
-
-onMount(() => {
-  console.log('Component mounted');
-  return () => console.log('Cleanup');
-});
+onMount(() => { console.log('Mounted'); });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q2: How do you create a reactive declaration in Svelte?
+### Q2: How do you create a reactive declaration?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use the `$:` label. Svelte re-runs the statement whenever referenced values change.
+Use the `$:` label.
 
 **Code Example**:
 ```javascript
-<script>
-  let count = 0;
-  $: doubled = count * 2;
-</script>
+$: doubled = count * 2;
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q3: How do you share state between components in Svelte?
+### Q3: How do you share state between components?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Svelte `stores` (writable, readable, derived). They are Observables.
+Use Svelte `stores` (writable, readable, derived).
 
 **Code Example**:
 ```javascript
-// store.js
-import { writable } from 'svelte/store';
 export const count = writable(0);
-
-// Component.svelte
-import { count } from './store.js';
-$count += 1;
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q4: How do you dispatch custom events in Svelte?
+### Q4: How do you dispatch custom events?
 
 **Difficulty**: Intermediate
 
@@ -176,39 +164,23 @@ Use `createEventDispatcher`.
 
 **Code Example**:
 ```javascript
-<script>
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
-  function sayHello() {
-    dispatch('message', { text: 'Hello!' });
-  }
-</script>
+const dispatch = createEventDispatcher(); dispatch('msg', 'hello');
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q5: How do you use slots in Svelte?
+### Q5: How do you use slots?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use the `<slot>` element. You can also have named slots.
+Use the `<slot>` element.
 
 **Code Example**:
 ```javascript
-<!-- Box.svelte -->
-<div class="box">
-  <slot name="header">Default Header</slot>
-  <slot></slot>
-</div>
-
-<!-- App.svelte -->
-<Box>
-  <h1 slot="header">My Header</h1>
-  <p>Main content</p>
-</Box>
+<div><slot>Default</slot></div>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -220,2255 +192,1549 @@ Use the `<slot>` element. You can also have named slots.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Provide a unique key in parentheses `(item.id)` to help Svelte identify elements.
+Provide a unique key in parentheses.
 
 **Code Example**:
 ```javascript
-<ul>
-  {#each items as item (item.id)}
-    <li>{item.name}</li>
-  {/each}
-</ul>
+{#each items as item (item.id)}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q7: How do you bind form inputs in Svelte?
+### Q7: How do you bind form inputs?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use the `bind:value` directive.
+Use `bind:value`.
 
 **Code Example**:
 ```javascript
-<input bind:value={name} placeholder="Enter your name">
+<input bind:value={name}>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q8: How do you use Svelte actions (`use:action`)?
+### Q8: How do you use Svelte actions?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Actions are functions called when an element is created. Useful for integration with 3rd party libs.
+Actions are functions called when an element is created.
 
 **Code Example**:
 ```javascript
-function tooltip(node, text) {
-  // setup
-  return {
-    destroy() { /* cleanup */ }
-  };
-}
-
-<div use:tooltip="'Hello'">Hover me</div>
+function tooltip(node, params) { ... } <div use:tooltip>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q9: How do you handle transitions in Svelte?
+### Q9: How do you handle transitions?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Import from `svelte/transition` and use `transition:fade` etc.
+Import from `svelte/transition`.
 
 **Code Example**:
 ```javascript
-<script>
-  import { fade } from 'svelte/transition';
-</script>
-<div transition:fade>Fades in and out</div>
+<div transition:fade>...</div>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q10: What is `tick()` in Svelte?
+### Q10: What is `tick()`?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-It returns a promise that resolves after any pending state changes have been applied to the DOM.
+Returns a promise that resolves after pending state changes are applied to DOM.
 
 **Code Example**:
 ```javascript
-import { tick } from 'svelte';
-
-text = 'Hello';
 await tick();
-// DOM is now updated
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q11: How do you handle Edge Cases scenarios in Svelte (Scenario 1)?
+### Q11: Difference between Svelte and React?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Svelte is a compiler that converts components to imperative code at build time. React uses a virtual DOM at runtime.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 1', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Svelte: No virtual DOM overhead
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q12: How do you handle Performance scenarios in Svelte (Scenario 2)?
+### Q12: How do you use the special element `<svelte:head>`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+To insert elements into the document `<head>`.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 2', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<svelte:head><title>My Page</title></svelte:head>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q13: How do you handle Security scenarios in Svelte (Scenario 3)?
+### Q13: What are Derived Stores?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Stores whose values are based on one or more other stores.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 3', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const doubled = derived(count, $count => $count * 2);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q14: How do you handle Integration scenarios in Svelte (Scenario 4)?
+### Q14: How do you handle context in Svelte?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Use `setContext` and `getContext`. Must be called during component initialization.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 4', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+setContext('key', value); const value = getContext('key');
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q15: How do you handle Mocking scenarios in Svelte (Scenario 5)?
+### Q15: What is the purpose of `<svelte:component>`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+To render a component dynamically based on a variable.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 5', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<svelte:component this={selectedComponent} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q16: How do you handle Async Patterns scenarios in Svelte (Scenario 6)?
+### Q16: How do you loop with an index in Svelte?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Add a second argument to the `#each` block.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 6', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+{#each items as item, index}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q17: How do you handle Error Handling scenarios in Svelte (Scenario 7)?
+### Q17: What is the `bind:this` directive?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+To get a reference to a DOM element or component instance.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 7', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<div bind:this={element}>...</div>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q18: How do you handle CI/CD scenarios in Svelte (Scenario 8)?
+### Q18: How do you prevent event bubbling in Svelte?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Use event modifiers like `on:click|stopPropagation`.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 8', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<button on:click|stopPropagation={handler}>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q19: How do you handle Edge Cases scenarios in Svelte (Scenario 9)?
+### Q19: What is SvelteKit?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+The official application framework for Svelte, handling routing, SSR, SSG, etc.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 9', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Similar to Next.js for React
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q20: How do you handle Performance scenarios in Svelte (Scenario 10)?
+### Q20: How do you use the `await` block?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+To handle promises directly in the template.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 10', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+{#await promise}Loading...{:then value}{value}{:catch error}{error}{/await}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q21: How do you handle Security scenarios in Svelte (Scenario 11)?
+### Q21: What are Custom Stores?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Any object with a `subscribe` method is a store.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 11', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+function createCount() { const { subscribe } = writable(0); return { subscribe }; }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q22: How do you handle Integration scenarios in Svelte (Scenario 12)?
+### Q22: How do you style components in Svelte?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Styles in `<style>` blocks are scoped to the component by default.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 12', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<style> p { color: red; } </style>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q23: How do you handle Mocking scenarios in Svelte (Scenario 13)?
+### Q23: How do you use the @html tag?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+To render raw HTML strings. Be careful of XSS.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 13', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+{@html post.content}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q24: How do you handle Async Patterns scenarios in Svelte (Scenario 14)?
+### Q24: What is the difference between on:click and on:click|once?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Modifiers change event behavior. `once` removes the handler after first trigger.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 14', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<button on:click|once={handler}>Click me once</button>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q25: How do you handle Error Handling scenarios in Svelte (Scenario 15)?
+### Q25: How do you forward events in Svelte?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+By adding `on:eventname` without a handler.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 15', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<button on:click>Forwarded</button>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q26: How do you handle CI/CD scenarios in Svelte (Scenario 16)?
+### Q26: What is the `class:` directive?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Conditionally toggle classes.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 16', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<div class:active={isActive}>...</div>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q27: How do you handle Edge Cases scenarios in Svelte (Scenario 17)?
+### Q27: How do you use `<svelte:window>`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+To add event listeners to the window object.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 17', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<svelte:window on:keydown={handleKeydown} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q28: How do you handle Performance scenarios in Svelte (Scenario 18)?
+### Q28: What is `<svelte:body>`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+To add listeners to document.body.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 18', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<svelte:body on:mouseenter={handleEnter} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q29: How do you handle Security scenarios in Svelte (Scenario 19)?
+### Q29: How do you use `<svelte:head>`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+To inject elements into the head (title, meta).
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 19', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<svelte:head><title>Page</title></svelte:head>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q30: How do you handle Integration scenarios in Svelte (Scenario 20)?
+### Q30: What are Module Context scripts?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Scripts that run once per module, not per instance.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 20', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<script context="module">
+  let totalComponents = 0;
+</script>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q31: How do you handle Mocking scenarios in Svelte (Scenario 21)?
+### Q31: How do you handle fallback content in slots?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Put content inside the `<slot>` tag.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 21', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<slot>Default Content</slot>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q32: How do you handle Async Patterns scenarios in Svelte (Scenario 22)?
+### Q32: What is `$$props`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+An object containing all props passed to the component. Not recommended for general use.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 22', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+console.log($$props);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q33: How do you handle Error Handling scenarios in Svelte (Scenario 23)?
+### Q33: What is `$$restProps`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Props that are not explicitly exported.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 23', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<div {...$$restProps}></div>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q34: How do you handle CI/CD scenarios in Svelte (Scenario 24)?
+### Q34: How do you debug Svelte reactivity?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Use `{@debug variable}`.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 24', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+{@debug count}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q35: How do you handle Edge Cases scenarios in Svelte (Scenario 25)?
+### Q35: What is the `key` block?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Re-creates the component when the key changes.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 25', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+{#key id}<Component />{/key}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q36: How do you handle Performance scenarios in Svelte (Scenario 26)?
+### Q36: How do you define props in Svelte?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Use the `export` keyword.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 26', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+export let name = 'World';
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q37: How do you handle Security scenarios in Svelte (Scenario 27)?
+### Q37: What is `createEventDispatcher`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Creates a function to dispatch custom events.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 27', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const dispatch = createEventDispatcher();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q38: How do you handle Integration scenarios in Svelte (Scenario 28)?
+### Q38: How do you use the `use:action` directive?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Attaches a lifecycle to an element.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 28', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<div use:action={params} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q39: How do you handle Mocking scenarios in Svelte (Scenario 29)?
+### Q39: What is the return value of an action?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+An object with `update` and `destroy` methods.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 29', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+return { destroy() { ... } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q40: How do you handle Async Patterns scenarios in Svelte (Scenario 30)?
+### Q40: How do you bind `this` in Svelte?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Use `bind:this` to get a reference.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 30', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<div bind:this={element}></div>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q41: How do you handle Error Handling scenarios in Svelte (Scenario 31)?
+### Q41: How do you bind component props?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Use `bind:propName`.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 31', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Child bind:value={parentValue} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q42: How do you handle CI/CD scenarios in Svelte (Scenario 32)?
+### Q42: What is the `store` contract?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Any object with a `subscribe` method.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 32', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const store = { subscribe: (cb) => { ... } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q43: How do you handle Edge Cases scenarios in Svelte (Scenario 33)?
+### Q43: How do you auto-subscribe to a store?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Prefix with `$`.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 33', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<h1>{$count}</h1>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q44: How do you handle Performance scenarios in Svelte (Scenario 34)?
+### Q44: What is `get` from `svelte/store`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Gets the current value of a store synchronously (not reactive).
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 34', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const value = get(store);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q45: How do you handle Security scenarios in Svelte (Scenario 35)?
+### Q45: How do you make a store read-only?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Use `readonly` from `svelte/store`.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 35', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const read = readonly(write);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q46: How do you handle Integration scenarios in Svelte (Scenario 36)?
+### Q46: What is `derived` store?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+A store based on other stores.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 36', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const double = derived(count, $c => $c * 2);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q47: How do you handle Mocking scenarios in Svelte (Scenario 37)?
+### Q47: How do you use `style:` directive?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Set inline styles conditionally.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 37', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<div style:color={color}>text</div>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q48: How do you handle Async Patterns scenarios in Svelte (Scenario 38)?
+### Q48: What is `svelte:options`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Compiler options for the component (immutable, accessors).
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 38', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<svelte:options immutable={true} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q49: How do you handle Error Handling scenarios in Svelte (Scenario 39)?
+### Q49: How do you detect if code is running in browser?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Use `browser` from `$app/environment` (SvelteKit) or check `typeof window`.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 39', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+if (browser) { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q50: How do you handle CI/CD scenarios in Svelte (Scenario 40)?
+### Q50: What is Hydration?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Attaching interactivity to server-rendered HTML.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 40', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Svelte handles this automatically
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q51: How do you handle Edge Cases scenarios in Svelte (Scenario 41)?
+### Q51: How do you create a transition?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Return a config object (duration, css, tick).
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 41', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+function fade(node, { duration }) { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you handle Performance scenarios in Svelte (Scenario 42)?
+### Q52: What is `crossfade`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Creates a pair of transitions for moving elements.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 42', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const [send, receive] = crossfade(...) 
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q53: How do you handle Security scenarios in Svelte (Scenario 43)?
+### Q53: How do you use `animate:flip`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Animates reordering of list items.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 43', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<li animate:flip>{item}</li>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q54: How do you handle Integration scenarios in Svelte (Scenario 44)?
+### Q54: What is `svelte:fragment`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+A container for slots that doesn't render a DOM element.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 44', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<svelte:fragment slot="header">...</svelte:fragment>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q55: How do you handle Mocking scenarios in Svelte (Scenario 45)?
+### Q55: How do you lazy load a component?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Use dynamic imports in `await` block or SvelteKit's features.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 45', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+{#await import('./Comp.svelte') then {default: Comp}} <Comp /> {/await}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you handle Async Patterns scenarios in Svelte (Scenario 46)?
+### Q56: What is the difference between `bind:group` and `bind:value`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+`bind:group` is for radio/checkbox groups.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 46', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<input type=radio bind:group={flavour} value=scoop>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you handle Error Handling scenarios in Svelte (Scenario 47)?
+### Q57: How do you handle multiple classes?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Standard class attribute or `class:` directive.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 47', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+class="btn {active ? 'active' : ''}"
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q58: How do you handle CI/CD scenarios in Svelte (Scenario 48)?
+### Q58: What is `svelte-ignore`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Comments to suppress compiler warnings.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 48', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you handle Edge Cases scenarios in Svelte (Scenario 49)?
+### Q59: How do you access the component instance?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Use `bind:this` on the component tag.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 49', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<Component bind:this={instance} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q60: How do you handle Performance scenarios in Svelte (Scenario 50)?
+### Q60: What is `beforeUpdate`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Runs before the DOM updates.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 50', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+beforeUpdate(() => { ... })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q61: How do you handle Security scenarios in Svelte (Scenario 51)?
+### Q61: What is `afterUpdate`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Runs after the DOM updates.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 51', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+afterUpdate(() => { ... })
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q62: How do you handle Integration scenarios in Svelte (Scenario 52)?
+### Q62: How do you create a custom store?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Return an object with subscribe and other methods.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 52', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+function createCount() { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q63: How do you handle Mocking scenarios in Svelte (Scenario 53)?
+### Q63: What is `spring` motion?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Physics-based store for animations.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 53', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const coords = spring({ x: 0, y: 0 });
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you handle Async Patterns scenarios in Svelte (Scenario 54)?
+### Q64: What is `tweened` motion?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Interpolation-based store.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 54', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+const progress = tweened(0);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you handle Error Handling scenarios in Svelte (Scenario 55)?
+### Q65: How do you use `svelte:self`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Recursively render the current component.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 55', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<svelte:self {children} />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q66: How do you handle CI/CD scenarios in Svelte (Scenario 56)?
+### Q66: What is the `src/routes` folder in SvelteKit?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+File-based routing directory.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 56', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// +page.svelte
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you handle Edge Cases scenarios in Svelte (Scenario 57)?
+### Q67: What is a `+page.svelte` file?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Defines the UI for a route.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 57', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<h1>Hello</h1>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you handle Performance scenarios in Svelte (Scenario 58)?
+### Q68: What is a `+page.server.js` file?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Server-side load function for data.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 58', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+export function load() { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you handle Security scenarios in Svelte (Scenario 59)?
+### Q69: What is a `+layout.svelte` file?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Defines a layout wrapper for pages.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 59', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<slot />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q70: How do you handle Integration scenarios in Svelte (Scenario 60)?
+### Q70: How do you handle form actions in SvelteKit?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Export `actions` in `+page.server.js`.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 60', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+export const actions = { default: async ({ request }) => { ... } }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you handle Mocking scenarios in Svelte (Scenario 61)?
+### Q71: What is `enhance` in SvelteKit forms?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Progressive enhancement for forms.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 61', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<form use:enhance>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you handle Async Patterns scenarios in Svelte (Scenario 62)?
+### Q72: How do you use environment variables?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Import from `$env/static/private` or `public`.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 62', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+import { API_KEY } from '$env/static/private';
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you handle Error Handling scenarios in Svelte (Scenario 63)?
+### Q73: What is adapter in SvelteKit?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Plugins to deploy apps to different platforms (Node, Vercel, Static).
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 63', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+import adapter from '@sveltejs/adapter-auto';
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you handle CI/CD scenarios in Svelte (Scenario 64)?
+### Q74: How do you handle errors in SvelteKit?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Use `+error.svelte` or throw `error()` helper.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 64', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+throw error(404, 'Not found');
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q75: How do you handle Edge Cases scenarios in Svelte (Scenario 65)?
+### Q75: What is `hooks.server.js`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Global server-side hooks (handle, fetch).
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 65', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+export async function handle({ event, resolve }) { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q76: How do you handle Performance scenarios in Svelte (Scenario 66)?
+### Q76: How do you prefetch data?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Use `<a data-sveltekit-preload-data>`.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 66', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<a href="/blog" data-sveltekit-preload-data>Blog</a>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q77: How do you handle Security scenarios in Svelte (Scenario 67)?
+### Q77: What is the difference between `onMount` and `load`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+`onMount` is client-side lifecycle. `load` is SvelteKit data loading (server/client).
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 67', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// load runs before render
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q78: How do you handle Integration scenarios in Svelte (Scenario 68)?
+### Q78: How do you use global styles?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Use `:global(...)` or a global stylesheet.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 68', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+:global(body) { margin: 0; }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you handle Mocking scenarios in Svelte (Scenario 69)?
+### Q79: What is accessibility warning in Svelte?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Compiler warnings for A11y issues.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 69', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// e.g., <img> missing alt
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q80: How do you handle Async Patterns scenarios in Svelte (Scenario 70)?
+### Q80: How do you optimize loops?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Use keyed each blocks.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 70', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+{#each items as item (item.id)}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q81: How do you handle Error Handling scenarios in Svelte (Scenario 71)?
+### Q81: What is the purpose of `tick` in tests?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+To wait for DOM updates after state change.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 71', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+await tick(); expect(...)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q82: How do you handle CI/CD scenarios in Svelte (Scenario 72)?
+### Q82: How do you test Svelte components?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Using `@testing-library/svelte`.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 72', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+render(Component);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you handle Edge Cases scenarios in Svelte (Scenario 73)?
+### Q83: What is `vite` in Svelte context?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+The build tool and dev server.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 73', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+// Fast HMR
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q84: How do you handle Performance scenarios in Svelte (Scenario 74)?
+### Q84: How do you deploy a Svelte app?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Build via adapter and deploy output.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 74', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+npm run build
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q85: How do you handle Security scenarios in Svelte (Scenario 75)?
+### Q85: What is `svelte-check`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+CLI tool for type checking and diagnostics.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 75', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+svelte-check --watch
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q86: How do you handle Integration scenarios in Svelte (Scenario 76)?
+### Q86: How do you use TypeScript with Svelte?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Add `lang="ts"` to script tag.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 76', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<script lang="ts">
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle Mocking scenarios in Svelte (Scenario 77)?
+### Q87: What is `$$slots`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Object checking which slots are passed.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 77', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+if ($$slots.header) { ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q88: How do you handle Async Patterns scenarios in Svelte (Scenario 78)?
+### Q88: How do you debounce an input?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Custom action or logic in handler.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 78', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+let timer; const handle = () => { clearTimeout(timer); timer = setTimeout(...) }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you handle Error Handling scenarios in Svelte (Scenario 79)?
+### Q89: What is `await` block `catch`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Handles promise rejection.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 79', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+{:catch error} {error.message}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q90: How do you handle CI/CD scenarios in Svelte (Scenario 80)?
+### Q90: How do you use `placeholder` attribute on inputs?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Standard HTML attribute.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 80', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<input placeholder="Type here" />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q91: How do you handle Edge Cases scenarios in Svelte (Scenario 81)?
+### Q91: Can you have multiple script tags?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Yes, one `context="module"` and one normal.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 81', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<script context="module">...</script><script>...</script>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q92: How do you handle Performance scenarios in Svelte (Scenario 82)?
+### Q92: What is `immutable` option?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Tells Svelte to use strict equality for props.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 82', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<svelte:options immutable />
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: How do you handle Security scenarios in Svelte (Scenario 83)?
+### Q93: How do you access `window` safely in SSR?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for security. Ensure isolation and proper cleanup.
+Check `browser` check or `onMount`.
 
 **Code Example**:
 ```javascript
-// Practical example for Security in Svelte
-test('scenario 83', () => {
-  // Setup
-  const context = setupSecurity();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+onMount(() => window.scrollTo(0,0))
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you handle Integration scenarios in Svelte (Scenario 84)?
+### Q94: What is `svelte/motion`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for integration. Ensure isolation and proper cleanup.
+Module for `spring` and `tweened`.
 
 **Code Example**:
 ```javascript
-// Practical example for Integration in Svelte
-test('scenario 84', () => {
-  // Setup
-  const context = setupIntegration();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+import { spring } from 'svelte/motion';
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you handle Mocking scenarios in Svelte (Scenario 85)?
+### Q95: What is `svelte/easing`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Focus on specific strategies for mocking. Ensure isolation and proper cleanup.
+Easing functions for transitions.
 
 **Code Example**:
 ```javascript
-// Practical example for Mocking in Svelte
-test('scenario 85', () => {
-  // Setup
-  const context = setupMocking();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+import { bounceOut } from 'svelte/easing';
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q96: How do you handle Async Patterns scenarios in Svelte (Scenario 86)?
+### Q96: How do you pass data to layout?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for async patterns. Ensure isolation and proper cleanup.
+Return data from `load` function in layout.server.js.
 
 **Code Example**:
 ```javascript
-// Practical example for Async Patterns in Svelte
-test('scenario 86', () => {
-  // Setup
-  const context = setupAsync Patterns();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+return { user: ... }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you handle Error Handling scenarios in Svelte (Scenario 87)?
+### Q97: What is `page` store in SvelteKit?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for error handling. Ensure isolation and proper cleanup.
+Contains info about current route, params, data.
 
 **Code Example**:
 ```javascript
-// Practical example for Error Handling in Svelte
-test('scenario 87', () => {
-  // Setup
-  const context = setupError Handling();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+import { page } from '$app/stores';
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you handle CI/CD scenarios in Svelte (Scenario 88)?
+### Q98: How do you use `navigating` store?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for ci/cd. Ensure isolation and proper cleanup.
+Tracks navigation state.
 
 **Code Example**:
 ```javascript
-// Practical example for CI/CD in Svelte
-test('scenario 88', () => {
-  // Setup
-  const context = setupCI/CD();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+if ($navigating) Loading...
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you handle Edge Cases scenarios in Svelte (Scenario 89)?
+### Q99: What is `updated` store?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
+
+**Strategy**:
+Notifies when a new version of app is available.
+
+**Code Example**:
+```javascript
+if ($updated) location.reload()
+```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: How do you handle 404s?
+
+**Difficulty**: Beginner
+
 **Strategy**:
-Focus on specific strategies for edge cases. Ensure isolation and proper cleanup.
+Create a `+error.svelte` file.
 
 **Code Example**:
 ```javascript
-// Practical example for Edge Cases in Svelte
-test('scenario 89', () => {
-  // Setup
-  const context = setupEdge Cases();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<h1>Error {$page.status}</h1>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q100: How do you handle Performance scenarios in Svelte (Scenario 90)?
+### Q101: What is `data-sveltekit-reload`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on specific strategies for performance. Ensure isolation and proper cleanup.
+Forces a full page reload on link click.
 
 **Code Example**:
 ```javascript
-// Practical example for Performance in Svelte
-test('scenario 90', () => {
-  // Setup
-  const context = setupPerformance();
-  // Act
-  const result = context.run();
-  // Assert
-  expect(result).toBeValid();
-});
+<a href="/" data-sveltekit-reload>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+
+### Q102: How do you reset a store?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Manually set it to initial value.
+
+**Code Example**:
+```javascript
+store.set(initial);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

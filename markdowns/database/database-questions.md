@@ -15,14 +15,14 @@
 3. [How do you prevent SQL Injection vulnerabilities in a raw SQL query?](#q3-how-do-you-prevent-sql-injection-vulnerabilities-in-a-raw-sql-query) <span class="intermediate">Intermediate</span>
 4. [How do you design a schema for a 'Many-to-Many' relationship?](#q4-how-do-you-design-a-schema-for-a-many-to-many-relationship) <span class="intermediate">Intermediate</span>
 5. [How do you choose between embedding documents and referencing them in MongoDB?](#q5-how-do-you-choose-between-embedding-documents-and-referencing-them-in-mongodb) <span class="intermediate">Intermediate</span>
-6. [How do you resolve the N+1 query problem?](#q6-how-do-you-resolve-the-n+1-query-problem) <span class="intermediate">Intermediate</span>
+6. [How do you resolve the N+1 query problem?](#q6-how-do-you-resolve-the-n1-query-problem) <span class="intermediate">Intermediate</span>
 7. [How do you use Window Functions to find the top 3 salaries per department?](#q7-how-do-you-use-window-functions-to-find-the-top-3-salaries-per-department) <span class="intermediate">Intermediate</span>
 8. [How do you implement optimistic locking to handle concurrent updates?](#q8-how-do-you-implement-optimistic-locking-to-handle-concurrent-updates) <span class="intermediate">Intermediate</span>
 9. [How do you ensure data consistency across microservices (Distributed Transaction)?](#q9-how-do-you-ensure-data-consistency-across-microservices-distributed-transaction) <span class="intermediate">Intermediate</span>
 10. [How do you use a Redis cache to implement the 'Cache-Aside' pattern?](#q10-how-do-you-use-a-redis-cache-to-implement-the-cache-aside-pattern) <span class="intermediate">Intermediate</span>
 11. [How do you structure a composite index to optimize a query with equality and range filters?](#q11-how-do-you-structure-a-composite-index-to-optimize-a-query-with-equality-and-range-filters) <span class="intermediate">Intermediate</span>
 12. [How do you handle 'Soft Deletes' to preserve data history?](#q12-how-do-you-handle-soft-deletes-to-preserve-data-history) <span class="intermediate">Intermediate</span>
-13. [How do you optimize database writes for a high-ingestion system (e.g., logs)?](#q13-how-do-you-optimize-database-writes-for-a-high-ingestion-system-e.g.-logs) <span class="intermediate">Intermediate</span>
+13. [How do you optimize database writes for a high-ingestion system (e.g., logs)?](#q13-how-do-you-optimize-database-writes-for-a-high-ingestion-system-eg-logs) <span class="intermediate">Intermediate</span>
 14. [How do you use Common Table Expressions (CTEs) to simplify complex logic?](#q14-how-do-you-use-common-table-expressions-ctes-to-simplify-complex-logic) <span class="intermediate">Intermediate</span>
 15. [How do you maintain ACID properties in a database transaction?](#q15-how-do-you-maintain-acid-properties-in-a-database-transaction) <span class="intermediate">Intermediate</span>
 16. [How do you create a Materialized View and refresh it concurrently?](#q16-how-do-you-create-a-materialized-view-and-refresh-it-concurrently) <span class="intermediate">Intermediate</span>
@@ -36,80 +36,81 @@
 24. [How do you prevent Deadlocks in database transactions?](#q24-how-do-you-prevent-deadlocks-in-database-transactions) <span class="advanced">Advanced</span>
 25. [How do you use Full-Text Search in PostgreSQL without ElasticSearch?](#q25-how-do-you-use-full-text-search-in-postgresql-without-elasticsearch) <span class="advanced">Advanced</span>
 26. [How do you handle transaction isolation levels?](#q26-how-do-you-handle-transaction-isolation-levels) <span class="advanced">Advanced</span>
-27. [How do you implement Soft Deletes?](#q27-how-do-you-implement-soft-deletes) <span class="beginner">Beginner</span>
-28. [How do you use a Composite Index effectively?](#q28-how-do-you-use-a-composite-index-effectively) <span class="intermediate">Intermediate</span>
-29. [How do you identify and fix the N+1 query problem?](#q29-how-do-you-identify-and-fix-the-n+1-query-problem) <span class="intermediate">Intermediate</span>
-30. [How do you partition a large table by date?](#q30-how-do-you-partition-a-large-table-by-date) <span class="advanced">Advanced</span>
-31. [How do you implement Database Sharding and when should you use it?](#q31-how-do-you-implement-database-sharding-and-when-should-you-use-it) <span class="advanced">Advanced</span>
-32. [How do you prevent Phantom Reads in a transaction?](#q32-how-do-you-prevent-phantom-reads-in-a-transaction) <span class="advanced">Advanced</span>
-33. [How do you optimize a query using a Covering Index?](#q33-how-do-you-optimize-a-query-using-a-covering-index) <span class="intermediate">Intermediate</span>
-34. [How do you handle 'Dirty Reads' and which isolation level prevents them?](#q34-how-do-you-handle-dirty-reads-and-which-isolation-level-prevents-them) <span class="intermediate">Intermediate</span>
-35. [How do you implement connection pooling in a Node.js application?](#q35-how-do-you-implement-connection-pooling-in-a-node.js-application) <span class="intermediate">Intermediate</span>
-36. [How do you model a tree structure (Hierarchy) in a Relational Database?](#q36-how-do-you-model-a-tree-structure-hierarchy-in-a-relational-database) <span class="advanced">Advanced</span>
-37. [How do you use JSON columns in PostgreSQL vs MySQL?](#q37-how-do-you-use-json-columns-in-postgresql-vs-mysql) <span class="intermediate">Intermediate</span>
-38. [How do you implement Row-Level Security (RLS)?](#q38-how-do-you-implement-row-level-security-rls) <span class="advanced">Advanced</span>
-39. [How do you use a Materialized View for reporting?](#q39-how-do-you-use-a-materialized-view-for-reporting) <span class="intermediate">Intermediate</span>
-40. [How do you generate unique IDs in a distributed system (Snowflake ID)?](#q40-how-do-you-generate-unique-ids-in-a-distributed-system-snowflake-id) <span class="advanced">Advanced</span>
-41. [How do you use Foreign Data Wrappers (FDW) in PostgreSQL?](#q41-how-do-you-use-foreign-data-wrappers-fdw-in-postgresql) <span class="advanced">Advanced</span>
-42. [How do you optimize a `LIKE` query with wildcards at the beginning?](#q42-how-do-you-optimize-a-like-query-with-wildcards-at-the-beginning) <span class="intermediate">Intermediate</span>
-43. [How do you handle Deadlocks in a database?](#q43-how-do-you-handle-deadlocks-in-a-database) <span class="advanced">Advanced</span>
-44. [How do you use the `CASE` statement for conditional logic in SQL?](#q44-how-do-you-use-the-case-statement-for-conditional-logic-in-sql) <span class="beginner">Beginner</span>
-45. [How do you implement Database Replication (Master-Slave)?](#q45-how-do-you-implement-database-replication-master-slave) <span class="advanced">Advanced</span>
-46. [How do you perform a Batch Insert efficiently?](#q46-how-do-you-perform-a-batch-insert-efficiently) <span class="intermediate">Intermediate</span>
-47. [How do you use `GROUPING SETS` for multi-level aggregation?](#q47-how-do-you-use-grouping-sets-for-multi-level-aggregation) <span class="advanced">Advanced</span>
-48. [How do you store and query time-series data efficiently?](#q48-how-do-you-store-and-query-time-series-data-efficiently) <span class="intermediate">Intermediate</span>
-49. [How do you handle 'NoSQL' data modeling in DynamoDB (Single Table Design)?](#q49-how-do-you-handle-nosql-data-modeling-in-dynamodb-single-table-design) <span class="advanced">Advanced</span>
-50. [How do you identify and remove duplicate rows from a table?](#q50-how-do-you-identify-and-remove-duplicate-rows-from-a-table) <span class="intermediate">Intermediate</span>
-51. [How do you handle Database state management in large scale applications?](#q51-how-do-you-handle-database-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-52. [How do you perform Database data validation in microservices?](#q52-how-do-you-perform-database-data-validation-in-microservices) <span class="beginner">Beginner</span>
-53. [How do you automate Database deployment for mobile devices?](#q53-how-do-you-automate-database-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-54. [How do you handle Database concurrency issues in legacy systems?](#q54-how-do-you-handle-database-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-55. [How do you implement Database caching in cloud infrastructure?](#q55-how-do-you-implement-database-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-56. [How do you manage Database configuration for real-time systems?](#q56-how-do-you-manage-database-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-57. [How do you handle Database internationalization (i18n) in distributed systems?](#q57-how-do-you-handle-database-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-58. [How do you ensure Database accessibility (a11y) in high-traffic sites?](#q58-how-do-you-ensure-database-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-59. [How do you optimize Database network requests in embedded systems?](#q59-how-do-you-optimize-database-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-60. [How do you handle Database performance optimization for production environments?](#q60-how-do-you-handle-database-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-61. [What are the security implications of Database in large scale applications?](#q61-what-are-the-security-implications-of-database-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug Database memory leaks in microservices?](#q62-how-do-you-debug-database-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for Database code organization in mobile devices?](#q63-best-practices-for-database-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement Database error handling for legacy systems?](#q64-how-do-you-implement-database-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test Database functionality in cloud infrastructure?](#q65-how-do-you-test-database-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle Database state management in real-time systems?](#q66-how-do-you-handle-database-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform Database data validation in distributed systems?](#q67-how-do-you-perform-database-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate Database deployment for high-traffic sites?](#q68-how-do-you-automate-database-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle Database concurrency issues in embedded systems?](#q69-how-do-you-handle-database-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement Database caching in production environments?](#q70-how-do-you-implement-database-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage Database configuration for large scale applications?](#q71-how-do-you-manage-database-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle Database internationalization (i18n) in microservices?](#q72-how-do-you-handle-database-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure Database accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-database-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize Database network requests in legacy systems?](#q74-how-do-you-optimize-database-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle Database performance optimization for cloud infrastructure?](#q75-how-do-you-handle-database-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of Database in real-time systems?](#q76-what-are-the-security-implications-of-database-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug Database memory leaks in distributed systems?](#q77-how-do-you-debug-database-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for Database code organization in high-traffic sites?](#q78-best-practices-for-database-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement Database error handling for embedded systems?](#q79-how-do-you-implement-database-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test Database functionality in production environments?](#q80-how-do-you-test-database-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle Database state management in large scale applications?](#q81-how-do-you-handle-database-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform Database data validation in microservices?](#q82-how-do-you-perform-database-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate Database deployment for mobile devices?](#q83-how-do-you-automate-database-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle Database concurrency issues in legacy systems?](#q84-how-do-you-handle-database-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement Database caching in cloud infrastructure?](#q85-how-do-you-implement-database-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage Database configuration for real-time systems?](#q86-how-do-you-manage-database-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle Database internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-database-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure Database accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-database-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize Database network requests in embedded systems?](#q89-how-do-you-optimize-database-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle Database performance optimization for production environments?](#q90-how-do-you-handle-database-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of Database in large scale applications?](#q91-what-are-the-security-implications-of-database-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug Database memory leaks in microservices?](#q92-how-do-you-debug-database-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for Database code organization in mobile devices?](#q93-best-practices-for-database-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement Database error handling for legacy systems?](#q94-how-do-you-implement-database-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test Database functionality in cloud infrastructure?](#q95-how-do-you-test-database-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle Database state management in real-time systems?](#q96-how-do-you-handle-database-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform Database data validation in distributed systems?](#q97-how-do-you-perform-database-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate Database deployment for high-traffic sites?](#q98-how-do-you-automate-database-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle Database concurrency issues in embedded systems?](#q99-how-do-you-handle-database-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement Database caching in production environments?](#q100-how-do-you-implement-database-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+27. [How do you partition a large table by date?](#q27-how-do-you-partition-a-large-table-by-date) <span class="advanced">Advanced</span>
+28. [How do you implement Database Sharding and when should you use it?](#q28-how-do-you-implement-database-sharding-and-when-should-you-use-it) <span class="advanced">Advanced</span>
+29. [How do you prevent Phantom Reads in a transaction?](#q29-how-do-you-prevent-phantom-reads-in-a-transaction) <span class="advanced">Advanced</span>
+30. [How do you optimize a query using a Covering Index?](#q30-how-do-you-optimize-a-query-using-a-covering-index) <span class="intermediate">Intermediate</span>
+31. [How do you handle 'Dirty Reads' and which isolation level prevents them?](#q31-how-do-you-handle-dirty-reads-and-which-isolation-level-prevents-them) <span class="intermediate">Intermediate</span>
+32. [How do you implement connection pooling in a Node.js application?](#q32-how-do-you-implement-connection-pooling-in-a-nodejs-application) <span class="intermediate">Intermediate</span>
+33. [How do you model a tree structure (Hierarchy) in a Relational Database?](#q33-how-do-you-model-a-tree-structure-hierarchy-in-a-relational-database) <span class="advanced">Advanced</span>
+34. [How do you use JSON columns in PostgreSQL vs MySQL?](#q34-how-do-you-use-json-columns-in-postgresql-vs-mysql) <span class="intermediate">Intermediate</span>
+35. [How do you implement Row-Level Security (RLS)?](#q35-how-do-you-implement-row-level-security-rls) <span class="advanced">Advanced</span>
+36. [How do you use a Materialized View for reporting?](#q36-how-do-you-use-a-materialized-view-for-reporting) <span class="intermediate">Intermediate</span>
+37. [How do you generate unique IDs in a distributed system (Snowflake ID)?](#q37-how-do-you-generate-unique-ids-in-a-distributed-system-snowflake-id) <span class="advanced">Advanced</span>
+38. [How do you use Foreign Data Wrappers (FDW) in PostgreSQL?](#q38-how-do-you-use-foreign-data-wrappers-fdw-in-postgresql) <span class="advanced">Advanced</span>
+39. [How do you optimize a `LIKE` query with wildcards at the beginning?](#q39-how-do-you-optimize-a-like-query-with-wildcards-at-the-beginning) <span class="intermediate">Intermediate</span>
+40. [How do you use the `CASE` statement for conditional logic in SQL?](#q40-how-do-you-use-the-case-statement-for-conditional-logic-in-sql) <span class="beginner">Beginner</span>
+41. [How do you implement Database Replication (Master-Slave)?](#q41-how-do-you-implement-database-replication-master-slave) <span class="advanced">Advanced</span>
+42. [How do you perform a Batch Insert efficiently?](#q42-how-do-you-perform-a-batch-insert-efficiently) <span class="intermediate">Intermediate</span>
+43. [How do you use `GROUPING SETS` for multi-level aggregation?](#q43-how-do-you-use-grouping-sets-for-multi-level-aggregation) <span class="advanced">Advanced</span>
+44. [How do you store and query time-series data efficiently?](#q44-how-do-you-store-and-query-time-series-data-efficiently) <span class="intermediate">Intermediate</span>
+45. [How do you handle 'NoSQL' data modeling in DynamoDB (Single Table Design)?](#q45-how-do-you-handle-nosql-data-modeling-in-dynamodb-single-table-design) <span class="advanced">Advanced</span>
+46. [How do you identify and remove duplicate rows from a table?](#q46-how-do-you-identify-and-remove-duplicate-rows-from-a-table) <span class="intermediate">Intermediate</span>
+47. [What is ACID?](#q47-what-is-acid) <span class="beginner">Beginner</span>
+48. [What is Indexing?](#q48-what-is-indexing) <span class="beginner">Beginner</span>
+49. [Types of Indexes?](#q49-types-of-indexes) <span class="intermediate">Intermediate</span>
+50. [What is Normalization?](#q50-what-is-normalization) <span class="intermediate">Intermediate</span>
+51. [What is Denormalization?](#q51-what-is-denormalization) <span class="intermediate">Intermediate</span>
+52. [Inner Join vs Outer Join?](#q52-inner-join-vs-outer-join) <span class="beginner">Beginner</span>
+53. [What is a View?](#q53-what-is-a-view) <span class="beginner">Beginner</span>
+54. [What is a Stored Procedure?](#q54-what-is-a-stored-procedure) <span class="intermediate">Intermediate</span>
+55. [What is a Trigger?](#q55-what-is-a-trigger) <span class="intermediate">Intermediate</span>
+56. [SQL vs NoSQL?](#q56-sql-vs-nosql) <span class="beginner">Beginner</span>
+57. [What is Sharding?](#q57-what-is-sharding) <span class="advanced">Advanced</span>
+58. [What is Replication?](#q58-what-is-replication) <span class="intermediate">Intermediate</span>
+59. [What is CAP Theorem?](#q59-what-is-cap-theorem) <span class="intermediate">Intermediate</span>
+60. [What is eventual consistency?](#q60-what-is-eventual-consistency) <span class="intermediate">Intermediate</span>
+61. [What is a Transaction?](#q61-what-is-a-transaction) <span class="beginner">Beginner</span>
+62. [Isolation Levels?](#q62-isolation-levels) <span class="advanced">Advanced</span>
+63. [What is Deadlock?](#q63-what-is-deadlock) <span class="intermediate">Intermediate</span>
+64. [Optimistic vs Pessimistic Locking?](#q64-optimistic-vs-pessimistic-locking) <span class="advanced">Advanced</span>
+65. [What is Connection Pooling?](#q65-what-is-connection-pooling) <span class="intermediate">Intermediate</span>
+66. [What is an ORM?](#q66-what-is-an-orm) <span class="beginner">Beginner</span>
+67. [N+1 Problem in DB?](#q67-n1-problem-in-db) <span class="intermediate">Intermediate</span>
+68. [What is MongoDB?](#q68-what-is-mongodb) <span class="beginner">Beginner</span>
+69. [What is Redis?](#q69-what-is-redis) <span class="beginner">Beginner</span>
+70. [What is Cassandra?](#q70-what-is-cassandra) <span class="advanced">Advanced</span>
+71. [What is a Primary Key?](#q71-what-is-a-primary-key) <span class="beginner">Beginner</span>
+72. [What is a Foreign Key?](#q72-what-is-a-foreign-key) <span class="beginner">Beginner</span>
+73. [What is Database Migration?](#q73-what-is-database-migration) <span class="intermediate">Intermediate</span>
+74. [How to optimize a slow query?](#q74-how-to-optimize-a-slow-query) <span class="intermediate">Intermediate</span>
+75. [What is SQL Injection?](#q75-what-is-sql-injection) <span class="beginner">Beginner</span>
+76. [What is a Cursor?](#q76-what-is-a-cursor) <span class="intermediate">Intermediate</span>
+77. [What is ETL?](#q77-what-is-etl) <span class="intermediate">Intermediate</span>
+78. [OLTP vs OLAP?](#q78-oltp-vs-olap) <span class="advanced">Advanced</span>
+79. [What is a Time Series DB?](#q79-what-is-a-time-series-db) <span class="intermediate">Intermediate</span>
+80. [What is Graph DB?](#q80-what-is-graph-db) <span class="intermediate">Intermediate</span>
+81. [What is Partitioning?](#q81-what-is-partitioning) <span class="advanced">Advanced</span>
+82. [What is MVCC?](#q82-what-is-mvcc) <span class="advanced">Advanced</span>
+83. [What is Write-Ahead Logging (WAL)?](#q83-what-is-write-ahead-logging-wal) <span class="advanced">Advanced</span>
+84. [What is a Materialized View?](#q84-what-is-a-materialized-view) <span class="intermediate">Intermediate</span>
+85. [What is Soft Delete?](#q85-what-is-soft-delete) <span class="beginner">Beginner</span>
+86. [What is Database Mirroring?](#q86-what-is-database-mirroring) <span class="advanced">Advanced</span>
+87. [Row-oriented vs Column-oriented storage?](#q87-row-oriented-vs-column-oriented-storage) <span class="advanced">Advanced</span>
+88. [What is a Composite Key?](#q88-what-is-a-composite-key) <span class="intermediate">Intermediate</span>
+89. [What is a Surrogate Key?](#q89-what-is-a-surrogate-key) <span class="intermediate">Intermediate</span>
+90. [What is Referential Integrity?](#q90-what-is-referential-integrity) <span class="beginner">Beginner</span>
+91. [What is a Bloom Filter in DB?](#q91-what-is-a-bloom-filter-in-db) <span class="advanced">Advanced</span>
+92. [What is Two-Phase Commit (2PC)?](#q92-what-is-two-phase-commit-2pc) <span class="advanced">Advanced</span>
+93. [What is CDC (Change Data Capture)?](#q93-what-is-cdc-change-data-capture) <span class="advanced">Advanced</span>
+94. [What is Vacuuming?](#q94-what-is-vacuuming) <span class="intermediate">Intermediate</span>
+95. [What is a Clustered Index?](#q95-what-is-a-clustered-index) <span class="advanced">Advanced</span>
+96. [What is a Non-Clustered Index?](#q96-what-is-a-non-clustered-index) <span class="advanced">Advanced</span>
+97. [What is Database Sharding vs Partitioning?](#q97-what-is-database-sharding-vs-partitioning) <span class="advanced">Advanced</span>
+98. [What is a Spatial Index?](#q98-what-is-a-spatial-index) <span class="intermediate">Intermediate</span>
+99. [What is Full-Text Search?](#q99-what-is-full-text-search) <span class="intermediate">Intermediate</span>
+100. [What is B-Tree?](#q100-what-is-b-tree) <span class="advanced">Advanced</span>
+101. [What is Hash Index?](#q101-what-is-hash-index) <span class="advanced">Advanced</span>
 
 ---
 
@@ -813,74 +814,7 @@ COMMIT;
 
 ---
 
-### Q27: How do you implement Soft Deletes?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Add a `deleted_at` timestamp column. UPDATE this column instead of DELETE. Filter queries with `WHERE deleted_at IS NULL`.
-
-**Code Example:**
-```sql
--- Soft Delete
-UPDATE users SET deleted_at = NOW() WHERE id = 1;
-
--- Query active users
-SELECT * FROM users WHERE deleted_at IS NULL;
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q28: How do you use a Composite Index effectively?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Order columns in the index based on query usage: Equality columns first, then Range columns. The index `(a, b)` supports queries on `a` and `a, b`, but not just `b`.
-
-**Code Example:**
-```sql
--- Index on (last_name, first_name)
-CREATE INDEX idx_name ON users (last_name, first_name);
-
--- Good Usage
-SELECT * FROM users WHERE last_name = 'Doe' AND first_name = 'John';
-SELECT * FROM users WHERE last_name = 'Doe';
-
--- Bad Usage (Index scan unlikely)
-SELECT * FROM users WHERE first_name = 'John';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q29: How do you identify and fix the N+1 query problem?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-N+1 occurs when fetching a list (1 query) and then fetching related data for each item (N queries). Fix using JOINs or eager loading (fetching all related IDs in one IN clause).
-
-**Code Example:**
-```sql
--- BAD (N+1)
--- SELECT * FROM posts;
--- For each post: SELECT * FROM comments WHERE post_id = ?;
-
--- GOOD (JOIN)
-SELECT p.*, c.* 
-FROM posts p
-LEFT JOIN comments c ON c.post_id = p.id;
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q30: How do you partition a large table by date?
+### Q27: How do you partition a large table by date?
 
 **Difficulty**: Advanced
 
@@ -903,7 +837,7 @@ CREATE TABLE logs_2023_01 PARTITION OF logs
 ---
 
 
-### Q31: How do you implement Database Sharding and when should you use it?
+### Q28: How do you implement Database Sharding and when should you use it?
 
 **Difficulty**: Advanced
 
@@ -928,7 +862,7 @@ function getShard(userId) {
 
 ---
 
-### Q32: How do you prevent Phantom Reads in a transaction?
+### Q29: How do you prevent Phantom Reads in a transaction?
 
 **Difficulty**: Advanced
 
@@ -949,7 +883,7 @@ SELECT * FROM orders WHERE amount > 1000 FOR UPDATE;
 
 ---
 
-### Q33: How do you optimize a query using a Covering Index?
+### Q30: How do you optimize a query using a Covering Index?
 
 **Difficulty**: Intermediate
 
@@ -971,7 +905,7 @@ CREATE INDEX idx_users_age_names ON users(age) INCLUDE (first_name, last_name);
 
 ---
 
-### Q34: How do you handle 'Dirty Reads' and which isolation level prevents them?
+### Q31: How do you handle 'Dirty Reads' and which isolation level prevents them?
 
 **Difficulty**: Intermediate
 
@@ -993,7 +927,7 @@ SELECT balance FROM accounts WHERE id = 1;
 
 ---
 
-### Q35: How do you implement connection pooling in a Node.js application?
+### Q32: How do you implement connection pooling in a Node.js application?
 
 **Difficulty**: Intermediate
 
@@ -1023,7 +957,7 @@ pool.query('SELECT NOW()', (err, res) => {
 
 ---
 
-### Q36: How do you model a tree structure (Hierarchy) in a Relational Database?
+### Q33: How do you model a tree structure (Hierarchy) in a Relational Database?
 
 **Difficulty**: Advanced
 
@@ -1054,7 +988,7 @@ SELECT * FROM category_path;
 
 ---
 
-### Q37: How do you use JSON columns in PostgreSQL vs MySQL?
+### Q34: How do you use JSON columns in PostgreSQL vs MySQL?
 
 **Difficulty**: Intermediate
 
@@ -1086,7 +1020,7 @@ SELECT * FROM products WHERE data->'$.category' = 'Electronics';
 
 ---
 
-### Q38: How do you implement Row-Level Security (RLS)?
+### Q35: How do you implement Row-Level Security (RLS)?
 
 **Difficulty**: Advanced
 
@@ -1112,7 +1046,7 @@ COMMIT;
 
 ---
 
-### Q39: How do you use a Materialized View for reporting?
+### Q36: How do you use a Materialized View for reporting?
 
 **Difficulty**: Intermediate
 
@@ -1138,7 +1072,7 @@ REFRESH MATERIALIZED VIEW CONCURRENTLY monthly_sales;
 
 ---
 
-### Q40: How do you generate unique IDs in a distributed system (Snowflake ID)?
+### Q37: How do you generate unique IDs in a distributed system (Snowflake ID)?
 
 **Difficulty**: Advanced
 
@@ -1169,7 +1103,7 @@ class Snowflake {
 
 ---
 
-### Q41: How do you use Foreign Data Wrappers (FDW) in PostgreSQL?
+### Q38: How do you use Foreign Data Wrappers (FDW) in PostgreSQL?
 
 **Difficulty**: Advanced
 
@@ -1202,7 +1136,7 @@ SELECT * FROM local_schema.remote_table;
 
 ---
 
-### Q42: How do you optimize a `LIKE` query with wildcards at the beginning?
+### Q39: How do you optimize a `LIKE` query with wildcards at the beginning?
 
 **Difficulty**: Intermediate
 
@@ -1225,34 +1159,7 @@ EXPLAIN SELECT * FROM users WHERE name LIKE '%smith%';
 
 ---
 
-### Q43: How do you handle Deadlocks in a database?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Deadlocks occur when two transactions block each other. Handle them by: 1. Ordering updates consistently. 2. Keeping transactions short. 3. Using retry logic in the application.
-
-**Code Example:**
--- Scenario causing Deadlock
--- Tx1: Locks Row A, needs Row B
--- Tx2: Locks Row B, needs Row A
-
--- Solution: Consistent Ordering
--- Always lock tables/rows in the same order (e.g., by ID)
-
--- Tx1
-UPDATE accounts SET balance = balance - 10 WHERE id = 1;
-UPDATE accounts SET balance = balance + 10 WHERE id = 2;
-
--- Tx2 (Must follow same order: 1 then 2)
-UPDATE accounts SET balance = balance - 20 WHERE id = 1;
-UPDATE accounts SET balance = balance + 20 WHERE id = 2;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q44: How do you use the `CASE` statement for conditional logic in SQL?
+### Q40: How do you use the `CASE` statement for conditional logic in SQL?
 
 **Difficulty**: Beginner
 
@@ -1275,7 +1182,7 @@ FROM employees;
 
 ---
 
-### Q45: How do you implement Database Replication (Master-Slave)?
+### Q41: How do you implement Database Replication (Master-Slave)?
 
 **Difficulty**: Advanced
 
@@ -1302,7 +1209,7 @@ pg_basebackup -h master_host -D /var/lib/postgresql/data -U replicator -P -R
 
 ---
 
-### Q46: How do you perform a Batch Insert efficiently?
+### Q42: How do you perform a Batch Insert efficiently?
 
 **Difficulty**: Intermediate
 
@@ -1327,7 +1234,7 @@ COPY logs (msg) FROM '/path/to/file.csv' DELIMITER ',' CSV;
 
 ---
 
-### Q47: How do you use `GROUPING SETS` for multi-level aggregation?
+### Q43: How do you use `GROUPING SETS` for multi-level aggregation?
 
 **Difficulty**: Advanced
 
@@ -1350,7 +1257,7 @@ GROUP BY GROUPING SETS (
 
 ---
 
-### Q48: How do you store and query time-series data efficiently?
+### Q44: How do you store and query time-series data efficiently?
 
 **Difficulty**: Intermediate
 
@@ -1372,7 +1279,7 @@ CREATE INDEX idx_sensor_time ON sensor_data USING BRIN(time);
 
 ---
 
-### Q49: How do you handle 'NoSQL' data modeling in DynamoDB (Single Table Design)?
+### Q45: How do you handle 'NoSQL' data modeling in DynamoDB (Single Table Design)?
 
 **Difficulty**: Advanced
 
@@ -1399,7 +1306,7 @@ ExpressionAttributeValues: {
 
 ---
 
-### Q50: How do you identify and remove duplicate rows from a table?
+### Q46: How do you identify and remove duplicate rows from a table?
 
 **Difficulty**: Intermediate
 
@@ -1427,858 +1334,883 @@ WHERE id IN (
 ---
 
 
-### Q51: How do you handle Database state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```sql
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q52: How do you perform Database data validation in microservices?
+### Q47: What is ACID?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Atomicity, Consistency, Isolation, Durability.
 
 **Code Example**:
-```sql
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```javascript
+BEGIN; ... COMMIT;
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q53: How do you automate Database deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```sql
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q54: How do you handle Database concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```sql
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q55: How do you implement Database caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches.
-
-**Code Example**:
-```sql
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q56: How do you manage Database configuration for real-time systems?
+### Q48: What is Indexing?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Data structure to speed up retrieval.
 
 **Code Example**:
-```sql
-const config = process.env.CONFIG || 'default';
+```javascript
+CREATE INDEX idx_name ON users(name);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you handle Database internationalization (i18n) in distributed systems?
+### Q49: Types of Indexes?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use i18n libraries. Extract strings to resource files.
+B-Tree, Hash, Bitmap, GiST, GIN.
 
 **Code Example**:
-```sql
-t('welcome_message')
+```javascript
+// B-Tree is default
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q58: How do you ensure Database accessibility (a11y) in high-traffic sites?
+### Q50: What is Normalization?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Organizing data to reduce redundancy.
+
+**Code Example**:
+```javascript
+// 1NF, 2NF, 3NF
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q51: What is Denormalization?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Adding redundancy for performance.
+
+**Code Example**:
+```javascript
+// Storing count in parent table
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q52: Inner Join vs Outer Join?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Inner: match both. Outer: match one + nulls.
 
 **Code Example**:
-```sql
-<button aria-label="Close">X</button>
+```javascript
+SELECT * FROM A JOIN B ON A.id = B.id
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you optimize Database network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```sql
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: How do you handle Database performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```sql
-const start = performance.now();
-// Database logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q61: What are the security implications of Database in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```sql
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q62: How do you debug Database memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```sql
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: Best practices for Database code organization in mobile devices?
+### Q53: What is a View?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Virtual table based on query.
 
 **Code Example**:
-```sql
-// Single responsibility
-function doOneThing() { ... }
+```javascript
+CREATE VIEW active_users AS ...
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you implement Database error handling for legacy systems?
+### Q54: What is a Stored Procedure?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+Code stored in DB.
 
 **Code Example**:
-```sql
-try {
-  await DatabaseOperation();
-} catch (e) {
-  logger.error(e);
-}
+```javascript
+CREATE PROCEDURE ...
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you test Database functionality in cloud infrastructure?
+### Q55: What is a Trigger?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Write unit tests for logic and integration tests for flows.
+Auto-executes on event.
 
 **Code Example**:
-```sql
-test('Database works', () => {
-  expect(Database()).toBe(true);
-});
+```javascript
+CREATE TRIGGER ... BEFORE INSERT ...
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q66: How do you handle Database state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```sql
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q67: How do you perform Database data validation in distributed systems?
+### Q56: SQL vs NoSQL?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Structured (Relational) vs Unstructured (Document/Key-Value).
 
 **Code Example**:
-```sql
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```javascript
+// MySQL vs MongoDB
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you automate Database deployment for high-traffic sites?
+### Q57: What is Sharding?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Horizontal partitioning across servers.
 
 **Code Example**:
-```sql
-steps:
-  - run: npm test
-  - run: docker build
+```javascript
+// Shard by UserID
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q69: How do you handle Database concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```sql
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you implement Database caching in production environments?
+### Q58: What is Replication?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Copying data to multiple nodes.
 
 **Code Example**:
-```sql
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+```javascript
+// Master-Slave
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you manage Database configuration for large scale applications?
+### Q59: What is CAP Theorem?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Consistency, Availability, Partition Tolerance.
+
+**Code Example**:
+```javascript
+// Choose 2
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q60: What is eventual consistency?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Data will become consistent over time.
+
+**Code Example**:
+```javascript
+// DNS, NoSQL
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q61: What is a Transaction?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Unit of work.
 
 **Code Example**:
-```sql
-const config = process.env.CONFIG || 'default';
+```javascript
+START TRANSACTION
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you handle Database internationalization (i18n) in microservices?
+### Q62: Isolation Levels?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Read Uncommitted, Read Committed, Repeatable Read, Serializable.
+
+**Code Example**:
+```javascript
+SET TRANSACTION ISOLATION LEVEL ...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q63: What is Deadlock?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use i18n libraries. Extract strings to resource files.
+Two processes waiting for each other.
 
 **Code Example**:
-```sql
-t('welcome_message')
+```javascript
+// A waits for B, B waits for A
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q73: How do you ensure Database accessibility (a11y) in mobile devices?
+### Q64: Optimistic vs Pessimistic Locking?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Optimistic: check version on save. Pessimistic: lock row on read.
+
+**Code Example**:
+```javascript
+// SELECT ... FOR UPDATE
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q65: What is Connection Pooling?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Reuse open connections.
+
+**Code Example**:
+```javascript
+// Improves performance
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q66: What is an ORM?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Object Relational Mapper.
 
 **Code Example**:
-```sql
-<button aria-label="Close">X</button>
+```javascript
+// Hibernate, TypeORM
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you optimize Database network requests in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```sql
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you handle Database performance optimization for cloud infrastructure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```sql
-const start = performance.now();
-// Database logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: What are the security implications of Database in real-time systems?
+### Q67: N+1 Problem in DB?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
+Fetching child data in loop.
 
 **Code Example**:
-```sql
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
+```javascript
+// Use JOIN or batching
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q77: How do you debug Database memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```sql
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: Best practices for Database code organization in high-traffic sites?
+### Q68: What is MongoDB?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Document store (BSON).
 
 **Code Example**:
-```sql
-// Single responsibility
-function doOneThing() { ... }
+```javascript
+db.users.find()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you implement Database error handling for embedded systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```sql
-try {
-  await DatabaseOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q80: How do you test Database functionality in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```sql
-test('Database works', () => {
-  expect(Database()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q81: How do you handle Database state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```sql
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q82: How do you perform Database data validation in microservices?
+### Q69: What is Redis?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+In-memory key-value store.
 
 **Code Example**:
-```sql
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```javascript
+SET key value
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you automate Database deployment for mobile devices?
+### Q70: What is Cassandra?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Wide-column store.
 
 **Code Example**:
-```sql
-steps:
-  - run: npm test
-  - run: docker build
+```javascript
+// High write throughput
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q84: How do you handle Database concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```sql
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: How do you implement Database caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches.
-
-**Code Example**:
-```sql
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q86: How do you manage Database configuration for real-time systems?
+### Q71: What is a Primary Key?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Unique identifier.
 
 **Code Example**:
-```sql
-const config = process.env.CONFIG || 'default';
+```javascript
+id INT PRIMARY KEY
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle Database internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```sql
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q88: How do you ensure Database accessibility (a11y) in high-traffic sites?
+### Q72: What is a Foreign Key?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Link to another table.
 
 **Code Example**:
-```sql
-<button aria-label="Close">X</button>
+```javascript
+user_id INT REFERENCES users(id)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you optimize Database network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```sql
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you handle Database performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```sql
-const start = performance.now();
-// Database logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: What are the security implications of Database in large scale applications?
+### Q73: What is Database Migration?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
+Version control for schema.
 
 **Code Example**:
-```sql
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
+```javascript
+// Flyway, Liquibase
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q92: How do you debug Database memory leaks in microservices?
+### Q74: How to optimize a slow query?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
+EXPLAIN, Indexes, select specific columns.
 
 **Code Example**:
-```sql
-// Check listeners
-process.on('exit', () => cleanup());
+```javascript
+EXPLAIN SELECT ...
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q93: Best practices for Database code organization in mobile devices?
+### Q75: What is SQL Injection?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Malicious SQL input.
 
 **Code Example**:
-```sql
-// Single responsibility
-function doOneThing() { ... }
+```javascript
+// Use Prepared Statements
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q94: How do you implement Database error handling for legacy systems?
+### Q76: What is a Cursor?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+Pointer to result set row.
 
 **Code Example**:
-```sql
-try {
-  await DatabaseOperation();
-} catch (e) {
-  logger.error(e);
-}
+```javascript
+FETCH NEXT FROM cursor
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q95: How do you test Database functionality in cloud infrastructure?
+### Q77: What is ETL?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Write unit tests for logic and integration tests for flows.
+Extract, Transform, Load.
 
 **Code Example**:
-```sql
-test('Database works', () => {
-  expect(Database()).toBe(true);
-});
+```javascript
+// Data Warehousing
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q96: How do you handle Database state management in real-time systems?
+### Q78: OLTP vs OLAP?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Transactional vs Analytical processing.
 
 **Code Example**:
-```sql
-const [state, setState] = useState(initial);
+```javascript
+// Postgres vs Snowflake
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q97: How do you perform Database data validation in distributed systems?
+### Q79: What is a Time Series DB?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Optimized for time-stamped data.
+
+**Code Example**:
+```javascript
+// InfluxDB
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q80: What is Graph DB?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Nodes and Edges.
+
+**Code Example**:
+```javascript
+// Neo4j
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q81: What is Partitioning?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Splitting table into smaller tables.
+
+**Code Example**:
+```javascript
+// By Range, List, Hash
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q82: What is MVCC?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Multi-Version Concurrency Control.
+
+**Code Example**:
+```javascript
+// Readers don't block writers
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q83: What is Write-Ahead Logging (WAL)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Log changes before writing to disk.
+
+**Code Example**:
+```javascript
+// Durability
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q84: What is a Materialized View?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Physically stored view, refreshed periodically.
+
+**Code Example**:
+```javascript
+REFRESH MATERIALIZED VIEW
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: What is Soft Delete?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Flag as deleted instead of removing.
 
 **Code Example**:
-```sql
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```javascript
+UPDATE users SET deleted_at = NOW()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q98: How do you automate Database deployment for high-traffic sites?
+### Q86: What is Database Mirroring?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Real-time copy for High Availability.
 
 **Code Example**:
-```sql
-steps:
-  - run: npm test
-  - run: docker build
+```javascript
+// Failover
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q99: How do you handle Database concurrency issues in embedded systems?
+### Q87: Row-oriented vs Column-oriented storage?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Row: faster writes/single retrieval. Column: faster aggregations.
 
 **Code Example**:
-```sql
-await mutex.runExclusive(async () => {
-  // critical section
-});
+```javascript
+// Parquet files
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q100: How do you implement Database caching in production environments?
+### Q88: What is a Composite Key?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Key made of multiple columns.
 
 **Code Example**:
-```sql
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+```javascript
+PRIMARY KEY (a, b)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+
+### Q89: What is a Surrogate Key?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Artificial key (e.g. auto-increment ID).
+
+**Code Example**:
+```javascript
+// vs Natural Key
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: What is Referential Integrity?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Consistency of relationships.
+
+**Code Example**:
+```javascript
+// Foreign keys constraints
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: What is a Bloom Filter in DB?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Check if element exists in set (probabilistic).
+
+**Code Example**:
+```javascript
+// Avoid disk lookups
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: What is Two-Phase Commit (2PC)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Distributed transaction protocol.
+
+**Code Example**:
+```javascript
+// Prepare -> Commit
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: What is CDC (Change Data Capture)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Tracking data changes.
+
+**Code Example**:
+```javascript
+// Debezium
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: What is Vacuuming?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Reclaiming storage (Postgres).
+
+**Code Example**:
+```javascript
+VACUUM FULL
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: What is a Clustered Index?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Sorts table data physically.
+
+**Code Example**:
+```javascript
+// Only one per table
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: What is a Non-Clustered Index?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Separate structure pointing to data.
+
+**Code Example**:
+```javascript
+// Multiple allowed
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: What is Database Sharding vs Partitioning?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Sharding: across servers. Partitioning: within one server.
+
+**Code Example**:
+```javascript
+// Scaling strategies
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: What is a Spatial Index?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+For geo data.
+
+**Code Example**:
+```javascript
+// R-Tree, Quad-Tree
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: What is Full-Text Search?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Searching text docs.
+
+**Code Example**:
+```javascript
+// Elasticsearch, tsvector
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: What is B-Tree?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Self-balancing tree data structure.
+
+**Code Example**:
+```javascript
+// Default index
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q101: What is Hash Index?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+O(1) lookups.
+
+**Code Example**:
+```javascript
+// Good for equality checks
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
