@@ -1,3 +1,13 @@
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Redux & Zustand Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
+
 ## Table of Contents
 
 1. [How do you minimize unnecessary re-renders in a React component using Zustand?](#q1-how-do-you-minimize-unnecessary-re-renders-in-a-react-component-using-zustand) <span class="intermediate">Intermediate</span>
@@ -107,6 +117,8 @@
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use "selectors" when subscribing to the store. Zustand compares the result of the selector (by default using strict equality `===`). For objects, use `useShallow` or a custom equality function to avoid re-renders when nested properties haven't changed.
 
@@ -136,6 +148,8 @@ const Component = () => {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 In `createAsyncThunk`, use the `onQueryStarted` lifecycle method. Manually update the cache (via `updateQueryData` if using RTK Query) immediately, and rollback if the promise fails.
 
@@ -160,6 +174,8 @@ const updatePost = createAsyncThunk(
 ### Q3: How do you persist Zustand state to `localStorage` and rehydrate it on app start?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use the `persist` middleware provided by Zustand. Wrap your store creator with `persist` and provide a unique `name` for the storage key.
@@ -191,6 +207,8 @@ const useStore = create(
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `createAsyncThunk` which provides an `AbortSignal`. You can pass this signal to your API call (e.g., `fetch` or `axios`) to cancel requests automatically when the thunk is cancelled or a component unmounts (if using RTK Query). For more complex flows (debounce/takeLatest), `redux-saga` or `redux-observable` might be needed, but `createListenerMiddleware` is the modern RTK replacement.
 
@@ -217,6 +235,8 @@ listenerMiddleware.startListening({
 ### Q5: How do you normalize nested API data (e.g., Users with Posts) in a Redux store?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `createEntityAdapter` to manage collections as normalized structures (`{ ids: [], entities: {} }`). This simplifies CRUD operations and prevents deeply nested updates.
@@ -246,6 +266,8 @@ export const { selectAll: selectAllUsers } = usersAdapter.getSelectors();
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Infer `RootState` and `AppDispatch` from the store instance. create typed hooks (`useAppDispatch`, `useAppSelector`) to avoid repeating types in every component.
 
@@ -267,6 +289,8 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 ### Q7: How do you access the Zustand store state outside of a React component (e.g., in a utility function)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 You can import the store hook and call `.getState()` or `.setState()` directly on it. This works because Zustand stores are vanilla JavaScript objects.
@@ -293,6 +317,8 @@ export const resetBears = () => {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use the `injectReducer` pattern or `redux-dynamic-modules`. In modern RTK, you can add reducers to the store dynamically, but it's often cleaner to keep the store static and code-split at the *component* level while importing slices.
 
@@ -313,6 +339,8 @@ export function injectReducer(key, reducer) {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Test the reducer as a pure function. Pass an initial state and an action, then assert the expected new state.
 
@@ -332,6 +360,8 @@ test('should handle increment', () => {
 ### Q10: How do you handle side effects in Zustand without middleware?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Since Zustand actions are just functions, you can write async logic directly inside them. No thunks or sagas required.
@@ -357,6 +387,8 @@ const useStore = create((set) => ({
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `createSelector` from Reselect (re-exported by RTK). It memoizes the result and only re-calculates if input selectors change.
 
@@ -378,6 +410,8 @@ export const selectFilteredItems = createSelector(
 ### Q12: How do you reset the entire Redux state (e.g., on user logout)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Wrap the root reducer. Check for a specific action (e.g., `LOGOUT`), and if matched, return `undefined` as the state to the root reducer, forcing it to re-initialize.
@@ -402,6 +436,8 @@ const appReducer = (state, action) => {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use a middleware that listens to the `storage` event (if using localStorage) or use `BroadcastChannel` API to sync state updates across tabs.
 
@@ -422,6 +458,8 @@ window.addEventListener('storage', (e) => {
 ### Q14: How do you prevent a specific Redux action from being logged in DevTools (e.g., sensitive data)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Configure the `devTools` option in `configureStore`. You can use the `actionsDenylist` or `sanitizer` function to filter or mask data.
@@ -447,6 +485,8 @@ const store = configureStore({
 ### Q15: How do you implement undo/redo functionality in a Redux store?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use a higher-order reducer (like `redux-undo`). It wraps your reducer and maintains `past`, `present`, and `future` states.
@@ -474,6 +514,8 @@ dispatch(ActionCreators.redo());
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Wrap the store creator with `devtools`. It connects to the Redux DevTools extension.
 
@@ -493,6 +535,8 @@ const useStore = create(devtools((set) => ({
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Return a function from the selector or use a factory function if memoization is needed per instance.
 
@@ -509,6 +553,8 @@ const item = useSelector(state => selectItemById(state, props.id));
 ### Q18: How do you listen to transient state changes in Zustand without re-rendering?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use `useStore.subscribe`. It allows running logic on state change without causing a component render.
@@ -529,6 +575,8 @@ useEffect(() => {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `transformResponse` in the endpoint definition.
 
@@ -545,6 +593,8 @@ getPost: builder.query({
 ### Q20: How do you implement Cache Invalidation in RTK Query?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `providesTags` on queries and `invalidatesTags` on mutations.
@@ -566,6 +616,8 @@ addPost: builder.mutation({
 ### Q21: How do you organize a large Zustand store using Slices?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Create separate slice creators and combine them in the main store creation.
@@ -594,6 +646,8 @@ const useStore = create((...a) => ({
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 It allows customizing the payload (e.g., generating IDs, formatting dates) before the action is dispatched.
 
@@ -615,6 +669,8 @@ reducers: {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Pass `pollingInterval` (in ms) to the `useQuery` hook.
 
@@ -630,6 +686,8 @@ const { data } = useGetStatusQuery(undefined, {
 ### Q24: How do you inject an Authentication Token into RTK Query requests?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Wrap `fetchBaseQuery` and add the `Authorization` header in the `prepareHeaders` callback.
@@ -652,6 +710,8 @@ fetchBaseQuery({
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `createNextState` (exported as `produce` usually in Immer) if you need immutable updates outside of reducers.
 
@@ -670,6 +730,8 @@ const nextState = createNextState(baseState, draft => {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `builder.addMatcher` with `isAnyOf` in `extraReducers`.
 
@@ -686,6 +748,8 @@ builder.addMatcher(
 ### Q27: How do you create a Component-Scoped Zustand Store?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Create the store inside a component (or factory) and pass it via React Context. This prevents sharing state across all instances of the component.
@@ -706,6 +770,8 @@ const Provider = ({ children }) => {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use the `usePrefetch` hook or dispatch `initiate` manually.
 
@@ -721,6 +787,8 @@ const prefetchUser = usePrefetch('getUser');
 ### Q29: How do you code-split RTK Query endpoints?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use `injectEndpoints`. Create an empty API slice first, then inject endpoints in separate files.
@@ -744,6 +812,8 @@ const extendedApi = api.injectEndpoints({
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use the `current` utility to unwrap the Immer draft proxy and log the plain JS object.
 
@@ -761,6 +831,8 @@ console.log(current(state));
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use the `skip` option (boolean) or pass `skipToken`.
 
@@ -774,6 +846,8 @@ const { data } = useGetUserQuery(id, { skip: !id });
 ### Q32: How do you automatically refetch data on window focus?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Enable `refetchOnFocus: true` in `setupListeners` or individual query options.
@@ -791,6 +865,8 @@ useQuery(id, { refetchOnFocus: true });
 ### Q33: How do you use the Immer middleware in Zustand?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Wrap the setter with `immer`. It allows mutating state directly.
@@ -811,6 +887,8 @@ const useStore = create(immer((set) => ({
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `thunk.extraArgument` in `configureStore`.
 
@@ -828,6 +906,8 @@ const store = configureStore({
 ### Q35: How do you bypass `baseQuery` for a specific endpoint in RTK Query?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Provide a `queryFn` instead of `query`. Useful for one-off logic or Firebase SDK calls.
@@ -848,6 +928,8 @@ getCustomData: builder.query({
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `selectFromResult` to return a specific subset of data and prevent re-renders if other fields change.
 
@@ -865,6 +947,8 @@ useGetPostsQuery(undefined, {
 ### Q37: How do you handle optimistic updates in Zustand?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Update state immediately, try the async action, and revert if it fails.
@@ -888,6 +972,8 @@ update: async (val) => {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Dispatch `api.util.resetApiState()`.
 
@@ -901,6 +987,8 @@ dispatch(api.util.resetApiState());
 ### Q39: How do you use `combine` middleware in Zustand for type inference?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 `combine` merges an initial state object with actions, allowing TypeScript to infer types automatically without explicit interface definitions.
@@ -921,6 +1009,8 @@ const useStore = create(combine(
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 RTK enables `immutableStateInvariantMiddleware` by default in development. It throws errors if you mutate state outside of Immer reducers.
 
@@ -936,6 +1026,8 @@ getDefaultMiddleware({ immutableCheck: false })
 ### Q41: How do you perform Server-Side Rendering (SSR) with Redux Toolkit?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Initialize the store on the server, dispatch actions, wait for completion, and serialize the state to `preloadedState` on the client.
@@ -953,6 +1045,8 @@ const preloadedState = store.getState();
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Avoid using `persist` with `localStorage` directly on server. Use `skipHydration` or a custom storage adapter that handles SSR.
 
@@ -966,6 +1060,8 @@ Avoid using `persist` with `localStorage` directly on server. Use `skipHydration
 ### Q43: How do you use the `autoBatchEnhancer` in Redux Toolkit?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 It allows low-priority state updates to be batched together, reducing notify subscribers calls. Enabled via `enhancers`.
@@ -983,6 +1079,8 @@ configureStore({
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Since it's a hook, use `renderHook` from `@testing-library/react-hooks` or test the vanilla store via `useStore.getState()`.
 
@@ -999,6 +1097,8 @@ expect(result.current.count).toBe(1);
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `listenerMiddleware` with `condition` or `take` effect.
 
@@ -1013,6 +1113,8 @@ await listenerApi.condition((action) => action.type === 'Success');
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Similar to Immer, wrap the setter. `mutative` is often faster.
 
@@ -1026,6 +1128,8 @@ Similar to Immer, wrap the setter. `mutative` is often faster.
 ### Q47: How do you create a bidirectional sync between Redux and URL params?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use a listener that updates URL when state changes, and a router listener that dispatches actions when URL changes.
@@ -1042,6 +1146,8 @@ listenerApi.dispatch(updateUrl(action.payload));
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Avoid putting it in the store. If necessary, disable the `serializableCheck` middleware.
 
@@ -1056,6 +1162,8 @@ getDefaultMiddleware({ serializableCheck: false })
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Keep a separate slice for the draft state. Sync it with the original data on 'Edit' and commit it on 'Save'.
 
@@ -1069,6 +1177,8 @@ Keep a separate slice for the draft state. Sync it with the original data on 'Ed
 ### Q50: How do you use `createStore` (Vanilla) in Zustand?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Import `createStore` instead of `create`. Useful for non-React usage.
@@ -1120,7 +1230,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1138,7 +1248,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1156,7 +1266,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1173,7 +1283,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1205,7 +1315,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1221,7 +1331,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1377,7 +1487,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1395,7 +1505,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1413,7 +1523,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1430,7 +1540,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1462,7 +1572,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1478,7 +1588,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1634,7 +1744,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1652,7 +1762,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1670,7 +1780,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1687,7 +1797,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1719,7 +1829,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1735,7 +1845,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1891,7 +2001,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1909,7 +2019,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1927,7 +2037,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1936,5 +2046,3 @@ if (cache.has(key)) return cache.get(key);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

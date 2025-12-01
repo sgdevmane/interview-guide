@@ -1,4 +1,12 @@
-# Svelte Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Svelte Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -128,7 +136,7 @@ onMount(() => { console.log('Mounted'); });
 **Difficulty**: Beginner
 
 **Strategy**:
-Use the `$:` label.
+Use the `$:` label. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -160,7 +168,7 @@ export const count = writable(0);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `createEventDispatcher`.
+Use `createEventDispatcher`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -176,7 +184,7 @@ const dispatch = createEventDispatcher(); dispatch('msg', 'hello');
 **Difficulty**: Beginner
 
 **Strategy**:
-Use the `<slot>` element.
+Use the `<slot>` element. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -192,7 +200,7 @@ Use the `<slot>` element.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Provide a unique key in parentheses.
+Provide a unique key in parentheses. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -208,7 +216,7 @@ Provide a unique key in parentheses.
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `bind:value`.
+Use `bind:value`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -240,7 +248,7 @@ function tooltip(node, params) { ... } <div use:tooltip>
 **Difficulty**: Intermediate
 
 **Strategy**:
-Import from `svelte/transition`.
+Import from `svelte/transition`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -288,7 +296,7 @@ Svelte is a compiler that converts components to imperative code at build time. 
 **Difficulty**: Intermediate
 
 **Strategy**:
-To insert elements into the document `<head>`.
+To insert elements into the document `<head>`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -352,7 +360,7 @@ To render a component dynamically based on a variable.
 **Difficulty**: Beginner
 
 **Strategy**:
-Add a second argument to the `#each` block.
+Add a second argument to the `#each` block. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -416,7 +424,7 @@ The official application framework for Svelte, handling routing, SSR, SSG, etc.
 **Difficulty**: Intermediate
 
 **Strategy**:
-To handle promises directly in the template.
+To handle promises directly in the template. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -432,7 +440,7 @@ To handle promises directly in the template.
 **Difficulty**: Advanced
 
 **Strategy**:
-Any object with a `subscribe` method is a store.
+Any object with a `subscribe` method is a store. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -464,7 +472,7 @@ Styles in `<style>` blocks are scoped to the component by default.
 **Difficulty**: Beginner
 
 **Strategy**:
-To render raw HTML strings. Be careful of XSS.
+To render raw HTML strings. Be careful of XSS. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -496,7 +504,7 @@ Modifiers change event behavior. `once` removes the handler after first trigger.
 **Difficulty**: Intermediate
 
 **Strategy**:
-By adding `on:eventname` without a handler.
+By adding `on:eventname` without a handler. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -512,7 +520,7 @@ By adding `on:eventname` without a handler.
 **Difficulty**: Beginner
 
 **Strategy**:
-Conditionally toggle classes.
+Conditionally toggle classes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -528,7 +536,7 @@ Conditionally toggle classes.
 **Difficulty**: Intermediate
 
 **Strategy**:
-To add event listeners to the window object.
+To add event listeners to the window object. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -544,7 +552,7 @@ To add event listeners to the window object.
 **Difficulty**: Intermediate
 
 **Strategy**:
-To add listeners to document.body.
+To add listeners to document.body. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -560,7 +568,7 @@ To add listeners to document.body.
 **Difficulty**: Intermediate
 
 **Strategy**:
-To inject elements into the head (title, meta).
+To inject elements into the head (title, meta). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -594,7 +602,7 @@ Scripts that run once per module, not per instance.
 **Difficulty**: Beginner
 
 **Strategy**:
-Put content inside the `<slot>` tag.
+Put content inside the `<slot>` tag. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -626,7 +634,7 @@ console.log($$props);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Props that are not explicitly exported.
+Props that are not explicitly exported. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -642,7 +650,7 @@ Props that are not explicitly exported.
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `{@debug variable}`.
+Use `{@debug variable}`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -658,7 +666,7 @@ Use `{@debug variable}`.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Re-creates the component when the key changes.
+Re-creates the component when the key changes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -674,7 +682,7 @@ Re-creates the component when the key changes.
 **Difficulty**: Beginner
 
 **Strategy**:
-Use the `export` keyword.
+Use the `export` keyword. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -690,7 +698,7 @@ export let name = 'World';
 **Difficulty**: Intermediate
 
 **Strategy**:
-Creates a function to dispatch custom events.
+Creates a function to dispatch custom events. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -706,7 +714,7 @@ const dispatch = createEventDispatcher();
 **Difficulty**: Advanced
 
 **Strategy**:
-Attaches a lifecycle to an element.
+Attaches a lifecycle to an element. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -722,7 +730,7 @@ Attaches a lifecycle to an element.
 **Difficulty**: Advanced
 
 **Strategy**:
-An object with `update` and `destroy` methods.
+An object with `update` and `destroy` methods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -738,7 +746,7 @@ return { destroy() { ... } }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `bind:this` to get a reference.
+Use `bind:this` to get a reference. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -754,7 +762,7 @@ Use `bind:this` to get a reference.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `bind:propName`.
+Use `bind:propName`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -770,7 +778,7 @@ Use `bind:propName`.
 **Difficulty**: Advanced
 
 **Strategy**:
-Any object with a `subscribe` method.
+Any object with a `subscribe` method. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -786,7 +794,7 @@ const store = { subscribe: (cb) => { ... } }
 **Difficulty**: Beginner
 
 **Strategy**:
-Prefix with `$`.
+Prefix with `$`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -818,7 +826,7 @@ const value = get(store);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `readonly` from `svelte/store`.
+Use `readonly` from `svelte/store`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -834,7 +842,7 @@ const read = readonly(write);
 **Difficulty**: Intermediate
 
 **Strategy**:
-A store based on other stores.
+A store based on other stores. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -850,7 +858,7 @@ const double = derived(count, $c => $c * 2);
 **Difficulty**: Beginner
 
 **Strategy**:
-Set inline styles conditionally.
+Set inline styles conditionally. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -898,7 +906,7 @@ if (browser) { ... }
 **Difficulty**: Advanced
 
 **Strategy**:
-Attaching interactivity to server-rendered HTML.
+Attaching interactivity to server-rendered HTML. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -914,7 +922,7 @@ Attaching interactivity to server-rendered HTML.
 **Difficulty**: Advanced
 
 **Strategy**:
-Return a config object (duration, css, tick).
+Return a config object (duration, css, tick). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -946,7 +954,7 @@ const [send, receive] = crossfade(...)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Animates reordering of list items.
+Animates reordering of list items. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -994,7 +1002,7 @@ Use dynamic imports in `await` block or SvelteKit's features.
 **Difficulty**: Intermediate
 
 **Strategy**:
-`bind:group` is for radio/checkbox groups.
+`bind:group` is for radio/checkbox groups. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1010,7 +1018,7 @@ Use dynamic imports in `await` block or SvelteKit's features.
 **Difficulty**: Beginner
 
 **Strategy**:
-Standard class attribute or `class:` directive.
+Standard class attribute or `class:` directive. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1026,7 +1034,7 @@ class="btn {active ? 'active' : ''}"
 **Difficulty**: Intermediate
 
 **Strategy**:
-Comments to suppress compiler warnings.
+Comments to suppress compiler warnings. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1042,7 +1050,7 @@ Comments to suppress compiler warnings.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use `bind:this` on the component tag.
+Use `bind:this` on the component tag. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1058,7 +1066,7 @@ Use `bind:this` on the component tag.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Runs before the DOM updates.
+Runs before the DOM updates. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1074,7 +1082,7 @@ beforeUpdate(() => { ... })
 **Difficulty**: Intermediate
 
 **Strategy**:
-Runs after the DOM updates.
+Runs after the DOM updates. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1106,7 +1114,7 @@ function createCount() { ... }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Physics-based store for animations.
+Physics-based store for animations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1122,7 +1130,7 @@ const coords = spring({ x: 0, y: 0 });
 **Difficulty**: Intermediate
 
 **Strategy**:
-Interpolation-based store.
+Interpolation-based store. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1138,7 +1146,7 @@ const progress = tweened(0);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Recursively render the current component.
+Recursively render the current component. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1154,7 +1162,7 @@ Recursively render the current component.
 **Difficulty**: Beginner
 
 **Strategy**:
-File-based routing directory.
+File-based routing directory. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1170,7 +1178,7 @@ File-based routing directory.
 **Difficulty**: Beginner
 
 **Strategy**:
-Defines the UI for a route.
+Defines the UI for a route. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1186,7 +1194,7 @@ Defines the UI for a route.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Server-side load function for data.
+Server-side load function for data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1202,7 +1210,7 @@ export function load() { ... }
 **Difficulty**: Beginner
 
 **Strategy**:
-Defines a layout wrapper for pages.
+Defines a layout wrapper for pages. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1218,7 +1226,7 @@ Defines a layout wrapper for pages.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Export `actions` in `+page.server.js`.
+Export `actions` in `+page.server.js`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1234,7 +1242,7 @@ export const actions = { default: async ({ request }) => { ... } }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Progressive enhancement for forms.
+Progressive enhancement for forms. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1250,7 +1258,7 @@ Progressive enhancement for forms.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Import from `$env/static/private` or `public`.
+Import from `$env/static/private` or `public`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1282,7 +1290,7 @@ import adapter from '@sveltejs/adapter-auto';
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `+error.svelte` or throw `error()` helper.
+Use `+error.svelte` or throw `error()` helper. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1298,7 +1306,7 @@ throw error(404, 'Not found');
 **Difficulty**: Advanced
 
 **Strategy**:
-Global server-side hooks (handle, fetch).
+Global server-side hooks (handle, fetch). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1314,7 +1322,7 @@ export async function handle({ event, resolve }) { ... }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `<a data-sveltekit-preload-data>`.
+Use `<a data-sveltekit-preload-data>`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1346,7 +1354,7 @@ Use `<a data-sveltekit-preload-data>`.
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `:global(...)` or a global stylesheet.
+Use `:global(...)` or a global stylesheet. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1362,7 +1370,7 @@ Use `:global(...)` or a global stylesheet.
 **Difficulty**: Beginner
 
 **Strategy**:
-Compiler warnings for A11y issues.
+Compiler warnings for A11y issues. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1378,7 +1386,7 @@ Compiler warnings for A11y issues.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use keyed each blocks.
+Use keyed each blocks. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1394,7 +1402,7 @@ Use keyed each blocks.
 **Difficulty**: Advanced
 
 **Strategy**:
-To wait for DOM updates after state change.
+To wait for DOM updates after state change. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1410,7 +1418,7 @@ await tick(); expect(...)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Using `@testing-library/svelte`.
+Using `@testing-library/svelte`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1426,7 +1434,7 @@ render(Component);
 **Difficulty**: Beginner
 
 **Strategy**:
-The build tool and dev server.
+The build tool and dev server. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1442,7 +1450,7 @@ The build tool and dev server.
 **Difficulty**: Beginner
 
 **Strategy**:
-Build via adapter and deploy output.
+Build via adapter and deploy output. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1458,7 +1466,7 @@ npm run build
 **Difficulty**: Intermediate
 
 **Strategy**:
-CLI tool for type checking and diagnostics.
+CLI tool for type checking and diagnostics. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1474,7 +1482,7 @@ svelte-check --watch
 **Difficulty**: Beginner
 
 **Strategy**:
-Add `lang="ts"` to script tag.
+Add `lang="ts"` to script tag. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1490,7 +1498,7 @@ Add `lang="ts"` to script tag.
 **Difficulty**: Advanced
 
 **Strategy**:
-Object checking which slots are passed.
+Object checking which slots are passed. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1506,7 +1514,7 @@ if ($$slots.header) { ... }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Custom action or logic in handler.
+Custom action or logic in handler. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1522,7 +1530,7 @@ let timer; const handle = () => { clearTimeout(timer); timer = setTimeout(...) }
 **Difficulty**: Beginner
 
 **Strategy**:
-Handles promise rejection.
+Handles promise rejection. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1538,7 +1546,7 @@ Handles promise rejection.
 **Difficulty**: Beginner
 
 **Strategy**:
-Standard HTML attribute.
+Standard HTML attribute. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1554,7 +1562,7 @@ Standard HTML attribute.
 **Difficulty**: Advanced
 
 **Strategy**:
-Yes, one `context="module"` and one normal.
+Yes, one `context="module"` and one normal. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1570,7 +1578,7 @@ Yes, one `context="module"` and one normal.
 **Difficulty**: Advanced
 
 **Strategy**:
-Tells Svelte to use strict equality for props.
+Tells Svelte to use strict equality for props. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1586,7 +1594,7 @@ Tells Svelte to use strict equality for props.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Check `browser` check or `onMount`.
+Check `browser` check or `onMount`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1602,7 +1610,7 @@ onMount(() => window.scrollTo(0,0))
 **Difficulty**: Intermediate
 
 **Strategy**:
-Module for `spring` and `tweened`.
+Module for `spring` and `tweened`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1618,7 +1626,7 @@ import { spring } from 'svelte/motion';
 **Difficulty**: Beginner
 
 **Strategy**:
-Easing functions for transitions.
+Easing functions for transitions. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1650,7 +1658,7 @@ return { user: ... }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Contains info about current route, params, data.
+Contains info about current route, params, data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1666,7 +1674,7 @@ import { page } from '$app/stores';
 **Difficulty**: Intermediate
 
 **Strategy**:
-Tracks navigation state.
+Tracks navigation state. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1682,7 +1690,7 @@ if ($navigating) Loading...
 **Difficulty**: Advanced
 
 **Strategy**:
-Notifies when a new version of app is available.
+Notifies when a new version of app is available. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1698,7 +1706,7 @@ if ($updated) location.reload()
 **Difficulty**: Beginner
 
 **Strategy**:
-Create a `+error.svelte` file.
+Create a `+error.svelte` file. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1714,7 +1722,7 @@ Create a `+error.svelte` file.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Forces a full page reload on link click.
+Forces a full page reload on link click. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1730,7 +1738,7 @@ Forces a full page reload on link click.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Manually set it to initial value.
+Manually set it to initial value. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

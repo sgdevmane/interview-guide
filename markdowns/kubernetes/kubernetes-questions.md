@@ -2,2179 +2,1777 @@
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
     <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/devops-icon.svg" alt="Interview Guide Logo" width="100" height="100">
   </a>
-  <h1>Kubernetes Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for DevOps engineers</b></p>
+  <h1>Kubernetes Interview Questions</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
 </div>
 
 ---
 
 ## Table of Contents
 
-1. [How do you decouple configuration from application code using ConfigMaps?](#q1-how-do-you-decouple-configuration-from-application-code-using-configmaps) <span class="beginner">Beginner</span>
-2. [How do you securely manage sensitive data like passwords?](#q2-how-do-you-securely-manage-sensitive-data-like-passwords) <span class="beginner">Beginner</span>
-3. [How do you ensure zero-downtime deployments?](#q3-how-do-you-ensure-zero-downtime-deployments) <span class="intermediate">Intermediate</span>
-4. [How do you expose HTTP/HTTPS services to the internet?](#q4-how-do-you-expose-httphttps-services-to-the-internet) <span class="intermediate">Intermediate</span>
-5. [How do you auto-scale pods based on CPU or Memory usage?](#q5-how-do-you-auto-scale-pods-based-on-cpu-or-memory-usage) <span class="intermediate">Intermediate</span>
-6. [How do you ensure a pod runs on a specific node (e.g., with GPU)?](#q6-how-do-you-ensure-a-pod-runs-on-a-specific-node-e.g.-with-gpu) <span class="intermediate">Intermediate</span>
-7. [How do you restrict network traffic between pods?](#q7-how-do-you-restrict-network-traffic-between-pods) <span class="advanced">Advanced</span>
-8. [How do you manage stateful applications (Databases) with stable identities?](#q8-how-do-you-manage-stateful-applications-databases-with-stable-identities) <span class="advanced">Advanced</span>
-9. [How do you run a system daemon (like logs/monitoring) on every node?](#q9-how-do-you-run-a-system-daemon-like-logsmonitoring-on-every-node) <span class="intermediate">Intermediate</span>
-10. [How do you debug a crashing Pod?](#q10-how-do-you-debug-a-crashing-pod) <span class="beginner">Beginner</span>
-11. [How do you limit the total resources (CPU/RAM) a namespace can use?](#q11-how-do-you-limit-the-total-resources-cpuram-a-namespace-can-use) <span class="intermediate">Intermediate</span>
-12. [How do you run a one-off task (like a DB migration)?](#q12-how-do-you-run-a-one-off-task-like-a-db-migration) <span class="beginner">Beginner</span>
-13. [How do you control user permissions in the cluster?](#q13-how-do-you-control-user-permissions-in-the-cluster) <span class="advanced">Advanced</span>
-14. [How do you share temporary storage between containers in the same Pod?](#q14-how-do-you-share-temporary-storage-between-containers-in-the-same-pod) <span class="intermediate">Intermediate</span>
-15. [How do you package Kubernetes applications for easy distribution?](#q15-how-do-you-package-kubernetes-applications-for-easy-distribution) <span class="intermediate">Intermediate</span>
-16. [How do you prevent pods from being scheduled on a specific node (Taints)?](#q16-how-do-you-prevent-pods-from-being-scheduled-on-a-specific-node-taints) <span class="intermediate">Intermediate</span>
-17. [How do you detect if a container is alive vs. ready to serve traffic?](#q17-how-do-you-detect-if-a-container-is-alive-vs.-ready-to-serve-traffic) <span class="intermediate">Intermediate</span>
-18. [How do you load balance traffic to a set of Pods?](#q18-how-do-you-load-balance-traffic-to-a-set-of-pods) <span class="beginner">Beginner</span>
-19. [How do you use a Sidecar container?](#q19-how-do-you-use-a-sidecar-container) <span class="intermediate">Intermediate</span>
-20. [How do you run tasks on a schedule (Cron)?](#q20-how-do-you-run-tasks-on-a-schedule-cron) <span class="beginner">Beginner</span>
-21. [How do you perform a Canary Deployment?](#q21-how-do-you-perform-a-canary-deployment) <span class="advanced">Advanced</span>
-22. [How do you secure Pod-to-Pod communication with mTLS?](#q22-how-do-you-secure-pod-to-pod-communication-with-mtls) <span class="advanced">Advanced</span>
-23. [How do you ensure high availability during voluntary disruptions (e.g., node draining)?](#q23-how-do-you-ensure-high-availability-during-voluntary-disruptions-e.g.-node-draining) <span class="advanced">Advanced</span>
-24. [How do you manage persistent storage requests?](#q24-how-do-you-manage-persistent-storage-requests) <span class="intermediate">Intermediate</span>
-25. [How do you initialize a Pod before the main container starts?](#q25-how-do-you-initialize-a-pod-before-the-main-container-starts) <span class="intermediate">Intermediate</span>
-26. [How do you extend Kubernetes capabilities?](#q26-how-do-you-extend-kubernetes-capabilities) <span class="advanced">Advanced</span>
-27. [How do you troubleshoot DNS issues in the cluster?](#q27-how-do-you-troubleshoot-dns-issues-in-the-cluster) <span class="intermediate">Intermediate</span>
-28. [How do you assign an identity to a Pod for AWS/GCP access?](#q28-how-do-you-assign-an-identity-to-a-pod-for-awsgcp-access) <span class="advanced">Advanced</span>
-29. [How do you vertically scale a pod (VPA)?](#q29-how-do-you-vertically-scale-a-pod-vpa) <span class="advanced">Advanced</span>
-30. [How do you define a custom metric for HPA?](#q30-how-do-you-define-a-custom-metric-for-hpa) <span class="advanced">Advanced</span>
-31. [How do you perform a blue-green deployment?](#q31-how-do-you-perform-a-blue-green-deployment) <span class="advanced">Advanced</span>
-32. [How do you manage multi-tenancy in a cluster?](#q32-how-do-you-manage-multi-tenancy-in-a-cluster) <span class="advanced">Advanced</span>
-33. [How do you inject a sidecar proxy automatically (e.g., Istio)?](#q33-how-do-you-inject-a-sidecar-proxy-automatically-e.g.-istio) <span class="advanced">Advanced</span>
-34. [How do you handle container termination gracefully?](#q34-how-do-you-handle-container-termination-gracefully) <span class="intermediate">Intermediate</span>
-35. [How do you secure the Kubernetes API server?](#q35-how-do-you-secure-the-kubernetes-api-server) <span class="advanced">Advanced</span>
-36. [How do you use a headless service?](#q36-how-do-you-use-a-headless-service) <span class="intermediate">Intermediate</span>
-37. [How do you implement gitops for Kubernetes?](#q37-how-do-you-implement-gitops-for-kubernetes) <span class="advanced">Advanced</span>
-38. [How do you drain a node for maintenance?](#q38-how-do-you-drain-a-node-for-maintenance) <span class="intermediate">Intermediate</span>
-39. [How do you verify that a Helm chart is valid?](#q39-how-do-you-verify-that-a-helm-chart-is-valid) <span class="intermediate">Intermediate</span>
-40. [How do you use ephemeral containers for debugging?](#q40-how-do-you-use-ephemeral-containers-for-debugging) <span class="advanced">Advanced</span>
-41. [How do you mount a single file from a ConfigMap without overwriting the directory?](#q41-how-do-you-mount-a-single-file-from-a-configmap-without-overwriting-the-directory) <span class="intermediate">Intermediate</span>
-42. [How do you set a default StorageClass?](#q42-how-do-you-set-a-default-storageclass) <span class="intermediate">Intermediate</span>
-43. [How do you backup a Kubernetes cluster (etcd)?](#q43-how-do-you-backup-a-kubernetes-cluster-etcd) <span class="advanced">Advanced</span>
-44. [How do you force delete a Pod stuck in 'Terminating'?](#q44-how-do-you-force-delete-a-pod-stuck-in-terminating) <span class="intermediate">Intermediate</span>
-45. [How do you monitor Kubernetes components?](#q45-how-do-you-monitor-kubernetes-components) <span class="intermediate">Intermediate</span>
-46. [How do you limit the number of Jobs history kept?](#q46-how-do-you-limit-the-number-of-jobs-history-kept) <span class="intermediate">Intermediate</span>
-47. [How do you run a Windows container in Kubernetes?](#q47-how-do-you-run-a-windows-container-in-kubernetes) <span class="advanced">Advanced</span>
-48. [How do you use a priority class to ensure critical pods are scheduled?](#q48-how-do-you-use-a-priority-class-to-ensure-critical-pods-are-scheduled) <span class="advanced">Advanced</span>
-49. [How do you automatically rotate TLS certificates?](#q49-how-do-you-automatically-rotate-tls-certificates) <span class="advanced">Advanced</span>
-50. [How do you secure your supply chain with Image Signing (Kyverno/Gatekeeper)?](#q50-how-do-you-secure-your-supply-chain-with-image-signing-kyvernogatekeeper) <span class="advanced">Advanced</span>
-51. [How do you handle Kubernetes state management in large scale applications?](#q51-how-do-you-handle-kubernetes-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-52. [How do you perform Kubernetes data validation in microservices?](#q52-how-do-you-perform-kubernetes-data-validation-in-microservices) <span class="beginner">Beginner</span>
-53. [How do you automate Kubernetes deployment for mobile devices?](#q53-how-do-you-automate-kubernetes-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-54. [How do you handle Kubernetes concurrency issues in legacy systems?](#q54-how-do-you-handle-kubernetes-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-55. [How do you implement Kubernetes caching in cloud infrastructure?](#q55-how-do-you-implement-kubernetes-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-56. [How do you manage Kubernetes configuration for real-time systems?](#q56-how-do-you-manage-kubernetes-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-57. [How do you handle Kubernetes internationalization (i18n) in distributed systems?](#q57-how-do-you-handle-kubernetes-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-58. [How do you ensure Kubernetes accessibility (a11y) in high-traffic sites?](#q58-how-do-you-ensure-kubernetes-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-59. [How do you optimize Kubernetes network requests in embedded systems?](#q59-how-do-you-optimize-kubernetes-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-60. [How do you handle Kubernetes performance optimization for production environments?](#q60-how-do-you-handle-kubernetes-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-61. [What are the security implications of Kubernetes in large scale applications?](#q61-what-are-the-security-implications-of-kubernetes-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug Kubernetes memory leaks in microservices?](#q62-how-do-you-debug-kubernetes-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for Kubernetes code organization in mobile devices?](#q63-best-practices-for-kubernetes-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement Kubernetes error handling for legacy systems?](#q64-how-do-you-implement-kubernetes-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test Kubernetes functionality in cloud infrastructure?](#q65-how-do-you-test-kubernetes-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle Kubernetes state management in real-time systems?](#q66-how-do-you-handle-kubernetes-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform Kubernetes data validation in distributed systems?](#q67-how-do-you-perform-kubernetes-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate Kubernetes deployment for high-traffic sites?](#q68-how-do-you-automate-kubernetes-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle Kubernetes concurrency issues in embedded systems?](#q69-how-do-you-handle-kubernetes-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement Kubernetes caching in production environments?](#q70-how-do-you-implement-kubernetes-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage Kubernetes configuration for large scale applications?](#q71-how-do-you-manage-kubernetes-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle Kubernetes internationalization (i18n) in microservices?](#q72-how-do-you-handle-kubernetes-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure Kubernetes accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-kubernetes-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize Kubernetes network requests in legacy systems?](#q74-how-do-you-optimize-kubernetes-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle Kubernetes performance optimization for cloud infrastructure?](#q75-how-do-you-handle-kubernetes-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of Kubernetes in real-time systems?](#q76-what-are-the-security-implications-of-kubernetes-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug Kubernetes memory leaks in distributed systems?](#q77-how-do-you-debug-kubernetes-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for Kubernetes code organization in high-traffic sites?](#q78-best-practices-for-kubernetes-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement Kubernetes error handling for embedded systems?](#q79-how-do-you-implement-kubernetes-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test Kubernetes functionality in production environments?](#q80-how-do-you-test-kubernetes-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle Kubernetes state management in large scale applications?](#q81-how-do-you-handle-kubernetes-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform Kubernetes data validation in microservices?](#q82-how-do-you-perform-kubernetes-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate Kubernetes deployment for mobile devices?](#q83-how-do-you-automate-kubernetes-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle Kubernetes concurrency issues in legacy systems?](#q84-how-do-you-handle-kubernetes-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement Kubernetes caching in cloud infrastructure?](#q85-how-do-you-implement-kubernetes-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage Kubernetes configuration for real-time systems?](#q86-how-do-you-manage-kubernetes-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle Kubernetes internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-kubernetes-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure Kubernetes accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-kubernetes-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize Kubernetes network requests in embedded systems?](#q89-how-do-you-optimize-kubernetes-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle Kubernetes performance optimization for production environments?](#q90-how-do-you-handle-kubernetes-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of Kubernetes in large scale applications?](#q91-what-are-the-security-implications-of-kubernetes-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug Kubernetes memory leaks in microservices?](#q92-how-do-you-debug-kubernetes-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for Kubernetes code organization in mobile devices?](#q93-best-practices-for-kubernetes-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement Kubernetes error handling for legacy systems?](#q94-how-do-you-implement-kubernetes-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test Kubernetes functionality in cloud infrastructure?](#q95-how-do-you-test-kubernetes-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle Kubernetes state management in real-time systems?](#q96-how-do-you-handle-kubernetes-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform Kubernetes data validation in distributed systems?](#q97-how-do-you-perform-kubernetes-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate Kubernetes deployment for high-traffic sites?](#q98-how-do-you-automate-kubernetes-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle Kubernetes concurrency issues in embedded systems?](#q99-how-do-you-handle-kubernetes-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement Kubernetes caching in production environments?](#q100-how-do-you-implement-kubernetes-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+1. [What is a Pod?](#q1-what-is-a-pod) <span class="beginner">Beginner</span>
+2. [What is a Deployment?](#q2-what-is-a-deployment) <span class="beginner">Beginner</span>
+3. [What is a Service?](#q3-what-is-a-service) <span class="beginner">Beginner</span>
+4. [ClusterIP vs NodePort vs LoadBalancer?](#q4-clusterip-vs-nodeport-vs-loadbalancer) <span class="intermediate">Intermediate</span>
+5. [What is a Namespace?](#q5-what-is-a-namespace) <span class="beginner">Beginner</span>
+6. [What is Ingress?](#q6-what-is-ingress) <span class="intermediate">Intermediate</span>
+7. [What is a ConfigMap?](#q7-what-is-a-configmap) <span class="beginner">Beginner</span>
+8. [What is a Secret?](#q8-what-is-a-secret) <span class="beginner">Beginner</span>
+9. [What is a StatefulSet?](#q9-what-is-a-statefulset) <span class="advanced">Advanced</span>
+10. [What is a DaemonSet?](#q10-what-is-a-daemonset) <span class="intermediate">Intermediate</span>
+11. [What is a Job vs CronJob?](#q11-what-is-a-job-vs-cronjob) <span class="intermediate">Intermediate</span>
+12. [What is HPA (Horizontal Pod Autoscaler)?](#q12-what-is-hpa-horizontal-pod-autoscaler) <span class="intermediate">Intermediate</span>
+13. [What is VPA (Vertical Pod Autoscaler)?](#q13-what-is-vpa-vertical-pod-autoscaler) <span class="advanced">Advanced</span>
+14. [What are Liveness and Readiness Probes?](#q14-what-are-liveness-and-readiness-probes) <span class="intermediate">Intermediate</span>
+15. [What is a Sidecar Pattern?](#q15-what-is-a-sidecar-pattern) <span class="intermediate">Intermediate</span>
+16. [What is an Init Container?](#q16-what-is-an-init-container) <span class="intermediate">Intermediate</span>
+17. [What is a Taint and Toleration?](#q17-what-is-a-taint-and-toleration) <span class="advanced">Advanced</span>
+18. [What is Node Affinity?](#q18-what-is-node-affinity) <span class="advanced">Advanced</span>
+19. [What is a Persistent Volume (PV)?](#q19-what-is-a-persistent-volume-pv) <span class="intermediate">Intermediate</span>
+20. [What is a Persistent Volume Claim (PVC)?](#q20-what-is-a-persistent-volume-claim-pvc) <span class="intermediate">Intermediate</span>
+21. [What is StorageClass?](#q21-what-is-storageclass) <span class="intermediate">Intermediate</span>
+22. [How do you perform a Rolling Update?](#q22-how-do-you-perform-a-rolling-update) <span class="beginner">Beginner</span>
+23. [What is a Canary Deployment?](#q23-what-is-a-canary-deployment) <span class="advanced">Advanced</span>
+24. [What is a Blue/Green Deployment?](#q24-what-is-a-blue-green-deployment) <span class="advanced">Advanced</span>
+25. [What is Helm?](#q25-what-is-helm) <span class="beginner">Beginner</span>
+26. [What is `kubectl`?](#q26-what-is-kubectl) <span class="beginner">Beginner</span>
+27. [How do you debug a CrashLoopBackOff?](#q27-how-do-you-debug-a-crashloopbackoff) <span class="beginner">Beginner</span>
+28. [What is etcd?](#q28-what-is-etcd) <span class="advanced">Advanced</span>
+29. [What is Kubelet?](#q29-what-is-kubelet) <span class="advanced">Advanced</span>
+30. [What is Kube-Proxy?](#q30-what-is-kube-proxy) <span class="advanced">Advanced</span>
+31. [What is the Control Plane?](#q31-what-is-the-control-plane) <span class="intermediate">Intermediate</span>
+32. [What is RBAC?](#q32-what-is-rbac) <span class="intermediate">Intermediate</span>
+33. [What is a ServiceAccount?](#q33-what-is-a-serviceaccount) <span class="intermediate">Intermediate</span>
+34. [What is a NetworkPolicy?](#q34-what-is-a-networkpolicy) <span class="advanced">Advanced</span>
+35. [What is a Resource Quota?](#q35-what-is-a-resource-quota) <span class="intermediate">Intermediate</span>
+36. [What is a LimitRange?](#q36-what-is-a-limitrange) <span class="intermediate">Intermediate</span>
+37. [What is Headless Service?](#q37-what-is-headless-service) <span class="advanced">Advanced</span>
+38. [What is Pod Disruption Budget (PDB)?](#q38-what-is-pod-disruption-budget-pdb) <span class="advanced">Advanced</span>
+39. [What is a Custom Resource Definition (CRD)?](#q39-what-is-a-custom-resource-definition-crd) <span class="advanced">Advanced</span>
+40. [What is an Operator?](#q40-what-is-an-operator) <span class="advanced">Advanced</span>
+41. [What is the difference between Request and Limit?](#q41-what-is-the-difference-between-request-and-limit) <span class="beginner">Beginner</span>
+42. [How do you drain a node?](#q42-how-do-you-drain-a-node) <span class="intermediate">Intermediate</span>
+43. [What is Cordoning?](#q43-what-is-cordoning) <span class="intermediate">Intermediate</span>
+44. [What is a Static Pod?](#q44-what-is-a-static-pod) <span class="advanced">Advanced</span>
+45. [What is Container Runtime Interface (CRI)?](#q45-what-is-container-runtime-interface-cri) <span class="advanced">Advanced</span>
+46. [What is CNI (Container Network Interface)?](#q46-what-is-cni-container-network-interface) <span class="advanced">Advanced</span>
+47. [What is CSI (Container Storage Interface)?](#q47-what-is-csi-container-storage-interface) <span class="advanced">Advanced</span>
+48. [How do you force delete a pod?](#q48-how-do-you-force-delete-a-pod) <span class="intermediate">Intermediate</span>
+49. [What is `kubectl apply` vs `create`?](#q49-what-is-kubectl-apply-vs-create) <span class="beginner">Beginner</span>
+50. [How do you port forward?](#q50-how-do-you-port-forward) <span class="beginner">Beginner</span>
+51. [What is a Context?](#q51-what-is-a-context) <span class="beginner">Beginner</span>
+52. [How do you list all resources?](#q52-how-do-you-list-all-resources) <span class="intermediate">Intermediate</span>
+53. [What is a finalizer?](#q53-what-is-a-finalizer) <span class="advanced">Advanced</span>
+54. [What is Garbage Collection in K8s?](#q54-what-is-garbage-collection-in-k8s) <span class="advanced">Advanced</span>
+55. [What is OOMKilled?](#q55-what-is-oomkilled) <span class="intermediate">Intermediate</span>
+56. [What is ImagePullBackOff?](#q56-what-is-imagepullbackoff) <span class="beginner">Beginner</span>
+57. [How do you auto-scale cluster nodes?](#q57-how-do-you-auto-scale-cluster-nodes) <span class="advanced">Advanced</span>
+58. [What is Service Mesh (Istio/Linkerd)?](#q58-what-is-service-mesh-istio-linkerd) <span class="advanced">Advanced</span>
+59. [How do you secure K8s dashboard?](#q59-how-do-you-secure-k8s-dashboard) <span class="intermediate">Intermediate</span>
+60. [What is GitOps?](#q60-what-is-gitops) <span class="intermediate">Intermediate</span>
+61. [How do you backup etcd?](#q61-how-do-you-backup-etcd) <span class="advanced">Advanced</span>
+62. [What is a PriorityClass?](#q62-what-is-a-priorityclass) <span class="advanced">Advanced</span>
+63. [What is Pod Security Admission?](#q63-what-is-pod-security-admission) <span class="advanced">Advanced</span>
+64. [How do you mount a single file?](#q64-how-do-you-mount-a-single-file) <span class="intermediate">Intermediate</span>
+65. [What is Ephemeral Storage?](#q65-what-is-ephemeral-storage) <span class="intermediate">Intermediate</span>
+66. [How do you troubleshoot DNS?](#q66-how-do-you-troubleshoot-dns) <span class="intermediate">Intermediate</span>
+67. [What is `kubectl top`?](#q67-what-is-kubectl-top) <span class="beginner">Beginner</span>
+68. [What is Metrics Server?](#q68-what-is-metrics-server) <span class="intermediate">Intermediate</span>
+69. [How do you copy files to/from pod?](#q69-how-do-you-copy-files-to-from-pod) <span class="beginner">Beginner</span>
+70. [What is `kubectl exec`?](#q70-what-is-kubectl-exec) <span class="beginner">Beginner</span>
+71. [What is Downward API?](#q71-what-is-downward-api) <span class="advanced">Advanced</span>
+72. [What is Topology Spread Constraints?](#q72-what-is-topology-spread-constraints) <span class="advanced">Advanced</span>
+73. [What is Pod Affinity?](#q73-what-is-pod-affinity) <span class="advanced">Advanced</span>
+74. [What is Pod Anti-Affinity?](#q74-what-is-pod-anti-affinity) <span class="advanced">Advanced</span>
+75. [How do you handle secret encryption?](#q75-how-do-you-handle-secret-encryption) <span class="advanced">Advanced</span>
+76. [What is a certificate signing request (CSR)?](#q76-what-is-a-certificate-signing-request-csr) <span class="advanced">Advanced</span>
+77. [How do you renew certs?](#q77-how-do-you-renew-certs) <span class="advanced">Advanced</span>
+78. [What is kubeadm?](#q78-what-is-kubeadm) <span class="intermediate">Intermediate</span>
+79. [What is Minikube?](#q79-what-is-minikube) <span class="beginner">Beginner</span>
+80. [What is Kind?](#q80-what-is-kind) <span class="beginner">Beginner</span>
+81. [What is k3s?](#q81-what-is-k3s) <span class="beginner">Beginner</span>
+82. [How do you manage multiple clusters?](#q82-how-do-you-manage-multiple-clusters) <span class="intermediate">Intermediate</span>
+83. [What is Federation v2 (KubeFed)?](#q83-what-is-federation-v2-kubefed) <span class="advanced">Advanced</span>
+84. [How do you debug networking?](#q84-how-do-you-debug-networking) <span class="advanced">Advanced</span>
+85. [What is a Lease?](#q85-what-is-a-lease) <span class="advanced">Advanced</span>
+86. [How do you limit jobs history?](#q86-how-do-you-limit-jobs-history) <span class="intermediate">Intermediate</span>
+87. [What is PreStop hook?](#q87-what-is-prestop-hook) <span class="intermediate">Intermediate</span>
+88. [What is PostStart hook?](#q88-what-is-poststart-hook) <span class="intermediate">Intermediate</span>
+89. [How do you set environment variables?](#q89-how-do-you-set-environment-variables) <span class="beginner">Beginner</span>
+90. [What is `command` vs `args`?](#q90-what-is-command-vs-args) <span class="intermediate">Intermediate</span>
+91. [How do you restart a deployment?](#q91-how-do-you-restart-a-deployment) <span class="beginner">Beginner</span>
+92. [How do you undo a deployment?](#q92-how-do-you-undo-a-deployment) <span class="beginner">Beginner</span>
+93. [What is `kubectl explain`?](#q93-what-is-kubectl-explain) <span class="beginner">Beginner</span>
+94. [How do you dry-run?](#q94-how-do-you-dry-run) <span class="beginner">Beginner</span>
+95. [What is a Manifest?](#q95-what-is-a-manifest) <span class="beginner">Beginner</span>
+96. [How do you validate yaml?](#q96-how-do-you-validate-yaml) <span class="intermediate">Intermediate</span>
+97. [What is OPA (Open Policy Agent)?](#q97-what-is-opa-open-policy-agent) <span class="advanced">Advanced</span>
+98. [How do you monitor logs?](#q98-how-do-you-monitor-logs) <span class="beginner">Beginner</span>
+99. [What is Prometheus?](#q99-what-is-prometheus) <span class="intermediate">Intermediate</span>
+100. [What is Grafana?](#q100-what-is-grafana) <span class="intermediate">Intermediate</span>
 
 ---
 
-### Q1: How do you decouple configuration from application code using ConfigMaps?
+### Q1: What is a Pod?
 
 **Difficulty**: Beginner
 
-**Strategy:**
-Use **ConfigMaps** to store non-sensitive configuration. Inject them into Pods as environment variables or mounted files.
+**Strategy**:
+A Pod is the smallest execution unit in Kubernetes. It represents a single instance of a running process in your cluster. Pods contain one or more containers, such as Docker containers. When a Pod runs multiple containers, the containers are managed as a single entity and share the Pod's resources, such as networking and storage.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
 apiVersion: v1
-kind: ConfigMap
+kind: Pod
 metadata:
-  name: app-config
-data:
-  APP_COLOR: blue
-  APP_MODE: production
----
-# Usage in Pod
-envFrom:
-- configMapRef:
-    name: app-config
+  name: myapp
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q2: How do you securely manage sensitive data like passwords?
+### Q2: What is a Deployment?
 
 **Difficulty**: Beginner
 
-**Strategy:**
-Use **Secrets**. They are base64 encoded (not encrypted by default, use encryption-at-rest) and mounted as volumes or env vars, kept in tmpfs on the node.
+**Strategy**:
+A Deployment provides declarative updates for Pods and ReplicaSets. You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. It allows for rolling updates, rollbacks, and scaling.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: v1
-kind: Secret
+kind: Deployment
+spec:
+  replicas: 3
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q3: What is a Service?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+A Service is an abstraction which defines a logical set of Pods and a policy by which to access them (sometimes called a micro-service). The set of Pods targeted by a Service is usually determined by a selector. This enables loose coupling between dependent Pods.
+
+**Code Example**:
+```yaml
+kind: Service
+spec:
+  type: ClusterIP
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q4: ClusterIP vs NodePort vs LoadBalancer?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+These are Service types:
+- **ClusterIP**: Exposes the Service on a cluster-internal IP. Choosing this value makes the Service only reachable from within the cluster. This is the default.
+- **NodePort**: Exposes the Service on each Node's IP at a static port (the NodePort). A ClusterIP Service, to which the NodePort Service routes, is automatically created.
+- **LoadBalancer**: Exposes the Service externally using a cloud provider's load balancer. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created.
+
+**Code Example**:
+```yaml
+type: NodePort
+ports:
+  - nodePort: 30007
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q5: What is a Namespace?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Namespaces provide a mechanism for isolating groups of resources within a single cluster. Names of resources need to be unique within a namespace, but not across namespaces. Namespace-based scoping is applicable only for namespaced objects (e.g. Deployments, Services, etc) and not for cluster-wide objects (e.g. StorageClass, Nodes, PersistentVolumes).
+
+**Code Example**:
+```yaml
 metadata:
-  name: db-secret
-type: Opaque
-data:
-  # echo -n 'password' | base64
-  password: cGFzc3dvcmQ=
+  namespace: dev
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q3: How do you ensure zero-downtime deployments?
+### Q6: What is Ingress?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use a **Deployment** with `RollingUpdate` strategy and configure **Readiness Probes** to prevent traffic to unready pods.
+**Strategy**:
+Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource. An Ingress can be configured to give Services externally-reachable URLs, load balance traffic, terminate SSL / TLS, and offer name-based virtual hosting.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-strategy:
-  type: RollingUpdate
-  rollingUpdate:
-    maxUnavailable: 1
-    maxSurge: 1
-template:
-  spec:
-    containers:
-      - name: app
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8080
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q4: How do you expose HTTP/HTTPS services to the internet?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use an **Ingress** resource backed by an Ingress Controller (e.g., Nginx). It provides load balancing, SSL termination, and name-based virtual hosting.
-
-**Code Example:**
-
-```yaml
-apiVersion: networking.k8s.io/v1
 kind: Ingress
-metadata:
-  name: app-ingress
 spec:
   rules:
-  - host: myapp.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: my-service
-            port:
-              number: 80
+  - host: my.app
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q5: How do you auto-scale pods based on CPU or Memory usage?
+### Q7: What is a ConfigMap?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy:**
-Use the **Horizontal Pod Autoscaler (HPA)**. It scales the number of replicas based on observed metrics like CPU utilization.
+**Strategy**:
+A ConfigMap is an API object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume. This allows you to decouple environment-specific configuration from your container images.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata:
-  name: my-app-hpa
-spec:
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: my-app
-  minReplicas: 2
-  maxReplicas: 10
-  metrics:
-  - type: Resource
-    resource:
-      name: cpu
-      target:
-        type: Utilization
-        averageUtilization: 50
+kind: ConfigMap
+data:
+  db_host: localhost
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q6: How do you ensure a pod runs on a specific node (e.g., with GPU)?
+### Q8: What is a Secret?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy:**
-Use **Node Affinity** for flexible rules or `nodeSelector` for simple equality checks against node labels.
+**Strategy**:
+Kubernetes Secrets let you store and manage sensitive information, such as passwords, OAuth tokens, and ssh keys. Storing confidential information in a Secret is safer and more flexible than putting it verbatim in a Pod definition or in a container image.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-spec:
-  affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: gpu
-            operator: In
-            values:
-            - "true"
+kind: Secret
+type: Opaque
+data:
+  pass: YWRtaW4=
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q7: How do you restrict network traffic between pods?
+### Q9: What is a StatefulSet?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use **NetworkPolicies**. By default, all traffic is allowed. Create a policy to deny all ingress/egress and then whitelist specific traffic.
+**Strategy**:
+StatefulSet is the workload API object used to manage stateful applications. Manages the deployment and scaling of a set of Pods, and provides guarantees about the ordering and uniqueness of these Pods. Unlike a Deployment, a StatefulSet maintains a sticky identity for each of their Pods.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: networking.k8s.io/v1
-kind: NetworkPolicy
-metadata:
-  name: deny-all
-spec:
-  podSelector: {}
-  policyTypes:
-  - Ingress
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q8: How do you manage stateful applications (Databases) with stable identities?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Use **StatefulSet**. It provides stable network IDs (web-0, web-1), stable persistent storage, and ordered deployment.
-
-**Code Example:**
-
-```yaml
-apiVersion: apps/v1
 kind: StatefulSet
-metadata:
-  name: web
-spec:
-  serviceName: "nginx"
-  replicas: 3
-  template:
-    spec:
-      containers:
-      - name: nginx
-        volumeMounts:
-        - name: www
-          mountPath: /usr/share/nginx/html
-  volumeClaimTemplates:
-  - metadata:
-      name: www
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 1Gi
+serviceName: mysql
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q9: How do you run a system daemon (like logs/monitoring) on every node?
+### Q10: What is a DaemonSet?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use a **DaemonSet**. It ensures that a copy of the Pod runs on all (or a subset of) nodes.
+**Strategy**:
+A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: apps/v1
 kind: DaemonSet
-metadata:
-  name: fluentd
-spec:
-  template:
-    spec:
-      containers:
-      - name: fluentd
-        image: fluentd:latest
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q10: How do you debug a crashing Pod?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Check logs (`kubectl logs`), previous logs (`--previous`), and events (`kubectl describe pod`).
-
-**Code Example:**
-
-```yaml
-# Check current logs
-kubectl logs my-pod
-
-# Check logs of the previous crashed instance
-kubectl logs my-pod --previous
-
-# Check events (OOMKilled, Scheduling failures)
-kubectl describe pod my-pod
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q11: How do you limit the total resources (CPU/RAM) a namespace can use?
+### Q11: What is a Job vs CronJob?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **ResourceQuota** to set hard limits on aggregate resource usage per namespace.
+**Strategy**:
+**Job**: Creates one or more Pods and ensures that a specified number of them successfully terminate. As pods successfully complete, the Job tracks the successful completions. 
+**CronJob**: Creates Jobs on a repeating schedule. One CronJob object is like one line of a crontab (cron table) file.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: v1
-kind: ResourceQuota
-metadata:
-  name: quota
-spec:
-  hard:
-    pods: "10"
-    requests.cpu: "4"
-    requests.memory: 2Gi
-    limits.cpu: "10"
-    limits.memory: 4Gi
+kind: CronJob
+schedule: "*/1 * * * *"
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q12: How do you run a one-off task (like a DB migration)?
+### Q12: What is HPA (Horizontal Pod Autoscaler)?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use a **Job**. It creates pods that run to completion and then terminate.
+**Strategy**:
+The Horizontal Pod Autoscaler automatically scales the number of Pods in a replication controller, deployment, replica set or stateful set based on observed CPU utilization (or, with custom metrics support, on some other application-provided metrics).
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: db-migrate
-spec:
-  template:
-    spec:
-      containers:
-      - name: migrate
-        image: my-app:latest
-        command: ["./migrate.sh"]
-      restartPolicy: Never
+kind: HorizontalPodAutoscaler
+minReplicas: 1
+maxReplicas: 10
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q13: How do you control user permissions in the cluster?
+### Q13: What is VPA (Vertical Pod Autoscaler)?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use **RBAC (Role-Based Access Control)**. Create `Role` (permissions) and `RoleBinding` (assignment) for namespaced access.
+**Strategy**:
+Adjusts CPU/RAM requests of pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  namespace: default
-  name: pod-reader
-rules:
-- apiGroups: [""]
-  resources: ["pods"]
-  verbs: ["get", "watch", "list"]
+kind: VerticalPodAutoscaler
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q14: How do you share temporary storage between containers in the same Pod?
+### Q14: What are Liveness and Readiness Probes?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use an `emptyDir` volume. It's created with the pod and deleted when the pod is removed.
+**Strategy**:
+- **Liveness Probe**: Indicates whether the container is running. If the liveness probe fails, the kubelet kills the container, and the container is subjected to its restart policy.
+- **Readiness Probe**: Indicates whether the container is ready to service requests. If the readiness probe fails, the endpoints controller removes the Pod's IP address from the endpoints of all Services that match the Pod.
 
-**Code Example:**
-
-```yaml
-spec:
-  volumes:
-  - name: shared-data
-    emptyDir: {}
-  containers:
-  - name: writer
-    image: alpine
-    command: ["/bin/sh", "-c", "echo hello > /data/hello"]
-    volumeMounts:
-    - name: shared-data
-      mountPath: /data
-  - name: reader
-    image: alpine
-    command: ["cat", "/data/hello"]
-    volumeMounts:
-    - name: shared-data
-      mountPath: /data
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q15: How do you package Kubernetes applications for easy distribution?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Helm**. It allows you to define, install, and upgrade complex Kubernetes applications using 'Charts'.
-
-**Code Example:**
-
-```yaml
-# Install a chart
-helm install my-release bitnami/nginx
-
-# Upgrade a release
-helm upgrade my-release bitnami/nginx
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q16: How do you prevent pods from being scheduled on a specific node (Taints)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Apply a **Taint** to the node. Only pods with a matching **Toleration** can be scheduled there.
-
-**Code Example:**
-
-```yaml
-# Taint node
-kubectl taint nodes node1 key=value:NoSchedule
-
-# Pod Toleration
-tolerations:
-- key: "key"
-  operator: "Equal"
-  value: "value"
-  effect: "NoSchedule"
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q17: How do you detect if a container is alive vs. ready to serve traffic?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Liveness Probes** (restart if dead) and **Readiness Probes** (remove from endpoints if busy/starting).
-
-**Code Example:**
-
+**Code Example**:
 ```yaml
 livenessProbe:
   httpGet:
-    path: /healthz
-    port: 8080
-  initialDelaySeconds: 3
-readinessProbe:
-  httpGet:
-    path: /ready
-    port: 8080
-  initialDelaySeconds: 5
+    path: /health
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q18: How do you load balance traffic to a set of Pods?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Use a **Service**. It provides a stable IP and DNS name, and load balances traffic across pods matching the selector.
-
-**Code Example:**
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-service
-spec:
-  selector:
-    app: MyApp
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9376
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q19: How do you use a Sidecar container?
+### Q15: What is a Sidecar Pattern?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Run a second container in the same Pod to assist the main container (e.g., log shipping, proxying). They share the same network and volumes.
+**Strategy**:
+Helper container in same pod (e.g., log shipper). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-spec:
-  containers:
-  - name: app
-    image: my-app
-  - name: log-shipper
-    image: fluentd
-    volumeMounts:
-    - name: logs
-      mountPath: /var/log/app
+containers:
+- name: main
+- name: sidecar
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q20: How do you run tasks on a schedule (Cron)?
-
-**Difficulty**: Beginner
-
-**Strategy:**
-Use a **CronJob**. It creates Jobs based on a cron schedule string.
-
-**Code Example:**
-
-```yaml
-apiVersion: batch/v1
-kind: CronJob
-metadata:
-  name: hello
-spec:
-  schedule: "*/1 * * * *"
-  jobTemplate:
-    spec:
-      template:
-        spec:
-          containers:
-          - name: hello
-            image: busybox
-            args:
-            - /bin/sh
-            - -c
-            - date; echo Hello from the Kubernetes cluster
-          restartPolicy: OnFailure
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q21: How do you perform a Canary Deployment?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Create a new Deployment with the new version and a small replica count. Both deployments share the same Service selector. For advanced traffic splitting (percentage-based), use **Istio** or **Argo Rollouts**.
-
-**Code Example:**
-
-```yaml
-# Deployment V1 (9 replicas)
-labels:
-  app: my-app
-  version: v1
-
-# Deployment V2 (1 replica)
-labels:
-  app: my-app
-  version: v2
-
-# Service targets 'app: my-app', balancing traffic 90/10 naturally
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q22: How do you secure Pod-to-Pod communication with mTLS?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Use a Service Mesh like **Istio** or **Linkerd**. They automatically inject sidecar proxies that handle mutual TLS encryption between services.
-
-**Code Example:**
-
-```yaml
-# Istio PeerAuthentication policy
-apiVersion: security.istio.io/v1beta1
-kind: PeerAuthentication
-metadata:
-  name: default
-  namespace: foo
-spec:
-  mtls:
-    mode: STRICT
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q23: How do you ensure high availability during voluntary disruptions (e.g., node draining)?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Use a **PodDisruptionBudget (PDB)** to ensure a minimum number of replicas are always available.
-
-**Code Example:**
-
-```yaml
-apiVersion: policy/v1
-kind: PodDisruptionBudget
-metadata:
-  name: zk-pdb
-spec:
-  minAvailable: 2
-  selector:
-    matchLabels:
-      app: zookeeper
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q24: How do you manage persistent storage requests?
+### Q16: What is an Init Container?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **PersistentVolumeClaim (PVC)**. The pod requests storage via PVC, and the cluster binds it to a matching **PersistentVolume (PV)** (often dynamically provisioned via StorageClass).
+**Strategy**:
+Runs before app containers. Good for setup. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: v1
+initContainers:
+- name: setup
+  command: ['sh', '-c', '...']
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q17: What is a Taint and Toleration?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Taint: Node repels pods. Toleration: Pod ignores taint.
+
+**Code Example**:
+```yaml
+tolerations:
+- key: "gpu"
+  operator: "Exists"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q18: What is Node Affinity?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Constrain pods to nodes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+affinity:
+  nodeAffinity: ...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q19: What is a Persistent Volume (PV)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Storage resource in cluster. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kind: PersistentVolume
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q20: What is a Persistent Volume Claim (PVC)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Request for storage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
 kind: PersistentVolumeClaim
-metadata:
-  name: my-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
+resources:
+  requests:
+    storage: 1Gi
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q25: How do you initialize a Pod before the main container starts?
+### Q21: What is StorageClass?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **Init Containers**. They run to completion before app containers start. Useful for waiting for DBs or setting permissions.
+**Strategy**:
+Defines class of storage (SSD, HDD). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-spec:
-  initContainers:
-  - name: init-myservice
-    image: busybox:1.28
-    command: ['sh', '-c', 'until nslookup myservice; do echo waiting for myservice; sleep 2; done;']
+kind: StorageClass
+provisioner: aws-ebs
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q26: How do you extend Kubernetes capabilities?
+### Q22: How do you perform a Rolling Update?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Default strategy. Update pods one by one. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+strategy:
+  type: RollingUpdate
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q23: What is a Canary Deployment?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use **Operators** and **Custom Resource Definitions (CRDs)**. Operators use custom controllers to automate complex application logic.
+**Strategy**:
+Route small % of traffic to new version. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-# Example CRD usage (Prometheus Operator)
-apiVersion: monitoring.coreos.com/v1
-kind: Prometheus
-metadata:
-  name: prometheus
-spec:
-  serviceAccountName: prometheus
-  replicas: 2
-  version: v2.26.0
+// Use Istio or Ingress annotations
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q27: How do you troubleshoot DNS issues in the cluster?
+### Q24: What is a Blue/Green Deployment?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Two identical envs. Switch traffic instantly. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Switch Service selector
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q25: What is Helm?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Package manager for Kubernetes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+helm install my-app ./chart
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q26: What is `kubectl`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+CLI tool for Kubernetes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kubectl get pods
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q27: How do you debug a CrashLoopBackOff?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Check logs and describe pod. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kubectl logs pod-name
+kubectl describe pod pod-name
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q28: What is etcd?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Key-value store for cluster data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Backing store for K8s
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q29: What is Kubelet?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Agent running on each node. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Manages pods on node
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q30: What is Kube-Proxy?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Network proxy on each node. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Handles service routing
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q31: What is the Control Plane?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Run a temporary pod with DNS tools (`busybox` or `dnsutils`) and use `nslookup` or `dig` to query the CoreDNS service.
+**Strategy**:
+Master node components (API Server, Scheduler, Controller Manager, etcd).
 
-**Code Example:**
-
-```bash
-kubectl run -it --rm --restart=Never busybox --image=busybox:1.28 -- nslookup kubernetes.default
+**Code Example**:
+```yaml
+// Brain of the cluster
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q28: How do you assign an identity to a Pod for AWS/GCP access?
+### Q32: What is RBAC?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use **Service Accounts** mapped to IAM roles (IRSA in AWS, Workload Identity in GKE).
+**Strategy**:
+Role Based Access Control. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: my-sa
-  annotations:
-    eks.amazonaws.com/role-arn: arn:aws:iam::123456789012:role/my-role
+kind: Role
+rules:
+- resources: ["pods"]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q29: How do you vertically scale a pod (VPA)?
+### Q33: What is a ServiceAccount?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Identity for processes in pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+serviceAccountName: my-sa
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: What is a NetworkPolicy?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use **Vertical Pod Autoscaler (VPA)**. It recommends or automatically updates CPU/Memory requests based on usage.
+**Strategy**:
+Firewall rules for pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: autoscaling.k8s.io/v1
-kind: VerticalPodAutoscaler
-metadata:
-  name: my-app-vpa
+kind: NetworkPolicy
 spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: Deployment
-    name: my-app
-  updatePolicy:
-    updateMode: "Auto"
+  podSelector: ...
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q30: How do you define a custom metric for HPA?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Use the **Prometheus Adapter**. It exposes Prometheus metrics to the Kubernetes Custom Metrics API, allowing HPA to scale on application-level metrics (e.g., http_requests).
-
-**Code Example:**
-
-```yaml
-# HPA using custom metric
-spec:
-  metrics:
-  - type: Pods
-    pods:
-      metric:
-        name: http_requests_per_second
-      target:
-        type: AverageValue
-        averageValue: 500m
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q31: How do you perform a blue-green deployment?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Maintain two separate environments (Blue and Green). Deploy the new version to Green, run tests, and then switch the Service selector to point to Green.
-
-**Code Example:**
-
-```yaml
-# Service pointing to Blue (v1)
-selector:
-  app: my-app
-  version: v1
-
-# Update to point to Green (v2)
-kubectl patch service my-service -p '{"spec":{"selector":{"version":"v2"}}}'
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q32: How do you manage multi-tenancy in a cluster?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Use **Namespaces** for isolation, **ResourceQuotas** for fairness, **NetworkPolicies** for traffic isolation, and **RBAC** for access control.
-
-**Code Example:**
-
-```yaml
-# Namespace isolation
-kubectl create namespace tenant-a
-kubectl create rolebinding ... -n tenant-a
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q33: How do you inject a sidecar proxy automatically (e.g., Istio)?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Enable the **MutatingAdmissionWebhook**. Label the namespace (e.g., `istio-injection=enabled`), and the admission controller will inject the sidecar container into new pods.
-
-**Code Example:**
-
-```bash
-kubectl label namespace default istio-injection=enabled
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q34: How do you handle container termination gracefully?
+### Q35: What is a Resource Quota?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Handle the **SIGTERM** signal in your application to finish in-flight requests. Kubernetes waits for `terminationGracePeriodSeconds` (default 30s) before sending SIGKILL.
+**Strategy**:
+Limit total resources per namespace. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
-```javascript
-// Node.js example
-process.on('SIGTERM', () => {
-  server.close(() => {
-    console.log('Process terminated');
-  });
-});
+**Code Example**:
+```yaml
+kind: ResourceQuota
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q35: How do you secure the Kubernetes API server?
+### Q36: What is a LimitRange?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Default limits per pod/container. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kind: LimitRange
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: What is Headless Service?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Disable anonymous access, use RBAC, enable audit logging, and restrict access to the API server endpoint (e.g., private VPC endpoint).
+**Strategy**:
+Service without ClusterIP. Returns pod IPs directly.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-# kube-apiserver flags
---anonymous-auth=false
---authorization-mode=Node,RBAC
---audit-log-path=/var/log/audit.log
+clusterIP: None
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q36: How do you use a headless service?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Set `clusterIP: None`. This returns the IPs of all backing pods directly via DNS, rather than a single VIP. Useful for stateful sets and service discovery.
-
-**Code Example:**
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-headless
-spec:
-  clusterIP: None
-  selector:
-    app: my-app
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q37: How do you implement gitops for Kubernetes?
+### Q38: What is Pod Disruption Budget (PDB)?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use tools like **ArgoCD** or **Flux**. They synchronize the cluster state with a Git repository.
+**Strategy**:
+Ensure min available pods during maintenance. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-# ArgoCD Application
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: guestbook
-spec:
-  source:
-    repoURL: https://github.com/argoproj/argocd-example-apps.git
-    path: guestbook
-    targetRevision: HEAD
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: guestbook
+kind: PodDisruptionBudget
+minAvailable: 1
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q38: How do you drain a node for maintenance?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `kubectl drain`. It cordons the node (unschedulable) and evicts all pods to other nodes (respecting PDBs).
-
-**Code Example:**
-
-```bash
-kubectl drain node-1 --ignore-daemonsets --delete-emptydir-data
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q39: How do you verify that a Helm chart is valid?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `helm lint` to check for syntax errors and best practices, and `helm template` to render the YAML locally for inspection.
-
-**Code Example:**
-
-```bash
-helm lint ./my-chart
-helm template ./my-chart --debug
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q40: How do you use ephemeral containers for debugging?
+### Q39: What is a Custom Resource Definition (CRD)?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use `kubectl debug`. It attaches a new container (with tools) to a running pod without restarting it (K8s v1.23+).
+**Strategy**:
+Extend K8s API with custom types. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
-```bash
-kubectl debug -it my-pod --image=busybox --target=my-container
+**Code Example**:
+```yaml
+kind: CustomResourceDefinition
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q41: How do you mount a single file from a ConfigMap without overwriting the directory?
+### Q40: What is an Operator?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Controller for CRDs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Automates complex apps
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: What is the difference between Request and Limit?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Request: Min guaranteed. Limit: Max allowed. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+resources:
+  requests: { cpu: 100m }
+  limits: { cpu: 200m }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: How do you drain a node?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use `subPath` in the `volumeMounts` section.
+**Strategy**:
+Evict all pods for maintenance. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
+**Code Example**:
+```yaml
+kubectl drain node-1
+```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: What is Cordoning?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Mark node as unschedulable. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kubectl cordon node-1
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: What is a Static Pod?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Managed directly by Kubelet, not API server. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// /etc/kubernetes/manifests
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: What is Container Runtime Interface (CRI)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Plugin interface for runtimes (containerd, CRI-O).
+
+**Code Example**:
+```yaml
+// Docker shim
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: What is CNI (Container Network Interface)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Plugin for networking (Calico, Flannel). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Pod networking
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: What is CSI (Container Storage Interface)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Plugin for storage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// EBS, NFS drivers
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: How do you force delete a pod?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Grace period 0. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kubectl delete pod x --grace-period=0 --force
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: What is `kubectl apply` vs `create`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Apply is declarative (upsert). Create is imperative.
+
+**Code Example**:
+```yaml
+kubectl apply -f file.yaml
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: How do you port forward?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Access pod port locally. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kubectl port-forward pod-x 8080:80
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q51: What is a Context?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Cluster + User + Namespace config. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kubectl config use-context prod
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q52: How do you list all resources?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Get all. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kubectl get all --all-namespaces
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q53: What is a finalizer?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Blocks deletion until logic runs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+finalizers:
+- kubernetes.io/pvc-protection
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q54: What is Garbage Collection in K8s?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Deleting orphaned resources. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// OwnerReferences
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q55: What is OOMKilled?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Container used more RAM than limit. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Exit Code 137
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: What is ImagePullBackOff?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Cannot pull image (auth, typo). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Check image name
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q57: How do you auto-scale cluster nodes?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Cluster Autoscaler. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Adds/removes nodes
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q58: What is Service Mesh (Istio/Linkerd)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Traffic management, security, observability. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Sidecar proxies
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q59: How do you secure K8s dashboard?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+RBAC + Auth Proxy. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Never expose publicly
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q60: What is GitOps?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Git as source of truth (ArgoCD, Flux). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Sync git to cluster
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q61: How do you backup etcd?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+etcdctl snapshot save. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+etcdctl snapshot save backup.db
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q62: What is a PriorityClass?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Scheduling priority. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kind: PriorityClass
+value: 1000000
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q63: What is Pod Security Admission?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Replace PSP. Enforce security standards. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+labels:
+  pod-security.kubernetes.io/enforce: restricted
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q64: How do you mount a single file?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+subPath in volumeMounts. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
 ```yaml
 volumeMounts:
-- name: config-vol
-  mountPath: /etc/app/config.json
-  subPath: config.json
+- name: config
+  subPath: file.txt
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q42: How do you set a default StorageClass?
+### Q65: What is Ephemeral Storage?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Annotate the StorageClass with `storageclass.kubernetes.io/is-default-class=true`.
+**Strategy**:
+Local disk used by logs/emptyDir. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
-```bash
-kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q43: How do you backup a Kubernetes cluster (etcd)?
-
-**Difficulty**: Advanced
-
-**Strategy:**
-Use `etcdctl` to take a snapshot of the etcd database. This saves the entire cluster state.
-
-**Code Example:**
-
-```bash
-ETCDCTL_API=3 etcdctl snapshot save snapshot.db   --endpoints=https://127.0.0.1:2379   --cacert=/etc/kubernetes/pki/etcd/ca.crt   --cert=/etc/kubernetes/pki/etcd/server.crt   --key=/etc/kubernetes/pki/etcd/server.key
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q44: How do you force delete a Pod stuck in 'Terminating'?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use `--force --grace-period=0`. This removes the API object immediately (use with caution).
-
-**Code Example:**
-
-```bash
-kubectl delete pod my-pod --grace-period=0 --force
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q45: How do you monitor Kubernetes components?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Use **Prometheus** with **Grafana**. Deploy `kube-prometheus-stack` which includes exporters for kubelet, etcd, scheduler, and controller-manager.
-
-**Code Example:**
-
-```bash
-helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm install monitoring prometheus-community/kube-prometheus-stack
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q46: How do you limit the number of Jobs history kept?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Set `.spec.successfulJobsHistoryLimit` and `.spec.failedJobsHistoryLimit` in the CronJob definition.
-
-**Code Example:**
-
+**Code Example**:
 ```yaml
-spec:
-  successfulJobsHistoryLimit: 3
-  failedJobsHistoryLimit: 1
+requests:
+  ephemeral-storage: "2Gi"
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q47: How do you run a Windows container in Kubernetes?
+### Q66: How do you troubleshoot DNS?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-You need a cluster with Windows nodes. Use `nodeSelector` or `tolerations` to schedule the pod on a Windows node.
+**Strategy**:
+Check CoreDNS pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-nodeSelector:
-  kubernetes.io/os: windows
+nslookup myservice
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q48: How do you use a priority class to ensure critical pods are scheduled?
+### Q67: What is `kubectl top`?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
-**Strategy:**
-Create a **PriorityClass** and assign it to the Pod. Higher priority pods can preempt (evict) lower priority pods if resources are scarce.
+**Strategy**:
+Show metrics (CPU/RAM). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: scheduling.k8s.io/v1
-kind: PriorityClass
-metadata:
-  name: high-priority
-value: 1000000
----
-spec:
-  priorityClassName: high-priority
+kubectl top pods
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q49: How do you automatically rotate TLS certificates?
+### Q68: What is Metrics Server?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use **cert-manager**. It automates the issuance and renewal of certificates from issuers like Let's Encrypt or HashiCorp Vault.
+**Strategy**:
+Aggregates resource usage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: my-cert
-spec:
-  secretName: my-cert-tls
-  issuerRef:
-    name: letsencrypt-prod
-  dnsNames:
-  - example.com
+// Required for HPA
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q50: How do you secure your supply chain with Image Signing (Kyverno/Gatekeeper)?
+### Q69: How do you copy files to/from pod?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
-**Strategy:**
-Use an admission controller (Kyverno or Gatekeeper) to verify Cosign signatures before allowing image deployment.
+**Strategy**:
+kubectl cp. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
-**Code Example:**
-
+**Code Example**:
 ```yaml
-# Kyverno Policy
-apiVersion: kyverno.io/v1
-kind: ClusterPolicy
-metadata:
-  name: check-image
-spec:
-  rules:
-  - name: verify-signature
-    match:
-      resources:
-        kinds:
-        - Pod
-    validate:
-      message: "Image must be signed."
-      imageVerification:
-        # ... verification config
+kubectl cp ./file pod:/path
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-
-### Q51: How do you handle Kubernetes state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```bash
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q52: How do you perform Kubernetes data validation in microservices?
+### Q70: What is `kubectl exec`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Run command in container. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```yaml
+kubectl exec -it pod -- bash
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q53: How do you automate Kubernetes deployment for mobile devices?
+### Q71: What is Downward API?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Expose pod info to container. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-steps:
-  - run: npm test
-  - run: docker build
+```yaml
+valueFrom:
+  fieldRef:
+    fieldPath: metadata.name
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q54: How do you handle Kubernetes concurrency issues in legacy systems?
+### Q72: What is Topology Spread Constraints?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Spread pods across zones. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-await mutex.runExclusive(async () => {
-  // critical section
-});
+```yaml
+topologySpreadConstraints:
+- maxSkew: 1
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q55: How do you implement Kubernetes caching in cloud infrastructure?
+### Q73: What is Pod Affinity?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Co-locate pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+podAffinity:
+  requiredDuringScheduling...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q74: What is Pod Anti-Affinity?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Separate pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+podAntiAffinity:
+  requiredDuringScheduling...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q75: How do you handle secret encryption?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+EncryptionConfiguration for etcd. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Encrypt secrets at rest
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q76: What is a certificate signing request (CSR)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Request cert from K8s CA. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kind: CertificateSigningRequest
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q77: How do you renew certs?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+kubeadm certs renew. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kubeadm certs renew all
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q78: What is kubeadm?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Tool to bootstrap cluster. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+```yaml
+kubeadm init
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q56: How do you manage Kubernetes configuration for real-time systems?
+### Q79: What is Minikube?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Local single-node cluster. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-const config = process.env.CONFIG || 'default';
+```yaml
+minikube start
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q57: How do you handle Kubernetes internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```bash
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q58: How do you ensure Kubernetes accessibility (a11y) in high-traffic sites?
+### Q80: What is Kind?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Kubernetes in Docker. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-<button aria-label="Close">X</button>
+```yaml
+kind create cluster
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q59: How do you optimize Kubernetes network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```bash
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q60: How do you handle Kubernetes performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```bash
-const start = performance.now();
-// Kubernetes logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q61: What are the security implications of Kubernetes in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```bash
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q62: How do you debug Kubernetes memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```bash
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q63: Best practices for Kubernetes code organization in mobile devices?
+### Q81: What is k3s?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Lightweight K8s. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-// Single responsibility
-function doOneThing() { ... }
+```yaml
+curl ... | sh -
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q64: How do you implement Kubernetes error handling for legacy systems?
+### Q82: How do you manage multiple clusters?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+Kubeconfig contexts. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-try {
-  await KubernetesOperation();
-} catch (e) {
-  logger.error(e);
-}
+```yaml
+KUBECONFIG=c1:c2 kubectl get pods
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q65: How do you test Kubernetes functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```bash
-test('Kubernetes works', () => {
-  expect(Kubernetes()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q66: How do you handle Kubernetes state management in real-time systems?
+### Q83: What is Federation v2 (KubeFed)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+Coordinate multiple clusters. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-const [state, setState] = useState(initial);
+```yaml
+// Sync resources
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q67: How do you perform Kubernetes data validation in distributed systems?
+### Q84: How do you debug networking?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+tcpdump, netshoot container. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kubectl run debug --image=nicolaka/netshoot
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: What is a Lease?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Distributed lock (e.g., leader election). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+kind: Lease
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q86: How do you limit jobs history?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+ttlSecondsAfterFinished. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+ttlSecondsAfterFinished: 100
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q87: What is PreStop hook?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Run before termination. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+lifecycle:
+  preStop:
+    exec: ...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q88: What is PostStart hook?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Run after start. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+lifecycle:
+  postStart: ...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: How do you set environment variables?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+env or envFrom. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```yaml
+env:
+- name: DB_HOST
+  value: localhost
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q68: How do you automate Kubernetes deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```bash
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q69: How do you handle Kubernetes concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```bash
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q70: How do you implement Kubernetes caching in production environments?
+### Q90: What is `command` vs `args`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Command = Entrypoint, Args = Cmd. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+```yaml
+command: ["/bin/sh"]
+args: ["-c", "echo hi"]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q71: How do you manage Kubernetes configuration for large scale applications?
+### Q91: How do you restart a deployment?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Rollout restart. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-const config = process.env.CONFIG || 'default';
+```yaml
+kubectl rollout restart deploy/app
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q72: How do you handle Kubernetes internationalization (i18n) in microservices?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```bash
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q73: How do you ensure Kubernetes accessibility (a11y) in mobile devices?
+### Q92: How do you undo a deployment?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Rollout undo. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-<button aria-label="Close">X</button>
+```yaml
+kubectl rollout undo deploy/app
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q74: How do you optimize Kubernetes network requests in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```bash
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q75: How do you handle Kubernetes performance optimization for cloud infrastructure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```bash
-const start = performance.now();
-// Kubernetes logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q76: What are the security implications of Kubernetes in real-time systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```bash
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q77: How do you debug Kubernetes memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```bash
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q78: Best practices for Kubernetes code organization in high-traffic sites?
+### Q93: What is `kubectl explain`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+Documentation in CLI. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-// Single responsibility
-function doOneThing() { ... }
+```yaml
+kubectl explain pod.spec
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q79: How do you implement Kubernetes error handling for embedded systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```bash
-try {
-  await KubernetesOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q80: How do you test Kubernetes functionality in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```bash
-test('Kubernetes works', () => {
-  expect(Kubernetes()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q81: How do you handle Kubernetes state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```bash
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q82: How do you perform Kubernetes data validation in microservices?
+### Q94: How do you dry-run?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+Print yaml without applying. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-if (!schema.safeParse(data).success) throw Error('Invalid');
+```yaml
+kubectl create deploy x --dry-run=client -o yaml
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q83: How do you automate Kubernetes deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```bash
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q84: How do you handle Kubernetes concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```bash
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q85: How do you implement Kubernetes caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches.
-
-**Code Example**:
-```bash
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q86: How do you manage Kubernetes configuration for real-time systems?
+### Q95: What is a Manifest?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+YAML file defining resources. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-const config = process.env.CONFIG || 'default';
+```yaml
+// pod.yaml
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q87: How do you handle Kubernetes internationalization (i18n) in distributed systems?
+### Q96: How do you validate yaml?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use i18n libraries. Extract strings to resource files.
+kubeval or kubectl --dry-run. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-t('welcome_message')
+```yaml
+kubeval pod.yaml
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q88: How do you ensure Kubernetes accessibility (a11y) in high-traffic sites?
+### Q97: What is OPA (Open Policy Agent)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Policy engine (Gatekeeper). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+
+**Code Example**:
+```yaml
+// Enforce rules
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: How do you monitor logs?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+EFK/ELK stack or Loki. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-<button aria-label="Close">X</button>
+```yaml
+// Fluentd collects logs
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q89: How do you optimize Kubernetes network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL.
-
-**Code Example**:
-```bash
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q90: How do you handle Kubernetes performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```bash
-const start = performance.now();
-// Kubernetes logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q91: What are the security implications of Kubernetes in large scale applications?
+### Q99: What is Prometheus?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
+Metrics collection. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
+```yaml
+// Scrapes /metrics
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-### Q92: How do you debug Kubernetes memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```bash
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q93: Best practices for Kubernetes code organization in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```bash
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q94: How do you implement Kubernetes error handling for legacy systems?
+### Q100: What is Grafana?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+Visualization. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
-```bash
-try {
-  await KubernetesOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q95: How do you test Kubernetes functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```bash
-test('Kubernetes works', () => {
-  expect(Kubernetes()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q96: How do you handle Kubernetes state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```bash
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q97: How do you perform Kubernetes data validation in distributed systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```bash
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q98: How do you automate Kubernetes deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application.
-
-**Code Example**:
-```bash
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q99: How do you handle Kubernetes concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations.
-
-**Code Example**:
-```bash
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-### Q100: How do you implement Kubernetes caching in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches.
-
-**Code Example**:
-```bash
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+```yaml
+// Dashboards
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

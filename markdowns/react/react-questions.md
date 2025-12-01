@@ -113,9 +113,11 @@
 
 ---
 
-### Q1. How do you implement a custom hook `useFetch` with caching and cancellation?
+### Q1: How do you implement a custom hook `useFetch` with caching and cancellation?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Creating a robust `useFetch` hook involves handling loading states, errors, data caching to avoid redundant requests, and request cancellation to prevent memory leaks or state updates on unmounted components.
 
 **Key Features:**
@@ -123,6 +125,8 @@ Creating a robust `useFetch` hook involves handling loading states, errors, data
 2.  **Caching:** Using `useRef` to store responses keyed by URL.
 3.  **Cancellation:** Using `AbortController` to cancel pending requests if the component unmounts or the URL changes.
 
+
+**Code Example**:
 ```javascript
 import { useState, useEffect, useRef } from 'react';
 
@@ -191,15 +195,19 @@ function useFetch(url, options = {}) {
 
 ---
 
-### Q2. How do you optimize a React application using `useMemo` and `useCallback` correctly?
+### Q2: How do you optimize a React application using `useMemo` and `useCallback` correctly?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 `useMemo` and `useCallback` are hooks for memoization, but they should be used judiciously. Overusing them can add overhead. They are most effective when performing expensive calculations or preserving referential equality for child components wrapped in `React.memo`.
 
 **Usage:**
 *   **`useMemo`**: Memoizes a *value*. Use it for expensive calculations (e.g., filtering large arrays) or to ensure an object/array dependency in `useEffect` remains stable.
 *   **`useCallback`**: Memoizes a *function*. Use it when passing functions to optimized child components (`React.memo`) to prevent them from re-rendering due to a new function reference.
 
+
+**Code Example**:
 ```javascript
 import React, { useState, useMemo, useCallback } from 'react';
 
@@ -245,9 +253,11 @@ function Parent() {
 
 ---
 
-### Q3. How do you manage global state using React Context without triggering unnecessary re-renders?
+### Q3: How do you manage global state using React Context without triggering unnecessary re-renders?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 A common pitfall with React Context is that updating the context value causes *all* consuming components to re-render, even if they only use a part of the data.
 
 **Strategies to avoid re-renders:**
@@ -255,6 +265,8 @@ A common pitfall with React Context is that updating the context value causes *a
 2.  **Memoize the Value:** Wrap the context value object in `useMemo` so the reference remains stable unless state changes.
 3.  **Context Selectors (Third-party):** Libraries like `use-context-selector` allow components to listen to only slices of the context.
 
+
+**Code Example**:
 ```javascript
 import React, { createContext, useContext, useState, useMemo } from 'react';
 
@@ -287,14 +299,18 @@ export const useTheme = () => useContext(ThemeContext);
 
 ---
 
-### Q4. How do you implement a Compound Component pattern (e.g., Tabs)?
+### Q4: How do you implement a Compound Component pattern (e.g., Tabs)?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Compound Components allow you to create flexible components where the parent manages the state, and children communicate with the parent implicitly. This avoids "prop explosion" where the parent needs dozens of props to configure internal children.
 
 **Implementation:**
 Use `React.Children.map` or `React.Context` to share state between the parent (`Tabs`) and children (`Tab`, `TabPanel`). Context is the modern and more flexible approach.
 
+
+**Code Example**:
 ```javascript
 import React, { createContext, useContext, useState } from 'react';
 
@@ -350,11 +366,15 @@ function App() {
 
 ---
 
-### Q5. How do you create a Higher-Order Component (HOC) for authentication?
+### Q5: How do you create a Higher-Order Component (HOC) for authentication?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 A Higher-Order Component (HOC) is a function that takes a component and returns a new component. It's a pattern for reusing component logic. While Hooks have replaced HOCs for many use cases (like data fetching), HOCs are still useful for wrapping components with cross-cutting concerns like authentication or layout injection.
 
+
+**Code Example**:
 ```javascript
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Assuming react-router
@@ -393,11 +413,15 @@ export default ProtectedDashboard;
 
 ---
 
-### Q6. How do you implement the Render Props pattern for code reuse?
+### Q6: How do you implement the Render Props pattern for code reuse?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Render Props refers to a technique for sharing code between React components using a prop whose value is a function. This function returns a React element. It allows the internal state of a component to be exposed to the parent, giving the parent full control over the UI.
 
+
+**Code Example**:
 ```javascript
 import React, { useState } from 'react';
 
@@ -436,11 +460,15 @@ function App() {
 
 ---
 
-### Q7. How do you implement an Error Boundary to catch crashes in child components?
+### Q7: How do you implement an Error Boundary to catch crashes in child components?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Error Boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. They must be implemented as **Class Components** because functional components do not yet support `getDerivedStateFromError` or `componentDidCatch`.
 
+
+**Code Example**:
 ```javascript
 import React from 'react';
 
@@ -485,11 +513,15 @@ function App() {
 
 ---
 
-### Q8. How do you use `useImperativeHandle` to expose child methods to a parent?
+### Q8: How do you use `useImperativeHandle` to expose child methods to a parent?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 `useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. It is rarely used but helpful when you need to imperatively control a child (e.g., focus an input, scroll to a node, or trigger a child method) from the parent. It must be used with `forwardRef`.
 
+
+**Code Example**:
 ```javascript
 import React, { useRef, useImperativeHandle, forwardRef } from 'react';
 
@@ -523,11 +555,15 @@ function App() {
 
 ---
 
-### Q9. How do you implement a Portal to render children into a different part of the DOM?
+### Q9: How do you implement a Portal to render children into a different part of the DOM?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Portals provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component. This is commonly used for Modals, Tooltips, and Popovers to ensure they appear visually "on top" of other elements and aren't affected by parent CSS (like `overflow: hidden` or `z-index`).
 
+
+**Code Example**:
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -576,14 +612,18 @@ function App() {
 
 ---
 
-### Q10. How do you optimize large lists using Virtualization (Windowing)?
+### Q10: How do you optimize large lists using Virtualization (Windowing)?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Virtualization (or Windowing) renders only the items currently visible in the viewport (plus a small buffer), rather than the entire list of thousands of items. This drastically reduces the number of DOM nodes and improves performance. Libraries like `react-window` or `react-virtualized` are standard.
 
 **Implementation (Manual Concept):**
 To implement it manually, you need to calculate which items overlap with the scroll container's viewport.
 
+
+**Code Example**:
 ```javascript
 import React, { useState } from 'react';
 
@@ -639,11 +679,15 @@ function App() {
 
 ---
 
-### Q11. How do you implement a custom `useDebounce` hook?
+### Q11: How do you implement a custom `useDebounce` hook?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 A `useDebounce` hook is useful for delaying a value update until a specified time has passed since the last change. It's commonly used for search inputs to avoid making an API call on every keystroke.
 
+
+**Code Example**:
 ```javascript
 import { useState, useEffect } from 'react';
 
@@ -683,11 +727,15 @@ function SearchComponent() {
 
 ---
 
-### Q12. How do you implement a custom `useLocalStorage` hook?
+### Q12: How do you implement a custom `useLocalStorage` hook?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 This hook syncs a state variable with `localStorage` so that data persists across browser refreshes. It also listens for changes to keep the state in sync.
 
+
+**Code Example**:
 ```javascript
 import { useState, useEffect } from 'react';
 
@@ -721,11 +769,15 @@ function useLocalStorage(key, initialValue) {
 
 ---
 
-### Q13. How do you implement a custom `usePrevious` hook?
+### Q13: How do you implement a custom `usePrevious` hook?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 `usePrevious` is used to hold the value of a prop or state from the *previous* render. This is useful for comparing old and new values in effects.
 
+
+**Code Example**:
 ```javascript
 import { useRef, useEffect } from 'react';
 
@@ -756,9 +808,11 @@ function Counter() {
 
 ---
 
-### Q14. What is the difference between `useEffect` and `useLayoutEffect`?
+### Q14: What is the difference between `useEffect` and `useLayoutEffect`?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Both hooks run side effects, but the timing differs:
 *   **`useEffect`**: Runs **asynchronously** *after* the browser has painted the screen. This is good for data fetching, subscriptions, and non-blocking updates. It doesn't block the UI.
 *   **`useLayoutEffect`**: Runs **synchronously** *after* DOM mutations but *before* the browser paints. Use this if you need to measure DOM elements (width, height) and update state immediately to prevent a visual flicker.
@@ -766,6 +820,8 @@ Both hooks run side effects, but the timing differs:
 **Visual Example:**
 If you set state in `useEffect` that changes layout, the user might see the initial layout, then a flicker as it updates. With `useLayoutEffect`, the update happens before the paint, so no flicker occurs.
 
+
+**Code Example**:
 ```javascript
 import React, { useLayoutEffect, useRef, useState } from 'react';
 
@@ -791,11 +847,15 @@ function Tooltip() {
 
 ---
 
-### Q15. How do you use `forwardRef` to pass refs to child components?
+### Q15: How do you use `forwardRef` to pass refs to child components?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 By default, `ref`s are not passed to functional components. `forwardRef` allows a component to take a `ref` attribute and "forward" it to one of its children (usually a DOM element).
 
+
+**Code Example**:
 ```javascript
 import React, { forwardRef, useRef } from 'react';
 
@@ -825,9 +885,11 @@ function App() {
 
 ---
 
-### Q16. Controlled vs Uncontrolled Components: When to use which?
+### Q16: Controlled vs Uncontrolled Components: When to use which?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 *   **Controlled Components:** React manages the state. The input value is driven by state (`value={state}`) and changes via `onChange`.
     *   *Pros:* Instant validation, conditional disabling, consistent state.
     *   *Cons:* More boilerplate, re-renders on every keystroke.
@@ -837,6 +899,8 @@ function App() {
 
 **Recommendation:** Use Controlled for most forms. Use Uncontrolled for simple inputs or file uploads where React doesn't need to know the value instantly.
 
+
+**Code Example**:
 ```javascript
 // Controlled
 function ControlledInput() {
@@ -859,13 +923,17 @@ function UncontrolledInput() {
 
 ---
 
-### Q17. How do you use `React.memo` to prevent re-renders?
+### Q17: How do you use `React.memo` to prevent re-renders?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 `React.memo` is a higher-order component that memoizes a functional component. It checks if the *props* have changed. If props are the same (shallow comparison), it skips re-rendering the component.
 
 **Warning:** Don't wrap everything in `memo`. Use it only for pure components that render often with the same props.
 
+
+**Code Example**:
 ```javascript
 import React, { useState } from 'react';
 
@@ -894,11 +962,15 @@ function App() {
 
 ---
 
-### Q18. How do you implement Code Splitting using `React.lazy` and `Suspense`?
+### Q18: How do you implement Code Splitting using `React.lazy` and `Suspense`?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Code splitting allows you to split your bundle into smaller chunks which can then be loaded on demand. This improves the initial load time. `React.lazy` lets you define a component that is loaded dynamically, and `Suspense` lets you show a fallback (like a spinner) while it's loading.
 
+
+**Code Example**:
 ```javascript
 import React, { Suspense } from 'react';
 
@@ -921,11 +993,15 @@ function App() {
 
 ---
 
-### Q19. How do you handle forms efficiently using React Hook Form?
+### Q19: How do you handle forms efficiently using React Hook Form?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 `React Hook Form` is a popular library that uses *uncontrolled components* (refs) to handle form state, resulting in significantly fewer re-renders compared to controlled components. It provides easy validation and error handling.
 
+
+**Code Example**:
 ```javascript
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -965,11 +1041,15 @@ function LoginForm() {
 
 ---
 
-### Q20. How do you manage state with Redux Toolkit (Slice + Thunk)?
+### Q20: How do you manage state with Redux Toolkit (Slice + Thunk)?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Redux Toolkit (RTK) simplifies Redux. A "Slice" contains the reducer logic and actions. `createAsyncThunk` handles async logic.
 
+
+**Code Example**:
 ```javascript
 // features/userSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
@@ -1018,11 +1098,15 @@ function UserProfile({ id }) {
 
 ---
 
-### Q21. How do you create a simple store using Zustand?
+### Q21: How do you create a simple store using Zustand?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Zustand is a minimalistic state management library. It uses hooks and doesn't require a provider wrapper (unlike Context or Redux). It's great for avoiding boilerplate.
 
+
+**Code Example**:
 ```javascript
 import create from 'zustand';
 
@@ -1049,11 +1133,15 @@ function Controls() {
 
 ---
 
-### Q22. How do you implement Private Routes for authentication?
+### Q22: How do you implement Private Routes for authentication?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Private routes prevent unauthenticated users from accessing certain pages. In React Router v6, this is done by creating a wrapper component that checks for a token/user and redirects if missing.
 
+
+**Code Example**:
 ```javascript
 import { Navigate, Outlet } from 'react-router-dom';
 
@@ -1090,11 +1178,15 @@ function App() {
 
 ---
 
-### Q23. How do you handle JWT Authentication (Login/Logout)?
+### Q23: How do you handle JWT Authentication (Login/Logout)?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Handling JWT involves sending credentials, storing the received token (usually `localStorage` or HttpOnly cookies), and attaching it to subsequent requests.
 
+
+**Code Example**:
 ```javascript
 // api.js
 export const login = async (credentials) => {
@@ -1128,11 +1220,15 @@ export const logout = () => {
 
 ---
 
-### Q24. How do you unit test a React component using Jest and React Testing Library?
+### Q24: How do you unit test a React component using Jest and React Testing Library?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 React Testing Library focuses on testing behavior from the user's perspective (clicking, seeing text) rather than implementation details (state, props).
 
+
+**Code Example**:
 ```javascript
 // Counter.js
 import { useState } from 'react';
@@ -1168,11 +1264,15 @@ test('increments counter on click', () => {
 
 ---
 
-### Q25. How do you mock API calls in Jest tests?
+### Q25: How do you mock API calls in Jest tests?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 You should not make real network requests in tests. Instead, mock the `fetch` function or the module that makes the request.
 
+
+**Code Example**:
 ```javascript
 // UserList.js
 import { useEffect, useState } from 'react';
@@ -1217,15 +1317,19 @@ test('renders users from API', async () => {
 
 ---
 
-### Q26. How do you prevent XSS attacks in React?
+### Q26: How do you prevent XSS attacks in React?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Cross-Site Scripting (XSS) occurs when an attacker injects malicious scripts. React protects against XSS by default because it escapes data before rendering it. However, you are vulnerable if you use `dangerouslySetInnerHTML` or user-controlled `href` attributes.
 
 **Best Practices:**
 1.  Avoid `dangerouslySetInnerHTML`. If necessary, use a sanitization library like `dompurify`.
 2.  Validate URLs in `<a>` tags (avoid `javascript:alert(1)`).
 
+
+**Code Example**:
 ```javascript
 import DOMPurify from 'dompurify';
 
@@ -1242,13 +1346,17 @@ function SafeContent({ htmlContent }) {
 
 ---
 
-### Q27. How do you fix "Can't perform a React state update on an unmounted component"?
+### Q27: How do you fix "Can't perform a React state update on an unmounted component"?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 This warning occurs when an async operation (like `fetch` or `setTimeout`) completes and tries to call `setState` after the component has already unmounted.
 
 **Fix:** Use a cleanup function in `useEffect` to cancel the operation or set a flag.
 
+
+**Code Example**:
 ```javascript
 useEffect(() => {
   let isMounted = true;
@@ -1268,14 +1376,18 @@ useEffect(() => {
 
 ---
 
-### Q28. How do you manage focus for accessibility (A11y)?
+### Q28: How do you manage focus for accessibility (A11y)?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 Managing focus is critical for keyboard navigation.
 1.  **Auto-focus:** Use `ref.current.focus()` to move focus to a modal when it opens.
 2.  **Focus Trap:** Keep focus inside a modal so Tab doesn't exit it.
 3.  **Skip Links:** Allow users to skip navigation to main content.
 
+
+**Code Example**:
 ```javascript
 import { useEffect, useRef } from 'react';
 
@@ -1303,9 +1415,11 @@ function Modal({ isOpen, onClose, children }) {
 
 ---
 
-### Q29. SSR vs CSR vs SSG: When to use what?
+### Q29: SSR vs CSR vs SSG: When to use what?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 *   **CSR (Client-Side Rendering):** Standard React. Browser downloads empty HTML + JS bundle, then renders.
     *   *Use:* Dashboards, private apps behind login.
 *   **SSR (Server-Side Rendering):** Server renders HTML on every request. (Next.js `getServerSideProps`).
@@ -1315,9 +1429,11 @@ function Modal({ isOpen, onClose, children }) {
 
 ---
 
-### Q30. What is React Fiber and how does it improve performance?
+### Q30: What is React Fiber and how does it improve performance?
 
-**Answer:**
+**Difficulty**: Intermediate
+
+**Strategy:**
 React Fiber is the reimplementation of React's core reconciliation algorithm (introduced in React 16).
 *   **Key Goal:** Incremental rendering. It can split rendering work into chunks and spread it out over multiple frames.
 *   **Impact:** It allows React to pause work, reuse it, or abort it to prioritize higher-priority updates (like user input) over low-priority ones (like data fetching). This results in smoother animations and responsiveness.
@@ -2159,7 +2275,7 @@ items.map(item => <li key={item.id}>{item.name}</li>)
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `useEffect` hook.
+Use `useEffect` hook. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2547,7 +2663,7 @@ if (process.env.NODE_ENV === 'development') {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Passing a function as a prop to share code.
+Passing a function as a prop to share code. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2643,7 +2759,7 @@ return <div ref={ref}>Loading...</div>;
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `renderHook` from `@testing-library/react`.
+Use `renderHook` from `@testing-library/react`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2985,7 +3101,7 @@ The process through which React updates the DOM. It compares the new element tre
 **Difficulty**: Intermediate
 
 **Strategy**:
-Update state (dummy state) or use `useReducer`.
+Update state (dummy state) or use `useReducer`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3067,7 +3183,7 @@ const theme = isDark ? darkTheme : lightTheme;
 **Difficulty**: Beginner
 
 **Strategy**:
-Runtime type checking for React props.
+Runtime type checking for React props. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3083,7 +3199,7 @@ MyComponent.propTypes = { name: PropTypes.string.isRequired };
 **Difficulty**: Advanced
 
 **Strategy**:
-Memoize the value passed to the Provider.
+Memoize the value passed to the Provider. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3165,7 +3281,7 @@ const PrivateRoute = ({ children }) => auth ? children : <Navigate to="/login" /
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `.env` files (`REACT_APP_` or `VITE_`).
+Use `.env` files (`REACT_APP_` or `VITE_`). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3181,7 +3297,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use React DevTools Profiler tab.
+Use React DevTools Profiler tab. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3279,7 +3395,7 @@ Prevent XSS (React escapes by default), avoid `dangerouslySetInnerHTML`, secure 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `renderHook` from testing library.
+Use `renderHook` from testing library. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3313,7 +3429,7 @@ flushSync(() => { setCount(count + 1); });
 **Difficulty**: Advanced
 
 **Strategy**:
-Use a boolean flag or AbortController.
+Use a boolean flag or AbortController. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3365,7 +3481,7 @@ Use HTML5 Drag and Drop API or libraries like `dnd-kit` or `react-beautiful-dnd`
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `input type='file'` and `FormData`.
+Use `input type='file'` and `FormData`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3383,7 +3499,7 @@ fetch('/upload', { method: 'POST', body: formData });
 **Difficulty**: Intermediate
 
 **Strategy**:
-Manage active index state and transform styles.
+Manage active index state and transform styles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3399,7 +3515,7 @@ Manage active index state and transform styles.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `jest.mock` or `msw` (Mock Service Worker).
+Use `jest.mock` or `msw` (Mock Service Worker). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3447,7 +3563,7 @@ State for visibility and position calculation (or use libraries like Tippy.js).
 **Difficulty**: Intermediate
 
 **Strategy**:
-Add event listener in `useEffect`.
+Add event listener in `useEffect`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3474,5 +3590,3 @@ Conditionally render components based on user bucket/flag.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

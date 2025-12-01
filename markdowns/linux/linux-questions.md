@@ -1,4 +1,12 @@
-# Linux Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Linux Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -105,507 +113,1501 @@
 
 ---
 
-<div id="q1" class="question">1. Check disk space? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <ul>
-    <li><code>df -h</code>: Free disk space.</li>
-    <li><code>du -sh</code>: Disk usage of directory.</li>
-  </ul>
-</div>
-
-<div id="q2" class="question">2. File permissions (chmod)? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p><code>chmod 755 file</code> (rwx for owner, rx for others).</p>
-</div>
-
-<div id="q3" class="question">3. Find file by name? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">find /path -name "filename.txt"</code></pre>
-</div>
-
-<div id="q4" class="question">4. Grep usage? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">grep "text" file.txt</code></pre>
-</div>
-
-<div id="q5" class="question">5. Check/Kill processes? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><code>ps aux</code>, <code>top</code>, <code>kill PID</code>.</p>
-</div>
-
-<div id="q6" class="question">6. Soft vs Hard Link? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Soft:</strong> Shortcut (breaks if moved).<br><strong>Hard:</strong> Direct pointer to inode (same file).</p>
-</div>
-
-<div id="q7" class="question">7. Check listening ports? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">ss -tulpn</code></pre>
-</div>
-
-<div id="q8" class="question">8. Cron vs Crontab? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Cron:</strong> Daemon.<br><strong>Crontab:</strong> Schedule file.</p>
-</div>
-
-<div id="q9" class="question">9. Process vs Thread? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p><strong>Process:</strong> Isolated memory.<br><strong>Thread:</strong> Shared memory.</p>
-</div>
-
-<div id="q10" class="question">10. Check memory usage? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">free -h</code></pre>
-</div>
-
-<div id="q11" class="question">11. What is SSH? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Secure Shell. Encrypted remote login.</p>
-</div>
-
-<div id="q12" class="question">12. Stdin, Stdout, Stderr? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>0: In, 1: Out, 2: Error.</p>
-</div>
-
-<div id="q13" class="question">13. Tail log file? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">tail -f /var/log/syslog</code></pre>
-</div>
-
-<div id="q14" class="question">14. What is a Daemon? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Background service (e.g., httpd).</p>
-</div>
-
-<div id="q15" class="question">15. Change owner (chown)? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">chown user:group file</code></pre>
-</div>
-
-<div id="q16" class="question">16. What is /proc? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Virtual filesystem for kernel/process info.</p>
-</div>
-
-<div id="q17" class="question">17. Tar command? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">tar -czvf archive.tar.gz dir/</code></pre>
-</div>
-
-<div id="q18" class="question">18. What is systemd? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Init system (PID 1). Manages services.</p>
-</div>
-
-<div id="q19" class="question">19. Check IP address? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">ip a</code></pre>
-</div>
-
-<div id="q20" class="question">20. Linux Boot Process? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>BIOS -> Bootloader -> Kernel -> Init.</p>
-</div>
-
-<div id="q21" class="question">21. What is an Inode? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Data structure storing file metadata (permissions, owner, location) but not name.</p>
-</div>
-
-<div id="q22" class="question">22. What is the Root User? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Superuser with full system privileges (UID 0).</p>
-</div>
-
-<div id="q23" class="question">23. What is Sudo? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Execute command as another user (usually root).</p>
-</div>
-
-<div id="q24" class="question">24. Explain `ls -l` output? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Permissions, Link count, Owner, Group, Size, Date, Name.</p>
-</div>
-
-<div id="q25" class="question">25. Create a directory? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">mkdir dir_name</code></pre>
-</div>
-
-<div id="q26" class="question">26. Remove a directory? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">rm -r dir_name</code></pre>
-</div>
-
-<div id="q27" class="question">27. Move vs Rename file? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Both use <code>mv</code> command.</p>
-</div>
-
-<div id="q28" class="question">28. Copy file vs directory? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>File: <code>cp src dst</code>. Dir: <code>cp -r src dst</code>.</p>
-</div>
-
-<div id="q29" class="question">29. What is the PATH variable? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>List of directories shell searches for executable commands.</p>
-</div>
-
-<div id="q30" class="question">30. How to set an Environment Variable? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">export VAR_NAME=value</code></pre>
-</div>
-
-<div id="q31" class="question">31. What is .bashrc? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Script executed whenever a new terminal session is started.</p>
-</div>
-
-<div id="q32" class="question">32. Difference between `>` and `>>`? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p><code>></code> Overwrites. <code>>></code> Appends.</p>
-</div>
-
-<div id="q33" class="question">33. What is a Pipe `|`? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Passes output of first command as input to second.</p>
-</div>
-
-<div id="q34" class="question">34. Head vs Tail? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p><strong>Head:</strong> First 10 lines.<br><strong>Tail:</strong> Last 10 lines.</p>
-</div>
-
-<div id="q35" class="question">35. What is `sed`? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Stream Editor. Find and replace text.</p>
-  <pre><code class="language-bash">sed 's/old/new/g' file</code></pre>
-</div>
-
-<div id="q36" class="question">36. What is `awk`? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Text processing language. Good for columns.</p>
-  <pre><code class="language-bash">awk '{print $1}' file</code></pre>
-</div>
-
-<div id="q37" class="question">37. Count lines in a file? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">wc -l file</code></pre>
-</div>
-
-<div id="q38" class="question">38. Sort contents of a file? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">sort file</code></pre>
-</div>
-
-<div id="q39" class="question">39. Remove duplicate lines? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">sort file | uniq</code></pre>
-</div>
-
-<div id="q40" class="question">40. Compare two files? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">diff file1 file2</code></pre>
-</div>
-
-<div id="q41" class="question">41. What is `nohup`? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Run command immune to hangups (keeps running after logout).</p>
-</div>
-
-<div id="q42" class="question">42. Run process in background? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Append <code>&</code> to command.</p>
-</div>
-
-<div id="q43" class="question">43. Bring background to foreground? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">fg %1</code></pre>
-</div>
-
-<div id="q44" class="question">44. What are Signals (SIGINT, SIGKILL)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Messages to processes. SIGINT(Ctrl+C), SIGKILL(Force Kill).</p>
-</div>
-
-<div id="q45" class="question">45. What is Load Average? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Average number of processes waiting for CPU (1, 5, 15 min).</p>
-</div>
-
-<div id="q46" class="question">46. Check CPU info? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">lscpu</code></pre>
-</div>
-
-<div id="q47" class="question">47. Check Kernel version? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">uname -r</code></pre>
-</div>
-
-<div id="q48" class="question">48. What is Swap Space? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Disk space used as RAM when RAM is full.</p>
-</div>
-
-<div id="q49" class="question">49. Mount vs Unmount? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Attach/Detach filesystem to directory tree.</p>
-</div>
-
-<div id="q50" class="question">50. What is `/etc/fstab`? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Config file for filesystems to mount at boot.</p>
-</div>
-
-<div id="q51" class="question">51. Check file type? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">file filename</code></pre>
-</div>
-
-<div id="q52" class="question">52. Find where a command is located? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">which cmd</code></pre>
-</div>
-
-<div id="q53" class="question">53. What is an Alias? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Shortcut for a command.</p>
-</div>
-
-<div id="q54" class="question">54. History command? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Shows list of previously executed commands.</p>
-</div>
-
-<div id="q55" class="question">55. Exit code of last command? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">echo $?</code></pre>
-</div>
-
-<div id="q56" class="question">56. Chain commands (&& vs ;)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><code>&&</code>: Run 2nd if 1st succeeds.<br><code>;</code>: Run 2nd regardless.</p>
-</div>
-
-<div id="q57" class="question">57. What is `xargs`? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Builds argument list from standard input.</p>
-</div>
-
-<div id="q58" class="question">58. Compress with gzip? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">gzip file</code></pre>
-</div>
-
-<div id="q59" class="question">59. What is `umask`? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Default permissions for new files.</p>
-</div>
-
-<div id="q60" class="question">60. Sticky Bit? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Permission bit. On directories, prevents users from deleting others' files.</p>
-</div>
-
-<div id="q61" class="question">61. SUID vs SGID? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Run executable with permissions of owner/group, not user.</p>
-</div>
-
-<div id="q62" class="question">62. What is LVM? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Logical Volume Manager. Flexible disk management.</p>
-</div>
-
-<div id="q63" class="question">63. Check open files (lsof)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <pre><code class="language-bash">lsof -i :80</code></pre>
-</div>
-
-<div id="q64" class="question">64. Trace system calls (strace)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Debugs program execution by printing syscalls.</p>
-</div>
-
-<div id="q65" class="question">65. What is /dev/null? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Black hole. Discards all data written to it.</p>
-</div>
-
-<div id="q66" class="question">66. What is /dev/zero? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Source of infinite null bytes.</p>
-</div>
-
-<div id="q67" class="question">67. Generate random password? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">openssl rand -base64 12</code></pre>
-</div>
-
-<div id="q68" class="question">68. Download file from URL (curl/wget)? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">curl -O url</code></pre>
-</div>
-
-<div id="q69" class="question">69. Check connectivity (ping)? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">ping google.com</code></pre>
-</div>
-
-<div id="q70" class="question">70. Trace route to host? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">traceroute google.com</code></pre>
-</div>
-
-<div id="q71" class="question">71. DNS Lookup (nslookup/dig)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">dig google.com</code></pre>
-</div>
-
-<div id="q72" class="question">72. What is `nc` (Netcat)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Swiss army knife for TCP/UDP. Debug ports, transfer files.</p>
-</div>
-
-<div id="q73" class="question">73. Transfer files securely (scp)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">scp file user@host:/path</code></pre>
-</div>
-
-<div id="q74" class="question">74. Sync directories (rsync)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">rsync -av src/ dst/</code></pre>
-</div>
-
-<div id="q75" class="question">75. What is `iptables` / `ufw`? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Firewall configuration.</p>
-</div>
-
-<div id="q76" class="question">76. Check user accounts? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">cat /etc/passwd</code></pre>
-</div>
-
-<div id="q77" class="question">77. Add a new user? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">useradd username</code></pre>
-</div>
-
-<div id="q78" class="question">78. Lock a user account? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">passwd -l username</code></pre>
-</div>
-
-<div id="q79" class="question">79. Check groups? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">groups username</code></pre>
-</div>
-
-<div id="q80" class="question">80. What is `chroot`? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Change root directory for a process (Jail).</p>
-</div>
-
-<div id="q81" class="question">81. Symbolic Link to directory? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">ln -s /path/to/dir linkname</code></pre>
-</div>
-
-<div id="q82" class="question">82. What is a Zombie Process? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Finished process waiting for parent to read exit code.</p>
-</div>
-
-<div id="q83" class="question">83. What is an Orphan Process? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Process whose parent died. Adopted by init (PID 1).</p>
-</div>
-
-<div id="q84" class="question">84. Nice vs Renice? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Set priority of process. -20 (High) to 19 (Low).</p>
-</div>
-
-<div id="q85" class="question">85. What is `dmesg`? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Kernel ring buffer messages. Hardware/Driver errors.</p>
-</div>
-
-<div id="q86" class="question">86. Check last reboot logs? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">last reboot</code></pre>
-</div>
-
-<div id="q87" class="question">87. Schedule one-time job (at)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">echo "cmd" | at 5pm</code></pre>
-</div>
-
-<div id="q88" class="question">88. What is `journalctl`? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>View logs from systemd-journald.</p>
-</div>
-
-<div id="q89" class="question">89. Split a large file? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">split -b 100M largefile</code></pre>
-</div>
-
-<div id="q90" class="question">90. Watch command? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">watch -n 1 "ls -l"</code></pre>
-</div>
-
-<div id="q91" class="question">91. Print numbers (seq)? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">seq 1 10</code></pre>
-</div>
-
-<div id="q92" class="question">92. Calculator in terminal (bc)? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">echo "5+5" | bc</code></pre>
-</div>
-
-<div id="q93" class="question">93. Format output (printf)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Formatted printing like C.</p>
-</div>
-
-<div id="q94" class="question">94. Search and Replace in file? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-bash">sed -i 's/old/new/g' file</code></pre>
-</div>
-
-<div id="q95" class="question">95. Cut columns from file? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">cut -d"," -f1 file.csv</code></pre>
-</div>
-
-<div id="q96" class="question">96. Paste files together? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Merges lines of files side-by-side.</p>
-</div>
-
-<div id="q97" class="question">97. Join files by field? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Like SQL JOIN for text files.</p>
-</div>
-
-<div id="q98" class="question">98. What is `tee`? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Read from stdin and write to stdout AND file.</p>
-</div>
-
-<div id="q99" class="question">99. What is `shebang` (#!)? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>First line of script telling kernel which interpreter to use.</p>
-</div>
-
-<div id="q100" class="question">100. Shell script arguments ($1, $@)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><code>$1</code>: First arg. <code>$@</code>: All args.</p>
-</div>
+---
+
+### Q1: Check disk space?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+- <code>df -h</code>: Free disk space.
+
+    - <code>du -sh</code>: Disk usage of directory.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q2: File permissions (chmod)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+<code>chmod 755 file</code> (rwx for owner, rx for others).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q3: Find file by name?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+find /path -name "filename.txt"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q4: Grep usage?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+grep "text" file.txt
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q5: Check/Kill processes?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+<code>ps aux</code>, <code>top</code>, <code>kill PID</code>.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q6: Soft vs Hard Link?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Soft:** Shortcut (breaks if moved).
+**Hard:** Direct pointer to inode (same file).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q7: Check listening ports?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+ss -tulpn
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q8: Cron vs Crontab?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Cron:** Daemon.
+**Crontab:** Schedule file.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q9: Process vs Thread?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+**Process:** Isolated memory.
+**Thread:** Shared memory.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q10: Check memory usage?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+free -h
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q11: What is SSH?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Secure Shell. Encrypted remote login.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q12: Stdin, Stdout, Stderr?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+0: In, 1: Out, 2: Error.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q13: Tail log file?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+tail -f /var/log/syslog
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q14: What is a Daemon?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Background service (e.g., httpd).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q15: Change owner (chown)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+chown user:group file
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q16: What is /proc?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Virtual filesystem for kernel/process info.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q17: Tar command?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+tar -czvf archive.tar.gz dir/
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q18: What is systemd?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Init system (PID 1). Manages services.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q19: Check IP address?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+ip a
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q20: Linux Boot Process?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+BIOS -> Bootloader -> Kernel -> Init.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q21: What is an Inode?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Data structure storing file metadata (permissions, owner, location) but not name.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q22: What is the Root User?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Superuser with full system privileges (UID 0).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q23: What is Sudo?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Execute command as another user (usually root).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q24: Explain `ls -l` output?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Permissions, Link count, Owner, Group, Size, Date, Name.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q25: Create a directory?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+mkdir dir_name
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q26: Remove a directory?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+rm -r dir_name
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q27: Move vs Rename file?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Both use <code>mv</code> command.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q28: Copy file vs directory?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+File: <code>cp src dst</code>. Dir: <code>cp -r src dst</code>.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q29: What is the PATH variable?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+List of directories shell searches for executable commands.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q30: How to set an Environment Variable?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+export VAR_NAME=value
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q31: What is .bashrc?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Script executed whenever a new terminal session is started.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: Difference between `>` and `>>`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+<code>></code> Overwrites. <code>>></code> Appends.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: What is a Pipe `|`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Passes output of first command as input to second.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: Head vs Tail?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+**Head:** First 10 lines.
+**Tail:** Last 10 lines.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: What is `sed`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Stream Editor. Find and replace text.
+
+**Code Example**:
+```bash
+sed 's/old/new/g' file
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: What is `awk`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Text processing language. Good for columns.
+
+**Code Example**:
+```bash
+awk '{print $1}' file
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: Count lines in a file?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+wc -l file
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: Sort contents of a file?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+sort file
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: Remove duplicate lines?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+sort file | uniq
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q40: Compare two files?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+diff file1 file2
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: What is `nohup`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Run command immune to hangups (keeps running after logout).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: Run process in background?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Append <code>&</code> to command.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q43: Bring background to foreground?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+fg %1
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: What are Signals (SIGINT, SIGKILL)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Messages to processes. SIGINT(Ctrl+C), SIGKILL(Force Kill).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: What is Load Average?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Average number of processes waiting for CPU (1, 5, 15 min).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q46: Check CPU info?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+lscpu
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q47: Check Kernel version?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+uname -r
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: What is Swap Space?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Disk space used as RAM when RAM is full.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: Mount vs Unmount?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Attach/Detach filesystem to directory tree.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: What is `/etc/fstab`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Config file for filesystems to mount at boot.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q51: Check file type?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+file filename
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q52: Find where a command is located?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+which cmd
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q53: What is an Alias?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Shortcut for a command.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q54: History command?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Shows list of previously executed commands.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q55: Exit code of last command?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+echo $?
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: Chain commands (&& vs ;)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+<code>&&</code>: Run 2nd if 1st succeeds.
+<code>;</code>: Run 2nd regardless.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q57: What is `xargs`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Builds argument list from standard input.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q58: Compress with gzip?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+gzip file
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q59: What is `umask`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Default permissions for new files.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q60: Sticky Bit?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Permission bit. On directories, prevents users from deleting others' files.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q61: SUID vs SGID?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Run executable with permissions of owner/group, not user.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q62: What is LVM?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Logical Volume Manager. Flexible disk management.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q63: Check open files (lsof)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+lsof -i :80
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q64: Trace system calls (strace)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Debugs program execution by printing syscalls.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q65: What is /dev/null?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Black hole. Discards all data written to it.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q66: What is /dev/zero?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Source of infinite null bytes.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q67: Generate random password?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+openssl rand -base64 12
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q68: Download file from URL (curl/wget)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+curl -O url
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q69: Check connectivity (ping)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+ping google.com
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q70: Trace route to host?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+traceroute google.com
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q71: DNS Lookup (nslookup/dig)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+dig google.com
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q72: What is `nc` (Netcat)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Swiss army knife for TCP/UDP. Debug ports, transfer files.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q73: Transfer files securely (scp)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+scp file user@host:/path
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q74: Sync directories (rsync)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+rsync -av src/ dst/
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q75: What is `iptables` / `ufw`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Firewall configuration.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q76: Check user accounts?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+cat /etc/passwd
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q77: Add a new user?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+useradd username
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q78: Lock a user account?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+passwd -l username
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q79: Check groups?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+groups username
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q80: What is `chroot`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Change root directory for a process (Jail).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q81: Symbolic Link to directory?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+ln -s /path/to/dir linkname
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q82: What is a Zombie Process?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Finished process waiting for parent to read exit code.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q83: What is an Orphan Process?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Process whose parent died. Adopted by init (PID 1).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q84: Nice vs Renice?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Set priority of process. -20 (High) to 19 (Low).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: What is `dmesg`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Kernel ring buffer messages. Hardware/Driver errors.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q86: Check last reboot logs?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+last reboot
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q87: Schedule one-time job (at)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+echo "cmd" | at 5pm
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q88: What is `journalctl`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+View logs from systemd-journald.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: Split a large file?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+split -b 100M largefile
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: Watch command?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+watch -n 1 "ls -l"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: Print numbers (seq)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+seq 1 10
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: Calculator in terminal (bc)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+echo "5+5" | bc
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: Format output (printf)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Formatted printing like C.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: Search and Replace in file?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+sed -i 's/old/new/g' file
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: Cut columns from file?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+
+
+**Code Example**:
+```bash
+cut -d"," -f1 file.csv
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: Paste files together?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Merges lines of files side-by-side.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: Join files by field?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Like SQL JOIN for text files.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q98: What is `tee`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Read from stdin and write to stdout AND file.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: What is `shebang` (#!)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+First line of script telling kernel which interpreter to use.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: Shell script arguments ($1, $@)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+<code>$1</code>: First arg. <code>$@</code>: All args.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---

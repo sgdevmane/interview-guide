@@ -115,6 +115,8 @@
 
 ### Q1: You have a React application with a slow initial load time due to a large bundle. How do you implement 'Route-Based Code Splitting' to fix this?
 
+**Difficulty**: Intermediate
+
 **Solution: `React.lazy` and `Suspense`**
 
 Split the code at the route level so users only download what they need for the current page.
@@ -148,6 +150,8 @@ function App() {
 
 ### Q2: Your LCP (Largest Contentful Paint) score is poor because the hero image loads late. How do you use `fetchpriority` and `preload` to optimize it?
 
+**Difficulty**: Intermediate
+
 **Solution: Resource Prioritization**
 
 1.  **Preload** the image in `<head>` to start downloading immediately.
@@ -172,6 +176,8 @@ function App() {
 ---
 
 ### Q3: You notice 'Layout Thrashing' in a loop where you read and write DOM properties. How do you refactor this to improve rendering performance?
+
+**Difficulty**: Intermediate
 
 **Solution: Batch Reads and Writes**
 
@@ -206,6 +212,8 @@ items.forEach((item, i) => {
 
 ### Q4: How do you implement a 'Virtual List' (Windowing) in React to render 10,000 rows without crashing the browser?
 
+**Difficulty**: Intermediate
+
 **Solution: `react-window` or `react-virtualized`**
 
 Only render the items currently visible in the viewport.
@@ -234,6 +242,8 @@ const Example = () => (
 ---
 
 ### Q5: You have a heavy calculation running on the main thread that blocks UI interactions. How do you offload this to a Web Worker?
+
+**Difficulty**: Intermediate
 
 **Solution: Web Workers**
 
@@ -264,6 +274,8 @@ worker.postMessage(inputData); // Start task
 
 ### Q6: How do you prevent 'Cumulative Layout Shift' (CLS) caused by images loading without dimensions?
 
+**Difficulty**: Intermediate
+
 **Solution: Explicit Dimensions or Aspect Ratio**
 
 Reserve space for the image before it loads.
@@ -287,6 +299,8 @@ img.hero {
 ---
 
 ### Q7: How do you use the `IntersectionObserver` API to lazy load images as they scroll into view?
+
+**Difficulty**: Intermediate
 
 **Solution: IntersectionObserver**
 
@@ -314,6 +328,8 @@ document.querySelectorAll('img[data-src]').forEach(img => {
 
 ### Q8: You are optimizing a search input. How do you implement a 'Debounce' function to reduce the number of API calls?
 
+**Difficulty**: Intermediate
+
 **Solution: Debounce Function**
 
 Delay the execution until the user stops typing for a specified delay.
@@ -340,6 +356,8 @@ const handleSearch = debounce((query) => {
 
 ### Q9: How do you identify and fix a 'Memory Leak' caused by a detached event listener in a React component?
 
+**Difficulty**: Intermediate
+
 **Solution: Cleanup Function in `useEffect`**
 
 Always remove event listeners when the component unmounts.
@@ -362,6 +380,8 @@ useEffect(() => {
 ---
 
 ### Q10: How do you use `requestAnimationFrame` to create smooth, 60fps animations instead of using `setInterval`?
+
+**Difficulty**: Intermediate
 
 **Solution: `requestAnimationFrame` loop**
 
@@ -387,6 +407,8 @@ requestAnimationFrame(animate);
 
 ### Q11: How do you optimize a large React context that causes unnecessary re-renders in consumer components?
 
+**Difficulty**: Intermediate
+
 **Solution: Split Context or Memoize Value**
 
 If `value` creates a new object every render, all consumers re-render.
@@ -411,6 +433,8 @@ return (
 
 ### Q12: How do you use the 'Performance API' to measure the execution time of a specific function?
 
+**Difficulty**: Intermediate
+
 **Solution: `performance.now()` or `performance.mark()`**
 
 ```javascript
@@ -427,6 +451,8 @@ console.log(`Execution time: ${end - start} ms`);
 ---
 
 ### Q13: How do you configure Webpack to use 'Tree Shaking' to remove unused code from your production bundle?
+
+**Difficulty**: Intermediate
 
 **Solution: ES Modules + Production Mode**
 
@@ -451,6 +477,8 @@ import { useful } from './utils'; // 'useless' function is dropped
 
 ### Q14: How do you implement 'Resource Hints' (dns-prefetch, preconnect) to speed up third-party API connections?
 
+**Difficulty**: Intermediate
+
 **Solution: `<link>` tags in Head**
 
 Establish network handshake early.
@@ -470,6 +498,8 @@ Establish network handshake early.
 ---
 
 ### Q15: How do you optimize CSS delivery to avoid 'Render Blocking' resources?
+
+**Difficulty**: Intermediate
 
 **Solution: Critical CSS + Async Loading**
 
@@ -1122,7 +1152,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1140,7 +1170,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1158,7 +1188,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1175,7 +1205,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1207,7 +1237,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1223,7 +1253,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1379,7 +1409,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1397,7 +1427,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1415,7 +1445,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1432,7 +1462,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1464,7 +1494,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1480,7 +1510,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1636,7 +1666,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1654,7 +1684,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1672,7 +1702,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1689,7 +1719,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1721,7 +1751,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1737,7 +1767,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1893,7 +1923,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1911,7 +1941,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1929,7 +1959,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

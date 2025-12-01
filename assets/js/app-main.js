@@ -265,16 +265,53 @@ class InterviewGuideApp {
         return;
       }
 
+      this.handleHashNavigation();
+    });
+
+    // Handle initial hash navigation
+    if (window.location.hash) {
+        this.handleHashNavigation();
+    }
+  }
+
+  handleHashNavigation() {
       const hash = window.location.hash.substring(1);
       if (hash) {
-        setTimeout(() => {
-          const targetElement = this.findTargetElement(hash, "");
-          if (targetElement) {
-            this.smoothScrollToElement(targetElement);
+          // Check if hash is a topic name
+          const topicName = hash.split('-')[0]; // Simple heuristic, better to check against valid topics
+          
+          // Try to map hash to a topic file if it looks like a topic
+          // Or just check if it matches a known file structure
+          // For now, let's assume the hash MIGHT be a topic name if we are on dashboard.html
+          
+          // If the hash corresponds to a topic (e.g. #react), load that topic
+          const possibleFilePath = `markdowns/${hash}/${hash}-questions.md`;
+          
+          // We need to check if this file exists or just try to load it.
+          // Since we can't check existence easily without a request, let's try to load it 
+          // IF we are not already on that file.
+          
+          if (this.currentFile !== possibleFilePath) {
+              this.loadContent(possibleFilePath).catch(() => {
+                 // If failed, maybe it's an anchor in the current file?
+                 // But we are in handleHashNavigation, so we should probably scroll.
+                 setTimeout(() => {
+                    const targetElement = this.findTargetElement(hash, "");
+                    if (targetElement) {
+                        this.smoothScrollToElement(targetElement);
+                    }
+                 }, 100);
+              });
+          } else {
+              // Same file, just scroll
+              setTimeout(() => {
+                const targetElement = this.findTargetElement(hash, "");
+                if (targetElement) {
+                    this.smoothScrollToElement(targetElement);
+                }
+              }, 100);
           }
-        }, 100);
       }
-    });
   }
 
   /**

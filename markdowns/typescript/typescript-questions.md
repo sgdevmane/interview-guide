@@ -1400,7 +1400,7 @@ function update(id: number, changes: Partial<User>) {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Extracts the return type of a function type.
+Extracts the return type of a function type. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1419,7 +1419,7 @@ type Data = ReturnType<typeof getData>;
 **Difficulty**: Advanced
 
 **Strategy**:
-Declare `this` as the first parameter.
+Declare `this` as the first parameter. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1437,7 +1437,7 @@ function myCallback(this: HTMLButtonElement, e: Event) {
 **Difficulty**: Beginner
 
 **Strategy**:
-Makes all properties required.
+Makes all properties required. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1454,7 +1454,7 @@ type All = Required<Props>; // { a: number }
 **Difficulty**: Beginner
 
 **Strategy**:
-Makes all properties readonly.
+Makes all properties readonly. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1472,7 +1472,7 @@ const c: Readonly<Config> = { url: "/" };
 **Difficulty**: Intermediate
 
 **Strategy**:
-Restricts the generic type to a subset.
+Restricts the generic type to a subset. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1490,7 +1490,7 @@ function logId<T extends { id: number }>(obj: T) {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `=` to provide a default.
+Use `=` to provide a default. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1506,7 +1506,7 @@ type Response<T = string> = { data: T; error: string | null };
 **Difficulty**: Advanced
 
 **Strategy**:
-A type alias referencing itself.
+A type alias referencing itself. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1540,7 +1540,7 @@ abstract class Base {
 **Difficulty**: Advanced
 
 **Strategy**:
-A function applied to a class declaration.
+A function applied to a class declaration. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1561,7 +1561,7 @@ class BugReport {}
 **Difficulty**: Intermediate
 
 **Strategy**:
-Since TS 4.0, catch variables can be `unknown`.
+Since TS 4.0, catch variables can be `unknown`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1580,7 +1580,7 @@ try {
 **Difficulty**: Beginner
 
 **Strategy**:
-Ensures a method overrides a parent method.
+Ensures a method overrides a parent method. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1598,7 +1598,7 @@ class Child extends Parent {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Checks type compatibility without widening.
+Checks type compatibility without widening. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1616,7 +1616,7 @@ const config = {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Checks property existence.
+Checks property existence. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1634,7 +1634,7 @@ if ("radius" in shape) {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Returns boolean to narrow type.
+Returns boolean to narrow type. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1668,7 +1668,7 @@ class C implements I {}
 **Difficulty**: Advanced
 
 **Strategy**:
-Merging two interface declarations.
+Merging two interface declarations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1685,7 +1685,7 @@ interface User { age: number; }
 **Difficulty**: Beginner
 
 **Strategy**:
-String enums are debuggable.
+String enums are debuggable. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1717,7 +1717,7 @@ export const x = 1;
 **Difficulty**: Advanced
 
 **Strategy**:
-Dependencies in `.d.ts`.
+Dependencies in `.d.ts`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1733,7 +1733,7 @@ Dependencies in `.d.ts`.
 **Difficulty**: Beginner
 
 **Strategy**:
-All strict checks.
+All strict checks. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```json
@@ -1749,7 +1749,7 @@ All strict checks.
 **Difficulty**: Beginner
 
 **Strategy**:
-Bans implicit `any`.
+Bans implicit `any`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1781,7 +1781,7 @@ function f(x) {} // Error
 **Difficulty**: Intermediate
 
 **Strategy**:
-Map paths in tsconfig.
+Map paths in tsconfig. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```json
@@ -1797,7 +1797,7 @@ Map paths in tsconfig.
 **Difficulty**: Advanced
 
 **Strategy**:
-Define types for existing vars.
+Define types for existing vars. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1813,7 +1813,7 @@ declare var $: any;
 **Difficulty**: Beginner
 
 **Strategy**:
-Type definitions.
+Type definitions. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1829,7 +1829,7 @@ export declare function f(): void;
 **Difficulty**: Intermediate
 
 **Strategy**:
-`import = require()`.
+`import = require()`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1845,7 +1845,7 @@ import fs = require('fs');
 **Difficulty**: Intermediate
 
 **Strategy**:
-`typeof Class`.
+`typeof Class`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1861,7 +1861,7 @@ const C: typeof MyClass = MyClass;
 **Difficulty**: Advanced
 
 **Strategy**:
-Extracts `this` type.
+Extracts `this` type. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1877,7 +1877,7 @@ type T = ThisParameterType<typeof fn>;
 **Difficulty**: Advanced
 
 **Strategy**:
-Removes `this` param.
+Removes `this` param. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1893,7 +1893,7 @@ type F = OmitThisParameter<typeof fn>;
 **Difficulty**: Expert
 
 **Strategy**:
-Blocks inference.
+Blocks inference. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1909,7 +1909,7 @@ function f<T>(a: T, b: NoInfer<T>) {}
 **Difficulty**: Intermediate
 
 **Strategy**:
-`Partial<Record<K, T[]>>`.
+`Partial<Record<K, T[]>>`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1925,7 +1925,7 @@ Object.groupBy(items, x => x.id);
 **Difficulty**: Advanced
 
 **Strategy**:
-Spread in tuples.
+Spread in tuples. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1941,7 +1941,7 @@ type T = [...A, ...B];
 **Difficulty**: Beginner
 
 **Strategy**:
-Names in tuples.
+Names in tuples. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1957,7 +1957,7 @@ type Point = [x: number, y: number];
 **Difficulty**: Beginner
 
 **Strategy**:
-`keyof` keys, `typeof` value type.
+`keyof` keys, `typeof` value type. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1973,7 +1973,7 @@ type K = keyof typeof obj;
 **Difficulty**: Intermediate
 
 **Strategy**:
-Dynamic keys.
+Dynamic keys. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -1989,7 +1989,7 @@ Dynamic keys.
 **Difficulty**: Beginner
 
 **Strategy**:
-`readonly`.
+`readonly`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2005,7 +2005,7 @@ class C { readonly x = 1; }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Inferred.
+Inferred. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2021,7 +2021,7 @@ get x(): number { return 1; }
 **Difficulty**: Beginner
 
 **Strategy**:
-Access modifiers.
+Access modifiers. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2037,7 +2037,7 @@ class C { private x = 1; }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Init static fields.
+Init static fields. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2053,7 +2053,7 @@ static { this.x = 1; }
 **Difficulty**: Advanced
 
 **Strategy**:
-Dispose resources.
+Dispose resources. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2069,7 +2069,7 @@ using x = resource();
 **Difficulty**: Intermediate
 
 **Strategy**:
-`unique symbol`.
+`unique symbol`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2085,7 +2085,7 @@ const s: unique symbol = Symbol();
 **Difficulty**: Intermediate
 
 **Strategy**:
-`Uppercase`, `Lowercase`.
+`Uppercase`, `Lowercase`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2101,7 +2101,7 @@ type U = Uppercase<"a">;
 **Difficulty**: Beginner
 
 **Strategy**:
-`export type`.
+`export type`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2117,7 +2117,7 @@ export type T = number;
 **Difficulty**: Expert
 
 **Strategy**:
-Simplifies imports.
+Simplifies imports. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```json
@@ -2133,7 +2133,7 @@ Simplifies imports.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Skip d.ts check.
+Skip d.ts check. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```json
@@ -2149,7 +2149,7 @@ Skip d.ts check.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Faster rebuilds.
+Faster rebuilds. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```json
@@ -2165,7 +2165,7 @@ Faster rebuilds.
 **Difficulty**: Advanced
 
 **Strategy**:
-Monorepos.
+Monorepos. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```json
@@ -2181,7 +2181,7 @@ Monorepos.
 **Difficulty**: Advanced
 
 **Strategy**:
-For referenced projects.
+For referenced projects. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```json
@@ -2197,7 +2197,7 @@ For referenced projects.
 **Difficulty**: Advanced
 
 **Strategy**:
-`declare module`.
+`declare module`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2213,7 +2213,7 @@ declare module "foo";
 **Difficulty**: Beginner
 
 **Strategy**:
-Global scope.
+Global scope. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2229,7 +2229,7 @@ globalThis.x = 1;
 **Difficulty**: Beginner
 
 **Strategy**:
-Same.
+Same. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2245,7 +2245,7 @@ number[]
 **Difficulty**: Intermediate
 
 **Strategy**:
-`Readonly<T>`.
+`Readonly<T>`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```typescript
@@ -2574,7 +2574,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2592,7 +2592,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2610,7 +2610,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2627,7 +2627,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2659,7 +2659,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2675,7 +2675,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2831,7 +2831,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2849,7 +2849,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2867,7 +2867,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2884,7 +2884,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2916,7 +2916,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2932,7 +2932,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3088,7 +3088,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3106,7 +3106,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3124,7 +3124,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3141,7 +3141,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3173,7 +3173,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3189,7 +3189,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3345,7 +3345,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3363,7 +3363,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3381,7 +3381,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

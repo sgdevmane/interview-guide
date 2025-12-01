@@ -1,4 +1,12 @@
-# Webpack, Babel, & Vite Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Webpack, Babel & Vite Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -107,6 +115,8 @@
 
 ### Q1: You are migrating a legacy React project from Webpack to Vite to improve development server start time. The project relies on CommonJS modules (`require`). How do you handle this in Vite?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -132,6 +142,8 @@ export default defineConfig({
 ---
 
 ### Q2: Your Webpack bundle size has grown too large (5MB+), causing slow initial page loads. How do you use `SplitChunksPlugin` to optimize this?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 
@@ -167,6 +179,8 @@ module.exports = {
 
 ### Q3: You need to support Internet Explorer 11 in a modern JavaScript application. How do you configure Babel to ensure your code runs there without transpiling everything unnecessarily for modern browsers?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -198,6 +212,8 @@ module.exports = {
 
 ### Q4: How do you optimize Tree Shaking in Webpack by marking side effects?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -225,6 +241,8 @@ Tree Shaking relies on static ESM analysis to drop unused exports. However, if a
 
 ### Q5: How does Vite achieve instant server start times compared to Webpack?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -242,6 +260,8 @@ Tree Shaking relies on static ESM analysis to drop unused exports. However, if a
 ---
 
 ### Q6: You are building a Micro Frontends architecture. How do you configure Webpack Module Federation to expose a component?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 
@@ -274,6 +294,8 @@ module.exports = {
 
 ### Q7: How do you combine Babel Plugins to create a custom Preset?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -303,6 +325,8 @@ module.exports = function() {
 
 ### Q8: You encounter a 'CORS' error when your frontend (localhost:3000) tries to call your API (localhost:5000). How do you fix this using Webpack Dev Server proxy?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -330,6 +354,8 @@ module.exports = {
 
 ### Q9: How do you debug a large bundle to find out which libraries are taking up the most space?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -352,6 +378,8 @@ Run the build, and it will open a visual report at `localhost:8888`.
 ---
 
 ### Q10: How do you enable Hot Module Replacement (HMR) manually in Webpack?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 
@@ -380,6 +408,8 @@ if (module.hot) {
 
 ### Q11: You are using environment variables in your frontend code. Why does `process.env.API_KEY` work in Node.js but fail in the browser, and how do you fix it?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -406,6 +436,8 @@ console.log(import.meta.env.VITE_API_KEY);
 
 ### Q12: How do you configure secure Source Maps for production debugging without exposing source code?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -428,6 +460,8 @@ module.exports = {
 ---
 
 ### Q13: How do you implement 'Path Aliases' (e.g., importing from `@components/Button` instead of `../../components/Button`)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -461,6 +495,8 @@ resolve: {
 
 ### Q14: How do you write a custom Babel Plugin using AST transformation?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -488,6 +524,8 @@ module.exports = function({ types: t }) {
 
 ### Q15: How do you use Webpack's `ProvidePlugin` to shim global variables like jQuery?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -509,6 +547,8 @@ Now you can use `$('#item')` in any file without importing jQuery.
 ### Q16: How do you configure Webpack to use CSS Modules?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Enable the `modules` option in `css-loader`. This scopes CSS class names locally.
@@ -539,6 +579,8 @@ module: {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `postcss-loader`. Create a `postcss.config.js` file to define plugins like `autoprefixer` or `tailwindcss`.
 
@@ -558,6 +600,8 @@ module.exports = {
 ### Q18: How do you handle images and fonts in Webpack 5 (Asset Modules)?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `type: 'asset/resource'` (file), `asset/inline` (base64), or `asset` (auto). No more `file-loader` needed.
@@ -582,6 +626,8 @@ rules: [
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 - `ts-loader`: Handles type checking during build (slower).
 - `babel-loader` (@babel/preset-typescript): Transpiles only (faster), no type checking. Use `fork-ts-checker-webpack-plugin` for types.
@@ -598,6 +644,8 @@ plugins: [new ForkTsCheckerWebpackPlugin()]
 ### Q20: How do you inject the bundle into HTML automatically?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `HtmlWebpackPlugin`. It generates an `index.html` with the correct `<script>` tags.
@@ -617,6 +665,8 @@ plugins: [
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `webpack.DefinePlugin`. Remember to stringify the values.
 
@@ -633,6 +683,8 @@ new webpack.DefinePlugin({
 ### Q22: How do you extract CSS into separate files for production?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `MiniCssExtractPlugin.loader` instead of `style-loader` in production mode.
@@ -651,8 +703,10 @@ plugins: [new MiniCssExtractPlugin()]
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `CopyWebpackPlugin`.
+Use `CopyWebpackPlugin`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 new CopyWebpackPlugin({
@@ -668,6 +722,8 @@ new CopyWebpackPlugin({
 ### Q24: How do you configure a Proxy in Webpack Dev Server?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Set `devServer.proxy` to forward API requests to your backend, avoiding CORS issues during dev.
@@ -686,6 +742,8 @@ devServer: {
 ### Q25: What is Webpack Module Federation?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 It allows multiple independent builds to share code (components, libraries) at runtime. Key for Micro-Frontends.
@@ -707,6 +765,8 @@ new ModuleFederationPlugin({
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Configure `build.lib` in `vite.config.js`. Specify entry and formats (es, cjs).
 
@@ -727,6 +787,8 @@ build: {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `import.meta.env`. Variables must be prefixed with `VITE_` (except built-ins like `MODE`, `BASE_URL`).
 
@@ -741,6 +803,8 @@ console.log(import.meta.env.MODE); // 'development' or 'production'
 ### Q28: How do you configure a Proxy in Vite?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `server.proxy` in `vite.config.js`.
@@ -764,6 +828,8 @@ server: {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `import.meta.glob`. It returns an object with keys as file paths and values as dynamic import functions.
 
@@ -784,6 +850,8 @@ for (const path in modules) {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `vite.ssrLoadModule` in your Node.js server to load the entry point. Build with `--ssr` flag.
 
@@ -801,6 +869,8 @@ const { render } = await vite.ssrLoadModule('/src/entry-server.js');
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use the `targets` option in `@babel/preset-env` or a `.browserslistrc` file.
 
@@ -817,6 +887,8 @@ Use the `targets` option in `@babel/preset-env` or a `.browserslistrc` file.
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Plugins run **before** Presets. Plugins run **first to last**. Presets run **last to first** (reverse order).
 
@@ -831,6 +903,8 @@ Plugins run **before** Presets. Plugins run **first to last**. Presets run **las
 ### Q33: Why use `@babel/plugin-transform-runtime`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 It reuses Babel's injected helper code (like classCallCheck) from a shared module instead of duplicating it in every file, reducing bundle size.
@@ -848,6 +922,8 @@ plugins: [
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `@babel/preset-react`. Enable the new JSX transform (`runtime: 'automatic'`) to avoid importing React.
 
@@ -863,6 +939,8 @@ Use `@babel/preset-react`. Enable the new JSX transform (`runtime: 'automatic'`)
 ### Q35: How do you configure Babel for TypeScript?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `@babel/preset-typescript`. It strips type annotations.
@@ -880,6 +958,8 @@ presets: [
 ### Q36: How does Rollup's Tree Shaking compare to Webpack?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Rollup relies on ESM structure and statically analyzes the code graph to exclude unused exports. It's generally considered more efficient for libraries (flat bundling) than Webpack.
@@ -899,6 +979,8 @@ output: {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 - **CJS**: CommonJS (Node.js).
 - **ESM**: ES Modules (Modern Browsers, Bundlers).
@@ -916,6 +998,8 @@ output: {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 It's written in Go (compiled to machine code), utilizes parallelism heavily, and avoids expensive AST transformations where possible.
 
@@ -929,6 +1013,8 @@ It's written in Go (compiled to machine code), utilizes parallelism heavily, and
 ### Q39: How do you setup `lint-staged` and `husky`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Install them. Configure `lint-staged` in package.json to run linters only on changed files. Use Husky to trigger the pre-commit hook.
@@ -949,6 +1035,8 @@ npx lint-staged
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `@commitlint/cli` and `@commitlint/config-conventional` with a `commit-msg` Husky hook.
 
@@ -962,6 +1050,8 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 ### Q41: How do you run npm scripts in parallel?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `npm-run-all` (or `concurrently`).
@@ -977,6 +1067,8 @@ Use `npm-run-all` (or `concurrently`).
 ### Q42: How do you setup Yarn Workspaces for a monorepo?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Set `private: true` and define `workspaces` array in root `package.json`.
@@ -994,6 +1086,8 @@ Set `private: true` and define `workspaces` array in root `package.json`.
 ### Q43: What is Nx or Turborepo used for?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 They are build systems for monorepos. They provide caching (local and remote) and task orchestration (running tasks in parallel based on dependency graph).
@@ -1014,6 +1108,8 @@ They are build systems for monorepos. They provide caching (local and remote) an
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `pnpm` uses a content-addressable store and hard links, saving disk space. It also enforces strict dependency access (preventing phantom dependencies).
 
@@ -1027,6 +1123,8 @@ They are build systems for monorepos. They provide caching (local and remote) an
 ### Q45: How do you automate semantic versioning and publishing?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use `semantic-release`. It analyzes commit messages (Conventional Commits) to determine the next version number, generates changelog, and publishes to npm.
@@ -1042,6 +1140,8 @@ npx semantic-release
 ### Q46: How do you cache `node_modules` in GitHub Actions?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `actions/setup-node` with the `cache` option.
@@ -1059,6 +1159,8 @@ Use `actions/setup-node` with the `cache` option.
 ### Q47: How do you optimize a Docker build for Node.js app?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use multi-stage builds. Install `dependencies` (prod only) in one stage, build in another, and copy only necessary files to a lightweight `alpine` image.
@@ -1079,6 +1181,8 @@ CMD ["node", "dist/main.js"]
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `webpack-bundle-analyzer` plugin.
 
@@ -1094,8 +1198,10 @@ plugins: [new BundleAnalyzerPlugin()]
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `rollup-plugin-visualizer`.
+Use `rollup-plugin-visualizer`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -1108,6 +1214,8 @@ plugins: [visualizer()]
 ### Q50: How do you manually polyfill features using `core-js`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Import specific features from `core-js` in your entry file if you aren't using `@babel/preset-env`'s automatic injection.
@@ -1158,7 +1266,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1176,7 +1284,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1194,7 +1302,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1211,7 +1319,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1243,7 +1351,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1259,7 +1367,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1415,7 +1523,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1433,7 +1541,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1451,7 +1559,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1468,7 +1576,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1500,7 +1608,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1516,7 +1624,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1672,7 +1780,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1690,7 +1798,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1708,7 +1816,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1725,7 +1833,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1757,7 +1865,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1773,7 +1881,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1929,7 +2037,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1947,7 +2055,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1965,7 +2073,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1974,5 +2082,3 @@ if (cache.has(key)) return cache.get(key);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

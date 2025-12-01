@@ -1,4 +1,12 @@
-# System Design Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>System Design Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -105,20 +113,43 @@
 
 ---
 
-<div id="q1" class="question">1. Design a URL Shortener (TinyURL)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <ul>
-    <li><strong>API:</strong> <code>create(long_url) -> short_url</code>, <code>get(short_url) -> long_url</code>.</li>
-    <li><strong>DB:</strong> K-V Store (DynamoDB). Key: ShortID, Value: LongURL.</li>
-    <li><strong>Algorithm:</strong> Base62 encoding of a unique ID.</li>
-    <li><strong>Unique ID:</strong> Distributed ID Generator (Snowflake) or KGS (Key Generation Service).</li>
-  </ul>
-</div>
+---
 
-<div id="q2" class="question">2. Design a Rate Limiter? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Token Bucket Algorithm:</strong></p>
-  <pre><code class="language-python"># Conceptual
+### Q1: Design a URL Shortener (TinyURL)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+- **API:** <code>create(long_url) -> short_url</code>, <code>get(short_url) -> long_url</code>.
+
+    - **DB:** K-V Store (DynamoDB). Key: ShortID, Value: LongURL.
+
+    - **Algorithm:** Base62 encoding of a unique ID.
+
+    - **Unique ID:** Distributed ID Generator (Snowflake) or KGS (Key Generation Service).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q2: Design a Rate Limiter?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Token Bucket Algorithm:**
+
+
+  
+
+  Use Redis `INCR` and `EXPIRE` for distributed counting.
+
+**Code Example**:
+```python
+# Conceptual
 bucket_size = 10
 refill_rate = 1 # per second
 current_tokens = 10
@@ -129,343 +160,906 @@ refill()
 if current_tokens >= tokens_needed:
 current_tokens -= tokens_needed
 return True
-return False</code></pre>
+return False
+```
 
-  <p>Use Redis `INCR` and `EXPIRE` for distributed counting.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q3" class="question">3. Design a Chat Application (WhatsApp)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <ul>
-    <li><strong>Real-time:</strong> WebSockets or MQTT.</li>
-    <li><strong>Protocol:</strong> XMPP or Custom binary protocol (Protobuf).</li>
-    <li><strong>Storage:</strong> Cassandra/HBase for chat history (Write heavy). Redis for presence.</li>
-    <li><strong>Encryption:</strong> End-to-End using Signal Protocol (Double Ratchet).</li>
-  </ul>
-</div>
+---
 
-<div id="q4" class="question">4. Explain CAP Theorem? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Pick two: <strong>Consistency</strong>, <strong>Availability</strong>, <strong>Partition Tolerance</strong>.</p>
-  <p>Since Partition Tolerance (P) is mandatory in distributed systems, choice is CP vs AP.</p>
-</div>
+### Q3: Design a Chat Application (WhatsApp)?
 
-<div id="q5" class="question">5. Load Balancing: L4 vs L7? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>L4:</strong> IP/Port based (TCP). Fast. No packet inspection.<br><strong>L7:</strong> Application based (HTTP). Smarter (Routing based on URL/Header). Slower.</p>
-</div>
+**Difficulty**: Advanced
 
-<div id="q6" class="question">6. SQL vs NoSQL? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p><strong>SQL:</strong> ACID, Structured, Complex Queries (Joins). Vertical Scaling.<br><strong>NoSQL:</strong> BASE, Unstructured, High Throughput. Horizontal Scaling.</p>
-</div>
+**Strategy**:
+- **Real-time:** WebSockets or MQTT.
 
-<div id="q7" class="question">7. What is Consistent Hashing? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Maps keys and servers to a ring. Minimizes remapping when servers change.</p>
-  <pre><code class="language-text">Ring: 0 ... 2^32-1
+    - **Protocol:** XMPP or Custom binary protocol (Protobuf).
+
+    - **Storage:** Cassandra/HBase for chat history (Write heavy). Redis for presence.
+
+    - **Encryption:** End-to-End using Signal Protocol (Double Ratchet).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q4: Explain CAP Theorem?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Pick two: **Consistency**, **Availability**, **Partition Tolerance**.
+
+
+  Since Partition Tolerance (P) is mandatory in distributed systems, choice is CP vs AP.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q5: Load Balancing: L4 vs L7?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**L4:** IP/Port based (TCP). Fast. No packet inspection.
+**L7:** Application based (HTTP). Smarter (Routing based on URL/Header). Slower.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q6: SQL vs NoSQL?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+**SQL:** ACID, Structured, Complex Queries (Joins). Vertical Scaling.
+**NoSQL:** BASE, Unstructured, High Throughput. Horizontal Scaling.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q7: What is Consistent Hashing?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Maps keys and servers to a ring. Minimizes remapping when servers change.
+
+**Code Example**:
+```text
+Ring: 0 ... 2^32-1
 Server A at Hash(A)
 Server B at Hash(B)
-Key K at Hash(K) -> Walk clockwise to find first Server.</code></pre>
-</div>
+Key K at Hash(K) -> Walk clockwise to find first Server.
+```
 
-<div id="q8" class="question">8. Design a Key-Value Store (Redis)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>In-memory Hash Map. Persistence via Snapshot (RDB) or Log (AOF). Single-threaded event loop.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q9" class="question">9. What is a CDN? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Network of edge servers caching static content close to users to reduce latency.</p>
-</div>
+---
 
-<div id="q10" class="question">10. Design a Notification System? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Service -> Message Queue (Kafka) -> Workers -> 3rd Party (FCM/APNS/SendGrid).</p>
-</div>
+### Q8: Design a Key-Value Store (Redis)?
 
-<div id="q11" class="question">11. Sharding vs Replication? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Replication:</strong> Copies data (Read scaling, Availability).<br><strong>Sharding:</strong> Splits data (Write scaling, Storage capacity).</p>
-</div>
+**Difficulty**: Advanced
 
-<div id="q12" class="question">12. Design Instagram News Feed? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p><strong>Push Model (Fan-out on Write):</strong> Pre-compute feeds. Fast reads. Complex writes for celebs.</p>
-  <p><strong>Pull Model (Fan-out on Read):</strong> Query on demand. Slow reads.</p>
-</div>
+**Strategy**:
+In-memory Hash Map. Persistence via Snapshot (RDB) or Log (AOF). Single-threaded event loop.
 
-<div id="q13" class="question">13. What is a Bloom Filter? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Bit array + Hash functions. Checks if item exists. False Positive: Yes. False Negative: No.</p>
-</div>
+**Code Example**:
 
-<div id="q14" class="question">14. Microservices vs Monolith? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p><strong>Monolith:</strong> Single deployable. Simple.<br><strong>Microservices:</strong> Distributed. Independent scaling. Complex ops.</p>
-</div>
 
-<div id="q15" class="question">15. Design a Web Crawler? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>URL Frontier (Queue) -> Fetcher -> DNS Resolver -> Content Parser -> Dedup -> Storage.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q16" class="question">16. Thundering Herd Problem? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Many clients hit DB simultaneously when cache expires. Fix: Random jitter, Mutex locks, Early expiration.</p>
-</div>
+---
 
-<div id="q17" class="question">17. Design Google Drive (File Sync)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Chunk files (4MB). Hash chunks. Upload only changed chunks (Differential Sync). Metadata in SQL. Blocks in S3.</p>
-</div>
+### Q9: What is a CDN?
 
-<div id="q18" class="question">18. What is Backpressure? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Consumer signaling Producer to slow down to prevent overwhelm. Drop, Buffer, or Block.</p>
-</div>
+**Difficulty**: Beginner
 
-<div id="q19" class="question">19. Design Typeahead (Autocomplete)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Trie</strong> structure. Store top K frequent terms at each node. Cache popular prefixes.</p>
-</div>
+**Strategy**:
+Network of edge servers caching static content close to users to reduce latency.
 
-<div id="q20" class="question">20. ACID Transactions? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Atomicity, Consistency, Isolation, Durability. Guarantees for relational databases.</p>
-</div>
+**Code Example**:
 
-<div id="q21" class="question">21. Design YouTube (Video Streaming)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Upload -> Transcode (FFmpeg) to multiple formats/resolutions -> Store in S3 -> CDN. Metadata in SQL.</p>
-</div>
 
-<div id="q22" class="question">22. Design Uber (Ride Sharing)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p><strong>Geospatial Index:</strong> Quadtree or Google S2. Matches riders with drivers in cells. Frequent location updates via WebSocket.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q23" class="question">23. What is Database Normalization? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Organizing data to reduce redundancy and improve integrity (1NF, 2NF, 3NF).</p>
-</div>
+---
 
-<div id="q24" class="question">24. Explain Two-Phase Commit (2PC)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Distributed transaction protocol. 1. Prepare (Vote). 2. Commit/Abort. Blocking protocol.</p>
-</div>
+### Q10: Design a Notification System?
 
-<div id="q25" class="question">25. Saga Pattern for Distributed Tx? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Sequence of local transactions. If one fails, execute compensating transactions to undo changes.</p>
-</div>
+**Difficulty**: Intermediate
 
-<div id="q26" class="question">26. Circuit Breaker Pattern? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Prevents cascading failures. If service fails repeatedly, "Open" circuit and fail fast for a timeout period.</p>
-</div>
+**Strategy**:
+Service -> Message Queue (Kafka) -> Workers -> 3rd Party (FCM/APNS/SendGrid).
 
-<div id="q27" class="question">27. API Gateway vs Load Balancer? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Gateway:</strong> Entry point. Auth, Rate Limiting, Routing, Aggregation.<br><strong>LB:</strong> Distributes traffic to servers.</p>
-</div>
+**Code Example**:
 
-<div id="q28" class="question">28. Polling vs WebSockets vs SSE? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Polling:</strong> Client asks repeatedly.<br><strong>WebSockets:</strong> Bidirectional.<br><strong>SSE:</strong> Server to Client (Unidirectional).</p>
-</div>
 
-<div id="q29" class="question">29. Design Twitter (Timeline)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Hybrid approach. Push to Redis lists for active users. Pull from DB for inactive/celebrity tweets.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q30" class="question">30. Design Ticketmaster (Booking)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Consistency is key. Use SQL with locking (SELECT FOR UPDATE) or Redis Lua scripts to reserve seats.</p>
-</div>
+---
 
-<div id="q31" class="question">31. Strong vs Eventual Consistency? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Strong:</strong> Reads see latest write (Latency hit).<br><strong>Eventual:</strong> Reads may be stale, converges later (High Availability).</p>
-</div>
+### Q11: Sharding vs Replication?
 
-<div id="q32" class="question">32. What is a Reverse Proxy? <span class="difficulty beginner">Beginner</span></div>
-<div class="answer">
-  <p>Server sitting in front of backends. Handles SSL termination, Caching, Load Balancing (Nginx, HAProxy).</p>
-</div>
+**Difficulty**: Intermediate
 
-<div id="q33" class="question">33. Service Discovery? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Registry keeping track of dynamic IP:Ports of services (Consul, Eureka, ZooKeeper, K8s DNS).</p>
-</div>
+**Strategy**:
+**Replication:** Copies data (Read scaling, Availability).
+**Sharding:** Splits data (Write scaling, Storage capacity).
 
-<div id="q34" class="question">34. Blue-Green vs Canary Deployment? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Blue-Green:</strong> Switch traffic 100% from old to new env.<br><strong>Canary:</strong> Gradually roll out new version to % of users.</p>
-</div>
+**Code Example**:
 
-<div id="q35" class="question">35. What is a Distributed Lock? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Ensures mutual exclusion across processes/servers. Implementations: Redis (Redlock), ZooKeeper.</p>
-</div>
 
-<div id="q36" class="question">36. Design a Leaderboard? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Redis Sorted Sets (ZSET). <code>ZADD user score</code>, <code>ZREVRANGE 0 10</code>.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q37" class="question">37. Design a Unique ID Generator? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Twitter Snowflake:</strong> 64-bit integer (Timestamp + MachineID + Sequence). Sortable by time.</p>
-</div>
+---
 
-<div id="q38" class="question">38. What is Gossip Protocol? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Peer-to-peer communication. Nodes randomly share info with neighbors. Used in Cassandra ring state.</p>
-</div>
+### Q12: Design Instagram News Feed?
 
-<div id="q39" class="question">39. Heartbeat Mechanism? <span class="beginner">Beginner</span></div>
+**Difficulty**: Advanced
+
+**Strategy**:
+**Push Model (Fan-out on Write):** Pre-compute feeds. Fast reads. Complex writes for celebs.
+
+
+  **Pull Model (Fan-out on Read):** Query on demand. Slow reads.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q13: What is a Bloom Filter?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Bit array + Hash functions. Checks if item exists. False Positive: Yes. False Negative: No.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q14: Microservices vs Monolith?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+**Monolith:** Single deployable. Simple.
+**Microservices:** Distributed. Independent scaling. Complex ops.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q15: Design a Web Crawler?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+URL Frontier (Queue) -> Fetcher -> DNS Resolver -> Content Parser -> Dedup -> Storage.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q16: Thundering Herd Problem?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Many clients hit DB simultaneously when cache expires. Fix: Random jitter, Mutex locks, Early expiration.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q17: Design Google Drive (File Sync)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Chunk files (4MB). Hash chunks. Upload only changed chunks (Differential Sync). Metadata in SQL. Blocks in S3.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q18: What is Backpressure?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Consumer signaling Producer to slow down to prevent overwhelm. Drop, Buffer, or Block.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q19: Design Typeahead (Autocomplete)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Trie** structure. Store top K frequent terms at each node. Cache popular prefixes.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q20: ACID Transactions?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Atomicity, Consistency, Isolation, Durability. Guarantees for relational databases.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q21: Design YouTube (Video Streaming)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Upload -> Transcode (FFmpeg) to multiple formats/resolutions -> Store in S3 -> CDN. Metadata in SQL.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q22: Design Uber (Ride Sharing)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+**Geospatial Index:** Quadtree or Google S2. Matches riders with drivers in cells. Frequent location updates via WebSocket.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q23: What is Database Normalization?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Organizing data to reduce redundancy and improve integrity (1NF, 2NF, 3NF).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q24: Explain Two-Phase Commit (2PC)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Distributed transaction protocol. 1. Prepare (Vote). 2. Commit/Abort. Blocking protocol.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q25: Saga Pattern for Distributed Tx?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Sequence of local transactions. If one fails, execute compensating transactions to undo changes.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q26: Circuit Breaker Pattern?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Prevents cascading failures. If service fails repeatedly, "Open" circuit and fail fast for a timeout period.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q27: API Gateway vs Load Balancer?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Gateway:** Entry point. Auth, Rate Limiting, Routing, Aggregation.
+**LB:** Distributes traffic to servers.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q28: Polling vs WebSockets vs SSE?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Polling:** Client asks repeatedly.
+**WebSockets:** Bidirectional.
+**SSE:** Server to Client (Unidirectional).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q29: Design Twitter (Timeline)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Hybrid approach. Push to Redis lists for active users. Pull from DB for inactive/celebrity tweets.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q30: Design Ticketmaster (Booking)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Consistency is key. Use SQL with locking (SELECT FOR UPDATE) or Redis Lua scripts to reserve seats.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q31: Strong vs Eventual Consistency?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Strong:** Reads see latest write (Latency hit).
+**Eventual:** Reads may be stale, converges later (High Availability).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q32: What is a Reverse Proxy?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Server sitting in front of backends. Handles SSL termination, Caching, Load Balancing (Nginx, HAProxy).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q33: Service Discovery?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Registry keeping track of dynamic IP:Ports of services (Consul, Eureka, ZooKeeper, K8s DNS).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q34: Blue-Green vs Canary Deployment?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Blue-Green:** Switch traffic 100% from old to new env.
+**Canary:** Gradually roll out new version to % of users.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q35: What is a Distributed Lock?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Ensures mutual exclusion across processes/servers. Implementations: Redis (Redlock), ZooKeeper.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q36: Design a Leaderboard?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Redis Sorted Sets (ZSET). <code>ZADD user score</code>, <code>ZREVRANGE 0 10</code>.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q37: Design a Unique ID Generator?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Twitter Snowflake:** 64-bit integer (Timestamp + MachineID + Sequence). Sortable by time.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q38: What is Gossip Protocol?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Peer-to-peer communication. Nodes randomly share info with neighbors. Used in Cassandra ring state.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q39: Heartbeat Mechanism? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>Periodic signal to indicate a node is alive. If missed, assume failure.</p>
 </div>
 
-<div id="q40" class="question">40. Quorum in Distributed Systems? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Minimum votes required to perform operation. R + W > N ensures strong consistency.</p>
-</div>
+<div id="q40" class="question">40. Quorum in Distributed Systems?
 
-<div id="q41" class="question">41. Write-Through vs Write-Back Cache? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Through:</strong> Write to Cache and DB synchronously (Safe).<br><strong>Back:</strong> Write to Cache, async to DB (Fast, risk of data loss).</p>
-</div>
+**Difficulty**: Advanced
 
-<div id="q42" class="question">42. What is Database Indexing? <span class="beginner">Beginner</span></div>
+**Strategy**:
+Minimum votes required to perform operation. R + W > N ensures strong consistency.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q41: Write-Through vs Write-Back Cache?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Through:** Write to Cache and DB synchronously (Safe).
+**Back:** Write to Cache, async to DB (Fast, risk of data loss).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q42: What is Database Indexing? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>Data structure (B-Tree) improving data retrieval speed at cost of write speed and storage.</p>
 </div>
 
-<div id="q43" class="question">43. Row-Oriented vs Column-Oriented DB? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Row (Postgres):</strong> Good for transactional (OLTP).<br><strong>Column (Cassandra/Redshift):</strong> Good for analytics/aggregations (OLAP).</p>
-</div>
+<div id="q43" class="question">43. Row-Oriented vs Column-Oriented DB?
 
-<div id="q44" class="question">44. Design Netflix (Recommendations)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Collaborative Filtering + Content-based Filtering. Matrix Factorization. Pre-compute recommendations offline.</p>
-</div>
+**Difficulty**: Intermediate
 
-<div id="q45" class="question">45. What is DNS? <span class="beginner">Beginner</span></div>
+**Strategy**:
+**Row (Postgres):** Good for transactional (OLTP).
+**Column (Cassandra/Redshift):** Good for analytics/aggregations (OLAP).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q44: Design Netflix (Recommendations)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Collaborative Filtering + Content-based Filtering. Matrix Factorization. Pre-compute recommendations offline.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q45: What is DNS? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>Domain Name System. Phonebook of internet. Translates `google.com` to IP address.</p>
 </div>
 
-<div id="q46" class="question">46. Anycast vs Unicast? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p><strong>Unicast:</strong> One-to-One.<br><strong>Anycast:</strong> One-to-Nearest. Used by CDNs/DNS to route to closest server.</p>
-</div>
+<div id="q46" class="question">46. Anycast vs Unicast?
 
-<div id="q47" class="question">47. What is a Sidecar Pattern? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Helper container running alongside main container (e.g., Envoy Proxy in Service Mesh) to handle networking/logs.</p>
-</div>
+**Difficulty**: Advanced
 
-<div id="q48" class="question">48. Design an API Rate Limiter? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Middleware using Redis. Identify by API Key or IP. Return 429 Too Many Requests.</p>
-</div>
+**Strategy**:
+**Unicast:** One-to-One.
+**Anycast:** One-to-Nearest. Used by CDNs/DNS to route to closest server.
 
-<div id="q49" class="question">49. What is OAuth 2.0? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Authorization framework. Allows third-party apps to access user data without sharing passwords. (Access Tokens).</p>
-</div>
+**Code Example**:
 
-<div id="q50" class="question">50. JWT vs Session Cookies? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>JWT:</strong> Stateless, signed, contains claims. Good for APIs.<br><strong>Session:</strong> Stateful, ID stored in cookie, data in server DB.</p>
-</div>
 
-<div id="q51" class="question">51. What is gRPC? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>High-performance RPC framework by Google. Uses Protobuf (binary) and HTTP/2.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q52" class="question">52. GraphQL vs REST? <span class="beginner">Beginner</span></div>
+---
+
+### Q47: What is a Sidecar Pattern?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Helper container running alongside main container (e.g., Envoy Proxy in Service Mesh) to handle networking/logs.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q48: Design an API Rate Limiter?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Middleware using Redis. Identify by API Key or IP. Return 429 Too Many Requests.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q49: What is OAuth 2.0?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Authorization framework. Allows third-party apps to access user data without sharing passwords. (Access Tokens).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q50: JWT vs Session Cookies?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**JWT:** Stateless, signed, contains claims. Good for APIs.
+**Session:** Stateful, ID stored in cookie, data in server DB.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q51: What is gRPC?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+High-performance RPC framework by Google. Uses Protobuf (binary) and HTTP/2.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q52: GraphQL vs REST? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p><strong>REST:</strong> Multiple endpoints, over/under-fetching.<br><strong>GraphQL:</strong> Single endpoint, client asks exactly what it needs.</p>
 </div>
 
-<div id="q53" class="question">53. Design Dropbox (Deduplication)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Check hash of file chunks. If hash exists, point to existing chunk instead of uploading again.</p>
-</div>
+<div id="q53" class="question">53. Design Dropbox (Deduplication)?
 
-<div id="q54" class="question">54. Vector Clocks? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Algorithm to detect causal ordering of events in distributed systems. Helps resolve conflicts (DynamoDB).</p>
-</div>
+**Difficulty**: Advanced
 
-<div id="q55" class="question">55. Conflict Resolution Strategies? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Last Write Wins (LWW) or Semantic resolution (Merge shopping carts).</p>
-</div>
+**Strategy**:
+Check hash of file chunks. If hash exists, point to existing chunk instead of uploading again.
 
-<div id="q56" class="question">56. Design Nearby Friends (Location)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Ephemeral location data. Redis GeoSpatial commands. TTL on location entries.</p>
-</div>
+**Code Example**:
 
-<div id="q57" class="question">57. What is Geohashing? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Encoding Lat/Long into string. Recursively dividing world into buckets.</p>
-</div>
 
-<div id="q58" class="question">58. Design a Metrics Monitoring System? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Time-Series DB (Prometheus/InfluxDB). Pull vs Push metrics. Downsampling old data.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q59" class="question">59. Pull vs Push Model? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Pull:</strong> Consumer requests data (Prometheus).<br><strong>Push:</strong> Producer sends data (Graphite).</p>
-</div>
+---
 
-<div id="q60" class="question">60. Batch Processing vs Stream Processing? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Batch (Hadoop):</strong> Large volume, high latency.<br><strong>Stream (Flink/Kafka):</strong> Real-time, low latency.</p>
-</div>
+### Q54: Vector Clocks?
 
-<div id="q61" class="question">61. Lambda Architecture? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Hybrid. Batch Layer (Accurate, Slow) + Speed Layer (Approx, Fast). Query merges both.</p>
-</div>
+**Difficulty**: Advanced
 
-<div id="q62" class="question">62. Kappa Architecture? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Stream only. Treat everything as a stream. Simplifies architecture.</p>
-</div>
+**Strategy**:
+Algorithm to detect causal ordering of events in distributed systems. Helps resolve conflicts (DynamoDB).
 
-<div id="q63" class="question">63. What is MapReduce? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Programming model for processing big data. Map (Filter/Sort) -> Shuffle -> Reduce (Aggregate).</p>
-</div>
+**Code Example**:
 
-<div id="q64" class="question">64. Design a Payment System? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>ACID DB mandatory. Idempotency keys to prevent double charge. Distributed Saga for orchestrating steps.</p>
-</div>
 
-<div id="q65" class="question">65. Idempotency in APIs? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Making multiple identical requests has same effect as single request. Crucial for payments.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q66" class="question">66. What is a Dead Letter Queue? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Queue for messages that failed processing. Allows debugging and manual retry.</p>
-</div>
+---
 
-<div id="q67" class="question">67. Vertical vs Horizontal Scaling? <span class="beginner">Beginner</span></div>
+### Q55: Conflict Resolution Strategies?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Last Write Wins (LWW) or Semantic resolution (Merge shopping carts).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q56: Design Nearby Friends (Location)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Ephemeral location data. Redis GeoSpatial commands. TTL on location entries.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q57: What is Geohashing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Encoding Lat/Long into string. Recursively dividing world into buckets.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q58: Design a Metrics Monitoring System?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Time-Series DB (Prometheus/InfluxDB). Pull vs Push metrics. Downsampling old data.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q59: Pull vs Push Model?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Pull:** Consumer requests data (Prometheus).
+**Push:** Producer sends data (Graphite).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q60: Batch Processing vs Stream Processing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+**Batch (Hadoop):** Large volume, high latency.
+**Stream (Flink/Kafka):** Real-time, low latency.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q61: Lambda Architecture?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Hybrid. Batch Layer (Accurate, Slow) + Speed Layer (Approx, Fast). Query merges both.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q62: Kappa Architecture?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Stream only. Treat everything as a stream. Simplifies architecture.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q63: What is MapReduce?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Programming model for processing big data. Map (Filter/Sort) -> Shuffle -> Reduce (Aggregate).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q64: Design a Payment System?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+ACID DB mandatory. Idempotency keys to prevent double charge. Distributed Saga for orchestrating steps.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q65: Idempotency in APIs?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Making multiple identical requests has same effect as single request. Crucial for payments.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q66: What is a Dead Letter Queue?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Queue for messages that failed processing. Allows debugging and manual retry.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q67: Vertical vs Horizontal Scaling? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p><strong>Vertical:</strong> Bigger machine (CPU/RAM). Limit exists.<br><strong>Horizontal:</strong> More machines. Unlimited scaling.</p>
 </div>
@@ -475,42 +1069,98 @@ Key K at Hash(K) -> Walk clockwise to find first Server.</code></pre>
   <p>Server keeps no session data. Any request can go to any server. Easier to scale.</p>
 </div>
 
-<div id="q69" class="question">69. Design Distributed Job Scheduler? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Leader election (ZooKeeper). Workers pull tasks. Heartbeats. Redis for task status.</p>
-</div>
+<div id="q69" class="question">69. Design Distributed Job Scheduler?
 
-<div id="q70" class="question">70. Paxos vs Raft Consensus? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Algorithms for agreeing on values in distributed systems. Raft is designed to be more understandable than Paxos.</p>
-</div>
+**Difficulty**: Advanced
 
-<div id="q71" class="question">71. What is a Merkle Tree? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Tree of hashes. Efficient synchronization (DynamoDB) and integrity check (Blockchain).</p>
-</div>
+**Strategy**:
+Leader election (ZooKeeper). Workers pull tasks. Heartbeats. Redis for task status.
 
-<div id="q72" class="question">72. Design a URL Shortener (DB Schema)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <pre><code class="language-sql">CREATE TABLE urls (
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q70: Paxos vs Raft Consensus?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Algorithms for agreeing on values in distributed systems. Raft is designed to be more understandable than Paxos.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q71: What is a Merkle Tree?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Tree of hashes. Efficient synchronization (DynamoDB) and integrity check (Blockchain).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q72: Design a URL Shortener (DB Schema)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+
+
+**Code Example**:
+```sql
+CREATE TABLE urls (
   short_key VARCHAR(7) PRIMARY KEY,
   original_url VARCHAR(255),
   created_at TIMESTAMP,
   user_id INT
-);</code></pre>
-</div>
+);
+```
 
-<div id="q73" class="question">73. How HTTPS works? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>TLS Handshake. Asymmetric encryption to exchange symmetric key. Symmetric key for session data.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q74" class="question">74. What is a WAF (Web App Firewall)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Protects against SQL Injection, XSS, etc. filters incoming HTTP traffic.</p>
-</div>
+---
 
-<div id="q75" class="question">75. Design a Parking Garage? <span class="beginner">Beginner</span></div>
+### Q73: How HTTPS works?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+TLS Handshake. Asymmetric encryption to exchange symmetric key. Symmetric key for session data.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q74: What is a WAF (Web App Firewall)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Protects against SQL Injection, XSS, etc. filters incoming HTTP traffic.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q75: Design a Parking Garage? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>OO Design. Classes: Vehicle, Spot, Level, Garage. Enums: Compact, Large. Strategy Pattern for pricing.</p>
 </div>
@@ -520,122 +1170,331 @@ Key K at Hash(K) -> Walk clockwise to find first Server.</code></pre>
   <p>Intermediary for messaging. Decouples sender and receiver (RabbitMQ, ActiveMQ).</p>
 </div>
 
-<div id="q77" class="question">77. Kafka vs RabbitMQ? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Kafka:</strong> Log-based, high throughput, replayable.<br><strong>RabbitMQ:</strong> Queue-based, complex routing, ack/nack.</p>
-</div>
+<div id="q77" class="question">77. Kafka vs RabbitMQ?
 
-<div id="q78" class="question">78. Database Isolation Levels? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Read Uncommitted, Read Committed, Repeatable Read, Serializable. Trade-off between consistency and performance.</p>
-</div>
+**Difficulty**: Intermediate
 
-<div id="q79" class="question">79. Optimistic vs Pessimistic Locking? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p><strong>Optimistic:</strong> Version check on save. Good for low contention.<br><strong>Pessimistic:</strong> Lock record on read. Good for high contention.</p>
-</div>
+**Strategy**:
+**Kafka:** Log-based, high throughput, replayable.
+**RabbitMQ:** Queue-based, complex routing, ack/nack.
 
-<div id="q80" class="question">80. Design Amazon Cart? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>DynamoDB (Key-Value). Cart items persisted. Merge local cart after login. Availability over Consistency.</p>
-</div>
+**Code Example**:
 
-<div id="q81" class="question">81. What is PACELC Theorem? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Extension of CAP. If Partition (P), choose A or C. Else (E), choose Latency (L) or Consistency (C).</p>
-</div>
 
-<div id="q82" class="question">82. Design a Flash Sale System? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Redis counters for inventory. Queue to throttle DB writes. Static content on CDN.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q83" class="question">83. What is Content-Based Routing? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Routing requests to different microservices based on request content (headers/body).</p>
-</div>
+---
 
-<div id="q84" class="question">84. Peer-to-Peer Networks? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>No central server. Peers connect directly (BitTorrent). Resilient but hard to manage.</p>
-</div>
+### Q78: Database Isolation Levels?
 
-<div id="q85" class="question">85. Design Google Maps? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Graph for routing (Dijkstra/A*). Tiled images for rendering (Quadtree/Zoom levels).</p>
-</div>
+**Difficulty**: Advanced
 
-<div id="q86" class="question">86. What is Edge Computing? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Processing data near the source (IoT devices) rather than sending to centralized cloud.</p>
-</div>
+**Strategy**:
+Read Uncommitted, Read Committed, Repeatable Read, Serializable. Trade-off between consistency and performance.
 
-<div id="q87" class="question">87. Serverless Architecture? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>FaaS (Lambda). No server management. Scale to zero. Pay per execution.</p>
-</div>
+**Code Example**:
 
-<div id="q88" class="question">88. Design a Collaborative Editor (Google Docs)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Operational Transformation (OT) or CRDTs to handle concurrent edits without locking.</p>
-</div>
 
-<div id="q89" class="question">89. Operational Transformation (OT)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Algorithm to transform operations (insert/delete) based on other concurrent operations.</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q90" class="question">90. CRDTs (Conflict-free Replicated Data Types)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Data structures that can be updated independently and merged without conflicts.</p>
-</div>
+---
 
-<div id="q91" class="question">91. Design Tinder (Matching)? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Geospatial query. "Swipes" are heavy writes. Redis for active users. Async processing for matches.</p>
-</div>
+### Q79: Optimistic vs Pessimistic Locking?
 
-<div id="q92" class="question">92. Design a Search Engine? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Crawler -> Indexer (Inverted Index) -> Searcher (Ranking/TF-IDF/PageRank).</p>
-</div>
+**Difficulty**: Intermediate
 
-<div id="q93" class="question">93. What is WebRTC? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Peer-to-Peer audio/video. Uses UDP. Signaling server needed for handshake.</p>
-</div>
+**Strategy**:
+**Optimistic:** Version check on save. Good for low contention.
+**Pessimistic:** Lock record on read. Good for high contention.
 
-<div id="q94" class="question">94. Design a Distributed Counter? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Sharded counters. Sum all shards for total. Reduces write contention.</p>
-</div>
+**Code Example**:
 
-<div id="q95" class="question">95. What is a Split-Brain problem? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Cluster splits into two, both thinking they are the master. Leads to data corruption. Fix: Quorum.</p>
-</div>
 
-<div id="q96" class="question">96. Design a Logging System? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Filebeat (Agent) -> Kafka (Buffer) -> Logstash (Parse) -> Elasticsearch (Index) -> Kibana (UI).</p>
-</div>
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<div id="q97" class="question">97. What is Structured Logging? <span class="beginner">Beginner</span></div>
+---
+
+### Q80: Design Amazon Cart?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+DynamoDB (Key-Value). Cart items persisted. Merge local cart after login. Availability over Consistency.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q81: What is PACELC Theorem?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Extension of CAP. If Partition (P), choose A or C. Else (E), choose Latency (L) or Consistency (C).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q82: Design a Flash Sale System?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Redis counters for inventory. Queue to throttle DB writes. Static content on CDN.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q83: What is Content-Based Routing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Routing requests to different microservices based on request content (headers/body).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q84: Peer-to-Peer Networks?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+No central server. Peers connect directly (BitTorrent). Resilient but hard to manage.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q85: Design Google Maps?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Graph for routing (Dijkstra/A*). Tiled images for rendering (Quadtree/Zoom levels).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q86: What is Edge Computing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Processing data near the source (IoT devices) rather than sending to centralized cloud.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q87: Serverless Architecture?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+FaaS (Lambda). No server management. Scale to zero. Pay per execution.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q88: Design a Collaborative Editor (Google Docs)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Operational Transformation (OT) or CRDTs to handle concurrent edits without locking.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q89: Operational Transformation (OT)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Algorithm to transform operations (insert/delete) based on other concurrent operations.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q90: CRDTs (Conflict-free Replicated Data Types)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Data structures that can be updated independently and merged without conflicts.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q91: Design Tinder (Matching)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Geospatial query. "Swipes" are heavy writes. Redis for active users. Async processing for matches.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q92: Design a Search Engine?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Crawler -> Indexer (Inverted Index) -> Searcher (Ranking/TF-IDF/PageRank).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q93: What is WebRTC?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Peer-to-Peer audio/video. Uses UDP. Signaling server needed for handshake.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q94: Design a Distributed Counter?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Sharded counters. Sum all shards for total. Reduces write contention.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q95: What is a Split-Brain problem?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Cluster splits into two, both thinking they are the master. Leads to data corruption. Fix: Quorum.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q96: Design a Logging System?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Filebeat (Agent) -> Kafka (Buffer) -> Logstash (Parse) -> Elasticsearch (Index) -> Kibana (UI).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q97: What is Structured Logging? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>Logging in JSON format (key-value) instead of plain text. Easier to query.</p>
 </div>
 
-<div id="q98" class="question">98. Distributed Tracing (Jaeger/Zipkin)? <span class="difficulty intermediate">Intermediate</span></div>
-<div class="answer">
-  <p>Tracking a request across microservices using a Trace ID and Span IDs.</p>
-</div>
+<div id="q98" class="question">98. Distributed Tracing (Jaeger/Zipkin)?
 
-<div id="q99" class="question">99. Chaos Engineering? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>Intentionally introducing faults (latency, crash) to test system resilience (Netflix Chaos Monkey).</p>
-</div>
+**Difficulty**: Intermediate
 
-<div id="q100" class="question">100. Design Facebook Messenger? <span class="difficulty advanced">Advanced</span></div>
-<div class="answer">
-  <p>One-on-one vs Group. HBase for message storage. Push notifications for offline users.</p>
-</div>
+**Strategy**:
+Tracking a request across microservices using a Trace ID and Span IDs.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q99: Chaos Engineering?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Intentionally introducing faults (latency, crash) to test system resilience (Netflix Chaos Monkey).
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+### Q100: Design Facebook Messenger?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+One-on-one vs Group. HBase for message storage. Push notifications for offline users.
+
+**Code Example**:
+
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---

@@ -1342,7 +1342,7 @@ WHERE id IN (
 **Difficulty**: Beginner
 
 **Strategy**:
-Atomicity, Consistency, Isolation, Durability.
+ACID stands for Atomicity, Consistency, Isolation, and Durability. It is a set of properties of database transactions intended to guarantee data validity despite errors, power failures, and other mishaps. Atomicity ensures that each transaction is treated as a single 'unit', which either succeeds completely or fails completely.
 
 **Code Example**:
 ```javascript
@@ -1358,7 +1358,7 @@ BEGIN; ... COMMIT;
 **Difficulty**: Beginner
 
 **Strategy**:
-Data structure to speed up retrieval.
+Indexing is a data structure technique used to quickly locate and access the data in a database. Indexes are created using a few database columns. They are like a book's index; instead of scanning the whole book (table) to find a topic (row), you look up the index to find the page number (pointer).
 
 **Code Example**:
 ```javascript
@@ -1374,7 +1374,7 @@ CREATE INDEX idx_name ON users(name);
 **Difficulty**: Intermediate
 
 **Strategy**:
-B-Tree, Hash, Bitmap, GiST, GIN.
+B-Tree, Hash, Bitmap, GiST, GIN. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1390,7 +1390,7 @@ B-Tree, Hash, Bitmap, GiST, GIN.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Organizing data to reduce redundancy.
+Normalization is the process of organizing data in a database. This includes creating tables and establishing relationships between those tables according to rules designed both to protect the data and to make the database more flexible by eliminating redundancy and inconsistent dependency.
 
 **Code Example**:
 ```javascript
@@ -1406,7 +1406,7 @@ Organizing data to reduce redundancy.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Adding redundancy for performance.
+Denormalization is a database optimization technique in which we add redundant data to one or more tables. This can help us avoid costly joins in a relational database. Note that denormalization does not mean not doing normalization. It is an optimization strategy applied after normalization.
 
 **Code Example**:
 ```javascript
@@ -1422,7 +1422,7 @@ Adding redundancy for performance.
 **Difficulty**: Beginner
 
 **Strategy**:
-Inner: match both. Outer: match one + nulls.
+An Inner Join returns records that have matching values in both tables. An Outer Join doesn't require a match in both tables. A Left Outer Join returns all records from the left table, and the matched records from the right table. A Right Outer Join does the reverse. Full Outer Join returns all records when there is a match in either left or right table.
 
 **Code Example**:
 ```javascript
@@ -1438,7 +1438,7 @@ SELECT * FROM A JOIN B ON A.id = B.id
 **Difficulty**: Beginner
 
 **Strategy**:
-Virtual table based on query.
+Virtual table based on query. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1454,7 +1454,7 @@ CREATE VIEW active_users AS ...
 **Difficulty**: Intermediate
 
 **Strategy**:
-Code stored in DB.
+Code stored in DB. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1470,7 +1470,7 @@ CREATE PROCEDURE ...
 **Difficulty**: Intermediate
 
 **Strategy**:
-Auto-executes on event.
+Auto-executes on event. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1486,7 +1486,7 @@ CREATE TRIGGER ... BEFORE INSERT ...
 **Difficulty**: Beginner
 
 **Strategy**:
-Structured (Relational) vs Unstructured (Document/Key-Value).
+SQL databases are relational, table-based databases, whereas NoSQL databases are non-relational, document, key-value, graph, or wide-column stores. SQL databases have a predefined schema and use structured query language. NoSQL databases have dynamic schemas for unstructured data.
 
 **Code Example**:
 ```javascript
@@ -1502,7 +1502,7 @@ Structured (Relational) vs Unstructured (Document/Key-Value).
 **Difficulty**: Advanced
 
 **Strategy**:
-Horizontal partitioning across servers.
+Sharding is a method of splitting and storing a single logical dataset in multiple databases. By distributing the data among multiple machines, a cluster of database systems can store larger datasets and handle additional requests. It is a form of horizontal scaling.
 
 **Code Example**:
 ```javascript
@@ -1518,7 +1518,7 @@ Horizontal partitioning across servers.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Copying data to multiple nodes.
+Copying data to multiple nodes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1534,7 +1534,7 @@ Copying data to multiple nodes.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Consistency, Availability, Partition Tolerance.
+The CAP Theorem states that a distributed computer system can only provide two of the following three guarantees: Consistency (every read receives the most recent write or an error), Availability (every request receives a (non-error) response, without the guarantee that it contains the most recent write), and Partition Tolerance (the system continues to operate despite an arbitrary number of messages being dropped or delayed by the network).
 
 **Code Example**:
 ```javascript
@@ -1550,7 +1550,7 @@ Consistency, Availability, Partition Tolerance.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Data will become consistent over time.
+Data will become consistent over time. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1566,7 +1566,7 @@ Data will become consistent over time.
 **Difficulty**: Beginner
 
 **Strategy**:
-Unit of work.
+A transaction is a single unit of work. If a transaction is successful, all of the data modifications made during the transaction are committed and become a permanent part of the database. If a transaction encounters an error and must be canceled or rolled back, then all of the data modifications are erased.
 
 **Code Example**:
 ```javascript
@@ -1582,7 +1582,7 @@ START TRANSACTION
 **Difficulty**: Advanced
 
 **Strategy**:
-Read Uncommitted, Read Committed, Repeatable Read, Serializable.
+Transaction isolation levels control the degree of locking and row versioning used when selecting data. The levels are: Read Uncommitted (lowest), Read Committed, Repeatable Read, and Serializable (highest). Higher isolation levels reduce concurrency effects but increase system overhead and blocking.
 
 **Code Example**:
 ```javascript
@@ -1598,7 +1598,7 @@ SET TRANSACTION ISOLATION LEVEL ...
 **Difficulty**: Intermediate
 
 **Strategy**:
-Two processes waiting for each other.
+Two processes waiting for each other. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1614,7 +1614,7 @@ Two processes waiting for each other.
 **Difficulty**: Advanced
 
 **Strategy**:
-Optimistic: check version on save. Pessimistic: lock row on read.
+Optimistic Locking assumes that multiple transactions can complete without affecting each other, and checks for conflicts only when committing. Pessimistic Locking locks the record as soon as it is selected for update, preventing others from modifying it until the lock is released.
 
 **Code Example**:
 ```javascript
@@ -1630,7 +1630,7 @@ Optimistic: check version on save. Pessimistic: lock row on read.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Reuse open connections.
+Reuse open connections. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1646,7 +1646,7 @@ Reuse open connections.
 **Difficulty**: Beginner
 
 **Strategy**:
-Object Relational Mapper.
+Object Relational Mapper. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1662,7 +1662,7 @@ Object Relational Mapper.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Fetching child data in loop.
+The N+1 problem occurs when an application makes one query to retrieve a parent record (1) and then makes N subsequent queries to retrieve child records for each parent. This results in N+1 total database calls, which kills performance. It is usually solved by using JOINs or batch fetching (e.g., `IN` clause).
 
 **Code Example**:
 ```javascript
@@ -1678,7 +1678,7 @@ Fetching child data in loop.
 **Difficulty**: Beginner
 
 **Strategy**:
-Document store (BSON).
+Document store (BSON). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1694,7 +1694,7 @@ db.users.find()
 **Difficulty**: Beginner
 
 **Strategy**:
-In-memory key-value store.
+Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache, and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams.
 
 **Code Example**:
 ```javascript
@@ -1710,7 +1710,7 @@ SET key value
 **Difficulty**: Advanced
 
 **Strategy**:
-Wide-column store.
+Wide-column store. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1726,7 +1726,7 @@ Wide-column store.
 **Difficulty**: Beginner
 
 **Strategy**:
-Unique identifier.
+Unique identifier. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1742,7 +1742,7 @@ id INT PRIMARY KEY
 **Difficulty**: Beginner
 
 **Strategy**:
-Link to another table.
+Link to another table. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1758,7 +1758,7 @@ user_id INT REFERENCES users(id)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Version control for schema.
+Database migration is the management of incremental, reversible changes and version control to relational database schemas. A migration is a set of SQL queries that update the database schema to a newer version (e.g. creating a table, adding a column).
 
 **Code Example**:
 ```javascript
@@ -1774,7 +1774,7 @@ Version control for schema.
 **Difficulty**: Intermediate
 
 **Strategy**:
-EXPLAIN, Indexes, select specific columns.
+EXPLAIN, Indexes, select specific columns. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1790,7 +1790,7 @@ EXPLAIN SELECT ...
 **Difficulty**: Beginner
 
 **Strategy**:
-Malicious SQL input.
+SQL injection is a code injection technique that might destroy your database. It is one of the most common web hacking techniques. SQL injection is the placement of malicious code in SQL statements, via web page input. It is prevented by using Prepared Statements (Parameterized Queries).
 
 **Code Example**:
 ```javascript
@@ -1806,7 +1806,7 @@ Malicious SQL input.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Pointer to result set row.
+Pointer to result set row. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1822,7 +1822,7 @@ FETCH NEXT FROM cursor
 **Difficulty**: Intermediate
 
 **Strategy**:
-Extract, Transform, Load.
+Extract, Transform, Load. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1838,7 +1838,7 @@ Extract, Transform, Load.
 **Difficulty**: Advanced
 
 **Strategy**:
-Transactional vs Analytical processing.
+OLTP (Online Transaction Processing) captures, stores, and processes data from transactions in real-time. It is characterized by a large number of short on-line transactions (INSERT, UPDATE, DELETE). OLAP (Online Analytical Processing) uses complex queries to analyze aggregated historical data from OLTP systems.
 
 **Code Example**:
 ```javascript
@@ -1854,7 +1854,7 @@ Transactional vs Analytical processing.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Optimized for time-stamped data.
+Optimized for time-stamped data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1870,7 +1870,7 @@ Optimized for time-stamped data.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Nodes and Edges.
+Nodes and Edges. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1886,7 +1886,7 @@ Nodes and Edges.
 **Difficulty**: Advanced
 
 **Strategy**:
-Splitting table into smaller tables.
+Splitting table into smaller tables. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1902,7 +1902,7 @@ Splitting table into smaller tables.
 **Difficulty**: Advanced
 
 **Strategy**:
-Multi-Version Concurrency Control.
+Multiversion concurrency control (MVCC) is a concurrency control method used by database management systems to provide concurrent access to the database and in programming languages to implement transactional memory. It allows readers to see a snapshot of the data without blocking writers.
 
 **Code Example**:
 ```javascript
@@ -1918,7 +1918,7 @@ Multi-Version Concurrency Control.
 **Difficulty**: Advanced
 
 **Strategy**:
-Log changes before writing to disk.
+Log changes before writing to disk. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1934,7 +1934,7 @@ Log changes before writing to disk.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Physically stored view, refreshed periodically.
+Physically stored view, refreshed periodically. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1950,7 +1950,7 @@ REFRESH MATERIALIZED VIEW
 **Difficulty**: Beginner
 
 **Strategy**:
-Flag as deleted instead of removing.
+Flag as deleted instead of removing. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1966,7 +1966,7 @@ UPDATE users SET deleted_at = NOW()
 **Difficulty**: Advanced
 
 **Strategy**:
-Real-time copy for High Availability.
+Real-time copy for High Availability. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1982,7 +1982,7 @@ Real-time copy for High Availability.
 **Difficulty**: Advanced
 
 **Strategy**:
-Row: faster writes/single retrieval. Column: faster aggregations.
+Row-oriented databases store data row by row. This is great for transaction processing where you need to access all columns of a specific record. Column-oriented databases store data column by column. This is efficient for analytics where you often compute aggregates over a single column (e.g., average age) but don't need other columns.
 
 **Code Example**:
 ```javascript
@@ -1998,7 +1998,7 @@ Row: faster writes/single retrieval. Column: faster aggregations.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Key made of multiple columns.
+Key made of multiple columns. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2014,7 +2014,7 @@ PRIMARY KEY (a, b)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Artificial key (e.g. auto-increment ID).
+Artificial key (e.g. auto-increment ID). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2030,7 +2030,7 @@ Artificial key (e.g. auto-increment ID).
 **Difficulty**: Beginner
 
 **Strategy**:
-Consistency of relationships.
+Consistency of relationships. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2046,7 +2046,7 @@ Consistency of relationships.
 **Difficulty**: Advanced
 
 **Strategy**:
-Check if element exists in set (probabilistic).
+Check if element exists in set (probabilistic). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2062,7 +2062,7 @@ Check if element exists in set (probabilistic).
 **Difficulty**: Advanced
 
 **Strategy**:
-Distributed transaction protocol.
+Distributed transaction protocol. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2078,7 +2078,7 @@ Distributed transaction protocol.
 **Difficulty**: Advanced
 
 **Strategy**:
-Tracking data changes.
+Change Data Capture (CDC) is a set of software design patterns used to determine and track the data that has changed so that action can be taken using the changed data. It is often used to replicate data to a data warehouse or to trigger events in a microservices architecture.
 
 **Code Example**:
 ```javascript
@@ -2094,7 +2094,7 @@ Tracking data changes.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Reclaiming storage (Postgres).
+Reclaiming storage (Postgres). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2110,7 +2110,7 @@ VACUUM FULL
 **Difficulty**: Advanced
 
 **Strategy**:
-Sorts table data physically.
+Sorts table data physically. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2126,7 +2126,7 @@ Sorts table data physically.
 **Difficulty**: Advanced
 
 **Strategy**:
-Separate structure pointing to data.
+Separate structure pointing to data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2158,7 +2158,7 @@ Sharding: across servers. Partitioning: within one server.
 **Difficulty**: Intermediate
 
 **Strategy**:
-For geo data.
+For geo data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2174,7 +2174,7 @@ For geo data.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Searching text docs.
+Searching text docs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2190,7 +2190,7 @@ Searching text docs.
 **Difficulty**: Advanced
 
 **Strategy**:
-Self-balancing tree data structure.
+Self-balancing tree data structure. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2206,7 +2206,7 @@ Self-balancing tree data structure.
 **Difficulty**: Advanced
 
 **Strategy**:
-O(1) lookups.
+O(1) lookups. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

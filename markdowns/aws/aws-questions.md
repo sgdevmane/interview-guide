@@ -1384,7 +1384,7 @@ EC2: Virtual servers (manage OS). Lambda: Serverless (run code only).
 **Difficulty**: Intermediate
 
 **Strategy**:
-Connecting two VPCs to route traffic privately.
+Connecting two VPCs to route traffic privately. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1400,7 +1400,7 @@ Connecting two VPCs to route traffic privately.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Provisioned Concurrency or keep warm scripts.
+Provisioned Concurrency or keep warm scripts. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1480,7 +1480,7 @@ Block Public Access, Bucket Policies, KMS Encryption.
 **Difficulty**: Beginner
 
 **Strategy**:
-CDN for low latency delivery.
+CDN for low latency delivery. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1512,7 +1512,7 @@ ECS: AWS native container orchestration. EKS: Managed Kubernetes.
 **Difficulty**: Beginner
 
 **Strategy**:
-CloudWatch (Logs, Metrics, Alarms).
+CloudWatch (Logs, Metrics, Alarms). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1528,7 +1528,7 @@ CloudWatch (Logs, Metrics, Alarms).
 **Difficulty**: Beginner
 
 **Strategy**:
-Adjusting capacity based on load.
+Adjusting capacity based on load. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1544,7 +1544,7 @@ Adjusting capacity based on load.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use SQS (Queue) or SNS (Pub/Sub).
+Use SQS (Queue) or SNS (Pub/Sub). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1560,7 +1560,7 @@ Use SQS (Queue) or SNS (Pub/Sub).
 **Difficulty**: Beginner
 
 **Strategy**:
-DNS Web Service.
+DNS Web Service. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1576,7 +1576,7 @@ DNS Web Service.
 **Difficulty**: Intermediate
 
 **Strategy**:
-CloudFormation, Terraform, or CDK.
+CloudFormation, Terraform, or CDK. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1592,7 +1592,7 @@ CloudFormation, Terraform, or CDK.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Synchronous replication to standby for failover.
+Synchronous replication to standby for failover. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1624,7 +1624,7 @@ Standard: At-least-once, best-effort order. FIFO: Exactly-once, strict order.
 **Difficulty**: Beginner
 
 **Strategy**:
-Entry point for APIs. Handles throttling, auth.
+Entry point for APIs. Handles throttling, auth. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1656,7 +1656,7 @@ Reserved Instances, Spot Instances, S3 Lifecycle policies.
 **Difficulty**: Beginner
 
 **Strategy**:
-PaaS for deploying apps.
+PaaS for deploying apps. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1672,7 +1672,7 @@ PaaS for deploying apps.
 **Difficulty**: Advanced
 
 **Strategy**:
-X-Ray.
+X-Ray. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1688,7 +1688,7 @@ X-Ray.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Rotates and manages secrets.
+Rotates and manages secrets. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1704,7 +1704,7 @@ Rotates and manages secrets.
 **Difficulty**: Advanced
 
 **Strategy**:
-Hub to connect VPCs and on-prem networks.
+Hub to connect VPCs and on-prem networks. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1720,7 +1720,7 @@ Hub to connect VPCs and on-prem networks.
 **Difficulty**: Beginner
 
 **Strategy**:
-KMS (Key Management Service).
+KMS (Key Management Service). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1736,7 +1736,7 @@ KMS (Key Management Service).
 **Difficulty**: Intermediate
 
 **Strategy**:
-Cloud-native relational DB (MySQL/PG compatible).
+Cloud-native relational DB (MySQL/PG compatible). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1752,7 +1752,7 @@ Cloud-native relational DB (MySQL/PG compatible).
 **Difficulty**: Intermediate
 
 **Strategy**:
-User identity and authentication service.
+User identity and authentication service. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1768,7 +1768,7 @@ User identity and authentication service.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Bid for unused capacity. Handle interruptions.
+Bid for unused capacity. Handle interruptions. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1784,7 +1784,7 @@ Bid for unused capacity. Handle interruptions.
 **Difficulty**: Beginner
 
 **Strategy**:
-Low-cost archive storage.
+Low-cost archive storage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1800,7 +1800,7 @@ Low-cost archive storage.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Web Application Firewall.
+Web Application Firewall. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1816,7 +1816,7 @@ Web Application Firewall.
 **Difficulty**: Intermediate
 
 **Strategy**:
-VPN or Direct Connect.
+VPN or Direct Connect. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1832,7 +1832,7 @@ VPN or Direct Connect.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Real-time data streaming.
+Real-time data streaming. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1864,7 +1864,7 @@ SG: Stateful, Instance level. NACL: Stateless, Subnet level.
 **Difficulty**: Beginner
 
 **Strategy**:
-Auditing service. Logs API calls.
+Auditing service. Logs API calls. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1880,7 +1880,7 @@ Auditing service. Logs API calls.
 **Difficulty**: Beginner
 
 **Strategy**:
-Modify permissions to share with account ID.
+Modify permissions to share with account ID. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1896,7 +1896,7 @@ Modify permissions to share with account ID.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Elastic File System (NFS). Shared storage.
+Elastic File System (NFS). Shared storage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1912,7 +1912,7 @@ Elastic File System (NFS). Shared storage.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Route 53 weighted routing or CodeDeploy.
+Route 53 weighted routing or CodeDeploy. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1928,7 +1928,7 @@ Route 53 weighted routing or CodeDeploy.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Serverless workflow orchestration.
+Serverless workflow orchestration. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1944,7 +1944,7 @@ Serverless workflow orchestration.
 **Difficulty**: Beginner
 
 **Strategy**:
-S3 Bucket + Static Website Hosting.
+S3 Bucket + Static Website Hosting. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1960,7 +1960,7 @@ S3 Bucket + Static Website Hosting.
 **Difficulty**: Advanced
 
 **Strategy**:
-Static IP entry point, traffic over AWS backbone.
+Static IP entry point, traffic over AWS backbone. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1976,7 +1976,7 @@ Static IP entry point, traffic over AWS backbone.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Bastion Host or SSM Session Manager.
+Bastion Host or SSM Session Manager. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1992,7 +1992,7 @@ Bastion Host or SSM Session Manager.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Manage multiple AWS accounts.
+Manage multiple AWS accounts. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2008,7 +2008,7 @@ Manage multiple AWS accounts.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Enable Stage caching.
+Enable Stage caching. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2024,7 +2024,7 @@ Enable Stage caching.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Serverless compute for containers.
+Serverless compute for containers. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2040,7 +2040,7 @@ Serverless compute for containers.
 **Difficulty**: Beginner
 
 **Strategy**:
-validate-template command.
+validate-template command. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2056,7 +2056,7 @@ $ aws cloudformation validate-template
 **Difficulty**: Intermediate
 
 **Strategy**:
-Query S3 data using SQL.
+Query S3 data using SQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2072,7 +2072,7 @@ Query S3 data using SQL.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Bucket Policy with Condition IpAddress.
+Bucket Policy with Condition IpAddress. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2088,7 +2088,7 @@ Bucket Policy with Condition IpAddress.
 **Difficulty**: Intermediate
 
 **Strategy**:
-SFTP/FTPS support.
+SFTP/FTPS support. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2104,7 +2104,7 @@ SFTP/FTPS support.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Shield Standard/Advanced + CloudFront + WAF.
+Shield Standard/Advanced + CloudFront + WAF. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2120,7 +2120,7 @@ Shield Standard/Advanced + CloudFront + WAF.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Serverless event bus.
+Serverless event bus. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2136,7 +2136,7 @@ Serverless event bus.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Cross-Region Replication (CRR).
+Cross-Region Replication (CRR). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2152,7 +2152,7 @@ Cross-Region Replication (CRR).
 **Difficulty**: Intermediate
 
 **Strategy**:
-Managed GraphQL service.
+Managed GraphQL service. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

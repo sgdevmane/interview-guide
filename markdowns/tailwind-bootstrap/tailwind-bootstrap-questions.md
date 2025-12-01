@@ -1,4 +1,12 @@
-# Tailwind CSS & Bootstrap Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Tailwind & Bootstrap Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -108,6 +116,8 @@
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Import the functions and variables, override the map or variables, and then import the rest of Bootstrap.
 
@@ -134,6 +144,8 @@ $danger: #ff4136;
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Modify `tailwind.config.js` inside the `theme.extend.screens` object to preserve defaults, or `theme.screens` to override them.
 
@@ -158,6 +170,8 @@ module.exports = {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `@apply` in your global CSS file (e.g., `input.css`) inside a `@layer components` block.
 
@@ -179,6 +193,8 @@ Use `@apply` in your global CSS file (e.g., `input.css`) inside a `@layer compon
 ### Q5: How do you implement a responsive grid layout in Bootstrap 5 without using custom CSS?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use the `.container`, `.row`, and `.col-{breakpoint}-{size}` classes.
@@ -206,6 +222,8 @@ Use the `.container`, `.row`, and `.col-{breakpoint}-{size}` classes.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use the square bracket syntax `property-[value]` directly in your HTML.
 
@@ -222,6 +240,8 @@ Use the square bracket syntax `property-[value]` directly in your HTML.
 ### Q7: How do you optimize Tailwind CSS for production to remove unused styles?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Configure the `content` array in `tailwind.config.js` to point to all your template files. Tailwind's JIT engine generates styles on demand.
@@ -246,6 +266,8 @@ module.exports = {
 ### Q8: How do you use Bootstrap 5's Utility API to generate custom utility classes?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Modify the `$utilities` map in SASS before importing Bootstrap.
@@ -282,6 +304,8 @@ $utilities: map-merge(
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Set `darkMode: 'class'` in config, then use the `dark:` variant. Toggle the `dark` class on the `html` element via JS.
 
@@ -306,6 +330,8 @@ module.exports = {
 ### Q10: How do you use Bootstrap components (like Modals) in a React application without jQuery?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `react-bootstrap` or `reactstrap`, which replace Bootstrap's JavaScript with React state management.
@@ -346,6 +372,8 @@ function Example() {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use the `plugin` function to register a new variant.
 
@@ -370,6 +398,8 @@ Usage: `<input class="optional:bg-gray-100 hocus:bg-blue-100" />`
 ### Q12: How do you handle z-index values in Tailwind to avoid conflicts?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Extend the `zIndex` theme in configuration to use a semantic scale or specific values required by your design system.
@@ -396,6 +426,8 @@ module.exports = {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use Flexbox utilities: `d-flex`, `justify-content-center`, and `align-items-center`. Ensure the parent has a defined height (e.g., `vh-100`).
 
@@ -414,6 +446,8 @@ Use Flexbox utilities: `d-flex`, `justify-content-center`, and `align-items-cent
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use arbitrary variants like `[&>p]:mt-4` or create a custom plugin/component style.
 
@@ -431,6 +465,8 @@ Use arbitrary variants like `[&>p]:mt-4` or create a custom plugin/component sty
 ### Q15: How do you implement a sticky footer in Tailwind CSS?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use Flexbox on the body/wrapper with `flex-col` and `min-h-screen`, then set the main content to `flex-grow` (or `flex-1`).
@@ -456,6 +492,8 @@ Use Flexbox on the body/wrapper with `flex-col` and `min-h-screen`, then set the
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `grid` and `grid-cols-{n}` utilities. Use breakpoints like `md:grid-cols-3` to change layout on different screens.
 
@@ -474,6 +512,8 @@ Use `grid` and `grid-cols-{n}` utilities. Use breakpoints like `md:grid-cols-3` 
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `d-flex` to enable flexbox. Use `justify-content-*` for main axis and `align-items-*` for cross axis.
 
@@ -490,6 +530,8 @@ Use `d-flex` to enable flexbox. Use `justify-content-*` for main axis and `align
 ### Q18: How do you style Markdown content using Tailwind Typography?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Install `@tailwindcss/typography` and use the `prose` class on the container.
@@ -508,6 +550,8 @@ Install `@tailwindcss/typography` and use the `prose` class on the container.
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `{property}{sides}-{size}` syntax. Property: `m` (margin), `p` (padding). Sides: `t`, `b`, `s` (start), `e` (end), `x`, `y`. Size: 0-5.
 
@@ -524,6 +568,8 @@ Use `{property}{sides}-{size}` syntax. Property: `m` (margin), `p` (padding). Si
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `rounded-full` for circle, and `border-{width}` `border-{color}`.
 
@@ -537,6 +583,8 @@ Use `rounded-full` for circle, and `border-{width}` `border-{color}`.
 ### Q21: How do you add shadows in Bootstrap?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `shadow-sm`, `shadow`, `shadow-lg` classes.
@@ -554,6 +602,8 @@ Use `shadow-sm`, `shadow`, `shadow-lg` classes.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `blur-{amount}` utilities (e.g., `blur-sm`, `blur-md`). Often used with `backdrop-blur` for glassmorphism.
 
@@ -569,6 +619,8 @@ Use `blur-{amount}` utilities (e.g., `blur-sm`, `blur-md`). Often used with `bac
 ### Q23: How do you make a link stretch to cover the entire parent card in Bootstrap?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use the `stretched-link` class on the link inside a `position-relative` container (like a card).
@@ -589,8 +641,10 @@ Use the `stretched-link` class on the link inside a `position-relative` containe
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `rotate-{degree}` utilities.
+Use `rotate-{degree}` utilities. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <div class="transform rotate-45 bg-blue-500 h-10 w-10"></div>
@@ -603,8 +657,10 @@ Use `rotate-{degree}` utilities.
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `user-select-none`.
+Use `user-select-none`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <p class="user-select-none">You cannot select this text.</p>
@@ -616,6 +672,8 @@ Use `user-select-none`.
 ### Q26: How do you style an SVG icon's color in Tailwind?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `text-{color}` and `fill-current` or `stroke-current` on the SVG.
@@ -631,8 +689,10 @@ Use `text-{color}` and `fill-current` or `stroke-current` on the SVG.
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use the `visually-hidden` class.
+Use the `visually-hidden` class. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <h2 class="visually-hidden">Title for Screen Readers</h2>
@@ -644,6 +704,8 @@ Use the `visually-hidden` class.
 ### Q28: How do you style form inputs easily in Tailwind?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Install `@tailwindcss/forms` plugin. It resets form styles to be easier to override.
@@ -663,6 +725,8 @@ plugins: [require('@tailwindcss/forms')],
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Wrap the `.table` in a container with `.table-responsive`.
 
@@ -681,6 +745,8 @@ Wrap the `.table` in a container with `.table-responsive`.
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Add `peer` class to the trigger element, and `peer-{modifier}:` to the target sibling.
 
@@ -695,6 +761,8 @@ Add `peer` class to the trigger element, and `peer-{modifier}:` to the target si
 ### Q31: How do you indicate form validation errors in Bootstrap?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Add `.was-validated` to the form or `.is-invalid` to the input. Provide `.invalid-feedback` div.
@@ -713,6 +781,8 @@ Add `.was-validated` to the form or `.is-invalid` to the input. Provide `.invali
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Add `group` class to the parent, and `group-hover:` to the child.
 
@@ -728,6 +798,8 @@ Add `group` class to the parent, and `group-hover:` to the child.
 ### Q33: How do you create a full-screen modal in Bootstrap?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `.modal-fullscreen` class on the `.modal-dialog`.
@@ -745,6 +817,8 @@ Use `.modal-fullscreen` class on the `.modal-dialog`.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `aspect-{ratio}` utilities (e.g., `aspect-video`, `aspect-square`).
 
@@ -758,6 +832,8 @@ Use `aspect-{ratio}` utilities (e.g., `aspect-video`, `aspect-square`).
 ### Q35: How do you limit text to a specific number of lines in Tailwind?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Install `@tailwindcss/line-clamp` (included in v3.3+) and use `line-clamp-{n}`.
@@ -775,6 +851,8 @@ Install `@tailwindcss/line-clamp` (included in v3.3+) and use `line-clamp-{n}`.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Wrap toasts in a `.toast-container` and use positioning utilities like `top-0 end-0`.
 
@@ -791,8 +869,10 @@ Wrap toasts in a `.toast-container` and use positioning utilities like `top-0 en
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `animate-spin`.
+Use `animate-spin`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <svg class="animate-spin h-5 w-5 mr-3" ...></svg>
@@ -804,6 +884,8 @@ Use `animate-spin`.
 ### Q38: How do you implement Scrollspy in Bootstrap?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Add `data-bs-spy='scroll'` to the scrollable element and `data-bs-target` pointing to the navigation.
@@ -821,6 +903,8 @@ Add `data-bs-spy='scroll'` to the scrollable element and `data-bs-target` pointi
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `bg-gradient-to-r`, `from-{color}`, `to-{color}`, `bg-clip-text`, and `text-transparent`.
 
@@ -837,8 +921,10 @@ Use `bg-gradient-to-r`, `from-{color}`, `to-{color}`, `bg-clip-text`, and `text-
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Use `.offcanvas` component.
+Use `.offcanvas` component. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <div class="offcanvas offcanvas-start" id="demo">
@@ -853,6 +939,8 @@ Use `.offcanvas` component.
 ### Q41: How do you add dividers between children in Tailwind?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `divide-y` or `divide-x` on the parent container.
@@ -871,8 +959,10 @@ Use `divide-y` or `divide-x` on the parent container.
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `.accordion-flush` class.
+Use `.accordion-flush` class. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -886,6 +976,8 @@ Use `.accordion-flush` class.
 ### Q43: How do you add space between children in Tailwind (Space Between)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `space-x-{n}` or `space-y-{n}` on the parent. Note: It adds margin to children except the first.
@@ -904,6 +996,8 @@ Use `space-x-{n}` or `space-y-{n}` on the parent. Note: It adds margin to childr
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `.rounded-pill` utility along with `.badge`.
 
@@ -918,8 +1012,10 @@ Use `.rounded-pill` utility along with `.badge`.
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `ring-{width}`.
+Use `ring-{width}`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <button class="focus:ring-2 focus:ring-blue-600">
@@ -934,8 +1030,10 @@ Use `ring-{width}`.
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Wrap buttons in `.btn-group`.
+Wrap buttons in `.btn-group`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <div class="btn-group" role="group">
@@ -951,6 +1049,8 @@ Wrap buttons in `.btn-group`.
 ### Q47: How do you use Container Queries in Tailwind?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Install `@tailwindcss/container-queries`. Mark parent as `@container`. Use `@lg:text-xl` etc. on children.
@@ -970,6 +1070,8 @@ Install `@tailwindcss/container-queries`. Mark parent as `@container`. Use `@lg:
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `align-items-center` on the `.row`.
 
@@ -986,6 +1088,8 @@ Use `align-items-center` on the `.row`.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Tailwind doesn't have a built-in 'invert' utility for colors specifically, but you can use `invert` filter or explicit dark mode classes.
 
@@ -1001,6 +1105,8 @@ Tailwind doesn't have a built-in 'invert' utility for colors specifically, but y
 ### Q50: How do you create a Dismissible Alert in Bootstrap?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Add `.alert-dismissible` and a close button with `data-bs-dismiss='alert'`.
@@ -1053,7 +1159,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1071,7 +1177,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1089,7 +1195,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1106,7 +1212,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1138,7 +1244,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1154,7 +1260,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1310,7 +1416,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1328,7 +1434,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1346,7 +1452,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1363,7 +1469,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1395,7 +1501,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1411,7 +1517,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1567,7 +1673,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1585,7 +1691,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1603,7 +1709,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1620,7 +1726,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1652,7 +1758,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1668,7 +1774,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1824,7 +1930,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1842,7 +1948,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1860,7 +1966,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```css
@@ -1869,5 +1975,3 @@ if (cache.has(key)) return cache.get(key);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

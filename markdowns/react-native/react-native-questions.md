@@ -1,4 +1,12 @@
-# React Native Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/react-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>React Native Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -109,6 +117,8 @@
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 1.  **getItemLayout**: Skip measurement calculation.
 2.  **windowSize**: Reduce render window (default 21).
@@ -143,6 +153,8 @@ const renderItem = React.useCallback(({ item }) => <Item title={item.title} />, 
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 1.  **Platform.select/Platform.OS:** For minor logic/style differences.
 2.  **File Extensions:** `Component.ios.js` and `Component.android.js` for completely different implementations.
@@ -171,6 +183,8 @@ if (Platform.OS === 'ios') {
 ### Q3: How do you handle deep linking in a React Native app using React Navigation?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Configure the `linking` prop in the NavigationContainer with prefixes and a config object mapping paths to screens.
@@ -201,6 +215,8 @@ const linking = {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `useSharedValue` for state and `useAnimatedStyle` to run animations on the UI thread, bypassing the JS bridge.
 
@@ -230,6 +246,8 @@ function Box() {
 ### Q5: How do you persist global state data using AsyncStorage?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `AsyncStorage.setItem` (stringified) and `AsyncStorage.getItem` (parsed). Ideally, wrap this in a custom hook or state management middleware.
@@ -263,6 +281,8 @@ const getData = async () => {
 
 **Difficulty**: Expert
 
+**Strategy**:
+
 **Strategy:**
 1.  Create a Java/Kotlin class extending `ReactContextBaseJavaModule`.
 2.  Annotate methods with `@ReactMethod`.
@@ -285,6 +305,8 @@ class CalendarModule(reactContext: ReactApplicationContext) : ReactContextBaseJa
 ### Q7: How do you handle safe area insets on devices with notches?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `SafeAreaView` from `react-native-safe-area-context` (preferred over the built-in one) or `useSafeAreaInsets` hook.
@@ -310,6 +332,8 @@ function App() {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 1.  **React Native Debugger / Flipper:** For Redux, Network, and Component tree.
 2.  **Console:** `console.log` (visible in Metro terminal).
@@ -325,6 +349,8 @@ Press `Cmd+D` (iOS) or `Cmd+M` (Android) to open the Dev Menu.
 ### Q9: How do you prevent the on-screen keyboard from covering input fields?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `KeyboardAvoidingView`. Adjust `behavior` prop based on platform (`padding` for iOS, `height` for Android often works best).
@@ -349,6 +375,8 @@ Use `KeyboardAvoidingView`. Adjust `behavior` prop based on platform (`padding` 
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `onEndReached` and `onEndReachedThreshold` props of `FlatList` to trigger a fetch function.
 
@@ -368,6 +396,8 @@ Use `onEndReached` and `onEndReachedThreshold` props of `FlatList` to trigger a 
 ### Q11: How do you use custom fonts in React Native (CLI workflow)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 1.  Add font files to `assets/fonts`.
@@ -393,6 +423,8 @@ module.exports = {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `@react-native-community/netinfo` to subscribe to network state changes.
 
@@ -413,6 +445,8 @@ useEffect(() => {
 ### Q13: How do you optimize image loading and caching?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `react-native-fast-image` for advanced caching, priority, and preloading capabilities, as the default `Image` component has limited caching control.
@@ -437,6 +471,8 @@ import FastImage from 'react-native-fast-image';
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use the `StatusBar` component with `translucent={true}` and set `backgroundColor` to transparent.
 
@@ -455,6 +491,8 @@ Use the `StatusBar` component with `translucent={true}` and set `backgroundColor
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use the **React Native Upgrade Helper** web tool to see the diff between versions.
 Run `npx react-native upgrade` (automated) or manually apply changes to `android/` and `ios/` folders based on the diff.
@@ -465,6 +503,8 @@ Run `npx react-native upgrade` (automated) or manually apply changes to `android
 ### Q16: How do you implement Stack Navigation using React Navigation?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Install `@react-navigation/native` and `@react-navigation/stack`. Wrap screens in `Stack.Navigator`.
@@ -491,6 +531,8 @@ function MyStack() {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Create a slice, configure the store, and wrap the app in `Provider`. Use `useSelector` and `useDispatch` hooks.
 
@@ -513,6 +555,8 @@ const dispatch = useDispatch();
 ### Q18: How do you use Context API for theming?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Create a `ThemeContext`. Provide the theme value. Consume it using `useContext`.
@@ -541,6 +585,8 @@ function Toolbar() {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 - **Managed:** Expo handles native code. You write only JS. limited native modules support (unless using config plugins/dev client).
 - **Bare:** You have full access to android/ios folders. Can use any native code.
@@ -560,6 +606,8 @@ function Toolbar() {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 In `android/app/build.gradle`, set `enableHermes: true`.
 
@@ -576,6 +624,8 @@ project.ext.react = [
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 TurboModules are part of the New Architecture (JSI). They allow lazy loading of native modules and direct C++ to JS communication without the asynchronous bridge serialization overhead.
 
@@ -591,6 +641,8 @@ TurboModules are part of the New Architecture (JSI). They allow lazy loading of 
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Fabric is the new UI rendering system. It moves rendering logic to C++, improving performance, interoperability with host platforms, and enabling concurrent React features.
 
@@ -605,6 +657,8 @@ Fabric is the new UI rendering system. It moves rendering logic to C++, improvin
 ### Q23: How do you handle Push Notifications with Firebase (FCM)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `@react-native-firebase/messaging`. Request permission, get token, and listen for messages.
@@ -632,6 +686,8 @@ useEffect(() => {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `react-native-maps`. Configure API key in AndroidManifest and AppDelegate.
 
@@ -658,6 +714,8 @@ import MapView, { Marker } from 'react-native-maps';
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `react-native-vision-camera` (performance) or `expo-camera`. Request permissions first.
 
@@ -677,6 +735,8 @@ return <Camera style={StyleSheet.absoluteFill} device={device} isActive={true} /
 ### Q26: How do you implement Biometric Authentication?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `expo-local-authentication` or `react-native-biometrics`.
@@ -699,6 +759,8 @@ async function authenticate() {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `accessible`, `accessibilityLabel`, and `accessibilityHint` props.
 
@@ -720,6 +782,8 @@ Use `accessible`, `accessibilityLabel`, and `accessibilityHint` props.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `i18next` and `react-i18next`. Define resources and init.
 
@@ -739,6 +803,8 @@ function MyComponent() {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `react-native-code-push` (Microsoft) or `expo-updates`.
 
@@ -756,8 +822,10 @@ App = CodePush(App); // Wrap root component
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `react-native-webview`.
+Use `react-native-webview`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 import { WebView } from 'react-native-webview';
@@ -771,6 +839,8 @@ import { WebView } from 'react-native-webview';
 ### Q31: How do you render SVG images?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `react-native-svg`. Import `Svg`, `Path`, `Circle` etc., or use `react-native-svg-transformer` to import .svg files.
@@ -789,6 +859,8 @@ import Svg, { Circle } from 'react-native-svg';
 ### Q32: How do you handle complex gestures (Drag/Swipe)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `react-native-gesture-handler` (GestureDetector) and `react-native-reanimated`.
@@ -813,8 +885,10 @@ const gesture = Gesture.Pan()
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use the `Share` API.
+Use the `Share` API. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 import { Share } from 'react-native';
@@ -833,8 +907,10 @@ const onShare = async () => {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `AppState` API.
+Use `AppState` API. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 import { AppState } from 'react-native';
@@ -856,8 +932,10 @@ useEffect(() => {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `Linking.openSettings()`.
+Use `Linking.openSettings()`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 import { Linking } from 'react-native';
@@ -871,6 +949,8 @@ import { Linking } from 'react-native';
 ### Q36: How do you securely store sensitive data (Tokens)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Do NOT use AsyncStorage. Use `expo-secure-store` or `react-native-keychain` or `react-native-encrypted-storage`.
@@ -889,8 +969,10 @@ const token = await SecureStore.getItemAsync('secure_token');
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `react-native-vector-icons`.
+Use `react-native-vector-icons`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -904,6 +986,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 ### Q38: How do you display Lottie animations?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `lottie-react-native`. Import the JSON file.
@@ -920,6 +1004,8 @@ import LottieView from 'lottie-react-native';
 ### Q39: How do you implement a Blur effect?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `@react-native-community/blur` (BlurView).
@@ -941,6 +1027,8 @@ import { BlurView } from "@react-native-community/blur";
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `react-native-linear-gradient` (or `expo-linear-gradient`).
 
@@ -959,8 +1047,10 @@ import LinearGradient from 'react-native-linear-gradient';
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `BackHandler` API.
+Use `BackHandler` API. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 useEffect(() => {
@@ -984,8 +1074,10 @@ useEffect(() => {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `react-native-device-info`.
+Use `react-native-device-info`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 import DeviceInfo from 'react-native-device-info';
@@ -1000,6 +1092,8 @@ let model = DeviceInfo.getModel();
 ### Q43: How do you copy text to the clipboard?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `@react-native-clipboard/clipboard`.
@@ -1019,8 +1113,10 @@ const copyToClipboard = () => {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use the `Modal` component.
+Use the `Modal` component. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <Modal
@@ -1044,8 +1140,10 @@ Use the `Modal` component.
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `NetInfo`.
+Use `NetInfo`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 NetInfo.fetch().then(state => {
@@ -1061,8 +1159,10 @@ NetInfo.fetch().then(state => {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Use `react-native-pager-view`.
+Use `react-native-pager-view`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 import PagerView from 'react-native-pager-view';
@@ -1080,6 +1180,8 @@ import PagerView from 'react-native-pager-view';
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use React Native Debugger (includes Network tab) or Flipper.
 
@@ -1094,6 +1196,8 @@ Use React Native Debugger (includes Network tab) or Flipper.
 ### Q48: How do you use Native Driver for Animations?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Set `useNativeDriver: true` in `Animated` configurations to offload animation to the UI thread.
@@ -1113,8 +1217,10 @@ Animated.timing(fadeAnim, {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use the `onLayout` prop.
+Use the `onLayout` prop. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 <View onLayout={(event) => {
@@ -1129,6 +1235,8 @@ Use the `onLayout` prop.
 ### Q50: How do you implement a Shadow on Android?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `elevation` style property (Android only). For iOS, use `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowRadius`.
@@ -1190,7 +1298,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1208,7 +1316,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1226,7 +1334,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1243,7 +1351,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1275,7 +1383,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1291,7 +1399,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1447,7 +1555,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1465,7 +1573,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1483,7 +1591,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1500,7 +1608,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1532,7 +1640,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1548,7 +1656,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1704,7 +1812,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1722,7 +1830,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1740,7 +1848,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1757,7 +1865,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1789,7 +1897,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1805,7 +1913,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1961,7 +2069,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1979,7 +2087,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1997,7 +2105,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2006,5 +2114,3 @@ if (cache.has(key)) return cache.get(key);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

@@ -1222,6 +1222,16 @@
       <h3 class="feature-title">Kubernetes</h3>
       <p class="feature-description">Comprehensive interview questions and answers for Kubernetes.</p>
     </a>
+    <a href="/markdowns/microservices/microservices-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🌩️</div>
+      <h3 class="feature-title">Microservices</h3>
+      <p class="feature-description">Architecture, Patterns & Best Practices.</p>
+    </a>
+    <a href="/markdowns/microfrontend/microfrontend-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
+      <div class="feature-icon">🧩</div>
+      <h3 class="feature-title">Microfrontend</h3>
+      <p class="feature-description">Frontend Architecture & Module Federation.</p>
+    </a>
     <a href="/markdowns/nextjs/nextjs-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
       <div class="feature-icon">▲</div>
       <h3 class="feature-title">Next.js</h3>
@@ -1540,6 +1550,7 @@
       let currentSlide = 0;
 
       function nextSlide() {
+        if (slides.length === 0) return;
         slides[currentSlide].classList.remove("active");
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add("active");
@@ -1580,6 +1591,7 @@
       );
 
       function showTestimonial(index) {
+        if (testimonialSlides.length === 0) return;
         testimonialSlides.forEach((slide) => slide.classList.remove("active"));
         testimonialDots.forEach((dot) => dot.classList.remove("active"));
 
@@ -1594,6 +1606,7 @@
 
       // Auto-rotate testimonials
       setInterval(() => {
+        if (testimonialSlides.length === 0) return;
         currentTestimonialIndex =
           (currentTestimonialIndex + 1) % testimonialSlides.length;
         showTestimonial(currentTestimonialIndex);
@@ -1606,16 +1619,20 @@
       const totalImageSlides = document.querySelectorAll(".image-slide").length;
 
       function showImageSlide(index) {
+        if (!imageSlides) return;
         const translateX = -index * 100;
         imageSlides.style.transform = `translateX(${translateX}%)`;
 
         imageIndicators.forEach((indicator) =>
           indicator.classList.remove("active")
         );
-        imageIndicators[index].classList.add("active");
+        if (imageIndicators[index]) {
+            imageIndicators[index].classList.add("active");
+        }
       }
 
       function changeImageSlide(direction) {
+        if (!imageSlides) return;
         currentImageIndex += direction;
 
         if (currentImageIndex >= totalImageSlides) {
@@ -1638,9 +1655,9 @@
       }, 4000);
 
       // Email subscription handling
-      document
-        .getElementById("subscriptionForm")
-        .addEventListener("submit", function (e) {
+      const subForm = document.getElementById("subscriptionForm");
+      if (subForm) {
+        subForm.addEventListener("submit", function (e) {
           e.preventDefault();
 
           const emailInput = document.getElementById("emailInput");
@@ -1662,14 +1679,17 @@
             }, 5000);
           }, 1500);
         });
+      }
 
       // Navbar scroll effect
       window.addEventListener("scroll", () => {
         const navbar = document.querySelector(".navbar");
-        if (window.scrollY > 100) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
+        if (navbar) {
+            if (window.scrollY > 100) {
+            navbar.classList.add("scrolled");
+            } else {
+            navbar.classList.remove("scrolled");
+            }
         }
       });
 
@@ -1690,7 +1710,21 @@
       // Observe feature cards
       document.querySelectorAll(".feature-card").forEach((card) => {
         observer.observe(card);
+        
+        // Add click handler for routing to dashboard
+        card.addEventListener("click", function (e) {
+          e.preventDefault();
+          const href = this.getAttribute("href");
+          
+          // Extract topic from path (e.g., /markdowns/react/react-questions.md -> react)
+          const topicMatch = href.match(/\/markdowns\/([^\/]+)\//);
+          if (topicMatch && topicMatch[1]) {
+            const topic = topicMatch[1];
+            // Navigate to dashboard with topic hash
+            window.location.href = `/dashboard.html#${topic}`;
+          }
+        });
       });
     </script>
-  </body>
+</body>
 </html>

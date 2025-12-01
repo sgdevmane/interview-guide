@@ -1440,7 +1440,7 @@ new_list = copy.deepcopy(old_list)
 **Difficulty**: Advanced
 
 **Strategy**:
-Reference counting + Cyclic Garbage Collector.
+Reference counting + Cyclic Garbage Collector. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1507,7 +1507,7 @@ def func(*args, **kwargs): print(args, kwargs)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Override `__new__` or use a decorator.
+Override `__new__` or use a decorator. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1595,7 +1595,7 @@ with open('file') as f: pass
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `cProfile` module.
+Use `cProfile` module. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1611,7 +1611,7 @@ python -m cProfile script.py
 **Difficulty**: Beginner
 
 **Strategy**:
-Concise way to create lists.
+Concise way to create lists. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1627,7 +1627,7 @@ Concise way to create lists.
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `venv` module.
+Use `venv` module. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1643,7 +1643,7 @@ python -m venv venv
 **Difficulty**: Beginner
 
 **Strategy**:
-Checks if script is run directly or imported.
+Checks if script is run directly or imported. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1659,7 +1659,7 @@ if __name__ == '__main__': main()
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `try-except-else-finally`.
+Use `try-except-else-finally`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1692,7 +1692,7 @@ ClassName.mro()
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `unittest` or `pytest`.
+Use `unittest` or `pytest`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1708,7 +1708,7 @@ def test_sum(): assert sum([1, 2]) == 3
 **Difficulty**: Intermediate
 
 **Strategy**:
-Annotations for static type checking (mypy).
+Annotations for static type checking (mypy). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1724,7 +1724,7 @@ def greeting(name: str) -> str: ...
 **Difficulty**: Advanced
 
 **Strategy**:
-Restricts attribute creation to save memory.
+Restricts attribute creation to save memory. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1757,7 +1757,7 @@ def create(cls): return cls()
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `json` module.
+Use `json` module. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1773,7 +1773,7 @@ import json; d = json.loads(s)
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `requests` library.
+Use `requests` library. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1789,7 +1789,7 @@ requests.get('https://api.com')
 **Difficulty**: Beginner
 
 **Strategy**:
-Anonymous inline function.
+Anonymous inline function. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1805,7 +1805,7 @@ add = lambda x, y: x + y
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `shutil` module.
+Use `shutil` module. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1821,7 +1821,7 @@ shutil.copy('src', 'dst')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `argparse`.
+Use `argparse`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1837,7 +1837,7 @@ parser = argparse.ArgumentParser()
 **Difficulty**: Intermediate
 
 **Strategy**:
-Standard way to log events.
+Standard way to log events. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1853,7 +1853,7 @@ logging.warning('Watch out!')
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `sqlite3` or SQLAlchemy.
+Use `sqlite3` or SQLAlchemy. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1869,7 +1869,7 @@ engine = create_engine('sqlite:///:memory:')
 **Difficulty**: Intermediate
 
 **Strategy**:
-Higher-order functions like `partial`, `reduce`.
+Higher-order functions like `partial`, `reduce`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1885,7 +1885,7 @@ partial(func, arg1)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `threading` module.
+Use `threading` module. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1901,7 +1901,7 @@ t = threading.Thread(target=func); t.start()
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `multiprocessing` module.
+Use `multiprocessing` module. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1917,7 +1917,7 @@ p = multiprocessing.Process(target=func); p.start()
 **Difficulty**: Intermediate
 
 **Strategy**:
-Double-ended queue from `collections`.
+Double-ended queue from `collections`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1933,7 +1933,7 @@ d = deque([1, 2]); d.appendleft(0)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `sorted` with key.
+Use `sorted` with key. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1949,7 +1949,7 @@ sorted(d.items(), key=lambda x: x[1])
 **Difficulty**: Beginner
 
 **Strategy**:
-Aggregates elements from iterables.
+Aggregates elements from iterables. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1965,7 +1965,7 @@ zip([1,2], ['a','b'])
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `csv` module or pandas.
+Use `csv` module or pandas. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1981,7 +1981,7 @@ csv.reader(file)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Serializing objects.
+Serializing objects. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1997,7 +1997,7 @@ pickle.dumps(obj)
 **Difficulty**: Beginner
 
 **Strategy**:
-Use Docstrings.
+Use Docstrings. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2013,7 +2013,7 @@ def func(): """Docstring"""
 **Difficulty**: Intermediate
 
 **Strategy**:
-Python Debugger.
+Python Debugger. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2029,7 +2029,7 @@ import pdb; pdb.set_trace()
 **Difficulty**: Beginner
 
 **Strategy**:
-Get index and value.
+Get index and value. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2061,7 +2061,7 @@ c = Counter('abracadabra')
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `@property` decorator.
+Use `@property` decorator. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2078,7 +2078,7 @@ def x(self): return self._x
 **Difficulty**: Intermediate
 
 **Strategy**:
-Iterator building blocks.
+Iterator building blocks. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2094,7 +2094,7 @@ itertools.cycle('ABCD')
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `subprocess`.
+Use `subprocess`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2110,7 +2110,7 @@ subprocess.run(['ls', '-l'])
 **Difficulty**: Beginner
 
 **Strategy**:
-Tool to create isolated environments.
+Tool to create isolated environments. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2126,7 +2126,7 @@ virtualenv myenv
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `pip`.
+Use `pip`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2142,7 +2142,7 @@ pip install package_name
 **Difficulty**: Beginner
 
 **Strategy**:
-Static code analyzer.
+Static code analyzer. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

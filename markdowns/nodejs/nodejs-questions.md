@@ -113,7 +113,7 @@
 
 ---
 
-### Q1:  How do you handle backpressure in a Node.js stream pipeline?
+### Q1: How do you handle backpressure in a Node.js stream pipeline?
 
 **Difficulty**: Intermediate
 
@@ -165,7 +165,7 @@ pipeline(
 ---
 
 
-### Q2:  How do you offload CPU-intensive tasks using Worker Threads?
+### Q2: How do you offload CPU-intensive tasks using Worker Threads?
 
 **Difficulty**: Intermediate
 
@@ -212,7 +212,7 @@ parentPort.postMessage(result);
 ---
 
 
-### Q3:  How do you implement a custom Transform stream to modify data on the fly?
+### Q3: How do you implement a custom Transform stream to modify data on the fly?
 
 **Difficulty**: Intermediate
 
@@ -251,7 +251,7 @@ process.stdin.pipe(upper).pipe(process.stdout);
 ---
 
 
-### Q4:  How do you handle errors in async/await middleware in Express?
+### Q4: How do you handle errors in async/await middleware in Express?
 
 **Difficulty**: Intermediate
 
@@ -289,7 +289,7 @@ app.use((err, req, res, next) => {
 ---
 
 
-### Q5:  How do you implement graceful shutdown in a Node.js server?
+### Q5: How do you implement graceful shutdown in a Node.js server?
 
 **Difficulty**: Intermediate
 
@@ -330,7 +330,7 @@ process.on('SIGTERM', () => {
 ---
 
 
-### Q6:  How do you prevent prototype pollution in Node.js applications?
+### Q6: How do you prevent prototype pollution in Node.js applications?
 
 **Difficulty**: Intermediate
 
@@ -377,7 +377,7 @@ function safeMerge(target, source) {
 ---
 
 
-### Q7:  How do you migrate from CommonJS to ES Modules (ESM) in Node.js?
+### Q7: How do you migrate from CommonJS to ES Modules (ESM) in Node.js?
 
 **Difficulty**: Intermediate
 
@@ -412,7 +412,7 @@ export function readConfig() {
 ---
 
 
-### Q8:  How do you debug memory leaks in Node.js?
+### Q8: How do you debug memory leaks in Node.js?
 
 **Difficulty**: Intermediate
 
@@ -448,7 +448,7 @@ setInterval(() => {
 ---
 
 
-### Q9:  How do you scale a Node.js application using the Cluster module?
+### Q9: How do you scale a Node.js application using the Cluster module?
 
 **Difficulty**: Intermediate
 
@@ -495,7 +495,7 @@ if (cluster.isMaster) {
 ---
 
 
-### Q10:  How do you securely hash passwords using the built-in crypto module?
+### Q10: How do you securely hash passwords using the built-in crypto module?
 
 **Difficulty**: Intermediate
 
@@ -539,7 +539,7 @@ function verifyPassword(password, storedHash) {
 ---
 
 
-### Q11:  How do you create a CLI tool with Node.js?
+### Q11: How do you create a CLI tool with Node.js?
 
 **Difficulty**: Intermediate
 
@@ -579,7 +579,7 @@ console.log(`Hello, ${args[0]}!`);
 ---
 
 
-### Q12:  How do you process large files line-by-line to keep memory usage low?
+### Q12: How do you process large files line-by-line to keep memory usage low?
 
 **Difficulty**: Intermediate
 
@@ -617,7 +617,7 @@ processLineByLine('huge-file.log');
 ---
 
 
-### Q13:  How do you handle multiple Promises concurrently but fail gracefully if one fails?
+### Q13: How do you handle multiple Promises concurrently but fail gracefully if one fails?
 
 **Difficulty**: Intermediate
 
@@ -654,7 +654,7 @@ Success: foo
 ---
 
 
-### Q14:  How do you optimize Node.js performance by caching static assets?
+### Q14: How do you optimize Node.js performance by caching static assets?
 
 **Difficulty**: Intermediate
 
@@ -686,7 +686,7 @@ app.listen(3000);
 ---
 
 
-### Q15:  How do you use Buffers to manipulate binary data?
+### Q15: How do you use Buffers to manipulate binary data?
 
 **Difficulty**: Intermediate
 
@@ -721,7 +721,7 @@ console.log(buf3.toString()); // Hello World
 ---
 
 
-### Q16:  How do you handle Implementing JWT authentication?
+### Q16: How do you handle Implementing JWT authentication?
 
 **Difficulty**: Intermediate
 
@@ -755,7 +755,7 @@ function authenticateToken(req, res, next) {
 ---
 
 
-### Q17:  How do you handle Rate limiting requests?
+### Q17: How do you handle Rate limiting requests?
 
 **Difficulty**: Intermediate
 
@@ -783,7 +783,7 @@ app.use(limiter);
 ---
 
 
-### Q18:  How do you handle Using node-postgres vs ORMs?
+### Q18: How do you handle Using node-postgres vs ORMs?
 
 **Difficulty**: Intermediate
 
@@ -811,7 +811,7 @@ async function getUser(id) {
 ---
 
 
-### Q19:  How do you handle Handling uncaught exceptions?
+### Q19: How do you handle Handling uncaught exceptions?
 
 **Difficulty**: Intermediate
 
@@ -833,7 +833,7 @@ process.on('uncaughtException', (err) => {
 ---
 
 
-### Q20:  How do you validate API requests using Joi?
+### Q20: How do you validate API requests using Joi?
 
 **Difficulty**: Intermediate
 
@@ -863,7 +863,7 @@ const validateRequest = (req, res, next) => {
 ---
 
 
-### Q21:  How do you implement structured logging using Winston?
+### Q21: How do you implement structured logging using Winston?
 
 **Difficulty**: Intermediate
 
@@ -898,7 +898,7 @@ logger.info('Hello distributed log files!');
 ---
 
 
-### Q22:  How do you handle file uploads using Multer?
+### Q22: How do you handle file uploads using Multer?
 
 **Difficulty**: Intermediate
 
@@ -926,7 +926,7 @@ const upload = multer({ storage: storage });
 ---
 
 
-### Q23:  How do you use dotenv to manage environment variables?
+### Q23: How do you use dotenv to manage environment variables?
 
 **Difficulty**: Beginner
 
@@ -951,7 +951,7 @@ console.log(process.env.API_KEY);
 ---
 
 
-### Q24:  How do you use spawn to run a child process?
+### Q24: How do you use spawn to run a child process?
 
 **Difficulty**: Intermediate
 
@@ -982,7 +982,7 @@ ls.on('close', (code) => {
 ---
 
 
-### Q25:  How do you write a simple unit test with Jest?
+### Q25: How do you write a simple unit test with Jest?
 
 **Difficulty**: Beginner
 
@@ -1011,7 +1011,7 @@ test('adds 1 + 2 to equal 3', () => {
 ---
 
 
-### Q26:  How do you use AsyncLocalStorage for request context tracking?
+### Q26: How do you use AsyncLocalStorage for request context tracking?
 
 **Difficulty**: Advanced
 
@@ -1043,7 +1043,7 @@ function logWithId(msg) {
 ---
 
 
-### Q27:  How do you Dockerize a Node.js application?
+### Q27: How do you Dockerize a Node.js application?
 
 **Difficulty**: Intermediate
 
@@ -1072,7 +1072,7 @@ CMD ["node", "server.js"]
 ---
 
 
-### Q28:  How do you use the path module to handle file paths cross-platform?
+### Q28: How do you use the path module to handle file paths cross-platform?
 
 **Difficulty**: Beginner
 
@@ -1097,7 +1097,7 @@ const absolutePath = path.resolve('static');
 ---
 
 
-### Q29:  What is the difference between `process.nextTick` and `setImmediate`?
+### Q29: What is the difference between `process.nextTick` and `setImmediate`?
 
 **Difficulty**: Advanced
 
@@ -1131,7 +1131,7 @@ console.log('End');
 ---
 
 
-### Q30:  How do you safely spawn a child process?
+### Q30: How do you safely spawn a child process?
 
 **Difficulty**: Intermediate
 
@@ -1163,7 +1163,7 @@ child.on('close', (code) => {
 ---
 
 
-### Q31:  How do you handle unhandled promise rejections globally?
+### Q31: How do you handle unhandled promise rejections globally?
 
 **Difficulty**: Intermediate
 
@@ -1185,7 +1185,7 @@ process.on('unhandledRejection', (reason, promise) => {
 ---
 
 
-### Q32:  How do you optimize garbage collection in Node.js?
+### Q32: How do you optimize garbage collection in Node.js?
 
 **Difficulty**: Advanced
 
@@ -1203,7 +1203,7 @@ node --max-old-space-size=4096 server.js
 ---
 
 
-### Q33:  How do you use Buffers safely?
+### Q33: How do you use Buffers safely?
 
 **Difficulty**: Intermediate
 
@@ -1225,7 +1225,7 @@ const unsafeBuf = Buffer.allocUnsafe(1024);
 ---
 
 
-### Q34:  How do you debug a Node.js application with the Inspector?
+### Q34: How do you debug a Node.js application with the Inspector?
 
 **Difficulty**: Beginner
 
@@ -1243,7 +1243,7 @@ node --inspect-brk server.js
 ---
 
 
-### Q35:  How do you create a secure HTTPS server?
+### Q35: How do you create a secure HTTPS server?
 
 **Difficulty**: Intermediate
 
@@ -1272,7 +1272,7 @@ https.createServer(options, (req, res) => {
 ---
 
 
-### Q36:  How do you use `util.promisify` to convert callback-based functions?
+### Q36: How do you use `util.promisify` to convert callback-based functions?
 
 **Difficulty**: Beginner
 
@@ -1297,7 +1297,7 @@ async function read() {
 ---
 
 
-### Q37:  How do you parse large JSON files without blocking the event loop?
+### Q37: How do you parse large JSON files without blocking the event loop?
 
 **Difficulty**: Advanced
 
@@ -1320,7 +1320,7 @@ fs.createReadStream('large.json')
 ---
 
 
-### Q38:  How do you implement a simple rate limiter using Redis?
+### Q38: How do you implement a simple rate limiter using Redis?
 
 **Difficulty**: Advanced
 
@@ -1346,7 +1346,7 @@ async function rateLimit(ip) {
 ---
 
 
-### Q39:  How do you use `vm` module to run untrusted code (Sandboxing)?
+### Q39: How do you use `vm` module to run untrusted code (Sandboxing)?
 
 **Difficulty**: Advanced
 
@@ -1368,7 +1368,7 @@ console.log(context.x); // 42
 ---
 
 
-### Q40:  How do you prevent blocking the Event Loop with cryptographic operations?
+### Q40: How do you prevent blocking the Event Loop with cryptographic operations?
 
 **Difficulty**: Intermediate
 
@@ -1390,7 +1390,7 @@ crypto.pbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, key) => {
 ---
 
 
-### Q41:  How do you use `require.resolve`?
+### Q41: How do you use `require.resolve`?
 
 **Difficulty**: Beginner
 
@@ -1409,7 +1409,7 @@ console.log(path); // /node_modules/express/index.js
 ---
 
 
-### Q42:  How do you implement simple middleware in pure Node.js?
+### Q42: How do you implement simple middleware in pure Node.js?
 
 **Difficulty**: Intermediate
 
@@ -1436,7 +1436,7 @@ const server = http.createServer((req, res) => {
 ---
 
 
-### Q43:  How do you use the `repl` module to create a custom shell?
+### Q43: How do you use the `repl` module to create a custom shell?
 
 **Difficulty**: Intermediate
 
@@ -1456,7 +1456,7 @@ r.context.myFunc = () => console.log('Custom function');
 ---
 
 
-### Q44:  How do you benchmark Node.js code using `perf_hooks`?
+### Q44: How do you benchmark Node.js code using `perf_hooks`?
 
 **Difficulty**: Intermediate
 
@@ -1478,7 +1478,7 @@ console.log(`Time: ${end - start}ms`);
 ---
 
 
-### Q45:  How do you serve static files without a framework?
+### Q45: How do you serve static files without a framework?
 
 **Difficulty**: Intermediate
 
@@ -1504,7 +1504,7 @@ http.createServer((req, res) => {
 ---
 
 
-### Q46:  What are the security implications of Node.js in real-time systems?
+### Q46: What are the security implications of Node.js in real-time systems?
 
 **Difficulty**: Intermediate
 
@@ -1525,7 +1525,7 @@ if (activeConnections > MAX_CONNECTIONS) {
 ---
 
 
-### Q47:  How do you debug Node.js memory leaks in distributed systems?
+### Q47: How do you debug Node.js memory leaks in distributed systems?
 
 **Difficulty**: Advanced
 
@@ -1544,7 +1544,7 @@ process.kill(process.pid, 'SIGUSR2'); // Triggers snapshot
 ---
 
 
-### Q48:  Best practices for Node.js code organization in high-traffic sites?
+### Q48: Best practices for Node.js code organization in high-traffic sites?
 
 **Difficulty**: Beginner
 
@@ -1562,7 +1562,7 @@ Layered Architecture: Controllers (HTTP), Services (Business Logic), Data Access
 ---
 
 
-### Q49:  How do you implement Node.js error handling for embedded systems?
+### Q49: How do you implement Node.js error handling for embedded systems?
 
 **Difficulty**: Intermediate
 
@@ -1585,7 +1585,7 @@ try {
 ---
 
 
-### Q50:  How do you test Node.js functionality in production environments?
+### Q50: How do you test Node.js functionality in production environments?
 
 **Difficulty**: Intermediate
 
@@ -1607,7 +1607,7 @@ app.get('/health', async (req, res) => {
 ---
 
 
-### Q51:  Explain the Node.js Event Loop phases.
+### Q51: Explain the Node.js Event Loop phases.
 
 **Difficulty**: Advanced
 
@@ -1633,7 +1633,7 @@ setImmediate(() => console.log('Check'));
 ---
 
 
-### Q52:  How does the `os` module help in scaling?
+### Q52: How does the `os` module help in scaling?
 
 **Difficulty**: Intermediate
 
@@ -1652,7 +1652,7 @@ const numCPUs = os.cpus().length;
 ---
 
 
-### Q53:  How do Worker Threads differ from Cluster module?
+### Q53: How do Worker Threads differ from Cluster module?
 
 **Difficulty**: Advanced
 
@@ -1672,7 +1672,7 @@ const { Worker, isMainThread } = require('worker_threads');
 ---
 
 
-### Q54:  How do you handle Backpressure in Streams?
+### Q54: How do you handle Backpressure in Streams?
 
 **Difficulty**: Advanced
 
@@ -1690,7 +1690,7 @@ readable.pipe(writable); // Auto-handles backpressure
 ---
 
 
-### Q55:  How do you use `heapdump`?
+### Q55: How do you use `heapdump`?
 
 **Difficulty**: Advanced
 
@@ -1709,7 +1709,7 @@ heapdump.writeSnapshot('/var/local/' + Date.now() + '.heapsnapshot');
 ---
 
 
-### Q56:  What is the Buffer class?
+### Q56: What is the Buffer class?
 
 **Difficulty**: Beginner
 
@@ -1727,12 +1727,12 @@ Buffer.from('Hello');
 ---
 
 
-### Q57:  How do you implement a custom Transform stream?
+### Q57: How do you implement a custom Transform stream?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Implement `_transform` and `_flush`.
+Implement `_transform` and `_flush`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1750,12 +1750,12 @@ class MyTransform extends Transform {
 ---
 
 
-### Q58:  How do you handle uncaught exceptions?
+### Q58: How do you handle uncaught exceptions?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-`process.on('uncaughtException')`. Log and exit.
+`process.on('uncaughtException')`. Log and exit. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1768,7 +1768,7 @@ process.on('uncaughtException', (err) => process.exit(1));
 ---
 
 
-### Q59:  What is libuv?
+### Q59: What is libuv?
 
 **Difficulty**: Advanced
 
@@ -1787,7 +1787,7 @@ fs.readFile(...);
 ---
 
 
-### Q60:  How do you secure a Node.js app?
+### Q60: How do you secure a Node.js app?
 
 **Difficulty**: Intermediate
 
@@ -1805,7 +1805,7 @@ app.use(helmet());
 ---
 
 
-### Q61:  Difference between `spawn` and `exec`?
+### Q61: Difference between `spawn` and `exec`?
 
 **Difficulty**: Intermediate
 
@@ -1824,12 +1824,12 @@ exec('ls', (err, stdout) => console.log(stdout));
 ---
 
 
-### Q62:  How do you implement a graceful shutdown?
+### Q62: How do you implement a graceful shutdown?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Handle `SIGTERM`. Close server and DB.
+Handle `SIGTERM`. Close server and DB. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1842,12 +1842,12 @@ process.on('SIGTERM', () => server.close());
 ---
 
 
-### Q63:  How do you use `util.promisify`?
+### Q63: How do you use `util.promisify`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Converts callback style to promise style.
+Converts callback style to promise style. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1860,7 +1860,7 @@ const stat = util.promisify(fs.stat);
 ---
 
 
-### Q64:  What is middleware in Express?
+### Q64: What is middleware in Express?
 
 **Difficulty**: Beginner
 
@@ -1878,12 +1878,12 @@ app.use((req, res, next) => next());
 ---
 
 
-### Q65:  How do you handle file uploads in Node?
+### Q65: How do you handle file uploads in Node?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `multer` or `formidable`.
+Use `multer` or `formidable`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1896,12 +1896,12 @@ const upload = multer({ dest: 'uploads/' });
 ---
 
 
-### Q66:  How do you implement JWT authentication?
+### Q66: How do you implement JWT authentication?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Sign payload with secret. Send token.
+Sign payload with secret. Send token. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1914,12 +1914,12 @@ jwt.sign({ id: 1 }, 'secret');
 ---
 
 
-### Q67:  How do you optimize Node.js performance?
+### Q67: How do you optimize Node.js performance?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Clustering, Caching, Gzip, Async I/O.
+Clustering, Caching, Gzip, Async I/O. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1932,7 +1932,7 @@ compression();
 ---
 
 
-### Q68:  What is the purpose of `package-lock.json`?
+### Q68: What is the purpose of `package-lock.json`?
 
 **Difficulty**: Beginner
 
@@ -1950,12 +1950,12 @@ Locks dependency versions to ensure consistent installs across environments.
 ---
 
 
-### Q69:  How do you implement logging?
+### Q69: How do you implement logging?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Winston or Pino.
+Winston or Pino. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1968,12 +1968,12 @@ logger.info('message');
 ---
 
 
-### Q70:  How do you use Environment Variables?
+### Q70: How do you use Environment Variables?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-`process.env`.
+`process.env`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1986,12 +1986,12 @@ const db = process.env.DB_URI;
 ---
 
 
-### Q71:  How do you handle CORS?
+### Q71: How do you handle CORS?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-`cors` middleware.
+`cors` middleware. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2004,12 +2004,12 @@ app.use(cors());
 ---
 
 
-### Q72:  How do you make an HTTP request?
+### Q72: How do you make an HTTP request?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-`fetch` (Node 18+), `axios`, or `http.request`.
+`fetch` (Node 18+), `axios`, or `http.request`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2022,12 +2022,12 @@ await fetch('https://api.com');
 ---
 
 
-### Q73:  What is the Cluster module?
+### Q73: What is the Cluster module?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Multi-processing to use all cores.
+Multi-processing to use all cores. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2040,12 +2040,12 @@ cluster.fork();
 ---
 
 
-### Q74:  How do you implement API rate limiting?
+### Q74: How do you implement API rate limiting?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-`express-rate-limit`.
+`express-rate-limit`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2058,12 +2058,12 @@ rateLimit({ windowMs: 60000, max: 10 });
 ---
 
 
-### Q75:  How do you parse JSON?
+### Q75: How do you parse JSON?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-`JSON.parse()` or `express.json()` middleware.
+`JSON.parse()` or `express.json()` middleware. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2076,12 +2076,12 @@ app.use(express.json());
 ---
 
 
-### Q76:  How do you implement a WebSocket server?
+### Q76: How do you implement a WebSocket server?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `ws` or `socket.io`.
+Use `ws` or `socket.io`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2094,7 +2094,7 @@ const wss = new WebSocket.Server({ port: 8080 });
 ---
 
 
-### Q77:  What is `console.dir`?
+### Q77: What is `console.dir`?
 
 **Difficulty**: Beginner
 
@@ -2112,12 +2112,12 @@ console.dir(obj, { depth: null, colors: true });
 ---
 
 
-### Q78:  How do you profile a Node app?
+### Q78: How do you profile a Node app?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-`--prof` flag or `0x` tool.
+`--prof` flag or `0x` tool. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```bash
@@ -2130,12 +2130,12 @@ node --prof app.js
 ---
 
 
-### Q79:  How do you manage configuration?
+### Q79: How do you manage configuration?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-`dotenv` or `config` module.
+`dotenv` or `config` module. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2148,12 +2148,12 @@ const config = require('config');
 ---
 
 
-### Q80:  How do you schedule tasks?
+### Q80: How do you schedule tasks?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-`node-cron` or `agenda`.
+`node-cron` or `agenda`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2166,12 +2166,12 @@ cron.schedule('* * * * *', () => console.log('Task'));
 ---
 
 
-### Q81:  How do you write unit tests?
+### Q81: How do you write unit tests?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Jest, Mocha, Chai.
+Jest, Mocha, Chai. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2184,12 +2184,12 @@ it('should return true', () => expect(true).toBe(true));
 ---
 
 
-### Q82:  How do you handle large JSON payloads?
+### Q82: How do you handle large JSON payloads?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Increase limit in body parser.
+Increase limit in body parser. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2202,12 +2202,12 @@ express.json({ limit: '50mb' });
 ---
 
 
-### Q83:  How do you use async/await with callbacks?
+### Q83: How do you use async/await with callbacks?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Wrap in Promise.
+Wrap in Promise. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2220,7 +2220,7 @@ await new Promise(resolve => cb(resolve));
 ---
 
 
-### Q84:  What is `module.exports` vs `exports`?
+### Q84: What is `module.exports` vs `exports`?
 
 **Difficulty**: Advanced
 
@@ -2239,12 +2239,12 @@ exports = { foo: 'bar' }; // Breaks
 ---
 
 
-### Q85:  How do you implement a health check endpoint?
+### Q85: How do you implement a health check endpoint?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Simple GET route.
+Simple GET route. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2257,12 +2257,12 @@ app.get('/health', (req, res) => res.send('OK'));
 ---
 
 
-### Q86:  How do you compress HTTP responses?
+### Q86: How do you compress HTTP responses?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-`compression` middleware.
+`compression` middleware. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2275,12 +2275,12 @@ app.use(compression());
 ---
 
 
-### Q87:  How do you protect against NoSQL Injection?
+### Q87: How do you protect against NoSQL Injection?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Sanitize input (remove `$` signs).
+Sanitize input (remove `$` signs). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2293,12 +2293,12 @@ const clean = req.body.username.replace(/\$/g, '');
 ---
 
 
-### Q88:  How do you implement role-based access control?
+### Q88: How do you implement role-based access control?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Middleware checking user role.
+Middleware checking user role. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2311,12 +2311,12 @@ if (req.user.role !== 'admin') return res.sendStatus(403);
 ---
 
 
-### Q89:  How do you use `EventEmitter`?
+### Q89: How do you use `EventEmitter`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Pub/Sub pattern.
+Pub/Sub pattern. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2330,12 +2330,12 @@ emitter.emit('event');
 ---
 
 
-### Q90:  How do you debug async code?
+### Q90: How do you debug async code?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-`async_hooks` or long stack traces.
+`async_hooks` or long stack traces. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2348,12 +2348,12 @@ require('longjohn');
 ---
 
 
-### Q91:  How do you serve static files?
+### Q91: How do you serve static files?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-`express.static`.
+`express.static`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2366,12 +2366,12 @@ app.use(express.static('public'));
 ---
 
 
-### Q92:  How do you implement request validation?
+### Q92: How do you implement request validation?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Joi or express-validator.
+Joi or express-validator. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2384,12 +2384,12 @@ check('email').isEmail();
 ---
 
 
-### Q93:  How do you mock dependencies in tests?
+### Q93: How do you mock dependencies in tests?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-`jest.mock()`.
+`jest.mock()`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2402,7 +2402,7 @@ jest.mock('fs');
 ---
 
 
-### Q94:  How do you handle timezones?
+### Q94: How do you handle timezones?
 
 **Difficulty**: Intermediate
 
@@ -2420,12 +2420,12 @@ moment().utc().format();
 ---
 
 
-### Q95:  How do you implement hot reload?
+### Q95: How do you implement hot reload?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Nodemon.
+Nodemon. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```bash
@@ -2438,12 +2438,12 @@ nodemon app.js
 ---
 
 
-### Q96:  How do you use MongoDB with Node?
+### Q96: How do you use MongoDB with Node?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Mongoose or native driver.
+Mongoose or native driver. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2456,12 +2456,12 @@ mongoose.connect(uri);
 ---
 
 
-### Q97:  How do you implement redis caching?
+### Q97: How do you implement redis caching?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Check cache, if miss, fetch and set cache.
+Check cache, if miss, fetch and set cache. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2474,7 +2474,7 @@ client.get('key', (err, val) => {});
 ---
 
 
-### Q98:  How do you handle sticky sessions?
+### Q98: How do you handle sticky sessions?
 
 **Difficulty**: Advanced
 
@@ -2492,12 +2492,12 @@ const RedisStore = require('connect-redis')(session);
 ---
 
 
-### Q99:  How do you implement OAuth?
+### Q99: How do you implement OAuth?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Passport.js.
+Passport.js. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2510,12 +2510,12 @@ passport.use(new GoogleStrategy(...));
 ---
 
 
-### Q100:  How do you parse command line arguments?
+### Q100: How do you parse command line arguments?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-`process.argv` or `yargs`.
+`process.argv` or `yargs`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2534,7 +2534,7 @@ Promise.reject(new Error('Fail!'));
 ---
 
 
-### Q32:  How do you optimize garbage collection in Node.js?
+### Q32: How do you optimize garbage collection in Node.js?
 
 **Difficulty**: Advanced
 
@@ -2564,7 +2564,7 @@ function addToCache(key, value) {
 ---
 
 
-### Q33:  How do you use Buffers safely?
+### Q33: How do you use Buffers safely?
 
 **Difficulty**: Intermediate
 
@@ -2589,7 +2589,7 @@ console.log(buf2.toString('hex')); // 48656c6c6f20576f726c64
 ---
 
 
-### Q34:  How do you debug a Node.js application with the Inspector?
+### Q34: How do you debug a Node.js application with the Inspector?
 
 **Difficulty**: Beginner
 
@@ -2612,7 +2612,7 @@ console.log('Paused here if inspector is attached');
 ---
 
 
-### Q35:  How do you create a secure HTTPS server?
+### Q35: How do you create a secure HTTPS server?
 
 **Difficulty**: Intermediate
 
@@ -2641,7 +2641,7 @@ https.createServer(options, (req, res) => {
 ---
 
 
-### Q36:  How do you use `util.promisify` to convert callback-based functions?
+### Q36: How do you use `util.promisify` to convert callback-based functions?
 
 **Difficulty**: Beginner
 
@@ -2671,7 +2671,7 @@ async function read() {
 ---
 
 
-### Q37:  How do you parse large JSON files without blocking the event loop?
+### Q37: How do you parse large JSON files without blocking the event loop?
 
 **Difficulty**: Advanced
 
@@ -2697,7 +2697,7 @@ if (isMainThread) {
 ---
 
 
-### Q38:  How do you implement a simple rate limiter using Redis?
+### Q38: How do you implement a simple rate limiter using Redis?
 
 **Difficulty**: Advanced
 
@@ -2729,7 +2729,7 @@ async function rateLimit(ip) {
 ---
 
 
-### Q39:  How do you use `vm` module to run untrusted code (Sandboxing)?
+### Q39: How do you use `vm` module to run untrusted code (Sandboxing)?
 
 **Difficulty**: Advanced
 
@@ -2757,7 +2757,7 @@ console.log(context.y); // 17
 ---
 
 
-### Q40:  How do you prevent blocking the Event Loop with cryptographic operations?
+### Q40: How do you prevent blocking the Event Loop with cryptographic operations?
 
 **Difficulty**: Intermediate
 
@@ -2784,7 +2784,7 @@ crypto.pbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, derivedKey) => {
 ---
 
 
-### Q41:  How do you use `require.resolve`?
+### Q41: How do you use `require.resolve`?
 
 **Difficulty**: Beginner
 
@@ -2807,7 +2807,7 @@ try {
 ---
 
 
-### Q42:  How do you implement simple middleware in pure Node.js?
+### Q42: How do you implement simple middleware in pure Node.js?
 
 **Difficulty**: Intermediate
 
@@ -2837,7 +2837,7 @@ function run(req, res) {
 ---
 
 
-### Q43:  How do you use the `repl` module to create a custom shell?
+### Q43: How do you use the `repl` module to create a custom shell?
 
 **Difficulty**: Intermediate
 
@@ -2862,7 +2862,7 @@ r.context.sayHello = (name) => `Hello ${name}`;
 ---
 
 
-### Q44:  How do you benchmark Node.js code using `perf_hooks`?
+### Q44: How do you benchmark Node.js code using `perf_hooks`?
 
 **Difficulty**: Intermediate
 
@@ -2891,7 +2891,7 @@ performance.measure('A to B', 'A', 'B');
 ---
 
 
-### Q45:  How do you serve static files without a framework?
+### Q45: How do you serve static files without a framework?
 
 **Difficulty**: Intermediate
 
@@ -3407,7 +3407,7 @@ await readFile('file.txt');
 **Difficulty**: Beginner
 
 **Strategy**:
-Function that has access to req, res, and next.
+Function that has access to req, res, and next. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3443,7 +3443,7 @@ app.post('/profile', upload.single('avatar'), ...);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Sign token on login. Verify token in middleware.
+Sign token on login. Verify token in middleware. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3508,7 +3508,7 @@ logger.info('User logged in', { userId });
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `dotenv` package.
+Use `dotenv` package. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3525,7 +3525,7 @@ console.log(process.env.DB_HOST);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `cors` middleware.
+Use `cors` middleware. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3573,7 +3573,7 @@ if (cluster.isMaster) { cluster.fork(); }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `express-rate-limit` or Redis-based limiter.
+Use `express-rate-limit` or Redis-based limiter. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3605,7 +3605,7 @@ app.use(express.json());
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `ws` or `socket.io`.
+Use `ws` or `socket.io`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3622,7 +3622,7 @@ wss.on('connection', ws => ws.send('hello'));
 **Difficulty**: Beginner
 
 **Strategy**:
-Read-Eval-Print Loop. Interactive shell.
+Read-Eval-Print Loop. Interactive shell. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3640,7 +3640,7 @@ $ node
 **Difficulty**: Advanced
 
 **Strategy**:
-Use `node --prof` or `clinic.js`.
+Use `node --prof` or `clinic.js`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3656,7 +3656,7 @@ $ clinic doctor -- node server.js
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `config` module or `dotenv`.
+Use `config` module or `dotenv`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3672,7 +3672,7 @@ const dbConfig = config.get('Customer.dbConfig');
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `node-cron` or `agenda`.
+Use `node-cron` or `agenda`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3688,7 +3688,7 @@ cron.schedule('* * * * *', () => console.log('Running task'));
 **Difficulty**: Beginner
 
 **Strategy**:
-Use Jest, Mocha, or Tape.
+Use Jest, Mocha, or Tape. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3704,7 +3704,7 @@ test('adds 1 + 2', () => { expect(sum(1, 2)).toBe(3); });
 **Difficulty**: Intermediate
 
 **Strategy**:
-Stream parsing with `JSONStream`.
+Stream parsing with `JSONStream`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3720,7 +3720,7 @@ fs.createReadStream('big.json').pipe(JSONStream.parse('*'));
 **Difficulty**: Intermediate
 
 **Strategy**:
-Wrap in Promise.
+Wrap in Promise. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3752,7 +3752,7 @@ const path = require.resolve('lodash');
 **Difficulty**: Beginner
 
 **Strategy**:
-Return 200 OK.
+Return 200 OK. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3768,7 +3768,7 @@ app.get('/health', (req, res) => res.status(200).send('OK'));
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `compression` middleware.
+Use `compression` middleware. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3800,7 +3800,7 @@ Sanitize inputs, avoid passing user input directly to query objects.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Middleware to check user role.
+Middleware to check user role. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3816,7 +3816,7 @@ if (!req.user.roles.includes('admin')) return res.sendStatus(403);
 **Difficulty**: Beginner
 
 **Strategy**:
-Extend or instantiate `EventEmitter`.
+Extend or instantiate `EventEmitter`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3833,7 +3833,7 @@ myEmitter.on('event', () => console.log('fired'));
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `async_hooks` or long stack traces.
+Use `async_hooks` or long stack traces. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3849,7 +3849,7 @@ Use `async_hooks` or long stack traces.
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `express.static`.
+Use `express.static`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3865,7 +3865,7 @@ app.use(express.static('public'));
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `express-validator` or `joi`.
+Use `express-validator` or `joi`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3881,7 +3881,7 @@ body('email').isEmail()
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `proxyquire` or Jest mocks.
+Use `proxyquire` or Jest mocks. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3897,7 +3897,7 @@ jest.mock('axios');
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `moment-timezone` or `luxon`.
+Use `moment-timezone` or `luxon`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3913,7 +3913,7 @@ DateTime.now().setZone('America/New_York');
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `nodemon`.
+Use `nodemon`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3929,7 +3929,7 @@ $ nodemon server.js
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `mongoose` or native driver.
+Use `mongoose` or native driver. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3945,7 +3945,7 @@ mongoose.connect(uri);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Check cache, if miss, fetch DB and set cache.
+Check cache, if miss, fetch DB and set cache. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3977,7 +3977,7 @@ Configure load balancer (Nginx) or use shared store (Redis).
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `passport.js` strategies.
+Use `passport.js` strategies. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -3993,7 +3993,7 @@ passport.use(new GoogleStrategy(...));
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `yargs` or `commander`.
+Use `yargs` or `commander`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

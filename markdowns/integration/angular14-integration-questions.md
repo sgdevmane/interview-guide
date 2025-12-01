@@ -1,4 +1,12 @@
-# Angular 14 Integration Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Integration Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -117,6 +125,8 @@
 ## Angular 14 New Features
 
 ### Q1: What are the key new features introduced in Angular 14?
+
+**Difficulty**: Intermediate
 
 **Answer:**
 Angular 14 introduced several significant features that enhance developer experience and application performance.
@@ -434,6 +444,8 @@ export class TypedFormComponent {
 ## Standalone Components
 
 ### Q2: How do you migrate from NgModules to Standalone Components?
+
+**Difficulty**: Intermediate
 
 **Answer:**
 Migrating to standalone components involves converting existing NgModule-based components and updating the application bootstrap process.
@@ -757,6 +769,8 @@ export const routes: Routes = [
 
 ### Q3: How do you set up and use Angular CLI auto-completion?
 
+**Difficulty**: Intermediate
+
 **Answer:**
 Angular 14 introduced CLI auto-completion to improve developer productivity.
 
@@ -946,6 +960,8 @@ ng lint --files <TAB>
 ## Optional Injectors
 
 ### Q4: How do you use optional injectors in embedded views?
+
+**Difficulty**: Intermediate
 
 **Answer:**
 Optional injectors in Angular 14 allow you to provide different dependency injection contexts for embedded views.
@@ -1341,6 +1357,8 @@ This comprehensive guide covers Angular 14's new features and integration patter
 
 ### Q5: How do you implement micro-frontend architecture with Angular 14?
 
+**Difficulty**: Intermediate
+
 **Answer:**
 Micro-frontend architecture allows teams to develop and deploy frontend applications independently. Angular 14 provides excellent support for this pattern.
 
@@ -1654,6 +1672,8 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
 ### Q6: How do you implement advanced state sharing between Angular 14 applications?
 
+**Difficulty**: Intermediate
+
 **Answer:**
 Advanced state sharing involves multiple strategies for different scenarios, from simple cross-component communication to complex distributed state management.
 
@@ -1890,6 +1910,8 @@ export class AdvancedStateSync {
 ```
 
 ### Q7: How do you implement real-time collaboration features in Angular 14?
+
+**Difficulty**: Intermediate
 
 **Answer:**
 Real-time collaboration requires WebSocket connections, operational transformation, and conflict resolution strategies.
@@ -2270,6 +2292,8 @@ export class OperationalTransformService {
 ```
 
 ### Q8: How would you implement advanced Angular 14+ integration with modern development tools and CI/CD pipelines?
+
+**Difficulty**: Intermediate
 
 **Answer:**
 Advanced Angular 14+ integration involves sophisticated tooling, automated workflows, and modern development practices to ensure scalable, maintainable, and high-performance applications.
@@ -2730,6 +2754,8 @@ export class DevServerMiddleware {
 ```
 
 ### Q9: How would you implement advanced Angular 14+ integration with modern monitoring, analytics, and observability tools?
+
+**Difficulty**: Intermediate
 
 **Answer:**
 Advanced monitoring and observability integration involves comprehensive tracking, real-time analytics, and intelligent alerting to ensure optimal application performance and user experience.
@@ -3276,6 +3302,8 @@ This comprehensive integration guide now covers advanced Angular 14 patterns inc
 
 ### Q10: How do you integrate Angular with Firebase using AngularFire?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3301,6 +3329,8 @@ export const appConfig: ApplicationConfig = {
 ---
 
 ### Q11: How do you integrate Redux DevTools with NgRx?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -3330,6 +3360,8 @@ export const appConfig: ApplicationConfig = {
 ---
 
 ### Q12: How do you integrate Tailwind CSS with Angular?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -3361,6 +3393,8 @@ module.exports = {
 
 ### Q13: How do you integrate Angular Material?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -3376,6 +3410,8 @@ module.exports = {
 ---
 
 ### Q14: How do you integrate GraphQL with Apollo in Angular?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 
@@ -3403,6 +3439,8 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
 
 ### Q15: How do you integrate Storybook with Angular?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3419,6 +3457,8 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
 ---
 
 ### Q16: How do you integrate Jest for testing in Angular?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -3446,6 +3486,8 @@ import 'jest-preset-angular/setup-jest';
 
 ### Q17: How do you integrate Cypress for E2E testing?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3459,6 +3501,8 @@ import 'jest-preset-angular/setup-jest';
 ---
 
 ### Q18: How do you integrate Google Maps?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -3489,6 +3533,8 @@ export class MapComponent {
 ---
 
 ### Q19: How do you integrate Socket.io with Angular?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 
@@ -3521,6 +3567,8 @@ export class ChatService {
 
 ### Q20: How do you integrate Stripe Elements?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -3547,6 +3595,8 @@ createToken() {
 
 ### Q21: How do you integrate Chart.js?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3566,6 +3616,8 @@ createToken() {
 ---
 
 ### Q22: How do you integrate Auth0?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 
@@ -3589,6 +3641,8 @@ provideAuth0({
 ---
 
 ### Q23: How do you integrate Angular with Docker?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -3615,6 +3669,8 @@ EXPOSE 80
 
 ### Q24: How do you integrate Internationalization (i18n)?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3628,6 +3684,8 @@ EXPOSE 80
 ---
 
 ### Q25: How do you integrate `ngx-translate` for dynamic i18n?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -3654,6 +3712,8 @@ translate.use('fr');
 
 ### Q26: How do you integrate Sentry for error tracking?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3677,6 +3737,8 @@ Sentry.init({
 
 ### Q27: How do you integrate Prettier and ESLint?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -3696,6 +3758,8 @@ Sentry.init({
 
 ### Q28: How do you integrate Husky for git hooks?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3713,6 +3777,8 @@ npm test
 
 ### Q29: How do you integrate a mock server (JSON Server)?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -3726,6 +3792,8 @@ npm test
 ---
 
 ### Q30: How do you integrate Keycloak for IAM?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 
@@ -3755,6 +3823,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 ### Q31: How do you integrate AG Grid?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3776,6 +3846,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 ### Q32: How do you integrate RxJS Operators for HTTP retry strategies?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3794,6 +3866,8 @@ http.get('/api/data').pipe(
 ---
 
 ### Q33: How do you integrate Web Workers in Angular?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 
@@ -3817,6 +3891,8 @@ worker.postMessage('hello');
 
 ### Q34: How do you integrate Service Workers (PWA)?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -3832,6 +3908,8 @@ worker.postMessage('hello');
 ---
 
 ### Q35: How do you integrate Module Federation (Micro-frontends)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Expert**
 
@@ -3852,6 +3930,8 @@ exposes: {
 
 ### Q36: How do you integrate Angular Universal (SSR)?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -3869,6 +3949,8 @@ exposes: {
 ---
 
 ### Q37: How do you integrate a Virtual Scroller (CDK)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -3888,6 +3970,8 @@ exposes: {
 ---
 
 ### Q38: How do you integrate Drag and Drop (CDK)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -3912,6 +3996,8 @@ drop(event: CdkDragDrop<string[]>) {
 
 ### Q39: How do you integrate Lottie Animations?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -3927,6 +4013,8 @@ drop(event: CdkDragDrop<string[]>) {
 ---
 
 ### Q40: How do you integrate Markdown rendering?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -3945,6 +4033,8 @@ drop(event: CdkDragDrop<string[]>) {
 ---
 
 ### Q41: How do you integrate a Date Picker (Material)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -3967,6 +4057,8 @@ drop(event: CdkDragDrop<string[]>) {
 
 ### Q42: How do you integrate Form Validation (Reactive)?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -3987,6 +4079,8 @@ email = new FormControl('', [Validators.required, Validators.email]);
 
 ### Q43: How do you integrate File Upload?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4006,6 +4100,8 @@ onFileSelected(event: any) {
 ---
 
 ### Q44: How do you integrate JWT Handling?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4032,6 +4128,8 @@ intercept(req, next) {
 
 ### Q45: How do you integrate FontAwesome?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4049,6 +4147,8 @@ icon = faCoffee;
 ---
 
 ### Q46: How do you integrate Google Analytics 4 (GA4)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4071,6 +4171,8 @@ constructor(private router: Router) {
 
 ### Q47: How do you integrate Hotjar?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4082,6 +4184,8 @@ constructor(private router: Router) {
 ---
 
 ### Q48: How do you integrate Bootstrap 5?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4097,6 +4201,8 @@ constructor(private router: Router) {
 
 ### Q49: How do you integrate PrimeNG?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4110,6 +4216,8 @@ constructor(private router: Router) {
 ---
 
 ### Q50: How do you integrate Lodash?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4129,6 +4237,8 @@ import { cloneDeep } from 'lodash';
 
 ### Q51: How do you integrate Moment.js (or Day.js)?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4145,6 +4255,8 @@ const now = dayjs().format();
 ---
 
 ### Q52: How do you integrate PDF generation (`jspdf`)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4166,6 +4278,8 @@ downloadPDF() {
 ---
 
 ### Q53: How do you integrate Excel export (`xlsx`)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4189,6 +4303,8 @@ exportExcel() {
 
 ### Q54: How do you integrate Clipboard copy?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4204,6 +4320,8 @@ exportExcel() {
 
 ### Q55: How do you integrate QR Code generation?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4218,6 +4336,8 @@ exportExcel() {
 ---
 
 ### Q56: How do you integrate Toast Notifications (`ngx-toastr`)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4239,6 +4359,8 @@ showSuccess() {
 
 ### Q57: How do you integrate Loading Spinner (Overlay)?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4251,6 +4373,8 @@ showSuccess() {
 ---
 
 ### Q58: How do you integrate Environment Variables?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4269,6 +4393,8 @@ if (environment.production) { ... }
 
 ### Q59: How do you integrate Custom Web Elements?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -4281,6 +4407,8 @@ if (environment.production) { ... }
 ---
 
 ### Q60: How do you integrate Angular with Electron?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Expert**
 
@@ -4297,6 +4425,8 @@ if (environment.production) { ... }
 
 ### Q61: How do you integrate Angular with Tauri?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Expert**
 
 **Answer:**
@@ -4311,6 +4441,8 @@ if (environment.production) { ... }
 
 ### Q62: How do you integrate Angular with Ionic?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4323,6 +4455,8 @@ if (environment.production) { ... }
 ---
 
 ### Q63: How do you integrate Push Notifications?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 
@@ -4338,6 +4472,8 @@ if (environment.production) { ... }
 
 ### Q64: How do you integrate Biometric Auth (WebAuthn)?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -4350,6 +4486,8 @@ if (environment.production) { ... }
 ---
 
 ### Q65: How do you integrate Voice Recognition (Web Speech API)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4372,6 +4510,8 @@ recognition.start();
 
 ### Q66: How do you integrate Text-to-Speech?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4388,6 +4528,8 @@ speak(text: string) {
 
 ### Q67: How do you integrate Drag and Drop File Upload?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4401,6 +4543,8 @@ speak(text: string) {
 ---
 
 ### Q68: How do you integrate Infinite Scroll?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4420,6 +4564,8 @@ speak(text: string) {
 
 ### Q69: How do you integrate Skeleton Loading?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4437,6 +4583,8 @@ speak(text: string) {
 ---
 
 ### Q70: How do you integrate Image Cropping?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4457,6 +4605,8 @@ speak(text: string) {
 
 ### Q71: How do you integrate PDF Viewer?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4474,6 +4624,8 @@ speak(text: string) {
 
 ### Q72: How do you integrate Video Player?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4488,6 +4640,8 @@ speak(text: string) {
 ---
 
 ### Q73: How do you integrate Rich Text Editor (WYSIWYG)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4505,6 +4659,8 @@ speak(text: string) {
 
 ### Q74: How do you integrate Code Highlighting?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4520,6 +4676,8 @@ speak(text: string) {
 ---
 
 ### Q75: How do you integrate Cookie Handling?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4538,6 +4696,8 @@ get() { return this.cookieService.get('Test'); }
 
 ### Q76: How do you integrate LocalStorage/SessionStorage?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4553,6 +4713,8 @@ const val = localStorage.getItem('key');
 ---
 
 ### Q77: How do you integrate Key Bindings (Hotkeys)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4570,6 +4732,8 @@ handleUndo(event: KeyboardEvent) {
 ---
 
 ### Q78: How do you integrate Screen/Device Detection?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4589,6 +4753,8 @@ breakpointObserver.observe([Breakpoints.Handset])
 
 ### Q79: How do you integrate FullCalendar?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4605,6 +4771,8 @@ breakpointObserver.observe([Breakpoints.Handset])
 
 ### Q80: How do you integrate Tooltips?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4620,6 +4788,8 @@ breakpointObserver.observe([Breakpoints.Handset])
 
 ### Q81: How do you integrate Popovers?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4632,6 +4802,8 @@ Create flexible floating panels.
 ---
 
 ### Q82: How do you integrate Modals/Dialogs?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4650,6 +4822,8 @@ dialog.open(MyDialogComponent, {
 
 ### Q83: How do you integrate Side Navigation (Drawer)?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4666,6 +4840,8 @@ dialog.open(MyDialogComponent, {
 
 ### Q84: How do you integrate Tabs?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4681,6 +4857,8 @@ dialog.open(MyDialogComponent, {
 ---
 
 ### Q85: How do you integrate Stepper?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4700,6 +4878,8 @@ dialog.open(MyDialogComponent, {
 
 ### Q86: How do you integrate Tree View?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4713,6 +4893,8 @@ dialog.open(MyDialogComponent, {
 
 ### Q87: How do you integrate Autocomplete?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4725,6 +4907,8 @@ dialog.open(MyDialogComponent, {
 ---
 
 ### Q88: How do you integrate Slider?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4741,6 +4925,8 @@ dialog.open(MyDialogComponent, {
 
 ### Q89: How do you integrate Toggle Switch?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4753,6 +4939,8 @@ dialog.open(MyDialogComponent, {
 ---
 
 ### Q90: How do you integrate Badge?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4767,6 +4955,8 @@ dialog.open(MyDialogComponent, {
 
 ### Q91: How do you integrate Progress Bar/Spinner?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4777,6 +4967,8 @@ dialog.open(MyDialogComponent, {
 ---
 
 ### Q92: How do you integrate Snackbar/Toast?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4792,6 +4984,8 @@ snackBar.open('Message archived', 'Undo', {
 
 ### Q93: How do you integrate Bottom Sheet?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4803,6 +4997,8 @@ bottomSheet.open(BottomSheetOverviewExampleSheet);
 ---
 
 ### Q94: How do you integrate Expansion Panel (Accordion)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4823,6 +5019,8 @@ bottomSheet.open(BottomSheetOverviewExampleSheet);
 
 ### Q95: How do you integrate Divider?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4833,6 +5031,8 @@ Or CSS `border-bottom`.
 ---
 
 ### Q96: How do you integrate Grid List?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4849,6 +5049,8 @@ Or CSS `border-bottom`.
 
 ### Q97: How do you integrate Virtual Keyboard?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -4860,6 +5062,8 @@ Or CSS `border-bottom`.
 ---
 
 ### Q98: How do you integrate Signature Pad?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Intermediate**
 
@@ -4874,6 +5078,8 @@ Or CSS `border-bottom`.
 
 ### Q99: How do you integrate Barcode Scanner?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -4886,6 +5092,8 @@ Listen to global `keypress` events (scanners usually emulate keyboard input).
 ---
 
 ### Q100: How do you integrate Geolocation?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4902,6 +5110,8 @@ navigator.geolocation.getCurrentPosition((position) => {
 
 ### Q101: How do you integrate Vibration?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4911,6 +5121,8 @@ navigator.geolocation.getCurrentPosition((position) => {
 ---
 
 ### Q102: How do you integrate Battery Status?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4927,6 +5139,8 @@ navigator.geolocation.getCurrentPosition((position) => {
 
 ### Q103: How do you integrate Network Status Detection?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4941,6 +5155,8 @@ window.addEventListener('online', () => { ... });
 ---
 
 ### Q104: How do you integrate Page Visibility API?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4958,6 +5174,8 @@ document.addEventListener('visibilitychange', () => {
 
 ### Q105: How do you integrate Fullscreen API?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Beginner**
 
 **Answer:**
@@ -4969,6 +5187,8 @@ document.addEventListener('visibilitychange', () => {
 
 ### Q106: How do you integrate Picture-in-Picture?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Intermediate**
 
 **Answer:**
@@ -4978,6 +5198,8 @@ document.addEventListener('visibilitychange', () => {
 ---
 
 ### Q107: How do you integrate Share API (Web Share)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Beginner**
 
@@ -4997,6 +5219,8 @@ if (navigator.share) {
 
 ### Q108: How do you integrate Payment Request API?
 
+**Difficulty**: Intermediate
+
 **Difficulty: Advanced**
 
 **Answer:**
@@ -5010,6 +5234,8 @@ request.show().then(response => ...);
 ---
 
 ### Q109: How do you integrate Bluetooth (Web Bluetooth)?
+
+**Difficulty**: Intermediate
 
 **Difficulty: Advanced**
 

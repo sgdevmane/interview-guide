@@ -1,4 +1,12 @@
-# Jest, Mocha, & Enzyme Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Testing (Jest/Mocha) Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -102,7 +110,7 @@
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `jest.mock()`.
+Use `jest.mock()`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -134,7 +142,7 @@ expect(tree).toMatchSnapshot();
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `async/await`.
+Use `async/await`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -166,7 +174,7 @@ shallow(<App />);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `jest.spyOn`.
+Use `jest.spyOn`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -182,7 +190,7 @@ const spy = jest.spyOn(video, 'play');
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `before`, `after`, `beforeEach`, `afterEach`.
+Use `before`, `after`, `beforeEach`, `afterEach`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -198,7 +206,7 @@ beforeEach(() => { ... });
 **Difficulty**: Advanced
 
 **Strategy**:
-Use `jest.useFakeTimers()`.
+Use `jest.useFakeTimers()`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -214,7 +222,7 @@ jest.advanceTimersByTime(1000);
 **Difficulty**: Advanced
 
 **Strategy**:
-Use `renderHook` from testing-library.
+Use `renderHook` from testing-library. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -230,7 +238,7 @@ const { result } = renderHook(() => useCounter());
 **Difficulty**: Advanced
 
 **Strategy**:
-Use `__esModule: true`.
+Use `__esModule: true`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -246,7 +254,7 @@ jest.mock('./mod', () => ({ __esModule: true, default: jest.fn() }));
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `toThrow()`.
+Use `toThrow()`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -310,7 +318,7 @@ const mock = jest.fn(); mock(); expect(mock).toHaveBeenCalled();
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `.skip`.
+Use `.skip`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -326,7 +334,7 @@ test.skip('broken test', () => {});
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `.only`.
+Use `.only`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -358,7 +366,7 @@ render(<App />); fireEvent.click(screen.getByText('Go'));
 **Difficulty**: Intermediate
 
 **Strategy**:
-Mock the prototype or assign to window.
+Mock the prototype or assign to window. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -390,7 +398,7 @@ A metric showing what percentage of your code is executed during tests.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `test.each`.
+Use `test.each`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -454,7 +462,7 @@ render(<Provider store={store}><App /></Provider>);
 **Difficulty**: Beginner
 
 **Strategy**:
-Test Driven Development.
+Test Driven Development. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -470,7 +478,7 @@ Test Driven Development.
 **Difficulty**: Beginner
 
 **Strategy**:
-Behavior Driven Development.
+Behavior Driven Development. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -486,7 +494,7 @@ Behavior Driven Development.
 **Difficulty**: Beginner
 
 **Strategy**:
-Unit: isolated. Integration: combined.
+Unit: isolated. Integration: combined. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -502,7 +510,7 @@ Unit: isolated. Integration: combined.
 **Difficulty**: Beginner
 
 **Strategy**:
-End to End testing.
+End to End testing. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -518,7 +526,7 @@ End to End testing.
 **Difficulty**: Beginner
 
 **Strategy**:
-Test runner by Facebook.
+Test runner by Facebook. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -534,7 +542,7 @@ expect(1).toBe(1)
 **Difficulty**: Beginner
 
 **Strategy**:
-Test framework.
+Test framework. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -550,7 +558,7 @@ describe('...', () => { ... })
 **Difficulty**: Beginner
 
 **Strategy**:
-Assertion library.
+Assertion library. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -566,7 +574,7 @@ expect(x).to.equal(y)
 **Difficulty**: Intermediate
 
 **Strategy**:
-React testing utility (older).
+React testing utility (older). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -582,7 +590,7 @@ shallow(<App />)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Focus on user behavior.
+Focus on user behavior. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -598,11 +606,11 @@ render(<App />); screen.getByText('Hi')
 **Difficulty**: Beginner
 
 **Strategy**:
-jest.fn()
+jest.fn() This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
-const mock = jest.fn()
+const mock = jest.fn() This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -614,7 +622,7 @@ const mock = jest.fn()
 **Difficulty**: Intermediate
 
 **Strategy**:
-jest.mock()
+jest.mock() This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -630,7 +638,7 @@ jest.mock('axios')
 **Difficulty**: Beginner
 
 **Strategy**:
-Compare UI to saved file.
+Compare UI to saved file. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -646,7 +654,7 @@ expect(tree).toMatchSnapshot()
 **Difficulty**: Beginner
 
 **Strategy**:
-jest -u
+jest -u This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -662,7 +670,7 @@ jest -u
 **Difficulty**: Beginner
 
 **Strategy**:
-Runs once before all tests.
+Runs once before all tests. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -678,7 +686,7 @@ beforeAll(() => { ... })
 **Difficulty**: Beginner
 
 **Strategy**:
-Runs after every test.
+Runs after every test. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -694,7 +702,7 @@ afterEach(() => { ... })
 **Difficulty**: Intermediate
 
 **Strategy**:
-async/await.
+async/await. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -710,7 +718,7 @@ test('x', async () => { ... })
 **Difficulty**: Advanced
 
 **Strategy**:
-jest.useFakeTimers()
+jest.useFakeTimers() This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -726,7 +734,7 @@ jest.advanceTimersByTime(1000)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Track calls to existing method.
+Track calls to existing method. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -742,7 +750,7 @@ jest.spyOn(obj, 'method')
 **Difficulty**: Intermediate
 
 **Strategy**:
-Mock fetch or axios.
+Mock fetch or axios. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -758,7 +766,7 @@ global.fetch = jest.fn()
 **Difficulty**: Beginner
 
 **Strategy**:
-% of code tested.
+% of code tested. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -774,7 +782,7 @@ jest --coverage
 **Difficulty**: Advanced
 
 **Strategy**:
-renderHook from RTL.
+renderHook from RTL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -790,7 +798,7 @@ const { result } = renderHook(() => useHook())
 **Difficulty**: Intermediate
 
 **Strategy**:
-Wrap in Provider.
+Wrap in Provider. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -806,7 +814,7 @@ render(<Provider><Comp /></Provider>)
 **Difficulty**: Advanced
 
 **Strategy**:
-Wrap state updates.
+Wrap state updates. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -822,7 +830,7 @@ act(() => { ... })
 **Difficulty**: Beginner
 
 **Strategy**:
-getBy, queryBy, findBy.
+getBy, queryBy, findBy. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -838,7 +846,7 @@ screen.getByRole('button')
 **Difficulty**: Intermediate
 
 **Strategy**:
-getBy throws if not found, queryBy returns null.
+getBy throws if not found, queryBy returns null. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -854,7 +862,7 @@ getBy throws if not found, queryBy returns null.
 **Difficulty**: Intermediate
 
 **Strategy**:
-findBy is async (waits).
+findBy is async (waits). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -870,7 +878,7 @@ await screen.findByText('Loaded')
 **Difficulty**: Beginner
 
 **Strategy**:
-fireEvent or userEvent.
+fireEvent or userEvent. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -886,7 +894,7 @@ fireEvent.click(btn)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Simulates real user interactions.
+Simulates real user interactions. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -902,11 +910,11 @@ userEvent.type(input, 'text')
 **Difficulty**: Beginner
 
 **Strategy**:
-screen.debug()
+screen.debug() This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
-screen.debug()
+screen.debug() This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -918,7 +926,7 @@ screen.debug()
 **Difficulty**: Beginner
 
 **Strategy**:
-test.skip or xit.
+test.skip or xit. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -934,7 +942,7 @@ test.skip('...', () => {})
 **Difficulty**: Beginner
 
 **Strategy**:
-test.only or fit.
+test.only or fit. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -950,7 +958,7 @@ test.only('...', () => {})
 **Difficulty**: Beginner
 
 **Strategy**:
-Group tests.
+Group tests. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -966,7 +974,7 @@ describe('Group', () => {})
 **Difficulty**: Intermediate
 
 **Strategy**:
-Mock window.localStorage.
+Mock window.localStorage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -982,7 +990,7 @@ Storage.prototype.getItem = jest.fn()
 **Difficulty**: Intermediate
 
 **Strategy**:
-Wrap in MemoryRouter.
+Wrap in MemoryRouter. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -998,7 +1006,7 @@ Wrap in MemoryRouter.
 **Difficulty**: Intermediate
 
 **Strategy**:
-E2E testing tool.
+E2E testing tool. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1014,7 +1022,7 @@ cy.visit('/page')
 **Difficulty**: Intermediate
 
 **Strategy**:
-E2E tool by Microsoft.
+E2E tool by Microsoft. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1046,7 +1054,7 @@ Stub provides canned answer. Mock verifies behavior.
 **Difficulty**: Advanced
 
 **Strategy**:
-Modifies code to ensure tests fail.
+Modifies code to ensure tests fail. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1062,7 +1070,7 @@ Modifies code to ensure tests fail.
 **Difficulty**: Intermediate
 
 **Strategy**:
-jest-axe.
+jest-axe. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1078,7 +1086,7 @@ expect(await axe(container)).toHaveNoViolations()
 **Difficulty**: Advanced
 
 **Strategy**:
-Compare pixels.
+Compare pixels. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1094,7 +1102,7 @@ Compare pixels.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Integration test with store.
+Integration test with store. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1110,7 +1118,7 @@ renderWithProviders(<App />)
 **Difficulty**: Intermediate
 
 **Strategy**:
-jest.setSystemTime()
+jest.setSystemTime() This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1126,7 +1134,7 @@ jest.useFakeTimers().setSystemTime(...)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Unmounts trees after test.
+Unmounts trees after test. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1142,7 +1150,7 @@ Unmounts trees after test.
 **Difficulty**: Advanced
 
 **Strategy**:
-Check `baseElement`.
+Check `baseElement`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1158,7 +1166,7 @@ within(baseElement).getByText(...)
 **Difficulty**: Advanced
 
 **Strategy**:
-Test with random data inputs.
+Test with random data inputs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1174,7 +1182,7 @@ Test with random data inputs.
 **Difficulty**: Intermediate
 
 **Strategy**:
-jest.config.js setupFilesAfterEnv.
+jest.config.js setupFilesAfterEnv. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1190,7 +1198,7 @@ jest.config.js setupFilesAfterEnv.
 **Difficulty**: Beginner
 
 **Strategy**:
-Unit > Integration > E2E.
+Unit > Integration > E2E. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1206,7 +1214,7 @@ Unit > Integration > E2E.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Wrap in StrictMode.
+Wrap in StrictMode. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1222,7 +1230,7 @@ Wrap in StrictMode.
 **Difficulty**: Advanced
 
 **Strategy**:
-Throw in component, check fallback.
+Throw in component, check fallback. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1238,7 +1246,7 @@ Throw in component, check fallback.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Render one level deep.
+Render one level deep. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1254,7 +1262,7 @@ Render one level deep.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Closer to real user usage.
+Closer to real user usage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1270,7 +1278,7 @@ Closer to real user usage.
 **Difficulty**: Advanced
 
 **Strategy**:
-Marble testing.
+Marble testing. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1286,7 +1294,7 @@ Marble testing.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Run tests in pipeline.
+Run tests in pipeline. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1302,7 +1310,7 @@ Run tests in pipeline.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Jest does it by default.
+Jest does it by default. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1318,7 +1326,7 @@ Jest does it by default.
 **Difficulty**: Beginner
 
 **Strategy**:
-Fails randomly.
+Fails randomly. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1334,7 +1342,7 @@ Fails randomly.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Isolate, fix async, mock time.
+Isolate, fix async, mock time. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1350,7 +1358,7 @@ Isolate, fix async, mock time.
 **Difficulty**: Advanced
 
 **Strategy**:
-Verify API contracts.
+Verify API contracts. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1366,7 +1374,7 @@ Verify API contracts.
 **Difficulty**: Advanced
 
 **Strategy**:
-Mock server.
+Mock server. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1382,7 +1390,7 @@ Mock server.
 **Difficulty**: Advanced
 
 **Strategy**:
-Browser env needed.
+Browser env needed. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1398,7 +1406,7 @@ Browser env needed.
 **Difficulty**: Beginner
 
 **Strategy**:
-Placeholder.
+Placeholder. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1414,7 +1422,7 @@ test.todo('implement later')
 **Difficulty**: Intermediate
 
 **Strategy**:
-requireActual.
+requireActual. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1430,7 +1438,7 @@ jest.requireActual('./mod')
 **Difficulty**: Intermediate
 
 **Strategy**:
-Manual mocks location.
+Manual mocks location. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1446,7 +1454,7 @@ Manual mocks location.
 **Difficulty**: Advanced
 
 **Strategy**:
-Heap snapshots.
+Heap snapshots. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1462,7 +1470,7 @@ Heap snapshots.
 **Difficulty**: Beginner
 
 **Strategy**:
-Linting, Types.
+Linting, Types. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1478,7 +1486,7 @@ Linting, Types.
 **Difficulty**: Advanced
 
 **Strategy**:
-jest-canvas-mock.
+jest-canvas-mock. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1494,7 +1502,7 @@ jest-canvas-mock.
 **Difficulty**: Beginner
 
 **Strategy**:
-Browser without UI.
+Browser without UI. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1510,7 +1518,7 @@ Browser without UI.
 **Difficulty**: Advanced
 
 **Strategy**:
-Lighthouse CI.
+Lighthouse CI. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1526,7 +1534,7 @@ Lighthouse CI.
 **Difficulty**: Advanced
 
 **Strategy**:
-Break things on purpose.
+Break things on purpose. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1542,7 +1550,7 @@ Break things on purpose.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Mock translation function.
+Mock translation function. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1558,7 +1566,7 @@ t = (k) => k
 **Difficulty**: Advanced
 
 **Strategy**:
-Format snapshot output.
+Format snapshot output. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

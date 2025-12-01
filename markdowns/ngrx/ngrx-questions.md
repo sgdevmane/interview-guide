@@ -1,4 +1,12 @@
-# NgRx Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>NgRx Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -109,6 +117,8 @@
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 *   **Global Store**: Single source of truth for the entire app. Used for shared state (Auth, Config). Dispatches actions, uses reducers/effects.
 *   **ComponentStore**: Local state management for a specific component or feature. Service-based, no actions/reducers needed (uses `updater`/`effect`).
@@ -131,6 +141,8 @@ StoreModule.forRoot({ movies: moviesReducer })
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use a "factory selector" function that returns the selector, or use the `props` argument carefully. Memoization breaks if arguments are dynamic. Ideally, filter data in the component or use `createSelector` to return a dictionary and pick from it.
 
@@ -148,6 +160,8 @@ export const selectTodoById = (id: string) => createSelector(
 ### Q3: How do you manage local component state using NgRx ComponentStore?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Extend `ComponentStore`, define state interface, and use `updater` for state changes and `effect` for side effects.
@@ -186,6 +200,8 @@ export class TodoStore extends ComponentStore<TodoState> {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Create an Injectable service that exposes Observables (selectors) and methods (dispatching actions). Components inject this facade instead of the Store directly.
 
@@ -214,6 +230,8 @@ export class TodoFacade {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use the `switchMap` operator. It cancels the previous inner observable (HTTP request) if a new action arrives before the previous one completes.
 
@@ -234,6 +252,8 @@ search$ = createEffect(() => this.actions$.pipe(
 ### Q6: How do you normalize deeply nested API data using NgRx Entity?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Flatten the data structure using `normalizr` or manual mapping before storing it. Use `EntityAdapter` to manage the flat collections.
@@ -257,6 +277,8 @@ const userReducer = createReducer(
 ### Q7: How do you implement runtime checks to ensure state immutability?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `store-devtools` or `ngrx-store-freeze` (meta-reducer) in development mode to throw errors if state is mutated directly.
@@ -282,6 +304,8 @@ export class AppModule {}
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 List multiple actions in the `on()` function of `createReducer`.
 
@@ -302,6 +326,8 @@ export const reducer = createReducer(
 ### Q9: How do you hydrate NgRx state from LocalStorage on app startup?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use a meta-reducer to intercept the `INIT` or `UPDATE` action and merge the state from LocalStorage.
@@ -328,6 +354,8 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
 ### Q10: How do you implement undo/redo functionality with NgRx?
 
 **Difficulty**: Expert
+
+**Strategy**:
 
 **Strategy:**
 Use a higher-order reducer (meta-reducer) that keeps a history of past and future states.
@@ -364,6 +392,8 @@ export function undoRedo(reducer: ActionReducer<State>): ActionReducer<State> {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `TestScheduler` from `rxjs/testing` to control virtual time, or `fakeAsync` with `tick`.
 
@@ -389,6 +419,8 @@ it('should debounce search', () => {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Import selectors from different feature slices and combine them using `createSelector`.
 
@@ -407,6 +439,8 @@ export const selectUserOrders = createSelector(
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 1.  **Login:** Action -> Effect (API) -> Success Action (Store Token) -> Effect (Navigate).
 2.  **Logout:** Action -> Reducer (Clear State) -> Effect (Clear Storage & Navigate).
@@ -424,6 +458,8 @@ loginSuccess$ = createEffect(() => this.actions$.pipe(
 ### Q14: How do you optimize performance when dealing with large collections in NgRx?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use `@ngrx/entity`. It stores collections as a dictionary (map) `{ ids: [], entities: {} }` providing O(1) access and easy CRUD operations.
@@ -447,6 +483,8 @@ const reducer = createReducer(
 
 **Difficulty**: Expert
 
+**Strategy**:
+
 **Strategy:**
 1.  Identify state properties in the service.
 2.  Create Actions for each state mutation.
@@ -461,6 +499,8 @@ const reducer = createReducer(
 ### Q16: How do you test NgRx Effects using Marble Diagrams?
 
 **Difficulty**: Expert
+
+**Strategy**:
 
 **Strategy:**
 Use `jasmine-marbles` or `rxjs/testing` to represent time and streams visually. Hot observables (`-a-`) simulate actions, cold (`-a|`) simulate service responses.
@@ -480,6 +520,8 @@ expectObservable(effects.load$).toBe('--c', { c: success() });
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 NgRx streams (Observables) used with the `async` pipe automatically trigger change detection when a new value is emitted, making `OnPush` highly efficient.
 
@@ -496,6 +538,8 @@ NgRx streams (Observables) used with the `async` pipe automatically trigger chan
 ### Q18: How do you implement a Polling Effect (Start/Stop)?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Listen for a 'Start' action, switchMap to a timer/interval, and `takeUntil` a 'Stop' action.
@@ -517,6 +561,8 @@ startPolling$ = createEffect(() => actions$.pipe(
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 A meta-reducer wraps the main reducer. It can inspect/log the action and state before/after the inner reducer runs.
 
@@ -536,6 +582,8 @@ export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Provide a `sortComparer` function to `createEntityAdapter`. The collection will maintain sort order on insertion/update.
 
@@ -551,6 +599,8 @@ export const adapter = createEntityAdapter<User>({
 ### Q21: How do you use `tapResponse` in ComponentStore?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 `tapResponse` safely handles side effects (success/error) in an Effect without breaking the stream on error (unlike a simple `subscribe`).
@@ -573,6 +623,8 @@ this.effect(trigger$ => trigger$.pipe(
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `signalStore` with `withState`, `withComputed`, and `withMethods`.
 
@@ -593,6 +645,8 @@ export const CounterStore = signalStore(
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 `rxMethod` creates a reactive method that can accept a value, Signal, or Observable, and run a pipeline (like Effects).
 
@@ -610,6 +664,8 @@ load = rxMethod<void>(pipe(
 ### Q24: How do you group related actions using `createActionGroup`?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `createActionGroup` to define a source and event dictionary. Reduces boilerplate and enforces consistent naming.
@@ -632,6 +688,8 @@ export const AuthActions = createActionGroup({
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `provideStore` and `provideEffects` in the `app.config.ts` providers array.
 
@@ -652,6 +710,8 @@ bootstrapApplication(App, {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Define effects as functions using `createEffect` with `inject`. No class needed.
 
@@ -667,6 +727,8 @@ export const loadUsers = createEffect(
 ### Q27: How do you enforce serializability checks for actions and state?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Enable `strictActionSerializability` and `strictStateSerializability` in store config. This prevents putting non-serializable objects (like Dates, Class instances) in the store.
@@ -687,6 +749,8 @@ provideStore(reducers, {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Implement `RouterStateSerializer` to extract only necessary router data (url, params, queryParams) into the store, keeping the state clean.
 
@@ -705,6 +769,8 @@ export class CustomSerializer implements RouterStateSerializer<MinimalRouterStat
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `provideMockStore` and `MockStore`. You can override selectors to return specific test data.
 
@@ -721,6 +787,8 @@ store.overrideSelector(selectUser, { name: 'Test' });
 ### Q30: How do you use `createFeature` to reduce boilerplate?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 `createFeature` generates the reducer, selectors, and feature name in one go.
@@ -741,6 +809,8 @@ const { selectCount } = counterFeature;
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Set `{ dispatch: false }`. Use this for side effects that don't update state (e.g., navigation, alerts, logging).
 
@@ -757,6 +827,8 @@ log$ = createEffect(() => actions$.pipe(
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `store.selectSignal(selector)`. It returns a Signal instead of an Observable, useful for Angular 17+ signal-based components.
 
@@ -772,6 +844,8 @@ count = this.store.selectSignal(selectCount);
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Catch errors in feature effects and dispatch a shared `GlobalActions.error` action. A central effect listens for this and shows a toast/snackbar.
 
@@ -785,6 +859,8 @@ catchError(error => of(GlobalActions.error({ message: error.message })))
 ### Q34: How do you use Deep Signals in SignalStore?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 SignalStore creates deep signals for nested state automatically. You can access nested properties directly as signals.
@@ -802,6 +878,8 @@ effect(() => console.log(store.user.address.city()));
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Register the feature state (`StoreModule.forFeature`) in the lazy-loaded module/route. The state slice is created only when the module loads.
 
@@ -818,6 +896,8 @@ providers: [
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `concatLatestFrom` (from `@ngrx/effects`) safely selects state within an effect without subscribing to the store manually. It's lazy and non-blocking.
 
@@ -832,6 +912,8 @@ tap(([action, user]) => ...)
 ### Q37: How do you implement a 'Reset State' meta-reducer?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Listen for a `LOGOUT` action. If received, return `undefined` to the inner reducer, forcing it to re-initialize state.
@@ -849,6 +931,8 @@ if (action.type === 'LOGOUT') {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Test it like a service. Subscribe to selectors or call effects and verify state changes or spy on dependencies.
 
@@ -863,6 +947,8 @@ store.todos$.subscribe(t => expect(t).toContain(todo));
 ### Q39: How do you manage loading/error states generically?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use a higher-order state interface (e.g., `CallState` pattern) or a shared utility to wrap entity state with `loading` and `error` flags.
@@ -881,6 +967,8 @@ interface State<T> {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Listen to `routerNavigated` from `@ngrx/router-store` in an effect to trigger actions based on successful navigation (e.g., analytics).
 
@@ -895,6 +983,8 @@ tap(action => trackPageView(action.payload.routerState.url))
 ### Q41: How do you implement Undo/Redo with SignalStore?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use `withUndoRedo` custom feature (community or manual). Maintain a history stack signal and update current state on undo.
@@ -925,6 +1015,8 @@ store.redo();
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `selectRouteParams` from RouterStore selectors combined with entity selectors.
 
@@ -948,6 +1040,8 @@ export const selectSelectedUser = createSelector(
 ### Q43: How do you optimize `OnPush` components with deep objects?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Ensure selectors return new references only when data actually changes (memoization). Avoid returning new objects `{...}` in selectors if data is unchanged.
@@ -975,6 +1069,8 @@ export const selectGood = createSelector(
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Create an effect that connects to the socket and maps incoming messages to Actions. Dispatch actions to update state.
 
@@ -998,6 +1094,8 @@ listenToMessages$ = createEffect(() => {
 ### Q45: How do you use `provideStoreDevtools`?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Add it to providers. Configure `maxAge` and `logOnly` for production.
@@ -1028,6 +1126,8 @@ bootstrapApplication(AppComponent, {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Store `page`, `pageSize`, and `total` in state. Effects trigger API calls with these params. Selectors derive the current page slice.
 
@@ -1051,6 +1151,8 @@ loadPage$ = createEffect(() => this.actions$.pipe(
 ### Q47: How do you cancel an HTTP request when the component is destroyed?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 If using `ComponentStore`, the effect is tied to the lifecycle and cancels automatically. In global Effects, listen for a specific Cancel action dispatch in `ngOnDestroy`.
@@ -1080,6 +1182,8 @@ loadData$ = createEffect(() => this.actions$.pipe(
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Avoid storing every keystroke in Redux. Use local state for the form, and dispatch a single action on Submit. Or use Reactive Forms with `ngrx-forms` (if complex).
 
@@ -1106,6 +1210,8 @@ export class ContactComponent {
 ### Q49: How do you use `ngrx-data`?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 `ngrx-data` automates standard CRUD. Define `EntityMetadataMap`, register it, and inject `EntityCollectionService<T>`.
@@ -1134,6 +1240,8 @@ export class HeroService extends EntityCollectionServiceBase<Hero> {
 ### Q50: How do you migrate from NgRx Global Store to SignalStore?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Refactor Feature States to SignalStores. Replace Selectors with computed signals. Replace Actions/Effects with `rxMethod`. Keep Global Store for truly global data (Auth).
@@ -1190,7 +1298,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1208,7 +1316,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1226,7 +1334,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1243,7 +1351,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1275,7 +1383,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1291,7 +1399,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1447,7 +1555,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1465,7 +1573,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1483,7 +1591,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1500,7 +1608,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1532,7 +1640,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1548,7 +1656,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1704,7 +1812,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1722,7 +1830,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1740,7 +1848,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1757,7 +1865,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1789,7 +1897,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1805,7 +1913,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1961,7 +2069,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1979,7 +2087,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1997,7 +2105,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2006,5 +2114,3 @@ if (cache.has(key)) return cache.get(key);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

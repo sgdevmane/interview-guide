@@ -1,3 +1,13 @@
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Kotlin Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
+
 ## Table of Contents
 
 1. [How do you prevent blocking the Main Thread when performing network operations in Kotlin?](#q1-how-do-you-prevent-blocking-the-main-thread-when-performing-network-operations-in-kotlin) <span class="beginner">Beginner</span>
@@ -107,6 +117,8 @@
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use **Coroutines**. Mark the function as `suspend` and switch to the IO dispatcher using `withContext(Dispatchers.IO)`. Call it from a `CoroutineScope` (like `viewModelScope`).
 
@@ -134,6 +146,8 @@ fun loadData() {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 *   `val`: Immutable reference (prefer this).
 *   `var`: Mutable reference.
@@ -157,6 +171,8 @@ class Service {
 ### Q3: How do you use Sealed Classes to model UI state effectively?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use **Sealed Classes** (or Interfaces) to define a restricted hierarchy. This allows exhaustive `when` expressions, ensuring all states (Loading, Success, Error) are handled.
@@ -186,6 +202,8 @@ fun render(state: UiState) {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use the **Safe Call** operator (`?.`) combined with `let` or the **Elvis Operator** (`?:`) to provide a default value or return early.
 
@@ -210,6 +228,8 @@ val len = name?.length ?: return
 ### Q5: How do you optimize collection processing using Sequences?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use **Sequences** (`asSequence()`) for large collections or multi-step chains (`map`, `filter`). Sequences evaluate lazily (element-by-element), avoiding intermediate list creation.
@@ -236,6 +256,8 @@ list.asSequence()
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use the `object` keyword. It creates a thread-safe singleton instance lazily.
 
@@ -258,6 +280,8 @@ DatabaseConnection.connect()
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Define an **Extension Function**. It looks like a member function but is resolved statically. Useful for utility methods on classes you don't own (like String or View).
 
@@ -278,6 +302,8 @@ val clean = "Hello World".removeSpaces() // "HelloWorld"
 ### Q8: How do you use `StateFlow` vs `SharedFlow` for event handling?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 *   **StateFlow:** Use for **State** (holds a value, replays last value to new collectors, similar to LiveData).
@@ -301,6 +327,8 @@ val events = _events.asSharedFlow()
 ### Q9: How do you delegate property logic using the `by` keyword?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use **Property Delegation** to reuse getter/setter logic. Common delegates are `lazy`, `observable`, or custom ones (e.g., for SharedPreferences).
@@ -326,6 +354,8 @@ var user: User by Delegates.observable(initialUser) { prop, old, new ->
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Always launch coroutines within a specific `CoroutineScope` (e.g., `viewModelScope`, `lifecycleScope`) or use `coroutineScope { }` builder. When the scope is cancelled, all children are cancelled automatically.
 
@@ -349,6 +379,8 @@ suspend fun loadTwoThings() = coroutineScope {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Mark the function as `inline` and the type parameter as `reified`. This allows you to access the type class at runtime (e.g., for JSON parsing or intent creation).
 
@@ -370,6 +402,8 @@ val user: User = parseJson(jsonString)
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `mapNotNull`. It transforms the collection and drops any `null` results in one step.
 
@@ -387,6 +421,8 @@ val numbers = inputs.mapNotNull { it.toIntOrNull() }
 ### Q13: How do you create a Domain Specific Language (DSL) in Kotlin?
 
 **Difficulty**: Expert
+
+**Strategy**:
 
 **Strategy:**
 Use **Function Literals with Receiver** (lambda with receiver). This allows you to call methods on the receiver object inside the lambda without `this`.
@@ -418,6 +454,8 @@ html {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Return a `Pair`, `Triple`, or a `data class`. Kotlin allows unpacking these directly into variables.
 
@@ -440,6 +478,8 @@ fun main() {
 ### Q15: How do you choose between `apply`, `also`, `let`, `run`, and `with`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 *   `apply`: Configure object (returns object, `this`).
@@ -469,6 +509,8 @@ val len = str?.let {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `value class` (formerly `inline class`) to wrap a single value without allocating a new object on the heap. Useful for type safety (e.g., Password, ID).
 
@@ -486,6 +528,8 @@ fun login(p: Password) {}
 ### Q17: What is the difference between `sealed class` and `sealed interface`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Both restrict hierarchy. `sealed class` allows state (constructor parameters) and default behavior. `sealed interface` allows a class to inherit from multiple sealed hierarchies (multiple inheritance of types).
@@ -506,6 +550,8 @@ class ComplexError : Error, Serializable
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `init` blocks to run code during object instantiation, immediately after the primary constructor. You can have multiple `init` blocks, executed in order.
 
@@ -523,6 +569,8 @@ class User(val name: String) {
 ### Q19: How do you make Kotlin code Java-friendly using `@JvmStatic` and `@JvmOverloads`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 - `@JvmStatic`: Generates a static method in the bytecode (instead of instance method on companion).
@@ -546,6 +594,8 @@ object Utils {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Mark a function as `tailrec` if the recursive call is the last operation. The compiler optimizes it into a fast loop, preventing StackOverflowError.
 
@@ -561,6 +611,8 @@ tailrec fun factorial(n: Int, run: Int = 1): Int {
 ### Q21: How do you create readable DSL-like code using `infix` functions?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Mark a member or extension function as `infix` to call it without dots and parentheses. It must take exactly one parameter.
@@ -578,6 +630,8 @@ val result = 3 times "Hello " // "Hello Hello Hello "
 ### Q22: How do you overload operators (e.g., `+`, `[]`)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Define a function with a specific name (`plus`, `get`, `set`, etc.) and mark it with `operator` modifier.
@@ -599,6 +653,8 @@ val p3 = p1 + p2 // Point(4, 6)
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 - `require(Boolean)`: Throws `IllegalArgumentException` (Argument validation).
 - `check(Boolean)`: Throws `IllegalStateException` (State validation).
@@ -617,6 +673,8 @@ fun setAge(age: Int) {
 ### Q24: What is the difference between `runBlocking` and `coroutineScope`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 `runBlocking` blocks the current thread until the coroutine completes (use in main/tests). `coroutineScope` suspends (does not block thread) and waits for children.
@@ -638,6 +696,8 @@ suspend fun work() = coroutineScope { // Suspends
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 `collect` processes every emission sequentially. `collectLatest` cancels the processing of the previous value if a new value arrives.
 
@@ -655,6 +715,8 @@ flow.collectLatest { value ->
 ### Q26: How do you convert a callback-based API to a Flow (`callbackFlow`)?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use `callbackFlow`. Register the callback inside, `trySend` elements, and use `awaitClose` to unregister the callback.
@@ -675,6 +737,8 @@ fun getLocationFlow(): Flow<Location> = callbackFlow {
 ### Q27: How do you ensure thread safety using `Mutex`?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use `Mutex` (Mutual Exclusion) lock. It suspends the coroutine instead of blocking the thread like `synchronized`.
@@ -697,6 +761,8 @@ suspend fun increment() {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `CoroutineExceptionHandler` attached to the scope or root coroutine. Note: It only catches uncaught exceptions (not valid for `async` which expects user to call `await`).
 
@@ -713,6 +779,8 @@ val scope = CoroutineScope(Job() + handler)
 ### Q29: How do you use `SupervisorJob` to prevent failure propagation?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 With a standard `Job`, if one child fails, the parent and all siblings are cancelled. With `SupervisorJob`, children can fail independently.
@@ -734,6 +802,8 @@ scope.launch {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 In the `common` module, define an `expect` class/function. In platform-specific modules (android, ios), provide the `actual` implementation.
 
@@ -754,6 +824,8 @@ actual fun getPlatformName(): String = "iOS"
 ### Q31: How do you generate a Sequence using `sequence { yield }`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use the `sequence` builder and `yield()` to produce values lazily. Execution suspends at `yield` and resumes when the next value is requested.
@@ -779,6 +851,8 @@ println(fibonacci.take(5).toList())
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `Nothing` has no instances. It's used as a return type for functions that never return (throw exception or infinite loop), allowing compiler optimizations.
 
@@ -798,6 +872,8 @@ val data = nullableData ?: fail("Data is null")
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 It provides an alternative name for an existing type. Useful for shortening long generic types or function types.
 
@@ -813,6 +889,8 @@ fun register(h: Handler) {}
 ### Q34: How do you control backing fields using the `field` identifier?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Inside a custom setter, use `field` to access the backing memory of the property to avoid infinite recursion.
@@ -831,6 +909,8 @@ var counter = 0
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 - `noinline`: Do not inline this lambda (e.g., passing it to another function).
 - `crossinline`: Allow inlining but forbid non-local returns (e.g., using inside a nested lambda/runnable).
@@ -847,6 +927,8 @@ inline fun execute(crossinline task: () -> Unit) {
 ### Q36: How do you use Contracts to help the compiler with smart casts?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use the `contract` builder to tell the compiler about function effects (e.g., if this function returns, argument is not null).
@@ -872,6 +954,8 @@ if (isValid(name)) {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Define an interface with `fun interface`. You can then instantiate it using a lambda.
 
@@ -890,6 +974,8 @@ val isEven = Predicate { it % 2 == 0 }
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 If a lambda parameter is a data class or Map.Entry, you can destructure it directly in the parameter list.
 
@@ -905,6 +991,8 @@ map.forEach { (key, value) ->
 ### Q39: How do you use Receiver Functions (`String.() -> Unit`)?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 A lambda with a receiver type allows you to access members of the receiver object implicitly (used in DSLs and `apply`).
@@ -926,6 +1014,8 @@ sb.buildString()
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use a Map instance as a delegate for properties. The map keys must match property names.
 
@@ -943,6 +1033,8 @@ class User(val map: Map<String, Any?>) {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use named infix functions: `shl` (shift left), `shr` (shift right), `and`, `or`, `xor`, `inv`.
 
@@ -959,6 +1051,8 @@ val result = flags and mask // 0b0010
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 - `out T` (Producer): Can only read T. `List<out String>` can accept `String` or `Any` (subtype to supertype).
 - `in T` (Consumer): Can only write T. `Comparable<in Number>` can compare `Number` or `Double`.
@@ -974,6 +1068,8 @@ interface Sink<in T> { fun put(x: T) }
 ### Q43: How do you use `Dispatchers.Unconfined`?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 It starts the coroutine in the current thread, but resumes in whatever thread the suspending function used. Generally avoided in application code.
@@ -993,6 +1089,8 @@ launch(Dispatchers.Unconfined) {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use the `buffer()` operator. It allows the emitter to continue emitting without waiting for the collector to finish processing the previous item.
 
@@ -1006,6 +1104,8 @@ flow.buffer().collect { ... }
 ### Q45: How do you combine multiple Flows (`zip`, `combine`)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 - `zip`: Waits for both flows to emit, pairs them 1-to-1.
@@ -1022,6 +1122,8 @@ flowA.combine(flowB) { a, b -> "$a-$b" }
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 `ConflatedBroadcastChannel` is deprecated. Use `StateFlow` or `SharedFlow` with `replay=1, onBufferOverflow=DROP_OLDEST`.
 
@@ -1037,6 +1139,8 @@ shared.tryEmit(1)
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Kotlin classes are final by default. Use `mockito-inline` dependency or open the class/methods with `open` modifier (not recommended just for tests).
 
@@ -1051,6 +1155,8 @@ testImplementation "org.mockito:mockito-inline:4.0.0"
 ### Q48: How do you use `measureTimeMillis` for benchmarking?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Wrap code in `measureTimeMillis` to get execution time in milliseconds.
@@ -1068,6 +1174,8 @@ println("Took $time ms")
 ### Q49: How do you create a singleton with arguments?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Kotlin `object` cannot have constructors. Use a class with a `companion object` containing a `getInstance(arg)` method (checking for null/instance).
@@ -1087,6 +1195,8 @@ class Singleton private constructor(val arg: String) {
 ### Q50: How do you use `remember` in Jetpack Compose (Kotlin context)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Although Compose specific, `remember` caches objects across recompositions. It works by storing values in the slot table.
@@ -1139,7 +1249,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1157,7 +1267,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1175,7 +1285,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1192,7 +1302,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1224,7 +1334,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1240,7 +1350,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1396,7 +1506,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1414,7 +1524,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1432,7 +1542,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1449,7 +1559,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1481,7 +1591,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1497,7 +1607,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1653,7 +1763,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1671,7 +1781,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1689,7 +1799,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1706,7 +1816,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1738,7 +1848,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1754,7 +1864,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1910,7 +2020,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1928,7 +2038,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1946,7 +2056,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```java
@@ -1955,5 +2065,3 @@ if (cache.has(key)) return cache.get(key);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

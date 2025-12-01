@@ -1,4 +1,12 @@
-# Swift & SwiftUI Interview Questions
+<div align="center">
+  <a href="https://github.com/mctavish/interview-guide" target="_blank">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+  </a>
+  <h1>Swift & SwiftUI Interview Questions & Answers</h1>
+  <p><b>Practical, code-focused questions for developers</b></p>
+</div>
+
+---
 
 ## Table of Contents
 
@@ -109,6 +117,8 @@
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 *   **Struct**: Value type (copied when passed). Stack allocated (faster). Immutable by default. No inheritance. (Use by default).
 *   **Class**: Reference type (shared instance). Heap allocated. Supports inheritance and deinitializers.
@@ -134,6 +144,8 @@ c2.name = "B" // c1 is now "B"
 ### Q2: How do you implement a thread-safe counter using Swift Actors?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Concept:**
 Actors protect their mutable state by ensuring that only one task can access that state at a time, eliminating data races.
@@ -166,6 +178,8 @@ Task {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 1.  **Lazy Containers:** Use `LazyVStack` or `LazyHStack` inside a `ScrollView`, or simply `List` (which is lazy by default).
 2.  **Identifiable:** Ensure data models conform to `Identifiable` for stable identity.
@@ -188,6 +202,8 @@ struct ContentView: View {
 ### Q4: How do you migrate legacy callback-based code to Swift Concurrency (async/await)?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use `withCheckedContinuation` or `withCheckedThrowingContinuation` to wrap the callback function.
@@ -217,6 +233,8 @@ func fetchUserAsync() async throws -> User {
 ### Q5: How do you inject dependencies into a SwiftUI view hierarchy without passing them through every initializer?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `@EnvironmentObject` for global dependencies or the `.environment` modifier.
@@ -251,6 +269,8 @@ struct ProfileView: View {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Define a custom `Error` enum and use `Result` types or `async throws`.
 
@@ -283,6 +303,8 @@ func fetchData(url: String) async throws -> Data {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Diagnosis:**
 Use `Self._printChanges()` inside the view's `body` to identify what triggered the update.
 
@@ -312,6 +334,8 @@ struct ExpensiveView: View, Equatable {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Wrap the UIKit view in a struct conforming to `UIViewRepresentable`.
 
@@ -336,6 +360,8 @@ struct MapViewWrapper: UIViewRepresentable {
 ### Q9: How do you implement Unit Tests for a ViewModel with async network calls?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Use dependency injection to mock the network service and `XCTest` expectations or async test methods.
@@ -371,6 +397,8 @@ func testViewModelFetch() async {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Bind the `NavigationStack` path to a state variable and append values to it when a deep link is received.
 
@@ -403,6 +431,8 @@ struct ContentView: View {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Difference:**
 *   `@StateObject`: Instantiates and owns the object. The object survives view re-renders. Use this when the view creates the object.
 *   `@ObservedObject`: Observes an object created elsewhere. If the view re-renders, the object might be destroyed if not held strongly by a parent.
@@ -431,6 +461,8 @@ struct ChildView: View {
 ### Q12: How do you implement custom property wrappers to validate user input automatically?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Create a struct with `@propertyWrapper` that handles the validation logic in its `wrappedValue` set block.
@@ -465,6 +497,8 @@ print(user.name) // "John"
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Concepts:**
 *   `some Protocol` (Opaque Type): Returns a specific concrete type that conforms to the protocol, but the identity is hidden. Performance is better (static dispatch).
 *   `any Protocol` (Existential Type): A box that can hold *any* type conforming to the protocol. More flexible but has runtime overhead (dynamic dispatch).
@@ -480,6 +514,8 @@ func process(items: [any Equatable]) { ... }   // Existential
 ### Q14: How do you implement Codable for a JSON response with dynamic keys?
 
 **Difficulty**: Expert
+
+**Strategy**:
 
 **Strategy:**
 Use `Dictionary<String, Value>` or a custom decoding strategy with `CodingKeys` is not sufficient. For truly dynamic keys, decoding into a Dictionary is best.
@@ -508,6 +544,8 @@ print(users["user_1"]?.name ?? "")
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Change the `id` of the view. SwiftUI considers a view with a new ID as a completely new view.
 
@@ -534,6 +572,8 @@ struct ContentView: View {
 ### Q16: How do you set up a basic Core Data Stack?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Initialize an `NSPersistentContainer`. Load persistent stores. Provide a `viewContext` for the main thread.
@@ -564,6 +604,8 @@ class CoreDataStack {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `@Published` property, listen to it with `$`, apply `debounce`, `removeDuplicates`, and `sink`.
 
@@ -590,6 +632,8 @@ class ViewModel: ObservableObject {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Set `translatesAutoresizingMaskIntoConstraints = false`. Use `NSLayoutConstraint.activate` with anchors.
 
@@ -614,6 +658,8 @@ NSLayoutConstraint.activate([
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use a generic type parameter constrained to the `Numeric` protocol.
 
@@ -634,6 +680,8 @@ print(square(5.5))     // 30.25
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 An `@escaping` closure is called *after* the function returns (e.g., async callbacks). Non-escaping is default.
 
@@ -652,6 +700,8 @@ func fetchData(completion: @escaping (String) -> Void) {
 ### Q21: How do Structs (Value Types) differ from Classes (Reference Types) in mutation?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Struct methods mutating properties must be marked `mutating`. Classes don't need this as they are reference types.
@@ -680,8 +730,10 @@ class Mover {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Use a Protocol Extension.
+Use a Protocol Extension. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 
@@ -706,6 +758,8 @@ Person().greet() // "Hello"
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Extensions can add computed properties but not stored properties.
 
@@ -725,6 +779,8 @@ let distance = 5.0.km
 ### Q24: How do you define and throw a custom Error?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Conform an enum to `Error` protocol. Use `throw` keyword.
@@ -753,6 +809,8 @@ do {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Sets use hash tables (O(1) complexity), while Arrays require iterating through elements (O(n) complexity) to find a value.
 
@@ -775,6 +833,8 @@ array.contains(2)
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use standard fonts (`.body`, `.headline`) or `scaledMetric`. SwiftUI handles scaling automatically.
 
@@ -793,6 +853,8 @@ Image(systemName: "star").frame(width: size, height: size)
 ### Q27: How do you localize strings using NSLocalizedString?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `NSLocalizedString` with a key and comment. Provide `Localizable.strings` files for languages.
@@ -814,6 +876,8 @@ let greeting = NSLocalizedString("hello_key", comment: "Greeting")
 ### Q28: What is the role of SceneDelegate vs AppDelegate?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 AppDelegate handles app-level lifecycle (launch, termination). SceneDelegate (iOS 13+) handles UI lifecycle (foreground, background) for multi-window support.
@@ -838,6 +902,8 @@ func application(_ app: UIApplication, didFinishLaunchingWithOptions...) {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Mark the test method as `async` and use `await`.
 
@@ -855,6 +921,8 @@ func testAsyncFetch() async throws {
 ### Q30: How do you configure a basic Fastfile for Fastlane?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Define lanes in `Fastfile` (Ruby) to automate tasks like testing and beta deployment.
@@ -882,6 +950,8 @@ end
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Edit `Package.swift` and add dependencies in the `dependencies` array.
 
@@ -901,6 +971,8 @@ targets: [
 ### Q32: How do you use `@MainActor` to ensure UI updates on the main thread?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Annotate a class, function, or property with `@MainActor`. The compiler enforces main thread execution.
@@ -924,6 +996,8 @@ class ViewModel: ObservableObject {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `defer` to execute code just before the current scope exits (cleanup, closing files/locks). Executed in reverse order of declaration.
 
@@ -944,6 +1018,8 @@ func process() {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Mark a property as `lazy var`. It is initialized only when first accessed. Must be mutable (`var`).
 
@@ -960,6 +1036,8 @@ class Manager {
 ### Q35: What is the difference between Computed and Stored properties?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Stored properties store a value in memory. Computed properties calculate a value every time they are accessed.
@@ -983,6 +1061,8 @@ struct Rect {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 `if let` unwrap optionals for a specific block. `guard let` unwrap optionals for the rest of the scope and requires an early exit (`return`, `throw`) if it fails.
 
@@ -1000,6 +1080,8 @@ func printName(_ name: String?) {
 ### Q37: How do you handle custom date formats with Codable?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Set `dateDecodingStrategy` on `JSONDecoder`.
@@ -1019,6 +1101,8 @@ decoder.dateDecodingStrategy = .formatted(formatter)
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `Result<Success, Failure>` is an enum representing success or failure. Useful for completion handlers.
 
@@ -1037,6 +1121,8 @@ func fetch(completion: (Result<String, Error>) -> Void) {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Functional methods for collections. `map` transforms, `filter` selects, `reduce` combines.
 
@@ -1053,6 +1139,8 @@ let sum = nums.reduce(0, +)
 ### Q40: How do you use KeyPaths in Swift?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 KeyPaths allow referring to a property without accessing it. Syntax: `\Type.property`.
@@ -1071,6 +1159,8 @@ let names = users.map(\.name)
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use a `static let shared` property and a `private init()` to prevent external instantiation.
 
@@ -1088,6 +1178,8 @@ class Settings {
 ### Q42: How do you use `DispatchGroup` to wait for multiple async tasks?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `enter()`, `leave()`, and `notify()`. `notify` block runs when enter/leave counts balance.
@@ -1114,6 +1206,8 @@ group.notify(queue: .main) {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Create `Operation` objects and use `addDependency`.
 
@@ -1134,6 +1228,8 @@ queue.addOperations([op1, op2], waitUntilFinished: false)
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `URLCache` and configure `URLSessionConfiguration`.
 
@@ -1151,6 +1247,8 @@ let session = URLSession(configuration: config)
 ### Q45: How do you implement the Factory Pattern?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use a factory class/method to create objects without exposing instantiation logic.
@@ -1175,6 +1273,8 @@ class ButtonFactory {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Post notifications and add observers. Remember to remove observers (though simpler in iOS 9+).
 
@@ -1193,6 +1293,8 @@ NotificationCenter.default.addObserver(forName: .myNotif, object: nil, queue: .m
 ### Q47: How do you use the Coordinator Pattern for navigation?
 
 **Difficulty**: Advanced
+
+**Strategy**:
 
 **Strategy:**
 Delegate navigation responsibility to a Coordinator object instead of ViewControllers pushing others directly.
@@ -1223,6 +1325,8 @@ class MainCoordinator: Coordinator {
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 Use `autoreleasepool` inside loops creating many temporary objects to free memory immediately.
 
@@ -1243,8 +1347,10 @@ for _ in 0..<10000 {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
-Use `#available` check.
+Use `#available` check. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example:**
 
@@ -1261,6 +1367,8 @@ if #available(iOS 15, *) {
 ### Q50: How do you prevent a retain cycle in a Delegate?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Mark the delegate property as `weak`.
@@ -1317,7 +1425,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1335,7 +1443,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1353,7 +1461,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1370,7 +1478,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1402,7 +1510,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1418,7 +1526,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1574,7 +1682,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1592,7 +1700,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1610,7 +1718,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1627,7 +1735,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1659,7 +1767,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1675,7 +1783,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1831,7 +1939,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1849,7 +1957,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1867,7 +1975,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1884,7 +1992,7 @@ if (cache.has(key)) return cache.get(key);
 **Difficulty**: Beginner
 
 **Strategy**:
-Use environment variables or config files.
+Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1916,7 +2024,7 @@ t('welcome_message')
 **Difficulty**: Beginner
 
 **Strategy**:
-Use semantic HTML and ARIA roles.
+Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -1932,7 +2040,7 @@ Use semantic HTML and ARIA roles.
 **Difficulty**: Advanced
 
 **Strategy**:
-Use batching, debouncing, or GraphQL.
+Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -2088,7 +2196,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 **Difficulty**: Advanced
 
 **Strategy**:
-Use CI/CD pipelines. Dockerize the application.
+Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -2106,7 +2214,7 @@ steps:
 **Difficulty**: Advanced
 
 **Strategy**:
-Use locks, queues, or atomic operations.
+Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -2124,7 +2232,7 @@ await mutex.runExclusive(async () => {
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use Redis or in-memory LRU caches.
+Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```swift
@@ -2133,5 +2241,3 @@ if (cache.has(key)) return cache.get(key);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

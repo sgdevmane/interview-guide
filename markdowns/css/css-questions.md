@@ -120,6 +120,8 @@
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 **Difficulty: Intermediate**
 
@@ -164,6 +166,8 @@ We can then place items on this grid spanning multiple columns.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 **Difficulty: Intermediate**
 
@@ -204,6 +208,8 @@ There are multiple ways (Flexbox/Grid are preferred), but for absolute positioni
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 **Difficulty: Intermediate**
 
@@ -240,6 +246,8 @@ footer {
 ### Q4: How do you implement a pure CSS tooltip?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 **Difficulty: Intermediate**
@@ -285,6 +293,8 @@ Show it on hover.
 ### Q5: How do you create a custom checkbox using CSS?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 **Difficulty: Intermediate**
@@ -337,6 +347,8 @@ Show it on hover.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 **Difficulty: Advanced**
 
@@ -371,6 +383,8 @@ body {
 ### Q7: How do you create a responsive aspect ratio box (e.g., 16:9 video embed)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -413,6 +427,8 @@ Old hack: Use `padding-top` percentage on a container (percentage is based on wi
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 **Difficulty: Advanced**
 
@@ -446,6 +462,8 @@ Multi-line: Use `line-clamp` (webkit prefixed, but standardizing).
 ### Q9: How do you use Container Queries to build component-based responsive styles?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -483,6 +501,8 @@ Container Queries allow components to style themselves based on the size of thei
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 **Difficulty: Advanced**
 
@@ -518,6 +538,8 @@ Container Queries allow components to style themselves based on the size of thei
 ### Q11: How do you implement a parallax scrolling effect purely in CSS?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -564,6 +586,8 @@ Elements "further away" (negative Z) move slower than elements closer.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 **Difficulty: Advanced**
 
@@ -594,6 +618,8 @@ Use a utility class that clips the element to 1px rect.
 ### Q13: How do you implement a CSS Triangle?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -628,6 +654,8 @@ Use transparent borders. A box with 0 width/height and thick borders creates tri
 ### Q14: How do you prevent content layout shift (CLS) for images?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -664,6 +692,8 @@ Always define `width` and `height` attributes (or aspect-ratio) so the browser r
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 **Difficulty: Advanced**
 
@@ -697,6 +727,8 @@ Pure CSS masonry is tricky.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `display: flex` on the container. `justify-content: space-between` pushes logo and links apart. `align-items: center` vertically centers them.
 
@@ -717,6 +749,8 @@ Use `display: flex` on the container. `justify-content: space-between` pushes lo
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `flex-grow`: How much space to take (0 default). `flex-shrink`: How much to shrink (1 default). `flex-basis`: Initial size. `flex: 1` sets grow:1, shrink:1, basis:0%.
 
@@ -735,6 +769,8 @@ Use `display: flex` on the container. `justify-content: space-between` pushes lo
 ### Q18: How do you implement a sidebar layout with Flexbox?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Container: `display: flex`. Sidebar: Fixed width or `flex: 0 0 250px`. Main content: `flex: 1` to take remaining space.
@@ -760,6 +796,8 @@ Container: `display: flex`. Sidebar: Fixed width or `flex: 0 0 250px`. Main cont
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `justify-items`: Horizontal alignment (start, center, end, stretch). `align-items`: Vertical alignment. Defaults to `stretch`.
 
@@ -780,6 +818,8 @@ Container: `display: flex`. Sidebar: Fixed width or `flex: 0 0 250px`. Main cont
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Defines a size range. `minmax(100px, 1fr)` means at least 100px, but stretch to fill 1fr if space allows.
 
@@ -798,6 +838,8 @@ Defines a size range. `minmax(100px, 1fr)` means at least 100px, but stretch to 
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Place items in the same grid cell(s) using line numbers. Later items stack on top (control with z-index if needed).
 
@@ -814,6 +856,8 @@ Place items in the same grid cell(s) using line numbers. Later items stack on to
 ### Q22: How do you use `z-index` and stacking contexts effectively?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 `z-index` only works on positioned elements (relative, absolute, fixed, sticky) or flex/grid children. A new stacking context is created by opacity < 1, transform, filter, etc.
@@ -834,6 +878,8 @@ Place items in the same grid cell(s) using line numbers. Later items stack on to
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Check if the element has `position` set (if not flex/grid child). Check parent stacking contexts (e.g., parent has `overflow: hidden` or `opacity`). Use browser devtools 'Layers' view.
 
@@ -850,6 +896,8 @@ Check if the element has `position` set (if not flex/grid child). Check parent s
 ### Q24: How do you style a scrollbar using `::-webkit-scrollbar`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use pseudo-elements: `::-webkit-scrollbar` (width), `::-webkit-scrollbar-track` (background), `::-webkit-scrollbar-thumb` (handle).
@@ -868,6 +916,8 @@ Use pseudo-elements: `::-webkit-scrollbar` (width), `::-webkit-scrollbar-track` 
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Apply to `html` or a scroll container to enable smooth scrolling for anchor links.
 
@@ -885,6 +935,8 @@ html {
 ### Q26: How do you use `scroll-snap-type` for snapping sections?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Container: `scroll-snap-type: y mandatory`. Children: `scroll-snap-align: start`.
@@ -910,6 +962,8 @@ Container: `scroll-snap-type: y mandatory`. Children: `scroll-snap-align: start`
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Remove default margins/paddings to ensure consistency. Minimal reset: `* { margin: 0; padding: 0; box-sizing: border-box; }`.
 
@@ -930,6 +984,8 @@ Remove default margins/paddings to ensure consistency. Minimal reset: `* { margi
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Apply it to `*` and pseudo-elements. It includes padding and border in the element's total width/height.
 
@@ -947,6 +1003,8 @@ Apply it to `*` and pseudo-elements. It includes padding and border in the eleme
 ### Q29: How do you style inputs to look consistent across browsers?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Reset `appearance: none`, border, background, and font inheritance.
@@ -969,6 +1027,8 @@ input {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Never set `outline: none` without a replacement. Use `box-shadow` or a custom `outline` for accessibility.
 
@@ -987,6 +1047,8 @@ button:focus-visible {
 ### Q31: How do you style a broken image using `img::before`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 The `::before` and `::after` pseudo-elements on `img` only render if the image fails to load. Use absolute positioning to cover the broken icon.
@@ -1014,6 +1076,8 @@ img::before {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use the `::marker` pseudo-element on `li` or `summary`. Supports `color`, `font-*`, `content`.
 
@@ -1032,6 +1096,8 @@ li::marker {
 ### Q33: How do you use `object-fit` and `object-position` for images?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 `object-fit: cover` crops image to fill container. `object-position` adjusts the crop focus.
@@ -1054,6 +1120,8 @@ img {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `cover`: Fills entire area, cropping if needed. `contain`: Shows entire image, leaving space if needed.
 
@@ -1074,6 +1142,8 @@ img {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `linear-gradient`, `radial-gradient`, or `conic-gradient` as `background-image`.
 
@@ -1091,6 +1161,8 @@ Use `linear-gradient`, `radial-gradient`, or `conic-gradient` as `background-ima
 ### Q36: How do you create a text gradient?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Background clip text + transparent text color.
@@ -1112,6 +1184,8 @@ Background clip text + transparent text color.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Defines a clipping region. Parts outside are hidden. Use `polygon()`, `circle()`, `ellipse()`, or `path()`.
 
@@ -1132,6 +1206,8 @@ Defines a clipping region. Parts outside are hidden. Use `polygon()`, `circle()`
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Uses an image (alpha channel) to mask element visibility. Black = visible, Transparent = hidden.
 
@@ -1150,6 +1226,8 @@ Uses an image (alpha channel) to mask element visibility. Black = visible, Trans
 ### Q39: How do you use `backdrop-filter` for glassmorphism?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Applies filter to area *behind* the element. Requires semi-transparent background.
@@ -1170,6 +1248,8 @@ Applies filter to area *behind* the element. Requires semi-transparent backgroun
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Applies graphical effects to the element itself.
 
@@ -1187,6 +1267,8 @@ img:hover {
 ### Q41: How do you use `mix-blend-mode` for blending effects?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Blends element with its parent/background (like Photoshop layers).
@@ -1206,6 +1288,8 @@ Blends element with its parent/background (like Photoshop layers).
 ### Q42: How do you implement a loading spinner with CSS animations?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Rotate a border with one transparent side.
@@ -1230,8 +1314,10 @@ Rotate a border with one transparent side.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Translate X back and forth rapidly.
+Translate X back and forth rapidly. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Snippet:**
 ```css
@@ -1251,8 +1337,10 @@ Translate X back and forth rapidly.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Use `animation-play-state`.
+Use `animation-play-state`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Snippet:**
 ```css
@@ -1268,6 +1356,8 @@ Use `animation-play-state`.
 ### Q45: How do you use CSS transitions for hover effects?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Define `transition` on the base state, not the hover state.
@@ -1291,6 +1381,8 @@ Define `transition` on the base state, not the hover state.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Selects elements that do NOT match the selector.
 
@@ -1308,6 +1400,8 @@ li:not(:last-child) {
 ### Q47: How do you use the `:has()` pseudo-class (parent selector)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Selects a parent if it contains a specific child. 'Parent selector'.
@@ -1328,6 +1422,8 @@ Selects a parent if it contains a specific child. 'Parent selector'.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `is()` and `:where()` group selectors. `:is()` takes specificity of most specific arg. `:where()` has 0 specificity.
 
@@ -1345,6 +1441,8 @@ Selects a parent if it contains a specific child. 'Parent selector'.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `:nth-child` counts ALL children. `:nth-of-type` counts only children of that tag type.
 
@@ -1361,6 +1459,8 @@ p:nth-of-type(2) { font-weight: bold; }
 ### Q50: How do you use `::first-letter` and `::first-line`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Styles the first letter or first line of a block element.
@@ -1381,6 +1481,8 @@ p::first-letter {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `[attr]` (exists), `[attr=val]` (exact), `[attr*=val]` (contains), `[attr^=val]` (starts), `[attr$=val]` (ends).
 
@@ -1398,8 +1500,10 @@ input[type="text"] { width: 100%; }
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Use `::placeholder` pseudo-element.
+Use `::placeholder` pseudo-element. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Snippet:**
 ```css
@@ -1416,6 +1520,8 @@ input::placeholder {
 ### Q53: How do you style selection color (`::selection`)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `::selection` pseudo-element. Only supports color, background, text-shadow.
@@ -1435,6 +1541,8 @@ Use `::selection` pseudo-element. Only supports color, background, text-shadow.
 ### Q54: How do you use CSS Variables for spacing and typography scales?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Define vars in `:root` for global reuse.
@@ -1456,8 +1564,10 @@ Define vars in `:root` for global reuse.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Perform math mixing units.
+Perform math mixing units. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Snippet:**
 ```css
@@ -1472,6 +1582,8 @@ Perform math mixing units.
 ### Q56: How do you use `clamp()` for responsive typography?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 `clamp(min, preferred, max)`. Font size scales with viewport but stays within bounds.
@@ -1491,6 +1603,8 @@ h1 {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `100vh` is full height. `100dvh` (dynamic) accounts for mobile browser bars expanding/collapsing.
 
@@ -1508,6 +1622,8 @@ h1 {
 ### Q58: How do you handle notch areas on mobile (`safe-area-inset`)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `env(safe-area-inset-*)` in padding/margin.
@@ -1528,6 +1644,8 @@ body {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `@media (prefers-contrast: more)`. Avoid relying solely on color.
 
@@ -1545,6 +1663,8 @@ Use `@media (prefers-contrast: more)`. Avoid relying solely on color.
 ### Q60: How do you use `@media (prefers-reduced-motion)`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Disable or reduce animations for users prone to motion sickness.
@@ -1564,6 +1684,8 @@ Disable or reduce animations for users prone to motion sickness.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Feature queries. Apply styles only if browser supports a property.
 
@@ -1581,6 +1703,8 @@ Feature queries. Apply styles only if browser supports a property.
 ### Q62: How do you use `@font-face` to load custom fonts?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Define font family and source files (woff2 preferred).
@@ -1600,6 +1724,8 @@ Define font family and source files (woff2 preferred).
 ### Q63: How do you use `font-display: swap` for performance?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Shows fallback font immediately, swaps to custom font when loaded (avoids invisible text).
@@ -1621,6 +1747,8 @@ Shows fallback font immediately, swaps to custom font when loaded (avoids invisi
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `user-select: none`. Useful for buttons/UI controls.
 
@@ -1638,6 +1766,8 @@ Use `user-select: none`. Useful for buttons/UI controls.
 ### Q65: How do you enable hardware acceleration for animations?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `transform: translateZ(0)` or `will-change` to promote element to a new layer.
@@ -1657,6 +1787,8 @@ Use `transform: translateZ(0)` or `will-change` to promote element to a new laye
 ### Q66: How do you style a `details` and `summary` element?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Style `summary` for the header (cursor pointer, remove list-style). Content shows when open.
@@ -1678,6 +1810,8 @@ details[open] { background: #f9f9f9; }
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `appearance: none` and style `::-webkit-slider-thumb` and `::-webkit-slider-runnable-track`.
 
@@ -1695,6 +1829,8 @@ input[type=range]::-webkit-slider-thumb { appearance: none; height: 20px; width:
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Hide the actual input `display: none` and use a `label` styled as a button.
 
@@ -1711,6 +1847,8 @@ input[type=file] { display: none; }
 ### Q69: How do you create a custom toggle switch?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Hide checkbox. Style label as track, `::after` as thumb. Change position on `:checked`.
@@ -1731,8 +1869,10 @@ Hide checkbox. Style label as track, `::after` as thumb. Change position on `:ch
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Show submenu on parent hover.
+Show submenu on parent hover. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Snippet:**
 ```css
@@ -1747,6 +1887,8 @@ Show submenu on parent hover.
 ### Q71: How do you create a pure CSS modal (using `:target` or checkbox hack)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Use `:target` to show modal when URL matches `#modal-id`.
@@ -1765,6 +1907,8 @@ Use `:target` to show modal when URL matches `#modal-id`.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use Radio buttons (for one open at a time) or Checkboxes + Labels.
 
@@ -1781,6 +1925,8 @@ input:checked + .content { max-height: 200px; }
 ### Q73: How do you create a pure CSS tab system?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Radio buttons + Labels. Content hidden by default, shown when corresponding radio is checked.
@@ -1799,6 +1945,8 @@ Radio buttons + Labels. Content hidden by default, shown when corresponding radi
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Initialize with `counter-reset`, increment with `counter-increment`, display with `content: counter(name)`.
 
@@ -1816,6 +1964,8 @@ li::before { counter-increment: item; content: counter(item) '. '; }
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Inserts generated content. Can be string, url, counter, or attr().
 
@@ -1831,6 +1981,8 @@ a::after { content: ' (' attr(href) ')'; }
 ### Q76: How do you handle text overflow in a table cell?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 `table-layout: fixed`, width on cell, and text-overflow props.
@@ -1853,6 +2005,8 @@ td {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Scrollable: Wrap in `overflow-x: auto` div. Stacked: `@media` query, `display: block` for rows/cells.
 
@@ -1869,8 +2023,10 @@ Scrollable: Wrap in `overflow-x: auto` div. Stacked: `@media` query, `display: b
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Use `:nth-child(even)` or `odd`.
+Use `:nth-child(even)` or `odd`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Snippet:**
 ```css
@@ -1884,6 +2040,8 @@ tr:nth-child(even) { background: #f2f2f2; }
 ### Q79: How do you stick a table header?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 `position: sticky; top: 0`. Requires table to not have `overflow: hidden` parents usually.
@@ -1900,6 +2058,8 @@ th { position: sticky; top: 0; background: white; }
 ### Q80: How do you implement print styles (`@media print`)?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Define styles specifically for printing (black/white, remove backgrounds).
@@ -1919,8 +2079,10 @@ Define styles specifically for printing (black/white, remove backgrounds).
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
-Hide navs, ads, footers.
+Hide navs, ads, footers. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Snippet:**
 ```css
@@ -1937,6 +2099,8 @@ Hide navs, ads, footers.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `break-before`, `break-after`, `page-break-*`.
 
@@ -1952,6 +2116,8 @@ Use `break-before`, `break-after`, `page-break-*`.
 ### Q83: How do you use `shape-outside` for text wrapping around images?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Floats element and wraps text around a defined shape.
@@ -1974,6 +2140,8 @@ Floats element and wraps text around a defined shape.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Changes text orientation (e.g., for Asian languages or design).
 
@@ -1990,6 +2158,8 @@ Changes text orientation (e.g., for Asian languages or design).
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Sets direction for Arabic/Hebrew. Usually set on `html` or `body`.
 
@@ -2005,6 +2175,8 @@ html { direction: rtl; }
 ### Q86: How do you use `text-align-last` for justified text?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Aligns the last line of a justified block.
@@ -2025,6 +2197,8 @@ p {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Shorthand for line, style, color, thickness.
 
@@ -2041,6 +2215,8 @@ a { text-decoration: underline wavy red 2px; }
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Controls capitalization (uppercase, lowercase, capitalize).
 
@@ -2056,6 +2232,8 @@ Controls capitalization (uppercase, lowercase, capitalize).
 ### Q89: How do you use `letter-spacing` and `word-spacing`?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `letter-spacing` to adjust the space between characters (tracking) and `word-spacing` for space between words. Use relative units (`em`) for better responsiveness.
@@ -2077,6 +2255,8 @@ p {
 ### Q90: How do you use `white-space` property?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Controls how whitespace and line breaks are handled. `nowrap` prevents wrapping. `pre-wrap` preserves whitespace and wraps text. `pre` preserves both (like HTML `<pre>`).
@@ -2104,6 +2284,8 @@ Controls how whitespace and line breaks are handled. `nowrap` prevents wrapping.
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `overflow-wrap: break-word` (standard) to break long words only if they cause overflow. Use `word-break: break-all` to break words at any character (useful for CJK or long URLs).
 
@@ -2124,6 +2306,8 @@ Use `overflow-wrap: break-word` (standard) to break long words only if they caus
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use `hyphens: auto` to allow the browser to hyphenate words at line breaks. Requires the `lang` attribute to be set on the HTML element (e.g., `<html lang="en">`).
 
@@ -2143,6 +2327,8 @@ p {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Customizes the color of the text insertion cursor (caret) in inputs and textareas.
 
@@ -2160,6 +2346,8 @@ input {
 ### Q94: How do you use `pointer-events`?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 `pointer-events: none` makes an element ignore mouse events (clicks, hovers), allowing clicks to pass through to elements behind it. `auto` restores default behavior.
@@ -2181,6 +2369,8 @@ input {
 ### Q95: How do you use `cursor` property?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Changes the mouse cursor to indicate interaction type. Common values: `pointer` (links/buttons), `not-allowed` (disabled), `grab`/`grabbing` (drag and drop).
@@ -2204,6 +2394,8 @@ button:disabled {
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 `border` takes up layout space; `outline` does not. `outline` is often used for accessibility focus rings (`:focus-visible`). Use `outline-offset` to create space between the element and the outline.
 
@@ -2224,6 +2416,8 @@ button:focus-visible {
 
 **Difficulty**: Beginner
 
+**Strategy**:
+
 **Strategy:**
 Use `box-shadow` to create depth. Combine multiple shadows (ambient and direct) for realistic effects.
 
@@ -2243,6 +2437,8 @@ Use `box-shadow` to create depth. Combine multiple shadows (ambient and direct) 
 ### Q98: How do you use `border-radius` for different shapes?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `50%` for circles (if width equals height). Use 4 values for different corners, or 8 values (slashes) for elliptical corners.
@@ -2266,6 +2462,8 @@ Use `50%` for circles (if width equals height). Use 4 values for different corne
 
 **Difficulty**: Advanced
 
+**Strategy**:
+
 **Strategy:**
 The element itself is removed from the box tree, but its children remain. Useful when you want children of a wrapper to participate in a parent's Grid or Flex layout directly.
 
@@ -2284,6 +2482,8 @@ The element itself is removed from the box tree, but its children remain. Useful
 ### Q100: How do you use `gap` in Flexbox?
 
 **Difficulty**: Beginner
+
+**Strategy**:
 
 **Strategy:**
 Use `gap` (formerly `grid-gap`) to define space between flex items, replacing the need for margins on children.
@@ -2304,6 +2504,8 @@ Use `gap` (formerly `grid-gap`) to define space between flex items, replacing th
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Use logical properties instead of physical (`top`, `left`, etc.) to support internationalization (LTR/RTL modes) automatically. `block` is vertical (usually), `inline` is horizontal.
 
@@ -2323,6 +2525,8 @@ Use logical properties instead of physical (`top`, `left`, etc.) to support inte
 ### Q102: How do you use `inset` property?
 
 **Difficulty**: Intermediate
+
+**Strategy**:
 
 **Strategy:**
 Shorthand for `top`, `right`, `bottom`, `left`. Useful for positioning absolute/fixed elements.
@@ -2345,6 +2549,8 @@ Shorthand for `top`, `right`, `bottom`, `left`. Useful for positioning absolute/
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+
 **Strategy:**
 Shorthand for `align-items` and `justify-items`. In CSS Grid, `place-items: center` is the modern way to perfectly center content.
 
@@ -2358,6 +2564,3 @@ Shorthand for `align-items` and `justify-items`. In CSS Grid, `place-items: cent
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
