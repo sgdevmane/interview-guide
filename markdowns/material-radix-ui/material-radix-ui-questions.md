@@ -112,6 +112,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you customize the Material UI theme?
 
 **Difficulty**: Beginner
@@ -128,6 +129,7 @@ const theme = createTheme({ palette: { primary: { main: '#ff4400' } } });
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you use the `sx` prop in Material UI?
 
 **Difficulty**: Intermediate
@@ -144,6 +146,7 @@ The `sx` prop allows defining system overrides directly on components.
 
 ---
 
+<a id="q3"></a>
 ### Q3: Difference between Controlled and Uncontrolled components in Radix UI?
 
 **Difficulty**: Intermediate
@@ -160,6 +163,7 @@ Radix primitives support both. Controlled uses `value`/`onValueChange`. Uncontro
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you optimize Material UI bundle size?
 
 **Difficulty**: Advanced
@@ -176,6 +180,7 @@ import Button from '@mui/material/Button'; // Better than import { Button }
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you implement a Dialog in Radix UI?
 
 **Difficulty**: Beginner
@@ -192,6 +197,7 @@ Radix provides `Dialog.Root`, `Dialog.Trigger`, `Dialog.Portal`, `Dialog.Overlay
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you handle responsive styles in Material UI?
 
 **Difficulty**: Intermediate
@@ -208,6 +214,7 @@ Use the array syntax in `sx` prop or `useMediaQuery` hook.
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you style Radix UI components with Tailwind?
 
 **Difficulty**: Intermediate
@@ -224,6 +231,7 @@ Radix components are unstyled. Just add `className` with Tailwind classes.
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you create a custom styled component in MUI?
 
 **Difficulty**: Intermediate
@@ -240,6 +248,7 @@ const MyButton = styled(Button)({ color: 'red' });
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you handle accessibility (a11y) in Radix UI?
 
 **Difficulty**: Beginner
@@ -256,6 +265,7 @@ It's built-in. Radix handles aria attributes and keyboard navigation automatical
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you implement Dark Mode in MUI?
 
 **Difficulty**: Intermediate
@@ -272,6 +282,7 @@ const theme = createTheme({ palette: { mode: 'dark' } });
 
 ---
 
+<a id="q11"></a>
 ### Q11: What is the `asChild` prop in Radix UI?
 
 **Difficulty**: Intermediate
@@ -288,6 +299,7 @@ It allows a Radix component to pass its functionality to its child element inste
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you override default MUI component styles globally?
 
 **Difficulty**: Advanced
@@ -304,6 +316,7 @@ createTheme({ components: { MuiButton: { styleOverrides: { root: { fontSize: '1r
 
 ---
 
+<a id="q13"></a>
 ### Q13: What is the Box component in MUI?
 
 **Difficulty**: Beginner
@@ -320,6 +333,7 @@ A wrapper component that provides access to system props (margin, padding, color
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you use useMediaQuery in MUI?
 
 **Difficulty**: Intermediate
@@ -336,6 +350,7 @@ const matches = useMediaQuery('(min-width:600px)');
 
 ---
 
+<a id="q15"></a>
 ### Q15: What is the difference between Radix UI and Headless UI?
 
 **Difficulty**: Intermediate
@@ -352,6 +367,7 @@ Both are headless. Radix offers more complex primitives (like Dialog, Popover, S
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you handle z-index issues in MUI?
 
 **Difficulty**: Intermediate
@@ -368,6 +384,7 @@ sx={{ zIndex: 'tooltip' }}
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you make a Radix UI Dialog accessible?
 
 **Difficulty**: Beginner
@@ -384,6 +401,7 @@ Radix handles focus trapping and screen reader announcements automatically.
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you create a layout with MUI Grid?
 
 **Difficulty**: Beginner
@@ -400,6 +418,7 @@ Use `Grid` container and `Grid` items with `xs`, `md`, `lg` props.
 
 ---
 
+<a id="q19"></a>
 ### Q19: What is the Portal component used for?
 
 **Difficulty**: Intermediate
@@ -416,6 +435,7 @@ To render children into a DOM node that exists outside the DOM hierarchy of the 
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you enable CSS variables in MUI?
 
 **Difficulty**: Advanced
@@ -432,6 +452,7 @@ createTheme({ cssVariables: true })
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you handle form validation with MUI?
 
 **Difficulty**: Intermediate
@@ -448,6 +469,7 @@ MUI integrates well with libraries like React Hook Form. Pass `error` and `helpe
 
 ---
 
+<a id="q22"></a>
 ### Q22: What is the Typography component?
 
 **Difficulty**: Beginner
@@ -464,6 +486,7 @@ Used to present design and content clearly and efficiently. It maps to HTML tags
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is the Grid system in MUI?
 
 **Difficulty**: Beginner
@@ -480,6 +503,7 @@ Used to present design and content clearly and efficiently. It maps to HTML tags
 
 ---
 
+<a id="q24"></a>
 ### Q24: What is the Box component?
 
 **Difficulty**: Beginner
@@ -496,6 +520,7 @@ Wrapper for CSS utilities. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q25"></a>
 ### Q25: What is the Stack component?
 
 **Difficulty**: Beginner
@@ -512,6 +537,7 @@ Flexbox layout for 1D lists. This concept is fundamental in this domain and unde
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you override theme defaults?
 
 **Difficulty**: Intermediate
@@ -528,6 +554,7 @@ createTheme({ components: { MuiButton: ... } })
 
 ---
 
+<a id="q27"></a>
 ### Q27: What is the `sx` prop performance cost?
 
 **Difficulty**: Advanced
@@ -544,6 +571,7 @@ Slightly slower than styled-components due to runtime calculation.
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you use Icons in MUI?
 
 **Difficulty**: Beginner
@@ -560,6 +588,7 @@ Import from `@mui/icons-material`. This concept is fundamental in this domain an
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is the Typography variants?
 
 **Difficulty**: Beginner
@@ -576,6 +605,7 @@ h1-h6, subtitle, body, caption. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you handle Date Pickers?
 
 **Difficulty**: Intermediate
@@ -592,6 +622,7 @@ Use `@mui/x-date-pickers`. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q31"></a>
 ### Q31: What is the DataGrid component?
 
 **Difficulty**: Advanced
@@ -608,6 +639,7 @@ Powerful table for large datasets. This concept is fundamental in this domain an
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you make a responsive drawer?
 
 **Difficulty**: Intermediate
@@ -624,6 +656,7 @@ Use `Drawer` with `hidden` props or `useMediaQuery`.
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is `CssBaseline`?
 
 **Difficulty**: Beginner
@@ -640,6 +673,7 @@ Normalizes CSS across browsers. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you use custom fonts?
 
 **Difficulty**: Intermediate
@@ -656,6 +690,7 @@ theme.typography.fontFamily = 'Roboto'
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is the `makeStyles` (legacy)?
 
 **Difficulty**: Intermediate
@@ -672,6 +707,7 @@ const useStyles = makeStyles(...)
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you migrate from v4 to v5?
 
 **Difficulty**: Advanced
@@ -688,6 +724,7 @@ npx @mui/codemod v5.0.0/preset-safe .
 
 ---
 
+<a id="q37"></a>
 ### Q37: What is Radix Primitives?
 
 **Difficulty**: Beginner
@@ -704,6 +741,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 
 ---
 
+<a id="q38"></a>
 ### Q38: How does Radix handle focus?
 
 **Difficulty**: Intermediate
@@ -720,6 +758,7 @@ Automatically traps focus in modals. This concept is fundamental in this domain 
 
 ---
 
+<a id="q39"></a>
 ### Q39: What is `asChild` in Radix?
 
 **Difficulty**: Intermediate
@@ -736,6 +775,7 @@ Merges props onto child element. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you style Radix with CSS Modules?
 
 **Difficulty**: Beginner
@@ -752,6 +792,7 @@ Pass `className`. This concept is fundamental in this domain and understanding i
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you animate Radix components?
 
 **Difficulty**: Intermediate
@@ -768,6 +809,7 @@ Use CSS keyframes on `data-state` attribute. This concept is fundamental in this
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is Radix Colors?
 
 **Difficulty**: Beginner
@@ -784,6 +826,7 @@ import { blue, slate } from '@radix-ui/colors'
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you use Radix Icons?
 
 **Difficulty**: Beginner
@@ -800,6 +843,7 @@ SVG icons. This concept is fundamental in this domain and understanding it allow
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is `Portal` in Radix?
 
 **Difficulty**: Intermediate
@@ -816,6 +860,7 @@ Renders content into body. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q45"></a>
 ### Q45: Difference between Popover and Tooltip?
 
 **Difficulty**: Intermediate
@@ -832,6 +877,7 @@ Tooltip is for hover info, Popover is for interactive content.
 
 ---
 
+<a id="q46"></a>
 ### Q46: What is Accordion in Radix?
 
 **Difficulty**: Beginner
@@ -848,6 +894,7 @@ Collapsible sections. This concept is fundamental in this domain and understandi
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you handle form constraints in Radix?
 
 **Difficulty**: Intermediate
@@ -864,6 +911,7 @@ Use `Label` and standard HTML constraints. This concept is fundamental in this d
 
 ---
 
+<a id="q48"></a>
 ### Q48: What is the `Slot` utility?
 
 **Difficulty**: Advanced
@@ -880,6 +928,7 @@ import { Slot } from '@radix-ui/react-slot'
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you implement Toast?
 
 **Difficulty**: Intermediate
@@ -896,6 +945,7 @@ Use `Toast` primitive. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q50"></a>
 ### Q50: What is `VisuallyHidden`?
 
 **Difficulty**: Beginner
@@ -912,6 +962,7 @@ Hide content from screen but keep for screen readers.
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you server render Radix?
 
 **Difficulty**: Intermediate
@@ -928,6 +979,7 @@ Works with SSR, supports hydration. This concept is fundamental in this domain a
 
 ---
 
+<a id="q52"></a>
 ### Q52: What is Shadcn UI?
 
 **Difficulty**: Intermediate
@@ -944,6 +996,7 @@ npx shadcn-ui@latest add button
 
 ---
 
+<a id="q53"></a>
 ### Q53: How does Shadcn differ from MUI?
 
 **Difficulty**: Intermediate
@@ -960,6 +1013,7 @@ Shadcn is not a library, it's code you own. MUI is a library.
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is Headless UI?
 
 **Difficulty**: Intermediate
@@ -976,6 +1030,7 @@ import { Menu } from '@headlessui/react'
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you create a dark mode switch in MUI?
 
 **Difficulty**: Beginner
@@ -992,6 +1047,7 @@ setMode(prev => prev === 'light' ? 'dark' : 'light')
 
 ---
 
+<a id="q56"></a>
 ### Q56: What is `useTheme` hook?
 
 **Difficulty**: Beginner
@@ -1008,6 +1064,7 @@ const theme = useTheme();
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you customize breakpoints?
 
 **Difficulty**: Intermediate
@@ -1024,6 +1081,7 @@ breakpoints: { values: { mobile: 0, tablet: 640 } }
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is the `Container` component?
 
 **Difficulty**: Beginner
@@ -1040,6 +1098,7 @@ Centers content horizontally. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you use Skeleton loading?
 
 **Difficulty**: Beginner
@@ -1056,6 +1115,7 @@ Placeholder for loading states. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is the `Autocomplete` component?
 
 **Difficulty**: Intermediate
@@ -1072,6 +1132,7 @@ Input with suggestions. This concept is fundamental in this domain and understan
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you handle virtualized lists in MUI?
 
 **Difficulty**: Advanced
@@ -1088,6 +1149,7 @@ Use `react-window` with MUI List. This concept is fundamental in this domain and
 
 ---
 
+<a id="q62"></a>
 ### Q62: What is the `ClickAwayListener`?
 
 **Difficulty**: Intermediate
@@ -1104,6 +1166,7 @@ Detect clicks outside element. This concept is fundamental in this domain and un
 
 ---
 
+<a id="q63"></a>
 ### Q63: How do you use `Backdrop`?
 
 **Difficulty**: Beginner
@@ -1120,6 +1183,7 @@ Dimmed layer behind overlays. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q64"></a>
 ### Q64: What is `SpeedDial`?
 
 **Difficulty**: Intermediate
@@ -1136,6 +1200,7 @@ Floating action button that expands. This concept is fundamental in this domain 
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you customize scrollbars in MUI?
 
 **Difficulty**: Intermediate
@@ -1152,6 +1217,7 @@ styleOverrides: { body: { '&::-webkit-scrollbar': ... } }
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is `Collapse` transition?
 
 **Difficulty**: Beginner
@@ -1168,6 +1234,7 @@ Vertical expand/collapse. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you use `Zoom` transition?
 
 **Difficulty**: Beginner
@@ -1184,6 +1251,7 @@ Scale animation. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is `Grow` transition?
 
 **Difficulty**: Beginner
@@ -1200,6 +1268,7 @@ Expand from center. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is `Slide` transition?
 
 **Difficulty**: Beginner
@@ -1216,6 +1285,7 @@ Slide from edge. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you use `Fade` transition?
 
 **Difficulty**: Beginner
@@ -1232,6 +1302,7 @@ Opacity animation. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is `GlobalStyles`?
 
 **Difficulty**: Intermediate
@@ -1248,6 +1319,7 @@ Global CSS injection. This concept is fundamental in this domain and understandi
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you theme variants?
 
 **Difficulty**: Intermediate
@@ -1264,6 +1336,7 @@ components: { MuiButton: { variants: [...] } }
 
 ---
 
+<a id="q73"></a>
 ### Q73: What is `shouldForwardProp`?
 
 **Difficulty**: Advanced
@@ -1280,6 +1353,7 @@ styled('div', { shouldForwardProp: (p) => p !== 'active' })
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you use `alpha` utility?
 
 **Difficulty**: Intermediate
@@ -1296,6 +1370,7 @@ bgcolor: alpha(theme.palette.primary.main, 0.5)
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is `darken`/`lighten`?
 
 **Difficulty**: Intermediate
@@ -1312,6 +1387,7 @@ color: darken('red', 0.2)
 
 ---
 
+<a id="q76"></a>
 ### Q76: How do you use `useScrollTrigger`?
 
 **Difficulty**: Intermediate
@@ -1328,6 +1404,7 @@ const trigger = useScrollTrigger();
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is `FocusTrap`?
 
 **Difficulty**: Intermediate
@@ -1344,6 +1421,7 @@ Keeps focus within element. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q78"></a>
 ### Q78: How do you use `NoSsr`?
 
 **Difficulty**: Intermediate
@@ -1360,6 +1438,7 @@ Defer rendering to client side. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is `TextareaAutosize`?
 
 **Difficulty**: Beginner
@@ -1376,6 +1455,7 @@ Textarea that grows with content. This concept is fundamental in this domain and
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you use `Rating`?
 
 **Difficulty**: Beginner
@@ -1392,6 +1472,7 @@ Star rating input. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is `Timeline`?
 
 **Difficulty**: Intermediate
@@ -1408,6 +1489,7 @@ Vertical list of events. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you use `TreeView`?
 
 **Difficulty**: Intermediate
@@ -1424,6 +1506,7 @@ Hierarchical list. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is `Masonry`?
 
 **Difficulty**: Intermediate
@@ -1440,6 +1523,7 @@ Masonry layout (Pinterest style). This concept is fundamental in this domain and
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you use `Snackbar`?
 
 **Difficulty**: Beginner
@@ -1456,6 +1540,7 @@ Brief notifications. This concept is fundamental in this domain and understandin
 
 ---
 
+<a id="q85"></a>
 ### Q85: What is `Alert`?
 
 **Difficulty**: Beginner
@@ -1472,6 +1557,7 @@ Feedback message. This concept is fundamental in this domain and understanding i
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you customize shadow?
 
 **Difficulty**: Intermediate
@@ -1488,6 +1574,7 @@ theme.shadows[1] = '0 2px 4px black'
 
 ---
 
+<a id="q87"></a>
 ### Q87: What is `Paper`?
 
 **Difficulty**: Beginner
@@ -1504,6 +1591,7 @@ Surface with shadow. This concept is fundamental in this domain and understandin
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you use `Card`?
 
 **Difficulty**: Beginner
@@ -1520,6 +1608,7 @@ Container for content. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q89"></a>
 ### Q89: What is `Divider`?
 
 **Difficulty**: Beginner
@@ -1536,6 +1625,7 @@ Line separator. This concept is fundamental in this domain and understanding it 
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you use `Chip`?
 
 **Difficulty**: Beginner
@@ -1552,6 +1642,7 @@ Compact element (tag). This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q91"></a>
 ### Q91: What is `Badge`?
 
 **Difficulty**: Beginner
@@ -1568,6 +1659,7 @@ Small status indicator. This concept is fundamental in this domain and understan
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you use `Avatar`?
 
 **Difficulty**: Beginner
@@ -1584,6 +1676,7 @@ User image. This concept is fundamental in this domain and understanding it allo
 
 ---
 
+<a id="q93"></a>
 ### Q93: What is `LinearProgress`?
 
 **Difficulty**: Beginner
@@ -1600,6 +1693,7 @@ Loading bar. This concept is fundamental in this domain and understanding it all
 
 ---
 
+<a id="q94"></a>
 ### Q94: What is `CircularProgress`?
 
 **Difficulty**: Beginner
@@ -1616,6 +1710,7 @@ Loading spinner. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you use `Tabs`?
 
 **Difficulty**: Intermediate
@@ -1632,6 +1727,7 @@ Tabbed navigation. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q96"></a>
 ### Q96: What is `BottomNavigation`?
 
 **Difficulty**: Intermediate
@@ -1648,6 +1744,7 @@ Mobile nav bar. This concept is fundamental in this domain and understanding it 
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you use `Breadcrumbs`?
 
 **Difficulty**: Beginner
@@ -1664,6 +1761,7 @@ Navigation path. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q98"></a>
 ### Q98: What is `Link` component?
 
 **Difficulty**: Beginner
@@ -1680,6 +1778,7 @@ Styled anchor tag. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you use `Stepper`?
 
 **Difficulty**: Intermediate

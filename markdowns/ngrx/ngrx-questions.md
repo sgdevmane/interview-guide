@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: What is the difference between NgRx Global Store and NgRx ComponentStore?
 
 **Difficulty**: Beginner
@@ -137,6 +138,7 @@ StoreModule.forRoot({ movies: moviesReducer })
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you prevent selector re-computation when using arguments (props)?
 
 **Difficulty**: Advanced
@@ -157,6 +159,7 @@ export const selectTodoById = (id: string) => createSelector(
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you manage local component state using NgRx ComponentStore?
 
 **Difficulty**: Intermediate
@@ -196,6 +199,7 @@ export class TodoStore extends ComponentStore<TodoState> {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement the Facade pattern with NgRx to hide store complexity?
 
 **Difficulty**: Intermediate
@@ -226,6 +230,7 @@ export class TodoFacade {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you handle race conditions in NgRx Effects (e.g., typeahead search)?
 
 **Difficulty**: Intermediate
@@ -249,6 +254,7 @@ search$ = createEffect(() => this.actions$.pipe(
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you normalize deeply nested API data using NgRx Entity?
 
 **Difficulty**: Advanced
@@ -274,6 +280,7 @@ const userReducer = createReducer(
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you implement runtime checks to ensure state immutability?
 
 **Difficulty**: Intermediate
@@ -300,6 +307,7 @@ export class AppModule {}
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you handle multiple actions triggering the same reducer logic?
 
 **Difficulty**: Beginner
@@ -323,6 +331,7 @@ export const reducer = createReducer(
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you hydrate NgRx state from LocalStorage on app startup?
 
 **Difficulty**: Advanced
@@ -351,6 +360,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you implement undo/redo functionality with NgRx?
 
 **Difficulty**: Expert
@@ -388,6 +398,7 @@ export function undoRedo(reducer: ActionReducer<State>): ActionReducer<State> {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you test an NgRx Effect that uses `debounceTime`?
 
 **Difficulty**: Advanced
@@ -415,6 +426,7 @@ it('should debounce search', () => {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you combine data from multiple feature stores in a single selector?
 
 **Difficulty**: Intermediate
@@ -435,6 +447,7 @@ export const selectUserOrders = createSelector(
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you implement authentication flow (login/logout) using NgRx?
 
 **Difficulty**: Intermediate
@@ -455,6 +468,7 @@ loginSuccess$ = createEffect(() => this.actions$.pipe(
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you optimize performance when dealing with large collections in NgRx?
 
 **Difficulty**: Advanced
@@ -479,6 +493,7 @@ const reducer = createReducer(
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you migrate a legacy service-based state to NgRx?
 
 **Difficulty**: Expert
@@ -496,6 +511,7 @@ const reducer = createReducer(
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you test NgRx Effects using Marble Diagrams?
 
 **Difficulty**: Expert
@@ -516,6 +532,7 @@ expectObservable(effects.load$).toBe('--c', { c: success() });
 
 ---
 
+<a id="q17"></a>
 ### Q17: How does NgRx interact with `OnPush` Change Detection?
 
 **Difficulty**: Intermediate
@@ -535,6 +552,7 @@ NgRx streams (Observables) used with the `async` pipe automatically trigger chan
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you implement a Polling Effect (Start/Stop)?
 
 **Difficulty**: Advanced
@@ -557,6 +575,7 @@ startPolling$ = createEffect(() => actions$.pipe(
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you create a Meta-Reducer for logging actions?
 
 **Difficulty**: Intermediate
@@ -578,6 +597,7 @@ export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you sort entities automatically using NgRx Entity?
 
 **Difficulty**: Intermediate
@@ -596,6 +616,7 @@ export const adapter = createEntityAdapter<User>({
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you use `tapResponse` in ComponentStore?
 
 **Difficulty**: Intermediate
@@ -619,6 +640,7 @@ this.effect(trigger$ => trigger$.pipe(
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you define a SignalStore with state and methods?
 
 **Difficulty**: Advanced
@@ -641,6 +663,7 @@ export const CounterStore = signalStore(
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you connect an Observable to a SignalStore using `rxMethod`?
 
 **Difficulty**: Advanced
@@ -661,6 +684,7 @@ load = rxMethod<void>(pipe(
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you group related actions using `createActionGroup`?
 
 **Difficulty**: Beginner
@@ -684,6 +708,7 @@ export const AuthActions = createActionGroup({
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you set up NgRx with Standalone APIs?
 
 **Difficulty**: Intermediate
@@ -706,6 +731,7 @@ bootstrapApplication(App, {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you create Functional Effects?
 
 **Difficulty**: Intermediate
@@ -724,6 +750,7 @@ export const loadUsers = createEffect(
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you enforce serializability checks for actions and state?
 
 **Difficulty**: Intermediate
@@ -745,6 +772,7 @@ provideStore(reducers, {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you create a Custom Router Serializer?
 
 **Difficulty**: Advanced
@@ -765,6 +793,7 @@ export class CustomSerializer implements RouterStateSerializer<MinimalRouterStat
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you mock the Store in unit tests?
 
 **Difficulty**: Intermediate
@@ -784,6 +813,7 @@ store.overrideSelector(selectUser, { name: 'Test' });
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you use `createFeature` to reduce boilerplate?
 
 **Difficulty**: Intermediate
@@ -805,6 +835,7 @@ const { selectCount } = counterFeature;
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you handle non-dispatching effects?
 
 **Difficulty**: Beginner
@@ -823,6 +854,7 @@ log$ = createEffect(() => actions$.pipe(
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you select a Signal from the Store?
 
 **Difficulty**: Intermediate
@@ -840,6 +872,7 @@ count = this.store.selectSignal(selectCount);
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you handle global error reporting via Effects?
 
 **Difficulty**: Intermediate
@@ -856,6 +889,7 @@ catchError(error => of(GlobalActions.error({ message: error.message })))
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you use Deep Signals in SignalStore?
 
 **Difficulty**: Advanced
@@ -874,6 +908,7 @@ effect(() => console.log(store.user.address.city()));
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you implement 'Load on Demand' (Lazy Loading) of state?
 
 **Difficulty**: Advanced
@@ -892,6 +927,7 @@ providers: [
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you use `concatLatestFrom` in Effects?
 
 **Difficulty**: Intermediate
@@ -909,6 +945,7 @@ tap(([action, user]) => ...)
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you implement a 'Reset State' meta-reducer?
 
 **Difficulty**: Intermediate
@@ -927,6 +964,7 @@ if (action.type === 'LOGOUT') {
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you test ComponentStore?
 
 **Difficulty**: Intermediate
@@ -944,6 +982,7 @@ store.todos$.subscribe(t => expect(t).toContain(todo));
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you manage loading/error states generically?
 
 **Difficulty**: Intermediate
@@ -963,6 +1002,7 @@ interface State<T> {
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use the `routerNavigated` action?
 
 **Difficulty**: Intermediate
@@ -980,6 +1020,7 @@ tap(action => trackPageView(action.payload.routerState.url))
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you implement Undo/Redo with SignalStore?
 
 **Difficulty**: Advanced
@@ -1011,6 +1052,7 @@ store.redo();
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you select data based on route params?
 
 **Difficulty**: Advanced
@@ -1037,6 +1079,7 @@ export const selectSelectedUser = createSelector(
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you optimize `OnPush` components with deep objects?
 
 **Difficulty**: Advanced
@@ -1065,6 +1108,7 @@ export const selectGood = createSelector(
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you handle WebSocket messages in NgRx?
 
 **Difficulty**: Advanced
@@ -1091,6 +1135,7 @@ listenToMessages$ = createEffect(() => {
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you use `provideStoreDevtools`?
 
 **Difficulty**: Beginner
@@ -1122,6 +1167,7 @@ bootstrapApplication(AppComponent, {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you implement Pagination with NgRx?
 
 **Difficulty**: Intermediate
@@ -1148,6 +1194,7 @@ loadPage$ = createEffect(() => this.actions$.pipe(
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you cancel an HTTP request when the component is destroyed?
 
 **Difficulty**: Intermediate
@@ -1178,6 +1225,7 @@ loadData$ = createEffect(() => this.actions$.pipe(
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you manage Forms with NgRx?
 
 **Difficulty**: Intermediate
@@ -1207,6 +1255,7 @@ export class ContactComponent {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use `ngrx-data`?
 
 **Difficulty**: Advanced
@@ -1237,6 +1286,7 @@ export class HeroService extends EntityCollectionServiceBase<Hero> {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you migrate from NgRx Global Store to SignalStore?
 
 **Difficulty**: Advanced
@@ -1261,6 +1311,7 @@ withMethods((store) => ({
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you handle NgRx state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1277,6 +1328,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform NgRx data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1293,6 +1345,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate NgRx deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1311,6 +1364,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle NgRx concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1329,6 +1383,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement NgRx caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1346,6 +1401,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage NgRx configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1362,6 +1418,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle NgRx internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1378,6 +1435,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure NgRx accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1394,6 +1452,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize NgRx network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1410,6 +1469,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle NgRx performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1429,6 +1489,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of NgRx in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1446,6 +1507,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug NgRx memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1463,6 +1525,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for NgRx code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1480,6 +1543,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement NgRx error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1500,6 +1564,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test NgRx functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1518,6 +1583,7 @@ test('NgRx works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle NgRx state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1534,6 +1600,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform NgRx data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1550,6 +1617,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate NgRx deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1568,6 +1636,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle NgRx concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1586,6 +1655,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement NgRx caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1603,6 +1673,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage NgRx configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1619,6 +1690,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle NgRx internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1635,6 +1707,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure NgRx accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1651,6 +1724,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize NgRx network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1667,6 +1741,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle NgRx performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1686,6 +1761,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of NgRx in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1703,6 +1779,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug NgRx memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1720,6 +1797,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for NgRx code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1737,6 +1815,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement NgRx error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1757,6 +1836,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test NgRx functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1775,6 +1855,7 @@ test('NgRx works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle NgRx state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1791,6 +1872,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform NgRx data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1807,6 +1889,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate NgRx deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1825,6 +1908,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle NgRx concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1843,6 +1927,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement NgRx caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1860,6 +1945,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage NgRx configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1876,6 +1962,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle NgRx internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1892,6 +1979,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure NgRx accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1908,6 +1996,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize NgRx network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1924,6 +2013,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle NgRx performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1943,6 +2033,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of NgRx in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1960,6 +2051,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug NgRx memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1977,6 +2069,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for NgRx code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1994,6 +2087,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement NgRx error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2014,6 +2108,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test NgRx functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2032,6 +2127,7 @@ test('NgRx works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle NgRx state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2048,6 +2144,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform NgRx data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2064,6 +2161,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate NgRx deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2082,6 +2180,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle NgRx concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2100,6 +2199,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement NgRx caching in production environments?
 
 **Difficulty**: Intermediate

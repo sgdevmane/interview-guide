@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you optimize change detection in a large list of components using `OnPush` strategy?
 
 **Difficulty**: Intermediate
@@ -147,6 +148,7 @@ export class ItemComponent {
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you prevent memory leaks when subscribing to Observables in Angular components?
 
 **Difficulty**: Intermediate
@@ -179,6 +181,7 @@ export class TimerComponent {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you implement a custom form validator for a Reactive Form?
 
 **Difficulty**: Intermediate
@@ -208,6 +211,7 @@ export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you share data between unrelated components using a Service and RxJS?
 
 **Difficulty**: Intermediate
@@ -238,6 +242,7 @@ export class DataService {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you lazy load a module or standalone component in Angular Routing?
 
 **Difficulty**: Intermediate
@@ -267,6 +272,7 @@ export const routes: Routes = [
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you intercept HTTP requests to add an authentication token automatically?
 
 **Difficulty**: Intermediate
@@ -303,6 +309,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you manage state in Angular using Signals (modern approach)?
 
 **Difficulty**: Intermediate
@@ -338,6 +345,7 @@ export class CounterComponent {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you optimize the rendering of large lists using `@for` loop tracking?
 
 **Difficulty**: Intermediate
@@ -369,6 +377,7 @@ export class UserListComponent {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you handle multiple API calls where the second call depends on the result of the first?
 
 **Difficulty**: Intermediate
@@ -394,6 +403,7 @@ this.route.params.pipe(
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you dynamically create a component at runtime?
 
 **Difficulty**: Intermediate
@@ -425,6 +435,7 @@ export class HostComponent {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you protect a route from being accessed by unauthorized users?
 
 **Difficulty**: Intermediate
@@ -456,6 +467,7 @@ export const authGuard: CanActivateFn = (route, state) => {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you configure different environments (dev, prod) in Angular?
 
 **Difficulty**: Intermediate
@@ -489,6 +501,7 @@ http.get(environment.apiUrl + '/users');
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you create a structural directive (like `*ngIf`)?
 
 **Difficulty**: Intermediate
@@ -523,6 +536,7 @@ export class DelayDirective {
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you unit test a component with dependencies?
 
 **Difficulty**: Intermediate
@@ -564,6 +578,7 @@ describe('UserComponent', () => {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you resolve data before a route is activated?
 
 **Difficulty**: Intermediate
@@ -597,6 +612,7 @@ export const userResolver: ResolveFn<User> = (route, state) => {
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you create a custom Pipe in Angular?
 
 **Difficulty**: Intermediate
@@ -622,6 +638,7 @@ export class ExponentialStrengthPipe implements PipeTransform {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you create a custom Attribute Directive?
 
 **Difficulty**: Intermediate
@@ -653,6 +670,7 @@ export class HighlightDirective {
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you organize code using Angular Modules (NgModule)?
 
 **Difficulty**: Intermediate
@@ -674,6 +692,7 @@ export class FeatureModule {}
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you use Content Projection (`ng-content`)?
 
 **Difficulty**: Intermediate
@@ -702,6 +721,7 @@ Use `<ng-content>` in the child component's template to insert content provided 
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you access a child component or DOM element using `@ViewChild`?
 
 **Difficulty**: Intermediate
@@ -725,6 +745,7 @@ export class MyComponent implements AfterViewInit {
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you listen to DOM events on the host element using `@HostListener`?
 
 **Difficulty**: Intermediate
@@ -744,6 +765,7 @@ onClick(e: Event) {
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you bind host element properties using `@HostBinding`?
 
 **Difficulty**: Intermediate
@@ -764,6 +786,7 @@ Decorate a property with `@HostBinding('attr.class')` or `style.color`. It updat
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you implement animations in Angular?
 
 **Difficulty**: Intermediate
@@ -791,6 +814,7 @@ export class AnimationComponent {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you make HTTP requests using `HttpClient`?
 
 **Difficulty**: Intermediate
@@ -811,6 +835,7 @@ getData() {
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you write a basic unit test for a component?
 
 **Difficulty**: Intermediate
@@ -831,6 +856,7 @@ it('should have title', () => {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you convert an Observable to a Signal and vice-versa?
 
 **Difficulty**: Intermediate
@@ -851,6 +877,7 @@ const count$ = toObservable(this.count);
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you use Deferrable Views (`@defer`) to lazy load content?
 
 **Difficulty**: Intermediate
@@ -873,6 +900,7 @@ Use the `@defer` block to delay loading a dependency (component, pipe, etc.) unt
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you use `InjectionToken` for non-class dependencies?
 
 **Difficulty**: Intermediate
@@ -896,6 +924,7 @@ export class ApiService {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you use `useFactory` in Dependency Injection?
 
 **Difficulty**: Advanced
@@ -920,6 +949,7 @@ providers: [
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you use `DestroyRef` for cleanup in non-component classes?
 
 **Difficulty**: Intermediate
@@ -947,6 +977,7 @@ export class MyService {
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you use `ngProjectAs` to project content into a specific slot?
 
 **Difficulty**: Advanced
@@ -968,6 +999,7 @@ Use `ngProjectAs` on an element to make it match a specific `ng-content` selecto
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you dynamically render a component using `NgComponentOutlet`?
 
 **Difficulty**: Intermediate
@@ -987,6 +1019,7 @@ export class HostComponent {
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is the difference between `CanActivate` and `CanMatch` guards?
 
 **Difficulty**: Advanced
@@ -1005,6 +1038,7 @@ const adminRoute: Route = {
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you control style encapsulation using `ViewEncapsulation`?
 
 **Difficulty**: Intermediate
@@ -1027,6 +1061,7 @@ export class WidgetComponent {}
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you use `NgZone.runOutsideAngular` to optimize performance?
 
 **Difficulty**: Advanced
@@ -1053,6 +1088,7 @@ ngOnInit() {
 
 ---
 
+<a id="q36"></a>
 ### Q36: What is the difference between `mergeMap`, `concatMap`, and `exhaustMap`?
 
 **Difficulty**: Advanced
@@ -1070,6 +1106,7 @@ fromEvent(button, 'click').pipe(
 
 ---
 
+<a id="q37"></a>
 ### Q37: When should you use a `ReplaySubject`?
 
 **Difficulty**: Intermediate
@@ -1091,6 +1128,7 @@ subject.subscribe(console.log);
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you handle errors in an Observable stream using `catchError`?
 
 **Difficulty**: Intermediate
@@ -1110,6 +1148,7 @@ this.http.get('/data').pipe(
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you preserve Query Parameters during navigation?
 
 **Difficulty**: Intermediate
@@ -1128,6 +1167,7 @@ this.router.navigate(['/search'], {
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you implement a custom `RouteReuseStrategy`?
 
 **Difficulty**: Advanced
@@ -1150,6 +1190,7 @@ export class CustomStrategy implements RouteReuseStrategy {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you define an NgRx Action and Reducer?
 
 **Difficulty**: Advanced
@@ -1173,6 +1214,7 @@ export const counterReducer = createReducer(
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you create an NgRx Effect?
 
 **Difficulty**: Advanced
@@ -1193,6 +1235,7 @@ loadMovies$ = createEffect(() => this.actions$.pipe(
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you enable Client Hydration for SSR (Angular 16+)?
 
 **Difficulty**: Advanced
@@ -1214,6 +1257,7 @@ export const appConfig: ApplicationConfig = {
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you use `LiveAnnouncer` for Accessibility?
 
 **Difficulty**: Intermediate
@@ -1234,6 +1278,7 @@ announce() {
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you test asynchronous code using `fakeAsync` and `tick`?
 
 **Difficulty**: Intermediate
@@ -1253,6 +1298,7 @@ it('should update after delay', fakeAsync(() => {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you mock HTTP requests in tests using `HttpTestingController`?
 
 **Difficulty**: Intermediate
@@ -1273,6 +1319,7 @@ it('should fetch users', () => {
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use `APP_INITIALIZER` to load configuration before app startup?
 
 **Difficulty**: Advanced
@@ -1292,6 +1339,7 @@ Provide `APP_INITIALIZER` with a factory function that returns a Promise (or Obs
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you set the page Title and Meta tags dynamically?
 
 **Difficulty**: Beginner
@@ -1309,6 +1357,7 @@ constructor(private title: Title, private meta: Meta) {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use `exportAs` in a Directive?
 
 **Difficulty**: Intermediate
@@ -1333,6 +1382,7 @@ export class TooltipDirective {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you restrict Dependency Injection resolution using `@Self`, `@SkipSelf`, `@Optional`, or `@Host`?
 
 **Difficulty**: Advanced
@@ -1355,6 +1405,7 @@ constructor(@Optional() @SkipSelf() private parentService: MyService) {
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Angular state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1371,6 +1422,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Angular data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1387,6 +1439,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Angular deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1405,6 +1458,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Angular concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1423,6 +1477,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Angular caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1440,6 +1495,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Angular configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1456,6 +1512,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Angular internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1472,6 +1529,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Angular accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1488,6 +1546,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Angular network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1504,6 +1563,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Angular performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1523,6 +1583,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Angular in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1540,6 +1601,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Angular memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1557,6 +1619,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Angular code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1574,6 +1637,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Angular error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1594,6 +1658,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Angular functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1612,6 +1677,7 @@ test('Angular works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Angular state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1628,6 +1694,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Angular data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1644,6 +1711,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Angular deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1662,6 +1730,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Angular concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1680,6 +1749,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Angular caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1697,6 +1767,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Angular configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1713,6 +1784,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Angular internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1729,6 +1801,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Angular accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1745,6 +1818,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Angular network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1761,6 +1835,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Angular performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1780,6 +1855,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Angular in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1797,6 +1873,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Angular memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1814,6 +1891,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Angular code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1831,6 +1909,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Angular error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1851,6 +1930,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Angular functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1869,6 +1949,7 @@ test('Angular works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Angular state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1885,6 +1966,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Angular data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1901,6 +1983,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Angular deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1919,6 +2002,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Angular concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1937,6 +2021,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Angular caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1954,6 +2039,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Angular configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1970,6 +2056,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Angular internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1986,6 +2073,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Angular accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2002,6 +2090,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Angular network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2018,6 +2107,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Angular performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2037,6 +2127,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Angular in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2054,6 +2145,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Angular memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2071,6 +2163,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Angular code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2088,6 +2181,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Angular error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2108,6 +2202,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Angular functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2126,6 +2221,7 @@ test('Angular works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Angular state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2142,6 +2238,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Angular data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2158,6 +2255,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Angular deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2176,6 +2274,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Angular concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2194,6 +2293,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Angular caching in production environments?
 
 **Difficulty**: Intermediate

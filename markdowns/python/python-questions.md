@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you optimize memory usage when processing large datasets in Python?
 
 **Difficulty**: Intermediate
@@ -137,6 +138,7 @@ for val in squares_gen:
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you ensure resources (files, sockets) are properly closed even if errors occur?
 
 **Difficulty**: Beginner
@@ -156,6 +158,7 @@ with open('data.txt', 'r') as f:
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you implement a decorator to measure the execution time of a function?
 
 **Difficulty**: Intermediate
@@ -188,6 +191,7 @@ slow_task()
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you bypass the Global Interpreter Lock (GIL) for CPU-bound tasks?
 
 **Difficulty**: Advanced
@@ -211,6 +215,7 @@ if __name__ == "__main__":
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you handle concurrent I/O-bound operations efficiently?
 
 **Difficulty**: Intermediate
@@ -239,6 +244,7 @@ asyncio.run(main())
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you merge two dictionaries in Python 3.9+?
 
 **Difficulty**: Beginner
@@ -259,6 +265,7 @@ merged = d1 | d2
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you create a lightweight immutable data class?
 
 **Difficulty**: Intermediate
@@ -283,6 +290,7 @@ p = Point(10, 20)
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you optimize function calls with caching (memoization)?
 
 **Difficulty**: Intermediate
@@ -306,6 +314,7 @@ print(fib(100)) # Computes instantly
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you enforce type safety in a large Python codebase?
 
 **Difficulty**: Intermediate
@@ -326,6 +335,7 @@ def greet(name: str) -> str:
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you create a true deep copy of a nested object?
 
 **Difficulty**: Beginner
@@ -350,6 +360,7 @@ original[0][0] = 99
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you manage project dependencies effectively?
 
 **Difficulty**: Intermediate
@@ -372,6 +383,7 @@ pip freeze > requirements.txt
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you safely handle exceptions without crashing the app?
 
 **Difficulty**: Beginner
@@ -393,6 +405,7 @@ except Exception as e:
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you dynamically create classes or modify class behavior?
 
 **Difficulty**: Advanced
@@ -417,6 +430,7 @@ class Database(metaclass=SingletonMeta):
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you unpack a list with variable elements?
 
 **Difficulty**: Beginner
@@ -438,6 +452,7 @@ first, *middle, last = data
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you implement an iterator class manually?
 
 **Difficulty**: Intermediate
@@ -469,6 +484,7 @@ for n in Counter(3):
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you debug code using PDB?
 
 **Difficulty**: Intermediate
@@ -491,6 +507,7 @@ print(divide(10, 0))
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you optimize Pandas operations using Vectorization?
 
 **Difficulty**: Intermediate
@@ -516,6 +533,7 @@ df['c'] = df['a'] + df['b']
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you use Numpy Broadcasting?
 
 **Difficulty**: Intermediate
@@ -541,6 +559,7 @@ print(C)
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you create an async API endpoint with FastAPI?
 
 **Difficulty**: Intermediate
@@ -566,6 +585,7 @@ async def read_root():
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use ContextVars for thread-safe state management?
 
 **Difficulty**: Advanced
@@ -596,6 +616,7 @@ asyncio.run(process_request('123'))
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you use the Walrus Operator (Assignment Expression)?
 
 **Difficulty**: Beginner
@@ -622,6 +643,7 @@ print("Supported in Python 3.8+")
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you implement abstract base classes (ABCs)?
 
 **Difficulty**: Intermediate
@@ -653,6 +675,7 @@ c = Circle(5) # OK
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you use Python's gc module to handle cyclic references?
 
 **Difficulty**: Advanced
@@ -683,6 +706,7 @@ print(gc.collect()) # Returns number of objects collected (2)
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you use __slots__ to optimize memory?
 
 **Difficulty**: Intermediate
@@ -707,6 +731,7 @@ p = Point(1, 2)
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you use Itertools to chain iterables?
 
 **Difficulty**: Intermediate
@@ -730,6 +755,7 @@ for item in itertools.chain(list1, list2):
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you use defaultdict for cleaner grouping code?
 
 **Difficulty**: Beginner
@@ -755,6 +781,7 @@ print(dict(count))
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you use unittest.mock to mock dependencies?
 
 **Difficulty**: Intermediate
@@ -781,6 +808,7 @@ print(mock()) # 42
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you use functools.partial?
 
 **Difficulty**: Intermediate
@@ -806,6 +834,7 @@ print(cube(4))   # 64
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you use threading.Event for thread synchronization?
 
 **Difficulty**: Intermediate
@@ -837,6 +866,7 @@ event.set()
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you run shell commands with subprocess.run?
 
 **Difficulty**: Intermediate
@@ -862,6 +892,7 @@ print(result.stdout.strip())
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you use json.dumps with a custom encoder?
 
 **Difficulty**: Intermediate
@@ -888,6 +919,7 @@ print(json.dumps(data, cls=DateTimeEncoder))
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you use collections.Counter?
 
 **Difficulty**: Beginner
@@ -910,6 +942,7 @@ print(c.most_common(1))
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you use heapq for a priority queue?
 
 **Difficulty**: Intermediate
@@ -934,6 +967,7 @@ print(heapq.heappop(h))
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you use zip to iterate over multiple lists?
 
 **Difficulty**: Beginner
@@ -954,6 +988,7 @@ for name, age in zip(names, ages):
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you use enumerate?
 
 **Difficulty**: Beginner
@@ -972,6 +1007,7 @@ for i, item in enumerate(items):
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you use if __name__ == "__main__":?
 
 **Difficulty**: Beginner
@@ -992,6 +1028,7 @@ if __name__ == "__main__":
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you use re module for regex matching?
 
 **Difficulty**: Intermediate
@@ -1014,6 +1051,7 @@ if match:
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you use with statement (Context Managers)?
 
 **Difficulty**: Beginner
@@ -1033,6 +1071,7 @@ print("File closed automatically")
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you use Generators (yield)?
 
 **Difficulty**: Intermediate
@@ -1056,6 +1095,7 @@ for num in count_up_to(3):
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use Decorators?
 
 **Difficulty**: Intermediate
@@ -1087,6 +1127,7 @@ say_hello()
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you implement asynchronous tasks with Celery?
 
 **Difficulty**: Advanced
@@ -1113,6 +1154,7 @@ print(f"Task ID: {result.id}")
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you define a One-to-Many relationship in SQLAlchemy?
 
 **Difficulty**: Intermediate
@@ -1138,6 +1180,7 @@ class Post(Base):
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you structure a large Flask application using Blueprints?
 
 **Difficulty**: Intermediate
@@ -1163,6 +1206,7 @@ app.register_blueprint(auth_bp, url_prefix='/auth')
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you use Django Signals to decouple logic?
 
 **Difficulty**: Intermediate
@@ -1182,6 +1226,7 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you use Pytest Fixtures with scopes?
 
 **Difficulty**: Intermediate
@@ -1205,6 +1250,7 @@ def test_query(db_connection):
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you implement Generics using TypeVar?
 
 **Difficulty**: Advanced
@@ -1229,6 +1275,7 @@ def first_element(items: List[T]) -> T:
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use Protocols for structural subtyping (Duck Typing)?
 
 **Difficulty**: Advanced
@@ -1254,6 +1301,7 @@ render(Circle()) # Valid
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you use Single Dispatch for function overloading?
 
 **Difficulty**: Intermediate
@@ -1280,6 +1328,7 @@ def _(arg: list):
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use WeakRef to manage memory?
 
 **Difficulty**: Advanced
@@ -1305,6 +1354,7 @@ print(r()) # None (object was collected)
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you validate data using Pydantic?
 
 **Difficulty**: Intermediate
@@ -1331,6 +1381,7 @@ print(user.id) # 123 (int)
 ---
 
 
+<a id="q51"></a>
 ### Q51: How does the GIL (Global Interpreter Lock) affect concurrency?
 
 **Difficulty**: Advanced
@@ -1347,6 +1398,7 @@ Prevents multiple native threads from executing Python bytecodes at once. Limits
 
 ---
 
+<a id="q52"></a>
 ### Q52: What are Python Decorators?
 
 **Difficulty**: Intermediate
@@ -1367,6 +1419,7 @@ def log(func):
 
 ---
 
+<a id="q53"></a>
 ### Q53: Difference between `__new__` and `__init__`?
 
 **Difficulty**: Advanced
@@ -1383,6 +1436,7 @@ def __new__(cls): return super().__new__(cls)
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do Generators work?
 
 **Difficulty**: Intermediate
@@ -1401,6 +1455,7 @@ def gen():
 
 ---
 
+<a id="q55"></a>
 ### Q55: What are Context Managers?
 
 **Difficulty**: Intermediate
@@ -1418,6 +1473,7 @@ with open('file.txt') as f:
 
 ---
 
+<a id="q56"></a>
 ### Q56: Difference between `deepcopy` and `shallow copy`?
 
 **Difficulty**: Beginner
@@ -1435,6 +1491,7 @@ new_list = copy.deepcopy(old_list)
 
 ---
 
+<a id="q57"></a>
 ### Q57: How does Python memory management work?
 
 **Difficulty**: Advanced
@@ -1451,6 +1508,7 @@ Reference counting + Cyclic Garbage Collector. This concept is fundamental in th
 
 ---
 
+<a id="q58"></a>
 ### Q58: What are Metaclasses?
 
 **Difficulty**: Advanced
@@ -1468,6 +1526,7 @@ class MyClass(metaclass=MyMeta): pass
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you use `asyncio`?
 
 **Difficulty**: Intermediate
@@ -1486,6 +1545,7 @@ asyncio.run(main())
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is `*args` and `**kwargs`?
 
 **Difficulty**: Beginner
@@ -1502,6 +1562,7 @@ def func(*args, **kwargs): print(args, kwargs)
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you implement a Singleton in Python?
 
 **Difficulty**: Intermediate
@@ -1523,6 +1584,7 @@ class Singleton:
 
 ---
 
+<a id="q62"></a>
 ### Q62: What are Python descriptors?
 
 **Difficulty**: Advanced
@@ -1540,6 +1602,7 @@ class Descriptor:
 
 ---
 
+<a id="q63"></a>
 ### Q63: Difference between `is` and `==`?
 
 **Difficulty**: Beginner
@@ -1558,6 +1621,7 @@ a is b # False
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you manage dependencies?
 
 **Difficulty**: Beginner
@@ -1574,6 +1638,7 @@ pip install -r requirements.txt
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is the `with` statement for?
 
 **Difficulty**: Intermediate
@@ -1590,6 +1655,7 @@ with open('file') as f: pass
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you profile Python code?
 
 **Difficulty**: Intermediate
@@ -1606,6 +1672,7 @@ python -m cProfile script.py
 
 ---
 
+<a id="q67"></a>
 ### Q67: What are list comprehensions?
 
 **Difficulty**: Beginner
@@ -1622,6 +1689,7 @@ Concise way to create lists. This concept is fundamental in this domain and unde
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you create a virtual environment?
 
 **Difficulty**: Beginner
@@ -1638,6 +1706,7 @@ python -m venv venv
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is `__name__ == '__main__'`?
 
 **Difficulty**: Beginner
@@ -1654,6 +1723,7 @@ if __name__ == '__main__': main()
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you handle exceptions?
 
 **Difficulty**: Beginner
@@ -1671,6 +1741,7 @@ except ZeroDivisionError: pass
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is Method Resolution Order (MRO)?
 
 **Difficulty**: Advanced
@@ -1687,6 +1758,7 @@ ClassName.mro()
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you implement unit tests?
 
 **Difficulty**: Intermediate
@@ -1703,6 +1775,7 @@ def test_sum(): assert sum([1, 2]) == 3
 
 ---
 
+<a id="q73"></a>
 ### Q73: What are Type Hints?
 
 **Difficulty**: Intermediate
@@ -1719,6 +1792,7 @@ def greeting(name: str) -> str: ...
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you use `slots`?
 
 **Difficulty**: Advanced
@@ -1735,6 +1809,7 @@ class Point: __slots__ = ['x', 'y']
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is the difference between `staticmethod` and `classmethod`?
 
 **Difficulty**: Intermediate
@@ -1752,6 +1827,7 @@ def create(cls): return cls()
 
 ---
 
+<a id="q76"></a>
 ### Q76: How do you parse JSON?
 
 **Difficulty**: Beginner
@@ -1768,6 +1844,7 @@ import json; d = json.loads(s)
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you make HTTP requests?
 
 **Difficulty**: Beginner
@@ -1784,6 +1861,7 @@ requests.get('https://api.com')
 
 ---
 
+<a id="q78"></a>
 ### Q78: What is a lambda function?
 
 **Difficulty**: Beginner
@@ -1800,6 +1878,7 @@ add = lambda x, y: x + y
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you copy a file?
 
 **Difficulty**: Beginner
@@ -1816,6 +1895,7 @@ shutil.copy('src', 'dst')
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you handle command line arguments?
 
 **Difficulty**: Beginner
@@ -1832,6 +1912,7 @@ parser = argparse.ArgumentParser()
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is the `logging` module?
 
 **Difficulty**: Intermediate
@@ -1848,6 +1929,7 @@ logging.warning('Watch out!')
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you connect to a database?
 
 **Difficulty**: Intermediate
@@ -1864,6 +1946,7 @@ engine = create_engine('sqlite:///:memory:')
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is `functools`?
 
 **Difficulty**: Intermediate
@@ -1880,6 +1963,7 @@ partial(func, arg1)
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you implement multithreading?
 
 **Difficulty**: Intermediate
@@ -1896,6 +1980,7 @@ t = threading.Thread(target=func); t.start()
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement multiprocessing?
 
 **Difficulty**: Intermediate
@@ -1912,6 +1997,7 @@ p = multiprocessing.Process(target=func); p.start()
 
 ---
 
+<a id="q86"></a>
 ### Q86: What is a deque?
 
 **Difficulty**: Intermediate
@@ -1928,6 +2014,7 @@ d = deque([1, 2]); d.appendleft(0)
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you sort a dictionary by value?
 
 **Difficulty**: Intermediate
@@ -1944,6 +2031,7 @@ sorted(d.items(), key=lambda x: x[1])
 
 ---
 
+<a id="q88"></a>
 ### Q88: What is `zip`?
 
 **Difficulty**: Beginner
@@ -1960,6 +2048,7 @@ zip([1,2], ['a','b'])
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you read a CSV file?
 
 **Difficulty**: Beginner
@@ -1976,6 +2065,7 @@ csv.reader(file)
 
 ---
 
+<a id="q90"></a>
 ### Q90: What is `pickling`?
 
 **Difficulty**: Intermediate
@@ -1992,6 +2082,7 @@ pickle.dumps(obj)
 
 ---
 
+<a id="q91"></a>
 ### Q91: How do you document code?
 
 **Difficulty**: Beginner
@@ -2008,6 +2099,7 @@ def func(): """Docstring"""
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is `pdb`?
 
 **Difficulty**: Intermediate
@@ -2024,6 +2116,7 @@ import pdb; pdb.set_trace()
 
 ---
 
+<a id="q93"></a>
 ### Q93: How do you use `enumerate`?
 
 **Difficulty**: Beginner
@@ -2040,6 +2133,7 @@ for i, v in enumerate(list): ...
 
 ---
 
+<a id="q94"></a>
 ### Q94: What is the `collections` module?
 
 **Difficulty**: Intermediate
@@ -2056,6 +2150,7 @@ c = Counter('abracadabra')
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you implement a property?
 
 **Difficulty**: Intermediate
@@ -2073,6 +2168,7 @@ def x(self): return self._x
 
 ---
 
+<a id="q96"></a>
 ### Q96: What is `itertools`?
 
 **Difficulty**: Intermediate
@@ -2089,6 +2185,7 @@ itertools.cycle('ABCD')
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you execute shell commands?
 
 **Difficulty**: Intermediate
@@ -2105,6 +2202,7 @@ subprocess.run(['ls', '-l'])
 
 ---
 
+<a id="q98"></a>
 ### Q98: What is `virtualenv`?
 
 **Difficulty**: Beginner
@@ -2121,6 +2219,7 @@ virtualenv myenv
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you install packages?
 
 **Difficulty**: Beginner
@@ -2137,6 +2236,7 @@ pip install package_name
 
 ---
 
+<a id="q100"></a>
 ### Q100: What is `pylint`?
 
 **Difficulty**: Beginner

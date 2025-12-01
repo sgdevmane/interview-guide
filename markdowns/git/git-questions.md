@@ -115,6 +115,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: Merge vs Rebase?
 
 **Difficulty**: Intermediate
@@ -130,6 +131,7 @@
 
 ---
 
+<a id="q2"></a>
 ### Q2: Squash commits?
 
 **Difficulty**: Intermediate
@@ -150,6 +152,7 @@ git rebase -i HEAD~3
 
 ---
 
+<a id="q3"></a>
 ### Q3: Git Bisect?
 
 **Difficulty**: Advanced
@@ -168,6 +171,7 @@ git bisect good v1.0 # Old was good
 
 ---
 
+<a id="q4"></a>
 ### Q4: Undo last commit?
 
 **Difficulty**: Beginner
@@ -184,6 +188,7 @@ git reset --soft HEAD~1
 
 ---
 
+<a id="q5"></a>
 ### Q5: Cherry-pick?
 
 **Difficulty**: Intermediate
@@ -200,6 +205,7 @@ git cherry-pick <commit-hash>
 
 ---
 
+<a id="q6"></a>
 ### Q6: Fetch vs Pull?
 
 **Difficulty**: Beginner
@@ -215,6 +221,7 @@ git cherry-pick <commit-hash>
 
 ---
 
+<a id="q7"></a>
 ### Q7: Amend commit message?
 
 **Difficulty**: Beginner
@@ -231,6 +238,7 @@ git commit --amend -m "New Message"
 
 ---
 
+<a id="q8"></a>
 ### Q8: Detached HEAD?
 
 **Difficulty**: Intermediate
@@ -245,6 +253,7 @@ HEAD points to a Commit, not a Branch. Commits made here are lost unless a branc
 
 ---
 
+<a id="q9"></a>
 ### Q9: Stash specific files?
 
 **Difficulty**: Advanced
@@ -261,6 +270,7 @@ git stash push -p
 
 ---
 
+<a id="q10"></a>
 ### Q10: Reflog?
 
 **Difficulty**: Advanced
@@ -277,6 +287,7 @@ git reflog
 
 ---
 
+<a id="q11"></a>
 ### Q11: Git Flow vs Trunk?
 
 **Difficulty**: Advanced
@@ -292,6 +303,7 @@ git reflog
 
 ---
 
+<a id="q12"></a>
 ### Q12: Resolve Conflicts?
 
 **Difficulty**: Beginner
@@ -306,6 +318,7 @@ Edit file, remove markers <code><<<<</code>, <code>>>>></code>, then <code>git a
 
 ---
 
+<a id="q13"></a>
 ### Q13: Reset Hard vs Soft?
 
 **Difficulty**: Intermediate
@@ -322,6 +335,7 @@ Edit file, remove markers <code><<<<</code>, <code>>>>></code>, then <code>git a
 
 ---
 
+<a id="q14"></a>
 ### Q14: Revert public commit?
 
 **Difficulty**: Intermediate
@@ -338,6 +352,7 @@ git revert <commit-hash>
 
 ---
 
+<a id="q15"></a>
 ### Q15: Ignore tracked files?
 
 **Difficulty**: Intermediate
@@ -354,6 +369,7 @@ git rm --cached <file>
 
 ---
 
+<a id="q16"></a>
 ### Q16: Git Hooks?
 
 **Difficulty**: Advanced
@@ -368,6 +384,7 @@ Scripts in `.git/hooks` triggered by events (pre-commit, pre-push).
 
 ---
 
+<a id="q17"></a>
 ### Q17: Git Blame?
 
 **Difficulty**: Beginner
@@ -384,6 +401,7 @@ git blame <file>
 
 ---
 
+<a id="q18"></a>
 ### Q18: Fork vs Branch?
 
 **Difficulty**: Beginner
@@ -399,6 +417,7 @@ git blame <file>
 
 ---
 
+<a id="q19"></a>
 ### Q19: List files in commit?
 
 **Difficulty**: Beginner
@@ -415,6 +434,7 @@ git show --name-only <commit>
 
 ---
 
+<a id="q20"></a>
 ### Q20: Find common ancestor?
 
 **Difficulty**: Intermediate
@@ -431,6 +451,7 @@ git merge-base branchA branchB
 
 ---
 
+<a id="q21"></a>
 ### Q21: What is the Staging Area (Index)?
 
 **Difficulty**: Beginner
@@ -445,6 +466,7 @@ Area where changes are prepared before committing. Allows selective committing.
 
 ---
 
+<a id="q22"></a>
 ### Q22: Git Config Scopes?
 
 **Difficulty**: Beginner
@@ -459,6 +481,7 @@ System (<code>/etc/gitconfig</code>), Global (<code>~/.gitconfig</code>), Local 
 
 ---
 
+<a id="q23"></a>
 ### Q23: Remove untracked files (clean)?
 
 **Difficulty**: Intermediate
@@ -475,6 +498,7 @@ git clean -fd
 
 ---
 
+<a id="q24"></a>
 ### Q24: Git Tags (Lightweight vs Annotated)?
 
 **Difficulty**: Intermediate
@@ -490,6 +514,7 @@ git clean -fd
 
 ---
 
+<a id="q25"></a>
 ### Q25: What is a Submodule?
 
 **Difficulty**: Advanced
@@ -504,6 +529,7 @@ Git repo inside another Git repo. Points to specific commit of child repo.
 
 ---
 
+<a id="q26"></a>
 ### Q26: What is a Subtree?
 
 **Difficulty**: Advanced
@@ -518,6 +544,7 @@ Alternative to submodules. Merges child repo code into main repo history.
 
 ---
 
+<a id="q27"></a>
 ### Q27: Git Worktree?
 
 **Difficulty**: Advanced
@@ -532,6 +559,7 @@ Allows multiple working directories attached to same repo. Work on multiple bran
 
 ---
 
+<a id="q28"></a>
 ### Q28: Diff Staged vs Unstaged?
 
 **Difficulty**: Beginner
@@ -547,6 +575,7 @@ Allows multiple working directories attached to same repo. Work on multiple bran
 
 ---
 
+<a id="q29"></a>
 ### Q29: Rename a branch?
 
 **Difficulty**: Beginner
@@ -563,6 +592,7 @@ git branch -m new-name
 
 ---
 
+<a id="q30"></a>
 ### Q30: Delete a remote branch?
 
 **Difficulty**: Intermediate
@@ -579,6 +609,7 @@ git push origin --delete branch-name
 
 ---
 
+<a id="q31"></a>
 ### Q31: Show commit history for one file?
 
 **Difficulty**: Beginner
@@ -595,6 +626,7 @@ git log -p filename
 
 ---
 
+<a id="q32"></a>
 ### Q32: Git Log Graph?
 
 **Difficulty**: Beginner
@@ -611,6 +643,7 @@ git log --graph --oneline --all
 
 ---
 
+<a id="q33"></a>
 ### Q33: Search in commit messages?
 
 **Difficulty**: Intermediate
@@ -627,6 +660,7 @@ git log --grep="fix"
 
 ---
 
+<a id="q34"></a>
 ### Q34: Search code in history?
 
 **Difficulty**: Advanced
@@ -643,6 +677,7 @@ git log -S "functionName"
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is `git gc`?
 
 **Difficulty**: Advanced
@@ -657,6 +692,7 @@ Garbage Collector. Compresses file revisions, removes unreachable objects.
 
 ---
 
+<a id="q36"></a>
 ### Q36: Bare vs Non-Bare Repo?
 
 **Difficulty**: Advanced
@@ -672,6 +708,7 @@ Garbage Collector. Compresses file revisions, removes unreachable objects.
 
 ---
 
+<a id="q37"></a>
 ### Q37: Git Objects (Blob, Tree, Commit)?
 
 **Difficulty**: Advanced
@@ -688,6 +725,7 @@ Garbage Collector. Compresses file revisions, removes unreachable objects.
 
 ---
 
+<a id="q38"></a>
 ### Q38: How to create an Alias?
 
 **Difficulty**: Intermediate
@@ -704,6 +742,7 @@ git config --global alias.co checkout
 
 ---
 
+<a id="q39"></a>
 ### Q39: Push to multiple remotes?
 
 **Difficulty**: Advanced
@@ -718,6 +757,7 @@ Add multiple Push URLs to a single remote in config.
 
 ---
 
+<a id="q40"></a>
 ### Q40: Git LFS (Large File Storage)?
 
 **Difficulty**: Intermediate
@@ -732,6 +772,7 @@ Extension to store large binaries (PSD, MP4) on separate server, keeping pointer
 
 ---
 
+<a id="q41"></a>
 ### Q41: Restore deleted file?
 
 **Difficulty**: Beginner
@@ -748,6 +789,7 @@ git checkout <commit> -- <file>
 
 ---
 
+<a id="q42"></a>
 ### Q42: Difference `checkout` vs `switch`?
 
 **Difficulty**: Beginner
@@ -762,6 +804,7 @@ git checkout <commit> -- <file>
 
 ---
 
+<a id="q43"></a>
 ### Q43: Difference `checkout` vs `restore`?
 
 **Difficulty**: Beginner
@@ -776,6 +819,7 @@ git checkout <commit> -- <file>
 
 ---
 
+<a id="q44"></a>
 ### Q44: Git Rebase Interactive?
 
 **Difficulty**: Intermediate
@@ -790,6 +834,7 @@ Allows editing, reordering, squashing, dropping commits.
 
 ---
 
+<a id="q45"></a>
 ### Q45: Rebase onto another branch?
 
 **Difficulty**: Intermediate
@@ -806,6 +851,7 @@ git rebase master
 
 ---
 
+<a id="q46"></a>
 ### Q46: Abort a merge?
 
 **Difficulty**: Beginner
@@ -822,6 +868,7 @@ git merge --abort
 
 ---
 
+<a id="q47"></a>
 ### Q47: What is `origin`?
 
 **Difficulty**: Beginner
@@ -836,6 +883,7 @@ Default alias for the remote repository URL.
 
 ---
 
+<a id="q48"></a>
 ### Q48: Upstream branch?
 
 **Difficulty**: Beginner
@@ -850,6 +898,7 @@ The remote branch that a local branch tracks (pushes/pulls to).
 
 ---
 
+<a id="q49"></a>
 ### Q49: Push force vs force-with-lease?
 
 **Difficulty**: Advanced
@@ -865,6 +914,7 @@ The remote branch that a local branch tracks (pushes/pulls to).
 
 ---
 
+<a id="q50"></a>
 ### Q50: Show remote URL?
 
 **Difficulty**: Beginner
@@ -881,6 +931,7 @@ git remote -v
 
 ---
 
+<a id="q51"></a>
 ### Q51: Change remote URL?
 
 **Difficulty**: Beginner
@@ -897,6 +948,7 @@ git remote set-url origin <new-url>
 
 ---
 
+<a id="q52"></a>
 ### Q52: Git Archive (Export)?
 
 **Difficulty**: Intermediate
@@ -913,6 +965,7 @@ git archive --format=zip HEAD > project.zip
 
 ---
 
+<a id="q53"></a>
 ### Q53: Bundle objects?
 
 **Difficulty**: Advanced
@@ -927,6 +980,7 @@ Pack git objects into a single file for offline transfer.
 
 ---
 
+<a id="q54"></a>
 ### Q54: Shortlog (Summary)?
 
 **Difficulty**: Intermediate
@@ -941,6 +995,7 @@ Summarize git log output. Good for release notes.
 
 ---
 
+<a id="q55"></a>
 ### Q55: Describe commit?
 
 **Difficulty**: Advanced
@@ -957,6 +1012,7 @@ git describe
 
 ---
 
+<a id="q56"></a>
 ### Q56: Git Rerere?
 
 **Difficulty**: Advanced
@@ -971,6 +1027,7 @@ Reuse Recorded Resolution. Remembers how you resolved a conflict and auto-applie
 
 ---
 
+<a id="q57"></a>
 ### Q57: Verify GPG signatures?
 
 **Difficulty**: Advanced
@@ -985,6 +1042,7 @@ Ensure commits are signed by trusted keys.
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is `.gitattributes`?
 
 **Difficulty**: Intermediate
@@ -999,6 +1057,7 @@ Configures path-specific settings (EOL normalization, binary handling, diff driv
 
 ---
 
+<a id="q59"></a>
 ### Q59: CRLF vs LF handling?
 
 **Difficulty**: Intermediate
@@ -1013,6 +1072,7 @@ Configured via `core.autocrlf`. Windows uses CRLF, Unix uses LF. Git can convert
 
 ---
 
+<a id="q60"></a>
 ### Q60: Excluding files without .gitignore?
 
 **Difficulty**: Advanced
@@ -1027,6 +1087,7 @@ Use `.git/info/exclude` for local-only ignores.
 
 ---
 
+<a id="q61"></a>
 ### Q61: Global vs Local ignore?
 
 **Difficulty**: Intermediate
@@ -1041,6 +1102,7 @@ Global: `~/.gitignore_global`. Applies to all repos.
 
 ---
 
+<a id="q62"></a>
 ### Q62: Git Grep vs Unix Grep?
 
 **Difficulty**: Intermediate
@@ -1055,6 +1117,7 @@ Git Grep searches tracked files only and is much faster.
 
 ---
 
+<a id="q63"></a>
 ### Q63: Count commits? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <pre><code class="language-bash">git rev-list --count HEAD</code></pre>
@@ -1075,6 +1138,7 @@ Git Grep searches tracked files only and is much faster.
 
 ---
 
+<a id="q65"></a>
 ### Q65: Change author of last commit?
 
 **Difficulty**: Intermediate
@@ -1091,6 +1155,7 @@ git commit --amend --author="Name <email>"
 
 ---
 
+<a id="q66"></a>
 ### Q66: Combine two repositories?
 
 **Difficulty**: Advanced
@@ -1105,6 +1170,7 @@ Add one as remote, fetch, then merge into a subdirectory (subtree).
 
 ---
 
+<a id="q67"></a>
 ### Q67: Delete local branch? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <pre><code class="language-bash">git branch -d name</code></pre>
@@ -1126,6 +1192,7 @@ git branch -D name
 
 ---
 
+<a id="q69"></a>
 ### Q69: Prune remote tracking branches?
 
 **Difficulty**: Intermediate
@@ -1142,6 +1209,7 @@ git fetch --prune
 
 ---
 
+<a id="q70"></a>
 ### Q70: What is a Fast-Forward merge? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>If no divergent work, HEAD is simply moved forward. No merge commit.</p>
@@ -1163,6 +1231,7 @@ git merge --no-ff
 
 ---
 
+<a id="q72"></a>
 ### Q72: Squash merge?
 
 **Difficulty**: Intermediate
@@ -1179,6 +1248,7 @@ git merge --squash
 
 ---
 
+<a id="q73"></a>
 ### Q73: Ours vs Theirs strategy?
 
 **Difficulty**: Advanced
@@ -1195,6 +1265,7 @@ git checkout --ours file
 
 ---
 
+<a id="q74"></a>
 ### Q74: Git Stash Pop vs Apply?
 
 **Difficulty**: Intermediate
@@ -1210,6 +1281,7 @@ git checkout --ours file
 
 ---
 
+<a id="q75"></a>
 ### Q75: List stashes? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <pre><code class="language-bash">git stash list</code></pre>
@@ -1236,6 +1308,7 @@ git stash branch <name>
 
 ---
 
+<a id="q78"></a>
 ### Q78: Show content of a stash?
 
 **Difficulty**: Intermediate
@@ -1252,6 +1325,7 @@ git stash show -p stash@{0}
 
 ---
 
+<a id="q79"></a>
 ### Q79: Patching (Diff/Apply)?
 
 **Difficulty**: Advanced
@@ -1269,6 +1343,7 @@ git apply changes.patch
 
 ---
 
+<a id="q80"></a>
 ### Q80: Git Format-Patch?
 
 **Difficulty**: Advanced
@@ -1283,6 +1358,7 @@ Prepare patches for email submission (includes commit metadata).
 
 ---
 
+<a id="q81"></a>
 ### Q81: Git Am?
 
 **Difficulty**: Advanced
@@ -1297,6 +1373,7 @@ Apply series of patches from mailbox.
 
 ---
 
+<a id="q82"></a>
 ### Q82: Recover dropped stash?
 
 **Difficulty**: Advanced
@@ -1311,6 +1388,7 @@ Use `git fsck` to find dangling commits.
 
 ---
 
+<a id="q83"></a>
 ### Q83: Move uncommitted changes to new branch? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <pre><code class="language-bash">git checkout -b new-branch</code></pre>
@@ -1330,6 +1408,7 @@ Iterate objects and sort by size. (Scripting required).
 
 ---
 
+<a id="q85"></a>
 ### Q85: Remove sensitive data from history?
 
 **Difficulty**: Advanced
@@ -1344,6 +1423,7 @@ BFG Repo-Cleaner or `git filter-repo`. Rewrites history.
 
 ---
 
+<a id="q86"></a>
 ### Q86: Git Filter-Repo (vs Filter-Branch)?
 
 **Difficulty**: Advanced
@@ -1358,6 +1438,7 @@ Filter-Repo is the modern, faster, Python-based replacement for the slow shell-b
 
 ---
 
+<a id="q87"></a>
 ### Q87: What is `HEAD^` vs `HEAD~`?
 
 **Difficulty**: Intermediate
@@ -1373,6 +1454,7 @@ Filter-Repo is the modern, faster, Python-based replacement for the slow shell-b
 
 ---
 
+<a id="q88"></a>
 ### Q88: Checkout previous branch? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <pre><code class="language-bash">git checkout -</code></pre>
@@ -1399,6 +1481,7 @@ git fetch origin branchname:branchname
 
 ---
 
+<a id="q91"></a>
 ### Q91: Clone specific branch?
 
 **Difficulty**: Intermediate
@@ -1415,6 +1498,7 @@ git clone -b branchname --single-branch <url>
 
 ---
 
+<a id="q92"></a>
 ### Q92: Clone depth (Shallow clone)?
 
 **Difficulty**: Intermediate
@@ -1431,6 +1515,7 @@ git clone --depth 1 <url>
 
 ---
 
+<a id="q93"></a>
 ### Q93: Git Status short format? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <pre><code class="language-bash">git status -s</code></pre>
@@ -1452,6 +1537,7 @@ git config core.fileMode false
 
 ---
 
+<a id="q95"></a>
 ### Q95: Debug gitignore?
 
 **Difficulty**: Intermediate
@@ -1468,6 +1554,7 @@ git check-ignore -v filename
 
 ---
 
+<a id="q96"></a>
 ### Q96: Git Notes?
 
 **Difficulty**: Advanced
@@ -1482,6 +1569,7 @@ Attach metadata to commits without rewriting them.
 
 ---
 
+<a id="q97"></a>
 ### Q97: Git Replace?
 
 **Difficulty**: Advanced
@@ -1496,6 +1584,7 @@ Replace object with another at runtime (e.g., grafting history).
 
 ---
 
+<a id="q98"></a>
 ### Q98: Git Rev-Parse?
 
 **Difficulty**: Advanced
@@ -1510,6 +1599,7 @@ Plumbing command to parse refs/SHA.
 
 ---
 
+<a id="q99"></a>
 ### Q99: Show file at specific commit?
 
 **Difficulty**: Intermediate
@@ -1526,6 +1616,7 @@ git show <commit>:<file>
 
 ---
 
+<a id="q100"></a>
 ### Q100: Automate Git with Scripts?
 
 **Difficulty**: Advanced

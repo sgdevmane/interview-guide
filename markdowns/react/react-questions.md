@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you implement a custom hook `useFetch` with caching and cancellation?
 
 **Difficulty**: Intermediate
@@ -195,6 +196,7 @@ function useFetch(url, options = {}) {
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you optimize a React application using `useMemo` and `useCallback` correctly?
 
 **Difficulty**: Intermediate
@@ -253,6 +255,7 @@ function Parent() {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you manage global state using React Context without triggering unnecessary re-renders?
 
 **Difficulty**: Intermediate
@@ -299,6 +302,7 @@ export const useTheme = () => useContext(ThemeContext);
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement a Compound Component pattern (e.g., Tabs)?
 
 **Difficulty**: Intermediate
@@ -366,6 +370,7 @@ function App() {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you create a Higher-Order Component (HOC) for authentication?
 
 **Difficulty**: Intermediate
@@ -413,6 +418,7 @@ export default ProtectedDashboard;
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you implement the Render Props pattern for code reuse?
 
 **Difficulty**: Intermediate
@@ -460,6 +466,7 @@ function App() {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you implement an Error Boundary to catch crashes in child components?
 
 **Difficulty**: Intermediate
@@ -513,6 +520,7 @@ function App() {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you use `useImperativeHandle` to expose child methods to a parent?
 
 **Difficulty**: Intermediate
@@ -555,6 +563,7 @@ function App() {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you implement a Portal to render children into a different part of the DOM?
 
 **Difficulty**: Intermediate
@@ -612,6 +621,7 @@ function App() {
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you optimize large lists using Virtualization (Windowing)?
 
 **Difficulty**: Intermediate
@@ -679,6 +689,7 @@ function App() {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you implement a custom `useDebounce` hook?
 
 **Difficulty**: Intermediate
@@ -727,6 +738,7 @@ function SearchComponent() {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you implement a custom `useLocalStorage` hook?
 
 **Difficulty**: Intermediate
@@ -769,6 +781,7 @@ function useLocalStorage(key, initialValue) {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you implement a custom `usePrevious` hook?
 
 **Difficulty**: Intermediate
@@ -808,6 +821,7 @@ function Counter() {
 
 ---
 
+<a id="q14"></a>
 ### Q14: What is the difference between `useEffect` and `useLayoutEffect`?
 
 **Difficulty**: Intermediate
@@ -847,6 +861,7 @@ function Tooltip() {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you use `forwardRef` to pass refs to child components?
 
 **Difficulty**: Intermediate
@@ -885,6 +900,7 @@ function App() {
 
 ---
 
+<a id="q16"></a>
 ### Q16: Controlled vs Uncontrolled Components: When to use which?
 
 **Difficulty**: Intermediate
@@ -923,6 +939,7 @@ function UncontrolledInput() {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you use `React.memo` to prevent re-renders?
 
 **Difficulty**: Intermediate
@@ -962,6 +979,7 @@ function App() {
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you implement Code Splitting using `React.lazy` and `Suspense`?
 
 **Difficulty**: Intermediate
@@ -993,6 +1011,7 @@ function App() {
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you handle forms efficiently using React Hook Form?
 
 **Difficulty**: Intermediate
@@ -1041,6 +1060,7 @@ function LoginForm() {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you manage state with Redux Toolkit (Slice + Thunk)?
 
 **Difficulty**: Intermediate
@@ -1098,6 +1118,7 @@ function UserProfile({ id }) {
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you create a simple store using Zustand?
 
 **Difficulty**: Intermediate
@@ -1133,6 +1154,7 @@ function Controls() {
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you implement Private Routes for authentication?
 
 **Difficulty**: Intermediate
@@ -1178,6 +1200,7 @@ function App() {
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you handle JWT Authentication (Login/Logout)?
 
 **Difficulty**: Intermediate
@@ -1220,6 +1243,7 @@ export const logout = () => {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you unit test a React component using Jest and React Testing Library?
 
 **Difficulty**: Intermediate
@@ -1264,6 +1288,7 @@ test('increments counter on click', () => {
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you mock API calls in Jest tests?
 
 **Difficulty**: Intermediate
@@ -1317,6 +1342,7 @@ test('renders users from API', async () => {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you prevent XSS attacks in React?
 
 **Difficulty**: Intermediate
@@ -1346,6 +1372,7 @@ function SafeContent({ htmlContent }) {
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you fix "Can't perform a React state update on an unmounted component"?
 
 **Difficulty**: Intermediate
@@ -1376,6 +1403,7 @@ useEffect(() => {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you manage focus for accessibility (A11y)?
 
 **Difficulty**: Intermediate
@@ -1415,6 +1443,7 @@ function Modal({ isOpen, onClose, children }) {
 
 ---
 
+<a id="q29"></a>
 ### Q29: SSR vs CSR vs SSG: When to use what?
 
 **Difficulty**: Intermediate
@@ -1429,6 +1458,7 @@ function Modal({ isOpen, onClose, children }) {
 
 ---
 
+<a id="q30"></a>
 ### Q30: What is React Fiber and how does it improve performance?
 
 **Difficulty**: Intermediate
@@ -1439,6 +1469,7 @@ React Fiber is the reimplementation of React's core reconciliation algorithm (in
 *   **Impact:** It allows React to pause work, reuse it, or abort it to prioritize higher-priority updates (like user input) over low-priority ones (like data fetching). This results in smoother animations and responsiveness.
 *   **Features enabled by Fiber:** `Suspense`, `useTransition`, `Concurrency`.
 
+<a id="q31"></a>
 ### Q31: `useState` vs `useReducer`: When should you choose one over the other?
 
 **Difficulty**: Intermediate
@@ -1477,6 +1508,7 @@ function Counter() {
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you implement a custom hook `useOnClickOutside` to close modals?
 
 **Difficulty**: Intermediate
@@ -1516,6 +1548,7 @@ function useOnClickOutside(ref, handler) {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you implement a `useMediaQuery` hook for responsive designs?
 
 **Difficulty**: Intermediate
@@ -1552,6 +1585,7 @@ function useMediaQuery(query) {
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you make a custom button accessible using ARIA attributes?
 
 **Difficulty**: Intermediate
@@ -1584,6 +1618,7 @@ function AccessibleButton({ onClick, label }) {
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you profile a React application to identify performance bottlenecks?
 
 **Difficulty**: Advanced
@@ -1614,6 +1649,7 @@ Use the React DevTools Profiler tab. It records rendering information, showing w
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you safely render HTML content to prevent XSS attacks?
 
 **Difficulty**: Intermediate
@@ -1638,6 +1674,7 @@ function SafeHTML({ htmlContent }) {
 
 ---
 
+<a id="q37"></a>
 ### Q37: What is the difference between `fireEvent` and `userEvent` in React Testing Library?
 
 **Difficulty**: Intermediate
@@ -1660,6 +1697,7 @@ await user.click(button);
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you handle errors in Functional Components (since they lack `componentDidCatch`)?
 
 **Difficulty**: Intermediate
@@ -1697,6 +1735,7 @@ function App() {
 
 ---
 
+<a id="q39"></a>
 ### Q39: What is Automatic Batching in React 18?
 
 **Difficulty**: Advanced
@@ -1727,6 +1766,7 @@ flushSync(() => {
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use `useTransition` to keep the UI responsive during heavy state updates?
 
 **Difficulty**: Advanced
@@ -1765,6 +1805,7 @@ function App() {
 
 ---
 
+<a id="q41"></a>
 ### Q41: What is `useDeferredValue` and when should you use it?
 
 **Difficulty**: Advanced
@@ -1797,6 +1838,7 @@ function App() {
 
 ---
 
+<a id="q42"></a>
 ### Q42: How does Suspense for Data Fetching work?
 
 **Difficulty**: Advanced
@@ -1824,6 +1866,7 @@ function ProfilePage() {
 
 ---
 
+<a id="q43"></a>
 ### Q43: Why is using the array index as a key an anti-pattern?
 
 **Difficulty**: Beginner
@@ -1846,6 +1889,7 @@ Using the index as a key can break your application and cause wrong data to be d
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you solve Props Drilling without Context?
 
 **Difficulty**: Intermediate
@@ -1883,6 +1927,7 @@ function Layout({ children }) {
 
 ---
 
+<a id="q45"></a>
 ### Q45: What are Micro-frontends and how does Module Federation help?
 
 **Difficulty**: Expert
@@ -1920,6 +1965,7 @@ function App() {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you use Generics in TypeScript with React Props?
 
 **Difficulty**: Intermediate
@@ -1945,6 +1991,7 @@ function List<T>({ items, renderItem }: ListProps<T>) {
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you create Discriminated Unions for mutually exclusive props?
 
 **Difficulty**: Advanced
@@ -1973,6 +2020,7 @@ function Button(props: ButtonProps) {
 
 ---
 
+<a id="q48"></a>
 ### Q48: What does React Strict Mode do?
 
 **Difficulty**: Beginner
@@ -2000,6 +2048,7 @@ root.render(
 
 ---
 
+<a id="q49"></a>
 ### Q49: How does Event Delegation work in React?
 
 **Difficulty**: Advanced
@@ -2022,6 +2071,7 @@ React doesn't attach event handlers to the DOM nodes you create. Instead, it att
 
 ---
 
+<a id="q50"></a>
 ### Q50: What is the React Reconciler?
 
 **Difficulty**: Expert
@@ -2045,6 +2095,7 @@ The Reconciler is the engine that diffs the Virtual DOM. React Fiber is the curr
 
 
 
+<a id="q51"></a>
 ### Q51: How does React Fiber improve performance?
 
 **Difficulty**: Advanced
@@ -2067,6 +2118,7 @@ Fiber allows React to split rendering work into chunks and pause it to prioritiz
 
 ---
 
+<a id="q52"></a>
 ### Q52: What is the difference between `useMemo` and `useCallback`?
 
 **Difficulty**: Intermediate
@@ -2084,6 +2136,7 @@ const memoizedCallback = useCallback(() => doSomething(a, b), [a, b]);
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you implement an Error Boundary?
 
 **Difficulty**: Intermediate
@@ -2104,6 +2157,7 @@ class ErrorBoundary extends React.Component {
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is the purpose of `useLayoutEffect`?
 
 **Difficulty**: Advanced
@@ -2123,6 +2177,7 @@ useLayoutEffect(() => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you use React Portals?
 
 **Difficulty**: Intermediate
@@ -2142,6 +2197,7 @@ return ReactDOM.createPortal(
 
 ---
 
+<a id="q56"></a>
 ### Q56: What is Suspense for Data Fetching?
 
 **Difficulty**: Advanced
@@ -2160,6 +2216,7 @@ Allows components to 'wait' for something before rendering. Used with `React.laz
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you prevent prop drilling?
 
 **Difficulty**: Beginner
@@ -2178,6 +2235,7 @@ const UserContext = createContext();
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is `forwardRef` used for?
 
 **Difficulty**: Intermediate
@@ -2198,6 +2256,7 @@ const FancyButton = React.forwardRef((props, ref) => (
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do Custom Hooks share logic?
 
 **Difficulty**: Beginner
@@ -2218,6 +2277,7 @@ function useWindowSize() {
 
 ---
 
+<a id="q60"></a>
 ### Q60: Difference between Controlled and Uncontrolled inputs?
 
 **Difficulty**: Beginner
@@ -2237,6 +2297,7 @@ Controlled: React state drives the input value. Uncontrolled: DOM drives the val
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you optimize a large list in React?
 
 **Difficulty**: Intermediate
@@ -2254,6 +2315,7 @@ import { FixedSizeList } from 'react-window';
 
 ---
 
+<a id="q62"></a>
 ### Q62: What is the key prop and why is it important?
 
 **Difficulty**: Beginner
@@ -2270,6 +2332,7 @@ items.map(item => <li key={item.id}>{item.name}</li>)
 
 ---
 
+<a id="q63"></a>
 ### Q63: How do you handle side effects in React?
 
 **Difficulty**: Beginner
@@ -2289,6 +2352,7 @@ useEffect(() => {
 
 ---
 
+<a id="q64"></a>
 ### Q64: What is Higher-Order Component (HOC)?
 
 **Difficulty**: Advanced
@@ -2309,6 +2373,7 @@ function withAuth(WrappedComponent) {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How does `setState` batch updates?
 
 **Difficulty**: Advanced
@@ -2329,6 +2394,7 @@ function handleClick() {
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is the Rules of Hooks?
 
 **Difficulty**: Beginner
@@ -2352,6 +2418,7 @@ useEffect(() => {
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you test a React component?
 
 **Difficulty**: Intermediate
@@ -2371,6 +2438,7 @@ test('renders button', () => {
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is Code Splitting?
 
 **Difficulty**: Intermediate
@@ -2387,6 +2455,7 @@ const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle forms in React?
 
 **Difficulty**: Beginner
@@ -2404,6 +2473,7 @@ const { register, handleSubmit } = useForm();
 
 ---
 
+<a id="q70"></a>
 ### Q70: What is Reconciliation?
 
 **Difficulty**: Advanced
@@ -2422,6 +2492,7 @@ The process by which React updates the DOM. It compares the new Virtual DOM with
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you force a re-render?
 
 **Difficulty**: Intermediate
@@ -2439,6 +2510,7 @@ const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is Strict Mode?
 
 **Difficulty**: Beginner
@@ -2457,6 +2529,7 @@ A tool for highlighting potential problems in an application. It activates addit
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you use Context API effectively?
 
 **Difficulty**: Intermediate
@@ -2474,6 +2547,7 @@ const theme = useContext(ThemeContext);
 
 ---
 
+<a id="q74"></a>
 ### Q74: What is Hydration?
 
 **Difficulty**: Advanced
@@ -2491,6 +2565,7 @@ hydrateRoot(document.getElementById('root'), <App />);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you implement dark mode?
 
 **Difficulty**: Intermediate
@@ -2510,6 +2585,7 @@ useEffect(() => {
 
 ---
 
+<a id="q76"></a>
 ### Q76: What is prop types?
 
 **Difficulty**: Beginner
@@ -2529,6 +2605,7 @@ MyComponent.propTypes = {
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you optimize Context re-renders?
 
 **Difficulty**: Advanced
@@ -2546,6 +2623,7 @@ const value = useMemo(() => ({ state, dispatch }), [state]);
 
 ---
 
+<a id="q78"></a>
 ### Q78: React Server Components vs Client Components?
 
 **Difficulty**: Advanced
@@ -2567,6 +2645,7 @@ export default async function Page() {
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you handle images in React?
 
 **Difficulty**: Beginner
@@ -2584,6 +2663,7 @@ import logo from './logo.png';
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is the Virtual DOM?
 
 **Difficulty**: Beginner
@@ -2604,6 +2684,7 @@ const vNode = {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you implement authentication in React?
 
 **Difficulty**: Intermediate
@@ -2621,6 +2702,7 @@ return user ? <Dashboard /> : <Navigate to="/login" />;
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you handle multiple environments?
 
 **Difficulty**: Intermediate
@@ -2637,6 +2719,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you debug performance issues?
 
 **Difficulty**: Intermediate
@@ -2658,6 +2741,7 @@ if (process.env.NODE_ENV === 'development') {
 
 ---
 
+<a id="q84"></a>
 ### Q84: What is Render Props pattern?
 
 **Difficulty**: Intermediate
@@ -2676,6 +2760,7 @@ Passing a function as a prop to share code. This concept is fundamental in this 
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you create a compound component?
 
 **Difficulty**: Advanced
@@ -2697,6 +2782,7 @@ Components that work together (like `<select>` and `<option>`). Use Context to s
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage global state without Redux?
 
 **Difficulty**: Intermediate
@@ -2714,6 +2800,7 @@ const useStore = create(set => ({ count: 0, inc: () => set(s => ({ count: s.coun
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you implement infinite scroll?
 
 **Difficulty**: Intermediate
@@ -2734,6 +2821,7 @@ return <div ref={ref}>Loading...</div>;
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you secure React apps?
 
 **Difficulty**: Intermediate
@@ -2754,6 +2842,7 @@ return <div ref={ref}>Loading...</div>;
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you unit test hooks?
 
 **Difficulty**: Intermediate
@@ -2772,6 +2861,7 @@ expect(result.current.count).toBe(1);
 
 ---
 
+<a id="q90"></a>
 ### Q90: What is `flushSync`?
 
 **Difficulty**: Advanced
@@ -2791,6 +2881,7 @@ flushSync(() => {
 
 ---
 
+<a id="q91"></a>
 ### Q91: How do you handle race conditions in useEffect?
 
 **Difficulty**: Advanced
@@ -2813,6 +2904,7 @@ useEffect(() => {
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is `dangerouslySetInnerHTML`?
 
 **Difficulty**: Beginner
@@ -2829,6 +2921,7 @@ React's replacement for `innerHTML`. It reminds you that setting HTML directly i
 
 ---
 
+<a id="q93"></a>
 ### Q93: How do you implement drag and drop?
 
 **Difficulty**: Intermediate
@@ -2845,6 +2938,7 @@ Use HTML5 Drag and Drop API or libraries like `dnd-kit` or `react-beautiful-dnd`
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you handle file uploads in React?
 
 **Difficulty**: Intermediate
@@ -2866,6 +2960,7 @@ const handleUpload = (e) => {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you implement a carousel?
 
 **Difficulty**: Intermediate
@@ -2883,6 +2978,7 @@ const next = () => setIndex((i + 1) % images.length);
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you mock API calls in tests?
 
 **Difficulty**: Intermediate
@@ -2903,6 +2999,7 @@ server.use(
 
 ---
 
+<a id="q97"></a>
 ### Q97: What is `React.memo`?
 
 **Difficulty**: Beginner
@@ -2921,6 +3018,7 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you implement a tooltip?
 
 **Difficulty**: Intermediate
@@ -2937,6 +3035,7 @@ Track hover state (`onMouseEnter`, `onMouseLeave`). Render a positioned div.
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle window resize events?
 
 **Difficulty**: Intermediate
@@ -2957,6 +3056,7 @@ useEffect(() => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement A/B testing?
 
 **Difficulty**: Intermediate
@@ -2990,6 +3090,7 @@ function withLogging(WrappedComponent) {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How does `setState` batch updates?
 
 **Difficulty**: Advanced
@@ -3010,6 +3111,7 @@ handleClick() {
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is the Rules of Hooks?
 
 **Difficulty**: Beginner
@@ -3027,6 +3129,7 @@ if (condition) useEffect(...)
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you test a React component?
 
 **Difficulty**: Intermediate
@@ -3045,6 +3148,7 @@ expect(screen.getByText('Success')).toBeInTheDocument();
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is Code Splitting?
 
 **Difficulty**: Intermediate
@@ -3061,6 +3165,7 @@ const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle forms in React?
 
 **Difficulty**: Beginner
@@ -3080,6 +3185,7 @@ const { register, handleSubmit } = useForm();
 
 ---
 
+<a id="q70"></a>
 ### Q70: What is Reconciliation?
 
 **Difficulty**: Advanced
@@ -3096,6 +3202,7 @@ The process through which React updates the DOM. It compares the new element tre
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you force a re-render?
 
 **Difficulty**: Intermediate
@@ -3112,6 +3219,7 @@ const [, forceUpdate] = useReducer(x => x + 1, 0);
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is Strict Mode?
 
 **Difficulty**: Beginner
@@ -3128,6 +3236,7 @@ A tool for highlighting potential problems in an application. It activates addit
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you use Context API effectively?
 
 **Difficulty**: Intermediate
@@ -3145,6 +3254,7 @@ const StateContext = createContext(null);
 
 ---
 
+<a id="q74"></a>
 ### Q74: What is Hydration?
 
 **Difficulty**: Advanced
@@ -3161,6 +3271,7 @@ hydrateRoot(document.getElementById('root'), <App />);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you implement dark mode?
 
 **Difficulty**: Intermediate
@@ -3178,6 +3289,7 @@ const theme = isDark ? darkTheme : lightTheme;
 
 ---
 
+<a id="q76"></a>
 ### Q76: What is prop types?
 
 **Difficulty**: Beginner
@@ -3194,6 +3306,7 @@ MyComponent.propTypes = { name: PropTypes.string.isRequired };
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you optimize Context re-renders?
 
 **Difficulty**: Advanced
@@ -3211,6 +3324,7 @@ const value = useMemo(() => ({ state, dispatch }), [state]);
 
 ---
 
+<a id="q78"></a>
 ### Q78: React Server Components vs Client Components?
 
 **Difficulty**: Advanced
@@ -3228,6 +3342,7 @@ async function Page() { const data = await db.query(); return <div>{data}</div> 
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you handle images in React?
 
 **Difficulty**: Beginner
@@ -3244,6 +3359,7 @@ Import them or use `img` tag. In frameworks like Next.js, use `Image` component 
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is the Virtual DOM?
 
 **Difficulty**: Beginner
@@ -3260,6 +3376,7 @@ A lightweight copy of the actual DOM in memory. React syncs VDOM with Real DOM.
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you implement authentication in React?
 
 **Difficulty**: Intermediate
@@ -3276,6 +3393,7 @@ const PrivateRoute = ({ children }) => auth ? children : <Navigate to="/login" /
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you handle multiple environments?
 
 **Difficulty**: Intermediate
@@ -3292,6 +3410,7 @@ const apiUrl = process.env.REACT_APP_API_URL;
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you debug performance issues?
 
 **Difficulty**: Intermediate
@@ -3308,6 +3427,7 @@ Use React DevTools Profiler tab. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q84"></a>
 ### Q84: What is Render Props pattern?
 
 **Difficulty**: Intermediate
@@ -3324,6 +3444,7 @@ Sharing code between components using a prop whose value is a function.
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you create a compound component?
 
 **Difficulty**: Advanced
@@ -3341,6 +3462,7 @@ Select.Option = Option;
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage global state without Redux?
 
 **Difficulty**: Intermediate
@@ -3357,6 +3479,7 @@ const useStore = create(set => ({ count: 0, inc: () => set(s => ({ count: s.coun
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you implement infinite scroll?
 
 **Difficulty**: Intermediate
@@ -3373,6 +3496,7 @@ const observer = new IntersectionObserver(entries => { if(entries[0].isIntersect
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you secure React apps?
 
 **Difficulty**: Intermediate
@@ -3390,6 +3514,7 @@ Prevent XSS (React escapes by default), avoid `dangerouslySetInnerHTML`, secure 
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you unit test hooks?
 
 **Difficulty**: Intermediate
@@ -3407,6 +3532,7 @@ act(() => result.current.increment());
 
 ---
 
+<a id="q90"></a>
 ### Q90: What is `flushSync`?
 
 **Difficulty**: Advanced
@@ -3424,6 +3550,7 @@ flushSync(() => { setCount(count + 1); });
 
 ---
 
+<a id="q91"></a>
 ### Q91: How do you handle race conditions in useEffect?
 
 **Difficulty**: Advanced
@@ -3444,6 +3571,7 @@ useEffect(() => {
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is `dangerouslySetInnerHTML`?
 
 **Difficulty**: Beginner
@@ -3460,6 +3588,7 @@ React's replacement for `innerHTML`. Risky for XSS.
 
 ---
 
+<a id="q93"></a>
 ### Q93: How do you implement drag and drop?
 
 **Difficulty**: Intermediate
@@ -3476,6 +3605,7 @@ Use HTML5 Drag and Drop API or libraries like `dnd-kit` or `react-beautiful-dnd`
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you handle file uploads in React?
 
 **Difficulty**: Intermediate
@@ -3494,6 +3624,7 @@ fetch('/upload', { method: 'POST', body: formData });
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you implement a carousel?
 
 **Difficulty**: Intermediate
@@ -3510,6 +3641,7 @@ Manage active index state and transform styles. This concept is fundamental in t
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you mock API calls in tests?
 
 **Difficulty**: Intermediate
@@ -3526,6 +3658,7 @@ server.use(rest.get('/api/user', (req, res, ctx) => res(ctx.json({ name: 'John' 
 
 ---
 
+<a id="q97"></a>
 ### Q97: What is `React.memo`?
 
 **Difficulty**: Beginner
@@ -3542,6 +3675,7 @@ const MyComponent = React.memo(function MyComponent(props) { ... });
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you implement a tooltip?
 
 **Difficulty**: Intermediate
@@ -3558,6 +3692,7 @@ State for visibility and position calculation (or use libraries like Tippy.js).
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle window resize events?
 
 **Difficulty**: Intermediate
@@ -3577,6 +3712,7 @@ useEffect(() => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement A/B testing?
 
 **Difficulty**: Intermediate

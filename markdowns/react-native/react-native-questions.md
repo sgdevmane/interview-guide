@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you optimize the performance of a long FlatList with thousands of items?
 
 **Difficulty**: Advanced
@@ -149,6 +150,7 @@ const renderItem = React.useCallback(({ item }) => <Item title={item.title} />, 
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you implement platform-specific code for iOS and Android?
 
 **Difficulty**: Beginner
@@ -180,6 +182,7 @@ if (Platform.OS === 'ios') {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you handle deep linking in a React Native app using React Navigation?
 
 **Difficulty**: Intermediate
@@ -211,6 +214,7 @@ const linking = {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement high-performance animations using React Native Reanimated?
 
 **Difficulty**: Advanced
@@ -243,6 +247,7 @@ function Box() {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you persist global state data using AsyncStorage?
 
 **Difficulty**: Beginner
@@ -277,6 +282,7 @@ const getData = async () => {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you create a custom Native Module for Android (Java/Kotlin)?
 
 **Difficulty**: Expert
@@ -302,6 +308,7 @@ class CalendarModule(reactContext: ReactApplicationContext) : ReactContextBaseJa
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you handle safe area insets on devices with notches?
 
 **Difficulty**: Beginner
@@ -328,6 +335,7 @@ function App() {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you debug React Native apps effectively?
 
 **Difficulty**: Intermediate
@@ -346,6 +354,7 @@ Press `Cmd+D` (iOS) or `Cmd+M` (Android) to open the Dev Menu.
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you prevent the on-screen keyboard from covering input fields?
 
 **Difficulty**: Intermediate
@@ -371,6 +380,7 @@ Use `KeyboardAvoidingView`. Adjust `behavior` prop based on platform (`padding` 
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you implement an infinite scroll list?
 
 **Difficulty**: Intermediate
@@ -393,6 +403,7 @@ Use `onEndReached` and `onEndReachedThreshold` props of `FlatList` to trigger a 
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you use custom fonts in React Native (CLI workflow)?
 
 **Difficulty**: Intermediate
@@ -419,6 +430,7 @@ module.exports = {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you handle offline network connectivity?
 
 **Difficulty**: Intermediate
@@ -442,6 +454,7 @@ useEffect(() => {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you optimize image loading and caching?
 
 **Difficulty**: Intermediate
@@ -467,6 +480,7 @@ import FastImage from 'react-native-fast-image';
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you create a translucent status bar on Android?
 
 **Difficulty**: Intermediate
@@ -487,6 +501,7 @@ Use the `StatusBar` component with `translucent={true}` and set `backgroundColor
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you upgrade React Native to a newer version?
 
 **Difficulty**: Advanced
@@ -500,6 +515,7 @@ Run `npx react-native upgrade` (automated) or manually apply changes to `android
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you implement Stack Navigation using React Navigation?
 
 **Difficulty**: Beginner
@@ -527,6 +543,7 @@ function MyStack() {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you use Redux Toolkit in React Native?
 
 **Difficulty**: Intermediate
@@ -552,6 +569,7 @@ const dispatch = useDispatch();
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you use Context API for theming?
 
 **Difficulty**: Intermediate
@@ -581,6 +599,7 @@ function Toolbar() {
 
 ---
 
+<a id="q19"></a>
 ### Q19: What is the difference between Expo Managed and Bare workflows?
 
 **Difficulty**: Beginner
@@ -602,6 +621,7 @@ function Toolbar() {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you enable Hermes Engine on Android?
 
 **Difficulty**: Intermediate
@@ -620,6 +640,7 @@ project.ext.react = [
 
 ---
 
+<a id="q21"></a>
 ### Q21: What are TurboModules?
 
 **Difficulty**: Advanced
@@ -637,6 +658,7 @@ TurboModules are part of the New Architecture (JSI). They allow lazy loading of 
 
 ---
 
+<a id="q22"></a>
 ### Q22: What is the Fabric Renderer?
 
 **Difficulty**: Advanced
@@ -654,6 +676,7 @@ Fabric is the new UI rendering system. It moves rendering logic to C++, improvin
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you handle Push Notifications with Firebase (FCM)?
 
 **Difficulty**: Intermediate
@@ -682,6 +705,7 @@ useEffect(() => {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you integrate Google Maps?
 
 **Difficulty**: Intermediate
@@ -710,6 +734,7 @@ import MapView, { Marker } from 'react-native-maps';
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you capture a photo using the Camera?
 
 **Difficulty**: Intermediate
@@ -732,6 +757,7 @@ return <Camera style={StyleSheet.absoluteFill} device={device} isActive={true} /
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you implement Biometric Authentication?
 
 **Difficulty**: Intermediate
@@ -755,6 +781,7 @@ async function authenticate() {
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you make a custom button accessible?
 
 **Difficulty**: Beginner
@@ -778,6 +805,7 @@ Use `accessible`, `accessibilityLabel`, and `accessibilityHint` props.
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you implement Internationalization (i18n)?
 
 **Difficulty**: Intermediate
@@ -799,6 +827,7 @@ function MyComponent() {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you perform Over-the-Air (OTA) updates?
 
 **Difficulty**: Advanced
@@ -818,6 +847,7 @@ App = CodePush(App); // Wrap root component
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you display a WebView?
 
 **Difficulty**: Beginner
@@ -836,6 +866,7 @@ import { WebView } from 'react-native-webview';
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you render SVG images?
 
 **Difficulty**: Intermediate
@@ -856,6 +887,7 @@ import Svg, { Circle } from 'react-native-svg';
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you handle complex gestures (Drag/Swipe)?
 
 **Difficulty**: Intermediate
@@ -881,6 +913,7 @@ const gesture = Gesture.Pan()
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you share content with other apps?
 
 **Difficulty**: Beginner
@@ -903,6 +936,7 @@ const onShare = async () => {
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you detect App State changes (Background/Active)?
 
 **Difficulty**: Beginner
@@ -928,6 +962,7 @@ useEffect(() => {
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you open the device Settings?
 
 **Difficulty**: Beginner
@@ -946,6 +981,7 @@ import { Linking } from 'react-native';
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you securely store sensitive data (Tokens)?
 
 **Difficulty**: Intermediate
@@ -965,6 +1001,7 @@ const token = await SecureStore.getItemAsync('secure_token');
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you use Vector Icons?
 
 **Difficulty**: Beginner
@@ -983,6 +1020,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you display Lottie animations?
 
 **Difficulty**: Intermediate
@@ -1001,6 +1039,7 @@ import LottieView from 'lottie-react-native';
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you implement a Blur effect?
 
 **Difficulty**: Intermediate
@@ -1023,6 +1062,7 @@ import { BlurView } from "@react-native-community/blur";
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you implement a Linear Gradient?
 
 **Difficulty**: Beginner
@@ -1043,6 +1083,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you handle the hardware back button on Android?
 
 **Difficulty**: Beginner
@@ -1070,6 +1111,7 @@ useEffect(() => {
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you get device information (Model, System Version)?
 
 **Difficulty**: Beginner
@@ -1089,6 +1131,7 @@ let model = DeviceInfo.getModel();
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you copy text to the clipboard?
 
 **Difficulty**: Beginner
@@ -1109,6 +1152,7 @@ const copyToClipboard = () => {
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you implement a modal?
 
 **Difficulty**: Beginner
@@ -1136,6 +1180,7 @@ Use the `Modal` component. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you check internet connectivity type (WiFi/Cellular)?
 
 **Difficulty**: Beginner
@@ -1155,6 +1200,7 @@ NetInfo.fetch().then(state => {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you implement a Pager View (ViewPager)?
 
 **Difficulty**: Intermediate
@@ -1176,6 +1222,7 @@ import PagerView from 'react-native-pager-view';
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you debug Network Requests?
 
 **Difficulty**: Intermediate
@@ -1193,6 +1240,7 @@ Use React Native Debugger (includes Network tab) or Flipper.
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you use Native Driver for Animations?
 
 **Difficulty**: Intermediate
@@ -1213,6 +1261,7 @@ Animated.timing(fadeAnim, {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you measure the dimensions of a View?
 
 **Difficulty**: Beginner
@@ -1232,6 +1281,7 @@ Use the `onLayout` prop. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you implement a Shadow on Android?
 
 **Difficulty**: Beginner
@@ -1261,6 +1311,7 @@ style: {
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle React Native state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1277,6 +1328,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform React Native data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1293,6 +1345,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate React Native deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1311,6 +1364,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle React Native concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1329,6 +1383,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement React Native caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1346,6 +1401,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage React Native configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1362,6 +1418,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle React Native internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1378,6 +1435,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure React Native accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1394,6 +1452,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize React Native network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1410,6 +1469,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle React Native performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1429,6 +1489,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of React Native in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1446,6 +1507,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug React Native memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1463,6 +1525,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for React Native code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1480,6 +1543,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement React Native error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1500,6 +1564,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test React Native functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1518,6 +1583,7 @@ test('React Native works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle React Native state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1534,6 +1600,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform React Native data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1550,6 +1617,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate React Native deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1568,6 +1636,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle React Native concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1586,6 +1655,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement React Native caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1603,6 +1673,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage React Native configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1619,6 +1690,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle React Native internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1635,6 +1707,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure React Native accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1651,6 +1724,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize React Native network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1667,6 +1741,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle React Native performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1686,6 +1761,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of React Native in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1703,6 +1779,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug React Native memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1720,6 +1797,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for React Native code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1737,6 +1815,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement React Native error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1757,6 +1836,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test React Native functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1775,6 +1855,7 @@ test('React Native works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle React Native state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1791,6 +1872,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform React Native data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1807,6 +1889,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate React Native deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1825,6 +1908,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle React Native concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1843,6 +1927,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement React Native caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1860,6 +1945,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage React Native configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1876,6 +1962,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle React Native internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1892,6 +1979,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure React Native accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1908,6 +1996,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize React Native network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1924,6 +2013,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle React Native performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1943,6 +2033,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of React Native in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1960,6 +2051,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug React Native memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1977,6 +2069,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for React Native code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1994,6 +2087,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement React Native error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2014,6 +2108,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test React Native functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2032,6 +2127,7 @@ test('React Native works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle React Native state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2048,6 +2144,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform React Native data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2064,6 +2161,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate React Native deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2082,6 +2180,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle React Native concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2100,6 +2199,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement React Native caching in production environments?
 
 **Difficulty**: Intermediate

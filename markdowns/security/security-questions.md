@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you prevent SQL Injection in a Node.js application using raw SQL?
 
 **Difficulty**: Intermediate
@@ -157,6 +158,7 @@ getUserById(5).then(user => console.log(user));
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you prevent Cross-Site Scripting (XSS) in a React application?
 
 **Difficulty**: Intermediate
@@ -199,6 +201,7 @@ function Comment({ content, userUrl }) {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you securely store user passwords in a database?
 
 **Difficulty**: Intermediate
@@ -252,6 +255,7 @@ async function verifyUser(username, inputPassword) {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement Cross-Site Request Forgery (CSRF) protection?
 
 **Difficulty**: Intermediate
@@ -303,6 +307,7 @@ app.use(session({
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you securely implement JWT authentication?
 
 **Difficulty**: Advanced
@@ -350,6 +355,7 @@ function authenticateToken(req, res, next) {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you implement Rate Limiting to prevent DoS and Brute-Force attacks?
 
 **Difficulty**: Intermediate
@@ -391,6 +397,7 @@ app.post('/api/login', loginLimiter, loginHandler);
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you secure HTTP headers using Helmet?
 
 **Difficulty**: Beginner
@@ -436,6 +443,7 @@ app.get('/', (req, res) => {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you prevent Server-Side Request Forgery (SSRF)?
 
 **Difficulty**: Advanced
@@ -483,6 +491,7 @@ function fetchExternalUrl(userUrl) {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you fix Insecure Direct Object References (IDOR)?
 
 **Difficulty**: Intermediate
@@ -522,6 +531,7 @@ app.get('/invoices/:id', async (req, res) => {
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you securely handle file uploads?
 
 **Difficulty**: Intermediate
@@ -572,6 +582,7 @@ const upload = multer({
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you manage secrets and environment variables securely?
 
 **Difficulty**: Beginner
@@ -610,6 +621,7 @@ if (!process.env.DB_PASSWORD) {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you prevent XML External Entity (XXE) attacks?
 
 **Difficulty**: Advanced
@@ -645,6 +657,7 @@ function parseXML(xmlString) {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you prevent Clickjacking?
 
 **Difficulty**: Beginner
@@ -678,6 +691,7 @@ app.use((req, res, next) => {
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you implement secure Open Redirect protection?
 
 **Difficulty**: Intermediate
@@ -717,6 +731,7 @@ app.get('/login', (req, res) => {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you implement Role-Based Access Control (RBAC)?
 
 **Difficulty**: Intermediate
@@ -760,6 +775,7 @@ app.delete('/api/posts/:id', authenticate, authorize('delete'), deletePostHandle
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you implement Multi-Factor Authentication (MFA) using TOTP?
 
 **Difficulty**: Intermediate
@@ -784,6 +800,7 @@ const verified = speakeasy.totp.verify({
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you prevent Query Depth attacks in GraphQL?
 
 **Difficulty**: Intermediate
@@ -803,6 +820,7 @@ app.use('/graphql', graphqlHTTP({
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you prevent Regular Expression Denial of Service (ReDoS)?
 
 **Difficulty**: Advanced
@@ -820,6 +838,7 @@ const match = await runRegexWithTimeout(/pattern/, input, 100);
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you properly configure Session Cookies?
 
 **Difficulty**: Beginner
@@ -839,6 +858,7 @@ res.cookie('session_id', '123', {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use Nonces with Content Security Policy (CSP)?
 
 **Difficulty**: Advanced
@@ -857,6 +877,7 @@ res.setHeader('Content-Security-Policy', `script-src 'nonce-${nonce}'`);
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you secure WebSocket connections?
 
 **Difficulty**: Intermediate
@@ -875,6 +896,7 @@ wss.on('connection', (ws, req) => {
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you prevent Session Fixation?
 
 **Difficulty**: Intermediate
@@ -892,6 +914,7 @@ req.session.regenerate((err) => {
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you implement Account Lockout securely?
 
 **Difficulty**: Intermediate
@@ -908,6 +931,7 @@ if (attempts > 5) {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you prevent Supply Chain Attacks in Node.js?
 
 **Difficulty**: Intermediate
@@ -923,6 +947,7 @@ npm audit fix
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you implement Field-Level Encryption?
 
 **Difficulty**: Advanced
@@ -939,6 +964,7 @@ encrypted += cipher.final('hex');
 
 ---
 
+<a id="q26"></a>
 ### Q26: What is Perfect Forward Secrecy (PFS)?
 
 **Difficulty**: Advanced
@@ -954,6 +980,7 @@ ssl_ciphers 'ECDHE-RSA-AES256-GCM-SHA384:...';
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you implement mTLS (Mutual TLS)?
 
 **Difficulty**: Advanced
@@ -974,6 +1001,7 @@ const options = {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you validate an OIDC ID Token?
 
 **Difficulty**: Intermediate
@@ -991,6 +1019,7 @@ const ticket = await client.verifyIdToken({
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you prevent HTTP Parameter Pollution (HPP)?
 
 **Difficulty**: Intermediate
@@ -1006,6 +1035,7 @@ app.use(hpp());
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you secure Serverless Functions (Least Privilege)?
 
 **Difficulty**: Intermediate
@@ -1024,6 +1054,7 @@ Assign IAM roles with only necessary permissions. Avoid wildcard (`*`) permissio
 
 ---
 
+<a id="q31"></a>
 ### Q31: What is Zero Trust Architecture?
 
 **Difficulty**: Advanced
@@ -1056,6 +1087,7 @@ const server = https.createServer({ ...certs, requestCert: true, rejectUnauthori
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you automate Key Rotation?
 
 **Difficulty**: Advanced
@@ -1083,6 +1115,7 @@ async function encryptData(data) {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you detect secrets in code commits?
 
 **Difficulty**: Intermediate
@@ -1108,6 +1141,7 @@ git secrets --scan
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you prevent LDAP Injection?
 
 **Difficulty**: Intermediate
@@ -1138,6 +1172,7 @@ const filter = `(uid=${safeUser})`;
 
 ---
 
+<a id="q35"></a>
 ### Q35: What are `Referrer-Policy` and `Permissions-Policy`?
 
 **Difficulty**: Intermediate
@@ -1156,6 +1191,7 @@ Permissions-Policy: camera=(), geolocation=(), microphone=()
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you run Docker in Rootless Mode?
 
 **Difficulty**: Intermediate
@@ -1179,6 +1215,7 @@ docker run -d -p 8080:80 nginx
 
 ---
 
+<a id="q37"></a>
 ### Q37: Why use PKCE in OAuth 2.0?
 
 **Difficulty**: Advanced
@@ -1205,6 +1242,7 @@ const challenge = base64URLEncode(sha256(verifier));
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you handle PII (Personally Identifiable Information)?
 
 **Difficulty**: Intermediate
@@ -1226,6 +1264,7 @@ function logUserAction(user, action) {
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you secure API Keys in Mobile Apps?
 
 **Difficulty**: Intermediate
@@ -1250,6 +1289,7 @@ app.get('/weather', (req, res) => {
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you prevent Man-in-the-Middle (MitM) attacks?
 
 **Difficulty**: Beginner
@@ -1273,6 +1313,7 @@ const agent = new https.Agent({
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you prevent Timing Attacks?
 
 **Difficulty**: Advanced
@@ -1299,6 +1340,7 @@ function checkToken(userToken, secretToken) {
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you secure Audit Logs?
 
 **Difficulty**: Advanced
@@ -1331,6 +1373,7 @@ function writeLog(entry) {
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you implement a secure Password Reset flow?
 
 **Difficulty**: Intermediate
@@ -1359,6 +1402,7 @@ if (isValid && !isExpired) { /* Allow reset */ }
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you secure gRPC services?
 
 **Difficulty**: Advanced
@@ -1385,6 +1429,7 @@ server.bindAsync('0.0.0.0:50051', credentials, () => server.start());
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you configure CORS securely?
 
 **Difficulty**: Beginner
@@ -1415,6 +1460,7 @@ app.use(cors(corsOptions));
 
 ---
 
+<a id="q46"></a>
 ### Q46: What is Subresource Integrity (SRI)?
 
 **Difficulty**: Beginner
@@ -1436,6 +1482,7 @@ Ensures that files fetched from CDNs haven't been modified. Use the `integrity` 
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you prevent Host Header Injection?
 
 **Difficulty**: Intermediate
@@ -1463,6 +1510,7 @@ server {
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you prevent Directory Traversal?
 
 **Difficulty**: Intermediate
@@ -1493,6 +1541,7 @@ app.get('/file', (req, res) => {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you prevent Deserialization vulnerabilities?
 
 **Difficulty**: Advanced
@@ -1518,6 +1567,7 @@ try {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you implement 'Defense in Depth'?
 
 **Difficulty**: Advanced
@@ -1550,6 +1600,7 @@ app.post('/transfer',
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you handle Security state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1566,6 +1617,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Security data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1582,6 +1634,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Security deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1600,6 +1653,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Security concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1618,6 +1672,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Security caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1635,6 +1690,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Security configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1651,6 +1707,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Security internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1667,6 +1724,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Security accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1683,6 +1741,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Security network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1699,6 +1758,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Security performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1718,6 +1778,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Security in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1735,6 +1796,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Security memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1752,6 +1814,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Security code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1769,6 +1832,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Security error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1789,6 +1853,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Security functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1807,6 +1872,7 @@ test('Security works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Security state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1823,6 +1889,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Security data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1839,6 +1906,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Security deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1857,6 +1925,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Security concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1875,6 +1944,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Security caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1892,6 +1962,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Security configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1908,6 +1979,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Security internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1924,6 +1996,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Security accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1940,6 +2013,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Security network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1956,6 +2030,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Security performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1975,6 +2050,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Security in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1992,6 +2068,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Security memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -2009,6 +2086,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Security code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2026,6 +2104,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Security error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -2046,6 +2125,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Security functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -2064,6 +2144,7 @@ test('Security works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Security state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -2080,6 +2161,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Security data validation in microservices?
 
 **Difficulty**: Beginner
@@ -2096,6 +2178,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Security deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -2114,6 +2197,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Security concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -2132,6 +2216,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Security caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2149,6 +2234,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Security configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -2165,6 +2251,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Security internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -2181,6 +2268,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Security accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2197,6 +2285,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Security network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2213,6 +2302,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Security performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2232,6 +2322,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Security in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2249,6 +2340,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Security memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2266,6 +2358,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Security code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2283,6 +2376,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Security error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2303,6 +2397,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Security functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2321,6 +2416,7 @@ test('Security works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Security state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2337,6 +2433,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Security data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2353,6 +2450,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Security deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2371,6 +2469,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Security concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2389,6 +2488,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Security caching in production environments?
 
 **Difficulty**: Intermediate

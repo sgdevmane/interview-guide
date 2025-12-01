@@ -115,6 +115,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: What is the lifecycle of a Svelte component?
 
 **Difficulty**: Beginner
@@ -131,6 +132,7 @@ onMount(() => { console.log('Mounted'); });
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you create a reactive declaration?
 
 **Difficulty**: Beginner
@@ -147,6 +149,7 @@ $: doubled = count * 2;
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you share state between components?
 
 **Difficulty**: Intermediate
@@ -163,6 +166,7 @@ export const count = writable(0);
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you dispatch custom events?
 
 **Difficulty**: Intermediate
@@ -179,6 +183,7 @@ const dispatch = createEventDispatcher(); dispatch('msg', 'hello');
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you use slots?
 
 **Difficulty**: Beginner
@@ -195,6 +200,7 @@ Use the `<slot>` element. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you optimize rendering with `keyed` each blocks?
 
 **Difficulty**: Intermediate
@@ -211,6 +217,7 @@ Provide a unique key in parentheses. This concept is fundamental in this domain 
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you bind form inputs?
 
 **Difficulty**: Beginner
@@ -227,6 +234,7 @@ Use `bind:value`. This concept is fundamental in this domain and understanding i
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you use Svelte actions?
 
 **Difficulty**: Advanced
@@ -243,6 +251,7 @@ function tooltip(node, params) { ... } <div use:tooltip>
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you handle transitions?
 
 **Difficulty**: Intermediate
@@ -259,6 +268,7 @@ Import from `svelte/transition`. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q10"></a>
 ### Q10: What is `tick()`?
 
 **Difficulty**: Advanced
@@ -275,6 +285,7 @@ await tick();
 
 ---
 
+<a id="q11"></a>
 ### Q11: Difference between Svelte and React?
 
 **Difficulty**: Beginner
@@ -291,6 +302,7 @@ Svelte is a compiler that converts components to imperative code at build time. 
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you use the special element `<svelte:head>`?
 
 **Difficulty**: Intermediate
@@ -307,6 +319,7 @@ To insert elements into the document `<head>`. This concept is fundamental in th
 
 ---
 
+<a id="q13"></a>
 ### Q13: What are Derived Stores?
 
 **Difficulty**: Intermediate
@@ -323,6 +336,7 @@ const doubled = derived(count, $count => $count * 2);
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you handle context in Svelte?
 
 **Difficulty**: Intermediate
@@ -339,6 +353,7 @@ setContext('key', value); const value = getContext('key');
 
 ---
 
+<a id="q15"></a>
 ### Q15: What is the purpose of `<svelte:component>`?
 
 **Difficulty**: Advanced
@@ -355,6 +370,7 @@ To render a component dynamically based on a variable.
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you loop with an index in Svelte?
 
 **Difficulty**: Beginner
@@ -371,6 +387,7 @@ Add a second argument to the `#each` block. This concept is fundamental in this 
 
 ---
 
+<a id="q17"></a>
 ### Q17: What is the `bind:this` directive?
 
 **Difficulty**: Intermediate
@@ -387,6 +404,7 @@ To get a reference to a DOM element or component instance.
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you prevent event bubbling in Svelte?
 
 **Difficulty**: Beginner
@@ -403,6 +421,7 @@ Use event modifiers like `on:click|stopPropagation`.
 
 ---
 
+<a id="q19"></a>
 ### Q19: What is SvelteKit?
 
 **Difficulty**: Intermediate
@@ -419,6 +438,7 @@ The official application framework for Svelte, handling routing, SSR, SSG, etc.
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use the `await` block?
 
 **Difficulty**: Intermediate
@@ -435,6 +455,7 @@ To handle promises directly in the template. This concept is fundamental in this
 
 ---
 
+<a id="q21"></a>
 ### Q21: What are Custom Stores?
 
 **Difficulty**: Advanced
@@ -451,6 +472,7 @@ function createCount() { const { subscribe } = writable(0); return { subscribe }
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you style components in Svelte?
 
 **Difficulty**: Beginner
@@ -467,6 +489,7 @@ Styles in `<style>` blocks are scoped to the component by default.
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you use the @html tag?
 
 **Difficulty**: Beginner
@@ -483,6 +506,7 @@ To render raw HTML strings. Be careful of XSS. This concept is fundamental in th
 
 ---
 
+<a id="q24"></a>
 ### Q24: What is the difference between on:click and on:click|once?
 
 **Difficulty**: Beginner
@@ -499,6 +523,7 @@ Modifiers change event behavior. `once` removes the handler after first trigger.
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you forward events in Svelte?
 
 **Difficulty**: Intermediate
@@ -515,6 +540,7 @@ By adding `on:eventname` without a handler. This concept is fundamental in this 
 
 ---
 
+<a id="q26"></a>
 ### Q26: What is the `class:` directive?
 
 **Difficulty**: Beginner
@@ -531,6 +557,7 @@ Conditionally toggle classes. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you use `<svelte:window>`?
 
 **Difficulty**: Intermediate
@@ -547,6 +574,7 @@ To add event listeners to the window object. This concept is fundamental in this
 
 ---
 
+<a id="q28"></a>
 ### Q28: What is `<svelte:body>`?
 
 **Difficulty**: Intermediate
@@ -563,6 +591,7 @@ To add listeners to document.body. This concept is fundamental in this domain an
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you use `<svelte:head>`?
 
 **Difficulty**: Intermediate
@@ -579,6 +608,7 @@ To inject elements into the head (title, meta). This concept is fundamental in t
 
 ---
 
+<a id="q30"></a>
 ### Q30: What are Module Context scripts?
 
 **Difficulty**: Advanced
@@ -597,6 +627,7 @@ Scripts that run once per module, not per instance.
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you handle fallback content in slots?
 
 **Difficulty**: Beginner
@@ -613,6 +644,7 @@ Put content inside the `<slot>` tag. This concept is fundamental in this domain 
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is `$$props`?
 
 **Difficulty**: Advanced
@@ -629,6 +661,7 @@ console.log($$props);
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is `$$restProps`?
 
 **Difficulty**: Intermediate
@@ -645,6 +678,7 @@ Props that are not explicitly exported. This concept is fundamental in this doma
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you debug Svelte reactivity?
 
 **Difficulty**: Beginner
@@ -661,6 +695,7 @@ Use `{@debug variable}`. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is the `key` block?
 
 **Difficulty**: Intermediate
@@ -677,6 +712,7 @@ Re-creates the component when the key changes. This concept is fundamental in th
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you define props in Svelte?
 
 **Difficulty**: Beginner
@@ -693,6 +729,7 @@ export let name = 'World';
 
 ---
 
+<a id="q37"></a>
 ### Q37: What is `createEventDispatcher`?
 
 **Difficulty**: Intermediate
@@ -709,6 +746,7 @@ const dispatch = createEventDispatcher();
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you use the `use:action` directive?
 
 **Difficulty**: Advanced
@@ -725,6 +763,7 @@ Attaches a lifecycle to an element. This concept is fundamental in this domain a
 
 ---
 
+<a id="q39"></a>
 ### Q39: What is the return value of an action?
 
 **Difficulty**: Advanced
@@ -741,6 +780,7 @@ return { destroy() { ... } }
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you bind `this` in Svelte?
 
 **Difficulty**: Intermediate
@@ -757,6 +797,7 @@ Use `bind:this` to get a reference. This concept is fundamental in this domain a
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you bind component props?
 
 **Difficulty**: Intermediate
@@ -773,6 +814,7 @@ Use `bind:propName`. This concept is fundamental in this domain and understandin
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is the `store` contract?
 
 **Difficulty**: Advanced
@@ -789,6 +831,7 @@ const store = { subscribe: (cb) => { ... } }
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you auto-subscribe to a store?
 
 **Difficulty**: Beginner
@@ -805,6 +848,7 @@ Prefix with `$`. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is `get` from `svelte/store`?
 
 **Difficulty**: Intermediate
@@ -821,6 +865,7 @@ const value = get(store);
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you make a store read-only?
 
 **Difficulty**: Intermediate
@@ -837,6 +882,7 @@ const read = readonly(write);
 
 ---
 
+<a id="q46"></a>
 ### Q46: What is `derived` store?
 
 **Difficulty**: Intermediate
@@ -853,6 +899,7 @@ const double = derived(count, $c => $c * 2);
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use `style:` directive?
 
 **Difficulty**: Beginner
@@ -869,6 +916,7 @@ Set inline styles conditionally. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q48"></a>
 ### Q48: What is `svelte:options`?
 
 **Difficulty**: Advanced
@@ -885,6 +933,7 @@ Compiler options for the component (immutable, accessors).
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you detect if code is running in browser?
 
 **Difficulty**: Beginner
@@ -901,6 +950,7 @@ if (browser) { ... }
 
 ---
 
+<a id="q50"></a>
 ### Q50: What is Hydration?
 
 **Difficulty**: Advanced
@@ -917,6 +967,7 @@ Attaching interactivity to server-rendered HTML. This concept is fundamental in 
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you create a transition?
 
 **Difficulty**: Advanced
@@ -933,6 +984,7 @@ function fade(node, { duration }) { ... }
 
 ---
 
+<a id="q52"></a>
 ### Q52: What is `crossfade`?
 
 **Difficulty**: Advanced
@@ -949,6 +1001,7 @@ const [send, receive] = crossfade(...)
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you use `animate:flip`?
 
 **Difficulty**: Intermediate
@@ -965,6 +1018,7 @@ Animates reordering of list items. This concept is fundamental in this domain an
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is `svelte:fragment`?
 
 **Difficulty**: Intermediate
@@ -981,6 +1035,7 @@ A container for slots that doesn't render a DOM element.
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you lazy load a component?
 
 **Difficulty**: Advanced
@@ -997,6 +1052,7 @@ Use dynamic imports in `await` block or SvelteKit's features.
 
 ---
 
+<a id="q56"></a>
 ### Q56: What is the difference between `bind:group` and `bind:value`?
 
 **Difficulty**: Intermediate
@@ -1013,6 +1069,7 @@ Use dynamic imports in `await` block or SvelteKit's features.
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle multiple classes?
 
 **Difficulty**: Beginner
@@ -1029,6 +1086,7 @@ class="btn {active ? 'active' : ''}"
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is `svelte-ignore`?
 
 **Difficulty**: Intermediate
@@ -1045,6 +1103,7 @@ Comments to suppress compiler warnings. This concept is fundamental in this doma
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you access the component instance?
 
 **Difficulty**: Advanced
@@ -1061,6 +1120,7 @@ Use `bind:this` on the component tag. This concept is fundamental in this domain
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is `beforeUpdate`?
 
 **Difficulty**: Intermediate
@@ -1077,6 +1137,7 @@ beforeUpdate(() => { ... })
 
 ---
 
+<a id="q61"></a>
 ### Q61: What is `afterUpdate`?
 
 **Difficulty**: Intermediate
@@ -1093,6 +1154,7 @@ afterUpdate(() => { ... })
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you create a custom store?
 
 **Difficulty**: Intermediate
@@ -1109,6 +1171,7 @@ function createCount() { ... }
 
 ---
 
+<a id="q63"></a>
 ### Q63: What is `spring` motion?
 
 **Difficulty**: Intermediate
@@ -1125,6 +1188,7 @@ const coords = spring({ x: 0, y: 0 });
 
 ---
 
+<a id="q64"></a>
 ### Q64: What is `tweened` motion?
 
 **Difficulty**: Intermediate
@@ -1141,6 +1205,7 @@ const progress = tweened(0);
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you use `svelte:self`?
 
 **Difficulty**: Intermediate
@@ -1157,6 +1222,7 @@ Recursively render the current component. This concept is fundamental in this do
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is the `src/routes` folder in SvelteKit?
 
 **Difficulty**: Beginner
@@ -1173,6 +1239,7 @@ File-based routing directory. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q67"></a>
 ### Q67: What is a `+page.svelte` file?
 
 **Difficulty**: Beginner
@@ -1189,6 +1256,7 @@ Defines the UI for a route. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is a `+page.server.js` file?
 
 **Difficulty**: Intermediate
@@ -1205,6 +1273,7 @@ export function load() { ... }
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is a `+layout.svelte` file?
 
 **Difficulty**: Beginner
@@ -1221,6 +1290,7 @@ Defines a layout wrapper for pages. This concept is fundamental in this domain a
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you handle form actions in SvelteKit?
 
 **Difficulty**: Intermediate
@@ -1237,6 +1307,7 @@ export const actions = { default: async ({ request }) => { ... } }
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is `enhance` in SvelteKit forms?
 
 **Difficulty**: Intermediate
@@ -1253,6 +1324,7 @@ Progressive enhancement for forms. This concept is fundamental in this domain an
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you use environment variables?
 
 **Difficulty**: Intermediate
@@ -1269,6 +1341,7 @@ import { API_KEY } from '$env/static/private';
 
 ---
 
+<a id="q73"></a>
 ### Q73: What is adapter in SvelteKit?
 
 **Difficulty**: Intermediate
@@ -1285,6 +1358,7 @@ import adapter from '@sveltejs/adapter-auto';
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you handle errors in SvelteKit?
 
 **Difficulty**: Intermediate
@@ -1301,6 +1375,7 @@ throw error(404, 'Not found');
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is `hooks.server.js`?
 
 **Difficulty**: Advanced
@@ -1317,6 +1392,7 @@ export async function handle({ event, resolve }) { ... }
 
 ---
 
+<a id="q76"></a>
 ### Q76: How do you prefetch data?
 
 **Difficulty**: Intermediate
@@ -1333,6 +1409,7 @@ Use `<a data-sveltekit-preload-data>`. This concept is fundamental in this domai
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is the difference between `onMount` and `load`?
 
 **Difficulty**: Intermediate
@@ -1349,6 +1426,7 @@ Use `<a data-sveltekit-preload-data>`. This concept is fundamental in this domai
 
 ---
 
+<a id="q78"></a>
 ### Q78: How do you use global styles?
 
 **Difficulty**: Beginner
@@ -1365,6 +1443,7 @@ Use `:global(...)` or a global stylesheet. This concept is fundamental in this d
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is accessibility warning in Svelte?
 
 **Difficulty**: Beginner
@@ -1381,6 +1460,7 @@ Compiler warnings for A11y issues. This concept is fundamental in this domain an
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you optimize loops?
 
 **Difficulty**: Intermediate
@@ -1397,6 +1477,7 @@ Use keyed each blocks. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is the purpose of `tick` in tests?
 
 **Difficulty**: Advanced
@@ -1413,6 +1494,7 @@ await tick(); expect(...)
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you test Svelte components?
 
 **Difficulty**: Intermediate
@@ -1429,6 +1511,7 @@ render(Component);
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is `vite` in Svelte context?
 
 **Difficulty**: Beginner
@@ -1445,6 +1528,7 @@ The build tool and dev server. This concept is fundamental in this domain and un
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you deploy a Svelte app?
 
 **Difficulty**: Beginner
@@ -1461,6 +1545,7 @@ npm run build
 
 ---
 
+<a id="q85"></a>
 ### Q85: What is `svelte-check`?
 
 **Difficulty**: Intermediate
@@ -1477,6 +1562,7 @@ svelte-check --watch
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you use TypeScript with Svelte?
 
 **Difficulty**: Beginner
@@ -1493,6 +1579,7 @@ Add `lang="ts"` to script tag. This concept is fundamental in this domain and un
 
 ---
 
+<a id="q87"></a>
 ### Q87: What is `$$slots`?
 
 **Difficulty**: Advanced
@@ -1509,6 +1596,7 @@ if ($$slots.header) { ... }
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you debounce an input?
 
 **Difficulty**: Intermediate
@@ -1525,6 +1613,7 @@ let timer; const handle = () => { clearTimeout(timer); timer = setTimeout(...) }
 
 ---
 
+<a id="q89"></a>
 ### Q89: What is `await` block `catch`?
 
 **Difficulty**: Beginner
@@ -1541,6 +1630,7 @@ Handles promise rejection. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you use `placeholder` attribute on inputs?
 
 **Difficulty**: Beginner
@@ -1557,6 +1647,7 @@ Standard HTML attribute. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q91"></a>
 ### Q91: Can you have multiple script tags?
 
 **Difficulty**: Advanced
@@ -1573,6 +1664,7 @@ Yes, one `context="module"` and one normal. This concept is fundamental in this 
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is `immutable` option?
 
 **Difficulty**: Advanced
@@ -1589,6 +1681,7 @@ Tells Svelte to use strict equality for props. This concept is fundamental in th
 
 ---
 
+<a id="q93"></a>
 ### Q93: How do you access `window` safely in SSR?
 
 **Difficulty**: Intermediate
@@ -1605,6 +1698,7 @@ onMount(() => window.scrollTo(0,0))
 
 ---
 
+<a id="q94"></a>
 ### Q94: What is `svelte/motion`?
 
 **Difficulty**: Intermediate
@@ -1621,6 +1715,7 @@ import { spring } from 'svelte/motion';
 
 ---
 
+<a id="q95"></a>
 ### Q95: What is `svelte/easing`?
 
 **Difficulty**: Beginner
@@ -1637,6 +1732,7 @@ import { bounceOut } from 'svelte/easing';
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you pass data to layout?
 
 **Difficulty**: Intermediate
@@ -1653,6 +1749,7 @@ return { user: ... }
 
 ---
 
+<a id="q97"></a>
 ### Q97: What is `page` store in SvelteKit?
 
 **Difficulty**: Intermediate
@@ -1669,6 +1766,7 @@ import { page } from '$app/stores';
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you use `navigating` store?
 
 **Difficulty**: Intermediate
@@ -1685,6 +1783,7 @@ if ($navigating) Loading...
 
 ---
 
+<a id="q99"></a>
 ### Q99: What is `updated` store?
 
 **Difficulty**: Advanced
@@ -1701,6 +1800,7 @@ if ($updated) location.reload()
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you handle 404s?
 
 **Difficulty**: Beginner
@@ -1717,6 +1817,7 @@ Create a `+error.svelte` file. This concept is fundamental in this domain and un
 
 ---
 
+<a id="q101"></a>
 ### Q101: What is `data-sveltekit-reload`?
 
 **Difficulty**: Intermediate
@@ -1733,6 +1834,7 @@ Forces a full page reload on link click. This concept is fundamental in this dom
 
 ---
 
+<a id="q102"></a>
 ### Q102: How do you reset a store?
 
 **Difficulty**: Intermediate

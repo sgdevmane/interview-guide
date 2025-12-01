@@ -114,6 +114,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: What is the Singleton Pattern and when should you use it?
 
 **Difficulty**: Beginner
@@ -146,6 +147,7 @@ console.log(s1 === s2); // true
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you implement the Factory Method Pattern?
 
 **Difficulty**: Intermediate
@@ -183,6 +185,7 @@ class Truck {
 
 ---
 
+<a id="q3"></a>
 ### Q3: What is the difference between Factory Method and Abstract Factory?
 
 **Difficulty**: Advanced
@@ -216,6 +219,7 @@ class WinFactory extends GUIFactory {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How does the Builder Pattern help in object construction?
 
 **Difficulty**: Intermediate
@@ -252,6 +256,7 @@ const car = new CarBuilder().setSeats(4).setEngine('V8').build();
 
 ---
 
+<a id="q5"></a>
 ### Q5: What is the Prototype Pattern and how does it relate to cloning?
 
 **Difficulty**: Beginner
@@ -279,6 +284,7 @@ myCar.color = 'red';
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you use the Adapter Pattern to make incompatible interfaces work together?
 
 **Difficulty**: Intermediate
@@ -319,6 +325,7 @@ class CalcAdapter {
 
 ---
 
+<a id="q7"></a>
 ### Q7: What is the Decorator Pattern and how does it differ from inheritance?
 
 **Difficulty**: Intermediate
@@ -348,6 +355,7 @@ console.log(myCoffee.cost()); // 7
 
 ---
 
+<a id="q8"></a>
 ### Q8: How does the Facade Pattern simplify complex systems?
 
 **Difficulty**: Beginner
@@ -377,6 +385,7 @@ class ComputerFacade {
 
 ---
 
+<a id="q9"></a>
 ### Q9: What is the Proxy Pattern and what are its common use cases?
 
 **Difficulty**: Intermediate
@@ -407,6 +416,7 @@ console.log(proxy.message); // "World"
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you use the Composite Pattern to represent tree structures?
 
 **Difficulty**: Advanced
@@ -444,6 +454,7 @@ class Composite extends Component {
 
 ---
 
+<a id="q11"></a>
 ### Q11: What is the Bridge Pattern and how does it decouple abstraction from implementation?
 
 **Difficulty**: Advanced
@@ -483,6 +494,7 @@ class Remote {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How does the Flyweight Pattern optimize memory usage?
 
 **Difficulty**: Advanced
@@ -519,6 +531,7 @@ class TreeFactory {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you implement the Observer Pattern (Pub/Sub)?
 
 **Difficulty**: Intermediate
@@ -553,6 +566,7 @@ class Observer {
 
 ---
 
+<a id="q14"></a>
 ### Q14: What is the Strategy Pattern and how does it enable algorithm swapping?
 
 **Difficulty**: Intermediate
@@ -585,6 +599,7 @@ class PayPalStrategy {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How does the Command Pattern encapsulate requests?
 
 **Difficulty**: Intermediate
@@ -613,6 +628,7 @@ class LightOnCommand extends Command {
 
 ---
 
+<a id="q16"></a>
 ### Q16: What is the Iterator Pattern?
 
 **Difficulty**: Beginner
@@ -632,6 +648,7 @@ console.log(iterator.next()); // { value: 1, done: false }
 
 ---
 
+<a id="q17"></a>
 ### Q17: How does the Mediator Pattern reduce coupling between components?
 
 **Difficulty**: Advanced
@@ -655,6 +672,7 @@ class Mediator {
 
 ---
 
+<a id="q18"></a>
 ### Q18: What is the Memento Pattern used for?
 
 **Difficulty**: Advanced
@@ -681,6 +699,7 @@ class Originator {
 
 ---
 
+<a id="q19"></a>
 ### Q19: How does the State Pattern allow an object to alter its behavior?
 
 **Difficulty**: Intermediate
@@ -711,6 +730,7 @@ class Context {
 
 ---
 
+<a id="q20"></a>
 ### Q20: What is the Template Method Pattern?
 
 **Difficulty**: Beginner
@@ -733,6 +753,7 @@ class DataMiner {
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you implement the Chain of Responsibility Pattern?
 
 **Difficulty**: Advanced
@@ -761,6 +782,7 @@ class Handler {
 
 ---
 
+<a id="q22"></a>
 ### Q22: What is the Visitor Pattern and when should you use it?
 
 **Difficulty**: Advanced
@@ -787,6 +809,7 @@ class ConcreteElementA {
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is the Command Pattern?
 
 **Difficulty**: Intermediate
@@ -803,6 +826,7 @@ class Command { execute() {} }
 
 ---
 
+<a id="q24"></a>
 ### Q24: What is the Interpreter Pattern?
 
 **Difficulty**: Advanced
@@ -819,6 +843,7 @@ Defines a grammar for a language and an interpreter.
 
 ---
 
+<a id="q25"></a>
 ### Q25: What is the Iterator Pattern?
 
 **Difficulty**: Beginner
@@ -835,6 +860,7 @@ for (let item of collection) { ... }
 
 ---
 
+<a id="q26"></a>
 ### Q26: What is the Mediator Pattern?
 
 **Difficulty**: Advanced
@@ -851,6 +877,7 @@ mediator.notify(sender, 'event');
 
 ---
 
+<a id="q27"></a>
 ### Q27: What is the Memento Pattern?
 
 **Difficulty**: Advanced
@@ -867,6 +894,7 @@ const savedState = originator.save();
 
 ---
 
+<a id="q28"></a>
 ### Q28: What is the Observer Pattern?
 
 **Difficulty**: Beginner
@@ -883,6 +911,7 @@ subject.subscribe(observer);
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is the State Pattern?
 
 **Difficulty**: Intermediate
@@ -899,6 +928,7 @@ state.handle();
 
 ---
 
+<a id="q30"></a>
 ### Q30: What is the Strategy Pattern?
 
 **Difficulty**: Intermediate
@@ -915,6 +945,7 @@ context.setStrategy(new SortStrategy());
 
 ---
 
+<a id="q31"></a>
 ### Q31: What is the Template Method?
 
 **Difficulty**: Intermediate
@@ -931,6 +962,7 @@ class Base { step1(); step2(); }
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is the Visitor Pattern?
 
 **Difficulty**: Advanced
@@ -947,6 +979,7 @@ element.accept(visitor);
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is the Adapter Pattern?
 
 **Difficulty**: Beginner
@@ -963,6 +996,7 @@ class Adapter { request() { return old.specificRequest(); } }
 
 ---
 
+<a id="q34"></a>
 ### Q34: What is the Bridge Pattern?
 
 **Difficulty**: Advanced
@@ -979,6 +1013,7 @@ class Remote { constructor(device) { ... } }
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is the Composite Pattern?
 
 **Difficulty**: Intermediate
@@ -995,6 +1030,7 @@ composite.add(leaf);
 
 ---
 
+<a id="q36"></a>
 ### Q36: What is the Decorator Pattern?
 
 **Difficulty**: Beginner
@@ -1011,6 +1047,7 @@ Adds behavior dynamically. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q37"></a>
 ### Q37: What is the Facade Pattern?
 
 **Difficulty**: Beginner
@@ -1027,6 +1064,7 @@ facade.startComputer();
 
 ---
 
+<a id="q38"></a>
 ### Q38: What is the Flyweight Pattern?
 
 **Difficulty**: Advanced
@@ -1043,6 +1081,7 @@ factory.getFlyweight(key);
 
 ---
 
+<a id="q39"></a>
 ### Q39: What is the Proxy Pattern?
 
 **Difficulty**: Intermediate
@@ -1059,6 +1098,7 @@ const proxy = new Proxy(target, handler);
 
 ---
 
+<a id="q40"></a>
 ### Q40: What is the Chain of Responsibility?
 
 **Difficulty**: Intermediate
@@ -1075,6 +1115,7 @@ h1.setNext(h2); h1.handle(req);
 
 ---
 
+<a id="q41"></a>
 ### Q41: What is the Abstract Factory?
 
 **Difficulty**: Intermediate
@@ -1091,6 +1132,7 @@ factory.createButton(); factory.createCheckbox();
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is the Builder Pattern?
 
 **Difficulty**: Intermediate
@@ -1107,6 +1149,7 @@ new Builder().setPartA().build();
 
 ---
 
+<a id="q43"></a>
 ### Q43: What is the Factory Method?
 
 **Difficulty**: Beginner
@@ -1123,6 +1166,7 @@ createAnimal() { return new Dog(); }
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is the Prototype Pattern?
 
 **Difficulty**: Intermediate
@@ -1139,6 +1183,7 @@ obj.clone();
 
 ---
 
+<a id="q45"></a>
 ### Q45: What is the Singleton Pattern?
 
 **Difficulty**: Beginner
@@ -1155,6 +1200,7 @@ if (!instance) instance = this;
 
 ---
 
+<a id="q46"></a>
 ### Q46: What is Dependency Injection?
 
 **Difficulty**: Intermediate
@@ -1171,6 +1217,7 @@ constructor(service) { this.service = service; }
 
 ---
 
+<a id="q47"></a>
 ### Q47: What is Inversion of Control?
 
 **Difficulty**: Advanced
@@ -1187,6 +1234,7 @@ Inversion of Control (IoC) is a design principle in which the flow of control of
 
 ---
 
+<a id="q48"></a>
 ### Q48: What is MVVM?
 
 **Difficulty**: Intermediate
@@ -1203,6 +1251,7 @@ Model-View-ViewModel (MVVM) is a software architectural pattern that facilitates
 
 ---
 
+<a id="q49"></a>
 ### Q49: What is MVC?
 
 **Difficulty**: Beginner
@@ -1219,6 +1268,7 @@ Model-View-Controller (MVC) is an architectural pattern that separates an applic
 
 ---
 
+<a id="q50"></a>
 ### Q50: What is MVP?
 
 **Difficulty**: Intermediate
@@ -1235,6 +1285,7 @@ Model-View-Presenter. This concept is fundamental in this domain and understandi
 
 ---
 
+<a id="q51"></a>
 ### Q51: What is the Repository Pattern?
 
 **Difficulty**: Intermediate
@@ -1251,6 +1302,7 @@ repo.getUser(id);
 
 ---
 
+<a id="q52"></a>
 ### Q52: What is the Unit of Work?
 
 **Difficulty**: Advanced
@@ -1267,6 +1319,7 @@ uow.commit();
 
 ---
 
+<a id="q53"></a>
 ### Q53: What is Active Record?
 
 **Difficulty**: Intermediate
@@ -1283,6 +1336,7 @@ user.save();
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is Data Mapper?
 
 **Difficulty**: Advanced
@@ -1299,6 +1353,7 @@ mapper.save(user);
 
 ---
 
+<a id="q55"></a>
 ### Q55: What is Event Sourcing?
 
 **Difficulty**: Advanced
@@ -1315,6 +1370,7 @@ events.forEach(e => state.apply(e));
 
 ---
 
+<a id="q56"></a>
 ### Q56: What is CQRS?
 
 **Difficulty**: Advanced
@@ -1331,6 +1387,7 @@ CQRS (Command Query Responsibility Segregation) fits well with Event Sourcing. I
 
 ---
 
+<a id="q57"></a>
 ### Q57: What is the Saga Pattern?
 
 **Difficulty**: Advanced
@@ -1347,6 +1404,7 @@ Long running transactions in microservices. This concept is fundamental in this 
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is Circuit Breaker?
 
 **Difficulty**: Advanced
@@ -1363,6 +1421,7 @@ if (failures > threshold) openCircuit();
 
 ---
 
+<a id="q59"></a>
 ### Q59: What is Bulkhead Pattern?
 
 **Difficulty**: Advanced
@@ -1379,6 +1438,7 @@ Isolate resources pools. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is Sidecar Pattern?
 
 **Difficulty**: Intermediate
@@ -1395,6 +1455,7 @@ Helper process alongside main app. This concept is fundamental in this domain an
 
 ---
 
+<a id="q61"></a>
 ### Q61: What is API Gateway?
 
 **Difficulty**: Intermediate
@@ -1411,6 +1472,7 @@ An API Gateway is a server that is the single entry point into the system. It en
 
 ---
 
+<a id="q62"></a>
 ### Q62: What is Backends for Frontends (BFF)?
 
 **Difficulty**: Intermediate
@@ -1427,6 +1489,7 @@ Separate backend per UI. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q63"></a>
 ### Q63: What is Strangler Fig?
 
 **Difficulty**: Advanced
@@ -1443,6 +1506,7 @@ Gradually replace legacy system. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q64"></a>
 ### Q64: What is Retry Pattern?
 
 **Difficulty**: Beginner
@@ -1459,6 +1523,7 @@ retry(fn, 3);
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is Throttling?
 
 **Difficulty**: Intermediate
@@ -1475,6 +1540,7 @@ if (rate > limit) reject();
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is Debouncing?
 
 **Difficulty**: Beginner
@@ -1491,6 +1557,7 @@ setTimeout(fn, delay);
 
 ---
 
+<a id="q67"></a>
 ### Q67: What is Lazy Loading?
 
 **Difficulty**: Beginner
@@ -1507,6 +1574,7 @@ if (needed) load();
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is Eager Loading?
 
 **Difficulty**: Beginner
@@ -1523,6 +1591,7 @@ loadAll();
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is Object Pool?
 
 **Difficulty**: Advanced
@@ -1539,6 +1608,7 @@ pool.acquire();
 
 ---
 
+<a id="q70"></a>
 ### Q70: What is Null Object Pattern?
 
 **Difficulty**: Intermediate
@@ -1555,6 +1625,7 @@ class NullUser { getName() { return 'Guest'; } }
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is Service Locator?
 
 **Difficulty**: Intermediate
@@ -1571,6 +1642,7 @@ locator.get('Service');
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is Module Pattern?
 
 **Difficulty**: Beginner
@@ -1587,6 +1659,7 @@ return { publicMethod };
 
 ---
 
+<a id="q73"></a>
 ### Q73: What is Revealing Module Pattern?
 
 **Difficulty**: Intermediate
@@ -1603,6 +1676,7 @@ return { start: startFn };
 
 ---
 
+<a id="q74"></a>
 ### Q74: What is Mixin Pattern?
 
 **Difficulty**: Intermediate
@@ -1619,6 +1693,7 @@ Object.assign(Class.prototype, mixin);
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is Interceptor Pattern?
 
 **Difficulty**: Intermediate
@@ -1635,6 +1710,7 @@ axios.interceptors.request.use(...)
 
 ---
 
+<a id="q76"></a>
 ### Q76: What is Filter Pattern?
 
 **Difficulty**: Intermediate
@@ -1651,6 +1727,7 @@ list.filter(criteria);
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is Publisher-Subscriber?
 
 **Difficulty**: Beginner
@@ -1667,6 +1744,7 @@ pub.publish(topic, msg);
 
 ---
 
+<a id="q78"></a>
 ### Q78: What is Blackboard Pattern?
 
 **Difficulty**: Advanced
@@ -1683,6 +1761,7 @@ Shared knowledge base for AI. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is Layered Architecture?
 
 **Difficulty**: Beginner
@@ -1699,6 +1778,7 @@ Separation into layers (UI, Business, Data). This concept is fundamental in this
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is Hexagonal Architecture?
 
 **Difficulty**: Advanced
@@ -1715,6 +1795,7 @@ Ports and Adapters. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is Clean Architecture?
 
 **Difficulty**: Advanced
@@ -1731,6 +1812,7 @@ Dependency Rule (inwards). This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q82"></a>
 ### Q82: What is Domain Driven Design (DDD)?
 
 **Difficulty**: Advanced
@@ -1747,6 +1829,7 @@ Focus on core domain logic. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is Entity Component System (ECS)?
 
 **Difficulty**: Advanced
@@ -1763,6 +1846,7 @@ Game development pattern. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q84"></a>
 ### Q84: What is Flux Pattern?
 
 **Difficulty**: Intermediate
@@ -1779,6 +1863,7 @@ Flux is an application architecture for building client-side web applications. I
 
 ---
 
+<a id="q85"></a>
 ### Q85: What is Redux Pattern?
 
 **Difficulty**: Intermediate
@@ -1795,6 +1880,7 @@ reducer(state, action)
 
 ---
 
+<a id="q86"></a>
 ### Q86: What is DAO?
 
 **Difficulty**: Intermediate
@@ -1811,6 +1897,7 @@ dao.findById(1);
 
 ---
 
+<a id="q87"></a>
 ### Q87: What is DTO?
 
 **Difficulty**: Beginner
@@ -1827,6 +1914,7 @@ class UserDTO { name; email; }
 
 ---
 
+<a id="q88"></a>
 ### Q88: What is POJO?
 
 **Difficulty**: Beginner
@@ -1843,6 +1931,7 @@ Plain Old Java/JS Object. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q89"></a>
 ### Q89: What is Value Object?
 
 **Difficulty**: Intermediate
@@ -1859,6 +1948,7 @@ new Money(10, 'USD');
 
 ---
 
+<a id="q90"></a>
 ### Q90: What is Aggregate Root?
 
 **Difficulty**: Advanced
@@ -1875,6 +1965,7 @@ Entry point to cluster of objects. This concept is fundamental in this domain an
 
 ---
 
+<a id="q91"></a>
 ### Q91: What is Specification Pattern?
 
 **Difficulty**: Advanced
@@ -1891,6 +1982,7 @@ spec.isSatisfiedBy(obj);
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is Priority Queue?
 
 **Difficulty**: Intermediate
@@ -1907,6 +1999,7 @@ heap.insert(item);
 
 ---
 
+<a id="q93"></a>
 ### Q93: What is LRU Cache?
 
 **Difficulty**: Intermediate
@@ -1923,6 +2016,7 @@ cache.get(key);
 
 ---
 
+<a id="q94"></a>
 ### Q94: What is Rate Limiter?
 
 **Difficulty**: Intermediate
@@ -1939,6 +2033,7 @@ Token Bucket algorithm
 
 ---
 
+<a id="q95"></a>
 ### Q95: What is Consistent Hashing?
 
 **Difficulty**: Advanced
@@ -1955,6 +2050,7 @@ hash(key) % nodes
 
 ---
 
+<a id="q96"></a>
 ### Q96: What is Bloom Filter?
 
 **Difficulty**: Advanced
@@ -1971,6 +2067,7 @@ mightContain(item)
 
 ---
 
+<a id="q97"></a>
 ### Q97: What is CAP Theorem?
 
 **Difficulty**: Intermediate
@@ -1987,6 +2084,7 @@ Consistency, Availability, Partition Tolerance. This concept is fundamental in t
 
 ---
 
+<a id="q98"></a>
 ### Q98: What is SOLID?
 
 **Difficulty**: Intermediate
@@ -2003,6 +2101,7 @@ SOLID is an acronym for 5 design principles: Single Responsibility Principle (SR
 
 ---
 
+<a id="q99"></a>
 ### Q99: What is DRY?
 
 **Difficulty**: Beginner
@@ -2019,6 +2118,7 @@ DRY stands for 'Don't Repeat Yourself'. It is a principle of software developmen
 
 ---
 
+<a id="q100"></a>
 ### Q100: What is KISS?
 
 **Difficulty**: Beginner
@@ -2035,6 +2135,7 @@ Keep It Simple, Stupid. This concept is fundamental in this domain and understan
 
 ---
 
+<a id="q101"></a>
 ### Q101: What is YAGNI?
 
 **Difficulty**: Beginner

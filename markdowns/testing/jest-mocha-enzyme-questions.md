@@ -105,6 +105,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you mock a module in Jest?
 
 **Difficulty**: Beginner
@@ -121,6 +122,7 @@ jest.mock('axios');
 
 ---
 
+<a id="q2"></a>
 ### Q2: What is Snapshot Testing in Jest?
 
 **Difficulty**: Beginner
@@ -137,6 +139,7 @@ expect(tree).toMatchSnapshot();
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you test asynchronous code in Jest?
 
 **Difficulty**: Intermediate
@@ -153,6 +156,7 @@ test('async', async () => { const data = await fetch(); expect(data).toBe('ok');
 
 ---
 
+<a id="q4"></a>
 ### Q4: Difference between `shallow` and `mount` in Enzyme?
 
 **Difficulty**: Intermediate
@@ -169,6 +173,7 @@ shallow(<App />);
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you spy on a method with Jest?
 
 **Difficulty**: Intermediate
@@ -185,6 +190,7 @@ const spy = jest.spyOn(video, 'play');
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you setup and teardown tests in Mocha?
 
 **Difficulty**: Beginner
@@ -201,6 +207,7 @@ beforeEach(() => { ... });
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you mock a timer in Jest?
 
 **Difficulty**: Advanced
@@ -217,6 +224,7 @@ jest.advanceTimersByTime(1000);
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you test a React Hook?
 
 **Difficulty**: Advanced
@@ -233,6 +241,7 @@ const { result } = renderHook(() => useCounter());
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you mock a default export in Jest?
 
 **Difficulty**: Advanced
@@ -249,6 +258,7 @@ jest.mock('./mod', () => ({ __esModule: true, default: jest.fn() }));
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you test for an exception in Jest?
 
 **Difficulty**: Beginner
@@ -265,6 +275,7 @@ expect(() => fn()).toThrow();
 
 ---
 
+<a id="q11"></a>
 ### Q11: What is the difference between `describe` and `test`?
 
 **Difficulty**: Beginner
@@ -281,6 +292,7 @@ describe('User', () => { test('has name', () => {}); });
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you access the DOM in Jest?
 
 **Difficulty**: Intermediate
@@ -297,6 +309,7 @@ document.body.innerHTML = '<div></div>';
 
 ---
 
+<a id="q13"></a>
 ### Q13: What is `jest.fn()`?
 
 **Difficulty**: Beginner
@@ -313,6 +326,7 @@ const mock = jest.fn(); mock(); expect(mock).toHaveBeenCalled();
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you skip a test?
 
 **Difficulty**: Beginner
@@ -329,6 +343,7 @@ test.skip('broken test', () => {});
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you run only one test?
 
 **Difficulty**: Beginner
@@ -345,6 +360,7 @@ test.only('focus this', () => {});
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you test React components without Enzyme?
 
 **Difficulty**: Intermediate
@@ -361,6 +377,7 @@ render(<App />); fireEvent.click(screen.getByText('Go'));
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you mock global objects like `localStorage`?
 
 **Difficulty**: Intermediate
@@ -377,6 +394,7 @@ Storage.prototype.getItem = jest.fn();
 
 ---
 
+<a id="q18"></a>
 ### Q18: What is Code Coverage?
 
 **Difficulty**: Intermediate
@@ -393,6 +411,7 @@ A metric showing what percentage of your code is executed during tests.
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you parameterize tests in Jest?
 
 **Difficulty**: Intermediate
@@ -409,6 +428,7 @@ test.each([[1, 2, 3], [2, 2, 4]])('adds %i + %i to equal %i', (a, b, expected) =
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you reset mocks between tests?
 
 **Difficulty**: Intermediate
@@ -425,6 +445,7 @@ afterEach(() => jest.clearAllMocks());
 
 ---
 
+<a id="q21"></a>
 ### Q21: What is a Spy in testing?
 
 **Difficulty**: Beginner
@@ -441,6 +462,7 @@ A test double that records information about how it is called.
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you test Redux connected components?
 
 **Difficulty**: Advanced
@@ -457,6 +479,7 @@ render(<Provider store={store}><App /></Provider>);
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is TDD?
 
 **Difficulty**: Beginner
@@ -473,6 +496,7 @@ Test Driven Development. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q24"></a>
 ### Q24: What is BDD?
 
 **Difficulty**: Beginner
@@ -489,6 +513,7 @@ Behavior Driven Development. This concept is fundamental in this domain and unde
 
 ---
 
+<a id="q25"></a>
 ### Q25: Difference between Unit and Integration tests?
 
 **Difficulty**: Beginner
@@ -505,6 +530,7 @@ Unit: isolated. Integration: combined. This concept is fundamental in this domai
 
 ---
 
+<a id="q26"></a>
 ### Q26: What is E2E testing?
 
 **Difficulty**: Beginner
@@ -521,6 +547,7 @@ End to End testing. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q27"></a>
 ### Q27: What is Jest?
 
 **Difficulty**: Beginner
@@ -537,6 +564,7 @@ expect(1).toBe(1)
 
 ---
 
+<a id="q28"></a>
 ### Q28: What is Mocha?
 
 **Difficulty**: Beginner
@@ -553,6 +581,7 @@ describe('...', () => { ... })
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is Chai?
 
 **Difficulty**: Beginner
@@ -569,6 +598,7 @@ expect(x).to.equal(y)
 
 ---
 
+<a id="q30"></a>
 ### Q30: What is Enzyme?
 
 **Difficulty**: Intermediate
@@ -585,6 +615,7 @@ shallow(<App />)
 
 ---
 
+<a id="q31"></a>
 ### Q31: What is React Testing Library (RTL)?
 
 **Difficulty**: Intermediate
@@ -601,6 +632,7 @@ render(<App />); screen.getByText('Hi')
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you mock a function?
 
 **Difficulty**: Beginner
@@ -617,6 +649,7 @@ const mock = jest.fn() This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you mock a module?
 
 **Difficulty**: Intermediate
@@ -633,6 +666,7 @@ jest.mock('axios')
 
 ---
 
+<a id="q34"></a>
 ### Q34: What is Snapshot testing?
 
 **Difficulty**: Beginner
@@ -649,6 +683,7 @@ expect(tree).toMatchSnapshot()
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you update snapshots?
 
 **Difficulty**: Beginner
@@ -665,6 +700,7 @@ jest -u This concept is fundamental in this domain and understanding it allows d
 
 ---
 
+<a id="q36"></a>
 ### Q36: What is `beforeAll`?
 
 **Difficulty**: Beginner
@@ -681,6 +717,7 @@ beforeAll(() => { ... })
 
 ---
 
+<a id="q37"></a>
 ### Q37: What is `afterEach`?
 
 **Difficulty**: Beginner
@@ -697,6 +734,7 @@ afterEach(() => { ... })
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you test async code?
 
 **Difficulty**: Intermediate
@@ -713,6 +751,7 @@ test('x', async () => { ... })
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you mock timers?
 
 **Difficulty**: Advanced
@@ -729,6 +768,7 @@ jest.advanceTimersByTime(1000)
 
 ---
 
+<a id="q40"></a>
 ### Q40: What is `spyOn`?
 
 **Difficulty**: Intermediate
@@ -745,6 +785,7 @@ jest.spyOn(obj, 'method')
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you mock API calls?
 
 **Difficulty**: Intermediate
@@ -761,6 +802,7 @@ global.fetch = jest.fn()
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is Coverage?
 
 **Difficulty**: Beginner
@@ -777,6 +819,7 @@ jest --coverage
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you test hooks?
 
 **Difficulty**: Advanced
@@ -793,6 +836,7 @@ const { result } = renderHook(() => useHook())
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you test context?
 
 **Difficulty**: Intermediate
@@ -809,6 +853,7 @@ render(<Provider><Comp /></Provider>)
 
 ---
 
+<a id="q45"></a>
 ### Q45: What is `act`?
 
 **Difficulty**: Advanced
@@ -825,6 +870,7 @@ act(() => { ... })
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you find elements in RTL?
 
 **Difficulty**: Beginner
@@ -841,6 +887,7 @@ screen.getByRole('button')
 
 ---
 
+<a id="q47"></a>
 ### Q47: Difference between `getBy` and `queryBy`?
 
 **Difficulty**: Intermediate
@@ -857,6 +904,7 @@ getBy throws if not found, queryBy returns null. This concept is fundamental in 
 
 ---
 
+<a id="q48"></a>
 ### Q48: Difference between `getBy` and `findBy`?
 
 **Difficulty**: Intermediate
@@ -873,6 +921,7 @@ await screen.findByText('Loaded')
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you simulate events?
 
 **Difficulty**: Beginner
@@ -889,6 +938,7 @@ fireEvent.click(btn)
 
 ---
 
+<a id="q50"></a>
 ### Q50: What is `user-event`?
 
 **Difficulty**: Intermediate
@@ -905,6 +955,7 @@ userEvent.type(input, 'text')
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you debug tests?
 
 **Difficulty**: Beginner
@@ -921,6 +972,7 @@ screen.debug() This concept is fundamental in this domain and understanding it a
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you skip a test?
 
 **Difficulty**: Beginner
@@ -937,6 +989,7 @@ test.skip('...', () => {})
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you focus a test?
 
 **Difficulty**: Beginner
@@ -953,6 +1006,7 @@ test.only('...', () => {})
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is `describe`?
 
 **Difficulty**: Beginner
@@ -969,6 +1023,7 @@ describe('Group', () => {})
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you mock local storage?
 
 **Difficulty**: Intermediate
@@ -985,6 +1040,7 @@ Storage.prototype.getItem = jest.fn()
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you test routing?
 
 **Difficulty**: Intermediate
@@ -1001,6 +1057,7 @@ Wrap in MemoryRouter. This concept is fundamental in this domain and understandi
 
 ---
 
+<a id="q57"></a>
 ### Q57: What is Cypress?
 
 **Difficulty**: Intermediate
@@ -1017,6 +1074,7 @@ cy.visit('/page')
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is Playwright?
 
 **Difficulty**: Intermediate
@@ -1033,6 +1091,7 @@ await page.goto('/url')
 
 ---
 
+<a id="q59"></a>
 ### Q59: Difference between Mock and Stub?
 
 **Difficulty**: Advanced
@@ -1049,6 +1108,7 @@ Stub provides canned answer. Mock verifies behavior.
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is Mutation Testing?
 
 **Difficulty**: Advanced
@@ -1065,6 +1125,7 @@ Modifies code to ensure tests fail. This concept is fundamental in this domain a
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you test accessibility?
 
 **Difficulty**: Intermediate
@@ -1081,6 +1142,7 @@ expect(await axe(container)).toHaveNoViolations()
 
 ---
 
+<a id="q62"></a>
 ### Q62: What is Visual Regression Testing?
 
 **Difficulty**: Advanced
@@ -1097,6 +1159,7 @@ Compare pixels. This concept is fundamental in this domain and understanding it 
 
 ---
 
+<a id="q63"></a>
 ### Q63: How do you test Redux?
 
 **Difficulty**: Intermediate
@@ -1113,6 +1176,7 @@ renderWithProviders(<App />)
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you mock Date?
 
 **Difficulty**: Intermediate
@@ -1129,6 +1193,7 @@ jest.useFakeTimers().setSystemTime(...)
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is `cleanup`?
 
 **Difficulty**: Intermediate
@@ -1145,6 +1210,7 @@ Unmounts trees after test. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you test portals?
 
 **Difficulty**: Advanced
@@ -1161,6 +1227,7 @@ within(baseElement).getByText(...)
 
 ---
 
+<a id="q67"></a>
 ### Q67: What is Property Based Testing?
 
 **Difficulty**: Advanced
@@ -1177,6 +1244,7 @@ Test with random data inputs. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you setup global config?
 
 **Difficulty**: Intermediate
@@ -1193,6 +1261,7 @@ jest.config.js setupFilesAfterEnv. This concept is fundamental in this domain an
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is the Pyramid of Testing?
 
 **Difficulty**: Beginner
@@ -1209,6 +1278,7 @@ Unit > Integration > E2E. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you test strict mode?
 
 **Difficulty**: Intermediate
@@ -1225,6 +1295,7 @@ Wrap in StrictMode. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you test error boundaries?
 
 **Difficulty**: Advanced
@@ -1241,6 +1312,7 @@ Throw in component, check fallback. This concept is fundamental in this domain a
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is shallow rendering?
 
 **Difficulty**: Intermediate
@@ -1257,6 +1329,7 @@ Render one level deep. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q73"></a>
 ### Q73: Why prefer full rendering?
 
 **Difficulty**: Intermediate
@@ -1273,6 +1346,7 @@ Closer to real user usage. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you test observables?
 
 **Difficulty**: Advanced
@@ -1289,6 +1363,7 @@ Marble testing. This concept is fundamental in this domain and understanding it 
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is CI/CD testing?
 
 **Difficulty**: Intermediate
@@ -1305,6 +1380,7 @@ Run tests in pipeline. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q76"></a>
 ### Q76: How do you parallelize tests?
 
 **Difficulty**: Intermediate
@@ -1321,6 +1397,7 @@ Jest does it by default. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is Flaky test?
 
 **Difficulty**: Beginner
@@ -1337,6 +1414,7 @@ Fails randomly. This concept is fundamental in this domain and understanding it 
 
 ---
 
+<a id="q78"></a>
 ### Q78: How do you fix flaky tests?
 
 **Difficulty**: Intermediate
@@ -1353,6 +1431,7 @@ Isolate, fix async, mock time. This concept is fundamental in this domain and un
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is Contract Testing?
 
 **Difficulty**: Advanced
@@ -1369,6 +1448,7 @@ Verify API contracts. This concept is fundamental in this domain and understandi
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test WebSockets?
 
 **Difficulty**: Advanced
@@ -1385,6 +1465,7 @@ Mock server. This concept is fundamental in this domain and understanding it all
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you test Service Workers?
 
 **Difficulty**: Advanced
@@ -1401,6 +1482,7 @@ Browser env needed. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q82"></a>
 ### Q82: What is `test.todo`?
 
 **Difficulty**: Beginner
@@ -1417,6 +1499,7 @@ test.todo('implement later')
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you mock a module partially?
 
 **Difficulty**: Intermediate
@@ -1433,6 +1516,7 @@ jest.requireActual('./mod')
 
 ---
 
+<a id="q84"></a>
 ### Q84: What is `__mocks__` folder?
 
 **Difficulty**: Intermediate
@@ -1449,6 +1533,7 @@ Manual mocks location. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you test memory leaks?
 
 **Difficulty**: Advanced
@@ -1465,6 +1550,7 @@ Heap snapshots. This concept is fundamental in this domain and understanding it 
 
 ---
 
+<a id="q86"></a>
 ### Q86: What is Static Analysis?
 
 **Difficulty**: Beginner
@@ -1481,6 +1567,7 @@ Linting, Types. This concept is fundamental in this domain and understanding it 
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you test Canvas?
 
 **Difficulty**: Advanced
@@ -1497,6 +1584,7 @@ jest-canvas-mock. This concept is fundamental in this domain and understanding i
 
 ---
 
+<a id="q88"></a>
 ### Q88: What is Headless Browser?
 
 **Difficulty**: Beginner
@@ -1513,6 +1601,7 @@ Browser without UI. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you test performance?
 
 **Difficulty**: Advanced
@@ -1529,6 +1618,7 @@ Lighthouse CI. This concept is fundamental in this domain and understanding it a
 
 ---
 
+<a id="q90"></a>
 ### Q90: What is Chaos Engineering?
 
 **Difficulty**: Advanced
@@ -1545,6 +1635,7 @@ Break things on purpose. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q91"></a>
 ### Q91: How do you test i18n?
 
 **Difficulty**: Intermediate
@@ -1561,6 +1652,7 @@ t = (k) => k
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is Snapshot serialization?
 
 **Difficulty**: Advanced

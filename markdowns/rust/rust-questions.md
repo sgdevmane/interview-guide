@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you handle errors without using exceptions?
 
 **Difficulty**: Beginner
@@ -142,6 +143,7 @@ fn main() {
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you share data between threads safely?
 
 **Difficulty**: Intermediate
@@ -175,6 +177,7 @@ for handle in handles {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you prevent 'use after free' errors?
 
 **Difficulty**: Beginner
@@ -195,6 +198,7 @@ println!("{}", s2); // Valid
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement polymorphism in Rust?
 
 **Difficulty**: Intermediate
@@ -222,6 +226,7 @@ fn make_it_speak(animal: &impl Speak) {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you manage memory without a Garbage Collector?
 
 **Difficulty**: Intermediate
@@ -241,6 +246,7 @@ Rust uses **RAII** (Resource Acquisition Is Initialization). Memory is automatic
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you modify a variable inside a closure?
 
 **Difficulty**: Intermediate
@@ -264,6 +270,7 @@ increment();
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you handle global state?
 
 **Difficulty**: Advanced
@@ -288,6 +295,7 @@ fn main() {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you optimize string concatenation?
 
 **Difficulty**: Intermediate
@@ -307,6 +315,7 @@ s.push_str("World");
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you return multiple values from a function?
 
 **Difficulty**: Beginner
@@ -327,6 +336,7 @@ let (sum, product) = calculate(2, 3);
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you create a custom error type?
 
 **Difficulty**: Intermediate
@@ -354,6 +364,7 @@ impl std::error::Error for MyError {}
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you iterate over a collection without consuming it?
 
 **Difficulty**: Beginner
@@ -374,6 +385,7 @@ for num in nums.iter() {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you implement an asynchronous function?
 
 **Difficulty**: Intermediate
@@ -398,6 +410,7 @@ async fn main() {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you create a macro to reduce boilerplate?
 
 **Difficulty**: Advanced
@@ -420,6 +433,7 @@ say_hello!();
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you reference a slice of an array?
 
 **Difficulty**: Beginner
@@ -437,6 +451,7 @@ let slice = &arr[1..4]; // [2, 3, 4]
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you use unsafe code for performance?
 
 **Difficulty**: Advanced
@@ -457,6 +472,7 @@ unsafe {
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you use Option and Result combinators?
 
 **Difficulty**: Intermediate
@@ -483,6 +499,7 @@ fn main() {
 
 ---
 
+<a id="q17"></a>
 ### Q17: When should you use Box<T>?
 
 **Difficulty**: Intermediate
@@ -506,6 +523,7 @@ fn main() {
 
 ---
 
+<a id="q18"></a>
 ### Q18: What is the difference between RefCell and Cell?
 
 **Difficulty**: Advanced
@@ -534,6 +552,7 @@ fn main() {
 
 ---
 
+<a id="q19"></a>
 ### Q19: When to use Arc vs Rc?
 
 **Difficulty**: Intermediate
@@ -560,6 +579,7 @@ fn main() {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you implement From and Into traits?
 
 **Difficulty**: Intermediate
@@ -586,6 +606,7 @@ fn main() {
 
 ---
 
+<a id="q21"></a>
 ### Q21: How does Deref coercion work?
 
 **Difficulty**: Advanced
@@ -620,6 +641,7 @@ fn main() {
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you swap values efficiently?
 
 **Difficulty**: Intermediate
@@ -645,6 +667,7 @@ fn main() {
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is Cow (Copy-on-Write)?
 
 **Difficulty**: Advanced
@@ -680,6 +703,7 @@ fn main() {
 
 ---
 
+<a id="q24"></a>
 ### Q24: When should you use PhantomData?
 
 **Difficulty**: Advanced
@@ -705,6 +729,7 @@ fn main() {
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you write unit tests in Rust?
 
 **Difficulty**: Beginner
@@ -733,6 +758,7 @@ mod tests {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you use the Entry API for HashMaps?
 
 **Difficulty**: Intermediate
@@ -758,6 +784,7 @@ fn main() {
 
 ---
 
+<a id="q27"></a>
 ### Q27: What is the difference between const and static?
 
 **Difficulty**: Intermediate
@@ -779,6 +806,7 @@ fn main() {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you use match guards?
 
 **Difficulty**: Beginner
@@ -803,6 +831,7 @@ fn main() {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you create a thread-safe global counter?
 
 **Difficulty**: Intermediate
@@ -826,6 +855,7 @@ fn main() {
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you handle results with the ? operator?
 
 **Difficulty**: Beginner
@@ -852,6 +882,7 @@ fn read_username() -> Result<String, io::Error> {
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you implement the `Iterator` trait for a custom type?
 
 **Difficulty**: Intermediate
@@ -890,6 +921,7 @@ fn main() {
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you handle errors using `thiserror`?
 
 **Difficulty**: Intermediate
@@ -916,6 +948,7 @@ pub enum DataStoreError {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you use `serde` for JSON serialization?
 
 **Difficulty**: Beginner
@@ -950,6 +983,7 @@ fn main() {
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you use `tokio` for async execution?
 
 **Difficulty**: Intermediate
@@ -976,6 +1010,7 @@ async fn say_hello() -> &'static str {
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you use `Weak` pointers to prevent reference cycles?
 
 **Difficulty**: Advanced
@@ -1013,6 +1048,7 @@ fn main() {
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you create a declarative macro?
 
 **Difficulty**: Advanced
@@ -1041,6 +1077,7 @@ fn main() {
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you call C code from Rust (FFI)?
 
 **Difficulty**: Advanced
@@ -1066,6 +1103,7 @@ fn main() {
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you implement a Builder Pattern?
 
 **Difficulty**: Intermediate
@@ -1111,6 +1149,7 @@ fn main() {
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you use `std::sync::mpsc` for message passing?
 
 **Difficulty**: Intermediate
@@ -1139,6 +1178,7 @@ fn main() {
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you write documentation comments?
 
 **Difficulty**: Beginner
@@ -1167,6 +1207,7 @@ pub fn add_one(x: i32) -> i32 {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you use `Cow` (Copy-on-Write) efficiently?
 
 **Difficulty**: Advanced
@@ -1202,6 +1243,7 @@ fn main() {
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you implement the `Default` trait?
 
 **Difficulty**: Beginner
@@ -1236,6 +1278,7 @@ fn main() {
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you use `Any` trait for dynamic typing?
 
 **Difficulty**: Expert
@@ -1265,6 +1308,7 @@ fn main() {
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you use `lazy_static` or `OnceLock` (std)?
 
 **Difficulty**: Intermediate
@@ -1295,6 +1339,7 @@ fn main() {
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you optimize memory layout with `#[repr(C)]` or `#[repr(packed)]`?
 
 **Difficulty**: Advanced
@@ -1320,6 +1365,7 @@ fn main() {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you use `Pin` to handle self-referential structs?
 
 **Difficulty**: Expert
@@ -1360,6 +1406,7 @@ impl SelfRef {
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use `std::collections::BTreeMap` vs `HashMap`?
 
 **Difficulty**: Intermediate
@@ -1388,6 +1435,7 @@ fn main() {
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you implement a custom Drop trait?
 
 **Difficulty**: Beginner
@@ -1417,6 +1465,7 @@ fn main() {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use `rayon` for data parallelism?
 
 **Difficulty**: Intermediate
@@ -1442,6 +1491,7 @@ fn main() {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you use `std::process::Command` to run external programs?
 
 **Difficulty**: Beginner
@@ -1465,6 +1515,7 @@ fn main() {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+<a id="q51"></a>
 ### Q51: How do you handle Rust state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1481,6 +1532,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Rust data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1497,6 +1549,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Rust deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1515,6 +1568,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Rust concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1533,6 +1587,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Rust caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1550,6 +1605,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Rust configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1566,6 +1622,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Rust internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1582,6 +1639,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Rust accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1598,6 +1656,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Rust network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1614,6 +1673,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Rust performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1633,6 +1693,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Rust in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1650,6 +1711,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Rust memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1667,6 +1729,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Rust code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1684,6 +1747,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Rust error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1704,6 +1768,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Rust functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1722,6 +1787,7 @@ test('Rust works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Rust state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1738,6 +1804,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Rust data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1754,6 +1821,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Rust deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1772,6 +1840,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Rust concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1790,6 +1859,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Rust caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1807,6 +1877,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Rust configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1823,6 +1894,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Rust internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1839,6 +1911,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Rust accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1855,6 +1928,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Rust network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1871,6 +1945,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Rust performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1890,6 +1965,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Rust in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1907,6 +1983,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Rust memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1924,6 +2001,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Rust code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1941,6 +2019,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Rust error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1961,6 +2040,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Rust functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1979,6 +2059,7 @@ test('Rust works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Rust state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1995,6 +2076,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Rust data validation in microservices?
 
 **Difficulty**: Beginner
@@ -2011,6 +2093,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Rust deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -2029,6 +2112,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Rust concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -2047,6 +2131,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Rust caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2064,6 +2149,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Rust configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -2080,6 +2166,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Rust internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -2096,6 +2183,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Rust accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2112,6 +2200,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Rust network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2128,6 +2217,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Rust performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2147,6 +2237,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Rust in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2164,6 +2255,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Rust memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2181,6 +2273,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Rust code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2198,6 +2291,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Rust error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2218,6 +2312,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Rust functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2236,6 +2331,7 @@ test('Rust works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Rust state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2252,6 +2348,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Rust data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2268,6 +2365,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Rust deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2286,6 +2384,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Rust concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2304,6 +2403,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Rust caching in production environments?
 
 **Difficulty**: Intermediate

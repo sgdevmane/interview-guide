@@ -114,6 +114,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you optimize a slow SQL query that involves multiple joins and large tables?
 
 **Difficulty**: Intermediate
@@ -148,6 +149,7 @@ WHERE o.created_at > '2023-01-01';
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you handle database migrations for a high-traffic application with zero downtime?
 
 **Difficulty**: Intermediate
@@ -179,6 +181,7 @@ WHERE full_name IS NULL LIMIT 1000;
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you prevent SQL Injection vulnerabilities in a raw SQL query?
 
 **Difficulty**: Intermediate
@@ -205,6 +208,7 @@ db.query(query, values);
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you design a schema for a 'Many-to-Many' relationship?
 
 **Difficulty**: Intermediate
@@ -239,6 +243,7 @@ CREATE TABLE enrollments (
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you choose between embedding documents and referencing them in MongoDB?
 
 **Difficulty**: Intermediate
@@ -277,6 +282,7 @@ CREATE TABLE enrollments (
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you resolve the N+1 query problem?
 
 **Difficulty**: Intermediate
@@ -304,6 +310,7 @@ const posts = await Post.findAll({ include: 'comments' });
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you use Window Functions to find the top 3 salaries per department?
 
 **Difficulty**: Intermediate
@@ -334,6 +341,7 @@ SELECT * FROM RankedSalaries WHERE rank <= 3;
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you implement optimistic locking to handle concurrent updates?
 
 **Difficulty**: Intermediate
@@ -365,6 +373,7 @@ WHERE id = 1 AND version = 5;
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you ensure data consistency across microservices (Distributed Transaction)?
 
 **Difficulty**: Intermediate
@@ -393,6 +402,7 @@ ROLLBACK PREPARED 'txn_id';
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you use a Redis cache to implement the 'Cache-Aside' pattern?
 
 **Difficulty**: Intermediate
@@ -429,6 +439,7 @@ async function getUser(id) {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you structure a composite index to optimize a query with equality and range filters?
 
 **Difficulty**: Intermediate
@@ -456,6 +467,7 @@ CREATE INDEX idx_status_created ON products (status, created_at);
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you handle 'Soft Deletes' to preserve data history?
 
 **Difficulty**: Intermediate
@@ -486,6 +498,7 @@ UPDATE users SET deleted_at = NULL WHERE id = 1;
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you optimize database writes for a high-ingestion system (e.g., logs)?
 
 **Difficulty**: Intermediate
@@ -509,6 +522,7 @@ INSERT INTO logs (level, message, timestamp) VALUES
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you use Common Table Expressions (CTEs) to simplify complex logic?
 
 **Difficulty**: Intermediate
@@ -539,6 +553,7 @@ WHERE region IN (SELECT region FROM TopRegions);
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you maintain ACID properties in a database transaction?
 
 **Difficulty**: Intermediate
@@ -568,6 +583,7 @@ COMMIT;
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you create a Materialized View and refresh it concurrently?
 
 **Difficulty**: Intermediate
@@ -594,6 +610,7 @@ REFRESH MATERIALIZED VIEW CONCURRENTLY sales_summary;
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you implement an audit log using Database Triggers?
 
 **Difficulty**: Advanced
@@ -620,6 +637,7 @@ FOR EACH ROW EXECUTE FUNCTION log_changes();
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you query JSONB data efficiently in PostgreSQL?
 
 **Difficulty**: Intermediate
@@ -643,6 +661,7 @@ SELECT * FROM users WHERE data @> '{"role": "admin"}';
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you perform an Upsert (Insert or Update) in SQL?
 
 **Difficulty**: Beginner
@@ -663,6 +682,7 @@ DO UPDATE SET email = EXCLUDED.email, name = EXCLUDED.name;
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use Recursive CTEs to query hierarchical data?
 
 **Difficulty**: Advanced
@@ -691,6 +711,7 @@ SELECT * FROM employee_tree;
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you use Window Functions to calculate running totals?
 
 **Difficulty**: Intermediate
@@ -711,6 +732,7 @@ FROM sales;
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you analyze query performance using EXPLAIN ANALYZE?
 
 **Difficulty**: Intermediate
@@ -730,6 +752,7 @@ AND order_date > '2023-01-01';
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you choose between UUID and Integer for Primary Keys?
 
 **Difficulty**: Intermediate
@@ -750,6 +773,7 @@ id UUID PRIMARY KEY DEFAULT gen_random_uuid()
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you prevent Deadlocks in database transactions?
 
 **Difficulty**: Advanced
@@ -772,6 +796,7 @@ COMMIT;
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you use Full-Text Search in PostgreSQL without ElasticSearch?
 
 **Difficulty**: Advanced
@@ -794,6 +819,7 @@ CREATE INDEX idx_fts ON articles USING GIN (to_tsvector('english', title || ' ' 
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you handle transaction isolation levels?
 
 **Difficulty**: Advanced
@@ -814,6 +840,7 @@ COMMIT;
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you partition a large table by date?
 
 **Difficulty**: Advanced
@@ -837,6 +864,7 @@ CREATE TABLE logs_2023_01 PARTITION OF logs
 ---
 
 
+<a id="q28"></a>
 ### Q28: How do you implement Database Sharding and when should you use it?
 
 **Difficulty**: Advanced
@@ -862,6 +890,7 @@ function getShard(userId) {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you prevent Phantom Reads in a transaction?
 
 **Difficulty**: Advanced
@@ -883,6 +912,7 @@ SELECT * FROM orders WHERE amount > 1000 FOR UPDATE;
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you optimize a query using a Covering Index?
 
 **Difficulty**: Intermediate
@@ -905,6 +935,7 @@ CREATE INDEX idx_users_age_names ON users(age) INCLUDE (first_name, last_name);
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you handle 'Dirty Reads' and which isolation level prevents them?
 
 **Difficulty**: Intermediate
@@ -927,6 +958,7 @@ SELECT balance FROM accounts WHERE id = 1;
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you implement connection pooling in a Node.js application?
 
 **Difficulty**: Intermediate
@@ -957,6 +989,7 @@ pool.query('SELECT NOW()', (err, res) => {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you model a tree structure (Hierarchy) in a Relational Database?
 
 **Difficulty**: Advanced
@@ -988,6 +1021,7 @@ SELECT * FROM category_path;
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you use JSON columns in PostgreSQL vs MySQL?
 
 **Difficulty**: Intermediate
@@ -1020,6 +1054,7 @@ SELECT * FROM products WHERE data->'$.category' = 'Electronics';
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you implement Row-Level Security (RLS)?
 
 **Difficulty**: Advanced
@@ -1046,6 +1081,7 @@ COMMIT;
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you use a Materialized View for reporting?
 
 **Difficulty**: Intermediate
@@ -1072,6 +1108,7 @@ REFRESH MATERIALIZED VIEW CONCURRENTLY monthly_sales;
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you generate unique IDs in a distributed system (Snowflake ID)?
 
 **Difficulty**: Advanced
@@ -1103,6 +1140,7 @@ class Snowflake {
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you use Foreign Data Wrappers (FDW) in PostgreSQL?
 
 **Difficulty**: Advanced
@@ -1136,6 +1174,7 @@ SELECT * FROM local_schema.remote_table;
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you optimize a `LIKE` query with wildcards at the beginning?
 
 **Difficulty**: Intermediate
@@ -1159,6 +1198,7 @@ EXPLAIN SELECT * FROM users WHERE name LIKE '%smith%';
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use the `CASE` statement for conditional logic in SQL?
 
 **Difficulty**: Beginner
@@ -1182,6 +1222,7 @@ FROM employees;
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you implement Database Replication (Master-Slave)?
 
 **Difficulty**: Advanced
@@ -1209,6 +1250,7 @@ pg_basebackup -h master_host -D /var/lib/postgresql/data -U replicator -P -R
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you perform a Batch Insert efficiently?
 
 **Difficulty**: Intermediate
@@ -1234,6 +1276,7 @@ COPY logs (msg) FROM '/path/to/file.csv' DELIMITER ',' CSV;
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you use `GROUPING SETS` for multi-level aggregation?
 
 **Difficulty**: Advanced
@@ -1257,6 +1300,7 @@ GROUP BY GROUPING SETS (
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you store and query time-series data efficiently?
 
 **Difficulty**: Intermediate
@@ -1279,6 +1323,7 @@ CREATE INDEX idx_sensor_time ON sensor_data USING BRIN(time);
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you handle 'NoSQL' data modeling in DynamoDB (Single Table Design)?
 
 **Difficulty**: Advanced
@@ -1306,6 +1351,7 @@ ExpressionAttributeValues: {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you identify and remove duplicate rows from a table?
 
 **Difficulty**: Intermediate
@@ -1337,6 +1383,7 @@ WHERE id IN (
 
 ---
 
+<a id="q47"></a>
 ### Q47: What is ACID?
 
 **Difficulty**: Beginner
@@ -1353,6 +1400,7 @@ BEGIN; ... COMMIT;
 
 ---
 
+<a id="q48"></a>
 ### Q48: What is Indexing?
 
 **Difficulty**: Beginner
@@ -1369,6 +1417,7 @@ CREATE INDEX idx_name ON users(name);
 
 ---
 
+<a id="q49"></a>
 ### Q49: Types of Indexes?
 
 **Difficulty**: Intermediate
@@ -1385,6 +1434,7 @@ B-Tree, Hash, Bitmap, GiST, GIN. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q50"></a>
 ### Q50: What is Normalization?
 
 **Difficulty**: Intermediate
@@ -1401,6 +1451,7 @@ Normalization is the process of organizing data in a database. This includes cre
 
 ---
 
+<a id="q51"></a>
 ### Q51: What is Denormalization?
 
 **Difficulty**: Intermediate
@@ -1417,6 +1468,7 @@ Denormalization is a database optimization technique in which we add redundant d
 
 ---
 
+<a id="q52"></a>
 ### Q52: Inner Join vs Outer Join?
 
 **Difficulty**: Beginner
@@ -1433,6 +1485,7 @@ SELECT * FROM A JOIN B ON A.id = B.id
 
 ---
 
+<a id="q53"></a>
 ### Q53: What is a View?
 
 **Difficulty**: Beginner
@@ -1449,6 +1502,7 @@ CREATE VIEW active_users AS ...
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is a Stored Procedure?
 
 **Difficulty**: Intermediate
@@ -1465,6 +1519,7 @@ CREATE PROCEDURE ...
 
 ---
 
+<a id="q55"></a>
 ### Q55: What is a Trigger?
 
 **Difficulty**: Intermediate
@@ -1481,6 +1536,7 @@ CREATE TRIGGER ... BEFORE INSERT ...
 
 ---
 
+<a id="q56"></a>
 ### Q56: SQL vs NoSQL?
 
 **Difficulty**: Beginner
@@ -1497,6 +1553,7 @@ SQL databases are relational, table-based databases, whereas NoSQL databases are
 
 ---
 
+<a id="q57"></a>
 ### Q57: What is Sharding?
 
 **Difficulty**: Advanced
@@ -1513,6 +1570,7 @@ Sharding is a method of splitting and storing a single logical dataset in multip
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is Replication?
 
 **Difficulty**: Intermediate
@@ -1529,6 +1587,7 @@ Copying data to multiple nodes. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q59"></a>
 ### Q59: What is CAP Theorem?
 
 **Difficulty**: Intermediate
@@ -1545,6 +1604,7 @@ The CAP Theorem states that a distributed computer system can only provide two o
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is eventual consistency?
 
 **Difficulty**: Intermediate
@@ -1561,6 +1621,7 @@ Data will become consistent over time. This concept is fundamental in this domai
 
 ---
 
+<a id="q61"></a>
 ### Q61: What is a Transaction?
 
 **Difficulty**: Beginner
@@ -1577,6 +1638,7 @@ START TRANSACTION
 
 ---
 
+<a id="q62"></a>
 ### Q62: Isolation Levels?
 
 **Difficulty**: Advanced
@@ -1593,6 +1655,7 @@ SET TRANSACTION ISOLATION LEVEL ...
 
 ---
 
+<a id="q63"></a>
 ### Q63: What is Deadlock?
 
 **Difficulty**: Intermediate
@@ -1609,6 +1672,7 @@ Two processes waiting for each other. This concept is fundamental in this domain
 
 ---
 
+<a id="q64"></a>
 ### Q64: Optimistic vs Pessimistic Locking?
 
 **Difficulty**: Advanced
@@ -1625,6 +1689,7 @@ Optimistic Locking assumes that multiple transactions can complete without affec
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is Connection Pooling?
 
 **Difficulty**: Intermediate
@@ -1641,6 +1706,7 @@ Reuse open connections. This concept is fundamental in this domain and understan
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is an ORM?
 
 **Difficulty**: Beginner
@@ -1657,6 +1723,7 @@ Object Relational Mapper. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q67"></a>
 ### Q67: N+1 Problem in DB?
 
 **Difficulty**: Intermediate
@@ -1673,6 +1740,7 @@ The N+1 problem occurs when an application makes one query to retrieve a parent 
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is MongoDB?
 
 **Difficulty**: Beginner
@@ -1689,6 +1757,7 @@ db.users.find()
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is Redis?
 
 **Difficulty**: Beginner
@@ -1705,6 +1774,7 @@ SET key value
 
 ---
 
+<a id="q70"></a>
 ### Q70: What is Cassandra?
 
 **Difficulty**: Advanced
@@ -1721,6 +1791,7 @@ Wide-column store. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is a Primary Key?
 
 **Difficulty**: Beginner
@@ -1737,6 +1808,7 @@ id INT PRIMARY KEY
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is a Foreign Key?
 
 **Difficulty**: Beginner
@@ -1753,6 +1825,7 @@ user_id INT REFERENCES users(id)
 
 ---
 
+<a id="q73"></a>
 ### Q73: What is Database Migration?
 
 **Difficulty**: Intermediate
@@ -1769,6 +1842,7 @@ Database migration is the management of incremental, reversible changes and vers
 
 ---
 
+<a id="q74"></a>
 ### Q74: How to optimize a slow query?
 
 **Difficulty**: Intermediate
@@ -1785,6 +1859,7 @@ EXPLAIN SELECT ...
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is SQL Injection?
 
 **Difficulty**: Beginner
@@ -1801,6 +1876,7 @@ SQL injection is a code injection technique that might destroy your database. It
 
 ---
 
+<a id="q76"></a>
 ### Q76: What is a Cursor?
 
 **Difficulty**: Intermediate
@@ -1817,6 +1893,7 @@ FETCH NEXT FROM cursor
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is ETL?
 
 **Difficulty**: Intermediate
@@ -1833,6 +1910,7 @@ Extract, Transform, Load. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q78"></a>
 ### Q78: OLTP vs OLAP?
 
 **Difficulty**: Advanced
@@ -1849,6 +1927,7 @@ OLTP (Online Transaction Processing) captures, stores, and processes data from t
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is a Time Series DB?
 
 **Difficulty**: Intermediate
@@ -1865,6 +1944,7 @@ Optimized for time-stamped data. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is Graph DB?
 
 **Difficulty**: Intermediate
@@ -1881,6 +1961,7 @@ Nodes and Edges. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is Partitioning?
 
 **Difficulty**: Advanced
@@ -1897,6 +1978,7 @@ Splitting table into smaller tables. This concept is fundamental in this domain 
 
 ---
 
+<a id="q82"></a>
 ### Q82: What is MVCC?
 
 **Difficulty**: Advanced
@@ -1913,6 +1995,7 @@ Multiversion concurrency control (MVCC) is a concurrency control method used by 
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is Write-Ahead Logging (WAL)?
 
 **Difficulty**: Advanced
@@ -1929,6 +2012,7 @@ Log changes before writing to disk. This concept is fundamental in this domain a
 
 ---
 
+<a id="q84"></a>
 ### Q84: What is a Materialized View?
 
 **Difficulty**: Intermediate
@@ -1945,6 +2029,7 @@ REFRESH MATERIALIZED VIEW
 
 ---
 
+<a id="q85"></a>
 ### Q85: What is Soft Delete?
 
 **Difficulty**: Beginner
@@ -1961,6 +2046,7 @@ UPDATE users SET deleted_at = NOW()
 
 ---
 
+<a id="q86"></a>
 ### Q86: What is Database Mirroring?
 
 **Difficulty**: Advanced
@@ -1977,6 +2063,7 @@ Real-time copy for High Availability. This concept is fundamental in this domain
 
 ---
 
+<a id="q87"></a>
 ### Q87: Row-oriented vs Column-oriented storage?
 
 **Difficulty**: Advanced
@@ -1993,6 +2080,7 @@ Row-oriented databases store data row by row. This is great for transaction proc
 
 ---
 
+<a id="q88"></a>
 ### Q88: What is a Composite Key?
 
 **Difficulty**: Intermediate
@@ -2009,6 +2097,7 @@ PRIMARY KEY (a, b)
 
 ---
 
+<a id="q89"></a>
 ### Q89: What is a Surrogate Key?
 
 **Difficulty**: Intermediate
@@ -2025,6 +2114,7 @@ Artificial key (e.g. auto-increment ID). This concept is fundamental in this dom
 
 ---
 
+<a id="q90"></a>
 ### Q90: What is Referential Integrity?
 
 **Difficulty**: Beginner
@@ -2041,6 +2131,7 @@ Consistency of relationships. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q91"></a>
 ### Q91: What is a Bloom Filter in DB?
 
 **Difficulty**: Advanced
@@ -2057,6 +2148,7 @@ Check if element exists in set (probabilistic). This concept is fundamental in t
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is Two-Phase Commit (2PC)?
 
 **Difficulty**: Advanced
@@ -2073,6 +2165,7 @@ Distributed transaction protocol. This concept is fundamental in this domain and
 
 ---
 
+<a id="q93"></a>
 ### Q93: What is CDC (Change Data Capture)?
 
 **Difficulty**: Advanced
@@ -2089,6 +2182,7 @@ Change Data Capture (CDC) is a set of software design patterns used to determine
 
 ---
 
+<a id="q94"></a>
 ### Q94: What is Vacuuming?
 
 **Difficulty**: Intermediate
@@ -2105,6 +2199,7 @@ VACUUM FULL
 
 ---
 
+<a id="q95"></a>
 ### Q95: What is a Clustered Index?
 
 **Difficulty**: Advanced
@@ -2121,6 +2216,7 @@ Sorts table data physically. This concept is fundamental in this domain and unde
 
 ---
 
+<a id="q96"></a>
 ### Q96: What is a Non-Clustered Index?
 
 **Difficulty**: Advanced
@@ -2137,6 +2233,7 @@ Separate structure pointing to data. This concept is fundamental in this domain 
 
 ---
 
+<a id="q97"></a>
 ### Q97: What is Database Sharding vs Partitioning?
 
 **Difficulty**: Advanced
@@ -2153,6 +2250,7 @@ Sharding: across servers. Partitioning: within one server.
 
 ---
 
+<a id="q98"></a>
 ### Q98: What is a Spatial Index?
 
 **Difficulty**: Intermediate
@@ -2169,6 +2267,7 @@ For geo data. This concept is fundamental in this domain and understanding it al
 
 ---
 
+<a id="q99"></a>
 ### Q99: What is Full-Text Search?
 
 **Difficulty**: Intermediate
@@ -2185,6 +2284,7 @@ Searching text docs. This concept is fundamental in this domain and understandin
 
 ---
 
+<a id="q100"></a>
 ### Q100: What is B-Tree?
 
 **Difficulty**: Advanced
@@ -2201,6 +2301,7 @@ Self-balancing tree data structure. This concept is fundamental in this domain a
 
 ---
 
+<a id="q101"></a>
 ### Q101: What is Hash Index?
 
 **Difficulty**: Advanced

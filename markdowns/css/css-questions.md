@@ -116,6 +116,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you implement a responsive 12-column grid using CSS Grid?
 
 **Difficulty**: Intermediate
@@ -162,6 +163,7 @@ We can then place items on this grid spanning multiple columns.
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you center an element absolutely both vertically and horizontally?
 
 **Difficulty**: Intermediate
@@ -204,6 +206,7 @@ There are multiple ways (Flexbox/Grid are preferred), but for absolute positioni
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you implement a sticky footer that stays at the bottom even with little content?
 
 **Difficulty**: Intermediate
@@ -243,6 +246,7 @@ footer {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement a pure CSS tooltip?
 
 **Difficulty**: Intermediate
@@ -290,6 +294,7 @@ Show it on hover.
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you create a custom checkbox using CSS?
 
 **Difficulty**: Intermediate
@@ -343,6 +348,7 @@ Show it on hover.
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you implement Dark Mode using CSS Variables?
 
 **Difficulty**: Intermediate
@@ -380,6 +386,7 @@ body {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you create a responsive aspect ratio box (e.g., 16:9 video embed)?
 
 **Difficulty**: Intermediate
@@ -423,6 +430,7 @@ Old hack: Use `padding-top` percentage on a container (percentage is based on wi
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you truncate text with an ellipsis (...) for a single line and multiple lines?
 
 **Difficulty**: Intermediate
@@ -459,6 +467,7 @@ Multi-line: Use `line-clamp` (webkit prefixed, but standardizing).
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you use Container Queries to build component-based responsive styles?
 
 **Difficulty**: Intermediate
@@ -497,6 +506,7 @@ Container Queries allow components to style themselves based on the size of thei
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you optimize CSS performance (Painting and Layout)?
 
 **Difficulty**: Intermediate
@@ -535,6 +545,7 @@ Container Queries allow components to style themselves based on the size of thei
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you implement a parallax scrolling effect purely in CSS?
 
 **Difficulty**: Intermediate
@@ -582,6 +593,7 @@ Elements "further away" (negative Z) move slower than elements closer.
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you ensure an element is visually hidden but accessible to screen readers?
 
 **Difficulty**: Intermediate
@@ -615,6 +627,7 @@ Use a utility class that clips the element to 1px rect.
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you implement a CSS Triangle?
 
 **Difficulty**: Intermediate
@@ -651,6 +664,7 @@ Use transparent borders. A box with 0 width/height and thick borders creates tri
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you prevent content layout shift (CLS) for images?
 
 **Difficulty**: Intermediate
@@ -688,6 +702,7 @@ Always define `width` and `height` attributes (or aspect-ratio) so the browser r
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you implement a masonry layout using CSS only?
 
 **Difficulty**: Intermediate
@@ -723,6 +738,7 @@ Pure CSS masonry is tricky.
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you use Flexbox for a navigation bar?
 
 **Difficulty**: Intermediate
@@ -745,6 +761,7 @@ Use `display: flex` on the container. `justify-content: space-between` pushes lo
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you use `flex-grow`, `flex-shrink`, and `flex-basis`?
 
 **Difficulty**: Intermediate
@@ -766,6 +783,7 @@ Use `display: flex` on the container. `justify-content: space-between` pushes lo
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you implement a sidebar layout with Flexbox?
 
 **Difficulty**: Intermediate
@@ -792,6 +810,7 @@ Container: `display: flex`. Sidebar: Fixed width or `flex: 0 0 250px`. Main cont
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you align items in a grid using `justify-items` and `align-items`?
 
 **Difficulty**: Intermediate
@@ -814,6 +833,7 @@ Container: `display: flex`. Sidebar: Fixed width or `flex: 0 0 250px`. Main cont
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use `minmax()` in CSS Grid?
 
 **Difficulty**: Intermediate
@@ -834,6 +854,7 @@ Defines a size range. `minmax(100px, 1fr)` means at least 100px, but stretch to 
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you create overlapping elements with CSS Grid?
 
 **Difficulty**: Intermediate
@@ -853,6 +874,7 @@ Place items in the same grid cell(s) using line numbers. Later items stack on to
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you use `z-index` and stacking contexts effectively?
 
 **Difficulty**: Intermediate
@@ -874,6 +896,7 @@ Place items in the same grid cell(s) using line numbers. Later items stack on to
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you debug `z-index` issues?
 
 **Difficulty**: Intermediate
@@ -893,6 +916,7 @@ Check if the element has `position` set (if not flex/grid child). Check parent s
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you style a scrollbar using `::-webkit-scrollbar`?
 
 **Difficulty**: Intermediate
@@ -912,6 +936,7 @@ Use pseudo-elements: `::-webkit-scrollbar` (width), `::-webkit-scrollbar-track` 
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you use `scroll-behavior: smooth`?
 
 **Difficulty**: Intermediate
@@ -932,6 +957,7 @@ html {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you use `scroll-snap-type` for snapping sections?
 
 **Difficulty**: Intermediate
@@ -958,6 +984,7 @@ Container: `scroll-snap-type: y mandatory`. Children: `scroll-snap-align: start`
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you implement a CSS reset or normalize?
 
 **Difficulty**: Intermediate
@@ -980,6 +1007,7 @@ Remove default margins/paddings to ensure consistency. Minimal reset: `* { margi
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you use `box-sizing: border-box` globally?
 
 **Difficulty**: Intermediate
@@ -1000,6 +1028,7 @@ Apply it to `*` and pseudo-elements. It includes padding and border in the eleme
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you style inputs to look consistent across browsers?
 
 **Difficulty**: Intermediate
@@ -1023,6 +1052,7 @@ input {
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you remove the default outline on focus (and what to replace it with)?
 
 **Difficulty**: Intermediate
@@ -1044,6 +1074,7 @@ button:focus-visible {
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you style a broken image using `img::before`?
 
 **Difficulty**: Intermediate
@@ -1072,6 +1103,7 @@ img::before {
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you style list markers using `::marker`?
 
 **Difficulty**: Intermediate
@@ -1093,6 +1125,7 @@ li::marker {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you use `object-fit` and `object-position` for images?
 
 **Difficulty**: Intermediate
@@ -1116,6 +1149,7 @@ img {
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you use `background-size: cover` vs `contain`?
 
 **Difficulty**: Intermediate
@@ -1138,6 +1172,7 @@ img {
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you create a gradient background?
 
 **Difficulty**: Intermediate
@@ -1158,6 +1193,7 @@ Use `linear-gradient`, `radial-gradient`, or `conic-gradient` as `background-ima
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you create a text gradient?
 
 **Difficulty**: Intermediate
@@ -1180,6 +1216,7 @@ Background clip text + transparent text color.
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you use `clip-path` to create shapes?
 
 **Difficulty**: Intermediate
@@ -1202,6 +1239,7 @@ Defines a clipping region. Parts outside are hidden. Use `polygon()`, `circle()`
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you use `mask-image` for transparency masks?
 
 **Difficulty**: Intermediate
@@ -1223,6 +1261,7 @@ Uses an image (alpha channel) to mask element visibility. Black = visible, Trans
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you use `backdrop-filter` for glassmorphism?
 
 **Difficulty**: Intermediate
@@ -1244,6 +1283,7 @@ Applies filter to area *behind* the element. Requires semi-transparent backgroun
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use `filter` for image effects (blur, grayscale)?
 
 **Difficulty**: Intermediate
@@ -1264,6 +1304,7 @@ img:hover {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you use `mix-blend-mode` for blending effects?
 
 **Difficulty**: Intermediate
@@ -1285,6 +1326,7 @@ Blends element with its parent/background (like Photoshop layers).
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you implement a loading spinner with CSS animations?
 
 **Difficulty**: Intermediate
@@ -1310,6 +1352,7 @@ Rotate a border with one transparent side.
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you create a shake animation?
 
 **Difficulty**: Intermediate
@@ -1333,6 +1376,7 @@ Translate X back and forth rapidly. This concept is fundamental in this domain a
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you pause an animation on hover?
 
 **Difficulty**: Intermediate
@@ -1353,6 +1397,7 @@ Use `animation-play-state`. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you use CSS transitions for hover effects?
 
 **Difficulty**: Intermediate
@@ -1377,6 +1422,7 @@ Define `transition` on the base state, not the hover state.
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you use the `:not()` pseudo-class?
 
 **Difficulty**: Intermediate
@@ -1397,6 +1443,7 @@ li:not(:last-child) {
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use the `:has()` pseudo-class (parent selector)?
 
 **Difficulty**: Intermediate
@@ -1418,6 +1465,7 @@ Selects a parent if it contains a specific child. 'Parent selector'.
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you use the `:is()` and `:where()` pseudo-classes?
 
 **Difficulty**: Intermediate
@@ -1437,6 +1485,7 @@ Selects a parent if it contains a specific child. 'Parent selector'.
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use `:nth-child()` and `:nth-of-type()`?
 
 **Difficulty**: Intermediate
@@ -1456,6 +1505,7 @@ p:nth-of-type(2) { font-weight: bold; }
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you use `::first-letter` and `::first-line`?
 
 **Difficulty**: Intermediate
@@ -1477,6 +1527,7 @@ p::first-letter {
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you use attribute selectors?
 
 **Difficulty**: Intermediate
@@ -1496,6 +1547,7 @@ input[type="text"] { width: 100%; }
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you style placeholder text?
 
 **Difficulty**: Intermediate
@@ -1517,6 +1569,7 @@ input::placeholder {
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you style selection color (`::selection`)?
 
 **Difficulty**: Intermediate
@@ -1538,6 +1591,7 @@ Use `::selection` pseudo-element. Only supports color, background, text-shadow.
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you use CSS Variables for spacing and typography scales?
 
 **Difficulty**: Intermediate
@@ -1560,6 +1614,7 @@ Define vars in `:root` for global reuse.
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you use `calc()` function?
 
 **Difficulty**: Intermediate
@@ -1579,6 +1634,7 @@ Perform math mixing units. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you use `clamp()` for responsive typography?
 
 **Difficulty**: Intermediate
@@ -1599,6 +1655,7 @@ h1 {
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you use viewport units (`vw`, `vh`, `dvh`, `lvh`)?
 
 **Difficulty**: Intermediate
@@ -1619,6 +1676,7 @@ h1 {
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you handle notch areas on mobile (`safe-area-inset`)?
 
 **Difficulty**: Intermediate
@@ -1640,6 +1698,7 @@ body {
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you support high contrast mode?
 
 **Difficulty**: Intermediate
@@ -1660,6 +1719,7 @@ Use `@media (prefers-contrast: more)`. Avoid relying solely on color.
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you use `@media (prefers-reduced-motion)`?
 
 **Difficulty**: Intermediate
@@ -1680,6 +1740,7 @@ Disable or reduce animations for users prone to motion sickness.
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you use `@supports` to check for feature support?
 
 **Difficulty**: Intermediate
@@ -1700,6 +1761,7 @@ Feature queries. Apply styles only if browser supports a property.
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you use `@font-face` to load custom fonts?
 
 **Difficulty**: Intermediate
@@ -1721,6 +1783,7 @@ Define font family and source files (woff2 preferred).
 
 ---
 
+<a id="q63"></a>
 ### Q63: How do you use `font-display: swap` for performance?
 
 **Difficulty**: Intermediate
@@ -1743,6 +1806,7 @@ Shows fallback font immediately, swaps to custom font when loaded (avoids invisi
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you prevent text selection (`user-select`)?
 
 **Difficulty**: Intermediate
@@ -1763,6 +1827,7 @@ Use `user-select: none`. Useful for buttons/UI controls.
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you enable hardware acceleration for animations?
 
 **Difficulty**: Intermediate
@@ -1784,6 +1849,7 @@ Use `transform: translateZ(0)` or `will-change` to promote element to a new laye
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you style a `details` and `summary` element?
 
 **Difficulty**: Intermediate
@@ -1806,6 +1872,7 @@ details[open] { background: #f9f9f9; }
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you style a `range` input slider?
 
 **Difficulty**: Intermediate
@@ -1825,6 +1892,7 @@ input[type=range]::-webkit-slider-thumb { appearance: none; height: 20px; width:
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you style a file input?
 
 **Difficulty**: Intermediate
@@ -1844,6 +1912,7 @@ input[type=file] { display: none; }
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you create a custom toggle switch?
 
 **Difficulty**: Intermediate
@@ -1865,6 +1934,7 @@ Hide checkbox. Style label as track, `::after` as thumb. Change position on `:ch
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you create a pure CSS dropdown menu?
 
 **Difficulty**: Intermediate
@@ -1884,6 +1954,7 @@ Show submenu on parent hover. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you create a pure CSS modal (using `:target` or checkbox hack)?
 
 **Difficulty**: Intermediate
@@ -1903,6 +1974,7 @@ Use `:target` to show modal when URL matches `#modal-id`.
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you create a pure CSS accordion?
 
 **Difficulty**: Intermediate
@@ -1922,6 +1994,7 @@ input:checked + .content { max-height: 200px; }
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you create a pure CSS tab system?
 
 **Difficulty**: Intermediate
@@ -1941,6 +2014,7 @@ Radio buttons + Labels. Content hidden by default, shown when corresponding radi
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you use `counters` for automatic numbering?
 
 **Difficulty**: Intermediate
@@ -1960,6 +2034,7 @@ li::before { counter-increment: item; content: counter(item) '. '; }
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you use `content` property in pseudo-elements?
 
 **Difficulty**: Intermediate
@@ -1978,6 +2053,7 @@ a::after { content: ' (' attr(href) ')'; }
 
 ---
 
+<a id="q76"></a>
 ### Q76: How do you handle text overflow in a table cell?
 
 **Difficulty**: Intermediate
@@ -2001,6 +2077,7 @@ td {
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you make a table responsive (scrollable or stacked)?
 
 **Difficulty**: Intermediate
@@ -2019,6 +2096,7 @@ Scrollable: Wrap in `overflow-x: auto` div. Stacked: `@media` query, `display: b
 
 ---
 
+<a id="q78"></a>
 ### Q78: How do you style alternate table rows?
 
 **Difficulty**: Intermediate
@@ -2037,6 +2115,7 @@ tr:nth-child(even) { background: #f2f2f2; }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you stick a table header?
 
 **Difficulty**: Intermediate
@@ -2055,6 +2134,7 @@ th { position: sticky; top: 0; background: white; }
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you implement print styles (`@media print`)?
 
 **Difficulty**: Intermediate
@@ -2075,6 +2155,7 @@ Define styles specifically for printing (black/white, remove backgrounds).
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you hide elements in print view?
 
 **Difficulty**: Intermediate
@@ -2095,6 +2176,7 @@ Hide navs, ads, footers. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you force page breaks in print?
 
 **Difficulty**: Intermediate
@@ -2113,6 +2195,7 @@ Use `break-before`, `break-after`, `page-break-*`.
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you use `shape-outside` for text wrapping around images?
 
 **Difficulty**: Intermediate
@@ -2136,6 +2219,7 @@ Floats element and wraps text around a defined shape.
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you use `writing-mode` for vertical text?
 
 **Difficulty**: Intermediate
@@ -2154,6 +2238,7 @@ Changes text orientation (e.g., for Asian languages or design).
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you use `direction: rtl` for right-to-left languages?
 
 **Difficulty**: Intermediate
@@ -2172,6 +2257,7 @@ html { direction: rtl; }
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you use `text-align-last` for justified text?
 
 **Difficulty**: Intermediate
@@ -2193,6 +2279,7 @@ p {
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you use `text-decoration` styling (color, style, thickness)?
 
 **Difficulty**: Intermediate
@@ -2211,6 +2298,7 @@ a { text-decoration: underline wavy red 2px; }
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you use `text-transform`?
 
 **Difficulty**: Intermediate
@@ -2229,6 +2317,7 @@ Controls capitalization (uppercase, lowercase, capitalize).
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you use `letter-spacing` and `word-spacing`?
 
 **Difficulty**: Beginner
@@ -2252,6 +2341,7 @@ p {
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you use `white-space` property?
 
 **Difficulty**: Intermediate
@@ -2280,6 +2370,7 @@ Controls how whitespace and line breaks are handled. `nowrap` prevents wrapping.
 
 ---
 
+<a id="q91"></a>
 ### Q91: How do you use `word-break` and `overflow-wrap`?
 
 **Difficulty**: Intermediate
@@ -2302,6 +2393,7 @@ Use `overflow-wrap: break-word` (standard) to break long words only if they caus
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you use `hyphens` for auto-hyphenation?
 
 **Difficulty**: Intermediate
@@ -2323,6 +2415,7 @@ p {
 
 ---
 
+<a id="q93"></a>
 ### Q93: How do you use `caret-color`?
 
 **Difficulty**: Beginner
@@ -2343,6 +2436,7 @@ input {
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you use `pointer-events`?
 
 **Difficulty**: Intermediate
@@ -2366,6 +2460,7 @@ input {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you use `cursor` property?
 
 **Difficulty**: Beginner
@@ -2390,6 +2485,7 @@ button:disabled {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you use `outline` vs `border`?
 
 **Difficulty**: Intermediate
@@ -2412,6 +2508,7 @@ button:focus-visible {
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you use `box-shadow` for elevation?
 
 **Difficulty**: Beginner
@@ -2434,6 +2531,7 @@ Use `box-shadow` to create depth. Combine multiple shadows (ambient and direct) 
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you use `border-radius` for different shapes?
 
 **Difficulty**: Beginner
@@ -2458,6 +2556,7 @@ Use `50%` for circles (if width equals height). Use 4 values for different corne
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you use `display: contents`?
 
 **Difficulty**: Advanced
@@ -2479,6 +2578,7 @@ The element itself is removed from the box tree, but its children remain. Useful
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you use `gap` in Flexbox?
 
 **Difficulty**: Beginner
@@ -2500,6 +2600,7 @@ Use `gap` (formerly `grid-gap`) to define space between flex items, replacing th
 
 ---
 
+<a id="q101"></a>
 ### Q101: How do you use Logical Properties (`margin-block`, `padding-inline`)?
 
 **Difficulty**: Intermediate
@@ -2522,6 +2623,7 @@ Use logical properties instead of physical (`top`, `left`, etc.) to support inte
 
 ---
 
+<a id="q102"></a>
 ### Q102: How do you use `inset` property?
 
 **Difficulty**: Intermediate
@@ -2545,6 +2647,7 @@ Shorthand for `top`, `right`, `bottom`, `left`. Useful for positioning absolute/
 
 ---
 
+<a id="q103"></a>
 ### Q103: How do you use `place-items` (Centering Trick)?
 
 **Difficulty**: Intermediate

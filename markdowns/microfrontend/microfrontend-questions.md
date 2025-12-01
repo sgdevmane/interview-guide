@@ -93,6 +93,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: What are Microfrontends?
 
 **Difficulty**: Beginner
@@ -109,6 +110,7 @@ Microfrontends extend the concepts of microservices to the frontend world. The i
 
 ---
 
+<a id="q2"></a>
 ### Q2: What are the key benefits of Microfrontends?
 
 **Difficulty**: Beginner
@@ -129,6 +131,7 @@ Key benefits include:
 
 ---
 
+<a id="q3"></a>
 ### Q3: What are the drawbacks of Microfrontends?
 
 **Difficulty**: Beginner
@@ -149,6 +152,7 @@ Drawbacks include:
 
 ---
 
+<a id="q4"></a>
 ### Q4: What is Build-time integration?
 
 **Difficulty**: Intermediate
@@ -165,6 +169,7 @@ import Header from '@org/header';
 
 ---
 
+<a id="q5"></a>
 ### Q5: What is Run-time integration?
 
 **Difficulty**: Intermediate
@@ -181,6 +186,7 @@ const Header = await import('http://cdn/header.js');
 
 ---
 
+<a id="q6"></a>
 ### Q6: What is Webpack Module Federation?
 
 **Difficulty**: Advanced
@@ -197,6 +203,7 @@ new ModuleFederationPlugin({ name: 'app1', remotes: { app2: 'app2@http://...' } 
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do Microfrontends communicate?
 
 **Difficulty**: Intermediate
@@ -217,6 +224,7 @@ window.dispatchEvent(new CustomEvent('user-login', { detail: user }));
 
 ---
 
+<a id="q8"></a>
 ### Q8: What is Single-SPA?
 
 **Difficulty**: Intermediate
@@ -233,6 +241,7 @@ registerApplication('app1', () => import('app1'), location => location.pathname.
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you handle shared state?
 
 **Difficulty**: Advanced
@@ -249,6 +258,7 @@ window.globalState.subscribe(user => ...)
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you handle CSS isolation?
 
 **Difficulty**: Intermediate
@@ -269,6 +279,7 @@ CSS isolation prevents styles from one MFE bleeding into another. Techniques inc
 
 ---
 
+<a id="q11"></a>
 ### Q11: What is Shadow DOM?
 
 **Difficulty**: Intermediate
@@ -285,6 +296,7 @@ element.attachShadow({ mode: 'open' });
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you handle routing in Microfrontends?
 
 **Difficulty**: Advanced
@@ -301,6 +313,7 @@ The Shell application typically handles the top-level routing (e.g., `/checkout`
 
 ---
 
+<a id="q13"></a>
 ### Q13: What is the Shell (Container) App?
 
 **Difficulty**: Beginner
@@ -317,6 +330,7 @@ The Shell (or Host) is the parent application that loads the Microfrontends. It 
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you handle version mismatches (e.g., React 16 vs 18)?
 
 **Difficulty**: Advanced
@@ -333,6 +347,7 @@ Each MFE bundles its own React (Run-time isolation) or upgrade all together (Coo
 
 ---
 
+<a id="q15"></a>
 ### Q15: What is Server-Side Composition (SSI)?
 
 **Difficulty**: Intermediate
@@ -349,6 +364,7 @@ Assembling fragments on the server (e.g., Nginx SSI, Tailor, Podium).
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you test Microfrontends?
 
 **Difficulty**: Intermediate
@@ -368,6 +384,7 @@ Testing strategies include:
 
 ---
 
+<a id="q17"></a>
 ### Q17: What is Bit?
 
 **Difficulty**: Advanced
@@ -384,6 +401,7 @@ bit export user-profile
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you handle authentication?
 
 **Difficulty**: Intermediate
@@ -400,6 +418,7 @@ const token = window.shell.getToken();
 
 ---
 
+<a id="q19"></a>
 ### Q19: What is iframe integration?
 
 **Difficulty**: Beginner
@@ -416,6 +435,7 @@ Hard isolation. Oldest method. Difficult to build responsive/seamless UX.
 
 ---
 
+<a id="q20"></a>
 ### Q20: What is Web Components approach?
 
 **Difficulty**: Intermediate
@@ -432,6 +452,7 @@ Wrap frameworks in Custom Elements. This concept is fundamental in this domain a
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you share dependencies (e.g., Lodash)?
 
 **Difficulty**: Intermediate
@@ -448,6 +469,7 @@ shared: { react: { singleton: true } }
 
 ---
 
+<a id="q22"></a>
 ### Q22: What are Import Maps?
 
 **Difficulty**: Advanced
@@ -464,6 +486,7 @@ Browser feature to control behavior of JS imports.
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you handle error boundaries?
 
 **Difficulty**: Intermediate
@@ -480,6 +503,7 @@ Wrap each MFE in an Error Boundary to prevent crashing the shell.
 
 ---
 
+<a id="q24"></a>
 ### Q24: What is Lazy Loading in MFE?
 
 **Difficulty**: Beginner
@@ -496,6 +520,7 @@ const App = React.lazy(() => import('remote/App'));
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you handle local development?
 
 **Difficulty**: Intermediate
@@ -512,6 +537,7 @@ Run shell + MFE locally, or proxy production shell to local MFE.
 
 ---
 
+<a id="q26"></a>
 ### Q26: What is the Backend for Frontend (BFF) pattern in MFE?
 
 **Difficulty**: Advanced
@@ -528,6 +554,7 @@ Each MFE has its own BFF to aggregate data. This concept is fundamental in this 
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you handle navigation between MFEs?
 
 **Difficulty**: Intermediate
@@ -544,6 +571,7 @@ history.pushState(null, null, '/app2')
 
 ---
 
+<a id="q28"></a>
 ### Q28: What is Piral?
 
 **Difficulty**: Advanced
@@ -560,6 +588,7 @@ Framework for microfrontends based on 'Pilets'. This concept is fundamental in t
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is Luigis?
 
 **Difficulty**: Advanced
@@ -576,6 +605,7 @@ Microfrontend framework by SAP. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you optimize performance?
 
 **Difficulty**: Advanced
@@ -592,6 +622,7 @@ Share common libs, lazy load, HTTP/2. This concept is fundamental in this domain
 
 ---
 
+<a id="q31"></a>
 ### Q31: What is Resiliency?
 
 **Difficulty**: Beginner
@@ -608,6 +639,7 @@ If one MFE fails, the rest should work. This concept is fundamental in this doma
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you handle global styles/resets?
 
 **Difficulty**: Intermediate
@@ -624,6 +656,7 @@ Shell defines base styles. MFEs should avoid global resets.
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is Cross-Application Communication?
 
 **Difficulty**: Intermediate
@@ -640,6 +673,7 @@ const bus = new BroadcastChannel('app_bus');
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you deploy Microfrontends?
 
 **Difficulty**: Intermediate
@@ -656,6 +690,7 @@ Upload assets to CDN. Update import map/manifest. This concept is fundamental in
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is a Monorepo?
 
 **Difficulty**: Beginner
@@ -672,6 +707,7 @@ Single repo for all MFEs (e.g., Nx, Turborepo). This concept is fundamental in t
 
 ---
 
+<a id="q36"></a>
 ### Q36: Monorepo vs Polyrepo for MFE?
 
 **Difficulty**: Intermediate
@@ -688,6 +724,7 @@ Monorepo: Easier coordination. Polyrepo: Strict independence.
 
 ---
 
+<a id="q37"></a>
 ### Q37: What is Dependency Hell?
 
 **Difficulty**: Intermediate
@@ -704,6 +741,7 @@ Conflicting versions of shared libs. This concept is fundamental in this domain 
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you fix Dependency Hell?
 
 **Difficulty**: Advanced
@@ -720,6 +758,7 @@ requiredVersion: '^16.8.0'
 
 ---
 
+<a id="q39"></a>
 ### Q39: What is Zone.js in MFE?
 
 **Difficulty**: Advanced
@@ -736,6 +775,7 @@ Angular's change detection. Can conflict if multiple Angular apps run.
 
 ---
 
+<a id="q40"></a>
 ### Q40: Can you mix Frameworks (React + Angular)?
 
 **Difficulty**: Beginner
@@ -752,6 +792,7 @@ Yes, that's a key feature. Use Web Components or Single-SPA.
 
 ---
 
+<a id="q41"></a>
 ### Q41: What is Hydration in SSR MFE?
 
 **Difficulty**: Advanced
@@ -768,6 +809,7 @@ Client takes over server-rendered HTML. This concept is fundamental in this doma
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is Tailor?
 
 **Difficulty**: Advanced
@@ -784,6 +826,7 @@ Layout service by Zalando for SSI. This concept is fundamental in this domain an
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you handle analytics?
 
 **Difficulty**: Intermediate
@@ -800,6 +843,7 @@ shell.track('button_click')
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is a Manifest file?
 
 **Difficulty**: Intermediate
@@ -816,6 +860,7 @@ JSON mapping MFE names to URLs. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you handle shared UI components?
 
 **Difficulty**: Intermediate
@@ -832,6 +877,7 @@ import { Button } from 'design-system'
 
 ---
 
+<a id="q46"></a>
 ### Q46: What is Code Splitting?
 
 **Difficulty**: Beginner
@@ -848,6 +894,7 @@ import()
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you handle fonts and assets?
 
 **Difficulty**: Intermediate
@@ -864,6 +911,7 @@ url('https://cdn.../font.woff')
 
 ---
 
+<a id="q48"></a>
 ### Q48: What is Federated Modules Loader?
 
 **Difficulty**: Advanced
@@ -880,6 +928,7 @@ Dynamic loading of remotes. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q49"></a>
 ### Q49: What is Atomic Design?
 
 **Difficulty**: Beginner
@@ -896,6 +945,7 @@ Atomic Design is a methodology for creating design systems. It breaks interfaces
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you secure MFE routes?
 
 **Difficulty**: Intermediate
@@ -912,6 +962,7 @@ if (!auth) redirect('/login')
 
 ---
 
+<a id="q51"></a>
 ### Q51: What is Feature Toggles?
 
 **Difficulty**: Beginner
@@ -928,6 +979,7 @@ if (flags.newCheckout) ...
 
 ---
 
+<a id="q52"></a>
 ### Q52: What is 'Islands Architecture'?
 
 **Difficulty**: Advanced
@@ -944,6 +996,7 @@ Static HTML with interactive 'islands' (Astro). This concept is fundamental in t
 
 ---
 
+<a id="q53"></a>
 ### Q53: Islands vs Microfrontends?
 
 **Difficulty**: Advanced
@@ -960,6 +1013,7 @@ Islands: Optimization technique. MFEs: Organization technique.
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you debug production issues?
 
 **Difficulty**: Intermediate
@@ -976,6 +1030,7 @@ Source maps, correlation IDs, logging. This concept is fundamental in this domai
 
 ---
 
+<a id="q55"></a>
 ### Q55: What is Layout Thrashing?
 
 **Difficulty**: Advanced
@@ -992,6 +1047,7 @@ MFE loading causes page jump. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you use Skeletons?
 
 **Difficulty**: Beginner
@@ -1008,6 +1064,7 @@ Show placeholder structure while loading. This concept is fundamental in this do
 
 ---
 
+<a id="q57"></a>
 ### Q57: What is 'Vertical Split'?
 
 **Difficulty**: Intermediate
@@ -1024,6 +1081,7 @@ Slice by business domain (e.g., Checkout Page). This concept is fundamental in t
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is 'Horizontal Split'?
 
 **Difficulty**: Intermediate
@@ -1040,6 +1098,7 @@ Slice by visual elements (e.g., Header, Footer). This concept is fundamental in 
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you handle internationalization (i18n)?
 
 **Difficulty**: Intermediate
@@ -1056,6 +1115,7 @@ t('welcome')
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is Context API in React MFE?
 
 **Difficulty**: Intermediate
@@ -1072,6 +1132,7 @@ Can share context if React instance is shared. This concept is fundamental in th
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you handle cookies?
 
 **Difficulty**: Beginner
@@ -1088,6 +1149,7 @@ document.cookie
 
 ---
 
+<a id="q62"></a>
 ### Q62: What is CORS in MFE?
 
 **Difficulty**: Intermediate
@@ -1104,6 +1166,7 @@ Access-Control-Allow-Origin: *
 
 ---
 
+<a id="q63"></a>
 ### Q63: What is Content Security Policy (CSP)?
 
 **Difficulty**: Advanced
@@ -1120,6 +1183,7 @@ script-src 'self' https://cdn...
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you upgrade a shared library?
 
 **Difficulty**: Advanced
@@ -1136,6 +1200,7 @@ Coordination or backward compatibility. This concept is fundamental in this doma
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is Web Workers?
 
 **Difficulty**: Advanced
@@ -1152,6 +1217,7 @@ new Worker('worker.js')
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle memory leaks?
 
 **Difficulty**: Intermediate
@@ -1168,6 +1234,7 @@ useEffect(() => cleanup, [])
 
 ---
 
+<a id="q67"></a>
 ### Q67: What is a 'Remote'?
 
 **Difficulty**: Beginner
@@ -1184,6 +1251,7 @@ exposes: { './App': './src/App' }
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is a 'Host'?
 
 **Difficulty**: Beginner
@@ -1200,6 +1268,7 @@ remotes: { app1: ... }
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is Bi-directional Module Federation?
 
 **Difficulty**: Advanced
@@ -1216,6 +1285,7 @@ App acts as both Host and Remote. This concept is fundamental in this domain and
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you handle form state across MFEs?
 
 **Difficulty**: Intermediate
@@ -1232,6 +1302,7 @@ Lift state to Shell or use URL. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is 'fragment' in SSI?
 
 **Difficulty**: Beginner
@@ -1248,6 +1319,7 @@ Piece of HTML included. This concept is fundamental in this domain and understan
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle SEO?
 
 **Difficulty**: Advanced
@@ -1264,6 +1336,7 @@ SSR is required for best SEO. CSR is harder. This concept is fundamental in this
 
 ---
 
+<a id="q73"></a>
 ### Q73: What is qiankun?
 
 **Difficulty**: Advanced
@@ -1280,6 +1353,7 @@ MFE implementation based on single-spa (popular in China).
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you handle local storage?
 
 **Difficulty**: Beginner
@@ -1296,6 +1370,7 @@ localStorage.setItem('app1:key', ...)
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is 'Runtime Chunk'?
 
 **Difficulty**: Advanced
@@ -1312,6 +1387,7 @@ optimization: { runtimeChunk: 'single' }
 
 ---
 
+<a id="q76"></a>
 ### Q76: How do you handle slow networks?
 
 **Difficulty**: Intermediate
@@ -1328,6 +1404,7 @@ Service Workers, Caching, Fallback UI. This concept is fundamental in this domai
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is Module Federation Dashboard?
 
 **Difficulty**: Advanced
@@ -1344,6 +1421,7 @@ Tool to visualize dependencies. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q78"></a>
 ### Q78: How do you handle breaking changes?
 
 **Difficulty**: Intermediate
@@ -1360,6 +1438,7 @@ Communication and Versioning. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is 'Loose Coupling'?
 
 **Difficulty**: Beginner
@@ -1376,6 +1455,7 @@ Minimize dependencies between MFEs. This concept is fundamental in this domain a
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is 'High Cohesion'?
 
 **Difficulty**: Beginner

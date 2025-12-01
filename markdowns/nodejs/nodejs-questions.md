@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you handle backpressure in a Node.js stream pipeline?
 
 **Difficulty**: Intermediate
@@ -165,6 +166,7 @@ pipeline(
 ---
 
 
+<a id="q2"></a>
 ### Q2: How do you offload CPU-intensive tasks using Worker Threads?
 
 **Difficulty**: Intermediate
@@ -212,6 +214,7 @@ parentPort.postMessage(result);
 ---
 
 
+<a id="q3"></a>
 ### Q3: How do you implement a custom Transform stream to modify data on the fly?
 
 **Difficulty**: Intermediate
@@ -251,6 +254,7 @@ process.stdin.pipe(upper).pipe(process.stdout);
 ---
 
 
+<a id="q4"></a>
 ### Q4: How do you handle errors in async/await middleware in Express?
 
 **Difficulty**: Intermediate
@@ -289,6 +293,7 @@ app.use((err, req, res, next) => {
 ---
 
 
+<a id="q5"></a>
 ### Q5: How do you implement graceful shutdown in a Node.js server?
 
 **Difficulty**: Intermediate
@@ -330,6 +335,7 @@ process.on('SIGTERM', () => {
 ---
 
 
+<a id="q6"></a>
 ### Q6: How do you prevent prototype pollution in Node.js applications?
 
 **Difficulty**: Intermediate
@@ -377,6 +383,7 @@ function safeMerge(target, source) {
 ---
 
 
+<a id="q7"></a>
 ### Q7: How do you migrate from CommonJS to ES Modules (ESM) in Node.js?
 
 **Difficulty**: Intermediate
@@ -412,6 +419,7 @@ export function readConfig() {
 ---
 
 
+<a id="q8"></a>
 ### Q8: How do you debug memory leaks in Node.js?
 
 **Difficulty**: Intermediate
@@ -448,6 +456,7 @@ setInterval(() => {
 ---
 
 
+<a id="q9"></a>
 ### Q9: How do you scale a Node.js application using the Cluster module?
 
 **Difficulty**: Intermediate
@@ -495,6 +504,7 @@ if (cluster.isMaster) {
 ---
 
 
+<a id="q10"></a>
 ### Q10: How do you securely hash passwords using the built-in crypto module?
 
 **Difficulty**: Intermediate
@@ -539,6 +549,7 @@ function verifyPassword(password, storedHash) {
 ---
 
 
+<a id="q11"></a>
 ### Q11: How do you create a CLI tool with Node.js?
 
 **Difficulty**: Intermediate
@@ -579,6 +590,7 @@ console.log(`Hello, ${args[0]}!`);
 ---
 
 
+<a id="q12"></a>
 ### Q12: How do you process large files line-by-line to keep memory usage low?
 
 **Difficulty**: Intermediate
@@ -617,6 +629,7 @@ processLineByLine('huge-file.log');
 ---
 
 
+<a id="q13"></a>
 ### Q13: How do you handle multiple Promises concurrently but fail gracefully if one fails?
 
 **Difficulty**: Intermediate
@@ -654,6 +667,7 @@ Success: foo
 ---
 
 
+<a id="q14"></a>
 ### Q14: How do you optimize Node.js performance by caching static assets?
 
 **Difficulty**: Intermediate
@@ -686,6 +700,7 @@ app.listen(3000);
 ---
 
 
+<a id="q15"></a>
 ### Q15: How do you use Buffers to manipulate binary data?
 
 **Difficulty**: Intermediate
@@ -721,6 +736,7 @@ console.log(buf3.toString()); // Hello World
 ---
 
 
+<a id="q16"></a>
 ### Q16: How do you handle Implementing JWT authentication?
 
 **Difficulty**: Intermediate
@@ -755,6 +771,7 @@ function authenticateToken(req, res, next) {
 ---
 
 
+<a id="q17"></a>
 ### Q17: How do you handle Rate limiting requests?
 
 **Difficulty**: Intermediate
@@ -783,6 +800,7 @@ app.use(limiter);
 ---
 
 
+<a id="q18"></a>
 ### Q18: How do you handle Using node-postgres vs ORMs?
 
 **Difficulty**: Intermediate
@@ -811,6 +829,7 @@ async function getUser(id) {
 ---
 
 
+<a id="q19"></a>
 ### Q19: How do you handle Handling uncaught exceptions?
 
 **Difficulty**: Intermediate
@@ -833,6 +852,7 @@ process.on('uncaughtException', (err) => {
 ---
 
 
+<a id="q20"></a>
 ### Q20: How do you validate API requests using Joi?
 
 **Difficulty**: Intermediate
@@ -863,6 +883,7 @@ const validateRequest = (req, res, next) => {
 ---
 
 
+<a id="q21"></a>
 ### Q21: How do you implement structured logging using Winston?
 
 **Difficulty**: Intermediate
@@ -898,6 +919,7 @@ logger.info('Hello distributed log files!');
 ---
 
 
+<a id="q22"></a>
 ### Q22: How do you handle file uploads using Multer?
 
 **Difficulty**: Intermediate
@@ -926,6 +948,7 @@ const upload = multer({ storage: storage });
 ---
 
 
+<a id="q23"></a>
 ### Q23: How do you use dotenv to manage environment variables?
 
 **Difficulty**: Beginner
@@ -951,6 +974,7 @@ console.log(process.env.API_KEY);
 ---
 
 
+<a id="q24"></a>
 ### Q24: How do you use spawn to run a child process?
 
 **Difficulty**: Intermediate
@@ -982,6 +1006,7 @@ ls.on('close', (code) => {
 ---
 
 
+<a id="q25"></a>
 ### Q25: How do you write a simple unit test with Jest?
 
 **Difficulty**: Beginner
@@ -1011,6 +1036,7 @@ test('adds 1 + 2 to equal 3', () => {
 ---
 
 
+<a id="q26"></a>
 ### Q26: How do you use AsyncLocalStorage for request context tracking?
 
 **Difficulty**: Advanced
@@ -1043,6 +1069,7 @@ function logWithId(msg) {
 ---
 
 
+<a id="q27"></a>
 ### Q27: How do you Dockerize a Node.js application?
 
 **Difficulty**: Intermediate
@@ -1072,6 +1099,7 @@ CMD ["node", "server.js"]
 ---
 
 
+<a id="q28"></a>
 ### Q28: How do you use the path module to handle file paths cross-platform?
 
 **Difficulty**: Beginner
@@ -1097,6 +1125,7 @@ const absolutePath = path.resolve('static');
 ---
 
 
+<a id="q29"></a>
 ### Q29: What is the difference between `process.nextTick` and `setImmediate`?
 
 **Difficulty**: Advanced
@@ -1131,6 +1160,7 @@ console.log('End');
 ---
 
 
+<a id="q30"></a>
 ### Q30: How do you safely spawn a child process?
 
 **Difficulty**: Intermediate
@@ -1163,6 +1193,7 @@ child.on('close', (code) => {
 ---
 
 
+<a id="q31"></a>
 ### Q31: How do you handle unhandled promise rejections globally?
 
 **Difficulty**: Intermediate
@@ -1185,6 +1216,7 @@ process.on('unhandledRejection', (reason, promise) => {
 ---
 
 
+<a id="q32"></a>
 ### Q32: How do you optimize garbage collection in Node.js?
 
 **Difficulty**: Advanced
@@ -1203,6 +1235,7 @@ node --max-old-space-size=4096 server.js
 ---
 
 
+<a id="q33"></a>
 ### Q33: How do you use Buffers safely?
 
 **Difficulty**: Intermediate
@@ -1225,6 +1258,7 @@ const unsafeBuf = Buffer.allocUnsafe(1024);
 ---
 
 
+<a id="q34"></a>
 ### Q34: How do you debug a Node.js application with the Inspector?
 
 **Difficulty**: Beginner
@@ -1243,6 +1277,7 @@ node --inspect-brk server.js
 ---
 
 
+<a id="q35"></a>
 ### Q35: How do you create a secure HTTPS server?
 
 **Difficulty**: Intermediate
@@ -1272,6 +1307,7 @@ https.createServer(options, (req, res) => {
 ---
 
 
+<a id="q36"></a>
 ### Q36: How do you use `util.promisify` to convert callback-based functions?
 
 **Difficulty**: Beginner
@@ -1297,6 +1333,7 @@ async function read() {
 ---
 
 
+<a id="q37"></a>
 ### Q37: How do you parse large JSON files without blocking the event loop?
 
 **Difficulty**: Advanced
@@ -1320,6 +1357,7 @@ fs.createReadStream('large.json')
 ---
 
 
+<a id="q38"></a>
 ### Q38: How do you implement a simple rate limiter using Redis?
 
 **Difficulty**: Advanced
@@ -1346,6 +1384,7 @@ async function rateLimit(ip) {
 ---
 
 
+<a id="q39"></a>
 ### Q39: How do you use `vm` module to run untrusted code (Sandboxing)?
 
 **Difficulty**: Advanced
@@ -1368,6 +1407,7 @@ console.log(context.x); // 42
 ---
 
 
+<a id="q40"></a>
 ### Q40: How do you prevent blocking the Event Loop with cryptographic operations?
 
 **Difficulty**: Intermediate
@@ -1390,6 +1430,7 @@ crypto.pbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, key) => {
 ---
 
 
+<a id="q41"></a>
 ### Q41: How do you use `require.resolve`?
 
 **Difficulty**: Beginner
@@ -1409,6 +1450,7 @@ console.log(path); // /node_modules/express/index.js
 ---
 
 
+<a id="q42"></a>
 ### Q42: How do you implement simple middleware in pure Node.js?
 
 **Difficulty**: Intermediate
@@ -1436,6 +1478,7 @@ const server = http.createServer((req, res) => {
 ---
 
 
+<a id="q43"></a>
 ### Q43: How do you use the `repl` module to create a custom shell?
 
 **Difficulty**: Intermediate
@@ -1456,6 +1499,7 @@ r.context.myFunc = () => console.log('Custom function');
 ---
 
 
+<a id="q44"></a>
 ### Q44: How do you benchmark Node.js code using `perf_hooks`?
 
 **Difficulty**: Intermediate
@@ -1478,6 +1522,7 @@ console.log(`Time: ${end - start}ms`);
 ---
 
 
+<a id="q45"></a>
 ### Q45: How do you serve static files without a framework?
 
 **Difficulty**: Intermediate
@@ -1504,6 +1549,7 @@ http.createServer((req, res) => {
 ---
 
 
+<a id="q46"></a>
 ### Q46: What are the security implications of Node.js in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1525,6 +1571,7 @@ if (activeConnections > MAX_CONNECTIONS) {
 ---
 
 
+<a id="q47"></a>
 ### Q47: How do you debug Node.js memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1544,6 +1591,7 @@ process.kill(process.pid, 'SIGUSR2'); // Triggers snapshot
 ---
 
 
+<a id="q48"></a>
 ### Q48: Best practices for Node.js code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1562,6 +1610,7 @@ Layered Architecture: Controllers (HTTP), Services (Business Logic), Data Access
 ---
 
 
+<a id="q49"></a>
 ### Q49: How do you implement Node.js error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1585,6 +1634,7 @@ try {
 ---
 
 
+<a id="q50"></a>
 ### Q50: How do you test Node.js functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1607,6 +1657,7 @@ app.get('/health', async (req, res) => {
 ---
 
 
+<a id="q51"></a>
 ### Q51: Explain the Node.js Event Loop phases.
 
 **Difficulty**: Advanced
@@ -1633,6 +1684,7 @@ setImmediate(() => console.log('Check'));
 ---
 
 
+<a id="q52"></a>
 ### Q52: How does the `os` module help in scaling?
 
 **Difficulty**: Intermediate
@@ -1652,6 +1704,7 @@ const numCPUs = os.cpus().length;
 ---
 
 
+<a id="q53"></a>
 ### Q53: How do Worker Threads differ from Cluster module?
 
 **Difficulty**: Advanced
@@ -1672,6 +1725,7 @@ const { Worker, isMainThread } = require('worker_threads');
 ---
 
 
+<a id="q54"></a>
 ### Q54: How do you handle Backpressure in Streams?
 
 **Difficulty**: Advanced
@@ -1690,6 +1744,7 @@ readable.pipe(writable); // Auto-handles backpressure
 ---
 
 
+<a id="q55"></a>
 ### Q55: How do you use `heapdump`?
 
 **Difficulty**: Advanced
@@ -1709,6 +1764,7 @@ heapdump.writeSnapshot('/var/local/' + Date.now() + '.heapsnapshot');
 ---
 
 
+<a id="q56"></a>
 ### Q56: What is the Buffer class?
 
 **Difficulty**: Beginner
@@ -1727,6 +1783,7 @@ Buffer.from('Hello');
 ---
 
 
+<a id="q57"></a>
 ### Q57: How do you implement a custom Transform stream?
 
 **Difficulty**: Advanced
@@ -1750,6 +1807,7 @@ class MyTransform extends Transform {
 ---
 
 
+<a id="q58"></a>
 ### Q58: How do you handle uncaught exceptions?
 
 **Difficulty**: Intermediate
@@ -1768,6 +1826,7 @@ process.on('uncaughtException', (err) => process.exit(1));
 ---
 
 
+<a id="q59"></a>
 ### Q59: What is libuv?
 
 **Difficulty**: Advanced
@@ -1787,6 +1846,7 @@ fs.readFile(...);
 ---
 
 
+<a id="q60"></a>
 ### Q60: How do you secure a Node.js app?
 
 **Difficulty**: Intermediate
@@ -1805,6 +1865,7 @@ app.use(helmet());
 ---
 
 
+<a id="q61"></a>
 ### Q61: Difference between `spawn` and `exec`?
 
 **Difficulty**: Intermediate
@@ -1824,6 +1885,7 @@ exec('ls', (err, stdout) => console.log(stdout));
 ---
 
 
+<a id="q62"></a>
 ### Q62: How do you implement a graceful shutdown?
 
 **Difficulty**: Intermediate
@@ -1842,6 +1904,7 @@ process.on('SIGTERM', () => server.close());
 ---
 
 
+<a id="q63"></a>
 ### Q63: How do you use `util.promisify`?
 
 **Difficulty**: Beginner
@@ -1860,6 +1923,7 @@ const stat = util.promisify(fs.stat);
 ---
 
 
+<a id="q64"></a>
 ### Q64: What is middleware in Express?
 
 **Difficulty**: Beginner
@@ -1878,6 +1942,7 @@ app.use((req, res, next) => next());
 ---
 
 
+<a id="q65"></a>
 ### Q65: How do you handle file uploads in Node?
 
 **Difficulty**: Intermediate
@@ -1896,6 +1961,7 @@ const upload = multer({ dest: 'uploads/' });
 ---
 
 
+<a id="q66"></a>
 ### Q66: How do you implement JWT authentication?
 
 **Difficulty**: Intermediate
@@ -1914,6 +1980,7 @@ jwt.sign({ id: 1 }, 'secret');
 ---
 
 
+<a id="q67"></a>
 ### Q67: How do you optimize Node.js performance?
 
 **Difficulty**: Advanced
@@ -1932,6 +1999,7 @@ compression();
 ---
 
 
+<a id="q68"></a>
 ### Q68: What is the purpose of `package-lock.json`?
 
 **Difficulty**: Beginner
@@ -1950,6 +2018,7 @@ Locks dependency versions to ensure consistent installs across environments.
 ---
 
 
+<a id="q69"></a>
 ### Q69: How do you implement logging?
 
 **Difficulty**: Intermediate
@@ -1968,6 +2037,7 @@ logger.info('message');
 ---
 
 
+<a id="q70"></a>
 ### Q70: How do you use Environment Variables?
 
 **Difficulty**: Beginner
@@ -1986,6 +2056,7 @@ const db = process.env.DB_URI;
 ---
 
 
+<a id="q71"></a>
 ### Q71: How do you handle CORS?
 
 **Difficulty**: Beginner
@@ -2004,6 +2075,7 @@ app.use(cors());
 ---
 
 
+<a id="q72"></a>
 ### Q72: How do you make an HTTP request?
 
 **Difficulty**: Beginner
@@ -2022,6 +2094,7 @@ await fetch('https://api.com');
 ---
 
 
+<a id="q73"></a>
 ### Q73: What is the Cluster module?
 
 **Difficulty**: Advanced
@@ -2040,6 +2113,7 @@ cluster.fork();
 ---
 
 
+<a id="q74"></a>
 ### Q74: How do you implement API rate limiting?
 
 **Difficulty**: Intermediate
@@ -2058,6 +2132,7 @@ rateLimit({ windowMs: 60000, max: 10 });
 ---
 
 
+<a id="q75"></a>
 ### Q75: How do you parse JSON?
 
 **Difficulty**: Beginner
@@ -2076,6 +2151,7 @@ app.use(express.json());
 ---
 
 
+<a id="q76"></a>
 ### Q76: How do you implement a WebSocket server?
 
 **Difficulty**: Intermediate
@@ -2094,6 +2170,7 @@ const wss = new WebSocket.Server({ port: 8080 });
 ---
 
 
+<a id="q77"></a>
 ### Q77: What is `console.dir`?
 
 **Difficulty**: Beginner
@@ -2112,6 +2189,7 @@ console.dir(obj, { depth: null, colors: true });
 ---
 
 
+<a id="q78"></a>
 ### Q78: How do you profile a Node app?
 
 **Difficulty**: Advanced
@@ -2130,6 +2208,7 @@ node --prof app.js
 ---
 
 
+<a id="q79"></a>
 ### Q79: How do you manage configuration?
 
 **Difficulty**: Intermediate
@@ -2148,6 +2227,7 @@ const config = require('config');
 ---
 
 
+<a id="q80"></a>
 ### Q80: How do you schedule tasks?
 
 **Difficulty**: Intermediate
@@ -2166,6 +2246,7 @@ cron.schedule('* * * * *', () => console.log('Task'));
 ---
 
 
+<a id="q81"></a>
 ### Q81: How do you write unit tests?
 
 **Difficulty**: Beginner
@@ -2184,6 +2265,7 @@ it('should return true', () => expect(true).toBe(true));
 ---
 
 
+<a id="q82"></a>
 ### Q82: How do you handle large JSON payloads?
 
 **Difficulty**: Intermediate
@@ -2202,6 +2284,7 @@ express.json({ limit: '50mb' });
 ---
 
 
+<a id="q83"></a>
 ### Q83: How do you use async/await with callbacks?
 
 **Difficulty**: Intermediate
@@ -2220,6 +2303,7 @@ await new Promise(resolve => cb(resolve));
 ---
 
 
+<a id="q84"></a>
 ### Q84: What is `module.exports` vs `exports`?
 
 **Difficulty**: Advanced
@@ -2239,6 +2323,7 @@ exports = { foo: 'bar' }; // Breaks
 ---
 
 
+<a id="q85"></a>
 ### Q85: How do you implement a health check endpoint?
 
 **Difficulty**: Beginner
@@ -2257,6 +2342,7 @@ app.get('/health', (req, res) => res.send('OK'));
 ---
 
 
+<a id="q86"></a>
 ### Q86: How do you compress HTTP responses?
 
 **Difficulty**: Beginner
@@ -2275,6 +2361,7 @@ app.use(compression());
 ---
 
 
+<a id="q87"></a>
 ### Q87: How do you protect against NoSQL Injection?
 
 **Difficulty**: Intermediate
@@ -2293,6 +2380,7 @@ const clean = req.body.username.replace(/\$/g, '');
 ---
 
 
+<a id="q88"></a>
 ### Q88: How do you implement role-based access control?
 
 **Difficulty**: Intermediate
@@ -2311,6 +2399,7 @@ if (req.user.role !== 'admin') return res.sendStatus(403);
 ---
 
 
+<a id="q89"></a>
 ### Q89: How do you use `EventEmitter`?
 
 **Difficulty**: Beginner
@@ -2330,6 +2419,7 @@ emitter.emit('event');
 ---
 
 
+<a id="q90"></a>
 ### Q90: How do you debug async code?
 
 **Difficulty**: Intermediate
@@ -2348,6 +2438,7 @@ require('longjohn');
 ---
 
 
+<a id="q91"></a>
 ### Q91: How do you serve static files?
 
 **Difficulty**: Beginner
@@ -2366,6 +2457,7 @@ app.use(express.static('public'));
 ---
 
 
+<a id="q92"></a>
 ### Q92: How do you implement request validation?
 
 **Difficulty**: Intermediate
@@ -2384,6 +2476,7 @@ check('email').isEmail();
 ---
 
 
+<a id="q93"></a>
 ### Q93: How do you mock dependencies in tests?
 
 **Difficulty**: Intermediate
@@ -2402,6 +2495,7 @@ jest.mock('fs');
 ---
 
 
+<a id="q94"></a>
 ### Q94: How do you handle timezones?
 
 **Difficulty**: Intermediate
@@ -2420,6 +2514,7 @@ moment().utc().format();
 ---
 
 
+<a id="q95"></a>
 ### Q95: How do you implement hot reload?
 
 **Difficulty**: Beginner
@@ -2438,6 +2533,7 @@ nodemon app.js
 ---
 
 
+<a id="q96"></a>
 ### Q96: How do you use MongoDB with Node?
 
 **Difficulty**: Beginner
@@ -2456,6 +2552,7 @@ mongoose.connect(uri);
 ---
 
 
+<a id="q97"></a>
 ### Q97: How do you implement redis caching?
 
 **Difficulty**: Intermediate
@@ -2474,6 +2571,7 @@ client.get('key', (err, val) => {});
 ---
 
 
+<a id="q98"></a>
 ### Q98: How do you handle sticky sessions?
 
 **Difficulty**: Advanced
@@ -2492,6 +2590,7 @@ const RedisStore = require('connect-redis')(session);
 ---
 
 
+<a id="q99"></a>
 ### Q99: How do you implement OAuth?
 
 **Difficulty**: Intermediate
@@ -2510,6 +2609,7 @@ passport.use(new GoogleStrategy(...));
 ---
 
 
+<a id="q100"></a>
 ### Q100: How do you parse command line arguments?
 
 **Difficulty**: Beginner
@@ -2534,6 +2634,7 @@ Promise.reject(new Error('Fail!'));
 ---
 
 
+<a id="q32"></a>
 ### Q32: How do you optimize garbage collection in Node.js?
 
 **Difficulty**: Advanced
@@ -2564,6 +2665,7 @@ function addToCache(key, value) {
 ---
 
 
+<a id="q33"></a>
 ### Q33: How do you use Buffers safely?
 
 **Difficulty**: Intermediate
@@ -2589,6 +2691,7 @@ console.log(buf2.toString('hex')); // 48656c6c6f20576f726c64
 ---
 
 
+<a id="q34"></a>
 ### Q34: How do you debug a Node.js application with the Inspector?
 
 **Difficulty**: Beginner
@@ -2612,6 +2715,7 @@ console.log('Paused here if inspector is attached');
 ---
 
 
+<a id="q35"></a>
 ### Q35: How do you create a secure HTTPS server?
 
 **Difficulty**: Intermediate
@@ -2641,6 +2745,7 @@ https.createServer(options, (req, res) => {
 ---
 
 
+<a id="q36"></a>
 ### Q36: How do you use `util.promisify` to convert callback-based functions?
 
 **Difficulty**: Beginner
@@ -2671,6 +2776,7 @@ async function read() {
 ---
 
 
+<a id="q37"></a>
 ### Q37: How do you parse large JSON files without blocking the event loop?
 
 **Difficulty**: Advanced
@@ -2697,6 +2803,7 @@ if (isMainThread) {
 ---
 
 
+<a id="q38"></a>
 ### Q38: How do you implement a simple rate limiter using Redis?
 
 **Difficulty**: Advanced
@@ -2729,6 +2836,7 @@ async function rateLimit(ip) {
 ---
 
 
+<a id="q39"></a>
 ### Q39: How do you use `vm` module to run untrusted code (Sandboxing)?
 
 **Difficulty**: Advanced
@@ -2757,6 +2865,7 @@ console.log(context.y); // 17
 ---
 
 
+<a id="q40"></a>
 ### Q40: How do you prevent blocking the Event Loop with cryptographic operations?
 
 **Difficulty**: Intermediate
@@ -2784,6 +2893,7 @@ crypto.pbkdf2('secret', 'salt', 100000, 64, 'sha512', (err, derivedKey) => {
 ---
 
 
+<a id="q41"></a>
 ### Q41: How do you use `require.resolve`?
 
 **Difficulty**: Beginner
@@ -2807,6 +2917,7 @@ try {
 ---
 
 
+<a id="q42"></a>
 ### Q42: How do you implement simple middleware in pure Node.js?
 
 **Difficulty**: Intermediate
@@ -2837,6 +2948,7 @@ function run(req, res) {
 ---
 
 
+<a id="q43"></a>
 ### Q43: How do you use the `repl` module to create a custom shell?
 
 **Difficulty**: Intermediate
@@ -2862,6 +2974,7 @@ r.context.sayHello = (name) => `Hello ${name}`;
 ---
 
 
+<a id="q44"></a>
 ### Q44: How do you benchmark Node.js code using `perf_hooks`?
 
 **Difficulty**: Intermediate
@@ -2891,6 +3004,7 @@ performance.measure('A to B', 'A', 'B');
 ---
 
 
+<a id="q45"></a>
 ### Q45: How do you serve static files without a framework?
 
 **Difficulty**: Intermediate
@@ -3083,6 +3197,7 @@ describe('Math operations', () => {
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q46"></a>
 ### Q46: What are the security implications of Node.js in real-time systems?
 
 **Difficulty**: Intermediate
@@ -3100,6 +3215,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you debug Node.js memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -3117,6 +3233,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q48"></a>
 ### Q48: Best practices for Node.js code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -3134,6 +3251,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you implement Node.js error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -3154,6 +3272,7 @@ try {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you test Node.js functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -3173,6 +3292,7 @@ test('Node.js works', () => {
 ---
 
 
+<a id="q51"></a>
 ### Q51: Explain the Node.js Event Loop phases.
 
 **Difficulty**: Advanced
@@ -3189,6 +3309,7 @@ Timers (setTimeout), Pending Callbacks (I/O), Idle/Prepare, Poll (new I/O), Chec
 
 ---
 
+<a id="q52"></a>
 ### Q52: Difference between `process.nextTick` and `setImmediate`?
 
 **Difficulty**: Intermediate
@@ -3206,6 +3327,7 @@ setImmediate(() => console.log('Immediate'));
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do Worker Threads differ from Cluster module?
 
 **Difficulty**: Advanced
@@ -3223,6 +3345,7 @@ new Worker('./worker.js');
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Backpressure in Streams?
 
 **Difficulty**: Advanced
@@ -3241,6 +3364,7 @@ if (!stream.write(chunk)) {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you debug a memory leak in Node.js?
 
 **Difficulty**: Advanced
@@ -3258,6 +3382,7 @@ heapdump.writeSnapshot('/var/local/' + Date.now() + '.heapsnapshot');
 
 ---
 
+<a id="q56"></a>
 ### Q56: What is the Buffer class?
 
 **Difficulty**: Beginner
@@ -3275,6 +3400,7 @@ console.log(buf.toString('hex'));
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you implement a custom Transform stream?
 
 **Difficulty**: Advanced
@@ -3296,6 +3422,7 @@ class MyTransform extends Transform {
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you handle uncaught exceptions?
 
 **Difficulty**: Intermediate
@@ -3315,6 +3442,7 @@ process.on('uncaughtException', (err) => {
 
 ---
 
+<a id="q59"></a>
 ### Q59: What is libuv?
 
 **Difficulty**: Advanced
@@ -3331,6 +3459,7 @@ C library that provides asynchronous I/O (Event Loop, Thread Pool) for Node.js.
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you secure a Node.js app?
 
 **Difficulty**: Intermediate
@@ -3348,6 +3477,7 @@ app.use(rateLimit({ windowMs: 15*60*1000, max: 100 }));
 
 ---
 
+<a id="q61"></a>
 ### Q61: Difference between `spawn` and `exec`?
 
 **Difficulty**: Intermediate
@@ -3365,6 +3495,7 @@ const ls = spawn('ls', ['-lh', '/usr']);
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you implement a graceful shutdown?
 
 **Difficulty**: Intermediate
@@ -3385,6 +3516,7 @@ process.on('SIGTERM', () => {
 
 ---
 
+<a id="q63"></a>
 ### Q63: How do you use `util.promisify`?
 
 **Difficulty**: Beginner
@@ -3402,6 +3534,7 @@ await readFile('file.txt');
 
 ---
 
+<a id="q64"></a>
 ### Q64: What is middleware in Express?
 
 **Difficulty**: Beginner
@@ -3421,6 +3554,7 @@ app.use((req, res, next) => {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you handle file uploads in Node?
 
 **Difficulty**: Intermediate
@@ -3438,6 +3572,7 @@ app.post('/profile', upload.single('avatar'), ...);
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you implement JWT authentication?
 
 **Difficulty**: Intermediate
@@ -3455,6 +3590,7 @@ const decoded = jwt.verify(token, 'secret');
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you optimize Node.js performance?
 
 **Difficulty**: Advanced
@@ -3471,6 +3607,7 @@ app.use(compression());
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is the purpose of `package-lock.json`?
 
 **Difficulty**: Beginner
@@ -3487,6 +3624,7 @@ Locks dependency versions to ensure consistent installs.
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you implement logging?
 
 **Difficulty**: Intermediate
@@ -3503,6 +3641,7 @@ logger.info('User logged in', { userId });
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you use Environment Variables?
 
 **Difficulty**: Beginner
@@ -3520,6 +3659,7 @@ console.log(process.env.DB_HOST);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you handle CORS?
 
 **Difficulty**: Beginner
@@ -3536,6 +3676,7 @@ app.use(cors({ origin: 'http://example.com' }));
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you make an HTTP request?
 
 **Difficulty**: Beginner
@@ -3552,6 +3693,7 @@ const res = await axios.get('https://api.com');
 
 ---
 
+<a id="q73"></a>
 ### Q73: What is the Cluster module?
 
 **Difficulty**: Advanced
@@ -3568,6 +3710,7 @@ if (cluster.isMaster) { cluster.fork(); }
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you implement API rate limiting?
 
 **Difficulty**: Intermediate
@@ -3584,6 +3727,7 @@ const limiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 100 });
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you parse JSON?
 
 **Difficulty**: Beginner
@@ -3600,6 +3744,7 @@ app.use(express.json());
 
 ---
 
+<a id="q76"></a>
 ### Q76: How do you implement a WebSocket server?
 
 **Difficulty**: Intermediate
@@ -3617,6 +3762,7 @@ wss.on('connection', ws => ws.send('hello'));
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is REPL?
 
 **Difficulty**: Beginner
@@ -3635,6 +3781,7 @@ $ node
 
 ---
 
+<a id="q78"></a>
 ### Q78: How do you profile a Node app?
 
 **Difficulty**: Advanced
@@ -3651,6 +3798,7 @@ $ clinic doctor -- node server.js
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you manage configuration?
 
 **Difficulty**: Intermediate
@@ -3667,6 +3815,7 @@ const dbConfig = config.get('Customer.dbConfig');
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you schedule tasks?
 
 **Difficulty**: Intermediate
@@ -3683,6 +3832,7 @@ cron.schedule('* * * * *', () => console.log('Running task'));
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you write unit tests?
 
 **Difficulty**: Beginner
@@ -3699,6 +3849,7 @@ test('adds 1 + 2', () => { expect(sum(1, 2)).toBe(3); });
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you handle large JSON payloads?
 
 **Difficulty**: Intermediate
@@ -3715,6 +3866,7 @@ fs.createReadStream('big.json').pipe(JSONStream.parse('*'));
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you use async/await with callbacks?
 
 **Difficulty**: Intermediate
@@ -3731,6 +3883,7 @@ await new Promise((resolve) => fn(resolve));
 
 ---
 
+<a id="q84"></a>
 ### Q84: What is `require.resolve`?
 
 **Difficulty**: Advanced
@@ -3747,6 +3900,7 @@ const path = require.resolve('lodash');
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement a health check endpoint?
 
 **Difficulty**: Beginner
@@ -3763,6 +3917,7 @@ app.get('/health', (req, res) => res.status(200).send('OK'));
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you compress HTTP responses?
 
 **Difficulty**: Beginner
@@ -3779,6 +3934,7 @@ app.use(compression());
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you protect against NoSQL Injection?
 
 **Difficulty**: Intermediate
@@ -3795,6 +3951,7 @@ Sanitize inputs, avoid passing user input directly to query objects.
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you implement role-based access control?
 
 **Difficulty**: Intermediate
@@ -3811,6 +3968,7 @@ if (!req.user.roles.includes('admin')) return res.sendStatus(403);
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you use `EventEmitter`?
 
 **Difficulty**: Beginner
@@ -3828,6 +3986,7 @@ myEmitter.on('event', () => console.log('fired'));
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you debug async code?
 
 **Difficulty**: Intermediate
@@ -3844,6 +4003,7 @@ Use `async_hooks` or long stack traces. This concept is fundamental in this doma
 
 ---
 
+<a id="q91"></a>
 ### Q91: How do you serve static files?
 
 **Difficulty**: Beginner
@@ -3860,6 +4020,7 @@ app.use(express.static('public'));
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you implement request validation?
 
 **Difficulty**: Intermediate
@@ -3876,6 +4037,7 @@ body('email').isEmail()
 
 ---
 
+<a id="q93"></a>
 ### Q93: How do you mock dependencies in tests?
 
 **Difficulty**: Intermediate
@@ -3892,6 +4054,7 @@ jest.mock('axios');
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you handle timezones?
 
 **Difficulty**: Intermediate
@@ -3908,6 +4071,7 @@ DateTime.now().setZone('America/New_York');
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you implement hot reload?
 
 **Difficulty**: Beginner
@@ -3924,6 +4088,7 @@ $ nodemon server.js
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you use MongoDB with Node?
 
 **Difficulty**: Beginner
@@ -3940,6 +4105,7 @@ mongoose.connect(uri);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you implement redis caching?
 
 **Difficulty**: Intermediate
@@ -3956,6 +4122,7 @@ const val = await redis.get(key);
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you handle sticky sessions?
 
 **Difficulty**: Advanced
@@ -3972,6 +4139,7 @@ Configure load balancer (Nginx) or use shared store (Redis).
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you implement OAuth?
 
 **Difficulty**: Intermediate
@@ -3988,6 +4156,7 @@ passport.use(new GoogleStrategy(...));
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you parse command line arguments?
 
 **Difficulty**: Beginner

@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you enforce generic constraints on objects?
 
 **Difficulty**: Intermediate
@@ -139,6 +140,7 @@ getIds([{ id: 1, name: 'A' }, { id: 2, name: 'B' }]); // OK
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you extract the return type of an async function?
 
 **Difficulty**: Intermediate
@@ -163,6 +165,7 @@ const user: User = { id: 2, name: "Bob", role: "User" };
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you implement a 'Discriminated Union' to handle different API response states (Loading, Success, Error) safely?
 
 **Difficulty**: Intermediate
@@ -195,6 +198,7 @@ function handleResponse(response: ApiResponse<string[]>) {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you create a type requiring at least one property?
 
 **Difficulty**: Intermediate
@@ -226,6 +230,7 @@ const u2: RequireAtLeastOne<User> = { email: "a@b.com", age: 30 };
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you use 'Template Literal Types' to strictly type CSS classes or event names (e.g., 'on-click', 'on-hover')?
 
 **Difficulty**: Intermediate
@@ -252,6 +257,7 @@ addHandler("on-click"); // OK
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you implement a custom Type Guard?
 
 **Difficulty**: Intermediate
@@ -275,6 +281,7 @@ function formatInput(input: string | number) {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you create a 'readonly' array or tuple so that its contents cannot be modified after initialization?
 
 **Difficulty**: Intermediate
@@ -297,6 +304,7 @@ const config = ["DEV", "PROD"] as const;
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you use `unknown` vs `any` for type safety?
 
 **Difficulty**: Intermediate
@@ -327,6 +335,7 @@ function parseData(json: string) {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you use 'Mapped Types' to create a new type where all boolean properties of an interface are changed to strings?
 
 **Difficulty**: Intermediate
@@ -361,6 +370,7 @@ type NewSettings = BooleanToString<Settings>;
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you define a React Component Prop type that accepts *either* an `image` URL *or* a `text` label, but not both?
 
 **Difficulty**: Intermediate
@@ -392,6 +402,7 @@ const c2: CardProps = { text: "Hello" };    // OK
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you implement a generic 'Singleton' pattern in TypeScript using a static `getInstance` method?
 
 **Difficulty**: Intermediate
@@ -424,6 +435,7 @@ console.log(db1 === db2); // true
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you use the `infer` keyword to extract the type of the first argument of a function?
 
 **Difficulty**: Intermediate
@@ -448,6 +460,7 @@ type NameType = FirstArg<typeof greet>; // string
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you fix the error 'Element implicitly has an any type because expression of type string can't be used to index type'?
 
 **Difficulty**: Intermediate
@@ -479,6 +492,7 @@ function getColor(name: string) {
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you declare a global variable (e.g., `window.myConfig`) so TypeScript recognizes it without errors?
 
 **Difficulty**: Intermediate
@@ -508,6 +522,7 @@ window.myConfig = { apiUrl: "/api", retryCount: 3 };
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you use TypeScript's `satisfies` operator to validate an expression matches a type without widening it?
 
 **Difficulty**: Intermediate
@@ -538,6 +553,7 @@ console.log(myTheme.colors.secondary.r); // OK
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you implement a `DeepPartial<T>` utility type?
 
 **Difficulty**: Advanced
@@ -573,6 +589,7 @@ const user: DeepPartial<User> = {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you use `const` assertions (`as const`) to create literal types?
 
 **Difficulty**: Intermediate
@@ -602,6 +619,7 @@ type Color = typeof Colors[number]; // "red" | "green" | "blue"
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you use `Awaited<T>` to unwrap Promise types recursively?
 
 **Difficulty**: Intermediate
@@ -629,6 +647,7 @@ type Result = Awaited<Nested>; // string
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you create a type that requires exactly one of two properties (XOR)?
 
 **Difficulty**: Advanced
@@ -661,6 +680,7 @@ const valid2: AorB = { b: 42 };
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use `keyof` with Generics to access properties safely?
 
 **Difficulty**: Intermediate
@@ -687,6 +707,7 @@ const userName = getProperty(user, "name"); // Type is string
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you implement a specialized `Pick` that filters by value type?
 
 **Difficulty**: Advanced
@@ -715,6 +736,7 @@ type StringProps = PickByValue<Person, string>;
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you use `asserts` to create a custom assertion function?
 
 **Difficulty**: Intermediate
@@ -741,6 +763,7 @@ function processValue(val: any) {
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you use `ThisType<T>` to type `this` in object literals?
 
 **Difficulty**: Advanced
@@ -776,6 +799,7 @@ const obj = makeObject({
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you make a tuple type with a variable number of elements (Variadic Tuples)?
 
 **Difficulty**: Advanced
@@ -804,6 +828,7 @@ const result = concat([1, 2], ["a", "b"]);
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you use `never` type for exhaustive checks in switch statements?
 
 **Difficulty**: Intermediate
@@ -835,6 +860,7 @@ function getArea(shape: Shape) {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you use Module Augmentation to extend third-party libraries?
 
 **Difficulty**: Intermediate
@@ -870,6 +896,7 @@ app.use((req, res, next) => {
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you implement a generic `Mutable<T>` utility type?
 
 **Difficulty**: Intermediate
@@ -899,6 +926,7 @@ u.id = 2; // OK
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you use `Omit` to exclude properties from a type?
 
 **Difficulty**: Beginner
@@ -928,6 +956,7 @@ const todo: TodoPreview = {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you type a function with function overloads?
 
 **Difficulty**: Intermediate
@@ -955,6 +984,7 @@ const d2 = makeDate(5, 5, 2021);
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you use the `instanceof` type guard?
 
 **Difficulty**: Beginner
@@ -986,6 +1016,7 @@ function interact(pet: Dog | Cat) {
 ---
 
 
+<a id="q31"></a>
 ### Q31: What is the difference between `never` and `void`?
 
 **Difficulty**: Intermediate
@@ -1012,6 +1043,7 @@ function infiniteLoop(): never {
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you implement Branded Types (Nominal Typing) to prevent accidental assignment?
 
 **Difficulty**: Advanced
@@ -1040,6 +1072,7 @@ const euros = eur(10);
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you create a Conditional Type?
 
 **Difficulty**: Intermediate
@@ -1063,6 +1096,7 @@ type Num = Flatten<number>;   // number
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you use `import type` and why is it useful?
 
 **Difficulty**: Beginner
@@ -1087,6 +1121,7 @@ const user: User = { name: 'Alice' };
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you convert a Tuple to a Union type?
 
 **Difficulty**: Intermediate
@@ -1107,6 +1142,7 @@ const c1: Color = 'red'; // OK
 
 ---
 
+<a id="q36"></a>
 ### Q36: Why should you prefer `as const` objects over `enum`?
 
 **Difficulty**: Intermediate
@@ -1134,6 +1170,7 @@ type DirectionType = typeof DirectionConst[keyof typeof DirectionConst];
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you use `NonNullable<T>` to remove null and undefined?
 
 **Difficulty**: Beginner
@@ -1151,6 +1188,7 @@ type DefinitelyString = NonNullable<MaybeString>;
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you use `Parameters<T>` to extract function argument types?
 
 **Difficulty**: Intermediate
@@ -1173,6 +1211,7 @@ createUser(...args);
 
 ---
 
+<a id="q39"></a>
 ### Q39: What is the difference between `Exclude` and `Omit`?
 
 **Difficulty**: Intermediate
@@ -1198,6 +1237,7 @@ type TodoPreview = Omit<Todo, "completed">;
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use `Record<K, T>` to create a dictionary?
 
 **Difficulty**: Beginner
@@ -1219,6 +1259,7 @@ const permissions: Record<Roles, number> = {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you implement Mixins in TypeScript?
 
 **Difficulty**: Advanced
@@ -1249,6 +1290,7 @@ console.log(user.timestamp);
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you use `ConstructorParameters<T>`?
 
 **Difficulty**: Advanced
@@ -1270,6 +1312,7 @@ type PointParams = ConstructorParameters<typeof Point>;
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you force a type to be partially optional using a utility type?
 
 **Difficulty**: Advanced
@@ -1295,6 +1338,7 @@ type UserOptionalEmail = PartialBy<User, "email">;
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is Covariance vs Contravariance in TypeScript?
 
 **Difficulty**: Expert
@@ -1318,6 +1362,7 @@ let handleDog: Handler<Dog> = handleAnimal; // OK: Dog is Animal
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you make a class property private at runtime vs compile time?
 
 **Difficulty**: Beginner
@@ -1341,6 +1386,7 @@ const b = new Box();
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you handle circular dependencies in types?
 
 **Difficulty**: Intermediate
@@ -1360,6 +1406,7 @@ interface Category {
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you assert that a value is defined (Not Null Assertion)?
 
 **Difficulty**: Beginner
@@ -1377,6 +1424,7 @@ console.log(input.value);
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you use `Partial<T>` to update objects?
 
 **Difficulty**: Beginner
@@ -1395,6 +1443,7 @@ function update(id: number, changes: Partial<User>) {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use `ReturnType` to create a type from a function implementation?
 
 **Difficulty**: Intermediate
@@ -1414,6 +1463,7 @@ type Data = ReturnType<typeof getData>;
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you strictly type the `this` context in a function?
 
 **Difficulty**: Advanced
@@ -1432,6 +1482,7 @@ function myCallback(this: HTMLButtonElement, e: Event) {
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you use `Required<T>`?
 
 **Difficulty**: Beginner
@@ -1449,6 +1500,7 @@ type All = Required<Props>; // { a: number }
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you use `Readonly<T>`?
 
 **Difficulty**: Beginner
@@ -1467,6 +1519,7 @@ const c: Readonly<Config> = { url: "/" };
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you enforce generic constraints using `extends`?
 
 **Difficulty**: Intermediate
@@ -1485,6 +1538,7 @@ function logId<T extends { id: number }>(obj: T) {
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you provide default generic types?
 
 **Difficulty**: Intermediate
@@ -1501,6 +1555,7 @@ type Response<T = string> = { data: T; error: string | null };
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you define a Recursive Type (e.g., JSON)?
 
 **Difficulty**: Advanced
@@ -1517,6 +1572,7 @@ type Json = string | number | boolean | null | Json[] | { [key: string]: Json };
 
 ---
 
+<a id="q56"></a>
 ### Q56: What are Abstract Classes?
 
 **Difficulty**: Intermediate
@@ -1535,6 +1591,7 @@ abstract class Base {
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you create a Class Decorator?
 
 **Difficulty**: Advanced
@@ -1556,6 +1613,7 @@ class BugReport {}
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you handle errors with `unknown` in catch blocks?
 
 **Difficulty**: Intermediate
@@ -1575,6 +1633,7 @@ try {
 
 ---
 
+<a id="q59"></a>
 ### Q59: What is the `override` keyword?
 
 **Difficulty**: Beginner
@@ -1593,6 +1652,7 @@ class Child extends Parent {
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you use the `satisfies` operator?
 
 **Difficulty**: Intermediate
@@ -1611,6 +1671,7 @@ const config = {
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you use the `in` operator for type narrowing?
 
 **Difficulty**: Intermediate
@@ -1629,6 +1690,7 @@ if ("radius" in shape) {
 
 ---
 
+<a id="q62"></a>
 ### Q62: What are type predicates (`is`)?
 
 **Difficulty**: Intermediate
@@ -1647,6 +1709,7 @@ function isString(x: any): x is string {
 
 ---
 
+<a id="q63"></a>
 ### Q63: Difference between `implements` and `extends`?
 
 **Difficulty**: Beginner
@@ -1663,6 +1726,7 @@ class C implements I {}
 
 ---
 
+<a id="q64"></a>
 ### Q64: What is Declaration Merging?
 
 **Difficulty**: Advanced
@@ -1680,6 +1744,7 @@ interface User { age: number; }
 
 ---
 
+<a id="q65"></a>
 ### Q65: Numeric vs String Enums?
 
 **Difficulty**: Beginner
@@ -1696,6 +1761,7 @@ enum Color { Red = "RED" }
 
 ---
 
+<a id="q66"></a>
 ### Q66: Namespaces vs Modules?
 
 **Difficulty**: Intermediate
@@ -1712,6 +1778,7 @@ export const x = 1;
 
 ---
 
+<a id="q67"></a>
 ### Q67: What are Triple-Slash Directives?
 
 **Difficulty**: Advanced
@@ -1728,6 +1795,7 @@ Dependencies in `.d.ts`. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q68"></a>
 ### Q68: What does strict mode enable?
 
 **Difficulty**: Beginner
@@ -1744,6 +1812,7 @@ All strict checks. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is `noImplicitAny`?
 
 **Difficulty**: Beginner
@@ -1760,6 +1829,7 @@ function f(x) {} // Error
 
 ---
 
+<a id="q70"></a>
 ### Q70: What is the difference between `target` and `lib` in tsconfig?
 
 **Difficulty**: Intermediate
@@ -1776,6 +1846,7 @@ function f(x) {} // Error
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you use Path Aliases?
 
 **Difficulty**: Intermediate
@@ -1792,6 +1863,7 @@ Map paths in tsconfig. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q72"></a>
 ### Q72: What are Ambient Declarations (`declare`)?
 
 **Difficulty**: Advanced
@@ -1808,6 +1880,7 @@ declare var $: any;
 
 ---
 
+<a id="q73"></a>
 ### Q73: What are `.d.ts` files?
 
 **Difficulty**: Beginner
@@ -1824,6 +1897,7 @@ export declare function f(): void;
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you handle legacy CommonJS imports?
 
 **Difficulty**: Intermediate
@@ -1840,6 +1914,7 @@ import fs = require('fs');
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you get the type of a Class (Constructor)?
 
 **Difficulty**: Intermediate
@@ -1856,6 +1931,7 @@ const C: typeof MyClass = MyClass;
 
 ---
 
+<a id="q76"></a>
 ### Q76: What is `ThisParameterType`?
 
 **Difficulty**: Advanced
@@ -1872,6 +1948,7 @@ type T = ThisParameterType<typeof fn>;
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is `OmitThisParameter`?
 
 **Difficulty**: Advanced
@@ -1888,6 +1965,7 @@ type F = OmitThisParameter<typeof fn>;
 
 ---
 
+<a id="q78"></a>
 ### Q78: What is `NoInfer`?
 
 **Difficulty**: Expert
@@ -1904,6 +1982,7 @@ function f<T>(a: T, b: NoInfer<T>) {}
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is `Object.groupBy` return type?
 
 **Difficulty**: Intermediate
@@ -1920,6 +1999,7 @@ Object.groupBy(items, x => x.id);
 
 ---
 
+<a id="q80"></a>
 ### Q80: What are Variadic Tuple Types?
 
 **Difficulty**: Advanced
@@ -1936,6 +2016,7 @@ type T = [...A, ...B];
 
 ---
 
+<a id="q81"></a>
 ### Q81: What are Labeled Tuple Elements?
 
 **Difficulty**: Beginner
@@ -1952,6 +2033,7 @@ type Point = [x: number, y: number];
 
 ---
 
+<a id="q82"></a>
 ### Q82: `keyof` vs `typeof`?
 
 **Difficulty**: Beginner
@@ -1968,6 +2050,7 @@ type K = keyof typeof obj;
 
 ---
 
+<a id="q83"></a>
 ### Q83: What are Index Signatures?
 
 **Difficulty**: Intermediate
@@ -1984,6 +2067,7 @@ Dynamic keys. This concept is fundamental in this domain and understanding it al
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you mark properties readonly in classes?
 
 **Difficulty**: Beginner
@@ -2000,6 +2084,7 @@ class C { readonly x = 1; }
 
 ---
 
+<a id="q85"></a>
 ### Q85: How are Getters/Setters typed?
 
 **Difficulty**: Intermediate
@@ -2016,6 +2101,7 @@ get x(): number { return 1; }
 
 ---
 
+<a id="q86"></a>
 ### Q86: What are `public`, `private`, `protected`?
 
 **Difficulty**: Beginner
@@ -2032,6 +2118,7 @@ class C { private x = 1; }
 
 ---
 
+<a id="q87"></a>
 ### Q87: What are static blocks?
 
 **Difficulty**: Intermediate
@@ -2048,6 +2135,7 @@ static { this.x = 1; }
 
 ---
 
+<a id="q88"></a>
 ### Q88: What is the `using` keyword?
 
 **Difficulty**: Advanced
@@ -2064,6 +2152,7 @@ using x = resource();
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you use Symbols as keys?
 
 **Difficulty**: Intermediate
@@ -2080,6 +2169,7 @@ const s: unique symbol = Symbol();
 
 ---
 
+<a id="q90"></a>
 ### Q90: What are Intrinsic String Manipulation Types?
 
 **Difficulty**: Intermediate
@@ -2096,6 +2186,7 @@ type U = Uppercase<"a">;
 
 ---
 
+<a id="q91"></a>
 ### Q91: How do you export a type?
 
 **Difficulty**: Beginner
@@ -2112,6 +2203,7 @@ export type T = number;
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is `verbatimModuleSyntax`?
 
 **Difficulty**: Expert
@@ -2128,6 +2220,7 @@ Simplifies imports. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q93"></a>
 ### Q93: What is `skipLibCheck`?
 
 **Difficulty**: Intermediate
@@ -2144,6 +2237,7 @@ Skip d.ts check. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q94"></a>
 ### Q94: What is `incremental` build?
 
 **Difficulty**: Intermediate
@@ -2160,6 +2254,7 @@ Faster rebuilds. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you use Project References?
 
 **Difficulty**: Advanced
@@ -2176,6 +2271,7 @@ Monorepos. This concept is fundamental in this domain and understanding it allow
 
 ---
 
+<a id="q96"></a>
 ### Q96: What is `composite` mode?
 
 **Difficulty**: Advanced
@@ -2192,6 +2288,7 @@ For referenced projects. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you declare a module?
 
 **Difficulty**: Advanced
@@ -2208,6 +2305,7 @@ declare module "foo";
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you use `globalThis` in TypeScript?
 
 **Difficulty**: Beginner
@@ -2224,6 +2322,7 @@ globalThis.x = 1;
 
 ---
 
+<a id="q99"></a>
 ### Q99: What is `Array<T>` vs `T[]`?
 
 **Difficulty**: Beginner
@@ -2240,6 +2339,7 @@ number[]
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you create an immutable type?
 
 **Difficulty**: Intermediate
@@ -2265,6 +2365,7 @@ type TodoPreview = Omit<Todo, "completed" | "createdAt">;
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use `Record<K, T>` to create a dictionary?
 
 **Difficulty**: Beginner
@@ -2289,6 +2390,7 @@ const usersByRole: Record<Role, UserInfo[]> = {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you implement Mixins in TypeScript?
 
 **Difficulty**: Advanced
@@ -2317,6 +2419,7 @@ console.log(user.name, user.timestamp);
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you use `ConstructorParameters<T>`?
 
 **Difficulty**: Advanced
@@ -2339,6 +2442,7 @@ const p = new Point(...coords);
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you force a type to be partially optional using a utility type?
 
 **Difficulty**: Advanced
@@ -2366,6 +2470,7 @@ const u: UserOptionalEmail = {
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is Covariance vs Contravariance in TypeScript?
 
 **Difficulty**: Expert
@@ -2399,6 +2504,7 @@ setDog = setAnimal; // ✅ OK: If it handles any Animal, it handles a Dog.
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you make a class property private at runtime vs compile time?
 
 **Difficulty**: Beginner
@@ -2420,6 +2526,7 @@ class Counter {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you handle circular dependencies in types?
 
 **Difficulty**: Intermediate
@@ -2444,6 +2551,7 @@ const root: Category = {
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you assert that a value is defined (Not Null Assertion)?
 
 **Difficulty**: Beginner
@@ -2464,6 +2572,7 @@ if (input) {
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you use `Partial<T>` to update objects?
 
 **Difficulty**: Beginner
@@ -2489,6 +2598,7 @@ updateUser(1, { name: "Bob" }); // Valid
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use `ReturnType` to create a type from a function implementation?
 
 **Difficulty**: Intermediate
@@ -2512,6 +2622,7 @@ type Config = ReturnType<typeof createConfig>;
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you strictly type the `this` context in a function?
 
 **Difficulty**: Advanced
@@ -2537,6 +2648,7 @@ handleClick.call(btn); // OK
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle TypeScript state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -2553,6 +2665,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform TypeScript data validation in microservices?
 
 **Difficulty**: Beginner
@@ -2569,6 +2682,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate TypeScript deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -2587,6 +2701,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle TypeScript concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -2605,6 +2720,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement TypeScript caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2622,6 +2738,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage TypeScript configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -2638,6 +2755,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle TypeScript internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -2654,6 +2772,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure TypeScript accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2670,6 +2789,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize TypeScript network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2686,6 +2806,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle TypeScript performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2705,6 +2826,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of TypeScript in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2722,6 +2844,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug TypeScript memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2739,6 +2862,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for TypeScript code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2756,6 +2880,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement TypeScript error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2776,6 +2901,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test TypeScript functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2794,6 +2920,7 @@ test('TypeScript works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle TypeScript state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2810,6 +2937,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform TypeScript data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2826,6 +2954,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate TypeScript deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2844,6 +2973,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle TypeScript concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2862,6 +2992,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement TypeScript caching in production environments?
 
 **Difficulty**: Intermediate
@@ -2879,6 +3010,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage TypeScript configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -2895,6 +3027,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle TypeScript internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -2911,6 +3044,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure TypeScript accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -2927,6 +3061,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize TypeScript network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -2943,6 +3078,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle TypeScript performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -2962,6 +3098,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of TypeScript in real-time systems?
 
 **Difficulty**: Intermediate
@@ -2979,6 +3116,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug TypeScript memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -2996,6 +3134,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for TypeScript code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -3013,6 +3152,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement TypeScript error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -3033,6 +3173,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test TypeScript functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -3051,6 +3192,7 @@ test('TypeScript works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle TypeScript state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -3067,6 +3209,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform TypeScript data validation in microservices?
 
 **Difficulty**: Beginner
@@ -3083,6 +3226,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate TypeScript deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -3101,6 +3245,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle TypeScript concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -3119,6 +3264,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement TypeScript caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -3136,6 +3282,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage TypeScript configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -3152,6 +3299,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle TypeScript internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -3168,6 +3316,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure TypeScript accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -3184,6 +3333,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize TypeScript network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -3200,6 +3350,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle TypeScript performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -3219,6 +3370,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of TypeScript in large scale applications?
 
 **Difficulty**: Intermediate
@@ -3236,6 +3388,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug TypeScript memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -3253,6 +3406,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for TypeScript code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -3270,6 +3424,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement TypeScript error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -3290,6 +3445,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test TypeScript functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -3308,6 +3464,7 @@ test('TypeScript works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle TypeScript state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -3324,6 +3481,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform TypeScript data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -3340,6 +3498,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate TypeScript deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -3358,6 +3517,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle TypeScript concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -3376,6 +3536,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement TypeScript caching in production environments?
 
 **Difficulty**: Intermediate

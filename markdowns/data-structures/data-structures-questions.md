@@ -115,6 +115,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: Difference between Array and Linked List?
 
 **Difficulty**: Beginner
@@ -132,6 +133,7 @@
 
 ---
 
+<a id="q2"></a>
 ### Q2: Explain Stack and Queue?
 
 **Difficulty**: Beginner
@@ -148,6 +150,7 @@
 
 ---
 
+<a id="q3"></a>
 ### Q3: How does a Hash Map work?
 
 **Difficulty**: Intermediate
@@ -165,6 +168,7 @@ Maps keys to values using a hash function to compute an index.
 
 ---
 
+<a id="q4"></a>
 ### Q4: What is a Binary Search Tree (BST)?
 
 **Difficulty**: Intermediate
@@ -179,6 +183,7 @@ Sorted binary tree: Left child < Parent < Right child. Allows O(log n) search/in
 
 ---
 
+<a id="q5"></a>
 ### Q5: Explain BFS vs DFS?
 
 **Difficulty**: Intermediate
@@ -196,6 +201,7 @@ Sorted binary tree: Left child < Parent < Right child. Allows O(log n) search/in
 
 ---
 
+<a id="q6"></a>
 ### Q6: What is a Heap (Min/Max)?
 
 **Difficulty**: Intermediate
@@ -210,6 +216,7 @@ Complete binary tree satisfying heap property (Parent <= Child for Min-Heap). Ro
 
 ---
 
+<a id="q7"></a>
 ### Q7: Detect cycle in Linked List?
 
 **Difficulty**: Intermediate
@@ -224,6 +231,7 @@ Complete binary tree satisfying heap property (Parent <= Child for Min-Heap). Ro
 
 ---
 
+<a id="q8"></a>
 ### Q8: What is a Trie?
 
 **Difficulty**: Advanced
@@ -238,6 +246,7 @@ Prefix tree for strings. Nodes represent characters. Efficient for autocomplete 
 
 ---
 
+<a id="q9"></a>
 ### Q9: Graph Representations?
 
 **Difficulty**: Intermediate
@@ -254,6 +263,7 @@ Prefix tree for strings. Nodes represent characters. Efficient for autocomplete 
 
 ---
 
+<a id="q10"></a>
 ### Q10: Implement LRU Cache?
 
 **Difficulty**: Advanced
@@ -274,6 +284,7 @@ Use **Hash Map** + **Doubly Linked List**.
 
 ---
 
+<a id="q11"></a>
 ### Q11: What is a Priority Queue?
 
 **Difficulty**: Intermediate
@@ -288,6 +299,7 @@ Queue where elements are dequeued based on priority, not arrival time. Implement
 
 ---
 
+<a id="q12"></a>
 ### Q12: Tree vs Graph?
 
 **Difficulty**: Beginner
@@ -305,6 +317,7 @@ Tree: Acyclic, connected graph with N nodes and N-1 edges. One root. Hierarchica
 
 ---
 
+<a id="q13"></a>
 ### Q13: Balanced Trees (AVL/Red-Black)?
 
 **Difficulty**: Advanced
@@ -325,6 +338,7 @@ Self-balancing BSTs ensuring O(log n) height.
 
 ---
 
+<a id="q14"></a>
 ### Q14: Middle of Linked List?
 
 **Difficulty**: Beginner
@@ -339,6 +353,7 @@ Two pointers: Fast moves 2x, Slow moves 1x. When Fast ends, Slow is at middle.
 
 ---
 
+<a id="q15"></a>
 ### Q15: What is a Bloom Filter?
 
 **Difficulty**: Advanced
@@ -353,6 +368,7 @@ Probabilistic space-efficient structure to check set membership. Can return Fals
 
 ---
 
+<a id="q16"></a>
 ### Q16: B-Trees in Databases?
 
 **Difficulty**: Advanced
@@ -367,6 +383,7 @@ Multi-way search tree optimized for disk storage. Nodes have many children, redu
 
 ---
 
+<a id="q17"></a>
 ### Q17: Queue using Stacks?
 
 **Difficulty**: Intermediate
@@ -381,6 +398,7 @@ Two stacks: Input and Output. Push to Input. Pop from Output (if empty, move all
 
 ---
 
+<a id="q18"></a>
 ### Q18: Disjoint Set (Union-Find)?
 
 **Difficulty**: Advanced
@@ -395,6 +413,7 @@ Tracks partitioned sets. Operations: Union(x, y) and Find(x). Used in Kruskal's 
 
 ---
 
+<a id="q19"></a>
 ### Q19: Cycle in Directed Graph?
 
 **Difficulty**: Advanced
@@ -409,6 +428,7 @@ DFS with Recursion Stack. If node seen in current recursion stack -> Cycle.
 
 ---
 
+<a id="q20"></a>
 ### Q20: What is a Segment Tree?
 
 **Difficulty**: Advanced
@@ -423,6 +443,7 @@ Tree for range queries (sum, min, max) on an array. O(log n) update and query.
 
 ---
 
+<a id="q21"></a>
 ### Q21: What is a Skip List?
 
 **Difficulty**: Advanced
@@ -437,6 +458,7 @@ Probabilistic data structure alternative to balanced trees. Uses multiple layers
 
 ---
 
+<a id="q22"></a>
 ### Q22: Array vs ArrayList (Dynamic Array)?
 
 **Difficulty**: Beginner
@@ -451,6 +473,7 @@ Probabilistic data structure alternative to balanced trees. Uses multiple layers
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is a Circular Queue?
 
 **Difficulty**: Intermediate
@@ -465,6 +488,7 @@ Queue where last position connects back to first. Efficient use of fixed buffer 
 
 ---
 
+<a id="q24"></a>
 ### Q24: Doubly Linked List vs Singly?
 
 **Difficulty**: Beginner
@@ -480,6 +504,7 @@ Queue where last position connects back to first. Efficient use of fixed buffer 
 
 ---
 
+<a id="q25"></a>
 ### Q25: What is a Deque (Double-ended Queue)?
 
 **Difficulty**: Intermediate
@@ -494,6 +519,7 @@ Structure allowing insertion/deletion at both ends. Can function as both Stack a
 
 ---
 
+<a id="q26"></a>
 ### Q26: Adjacency Matrix vs Adjacency List?
 
 **Difficulty**: Intermediate
@@ -509,6 +535,7 @@ Structure allowing insertion/deletion at both ends. Can function as both Stack a
 
 ---
 
+<a id="q27"></a>
 ### Q27: What is a Suffix Tree?
 
 **Difficulty**: Advanced
@@ -523,6 +550,7 @@ Compressed trie of all suffixes of a text. Used for fast substring search, longe
 
 ---
 
+<a id="q28"></a>
 ### Q28: Fenwick Tree (Binary Indexed Tree)?
 
 **Difficulty**: Advanced
@@ -537,6 +565,7 @@ Space-efficient array-based structure for prefix sums and point updates in O(log
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is a Quadtree?
 
 **Difficulty**: Advanced
@@ -551,6 +580,7 @@ Tree data structure where each node has exactly four children. Used to partition
 
 ---
 
+<a id="q30"></a>
 ### Q30: KD-Tree (k-dimensional tree)?
 
 **Difficulty**: Advanced
@@ -565,6 +595,7 @@ Space-partitioning tree for k-dimensional space. Used in Nearest Neighbor Search
 
 ---
 
+<a id="q31"></a>
 ### Q31: Hash Set vs Hash Map?
 
 **Difficulty**: Beginner
@@ -579,6 +610,7 @@ Space-partitioning tree for k-dimensional space. Used in Nearest Neighbor Search
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is Open Addressing?
 
 **Difficulty**: Advanced
@@ -593,6 +625,7 @@ Collision resolution strategy in Hash Tables. If bucket is full, find another sl
 
 ---
 
+<a id="q33"></a>
 ### Q33: Separate Chaining vs Open Addressing?
 
 **Difficulty**: Advanced
@@ -608,6 +641,7 @@ Collision resolution strategy in Hash Tables. If bucket is full, find another sl
 
 ---
 
+<a id="q34"></a>
 ### Q34: What is Consistent Hashing?
 
 **Difficulty**: Advanced
@@ -622,6 +656,7 @@ Distributed hashing scheme where adding/removing a slot (server) only affects K/
 
 ---
 
+<a id="q35"></a>
 ### Q35: Count-Min Sketch?
 
 **Difficulty**: Advanced
@@ -636,6 +671,7 @@ Probabilistic frequency table. Uses multiple hash functions and an array. estima
 
 ---
 
+<a id="q36"></a>
 ### Q36: What is a HyperLogLog?
 
 **Difficulty**: Advanced
@@ -650,6 +686,7 @@ Probabilistic algorithm for counting distinct elements (cardinality) in a set wi
 
 ---
 
+<a id="q37"></a>
 ### Q37: Inorder, Preorder, Postorder Traversal?
 
 **Difficulty**: Beginner
@@ -666,6 +703,7 @@ Probabilistic algorithm for counting distinct elements (cardinality) in a set wi
 
 ---
 
+<a id="q38"></a>
 ### Q38: Threaded Binary Tree?
 
 **Difficulty**: Advanced
@@ -680,6 +718,7 @@ Binary Tree where null pointers point to inorder predecessor/successor, allowing
 
 ---
 
+<a id="q39"></a>
 ### Q39: Splay Tree?
 
 **Difficulty**: Advanced
@@ -694,6 +733,7 @@ Self-adjusting BST. Recently accessed elements are moved to the root. Good for l
 
 ---
 
+<a id="q40"></a>
 ### Q40: Treap (Tree + Heap)?
 
 **Difficulty**: Advanced
@@ -708,6 +748,7 @@ BST with random priorities satisfying Heap property. Probabilistically balanced.
 
 ---
 
+<a id="q41"></a>
 ### Q41: What is a Sparse Matrix?
 
 **Difficulty**: Intermediate
@@ -722,6 +763,7 @@ Matrix populated primarily with zeros. Stored efficiently using lists of non-zer
 
 ---
 
+<a id="q42"></a>
 ### Q42: Inverted Index (Search Engines)?
 
 **Difficulty**: Intermediate
@@ -736,6 +778,7 @@ Map from content (words) to location (documents). "Word A" -> [Doc1, Doc5].
 
 ---
 
+<a id="q43"></a>
 ### Q43: Difference between Set and List?
 
 **Difficulty**: Beginner
@@ -751,6 +794,7 @@ Map from content (words) to location (documents). "Word A" -> [Doc1, Doc5].
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is a Tuple?
 
 **Difficulty**: Beginner
@@ -765,6 +809,7 @@ Immutable ordered list of elements. Fixed size.
 
 ---
 
+<a id="q45"></a>
 ### Q45: Immutable vs Mutable Data Structures?
 
 **Difficulty**: Intermediate
@@ -780,6 +825,7 @@ Immutable ordered list of elements. Fixed size.
 
 ---
 
+<a id="q46"></a>
 ### Q46: What is a BitMap / BitSet?
 
 **Difficulty**: Intermediate
@@ -794,6 +840,7 @@ Array of bits. Compact storage for boolean values or set membership of integers.
 
 ---
 
+<a id="q47"></a>
 ### Q47: Rope Data Structure?
 
 **Difficulty**: Advanced
@@ -808,6 +855,7 @@ Tree-based structure for heavy string editing (concatenation/splitting). Better 
 
 ---
 
+<a id="q48"></a>
 ### Q48: Van Emde Boas Tree?
 
 **Difficulty**: Advanced
@@ -822,6 +870,7 @@ Tree for integer keys from universe [0, U-1]. Operations in O(log log U).
 
 ---
 
+<a id="q49"></a>
 ### Q49: Fibonacci Heap vs Binary Heap?
 
 **Difficulty**: Advanced
@@ -837,6 +886,7 @@ Tree for integer keys from universe [0, U-1]. Operations in O(log log U).
 
 ---
 
+<a id="q50"></a>
 ### Q50: Difference between Tree and Trie?
 
 **Difficulty**: Intermediate
@@ -851,6 +901,7 @@ Tree: General hierarchy. Trie: Specific tree for strings where position determin
 
 ---
 
+<a id="q51"></a>
 ### Q51: What is a Spatial Index (R-Tree)?
 
 **Difficulty**: Advanced
@@ -865,6 +916,7 @@ Tree structure for indexing multi-dimensional information (coordinates, rectangl
 
 ---
 
+<a id="q52"></a>
 ### Q52: Gap Buffer (Text Editors)?
 
 **Difficulty**: Advanced
@@ -879,6 +931,7 @@ Dynamic array with a "gap" at the cursor position. Insertions at cursor are O(1)
 
 ---
 
+<a id="q53"></a>
 ### Q53: Piece Table?
 
 **Difficulty**: Advanced
@@ -893,6 +946,7 @@ Data structure for text editors. Stores original file and "add buffer". The docu
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is a DAG (Directed Acyclic Graph)?
 
 **Difficulty**: Intermediate
@@ -907,6 +961,7 @@ Directed graph with no cycles. Basis for Topological Sort, Dynamic Programming d
 
 ---
 
+<a id="q55"></a>
 ### Q55: Bipartite Graph?
 
 **Difficulty**: Intermediate
@@ -921,6 +976,7 @@ Graph where vertices can be divided into two sets such that all edges connect a 
 
 ---
 
+<a id="q56"></a>
 ### Q56: Complete Graph vs Connected Graph?
 
 **Difficulty**: Beginner
@@ -936,6 +992,7 @@ Graph where vertices can be divided into two sets such that all edges connect a 
 
 ---
 
+<a id="q57"></a>
 ### Q57: What is an Euler Path?
 
 **Difficulty**: Advanced
@@ -950,6 +1007,7 @@ Path visiting every edge exactly once. Exists if 0 or 2 vertices have odd degree
 
 ---
 
+<a id="q58"></a>
 ### Q58: Hamiltonian Path?
 
 **Difficulty**: Advanced
@@ -964,6 +1022,7 @@ Path visiting every vertex exactly once. NP-Complete problem.
 
 ---
 
+<a id="q59"></a>
 ### Q59: Minimum Spanning Tree (MST)?
 
 **Difficulty**: Intermediate
@@ -978,6 +1037,7 @@ Subset of edges connecting all vertices with minimum total weight. Algorithms: K
 
 ---
 
+<a id="q60"></a>
 ### Q60: Adjacency List Implementation?
 
 **Difficulty**: Beginner
@@ -992,6 +1052,7 @@ Subset of edges connecting all vertices with minimum total weight. Algorithms: K
 
 ---
 
+<a id="q61"></a>
 ### Q61: Implementing a Stack with Array?
 
 **Difficulty**: Beginner
@@ -1006,6 +1067,7 @@ Keep a <code>top</code> index. Push: <code>arr[++top] = val</code>. Pop: <code>r
 
 ---
 
+<a id="q62"></a>
 ### Q62: Implementing a Stack with Linked List?
 
 **Difficulty**: Beginner
@@ -1020,6 +1082,7 @@ Push: Add to Head. Pop: Remove Head. O(1).
 
 ---
 
+<a id="q63"></a>
 ### Q63: Monotonic Stack?
 
 **Difficulty**: Intermediate
@@ -1034,6 +1097,7 @@ Stack that remains sorted (increasing/decreasing). Used for "Next Greater Elemen
 
 ---
 
+<a id="q64"></a>
 ### Q64: Monotonic Queue?
 
 **Difficulty**: Intermediate
@@ -1048,6 +1112,7 @@ Queue/Deque that remains sorted. Used for "Sliding Window Maximum".
 
 ---
 
+<a id="q65"></a>
 ### Q65: Blocking Queue?
 
 **Difficulty**: Intermediate
@@ -1062,6 +1127,7 @@ Queue that blocks Dequeue if empty and Enqueue if full. Thread-safe producer-con
 
 ---
 
+<a id="q66"></a>
 ### Q66: ConcurrentHashMap (Java context)?
 
 **Difficulty**: Advanced
@@ -1076,6 +1142,7 @@ Thread-safe hash map. Uses bucket-level locking (segment locking) or CAS (Compar
 
 ---
 
+<a id="q67"></a>
 ### Q67: What is a GeoHash?
 
 **Difficulty**: Advanced
@@ -1090,6 +1157,7 @@ Geocoding system encoding lat/long into a short string. Nearby points have simil
 
 ---
 
+<a id="q68"></a>
 ### Q68: Merkle Tree (Blockchain)?
 
 **Difficulty**: Advanced
@@ -1104,6 +1172,7 @@ Tree of hashes. Leafs are data hashes. Parents are hash of children. Efficient v
 
 ---
 
+<a id="q69"></a>
 ### Q69: LSM Tree (Log-Structured Merge)?
 
 **Difficulty**: Advanced
@@ -1118,6 +1187,7 @@ DB structure optimized for write-heavy workloads. Writes to in-memory MemTable, 
 
 ---
 
+<a id="q70"></a>
 ### Q70: Time Complexity of Common Operations?
 
 **Difficulty**: Beginner
@@ -1138,6 +1208,7 @@ DB structure optimized for write-heavy workloads. Writes to in-memory MemTable, 
 
 ---
 
+<a id="q71"></a>
 ### Q71: Space Complexity Analysis?
 
 **Difficulty**: Beginner
@@ -1152,6 +1223,7 @@ Amount of working storage required. Auxiliary space + Input space. Recursion dep
 
 ---
 
+<a id="q72"></a>
 ### Q72: Big O Notation Explained?
 
 **Difficulty**: Beginner
@@ -1166,6 +1238,7 @@ Describes upper bound of growth rate. O(1) < O(log n) < O(n) < O(n log n) < O(n^
 
 ---
 
+<a id="q73"></a>
 ### Q73: Amortized Analysis?
 
 **Difficulty**: Advanced
@@ -1180,6 +1253,7 @@ Average time per operation over a sequence of operations. Example: Dynamic Array
 
 ---
 
+<a id="q74"></a>
 ### Q74: What is a Self-Organizing List?
 
 **Difficulty**: Advanced
@@ -1194,6 +1268,7 @@ List that reorders elements based on access frequency (Move-to-Front heuristic).
 
 ---
 
+<a id="q75"></a>
 ### Q75: XOR Linked List?
 
 **Difficulty**: Advanced
@@ -1208,6 +1283,7 @@ Memory-efficient Doubly Linked List using one field (prev XOR next) instead of t
 
 ---
 
+<a id="q76"></a>
 ### Q76: Unrolled Linked List?
 
 **Difficulty**: Advanced
@@ -1222,6 +1298,7 @@ Linked List where each node stores an array of elements. Better cache locality.
 
 ---
 
+<a id="q77"></a>
 ### Q77: V-List?
 
 **Difficulty**: Advanced
@@ -1236,6 +1313,7 @@ Variant of unrolled linked list with growing array sizes.
 
 ---
 
+<a id="q78"></a>
 ### Q78: Difference between Max-Heap and Min-Heap?
 
 **Difficulty**: Beginner
@@ -1250,6 +1328,7 @@ Variant of unrolled linked list with growing array sizes.
 
 ---
 
+<a id="q79"></a>
 ### Q79: D-ary Heap?
 
 **Difficulty**: Advanced
@@ -1264,6 +1343,7 @@ Heap where nodes have D children instead of 2. Shallower tree, better cache perf
 
 ---
 
+<a id="q80"></a>
 ### Q80: Binomial Heap?
 
 **Difficulty**: Advanced
@@ -1278,6 +1358,7 @@ Collection of Binomial Trees. Supports efficient merging O(log n).
 
 ---
 
+<a id="q81"></a>
 ### Q81: Pairing Heap?
 
 **Difficulty**: Advanced
@@ -1292,6 +1373,7 @@ Simplified self-adjusting heap. Fast in practice for Priority Queues.
 
 ---
 
+<a id="q82"></a>
 ### Q82: Leftist Tree?
 
 **Difficulty**: Advanced
@@ -1306,6 +1388,7 @@ Priority Queue optimized for merging. Bias towards left spine.
 
 ---
 
+<a id="q83"></a>
 ### Q83: Skew Heap?
 
 **Difficulty**: Advanced
@@ -1320,6 +1403,7 @@ Self-adjusting version of Leftist Heap. No structural constraints stored.
 
 ---
 
+<a id="q84"></a>
 ### Q84: Soft Heap?
 
 **Difficulty**: Advanced
@@ -1334,6 +1418,7 @@ Heap that allows "corruption" (increasing keys) to achieve faster operations. Us
 
 ---
 
+<a id="q85"></a>
 ### Q85: Interval Tree?
 
 **Difficulty**: Advanced
@@ -1348,6 +1433,7 @@ Tree to hold intervals. Allows finding all intervals overlapping a query point/i
 
 ---
 
+<a id="q86"></a>
 ### Q86: Range Tree?
 
 **Difficulty**: Advanced
@@ -1362,6 +1448,7 @@ Data structure for points in d-dimensions to perform orthogonal range queries.
 
 ---
 
+<a id="q87"></a>
 ### Q87: Binary Space Partitioning (BSP)?
 
 **Difficulty**: Advanced
@@ -1376,6 +1463,7 @@ Recursively subdividing space into convex sets by hyperplanes. Used in 3D render
 
 ---
 
+<a id="q88"></a>
 ### Q88: Octree vs Quadtree?
 
 **Difficulty**: Intermediate
@@ -1390,6 +1478,7 @@ Recursively subdividing space into convex sets by hyperplanes. Used in 3D render
 
 ---
 
+<a id="q89"></a>
 ### Q89: BK-Tree (Spell Check)?
 
 **Difficulty**: Advanced
@@ -1404,6 +1493,7 @@ Tree based on Levenshtein distance. Efficient for finding "near matches" in a di
 
 ---
 
+<a id="q90"></a>
 ### Q90: Radix Tree (Compact Trie)?
 
 **Difficulty**: Advanced
@@ -1418,6 +1508,7 @@ Trie where nodes with single child are merged. Reduces space.
 
 ---
 
+<a id="q91"></a>
 ### Q91: Ternary Search Tree?
 
 **Difficulty**: Advanced
@@ -1432,6 +1523,7 @@ Trie node has 3 children (Low, Equal, High). More space efficient than standard 
 
 ---
 
+<a id="q92"></a>
 ### Q92: Suffix Automaton?
 
 **Difficulty**: Advanced
@@ -1446,6 +1538,7 @@ Smallest DFA accepting all suffixes of a string. Powerful string processing.
 
 ---
 
+<a id="q93"></a>
 ### Q93: Cartesian Tree?
 
 **Difficulty**: Advanced
@@ -1460,6 +1553,7 @@ Tree derived from sequence. Heap property on values, Inorder property on indices
 
 ---
 
+<a id="q94"></a>
 ### Q94: MVP Tree (Metric VP)?
 
 **Difficulty**: Advanced
@@ -1474,6 +1568,7 @@ Distance-based index for similarity search in metric spaces.
 
 ---
 
+<a id="q95"></a>
 ### Q95: Cover Tree?
 
 **Difficulty**: Advanced
@@ -1488,6 +1583,7 @@ Data structure for Nearest Neighbor search in metric spaces.
 
 ---
 
+<a id="q96"></a>
 ### Q96: Bloom Filter vs Cuckoo Filter?
 
 **Difficulty**: Advanced
@@ -1502,6 +1598,7 @@ Data structure for Nearest Neighbor search in metric spaces.
 
 ---
 
+<a id="q97"></a>
 ### Q97: Quotient Filter?
 
 **Difficulty**: Advanced
@@ -1516,6 +1613,7 @@ Probabilistic structure. Cache-friendly alternative to Bloom Filter. Supports me
 
 ---
 
+<a id="q98"></a>
 ### Q98: What is a Persistent Data Structure?
 
 **Difficulty**: Advanced
@@ -1530,6 +1628,7 @@ Preserves previous versions when modified. **Fully Persistent:** Any version can
 
 ---
 
+<a id="q99"></a>
 ### Q99: Retroactive Data Structures?
 
 **Difficulty**: Advanced
@@ -1544,6 +1643,7 @@ Allows performing operations in the past.
 
 ---
 
+<a id="q100"></a>
 ### Q100: Succinct Data Structures?
 
 **Difficulty**: Advanced

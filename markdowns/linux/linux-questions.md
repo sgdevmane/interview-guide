@@ -115,6 +115,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: Check disk space?
 
 **Difficulty**: Beginner
@@ -131,6 +132,7 @@
 
 ---
 
+<a id="q2"></a>
 ### Q2: File permissions (chmod)?
 
 **Difficulty**: Beginner
@@ -145,6 +147,7 @@
 
 ---
 
+<a id="q3"></a>
 ### Q3: Find file by name?
 
 **Difficulty**: Intermediate
@@ -161,6 +164,7 @@ find /path -name "filename.txt"
 
 ---
 
+<a id="q4"></a>
 ### Q4: Grep usage?
 
 **Difficulty**: Beginner
@@ -177,6 +181,7 @@ grep "text" file.txt
 
 ---
 
+<a id="q5"></a>
 ### Q5: Check/Kill processes?
 
 **Difficulty**: Intermediate
@@ -191,6 +196,7 @@ grep "text" file.txt
 
 ---
 
+<a id="q6"></a>
 ### Q6: Soft vs Hard Link?
 
 **Difficulty**: Intermediate
@@ -206,6 +212,7 @@ grep "text" file.txt
 
 ---
 
+<a id="q7"></a>
 ### Q7: Check listening ports?
 
 **Difficulty**: Intermediate
@@ -222,6 +229,7 @@ ss -tulpn
 
 ---
 
+<a id="q8"></a>
 ### Q8: Cron vs Crontab?
 
 **Difficulty**: Intermediate
@@ -237,6 +245,7 @@ ss -tulpn
 
 ---
 
+<a id="q9"></a>
 ### Q9: Process vs Thread?
 
 **Difficulty**: Advanced
@@ -252,6 +261,7 @@ ss -tulpn
 
 ---
 
+<a id="q10"></a>
 ### Q10: Check memory usage?
 
 **Difficulty**: Beginner
@@ -268,6 +278,7 @@ free -h
 
 ---
 
+<a id="q11"></a>
 ### Q11: What is SSH?
 
 **Difficulty**: Advanced
@@ -282,6 +293,7 @@ Secure Shell. Encrypted remote login.
 
 ---
 
+<a id="q12"></a>
 ### Q12: Stdin, Stdout, Stderr?
 
 **Difficulty**: Intermediate
@@ -296,6 +308,7 @@ Secure Shell. Encrypted remote login.
 
 ---
 
+<a id="q13"></a>
 ### Q13: Tail log file?
 
 **Difficulty**: Beginner
@@ -312,6 +325,7 @@ tail -f /var/log/syslog
 
 ---
 
+<a id="q14"></a>
 ### Q14: What is a Daemon?
 
 **Difficulty**: Intermediate
@@ -326,6 +340,7 @@ Background service (e.g., httpd).
 
 ---
 
+<a id="q15"></a>
 ### Q15: Change owner (chown)?
 
 **Difficulty**: Beginner
@@ -342,6 +357,7 @@ chown user:group file
 
 ---
 
+<a id="q16"></a>
 ### Q16: What is /proc?
 
 **Difficulty**: Advanced
@@ -356,6 +372,7 @@ Virtual filesystem for kernel/process info.
 
 ---
 
+<a id="q17"></a>
 ### Q17: Tar command?
 
 **Difficulty**: Beginner
@@ -372,6 +389,7 @@ tar -czvf archive.tar.gz dir/
 
 ---
 
+<a id="q18"></a>
 ### Q18: What is systemd?
 
 **Difficulty**: Advanced
@@ -386,6 +404,7 @@ Init system (PID 1). Manages services.
 
 ---
 
+<a id="q19"></a>
 ### Q19: Check IP address?
 
 **Difficulty**: Beginner
@@ -402,6 +421,7 @@ ip a
 
 ---
 
+<a id="q20"></a>
 ### Q20: Linux Boot Process?
 
 **Difficulty**: Advanced
@@ -416,6 +436,7 @@ BIOS -> Bootloader -> Kernel -> Init.
 
 ---
 
+<a id="q21"></a>
 ### Q21: What is an Inode?
 
 **Difficulty**: Advanced
@@ -430,6 +451,7 @@ Data structure storing file metadata (permissions, owner, location) but not name
 
 ---
 
+<a id="q22"></a>
 ### Q22: What is the Root User?
 
 **Difficulty**: Beginner
@@ -444,6 +466,7 @@ Superuser with full system privileges (UID 0).
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is Sudo?
 
 **Difficulty**: Beginner
@@ -458,6 +481,7 @@ Execute command as another user (usually root).
 
 ---
 
+<a id="q24"></a>
 ### Q24: Explain `ls -l` output?
 
 **Difficulty**: Beginner
@@ -472,6 +496,7 @@ Permissions, Link count, Owner, Group, Size, Date, Name.
 
 ---
 
+<a id="q25"></a>
 ### Q25: Create a directory?
 
 **Difficulty**: Beginner
@@ -488,6 +513,7 @@ mkdir dir_name
 
 ---
 
+<a id="q26"></a>
 ### Q26: Remove a directory?
 
 **Difficulty**: Beginner
@@ -504,6 +530,7 @@ rm -r dir_name
 
 ---
 
+<a id="q27"></a>
 ### Q27: Move vs Rename file?
 
 **Difficulty**: Beginner
@@ -518,6 +545,7 @@ Both use <code>mv</code> command.
 
 ---
 
+<a id="q28"></a>
 ### Q28: Copy file vs directory?
 
 **Difficulty**: Beginner
@@ -532,6 +560,7 @@ File: <code>cp src dst</code>. Dir: <code>cp -r src dst</code>.
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is the PATH variable?
 
 **Difficulty**: Intermediate
@@ -546,6 +575,7 @@ List of directories shell searches for executable commands.
 
 ---
 
+<a id="q30"></a>
 ### Q30: How to set an Environment Variable?
 
 **Difficulty**: Intermediate
@@ -562,6 +592,7 @@ export VAR_NAME=value
 
 ---
 
+<a id="q31"></a>
 ### Q31: What is .bashrc?
 
 **Difficulty**: Intermediate
@@ -576,6 +607,7 @@ Script executed whenever a new terminal session is started.
 
 ---
 
+<a id="q32"></a>
 ### Q32: Difference between `>` and `>>`?
 
 **Difficulty**: Beginner
@@ -590,6 +622,7 @@ Script executed whenever a new terminal session is started.
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is a Pipe `|`?
 
 **Difficulty**: Beginner
@@ -604,6 +637,7 @@ Passes output of first command as input to second.
 
 ---
 
+<a id="q34"></a>
 ### Q34: Head vs Tail?
 
 **Difficulty**: Beginner
@@ -619,6 +653,7 @@ Passes output of first command as input to second.
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is `sed`?
 
 **Difficulty**: Advanced
@@ -635,6 +670,7 @@ sed 's/old/new/g' file
 
 ---
 
+<a id="q36"></a>
 ### Q36: What is `awk`?
 
 **Difficulty**: Advanced
@@ -651,6 +687,7 @@ awk '{print $1}' file
 
 ---
 
+<a id="q37"></a>
 ### Q37: Count lines in a file?
 
 **Difficulty**: Beginner
@@ -667,6 +704,7 @@ wc -l file
 
 ---
 
+<a id="q38"></a>
 ### Q38: Sort contents of a file?
 
 **Difficulty**: Beginner
@@ -683,6 +721,7 @@ sort file
 
 ---
 
+<a id="q39"></a>
 ### Q39: Remove duplicate lines?
 
 **Difficulty**: Intermediate
@@ -699,6 +738,7 @@ sort file | uniq
 
 ---
 
+<a id="q40"></a>
 ### Q40: Compare two files?
 
 **Difficulty**: Intermediate
@@ -715,6 +755,7 @@ diff file1 file2
 
 ---
 
+<a id="q41"></a>
 ### Q41: What is `nohup`?
 
 **Difficulty**: Intermediate
@@ -729,6 +770,7 @@ Run command immune to hangups (keeps running after logout).
 
 ---
 
+<a id="q42"></a>
 ### Q42: Run process in background?
 
 **Difficulty**: Beginner
@@ -743,6 +785,7 @@ Append <code>&</code> to command.
 
 ---
 
+<a id="q43"></a>
 ### Q43: Bring background to foreground?
 
 **Difficulty**: Intermediate
@@ -759,6 +802,7 @@ fg %1
 
 ---
 
+<a id="q44"></a>
 ### Q44: What are Signals (SIGINT, SIGKILL)?
 
 **Difficulty**: Advanced
@@ -773,6 +817,7 @@ Messages to processes. SIGINT(Ctrl+C), SIGKILL(Force Kill).
 
 ---
 
+<a id="q45"></a>
 ### Q45: What is Load Average?
 
 **Difficulty**: Advanced
@@ -787,6 +832,7 @@ Average number of processes waiting for CPU (1, 5, 15 min).
 
 ---
 
+<a id="q46"></a>
 ### Q46: Check CPU info?
 
 **Difficulty**: Beginner
@@ -803,6 +849,7 @@ lscpu
 
 ---
 
+<a id="q47"></a>
 ### Q47: Check Kernel version?
 
 **Difficulty**: Beginner
@@ -819,6 +866,7 @@ uname -r
 
 ---
 
+<a id="q48"></a>
 ### Q48: What is Swap Space?
 
 **Difficulty**: Intermediate
@@ -833,6 +881,7 @@ Disk space used as RAM when RAM is full.
 
 ---
 
+<a id="q49"></a>
 ### Q49: Mount vs Unmount?
 
 **Difficulty**: Intermediate
@@ -847,6 +896,7 @@ Attach/Detach filesystem to directory tree.
 
 ---
 
+<a id="q50"></a>
 ### Q50: What is `/etc/fstab`?
 
 **Difficulty**: Advanced
@@ -861,6 +911,7 @@ Config file for filesystems to mount at boot.
 
 ---
 
+<a id="q51"></a>
 ### Q51: Check file type?
 
 **Difficulty**: Beginner
@@ -877,6 +928,7 @@ file filename
 
 ---
 
+<a id="q52"></a>
 ### Q52: Find where a command is located?
 
 **Difficulty**: Beginner
@@ -893,6 +945,7 @@ which cmd
 
 ---
 
+<a id="q53"></a>
 ### Q53: What is an Alias?
 
 **Difficulty**: Beginner
@@ -907,6 +960,7 @@ Shortcut for a command.
 
 ---
 
+<a id="q54"></a>
 ### Q54: History command?
 
 **Difficulty**: Beginner
@@ -921,6 +975,7 @@ Shows list of previously executed commands.
 
 ---
 
+<a id="q55"></a>
 ### Q55: Exit code of last command?
 
 **Difficulty**: Intermediate
@@ -937,6 +992,7 @@ echo $?
 
 ---
 
+<a id="q56"></a>
 ### Q56: Chain commands (&& vs ;)?
 
 **Difficulty**: Intermediate
@@ -952,6 +1008,7 @@ echo $?
 
 ---
 
+<a id="q57"></a>
 ### Q57: What is `xargs`?
 
 **Difficulty**: Advanced
@@ -966,6 +1023,7 @@ Builds argument list from standard input.
 
 ---
 
+<a id="q58"></a>
 ### Q58: Compress with gzip?
 
 **Difficulty**: Beginner
@@ -982,6 +1040,7 @@ gzip file
 
 ---
 
+<a id="q59"></a>
 ### Q59: What is `umask`?
 
 **Difficulty**: Advanced
@@ -996,6 +1055,7 @@ Default permissions for new files.
 
 ---
 
+<a id="q60"></a>
 ### Q60: Sticky Bit?
 
 **Difficulty**: Advanced
@@ -1010,6 +1070,7 @@ Permission bit. On directories, prevents users from deleting others' files.
 
 ---
 
+<a id="q61"></a>
 ### Q61: SUID vs SGID?
 
 **Difficulty**: Advanced
@@ -1024,6 +1085,7 @@ Run executable with permissions of owner/group, not user.
 
 ---
 
+<a id="q62"></a>
 ### Q62: What is LVM?
 
 **Difficulty**: Advanced
@@ -1038,6 +1100,7 @@ Logical Volume Manager. Flexible disk management.
 
 ---
 
+<a id="q63"></a>
 ### Q63: Check open files (lsof)?
 
 **Difficulty**: Advanced
@@ -1054,6 +1117,7 @@ lsof -i :80
 
 ---
 
+<a id="q64"></a>
 ### Q64: Trace system calls (strace)?
 
 **Difficulty**: Advanced
@@ -1068,6 +1132,7 @@ Debugs program execution by printing syscalls.
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is /dev/null?
 
 **Difficulty**: Intermediate
@@ -1082,6 +1147,7 @@ Black hole. Discards all data written to it.
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is /dev/zero?
 
 **Difficulty**: Intermediate
@@ -1096,6 +1162,7 @@ Source of infinite null bytes.
 
 ---
 
+<a id="q67"></a>
 ### Q67: Generate random password?
 
 **Difficulty**: Intermediate
@@ -1112,6 +1179,7 @@ openssl rand -base64 12
 
 ---
 
+<a id="q68"></a>
 ### Q68: Download file from URL (curl/wget)?
 
 **Difficulty**: Beginner
@@ -1128,6 +1196,7 @@ curl -O url
 
 ---
 
+<a id="q69"></a>
 ### Q69: Check connectivity (ping)?
 
 **Difficulty**: Beginner
@@ -1144,6 +1213,7 @@ ping google.com
 
 ---
 
+<a id="q70"></a>
 ### Q70: Trace route to host?
 
 **Difficulty**: Intermediate
@@ -1160,6 +1230,7 @@ traceroute google.com
 
 ---
 
+<a id="q71"></a>
 ### Q71: DNS Lookup (nslookup/dig)?
 
 **Difficulty**: Intermediate
@@ -1176,6 +1247,7 @@ dig google.com
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is `nc` (Netcat)?
 
 **Difficulty**: Advanced
@@ -1190,6 +1262,7 @@ Swiss army knife for TCP/UDP. Debug ports, transfer files.
 
 ---
 
+<a id="q73"></a>
 ### Q73: Transfer files securely (scp)?
 
 **Difficulty**: Intermediate
@@ -1206,6 +1279,7 @@ scp file user@host:/path
 
 ---
 
+<a id="q74"></a>
 ### Q74: Sync directories (rsync)?
 
 **Difficulty**: Intermediate
@@ -1222,6 +1296,7 @@ rsync -av src/ dst/
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is `iptables` / `ufw`?
 
 **Difficulty**: Advanced
@@ -1236,6 +1311,7 @@ Firewall configuration.
 
 ---
 
+<a id="q76"></a>
 ### Q76: Check user accounts?
 
 **Difficulty**: Beginner
@@ -1252,6 +1328,7 @@ cat /etc/passwd
 
 ---
 
+<a id="q77"></a>
 ### Q77: Add a new user?
 
 **Difficulty**: Intermediate
@@ -1268,6 +1345,7 @@ useradd username
 
 ---
 
+<a id="q78"></a>
 ### Q78: Lock a user account?
 
 **Difficulty**: Intermediate
@@ -1284,6 +1362,7 @@ passwd -l username
 
 ---
 
+<a id="q79"></a>
 ### Q79: Check groups?
 
 **Difficulty**: Beginner
@@ -1300,6 +1379,7 @@ groups username
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is `chroot`?
 
 **Difficulty**: Advanced
@@ -1314,6 +1394,7 @@ Change root directory for a process (Jail).
 
 ---
 
+<a id="q81"></a>
 ### Q81: Symbolic Link to directory?
 
 **Difficulty**: Beginner
@@ -1330,6 +1411,7 @@ ln -s /path/to/dir linkname
 
 ---
 
+<a id="q82"></a>
 ### Q82: What is a Zombie Process?
 
 **Difficulty**: Advanced
@@ -1344,6 +1426,7 @@ Finished process waiting for parent to read exit code.
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is an Orphan Process?
 
 **Difficulty**: Advanced
@@ -1358,6 +1441,7 @@ Process whose parent died. Adopted by init (PID 1).
 
 ---
 
+<a id="q84"></a>
 ### Q84: Nice vs Renice?
 
 **Difficulty**: Advanced
@@ -1372,6 +1456,7 @@ Set priority of process. -20 (High) to 19 (Low).
 
 ---
 
+<a id="q85"></a>
 ### Q85: What is `dmesg`?
 
 **Difficulty**: Advanced
@@ -1386,6 +1471,7 @@ Kernel ring buffer messages. Hardware/Driver errors.
 
 ---
 
+<a id="q86"></a>
 ### Q86: Check last reboot logs?
 
 **Difficulty**: Intermediate
@@ -1402,6 +1488,7 @@ last reboot
 
 ---
 
+<a id="q87"></a>
 ### Q87: Schedule one-time job (at)?
 
 **Difficulty**: Intermediate
@@ -1418,6 +1505,7 @@ echo "cmd" | at 5pm
 
 ---
 
+<a id="q88"></a>
 ### Q88: What is `journalctl`?
 
 **Difficulty**: Intermediate
@@ -1432,6 +1520,7 @@ View logs from systemd-journald.
 
 ---
 
+<a id="q89"></a>
 ### Q89: Split a large file?
 
 **Difficulty**: Intermediate
@@ -1448,6 +1537,7 @@ split -b 100M largefile
 
 ---
 
+<a id="q90"></a>
 ### Q90: Watch command?
 
 **Difficulty**: Beginner
@@ -1464,6 +1554,7 @@ watch -n 1 "ls -l"
 
 ---
 
+<a id="q91"></a>
 ### Q91: Print numbers (seq)?
 
 **Difficulty**: Beginner
@@ -1480,6 +1571,7 @@ seq 1 10
 
 ---
 
+<a id="q92"></a>
 ### Q92: Calculator in terminal (bc)?
 
 **Difficulty**: Beginner
@@ -1496,6 +1588,7 @@ echo "5+5" | bc
 
 ---
 
+<a id="q93"></a>
 ### Q93: Format output (printf)?
 
 **Difficulty**: Intermediate
@@ -1510,6 +1603,7 @@ Formatted printing like C.
 
 ---
 
+<a id="q94"></a>
 ### Q94: Search and Replace in file?
 
 **Difficulty**: Intermediate
@@ -1526,6 +1620,7 @@ sed -i 's/old/new/g' file
 
 ---
 
+<a id="q95"></a>
 ### Q95: Cut columns from file?
 
 **Difficulty**: Beginner
@@ -1542,6 +1637,7 @@ cut -d"," -f1 file.csv
 
 ---
 
+<a id="q96"></a>
 ### Q96: Paste files together?
 
 **Difficulty**: Beginner
@@ -1556,6 +1652,7 @@ Merges lines of files side-by-side.
 
 ---
 
+<a id="q97"></a>
 ### Q97: Join files by field?
 
 **Difficulty**: Advanced
@@ -1570,6 +1667,7 @@ Like SQL JOIN for text files.
 
 ---
 
+<a id="q98"></a>
 ### Q98: What is `tee`?
 
 **Difficulty**: Intermediate
@@ -1584,6 +1682,7 @@ Read from stdin and write to stdout AND file.
 
 ---
 
+<a id="q99"></a>
 ### Q99: What is `shebang` (#!)?
 
 **Difficulty**: Beginner
@@ -1598,6 +1697,7 @@ First line of script telling kernel which interpreter to use.
 
 ---
 
+<a id="q100"></a>
 ### Q100: Shell script arguments ($1, $@)?
 
 **Difficulty**: Intermediate

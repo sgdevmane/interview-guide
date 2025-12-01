@@ -99,6 +99,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: What is Microservices Architecture?
 
 **Difficulty**: Beginner
@@ -115,6 +116,7 @@ Microservices architecture is a design approach where a single application is co
 
 ---
 
+<a id="q2"></a>
 ### Q2: Benefits of Microservices?
 
 **Difficulty**: Beginner
@@ -131,6 +133,7 @@ Scalability, independent deployment, tech diversity.
 
 ---
 
+<a id="q3"></a>
 ### Q3: Drawbacks of Microservices?
 
 **Difficulty**: Beginner
@@ -147,6 +150,7 @@ Complexity, network latency, distributed data consistency.
 
 ---
 
+<a id="q4"></a>
 ### Q4: What is API Gateway?
 
 **Difficulty**: Intermediate
@@ -163,6 +167,7 @@ path: /api/users -> User Service
 
 ---
 
+<a id="q5"></a>
 ### Q5: What is Service Discovery?
 
 **Difficulty**: Intermediate
@@ -179,6 +184,7 @@ Service discovery is the process of automatically detecting devices and services
 
 ---
 
+<a id="q6"></a>
 ### Q6: Client-side vs Server-side Discovery?
 
 **Difficulty**: Advanced
@@ -195,6 +201,7 @@ Client queries registry vs LB queries registry. This concept is fundamental in t
 
 ---
 
+<a id="q7"></a>
 ### Q7: What is Circuit Breaker Pattern?
 
 **Difficulty**: Intermediate
@@ -211,6 +218,7 @@ if (failures > 5) openCircuit()
 
 ---
 
+<a id="q8"></a>
 ### Q8: What is Bulkhead Pattern?
 
 **Difficulty**: Advanced
@@ -227,6 +235,7 @@ Isolate resources so one failure doesn't crash whole system.
 
 ---
 
+<a id="q9"></a>
 ### Q9: What is Saga Pattern?
 
 **Difficulty**: Advanced
@@ -243,6 +252,7 @@ A Saga is a sequence of local transactions. Each local transaction updates the d
 
 ---
 
+<a id="q10"></a>
 ### Q10: Choreography vs Orchestration?
 
 **Difficulty**: Advanced
@@ -259,6 +269,7 @@ Choreography: Events (Event Bus). Orchestration: Central controller.
 
 ---
 
+<a id="q11"></a>
 ### Q11: What is Event Sourcing?
 
 **Difficulty**: Advanced
@@ -275,6 +286,7 @@ events: [Created, Updated, Deleted]
 
 ---
 
+<a id="q12"></a>
 ### Q12: What is CQRS?
 
 **Difficulty**: Advanced
@@ -291,6 +303,7 @@ Write DB -> Sync -> Read DB
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you handle Authentication?
 
 **Difficulty**: Intermediate
@@ -307,6 +320,7 @@ Authorization: Bearer <token>
 
 ---
 
+<a id="q14"></a>
 ### Q14: What is Distributed Tracing?
 
 **Difficulty**: Intermediate
@@ -323,6 +337,7 @@ Tracking requests across services. This concept is fundamental in this domain an
 
 ---
 
+<a id="q15"></a>
 ### Q15: What is Centralized Logging?
 
 **Difficulty**: Intermediate
@@ -339,6 +354,7 @@ Aggregating logs from all services. This concept is fundamental in this domain a
 
 ---
 
+<a id="q16"></a>
 ### Q16: Idempotency in Microservices?
 
 **Difficulty**: Intermediate
@@ -355,6 +371,7 @@ Header: Idempotency-Key
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you handle inter-service communication?
 
 **Difficulty**: Beginner
@@ -371,6 +388,7 @@ Sync (REST/gRPC) vs Async (Message Queue). This concept is fundamental in this d
 
 ---
 
+<a id="q18"></a>
 ### Q18: What is gRPC?
 
 **Difficulty**: Intermediate
@@ -387,6 +405,7 @@ service Greeter { rpc SayHello... }
 
 ---
 
+<a id="q19"></a>
 ### Q19: REST vs gRPC?
 
 **Difficulty**: Intermediate
@@ -403,6 +422,7 @@ REST: Text (JSON), Browser friendly. gRPC: Binary, Faster.
 
 ---
 
+<a id="q20"></a>
 ### Q20: What is a Message Broker?
 
 **Difficulty**: Beginner
@@ -419,6 +439,7 @@ Intermediary for messages. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q21"></a>
 ### Q21: Kafka vs RabbitMQ?
 
 **Difficulty**: Advanced
@@ -435,6 +456,7 @@ Kafka: Log stream (replayable). RabbitMQ: Queue (transient).
 
 ---
 
+<a id="q22"></a>
 ### Q22: What is API Composition?
 
 **Difficulty**: Intermediate
@@ -451,6 +473,7 @@ Gateway aggregates results from multiple services.
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is Database per Service?
 
 **Difficulty**: Intermediate
@@ -467,6 +490,7 @@ Each service owns its DB. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q24"></a>
 ### Q24: What is Shared Database antipattern?
 
 **Difficulty**: Intermediate
@@ -483,6 +507,7 @@ Services sharing DB creates coupling. This concept is fundamental in this domain
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you handle data consistency?
 
 **Difficulty**: Advanced
@@ -499,6 +524,7 @@ Eventual consistency. This concept is fundamental in this domain and understandi
 
 ---
 
+<a id="q26"></a>
 ### Q26: What is CAP Theorem?
 
 **Difficulty**: Intermediate
@@ -515,6 +541,7 @@ Consistency, Availability, Partition Tolerance. Pick 2.
 
 ---
 
+<a id="q27"></a>
 ### Q27: What is 12-Factor App?
 
 **Difficulty**: Intermediate
@@ -531,6 +558,7 @@ The 12-Factor App is a methodology for building software-as-a-service apps. It i
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you version APIs?
 
 **Difficulty**: Beginner
@@ -547,6 +575,7 @@ URL path, Header, or Query param. This concept is fundamental in this domain and
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is Consumer Driven Contracts?
 
 **Difficulty**: Advanced
@@ -563,6 +592,7 @@ Consumers define expectations. This concept is fundamental in this domain and un
 
 ---
 
+<a id="q30"></a>
 ### Q30: What is Chaos Engineering?
 
 **Difficulty**: Advanced
@@ -579,6 +609,7 @@ Testing resilience by breaking things. This concept is fundamental in this domai
 
 ---
 
+<a id="q31"></a>
 ### Q31: What is Blue/Green Deployment?
 
 **Difficulty**: Intermediate
@@ -595,6 +626,7 @@ Zero downtime release. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is Canary Release?
 
 **Difficulty**: Intermediate
@@ -611,6 +643,7 @@ Rollout to small subset. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is Strangler Fig Pattern?
 
 **Difficulty**: Advanced
@@ -627,6 +660,7 @@ Migrate monolith to microservices gradually. This concept is fundamental in this
 
 ---
 
+<a id="q34"></a>
 ### Q34: What is BFF (Backend for Frontend)?
 
 **Difficulty**: Intermediate
@@ -643,6 +677,7 @@ Separate API for Mobile vs Web. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is Sidecar Pattern?
 
 **Difficulty**: Intermediate
@@ -659,6 +694,7 @@ Offload tasks (ssl, logging) to side container. This concept is fundamental in t
 
 ---
 
+<a id="q36"></a>
 ### Q36: What is Service Mesh?
 
 **Difficulty**: Advanced
@@ -675,6 +711,7 @@ Infrastructure layer for service comms. This concept is fundamental in this doma
 
 ---
 
+<a id="q37"></a>
 ### Q37: How to prevent cascading failures?
 
 **Difficulty**: Intermediate
@@ -691,6 +728,7 @@ timeout: 5s
 
 ---
 
+<a id="q38"></a>
 ### Q38: What is Rate Limiting?
 
 **Difficulty**: Beginner
@@ -707,6 +745,7 @@ Control traffic flow. This concept is fundamental in this domain and understandi
 
 ---
 
+<a id="q39"></a>
 ### Q39: What is Throttling?
 
 **Difficulty**: Beginner
@@ -723,6 +762,7 @@ Slow down requests. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q40"></a>
 ### Q40: Stateless vs Stateful services?
 
 **Difficulty**: Beginner
@@ -739,6 +779,7 @@ Stateless scales easier. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you test Microservices?
 
 **Difficulty**: Intermediate
@@ -755,6 +796,7 @@ Unit, Integration, Contract, E2E. This concept is fundamental in this domain and
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is Containerization?
 
 **Difficulty**: Beginner
@@ -771,6 +813,7 @@ Packaging app with dependencies. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q43"></a>
 ### Q43: What is Orchestration?
 
 **Difficulty**: Beginner
@@ -787,6 +830,7 @@ Managing containers. This concept is fundamental in this domain and understandin
 
 ---
 
+<a id="q44"></a>
 ### Q44: How to secure microservices?
 
 **Difficulty**: Intermediate
@@ -803,6 +847,7 @@ mTLS, OAuth2, OIDC. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q45"></a>
 ### Q45: What is OAuth2?
 
 **Difficulty**: Intermediate
@@ -819,6 +864,7 @@ Delegated authorization. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q46"></a>
 ### Q46: What is OpenID Connect (OIDC)?
 
 **Difficulty**: Intermediate
@@ -835,6 +881,7 @@ Identity layer on OAuth2. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q47"></a>
 ### Q47: What is JWT?
 
 **Difficulty**: Beginner
@@ -851,6 +898,7 @@ header.payload.signature
 
 ---
 
+<a id="q48"></a>
 ### Q48: Synchronous vs Asynchronous?
 
 **Difficulty**: Beginner
@@ -867,6 +915,7 @@ Blocking vs Non-blocking. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q49"></a>
 ### Q49: What is Two-Phase Commit (2PC)?
 
 **Difficulty**: Advanced
@@ -883,6 +932,7 @@ Distributed transaction protocol. This concept is fundamental in this domain and
 
 ---
 
+<a id="q50"></a>
 ### Q50: Why avoid 2PC in Microservices?
 
 **Difficulty**: Advanced
@@ -899,6 +949,7 @@ Blocking, poor scalability. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q51"></a>
 ### Q51: What is Dead Letter Queue (DLQ)?
 
 **Difficulty**: Intermediate
@@ -915,6 +966,7 @@ Queue for failed messages. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q52"></a>
 ### Q52: What is a Competing Consumers pattern?
 
 **Difficulty**: Intermediate
@@ -931,6 +983,7 @@ Multiple workers reading same queue. This concept is fundamental in this domain 
 
 ---
 
+<a id="q53"></a>
 ### Q53: What is Fan-out?
 
 **Difficulty**: Intermediate
@@ -947,6 +1000,7 @@ One message to multiple queues. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is Polyglot Persistence?
 
 **Difficulty**: Intermediate
@@ -963,6 +1017,7 @@ Using different DBs for different needs. This concept is fundamental in this dom
 
 ---
 
+<a id="q55"></a>
 ### Q55: What is Domain Driven Design (DDD)?
 
 **Difficulty**: Advanced
@@ -979,6 +1034,7 @@ Aligning software with business domain. This concept is fundamental in this doma
 
 ---
 
+<a id="q56"></a>
 ### Q56: What is a Bounded Context?
 
 **Difficulty**: Advanced
@@ -995,6 +1051,7 @@ Boundary where a model applies. This concept is fundamental in this domain and u
 
 ---
 
+<a id="q57"></a>
 ### Q57: What is an Aggregate?
 
 **Difficulty**: Advanced
@@ -1011,6 +1068,7 @@ Cluster of objects treated as unit. This concept is fundamental in this domain a
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is Anti-Corruption Layer?
 
 **Difficulty**: Advanced
@@ -1027,6 +1085,7 @@ Translator between systems. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q59"></a>
 ### Q59: What is Semantic Versioning?
 
 **Difficulty**: Beginner
@@ -1043,6 +1102,7 @@ v1.0.0
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is Continuous Integration (CI)?
 
 **Difficulty**: Beginner
@@ -1059,6 +1119,7 @@ Merge code frequently + Tests. This concept is fundamental in this domain and un
 
 ---
 
+<a id="q61"></a>
 ### Q61: What is Continuous Deployment (CD)?
 
 **Difficulty**: Beginner
@@ -1075,6 +1136,7 @@ Auto deploy to prod. This concept is fundamental in this domain and understandin
 
 ---
 
+<a id="q62"></a>
 ### Q62: What is Infrastructure as Code (IaC)?
 
 **Difficulty**: Intermediate
@@ -1091,6 +1153,7 @@ Managing infra via code. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q63"></a>
 ### Q63: What is Immutable Infrastructure?
 
 **Difficulty**: Intermediate
@@ -1107,6 +1170,7 @@ Replace servers instead of patching. This concept is fundamental in this domain 
 
 ---
 
+<a id="q64"></a>
 ### Q64: What is Serverless?
 
 **Difficulty**: Intermediate
@@ -1123,6 +1187,7 @@ Run code without managing servers. This concept is fundamental in this domain an
 
 ---
 
+<a id="q65"></a>
 ### Q65: Microservices vs Serverless?
 
 **Difficulty**: Intermediate
@@ -1139,6 +1204,7 @@ Long running vs Event driven. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is Cold Start?
 
 **Difficulty**: Intermediate
@@ -1155,6 +1221,7 @@ Latency when function starts. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q67"></a>
 ### Q67: How to handle distributed locking?
 
 **Difficulty**: Advanced
@@ -1171,6 +1238,7 @@ Redis (Redlock) or Zookeeper. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is Leader Election?
 
 **Difficulty**: Advanced
@@ -1187,6 +1255,7 @@ Choosing a coordinator. This concept is fundamental in this domain and understan
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is Sharding?
 
 **Difficulty**: Advanced
@@ -1203,6 +1272,7 @@ Horizontal data partitioning. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q70"></a>
 ### Q70: What is Replication?
 
 **Difficulty**: Intermediate
@@ -1219,6 +1289,7 @@ Copying data. This concept is fundamental in this domain and understanding it al
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is Auto-scaling?
 
 **Difficulty**: Beginner
@@ -1235,6 +1306,7 @@ Dynamic resource adjustment. This concept is fundamental in this domain and unde
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is Log Aggregation?
 
 **Difficulty**: Intermediate
@@ -1251,6 +1323,7 @@ Centralized logs. This concept is fundamental in this domain and understanding i
 
 ---
 
+<a id="q73"></a>
 ### Q73: What is Monitoring vs Observability?
 
 **Difficulty**: Advanced
@@ -1267,6 +1340,7 @@ Monitoring: Is it healthy? Observability: Why is it broken?
 
 ---
 
+<a id="q74"></a>
 ### Q74: What is Alerting?
 
 **Difficulty**: Beginner
@@ -1283,6 +1357,7 @@ Notifications on issues. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is a Health Check?
 
 **Difficulty**: Beginner
@@ -1299,6 +1374,7 @@ GET /health
 
 ---
 
+<a id="q76"></a>
 ### Q76: What is Graceful Shutdown?
 
 **Difficulty**: Intermediate
@@ -1315,6 +1391,7 @@ server.close()
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is Retry Pattern?
 
 **Difficulty**: Beginner
@@ -1331,6 +1408,7 @@ retry(3)
 
 ---
 
+<a id="q78"></a>
 ### Q78: What is Exponential Backoff?
 
 **Difficulty**: Intermediate
@@ -1347,6 +1425,7 @@ Increase wait time between retries. This concept is fundamental in this domain a
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is Jitter?
 
 **Difficulty**: Advanced
@@ -1363,6 +1442,7 @@ Avoid thundering herd
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is load shedding?
 
 **Difficulty**: Advanced
@@ -1379,6 +1459,7 @@ Drop requests when overloaded. This concept is fundamental in this domain and un
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is a Reverse Proxy?
 
 **Difficulty**: Beginner
@@ -1395,6 +1476,7 @@ Gateway in front of servers. This concept is fundamental in this domain and unde
 
 ---
 
+<a id="q82"></a>
 ### Q82: What is a Forward Proxy?
 
 **Difficulty**: Beginner
@@ -1411,6 +1493,7 @@ Proxy for clients. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is Sticky Sessions?
 
 **Difficulty**: Intermediate
@@ -1427,6 +1510,7 @@ Route user to same server. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q84"></a>
 ### Q84: Why avoid Sticky Sessions?
 
 **Difficulty**: Intermediate
@@ -1443,6 +1527,7 @@ Uneven load balancing. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q85"></a>
 ### Q85: What is Shadow Deployment?
 
 **Difficulty**: Advanced
@@ -1459,6 +1544,7 @@ Run new version with real traffic (ignored response).
 
 ---
 
+<a id="q86"></a>
 ### Q86: What is Feature Flag?
 
 **Difficulty**: Beginner

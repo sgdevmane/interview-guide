@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: You are migrating a Vue 2 app to Vue 3. You notice that reactivity is not working for a new property added to an object. Why does this happen in Vue 2 but works in Vue 3?
 
 **Difficulty**: Intermediate
@@ -146,6 +147,7 @@ state.newProp = 123 // ✅ Reactive (Proxy intercepts set)
 
 ---
 
+<a id="q2"></a>
 ### Q2: When using the Composition API, should you use `ref` or `reactive` for declaring state? What are the trade-offs?
 
 **Difficulty**: Intermediate
@@ -186,6 +188,7 @@ const { count: alive } = toRefs(state)
 
 ---
 
+<a id="q3"></a>
 ### Q3: You have a large list of items and `v-if` / `v-for` on the same element. Why is this considered a bad practice and how do you fix it?
 
 **Difficulty**: Intermediate
@@ -212,6 +215,7 @@ const activeItems = computed(() => items.value.filter(i => i.isActive))
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you share logic between components in Vue 3 using Composables?
 
 **Difficulty**: Intermediate
@@ -244,6 +248,7 @@ export function useMouse() {
 
 ---
 
+<a id="q5"></a>
 ### Q5: You need to render a modal that is visually separate from the main app layout (e.g., outside `overflow: hidden` containers). How do you achieve this in Vue 3?
 
 **Difficulty**: Intermediate
@@ -269,6 +274,7 @@ export function useMouse() {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you ensure the DOM has updated before performing an action using `nextTick`?
 
 **Difficulty**: Intermediate
@@ -296,6 +302,7 @@ async function updateAndFocus() {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you scope styles to a component effectively using CSS Modules vs Scoped Styles?
 
 **Difficulty**: Intermediate
@@ -328,6 +335,7 @@ Classes are compiled to unique names (e.g., `.red` -> `._red_12345`).
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you map Options API lifecycle hooks to Composition API `setup()` hooks?
 
 **Difficulty**: Intermediate
@@ -359,6 +367,7 @@ setup() {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you avoid Prop Drilling using Provide/Inject?
 
 **Difficulty**: Intermediate
@@ -387,6 +396,7 @@ setup() {
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you create a Custom Directive to handle outside clicks?
 
 **Difficulty**: Intermediate
@@ -419,6 +429,7 @@ const clickOutside = {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you optimize performance for a component that renders static content (never changes)?
 
 **Difficulty**: Intermediate
@@ -445,6 +456,7 @@ Use `v-once` or `v-memo`.
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you handle asynchronous component loading (Lazy Loading) in Vue Router?
 
 **Difficulty**: Intermediate
@@ -469,6 +481,7 @@ const routes = [
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you implement two-way binding manually using `v-model` on a custom component?
 
 **Difficulty**: Intermediate
@@ -499,6 +512,7 @@ defineEmits(['update:modelValue'])
 
 ---
 
+<a id="q14"></a>
 ### Q14: How would you implement a 'Suspense' feature to handle async dependencies?
 
 **Difficulty**: Intermediate
@@ -525,6 +539,7 @@ defineEmits(['update:modelValue'])
 
 ---
 
+<a id="q15"></a>
 ### Q15: Why is mutating a prop directly in a child component an anti-pattern?
 
 **Difficulty**: Intermediate
@@ -548,6 +563,7 @@ emit('update:count', props.count + 1)
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you use `v-memo` to skip unnecessary updates?
 
 **Difficulty**: Advanced
@@ -569,6 +585,7 @@ emit('update:count', props.count + 1)
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you implement a scoped slot to pass data from child to parent?
 
 **Difficulty**: Intermediate
@@ -602,6 +619,7 @@ Scoped slots allow a child component to expose data to the parent's slot content
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you use `Teleport` to render a modal outside the app root?
 
 **Difficulty**: Intermediate
@@ -627,6 +645,7 @@ Scoped slots allow a child component to expose data to the parent's slot content
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you use `KeepAlive` to cache component instances?
 
 **Difficulty**: Intermediate
@@ -653,6 +672,7 @@ import Settings from './Settings.vue'
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use `v-once` for static content optimization?
 
 **Difficulty**: Beginner
@@ -677,6 +697,7 @@ import Settings from './Settings.vue'
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you implement global state management using Pinia?
 
 **Difficulty**: Intermediate
@@ -705,6 +726,7 @@ export const useCounterStore = defineStore('counter', () => {
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you access a Pinia store inside a component?
 
 **Difficulty**: Intermediate
@@ -734,6 +756,7 @@ const { count, doubleCount } = storeToRefs(store)
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you implement a navigation guard in Vue Router?
 
 **Difficulty**: Intermediate
@@ -761,6 +784,7 @@ router.beforeEach((to, from) => {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you use `watchEffect` vs `watch`?
 
 **Difficulty**: Intermediate
@@ -789,6 +813,7 @@ watchEffect(() => {
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you handle errors in Vue 3 using `onErrorCaptured`?
 
 **Difficulty**: Advanced
@@ -816,6 +841,7 @@ onErrorCaptured((err, instance, info) => {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you use `defineAsyncComponent` for lazy loading?
 
 **Difficulty**: Intermediate
@@ -839,6 +865,7 @@ const AsyncComp = defineAsyncComponent(() =>
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you implement a custom v-model modifier?
 
 **Difficulty**: Advanced
@@ -873,6 +900,7 @@ function emitValue(e) {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you test a Vue component using Vue Test Utils?
 
 **Difficulty**: Intermediate
@@ -900,6 +928,7 @@ test('increments value on click', async () => {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you use `provide` and `inject` for dependency injection?
 
 **Difficulty**: Intermediate
@@ -927,6 +956,7 @@ const theme = inject('theme', 'light') // 'light' is default
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you use `shallowRef` vs `ref` for performance?
 
 **Difficulty**: Advanced
@@ -954,6 +984,7 @@ triggerRef(state)
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you use `toRef` and `toRefs` to maintain reactivity?
 
 **Difficulty**: Intermediate
@@ -980,6 +1011,7 @@ foo.value++ // Updates state.foo
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you handle multiple root nodes in Vue 3 (Fragments)?
 
 **Difficulty**: Beginner
@@ -1005,6 +1037,7 @@ Vue 3 supports multi-root components (Fragments). However, if you pass attribute
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you use `Suspense` for async components?
 
 **Difficulty**: Advanced
@@ -1033,6 +1066,7 @@ Vue 3 supports multi-root components (Fragments). However, if you pass attribute
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you optimize list rendering with `v-for` and `key`?
 
 **Difficulty**: Beginner
@@ -1053,6 +1087,7 @@ Always provide a unique `key` attribute (like an ID) when using `v-for`. This al
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you use `style scoped` with `v-html` content (deep selector)?
 
 **Difficulty**: Intermediate
@@ -1081,6 +1116,7 @@ Scoped styles don't apply to `v-html` content because it's dynamically injected.
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you use dynamic arguments for directives?
 
 **Difficulty**: Intermediate
@@ -1109,6 +1145,7 @@ const eventName = ref('click')
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you create a Global Property in Vue 3?
 
 **Difficulty**: Intermediate
@@ -1135,6 +1172,7 @@ proxy.$http.get('/api')
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you force a component to re-render correctly?
 
 **Difficulty**: Intermediate
@@ -1163,6 +1201,7 @@ function reload() {
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you create a generic component with Props (TypeScript)?
 
 **Difficulty**: Advanced
@@ -1190,6 +1229,7 @@ defineProps<{
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you implement a composable that manages Event Listeners safely?
 
 **Difficulty**: Intermediate
@@ -1215,6 +1255,7 @@ useEventListener(window, 'resize', handleResize)
 ---
 
 
+<a id="q41"></a>
 ### Q41: How do you expose methods/state to a parent component using `defineExpose`?
 
 **Difficulty**: Intermediate
@@ -1249,6 +1290,7 @@ function handleReset() {
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you animate element entry/leave using `<Transition>`?
 
 **Difficulty**: Beginner
@@ -1277,6 +1319,7 @@ Wrap the element (v-if/v-show) in `<Transition>`. Define CSS classes like `.v-en
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you access Slots and Attributes in `<script setup>`?
 
 **Difficulty**: Intermediate
@@ -1300,6 +1343,7 @@ if (slots.default) {
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you simplify `v-model` implementation using `defineModel` (Vue 3.4+)?
 
 **Difficulty**: Intermediate
@@ -1325,6 +1369,7 @@ function update() {
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you normalize refs, getters, or values using `toValue` (Vue 3.3+)?
 
 **Difficulty**: Advanced
@@ -1343,6 +1388,7 @@ function useFeature(arg) {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you fetch data on the server before rendering (SSR) using `serverPrefetch`?
 
 **Difficulty**: Advanced
@@ -1360,6 +1406,7 @@ const data = await fetchData() // Suspense handles this on client, SSR waits for
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you set component options (like `name`) in `<script setup>` using `defineOptions`?
 
 **Difficulty**: Beginner
@@ -1379,6 +1426,7 @@ defineOptions({
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you create a debounced ref using `customRef`?
 
 **Difficulty**: Advanced
@@ -1412,6 +1460,7 @@ function useDebouncedRef(value, delay = 200) {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you create a Web Component using Vue (`defineCustomElement`)?
 
 **Difficulty**: Advanced
@@ -1432,6 +1481,7 @@ customElements.define('my-element', MyElement)
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you handle Global Errors in a Vue App?
 
 **Difficulty**: Intermediate
@@ -1452,6 +1502,7 @@ app.config.errorHandler = (err, instance, info) => {
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Vue.js state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1468,6 +1519,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Vue.js data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1484,6 +1536,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Vue.js deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1502,6 +1555,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Vue.js concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1520,6 +1574,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Vue.js caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1537,6 +1592,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Vue.js configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1553,6 +1609,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Vue.js internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1569,6 +1626,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Vue.js accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1585,6 +1643,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Vue.js network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1601,6 +1660,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Vue.js performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1620,6 +1680,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Vue.js in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1637,6 +1698,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Vue.js memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1654,6 +1716,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Vue.js code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1671,6 +1734,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Vue.js error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1691,6 +1755,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Vue.js functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1709,6 +1774,7 @@ test('Vue.js works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Vue.js state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1725,6 +1791,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Vue.js data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1741,6 +1808,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Vue.js deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1759,6 +1827,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Vue.js concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1777,6 +1846,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Vue.js caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1794,6 +1864,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Vue.js configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1810,6 +1881,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Vue.js internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1826,6 +1898,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Vue.js accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1842,6 +1915,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Vue.js network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1858,6 +1932,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Vue.js performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1877,6 +1952,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Vue.js in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1894,6 +1970,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Vue.js memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1911,6 +1988,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Vue.js code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1928,6 +2006,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Vue.js error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1948,6 +2027,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Vue.js functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1966,6 +2046,7 @@ test('Vue.js works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Vue.js state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1982,6 +2063,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Vue.js data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1998,6 +2080,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Vue.js deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -2016,6 +2099,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Vue.js concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -2034,6 +2118,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Vue.js caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2051,6 +2136,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Vue.js configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -2067,6 +2153,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Vue.js internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -2083,6 +2170,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Vue.js accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2099,6 +2187,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Vue.js network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2115,6 +2204,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Vue.js performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2134,6 +2224,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Vue.js in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2151,6 +2242,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Vue.js memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2168,6 +2260,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Vue.js code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2185,6 +2278,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Vue.js error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2205,6 +2299,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Vue.js functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2223,6 +2318,7 @@ test('Vue.js works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Vue.js state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2239,6 +2335,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Vue.js data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2255,6 +2352,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Vue.js deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2273,6 +2371,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Vue.js concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2291,6 +2390,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Vue.js caching in production environments?
 
 **Difficulty**: Intermediate

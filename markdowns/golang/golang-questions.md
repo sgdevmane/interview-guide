@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you manage Goroutine lifecycles to prevent memory leaks?
 
 **Difficulty**: Intermediate
@@ -167,6 +168,7 @@ func main() {
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you implement the Worker Pool pattern to limit concurrency?
 
 **Difficulty**: Intermediate
@@ -238,6 +240,7 @@ func main() {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you handle errors gracefully using custom error types and wrapping?
 
 **Difficulty**: Intermediate
@@ -302,6 +305,7 @@ func main() {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement a thread-safe Singleton in Go?
 
 **Difficulty**: Intermediate
@@ -360,6 +364,7 @@ func main() {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you use the Functional Options pattern to configure complex structs?
 
 **Difficulty**: Intermediate
@@ -434,6 +439,7 @@ func main() {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you implement a Graceful Shutdown for an HTTP server?
 
 **Difficulty**: Intermediate
@@ -491,6 +497,7 @@ func main() {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you test code effectively using Table-Driven Tests?
 
 **Difficulty**: Intermediate
@@ -540,6 +547,7 @@ func TestAdd(t *testing.T) {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you use Generics to create a type-safe Set data structure?
 
 **Difficulty**: Intermediate
@@ -598,6 +606,7 @@ func main() {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you use `sync.WaitGroup` to wait for multiple concurrent operations?
 
 **Difficulty**: Intermediate
@@ -646,6 +655,7 @@ func main() {
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you implement middleware for an HTTP handler?
 
 **Difficulty**: Intermediate
@@ -702,6 +712,7 @@ func main() {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you use interfaces for dependency injection to improve testability?
 
 **Difficulty**: Intermediate
@@ -764,6 +775,7 @@ func main() {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you use the `select` statement to implement a timeout?
 
 **Difficulty**: Intermediate
@@ -808,6 +820,7 @@ func main() {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you use `io.Reader` and `io.Writer` to stream data efficiently?
 
 **Difficulty**: Intermediate
@@ -857,6 +870,7 @@ func main() {
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you prevent race conditions using `sync.Mutex`?
 
 **Difficulty**: Intermediate
@@ -916,6 +930,7 @@ func main() {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you optimize memory usage with `sync.Pool`?
 
 **Difficulty**: Intermediate
@@ -970,6 +985,7 @@ func main() {
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you implement a custom JSON Marshaler to hide sensitive fields?
 
 **Difficulty**: Intermediate
@@ -1018,6 +1034,7 @@ func main() {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you use `sync.Once` to ensure a function runs exactly once?
 
 **Difficulty**: Intermediate
@@ -1073,6 +1090,7 @@ func main() {
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you implement a rate limiter using a Token Bucket algorithm?
 
 **Difficulty**: Intermediate
@@ -1113,6 +1131,7 @@ func main() {
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you correctly handle loop variables in Goroutines?
 
 **Difficulty**: Intermediate
@@ -1154,6 +1173,7 @@ func main() {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use `go:embed` to bundle static assets?
 
 **Difficulty**: Intermediate
@@ -1195,6 +1215,7 @@ func main() {
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you use `errgroup` to manage parallel tasks with error propagation?
 
 **Difficulty**: Intermediate
@@ -1250,6 +1271,7 @@ func main() {
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you implement atomic counters using `sync/atomic`?
 
 **Difficulty**: Intermediate
@@ -1290,6 +1312,7 @@ func main() {
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you benchmark code using `testing.B`?
 
 **Difficulty**: Intermediate
@@ -1330,6 +1353,7 @@ func BenchmarkJoinStrings(b *testing.B) {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you optimize memory layout by reordering struct fields?
 
 **Difficulty**: Expert
@@ -1375,6 +1399,7 @@ func main() {
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you use `context.WithValue` to pass request-scoped data?
 
 **Difficulty**: Intermediate
@@ -1421,6 +1446,7 @@ func main() {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you implement a simple Fan-Out/Fan-In pattern?
 
 **Difficulty**: Intermediate
@@ -1500,6 +1526,7 @@ func main() {
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you use `defer` effectively for cleanup (and avoid common traps)?
 
 **Difficulty**: Intermediate
@@ -1547,6 +1574,7 @@ func main() {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you implement a custom HTTP RoundTripper?
 
 **Difficulty**: Expert
@@ -1599,6 +1627,7 @@ func main() {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you use `reflect` to iterate over struct fields?
 
 **Difficulty**: Expert
@@ -1644,6 +1673,7 @@ func main() {
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you use `slices` package (Go 1.21+) for common operations?
 
 **Difficulty**: Intermediate
@@ -1689,6 +1719,7 @@ func main() {
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you use the new `slices` package (Go 1.21+) for common operations?
 
 **Difficulty**: Beginner
@@ -1730,6 +1761,7 @@ func main() {
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you iterate over an integer range using `range` in Go 1.22+?
 
 **Difficulty**: Beginner
@@ -1761,6 +1793,7 @@ func main() {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you use `cmp.Or` (Go 1.22+) to return the first non-zero value?
 
 **Difficulty**: Intermediate
@@ -1797,6 +1830,7 @@ func main() {
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you create a structured logger using `log/slog` (Go 1.21+)?
 
 **Difficulty**: Intermediate
@@ -1836,6 +1870,7 @@ func main() {
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you use `sync.OnceValue` (Go 1.21+) for lazy initialization?
 
 **Difficulty**: Intermediate
@@ -1871,6 +1906,7 @@ func main() {
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you check for race conditions in Go?
 
 **Difficulty**: Intermediate
@@ -1909,6 +1945,7 @@ func main() {
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you use `context.WithTimeout` to cancel long-running operations?
 
 **Difficulty**: Intermediate
@@ -1948,6 +1985,7 @@ func main() {
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you embed static files into a Go binary?
 
 **Difficulty**: Beginner
@@ -1982,6 +2020,7 @@ func main() {
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you perform atomic operations to avoid mutexes?
 
 **Difficulty**: Advanced
@@ -2020,6 +2059,7 @@ func main() {
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you benchmark Go code?
 
 **Difficulty**: Intermediate
@@ -2052,6 +2092,7 @@ func BenchmarkCalculate(b *testing.B) {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you marshal JSON with custom field names or omission?
 
 **Difficulty**: Beginner
@@ -2088,6 +2129,7 @@ func main() {
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you implement a simple HTTP middleware?
 
 **Difficulty**: Intermediate
@@ -2129,6 +2171,7 @@ func main() {
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you detect and handle panics in a Goroutine?
 
 **Difficulty**: Intermediate
@@ -2165,6 +2208,7 @@ func main() {
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you use `io.Pipe` to stream data between a reader and writer?
 
 **Difficulty**: Advanced
@@ -2200,6 +2244,7 @@ func main() {
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you use Go Fuzzing (Go 1.18+) to find bugs?
 
 **Difficulty**: Advanced
@@ -2225,6 +2270,7 @@ func FuzzReverse(f *testing.F) {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you use sync.Map for concurrent map access?
 
 **Difficulty**: Intermediate
@@ -2253,6 +2299,7 @@ fmt.Println(actual, loaded)
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use atomic.Pointer[T] (Go 1.19+)?
 
 **Difficulty**: Advanced
@@ -2283,6 +2330,7 @@ func GetConfig() *Config {
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you use httptest to test HTTP handlers?
 
 **Difficulty**: Intermediate
@@ -2309,6 +2357,7 @@ func TestHandler(t *testing.T) {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use json.RawMessage to delay parsing?
 
 **Difficulty**: Intermediate
@@ -2335,6 +2384,7 @@ func parse(e Event) {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you use pprof to profile CPU usage?
 
 **Difficulty**: Advanced
@@ -2360,6 +2410,7 @@ func main() {
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you use runtime/trace to analyze latency?
 
 **Difficulty**: Expert
@@ -2381,6 +2432,7 @@ defer trace.Stop()
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you use Go Workspaces (Go 1.18+) for multi-module development?
 
 **Difficulty**: Intermediate
@@ -2403,6 +2455,7 @@ use (
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you implement a custom Scanner using bufio?
 
 **Difficulty**: Intermediate
@@ -2427,6 +2480,7 @@ for scanner.Scan() {
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you use text/template for generating dynamic content?
 
 **Difficulty**: Intermediate
@@ -2445,6 +2499,7 @@ tmpl.Execute(os.Stdout, map[string]string{"Name": "World"})
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you use Singleflight to prevent cache stampedes?
 
 **Difficulty**: Advanced
@@ -2468,6 +2523,7 @@ func getData(key string) (interface{}, error) {
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you use sync.Cond for complex synchronization?
 
 **Difficulty**: Expert
@@ -2498,6 +2554,7 @@ c.L.Unlock()
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you use the os/exec package to run external commands safely?
 
 **Difficulty**: Intermediate
@@ -2519,6 +2576,7 @@ fmt.Println(string(output))
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you use the plugin package to load code at runtime?
 
 **Difficulty**: Expert
@@ -2538,6 +2596,7 @@ myFunc()
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you use testing/quick for property-based testing?
 
 **Difficulty**: Advanced
@@ -2564,6 +2623,7 @@ func TestOdd(t *testing.T) {
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you use context.AfterFunc (Go 1.21+) for cleanup?
 
 **Difficulty**: Intermediate
@@ -2583,6 +2643,7 @@ stop := context.AfterFunc(ctx, func() {
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you use the new min/max built-ins (Go 1.21+)?
 
 **Difficulty**: Beginner
@@ -2598,6 +2659,7 @@ fmt.Println(m) // 20
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q62"></a>
 ### Q62: How do you debug Go memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2615,6 +2677,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Go code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2632,6 +2695,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Go error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2652,6 +2716,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Go functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2670,6 +2735,7 @@ test('Go works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Go state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2686,6 +2752,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Go data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2702,6 +2769,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Go deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2720,6 +2788,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Go concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2738,6 +2807,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Go caching in production environments?
 
 **Difficulty**: Intermediate
@@ -2755,6 +2825,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Go configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -2771,6 +2842,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Go internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -2787,6 +2859,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Go accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -2803,6 +2876,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Go network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -2819,6 +2893,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Go performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -2838,6 +2913,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Go in real-time systems?
 
 **Difficulty**: Intermediate
@@ -2855,6 +2931,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Go memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -2872,6 +2949,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Go code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2889,6 +2967,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Go error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -2909,6 +2988,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Go functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -2927,6 +3007,7 @@ test('Go works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Go state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -2943,6 +3024,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Go data validation in microservices?
 
 **Difficulty**: Beginner
@@ -2959,6 +3041,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Go deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -2977,6 +3060,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Go concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -2995,6 +3079,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Go caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -3012,6 +3097,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Go configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -3028,6 +3114,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Go internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -3044,6 +3131,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Go accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -3060,6 +3148,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Go network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -3076,6 +3165,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Go performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -3095,6 +3185,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Go in large scale applications?
 
 **Difficulty**: Intermediate
@@ -3112,6 +3203,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Go memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -3129,6 +3221,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Go code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -3146,6 +3239,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Go error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -3166,6 +3260,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Go functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -3184,6 +3279,7 @@ test('Go works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Go state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -3200,6 +3296,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Go data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -3216,6 +3313,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Go deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -3234,6 +3332,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Go concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -3252,6 +3351,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Go caching in production environments?
 
 **Difficulty**: Intermediate

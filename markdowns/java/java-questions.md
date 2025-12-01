@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you optimize memory usage by handling String duplicates efficiently?
 
 **Difficulty**: Beginner
@@ -138,6 +139,7 @@ System.out.println(s2 == s3); // true
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you prevent memory leaks?
 
 **Difficulty**: Intermediate
@@ -159,6 +161,7 @@ try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you execute tasks asynchronously and get the result later?
 
 **Difficulty**: Intermediate
@@ -180,6 +183,7 @@ CompletableFuture.supplyAsync(() -> {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you handle null safety efficiently in modern Java?
 
 **Difficulty**: Beginner
@@ -202,6 +206,7 @@ String name = optionalName.orElse("Unknown");
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you ensure thread safety when modifying shared variables?
 
 **Difficulty**: Intermediate
@@ -226,6 +231,7 @@ class Counter {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you create an immutable class in Java?
 
 **Difficulty**: Intermediate
@@ -254,6 +260,7 @@ public final class User {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you process a collection of items in parallel?
 
 **Difficulty**: Intermediate
@@ -274,6 +281,7 @@ numbers.parallelStream()
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you implement the Singleton pattern thread-safely?
 
 **Difficulty**: Intermediate
@@ -297,6 +305,7 @@ public enum Singleton {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you sort a list of objects based on multiple criteria?
 
 **Difficulty**: Beginner
@@ -316,6 +325,7 @@ users.sort(Comparator.comparing(User::getLastName)
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you handle exceptions in Lambda expressions?
 
 **Difficulty**: Intermediate
@@ -338,6 +348,7 @@ list.forEach(item -> {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you dynamically access methods or fields at runtime?
 
 **Difficulty**: Advanced
@@ -357,6 +368,7 @@ Object result = method.invoke(instance);
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you ensure a variable's value is always read from main memory?
 
 **Difficulty**: Advanced
@@ -377,6 +389,7 @@ public void stop() {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you filter a list using the Stream API?
 
 **Difficulty**: Beginner
@@ -397,6 +410,7 @@ List<String> filtered = names.stream()
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you create a fixed-size thread pool?
 
 **Difficulty**: Intermediate
@@ -418,6 +432,7 @@ executor.shutdown();
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you implement a custom annotation?
 
 **Difficulty**: Intermediate
@@ -437,6 +452,7 @@ public @interface LogExecutionTime {
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you create a custom Spring Boot Starter?
 
 **Difficulty**: Advanced
@@ -463,6 +479,7 @@ public class MyStarterAutoConfiguration {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you implement AOP for logging execution time?
 
 **Difficulty**: Intermediate
@@ -490,6 +507,7 @@ public class LoggingAspect {
 
 ---
 
+<a id="q18"></a>
 ### Q18: What are Java Records and when should you use them?
 
 **Difficulty**: Beginner
@@ -511,6 +529,7 @@ System.out.println(p);     // Point[x=10, y=20]
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do Sealed Classes control inheritance hierarchy?
 
 **Difficulty**: Intermediate
@@ -531,6 +550,7 @@ public final class Rectangle implements Shape {}
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use Pattern Matching in Switch expressions?
 
 **Difficulty**: Intermediate
@@ -552,6 +572,7 @@ String result = switch (obj) {
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do Virtual Threads (Project Loom) differ from Platform Threads?
 
 **Difficulty**: Advanced
@@ -575,6 +596,7 @@ try (var executor = Executors.newVirtualThreadPerTaskExecutor()) {
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you use Structured Concurrency?
 
 **Difficulty**: Advanced
@@ -598,6 +620,7 @@ try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you tune Garbage Collection for low latency?
 
 **Difficulty**: Advanced
@@ -618,6 +641,7 @@ java -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -jar app.jar
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you chain multiple asynchronous tasks?
 
 **Difficulty**: Intermediate
@@ -636,6 +660,7 @@ CompletableFuture.supplyAsync(() -> fetchUserId())
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you group elements in a Stream?
 
 **Difficulty**: Intermediate
@@ -653,6 +678,7 @@ Map<String, List<Person>> byCity = people.stream()
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you flatten a list of lists using Streams?
 
 **Difficulty**: Intermediate
@@ -677,6 +703,7 @@ List<String> flat = nested.stream()
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you solve the N+1 Select problem in Hibernate/JPA?
 
 **Difficulty**: Advanced
@@ -699,6 +726,7 @@ List<User> findAllWithOrders();
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you implement Caching with Redis in Spring Boot?
 
 **Difficulty**: Intermediate
@@ -722,6 +750,7 @@ public class UserService {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you implement a Circuit Breaker using Resilience4j?
 
 **Difficulty**: Advanced
@@ -745,6 +774,7 @@ public String fallbackInventory(String productId, Throwable t) {
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you unit test a Spring Service with Mockito?
 
 **Difficulty**: Intermediate
@@ -774,6 +804,7 @@ class UserServiceTest {
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you handle global exceptions in Spring Boot?
 
 **Difficulty**: Intermediate
@@ -797,6 +828,7 @@ public class GlobalExceptionHandler {
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you create a Dockerfile for a Java application?
 
 **Difficulty**: Intermediate
@@ -822,6 +854,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you implement an API Gateway pattern?
 
 **Difficulty**: Advanced
@@ -845,6 +878,7 @@ spring:
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you create a non-blocking REST API with Spring WebFlux?
 
 **Difficulty**: Advanced
@@ -870,6 +904,7 @@ public class ReactiveController {
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you implement Health Checks in Spring Boot?
 
 **Difficulty**: Beginner
@@ -888,6 +923,7 @@ management.endpoint.health.show-details=always
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you ensure a specific execution order of beans?
 
 **Difficulty**: Beginner
@@ -910,6 +946,7 @@ public class SecondFilter implements Filter { ... }
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you handle configuration for multiple environments?
 
 **Difficulty**: Beginner
@@ -927,6 +964,7 @@ java -jar app.jar --spring.profiles.active=prod
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you implement a Kafka Consumer with Spring Boot?
 
 **Difficulty**: Intermediate
@@ -946,6 +984,7 @@ public void listen(String message) {
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you secure passwords in Java?
 
 **Difficulty**: Intermediate
@@ -965,6 +1004,7 @@ boolean matches = encoder.matches("mySecretPassword", hashed);
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you debug a deadlock in Java?
 
 **Difficulty**: Advanced
@@ -988,6 +1028,7 @@ jstack <PID> > dump.txt
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you implement the Singleton pattern safely in Java?
 
 **Difficulty**: Beginner
@@ -1013,6 +1054,7 @@ Singleton.INSTANCE.doSomething();
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you implement the Factory Pattern using Java 8+ features?
 
 **Difficulty**: Intermediate
@@ -1042,6 +1084,7 @@ public class ShapeFactory {
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you implement the Strategy Pattern with Lambdas?
 
 **Difficulty**: Intermediate
@@ -1072,6 +1115,7 @@ new PaymentProcessor(amt -> "Paid $" + amt + " via PayPal").process(200);
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you implement the Observer Pattern using Spring Events?
 
 **Difficulty**: Intermediate
@@ -1104,6 +1148,7 @@ public class EmailService {
 
 ---
 
+<a id="q45"></a>
 ### Q45: What is the difference between REQUIRED and REQUIRES_NEW transaction propagation?
 
 **Difficulty**: Advanced
@@ -1131,6 +1176,7 @@ public void inner() {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you implement Optimistic Locking in JPA?
 
 **Difficulty**: Intermediate
@@ -1159,6 +1205,7 @@ public class Product {
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you chain multiple asynchronous tasks using CompletableFuture?
 
 **Difficulty**: Advanced
@@ -1183,6 +1230,7 @@ CompletableFuture.supplyAsync(() -> "Hello")
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you write a Parameterized Test in JUnit 5?
 
 **Difficulty**: Intermediate
@@ -1207,6 +1255,7 @@ void testAddition(int a, int b, int expected) {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use TestContainers for integration testing?
 
 **Difficulty**: Advanced
@@ -1241,6 +1290,7 @@ class UserServiceIT {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you implement a simple Rate Limiter using Bucket4j?
 
 **Difficulty**: Advanced
@@ -1266,6 +1316,7 @@ if (bucket.tryConsume(1)) {
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you implement Distributed Locking with Redis (Redisson)?
 
 **Difficulty**: Advanced
@@ -1298,6 +1349,7 @@ public void criticalSection() {
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you handle JWT Authentication in Spring Security?
 
 **Difficulty**: Advanced
@@ -1322,6 +1374,7 @@ protected void doFilterInternal(HttpServletRequest request, HttpServletResponse 
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you expose a custom metric in Spring Boot Actuator?
 
 **Difficulty**: Intermediate
@@ -1350,6 +1403,7 @@ public class OrderService {
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is the difference between @Mock and @Spy in Mockito?
 
 **Difficulty**: Intermediate
@@ -1373,6 +1427,7 @@ doReturn("b").when(spyList).get(0); // partial mock
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you solve the 'LazyInitializationException' in Hibernate?
 
 **Difficulty**: Intermediate
@@ -1402,6 +1457,7 @@ public class UserService {
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you implement a simple REST Client using RestClient (Spring Boot 3.2+)?
 
 **Difficulty**: Intermediate
@@ -1433,6 +1489,7 @@ ResponseEntity<Void> response = client.post()
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you use 'var' (Local Variable Type Inference)?
 
 **Difficulty**: Beginner
@@ -1458,6 +1515,7 @@ for (var entry : map.entrySet()) {
 
 ---
 
+<a id="q58"></a>
 ### Q58: What are Text Blocks and how do they simplify String handling?
 
 **Difficulty**: Beginner
@@ -1481,6 +1539,7 @@ System.out.println(json);
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you use SequencedCollection in Java 21?
 
 **Difficulty**: Intermediate
@@ -1503,6 +1562,7 @@ System.out.println(list.getLast());  // C
 
 ---
 
+<a id="q60"></a>
 ### Q60: How does ConcurrentHashMap ensure thread safety without locking the entire map?
 
 **Difficulty**: Advanced
@@ -1525,6 +1585,7 @@ map.compute("A", (k, v) -> v + 1);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What is the difference between WeakReference and SoftReference?
 
 **Difficulty**: Advanced
@@ -1548,6 +1609,7 @@ strong = null;
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you use Spring Data JPA Projections to optimize read performance?
 
 **Difficulty**: Intermediate
@@ -1573,6 +1635,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 ---
 
+<a id="q63"></a>
 ### Q63: How do you implement a Dead Letter Queue (DLQ) in Kafka with Spring Boot?
 
 **Difficulty**: Advanced
@@ -1595,6 +1658,7 @@ public CommonErrorHandler errorHandler(KafkaTemplate<Object, Object> template) {
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you use Feign Client for declarative REST communication?
 
 **Difficulty**: Intermediate
@@ -1619,6 +1683,7 @@ User u = userClient.getUser(1L);
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you configure L2 Cache in Hibernate?
 
 **Difficulty**: Advanced
@@ -1641,6 +1706,7 @@ public class Product {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you secure methods using @PreAuthorize in Spring Security?
 
 **Difficulty**: Intermediate
@@ -1669,6 +1735,7 @@ public class AdminService {
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you handle transactions programmatically (TransactionTemplate)?
 
 **Difficulty**: Advanced
@@ -1697,6 +1764,7 @@ public void process() {
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you implement a custom validation annotation (Bean Validation)?
 
 **Difficulty**: Intermediate
@@ -1726,6 +1794,7 @@ public class PasswordValidator implements ConstraintValidator<ValidPassword, Str
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you use CompletableFuture.allOf to wait for multiple tasks?
 
 **Difficulty**: Intermediate
@@ -1750,6 +1819,7 @@ all.thenRun(() -> {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you profile a Java application using JFR (Java Flight Recorder)?
 
 **Difficulty**: Advanced
@@ -1770,6 +1840,7 @@ jcmd <PID> JFR.start duration=60s filename=recording.jfr
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you implement a retry mechanism with exponential backoff?
 
 **Difficulty**: Intermediate
@@ -1790,6 +1861,7 @@ public String callService() {
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q72"></a>
 ### Q72: How do you handle Java internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1806,6 +1878,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Java accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1822,6 +1895,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Java network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1838,6 +1912,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Java performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1857,6 +1932,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Java in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1874,6 +1950,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Java memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1891,6 +1968,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Java code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1908,6 +1986,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Java error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1928,6 +2007,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Java functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1946,6 +2026,7 @@ test('Java works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Java state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1962,6 +2043,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Java data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1978,6 +2060,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Java deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1996,6 +2079,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Java concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -2014,6 +2098,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Java caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2031,6 +2116,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Java configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -2047,6 +2133,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Java internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -2063,6 +2150,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Java accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2079,6 +2167,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Java network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2095,6 +2184,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Java performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2114,6 +2204,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Java in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2131,6 +2222,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Java memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2148,6 +2240,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Java code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2165,6 +2258,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Java error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2185,6 +2279,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Java functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2203,6 +2298,7 @@ test('Java works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Java state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2219,6 +2315,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Java data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2235,6 +2332,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Java deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2253,6 +2351,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Java concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2271,6 +2370,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Java caching in production environments?
 
 **Difficulty**: Intermediate

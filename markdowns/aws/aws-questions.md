@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you secure an S3 bucket to ensure only a specific IAM role from another account can access it?
 
 **Difficulty**: Advanced
@@ -141,6 +142,7 @@ Use a Bucket Policy that explicitly allows the `Principal` (the ARN of the IAM r
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you architect a serverless solution to process a stream of high-volume clickstream data?
 
 **Difficulty**: Advanced
@@ -167,6 +169,7 @@ def lambda_handler(event, context):
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you optimize DynamoDB costs for a workload with infrequent but high burst traffic?
 
 **Difficulty**: Intermediate
@@ -183,6 +186,7 @@ aws dynamodb update-table     --table-name MyTable     --billing-mode PAY_PER_RE
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you securely access an RDS database in a private subnet from a Lambda function?
 
 **Difficulty**: Intermediate
@@ -208,6 +212,7 @@ def get_secret():
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you implement a disaster recovery strategy with RPO < 15 mins and RTO < 1 hour?
 
 **Difficulty**: Expert
@@ -241,6 +246,7 @@ def get_secret():
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you debug a Lambda function that is timing out?
 
 **Difficulty**: Intermediate
@@ -260,6 +266,7 @@ patch_all() # Patches boto3, requests, etc. to send traces
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you deploy a Docker container to AWS without managing servers?
 
 **Difficulty**: Beginner
@@ -294,6 +301,7 @@ Use **AWS Fargate** with Amazon ECS or EKS. Fargate is the serverless compute en
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you securely manage environment variables for an EC2 application?
 
 **Difficulty**: Intermediate
@@ -311,6 +319,7 @@ aws ssm get-parameter --name "/myapp/prod/db_url" --with-decryption
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you prevent accidental deletion of an S3 bucket containing critical data?
 
 **Difficulty**: Beginner
@@ -337,6 +346,7 @@ aws ssm get-parameter --name "/myapp/prod/db_url" --with-decryption
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you route traffic to the nearest server based on user location?
 
 **Difficulty**: Intermediate
@@ -372,6 +382,7 @@ Use **Amazon Route 53** with a **Geolocation Routing Policy** or **Latency Routi
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you automate the patching of a fleet of EC2 instances?
 
 **Difficulty**: Intermediate
@@ -396,6 +407,7 @@ aws ssm create-association \
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you ensure data in transit is encrypted between a Load Balancer and EC2 instances?
 
 **Difficulty**: Advanced
@@ -427,6 +439,7 @@ resource "aws_lb_listener" "front_end" {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you handle a situation where your Auto Scaling Group fails to launch new instances?
 
 **Difficulty**: Intermediate
@@ -449,6 +462,7 @@ aws autoscaling describe-scaling-activities \
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you host a static website with global low latency?
 
 **Difficulty**: Beginner
@@ -469,6 +483,7 @@ aws s3 website s3://my-bucket/ --index-document index.html --error-document erro
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you implement a cost-effective solution for processing large files uploaded to S3?
 
 **Difficulty**: Intermediate
@@ -495,6 +510,7 @@ This decouples the upload from processing and handles retries.
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you allow an EC2 instance to access an S3 bucket without hardcoding credentials?
 
 **Difficulty**: Intermediate
@@ -521,6 +537,7 @@ Attach an IAM Role to the EC2 instance. The SDK on the instance will automatical
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you create a DynamoDB table with a Global Secondary Index (GSI)?
 
 **Difficulty**: Intermediate
@@ -554,6 +571,7 @@ Define the `GlobalSecondaryIndexes` property in your CloudFormation template or 
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you implement an S3 Lifecycle Policy to move objects to Glacier?
 
 **Difficulty**: Intermediate
@@ -584,6 +602,7 @@ Use a Lifecycle Configuration on the bucket to transition objects to cheaper sto
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you configure a CloudFront distribution to serve a private S3 bucket?
 
 **Difficulty**: Advanced
@@ -615,6 +634,7 @@ Use Origin Access Control (OAC) or Origin Access Identity (OAI). Update the S3 B
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use SQS Visibility Timeout to handle processing failures?
 
 **Difficulty**: Intermediate
@@ -634,6 +654,7 @@ aws sqs receive-message \
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you implement a Lambda Layer to share code across functions?
 
 **Difficulty**: Intermediate
@@ -664,6 +685,7 @@ Resources:
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you protect an API Gateway endpoint with a Usage Plan and API Key?
 
 **Difficulty**: Intermediate
@@ -692,6 +714,7 @@ UsagePlan:
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you use Route 53 Failover Routing for Disaster Recovery?
 
 **Difficulty**: Advanced
@@ -723,6 +746,7 @@ Configure a Primary and Secondary record set. Associate a Health Check with the 
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you bootstrap an EC2 instance using User Data?
 
 **Difficulty**: Beginner
@@ -744,6 +768,7 @@ echo "<h1>Hello from $(hostname)</h1>" > /var/www/html/index.html
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you use VPC Endpoints to access AWS services privately?
 
 **Difficulty**: Advanced
@@ -766,6 +791,7 @@ resource "aws_vpc_endpoint" "s3" {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you rotate secrets automatically using AWS Secrets Manager?
 
 **Difficulty**: Intermediate
@@ -789,6 +815,7 @@ MySecretRotationSchedule:
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you use CloudWatch Alarms to trigger Auto Scaling actions?
 
 **Difficulty**: Intermediate
@@ -814,6 +841,7 @@ Create a CloudWatch Alarm based on a metric (e.g., CPUUtilization > 70%). Config
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you implement Cross-Region Replication (CRR) for an S3 bucket?
 
 **Difficulty**: Advanced
@@ -842,6 +870,7 @@ Enable Versioning on both source and destination buckets. Create a replication r
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you use DynamoDB Streams to trigger a Lambda function?
 
 **Difficulty**: Intermediate
@@ -863,6 +892,7 @@ aws lambda create-event-source-mapping \
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you ensure your EBS volumes are encrypted?
 
 **Difficulty**: Beginner
@@ -889,6 +919,7 @@ resource "aws_ebs_volume" "example" {
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you implement Rate Limiting using AWS WAF?
 
 **Difficulty**: Intermediate
@@ -916,6 +947,7 @@ Create a **Rate-based Rule** in your Web ACL. This tracks requests from each IP 
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you scale an Aurora database instantly for unpredictable workloads?
 
 **Difficulty**: Intermediate
@@ -940,6 +972,7 @@ resource "aws_rds_cluster" "default" {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you orchestrate a multi-step workflow with error handling?
 
 **Difficulty**: Intermediate
@@ -968,6 +1001,7 @@ Use **AWS Step Functions**. Define a state machine in ASL (Amazon States Languag
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you query CSV data stored in S3 without loading it into a database?
 
 **Difficulty**: Beginner
@@ -992,6 +1026,7 @@ SELECT * FROM orders WHERE amount > 100;
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you create an EKS Cluster using the command line?
 
 **Difficulty**: Intermediate
@@ -1017,6 +1052,7 @@ eksctl create cluster \
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you trigger a Lambda function on a schedule?
 
 **Difficulty**: Beginner
@@ -1043,6 +1079,7 @@ Use **Amazon EventBridge** (formerly CloudWatch Events) with a Schedule Rule (Cr
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you analyze CloudTrail logs for suspicious activity?
 
 **Difficulty**: Intermediate
@@ -1064,6 +1101,7 @@ ORDER BY eventTime DESC
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you ensure all S3 buckets are encrypted using AWS Config?
 
 **Difficulty**: Intermediate
@@ -1086,6 +1124,7 @@ aws configservice put-config-rule --config-rule '{
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you connect multiple VPCs together at scale?
 
 **Difficulty**: Advanced
@@ -1106,6 +1145,7 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "example" {
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you provide a static IP address for an application running in multiple regions?
 
 **Difficulty**: Advanced
@@ -1127,6 +1167,7 @@ resource "aws_globalaccelerator_accelerator" "example" {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you implement caching for a database to improve read performance?
 
 **Difficulty**: Intermediate
@@ -1149,6 +1190,7 @@ return val;
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you limit the maximum permissions a user or role can have?
 
 **Difficulty**: Advanced
@@ -1173,6 +1215,7 @@ aws iam create-user     --user-name Alice     --permissions-boundary arn:aws:iam
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you allow users to upload files directly to S3 securely?
 
 **Difficulty**: Intermediate
@@ -1195,6 +1238,7 @@ url = s3.generate_presigned_url(
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you handle user authentication for a mobile app?
 
 **Difficulty**: Intermediate
@@ -1224,6 +1268,7 @@ async function signUp() {
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you deploy a web application from source code without writing Dockerfiles?
 
 **Difficulty**: Beginner
@@ -1250,6 +1295,7 @@ run:
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you securely access EC2 instances without opening port 22 (SSH)?
 
 **Difficulty**: Intermediate
@@ -1271,6 +1317,7 @@ aws ssm start-session --target i-0123456789abcdef0
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you run a serverless ETL job?
 
 **Difficulty**: Intermediate
@@ -1296,6 +1343,7 @@ glueContext.write_dynamic_frame.from_options(frame = datasource0, connection_typ
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you serve private content via CloudFront?
 
 **Difficulty**: Advanced
@@ -1320,6 +1368,7 @@ url = signer.generate_presigned_url(url, date_less_than=expire_date)
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you mount a shared file system to multiple EC2 instances?
 
 **Difficulty**: Beginner
@@ -1340,6 +1389,7 @@ fs-12345678.efs.us-east-1.amazonaws.com:/ /mnt/efs nfs4 defaults,_netdev 0 0
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you create a private connection between your on-premises data center and VPC?
 
 **Difficulty**: Intermediate
@@ -1363,6 +1413,7 @@ resource "aws_vpn_connection" "main" {
 ---
 
 
+<a id="q51"></a>
 ### Q51: Difference between EC2 and Lambda?
 
 **Difficulty**: Beginner
@@ -1379,6 +1430,7 @@ EC2: Virtual servers (manage OS). Lambda: Serverless (run code only).
 
 ---
 
+<a id="q52"></a>
 ### Q52: What is VPC Peering?
 
 **Difficulty**: Intermediate
@@ -1395,6 +1447,7 @@ Connecting two VPCs to route traffic privately. This concept is fundamental in t
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you handle Lambda Cold Starts?
 
 **Difficulty**: Intermediate
@@ -1411,6 +1464,7 @@ Provisioned Concurrency or keep warm scripts. This concept is fundamental in thi
 
 ---
 
+<a id="q54"></a>
 ### Q54: S3 Consistency Model?
 
 **Difficulty**: Advanced
@@ -1427,6 +1481,7 @@ Strong consistency for PUTs of new objects and overwrites.
 
 ---
 
+<a id="q55"></a>
 ### Q55: DynamoDB GSI vs LSI?
 
 **Difficulty**: Advanced
@@ -1443,6 +1498,7 @@ LSI: Created at table creation, shares partition key. GSI: Created anytime, diff
 
 ---
 
+<a id="q56"></a>
 ### Q56: IAM Roles vs Policies?
 
 **Difficulty**: Beginner
@@ -1459,6 +1515,7 @@ Policy: Permissions document. Role: Identity that can be assumed.
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you secure S3 buckets?
 
 **Difficulty**: Intermediate
@@ -1475,6 +1532,7 @@ Block Public Access, Bucket Policies, KMS Encryption.
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is CloudFront?
 
 **Difficulty**: Beginner
@@ -1491,6 +1549,7 @@ CDN for low latency delivery. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q59"></a>
 ### Q59: ECS vs EKS?
 
 **Difficulty**: Intermediate
@@ -1507,6 +1566,7 @@ ECS: AWS native container orchestration. EKS: Managed Kubernetes.
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you monitor AWS resources?
 
 **Difficulty**: Beginner
@@ -1523,6 +1583,7 @@ CloudWatch (Logs, Metrics, Alarms). This concept is fundamental in this domain a
 
 ---
 
+<a id="q61"></a>
 ### Q61: What is Auto Scaling?
 
 **Difficulty**: Beginner
@@ -1539,6 +1600,7 @@ Adjusting capacity based on load. This concept is fundamental in this domain and
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you decouple services?
 
 **Difficulty**: Intermediate
@@ -1555,6 +1617,7 @@ Use SQS (Queue) or SNS (Pub/Sub). This concept is fundamental in this domain and
 
 ---
 
+<a id="q63"></a>
 ### Q63: What is Route 53?
 
 **Difficulty**: Beginner
@@ -1571,6 +1634,7 @@ DNS Web Service. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you manage infrastructure as code?
 
 **Difficulty**: Intermediate
@@ -1587,6 +1651,7 @@ CloudFormation, Terraform, or CDK. This concept is fundamental in this domain an
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is RDS Multi-AZ?
 
 **Difficulty**: Intermediate
@@ -1603,6 +1668,7 @@ Synchronous replication to standby for failover. This concept is fundamental in 
 
 ---
 
+<a id="q66"></a>
 ### Q66: Difference between SQS Standard and FIFO?
 
 **Difficulty**: Intermediate
@@ -1619,6 +1685,7 @@ Standard: At-least-once, best-effort order. FIFO: Exactly-once, strict order.
 
 ---
 
+<a id="q67"></a>
 ### Q67: What is API Gateway?
 
 **Difficulty**: Beginner
@@ -1635,6 +1702,7 @@ Entry point for APIs. Handles throttling, auth. This concept is fundamental in t
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you optimize AWS costs?
 
 **Difficulty**: Intermediate
@@ -1651,6 +1719,7 @@ Reserved Instances, Spot Instances, S3 Lifecycle policies.
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is Elastic Beanstalk?
 
 **Difficulty**: Beginner
@@ -1667,6 +1736,7 @@ PaaS for deploying apps. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Distributed Tracing?
 
 **Difficulty**: Advanced
@@ -1683,6 +1753,7 @@ X-Ray. This concept is fundamental in this domain and understanding it allows de
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is Secrets Manager?
 
 **Difficulty**: Intermediate
@@ -1699,6 +1770,7 @@ Rotates and manages secrets. This concept is fundamental in this domain and unde
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is Transit Gateway?
 
 **Difficulty**: Advanced
@@ -1715,6 +1787,7 @@ Hub to connect VPCs and on-prem networks. This concept is fundamental in this do
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you secure data at rest?
 
 **Difficulty**: Beginner
@@ -1731,6 +1804,7 @@ KMS (Key Management Service). This concept is fundamental in this domain and und
 
 ---
 
+<a id="q74"></a>
 ### Q74: What is Aurora?
 
 **Difficulty**: Intermediate
@@ -1747,6 +1821,7 @@ Cloud-native relational DB (MySQL/PG compatible). This concept is fundamental in
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is Cognito?
 
 **Difficulty**: Intermediate
@@ -1763,6 +1838,7 @@ User identity and authentication service. This concept is fundamental in this do
 
 ---
 
+<a id="q76"></a>
 ### Q76: How do you use Spot Instances?
 
 **Difficulty**: Intermediate
@@ -1779,6 +1855,7 @@ Bid for unused capacity. Handle interruptions. This concept is fundamental in th
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is Glacier?
 
 **Difficulty**: Beginner
@@ -1795,6 +1872,7 @@ Low-cost archive storage. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q78"></a>
 ### Q78: What is WAF?
 
 **Difficulty**: Intermediate
@@ -1811,6 +1889,7 @@ Web Application Firewall. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you connect on-prem to VPC?
 
 **Difficulty**: Intermediate
@@ -1827,6 +1906,7 @@ VPN or Direct Connect. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is Kinesis?
 
 **Difficulty**: Intermediate
@@ -1843,6 +1923,7 @@ Real-time data streaming. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q81"></a>
 ### Q81: Difference between NACL and Security Group?
 
 **Difficulty**: Advanced
@@ -1859,6 +1940,7 @@ SG: Stateful, Instance level. NACL: Stateless, Subnet level.
 
 ---
 
+<a id="q82"></a>
 ### Q82: What is CloudTrail?
 
 **Difficulty**: Beginner
@@ -1875,6 +1957,7 @@ Auditing service. Logs API calls. This concept is fundamental in this domain and
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you share AMI?
 
 **Difficulty**: Beginner
@@ -1891,6 +1974,7 @@ Modify permissions to share with account ID. This concept is fundamental in this
 
 ---
 
+<a id="q84"></a>
 ### Q84: What is EFS?
 
 **Difficulty**: Intermediate
@@ -1907,6 +1991,7 @@ Elastic File System (NFS). Shared storage. This concept is fundamental in this d
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Blue/Green deployment?
 
 **Difficulty**: Intermediate
@@ -1923,6 +2008,7 @@ Route 53 weighted routing or CodeDeploy. This concept is fundamental in this dom
 
 ---
 
+<a id="q86"></a>
 ### Q86: What is Step Functions?
 
 **Difficulty**: Intermediate
@@ -1939,6 +2025,7 @@ Serverless workflow orchestration. This concept is fundamental in this domain an
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you host a static website?
 
 **Difficulty**: Beginner
@@ -1955,6 +2042,7 @@ S3 Bucket + Static Website Hosting. This concept is fundamental in this domain a
 
 ---
 
+<a id="q88"></a>
 ### Q88: What is Global Accelerator?
 
 **Difficulty**: Advanced
@@ -1971,6 +2059,7 @@ Static IP entry point, traffic over AWS backbone. This concept is fundamental in
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you access private EC2?
 
 **Difficulty**: Intermediate
@@ -1987,6 +2076,7 @@ Bastion Host or SSM Session Manager. This concept is fundamental in this domain 
 
 ---
 
+<a id="q90"></a>
 ### Q90: What is Organizations?
 
 **Difficulty**: Intermediate
@@ -2003,6 +2093,7 @@ Manage multiple AWS accounts. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q91"></a>
 ### Q91: How do you implement caching in API Gateway?
 
 **Difficulty**: Intermediate
@@ -2019,6 +2110,7 @@ Enable Stage caching. This concept is fundamental in this domain and understandi
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is Fargate?
 
 **Difficulty**: Intermediate
@@ -2035,6 +2127,7 @@ Serverless compute for containers. This concept is fundamental in this domain an
 
 ---
 
+<a id="q93"></a>
 ### Q93: How do you validate CloudFormation?
 
 **Difficulty**: Beginner
@@ -2051,6 +2144,7 @@ $ aws cloudformation validate-template
 
 ---
 
+<a id="q94"></a>
 ### Q94: What is Athena?
 
 **Difficulty**: Intermediate
@@ -2067,6 +2161,7 @@ Query S3 data using SQL. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you restrict S3 access by IP?
 
 **Difficulty**: Intermediate
@@ -2083,6 +2178,7 @@ Bucket Policy with Condition IpAddress. This concept is fundamental in this doma
 
 ---
 
+<a id="q96"></a>
 ### Q96: What is Transfer Family?
 
 **Difficulty**: Intermediate
@@ -2099,6 +2195,7 @@ SFTP/FTPS support. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you handle DDOS?
 
 **Difficulty**: Intermediate
@@ -2115,6 +2212,7 @@ Shield Standard/Advanced + CloudFront + WAF. This concept is fundamental in this
 
 ---
 
+<a id="q98"></a>
 ### Q98: What is EventBridge?
 
 **Difficulty**: Intermediate
@@ -2131,6 +2229,7 @@ Serverless event bus. This concept is fundamental in this domain and understandi
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you copy S3 objects cross-region?
 
 **Difficulty**: Intermediate
@@ -2147,6 +2246,7 @@ Cross-Region Replication (CRR). This concept is fundamental in this domain and u
 
 ---
 
+<a id="q100"></a>
 ### Q100: What is AppSync?
 
 **Difficulty**: Intermediate

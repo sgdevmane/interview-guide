@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: You are integrating a third-party payment gateway (e.g., Stripe) and need to handle asynchronous webhooks. How do you secure and verify them?
 
 **Difficulty**: Intermediate
@@ -152,6 +153,7 @@ app.post('/webhook', express.raw({type: 'application/json'}), (request, response
 
 ---
 
+<a id="q2"></a>
 ### Q2: Your frontend application needs to aggregate data from multiple microservices (User, Order, Product) efficiently. How do you design this?
 
 **Difficulty**: Intermediate
@@ -181,6 +183,7 @@ const resolvers = {
 
 ---
 
+<a id="q3"></a>
 ### Q3: You are consuming an external REST API that has a strict rate limit (e.g., 100 requests/minute). How do you handle this in your application?
 
 **Difficulty**: Intermediate
@@ -215,6 +218,7 @@ async function callExternalApi() {
 
 ---
 
+<a id="q4"></a>
 ### Q4: You need to integrate a legacy SOAP service into a modern React application. The SOAP service uses XML. How do you approach this?
 
 **Difficulty**: Intermediate
@@ -243,6 +247,7 @@ app.post('/api/convert', (req, res) => {
 
 ---
 
+<a id="q5"></a>
 ### Q5: Your application integrates with a partner API that is frequently unstable (500 errors, timeouts). How do you prevent this from crashing your system?
 
 **Difficulty**: Advanced
@@ -269,6 +274,7 @@ breaker.fire('some-arg')
 
 ---
 
+<a id="q6"></a>
 ### Q6: You are designing an API that needs to support multiple versions (v1, v2) simultaneously. How do you implement versioning?
 
 **Difficulty**: Intermediate
@@ -296,6 +302,7 @@ router.get('/users', (req, res) => {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you handle Distributed Transactions across multiple microservices (e.g., Order Service, Inventory Service)?
 
 **Difficulty**: Advanced
@@ -325,6 +332,7 @@ async function createOrder(order) {
 
 ---
 
+<a id="q8"></a>
 ### Q8: You are building a webhook system where your platform sends events to user-defined URLs. How do you handle failures/retries?
 
 **Difficulty**: Intermediate
@@ -352,6 +360,7 @@ async function sendWebhook(url, payload, attempt = 1) {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you decide between 'Push' (Webhooks) and 'Pull' (Polling) integration models?
 
 **Difficulty**: Beginner
@@ -370,6 +379,7 @@ Use **Push (Webhooks)** for real-time updates and to reduce server load (no wast
 
 ---
 
+<a id="q10"></a>
 ### Q10: You are integrating with a third-party API that uses OAuth 2.0. Your background worker needs to access data without user interaction. Which flow do you use?
 
 **Difficulty**: Intermediate
@@ -395,6 +405,7 @@ const token = response.data.access_token;
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you handle 'Idempotency' when building a financial transaction API?
 
 **Difficulty**: Advanced
@@ -421,6 +432,7 @@ res.json(result);
 
 ---
 
+<a id="q12"></a>
 ### Q12: You need to transfer large files (GBs) between two systems. A standard REST API with Base64 encoding is failing. How do you fix this?
 
 **Difficulty**: Intermediate
@@ -445,6 +457,7 @@ await axios.post('https://api.upload.com', stream, {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you implement 'Contract Testing' to ensure your microservices integration doesn't break when API changes?
 
 **Difficulty**: Advanced
@@ -469,6 +482,7 @@ provider.addInteraction({
 
 ---
 
+<a id="q14"></a>
 ### Q14: You are designing a public API. How do you implement Offset-based vs Cursor-based Pagination?
 
 **Difficulty**: Intermediate
@@ -491,6 +505,7 @@ LIMIT 10;
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you secure an internal API that is only meant to be accessed by other internal services within a cluster?
 
 **Difficulty**: Advanced
@@ -520,6 +535,7 @@ spec:
 
 ---
 
+<a id="q16"></a>
 ### Q16: What is the difference between Orchestration and Choreography in Microservices?
 
 **Difficulty**: Intermediate
@@ -540,6 +556,7 @@ await eventBus.publish('OrderCreated', { orderId: 123 });
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you implement Authorization Code Flow with PKCE for mobile apps?
 
 **Difficulty**: Advanced
@@ -561,6 +578,7 @@ window.location = `/authorize?code_challenge=${challenge}`;
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you choose between gRPC, REST, and GraphQL?
 
 **Difficulty**: Intermediate
@@ -582,6 +600,7 @@ service OrderService {
 
 ---
 
+<a id="q19"></a>
 ### Q19: What is the Bulkhead Pattern and why use it?
 
 **Difficulty**: Advanced
@@ -600,6 +619,7 @@ const userPool = new Semaphore(50); // Max 50 concurrent user requests
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you implement Retry with Exponential Backoff and Jitter?
 
 **Difficulty**: Intermediate
@@ -618,6 +638,7 @@ await sleep(delay + jitter);
 
 ---
 
+<a id="q21"></a>
 ### Q21: JWT vs Session Authentication: When to use which?
 
 **Difficulty**: Intermediate
@@ -636,6 +657,7 @@ await sleep(delay + jitter);
 
 ---
 
+<a id="q22"></a>
 ### Q22: What are the common Database Sharding strategies?
 
 **Difficulty**: Advanced
@@ -656,6 +678,7 @@ const connection = shardConnections[shardId];
 
 ---
 
+<a id="q23"></a>
 ### Q23: Explain Cache-Aside vs Write-Through caching.
 
 **Difficulty**: Intermediate
@@ -678,6 +701,7 @@ if (!value) {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you handle Poison Messages in a Queue?
 
 **Difficulty**: Intermediate
@@ -699,6 +723,7 @@ try {
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you ensure Idempotency in a Message Consumer?
 
 **Difficulty**: Advanced
@@ -720,6 +745,7 @@ await db.transaction(async () => {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How does Distributed Tracing work with Context Propagation?
 
 **Difficulty**: Advanced
@@ -738,6 +764,7 @@ fetch(url, { headers });
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you prevent SQL Injection?
 
 **Difficulty**: Beginner
@@ -758,6 +785,7 @@ db.query('SELECT * FROM users WHERE id = ' + userInput);
 
 ---
 
+<a id="q28"></a>
 ### Q28: What is the difference between Horizontal and Vertical Scaling?
 
 **Difficulty**: Beginner
@@ -775,6 +803,7 @@ db.query('SELECT * FROM users WHERE id = ' + userInput);
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you implement Content Negotiation?
 
 **Difficulty**: Intermediate
@@ -793,6 +822,7 @@ else if (format === 'xml') res.send(toXML(data));
 
 ---
 
+<a id="q30"></a>
 ### Q30: What is Chaos Engineering?
 
 **Difficulty**: Advanced
@@ -812,6 +842,7 @@ if (Math.random() < 0.1) {
 
 ---
 
+<a id="q31"></a>
 ### Q31: Batch Processing vs Stream Processing: When to use which?
 
 **Difficulty**: Intermediate
@@ -830,6 +861,7 @@ consumer.on('message', processRealTime);
 
 ---
 
+<a id="q32"></a>
 ### Q32: WebSockets vs Server-Sent Events (SSE)?
 
 **Difficulty**: Intermediate
@@ -849,6 +881,7 @@ evtSource.onmessage = (e) => console.log(e.data);
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is the difference between RBAC and ABAC?
 
 **Difficulty**: Advanced
@@ -869,6 +902,7 @@ if (user.role === 'employee' && resource.owner === user.id && time < 1800) {
 
 ---
 
+<a id="q34"></a>
 ### Q34: Why is Connection Pooling important?
 
 **Difficulty**: Intermediate
@@ -887,6 +921,7 @@ try { ... } finally { client.release(); }
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you generate unique IDs in a distributed system (Snowflake)?
 
 **Difficulty**: Advanced
@@ -903,6 +938,7 @@ Use an algorithm like Twitter Snowflake. It combines Timestamp + Machine ID + Se
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you implement Sticky Sessions (Session Affinity)?
 
 **Difficulty**: Intermediate
@@ -924,6 +960,7 @@ upstream backend {
 
 ---
 
+<a id="q37"></a>
 ### Q37: What is a Reverse Proxy and why use it?
 
 **Difficulty**: Beginner
@@ -943,6 +980,7 @@ location / {
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you handle Cross-Site Request Forgery (CSRF)?
 
 **Difficulty**: Intermediate
@@ -960,6 +998,7 @@ headers['X-CSRF-Token'] = cookieToken;
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you prevent Cross-Site Scripting (XSS)?
 
 **Difficulty**: Intermediate
@@ -977,6 +1016,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self' https://trusted.c
 
 ---
 
+<a id="q40"></a>
 ### Q40: What is a Dead Letter Queue (DLQ)?
 
 **Difficulty**: Beginner
@@ -997,6 +1037,7 @@ RedrivePolicy: {
 
 ---
 
+<a id="q41"></a>
 ### Q41: What is Request Coalescing?
 
 **Difficulty**: Advanced
@@ -1014,6 +1055,7 @@ proxy_cache_lock on;
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you implement API Rate Limiting with Sliding Window?
 
 **Difficulty**: Advanced
@@ -1032,6 +1074,7 @@ const count = redis.zcard(key);
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you design for High Availability (HA)?
 
 **Difficulty**: Intermediate
@@ -1048,6 +1091,7 @@ Eliminate single points of failure. Use redundancy (multiple instances), Load Ba
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is the difference between Forward Proxy and Reverse Proxy?
 
 **Difficulty**: Beginner
@@ -1066,6 +1110,7 @@ Eliminate single points of failure. Use redundancy (multiple instances), Load Ba
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you handle Schema Evolution in Avro/Protobuf?
 
 **Difficulty**: Advanced
@@ -1085,6 +1130,7 @@ string name = 1; // OK
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you implement Distributed Locking?
 
 **Difficulty**: Advanced
@@ -1102,6 +1148,7 @@ SET resource_name my_random_value NX PX 30000
 
 ---
 
+<a id="q47"></a>
 ### Q47: What is a Bloom Filter and when to use it?
 
 **Difficulty**: Advanced
@@ -1122,6 +1169,7 @@ if (bloom.contains(key)) {
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you implement Soft Delete?
 
 **Difficulty**: Beginner
@@ -1138,6 +1186,7 @@ SELECT * FROM users WHERE deleted_at IS NULL;
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you optimize database queries with Indexes?
 
 **Difficulty**: Intermediate
@@ -1154,6 +1203,7 @@ CREATE INDEX idx_users_email ON users(email);
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you implement Audit Logging?
 
 **Difficulty**: Intermediate
@@ -1176,6 +1226,7 @@ logger.info({
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Integration state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1192,6 +1243,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Integration data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1208,6 +1260,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Integration deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1226,6 +1279,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Integration concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1244,6 +1298,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Integration caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1261,6 +1316,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Integration configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1277,6 +1333,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Integration internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1293,6 +1350,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Integration accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1309,6 +1367,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Integration network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1325,6 +1384,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Integration performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1344,6 +1404,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Integration in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1361,6 +1422,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Integration memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1378,6 +1440,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Integration code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1395,6 +1458,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Integration error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1415,6 +1479,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Integration functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1433,6 +1498,7 @@ test('Integration works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Integration state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1449,6 +1515,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Integration data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1465,6 +1532,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Integration deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1483,6 +1551,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Integration concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1501,6 +1570,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Integration caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1518,6 +1588,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Integration configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1534,6 +1605,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Integration internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1550,6 +1622,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Integration accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1566,6 +1639,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Integration network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1582,6 +1656,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Integration performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1601,6 +1676,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Integration in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1618,6 +1694,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Integration memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1635,6 +1712,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Integration code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1652,6 +1730,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Integration error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1672,6 +1751,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Integration functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1690,6 +1770,7 @@ test('Integration works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Integration state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1706,6 +1787,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Integration data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1722,6 +1804,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Integration deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1740,6 +1823,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Integration concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1758,6 +1842,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Integration caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1775,6 +1860,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Integration configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1791,6 +1877,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Integration internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1807,6 +1894,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Integration accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1823,6 +1911,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Integration network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1839,6 +1928,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Integration performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1858,6 +1948,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Integration in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1875,6 +1966,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Integration memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1892,6 +1984,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Integration code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1909,6 +2002,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Integration error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1929,6 +2023,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Integration functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1947,6 +2042,7 @@ test('Integration works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Integration state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1963,6 +2059,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Integration data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1979,6 +2076,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Integration deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1997,6 +2095,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Integration concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2015,6 +2114,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Integration caching in production environments?
 
 **Difficulty**: Intermediate

@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you prevent memory leaks in Modern C++ using RAII?
 
 **Difficulty**: Beginner
@@ -141,6 +142,7 @@ void process() {
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you implement Move Semantics to optimize performance when returning large objects?
 
 **Difficulty**: Intermediate
@@ -172,6 +174,7 @@ Buffer createBuffer() {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you resolve circular dependencies when using `std::shared_ptr`?
 
 **Difficulty**: Intermediate
@@ -199,6 +202,7 @@ void link(std::shared_ptr<Node> a, std::shared_ptr<Node> b) {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you use `std::async` to run a task asynchronously and retrieve the result?
 
 **Difficulty**: Intermediate
@@ -229,6 +233,7 @@ void main() {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you use `if constexpr` to optimize template code at compile time?
 
 **Difficulty**: Advanced
@@ -255,6 +260,7 @@ void print(T value) {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you ensure thread safety when accessing a shared variable without using heavy mutexes?
 
 **Difficulty**: Advanced
@@ -280,6 +286,7 @@ void increment() {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you implement Perfect Forwarding in a template function?
 
 **Difficulty**: Advanced
@@ -303,6 +310,7 @@ void wrapper(T&& arg) {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you handle multiple return values from a function efficiently?
 
 **Difficulty**: Intermediate
@@ -328,6 +336,7 @@ void main() {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you avoid Virtual Function overhead (dynamic dispatch) when polymorphism is needed?
 
 **Difficulty**: Expert
@@ -358,6 +367,7 @@ public:
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you use `std::variant` to create a type-safe union?
 
 **Difficulty**: Intermediate
@@ -386,6 +396,7 @@ std::visit(Visitor{}, v);
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you prevent 'Object Slicing' when passing derived objects to functions?
 
 **Difficulty**: Beginner
@@ -412,6 +423,7 @@ void process(const Base& b) { ... }
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you use `std::optional` to handle values that might not exist?
 
 **Difficulty**: Intermediate
@@ -441,6 +453,7 @@ void main() {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you optimize vector growth to avoid frequent reallocations?
 
 **Difficulty**: Beginner
@@ -465,6 +478,7 @@ for(int i=0; i<1000; ++i) {
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you debug a segmentation fault caused by a dangling pointer?
 
 **Difficulty**: Intermediate
@@ -491,6 +505,7 @@ g++ -fsanitize=address -g main.cpp -o main
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you ensure a destructor in a base class allows proper cleanup of derived classes?
 
 **Difficulty**: Beginner
@@ -517,6 +532,7 @@ class Derived : public Base {
 
 ---
 
+<a id="q16"></a>
 ### Q16: What is the difference between std::unique_ptr and std::shared_ptr?
 
 **Difficulty**: Intermediate
@@ -542,6 +558,7 @@ void example() {
 
 ---
 
+<a id="q17"></a>
 ### Q17: When should you choose std::map over std::unordered_map?
 
 **Difficulty**: Intermediate
@@ -570,6 +587,7 @@ void example() {
 
 ---
 
+<a id="q18"></a>
 ### Q18: How does const_cast work and when should you avoid it?
 
 **Difficulty**: Intermediate
@@ -597,6 +615,7 @@ void example() {
 
 ---
 
+<a id="q19"></a>
 ### Q19: What is the purpose of the volatile keyword?
 
 **Difficulty**: Advanced
@@ -620,6 +639,7 @@ void wait_for_flag() {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you use a custom deleter with std::unique_ptr?
 
 **Difficulty**: Advanced
@@ -648,6 +668,7 @@ void example() {
 
 ---
 
+<a id="q21"></a>
 ### Q21: What is Template Specialization?
 
 **Difficulty**: Intermediate
@@ -680,6 +701,7 @@ void example() {
 
 ---
 
+<a id="q22"></a>
 ### Q22: How does SFINAE work?
 
 **Difficulty**: Advanced
@@ -714,6 +736,7 @@ void example() {
 
 ---
 
+<a id="q23"></a>
 ### Q23: What does std::move actually do?
 
 **Difficulty**: Intermediate
@@ -739,6 +762,7 @@ void example() {
 
 ---
 
+<a id="q24"></a>
 ### Q24: When should you use std::function over function pointers?
 
 **Difficulty**: Intermediate
@@ -768,6 +792,7 @@ void example() {
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do lambda captures work?
 
 **Difficulty**: Beginner
@@ -797,6 +822,7 @@ void example() {
 
 ---
 
+<a id="q26"></a>
 ### Q26: What are Structured Bindings (C++17)?
 
 **Difficulty**: Beginner
@@ -825,6 +851,7 @@ void example() {
 
 ---
 
+<a id="q27"></a>
 ### Q27: Why use std::string_view (C++17)?
 
 **Difficulty**: Intermediate
@@ -854,6 +881,7 @@ void example() {
 
 ---
 
+<a id="q28"></a>
 ### Q28: What is the difference between constexpr and consteval (C++20)?
 
 **Difficulty**: Intermediate
@@ -878,6 +906,7 @@ void example() {
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is Uniform Initialization?
 
 **Difficulty**: Beginner
@@ -909,6 +938,7 @@ void example() {
 
 ---
 
+<a id="q30"></a>
 ### Q30: Why are Virtual Destructors important?
 
 **Difficulty**: Intermediate
@@ -943,6 +973,7 @@ void example() {
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you use C++20 Concepts to constrain template parameters?
 
 **Difficulty**: Intermediate
@@ -983,6 +1014,7 @@ int main() {
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you use `std::jthread` (C++20) for automatic joining?
 
 **Difficulty**: Beginner
@@ -1017,6 +1049,7 @@ int main() {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you use the C++20 Ranges library for pipeline operations?
 
 **Difficulty**: Intermediate
@@ -1050,6 +1083,7 @@ int main() {
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you implement the Observer pattern using `std::function`?
 
 **Difficulty**: Advanced
@@ -1098,6 +1132,7 @@ int main() {
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you use `std::span` (C++20) to pass contiguous memory safely?
 
 **Difficulty**: Intermediate
@@ -1134,6 +1169,7 @@ int main() {
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you use `std::atomic_flag` for a spinlock?
 
 **Difficulty**: Advanced
@@ -1173,6 +1209,7 @@ int main() {
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you perform compile-time string hashing?
 
 **Difficulty**: Advanced
@@ -1203,6 +1240,7 @@ int main() {
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you use `std::any` to store values of any type?
 
 **Difficulty**: Intermediate
@@ -1235,6 +1273,7 @@ int main() {
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you implement the Pimpl (Pointer to Implementation) idiom?
 
 **Difficulty**: Advanced
@@ -1275,6 +1314,7 @@ void Widget::doSomething() { pImpl->work(); }
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use `std::reduce` for parallel accumulation?
 
 **Difficulty**: Advanced
@@ -1303,6 +1343,7 @@ int main() {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you avoid Small String Optimization (SSO) pitfalls?
 
 **Difficulty**: Expert
@@ -1333,6 +1374,7 @@ int main() {
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you use `std::filesystem` to traverse directories?
 
 **Difficulty**: Beginner
@@ -1364,6 +1406,7 @@ int main() {
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you use `std::visit` with `std::variant`?
 
 **Difficulty**: Intermediate
@@ -1395,6 +1438,7 @@ int main() {
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you implement a thread-safe Singleton in C++11?
 
 **Difficulty**: Intermediate
@@ -1428,6 +1472,7 @@ int main() {
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you use `std::format` (C++20) for string formatting?
 
 **Difficulty**: Beginner
@@ -1457,6 +1502,7 @@ int main() {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you use `std::source_location` for logging?
 
 **Difficulty**: Intermediate
@@ -1486,6 +1532,7 @@ int main() {
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you implement the Factory Pattern with unique_ptr?
 
 **Difficulty**: Intermediate
@@ -1528,6 +1575,7 @@ int main() {
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you use `std::bit_cast` for type punning?
 
 **Difficulty**: Advanced
@@ -1555,6 +1603,7 @@ int main() {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use `std::latch` for thread synchronization?
 
 **Difficulty**: Intermediate
@@ -1591,6 +1640,7 @@ int main() {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you detect memory leaks with Valgrind?
 
 **Difficulty**: Beginner
@@ -1625,6 +1675,7 @@ int main() {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+<a id="q51"></a>
 ### Q51: How do you handle C++ state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1641,6 +1692,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform C++ data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1657,6 +1709,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate C++ deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1675,6 +1728,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle C++ concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1693,6 +1747,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement C++ caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1710,6 +1765,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage C++ configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1726,6 +1782,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle C++ internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1742,6 +1799,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure C++ accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1758,6 +1816,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize C++ network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1774,6 +1833,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle C++ performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1793,6 +1853,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of C++ in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1810,6 +1871,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug C++ memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1827,6 +1889,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for C++ code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1844,6 +1907,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement C++ error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1864,6 +1928,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test C++ functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1882,6 +1947,7 @@ test('C++ works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle C++ state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1898,6 +1964,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform C++ data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1914,6 +1981,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate C++ deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1932,6 +2000,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle C++ concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1950,6 +2019,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement C++ caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1967,6 +2037,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage C++ configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1983,6 +2054,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle C++ internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1999,6 +2071,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure C++ accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -2015,6 +2088,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize C++ network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -2031,6 +2105,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle C++ performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -2050,6 +2125,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of C++ in real-time systems?
 
 **Difficulty**: Intermediate
@@ -2067,6 +2143,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug C++ memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -2084,6 +2161,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for C++ code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2101,6 +2179,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement C++ error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -2121,6 +2200,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test C++ functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -2139,6 +2219,7 @@ test('C++ works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle C++ state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -2155,6 +2236,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform C++ data validation in microservices?
 
 **Difficulty**: Beginner
@@ -2171,6 +2253,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate C++ deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -2189,6 +2272,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle C++ concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -2207,6 +2291,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement C++ caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2224,6 +2309,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage C++ configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -2240,6 +2326,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle C++ internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -2256,6 +2343,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure C++ accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2272,6 +2360,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize C++ network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2288,6 +2377,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle C++ performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2307,6 +2397,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of C++ in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2324,6 +2415,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug C++ memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2341,6 +2433,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for C++ code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2358,6 +2451,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement C++ error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2378,6 +2472,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test C++ functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2396,6 +2491,7 @@ test('C++ works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle C++ state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2412,6 +2508,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform C++ data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2428,6 +2525,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate C++ deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2446,6 +2544,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle C++ concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2464,6 +2563,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement C++ caching in production environments?
 
 **Difficulty**: Intermediate

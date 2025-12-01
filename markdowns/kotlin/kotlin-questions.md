@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you prevent blocking the Main Thread when performing network operations in Kotlin?
 
 **Difficulty**: Beginner
@@ -142,6 +143,7 @@ fun loadData() {
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you choose between `val`, `var`, `const val`, and `lateinit var`?
 
 **Difficulty**: Beginner
@@ -168,6 +170,7 @@ class Service {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you use Sealed Classes to model UI state effectively?
 
 **Difficulty**: Intermediate
@@ -198,6 +201,7 @@ fun render(state: UiState) {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you safely handle null values without using the `!!` operator?
 
 **Difficulty**: Beginner
@@ -225,6 +229,7 @@ val len = name?.length ?: return
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you optimize collection processing using Sequences?
 
 **Difficulty**: Intermediate
@@ -252,6 +257,7 @@ list.asSequence()
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you implement the Singleton pattern in Kotlin?
 
 **Difficulty**: Beginner
@@ -276,6 +282,7 @@ DatabaseConnection.connect()
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you extend a class functionality without inheriting from it (Extension Functions)?
 
 **Difficulty**: Intermediate
@@ -299,6 +306,7 @@ val clean = "Hello World".removeSpaces() // "HelloWorld"
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you use `StateFlow` vs `SharedFlow` for event handling?
 
 **Difficulty**: Advanced
@@ -324,6 +332,7 @@ val events = _events.asSharedFlow()
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you delegate property logic using the `by` keyword?
 
 **Difficulty**: Intermediate
@@ -350,6 +359,7 @@ var user: User by Delegates.observable(initialUser) { prop, old, new ->
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you handle structured concurrency to ensure no coroutines leak?
 
 **Difficulty**: Advanced
@@ -375,6 +385,7 @@ suspend fun loadTwoThings() = coroutineScope {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you access the reified type parameter in an inline function?
 
 **Difficulty**: Advanced
@@ -398,6 +409,7 @@ val user: User = parseJson(jsonString)
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you filter a list of objects and return a new list containing only non-null results?
 
 **Difficulty**: Beginner
@@ -418,6 +430,7 @@ val numbers = inputs.mapNotNull { it.toIntOrNull() }
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you create a Domain Specific Language (DSL) in Kotlin?
 
 **Difficulty**: Expert
@@ -450,6 +463,7 @@ html {
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you use Destructuring Declarations to return multiple values?
 
 **Difficulty**: Beginner
@@ -475,6 +489,7 @@ fun main() {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you choose between `apply`, `also`, `let`, `run`, and `with`?
 
 **Difficulty**: Intermediate
@@ -505,6 +520,7 @@ val len = str?.let {
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you use `value class` (Inline Classes) to optimize memory?
 
 **Difficulty**: Intermediate
@@ -525,6 +541,7 @@ fun login(p: Password) {}
 
 ---
 
+<a id="q17"></a>
 ### Q17: What is the difference between `sealed class` and `sealed interface`?
 
 **Difficulty**: Intermediate
@@ -546,6 +563,7 @@ class ComplexError : Error, Serializable
 
 ---
 
+<a id="q18"></a>
 ### Q18: When should you use `init` blocks?
 
 **Difficulty**: Beginner
@@ -566,6 +584,7 @@ class User(val name: String) {
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you make Kotlin code Java-friendly using `@JvmStatic` and `@JvmOverloads`?
 
 **Difficulty**: Intermediate
@@ -590,6 +609,7 @@ object Utils {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you optimize recursion using `tailrec`?
 
 **Difficulty**: Intermediate
@@ -608,6 +628,7 @@ tailrec fun factorial(n: Int, run: Int = 1): Int {
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you create readable DSL-like code using `infix` functions?
 
 **Difficulty**: Intermediate
@@ -627,6 +648,7 @@ val result = 3 times "Hello " // "Hello Hello Hello "
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you overload operators (e.g., `+`, `[]`)?
 
 **Difficulty**: Intermediate
@@ -649,6 +671,7 @@ val p3 = p1 + p2 // Point(4, 6)
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you validate arguments using `check`, `require`, and `assert`?
 
 **Difficulty**: Beginner
@@ -670,6 +693,7 @@ fun setAge(age: Int) {
 
 ---
 
+<a id="q24"></a>
 ### Q24: What is the difference between `runBlocking` and `coroutineScope`?
 
 **Difficulty**: Intermediate
@@ -692,6 +716,7 @@ suspend fun work() = coroutineScope { // Suspends
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you handle Flow emissions with `collect` vs `collectLatest`?
 
 **Difficulty**: Advanced
@@ -712,6 +737,7 @@ flow.collectLatest { value ->
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you convert a callback-based API to a Flow (`callbackFlow`)?
 
 **Difficulty**: Advanced
@@ -734,6 +760,7 @@ fun getLocationFlow(): Flow<Location> = callbackFlow {
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you ensure thread safety using `Mutex`?
 
 **Difficulty**: Advanced
@@ -757,6 +784,7 @@ suspend fun increment() {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you handle exceptions in Coroutines globally?
 
 **Difficulty**: Advanced
@@ -776,6 +804,7 @@ val scope = CoroutineScope(Job() + handler)
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you use `SupervisorJob` to prevent failure propagation?
 
 **Difficulty**: Advanced
@@ -798,6 +827,7 @@ scope.launch {
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you define multiplatform code using `expect` and `actual`?
 
 **Difficulty**: Intermediate
@@ -821,6 +851,7 @@ actual fun getPlatformName(): String = "iOS"
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you generate a Sequence using `sequence { yield }`?
 
 **Difficulty**: Intermediate
@@ -847,6 +878,7 @@ println(fibonacci.take(5).toList())
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you use `Nothing` type to represent unreachable code?
 
 **Difficulty**: Intermediate
@@ -868,6 +900,7 @@ val data = nullableData ?: fail("Data is null")
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is a `typealias` and when to use it?
 
 **Difficulty**: Beginner
@@ -886,6 +919,7 @@ fun register(h: Handler) {}
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you control backing fields using the `field` identifier?
 
 **Difficulty**: Intermediate
@@ -905,6 +939,7 @@ var counter = 0
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you prevent a lambda parameter from being inlined (`noinline`, `crossinline`)?
 
 **Difficulty**: Advanced
@@ -924,6 +959,7 @@ inline fun execute(crossinline task: () -> Unit) {
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you use Contracts to help the compiler with smart casts?
 
 **Difficulty**: Advanced
@@ -950,6 +986,7 @@ if (isValid(name)) {
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you use Functional (SAM) interfaces?
 
 **Difficulty**: Intermediate
@@ -970,6 +1007,7 @@ val isEven = Predicate { it % 2 == 0 }
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you use Destructuring in lambdas?
 
 **Difficulty**: Beginner
@@ -988,6 +1026,7 @@ map.forEach { (key, value) ->
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you use Receiver Functions (`String.() -> Unit`)?
 
 **Difficulty**: Advanced
@@ -1010,6 +1049,7 @@ sb.buildString()
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you delegate properties to a Map?
 
 **Difficulty**: Intermediate
@@ -1029,6 +1069,7 @@ class User(val map: Map<String, Any?>) {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you perform bitwise operations in Kotlin?
 
 **Difficulty**: Beginner
@@ -1047,6 +1088,7 @@ val result = flags and mask // 0b0010
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is Covariance (`out`) and Contravariance (`in`)?
 
 **Difficulty**: Advanced
@@ -1065,6 +1107,7 @@ interface Sink<in T> { fun put(x: T) }
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you use `Dispatchers.Unconfined`?
 
 **Difficulty**: Advanced
@@ -1085,6 +1128,7 @@ launch(Dispatchers.Unconfined) {
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you buffer a Flow?
 
 **Difficulty**: Intermediate
@@ -1101,6 +1145,7 @@ flow.buffer().collect { ... }
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you combine multiple Flows (`zip`, `combine`)?
 
 **Difficulty**: Intermediate
@@ -1118,6 +1163,7 @@ flowA.combine(flowB) { a, b -> "$a-$b" }
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you use `ConflatedBroadcastChannel` (or `StateFlow`)?
 
 **Difficulty**: Advanced
@@ -1135,6 +1181,7 @@ shared.tryEmit(1)
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you mock final classes in Kotlin with Mockito?
 
 **Difficulty**: Intermediate
@@ -1152,6 +1199,7 @@ testImplementation "org.mockito:mockito-inline:4.0.0"
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you use `measureTimeMillis` for benchmarking?
 
 **Difficulty**: Beginner
@@ -1171,6 +1219,7 @@ println("Took $time ms")
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you create a singleton with arguments?
 
 **Difficulty**: Intermediate
@@ -1192,6 +1241,7 @@ class Singleton private constructor(val arg: String) {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you use `remember` in Jetpack Compose (Kotlin context)?
 
 **Difficulty**: Intermediate
@@ -1212,6 +1262,7 @@ fun MyWidget() {
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Kotlin state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1228,6 +1279,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Kotlin data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1244,6 +1296,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Kotlin deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1262,6 +1315,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Kotlin concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1280,6 +1334,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Kotlin caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1297,6 +1352,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Kotlin configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1313,6 +1369,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Kotlin internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1329,6 +1386,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Kotlin accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1345,6 +1403,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Kotlin network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1361,6 +1420,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Kotlin performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1380,6 +1440,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Kotlin in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1397,6 +1458,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Kotlin memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1414,6 +1476,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Kotlin code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1431,6 +1494,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Kotlin error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1451,6 +1515,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Kotlin functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1469,6 +1534,7 @@ test('Kotlin works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Kotlin state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1485,6 +1551,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Kotlin data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1501,6 +1568,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Kotlin deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1519,6 +1587,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Kotlin concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1537,6 +1606,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Kotlin caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1554,6 +1624,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Kotlin configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1570,6 +1641,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Kotlin internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1586,6 +1658,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Kotlin accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1602,6 +1675,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Kotlin network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1618,6 +1692,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Kotlin performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1637,6 +1712,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Kotlin in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1654,6 +1730,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Kotlin memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1671,6 +1748,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Kotlin code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1688,6 +1766,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Kotlin error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1708,6 +1787,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Kotlin functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1726,6 +1806,7 @@ test('Kotlin works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Kotlin state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1742,6 +1823,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Kotlin data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1758,6 +1840,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Kotlin deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1776,6 +1859,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Kotlin concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1794,6 +1878,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Kotlin caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1811,6 +1896,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Kotlin configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1827,6 +1913,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Kotlin internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1843,6 +1930,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Kotlin accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1859,6 +1947,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Kotlin network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1875,6 +1964,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Kotlin performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1894,6 +1984,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Kotlin in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1911,6 +2002,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Kotlin memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1928,6 +2020,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Kotlin code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1945,6 +2038,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Kotlin error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1965,6 +2059,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Kotlin functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1983,6 +2078,7 @@ test('Kotlin works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Kotlin state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1999,6 +2095,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Kotlin data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2015,6 +2112,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Kotlin deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2033,6 +2131,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Kotlin concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2051,6 +2150,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Kotlin caching in production environments?
 
 **Difficulty**: Intermediate

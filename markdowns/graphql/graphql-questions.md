@@ -107,6 +107,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: Difference between Query and Mutation?
 
 **Difficulty**: Beginner
@@ -124,6 +125,7 @@ mutation { createUser(name: "Bob") { id } }
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you solve the N+1 problem in GraphQL?
 
 **Difficulty**: Advanced
@@ -140,6 +142,7 @@ const userLoader = new DataLoader(keys => db.batchGetUsers(keys));
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you handle error handling in GraphQL?
 
 **Difficulty**: Intermediate
@@ -156,6 +159,7 @@ union RegisterResult = User | UserError
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement pagination in GraphQL?
 
 **Difficulty**: Intermediate
@@ -172,6 +176,7 @@ users(first: 10, after: "cursor") { edges { node { name } } }
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you secure a GraphQL API?
 
 **Difficulty**: Advanced
@@ -188,6 +193,7 @@ validationRules: [depthLimit(10)]
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you use Fragments?
 
 **Difficulty**: Beginner
@@ -204,6 +210,7 @@ fragment UserFields on User { id name }
 
 ---
 
+<a id="q7"></a>
 ### Q7: What are Subscriptions?
 
 **Difficulty**: Intermediate
@@ -220,6 +227,7 @@ subscription { messageAdded { text } }
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you handle file uploads?
 
 **Difficulty**: Intermediate
@@ -237,6 +245,7 @@ mutation($file: Upload!) { uploadFile(file: $file) }
 
 ---
 
+<a id="q9"></a>
 ### Q9: Schema First vs Code First?
 
 **Difficulty**: Intermediate
@@ -254,6 +263,7 @@ t.field('name', { type: 'String' })
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you deprecate a field?
 
 **Difficulty**: Beginner
@@ -270,6 +280,7 @@ fullname: String @deprecated(reason: "Use 'name' instead")
 
 ---
 
+<a id="q11"></a>
 ### Q11: What are Directives in GraphQL?
 
 **Difficulty**: Intermediate
@@ -286,6 +297,7 @@ query { hero(episode: JEDI) { name @include(if: $withFriends) } }
 
 ---
 
+<a id="q12"></a>
 ### Q12: What is Over-fetching and Under-fetching?
 
 **Difficulty**: Beginner
@@ -302,6 +314,7 @@ Over-fetching: Downloading more data than needed. Under-fetching: Downloading le
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you handle Authentication in GraphQL?
 
 **Difficulty**: Intermediate
@@ -318,6 +331,7 @@ const context = ({ req }) => { const user = getUser(req); return { user }; }
 
 ---
 
+<a id="q14"></a>
 ### Q14: What are Resolvers?
 
 **Difficulty**: Beginner
@@ -334,6 +348,7 @@ const resolvers = { Query: { user: (parent, args) => db.getUser(args.id) } }
 
 ---
 
+<a id="q15"></a>
 ### Q15: What is Introspection?
 
 **Difficulty**: Intermediate
@@ -350,6 +365,7 @@ query { __schema { types { name } } }
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you handle caching in GraphQL?
 
 **Difficulty**: Advanced
@@ -366,6 +382,7 @@ Since GraphQL uses POST, standard HTTP caching doesn't work well. Use client-sid
 
 ---
 
+<a id="q17"></a>
 ### Q17: What is a Union type?
 
 **Difficulty**: Intermediate
@@ -382,6 +399,7 @@ union SearchResult = Human | Droid | Starship
 
 ---
 
+<a id="q18"></a>
 ### Q18: What is an Interface type?
 
 **Difficulty**: Intermediate
@@ -398,6 +416,7 @@ interface Character { id: ID! name: String! }
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you version a GraphQL API?
 
 **Difficulty**: Intermediate
@@ -414,6 +433,7 @@ GraphQL promotes a continuous evolution of the schema (adding new fields, deprec
 
 ---
 
+<a id="q20"></a>
 ### Q20: What are Enums in GraphQL?
 
 **Difficulty**: Beginner
@@ -430,6 +450,7 @@ enum Episode { NEWHOPE EMPIRE JEDI }
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you handle input validation?
 
 **Difficulty**: Intermediate
@@ -446,6 +467,7 @@ if (args.age < 0) throw new Error('Age must be positive');
 
 ---
 
+<a id="q22"></a>
 ### Q22: What is Apollo Federation?
 
 **Difficulty**: Advanced
@@ -462,6 +484,7 @@ An architecture for composing multiple GraphQL services (subgraphs) into a singl
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you test GraphQL resolvers?
 
 **Difficulty**: Intermediate
@@ -478,6 +501,7 @@ const result = await resolvers.Query.user(null, { id: 1 }, mockContext);
 
 ---
 
+<a id="q24"></a>
 ### Q24: What is Schema Stitching?
 
 **Difficulty**: Advanced
@@ -494,6 +518,7 @@ const gatewaySchema = stitchSchemas({ subschemas: [schema1, schema2] });
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you handle aliases?
 
 **Difficulty**: Beginner
@@ -510,6 +535,7 @@ Aliases let you rename the result of a field to avoid conflicts.
 
 ---
 
+<a id="q26"></a>
 ### Q26: What is a Scalar type?
 
 **Difficulty**: Beginner
@@ -526,6 +552,7 @@ type User { id: ID! }
 
 ---
 
+<a id="q27"></a>
 ### Q27: What is an Object type?
 
 **Difficulty**: Beginner
@@ -542,6 +569,7 @@ type User { name: String }
 
 ---
 
+<a id="q28"></a>
 ### Q28: What is the root Query type?
 
 **Difficulty**: Beginner
@@ -558,6 +586,7 @@ type Query { me: User }
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is the root Mutation type?
 
 **Difficulty**: Beginner
@@ -574,6 +603,7 @@ type Mutation { save: Boolean }
 
 ---
 
+<a id="q30"></a>
 ### Q30: What is the root Subscription type?
 
 **Difficulty**: Intermediate
@@ -590,6 +620,7 @@ type Subscription { onAdd: User }
 
 ---
 
+<a id="q31"></a>
 ### Q31: What are Input types?
 
 **Difficulty**: Intermediate
@@ -606,6 +637,7 @@ input UserInput { name: String }
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is Non-Null (!)?
 
 **Difficulty**: Beginner
@@ -622,6 +654,7 @@ name: String!
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is a List ([])?
 
 **Difficulty**: Beginner
@@ -638,6 +671,7 @@ tags: [String]
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you define arguments?
 
 **Difficulty**: Beginner
@@ -654,6 +688,7 @@ user(id: ID!): User
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is GraphiQL?
 
 **Difficulty**: Beginner
@@ -670,6 +705,7 @@ IDE for testing GraphQL. This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q36"></a>
 ### Q36: What is GraphQL Playground?
 
 **Difficulty**: Beginner
@@ -686,6 +722,7 @@ Another IDE (by Prisma). This concept is fundamental in this domain and understa
 
 ---
 
+<a id="q37"></a>
 ### Q37: What is Apollo Server?
 
 **Difficulty**: Intermediate
@@ -702,6 +739,7 @@ new ApolloServer({ typeDefs, resolvers })
 
 ---
 
+<a id="q38"></a>
 ### Q38: What is `info` argument in resolver?
 
 **Difficulty**: Advanced
@@ -718,6 +756,7 @@ resolve(parent, args, ctx, info)
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you handle authentication?
 
 **Difficulty**: Intermediate
@@ -734,6 +773,7 @@ context: ({ req }) => ({ user: verify(req) })
 
 ---
 
+<a id="q40"></a>
 ### Q40: What is `context`?
 
 **Difficulty**: Intermediate
@@ -750,6 +790,7 @@ Shared object passed to all resolvers. This concept is fundamental in this domai
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you batch requests?
 
 **Difficulty**: Advanced
@@ -766,6 +807,7 @@ Query batching (array of queries) or DataLoaders. This concept is fundamental in
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is Persisted Queries?
 
 **Difficulty**: Advanced
@@ -782,6 +824,7 @@ Send hash instead of full query string. This concept is fundamental in this doma
 
 ---
 
+<a id="q43"></a>
 ### Q43: What is Schema Stitching?
 
 **Difficulty**: Advanced
@@ -798,6 +841,7 @@ stitchSchemas({ subschemas: [...] })
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is Federation?
 
 **Difficulty**: Advanced
@@ -814,6 +858,7 @@ buildSubgraphSchema(...)
 
 ---
 
+<a id="q45"></a>
 ### Q45: What is a Gateway?
 
 **Difficulty**: Advanced
@@ -830,6 +875,7 @@ new ApolloGateway(...)
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you mock data?
 
 **Difficulty**: Intermediate
@@ -846,6 +892,7 @@ mocks: { Int: () => 6 }
 
 ---
 
+<a id="q47"></a>
 ### Q47: What is Schema Directives?
 
 **Difficulty**: Advanced
@@ -862,6 +909,7 @@ field: String @upper
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you handle pagination?
 
 **Difficulty**: Intermediate
@@ -878,6 +926,7 @@ users(first: 10, after: "abc")
 
 ---
 
+<a id="q49"></a>
 ### Q49: What is Cursor Pagination?
 
 **Difficulty**: Intermediate
@@ -894,6 +943,7 @@ edges { cursor node { ... } }
 
 ---
 
+<a id="q50"></a>
 ### Q50: What is Connection pattern?
 
 **Difficulty**: Intermediate
@@ -910,6 +960,7 @@ type UserConnection { edges: [UserEdge] }
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you handle N+1 problem?
 
 **Difficulty**: Advanced
@@ -926,6 +977,7 @@ loader.load(id)
 
 ---
 
+<a id="q52"></a>
 ### Q52: What is `dataloader` library?
 
 **Difficulty**: Advanced
@@ -942,6 +994,7 @@ new DataLoader(batchFn)
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you upload files?
 
 **Difficulty**: Intermediate
@@ -958,6 +1011,7 @@ scalar Upload
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is Apollo Client?
 
 **Difficulty**: Beginner
@@ -974,6 +1028,7 @@ useQuery(GET_DOGS)
 
 ---
 
+<a id="q55"></a>
 ### Q55: What is Relay?
 
 **Difficulty**: Advanced
@@ -990,6 +1045,7 @@ Facebook's client library. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q56"></a>
 ### Q56: What is Urql?
 
 **Difficulty**: Intermediate
@@ -1006,6 +1062,7 @@ Lightweight client. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you cache on client?
 
 **Difficulty**: Intermediate
@@ -1022,6 +1079,7 @@ Normalization (InMemoryCache). This concept is fundamental in this domain and un
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is `__typename`?
 
 **Difficulty**: Intermediate
@@ -1038,6 +1096,7 @@ Meta field for type name. This concept is fundamental in this domain and underst
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you use fragments on client?
 
 **Difficulty**: Intermediate
@@ -1054,6 +1113,7 @@ fragment Name on User { name }
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is Inline Fragment?
 
 **Difficulty**: Intermediate
@@ -1070,6 +1130,7 @@ Fragment without name, for unions. This concept is fundamental in this domain an
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you handle errors on client?
 
 **Difficulty**: Intermediate
@@ -1086,6 +1147,7 @@ const { error } = useQuery(...)
 
 ---
 
+<a id="q62"></a>
 ### Q62: What is Optimistic UI?
 
 **Difficulty**: Advanced
@@ -1102,6 +1164,7 @@ optimisticResponse: { ... }
 
 ---
 
+<a id="q63"></a>
 ### Q63: How do you refetch data?
 
 **Difficulty**: Beginner
@@ -1118,6 +1181,7 @@ const { refetch } = useQuery(...)
 
 ---
 
+<a id="q64"></a>
 ### Q64: What is Polling?
 
 **Difficulty**: Intermediate
@@ -1134,6 +1198,7 @@ pollInterval: 500
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is `network-only` policy?
 
 **Difficulty**: Intermediate
@@ -1150,6 +1215,7 @@ fetchPolicy: 'network-only'
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is `cache-first` policy?
 
 **Difficulty**: Intermediate
@@ -1166,6 +1232,7 @@ fetchPolicy: 'cache-first'
 
 ---
 
+<a id="q67"></a>
 ### Q67: What is `cache-and-network`?
 
 **Difficulty**: Intermediate
@@ -1182,6 +1249,7 @@ fetchPolicy: 'cache-and-network'
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you update cache after mutation?
 
 **Difficulty**: Advanced
@@ -1198,6 +1266,7 @@ update(cache, { data }) { ... }
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is `readQuery`?
 
 **Difficulty**: Advanced
@@ -1214,6 +1283,7 @@ cache.readQuery({ query })
 
 ---
 
+<a id="q70"></a>
 ### Q70: What is `writeQuery`?
 
 **Difficulty**: Advanced
@@ -1230,6 +1300,7 @@ cache.writeQuery({ query, data })
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is `client` directive?
 
 **Difficulty**: Intermediate
@@ -1246,6 +1317,7 @@ isLoggedIn @client
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you manage local state?
 
 **Difficulty**: Intermediate
@@ -1262,6 +1334,7 @@ makeVar(false)
 
 ---
 
+<a id="q73"></a>
 ### Q73: What is Code Generation?
 
 **Difficulty**: Intermediate
@@ -1278,6 +1351,7 @@ graphql-codegen
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you document schema?
 
 **Difficulty**: Beginner
@@ -1294,6 +1368,7 @@ Comments/Descriptions. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q75"></a>
 ### Q75: What is Deprecation?
 
 **Difficulty**: Beginner
@@ -1310,6 +1385,7 @@ Mark field as old. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q76"></a>
 ### Q76: How do you limit query depth?
 
 **Difficulty**: Advanced
@@ -1326,6 +1402,7 @@ depthLimit(5)
 
 ---
 
+<a id="q77"></a>
 ### Q77: What is Query Cost Analysis?
 
 **Difficulty**: Advanced
@@ -1342,6 +1419,7 @@ Calculate complexity score. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q78"></a>
 ### Q78: How do you prevent introspection in prod?
 
 **Difficulty**: Intermediate
@@ -1358,6 +1436,7 @@ introspection: false
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is `graphql-tools`?
 
 **Difficulty**: Intermediate
@@ -1374,6 +1453,7 @@ makeExecutableSchema
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you merge schemas?
 
 **Difficulty**: Advanced
@@ -1390,6 +1470,7 @@ mergeSchemas({ schemas })
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is Type merging?
 
 **Difficulty**: Advanced
@@ -1406,6 +1487,7 @@ Merge types from different subgraphs. This concept is fundamental in this domain
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you handle timeouts?
 
 **Difficulty**: Intermediate
@@ -1422,6 +1504,7 @@ Server config or context cancellation. This concept is fundamental in this domai
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is Tracing?
 
 **Difficulty**: Advanced
@@ -1438,6 +1521,7 @@ tracing: true
 
 ---
 
+<a id="q84"></a>
 ### Q84: What is Apollo Studio?
 
 **Difficulty**: Intermediate
@@ -1454,6 +1538,7 @@ Cloud dashboard. This concept is fundamental in this domain and understanding it
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you secure against DoS?
 
 **Difficulty**: Advanced
@@ -1470,6 +1555,7 @@ Rate limiting, timeouts, complexity limits. This concept is fundamental in this 
 
 ---
 
+<a id="q86"></a>
 ### Q86: What is JSON scalar?
 
 **Difficulty**: Intermediate
@@ -1486,6 +1572,7 @@ scalar JSON
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Date?
 
 **Difficulty**: Intermediate
@@ -1502,6 +1589,7 @@ scalar Date
 
 ---
 
+<a id="q88"></a>
 ### Q88: What is the difference between REST and GraphQL?
 
 **Difficulty**: Beginner
@@ -1518,6 +1606,7 @@ Endpoint vs Schema, Overfetching fix. This concept is fundamental in this domain
 
 ---
 
+<a id="q89"></a>
 ### Q89: When to use GraphQL?
 
 **Difficulty**: Beginner
@@ -1534,6 +1623,7 @@ Complex data requirements, mobile apps. This concept is fundamental in this doma
 
 ---
 
+<a id="q90"></a>
 ### Q90: When NOT to use GraphQL?
 
 **Difficulty**: Intermediate
@@ -1550,6 +1640,7 @@ Simple APIs, file heavy, binary protocols. This concept is fundamental in this d
 
 ---
 
+<a id="q91"></a>
 ### Q91: What is `extensions` field?
 
 **Difficulty**: Advanced
@@ -1566,6 +1657,7 @@ Extra metadata in response. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug resolvers?
 
 **Difficulty**: Beginner
@@ -1582,6 +1674,7 @@ console.log(args)
 
 ---
 
+<a id="q93"></a>
 ### Q93: What is `parent` argument?
 
 **Difficulty**: Beginner
@@ -1598,6 +1691,7 @@ parent.id
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you resolve abstract types?
 
 **Difficulty**: Advanced

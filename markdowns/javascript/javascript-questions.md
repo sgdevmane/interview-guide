@@ -115,6 +115,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: Explain Hoisting with examples?
 
 **Difficulty**: Beginner
@@ -135,6 +136,7 @@ let b = 10;
 
 ---
 
+<a id="q2"></a>
 ### Q2: Difference between `var`, `let`, and `const`?
 
 **Difficulty**: Beginner
@@ -153,6 +155,7 @@ let b = 10;
 
 ---
 
+<a id="q3"></a>
 ### Q3: Explain Closures with a practical example?
 
 **Difficulty**: Intermediate
@@ -178,6 +181,7 @@ console.log(counter()); // 2
 
 ---
 
+<a id="q4"></a>
 ### Q4: How does the Event Loop work?
 
 **Difficulty**: Advanced
@@ -192,6 +196,7 @@ JS is single-threaded. The Event Loop checks if Call Stack is empty. If yes, it 
 
 ---
 
+<a id="q5"></a>
 ### Q5: Explain `this` keyword behavior?
 
 **Difficulty**: Intermediate
@@ -216,6 +221,7 @@ Value depends on invocation:
 
 ---
 
+<a id="q6"></a>
 ### Q6: Call vs Apply vs Bind?
 
 **Difficulty**: Intermediate
@@ -234,6 +240,7 @@ Value depends on invocation:
 
 ---
 
+<a id="q7"></a>
 ### Q7: What is Prototypal Inheritance?
 
 **Difficulty**: Advanced
@@ -252,6 +259,7 @@ console.log(rabbit.eats); // true
 
 ---
 
+<a id="q8"></a>
 ### Q8: Explain Promise and its states?
 
 **Difficulty**: Intermediate
@@ -270,6 +278,7 @@ const p = new Promise((resolve, reject) => {
 
 ---
 
+<a id="q9"></a>
 ### Q9: Async/Await vs Promises?
 
 **Difficulty**: Beginner
@@ -284,6 +293,7 @@ Async/Await is syntactic sugar over Promises. Makes code look synchronous and ea
 
 ---
 
+<a id="q10"></a>
 ### Q10: What is Event Bubbling vs Capturing?
 
 **Difficulty**: Intermediate
@@ -300,6 +310,7 @@ Async/Await is syntactic sugar over Promises. Makes code look synchronous and ea
 
 ---
 
+<a id="q11"></a>
 ### Q11: How does Event Delegation work?
 
 **Difficulty**: Intermediate
@@ -318,6 +329,7 @@ document.getElementById('list').addEventListener('click', (e) => {
 
 ---
 
+<a id="q12"></a>
 ### Q12: Deep Copy vs Shallow Copy?
 
 **Difficulty**: Intermediate
@@ -334,6 +346,7 @@ document.getElementById('list').addEventListener('click', (e) => {
 
 ---
 
+<a id="q13"></a>
 ### Q13: What is the difference between `==` and `===`?
 
 **Difficulty**: Beginner
@@ -348,6 +361,7 @@ document.getElementById('list').addEventListener('click', (e) => {
 
 ---
 
+<a id="q14"></a>
 ### Q14: Explain Higher-Order Functions?
 
 **Difficulty**: Beginner
@@ -362,6 +376,7 @@ Functions that take other functions as args or return them (e.g., <code>map</cod
 
 ---
 
+<a id="q15"></a>
 ### Q15: What is Currying?
 
 **Difficulty**: Intermediate
@@ -379,6 +394,7 @@ add(2)(3); // 5
 
 ---
 
+<a id="q16"></a>
 ### Q16: What is Memoization?
 
 **Difficulty**: Intermediate
@@ -393,6 +409,7 @@ Caching results of expensive function calls based on inputs.
 
 ---
 
+<a id="q17"></a>
 ### Q17: Explain Debounce vs Throttle?
 
 **Difficulty**: Intermediate
@@ -409,6 +426,7 @@ Caching results of expensive function calls based on inputs.
 
 ---
 
+<a id="q18"></a>
 ### Q18: What are Generators?
 
 **Difficulty**: Advanced
@@ -430,6 +448,7 @@ g.next().value; // 1
 
 ---
 
+<a id="q19"></a>
 ### Q19: Map vs WeakMap?
 
 **Difficulty**: Advanced
@@ -444,6 +463,7 @@ g.next().value; // 1
 
 ---
 
+<a id="q20"></a>
 ### Q20: Set vs WeakSet?
 
 **Difficulty**: Advanced
@@ -458,6 +478,7 @@ Similar to WeakMap, but for Sets. Stores objects weakly.
 
 ---
 
+<a id="q21"></a>
 ### Q21: What is a Proxy object?
 
 **Difficulty**: Advanced
@@ -476,6 +497,7 @@ const handler = {
 
 ---
 
+<a id="q22"></a>
 ### Q22: Explain the Module System (ESM vs CommonJS)?
 
 **Difficulty**: Intermediate
@@ -492,6 +514,7 @@ const handler = {
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is the Temporal Dead Zone (TDZ)?
 
 **Difficulty**: Intermediate
@@ -506,6 +529,7 @@ Time between entering scope and variable declaration where accessing <code>let</
 
 ---
 
+<a id="q24"></a>
 ### Q24: How does Garbage Collection work in JS?
 
 **Difficulty**: Advanced
@@ -520,6 +544,7 @@ Mark-and-Sweep algorithm. Roots are marked, reachable objects marked. Unmarked m
 
 ---
 
+<a id="q25"></a>
 ### Q25: What is strict mode (`'use strict'`)?
 
 **Difficulty**: Beginner
@@ -534,6 +559,7 @@ Enforces stricter parsing. Catches silent errors. Disables global <code>this</co
 
 ---
 
+<a id="q26"></a>
 ### Q26: Difference between `null` and `undefined`?
 
 **Difficulty**: Beginner
@@ -549,6 +575,7 @@ Enforces stricter parsing. Catches silent errors. Disables global <code>this</co
 
 ---
 
+<a id="q27"></a>
 ### Q27: What is Type Coercion?
 
 **Difficulty**: Intermediate
@@ -563,6 +590,7 @@ Automatic conversion of values from one type to another (e.g., <code>"5" - 1 = 4
 
 ---
 
+<a id="q28"></a>
 ### Q28: Explain `instanceof` operator?
 
 **Difficulty**: Intermediate
@@ -577,6 +605,7 @@ Checks if prototype property of constructor appears in object's prototype chain.
 
 ---
 
+<a id="q29"></a>
 ### Q29: What are Arrow Functions?
 
 **Difficulty**: Beginner
@@ -591,6 +620,7 @@ Concise syntax. No own <code>this</code>, <code>arguments</code>, or <code>super
 
 ---
 
+<a id="q30"></a>
 ### Q30: What is Destructuring Assignment?
 
 **Difficulty**: Beginner
@@ -608,6 +638,7 @@ const [first, second] = array;
 
 ---
 
+<a id="q31"></a>
 ### Q31: Rest Operator vs Spread Operator?
 
 **Difficulty**: Beginner
@@ -622,6 +653,7 @@ Both use `...`. **Spread** expands (unpacks). **Rest** collects (packs).
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is a Polyfill?
 
 **Difficulty**: Beginner
@@ -636,6 +668,7 @@ Code that implements a feature on browsers that don't support it.
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is a Transpiler (Babel)?
 
 **Difficulty**: Beginner
@@ -650,6 +683,7 @@ Converts modern JS (ES6+) into older JS (ES5) for compatibility.
 
 ---
 
+<a id="q34"></a>
 ### Q34: Explain `Symbol` primitive?
 
 **Difficulty**: Advanced
@@ -664,6 +698,7 @@ Unique, immutable primitive. Used for object property keys to avoid collision.
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is an Iterator?
 
 **Difficulty**: Advanced
@@ -678,6 +713,7 @@ Object implementing `next()` method returning `{value, done}`. Used in `for..of`
 
 ---
 
+<a id="q36"></a>
 ### Q36: Explain `Object.freeze()` vs `Object.seal()`?
 
 **Difficulty**: Intermediate
@@ -694,6 +730,7 @@ Object implementing `next()` method returning `{value, done}`. Used in `for..of`
 
 ---
 
+<a id="q37"></a>
 ### Q37: How to check if an object is an array?
 
 **Difficulty**: Beginner
@@ -710,6 +747,7 @@ Array.isArray(obj)
 
 ---
 
+<a id="q38"></a>
 ### Q38: What is `NaN` and how to check for it?
 
 **Difficulty**: Beginner
@@ -724,6 +762,7 @@ Not-a-Number. Check with <code>Number.isNaN(val)</code>.
 
 ---
 
+<a id="q39"></a>
 ### Q39: Explain `preventDefault()` vs `stopPropagation()`?
 
 **Difficulty**: Beginner
@@ -740,6 +779,7 @@ Not-a-Number. Check with <code>Number.isNaN(val)</code>.
 
 ---
 
+<a id="q40"></a>
 ### Q40: What is the BOM (Browser Object Model)?
 
 **Difficulty**: Beginner
@@ -754,6 +794,7 @@ Objects provided by browser to interact with window (location, history, screen).
 
 ---
 
+<a id="q41"></a>
 ### Q41: LocalStorage vs SessionStorage vs Cookies?
 
 **Difficulty**: Intermediate
@@ -772,6 +813,7 @@ Objects provided by browser to interact with window (location, history, screen).
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is JSONP?
 
 **Difficulty**: Advanced
@@ -786,6 +828,7 @@ Old hack for cross-domain requests using `&lt;script&gt;` tags. Insecure.
 
 ---
 
+<a id="q43"></a>
 ### Q43: What is CORS?
 
 **Difficulty**: Intermediate
@@ -800,6 +843,7 @@ Cross-Origin Resource Sharing. Browser mechanism allowing access to resources fr
 
 ---
 
+<a id="q44"></a>
 ### Q44: Explain the Critical Rendering Path?
 
 **Difficulty**: Advanced
@@ -814,6 +858,7 @@ HTML -> DOM -> CSSOM -> Render Tree -> Layout -> Paint.
 
 ---
 
+<a id="q45"></a>
 ### Q45: What are Web Workers?
 
 **Difficulty**: Advanced
@@ -828,6 +873,7 @@ Run JS in background thread. No DOM access. Used for heavy computation.
 
 ---
 
+<a id="q46"></a>
 ### Q46: Service Workers vs Web Workers?
 
 **Difficulty**: Advanced
@@ -842,6 +888,7 @@ Service Workers act as network proxy (caching, offline). Web Workers do computat
 
 ---
 
+<a id="q47"></a>
 ### Q47: What is the Shadow DOM?
 
 **Difficulty**: Advanced
@@ -856,6 +903,7 @@ Encapsulated DOM tree attached to an element. Styles don't leak in/out. (Used in
 
 ---
 
+<a id="q48"></a>
 ### Q48: Custom Elements (Web Components)?
 
 **Difficulty**: Advanced
@@ -870,6 +918,7 @@ Defining new HTML tags (`&lt;my-element&gt;`) with custom behavior.
 
 ---
 
+<a id="q49"></a>
 ### Q49: Explain `requestAnimationFrame`?
 
 **Difficulty**: Intermediate
@@ -884,6 +933,7 @@ Schedules function for next repaint (approx 60fps). More efficient than `setInte
 
 ---
 
+<a id="q50"></a>
 ### Q50: MutationObserver API?
 
 **Difficulty**: Advanced
@@ -898,6 +948,7 @@ Watches for changes in the DOM tree (childList, attributes).
 
 ---
 
+<a id="q51"></a>
 ### Q51: IntersectionObserver API?
 
 **Difficulty**: Intermediate
@@ -912,6 +963,7 @@ Detects visibility of element (e.g., infinite scroll, lazy loading).
 
 ---
 
+<a id="q52"></a>
 ### Q52: What is the Fetch API?
 
 **Difficulty**: Beginner
@@ -926,6 +978,7 @@ Modern promise-based replacement for XHR.
 
 ---
 
+<a id="q53"></a>
 ### Q53: How to abort a Fetch request?
 
 **Difficulty**: Intermediate
@@ -944,6 +997,7 @@ controller.abort();
 
 ---
 
+<a id="q54"></a>
 ### Q54: Explain `Promise.all` vs `Promise.race`?
 
 **Difficulty**: Intermediate
@@ -960,6 +1014,7 @@ controller.abort();
 
 ---
 
+<a id="q55"></a>
 ### Q55: Explain `Promise.allSettled` vs `Promise.any`?
 
 **Difficulty**: Intermediate
@@ -976,6 +1031,7 @@ controller.abort();
 
 ---
 
+<a id="q56"></a>
 ### Q56: What is a Microtask vs Macrotask?
 
 **Difficulty**: Advanced
@@ -991,6 +1047,7 @@ controller.abort();
 
 ---
 
+<a id="q57"></a>
 ### Q57: How to implement a Sleep function?
 
 **Difficulty**: Beginner
@@ -1007,6 +1064,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 ---
 
+<a id="q58"></a>
 ### Q58: Flatten an array without flat()?
 
 **Difficulty**: Intermediate
@@ -1024,6 +1082,7 @@ const flat = arr => arr.reduce((acc, val) =>
 
 ---
 
+<a id="q59"></a>
 ### Q59: Remove duplicates from array?
 
 **Difficulty**: Beginner
@@ -1040,6 +1099,7 @@ const flat = arr => arr.reduce((acc, val) =>
 
 ---
 
+<a id="q60"></a>
 ### Q60: Check for Anagrams?
 
 **Difficulty**: Beginner
@@ -1056,6 +1116,7 @@ s1.split('').sort().join('') === s2.split('').sort().join('')
 
 ---
 
+<a id="q61"></a>
 ### Q61: Check for Palindrome?
 
 **Difficulty**: Beginner
@@ -1072,6 +1133,7 @@ str === str.split('').reverse().join('')
 
 ---
 
+<a id="q62"></a>
 ### Q62: Implement `map` polyfill?
 
 **Difficulty**: Intermediate
@@ -1092,6 +1154,7 @@ Array.prototype.myMap = function(cb) {
 
 ---
 
+<a id="q63"></a>
 ### Q63: Implement `filter` polyfill?
 
 **Difficulty**: Intermediate
@@ -1112,6 +1175,7 @@ Array.prototype.myFilter = function(cb) {
 
 ---
 
+<a id="q64"></a>
 ### Q64: Implement `reduce` polyfill?
 
 **Difficulty**: Advanced
@@ -1133,6 +1197,7 @@ Array.prototype.myReduce = function(cb, init) {
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is a Pure Function?
 
 **Difficulty**: Intermediate
@@ -1147,6 +1212,7 @@ Function that always returns same output for same input and has no side effects.
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is Side Effect?
 
 **Difficulty**: Beginner
@@ -1161,6 +1227,7 @@ Modifying external state (DOM, global vars) or API calls.
 
 ---
 
+<a id="q67"></a>
 ### Q67: Declarative vs Imperative Programming?
 
 **Difficulty**: Intermediate
@@ -1176,6 +1243,7 @@ Modifying external state (DOM, global vars) or API calls.
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is Tail Call Optimization (TCO)?
 
 **Difficulty**: Advanced
@@ -1190,6 +1258,7 @@ Engine optimization where recursion doesn't grow stack if call is in tail positi
 
 ---
 
+<a id="q69"></a>
 ### Q69: What is a Thunk?
 
 **Difficulty**: Advanced
@@ -1204,6 +1273,7 @@ Function that wraps an expression to delay its evaluation.
 
 ---
 
+<a id="q70"></a>
 ### Q70: Explain Function Composition?
 
 **Difficulty**: Intermediate
@@ -1218,6 +1288,7 @@ Combining functions: <code>f(g(x))</code>.
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is `eval()` and why avoid it?
 
 **Difficulty**: Beginner
@@ -1232,6 +1303,7 @@ Executes string as code. Security risk (XSS) and performance hit.
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is `void 0`?
 
 **Difficulty**: Advanced
@@ -1246,6 +1318,7 @@ Reliable way to get true `undefined` (since undefined variable can be overwritte
 
 ---
 
+<a id="q73"></a>
 ### Q73: Difference between property and attribute?
 
 **Difficulty**: Intermediate
@@ -1261,6 +1334,7 @@ Reliable way to get true `undefined` (since undefined variable can be overwritte
 
 ---
 
+<a id="q74"></a>
 ### Q74: Data attributes (`data-*`)?
 
 **Difficulty**: Beginner
@@ -1275,6 +1349,7 @@ Store custom data on HTML elements. Access via <code>dataset</code>.
 
 ---
 
+<a id="q75"></a>
 ### Q75: How to detect browser/device?
 
 **Difficulty**: Beginner
@@ -1289,6 +1364,7 @@ Store custom data on HTML elements. Access via <code>dataset</code>.
 
 ---
 
+<a id="q76"></a>
 ### Q76: What is `document.createDocumentFragment()`?
 
 **Difficulty**: Intermediate
@@ -1303,6 +1379,7 @@ Lightweight container. Appending to it doesn't trigger reflow. Appending fragmen
 
 ---
 
+<a id="q77"></a>
 ### Q77: Explain Reflow vs Repaint?
 
 **Difficulty**: Advanced
@@ -1318,6 +1395,7 @@ Lightweight container. Appending to it doesn't trigger reflow. Appending fragmen
 
 ---
 
+<a id="q78"></a>
 ### Q78: What is the Virtual DOM (concept)?
 
 **Difficulty**: Intermediate
@@ -1332,6 +1410,7 @@ In-memory representation of DOM. Diffs changes and updates real DOM efficiently.
 
 ---
 
+<a id="q79"></a>
 ### Q79: Server-Side Rendering (SSR) vs CSR?
 
 **Difficulty**: Intermediate
@@ -1347,6 +1426,7 @@ In-memory representation of DOM. Diffs changes and updates real DOM efficiently.
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is a Single Page Application (SPA)?
 
 **Difficulty**: Beginner
@@ -1361,6 +1441,7 @@ Web app that loads one HTML page and dynamically updates content.
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is Progressive Web App (PWA)?
 
 **Difficulty**: Intermediate
@@ -1375,6 +1456,7 @@ Web app behaving like native app (Offline, Installable, Push Notifications).
 
 ---
 
+<a id="q82"></a>
 ### Q82: Explain WebSocket Protocol?
 
 **Difficulty**: Advanced
@@ -1389,6 +1471,7 @@ Full-duplex communication over single TCP connection.
 
 ---
 
+<a id="q83"></a>
 ### Q83: Server-Sent Events (SSE)?
 
 **Difficulty**: Advanced
@@ -1403,6 +1486,7 @@ One-way stream from Server to Client over HTTP.
 
 ---
 
+<a id="q84"></a>
 ### Q84: What is `Intl` API?
 
 **Difficulty**: Intermediate
@@ -1417,6 +1501,7 @@ Internationalization API for formatting numbers, dates, currencies.
 
 ---
 
+<a id="q85"></a>
 ### Q85: How to format dates (Date vs Intl)?
 
 **Difficulty**: Beginner
@@ -1433,6 +1518,7 @@ new Intl.DateTimeFormat('en-US').format(date)
 
 ---
 
+<a id="q86"></a>
 ### Q86: What is Regex?
 
 **Difficulty**: Intermediate
@@ -1447,6 +1533,7 @@ Pattern matching for strings. <code>/pattern/.test(str)</code>.
 
 ---
 
+<a id="q87"></a>
 ### Q87: Error Handling (try/catch/finally)?
 
 **Difficulty**: Beginner
@@ -1461,6 +1548,7 @@ Catch runtime errors. Finally runs always.
 
 ---
 
+<a id="q88"></a>
 ### Q88: Custom Error Classes?
 
 **Difficulty**: Intermediate
@@ -1477,6 +1565,7 @@ class MyError extends Error { ... }
 
 ---
 
+<a id="q89"></a>
 ### Q89: What is a Memory Leak?
 
 **Difficulty**: Advanced
@@ -1491,6 +1580,7 @@ Memory allocated but not freed (e.g., Global vars, Detached DOM, Closures).
 
 ---
 
+<a id="q90"></a>
 ### Q90: How to debug Memory Leaks?
 
 **Difficulty**: Advanced
@@ -1505,6 +1595,7 @@ Chrome DevTools > Memory > Heap Snapshot. Look for detached elements.
 
 ---
 
+<a id="q91"></a>
 ### Q91: What is `console.time()`?
 
 **Difficulty**: Beginner
@@ -1519,6 +1610,7 @@ Measures time execution between <code>time()</code> and <code>timeEnd()</code>.
 
 ---
 
+<a id="q92"></a>
 ### Q92: What is `debugger` statement?
 
 **Difficulty**: Beginner
@@ -1533,6 +1625,7 @@ Pauses execution if DevTools is open.
 
 ---
 
+<a id="q93"></a>
 ### Q93: Strict Equality of Objects?
 
 **Difficulty**: Intermediate
@@ -1547,6 +1640,7 @@ Compares references. Two identical objects are NOT equal.
 
 ---
 
+<a id="q94"></a>
 ### Q94: Chaining Optional Chaining (`?.`)?
 
 **Difficulty**: Beginner
@@ -1561,6 +1655,7 @@ Safely access nested properties: <code>obj?.prop</code>.
 
 ---
 
+<a id="q95"></a>
 ### Q95: Nullish Coalescing Operator (`??`)?
 
 **Difficulty**: Beginner
@@ -1575,6 +1670,7 @@ Returns right side if left is `null` or `undefined`. (Unlike `||` which handles 
 
 ---
 
+<a id="q96"></a>
 ### Q96: Dynamic Imports (`import()`)?
 
 **Difficulty**: Intermediate
@@ -1589,6 +1685,7 @@ Load modules on demand (Promise based). Good for Code Splitting.
 
 ---
 
+<a id="q97"></a>
 ### Q97: Top-level Await?
 
 **Difficulty**: Intermediate
@@ -1603,6 +1700,7 @@ Using <code>await</code> outside async function in modules.
 
 ---
 
+<a id="q98"></a>
 ### Q98: BigInt Type?
 
 **Difficulty**: Beginner
@@ -1617,6 +1715,7 @@ Integer with arbitrary precision. <code>10n</code>.
 
 ---
 
+<a id="q99"></a>
 ### Q99: Private Class Fields (`#`)?
 
 **Difficulty**: Intermediate
@@ -1633,6 +1732,7 @@ class A { #x = 1; }
 
 ---
 
+<a id="q100"></a>
 ### Q100: What is the TC39 Process?
 
 **Difficulty**: Advanced

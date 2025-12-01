@@ -112,6 +112,7 @@
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you prevent thread-pool starvation in a high-concurrency .NET application?
 
 **Difficulty**: Expert
@@ -140,6 +141,7 @@ public async Task<string> GetDataAsync()
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you implement efficient caching with automatic expiration using `IMemoryCache`?
 
 **Difficulty**: Intermediate
@@ -164,6 +166,7 @@ public async Task<User> GetUserAsync(int id)
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you handle background tasks in ASP.NET Core without blocking the request thread?
 
 **Difficulty**: Intermediate
@@ -190,6 +193,7 @@ public class Worker : BackgroundService
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you optimize Entity Framework Core queries to avoid the N+1 problem?
 
 **Difficulty**: Intermediate
@@ -217,6 +221,7 @@ var dtos = context.Users.Select(u => new UserDto {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you implement the Outbox Pattern in .NET to ensure reliable messaging?
 
 **Difficulty**: Expert
@@ -243,6 +248,7 @@ using (var transaction = _context.Database.BeginTransaction())
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you use `IAsyncEnumerable<T>` to stream data efficiently from a database or API?
 
 **Difficulty**: Advanced
@@ -272,6 +278,7 @@ await foreach (var item in GetDataAsync())
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you implement custom middleware in ASP.NET Core to handle global exceptions?
 
 **Difficulty**: Intermediate
@@ -306,6 +313,7 @@ public class ExceptionMiddleware
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you use `ValueTask` to reduce allocations in hot paths?
 
 **Difficulty**: Advanced
@@ -329,6 +337,7 @@ public ValueTask<int> GetCountAsync()
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you implement dependency injection for a service that requires a runtime parameter?
 
 **Difficulty**: Advanced
@@ -356,6 +365,7 @@ public class Consumer
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you cancel a long-running async operation properly?
 
 **Difficulty**: Intermediate
@@ -379,6 +389,7 @@ public async Task DoWorkAsync(CancellationToken token)
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you optimize string concatenation in a tight loop?
 
 **Difficulty**: Beginner
@@ -401,6 +412,7 @@ var result = sb.ToString();
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you implement structured logging using Serilog in .NET Core?
 
 **Difficulty**: Intermediate
@@ -422,6 +434,7 @@ _logger.LogInformation("User {UserId} logged in", userId);
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you ensure a singleton service is thread-safe?
 
 **Difficulty**: Intermediate
@@ -446,6 +459,7 @@ public class CounterService
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you handle database migrations in a CI/CD pipeline using EF Core?
 
 **Difficulty**: Advanced
@@ -463,6 +477,7 @@ dotnet ef migrations script --output deploy.sql --idempotent
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you implement efficient caching with `IMemoryCache` and expiration policies?
 
 **Difficulty**: Intermediate
@@ -501,6 +516,7 @@ public class CacheService
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you solve the 'N+1' problem in Entity Framework Core?
 
 **Difficulty**: Intermediate
@@ -538,6 +554,7 @@ var dtos = context.Users
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you implement the Outbox Pattern for reliable messaging?
 
 **Difficulty**: Advanced
@@ -573,6 +590,7 @@ await transaction.CommitAsync();
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you use `IHttpClientFactory` to manage HTTP connections?
 
 **Difficulty**: Intermediate
@@ -612,6 +630,7 @@ public class GitHubClient
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you handle global exceptions in ASP.NET Core?
 
 **Difficulty**: Intermediate
@@ -649,6 +668,7 @@ if (!app.Environment.IsDevelopment())
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you implement a background service (Hosted Service)?
 
 **Difficulty**: Intermediate
@@ -687,6 +707,7 @@ public class EmailWorker : BackgroundService
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you use `ValueTask` to optimize hot paths?
 
 **Difficulty**: Advanced
@@ -715,6 +736,7 @@ public ValueTask<int> GetCountAsync()
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you implement resilient HTTP calls with Polly?
 
 **Difficulty**: Intermediate
@@ -738,6 +760,7 @@ builder.Services.AddHttpClient("ResilientClient")
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you optimize LINQ queries with `AsNoTracking`?
 
 **Difficulty**: Intermediate
@@ -763,6 +786,7 @@ public async Task<List<Product>> GetProductsAsync()
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you use `IAsyncEnumerable` for streaming data?
 
 **Difficulty**: Advanced
@@ -794,6 +818,7 @@ await foreach (var num in GetNumbersAsync())
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you use Channels for Producer-Consumer patterns?
 
 **Difficulty**: Advanced
@@ -825,6 +850,7 @@ await foreach (var msg in channel.Reader.ReadAllAsync())
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you implement Structured Logging with Serilog?
 
 **Difficulty**: Beginner
@@ -850,6 +876,7 @@ Log.Information("Processed login for {@User}", user);
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you prevent Thread Pool starvation?
 
 **Difficulty**: Advanced
@@ -878,6 +905,7 @@ public async Task<string> GetDataWrapperAsync()
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you use `ArrayPool<T>` to reduce GC pressure?
 
 **Difficulty**: Expert
@@ -907,6 +935,7 @@ finally
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you implement a custom attribute filter in ASP.NET Core?
 
 **Difficulty**: Intermediate
@@ -936,6 +965,7 @@ public IActionResult Get() => Ok();
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you use `ConcurrentDictionary` safely?
 
 **Difficulty**: Intermediate
@@ -963,6 +993,7 @@ cache.AddOrUpdate("key", 1, (k, oldVal) => oldVal + 1);
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you implement Dependency Injection for multiple implementations of an interface?
 
 **Difficulty**: Intermediate
@@ -999,6 +1030,7 @@ public class Notifier
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you use `stackalloc` for high-performance memory allocation?
 
 **Difficulty**: Expert
@@ -1026,6 +1058,7 @@ public void ProcessBytes()
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you secure an API using JWT Authentication?
 
 **Difficulty**: Intermediate
@@ -1060,6 +1093,7 @@ app.UseAuthorization();
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you use `FrozenDictionary` (common in .NET 8)?
 
 **Difficulty**: Advanced
@@ -1084,6 +1118,7 @@ string val = config["env"];
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you implement Health Checks in ASP.NET Core?
 
 **Difficulty**: Beginner
@@ -1109,6 +1144,7 @@ bool IsDbConnected() => true;
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you use EF Core Interceptors?
 
 **Difficulty**: Advanced
@@ -1139,6 +1175,7 @@ optionsBuilder.AddInterceptors(new AuditInterceptor());
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you implement Rate Limiting in .NET 7+?
 
 **Difficulty**: Intermediate
@@ -1169,6 +1206,7 @@ app.UseRateLimiter();
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you use `BlockingCollection`?
 
 **Difficulty**: Advanced
@@ -1200,6 +1238,7 @@ foreach (var item in queue.GetConsumingEnumerable())
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use `System.Text.Json` Source Generators?
 
 **Difficulty**: Advanced
@@ -1224,6 +1263,7 @@ var json = JsonSerializer.Serialize(
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you handle configuration with the Options Pattern?
 
 **Difficulty**: Beginner
@@ -1256,6 +1296,7 @@ public class Service
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you use `PeriodicTimer` (Net 6)?
 
 **Difficulty**: Intermediate
@@ -1280,6 +1321,7 @@ while (await timer.WaitForNextTickAsync())
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you implement a custom Tag Helper in ASP.NET Core?
 
 **Difficulty**: Intermediate
@@ -1307,6 +1349,7 @@ public class BoldTagHelper : TagHelper
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you use `Interlocked` class for atomic operations?
 
 **Difficulty**: Advanced
@@ -1337,6 +1380,7 @@ public void CompareExchange()
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you use Records with `with` expressions?
 
 **Difficulty**: Beginner
@@ -1361,6 +1405,7 @@ Console.WriteLine(p2.Age); // 31
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you implement API Versioning?
 
 **Difficulty**: Intermediate
@@ -1387,6 +1432,7 @@ public class ProductsController : ControllerBase { ... }
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use `simd` (Single Instruction, Multiple Data) in .NET?
 
 **Difficulty**: Expert
@@ -1419,6 +1465,7 @@ public void AddVectors(ReadOnlySpan<int> a, ReadOnlySpan<int> b, Span<int> resul
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you use `CallerMemberName` attribute?
 
 **Difficulty**: Beginner
@@ -1450,6 +1497,7 @@ public string Name
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use `Yield Return` for state machine generation?
 
 **Difficulty**: Intermediate
@@ -1477,6 +1525,7 @@ public IEnumerable<int> Filter(IEnumerable<int> numbers)
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you use `Unsafe` class for memory manipulation?
 
 **Difficulty**: Expert
@@ -1499,6 +1548,7 @@ public void CastExample()
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+<a id="q51"></a>
 ### Q51: How do you handle .NET state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1515,6 +1565,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform .NET data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1531,6 +1582,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate .NET deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1549,6 +1601,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle .NET concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1567,6 +1620,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement .NET caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1584,6 +1638,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage .NET configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1600,6 +1655,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle .NET internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1616,6 +1672,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure .NET accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1632,6 +1689,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize .NET network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1648,6 +1706,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle .NET performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1667,6 +1726,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of .NET in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1684,6 +1744,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug .NET memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1701,6 +1762,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for .NET code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1718,6 +1780,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement .NET error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1738,6 +1801,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test .NET functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1756,6 +1820,7 @@ test('.NET works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle .NET state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1772,6 +1837,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform .NET data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1788,6 +1854,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate .NET deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1806,6 +1873,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle .NET concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1824,6 +1892,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement .NET caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1841,6 +1910,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage .NET configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1857,6 +1927,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle .NET internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1873,6 +1944,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure .NET accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1889,6 +1961,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize .NET network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1905,6 +1978,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle .NET performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1924,6 +1998,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of .NET in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1941,6 +2016,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug .NET memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1958,6 +2034,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for .NET code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1975,6 +2052,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement .NET error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1995,6 +2073,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test .NET functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -2013,6 +2092,7 @@ test('.NET works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle .NET state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -2029,6 +2109,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform .NET data validation in microservices?
 
 **Difficulty**: Beginner
@@ -2045,6 +2126,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate .NET deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -2063,6 +2145,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle .NET concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -2081,6 +2164,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement .NET caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2098,6 +2182,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage .NET configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -2114,6 +2199,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle .NET internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -2130,6 +2216,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure .NET accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2146,6 +2233,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize .NET network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2162,6 +2250,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle .NET performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2181,6 +2270,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of .NET in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2198,6 +2288,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug .NET memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2215,6 +2306,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for .NET code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2232,6 +2324,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement .NET error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2252,6 +2345,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test .NET functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2270,6 +2364,7 @@ test('.NET works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle .NET state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2286,6 +2381,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform .NET data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2302,6 +2398,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate .NET deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2320,6 +2417,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle .NET concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2338,6 +2436,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement .NET caching in production environments?
 
 **Difficulty**: Intermediate

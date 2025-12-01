@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you choose between Static Site Generation (SSG) and Server-Side Rendering (SSR) for a dynamic page?
 
 **Difficulty**: Intermediate
@@ -141,6 +142,7 @@ export async function getServerSideProps(context) {
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you implement Incremental Static Regeneration (ISR) to update static pages without a full rebuild?
 
 **Difficulty**: Intermediate
@@ -164,6 +166,7 @@ export async function getStaticProps() {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you optimize images for performance using the Next.js Image component?
 
 **Difficulty**: Beginner
@@ -189,6 +192,7 @@ import Image from "next/image";
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement Server Actions to handle form submissions in the App Router?
 
 **Difficulty**: Advanced
@@ -222,6 +226,7 @@ export default function Page() {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you optimize font loading using `next/font`?
 
 **Difficulty**: Intermediate
@@ -249,6 +254,7 @@ export default function RootLayout({ children }) {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you create a custom 404 error page in the Pages Router?
 
 **Difficulty**: Beginner
@@ -269,6 +275,7 @@ export default function Custom404() {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you handle authentication protection in Middleware?
 
 **Difficulty**: Advanced
@@ -295,6 +302,7 @@ export function middleware(request: NextRequest) {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you dynamic import a heavy component to reduce initial bundle size?
 
 **Difficulty**: Intermediate
@@ -321,6 +329,7 @@ export default function Page() {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you generate dynamic sitemaps for SEO in Next.js?
 
 **Difficulty**: Advanced
@@ -347,6 +356,7 @@ export default async function sitemap() {
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you implement API Routes to handle backend logic?
 
 **Difficulty**: Beginner
@@ -370,6 +380,7 @@ export async function GET() {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you share layouts across multiple pages in the App Router?
 
 **Difficulty**: Intermediate
@@ -395,6 +406,7 @@ export default function DashboardLayout({ children }) {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you optimize metadata (SEO tags) dynamically for each page?
 
 **Difficulty**: Intermediate
@@ -418,6 +430,7 @@ export async function generateMetadata({ params }) {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you configure environment variables securely?
 
 **Difficulty**: Beginner
@@ -437,6 +450,7 @@ NEXT_PUBLIC_API_URL=... # Available in browser
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you deploy a Next.js app to a Docker container (Standalone mode)?
 
 **Difficulty**: Advanced
@@ -457,6 +471,7 @@ module.exports = {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you handle loading states in the App Router?
 
 **Difficulty**: Beginner
@@ -477,6 +492,7 @@ export default function Loading() {
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you implement Parallel Routes for complex layouts (e.g. Dashboards)?
 
 **Difficulty**: Advanced
@@ -505,6 +521,7 @@ export default function Layout({ children, team, analytics }) {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you implement Intercepting Routes (e.g. Modals)?
 
 **Difficulty**: Advanced
@@ -531,6 +548,7 @@ export default function PhotoModal({ params }) {
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you handle redirects in Server Components?
 
 **Difficulty**: Intermediate
@@ -564,6 +582,7 @@ export default async function Profile({ params }) {
 
 ---
 
+<a id="q19"></a>
 ### Q19: When should you use Client Components vs Server Components?
 
 **Difficulty**: Beginner
@@ -592,6 +611,7 @@ export default function Counter() {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you revalidate cached data on-demand using Server Actions?
 
 **Difficulty**: Advanced
@@ -614,6 +634,7 @@ export async function createPost(formData: FormData) {
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
+<a id="q21"></a>
 ### Q21: How do you use `generateStaticParams` for dynamic SSG in the App Router?
 
 **Difficulty**: Intermediate
@@ -638,6 +659,7 @@ export default function Page({ params }) {
 
 ---
 
+<a id="q22"></a>
 ### Q22: What is the difference between `layout.js` and `template.js`?
 
 **Difficulty**: Intermediate
@@ -666,6 +688,7 @@ export default function Template({ children }) {
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you handle errors in the App Router using `error.js`?
 
 **Difficulty**: Intermediate
@@ -695,6 +718,7 @@ export default function Error({ error, reset }) {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you implement Route Handlers for backend logic in App Router?
 
 **Difficulty**: Intermediate
@@ -720,6 +744,7 @@ export async function POST(request: Request) {
 
 ---
 
+<a id="q25"></a>
 ### Q25: When should you use the Edge Runtime?
 
 **Difficulty**: Advanced
@@ -739,6 +764,7 @@ export async function GET(request: Request) {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you highlight the active link using `useSelectedLayoutSegment`?
 
 **Difficulty**: Intermediate
@@ -770,6 +796,7 @@ export default function Nav() {
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you optimize third-party scripts using `next/script`?
 
 **Difficulty**: Beginner
@@ -796,6 +823,7 @@ export default function Page() {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you implement Draft Mode for CMS previews?
 
 **Difficulty**: Advanced
@@ -825,6 +853,7 @@ export default function Page() {
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is the difference between Request Memoization and the Data Cache?
 
 **Difficulty**: Advanced
@@ -851,6 +880,7 @@ fetch('https://api/item', { cache: 'no-store' });
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you revalidate specific data cache entries using Tags?
 
 **Difficulty**: Advanced
@@ -875,6 +905,7 @@ export async function updateData() {
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you implement Internationalization (i18n) in the App Router?
 
 **Difficulty**: Advanced
@@ -902,6 +933,7 @@ export function middleware(request) {
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is Streaming and how does it improve UX?
 
 **Difficulty**: Intermediate
@@ -927,6 +959,7 @@ export default function Page() {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you generate dynamic Metadata for SEO?
 
 **Difficulty**: Intermediate
@@ -951,6 +984,7 @@ export async function generateMetadata({ params }) {
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you protect routes from unauthorized access using Middleware?
 
 **Difficulty**: Intermediate
@@ -974,6 +1008,7 @@ export function middleware(request: NextRequest) {
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is the purpose of `output: 'standalone'` in `next.config.js`?
 
 **Difficulty**: Advanced
@@ -995,6 +1030,7 @@ module.exports = {
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you use React Server Components (RSC) effectively?
 
 **Difficulty**: Beginner
@@ -1019,6 +1055,7 @@ export default async function UserList() {
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you handle static assets like images and fonts?
 
 **Difficulty**: Beginner
@@ -1039,6 +1076,7 @@ Place static files in the `public` directory. They can be referenced by your cod
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you implement Infinite Scroll in Next.js?
 
 **Difficulty**: Intermediate
@@ -1076,6 +1114,7 @@ export default function InfiniteList({ initialData }) {
 
 ---
 
+<a id="q39"></a>
 ### Q39: What is Turbopack?
 
 **Difficulty**: Beginner
@@ -1095,6 +1134,7 @@ Turbopack is an incremental bundler written in Rust, built by the creators of We
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you debug Core Web Vitals in Next.js?
 
 **Difficulty**: Intermediate
@@ -1120,6 +1160,7 @@ export default function WebVitals() {
 ---
 
 
+<a id="q41"></a>
 ### Q41: How do you generate dynamic Open Graph images using `ImageResponse`?
 
 **Difficulty**: Advanced
@@ -1162,6 +1203,7 @@ export async function GET() {
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you implement Partial Prerendering (PPR)?
 
 **Difficulty**: Advanced
@@ -1195,6 +1237,7 @@ export default function Page() {
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you configure Content Security Policy (CSP) in Next.js?
 
 **Difficulty**: Advanced
@@ -1240,6 +1283,7 @@ export function middleware(request) {
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you unit test Server Components with Jest?
 
 **Difficulty**: Intermediate
@@ -1268,6 +1312,7 @@ test('renders page', async () => {
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you implement E2E testing with Playwright in Next.js?
 
 **Difficulty**: Intermediate
@@ -1290,6 +1335,7 @@ test('has title', async ({ page }) => {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you use Multi-Zones to split a large Next.js app?
 
 **Difficulty**: Advanced
@@ -1320,6 +1366,7 @@ module.exports = {
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you run Cron Jobs in a Next.js app (Vercel Cron)?
 
 **Difficulty**: Intermediate
@@ -1350,6 +1397,7 @@ export async function GET() {
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you prevent specific pages from being indexed by search engines?
 
 **Difficulty**: Beginner
@@ -1377,6 +1425,7 @@ export const metadata = {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you use `useOptimistic` for instant UI updates?
 
 **Difficulty**: Advanced
@@ -1415,6 +1464,7 @@ export default function Form({ currentName }) {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you configure a custom build output directory?
 
 **Difficulty**: Intermediate
@@ -1434,6 +1484,7 @@ module.exports = {
 
 ---
 
+<a id="q51"></a>
 ### Q51: How do you handle Next.js state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1450,6 +1501,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Next.js data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1466,6 +1518,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Next.js deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1484,6 +1537,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Next.js concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1502,6 +1556,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Next.js caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1519,6 +1574,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Next.js configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1535,6 +1591,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Next.js internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1551,6 +1608,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Next.js accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1567,6 +1625,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Next.js network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1583,6 +1642,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Next.js performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1602,6 +1662,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Next.js in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1619,6 +1680,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Next.js memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1636,6 +1698,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Next.js code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1653,6 +1716,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Next.js error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1673,6 +1737,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Next.js functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1691,6 +1756,7 @@ test('Next.js works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Next.js state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1707,6 +1773,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Next.js data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1723,6 +1790,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Next.js deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1741,6 +1809,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Next.js concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1759,6 +1828,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Next.js caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1776,6 +1846,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Next.js configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1792,6 +1863,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Next.js internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1808,6 +1880,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Next.js accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1824,6 +1897,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Next.js network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1840,6 +1914,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Next.js performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1859,6 +1934,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Next.js in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1876,6 +1952,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Next.js memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1893,6 +1970,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Next.js code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1910,6 +1988,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Next.js error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1930,6 +2009,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Next.js functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1948,6 +2028,7 @@ test('Next.js works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Next.js state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1964,6 +2045,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Next.js data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1980,6 +2062,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Next.js deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1998,6 +2081,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Next.js concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -2016,6 +2100,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Next.js caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2033,6 +2118,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Next.js configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -2049,6 +2135,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Next.js internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -2065,6 +2152,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Next.js accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2081,6 +2169,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Next.js network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2097,6 +2186,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Next.js performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2116,6 +2206,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Next.js in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2133,6 +2224,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Next.js memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2150,6 +2242,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Next.js code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2167,6 +2260,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Next.js error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2187,6 +2281,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Next.js functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2205,6 +2300,7 @@ test('Next.js works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Next.js state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2221,6 +2317,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Next.js data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2237,6 +2334,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Next.js deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2255,6 +2353,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Next.js concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2273,6 +2372,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Next.js caching in production environments?
 
 **Difficulty**: Intermediate

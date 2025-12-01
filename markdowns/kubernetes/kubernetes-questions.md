@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: What is a Pod?
 
 **Difficulty**: Beginner
@@ -132,6 +133,7 @@ metadata:
 
 ---
 
+<a id="q2"></a>
 ### Q2: What is a Deployment?
 
 **Difficulty**: Beginner
@@ -150,6 +152,7 @@ spec:
 
 ---
 
+<a id="q3"></a>
 ### Q3: What is a Service?
 
 **Difficulty**: Beginner
@@ -168,6 +171,7 @@ spec:
 
 ---
 
+<a id="q4"></a>
 ### Q4: ClusterIP vs NodePort vs LoadBalancer?
 
 **Difficulty**: Intermediate
@@ -189,6 +193,7 @@ ports:
 
 ---
 
+<a id="q5"></a>
 ### Q5: What is a Namespace?
 
 **Difficulty**: Beginner
@@ -206,6 +211,7 @@ metadata:
 
 ---
 
+<a id="q6"></a>
 ### Q6: What is Ingress?
 
 **Difficulty**: Intermediate
@@ -225,6 +231,7 @@ spec:
 
 ---
 
+<a id="q7"></a>
 ### Q7: What is a ConfigMap?
 
 **Difficulty**: Beginner
@@ -243,6 +250,7 @@ data:
 
 ---
 
+<a id="q8"></a>
 ### Q8: What is a Secret?
 
 **Difficulty**: Beginner
@@ -262,6 +270,7 @@ data:
 
 ---
 
+<a id="q9"></a>
 ### Q9: What is a StatefulSet?
 
 **Difficulty**: Advanced
@@ -279,6 +288,7 @@ serviceName: mysql
 
 ---
 
+<a id="q10"></a>
 ### Q10: What is a DaemonSet?
 
 **Difficulty**: Intermediate
@@ -295,6 +305,7 @@ kind: DaemonSet
 
 ---
 
+<a id="q11"></a>
 ### Q11: What is a Job vs CronJob?
 
 **Difficulty**: Intermediate
@@ -313,6 +324,7 @@ schedule: "*/1 * * * *"
 
 ---
 
+<a id="q12"></a>
 ### Q12: What is HPA (Horizontal Pod Autoscaler)?
 
 **Difficulty**: Intermediate
@@ -331,6 +343,7 @@ maxReplicas: 10
 
 ---
 
+<a id="q13"></a>
 ### Q13: What is VPA (Vertical Pod Autoscaler)?
 
 **Difficulty**: Advanced
@@ -347,6 +360,7 @@ kind: VerticalPodAutoscaler
 
 ---
 
+<a id="q14"></a>
 ### Q14: What are Liveness and Readiness Probes?
 
 **Difficulty**: Intermediate
@@ -366,6 +380,7 @@ livenessProbe:
 
 ---
 
+<a id="q15"></a>
 ### Q15: What is a Sidecar Pattern?
 
 **Difficulty**: Intermediate
@@ -384,6 +399,7 @@ containers:
 
 ---
 
+<a id="q16"></a>
 ### Q16: What is an Init Container?
 
 **Difficulty**: Intermediate
@@ -402,6 +418,7 @@ initContainers:
 
 ---
 
+<a id="q17"></a>
 ### Q17: What is a Taint and Toleration?
 
 **Difficulty**: Advanced
@@ -420,6 +437,7 @@ tolerations:
 
 ---
 
+<a id="q18"></a>
 ### Q18: What is Node Affinity?
 
 **Difficulty**: Advanced
@@ -437,6 +455,7 @@ affinity:
 
 ---
 
+<a id="q19"></a>
 ### Q19: What is a Persistent Volume (PV)?
 
 **Difficulty**: Intermediate
@@ -453,6 +472,7 @@ kind: PersistentVolume
 
 ---
 
+<a id="q20"></a>
 ### Q20: What is a Persistent Volume Claim (PVC)?
 
 **Difficulty**: Intermediate
@@ -472,6 +492,7 @@ resources:
 
 ---
 
+<a id="q21"></a>
 ### Q21: What is StorageClass?
 
 **Difficulty**: Intermediate
@@ -489,6 +510,7 @@ provisioner: aws-ebs
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you perform a Rolling Update?
 
 **Difficulty**: Beginner
@@ -506,6 +528,7 @@ strategy:
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is a Canary Deployment?
 
 **Difficulty**: Advanced
@@ -522,6 +545,7 @@ Route small % of traffic to new version. This concept is fundamental in this dom
 
 ---
 
+<a id="q24"></a>
 ### Q24: What is a Blue/Green Deployment?
 
 **Difficulty**: Advanced
@@ -538,6 +562,7 @@ Two identical envs. Switch traffic instantly. This concept is fundamental in thi
 
 ---
 
+<a id="q25"></a>
 ### Q25: What is Helm?
 
 **Difficulty**: Beginner
@@ -554,6 +579,7 @@ helm install my-app ./chart
 
 ---
 
+<a id="q26"></a>
 ### Q26: What is `kubectl`?
 
 **Difficulty**: Beginner
@@ -570,6 +596,7 @@ kubectl get pods
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you debug a CrashLoopBackOff?
 
 **Difficulty**: Beginner
@@ -587,6 +614,7 @@ kubectl describe pod pod-name
 
 ---
 
+<a id="q28"></a>
 ### Q28: What is etcd?
 
 **Difficulty**: Advanced
@@ -603,6 +631,7 @@ Key-value store for cluster data. This concept is fundamental in this domain and
 
 ---
 
+<a id="q29"></a>
 ### Q29: What is Kubelet?
 
 **Difficulty**: Advanced
@@ -619,6 +648,7 @@ Agent running on each node. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q30"></a>
 ### Q30: What is Kube-Proxy?
 
 **Difficulty**: Advanced
@@ -635,6 +665,7 @@ Network proxy on each node. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q31"></a>
 ### Q31: What is the Control Plane?
 
 **Difficulty**: Intermediate
@@ -651,6 +682,7 @@ Master node components (API Server, Scheduler, Controller Manager, etcd).
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is RBAC?
 
 **Difficulty**: Intermediate
@@ -669,6 +701,7 @@ rules:
 
 ---
 
+<a id="q33"></a>
 ### Q33: What is a ServiceAccount?
 
 **Difficulty**: Intermediate
@@ -685,6 +718,7 @@ serviceAccountName: my-sa
 
 ---
 
+<a id="q34"></a>
 ### Q34: What is a NetworkPolicy?
 
 **Difficulty**: Advanced
@@ -703,6 +737,7 @@ spec:
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is a Resource Quota?
 
 **Difficulty**: Intermediate
@@ -719,6 +754,7 @@ kind: ResourceQuota
 
 ---
 
+<a id="q36"></a>
 ### Q36: What is a LimitRange?
 
 **Difficulty**: Intermediate
@@ -735,6 +771,7 @@ kind: LimitRange
 
 ---
 
+<a id="q37"></a>
 ### Q37: What is Headless Service?
 
 **Difficulty**: Advanced
@@ -751,6 +788,7 @@ clusterIP: None
 
 ---
 
+<a id="q38"></a>
 ### Q38: What is Pod Disruption Budget (PDB)?
 
 **Difficulty**: Advanced
@@ -768,6 +806,7 @@ minAvailable: 1
 
 ---
 
+<a id="q39"></a>
 ### Q39: What is a Custom Resource Definition (CRD)?
 
 **Difficulty**: Advanced
@@ -784,6 +823,7 @@ kind: CustomResourceDefinition
 
 ---
 
+<a id="q40"></a>
 ### Q40: What is an Operator?
 
 **Difficulty**: Advanced
@@ -800,6 +840,7 @@ Controller for CRDs. This concept is fundamental in this domain and understandin
 
 ---
 
+<a id="q41"></a>
 ### Q41: What is the difference between Request and Limit?
 
 **Difficulty**: Beginner
@@ -818,6 +859,7 @@ resources:
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you drain a node?
 
 **Difficulty**: Intermediate
@@ -834,6 +876,7 @@ kubectl drain node-1
 
 ---
 
+<a id="q43"></a>
 ### Q43: What is Cordoning?
 
 **Difficulty**: Intermediate
@@ -850,6 +893,7 @@ kubectl cordon node-1
 
 ---
 
+<a id="q44"></a>
 ### Q44: What is a Static Pod?
 
 **Difficulty**: Advanced
@@ -866,6 +910,7 @@ Managed directly by Kubelet, not API server. This concept is fundamental in this
 
 ---
 
+<a id="q45"></a>
 ### Q45: What is Container Runtime Interface (CRI)?
 
 **Difficulty**: Advanced
@@ -882,6 +927,7 @@ Plugin interface for runtimes (containerd, CRI-O).
 
 ---
 
+<a id="q46"></a>
 ### Q46: What is CNI (Container Network Interface)?
 
 **Difficulty**: Advanced
@@ -898,6 +944,7 @@ Plugin for networking (Calico, Flannel). This concept is fundamental in this dom
 
 ---
 
+<a id="q47"></a>
 ### Q47: What is CSI (Container Storage Interface)?
 
 **Difficulty**: Advanced
@@ -914,6 +961,7 @@ Plugin for storage. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you force delete a pod?
 
 **Difficulty**: Intermediate
@@ -930,6 +978,7 @@ kubectl delete pod x --grace-period=0 --force
 
 ---
 
+<a id="q49"></a>
 ### Q49: What is `kubectl apply` vs `create`?
 
 **Difficulty**: Beginner
@@ -946,6 +995,7 @@ kubectl apply -f file.yaml
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you port forward?
 
 **Difficulty**: Beginner
@@ -962,6 +1012,7 @@ kubectl port-forward pod-x 8080:80
 
 ---
 
+<a id="q51"></a>
 ### Q51: What is a Context?
 
 **Difficulty**: Beginner
@@ -978,6 +1029,7 @@ kubectl config use-context prod
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you list all resources?
 
 **Difficulty**: Intermediate
@@ -994,6 +1046,7 @@ kubectl get all --all-namespaces
 
 ---
 
+<a id="q53"></a>
 ### Q53: What is a finalizer?
 
 **Difficulty**: Advanced
@@ -1011,6 +1064,7 @@ finalizers:
 
 ---
 
+<a id="q54"></a>
 ### Q54: What is Garbage Collection in K8s?
 
 **Difficulty**: Advanced
@@ -1027,6 +1081,7 @@ Deleting orphaned resources. This concept is fundamental in this domain and unde
 
 ---
 
+<a id="q55"></a>
 ### Q55: What is OOMKilled?
 
 **Difficulty**: Intermediate
@@ -1043,6 +1098,7 @@ Container used more RAM than limit. This concept is fundamental in this domain a
 
 ---
 
+<a id="q56"></a>
 ### Q56: What is ImagePullBackOff?
 
 **Difficulty**: Beginner
@@ -1059,6 +1115,7 @@ Cannot pull image (auth, typo). This concept is fundamental in this domain and u
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you auto-scale cluster nodes?
 
 **Difficulty**: Advanced
@@ -1075,6 +1132,7 @@ Cluster Autoscaler. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q58"></a>
 ### Q58: What is Service Mesh (Istio/Linkerd)?
 
 **Difficulty**: Advanced
@@ -1091,6 +1149,7 @@ Traffic management, security, observability. This concept is fundamental in this
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you secure K8s dashboard?
 
 **Difficulty**: Intermediate
@@ -1107,6 +1166,7 @@ RBAC + Auth Proxy. This concept is fundamental in this domain and understanding 
 
 ---
 
+<a id="q60"></a>
 ### Q60: What is GitOps?
 
 **Difficulty**: Intermediate
@@ -1123,6 +1183,7 @@ Git as source of truth (ArgoCD, Flux). This concept is fundamental in this domai
 
 ---
 
+<a id="q61"></a>
 ### Q61: How do you backup etcd?
 
 **Difficulty**: Advanced
@@ -1139,6 +1200,7 @@ etcdctl snapshot save backup.db
 
 ---
 
+<a id="q62"></a>
 ### Q62: What is a PriorityClass?
 
 **Difficulty**: Advanced
@@ -1156,6 +1218,7 @@ value: 1000000
 
 ---
 
+<a id="q63"></a>
 ### Q63: What is Pod Security Admission?
 
 **Difficulty**: Advanced
@@ -1173,6 +1236,7 @@ labels:
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you mount a single file?
 
 **Difficulty**: Intermediate
@@ -1191,6 +1255,7 @@ volumeMounts:
 
 ---
 
+<a id="q65"></a>
 ### Q65: What is Ephemeral Storage?
 
 **Difficulty**: Intermediate
@@ -1208,6 +1273,7 @@ requests:
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you troubleshoot DNS?
 
 **Difficulty**: Intermediate
@@ -1224,6 +1290,7 @@ nslookup myservice
 
 ---
 
+<a id="q67"></a>
 ### Q67: What is `kubectl top`?
 
 **Difficulty**: Beginner
@@ -1240,6 +1307,7 @@ kubectl top pods
 
 ---
 
+<a id="q68"></a>
 ### Q68: What is Metrics Server?
 
 **Difficulty**: Intermediate
@@ -1256,6 +1324,7 @@ Aggregates resource usage. This concept is fundamental in this domain and unders
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you copy files to/from pod?
 
 **Difficulty**: Beginner
@@ -1272,6 +1341,7 @@ kubectl cp ./file pod:/path
 
 ---
 
+<a id="q70"></a>
 ### Q70: What is `kubectl exec`?
 
 **Difficulty**: Beginner
@@ -1288,6 +1358,7 @@ kubectl exec -it pod -- bash
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is Downward API?
 
 **Difficulty**: Advanced
@@ -1306,6 +1377,7 @@ valueFrom:
 
 ---
 
+<a id="q72"></a>
 ### Q72: What is Topology Spread Constraints?
 
 **Difficulty**: Advanced
@@ -1323,6 +1395,7 @@ topologySpreadConstraints:
 
 ---
 
+<a id="q73"></a>
 ### Q73: What is Pod Affinity?
 
 **Difficulty**: Advanced
@@ -1340,6 +1413,7 @@ podAffinity:
 
 ---
 
+<a id="q74"></a>
 ### Q74: What is Pod Anti-Affinity?
 
 **Difficulty**: Advanced
@@ -1357,6 +1431,7 @@ podAntiAffinity:
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle secret encryption?
 
 **Difficulty**: Advanced
@@ -1373,6 +1448,7 @@ EncryptionConfiguration for etcd. This concept is fundamental in this domain and
 
 ---
 
+<a id="q76"></a>
 ### Q76: What is a certificate signing request (CSR)?
 
 **Difficulty**: Advanced
@@ -1389,6 +1465,7 @@ kind: CertificateSigningRequest
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you renew certs?
 
 **Difficulty**: Advanced
@@ -1405,6 +1482,7 @@ kubeadm certs renew all
 
 ---
 
+<a id="q78"></a>
 ### Q78: What is kubeadm?
 
 **Difficulty**: Intermediate
@@ -1421,6 +1499,7 @@ kubeadm init
 
 ---
 
+<a id="q79"></a>
 ### Q79: What is Minikube?
 
 **Difficulty**: Beginner
@@ -1437,6 +1516,7 @@ minikube start
 
 ---
 
+<a id="q80"></a>
 ### Q80: What is Kind?
 
 **Difficulty**: Beginner
@@ -1453,6 +1533,7 @@ kind create cluster
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is k3s?
 
 **Difficulty**: Beginner
@@ -1469,6 +1550,7 @@ curl ... | sh -
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you manage multiple clusters?
 
 **Difficulty**: Intermediate
@@ -1485,6 +1567,7 @@ KUBECONFIG=c1:c2 kubectl get pods
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is Federation v2 (KubeFed)?
 
 **Difficulty**: Advanced
@@ -1501,6 +1584,7 @@ Coordinate multiple clusters. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you debug networking?
 
 **Difficulty**: Advanced
@@ -1517,6 +1601,7 @@ kubectl run debug --image=nicolaka/netshoot
 
 ---
 
+<a id="q85"></a>
 ### Q85: What is a Lease?
 
 **Difficulty**: Advanced
@@ -1533,6 +1618,7 @@ kind: Lease
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you limit jobs history?
 
 **Difficulty**: Intermediate
@@ -1549,6 +1635,7 @@ ttlSecondsAfterFinished: 100
 
 ---
 
+<a id="q87"></a>
 ### Q87: What is PreStop hook?
 
 **Difficulty**: Intermediate
@@ -1567,6 +1654,7 @@ lifecycle:
 
 ---
 
+<a id="q88"></a>
 ### Q88: What is PostStart hook?
 
 **Difficulty**: Intermediate
@@ -1584,6 +1672,7 @@ lifecycle:
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you set environment variables?
 
 **Difficulty**: Beginner
@@ -1602,6 +1691,7 @@ env:
 
 ---
 
+<a id="q90"></a>
 ### Q90: What is `command` vs `args`?
 
 **Difficulty**: Intermediate
@@ -1619,6 +1709,7 @@ args: ["-c", "echo hi"]
 
 ---
 
+<a id="q91"></a>
 ### Q91: How do you restart a deployment?
 
 **Difficulty**: Beginner
@@ -1635,6 +1726,7 @@ kubectl rollout restart deploy/app
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you undo a deployment?
 
 **Difficulty**: Beginner
@@ -1651,6 +1743,7 @@ kubectl rollout undo deploy/app
 
 ---
 
+<a id="q93"></a>
 ### Q93: What is `kubectl explain`?
 
 **Difficulty**: Beginner
@@ -1667,6 +1760,7 @@ kubectl explain pod.spec
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you dry-run?
 
 **Difficulty**: Beginner
@@ -1683,6 +1777,7 @@ kubectl create deploy x --dry-run=client -o yaml
 
 ---
 
+<a id="q95"></a>
 ### Q95: What is a Manifest?
 
 **Difficulty**: Beginner
@@ -1699,6 +1794,7 @@ YAML file defining resources. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you validate yaml?
 
 **Difficulty**: Intermediate
@@ -1715,6 +1811,7 @@ kubeval pod.yaml
 
 ---
 
+<a id="q97"></a>
 ### Q97: What is OPA (Open Policy Agent)?
 
 **Difficulty**: Advanced
@@ -1731,6 +1828,7 @@ Policy engine (Gatekeeper). This concept is fundamental in this domain and under
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you monitor logs?
 
 **Difficulty**: Beginner
@@ -1747,6 +1845,7 @@ EFK/ELK stack or Loki. This concept is fundamental in this domain and understand
 
 ---
 
+<a id="q99"></a>
 ### Q99: What is Prometheus?
 
 **Difficulty**: Intermediate
@@ -1763,6 +1862,7 @@ Metrics collection. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q100"></a>
 ### Q100: What is Grafana?
 
 **Difficulty**: Intermediate

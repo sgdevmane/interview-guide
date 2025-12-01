@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: What is the difference between `class` and `struct` in Swift?
 
 **Difficulty**: Beginner
@@ -141,6 +142,7 @@ c2.name = "B" // c1 is now "B"
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you implement a thread-safe counter using Swift Actors?
 
 **Difficulty**: Advanced
@@ -174,6 +176,7 @@ Task {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you efficiently handle large lists of data in SwiftUI to avoid performance issues?
 
 **Difficulty**: Intermediate
@@ -199,6 +202,7 @@ struct ContentView: View {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you migrate legacy callback-based code to Swift Concurrency (async/await)?
 
 **Difficulty**: Advanced
@@ -230,6 +234,7 @@ func fetchUserAsync() async throws -> User {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you inject dependencies into a SwiftUI view hierarchy without passing them through every initializer?
 
 **Difficulty**: Intermediate
@@ -265,6 +270,7 @@ struct ProfileView: View {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you implement custom error handling in a Swift network layer?
 
 **Difficulty**: Intermediate
@@ -299,6 +305,7 @@ func fetchData(url: String) async throws -> Data {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you optimize the performance of a SwiftUI view that updates too frequently?
 
 **Difficulty**: Advanced
@@ -330,6 +337,7 @@ struct ExpensiveView: View, Equatable {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you integrate a UIKit view (e.g., MKMapView) into a SwiftUI app?
 
 **Difficulty**: Intermediate
@@ -357,6 +365,7 @@ struct MapViewWrapper: UIViewRepresentable {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you implement Unit Tests for a ViewModel with async network calls?
 
 **Difficulty**: Advanced
@@ -393,6 +402,7 @@ func testViewModelFetch() async {
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you handle deep linking in a SwiftUI application using the new NavigationStack?
 
 **Difficulty**: Advanced
@@ -427,6 +437,7 @@ struct ContentView: View {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you manage the lifecycle of an `@ObservedObject` vs `@StateObject`?
 
 **Difficulty**: Beginner
@@ -458,6 +469,7 @@ struct ChildView: View {
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you implement custom property wrappers to validate user input automatically?
 
 **Difficulty**: Advanced
@@ -493,6 +505,7 @@ print(user.name) // "John"
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you use the `some` and `any` keywords in Swift generics?
 
 **Difficulty**: Advanced
@@ -511,6 +524,7 @@ func process(items: [any Equatable]) { ... }   // Existential
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you implement Codable for a JSON response with dynamic keys?
 
 **Difficulty**: Expert
@@ -540,6 +554,7 @@ print(users["user_1"]?.name ?? "")
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you force a SwiftUI view to redraw without changing its state?
 
 **Difficulty**: Intermediate
@@ -569,6 +584,7 @@ struct ContentView: View {
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you set up a basic Core Data Stack?
 
 **Difficulty**: Intermediate
@@ -600,6 +616,7 @@ class CoreDataStack {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you use Combine to handle a text field input with debounce?
 
 **Difficulty**: Intermediate
@@ -628,6 +645,7 @@ class ViewModel: ObservableObject {
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you create programmatic Auto Layout constraints?
 
 **Difficulty**: Intermediate
@@ -654,6 +672,7 @@ NSLayoutConstraint.activate([
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you write a generic function that works with any Numeric type?
 
 **Difficulty**: Beginner
@@ -676,6 +695,7 @@ print(square(5.5))     // 30.25
 
 ---
 
+<a id="q20"></a>
 ### Q20: What is an escaping closure and when do you use it?
 
 **Difficulty**: Intermediate
@@ -697,6 +717,7 @@ func fetchData(completion: @escaping (String) -> Void) {
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do Structs (Value Types) differ from Classes (Reference Types) in mutation?
 
 **Difficulty**: Beginner
@@ -726,6 +747,7 @@ class Mover {
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you provide a default implementation for a Protocol method?
 
 **Difficulty**: Intermediate
@@ -754,6 +776,7 @@ Person().greet() // "Hello"
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you add a computed property to an existing type using Extensions?
 
 **Difficulty**: Beginner
@@ -776,6 +799,7 @@ let distance = 5.0.km
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you define and throw a custom Error?
 
 **Difficulty**: Beginner
@@ -805,6 +829,7 @@ do {
 
 ---
 
+<a id="q25"></a>
 ### Q25: Why is Set lookup faster than Array lookup?
 
 **Difficulty**: Intermediate
@@ -829,6 +854,7 @@ array.contains(2)
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you support Dynamic Type (text scaling) in SwiftUI?
 
 **Difficulty**: Beginner
@@ -850,6 +876,7 @@ Image(systemName: "star").frame(width: size, height: size)
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you localize strings using NSLocalizedString?
 
 **Difficulty**: Beginner
@@ -873,6 +900,7 @@ let greeting = NSLocalizedString("hello_key", comment: "Greeting")
 
 ---
 
+<a id="q28"></a>
 ### Q28: What is the role of SceneDelegate vs AppDelegate?
 
 **Difficulty**: Intermediate
@@ -898,6 +926,7 @@ func application(_ app: UIApplication, didFinishLaunchingWithOptions...) {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you write an async unit test with XCTest?
 
 **Difficulty**: Intermediate
@@ -918,6 +947,7 @@ func testAsyncFetch() async throws {
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you configure a basic Fastfile for Fastlane?
 
 **Difficulty**: Intermediate
@@ -946,6 +976,7 @@ end
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you define dependencies in Swift Package Manager?
 
 **Difficulty**: Beginner
@@ -968,6 +999,7 @@ targets: [
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you use `@MainActor` to ensure UI updates on the main thread?
 
 **Difficulty**: Intermediate
@@ -992,6 +1024,7 @@ class ViewModel: ObservableObject {
 
 ---
 
+<a id="q33"></a>
 ### Q33: When should you use the `defer` keyword?
 
 **Difficulty**: Beginner
@@ -1014,6 +1047,7 @@ func process() {
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you use a `lazy` stored property?
 
 **Difficulty**: Beginner
@@ -1033,6 +1067,7 @@ class Manager {
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is the difference between Computed and Stored properties?
 
 **Difficulty**: Beginner
@@ -1057,6 +1092,7 @@ struct Rect {
 
 ---
 
+<a id="q36"></a>
 ### Q36: What is the difference between `guard` and `if let`?
 
 **Difficulty**: Beginner
@@ -1077,6 +1113,7 @@ func printName(_ name: String?) {
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you handle custom date formats with Codable?
 
 **Difficulty**: Intermediate
@@ -1097,6 +1134,7 @@ decoder.dateDecodingStrategy = .formatted(formatter)
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you use the `Result` type?
 
 **Difficulty**: Intermediate
@@ -1117,6 +1155,7 @@ func fetch(completion: (Result<String, Error>) -> Void) {
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you use `map`, `filter`, and `reduce`?
 
 **Difficulty**: Beginner
@@ -1136,6 +1175,7 @@ let sum = nums.reduce(0, +)
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use KeyPaths in Swift?
 
 **Difficulty**: Intermediate
@@ -1155,6 +1195,7 @@ let names = users.map(\.name)
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you implement the Singleton pattern correctly?
 
 **Difficulty**: Beginner
@@ -1175,6 +1216,7 @@ class Settings {
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you use `DispatchGroup` to wait for multiple async tasks?
 
 **Difficulty**: Intermediate
@@ -1202,6 +1244,7 @@ group.notify(queue: .main) {
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you use `OperationQueue` for dependent tasks?
 
 **Difficulty**: Advanced
@@ -1224,6 +1267,7 @@ queue.addOperations([op1, op2], waitUntilFinished: false)
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you configure `URLSession` caching?
 
 **Difficulty**: Intermediate
@@ -1244,6 +1288,7 @@ let session = URLSession(configuration: config)
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you implement the Factory Pattern?
 
 **Difficulty**: Intermediate
@@ -1269,6 +1314,7 @@ class ButtonFactory {
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you implement the Observer Pattern using NotificationCenter?
 
 **Difficulty**: Intermediate
@@ -1290,6 +1336,7 @@ NotificationCenter.default.addObserver(forName: .myNotif, object: nil, queue: .m
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use the Coordinator Pattern for navigation?
 
 **Difficulty**: Advanced
@@ -1321,6 +1368,7 @@ class MainCoordinator: Coordinator {
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you optimize memory using `autoreleasepool`?
 
 **Difficulty**: Advanced
@@ -1343,6 +1391,7 @@ for _ in 0..<10000 {
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you check for API availability?
 
 **Difficulty**: Beginner
@@ -1364,6 +1413,7 @@ if #available(iOS 15, *) {
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you prevent a retain cycle in a Delegate?
 
 **Difficulty**: Beginner
@@ -1388,6 +1438,7 @@ class MyClass {
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Swift state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1404,6 +1455,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Swift data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1420,6 +1472,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Swift deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1438,6 +1491,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Swift concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1456,6 +1510,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Swift caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1473,6 +1528,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Swift configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1489,6 +1545,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Swift internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1505,6 +1562,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Swift accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1521,6 +1579,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Swift network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1537,6 +1596,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Swift performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1556,6 +1616,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Swift in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1573,6 +1634,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Swift memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1590,6 +1652,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Swift code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1607,6 +1670,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Swift error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1627,6 +1691,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Swift functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1645,6 +1710,7 @@ test('Swift works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Swift state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1661,6 +1727,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Swift data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1677,6 +1744,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Swift deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1695,6 +1763,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Swift concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1713,6 +1782,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Swift caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1730,6 +1800,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Swift configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1746,6 +1817,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Swift internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1762,6 +1834,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Swift accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1778,6 +1851,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Swift network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1794,6 +1868,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Swift performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1813,6 +1888,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Swift in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1830,6 +1906,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Swift memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1847,6 +1924,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Swift code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1864,6 +1942,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Swift error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1884,6 +1963,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Swift functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1902,6 +1982,7 @@ test('Swift works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Swift state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1918,6 +1999,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Swift data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1934,6 +2016,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Swift deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1952,6 +2035,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Swift concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1970,6 +2054,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Swift caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1987,6 +2072,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Swift configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -2003,6 +2089,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Swift internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -2019,6 +2106,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Swift accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -2035,6 +2123,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Swift network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2051,6 +2140,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Swift performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2070,6 +2160,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Swift in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2087,6 +2178,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Swift memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2104,6 +2196,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Swift code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2121,6 +2214,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Swift error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2141,6 +2235,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Swift functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2159,6 +2254,7 @@ test('Swift works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Swift state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2175,6 +2271,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Swift data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2191,6 +2288,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Swift deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2209,6 +2307,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Swift concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2227,6 +2326,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Swift caching in production environments?
 
 **Difficulty**: Intermediate

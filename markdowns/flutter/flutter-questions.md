@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you optimize the performance of a large list in Flutter to prevent jank?
 
 **Difficulty**: Intermediate
@@ -137,6 +138,7 @@ ListView.builder(
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you manage global state efficiently using Riverpod?
 
 **Difficulty**: Intermediate
@@ -170,6 +172,7 @@ class Home extends ConsumerWidget {
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you prevent memory leaks when using Streams in Flutter?
 
 **Difficulty**: Beginner
@@ -205,6 +208,7 @@ class _MyWidgetState extends State<MyWidget> {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you run heavy computational tasks without blocking the UI thread (Isolates)?
 
 **Difficulty**: Advanced
@@ -230,6 +234,7 @@ void calculate() async {
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you handle platform-specific code (e.g., accessing battery level)?
 
 **Difficulty**: Intermediate
@@ -255,6 +260,7 @@ Future<void> getBatteryLevel() async {
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you reduce the app size for production builds?
 
 **Difficulty**: Intermediate
@@ -281,6 +287,7 @@ flutter build apk --analyze-size
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you implement a custom painter for complex drawing?
 
 **Difficulty**: Advanced
@@ -306,6 +313,7 @@ class MyPainter extends CustomPainter {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you ensure a widget rebuilds only when specific data changes (Selector)?
 
 **Difficulty**: Intermediate
@@ -327,6 +335,7 @@ Selector<UserModel, String>(
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you implement deep linking in Flutter (Navigator 2.0)?
 
 **Difficulty**: Advanced
@@ -352,6 +361,7 @@ final router = GoRouter(
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you debug layout issues where widgets have 'unbounded height'?
 
 **Difficulty**: Beginner
@@ -378,6 +388,7 @@ ListView(
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you use Keys to preserve widget state when the list order changes?
 
 **Difficulty**: Intermediate
@@ -398,6 +409,7 @@ List<Widget> items = [
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you implement a theme switch (Dark/Light mode) dynamically?
 
 **Difficulty**: Beginner
@@ -419,6 +431,7 @@ MaterialApp(
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you optimize images by caching them?
 
 **Difficulty**: Beginner
@@ -439,6 +452,7 @@ CachedNetworkImage(
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you write a unit test for a simple business logic class?
 
 **Difficulty**: Beginner
@@ -461,6 +475,7 @@ void main() {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you handle errors globally in Flutter (e.g., crash reporting)?
 
 **Difficulty**: Intermediate
@@ -484,6 +499,7 @@ void main() {
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you perform Dependency Injection using GetIt?
 
 **Difficulty**: Intermediate
@@ -508,6 +524,7 @@ final viewModel = getIt<HomeViewModel>();
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you use Flutter Hooks to simplify AnimationController management?
 
 **Difficulty**: Intermediate
@@ -538,6 +555,7 @@ class HookExample extends HookWidget {
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you communicate with native platform code using MethodChannel?
 
 **Difficulty**: Advanced
@@ -565,6 +583,7 @@ MethodChannel(flutterEngine.dartExecutor, "com.example.app/battery").setMethodCa
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you handle keyboard visibility and dismissal efficiently?
 
 **Difficulty**: Beginner
@@ -586,6 +605,7 @@ GestureDetector(
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you implement a SliverAppBar with a floating title?
 
 **Difficulty**: Intermediate
@@ -620,6 +640,7 @@ CustomScrollView(
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you make your Flutter app accessible using Semantics?
 
 **Difficulty**: Intermediate
@@ -642,6 +663,7 @@ Semantics(
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you implement internationalization (i18n) using the flutter_localizations package?
 
 **Difficulty**: Intermediate
@@ -672,6 +694,7 @@ MaterialApp(
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you write an integration test in Flutter?
 
 **Difficulty**: Advanced
@@ -705,6 +728,7 @@ void main() {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you debug performance issues using Flutter DevTools?
 
 **Difficulty**: Intermediate
@@ -725,6 +749,7 @@ flutter run --profile
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you create a custom animation using TweenAnimationBuilder?
 
 **Difficulty**: Intermediate
@@ -754,6 +779,7 @@ TweenAnimationBuilder<double>(
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you display a floating widget using OverlayEntry?
 
 **Difficulty**: Advanced
@@ -785,6 +811,7 @@ void showFloatingWidget(BuildContext context) {
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you optimize rebuilds with ValueListenableBuilder?
 
 **Difficulty**: Beginner
@@ -817,6 +844,7 @@ Widget build(BuildContext context) {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you handle asynchronous data in Riverpod with AsyncValue?
 
 **Difficulty**: Intermediate
@@ -848,6 +876,7 @@ class UserWidget extends ConsumerWidget {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you validate a Form in Flutter?
 
 **Difficulty**: Beginner
@@ -886,6 +915,7 @@ Form(
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you embed a native Android/iOS view in Flutter?
 
 **Difficulty**: Advanced
@@ -915,6 +945,7 @@ UiKitView(
 ---
 
 
+<a id="q31"></a>
 ### Q31: How do you implement Pull-to-Refresh functionality?
 
 **Difficulty**: Beginner
@@ -935,6 +966,7 @@ RefreshIndicator(
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you create a Hero animation between two screens?
 
 **Difficulty**: Intermediate
@@ -959,6 +991,7 @@ Hero(
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you create a rounded image using `ClipRRect`?
 
 **Difficulty**: Beginner
@@ -976,6 +1009,7 @@ ClipRRect(
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you create a blur effect (Glassmorphism)?
 
 **Difficulty**: Intermediate
@@ -998,6 +1032,7 @@ Stack(
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you implement Drag and Drop?
 
 **Difficulty**: Intermediate
@@ -1023,6 +1058,7 @@ DragTarget<int>(
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you allow users to pinch-to-zoom and pan an image?
 
 **Difficulty**: Intermediate
@@ -1041,6 +1077,7 @@ InteractiveViewer(
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you implement a page view (swiping between screens)?
 
 **Difficulty**: Beginner
@@ -1064,6 +1101,7 @@ PageView(
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you create a Tab Bar layout?
 
 **Difficulty**: Beginner
@@ -1088,6 +1126,7 @@ DefaultTabController(
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you implement search functionality using `SearchDelegate`?
 
 **Difficulty**: Intermediate
@@ -1114,6 +1153,7 @@ class MySearchDelegate extends SearchDelegate {
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you use `InheritedWidget` to pass data down the tree?
 
 **Difficulty**: Advanced
@@ -1136,6 +1176,7 @@ class MyColor extends InheritedWidget {
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you handle keyboard shortcuts (Web/Desktop)?
 
 **Difficulty**: Intermediate
@@ -1155,6 +1196,7 @@ CallbackShortcuts(
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you group multiple semantics into one (`MergeSemantics`)?
 
 **Difficulty**: Intermediate
@@ -1176,6 +1218,7 @@ MergeSemantics(
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you create a gradient text effect?
 
 **Difficulty**: Intermediate
@@ -1198,6 +1241,7 @@ ShaderMask(
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you use `RepaintBoundary` to improve performance?
 
 **Difficulty**: Advanced
@@ -1214,6 +1258,7 @@ RepaintBoundary(
 
 ---
 
+<a id="q45"></a>
 ### Q45: What is the difference between `Offstage`, `Visibility`, and `Opacity`?
 
 **Difficulty**: Intermediate
@@ -1234,6 +1279,7 @@ Visibility(
 
 ---
 
+<a id="q46"></a>
 ### Q46: What is the difference between `Flexible` and `Expanded`?
 
 **Difficulty**: Beginner
@@ -1253,6 +1299,7 @@ Row(
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you make responsive layouts based on parent size (`LayoutBuilder`)?
 
 **Difficulty**: Intermediate
@@ -1275,6 +1322,7 @@ LayoutBuilder(
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you size a widget relative to its parent (`FractionallySizedBox`)?
 
 **Difficulty**: Intermediate
@@ -1297,6 +1345,7 @@ Container(
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you create complex flow layouts (`Flow`)?
 
 **Difficulty**: Advanced
@@ -1314,6 +1363,7 @@ Flow(
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you check if the device is online?
 
 **Difficulty**: Intermediate
@@ -1334,6 +1384,7 @@ if (connectivityResult == ConnectivityResult.mobile) {
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Flutter state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1350,6 +1401,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Flutter data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1366,6 +1418,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Flutter deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1384,6 +1437,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Flutter concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1402,6 +1456,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Flutter caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1419,6 +1474,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Flutter configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1435,6 +1491,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Flutter internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1451,6 +1508,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Flutter accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1467,6 +1525,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Flutter network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1483,6 +1542,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Flutter performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1502,6 +1562,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Flutter in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1519,6 +1580,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Flutter memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1536,6 +1598,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Flutter code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1553,6 +1616,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Flutter error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1573,6 +1637,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Flutter functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1591,6 +1656,7 @@ test('Flutter works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Flutter state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1607,6 +1673,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Flutter data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1623,6 +1690,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Flutter deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1641,6 +1709,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Flutter concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1659,6 +1728,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Flutter caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1676,6 +1746,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Flutter configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1692,6 +1763,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Flutter internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1708,6 +1780,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Flutter accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1724,6 +1797,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Flutter network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1740,6 +1814,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Flutter performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1759,6 +1834,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Flutter in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1776,6 +1852,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Flutter memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1793,6 +1870,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Flutter code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1810,6 +1888,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Flutter error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1830,6 +1909,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Flutter functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1848,6 +1928,7 @@ test('Flutter works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Flutter state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1864,6 +1945,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Flutter data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1880,6 +1962,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Flutter deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1898,6 +1981,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Flutter concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1916,6 +2000,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Flutter caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1933,6 +2018,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Flutter configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1949,6 +2035,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Flutter internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1965,6 +2052,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Flutter accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1981,6 +2069,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Flutter network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1997,6 +2086,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Flutter performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2016,6 +2106,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Flutter in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2033,6 +2124,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Flutter memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2050,6 +2142,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Flutter code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2067,6 +2160,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Flutter error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2087,6 +2181,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Flutter functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2105,6 +2200,7 @@ test('Flutter works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Flutter state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2121,6 +2217,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Flutter data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2137,6 +2234,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Flutter deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2155,6 +2253,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Flutter concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2173,6 +2272,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Flutter caching in production environments?
 
 **Difficulty**: Intermediate

@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you minimize unnecessary re-renders in a React component using Zustand?
 
 **Difficulty**: Intermediate
@@ -144,6 +145,7 @@ const Component = () => {
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you implement optimistic UI updates using Redux Toolkit (RTK)?
 
 **Difficulty**: Advanced
@@ -171,6 +173,7 @@ const updatePost = createAsyncThunk(
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you persist Zustand state to `localStorage` and rehydrate it on app start?
 
 **Difficulty**: Beginner
@@ -203,6 +206,7 @@ const useStore = create(
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you handle complex asynchronous logic (like debouncing or cancellation) in Redux Toolkit?
 
 **Difficulty**: Advanced
@@ -232,6 +236,7 @@ listenerMiddleware.startListening({
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you normalize nested API data (e.g., Users with Posts) in a Redux store?
 
 **Difficulty**: Intermediate
@@ -262,6 +267,7 @@ export const { selectAll: selectAllUsers } = usersAdapter.getSelectors();
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you type a Redux Toolkit slice and dispatch correctly in TypeScript?
 
 **Difficulty**: Beginner
@@ -286,6 +292,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you access the Zustand store state outside of a React component (e.g., in a utility function)?
 
 **Difficulty**: Intermediate
@@ -313,6 +320,7 @@ export const resetBears = () => {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you split a large Redux store into manageable chunks (Code Splitting)?
 
 **Difficulty**: Advanced
@@ -335,6 +343,7 @@ export function injectReducer(key, reducer) {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you unit test a Redux Toolkit slice logic?
 
 **Difficulty**: Intermediate
@@ -357,6 +366,7 @@ test('should handle increment', () => {
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you handle side effects in Zustand without middleware?
 
 **Difficulty**: Beginner
@@ -383,6 +393,7 @@ const useStore = create((set) => ({
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you create a 'derived state' selector in Redux that is memoized?
 
 **Difficulty**: Intermediate
@@ -407,6 +418,7 @@ export const selectFilteredItems = createSelector(
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you reset the entire Redux state (e.g., on user logout)?
 
 **Difficulty**: Intermediate
@@ -432,6 +444,7 @@ const appReducer = (state, action) => {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you share state between multiple tabs/windows using Zustand?
 
 **Difficulty**: Advanced
@@ -455,6 +468,7 @@ window.addEventListener('storage', (e) => {
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you prevent a specific Redux action from being logged in DevTools (e.g., sensitive data)?
 
 **Difficulty**: Intermediate
@@ -482,6 +496,7 @@ const store = configureStore({
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you implement undo/redo functionality in a Redux store?
 
 **Difficulty**: Advanced
@@ -510,6 +525,7 @@ dispatch(ActionCreators.redo());
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you use the DevTools middleware in Zustand?
 
 **Difficulty**: Beginner
@@ -531,6 +547,7 @@ const useStore = create(devtools((set) => ({
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you create a parameterized selector in Redux?
 
 **Difficulty**: Intermediate
@@ -550,6 +567,7 @@ const item = useSelector(state => selectItemById(state, props.id));
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you listen to transient state changes in Zustand without re-rendering?
 
 **Difficulty**: Advanced
@@ -571,6 +589,7 @@ useEffect(() => {
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you transform API responses in RTK Query?
 
 **Difficulty**: Intermediate
@@ -590,6 +609,7 @@ getPost: builder.query({
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you implement Cache Invalidation in RTK Query?
 
 **Difficulty**: Intermediate
@@ -613,6 +633,7 @@ addPost: builder.mutation({
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you organize a large Zustand store using Slices?
 
 **Difficulty**: Advanced
@@ -642,6 +663,7 @@ const useStore = create((...a) => ({
 
 ---
 
+<a id="q22"></a>
 ### Q22: What is the `prepare` callback in Redux Toolkit reducers?
 
 **Difficulty**: Intermediate
@@ -665,6 +687,7 @@ reducers: {
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you implement polling in RTK Query?
 
 **Difficulty**: Beginner
@@ -683,6 +706,7 @@ const { data } = useGetStatusQuery(undefined, {
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you inject an Authentication Token into RTK Query requests?
 
 **Difficulty**: Intermediate
@@ -706,6 +730,7 @@ fetchBaseQuery({
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you use Immer manually in Redux Toolkit?
 
 **Difficulty**: Advanced
@@ -726,6 +751,7 @@ const nextState = createNextState(baseState, draft => {
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you handle multiple action types in one reducer (RTK)?
 
 **Difficulty**: Intermediate
@@ -745,6 +771,7 @@ builder.addMatcher(
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you create a Component-Scoped Zustand Store?
 
 **Difficulty**: Advanced
@@ -766,6 +793,7 @@ const Provider = ({ children }) => {
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you prefetch data with RTK Query?
 
 **Difficulty**: Intermediate
@@ -784,6 +812,7 @@ const prefetchUser = usePrefetch('getUser');
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you code-split RTK Query endpoints?
 
 **Difficulty**: Advanced
@@ -808,6 +837,7 @@ const extendedApi = api.injectEndpoints({
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you debug the current state in an RTK reducer?
 
 **Difficulty**: Beginner
@@ -827,6 +857,7 @@ console.log(current(state));
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you skip a query in RTK Query?
 
 **Difficulty**: Beginner
@@ -843,6 +874,7 @@ const { data } = useGetUserQuery(id, { skip: !id });
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you automatically refetch data on window focus?
 
 **Difficulty**: Beginner
@@ -862,6 +894,7 @@ useQuery(id, { refetchOnFocus: true });
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you use the Immer middleware in Zustand?
 
 **Difficulty**: Intermediate
@@ -883,6 +916,7 @@ const useStore = create(immer((set) => ({
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you inject extra arguments (like an API client) into Thunks?
 
 **Difficulty**: Intermediate
@@ -903,6 +937,7 @@ const store = configureStore({
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you bypass `baseQuery` for a specific endpoint in RTK Query?
 
 **Difficulty**: Advanced
@@ -924,6 +959,7 @@ getCustomData: builder.query({
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you optimize RTK Query selection performance?
 
 **Difficulty**: Advanced
@@ -944,6 +980,7 @@ useGetPostsQuery(undefined, {
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you handle optimistic updates in Zustand?
 
 **Difficulty**: Intermediate
@@ -968,6 +1005,7 @@ update: async (val) => {
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you reset the RTK Query cache?
 
 **Difficulty**: Intermediate
@@ -984,6 +1022,7 @@ dispatch(api.util.resetApiState());
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you use `combine` middleware in Zustand for type inference?
 
 **Difficulty**: Advanced
@@ -1005,6 +1044,7 @@ const useStore = create(combine(
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you ensure strict state immutability checks in Redux Toolkit?
 
 **Difficulty**: Beginner
@@ -1023,6 +1063,7 @@ getDefaultMiddleware({ immutableCheck: false })
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you perform Server-Side Rendering (SSR) with Redux Toolkit?
 
 **Difficulty**: Advanced
@@ -1041,6 +1082,7 @@ const preloadedState = store.getState();
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you perform Server-Side Rendering (SSR) with Zustand?
 
 **Difficulty**: Advanced
@@ -1057,6 +1099,7 @@ Avoid using `persist` with `localStorage` directly on server. Use `skipHydration
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you use the `autoBatchEnhancer` in Redux Toolkit?
 
 **Difficulty**: Advanced
@@ -1075,6 +1118,7 @@ configureStore({
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you test a Zustand store?
 
 **Difficulty**: Intermediate
@@ -1093,6 +1137,7 @@ expect(result.current.count).toBe(1);
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you wait for a specific action in Redux?
 
 **Difficulty**: Advanced
@@ -1109,6 +1154,7 @@ await listenerApi.condition((action) => action.type === 'Success');
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you use `mutative` with Zustand?
 
 **Difficulty**: Intermediate
@@ -1125,6 +1171,7 @@ Similar to Immer, wrap the setter. `mutative` is often faster.
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you create a bidirectional sync between Redux and URL params?
 
 **Difficulty**: Advanced
@@ -1142,6 +1189,7 @@ listenerApi.dispatch(updateUrl(action.payload));
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you handle non-serializable data in Redux?
 
 **Difficulty**: Intermediate
@@ -1158,6 +1206,7 @@ getDefaultMiddleware({ serializableCheck: false })
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you implement a 'Draft' feature using Redux?
 
 **Difficulty**: Intermediate
@@ -1174,6 +1223,7 @@ Keep a separate slice for the draft state. Sync it with the original data on 'Ed
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you use `createStore` (Vanilla) in Zustand?
 
 **Difficulty**: Intermediate
@@ -1193,6 +1243,7 @@ store.subscribe(console.log);
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Redux state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1209,6 +1260,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Redux data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1225,6 +1277,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Redux deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1243,6 +1296,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Redux concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1261,6 +1315,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Redux caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1278,6 +1333,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Redux configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1294,6 +1350,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Redux internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1310,6 +1367,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Redux accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1326,6 +1384,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Redux network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1342,6 +1401,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Redux performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1361,6 +1421,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Redux in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1378,6 +1439,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Redux memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1395,6 +1457,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Redux code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1412,6 +1475,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Redux error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1432,6 +1496,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Redux functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1450,6 +1515,7 @@ test('Redux works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Redux state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1466,6 +1532,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Redux data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1482,6 +1549,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Redux deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1500,6 +1568,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Redux concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1518,6 +1587,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Redux caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1535,6 +1605,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Redux configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1551,6 +1622,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Redux internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1567,6 +1639,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Redux accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1583,6 +1656,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Redux network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1599,6 +1673,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Redux performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1618,6 +1693,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Redux in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1635,6 +1711,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Redux memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1652,6 +1729,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Redux code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1669,6 +1747,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Redux error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1689,6 +1768,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Redux functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1707,6 +1787,7 @@ test('Redux works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Redux state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1723,6 +1804,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Redux data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1739,6 +1821,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Redux deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1757,6 +1840,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Redux concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1775,6 +1859,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Redux caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1792,6 +1877,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Redux configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1808,6 +1894,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Redux internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1824,6 +1911,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Redux accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1840,6 +1928,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Redux network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1856,6 +1945,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Redux performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1875,6 +1965,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Redux in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1892,6 +1983,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Redux memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1909,6 +2001,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Redux code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1926,6 +2019,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Redux error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1946,6 +2040,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Redux functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1964,6 +2059,7 @@ test('Redux works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Redux state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1980,6 +2076,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Redux data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1996,6 +2093,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Redux deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2014,6 +2112,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Redux concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2032,6 +2131,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Redux caching in production environments?
 
 **Difficulty**: Intermediate

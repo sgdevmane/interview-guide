@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: You are migrating a legacy React project from Webpack to Vite to improve development server start time. The project relies on CommonJS modules (`require`). How do you handle this in Vite?
 
 **Difficulty**: Intermediate
@@ -141,6 +142,7 @@ export default defineConfig({
 
 ---
 
+<a id="q2"></a>
 ### Q2: Your Webpack bundle size has grown too large (5MB+), causing slow initial page loads. How do you use `SplitChunksPlugin` to optimize this?
 
 **Difficulty**: Intermediate
@@ -177,6 +179,7 @@ module.exports = {
 
 ---
 
+<a id="q3"></a>
 ### Q3: You need to support Internet Explorer 11 in a modern JavaScript application. How do you configure Babel to ensure your code runs there without transpiling everything unnecessarily for modern browsers?
 
 **Difficulty**: Intermediate
@@ -210,6 +213,7 @@ module.exports = {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you optimize Tree Shaking in Webpack by marking side effects?
 
 **Difficulty**: Intermediate
@@ -239,6 +243,7 @@ Tree Shaking relies on static ESM analysis to drop unused exports. However, if a
 
 ---
 
+<a id="q5"></a>
 ### Q5: How does Vite achieve instant server start times compared to Webpack?
 
 **Difficulty**: Intermediate
@@ -259,6 +264,7 @@ Tree Shaking relies on static ESM analysis to drop unused exports. However, if a
 
 ---
 
+<a id="q6"></a>
 ### Q6: You are building a Micro Frontends architecture. How do you configure Webpack Module Federation to expose a component?
 
 **Difficulty**: Intermediate
@@ -292,6 +298,7 @@ module.exports = {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you combine Babel Plugins to create a custom Preset?
 
 **Difficulty**: Intermediate
@@ -323,6 +330,7 @@ module.exports = function() {
 
 ---
 
+<a id="q8"></a>
 ### Q8: You encounter a 'CORS' error when your frontend (localhost:3000) tries to call your API (localhost:5000). How do you fix this using Webpack Dev Server proxy?
 
 **Difficulty**: Intermediate
@@ -352,6 +360,7 @@ module.exports = {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you debug a large bundle to find out which libraries are taking up the most space?
 
 **Difficulty**: Intermediate
@@ -377,6 +386,7 @@ Run the build, and it will open a visual report at `localhost:8888`.
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you enable Hot Module Replacement (HMR) manually in Webpack?
 
 **Difficulty**: Intermediate
@@ -406,6 +416,7 @@ if (module.hot) {
 
 ---
 
+<a id="q11"></a>
 ### Q11: You are using environment variables in your frontend code. Why does `process.env.API_KEY` work in Node.js but fail in the browser, and how do you fix it?
 
 **Difficulty**: Intermediate
@@ -434,6 +445,7 @@ console.log(import.meta.env.VITE_API_KEY);
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you configure secure Source Maps for production debugging without exposing source code?
 
 **Difficulty**: Intermediate
@@ -459,6 +471,7 @@ module.exports = {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you implement 'Path Aliases' (e.g., importing from `@components/Button` instead of `../../components/Button`)?
 
 **Difficulty**: Intermediate
@@ -493,6 +506,7 @@ resolve: {
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you write a custom Babel Plugin using AST transformation?
 
 **Difficulty**: Intermediate
@@ -522,6 +536,7 @@ module.exports = function({ types: t }) {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you use Webpack's `ProvidePlugin` to shim global variables like jQuery?
 
 **Difficulty**: Intermediate
@@ -544,6 +559,7 @@ Now you can use `$('#item')` in any file without importing jQuery.
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you configure Webpack to use CSS Modules?
 
 **Difficulty**: Intermediate
@@ -575,6 +591,7 @@ module: {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you set up PostCSS with Webpack?
 
 **Difficulty**: Intermediate
@@ -597,6 +614,7 @@ module.exports = {
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you handle images and fonts in Webpack 5 (Asset Modules)?
 
 **Difficulty**: Beginner
@@ -622,6 +640,7 @@ rules: [
 
 ---
 
+<a id="q19"></a>
 ### Q19: Should you use `ts-loader` or `babel-loader` for TypeScript?
 
 **Difficulty**: Intermediate
@@ -641,6 +660,7 @@ plugins: [new ForkTsCheckerWebpackPlugin()]
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you inject the bundle into HTML automatically?
 
 **Difficulty**: Beginner
@@ -661,6 +681,7 @@ plugins: [
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you use `DefinePlugin` to pass environment variables?
 
 **Difficulty**: Intermediate
@@ -680,6 +701,7 @@ new webpack.DefinePlugin({
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you extract CSS into separate files for production?
 
 **Difficulty**: Intermediate
@@ -699,6 +721,7 @@ plugins: [new MiniCssExtractPlugin()]
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you copy static assets (like favicon) to the build folder?
 
 **Difficulty**: Beginner
@@ -719,6 +742,7 @@ new CopyWebpackPlugin({
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you configure a Proxy in Webpack Dev Server?
 
 **Difficulty**: Intermediate
@@ -739,6 +763,7 @@ devServer: {
 
 ---
 
+<a id="q25"></a>
 ### Q25: What is Webpack Module Federation?
 
 **Difficulty**: Advanced
@@ -761,6 +786,7 @@ new ModuleFederationPlugin({
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you build a library using Vite?
 
 **Difficulty**: Intermediate
@@ -783,6 +809,7 @@ build: {
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you access Environment Variables in Vite?
 
 **Difficulty**: Beginner
@@ -800,6 +827,7 @@ console.log(import.meta.env.MODE); // 'development' or 'production'
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you configure a Proxy in Vite?
 
 **Difficulty**: Intermediate
@@ -824,6 +852,7 @@ server: {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you import multiple files at once in Vite (Glob Import)?
 
 **Difficulty**: Intermediate
@@ -846,6 +875,7 @@ for (const path in modules) {
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you enable Server-Side Rendering (SSR) in Vite?
 
 **Difficulty**: Advanced
@@ -865,6 +895,7 @@ const { render } = await vite.ssrLoadModule('/src/entry-server.js');
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you specify target browsers in Babel?
 
 **Difficulty**: Beginner
@@ -883,6 +914,7 @@ Use the `targets` option in `@babel/preset-env` or a `.browserslistrc` file.
 
 ---
 
+<a id="q32"></a>
 ### Q32: In what order do Babel plugins run?
 
 **Difficulty**: Advanced
@@ -900,6 +932,7 @@ Plugins run **before** Presets. Plugins run **first to last**. Presets run **las
 
 ---
 
+<a id="q33"></a>
 ### Q33: Why use `@babel/plugin-transform-runtime`?
 
 **Difficulty**: Intermediate
@@ -918,6 +951,7 @@ plugins: [
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you configure Babel for React?
 
 **Difficulty**: Beginner
@@ -936,6 +970,7 @@ Use `@babel/preset-react`. Enable the new JSX transform (`runtime: 'automatic'`)
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you configure Babel for TypeScript?
 
 **Difficulty**: Beginner
@@ -955,6 +990,7 @@ presets: [
 
 ---
 
+<a id="q36"></a>
 ### Q36: How does Rollup's Tree Shaking compare to Webpack?
 
 **Difficulty**: Advanced
@@ -975,6 +1011,7 @@ output: {
 
 ---
 
+<a id="q37"></a>
 ### Q37: What are the common Output Formats (CJS, ESM, UMD)?
 
 **Difficulty**: Beginner
@@ -994,6 +1031,7 @@ output: {
 
 ---
 
+<a id="q38"></a>
 ### Q38: Why is esbuild so fast?
 
 **Difficulty**: Intermediate
@@ -1010,6 +1048,7 @@ It's written in Go (compiled to machine code), utilizes parallelism heavily, and
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you setup `lint-staged` and `husky`?
 
 **Difficulty**: Intermediate
@@ -1031,6 +1070,7 @@ npx lint-staged
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you enforce Conventional Commits?
 
 **Difficulty**: Intermediate
@@ -1047,6 +1087,7 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you run npm scripts in parallel?
 
 **Difficulty**: Beginner
@@ -1064,6 +1105,7 @@ Use `npm-run-all` (or `concurrently`).
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you setup Yarn Workspaces for a monorepo?
 
 **Difficulty**: Intermediate
@@ -1083,6 +1125,7 @@ Set `private: true` and define `workspaces` array in root `package.json`.
 
 ---
 
+<a id="q43"></a>
 ### Q43: What is Nx or Turborepo used for?
 
 **Difficulty**: Advanced
@@ -1104,6 +1147,7 @@ They are build systems for monorepos. They provide caching (local and remote) an
 
 ---
 
+<a id="q44"></a>
 ### Q44: Why use `pnpm` over `npm` or `yarn`?
 
 **Difficulty**: Intermediate
@@ -1120,6 +1164,7 @@ They are build systems for monorepos. They provide caching (local and remote) an
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you automate semantic versioning and publishing?
 
 **Difficulty**: Advanced
@@ -1137,6 +1182,7 @@ npx semantic-release
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you cache `node_modules` in GitHub Actions?
 
 **Difficulty**: Intermediate
@@ -1156,6 +1202,7 @@ Use `actions/setup-node` with the `cache` option.
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you optimize a Docker build for Node.js app?
 
 **Difficulty**: Intermediate
@@ -1177,6 +1224,7 @@ CMD ["node", "dist/main.js"]
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you visualize the Webpack bundle size?
 
 **Difficulty**: Beginner
@@ -1194,6 +1242,7 @@ plugins: [new BundleAnalyzerPlugin()]
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you visualize the Vite/Rollup bundle size?
 
 **Difficulty**: Beginner
@@ -1211,6 +1260,7 @@ plugins: [visualizer()]
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you manually polyfill features using `core-js`?
 
 **Difficulty**: Intermediate
@@ -1229,6 +1279,7 @@ import 'core-js/stable/promise';
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Webpack state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1245,6 +1296,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Webpack data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1261,6 +1313,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Webpack deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1279,6 +1332,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Webpack concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1297,6 +1351,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Webpack caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1314,6 +1369,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Webpack configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1330,6 +1386,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Webpack internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1346,6 +1403,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Webpack accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1362,6 +1420,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Webpack network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1378,6 +1437,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Webpack performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1397,6 +1457,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Webpack in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1414,6 +1475,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Webpack memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1431,6 +1493,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Webpack code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1448,6 +1511,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Webpack error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1468,6 +1532,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Webpack functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1486,6 +1551,7 @@ test('Webpack works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Webpack state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1502,6 +1568,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Webpack data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1518,6 +1585,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Webpack deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1536,6 +1604,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Webpack concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1554,6 +1623,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Webpack caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1571,6 +1641,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Webpack configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1587,6 +1658,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Webpack internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1603,6 +1675,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Webpack accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1619,6 +1692,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Webpack network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1635,6 +1709,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Webpack performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1654,6 +1729,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Webpack in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1671,6 +1747,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Webpack memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1688,6 +1765,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Webpack code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1705,6 +1783,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Webpack error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1725,6 +1804,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Webpack functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1743,6 +1823,7 @@ test('Webpack works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Webpack state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1759,6 +1840,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Webpack data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1775,6 +1857,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Webpack deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1793,6 +1876,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Webpack concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1811,6 +1895,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Webpack caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1828,6 +1913,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Webpack configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1844,6 +1930,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Webpack internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1860,6 +1947,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Webpack accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1876,6 +1964,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Webpack network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1892,6 +1981,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Webpack performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1911,6 +2001,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Webpack in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1928,6 +2019,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Webpack memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1945,6 +2037,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Webpack code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1962,6 +2055,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Webpack error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1982,6 +2076,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Webpack functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2000,6 +2095,7 @@ test('Webpack works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Webpack state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2016,6 +2112,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Webpack data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2032,6 +2129,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Webpack deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2050,6 +2148,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Webpack concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2068,6 +2167,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Webpack caching in production environments?
 
 **Difficulty**: Intermediate

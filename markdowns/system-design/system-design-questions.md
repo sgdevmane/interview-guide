@@ -113,20 +113,25 @@
 
 ---
 
----
-
+<a id="q1"></a>
 ### Q1: Design a URL Shortener (TinyURL)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-- **API:** <code>create(long_url) -> short_url</code>, <code>get(short_url) -> long_url</code>.
+**Requirements:** 
+*   Functional: Given a long URL, return a unique short URL. Redirect short URL to long URL.
+*   Non-Functional: Highly available, low latency, read-heavy (100:1 ratio).
 
-    - **DB:** K-V Store (DynamoDB). Key: ShortID, Value: LongURL.
+**High-Level Design:**
+1.  **API Server:** Handles `create(long_url)` and `get(short_url)`.
+2.  **Database:** A NoSQL Key-Value store (like DynamoDB or Cassandra) is ideal for scalability.
+    *   Schema: `{ short_key: "abc12", long_url: "...", creation_date: ... }`
+3.  **ID Generation:** The core challenge.
+    *   **Counter Approach:** Use a distributed counter (Zookeeper/Redis) to get a unique integer ID, then base62 encode it. 
+    *   **Key Generation Service (KGS):** Pre-generate keys offline and store them in a database. The API server fetches a unused key. This removes the encoding latency and collision checks.
+4.  **Caching:** Use Redis (LRU eviction) to cache popular redirections (20% of URLs generate 80% of traffic).
 
-    - **Algorithm:** Base62 encoding of a unique ID.
-
-    - **Unique ID:** Distributed ID Generator (Snowflake) or KGS (Key Generation Service).
 
 **Code Example**:
 
@@ -135,17 +140,25 @@
 
 ---
 
+<a id="q2"></a>
 ### Q2: Design a Rate Limiter?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**Token Bucket Algorithm:**
+**Goal:** Restrict the number of requests a user can send within a time window (e.g., 10 requests/sec).
 
+**Algorithms:**
+1.  **Token Bucket:** A bucket holds tokens. Tokens are added at a fixed rate. Requests consume tokens. If bucket is empty, request is dropped. Memory efficient.
+2.  **Leaky Bucket:** Requests enter a queue processed at a fixed rate. Good for smoothing traffic bursts.
+3.  **Fixed Window Counter:** Count requests in `12:00-12:01`. Issue: Traffic spike at edges (double limit).
+4.  **Sliding Window Log:** Store timestamps of requests. Precise but expensive (memory).
+5.  **Sliding Window Counter:** Hybrid approach. Weighted count of previous window + current window.
 
-  
+**Architecture:**
+*   Store counters in **Redis** (fast, supports atomic `INCR`).
+*   Rate Limiter can be a Middleware or a separate Service (Sidecar).
 
-  Use Redis `INCR` and `EXPIRE` for distributed counting.
 
 **Code Example**:
 ```python
@@ -167,18 +180,23 @@ return False
 
 ---
 
+<a id="q3"></a>
 ### Q3: Design a Chat Application (WhatsApp)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-- **Real-time:** WebSockets or MQTT.
+**Requirements:** One-on-one chat, Group chat, Online status, Sent/Delivered/Read receipts.
 
-    - **Protocol:** XMPP or Custom binary protocol (Protobuf).
+**Architecture:**
+1.  **Connection:** Use **WebSockets** for persistent bi-directional connection.
+2.  **Message Flow:** User A -> Load Balancer -> Chat Server -> Message Queue -> User B.
+3.  **Storage:**
+    *   **Chat History:** Write-heavy. Use **Cassandra** or **HBase** (LSM-tree based) for efficient writes and range queries (fetch recent messages).
+    *   **User Profile:** Relational DB (MySQL).
+4.  **Online Status:** Use **Redis** with Heartbeats. If no heartbeat for x seconds, mark offline.
+5.  **Group Chat:** Fan-out on write (for small groups) or Fan-out on read (for mega groups).
 
-    - **Storage:** Cassandra/HBase for chat history (Write heavy). Redis for presence.
-
-    - **Encryption:** End-to-End using Signal Protocol (Double Ratchet).
 
 **Code Example**:
 
@@ -187,15 +205,23 @@ return False
 
 ---
 
+<a id="q4"></a>
 ### Q4: Explain CAP Theorem?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Pick two: **Consistency**, **Availability**, **Partition Tolerance**.
+The CAP theorem states that a distributed data store can only guarantee two of the following three properties simultaneously:
 
+1.  **Consistency (C):** Every read receives the most recent write or an error. All nodes see the same data at the same time.
+2.  **Availability (A):** Every request receives a (non-error) response, without the guarantee that it contains the most recent write.
+3.  **Partition Tolerance (P):** The system continues to operate despite an arbitrary number of messages being dropped or delayed by the network between nodes.
 
-  Since Partition Tolerance (P) is mandatory in distributed systems, choice is CP vs AP.
+**Choice:**
+*   Since network partitions (P) are inevitable in distributed systems, you must choose between **CP** (Consistency) and **AP** (Availability).
+*   **CP (e.g., MongoDB, HBase):** Returns error/timeout if data might be inconsistent.
+*   **AP (e.g., Cassandra, DynamoDB):** Returns potentially stale data but always responds.
+
 
 **Code Example**:
 
@@ -204,13 +230,23 @@ Pick two: **Consistency**, **Availability**, **Partition Tolerance**.
 
 ---
 
+<a id="q5"></a>
 ### Q5: Load Balancing: L4 vs L7?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**L4:** IP/Port based (TCP). Fast. No packet inspection.
-**L7:** Application based (HTTP). Smarter (Routing based on URL/Header). Slower.
+**Layer 4 (Transport Layer):**
+*   Decisions based on IP address and TCP port.
+*   Packet-level load balancing.
+*   **Pros:** Very fast, low overhead, efficient.
+*   **Cons:** Can't inspect content (can't route based on URL path).
+
+**Layer 7 (Application Layer):**
+*   Decisions based on HTTP headers, URLs, cookies, or message content.
+*   **Pros:** Smarter routing (e.g., `/video` to VideoService, `/chat` to ChatService). Can terminate SSL.
+*   **Cons:** More CPU intensive, slower than L4 (needs to decrypt/buffer).
+
 
 **Code Example**:
 
@@ -219,13 +255,24 @@ Pick two: **Consistency**, **Availability**, **Partition Tolerance**.
 
 ---
 
+<a id="q6"></a>
 ### Q6: SQL vs NoSQL?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**SQL:** ACID, Structured, Complex Queries (Joins). Vertical Scaling.
-**NoSQL:** BASE, Unstructured, High Throughput. Horizontal Scaling.
+**SQL (Relational):**
+*   **Structure:** Table-based, predefined schema.
+*   **Properties:** ACID compliance (Atomicity, Consistency, Isolation, Durability). Strong consistency.
+*   **Scaling:** Vertical (add more CPU/RAM). Harder to scale horizontally (Sharding is complex).
+*   **Use Case:** Financial systems, complex relationships, strict data integrity.
+
+**NoSQL (Non-Relational):**
+*   **Structure:** Document (JSON), Key-Value, Wide-Column, or Graph. Dynamic schema.
+*   **Properties:** BASE (Basically Available, Soft state, Eventual consistency).
+*   **Scaling:** Horizontal (add more cheap servers). Built for scale.
+*   **Use Case:** Big Data, Real-time analytics, Content management, Social networks.
+
 
 **Code Example**:
 
@@ -234,12 +281,19 @@ Pick two: **Consistency**, **Availability**, **Partition Tolerance**.
 
 ---
 
+<a id="q7"></a>
 ### Q7: What is Consistent Hashing?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Maps keys and servers to a ring. Minimizes remapping when servers change.
+In standard hashing (`key % N`), adding/removing a server (N changes) remaps nearly ALL keys, causing massive cache misses.
+
+**Consistent Hashing** maps both servers and keys to a circular ring (0 to 2^32-1).
+*   A key is assigned to the first server encountered moving clockwise on the ring.
+*   **Benefit:** Adding/removing a node only affects `K/N` keys (neighbors), not all keys.
+*   **Virtual Nodes:** To balance load, each physical server maps to multiple points (virtual nodes) on the ring.
+
 
 **Code Example**:
 ```text
@@ -253,12 +307,25 @@ Key K at Hash(K) -> Walk clockwise to find first Server.
 
 ---
 
+<a id="q8"></a>
 ### Q8: Design a Key-Value Store (Redis)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-In-memory Hash Map. Persistence via Snapshot (RDB) or Log (AOF). Single-threaded event loop.
+**Core Features:**
+*   **In-Memory:** Stores data in RAM for sub-millisecond access.
+*   **Data Structures:** Supports Strings, Hashes, Lists, Sets, Sorted Sets.
+*   **Single-Threaded:** Uses an Event Loop (I/O Multiplexing) to handle requests. No locking overhead, but CPU bound.
+
+**Persistence:**
+1.  **RDB (Snapshot):** Periodically saves dataset to disk. Faster startup, but data loss window.
+2.  **AOF (Append Only File):** Logs every write operation. Slower replay, but higher durability.
+
+**Scaling:**
+*   **Replication:** Master-Slave (Async).
+*   **Clustering:** Shards data across multiple nodes using CRC16 hashing.
+
 
 **Code Example**:
 
@@ -267,12 +334,26 @@ In-memory Hash Map. Persistence via Snapshot (RDB) or Log (AOF). Single-threaded
 
 ---
 
+<a id="q9"></a>
 ### Q9: What is a CDN?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Network of edge servers caching static content close to users to reduce latency.
+**Content Delivery Network (CDN):**
+A geographically distributed network of proxy servers and data centers.
+
+**How it works:**
+1.  User requests `image.jpg`.
+2.  DNS routes request to the nearest CDN Edge Server (PoP).
+3.  If cached, Edge returns image (Hit).
+4.  If not (Miss), Edge fetches from Origin Server, caches it, and returns it.
+
+**Benefits:**
+*   Reduced Latency (physically closer).
+*   Reduced Bandwidth costs (offloads Origin).
+*   DDoS Protection (absorbs traffic).
+
 
 **Code Example**:
 
@@ -281,12 +362,26 @@ Network of edge servers caching static content close to users to reduce latency.
 
 ---
 
+<a id="q10"></a>
 ### Q10: Design a Notification System?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Service -> Message Queue (Kafka) -> Workers -> 3rd Party (FCM/APNS/SendGrid).
+**Requirements:**
+*   Send notifications via Email, SMS, Push (iOS/Android).
+*   Pluggable providers (SendGrid, Twilio, APNS, FCM).
+*   Rate limiting (don't spam users).
+*   Prioritization (OTP > Marketing).
+
+**Architecture:**
+1.  **Notification Service:** Accepts requests. Validates payload.
+2.  **User Preferences DB:** Checks if user opted-out.
+3.  **Message Queue (Kafka/RabbitMQ):** Decouples reception from processing. Topics: `sms_high`, `sms_low`, `email`.
+4.  **Workers:** Pull from queue, call 3rd party APIs.
+5.  **Retry Mechanism:** If Twilio fails, retry with exponential backoff.
+6.  **Deduplication:** Use Redis to check if msg was already sent recently.
+
 
 **Code Example**:
 
@@ -295,13 +390,23 @@ Service -> Message Queue (Kafka) -> Workers -> 3rd Party (FCM/APNS/SendGrid).
 
 ---
 
+<a id="q11"></a>
 ### Q11: Sharding vs Replication?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**Replication:** Copies data (Read scaling, Availability).
-**Sharding:** Splits data (Write scaling, Storage capacity).
+**Replication:**
+*   **What:** Copying data to multiple nodes.
+*   **Why:** High Availability (failover), Read Scaling (distribute reads).
+*   **Types:** Master-Slave (Async), Master-Master.
+*   **Con:** Does not help with Write Scaling (Master is bottleneck).
+
+**Sharding:**
+*   **What:** Partitioning data across multiple nodes (e.g., UserID 1-1000 -> Node A, 1001-2000 -> Node B).
+*   **Why:** Write Scaling (parallel writes), Storage Scaling (data exceeds single disk).
+*   **Con:** Complex queries (joins across shards), Rebalancing data is hard.
+
 
 **Code Example**:
 
@@ -310,15 +415,23 @@ Service -> Message Queue (Kafka) -> Workers -> 3rd Party (FCM/APNS/SendGrid).
 
 ---
 
+<a id="q12"></a>
 ### Q12: Design Instagram News Feed?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-**Push Model (Fan-out on Write):** Pre-compute feeds. Fast reads. Complex writes for celebs.
+**Core Features:** User posts photos, follows others, sees feed of followed users. Read-heavy.
 
+**Feed Generation (Fan-out):**
+1.  **Pull Model (Fan-out-on-load):** When user loads feed, query all followees' recent posts and merge.
+    *   Pros: Simple write.
+    *   Cons: Slow read (N queries).
+2.  **Push Model (Fan-out-on-write):** When user posts, push ID to all followers' pre-computed feed lists (Redis Lists).
+    *   Pros: Fast read (O(1)).
+    *   Cons: Slow write for celebs (Justin Bieber problem).
+3.  **Hybrid:** Push for normal users, Pull for celebs.
 
-  **Pull Model (Fan-out on Read):** Query on demand. Slow reads.
 
 **Code Example**:
 
@@ -327,12 +440,19 @@ Service -> Message Queue (Kafka) -> Workers -> 3rd Party (FCM/APNS/SendGrid).
 
 ---
 
+<a id="q13"></a>
 ### Q13: What is a Bloom Filter?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Bit array + Hash functions. Checks if item exists. False Positive: Yes. False Negative: No.
+A probabilistic data structure used to test whether an element is a member of a set.
+*   **Returns:** "Possibly in set" or "Definitely not in set".
+*   **False Positives:** Possible.
+*   **False Negatives:** Impossible.
+*   **Use Case:** Checking if a username is taken (fast check before DB), reducing disk lookups in Cassandra/HBase.
+*   **Mechanism:** Bit array + K hash functions.
+
 
 **Code Example**:
 
@@ -341,13 +461,22 @@ Bit array + Hash functions. Checks if item exists. False Positive: Yes. False Ne
 
 ---
 
+<a id="q14"></a>
 ### Q14: Microservices vs Monolith?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**Monolith:** Single deployable. Simple.
-**Microservices:** Distributed. Independent scaling. Complex ops.
+**Monolith:**
+*   Single codebase, single deployment unit.
+*   **Pros:** Simple to develop/test/deploy initially. Easy refactoring. ACID transactions.
+*   **Cons:** Tight coupling, single point of failure, scales poorly (must scale whole app), tech stack lock-in.
+
+**Microservices:**
+*   Suite of small services, communicating via API.
+*   **Pros:** Independent scaling/deployment, fault isolation, tech diversity, organizational alignment (Two-pizza teams).
+*   **Cons:** Distributed system complexity (network latency, partial failures), eventual consistency, operational overhead (DevOps).
+
 
 **Code Example**:
 
@@ -356,12 +485,21 @@ Bit array + Hash functions. Checks if item exists. False Positive: Yes. False Ne
 
 ---
 
+<a id="q15"></a>
 ### Q15: Design a Web Crawler?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-URL Frontier (Queue) -> Fetcher -> DNS Resolver -> Content Parser -> Dedup -> Storage.
+**Components:**
+1.  **Seed URLs:** Starting point.
+2.  **URL Frontier:** Priority Queue of URLs to visit (Kafka/Redis). Handles politeness (rate limit per domain).
+3.  **DNS Resolver:** Cache IP addresses to avoid latency.
+4.  **HTML Downloader:** Fetches page content.
+5.  **Content Parser:** Extracts links and validation.
+6.  **Dedup:** Bloom Filter or Checksum to avoid re-crawling same page.
+7.  **Storage:** Save content to S3/HDFS.
+
 
 **Code Example**:
 
@@ -370,12 +508,20 @@ URL Frontier (Queue) -> Fetcher -> DNS Resolver -> Content Parser -> Dedup -> St
 
 ---
 
+<a id="q16"></a>
 ### Q16: Thundering Herd Problem?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Many clients hit DB simultaneously when cache expires. Fix: Random jitter, Mutex locks, Early expiration.
+Occurs when a large number of processes waiting for an event are woken up at the same time.
+*   **Example:** Cache expires. 10,000 requests hit the DB simultaneously to regenerate the cache.
+*   **Impact:** DB CPU spikes, system crashes.
+*   **Solution:**
+    *   **Mutex:** Only one process computes the value.
+    *   **Probabilistic Early Expiration:** Re-compute cache slightly before it actually expires.
+    *   **Jitter:** Add random delay to retries.
+
 
 **Code Example**:
 
@@ -384,12 +530,21 @@ Many clients hit DB simultaneously when cache expires. Fix: Random jitter, Mutex
 
 ---
 
+<a id="q17"></a>
 ### Q17: Design Google Drive (File Sync)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Chunk files (4MB). Hash chunks. Upload only changed chunks (Differential Sync). Metadata in SQL. Blocks in S3.
+**Key Challenges:** Large file uploads, sync across devices, consistency.
+
+**Architecture:**
+1.  **Block Storage:** Split files into blocks (e.g., 4MB). Only upload modified blocks (Differential Sync).
+2.  **Metadata DB:** Stores file hierarchy, permissions, versions. (SQL).
+3.  **Cold Storage:** S3/Glacier for actual blocks.
+4.  **Notification Service:** Long polling/WebSockets to notify clients of changes.
+5.  **Offline Support:** Local database on client, queue changes, sync when online.
+
 
 **Code Example**:
 
@@ -398,12 +553,19 @@ Chunk files (4MB). Hash chunks. Upload only changed chunks (Differential Sync). 
 
 ---
 
+<a id="q18"></a>
 ### Q18: What is Backpressure?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Consumer signaling Producer to slow down to prevent overwhelm. Drop, Buffer, or Block.
+Resistance or opposition to the flow of data. In reactive systems, it allows a consumer to signal to the producer that it is overwhelmed.
+*   **Scenario:** Fast producer -> Slow consumer. Buffer fills up -> OOM.
+*   **Strategies:**
+    *   **Control:** Consumer requests N items (Reactive Streams).
+    *   **Buffer:** Store temporarily (limited capacity).
+    *   **Drop:** Discard new data (sampling).
+
 
 **Code Example**:
 
@@ -412,12 +574,23 @@ Consumer signaling Producer to slow down to prevent overwhelm. Drop, Buffer, or 
 
 ---
 
+<a id="q19"></a>
 ### Q19: Design Typeahead (Autocomplete)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**Trie** structure. Store top K frequent terms at each node. Cache popular prefixes.
+**Requirements:** Low latency (<100ms), Prefix matching, Sorted by popularity.
+
+**Data Structure:** **Trie (Prefix Tree)**.
+*   Each node stores top 5 popular search terms ending at that node.
+
+**Architecture:**
+1.  **Storage:** Serialize Trie to DB/File.
+2.  **Memory:** Load Trie into RAM for speed.
+3.  **Optimization:** Limit tree depth.
+4.  **Update:** Async offline job (MapReduce) to rebuild Trie hourly based on logs.
+
 
 **Code Example**:
 
@@ -426,6 +599,7 @@ Consumer signaling Producer to slow down to prevent overwhelm. Drop, Buffer, or 
 
 ---
 
+<a id="q20"></a>
 ### Q20: ACID Transactions?
 
 **Difficulty**: Beginner
@@ -440,6 +614,7 @@ Atomicity, Consistency, Isolation, Durability. Guarantees for relational databas
 
 ---
 
+<a id="q21"></a>
 ### Q21: Design YouTube (Video Streaming)?
 
 **Difficulty**: Advanced
@@ -454,6 +629,7 @@ Upload -> Transcode (FFmpeg) to multiple formats/resolutions -> Store in S3 -> C
 
 ---
 
+<a id="q22"></a>
 ### Q22: Design Uber (Ride Sharing)?
 
 **Difficulty**: Advanced
@@ -468,6 +644,7 @@ Upload -> Transcode (FFmpeg) to multiple formats/resolutions -> Store in S3 -> C
 
 ---
 
+<a id="q23"></a>
 ### Q23: What is Database Normalization?
 
 **Difficulty**: Beginner
@@ -482,6 +659,7 @@ Organizing data to reduce redundancy and improve integrity (1NF, 2NF, 3NF).
 
 ---
 
+<a id="q24"></a>
 ### Q24: Explain Two-Phase Commit (2PC)?
 
 **Difficulty**: Advanced
@@ -496,6 +674,7 @@ Distributed transaction protocol. 1. Prepare (Vote). 2. Commit/Abort. Blocking p
 
 ---
 
+<a id="q25"></a>
 ### Q25: Saga Pattern for Distributed Tx?
 
 **Difficulty**: Advanced
@@ -510,6 +689,7 @@ Sequence of local transactions. If one fails, execute compensating transactions 
 
 ---
 
+<a id="q26"></a>
 ### Q26: Circuit Breaker Pattern?
 
 **Difficulty**: Intermediate
@@ -524,6 +704,7 @@ Prevents cascading failures. If service fails repeatedly, "Open" circuit and fai
 
 ---
 
+<a id="q27"></a>
 ### Q27: API Gateway vs Load Balancer?
 
 **Difficulty**: Intermediate
@@ -539,6 +720,7 @@ Prevents cascading failures. If service fails repeatedly, "Open" circuit and fai
 
 ---
 
+<a id="q28"></a>
 ### Q28: Polling vs WebSockets vs SSE?
 
 **Difficulty**: Intermediate
@@ -555,6 +737,7 @@ Prevents cascading failures. If service fails repeatedly, "Open" circuit and fai
 
 ---
 
+<a id="q29"></a>
 ### Q29: Design Twitter (Timeline)?
 
 **Difficulty**: Advanced
@@ -569,6 +752,7 @@ Hybrid approach. Push to Redis lists for active users. Pull from DB for inactive
 
 ---
 
+<a id="q30"></a>
 ### Q30: Design Ticketmaster (Booking)?
 
 **Difficulty**: Advanced
@@ -583,6 +767,7 @@ Consistency is key. Use SQL with locking (SELECT FOR UPDATE) or Redis Lua script
 
 ---
 
+<a id="q31"></a>
 ### Q31: Strong vs Eventual Consistency?
 
 **Difficulty**: Intermediate
@@ -598,6 +783,7 @@ Consistency is key. Use SQL with locking (SELECT FOR UPDATE) or Redis Lua script
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is a Reverse Proxy?
 
 **Difficulty**: Beginner
@@ -612,6 +798,7 @@ Server sitting in front of backends. Handles SSL termination, Caching, Load Bala
 
 ---
 
+<a id="q33"></a>
 ### Q33: Service Discovery?
 
 **Difficulty**: Intermediate
@@ -626,6 +813,7 @@ Registry keeping track of dynamic IP:Ports of services (Consul, Eureka, ZooKeepe
 
 ---
 
+<a id="q34"></a>
 ### Q34: Blue-Green vs Canary Deployment?
 
 **Difficulty**: Intermediate
@@ -641,6 +829,7 @@ Registry keeping track of dynamic IP:Ports of services (Consul, Eureka, ZooKeepe
 
 ---
 
+<a id="q35"></a>
 ### Q35: What is a Distributed Lock?
 
 **Difficulty**: Advanced
@@ -655,12 +844,13 @@ Ensures mutual exclusion across processes/servers. Implementations: Redis (Redlo
 
 ---
 
+<a id="q36"></a>
 ### Q36: Design a Leaderboard?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Redis Sorted Sets (ZSET). <code>ZADD user score</code>, <code>ZREVRANGE 0 10</code>.
+Redis Sorted Sets (ZSET). `ZADD user score`, `ZREVRANGE 0 10`.
 
 **Code Example**:
 
@@ -669,6 +859,7 @@ Redis Sorted Sets (ZSET). <code>ZADD user score</code>, <code>ZREVRANGE 0 10</co
 
 ---
 
+<a id="q37"></a>
 ### Q37: Design a Unique ID Generator?
 
 **Difficulty**: Intermediate
@@ -683,6 +874,7 @@ Redis Sorted Sets (ZSET). <code>ZADD user score</code>, <code>ZREVRANGE 0 10</co
 
 ---
 
+<a id="q38"></a>
 ### Q38: What is Gossip Protocol?
 
 **Difficulty**: Advanced
@@ -697,6 +889,7 @@ Peer-to-peer communication. Nodes randomly share info with neighbors. Used in Ca
 
 ---
 
+<a id="q39"></a>
 ### Q39: Heartbeat Mechanism? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>Periodic signal to indicate a node is alive. If missed, assume failure.</p>
@@ -716,6 +909,7 @@ Minimum votes required to perform operation. R + W > N ensures strong consistenc
 
 ---
 
+<a id="q41"></a>
 ### Q41: Write-Through vs Write-Back Cache?
 
 **Difficulty**: Intermediate
@@ -731,6 +925,7 @@ Minimum votes required to perform operation. R + W > N ensures strong consistenc
 
 ---
 
+<a id="q42"></a>
 ### Q42: What is Database Indexing? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>Data structure (B-Tree) improving data retrieval speed at cost of write speed and storage.</p>
@@ -751,6 +946,7 @@ Minimum votes required to perform operation. R + W > N ensures strong consistenc
 
 ---
 
+<a id="q44"></a>
 ### Q44: Design Netflix (Recommendations)?
 
 **Difficulty**: Advanced
@@ -765,6 +961,7 @@ Collaborative Filtering + Content-based Filtering. Matrix Factorization. Pre-com
 
 ---
 
+<a id="q45"></a>
 ### Q45: What is DNS? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>Domain Name System. Phonebook of internet. Translates `google.com` to IP address.</p>
@@ -785,6 +982,7 @@ Collaborative Filtering + Content-based Filtering. Matrix Factorization. Pre-com
 
 ---
 
+<a id="q47"></a>
 ### Q47: What is a Sidecar Pattern?
 
 **Difficulty**: Intermediate
@@ -799,6 +997,7 @@ Helper container running alongside main container (e.g., Envoy Proxy in Service 
 
 ---
 
+<a id="q48"></a>
 ### Q48: Design an API Rate Limiter?
 
 **Difficulty**: Intermediate
@@ -813,6 +1012,7 @@ Middleware using Redis. Identify by API Key or IP. Return 429 Too Many Requests.
 
 ---
 
+<a id="q49"></a>
 ### Q49: What is OAuth 2.0?
 
 **Difficulty**: Intermediate
@@ -827,6 +1027,7 @@ Authorization framework. Allows third-party apps to access user data without sha
 
 ---
 
+<a id="q50"></a>
 ### Q50: JWT vs Session Cookies?
 
 **Difficulty**: Intermediate
@@ -842,6 +1043,7 @@ Authorization framework. Allows third-party apps to access user data without sha
 
 ---
 
+<a id="q51"></a>
 ### Q51: What is gRPC?
 
 **Difficulty**: Intermediate
@@ -856,6 +1058,7 @@ High-performance RPC framework by Google. Uses Protobuf (binary) and HTTP/2.
 
 ---
 
+<a id="q52"></a>
 ### Q52: GraphQL vs REST? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p><strong>REST:</strong> Multiple endpoints, over/under-fetching.<br><strong>GraphQL:</strong> Single endpoint, client asks exactly what it needs.</p>
@@ -875,6 +1078,7 @@ Check hash of file chunks. If hash exists, point to existing chunk instead of up
 
 ---
 
+<a id="q54"></a>
 ### Q54: Vector Clocks?
 
 **Difficulty**: Advanced
@@ -889,6 +1093,7 @@ Algorithm to detect causal ordering of events in distributed systems. Helps reso
 
 ---
 
+<a id="q55"></a>
 ### Q55: Conflict Resolution Strategies?
 
 **Difficulty**: Advanced
@@ -903,6 +1108,7 @@ Last Write Wins (LWW) or Semantic resolution (Merge shopping carts).
 
 ---
 
+<a id="q56"></a>
 ### Q56: Design Nearby Friends (Location)?
 
 **Difficulty**: Advanced
@@ -917,6 +1123,7 @@ Ephemeral location data. Redis GeoSpatial commands. TTL on location entries.
 
 ---
 
+<a id="q57"></a>
 ### Q57: What is Geohashing?
 
 **Difficulty**: Intermediate
@@ -931,6 +1138,7 @@ Encoding Lat/Long into string. Recursively dividing world into buckets.
 
 ---
 
+<a id="q58"></a>
 ### Q58: Design a Metrics Monitoring System?
 
 **Difficulty**: Advanced
@@ -945,6 +1153,7 @@ Time-Series DB (Prometheus/InfluxDB). Pull vs Push metrics. Downsampling old dat
 
 ---
 
+<a id="q59"></a>
 ### Q59: Pull vs Push Model?
 
 **Difficulty**: Intermediate
@@ -960,6 +1169,7 @@ Time-Series DB (Prometheus/InfluxDB). Pull vs Push metrics. Downsampling old dat
 
 ---
 
+<a id="q60"></a>
 ### Q60: Batch Processing vs Stream Processing?
 
 **Difficulty**: Intermediate
@@ -975,6 +1185,7 @@ Time-Series DB (Prometheus/InfluxDB). Pull vs Push metrics. Downsampling old dat
 
 ---
 
+<a id="q61"></a>
 ### Q61: Lambda Architecture?
 
 **Difficulty**: Advanced
@@ -989,6 +1200,7 @@ Hybrid. Batch Layer (Accurate, Slow) + Speed Layer (Approx, Fast). Query merges 
 
 ---
 
+<a id="q62"></a>
 ### Q62: Kappa Architecture?
 
 **Difficulty**: Advanced
@@ -1003,6 +1215,7 @@ Stream only. Treat everything as a stream. Simplifies architecture.
 
 ---
 
+<a id="q63"></a>
 ### Q63: What is MapReduce?
 
 **Difficulty**: Intermediate
@@ -1017,6 +1230,7 @@ Programming model for processing big data. Map (Filter/Sort) -> Shuffle -> Reduc
 
 ---
 
+<a id="q64"></a>
 ### Q64: Design a Payment System?
 
 **Difficulty**: Advanced
@@ -1031,6 +1245,7 @@ ACID DB mandatory. Idempotency keys to prevent double charge. Distributed Saga f
 
 ---
 
+<a id="q65"></a>
 ### Q65: Idempotency in APIs?
 
 **Difficulty**: Intermediate
@@ -1045,6 +1260,7 @@ Making multiple identical requests has same effect as single request. Crucial fo
 
 ---
 
+<a id="q66"></a>
 ### Q66: What is a Dead Letter Queue?
 
 **Difficulty**: Intermediate
@@ -1059,6 +1275,7 @@ Queue for messages that failed processing. Allows debugging and manual retry.
 
 ---
 
+<a id="q67"></a>
 ### Q67: Vertical vs Horizontal Scaling? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p><strong>Vertical:</strong> Bigger machine (CPU/RAM). Limit exists.<br><strong>Horizontal:</strong> More machines. Unlimited scaling.</p>
@@ -1083,6 +1300,7 @@ Leader election (ZooKeeper). Workers pull tasks. Heartbeats. Redis for task stat
 
 ---
 
+<a id="q70"></a>
 ### Q70: Paxos vs Raft Consensus?
 
 **Difficulty**: Advanced
@@ -1097,6 +1315,7 @@ Algorithms for agreeing on values in distributed systems. Raft is designed to be
 
 ---
 
+<a id="q71"></a>
 ### Q71: What is a Merkle Tree?
 
 **Difficulty**: Advanced
@@ -1111,6 +1330,7 @@ Tree of hashes. Efficient synchronization (DynamoDB) and integrity check (Blockc
 
 ---
 
+<a id="q72"></a>
 ### Q72: Design a URL Shortener (DB Schema)?
 
 **Difficulty**: Intermediate
@@ -1132,6 +1352,7 @@ CREATE TABLE urls (
 
 ---
 
+<a id="q73"></a>
 ### Q73: How HTTPS works?
 
 **Difficulty**: Intermediate
@@ -1146,6 +1367,7 @@ TLS Handshake. Asymmetric encryption to exchange symmetric key. Symmetric key fo
 
 ---
 
+<a id="q74"></a>
 ### Q74: What is a WAF (Web App Firewall)?
 
 **Difficulty**: Intermediate
@@ -1160,6 +1382,7 @@ Protects against SQL Injection, XSS, etc. filters incoming HTTP traffic.
 
 ---
 
+<a id="q75"></a>
 ### Q75: Design a Parking Garage? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>OO Design. Classes: Vehicle, Spot, Level, Garage. Enums: Compact, Large. Strategy Pattern for pricing.</p>
@@ -1185,6 +1408,7 @@ Protects against SQL Injection, XSS, etc. filters incoming HTTP traffic.
 
 ---
 
+<a id="q78"></a>
 ### Q78: Database Isolation Levels?
 
 **Difficulty**: Advanced
@@ -1199,6 +1423,7 @@ Read Uncommitted, Read Committed, Repeatable Read, Serializable. Trade-off betwe
 
 ---
 
+<a id="q79"></a>
 ### Q79: Optimistic vs Pessimistic Locking?
 
 **Difficulty**: Intermediate
@@ -1214,6 +1439,7 @@ Read Uncommitted, Read Committed, Repeatable Read, Serializable. Trade-off betwe
 
 ---
 
+<a id="q80"></a>
 ### Q80: Design Amazon Cart?
 
 **Difficulty**: Advanced
@@ -1228,6 +1454,7 @@ DynamoDB (Key-Value). Cart items persisted. Merge local cart after login. Availa
 
 ---
 
+<a id="q81"></a>
 ### Q81: What is PACELC Theorem?
 
 **Difficulty**: Advanced
@@ -1242,6 +1469,7 @@ Extension of CAP. If Partition (P), choose A or C. Else (E), choose Latency (L) 
 
 ---
 
+<a id="q82"></a>
 ### Q82: Design a Flash Sale System?
 
 **Difficulty**: Advanced
@@ -1256,6 +1484,7 @@ Redis counters for inventory. Queue to throttle DB writes. Static content on CDN
 
 ---
 
+<a id="q83"></a>
 ### Q83: What is Content-Based Routing?
 
 **Difficulty**: Intermediate
@@ -1270,6 +1499,7 @@ Routing requests to different microservices based on request content (headers/bo
 
 ---
 
+<a id="q84"></a>
 ### Q84: Peer-to-Peer Networks?
 
 **Difficulty**: Intermediate
@@ -1284,6 +1514,7 @@ No central server. Peers connect directly (BitTorrent). Resilient but hard to ma
 
 ---
 
+<a id="q85"></a>
 ### Q85: Design Google Maps?
 
 **Difficulty**: Advanced
@@ -1298,6 +1529,7 @@ Graph for routing (Dijkstra/A*). Tiled images for rendering (Quadtree/Zoom level
 
 ---
 
+<a id="q86"></a>
 ### Q86: What is Edge Computing?
 
 **Difficulty**: Intermediate
@@ -1312,6 +1544,7 @@ Processing data near the source (IoT devices) rather than sending to centralized
 
 ---
 
+<a id="q87"></a>
 ### Q87: Serverless Architecture?
 
 **Difficulty**: Intermediate
@@ -1326,6 +1559,7 @@ FaaS (Lambda). No server management. Scale to zero. Pay per execution.
 
 ---
 
+<a id="q88"></a>
 ### Q88: Design a Collaborative Editor (Google Docs)?
 
 **Difficulty**: Advanced
@@ -1340,6 +1574,7 @@ Operational Transformation (OT) or CRDTs to handle concurrent edits without lock
 
 ---
 
+<a id="q89"></a>
 ### Q89: Operational Transformation (OT)?
 
 **Difficulty**: Advanced
@@ -1354,6 +1589,7 @@ Algorithm to transform operations (insert/delete) based on other concurrent oper
 
 ---
 
+<a id="q90"></a>
 ### Q90: CRDTs (Conflict-free Replicated Data Types)?
 
 **Difficulty**: Advanced
@@ -1368,6 +1604,7 @@ Data structures that can be updated independently and merged without conflicts.
 
 ---
 
+<a id="q91"></a>
 ### Q91: Design Tinder (Matching)?
 
 **Difficulty**: Advanced
@@ -1382,6 +1619,7 @@ Geospatial query. "Swipes" are heavy writes. Redis for active users. Async proce
 
 ---
 
+<a id="q92"></a>
 ### Q92: Design a Search Engine?
 
 **Difficulty**: Advanced
@@ -1396,6 +1634,7 @@ Crawler -> Indexer (Inverted Index) -> Searcher (Ranking/TF-IDF/PageRank).
 
 ---
 
+<a id="q93"></a>
 ### Q93: What is WebRTC?
 
 **Difficulty**: Intermediate
@@ -1410,6 +1649,7 @@ Peer-to-Peer audio/video. Uses UDP. Signaling server needed for handshake.
 
 ---
 
+<a id="q94"></a>
 ### Q94: Design a Distributed Counter?
 
 **Difficulty**: Intermediate
@@ -1424,6 +1664,7 @@ Sharded counters. Sum all shards for total. Reduces write contention.
 
 ---
 
+<a id="q95"></a>
 ### Q95: What is a Split-Brain problem?
 
 **Difficulty**: Advanced
@@ -1438,6 +1679,7 @@ Cluster splits into two, both thinking they are the master. Leads to data corrup
 
 ---
 
+<a id="q96"></a>
 ### Q96: Design a Logging System?
 
 **Difficulty**: Intermediate
@@ -1452,6 +1694,7 @@ Filebeat (Agent) -> Kafka (Buffer) -> Logstash (Parse) -> Elasticsearch (Index) 
 
 ---
 
+<a id="q97"></a>
 ### Q97: What is Structured Logging? <span class="beginner">Beginner</span></div>
 <div class="answer">
   <p>Logging in JSON format (key-value) instead of plain text. Easier to query.</p>
@@ -1471,6 +1714,7 @@ Tracking a request across microservices using a Trace ID and Span IDs.
 
 ---
 
+<a id="q99"></a>
 ### Q99: Chaos Engineering?
 
 **Difficulty**: Advanced
@@ -1485,6 +1729,7 @@ Intentionally introducing faults (latency, crash) to test system resilience (Net
 
 ---
 
+<a id="q100"></a>
 ### Q100: Design Facebook Messenger?
 
 **Difficulty**: Advanced

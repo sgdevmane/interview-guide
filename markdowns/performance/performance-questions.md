@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: You have a React application with a slow initial load time due to a large bundle. How do you implement 'Route-Based Code Splitting' to fix this?
 
 **Difficulty**: Intermediate
@@ -148,6 +149,7 @@ function App() {
 
 ---
 
+<a id="q2"></a>
 ### Q2: Your LCP (Largest Contentful Paint) score is poor because the hero image loads late. How do you use `fetchpriority` and `preload` to optimize it?
 
 **Difficulty**: Intermediate
@@ -175,6 +177,7 @@ function App() {
 
 ---
 
+<a id="q3"></a>
 ### Q3: You notice 'Layout Thrashing' in a loop where you read and write DOM properties. How do you refactor this to improve rendering performance?
 
 **Difficulty**: Intermediate
@@ -210,6 +213,7 @@ items.forEach((item, i) => {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement a 'Virtual List' (Windowing) in React to render 10,000 rows without crashing the browser?
 
 **Difficulty**: Intermediate
@@ -241,6 +245,7 @@ const Example = () => (
 
 ---
 
+<a id="q5"></a>
 ### Q5: You have a heavy calculation running on the main thread that blocks UI interactions. How do you offload this to a Web Worker?
 
 **Difficulty**: Intermediate
@@ -272,6 +277,7 @@ worker.postMessage(inputData); // Start task
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you prevent 'Cumulative Layout Shift' (CLS) caused by images loading without dimensions?
 
 **Difficulty**: Intermediate
@@ -298,6 +304,7 @@ img.hero {
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you use the `IntersectionObserver` API to lazy load images as they scroll into view?
 
 **Difficulty**: Intermediate
@@ -326,6 +333,7 @@ document.querySelectorAll('img[data-src]').forEach(img => {
 
 ---
 
+<a id="q8"></a>
 ### Q8: You are optimizing a search input. How do you implement a 'Debounce' function to reduce the number of API calls?
 
 **Difficulty**: Intermediate
@@ -354,6 +362,7 @@ const handleSearch = debounce((query) => {
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you identify and fix a 'Memory Leak' caused by a detached event listener in a React component?
 
 **Difficulty**: Intermediate
@@ -379,6 +388,7 @@ useEffect(() => {
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you use `requestAnimationFrame` to create smooth, 60fps animations instead of using `setInterval`?
 
 **Difficulty**: Intermediate
@@ -405,6 +415,7 @@ requestAnimationFrame(animate);
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you optimize a large React context that causes unnecessary re-renders in consumer components?
 
 **Difficulty**: Intermediate
@@ -431,6 +442,7 @@ return (
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you use the 'Performance API' to measure the execution time of a specific function?
 
 **Difficulty**: Intermediate
@@ -450,6 +462,7 @@ console.log(`Execution time: ${end - start} ms`);
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you configure Webpack to use 'Tree Shaking' to remove unused code from your production bundle?
 
 **Difficulty**: Intermediate
@@ -475,6 +488,7 @@ import { useful } from './utils'; // 'useless' function is dropped
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you implement 'Resource Hints' (dns-prefetch, preconnect) to speed up third-party API connections?
 
 **Difficulty**: Intermediate
@@ -497,6 +511,7 @@ Establish network handshake early.
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you optimize CSS delivery to avoid 'Render Blocking' resources?
 
 **Difficulty**: Intermediate
@@ -520,6 +535,7 @@ Inline critical CSS for above-the-fold content, load the rest asynchronously.
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you minimize main thread work to improve INP (Interaction to Next Paint)?
 
 **Difficulty**: Expert
@@ -540,6 +556,7 @@ async function heavyTask() {
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you optimize font loading using `font-display: swap`?
 
 **Difficulty**: Beginner
@@ -558,6 +575,7 @@ Use `font-display: swap` in your `@font-face` rule. It tells the browser to use 
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you prevent Layout Shifts from dynamic ads?
 
 **Difficulty**: Intermediate
@@ -574,6 +592,7 @@ Reserve space for the ad slot using a container with fixed dimensions (min-heigh
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you implement a 'Cache First' strategy in a Service Worker?
 
 **Difficulty**: Intermediate
@@ -599,6 +618,7 @@ self.addEventListener('fetch', event => {
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you configure HTTP Cache-Control headers for immutable static assets?
 
 **Difficulty**: Intermediate
@@ -613,6 +633,7 @@ Cache-Control: public, max-age=31536000, immutable
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you implement ETags for conditional requests?
 
 **Difficulty**: Intermediate
@@ -630,6 +651,7 @@ app.set('etag', true);
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you optimize SVG assets?
 
 **Difficulty**: Beginner
@@ -651,6 +673,7 @@ svgo input.svg -o output.svg
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you serve responsive images using `srcset` and `sizes`?
 
 **Difficulty**: Beginner
@@ -670,6 +693,7 @@ Provide multiple resolutions of the same image. The browser picks the best one b
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you serve modern image formats (WebP/AVIF) with fallback?
 
 **Difficulty**: Beginner
@@ -688,6 +712,7 @@ Use the `<picture>` element with `<source>` tags for modern formats and `<img>` 
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you optimize video delivery to save bandwidth?
 
 **Difficulty**: Advanced
@@ -704,6 +729,7 @@ Use `preload='none'` if autoplay isn't needed. Use adaptive bitrate streaming (H
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you lazy load third-party scripts (e.g., Chat Widget)?
 
 **Difficulty**: Intermediate
@@ -724,6 +750,7 @@ const loadChat = () => {
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you optimize Google Fonts performance?
 
 **Difficulty**: Intermediate
@@ -739,6 +766,7 @@ Self-host if possible. If not, use `preconnect` to `fonts.gstatic.com`. Combine 
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you reduce the performance impact of A/B testing scripts?
 
 **Difficulty**: Advanced
@@ -756,6 +784,7 @@ if (bucket === 'variant-a') {
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you detect 'Forced Synchronous Layout' (Layout Thrashing)?
 
 **Difficulty**: Advanced
@@ -772,6 +801,7 @@ console.log(div.offsetWidth); // Forces layout recalculation immediately
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you optimize CSS selectors for rendering performance?
 
 **Difficulty**: Advanced
@@ -790,6 +820,7 @@ div.container > ul li:nth-child(odd) a.link { ... }
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you reduce DOM size complexity?
 
 **Difficulty**: Intermediate
@@ -810,6 +841,7 @@ return (
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you prevent unnecessary React re-renders using `React.memo`?
 
 **Difficulty**: Intermediate
@@ -826,6 +858,7 @@ const MyComponent = React.memo(({ data }) => {
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you implement Windowing (Virtualization) for a list?
 
 **Difficulty**: Advanced
@@ -842,6 +875,7 @@ Render only the visible subset of rows. Use libraries like `react-window`.
 
 ---
 
+<a id="q34"></a>
 ### Q34: Why should you NOT use the array index as a key in React lists?
 
 **Difficulty**: Beginner
@@ -860,6 +894,7 @@ items.map(item => <Li key={item.id} />)
 
 ---
 
+<a id="q35"></a>
 ### Q35: When should you use `useMemo`?
 
 **Difficulty**: Beginner
@@ -876,6 +911,7 @@ const sortedList = useMemo(() => {
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you implement Code Splitting in Webpack?
 
 **Difficulty**: Intermediate
@@ -892,6 +928,7 @@ import('./module').then(module => {
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you prefetch a resource when a user hovers over a link?
 
 **Difficulty**: Intermediate
@@ -911,6 +948,7 @@ const prefetch = (url) => {
 
 ---
 
+<a id="q38"></a>
 ### Q38: What is the PRPL Pattern?
 
 **Difficulty**: Advanced
@@ -925,6 +963,7 @@ const prefetch = (url) => {
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you use Selective Hydration in React 18?
 
 **Difficulty**: Advanced
@@ -941,6 +980,7 @@ Wrap slow parts of the UI in `<Suspense>`. React hydrates the critical parts fir
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you reduce Time to First Byte (TTFB)?
 
 **Difficulty**: Intermediate
@@ -956,6 +996,7 @@ Cache-Control: s-maxage=60, stale-while-revalidate
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you enable Brotli compression?
 
 **Difficulty**: Beginner
@@ -973,6 +1014,7 @@ brotli_types text/plain text/css application/javascript;
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you solve the N+1 Query Problem?
 
 **Difficulty**: Intermediate
@@ -988,6 +1030,7 @@ Use eager loading (`JOIN` in SQL) or batching (DataLoader in GraphQL) to fetch r
 
 ---
 
+<a id="q43"></a>
 ### Q43: Why use HTTP/3 (QUIC)?
 
 **Difficulty**: Advanced
@@ -1003,6 +1046,7 @@ listen 443 quic reuseport;
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you measure Core Web Vitals in code?
 
 **Difficulty**: Intermediate
@@ -1020,6 +1064,7 @@ onLCP(console.log);
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you enforce a Performance Budget?
 
 **Difficulty**: Advanced
@@ -1037,6 +1082,7 @@ Use `bundlesize` or Lighthouse CI. Fail the build if bundle size exceeds the lim
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you improve the initial load of a Single Page Application (SPA)?
 
 **Difficulty**: Intermediate
@@ -1051,6 +1097,7 @@ Use Server-Side Rendering (SSR) or Static Site Generation (SSG) to deliver HTML 
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use the Next.js Image component for optimization?
 
 **Difficulty**: Intermediate
@@ -1067,6 +1114,7 @@ import Image from 'next/image';
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you subset fonts to reduce file size?
 
 **Difficulty**: Advanced
@@ -1081,6 +1129,7 @@ pyftsubset font.ttf --unicodes=U+0020-007E --flavor=woff2
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you avoid request waterfalls?
 
 **Difficulty**: Intermediate
@@ -1100,6 +1149,7 @@ await Promise.all([getUser(), getPosts()]);
 
 ---
 
+<a id="q50"></a>
 ### Q50: When should you inline assets as Base64?
 
 **Difficulty**: Beginner
@@ -1115,6 +1165,7 @@ background: url(data:image/png;base64,iVBOR...);
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Performance state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1131,6 +1182,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Performance data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1147,6 +1199,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Performance deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1165,6 +1218,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Performance concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1183,6 +1237,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Performance caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1200,6 +1255,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Performance configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1216,6 +1272,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Performance internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1232,6 +1289,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Performance accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1248,6 +1306,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Performance network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1264,6 +1323,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Performance performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1283,6 +1343,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Performance in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1300,6 +1361,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Performance memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1317,6 +1379,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Performance code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1334,6 +1397,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Performance error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1354,6 +1418,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Performance functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1372,6 +1437,7 @@ test('Performance works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Performance state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1388,6 +1454,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Performance data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1404,6 +1471,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Performance deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1422,6 +1490,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Performance concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1440,6 +1509,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Performance caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1457,6 +1527,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Performance configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1473,6 +1544,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Performance internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1489,6 +1561,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Performance accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1505,6 +1578,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Performance network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1521,6 +1595,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Performance performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1540,6 +1615,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Performance in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1557,6 +1633,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Performance memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1574,6 +1651,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Performance code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1591,6 +1669,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Performance error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1611,6 +1690,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Performance functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1629,6 +1709,7 @@ test('Performance works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Performance state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1645,6 +1726,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Performance data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1661,6 +1743,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Performance deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1679,6 +1762,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Performance concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1697,6 +1781,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Performance caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1714,6 +1799,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Performance configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1730,6 +1816,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Performance internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1746,6 +1833,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Performance accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1762,6 +1850,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Performance network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1778,6 +1867,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Performance performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1797,6 +1887,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Performance in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1814,6 +1905,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Performance memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1831,6 +1923,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Performance code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1848,6 +1941,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Performance error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1868,6 +1962,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Performance functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1886,6 +1981,7 @@ test('Performance works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Performance state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1902,6 +1998,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Performance data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1918,6 +2015,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Performance deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1936,6 +2034,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Performance concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1954,6 +2053,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Performance caching in production environments?
 
 **Difficulty**: Intermediate

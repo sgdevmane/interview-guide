@@ -113,6 +113,7 @@
 
 ---
 
+<a id="q1"></a>
 ### Q1: How do you structure a web page using Semantic HTML for better Accessibility and SEO?
 
 **Difficulty**: Intermediate
@@ -155,6 +156,7 @@ Use semantic tags to describe content meaning, not just appearance.
 
 ---
 
+<a id="q2"></a>
 ### Q2: Implement a responsive image strategy using `srcset` and `<picture>`.
 
 **Difficulty**: Intermediate
@@ -186,6 +188,7 @@ Use semantic tags to describe content meaning, not just appearance.
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you ensure a web form is accessible to screen reader users?
 
 **Difficulty**: Intermediate
@@ -218,6 +221,7 @@ Use semantic tags to describe content meaning, not just appearance.
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you implement a modal dialog using the native `<dialog>` element?
 
 **Difficulty**: Intermediate
@@ -256,6 +260,7 @@ The `<dialog>` element provides a native modal with built-in accessibility (focu
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you optimize Critical Rendering Path using HTML tags?
 
 **Difficulty**: Intermediate
@@ -290,6 +295,7 @@ Optimize how the browser paints the page by prioritizing critical resources.
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you prevent tabnabbing attacks when using `target='_blank'`?
 
 **Difficulty**: Intermediate
@@ -315,6 +321,7 @@ When using `target="_blank"`, the new page gets access to the `window.opener` ob
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you implement Open Graph tags for Social Media sharing?
 
 **Difficulty**: Intermediate
@@ -343,6 +350,7 @@ Add `<meta>` tags in the `<head>`.
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you use the `<template>` tag for dynamic content?
 
 **Difficulty**: Intermediate
@@ -380,6 +388,7 @@ The `<template>` tag holds HTML that is **not rendered** immediately but can be 
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you implement a secure Content Security Policy (CSP) via meta tag?
 
 **Difficulty**: Intermediate
@@ -410,6 +419,7 @@ CSP mitigates XSS attacks by restricting where resources (scripts, images) can b
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you encapsulate styles using Shadow DOM to prevent leakage?
 
 **Difficulty**: Intermediate
@@ -440,6 +450,7 @@ Shadow DOM creates a scoped DOM tree attached to an element, ensuring styles def
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you implement 'Lazy Loading' for iframes and images natively?
 
 **Difficulty**: Intermediate
@@ -464,6 +475,7 @@ Use the `loading="lazy"` attribute. The browser defers loading the resource unti
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you create an accessible 'Skip to Content' link?
 
 **Difficulty**: Intermediate
@@ -508,6 +520,7 @@ Hide it visually until focused.
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you manage keyboard focus order using `tabindex` efficiently?
 
 **Difficulty**: Intermediate
@@ -535,6 +548,7 @@ Control tab order for interactive elements.
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you handle 'Dark Mode' preference in HTML/CSS?
 
 **Difficulty**: Intermediate
@@ -574,6 +588,7 @@ body {
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you validate forms using HTML5 built-in attributes?
 
 **Difficulty**: Intermediate
@@ -607,6 +622,7 @@ Use attributes like `required`, `pattern`, `type`, `min`, `max` to validate with
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you optimize font loading using `font-display`?
 
 **Difficulty**: Intermediate
@@ -634,6 +650,7 @@ The `font-display` property defines how a font face is displayed based on whethe
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you use JSON-LD for Structured Data (SEO)?
 
 **Difficulty**: Intermediate
@@ -667,6 +684,7 @@ JSON-LD (JavaScript Object Notation for Linked Data) is the recommended format b
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you force a file download using the `download` attribute?
 
 **Difficulty**: Beginner
@@ -691,6 +709,7 @@ The `download` attribute on an `<a>` tag instructs the browser to download the U
 
 ---
 
+<a id="q19"></a>
 ### Q19: What is the semantic difference between `<code>`, `<pre>`, and `<kbd>`?
 
 **Difficulty**: Beginner
@@ -714,6 +733,7 @@ npm start
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you implement an accessible Toggle Switch using HTML/CSS?
 
 **Difficulty**: Intermediate
@@ -761,6 +781,7 @@ Use a standard `<input type='checkbox'>` for the logic and a `<label>` for the c
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you optimize a page for printing using CSS media queries?
 
 **Difficulty**: Intermediate
@@ -793,6 +814,7 @@ Use `@media print` to hide navigation, adjust margins, and ensure text is black 
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you semantically markup an image with a caption?
 
 **Difficulty**: Beginner
@@ -812,6 +834,7 @@ Use the `<figure>` element to wrap the image and `<figcaption>` for the caption.
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you group options in a `<select>` dropdown?
 
 **Difficulty**: Beginner
@@ -838,6 +861,7 @@ Use the `<optgroup>` element to group related `<option>` items. The `label` attr
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you specify the canonical URL to prevent duplicate content issues?
 
 **Difficulty**: Intermediate
@@ -857,6 +881,7 @@ Use the `<link rel='canonical'>` tag in the `<head>` to tell search engines whic
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you disable spellcheck for specific input fields?
 
 **Difficulty**: Beginner
@@ -877,6 +902,7 @@ Use the `spellcheck='false'` attribute. This is useful for inputs like usernames
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you create a 'Mailto' link with subject, body, and CC?
 
 **Difficulty**: Beginner
@@ -895,6 +921,7 @@ You can add query parameters to the `mailto:` URL to pre-fill fields. Remember t
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you mark up time and dates for machine readability?
 
 **Difficulty**: Beginner
@@ -918,6 +945,7 @@ Use the `<time>` element with the `datetime` attribute. This helps search engine
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you make an iframe responsive with correct aspect ratio?
 
 **Difficulty**: Intermediate
@@ -947,6 +975,7 @@ Modern CSS `aspect-ratio` property makes this easy. Previously, the 'padding-hac
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you define a specific language for a part of the text?
 
 **Difficulty**: Beginner
@@ -965,6 +994,7 @@ Use the `lang` attribute on a span or div. This is important for screen readers 
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you use the `pattern` attribute for form validation?
 
 **Difficulty**: Intermediate
@@ -993,6 +1023,7 @@ The `pattern` attribute accepts a Regular Expression that the input value must m
 ---
 
 
+<a id="q31"></a>
 ### Q31: How do you create a native accordion using `details` and `summary`?
 
 **Difficulty**: Beginner
@@ -1010,6 +1041,7 @@ Use the `<details>` element as the container and `<summary>` for the visible hea
 
 ---
 
+<a id="q32"></a>
 ### Q32: What is the difference between `<meter>` and `<progress>`?
 
 **Difficulty**: Intermediate
@@ -1030,6 +1062,7 @@ Use the `<details>` element as the container and `<summary>` for the visible hea
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you implement an autocomplete suggestion list using `<datalist>`?
 
 **Difficulty**: Beginner
@@ -1052,6 +1085,7 @@ Link an `<input>` element to a `<datalist>` via the `list` attribute. The browse
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you optimize the mobile keyboard layout using `inputmode`?
 
 **Difficulty**: Intermediate
@@ -1073,6 +1107,7 @@ The `inputmode` attribute hints at the type of data the user might enter, trigge
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you use the `<base>` tag to set relative URLs?
 
 **Difficulty**: Intermediate
@@ -1093,6 +1128,7 @@ The `<base>` tag inside `<head>` specifies the base URL for all relative URLs in
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you suggest a line break opportunity using `<wbr>`?
 
 **Difficulty**: Advanced
@@ -1109,6 +1145,7 @@ The `<wbr>` tag specifies where in a text it would be okay to add a line-break. 
 
 ---
 
+<a id="q37"></a>
 ### Q37: When should you use `<blockquote>`, `<q>`, and `<cite>`?
 
 **Difficulty**: Beginner
@@ -1127,6 +1164,7 @@ The `<wbr>` tag specifies where in a text it would be okay to add a line-break. 
 
 ---
 
+<a id="q38"></a>
 ### Q38: What is the semantic difference between `<abbr>` and `<dfn>`?
 
 **Difficulty**: Intermediate
@@ -1143,6 +1181,7 @@ The `<wbr>` tag specifies where in a text it would be okay to add a line-break. 
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you provide contact information for the document author (`<address>`)?
 
 **Difficulty**: Beginner
@@ -1163,6 +1202,7 @@ The `<address>` element supplies contact information for its nearest `<article>`
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you handle users with disabled JavaScript (`<noscript>`)?
 
 **Difficulty**: Beginner
@@ -1182,6 +1222,7 @@ Use `<noscript>` to define content that is displayed only when scripts are disab
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you secure an iframe using the `sandbox` attribute?
 
 **Difficulty**: Advanced
@@ -1200,6 +1241,7 @@ The `sandbox` attribute restricts the actions of the iframe content (no scripts,
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you make any element editable (`contenteditable`)?
 
 **Difficulty**: Intermediate
@@ -1216,6 +1258,7 @@ Add the `contenteditable` attribute. Useful for building rich text editors.
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you enable native drag-and-drop (`draggable`)?
 
 **Difficulty**: Intermediate
@@ -1232,6 +1275,7 @@ Set `draggable='true'` on an element and handle drag events (`ondragstart`) in J
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you semantically hide content using the `hidden` attribute?
 
 **Difficulty**: Beginner
@@ -1251,6 +1295,7 @@ The `hidden` attribute indicates the element is not yet, or is no longer, releva
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you automatically focus an input field on page load?
 
 **Difficulty**: Beginner
@@ -1265,6 +1310,7 @@ Use the `autofocus` attribute. Only one element per page should have it.
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you prevent Google Translate from translating specific text?
 
 **Difficulty**: Intermediate
@@ -1279,6 +1325,7 @@ Use the `translate='no'` attribute. Useful for brand names, code snippets, or pr
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you link a Web App Manifest for PWA features?
 
 **Difficulty**: Intermediate
@@ -1295,6 +1342,7 @@ Use `<link rel='manifest'>` in the head. It points to a JSON file controlling ho
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you display the result of a calculation (`<output>`)?
 
 **Difficulty**: Intermediate
@@ -1313,6 +1361,7 @@ The `<output>` element represents the result of a calculation or user action. It
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you highlight text for reference or notation purposes (`<mark>`)?
 
 **Difficulty**: Beginner
@@ -1328,6 +1377,7 @@ Use the `<mark>` tag. It represents text marked or highlighted for reference pur
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you handle Bi-directional text (Arabic/Hebrew) using `<bdi>`?
 
 **Difficulty**: Advanced
@@ -1346,6 +1396,7 @@ Use the `<mark>` tag. It represents text marked or highlighted for reference pur
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle HTML state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1362,6 +1413,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform HTML data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1378,6 +1430,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate HTML deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1396,6 +1449,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle HTML concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1414,6 +1468,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement HTML caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1431,6 +1486,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage HTML configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1447,6 +1503,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle HTML internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1463,6 +1520,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure HTML accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1479,6 +1537,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize HTML network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1495,6 +1554,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle HTML performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1514,6 +1574,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of HTML in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1531,6 +1592,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug HTML memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1548,6 +1610,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for HTML code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1565,6 +1628,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement HTML error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1585,6 +1649,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test HTML functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1603,6 +1668,7 @@ test('HTML works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle HTML state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1619,6 +1685,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform HTML data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1635,6 +1702,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate HTML deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1653,6 +1721,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle HTML concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1671,6 +1740,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement HTML caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1688,6 +1758,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage HTML configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1704,6 +1775,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle HTML internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1720,6 +1792,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure HTML accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1736,6 +1809,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize HTML network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1752,6 +1826,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle HTML performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1771,6 +1846,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of HTML in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1788,6 +1864,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug HTML memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1805,6 +1882,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for HTML code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1822,6 +1900,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement HTML error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1842,6 +1921,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test HTML functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1860,6 +1940,7 @@ test('HTML works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle HTML state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1876,6 +1957,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform HTML data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1892,6 +1974,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate HTML deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1910,6 +1993,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle HTML concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1928,6 +2012,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement HTML caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1945,6 +2030,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage HTML configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1961,6 +2047,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle HTML internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1977,6 +2064,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure HTML accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1993,6 +2081,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize HTML network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -2009,6 +2098,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle HTML performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -2028,6 +2118,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of HTML in large scale applications?
 
 **Difficulty**: Intermediate
@@ -2045,6 +2136,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug HTML memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -2062,6 +2154,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for HTML code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -2079,6 +2172,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement HTML error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -2099,6 +2193,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test HTML functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -2117,6 +2212,7 @@ test('HTML works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle HTML state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -2133,6 +2229,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform HTML data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -2149,6 +2246,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate HTML deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -2167,6 +2265,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle HTML concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -2185,6 +2284,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement HTML caching in production environments?
 
 **Difficulty**: Intermediate

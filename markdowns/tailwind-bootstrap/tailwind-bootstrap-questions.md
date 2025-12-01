@@ -112,6 +112,7 @@
 
 ---
 
+<a id="q2"></a>
 ### Q2: How do you customize the Bootstrap 5 theme colors using SASS variables?
 
 **Difficulty**: Intermediate
@@ -140,6 +141,7 @@ $danger: #ff4136;
 
 ---
 
+<a id="q3"></a>
 ### Q3: How do you extend Tailwind CSS configuration to add custom breakpoints?
 
 **Difficulty**: Intermediate
@@ -166,6 +168,7 @@ module.exports = {
 
 ---
 
+<a id="q4"></a>
 ### Q4: How do you create a reusable component style in Tailwind using the `@apply` directive?
 
 **Difficulty**: Beginner
@@ -190,6 +193,7 @@ Use `@apply` in your global CSS file (e.g., `input.css`) inside a `@layer compon
 
 ---
 
+<a id="q5"></a>
 ### Q5: How do you implement a responsive grid layout in Bootstrap 5 without using custom CSS?
 
 **Difficulty**: Beginner
@@ -218,6 +222,7 @@ Use the `.container`, `.row`, and `.col-{breakpoint}-{size}` classes.
 
 ---
 
+<a id="q6"></a>
 ### Q6: How do you enable and use arbitrary values in Tailwind CSS for one-off styles?
 
 **Difficulty**: Intermediate
@@ -237,6 +242,7 @@ Use the square bracket syntax `property-[value]` directly in your HTML.
 
 ---
 
+<a id="q7"></a>
 ### Q7: How do you optimize Tailwind CSS for production to remove unused styles?
 
 **Difficulty**: Advanced
@@ -263,6 +269,7 @@ module.exports = {
 
 ---
 
+<a id="q8"></a>
 ### Q8: How do you use Bootstrap 5's Utility API to generate custom utility classes?
 
 **Difficulty**: Advanced
@@ -300,6 +307,7 @@ $utilities: map-merge(
 
 ---
 
+<a id="q9"></a>
 ### Q9: How do you implement Dark Mode support in Tailwind CSS?
 
 **Difficulty**: Intermediate
@@ -327,6 +335,7 @@ module.exports = {
 
 ---
 
+<a id="q10"></a>
 ### Q10: How do you use Bootstrap components (like Modals) in a React application without jQuery?
 
 **Difficulty**: Intermediate
@@ -368,6 +377,7 @@ function Example() {
 
 ---
 
+<a id="q11"></a>
 ### Q11: How do you create a custom Tailwind CSS plugin to add new variants?
 
 **Difficulty**: Advanced
@@ -395,6 +405,7 @@ Usage: `<input class="optional:bg-gray-100 hocus:bg-blue-100" />`
 
 ---
 
+<a id="q12"></a>
 ### Q12: How do you handle z-index values in Tailwind to avoid conflicts?
 
 **Difficulty**: Intermediate
@@ -422,6 +433,7 @@ module.exports = {
 
 ---
 
+<a id="q13"></a>
 ### Q13: How do you center a div both vertically and horizontally using Bootstrap classes?
 
 **Difficulty**: Beginner
@@ -442,6 +454,7 @@ Use Flexbox utilities: `d-flex`, `justify-content-center`, and `align-items-cent
 
 ---
 
+<a id="q14"></a>
 ### Q14: How do you apply styles to children elements in Tailwind without adding classes to each child?
 
 **Difficulty**: Advanced
@@ -462,6 +475,7 @@ Use arbitrary variants like `[&>p]:mt-4` or create a custom plugin/component sty
 
 ---
 
+<a id="q15"></a>
 ### Q15: How do you implement a sticky footer in Tailwind CSS?
 
 **Difficulty**: Intermediate
@@ -488,6 +502,7 @@ Use Flexbox on the body/wrapper with `flex-col` and `min-h-screen`, then set the
 
 ---
 
+<a id="q16"></a>
 ### Q16: How do you implement a responsive Grid Layout in Tailwind CSS?
 
 **Difficulty**: Beginner
@@ -508,6 +523,7 @@ Use `grid` and `grid-cols-{n}` utilities. Use breakpoints like `md:grid-cols-3` 
 
 ---
 
+<a id="q17"></a>
 ### Q17: How do you align items using Flexbox in Bootstrap?
 
 **Difficulty**: Beginner
@@ -527,6 +543,7 @@ Use `d-flex` to enable flexbox. Use `justify-content-*` for main axis and `align
 
 ---
 
+<a id="q18"></a>
 ### Q18: How do you style Markdown content using Tailwind Typography?
 
 **Difficulty**: Intermediate
@@ -546,6 +563,7 @@ Install `@tailwindcss/typography` and use the `prose` class on the container.
 
 ---
 
+<a id="q19"></a>
 ### Q19: How do you apply Spacing (Margin/Padding) in Bootstrap?
 
 **Difficulty**: Beginner
@@ -564,6 +582,7 @@ Use `{property}{sides}-{size}` syntax. Property: `m` (margin), `p` (padding). Si
 
 ---
 
+<a id="q20"></a>
 ### Q20: How do you create circular images with borders in Tailwind?
 
 **Difficulty**: Beginner
@@ -580,6 +599,7 @@ Use `rounded-full` for circle, and `border-{width}` `border-{color}`.
 
 ---
 
+<a id="q21"></a>
 ### Q21: How do you add shadows in Bootstrap?
 
 **Difficulty**: Beginner
@@ -598,6 +618,7 @@ Use `shadow-sm`, `shadow`, `shadow-lg` classes.
 
 ---
 
+<a id="q22"></a>
 ### Q22: How do you apply a blur filter in Tailwind?
 
 **Difficulty**: Intermediate
@@ -616,6 +637,7 @@ Use `blur-{amount}` utilities (e.g., `blur-sm`, `blur-md`). Often used with `bac
 
 ---
 
+<a id="q23"></a>
 ### Q23: How do you make a link stretch to cover the entire parent card in Bootstrap?
 
 **Difficulty**: Intermediate
@@ -637,6 +659,7 @@ Use the `stretched-link` class on the link inside a `position-relative` containe
 
 ---
 
+<a id="q24"></a>
 ### Q24: How do you rotate an element in Tailwind?
 
 **Difficulty**: Beginner
@@ -653,6 +676,7 @@ Use `rotate-{degree}` utilities. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q25"></a>
 ### Q25: How do you prevent text selection in Bootstrap?
 
 **Difficulty**: Beginner
@@ -669,6 +693,7 @@ Use `user-select-none`. This concept is fundamental in this domain and understan
 
 ---
 
+<a id="q26"></a>
 ### Q26: How do you style an SVG icon's color in Tailwind?
 
 **Difficulty**: Intermediate
@@ -685,6 +710,7 @@ Use `text-{color}` and `fill-current` or `stroke-current` on the SVG.
 
 ---
 
+<a id="q27"></a>
 ### Q27: How do you hide elements visually but keep them accessible to screen readers in Bootstrap?
 
 **Difficulty**: Beginner
@@ -701,6 +727,7 @@ Use the `visually-hidden` class. This concept is fundamental in this domain and 
 
 ---
 
+<a id="q28"></a>
 ### Q28: How do you style form inputs easily in Tailwind?
 
 **Difficulty**: Intermediate
@@ -721,6 +748,7 @@ plugins: [require('@tailwindcss/forms')],
 
 ---
 
+<a id="q29"></a>
 ### Q29: How do you make a table responsive in Bootstrap?
 
 **Difficulty**: Beginner
@@ -741,6 +769,7 @@ Wrap the `.table` in a container with `.table-responsive`.
 
 ---
 
+<a id="q30"></a>
 ### Q30: How do you style a sibling element based on the state of another in Tailwind (Peer)?
 
 **Difficulty**: Advanced
@@ -758,6 +787,7 @@ Add `peer` class to the trigger element, and `peer-{modifier}:` to the target si
 
 ---
 
+<a id="q31"></a>
 ### Q31: How do you indicate form validation errors in Bootstrap?
 
 **Difficulty**: Intermediate
@@ -777,6 +807,7 @@ Add `.was-validated` to the form or `.is-invalid` to the input. Provide `.invali
 
 ---
 
+<a id="q32"></a>
 ### Q32: How do you style children when hovering the parent in Tailwind (Group)?
 
 **Difficulty**: Intermediate
@@ -795,6 +826,7 @@ Add `group` class to the parent, and `group-hover:` to the child.
 
 ---
 
+<a id="q33"></a>
 ### Q33: How do you create a full-screen modal in Bootstrap?
 
 **Difficulty**: Intermediate
@@ -813,6 +845,7 @@ Use `.modal-fullscreen` class on the `.modal-dialog`.
 
 ---
 
+<a id="q34"></a>
 ### Q34: How do you enforce an aspect ratio in Tailwind?
 
 **Difficulty**: Intermediate
@@ -829,6 +862,7 @@ Use `aspect-{ratio}` utilities (e.g., `aspect-video`, `aspect-square`).
 
 ---
 
+<a id="q35"></a>
 ### Q35: How do you limit text to a specific number of lines in Tailwind?
 
 **Difficulty**: Intermediate
@@ -847,6 +881,7 @@ Install `@tailwindcss/line-clamp` (included in v3.3+) and use `line-clamp-{n}`.
 
 ---
 
+<a id="q36"></a>
 ### Q36: How do you position Toasts in Bootstrap?
 
 **Difficulty**: Intermediate
@@ -865,6 +900,7 @@ Wrap toasts in a `.toast-container` and use positioning utilities like `top-0 en
 
 ---
 
+<a id="q37"></a>
 ### Q37: How do you create a loading spinner animation in Tailwind?
 
 **Difficulty**: Beginner
@@ -881,6 +917,7 @@ Use `animate-spin`. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q38"></a>
 ### Q38: How do you implement Scrollspy in Bootstrap?
 
 **Difficulty**: Advanced
@@ -899,6 +936,7 @@ Add `data-bs-spy='scroll'` to the scrollable element and `data-bs-target` pointi
 
 ---
 
+<a id="q39"></a>
 ### Q39: How do you create gradient text in Tailwind?
 
 **Difficulty**: Intermediate
@@ -917,6 +955,7 @@ Use `bg-gradient-to-r`, `from-{color}`, `to-{color}`, `bg-clip-text`, and `text-
 
 ---
 
+<a id="q40"></a>
 ### Q40: How do you create an Offcanvas sidebar in Bootstrap?
 
 **Difficulty**: Intermediate
@@ -936,6 +975,7 @@ Use `.offcanvas` component. This concept is fundamental in this domain and under
 
 ---
 
+<a id="q41"></a>
 ### Q41: How do you add dividers between children in Tailwind?
 
 **Difficulty**: Intermediate
@@ -955,6 +995,7 @@ Use `divide-y` or `divide-x` on the parent container.
 
 ---
 
+<a id="q42"></a>
 ### Q42: How do you remove borders from an Accordion in Bootstrap (Flush)?
 
 **Difficulty**: Beginner
@@ -973,6 +1014,7 @@ Use `.accordion-flush` class. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q43"></a>
 ### Q43: How do you add space between children in Tailwind (Space Between)?
 
 **Difficulty**: Intermediate
@@ -992,6 +1034,7 @@ Use `space-x-{n}` or `space-y-{n}` on the parent. Note: It adds margin to childr
 
 ---
 
+<a id="q44"></a>
 ### Q44: How do you make a Badge rounded like a pill in Bootstrap?
 
 **Difficulty**: Beginner
@@ -1008,6 +1051,7 @@ Use `.rounded-pill` utility along with `.badge`.
 
 ---
 
+<a id="q45"></a>
 ### Q45: How do you add a focus ring to an element in Tailwind?
 
 **Difficulty**: Beginner
@@ -1026,6 +1070,7 @@ Use `ring-{width}`. This concept is fundamental in this domain and understanding
 
 ---
 
+<a id="q46"></a>
 ### Q46: How do you group buttons together in Bootstrap?
 
 **Difficulty**: Beginner
@@ -1046,6 +1091,7 @@ Wrap buttons in `.btn-group`. This concept is fundamental in this domain and und
 
 ---
 
+<a id="q47"></a>
 ### Q47: How do you use Container Queries in Tailwind?
 
 **Difficulty**: Advanced
@@ -1066,6 +1112,7 @@ Install `@tailwindcss/container-queries`. Mark parent as `@container`. Use `@lg:
 
 ---
 
+<a id="q48"></a>
 ### Q48: How do you vertically center content in a Bootstrap column?
 
 **Difficulty**: Intermediate
@@ -1084,6 +1131,7 @@ Use `align-items-center` on the `.row`.
 
 ---
 
+<a id="q49"></a>
 ### Q49: How do you invert colors in Tailwind (Dark Mode manual)?
 
 **Difficulty**: Intermediate
@@ -1102,6 +1150,7 @@ Tailwind doesn't have a built-in 'invert' utility for colors specifically, but y
 
 ---
 
+<a id="q50"></a>
 ### Q50: How do you create a Dismissible Alert in Bootstrap?
 
 **Difficulty**: Intermediate
@@ -1122,6 +1171,7 @@ Add `.alert-dismissible` and a close button with `data-bs-dismiss='alert'`.
 ---
 
 
+<a id="q51"></a>
 ### Q51: How do you handle Tailwind state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1138,6 +1188,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q52"></a>
 ### Q52: How do you perform Tailwind data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1154,6 +1205,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q53"></a>
 ### Q53: How do you automate Tailwind deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1172,6 +1224,7 @@ steps:
 
 ---
 
+<a id="q54"></a>
 ### Q54: How do you handle Tailwind concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1190,6 +1243,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q55"></a>
 ### Q55: How do you implement Tailwind caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1207,6 +1261,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q56"></a>
 ### Q56: How do you manage Tailwind configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1223,6 +1278,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q57"></a>
 ### Q57: How do you handle Tailwind internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1239,6 +1295,7 @@ t('welcome_message')
 
 ---
 
+<a id="q58"></a>
 ### Q58: How do you ensure Tailwind accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1255,6 +1312,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q59"></a>
 ### Q59: How do you optimize Tailwind network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1271,6 +1329,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q60"></a>
 ### Q60: How do you handle Tailwind performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1290,6 +1349,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q61"></a>
 ### Q61: What are the security implications of Tailwind in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1307,6 +1367,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q62"></a>
 ### Q62: How do you debug Tailwind memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1324,6 +1385,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q63"></a>
 ### Q63: Best practices for Tailwind code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1341,6 +1403,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q64"></a>
 ### Q64: How do you implement Tailwind error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1361,6 +1424,7 @@ try {
 
 ---
 
+<a id="q65"></a>
 ### Q65: How do you test Tailwind functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1379,6 +1443,7 @@ test('Tailwind works', () => {
 
 ---
 
+<a id="q66"></a>
 ### Q66: How do you handle Tailwind state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1395,6 +1460,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q67"></a>
 ### Q67: How do you perform Tailwind data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1411,6 +1477,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q68"></a>
 ### Q68: How do you automate Tailwind deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1429,6 +1496,7 @@ steps:
 
 ---
 
+<a id="q69"></a>
 ### Q69: How do you handle Tailwind concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1447,6 +1515,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q70"></a>
 ### Q70: How do you implement Tailwind caching in production environments?
 
 **Difficulty**: Intermediate
@@ -1464,6 +1533,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q71"></a>
 ### Q71: How do you manage Tailwind configuration for large scale applications?
 
 **Difficulty**: Beginner
@@ -1480,6 +1550,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q72"></a>
 ### Q72: How do you handle Tailwind internationalization (i18n) in microservices?
 
 **Difficulty**: Intermediate
@@ -1496,6 +1567,7 @@ t('welcome_message')
 
 ---
 
+<a id="q73"></a>
 ### Q73: How do you ensure Tailwind accessibility (a11y) in mobile devices?
 
 **Difficulty**: Beginner
@@ -1512,6 +1584,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q74"></a>
 ### Q74: How do you optimize Tailwind network requests in legacy systems?
 
 **Difficulty**: Advanced
@@ -1528,6 +1601,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q75"></a>
 ### Q75: How do you handle Tailwind performance optimization for cloud infrastructure?
 
 **Difficulty**: Advanced
@@ -1547,6 +1621,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q76"></a>
 ### Q76: What are the security implications of Tailwind in real-time systems?
 
 **Difficulty**: Intermediate
@@ -1564,6 +1639,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q77"></a>
 ### Q77: How do you debug Tailwind memory leaks in distributed systems?
 
 **Difficulty**: Advanced
@@ -1581,6 +1657,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q78"></a>
 ### Q78: Best practices for Tailwind code organization in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1598,6 +1675,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q79"></a>
 ### Q79: How do you implement Tailwind error handling for embedded systems?
 
 **Difficulty**: Intermediate
@@ -1618,6 +1696,7 @@ try {
 
 ---
 
+<a id="q80"></a>
 ### Q80: How do you test Tailwind functionality in production environments?
 
 **Difficulty**: Intermediate
@@ -1636,6 +1715,7 @@ test('Tailwind works', () => {
 
 ---
 
+<a id="q81"></a>
 ### Q81: How do you handle Tailwind state management in large scale applications?
 
 **Difficulty**: Advanced
@@ -1652,6 +1732,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q82"></a>
 ### Q82: How do you perform Tailwind data validation in microservices?
 
 **Difficulty**: Beginner
@@ -1668,6 +1749,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q83"></a>
 ### Q83: How do you automate Tailwind deployment for mobile devices?
 
 **Difficulty**: Advanced
@@ -1686,6 +1768,7 @@ steps:
 
 ---
 
+<a id="q84"></a>
 ### Q84: How do you handle Tailwind concurrency issues in legacy systems?
 
 **Difficulty**: Advanced
@@ -1704,6 +1787,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q85"></a>
 ### Q85: How do you implement Tailwind caching in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1721,6 +1805,7 @@ if (cache.has(key)) return cache.get(key);
 
 ---
 
+<a id="q86"></a>
 ### Q86: How do you manage Tailwind configuration for real-time systems?
 
 **Difficulty**: Beginner
@@ -1737,6 +1822,7 @@ const config = process.env.CONFIG || 'default';
 
 ---
 
+<a id="q87"></a>
 ### Q87: How do you handle Tailwind internationalization (i18n) in distributed systems?
 
 **Difficulty**: Intermediate
@@ -1753,6 +1839,7 @@ t('welcome_message')
 
 ---
 
+<a id="q88"></a>
 ### Q88: How do you ensure Tailwind accessibility (a11y) in high-traffic sites?
 
 **Difficulty**: Beginner
@@ -1769,6 +1856,7 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 
 ---
 
+<a id="q89"></a>
 ### Q89: How do you optimize Tailwind network requests in embedded systems?
 
 **Difficulty**: Advanced
@@ -1785,6 +1873,7 @@ debounce(() => fetch(), 300);
 
 ---
 
+<a id="q90"></a>
 ### Q90: How do you handle Tailwind performance optimization for production environments?
 
 **Difficulty**: Advanced
@@ -1804,6 +1893,7 @@ console.log('Time:', end - start);
 
 ---
 
+<a id="q91"></a>
 ### Q91: What are the security implications of Tailwind in large scale applications?
 
 **Difficulty**: Intermediate
@@ -1821,6 +1911,7 @@ const clean = input.replace(/<script>/g, '');
 
 ---
 
+<a id="q92"></a>
 ### Q92: How do you debug Tailwind memory leaks in microservices?
 
 **Difficulty**: Advanced
@@ -1838,6 +1929,7 @@ process.on('exit', () => cleanup());
 
 ---
 
+<a id="q93"></a>
 ### Q93: Best practices for Tailwind code organization in mobile devices?
 
 **Difficulty**: Beginner
@@ -1855,6 +1947,7 @@ function doOneThing() { ... }
 
 ---
 
+<a id="q94"></a>
 ### Q94: How do you implement Tailwind error handling for legacy systems?
 
 **Difficulty**: Intermediate
@@ -1875,6 +1968,7 @@ try {
 
 ---
 
+<a id="q95"></a>
 ### Q95: How do you test Tailwind functionality in cloud infrastructure?
 
 **Difficulty**: Intermediate
@@ -1893,6 +1987,7 @@ test('Tailwind works', () => {
 
 ---
 
+<a id="q96"></a>
 ### Q96: How do you handle Tailwind state management in real-time systems?
 
 **Difficulty**: Advanced
@@ -1909,6 +2004,7 @@ const [state, setState] = useState(initial);
 
 ---
 
+<a id="q97"></a>
 ### Q97: How do you perform Tailwind data validation in distributed systems?
 
 **Difficulty**: Beginner
@@ -1925,6 +2021,7 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 
 ---
 
+<a id="q98"></a>
 ### Q98: How do you automate Tailwind deployment for high-traffic sites?
 
 **Difficulty**: Advanced
@@ -1943,6 +2040,7 @@ steps:
 
 ---
 
+<a id="q99"></a>
 ### Q99: How do you handle Tailwind concurrency issues in embedded systems?
 
 **Difficulty**: Advanced
@@ -1961,6 +2059,7 @@ await mutex.runExclusive(async () => {
 
 ---
 
+<a id="q100"></a>
 ### Q100: How do you implement Tailwind caching in production environments?
 
 **Difficulty**: Intermediate
