@@ -55,11 +55,11 @@
 43. [How do you use the `repl` module to create a custom shell?](#q43-how-do-you-use-the-repl-module-to-create-a-custom-shell) <span class="intermediate">Intermediate</span>
 44. [How do you benchmark Node.js code using `perf_hooks`?](#q44-how-do-you-benchmark-node.js-code-using-perf_hooks) <span class="intermediate">Intermediate</span>
 45. [How do you serve static files without a framework?](#q45-how-do-you-serve-static-files-without-a-framework) <span class="intermediate">Intermediate</span>
-46. [What are the security implications of Node.js in real-time systems?](#q46-what-are-the-security-implications-of-node.js-in-real-time-systems) <span class="intermediate">Intermediate</span>
-47. [How do you debug Node.js memory leaks in distributed systems?](#q47-how-do-you-debug-node.js-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-48. [Best practices for Node.js code organization in high-traffic sites?](#q48-best-practices-for-node.js-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-49. [How do you implement Node.js error handling for embedded systems?](#q49-how-do-you-implement-node.js-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-50. [How do you test Node.js functionality in production environments?](#q50-how-do-you-test-node.js-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
+46. [How do you use `fs.promises` for async file operations?](#q46) <span class="beginner">Beginner</span>
+47. [How do you implement a simple health check endpoint?](#q47) <span class="beginner">Beginner</span>
+48. [How do you use `AbortController` to cancel async operations?](#q48) <span class="intermediate">Intermediate</span>
+49. [How do you inspect heap snapshots programmatically using `v8` module?](#q49) <span class="advanced">Advanced</span>
+50. [How do you use the native Node.js Test Runner?](#q50) <span class="beginner">Beginner</span>
 51. [Explain the Node.js Event Loop phases.](#q51-explain-the-node.js-event-loop-phases.) <span class="advanced">Advanced</span>
 52. [Difference between `process.nextTick` and `setImmediate`?](#q52-difference-between-process.nexttick-and-setimmediate) <span class="intermediate">Intermediate</span>
 53. [How do Worker Threads differ from Cluster module?](#q53-how-do-worker-threads-differ-from-cluster-module) <span class="advanced">Advanced</span>
@@ -3039,7 +3039,8 @@ http.createServer((req, res) => {
 
 ---
 
-### Q{}: How do you use `fs.promises` for async file operations?
+<a id="q46"></a>
+### Q46: How do you use `fs.promises` for async file operations?
 
 **Difficulty**: Beginner
 
@@ -3067,7 +3068,8 @@ readConfig();
 
 ---
 
-### Q{}: How do you implement a simple health check endpoint?
+<a id="q47"></a>
+### Q47: How do you implement a simple health check endpoint?
 
 **Difficulty**: Beginner
 
@@ -3101,7 +3103,8 @@ app.get('/health', async (req, res) => {
 
 ---
 
-### Q{}: How do you use `AbortController` to cancel async operations?
+<a id="q48"></a>
+### Q48: How do you use `AbortController` to cancel async operations?
 
 **Difficulty**: Intermediate
 
@@ -3140,7 +3143,8 @@ setTimeout(() => controller.abort(), 1000);
 
 ---
 
-### Q{}: How do you inspect heap snapshots programmatically using `v8` module?
+<a id="q49"></a>
+### Q49: How do you inspect heap snapshots programmatically using `v8` module?
 
 **Difficulty**: Advanced
 
@@ -3169,7 +3173,8 @@ if (usage.heapUsed > 500 * 1024 * 1024) { // 500MB
 
 ---
 
-### Q{}: How do you use the native Node.js Test Runner?
+<a id="q50"></a>
+### Q50: How do you use the native Node.js Test Runner?
 
 **Difficulty**: Beginner
 
@@ -3197,97 +3202,7 @@ describe('Math operations', () => {
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-<a id="q46"></a>
-### Q46: What are the security implications of Node.js in real-time systems?
 
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q47"></a>
-### Q47: How do you debug Node.js memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q48"></a>
-### Q48: Best practices for Node.js code organization in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q49"></a>
-### Q49: How do you implement Node.js error handling for embedded systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await Node.jsOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q50"></a>
-### Q50: How do you test Node.js functionality in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('Node.js works', () => {
-  expect(Node.js()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

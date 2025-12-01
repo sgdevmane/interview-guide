@@ -60,1600 +60,1561 @@
 48. [Van Emde Boas Tree?](#q48) <span class="advanced">Advanced</span>
 49. [Fibonacci Heap vs Binary Heap?](#q49) <span class="advanced">Advanced</span>
 50. [Difference between Tree and Trie?](#q50) <span class="intermediate">Intermediate</span>
-51. [What is a Spatial Index (R-Tree)?](#q51) <span class="advanced">Advanced</span>
-52. [Gap Buffer (Text Editors)?](#q52) <span class="advanced">Advanced</span>
-53. [Piece Table?](#q53) <span class="advanced">Advanced</span>
-54. [What is a DAG (Directed Acyclic Graph)?](#q54) <span class="intermediate">Intermediate</span>
-55. [Bipartite Graph?](#q55) <span class="intermediate">Intermediate</span>
-56. [Complete Graph vs Connected Graph?](#q56) <span class="beginner">Beginner</span>
-57. [What is an Euler Path?](#q57) <span class="advanced">Advanced</span>
-58. [Hamiltonian Path?](#q58) <span class="advanced">Advanced</span>
-59. [Minimum Spanning Tree (MST)?](#q59) <span class="intermediate">Intermediate</span>
-60. [Adjacency List Implementation?](#q60) <span class="beginner">Beginner</span>
-61. [Implementing a Stack with Array?](#q61) <span class="beginner">Beginner</span>
-62. [Implementing a Stack with Linked List?](#q62) <span class="beginner">Beginner</span>
-63. [Monotonic Stack?](#q63) <span class="intermediate">Intermediate</span>
-64. [Monotonic Queue?](#q64) <span class="intermediate">Intermediate</span>
-65. [Blocking Queue?](#q65) <span class="intermediate">Intermediate</span>
-66. [ConcurrentHashMap (Java context)?](#q66) <span class="advanced">Advanced</span>
-67. [What is a GeoHash?](#q67) <span class="advanced">Advanced</span>
-68. [Merkle Tree (Blockchain)?](#q68) <span class="advanced">Advanced</span>
-69. [LSM Tree (Log-Structured Merge)?](#q69) <span class="advanced">Advanced</span>
-70. [Time Complexity of Common Operations?](#q70) <span class="beginner">Beginner</span>
-71. [Space Complexity Analysis?](#q71) <span class="beginner">Beginner</span>
-72. [Big O Notation Explained?](#q72) <span class="beginner">Beginner</span>
-73. [Amortized Analysis?](#q73) <span class="advanced">Advanced</span>
-74. [What is a Self-Organizing List?](#q74) <span class="advanced">Advanced</span>
-75. [XOR Linked List?](#q75) <span class="advanced">Advanced</span>
-76. [Unrolled Linked List?](#q76) <span class="advanced">Advanced</span>
-77. [V-List?](#q77) <span class="advanced">Advanced</span>
-78. [Difference between Max-Heap and Min-Heap?](#q78) <span class="beginner">Beginner</span>
-79. [D-ary Heap?](#q79) <span class="advanced">Advanced</span>
-80. [Binomial Heap?](#q80) <span class="advanced">Advanced</span>
-81. [Pairing Heap?](#q81) <span class="advanced">Advanced</span>
-82. [Leftist Tree?](#q82) <span class="advanced">Advanced</span>
-83. [Skew Heap?](#q83) <span class="advanced">Advanced</span>
-84. [Soft Heap?](#q84) <span class="advanced">Advanced</span>
-85. [Interval Tree?](#q85) <span class="advanced">Advanced</span>
-86. [Range Tree?](#q86) <span class="advanced">Advanced</span>
-87. [Binary Space Partitioning (BSP)?](#q87) <span class="advanced">Advanced</span>
-88. [Octree vs Quadtree?](#q88) <span class="intermediate">Intermediate</span>
-89. [BK-Tree (Spell Check)?](#q89) <span class="advanced">Advanced</span>
-90. [Radix Tree (Compact Trie)?](#q90) <span class="advanced">Advanced</span>
-91. [Ternary Search Tree?](#q91) <span class="advanced">Advanced</span>
-92. [Suffix Automaton?](#q92) <span class="advanced">Advanced</span>
-93. [Cartesian Tree?](#q93) <span class="advanced">Advanced</span>
-94. [MVP Tree (Metric VP)?](#q94) <span class="advanced">Advanced</span>
-95. [Cover Tree?](#q95) <span class="advanced">Advanced</span>
-96. [Bloom Filter vs Cuckoo Filter?](#q96) <span class="advanced">Advanced</span>
-97. [Quotient Filter?](#q97) <span class="advanced">Advanced</span>
-98. [What is a Persistent Data Structure?](#q98) <span class="advanced">Advanced</span>
-99. [Retroactive Data Structures?](#q99) <span class="advanced">Advanced</span>
-100. [Succinct Data Structures?](#q100) <span class="advanced">Advanced</span>
 
 ---
 
 ---
 
 <a id="q1"></a>
+
 ### Q1: Difference between Array and Linked List?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**Arrays:** Contiguous memory, O(1) access, fixed size (mostly), O(n) insertion/deletion.
+Arrays and Linked Lists differ fundamentally in memory allocation and access patterns.
 
+- **Array**: Stores elements in contiguous memory locations. This allows `O(1)` random access via index but requires contiguous space. Insertions/deletions are `O(n)` because elements must shift.
+- **Linked List**: Stores elements as nodes scattered in memory, linked by pointers. Access is `O(n)` (sequential), but insertions/deletions are `O(1)` if the pointer to the location is known (no shifting required).
 
-  **Linked Lists:** Non-contiguous nodes, O(n) access, dynamic size, O(1) insertion/deletion (if pointer known).
+**Complexity**:
+| Operation | Array | Linked List |
+|-----------|-------|-------------|
+| Access | O(1) | O(n) |
+| Insert | O(n) | O(1)_ |
+| Delete | O(n) | O(1)_ |
+_\*Assuming we are at the node position._
 
 **Code Example**:
 
+```javascript
+// Array
+const arr = [10, 20, 30];
+console.log(arr[1]); // O(1) Access
+
+// Linked List Node
+class Node {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
+}
+
+const head = new Node(10);
+head.next = new Node(20); // Linked via pointers
+console.log(head.next.val); // Traversal needed
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q2"></a>
+
 ### Q2: Explain Stack and Queue?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-- **Stack (LIFO):** Last In First Out. Push/Pop from top. Used in recursion, undo.
+Both are linear data structures with different access rules.
 
-    - **Queue (FIFO):** First In First Out. Enqueue rear, Dequeue front. Used in BFS, printer queues.
+- **Stack (LIFO)**: Last In, First Out. Like a stack of plates. Operations: `push()` (add top), `pop()` (remove top). Used in recursion, undo mechanisms, syntax parsing.
+- **Queue (FIFO)**: First In, First Out. Like a line at a store. Operations: `enqueue()` (add rear), `dequeue()` (remove front). Used in task scheduling, BFS, printer jobs.
 
 **Code Example**:
 
+```javascript
+// Stack
+const stack = [];
+stack.push(1);
+stack.push(2);
+console.log(stack.pop()); // 2 (Last In First Out)
+
+// Queue
+const queue = [];
+queue.push(1);
+queue.push(2);
+console.log(queue.shift()); // 1 (First In First Out)
+// Note: Array.shift() is O(n), real queues use linked lists for O(1).
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q3"></a>
+
 ### Q3: How does a Hash Map work?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Maps keys to values using a hash function to compute an index.
+A Hash Map stores key-value pairs. It uses a **hash function** to convert the key into an index (bucket) in an array.
 
+1.  **Hash Function**: Computes index `idx = hash(key) % size`.
+2.  **Collision Handling**: If two keys hash to the same index:
+    - **Chaining**: Store a Linked List (or Tree) at that index.
+    - **Open Addressing**: Probe for the next empty slot.
 
-  **Collisions:** Handled via Chaining (Linked List at bucket) or Open Addressing (Probing).
+**Complexity**:
+
+- **Average**: `O(1)` for search, insert, delete.
+- **Worst Case**: `O(n)` (many collisions, degrading to linked list).
 
 **Code Example**:
 
+```javascript
+class SimpleHashMap {
+  constructor() {
+    this.map = {};
+  }
+  put(key, value) {
+    // Simple hash simulation using object property
+    this.map[key] = value;
+  }
+  get(key) {
+    return this.map[key];
+  }
+}
+// Real implementation involves handling array indices and collisions manually.
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q4"></a>
+
 ### Q4: What is a Binary Search Tree (BST)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Sorted binary tree: Left child < Parent < Right child. Allows O(log n) search/insert/delete if balanced.
+A BST is a binary tree where for every node:
+
+- Left subtree values < Node value.
+- Right subtree values > Node value.
+  This property enables binary search behavior.
+
+**Complexity**:
+
+- Search/Insert/Delete: `O(log n)` (Balanced), `O(n)` (Skewed/Unbalanced).
 
 **Code Example**:
 
+```javascript
+class TreeNode {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+function searchBST(root, val) {
+  if (!root || root.val === val) return root;
+  if (val < root.val) return searchBST(root.left, val);
+  return searchBST(root.right, val);
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q5"></a>
+
 ### Q5: Explain BFS vs DFS?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**BFS (Queue):** Level by level. Shortest path in unweighted graph.
+Two main algorithms to traverse graphs/trees.
 
-
-  **DFS (Stack/Recursion):** Deep traversal. Path finding, topological sort.
+- **BFS (Breadth-First Search)**: Explores neighbor nodes first before moving to next level neighbors. Uses a **Queue**. Best for finding shortest path in unweighted graphs.
+- **DFS (Depth-First Search)**: Explores as deep as possible along each branch before backtracking. Uses a **Stack** (or Recursion). Best for path existence, topological sort, cycle detection.
 
 **Code Example**:
 
+```javascript
+// BFS
+function bfs(startNode) {
+  const queue = [startNode];
+  const visited = new Set();
+  while (queue.length) {
+    const node = queue.shift();
+    console.log(node.val);
+    for (let neighbor of node.neighbors) {
+      if (!visited.has(neighbor)) {
+        visited.add(neighbor);
+        queue.push(neighbor);
+      }
+    }
+  }
+}
+
+// DFS (Recursive)
+function dfs(node, visited = new Set()) {
+  if (!node || visited.has(node)) return;
+  console.log(node.val);
+  visited.add(node);
+  for (let neighbor of node.neighbors) dfs(neighbor, visited);
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q6"></a>
+
 ### Q6: What is a Heap (Min/Max)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Complete binary tree satisfying heap property (Parent <= Child for Min-Heap). Root is min/max. O(1) peek, O(log n) push/pop.
+A Heap is a specialized binary tree-based structure (usually implemented as an array) that satisfies the heap property:
+
+- **Max-Heap**: Parent node is always $\ge$ children. Root is the maximum.
+- **Min-Heap**: Parent node is always $\le$ children. Root is the minimum.
+  It is a **complete binary tree**.
+  Commonly used for Priority Queues.
+
+**Complexity**:
+
+- Access Max/Min: `O(1)`
+- Insert/Extract: `O(log n)`
 
 **Code Example**:
 
+```javascript
+// Array representation of Heap:
+// Parent(i) -> floor((i-1)/2)
+// Left(i) -> 2*i + 1
+// Right(i) -> 2*i + 2
+const minHeap = [1, 3, 5, 10, 8]; // 1 is root (min)
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q7"></a>
+
 ### Q7: Detect cycle in Linked List?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**Floyd's Tortoise and Hare:** Slow pointer moves 1 step, Fast moves 2. If they meet, cycle exists.
+Use **Floyd’s Cycle-Finding Algorithm** (Tortoise and Hare).
+
+1.  Initialize two pointers, `slow` and `fast`, at the head.
+2.  Move `slow` by 1 step and `fast` by 2 steps.
+3.  If `fast` meets `slow`, there is a cycle.
+4.  If `fast` reaches `null`, there is no cycle.
+
+**Complexity**:
+
+- Time: `O(n)`
+- Space: `O(1)`
 
 **Code Example**:
 
+```javascript
+function hasCycle(head) {
+  let slow = head,
+    fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+    if (slow === fast) return true;
+  }
+  return false;
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q8"></a>
+
 ### Q8: What is a Trie?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Prefix tree for strings. Nodes represent characters. Efficient for autocomplete and prefix search O(L) where L is word length.
+A Trie (Prefix Tree) is a tree-based structure used for efficient retrieval of keys in a dataset of strings. Each node represents a character.
+
+- Useful for **autocomplete**, spell checking, and IP routing.
+- Root is empty.
+- Paths from root to node define the string.
+
+**Complexity**:
+
+- Insert/Search: `O(L)` where `L` is string length.
+- Space: `O(AL)` where `A` is alphabet size.
 
 **Code Example**:
 
+```javascript
+class TrieNode {
+  constructor() {
+    this.children = {};
+    this.isEndOfWord = false;
+  }
+}
+
+class Trie {
+  constructor() {
+    this.root = new TrieNode();
+  }
+
+  insert(word) {
+    let node = this.root;
+    for (let char of word) {
+      if (!node.children[char]) node.children[char] = new TrieNode();
+      node = node.children[char];
+    }
+    node.isEndOfWord = true;
+  }
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q9"></a>
+
 ### Q9: Graph Representations?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-- **Adjacency Matrix:** V*V 2D array. O(1) edge check. O(V^2) space.
+Graphs can be represented mainly in two ways:
 
-    - **Adjacency List:** Array of lists. O(E) space. Efficient for sparse graphs.
+1.  **Adjacency Matrix**: 2D array `matrix[i][j] = 1` if edge exists.
+    - Pros: O(1) check edge.
+    - Cons: O(V^2) space. Good for dense graphs.
+2.  **Adjacency List**: Array of lists/maps. `adj[i]` contains neighbors of `i`.
+    - Pros: O(V+E) space. Good for sparse graphs.
 
 **Code Example**:
 
+```javascript
+// Adjacency Matrix (for nodes 0,1,2)
+const matrix = [
+  [0, 1, 0], // Node 0 -> 1
+  [1, 0, 1], // Node 1 -> 0, 2
+  [0, 1, 0], // Node 2 -> 1
+];
+
+// Adjacency List
+const list = {
+  0: [1],
+  1: [0, 2],
+  2: [1],
+};
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q10"></a>
+
 ### Q10: Implement LRU Cache?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Use **Hash Map** + **Doubly Linked List**.
+LRU (Least Recently Used) Cache evicts the least recently accessed item when full.
 
-
-  
-    - Map: Key -> Node (O(1) access).
-
-    - List: Order of use. Move accessed node to head. Remove tail when full.
+- Use **Hash Map** + **Doubly Linked List**.
+- **Map**: Key -> Node (O(1) access).
+- **List**: Maintains order.
+  - Head: Most recently used.
+  - Tail: Least recently used.
+- **Access**: Move node to Head.
+- **Evict**: Remove Tail.
 
 **Code Example**:
 
+```javascript
+class Node {
+  constructor(key, val) {
+    this.key = key;
+    this.val = val;
+    this.prev = null;
+    this.next = null;
+  }
+}
+
+class LRUCache {
+  constructor(capacity) {
+    this.cap = capacity;
+    this.map = new Map();
+    this.head = new Node(0, 0); // Dummy head
+    this.tail = new Node(0, 0); // Dummy tail
+    this.head.next = this.tail;
+    this.tail.prev = this.head;
+  }
+
+  get(key) {
+    if (this.map.has(key)) {
+      const node = this.map.get(key);
+      this.remove(node);
+      this.insert(node);
+      return node.val;
+    }
+    return -1;
+  }
+
+  put(key, value) {
+    if (this.map.has(key)) this.remove(this.map.get(key));
+    if (this.map.size === this.cap) this.remove(this.tail.prev);
+    this.insert(new Node(key, value));
+  }
+
+  remove(node) {
+    this.map.delete(node.key);
+    node.prev.next = node.next;
+    node.next.prev = node.prev;
+  }
+
+  insert(node) {
+    this.map.set(node.key, node);
+    const headNext = this.head.next;
+    this.head.next = node;
+    node.prev = this.head;
+    node.next = headNext;
+    headNext.prev = node;
+  }
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q11"></a>
+
 ### Q11: What is a Priority Queue?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Queue where elements are dequeued based on priority, not arrival time. Implemented using Heaps.
+A Priority Queue is an abstract data type where each element has a "priority". Elements with higher priority are served before elements with lower priority.
+
+- Usually implemented with a **Heap**.
+- **Operations**: `enqueue` (insert), `dequeue` (extract max/min).
 
 **Code Example**:
 
+```javascript
+// Conceptual usage (using an array and sorting for simplicity, O(n log n))
+// Real implementation uses Heap for O(log n)
+const pq = [];
+pq.push({ task: "Low", p: 1 });
+pq.push({ task: "High", p: 10 });
+pq.sort((a, b) => b.p - a.p); // Sort by priority
+console.log(pq.shift()); // {task: 'High', p: 10}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q12"></a>
+
 ### Q12: Tree vs Graph?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Tree: Acyclic, connected graph with N nodes and N-1 edges. One root. Hierarchical.
 
-
-  Graph: Collection of vertices and edges. Can be cyclic/disconnected. Network.
+- **Tree**: A restricted graph.
+  - Connected, no cycles.
+  - N nodes have exactly N-1 edges.
+  - Hierarchical structure (Root -> Children).
+  - One path between any two nodes.
+- **Graph**: General collection of nodes (vertices) and edges.
+  - Can have cycles.
+  - Can be disconnected.
+  - Can be directed/undirected.
+  - Network structure.
 
 **Code Example**:
 
+```javascript
+// Tree: Root with children
+const tree = { val: 1, children: [{ val: 2 }, { val: 3 }] };
+
+// Graph: Nodes with neighbors (potentially cyclic)
+const nodeA = { val: "A", neighbors: [] };
+const nodeB = { val: "B", neighbors: [] };
+nodeA.neighbors.push(nodeB);
+nodeB.neighbors.push(nodeA); // Cycle A <-> B
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q13"></a>
+
 ### Q13: Balanced Trees (AVL/Red-Black)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Self-balancing BSTs ensuring O(log n) height.
+Self-balancing BSTs ensure the tree height remains `O(log n)` after insertions/deletions to prevent degradation to `O(n)`.
 
-
-  
-    - **AVL:** Strict balance (diff <= 1). More rotations. Faster lookups.
-
-    - **Red-Black:** Looser balance. Fewer rotations. Faster insertions/deletions.
+- **AVL Tree**: Strictly balanced. Difference in height of left/right subtrees is at most 1. Good for lookups.
+- **Red-Black Tree**: Loosely balanced using color properties. Good for insertions/deletions (fewer rotations). Used in Java `TreeMap`, C++ `std::map`.
 
 **Code Example**:
 
+```javascript
+// Concept: Rotations
+// Left Rotation example:
+//     A          B
+//      \        /
+//       B  ->  A
+//      /        \
+//     C          C
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q14"></a>
+
 ### Q14: Middle of Linked List?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Two pointers: Fast moves 2x, Slow moves 1x. When Fast ends, Slow is at middle.
+Use the **Two Pointer** approach (Tortoise and Hare).
+
+1.  `slow` moves 1 step.
+2.  `fast` moves 2 steps.
+3.  When `fast` reaches the end, `slow` will be at the middle.
 
 **Code Example**:
 
+```javascript
+function findMiddle(head) {
+  let slow = head,
+    fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  return slow; // Middle node
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q15"></a>
+
 ### Q15: What is a Bloom Filter?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Probabilistic space-efficient structure to check set membership. Can return False Positive, but never False Negative.
+A probabilistic data structure that tests if an element is in a set.
+
+- **False Positives**: Possible (Says "Maybe in set").
+- **False Negatives**: Impossible (Says "Definitely not in set" is 100% true).
+- Uses a bit array and multiple hash functions.
+- Space efficient. Used in database caches, spell checkers.
 
 **Code Example**:
 
+```javascript
+// Concept
+// 1. Initialize bit array of 0s.
+// 2. Hash(item) -> index1, index2, index3...
+// 3. Set bits at indices to 1.
+// 4. Check: If all bits are 1, maybe present. If any is 0, definitely not.
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q16"></a>
+
 ### Q16: B-Trees in Databases?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Multi-way search tree optimized for disk storage. Nodes have many children, reducing height and disk I/O.
+A B-Tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time.
+
+- Optimized for systems that read/write large blocks of data (Disks/Databases).
+- Nodes have many children (high branching factor), reducing tree height and disk I/O.
+- **B+ Tree** (variant): Data only in leaves, internal nodes only keys. Leaves linked for range scans.
 
 **Code Example**:
 
+```text
+// Structure of a Node: [Key1, Key2]
+// Children: [Ptr1, Ptr2, Ptr3]
+// Keys in children are between keys in parent.
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q17"></a>
+
 ### Q17: Queue using Stacks?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Two stacks: Input and Output. Push to Input. Pop from Output (if empty, move all Input to Output). Amortized O(1).
+Use two stacks: `inputStack` and `outputStack`.
+
+- **Enqueue**: Push to `inputStack`.
+- **Dequeue**:
+  1.  If `outputStack` is empty, pop all from `inputStack` and push to `outputStack` (reverses order).
+  2.  Pop from `outputStack`.
+
+**Complexity**:
+
+- Amortized O(1) for dequeue.
 
 **Code Example**:
 
+```javascript
+class QueueUsingStacks {
+  constructor() {
+    this.inStack = [];
+    this.outStack = [];
+  }
+  enqueue(val) {
+    this.inStack.push(val);
+  }
+  dequeue() {
+    if (this.outStack.length === 0) {
+      while (this.inStack.length) this.outStack.push(this.inStack.pop());
+    }
+    return this.outStack.pop();
+  }
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q18"></a>
+
 ### Q18: Disjoint Set (Union-Find)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Tracks partitioned sets. Operations: Union(x, y) and Find(x). Used in Kruskal's MST and Cycle detection.
+Data structure to track elements partitioned into disjoint subsets.
+
+- **Find**: Determine which subset an element belongs to.
+- **Union**: Join two subsets.
+- Optimizations: **Path Compression** (flatten tree during find) and **Union by Rank** (attach small tree to large tree).
+- Used in Kruskal’s MST, cycle detection in undirected graphs.
 
 **Code Example**:
 
+```javascript
+class UnionFind {
+  constructor(n) {
+    this.parent = Array(n)
+      .fill(0)
+      .map((_, i) => i);
+  }
+  find(i) {
+    if (this.parent[i] !== i) {
+      this.parent[i] = this.find(this.parent[i]); // Path compression
+    }
+    return this.parent[i];
+  }
+  union(i, j) {
+    const rootI = this.find(i);
+    const rootJ = this.find(j);
+    if (rootI !== rootJ) this.parent[rootI] = rootJ;
+  }
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q19"></a>
+
 ### Q19: Cycle in Directed Graph?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-DFS with Recursion Stack. If node seen in current recursion stack -> Cycle.
+Use **DFS**. Keep track of nodes in current recursion stack.
+
+- `visited`: Node fully processed.
+- `recursionStack`: Node currently being visited (ancestors).
+- If we encounter a node in `recursionStack`, cycle detected.
 
 **Code Example**:
 
+```javascript
+function hasCycle(graph, nodes) {
+  const visited = new Set();
+  const recStack = new Set();
+
+  function dfs(node) {
+    if (recStack.has(node)) return true;
+    if (visited.has(node)) return false;
+
+    visited.add(node);
+    recStack.add(node);
+
+    for (let neighbor of graph[node]) {
+      if (dfs(neighbor)) return true;
+    }
+
+    recStack.delete(node);
+    return false;
+  }
+
+  for (let node of nodes) {
+    if (dfs(node)) return true;
+  }
+  return false;
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q20"></a>
+
 ### Q20: What is a Segment Tree?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Tree for range queries (sum, min, max) on an array. O(log n) update and query.
+A tree used for storing information about intervals or segments.
+
+- Allows querying which of the stored segments contain a given point.
+- Efficiently answers range queries (e.g., sum, min, max in range `[L, R]`) in `O(log n)`.
+- Updates in `O(log n)`.
 
 **Code Example**:
 
+```javascript
+// Range Sum Query
+// Tree array stores sums.
+// Root covers [0, n-1], Left [0, mid], Right [mid+1, n-1]
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q21"></a>
+
 ### Q21: What is a Skip List?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Probabilistic data structure alternative to balanced trees. Uses multiple layers of linked lists to allow skipping elements for O(log n) search.
+A probabilistic data structure based on parallel linked lists.
+
+- Allows fast search within an ordered sequence of elements.
+- Layers of linked lists: Bottom layer has all nodes. Higher layers skip nodes.
+- **Search/Insert/Delete**: `O(log n)` average.
+- Alternative to balanced trees.
 
 **Code Example**:
 
+```text
+Level 3: 1 -----------------> 10
+Level 2: 1 -----> 5 --------> 10
+Level 1: 1 -> 3 -> 5 -> 7 -> 9 -> 10
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q22"></a>
+
 ### Q22: Array vs ArrayList (Dynamic Array)?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**Array:** Fixed size. **ArrayList:** Resizes automatically (usually doubles capacity when full, copying elements).
+
+- **Array**: Fixed size. Cannot grow once initialized.
+- **ArrayList (Java) / Vector (C++) / Array (JS/Python)**: Dynamic size.
+  - Resizes automatically. When full, creates new larger array (usually 2x), copies elements.
+  - Amortized insertion time `O(1)`.
 
 **Code Example**:
 
+```javascript
+// JS Arrays are dynamic by default
+const list = [];
+for (let i = 0; i < 100; i++) list.push(i); // Automatically resizes
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q23"></a>
+
 ### Q23: What is a Circular Queue?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Queue where last position connects back to first. Efficient use of fixed buffer space (Ring Buffer).
+A queue where the last position is connected back to the first position (Ring Buffer).
+
+- Efficient use of fixed buffer space.
+- Avoids shifting elements when dequeueing.
+- Used in traffic lights, CPU scheduling, streaming buffering.
 
 **Code Example**:
 
+```javascript
+// Index calculation
+// next_pos = (current_pos + 1) % capacity
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q24"></a>
+
 ### Q24: Doubly Linked List vs Singly?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**Singly:** Next pointer only. Less memory.
-**Doubly:** Next and Prev pointers. Easier deletion/backward traversal. More memory.
+
+- **Singly Linked List**: Node has `next` pointer.
+  - Less memory.
+  - Forward traversal only.
+- **Doubly Linked List**: Node has `next` and `prev` pointers.
+  - More memory (extra pointer).
+  - Bidirectional traversal.
+  - Easier deletion (O(1) if node is given, as we have access to `prev`).
 
 **Code Example**:
 
+```javascript
+class DNode {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+    this.prev = null;
+  }
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q25"></a>
+
 ### Q25: What is a Deque (Double-ended Queue)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Structure allowing insertion/deletion at both ends. Can function as both Stack and Queue.
+A generalized queue that allows insertion and deletion at both ends (Front and Rear).
+
+- Combines Stack and Queue features.
+- Operations: `pushFront`, `pushBack`, `popFront`, `popBack`.
+- Used in Sliding Window Maximum problems.
 
 **Code Example**:
 
+```javascript
+const deque = [];
+deque.unshift(1); // Add Front
+deque.push(2); // Add Back
+deque.shift(); // Remove Front
+deque.pop(); // Remove Back
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q26"></a>
+
 ### Q26: Adjacency Matrix vs Adjacency List?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**Matrix:** Good for dense graphs. Fast edge lookup O(1).
-**List:** Good for sparse graphs. Saves space. Fast iteration of neighbors.
+Comparing graph representations:
+
+- **Adjacency Matrix**: `V x V` matrix.
+  - **Space**: `O(V^2)`.
+  - **Check Edge**: `O(1)`.
+  - **Iterate Neighbors**: `O(V)`.
+  - Best for dense graphs.
+- **Adjacency List**: Array of Lists.
+  - **Space**: `O(V + E)`.
+  - **Check Edge**: `O(degree(V))`.
+  - **Iterate Neighbors**: `O(degree(V))`.
+  - Best for sparse graphs (most real-world graphs).
 
 **Code Example**:
 
+```javascript
+// Matrix: Good for quick lookups
+if (matrix[u][v] === 1) return true;
+
+// List: Good for memory
+for (let neighbor of list[u]) process(neighbor);
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q27"></a>
+
 ### Q27: What is a Suffix Tree?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Compressed trie of all suffixes of a text. Used for fast substring search, longest common substring. O(N) construction.
+A compressed Trie containing all suffixes of a given text.
+
+- Used for fast pattern matching, finding longest repeated substring, longest common substring.
+- **Construction**: `O(n)` using Ukkonen’s algorithm.
+- **Search**: `O(m)` where `m` is pattern length.
 
 **Code Example**:
 
+```text
+Text: "BANANA"
+Suffixes: BANANA, ANANA, NANA, ANA, NA, A
+Tree stores these suffixes efficiently sharing common prefixes.
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q28"></a>
+
 ### Q28: Fenwick Tree (Binary Indexed Tree)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Space-efficient array-based structure for prefix sums and point updates in O(log n). Easier to implement than Segment Tree.
+A data structure that provides efficient methods for calculation and manipulation of the prefix sums of a table of values.
+
+- **Update**: `O(log n)`.
+- **Prefix Sum**: `O(log n)`.
+- Easier to implement than Segment Tree but less flexible (mostly for cumulative frequency).
 
 **Code Example**:
 
+```javascript
+// Get sum from 0 to i
+function query(i) {
+  let sum = 0;
+  for (; i > 0; i -= i & -i) sum += tree[i];
+  return sum;
+}
+// Add val to index i
+function update(i, val) {
+  for (; i < n; i += i & -i) tree[i] += val;
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q29"></a>
+
 ### Q29: What is a Quadtree?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Tree data structure where each node has exactly four children. Used to partition 2D space (Image processing, Collision detection).
+A tree data structure in which each internal node has exactly four children.
+
+- Used to partition a two-dimensional space by recursively subdividing it into four quadrants.
+- Common in **Image Processing**, **Spatial Indexing**, **Collision Detection** (Games).
 
 **Code Example**:
 
+```javascript
+class QuadNode {
+  constructor(boundary) {
+    this.boundary = boundary; // Rect(x, y, w, h)
+    this.points = [];
+    this.nw = null; // North West
+    this.ne = null; // North East
+    this.sw = null; // South West
+    this.se = null; // South East
+  }
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q30"></a>
+
 ### Q30: KD-Tree (k-dimensional tree)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Space-partitioning tree for k-dimensional space. Used in Nearest Neighbor Search (e.g., 3D graphics, ML).
+A space-partitioning data structure for organizing points in a `k`-dimensional space.
+
+- Similar to BST but cycles through dimensions (e.g., x-split, then y-split, then z-split).
+- Used for **Nearest Neighbor Search** and Range Search.
+- Complexity: Average `O(log n)` insert/search.
 
 **Code Example**:
 
+```text
+Level 0 (Root): Split by X-coordinate
+Level 1: Split by Y-coordinate
+Level 2: Split by X-coordinate
+...
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q31"></a>
+
 ### Q31: Hash Set vs Hash Map?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**Set:** Stores unique keys only. **Map:** Stores Key-Value pairs.
+
+- **Hash Map**: Stores **Key-Value** pairs. Keys are unique. Used for lookups.
+- **Hash Set**: Stores only **Values** (or Keys without values). Values are unique. Used for membership tests.
+- Internally, a Set is often implemented as a Map with dummy values.
 
 **Code Example**:
 
+```javascript
+const set = new Set([1, 2, 2, 3]); // {1, 2, 3}
+const map = new Map();
+map.set("a", 1);
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q32"></a>
+
 ### Q32: What is Open Addressing?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Collision resolution strategy in Hash Tables. If bucket is full, find another slot within the array (Linear Probing, Quadratic Probing).
+A method for handling collisions in Hash Tables. All elements are stored in the hash table array itself.
+
+- If a collision occurs, search for another open slot.
+- **Linear Probing**: Check `i+1, i+2...`
+- **Quadratic Probing**: Check `i+1^2, i+2^2...`
+- **Double Hashing**: Use a second hash function.
 
 **Code Example**:
 
+```javascript
+// Linear Probing
+let index = hash(key);
+while (table[index] !== null) {
+  index = (index + 1) % size;
+}
+table[index] = value;
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q33"></a>
+
 ### Q33: Separate Chaining vs Open Addressing?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-**Chaining:** List at each bucket. Degrades gracefully with high load factor.
-**Open Addressing:** No lists. Better cache performance but sensitive to clustering.
+
+- **Separate Chaining**:
+  - Bucket contains a list.
+  - Tolerates high Load Factor (> 1).
+  - More memory overhead (pointers).
+- **Open Addressing**:
+  - Everything in array.
+  - Load Factor must be < 1 (usually resize at 0.7).
+  - Better Cache locality (Linear probing).
 
 **Code Example**:
 
+```text
+Chaining: [A] -> [B] -> null
+Open: [A, B, null, C]
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q34"></a>
+
 ### Q34: What is Consistent Hashing?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Distributed hashing scheme where adding/removing a slot (server) only affects K/N keys. Essential for distributed caches/DBs.
+A hashing technique used in distributed systems to minimize reorganization when nodes are added/removed.
+
+- Maps keys and nodes to a **Hash Ring** (0 to 2^32).
+- Key is assigned to the first node found clockwise.
+- **Virtual Nodes**: Used to balance load.
+- Used in DynamoDB, Cassandra, Load Balancers.
 
 **Code Example**:
 
+```text
+Ring: [NodeA] ... [Key1] ... [NodeB]
+Key1 maps to NodeB.
+If NodeB removed, Key1 maps to next node (NodeC).
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q35"></a>
+
 ### Q35: Count-Min Sketch?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Probabilistic frequency table. Uses multiple hash functions and an array. estimates frequency of events. Can overestimate, never underestimate.
+A probabilistic data structure for estimating frequency of events in a stream.
+
+- Uses a 2D array of counters and multiple hash functions.
+- **Update**: Increment counters at hashed indices.
+- **Query**: Return minimum of counters at hashed indices.
+- Overestimates frequency (never underestimates). Space efficient.
 
 **Code Example**:
 
+```javascript
+// Add(x):
+// row1[h1(x)]++
+// row2[h2(x)]++
+// ...
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q36"></a>
+
 ### Q36: What is a HyperLogLog?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Probabilistic algorithm for counting distinct elements (cardinality) in a set with very little memory.
+A probabilistic algorithm for the **Count-Distinct** problem (Cardinality estimation).
+
+- Estimates number of unique elements in a large dataset.
+- Uses `O(log log n)` space.
+- Relies on observing the position of the leftmost '1' bit in hashed values.
 
 **Code Example**:
 
+```text
+Stream: User IDs
+Result: "Approx 1.2M unique users" (with 2KB memory)
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q37"></a>
+
 ### Q37: Inorder, Preorder, Postorder Traversal?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**Inorder:** Left, Root, Right (Sorted in BST).
-**Preorder:** Root, Left, Right (Copying tree).
-**Postorder:** Left, Right, Root (Deleting tree).
+DFS traversal orders for Binary Trees:
+
+- **Inorder (Left-Root-Right)**: Sorted order for BST.
+- **Preorder (Root-Left-Right)**: Useful for copying tree / serialization.
+- **Postorder (Left-Right-Root)**: Useful for deleting tree / evaluating math expressions.
 
 **Code Example**:
 
+```javascript
+function inorder(node) {
+  if (!node) return;
+  inorder(node.left);
+  console.log(node.val);
+  inorder(node.right);
+}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q38"></a>
+
 ### Q38: Threaded Binary Tree?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Binary Tree where null pointers point to inorder predecessor/successor, allowing traversal without stack/recursion.
+A binary tree where null pointers are replaced by "threads" to other nodes (predecessor/successor).
+
+- Allows **Stack-less** traversal.
+- Efficient finding of inorder successor.
+- Memory optimization (uses null space).
 
 **Code Example**:
 
+```text
+Node.right is null? Point it to Inorder Successor.
+Flag: isThreaded = true.
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q39"></a>
+
 ### Q39: Splay Tree?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Self-adjusting BST. Recently accessed elements are moved to the root. Good for locality of reference (caches).
+A self-balancing BST with the property that recently accessed elements are quick to access again.
+
+- **Splay Operation**: Moves the accessed node to the **Root** via rotations.
+- Good for caches / locality of reference.
+- Amortized `O(log n)`.
 
 **Code Example**:
 
+```text
+Search(x) -> Found x -> Rotate x to top.
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q40"></a>
+
 ### Q40: Treap (Tree + Heap)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-BST with random priorities satisfying Heap property. Probabilistically balanced.
+A Cartesian Tree where every node has a **Key** (BST property) and a **Priority** (Heap property).
+
+- Priorities are usually assigned randomly.
+- Ensures tree stays balanced with high probability.
+- Operations: Split and Merge.
 
 **Code Example**:
 
+```javascript
+// Node: { key: 5, priority: 87, left, right }
+// Keys sorted left-right.
+// Priorities sorted parent-child (Max Heap).
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q41"></a>
+
 ### Q41: What is a Sparse Matrix?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Matrix populated primarily with zeros. Stored efficiently using lists of non-zero elements (Coordinate List, CSR).
+A matrix where most elements are zero.
+
+- Storing as 2D array is wasteful.
+- **Storage Formats**:
+  - **Coordinate List (COO)**: List of `(row, col, value)` tuples.
+  - **CSR (Compressed Sparse Row)**: 3 arrays (Values, Column Indices, Row Pointers). Efficient for arithmetic.
 
 **Code Example**:
 
+```javascript
+// COO
+const sparse = [
+  { r: 0, c: 1, val: 5 },
+  { r: 2, c: 0, val: 9 },
+];
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q42"></a>
+
 ### Q42: Inverted Index (Search Engines)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Map from content (words) to location (documents). "Word A" -> [Doc1, Doc5].
+A mapping from content (words) to its location in database/documents.
+
+- Core component of Full Text Search (Elasticsearch, Lucene).
+- **Structure**: Word -> List of Document IDs.
 
 **Code Example**:
 
+```javascript
+const index = {
+  apple: [1, 3, 5], // Appears in Doc 1, 3, 5
+  banana: [2, 3],
+};
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q43"></a>
+
 ### Q43: Difference between Set and List?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**Set:** Unordered, Unique elements.
-**List:** Ordered, allows duplicates.
+
+- **List**: Ordered collection. Allows duplicates. Accessed by index.
+- **Set**: Unordered collection. Unique elements. No index access (usually).
 
 **Code Example**:
 
+```javascript
+// List
+const list = [1, 2, 2];
+// Set
+const set = new Set([1, 2, 2]); // {1, 2}
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q44"></a>
+
 ### Q44: What is a Tuple?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Immutable ordered list of elements. Fixed size.
+A data structure representing an ordered list of elements.
+
+- Usually **Immutable** (cannot be changed after creation).
+- Can contain mixed types.
+- Used as keys in maps (if hashable) or returning multiple values from functions.
 
 **Code Example**:
 
+```python
+# Python Tuple
+point = (10, 20)
+# point[0] = 5 # Error!
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q45"></a>
+
 ### Q45: Immutable vs Mutable Data Structures?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**Immutable:** Cannot change after creation (String in Java/Python). Thread-safe.
-**Mutable:** Can be modified in place.
+
+- **Mutable**: Can be modified in-place.
+  - Pros: Efficiency (no copying).
+  - Cons: Thread safety issues, side effects.
+- **Immutable**: Cannot be modified. Any change creates a new copy.
+  - Pros: Thread safe, predictable state (Redux/React).
+  - Cons: Memory/CPU overhead for copies (mitigated by Structural Sharing).
 
 **Code Example**:
 
+```javascript
+// Mutable
+let obj = { a: 1 };
+obj.a = 2;
+
+// Immutable (Spread)
+const newObj = { ...obj, a: 3 };
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q46"></a>
+
 ### Q46: What is a BitMap / BitSet?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Array of bits. Compact storage for boolean values or set membership of integers.
+An array of bits (0 or 1) used to compactly store boolean values.
+
+- Space efficient (1 bit vs 1 byte/word).
+- Fast bitwise operations (AND, OR, XOR).
+- Used in Bloom Filters, Database Indexing.
 
 **Code Example**:
 
+```javascript
+// Represent set {0, 2, 5}
+// 100101 (Binary) -> 37 (Integer)
+const hasZero = (37 & (1 << 0)) !== 0; // True
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q47"></a>
+
 ### Q47: Rope Data Structure?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Tree-based structure for heavy string editing (concatenation/splitting). Better than arrays for large texts.
+A tree-based data structure for storing strings.
+
+- Used for efficiently storing and manipulating very long strings (e.g., in Text Editors).
+- Concatenation is `O(1)` (create new root).
+- Access is `O(log n)`.
+- Better than standard string (array of chars) for heavy editing.
 
 **Code Example**:
 
+```text
+     (Root: Len 10)
+    /            \
+(Leaf: "Hello")  (Leaf: "World")
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q48"></a>
+
 ### Q48: Van Emde Boas Tree?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Tree for integer keys from universe [0, U-1]. Operations in O(log log U).
+A tree data structure for an associative array with integer keys from `0` to `U-1`.
+
+- Operations (Insert, Delete, Find, Successor) run in `O(log log U)`.
+- Exploits bit manipulation and universe size.
+- Faster than normal BST `O(log n)` when `U` is reasonable.
 
 **Code Example**:
 
+```text
+// Recursive structure dividing universe size by square root.
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q49"></a>
+
 ### Q49: Fibonacci Heap vs Binary Heap?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-**Fibonacci:** O(1) amortized decrease-key. Better for Dijkstra/Prim.
-**Binary:** O(log n) decrease-key. Simpler.
+
+- **Binary Heap**: Standard heap. `O(log n)` for insert/decrease-key.
+- **Fibonacci Heap**: More complex.
+  - **Insert**: `O(1)` amortized.
+  - **Decrease Key**: `O(1)` amortized.
+  - **Extract Min**: `O(log n)`.
+  - Crucial for **Dijkstra’s** and **Prim’s** algorithms speedup.
 
 **Code Example**:
 
+```text
+// Collection of trees. Trees are merged lazily.
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q50"></a>
+
 ### Q50: Difference between Tree and Trie?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Tree: General hierarchy. Trie: Specific tree for strings where position determines key.
+
+- **Tree**: General hierarchy. Keys stored in nodes. Search compares keys. `O(log n)` (BST).
+- **Trie**: Specific for strings. Edges represent characters. Keys (strings) are defined by the path. `O(L)` where `L` is string length. Independent of number of keys `N`.
 
 **Code Example**:
 
+```text
+Tree: Node(5) -> Node(2), Node(8)
+Trie: Root -('c')-> Node -('a')-> Node -('t')-> Node(isWord)
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q51"></a>
-### Q51: What is a Spatial Index (R-Tree)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Tree structure for indexing multi-dimensional information (coordinates, rectangles). Used in Maps/GIS.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q52"></a>
-### Q52: Gap Buffer (Text Editors)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Dynamic array with a "gap" at the cursor position. Insertions at cursor are O(1). Moving cursor is O(n).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q53"></a>
-### Q53: Piece Table?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Data structure for text editors. Stores original file and "add buffer". The document is a sequence of spans pointing to these buffers. Fast undo/redo.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q54"></a>
-### Q54: What is a DAG (Directed Acyclic Graph)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Directed graph with no cycles. Basis for Topological Sort, Dynamic Programming dependencies, Git history.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q55"></a>
-### Q55: Bipartite Graph?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Graph where vertices can be divided into two sets such that all edges connect a vertex in one set to one in the other. 2-colorable.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q56"></a>
-### Q56: Complete Graph vs Connected Graph?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-**Connected:** Path exists between any two nodes.
-**Complete:** Edge exists between EVERY pair of nodes.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q57"></a>
-### Q57: What is an Euler Path?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Path visiting every edge exactly once. Exists if 0 or 2 vertices have odd degree.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q58"></a>
-### Q58: Hamiltonian Path?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Path visiting every vertex exactly once. NP-Complete problem.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q59"></a>
-### Q59: Minimum Spanning Tree (MST)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Subset of edges connecting all vertices with minimum total weight. Algorithms: Kruskal's, Prim's.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q60"></a>
-### Q60: Adjacency List Implementation?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-<code>Map&lt;Node, List&lt;Node&gt;&gt;</code> or <code>Array&lt;List&lt;Integer&gt;&gt;</code>.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q61"></a>
-### Q61: Implementing a Stack with Array?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Keep a <code>top</code> index. Push: <code>arr[++top] = val</code>. Pop: <code>return arr[top--]</code>.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q62"></a>
-### Q62: Implementing a Stack with Linked List?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Push: Add to Head. Pop: Remove Head. O(1).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q63"></a>
-### Q63: Monotonic Stack?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Stack that remains sorted (increasing/decreasing). Used for "Next Greater Element" problems.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q64"></a>
-### Q64: Monotonic Queue?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Queue/Deque that remains sorted. Used for "Sliding Window Maximum".
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q65"></a>
-### Q65: Blocking Queue?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Queue that blocks Dequeue if empty and Enqueue if full. Thread-safe producer-consumer pattern.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q66"></a>
-### Q66: ConcurrentHashMap (Java context)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Thread-safe hash map. Uses bucket-level locking (segment locking) or CAS (Compare-And-Swap) for high concurrency.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q67"></a>
-### Q67: What is a GeoHash?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Geocoding system encoding lat/long into a short string. Nearby points have similar prefixes.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q68"></a>
-### Q68: Merkle Tree (Blockchain)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Tree of hashes. Leafs are data hashes. Parents are hash of children. Efficient verification of data integrity.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q69"></a>
-### Q69: LSM Tree (Log-Structured Merge)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-DB structure optimized for write-heavy workloads. Writes to in-memory MemTable, flushes to disk SSTables. Merged in background.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q70"></a>
-### Q70: Time Complexity of Common Operations?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-- Array Access: O(1)
-
-    - BST Search: O(log n)
-
-    - Hash Map Get: O(1)
-
-    - Sort: O(n log n)
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q71"></a>
-### Q71: Space Complexity Analysis?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Amount of working storage required. Auxiliary space + Input space. Recursion depth counts.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q72"></a>
-### Q72: Big O Notation Explained?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Describes upper bound of growth rate. O(1) < O(log n) < O(n) < O(n log n) < O(n^2) < O(2^n).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q73"></a>
-### Q73: Amortized Analysis?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Average time per operation over a sequence of operations. Example: Dynamic Array resizing is O(n), but amortized O(1).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q74"></a>
-### Q74: What is a Self-Organizing List?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-List that reorders elements based on access frequency (Move-to-Front heuristic).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q75"></a>
-### Q75: XOR Linked List?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Memory-efficient Doubly Linked List using one field (prev XOR next) instead of two pointers.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q76"></a>
-### Q76: Unrolled Linked List?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Linked List where each node stores an array of elements. Better cache locality.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q77"></a>
-### Q77: V-List?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Variant of unrolled linked list with growing array sizes.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q78"></a>
-### Q78: Difference between Max-Heap and Min-Heap?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-**Max-Heap:** Root is largest. **Min-Heap:** Root is smallest.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q79"></a>
-### Q79: D-ary Heap?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Heap where nodes have D children instead of 2. Shallower tree, better cache performance, slower delete-min.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q80"></a>
-### Q80: Binomial Heap?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Collection of Binomial Trees. Supports efficient merging O(log n).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q81"></a>
-### Q81: Pairing Heap?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Simplified self-adjusting heap. Fast in practice for Priority Queues.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q82"></a>
-### Q82: Leftist Tree?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Priority Queue optimized for merging. Bias towards left spine.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q83"></a>
-### Q83: Skew Heap?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Self-adjusting version of Leftist Heap. No structural constraints stored.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q84"></a>
-### Q84: Soft Heap?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Heap that allows "corruption" (increasing keys) to achieve faster operations. Used in optimal MST algorithms.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q85"></a>
-### Q85: Interval Tree?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Tree to hold intervals. Allows finding all intervals overlapping a query point/interval.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q86"></a>
-### Q86: Range Tree?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Data structure for points in d-dimensions to perform orthogonal range queries.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q87"></a>
-### Q87: Binary Space Partitioning (BSP)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Recursively subdividing space into convex sets by hyperplanes. Used in 3D rendering (Doom engine).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q88"></a>
-### Q88: Octree vs Quadtree?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-**Quadtree:** 2D space (4 children). **Octree:** 3D space (8 children).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q89"></a>
-### Q89: BK-Tree (Spell Check)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Tree based on Levenshtein distance. Efficient for finding "near matches" in a dictionary.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q90"></a>
-### Q90: Radix Tree (Compact Trie)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Trie where nodes with single child are merged. Reduces space.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q91"></a>
-### Q91: Ternary Search Tree?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Trie node has 3 children (Low, Equal, High). More space efficient than standard Trie.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q92"></a>
-### Q92: Suffix Automaton?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Smallest DFA accepting all suffixes of a string. Powerful string processing.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q93"></a>
-### Q93: Cartesian Tree?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Tree derived from sequence. Heap property on values, Inorder property on indices.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q94"></a>
-### Q94: MVP Tree (Metric VP)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Distance-based index for similarity search in metric spaces.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q95"></a>
-### Q95: Cover Tree?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Data structure for Nearest Neighbor search in metric spaces.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q96"></a>
-### Q96: Bloom Filter vs Cuckoo Filter?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-**Cuckoo Filter:** Supports deletion, higher space efficiency, better locality than Bloom.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q97"></a>
-### Q97: Quotient Filter?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Probabilistic structure. Cache-friendly alternative to Bloom Filter. Supports merging.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q98"></a>
-### Q98: What is a Persistent Data Structure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Preserves previous versions when modified. **Fully Persistent:** Any version can be modified. **Partially Persistent:** Only latest can be modified.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q99"></a>
-### Q99: Retroactive Data Structures?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Allows performing operations in the past.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q100"></a>
-### Q100: Succinct Data Structures?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Uses space close to information-theoretic lower bound while supporting efficient operations.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----

@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/git-icon.svg" alt="Interview Guide Logo" width="100" height="100">
   </a>
   <h1>Git Interview Questions & Answers</h1>
   <p><b>Practical, code-focused questions for developers</b></p>
@@ -10,142 +10,75 @@
 
 ## Table of Contents
 
-1. [Merge vs Rebase?](#q1) <span class="intermediate">Intermediate</span>
-2. [Squash commits?](#q2) <span class="intermediate">Intermediate</span>
-3. [Git Bisect?](#q3) <span class="advanced">Advanced</span>
-4. [Undo last commit?](#q4) <span class="beginner">Beginner</span>
-5. [Cherry-pick?](#q5) <span class="intermediate">Intermediate</span>
-6. [Fetch vs Pull?](#q6) <span class="beginner">Beginner</span>
-7. [Amend commit message?](#q7) <span class="beginner">Beginner</span>
-8. [Detached HEAD?](#q8) <span class="intermediate">Intermediate</span>
-9. [Stash specific files?](#q9) <span class="advanced">Advanced</span>
-10. [Reflog?](#q10) <span class="advanced">Advanced</span>
-11. [Git Flow vs Trunk?](#q11) <span class="advanced">Advanced</span>
-12. [Resolve Conflicts?](#q12) <span class="beginner">Beginner</span>
-13. [Reset Hard vs Soft?](#q13) <span class="intermediate">Intermediate</span>
-14. [Revert public commit?](#q14) <span class="intermediate">Intermediate</span>
-15. [Ignore tracked files?](#q15) <span class="intermediate">Intermediate</span>
-16. [Git Hooks?](#q16) <span class="advanced">Advanced</span>
-17. [Git Blame?](#q17) <span class="beginner">Beginner</span>
-18. [Fork vs Branch?](#q18) <span class="beginner">Beginner</span>
-19. [List files in commit?](#q19) <span class="beginner">Beginner</span>
-20. [Find common ancestor?](#q20) <span class="intermediate">Intermediate</span>
-21. [What is the Staging Area (Index)?](#q21) <span class="beginner">Beginner</span>
-22. [Git Config Scopes?](#q22) <span class="beginner">Beginner</span>
-23. [Remove untracked files (clean)?](#q23) <span class="intermediate">Intermediate</span>
-24. [Git Tags (Lightweight vs Annotated)?](#q24) <span class="intermediate">Intermediate</span>
-25. [What is a Submodule?](#q25) <span class="advanced">Advanced</span>
-26. [What is a Subtree?](#q26) <span class="advanced">Advanced</span>
-27. [Git Worktree?](#q27) <span class="advanced">Advanced</span>
-28. [Diff Staged vs Unstaged?](#q28) <span class="beginner">Beginner</span>
-29. [Rename a branch?](#q29) <span class="beginner">Beginner</span>
-30. [Delete a remote branch?](#q30) <span class="intermediate">Intermediate</span>
-31. [Show commit history for one file?](#q31) <span class="beginner">Beginner</span>
-32. [Git Log Graph?](#q32) <span class="beginner">Beginner</span>
-33. [Search in commit messages?](#q33) <span class="intermediate">Intermediate</span>
-34. [Search code in history?](#q34) <span class="advanced">Advanced</span>
-35. [What is `git gc`?](#q35) <span class="advanced">Advanced</span>
-36. [Bare vs Non-Bare Repo?](#q36) <span class="advanced">Advanced</span>
-37. [Git Objects (Blob, Tree, Commit)?](#q37) <span class="advanced">Advanced</span>
-38. [How to create an Alias?](#q38) <span class="intermediate">Intermediate</span>
-39. [Push to multiple remotes?](#q39) <span class="advanced">Advanced</span>
-40. [Git LFS (Large File Storage)?](#q40) <span class="intermediate">Intermediate</span>
-41. [Restore deleted file?](#q41) <span class="beginner">Beginner</span>
-42. [Difference `checkout` vs `switch`?](#q42) <span class="beginner">Beginner</span>
-43. [Difference `checkout` vs `restore`?](#q43) <span class="beginner">Beginner</span>
-44. [Git Rebase Interactive?](#q44) <span class="intermediate">Intermediate</span>
-45. [Rebase onto another branch?](#q45) <span class="intermediate">Intermediate</span>
-46. [Abort a merge?](#q46) <span class="beginner">Beginner</span>
-47. [What is `origin`?](#q47) <span class="beginner">Beginner</span>
-48. [Upstream branch?](#q48) <span class="beginner">Beginner</span>
-49. [Push force vs force-with-lease?](#q49) <span class="advanced">Advanced</span>
-50. [Show remote URL?](#q50) <span class="beginner">Beginner</span>
-51. [Change remote URL?](#q51) <span class="beginner">Beginner</span>
-52. [Git Archive (Export)?](#q52) <span class="intermediate">Intermediate</span>
-53. [Bundle objects?](#q53) <span class="advanced">Advanced</span>
-54. [Shortlog (Summary)?](#q54) <span class="intermediate">Intermediate</span>
-55. [Describe commit?](#q55) <span class="advanced">Advanced</span>
-56. [Git Rerere?](#q56) <span class="advanced">Advanced</span>
-57. [Verify GPG signatures?](#q57) <span class="advanced">Advanced</span>
-58. [What is `.gitattributes`?](#q58) <span class="intermediate">Intermediate</span>
-59. [CRLF vs LF handling?](#q59) <span class="intermediate">Intermediate</span>
-60. [Excluding files without .gitignore?](#q60) <span class="advanced">Advanced</span>
-61. [Global vs Local ignore?](#q61) <span class="intermediate">Intermediate</span>
-62. [Git Grep vs Unix Grep?](#q62) <span class="intermediate">Intermediate</span>
-63. [Count commits?](#q63) <span class="beginner">Beginner</span>
-64. [Who committed vs Who authored?](#q64) <span class="intermediate">Intermediate</span>
-65. [Change author of last commit?](#q65) <span class="intermediate">Intermediate</span>
-66. [Combine two repositories?](#q66) <span class="advanced">Advanced</span>
-67. [Delete local branch?](#q67) <span class="beginner">Beginner</span>
-68. [Delete unmerged branch?](#q68) <span class="intermediate">Intermediate</span>
-69. [Prune remote tracking branches?](#q69) <span class="intermediate">Intermediate</span>
-70. [What is a Fast-Forward merge?](#q70) <span class="beginner">Beginner</span>
-71. [Disable Fast-Forward?](#q71) <span class="intermediate">Intermediate</span>
-72. [Squash merge?](#q72) <span class="intermediate">Intermediate</span>
-73. [Ours vs Theirs strategy?](#q73) <span class="advanced">Advanced</span>
-74. [Git Stash Pop vs Apply?](#q74) <span class="intermediate">Intermediate</span>
-75. [List stashes?](#q75) <span class="beginner">Beginner</span>
-76. [Clear stash?](#q76) <span class="beginner">Beginner</span>
-77. [Create branch from stash?](#q77) <span class="intermediate">Intermediate</span>
-78. [Show content of a stash?](#q78) <span class="intermediate">Intermediate</span>
-79. [Patching (Diff/Apply)?](#q79) <span class="advanced">Advanced</span>
-80. [Git Format-Patch?](#q80) <span class="advanced">Advanced</span>
-81. [Git Am?](#q81) <span class="advanced">Advanced</span>
-82. [Recover dropped stash?](#q82) <span class="advanced">Advanced</span>
-83. [Move uncommitted changes to new branch?](#q83) <span class="beginner">Beginner</span>
-84. [Find large files in history?](#q84) <span class="advanced">Advanced</span>
-85. [Remove sensitive data from history?](#q85) <span class="advanced">Advanced</span>
-86. [Git Filter-Repo (vs Filter-Branch)?](#q86) <span class="advanced">Advanced</span>
-87. [What is `HEAD^` vs `HEAD~`?](#q87) <span class="intermediate">Intermediate</span>
-88. [Checkout previous branch?](#q88) <span class="beginner">Beginner</span>
-89. [List all branches (local + remote)?](#q89) <span class="beginner">Beginner</span>
-90. [Fetch specific branch?](#q90) <span class="intermediate">Intermediate</span>
-91. [Clone specific branch?](#q91) <span class="intermediate">Intermediate</span>
-92. [Clone depth (Shallow clone)?](#q92) <span class="intermediate">Intermediate</span>
-93. [Git Status short format?](#q93) <span class="beginner">Beginner</span>
-94. [Ignore file mode changes?](#q94) <span class="advanced">Advanced</span>
-95. [Debug gitignore?](#q95) <span class="intermediate">Intermediate</span>
-96. [Git Notes?](#q96) <span class="advanced">Advanced</span>
-97. [Git Replace?](#q97) <span class="advanced">Advanced</span>
-98. [Git Rev-Parse?](#q98) <span class="advanced">Advanced</span>
-99. [Show file at specific commit?](#q99) <span class="intermediate">Intermediate</span>
-100. [Automate Git with Scripts?](#q100) <span class="advanced">Advanced</span>
-
----
+1. [What is the difference between `git merge` and `git rebase`?](#q1) <span class="intermediate">Intermediate</span>
+2. [How do you squash multiple commits into one?](#q2) <span class="intermediate">Intermediate</span>
+3. [How do you find a bug using `git bisect`?](#q3) <span class="advanced">Advanced</span>
+4. [How do you undo the last commit but keep changes?](#q4) <span class="beginner">Beginner</span>
+5. [What is `git cherry-pick`?](#q5) <span class="intermediate">Intermediate</span>
+6. [What is the difference between `git fetch` and `git pull`?](#q6) <span class="beginner">Beginner</span>
+7. [How do you modify the last commit message?](#q7) <span class="beginner">Beginner</span>
+8. [What is a "Detached HEAD" state?](#q8) <span class="intermediate">Intermediate</span>
+9. [How do you stash specific files only?](#q9) <span class="advanced">Advanced</span>
+10. [What is `git reflog` and when to use it?](#q10) <span class="advanced">Advanced</span>
+11. [Explain Git Flow vs Trunk Based Development?](#q11) <span class="advanced">Advanced</span>
+12. [How do you resolve a merge conflict?](#q12) <span class="beginner">Beginner</span>
+13. [Difference between `git reset` Soft, Mixed, and Hard?](#q13) <span class="intermediate">Intermediate</span>
+14. [How do you revert a public commit safely?](#q14) <span class="intermediate">Intermediate</span>
+15. [How do you stop tracking a file without deleting it?](#q15) <span class="intermediate">Intermediate</span>
+16. [What are Git Hooks?](#q16) <span class="advanced">Advanced</span>
+17. [How do you find who changed a specific line (Blame)?](#q17) <span class="beginner">Beginner</span>
+18. [What is `git switch` vs `git checkout`?](#q18) <span class="beginner">Beginner</span>
+19. [How do you clean untracked files?](#q19) <span class="intermediate">Intermediate</span>
+20. [What is a Fork vs a Branch?](#q20) <span class="beginner">Beginner</span>
+21. [How do you rename a local branch?](#q21) <span class="beginner">Beginner</span>
+22. [How do you sync a fork with the original repo (upstream)?](#q22) <span class="intermediate">Intermediate</span>
+23. [What is `git diff` vs `git diff --staged`?](#q23) <span class="beginner">Beginner</span>
+24. [How do you tag a specific commit?](#q24) <span class="beginner">Beginner</span>
+25. [What is `git submodule`?](#q25) <span class="advanced">Advanced</span>
 
 ---
 
 <a id="q1"></a>
-### Q1: Merge vs Rebase?
+### Q1: What is the difference between `git merge` and `git rebase`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**Merge:** Preserves history, creates merge commit. Safe.
-**Rebase:** Rewrites history, linear. Dangerous on shared branches.
+Both integrate changes from one branch into another, but they do it differently.
+*   **Merge:** Creates a new "Merge Commit" tying the two histories together. Preserves the exact history of events. Non-destructive. Safe for shared branches.
+*   **Rebase:** Moves the entire feature branch to begin on the tip of the main branch. Rewrites history to create a linear progression. Cleaner history but dangerous on shared branches (can overwrite others' work).
 
 **Code Example**:
+```bash
+# Merge feature into main
+git checkout main
+git merge feature
 
+# Rebase feature onto main
+git checkout feature
+git rebase main
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q2"></a>
-### Q2: Squash commits?
+### Q2: How do you squash multiple commits into one?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Combine multiple commits into one.
-
-
-  
-  Change `pick` to `squash`.
+Squashing cleans up history by combining multiple small "WIP" commits into a single meaningful commit before merging.
+*   **Interactive Rebase:** The standard way to squash.
+*   **Merge Squash:** Squashes all commits when merging into target.
 
 **Code Example**:
 ```bash
+# Interactive rebase of last 3 commits
 git rebase -i HEAD~3
+
+# In the editor, change 'pick' to 'squash' (or 's') for the commits you want to merge into the previous one.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -153,18 +86,24 @@ git rebase -i HEAD~3
 ---
 
 <a id="q3"></a>
-### Q3: Git Bisect?
+### Q3: How do you find a bug using `git bisect`?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Binary search to find a bug.
+`git bisect` performs a binary search on the commit history to identify exactly which commit introduced a bug. It's extremely fast for finding regressions in large histories.
 
 **Code Example**:
 ```bash
 git bisect start
-git bisect bad  # Current is broken
-git bisect good v1.0 # Old was good
+git bisect bad            # Current version is broken
+git bisect good v1.0.0    # Version 1.0.0 was working
+
+# Git checks out a middle commit. You test it.
+git bisect good           # If this version works
+# Git checks out the next half... repeat until found.
+
+git bisect reset          # Finish
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -172,16 +111,23 @@ git bisect good v1.0 # Old was good
 ---
 
 <a id="q4"></a>
-### Q4: Undo last commit?
+### Q4: How do you undo the last commit but keep changes?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Keeps changes in staging.
+Use `git reset`.
+*   **Soft:** Moves HEAD back, keeps changes in Staging (Index). Good for fixing a commit.
+*   **Mixed (Default):** Moves HEAD back, keeps changes in Working Directory (Unstaged).
+*   **Hard:** Moves HEAD back, DESTROYS changes.
 
 **Code Example**:
 ```bash
+# Undo commit, keep changes staged
 git reset --soft HEAD~1
+
+# Undo commit, keep changes unstaged
+git reset HEAD~1
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -189,16 +135,17 @@ git reset --soft HEAD~1
 ---
 
 <a id="q5"></a>
-### Q5: Cherry-pick?
+### Q5: What is `git cherry-pick`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Apply a specific commit from another branch.
+Cherry-picking allows you to pick a specific commit from one branch and apply it to another, without merging the entire branch. Useful for hotfixes or grabbing a specific feature.
 
 **Code Example**:
 ```bash
-git cherry-pick <commit-hash>
+# Apply specific commit (a1b2c3d) to current branch
+git cherry-pick a1b2c3d
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -206,32 +153,38 @@ git cherry-pick <commit-hash>
 ---
 
 <a id="q6"></a>
-### Q6: Fetch vs Pull?
+### Q6: What is the difference between `git fetch` and `git pull`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**Fetch:** Download changes, don't merge.
-**Pull:** Fetch + Merge.
+*   **`git fetch`:** Downloads commits, files, and refs from a remote repository into your local repo. It does **NOT** merge them into your working files. It updates `origin/main`. Safe to run anytime.
+*   **`git pull`:** Downloads changes AND merges them into your current branch. Essentially `git fetch` + `git merge`.
 
 **Code Example**:
+```bash
+# Download changes only
+git fetch origin
 
+# Download and Merge
+git pull origin main
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q7"></a>
-### Q7: Amend commit message?
+### Q7: How do you modify the last commit message?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-
+Use `--amend`. This rewrites the last commit ID, so **never** do this if you have already pushed the commit to a shared branch (unless you force push and warn team).
 
 **Code Example**:
 ```bash
-git commit --amend -m "New Message"
+git commit --amend -m "New correct message"
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -239,31 +192,48 @@ git commit --amend -m "New Message"
 ---
 
 <a id="q8"></a>
-### Q8: Detached HEAD?
+### Q8: What is a "Detached HEAD" state?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-HEAD points to a Commit, not a Branch. Commits made here are lost unless a branch is created.
+Normally, HEAD points to a Branch name (e.g., main). If you checkout a specific Commit ID (or Tag), HEAD points directly to that commit. You are in "Detached HEAD" state.
+*   **Risk:** If you make commits here, they belong to no branch. If you checkout another branch, these commits will be lost (garbage collected).
+*   **Fix:** Create a branch if you want to save changes.
 
 **Code Example**:
+```bash
+# Checkout a specific commit (Detached HEAD)
+git checkout a1b2c3d
 
+# Save these changes to a new branch
+git checkout -b new-feature-branch
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q9"></a>
-### Q9: Stash specific files?
+### Q9: How do you stash specific files only?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-
+`git stash` saves dirty changes to a temporary area (stack) and cleans the working directory. By default, it stashes everything.
+*   Use `push -p` (patch) to interactively select hunks.
+*   Use `push path/to/file` to stash specific files.
 
 **Code Example**:
 ```bash
-git stash push -p
+# Stash only specific file
+git stash push -m "config changes" config.json
+
+# List stashes
+git stash list
+
+# Apply stash
+git stash pop
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -271,16 +241,21 @@ git stash push -p
 ---
 
 <a id="q10"></a>
-### Q10: Reflog?
+### Q10: What is `git reflog` and when to use it?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Log of all HEAD movements. Used to recover lost commits/branches.
+**Reflog (Reference Logs)** records *every* update to the tip of branches (HEAD changes). This includes commits, resets, merges, and even amends.
+*   **Use Case:** Recovering "lost" commits after a bad `git reset --hard` or a bad rebase. As long as it was in the reflog recently (default 90 days), it can be recovered.
 
 **Code Example**:
 ```bash
+# View history of HEAD movements
 git reflog
+
+# Reset to a state before the mistake (e.g., 5 moves ago)
+git reset --hard HEAD@{5}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -288,63 +263,80 @@ git reflog
 ---
 
 <a id="q11"></a>
-### Q11: Git Flow vs Trunk?
+### Q11: Explain Git Flow vs Trunk Based Development?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-**Git Flow:** Complex branching (Feature, Develop, Release, Master).
-**Trunk:** Commit to Main, use Feature Flags.
+*   **Git Flow:** Strict branching model. `main` (prod), `develop` (integration), `feature/*`, `release/*`, `hotfix/*`. Good for scheduled releases. Complexity is high.
+*   **Trunk Based:** Developers commit directly to `main` (or short-lived branches merged daily). Uses Feature Flags to hide unfinished work. Good for CI/CD and fast iteration.
 
 **Code Example**:
-
+```bash
+# Git Flow Init
+git flow init
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q12"></a>
-### Q12: Resolve Conflicts?
+### Q12: How do you resolve a merge conflict?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Edit file, remove markers <code><<<<</code>, <code>>>>></code>, then <code>git add</code> and <code>git commit</code>.
+1.  Git pauses merge and marks conflicted files.
+2.  Open files, look for markers `<<<<<<<` (Current Change), `=======`, `>>>>>>>` (Incoming Change).
+3.  Edit file to keep desired code. Remove markers.
+4.  `git add` the file.
+5.  `git commit` to finish merge.
 
 **Code Example**:
-
+```bash
+# After fixing conflicts manually
+git add file.txt
+git commit
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q13"></a>
-### Q13: Reset Hard vs Soft?
+### Q13: Difference between `git reset` Soft, Mixed, and Hard?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-**Hard:** Discard changes.
-**Soft:** Keep changes staged.
-**Mixed:** Keep changes unstaged.
+Assume we want to undo the last commit (`HEAD~1`):
+*   **--soft:** Uncommits. Changes are left in **Staging**. Ready to commit again.
+*   **--mixed (default):** Uncommits. Changes are left in **Working Directory**. Need to `git add` again.
+*   **--hard:** Uncommits. Changes are **Deleted**. Files match the state of the previous commit exactly.
 
 **Code Example**:
-
+```bash
+# Dangerous: Wipes all uncommitted changes
+git reset --hard HEAD
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q14"></a>
-### Q14: Revert public commit?
+### Q14: How do you revert a public commit safely?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Creates a new commit that undoes changes.
+If a commit has already been pushed, do not use `reset` (rewrites history). Use `revert`.
+*   `git revert` creates a *new* commit that is the exact opposite of the target commit. It adds to history rather than deleting it.
 
 **Code Example**:
 ```bash
+# Revert specific commit
 git revert <commit-hash>
 ```
 
@@ -353,16 +345,20 @@ git revert <commit-hash>
 ---
 
 <a id="q15"></a>
-### Q15: Ignore tracked files?
+### Q15: How do you stop tracking a file without deleting it?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Then add to `.gitignore`.
+Often used when you accidentally commit a config file or `.env` that should be ignored.
+*   `git rm --cached`: Removes from index (staging) but keeps file on disk.
+*   Then add to `.gitignore`.
 
 **Code Example**:
 ```bash
-git rm --cached <file>
+git rm --cached config.env
+echo "config.env" >> .gitignore
+git commit -m "Stop tracking config"
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -370,31 +366,41 @@ git rm --cached <file>
 ---
 
 <a id="q16"></a>
-### Q16: Git Hooks?
+### Q16: What are Git Hooks?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Scripts in `.git/hooks` triggered by events (pre-commit, pre-push).
+Scripts located in `.git/hooks/` that run automatically on specific events.
+*   **Client-side:** `pre-commit` (linting), `commit-msg` (format check), `pre-push` (run tests).
+*   **Server-side:** `pre-receive` (enforce policy), `post-receive` (deploy).
+*   Tools like `husky` make managing hooks easier in JS projects.
 
 **Code Example**:
-
+```bash
+# .git/hooks/pre-commit
+#!/bin/sh
+npm test
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q17"></a>
-### Q17: Git Blame?
+### Q17: How do you find who changed a specific line (Blame)?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Show who changed each line.
+`git blame` annotates each line of a file with the revision, author, and time of the last change. Useful for debugging "why was this added?".
 
 **Code Example**:
 ```bash
-git blame <file>
+git blame app.js
+
+# Show only lines 10-20
+git blame -L 10,20 app.js
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -402,32 +408,46 @@ git blame <file>
 ---
 
 <a id="q18"></a>
-### Q18: Fork vs Branch?
+### Q18: What is `git switch` vs `git checkout`?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-**Fork:** Copy of repo on server.
-**Branch:** Parallel version within repo.
+`git checkout` is overloaded (switches branches AND restores files). Git 2.23 introduced simpler commands:
+*   **`git switch`**: Specifically for changing branches.
+*   **`git restore`**: Specifically for restoring files.
 
 **Code Example**:
+```bash
+# Switch to existing branch
+git switch main
 
+# Create and switch
+git switch -c new-feature
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q19"></a>
-### Q19: List files in commit?
+### Q19: How do you clean untracked files?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-
+`git clean` removes untracked files (files not in git).
+*   `-n`: Dry run (show what will be deleted).
+*   `-f`: Force delete.
+*   `-d`: Include directories.
 
 **Code Example**:
 ```bash
-git show --name-only <commit>
+# Preview deletion
+git clean -n -d
+
+# Delete untracked files/folders
+git clean -f -d
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -435,16 +455,18 @@ git show --name-only <commit>
 ---
 
 <a id="q20"></a>
-### Q20: Find common ancestor?
+### Q20: What is a Fork vs a Branch?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-
+*   **Branch:** Parallel version of code *within the same repository*. Lightweight.
+*   **Fork:** Copy of the *entire repository* under your own account (server-side concept, not Git core). Used for Open Source contributions where you don't have write access to the original repo.
 
 **Code Example**:
 ```bash
-git merge-base branchA branchB
+# Clone your fork
+git clone https://github.com/me/repo.git
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -452,46 +474,61 @@ git merge-base branchA branchB
 ---
 
 <a id="q21"></a>
-### Q21: What is the Staging Area (Index)?
+### Q21: How do you rename a local branch?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Area where changes are prepared before committing. Allows selective committing.
+Rename current branch or specific branch.
 
 **Code Example**:
+```bash
+# Rename current branch
+git branch -m new-name
 
+# Rename specific branch
+git branch -m old-name new-name
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q22"></a>
-### Q22: Git Config Scopes?
+### Q22: How do you sync a fork with the original repo (upstream)?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-System (<code>/etc/gitconfig</code>), Global (<code>~/.gitconfig</code>), Local (<code>.git/config</code>).
+1.  Add the original repo as a remote named `upstream`.
+2.  Fetch upstream.
+3.  Merge `upstream/main` into your local `main`.
 
 **Code Example**:
-
+```bash
+git remote add upstream https://github.com/original/repo.git
+git fetch upstream
+git checkout main
+git merge upstream/main
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q23"></a>
-### Q23: Remove untracked files (clean)?
+### Q23: What is `git diff` vs `git diff --staged`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-Force delete untracked files and directories.
+*   **`git diff`**: Shows changes in Working Directory (unstaged) vs Staging.
+*   **`git diff --staged`** (or `--cached`): Shows changes in Staging vs Last Commit.
 
 **Code Example**:
 ```bash
-git clean -fd
+git diff
+git diff --staged
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -499,1134 +536,48 @@ git clean -fd
 ---
 
 <a id="q24"></a>
-### Q24: Git Tags (Lightweight vs Annotated)?
+### Q24: How do you tag a specific commit?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
-**Lightweight:** Pointer to commit.
-**Annotated:** Stores message, author, date, checksum (Full object).
+Tags are immutable refs to specific commits, usually used for releases (v1.0).
+*   **Lightweight:** Just a pointer.
+*   **Annotated:** Includes message, date, author (stored as full object).
 
 **Code Example**:
+```bash
+# Lightweight
+git tag v1.0
 
+# Annotated
+git tag -a v1.1 -m "Release version 1.1"
+
+# Push tags to remote
+git push origin --tags
+```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q25"></a>
-### Q25: What is a Submodule?
+### Q25: What is `git submodule`?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Git repo inside another Git repo. Points to specific commit of child repo.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q26"></a>
-### Q26: What is a Subtree?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Alternative to submodules. Merges child repo code into main repo history.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q27"></a>
-### Q27: Git Worktree?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Allows multiple working directories attached to same repo. Work on multiple branches simultaneously without switching.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q28"></a>
-### Q28: Diff Staged vs Unstaged?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-<code>git diff</code> (Unstaged).
-<code>git diff --staged</code> (Staged).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q29"></a>
-### Q29: Rename a branch?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-
+Allows keeping another Git repository in a subdirectory of your repository. The submodule tracks a specific commit of the other repo.
+*   Useful for shared libraries.
+*   Complex to manage (requires separate pull/update).
 
 **Code Example**:
 ```bash
-git branch -m new-name
+# Add submodule
+git submodule add https://github.com/lib/lib.git
+
+# Clone repo with submodules
+git clone --recursive https://github.com/my/app.git
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q30"></a>
-### Q30: Delete a remote branch?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git push origin --delete branch-name
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q31"></a>
-### Q31: Show commit history for one file?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git log -p filename
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q32"></a>
-### Q32: Git Log Graph?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git log --graph --oneline --all
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q33"></a>
-### Q33: Search in commit messages?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git log --grep="fix"
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q34"></a>
-### Q34: Search code in history?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Pickaxe search: finds commits that added/removed string.
-
-**Code Example**:
-```bash
-git log -S "functionName"
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q35"></a>
-### Q35: What is `git gc`?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Garbage Collector. Compresses file revisions, removes unreachable objects.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q36"></a>
-### Q36: Bare vs Non-Bare Repo?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-**Bare:** No working directory. For servers.
-**Non-Bare:** Has working directory. For users.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q37"></a>
-### Q37: Git Objects (Blob, Tree, Commit)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-**Blob:** File content.
-**Tree:** Directory structure.
-**Commit:** Metadata + Pointer to Tree.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q38"></a>
-### Q38: How to create an Alias?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git config --global alias.co checkout
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q39"></a>
-### Q39: Push to multiple remotes?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Add multiple Push URLs to a single remote in config.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q40"></a>
-### Q40: Git LFS (Large File Storage)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Extension to store large binaries (PSD, MP4) on separate server, keeping pointers in Git.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q41"></a>
-### Q41: Restore deleted file?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Or <code>git restore</code>.
-
-**Code Example**:
-```bash
-git checkout <commit> -- <file>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q42"></a>
-### Q42: Difference `checkout` vs `switch`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-<code>switch</code> is newer, safer, specifically for changing branches. <code>checkout</code> does files and branches.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q43"></a>
-### Q43: Difference `checkout` vs `restore`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-<code>restore</code> is for restoring files from index/commit. <code>checkout</code> is overloaded.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q44"></a>
-### Q44: Git Rebase Interactive?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Allows editing, reordering, squashing, dropping commits.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q45"></a>
-### Q45: Rebase onto another branch?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Replays current branch commits on top of master.
-
-**Code Example**:
-```bash
-git rebase master
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q46"></a>
-### Q46: Abort a merge?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git merge --abort
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q47"></a>
-### Q47: What is `origin`?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Default alias for the remote repository URL.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q48"></a>
-### Q48: Upstream branch?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-The remote branch that a local branch tracks (pushes/pulls to).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q49"></a>
-### Q49: Push force vs force-with-lease?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-**Force:** Overwrites remote blindly.
-**Force-with-lease:** Overwrites only if remote hasn't changed since last fetch. Safer.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q50"></a>
-### Q50: Show remote URL?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git remote -v
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q51"></a>
-### Q51: Change remote URL?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git remote set-url origin <new-url>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q52"></a>
-### Q52: Git Archive (Export)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Create a zip/tar of the repo without .git folder.
-
-**Code Example**:
-```bash
-git archive --format=zip HEAD > project.zip
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q53"></a>
-### Q53: Bundle objects?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Pack git objects into a single file for offline transfer.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q54"></a>
-### Q54: Shortlog (Summary)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Summarize git log output. Good for release notes.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q55"></a>
-### Q55: Describe commit?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Finds most recent tag reachable from commit and builds a name.
-
-**Code Example**:
-```bash
-git describe
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q56"></a>
-### Q56: Git Rerere?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Reuse Recorded Resolution. Remembers how you resolved a conflict and auto-applies it next time.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q57"></a>
-### Q57: Verify GPG signatures?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Ensure commits are signed by trusted keys.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q58"></a>
-### Q58: What is `.gitattributes`?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Configures path-specific settings (EOL normalization, binary handling, diff drivers).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q59"></a>
-### Q59: CRLF vs LF handling?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Configured via `core.autocrlf`. Windows uses CRLF, Unix uses LF. Git can convert on checkout/commit.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q60"></a>
-### Q60: Excluding files without .gitignore?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use `.git/info/exclude` for local-only ignores.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q61"></a>
-### Q61: Global vs Local ignore?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Global: `~/.gitignore_global`. Applies to all repos.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q62"></a>
-### Q62: Git Grep vs Unix Grep?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Git Grep searches tracked files only and is much faster.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q63"></a>
-### Q63: Count commits? <span class="beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">git rev-list --count HEAD</code></pre>
-</div>
-
-<div id="q64" class="question">64. Who committed vs Who authored?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-**Author:** Wrote the code.
-**Committer:** Applied the patch (e.g., rebase/cherry-pick).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q65"></a>
-### Q65: Change author of last commit?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git commit --amend --author="Name <email>"
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q66"></a>
-### Q66: Combine two repositories?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Add one as remote, fetch, then merge into a subdirectory (subtree).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q67"></a>
-### Q67: Delete local branch? <span class="beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">git branch -d name</code></pre>
-</div>
-
-<div id="q68" class="question">68. Delete unmerged branch?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git branch -D name
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q69"></a>
-### Q69: Prune remote tracking branches?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Removes local refs to deleted remote branches.
-
-**Code Example**:
-```bash
-git fetch --prune
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q70"></a>
-### Q70: What is a Fast-Forward merge? <span class="beginner">Beginner</span></div>
-<div class="answer">
-  <p>If no divergent work, HEAD is simply moved forward. No merge commit.</p>
-</div>
-
-<div id="q71" class="question">71. Disable Fast-Forward?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Forces creation of a merge commit.
-
-**Code Example**:
-```bash
-git merge --no-ff
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q72"></a>
-### Q72: Squash merge?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Stages all changes from branch as one commit. Does not record merge relationship.
-
-**Code Example**:
-```bash
-git merge --squash
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q73"></a>
-### Q73: Ours vs Theirs strategy?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Resolve conflicts by accepting all changes from one side.
-
-**Code Example**:
-```bash
-git checkout --ours file
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q74"></a>
-### Q74: Git Stash Pop vs Apply?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-**Pop:** Apply and remove from list.
-**Apply:** Apply and keep in list.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q75"></a>
-### Q75: List stashes? <span class="beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">git stash list</code></pre>
-</div>
-
-<div id="q76" class="question">76. Clear stash? <span class="beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">git stash clear</code></pre>
-</div>
-
-<div id="q77" class="question">77. Create branch from stash?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git stash branch <name>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q78"></a>
-### Q78: Show content of a stash?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git stash show -p stash@{0}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q79"></a>
-### Q79: Patching (Diff/Apply)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Send changes via email/file.
-
-**Code Example**:
-```bash
-git diff > changes.patch
-git apply changes.patch
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q80"></a>
-### Q80: Git Format-Patch?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Prepare patches for email submission (includes commit metadata).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q81"></a>
-### Q81: Git Am?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Apply series of patches from mailbox.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q82"></a>
-### Q82: Recover dropped stash?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use `git fsck` to find dangling commits.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q83"></a>
-### Q83: Move uncommitted changes to new branch? <span class="beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">git checkout -b new-branch</code></pre>
-</div>
-
-<div id="q84" class="question">84. Find large files in history?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Iterate objects and sort by size. (Scripting required).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q85"></a>
-### Q85: Remove sensitive data from history?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-BFG Repo-Cleaner or `git filter-repo`. Rewrites history.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q86"></a>
-### Q86: Git Filter-Repo (vs Filter-Branch)?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Filter-Repo is the modern, faster, Python-based replacement for the slow shell-based filter-branch.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q87"></a>
-### Q87: What is `HEAD^` vs `HEAD~`?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-<code>~</code>: First parent (Ancestry line).
-<code>^</code>: Selects specific parent (Merge parent).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q88"></a>
-### Q88: Checkout previous branch? <span class="beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">git checkout -</code></pre>
-</div>
-
-<div id="q89" class="question">89. List all branches (local + remote)? <span class="beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">git branch -a</code></pre>
-</div>
-
-<div id="q90" class="question">90. Fetch specific branch?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git fetch origin branchname:branchname
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q91"></a>
-### Q91: Clone specific branch?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git clone -b branchname --single-branch <url>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q92"></a>
-### Q92: Clone depth (Shallow clone)?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Downloads only latest commit. Saves bandwidth.
-
-**Code Example**:
-```bash
-git clone --depth 1 <url>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q93"></a>
-### Q93: Git Status short format? <span class="beginner">Beginner</span></div>
-<div class="answer">
-  <pre><code class="language-bash">git status -s</code></pre>
-</div>
-
-<div id="q94" class="question">94. Ignore file mode changes?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git config core.fileMode false
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q95"></a>
-### Q95: Debug gitignore?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git check-ignore -v filename
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q96"></a>
-### Q96: Git Notes?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Attach metadata to commits without rewriting them.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q97"></a>
-### Q97: Git Replace?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Replace object with another at runtime (e.g., grafting history).
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q98"></a>
-### Q98: Git Rev-Parse?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Plumbing command to parse refs/SHA.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q99"></a>
-### Q99: Show file at specific commit?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-
-
-**Code Example**:
-```bash
-git show <commit>:<file>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q100"></a>
-### Q100: Automate Git with Scripts?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use Porcelain (high-level) vs Plumbing (low-level) commands. Prefer plumbing for stability.
-
-**Code Example**:
-
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
