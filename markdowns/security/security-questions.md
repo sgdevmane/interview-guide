@@ -10,56 +10,106 @@
 
 ## Table of Contents
 
-1. [How do you prevent SQL Injection in a Node.js application using raw SQL?](#q1-how-do-you-prevent-sql-injection-in-a-node.js-application-using-raw-sql) <span class="intermediate">Intermediate</span>
-2. [How do you prevent Cross-Site Scripting (XSS) in a React application?](#q2-how-do-you-prevent-cross-site-scripting-xss-in-a-react-application) <span class="intermediate">Intermediate</span>
-3. [How do you securely store user passwords in a database?](#q3-how-do-you-securely-store-user-passwords-in-a-database) <span class="intermediate">Intermediate</span>
-4. [How do you implement Cross-Site Request Forgery (CSRF) protection?](#q4-how-do-you-implement-cross-site-request-forgery-csrf-protection) <span class="intermediate">Intermediate</span>
-5. [How do you securely implement JWT authentication?](#q5-how-do-you-securely-implement-jwt-authentication) <span class="advanced">Advanced</span>
-6. [How do you implement Rate Limiting to prevent DoS and Brute-Force attacks?](#q6-how-do-you-implement-rate-limiting-to-prevent-dos-and-brute-force-attacks) <span class="intermediate">Intermediate</span>
-7. [How do you secure HTTP headers using Helmet?](#q7-how-do-you-secure-http-headers-using-helmet) <span class="beginner">Beginner</span>
-8. [How do you prevent Server-Side Request Forgery (SSRF)?](#q8-how-do-you-prevent-server-side-request-forgery-ssrf) <span class="advanced">Advanced</span>
-9. [How do you fix Insecure Direct Object References (IDOR)?](#q9-how-do-you-fix-insecure-direct-object-references-idor) <span class="intermediate">Intermediate</span>
-10. [How do you securely handle file uploads?](#q10-how-do-you-securely-handle-file-uploads) <span class="intermediate">Intermediate</span>
-11. [How do you manage secrets and environment variables securely?](#q11-how-do-you-manage-secrets-and-environment-variables-securely) <span class="beginner">Beginner</span>
-12. [How do you prevent XML External Entity (XXE) attacks?](#q12-how-do-you-prevent-xml-external-entity-xxe-attacks) <span class="advanced">Advanced</span>
-13. [How do you prevent Clickjacking?](#q13-how-do-you-prevent-clickjacking) <span class="beginner">Beginner</span>
-14. [How do you implement secure Open Redirect protection?](#q14-how-do-you-implement-secure-open-redirect-protection) <span class="intermediate">Intermediate</span>
-15. [How do you implement Role-Based Access Control (RBAC)?](#q15-how-do-you-implement-role-based-access-control-rbac) <span class="intermediate">Intermediate</span>
-16. [How do you implement Multi-Factor Authentication (MFA) using TOTP?](#q16-how-do-you-implement-multi-factor-authentication-mfa-using-totp) <span class="intermediate">Intermediate</span>
-17. [How do you prevent Query Depth attacks in GraphQL?](#q17-how-do-you-prevent-query-depth-attacks-in-graphql) <span class="intermediate">Intermediate</span>
-18. [How do you prevent Regular Expression Denial of Service (ReDoS)?](#q18-how-do-you-prevent-regular-expression-denial-of-service-redos) <span class="advanced">Advanced</span>
-19. [How do you properly configure Session Cookies?](#q19-how-do-you-properly-configure-session-cookies) <span class="beginner">Beginner</span>
-20. [How do you use Nonces with Content Security Policy (CSP)?](#q20-how-do-you-use-nonces-with-content-security-policy-csp) <span class="advanced">Advanced</span>
-21. [How do you secure WebSocket connections?](#q21-how-do-you-secure-websocket-connections) <span class="intermediate">Intermediate</span>
-22. [How do you prevent Session Fixation?](#q22-how-do-you-prevent-session-fixation) <span class="intermediate">Intermediate</span>
-23. [How do you implement Account Lockout securely?](#q23-how-do-you-implement-account-lockout-securely) <span class="intermediate">Intermediate</span>
-24. [How do you prevent Supply Chain Attacks in Node.js?](#q24-how-do-you-prevent-supply-chain-attacks-in-node.js) <span class="intermediate">Intermediate</span>
-25. [How do you implement Field-Level Encryption?](#q25-how-do-you-implement-field-level-encryption) <span class="advanced">Advanced</span>
-26. [What is Perfect Forward Secrecy (PFS)?](#q26-what-is-perfect-forward-secrecy-pfs) <span class="advanced">Advanced</span>
-27. [How do you implement mTLS (Mutual TLS)?](#q27-how-do-you-implement-mtls-mutual-tls) <span class="advanced">Advanced</span>
-28. [How do you validate an OIDC ID Token?](#q28-how-do-you-validate-an-oidc-id-token) <span class="intermediate">Intermediate</span>
-29. [How do you prevent HTTP Parameter Pollution (HPP)?](#q29-how-do-you-prevent-http-parameter-pollution-hpp) <span class="intermediate">Intermediate</span>
-30. [How do you secure Serverless Functions (Least Privilege)?](#q30-how-do-you-secure-serverless-functions-least-privilege) <span class="intermediate">Intermediate</span>
-31. [What is Zero Trust Architecture?](#q31-what-is-zero-trust-architecture) <span class="advanced">Advanced</span>
-32. [How do you automate Key Rotation?](#q32-how-do-you-automate-key-rotation) <span class="advanced">Advanced</span>
-33. [How do you detect secrets in code commits?](#q33-how-do-you-detect-secrets-in-code-commits) <span class="intermediate">Intermediate</span>
-34. [How do you prevent LDAP Injection?](#q34-how-do-you-prevent-ldap-injection) <span class="intermediate">Intermediate</span>
-35. [What are `Referrer-Policy` and `Permissions-Policy`?](#q35-what-are-referrer-policy-and-permissions-policy) <span class="intermediate">Intermediate</span>
-36. [How do you run Docker in Rootless Mode?](#q36-how-do-you-run-docker-in-rootless-mode) <span class="intermediate">Intermediate</span>
-37. [Why use PKCE in OAuth 2.0?](#q37-why-use-pkce-in-oauth-2.0) <span class="advanced">Advanced</span>
-38. [How do you handle PII (Personally Identifiable Information)?](#q38-how-do-you-handle-pii-personally-identifiable-information) <span class="intermediate">Intermediate</span>
-39. [How do you secure API Keys in Mobile Apps?](#q39-how-do-you-secure-api-keys-in-mobile-apps) <span class="intermediate">Intermediate</span>
-40. [How do you prevent Man-in-the-Middle (MitM) attacks?](#q40-how-do-you-prevent-man-in-the-middle-mitm-attacks) <span class="beginner">Beginner</span>
-41. [How do you prevent Timing Attacks?](#q41-how-do-you-prevent-timing-attacks) <span class="advanced">Advanced</span>
-42. [How do you secure Audit Logs?](#q42-how-do-you-secure-audit-logs) <span class="advanced">Advanced</span>
-43. [How do you implement a secure Password Reset flow?](#q43-how-do-you-implement-a-secure-password-reset-flow) <span class="intermediate">Intermediate</span>
-44. [How do you secure gRPC services?](#q44-how-do-you-secure-grpc-services) <span class="advanced">Advanced</span>
-45. [How do you configure CORS securely?](#q45-how-do-you-configure-cors-securely) <span class="beginner">Beginner</span>
-46. [What is Subresource Integrity (SRI)?](#q46-what-is-subresource-integrity-sri) <span class="beginner">Beginner</span>
-47. [How do you prevent Host Header Injection?](#q47-how-do-you-prevent-host-header-injection) <span class="intermediate">Intermediate</span>
-48. [How do you prevent Directory Traversal?](#q48-how-do-you-prevent-directory-traversal) <span class="intermediate">Intermediate</span>
-49. [How do you prevent Deserialization vulnerabilities?](#q49-how-do-you-prevent-deserialization-vulnerabilities) <span class="advanced">Advanced</span>
-50. [How do you implement 'Defense in Depth'?](#q50-how-do-you-implement-defense-in-depth) <span class="advanced">Advanced</span>
+1. [How do you prevent SQL Injection in a Node.js application using raw SQL?](#q1) <span class="intermediate">Intermediate</span>
+2. [How do you prevent Cross-Site Scripting (XSS) in a React application?](#q2) <span class="intermediate">Intermediate</span>
+3. [How do you securely store user passwords in a database?](#q3) <span class="intermediate">Intermediate</span>
+4. [How do you implement Cross-Site Request Forgery (CSRF) protection?](#q4) <span class="intermediate">Intermediate</span>
+5. [How do you securely implement JWT authentication?](#q5) <span class="advanced">Advanced</span>
+6. [How do you implement Rate Limiting to prevent DoS and Brute-Force attacks?](#q6) <span class="intermediate">Intermediate</span>
+7. [How do you secure HTTP headers using Helmet?](#q7) <span class="beginner">Beginner</span>
+8. [How do you prevent Server-Side Request Forgery (SSRF)?](#q8) <span class="advanced">Advanced</span>
+9. [How do you fix Insecure Direct Object References (IDOR)?](#q9) <span class="intermediate">Intermediate</span>
+10. [How do you securely handle file uploads?](#q10) <span class="intermediate">Intermediate</span>
+11. [How do you manage secrets and environment variables securely?](#q11) <span class="beginner">Beginner</span>
+12. [How do you prevent XML External Entity (XXE) attacks?](#q12) <span class="advanced">Advanced</span>
+13. [How do you prevent Clickjacking?](#q13) <span class="beginner">Beginner</span>
+14. [How do you implement secure Open Redirect protection?](#q14) <span class="intermediate">Intermediate</span>
+15. [How do you implement Role-Based Access Control (RBAC)?](#q15) <span class="intermediate">Intermediate</span>
+16. [How do you implement Multi-Factor Authentication (MFA) using TOTP?](#q16) <span class="intermediate">Intermediate</span>
+17. [How do you prevent Query Depth attacks in GraphQL?](#q17) <span class="intermediate">Intermediate</span>
+18. [How do you prevent Regular Expression Denial of Service (ReDoS)?](#q18) <span class="advanced">Advanced</span>
+19. [How do you properly configure Session Cookies?](#q19) <span class="beginner">Beginner</span>
+20. [How do you use Nonces with Content Security Policy (CSP)?](#q20) <span class="advanced">Advanced</span>
+21. [How do you secure WebSocket connections?](#q21) <span class="intermediate">Intermediate</span>
+22. [How do you prevent Session Fixation?](#q22) <span class="intermediate">Intermediate</span>
+23. [How do you implement Account Lockout securely?](#q23) <span class="intermediate">Intermediate</span>
+24. [How do you prevent Supply Chain Attacks in Node.js?](#q24) <span class="intermediate">Intermediate</span>
+25. [How do you implement Field-Level Encryption?](#q25) <span class="advanced">Advanced</span>
+26. [What is Perfect Forward Secrecy (PFS)?](#q26) <span class="advanced">Advanced</span>
+27. [How do you implement mTLS (Mutual TLS)?](#q27) <span class="advanced">Advanced</span>
+28. [How do you validate an OIDC ID Token?](#q28) <span class="intermediate">Intermediate</span>
+29. [How do you prevent HTTP Parameter Pollution (HPP)?](#q29) <span class="intermediate">Intermediate</span>
+30. [How do you secure Serverless Functions (Least Privilege)?](#q30) <span class="intermediate">Intermediate</span>
+31. [What is Zero Trust Architecture?](#q31) <span class="advanced">Advanced</span>
+32. [How do you automate Key Rotation?](#q32) <span class="advanced">Advanced</span>
+33. [How do you detect secrets in code commits?](#q33) <span class="intermediate">Intermediate</span>
+34. [How do you prevent LDAP Injection?](#q34) <span class="intermediate">Intermediate</span>
+35. [What are `Referrer-Policy` and `Permissions-Policy`?](#q35) <span class="intermediate">Intermediate</span>
+36. [How do you run Docker in Rootless Mode?](#q36) <span class="intermediate">Intermediate</span>
+37. [Why use PKCE in OAuth 2.0?](#q37) <span class="advanced">Advanced</span>
+38. [How do you handle PII (Personally Identifiable Information)?](#q38) <span class="intermediate">Intermediate</span>
+39. [How do you secure API Keys in Mobile Apps?](#q39) <span class="intermediate">Intermediate</span>
+40. [How do you prevent Man-in-the-Middle (MitM) attacks?](#q40) <span class="beginner">Beginner</span>
+41. [How do you prevent Timing Attacks?](#q41) <span class="advanced">Advanced</span>
+42. [How do you secure Audit Logs?](#q42) <span class="advanced">Advanced</span>
+43. [How do you implement a secure Password Reset flow?](#q43) <span class="intermediate">Intermediate</span>
+44. [How do you secure gRPC services?](#q44) <span class="advanced">Advanced</span>
+45. [How do you configure CORS securely?](#q45) <span class="beginner">Beginner</span>
+46. [What is Subresource Integrity (SRI)?](#q46) <span class="beginner">Beginner</span>
+47. [How do you prevent Host Header Injection?](#q47) <span class="intermediate">Intermediate</span>
+48. [How do you prevent Directory Traversal?](#q48) <span class="intermediate">Intermediate</span>
+49. [How do you prevent Deserialization vulnerabilities?](#q49) <span class="advanced">Advanced</span>
+50. [How do you implement 'Defense in Depth'?](#q50) <span class="advanced">Advanced</span>
+51. [What is the `SameSite` cookie attribute?](#q51) <span class="intermediate">Intermediate</span>
+52. [How do you prevent Content Sniffing?](#q52) <span class="beginner">Beginner</span>
+53. [What is Web Cache Poisoning?](#q53) <span class="advanced">Expert</span>
+54. [JWT vs Session IDs: Which is more secure?](#q54) <span class="intermediate">Intermediate</span>
+55. [What is the difference between Salting and Peppering?](#q55) <span class="advanced">Advanced</span>
+56. [What is HSTS (HTTP Strict Transport Security)?](#q56) <span class="beginner">Beginner</span>
+57. [Are "Magic Links" secure?](#q57) <span class="intermediate">Intermediate</span>
+58. [How do Race Conditions lead to security vulnerabilities?](#q58) <span class="advanced">Advanced</span>
+59. [Why use a CSPRNG over `Math.random()`?](#q59) <span class="beginner">Beginner</span>
+60. [How do you prevent Docker Container Breakouts?](#q60) <span class="advanced">Advanced</span>
+61. [What is Kubernetes Pod Security?](#q61) <span class="advanced">Advanced</span>
+62. [How do you prevent GraphQL Batching Attacks?](#q62) <span class="advanced">Advanced</span>
+63. [Why is the `state` parameter important in OAuth2?](#q63) <span class="intermediate">Intermediate</span>
+64. [What is an OIDC Claim?](#q64) <span class="intermediate">Intermediate</span>
+65. [How do you secure an API Gateway?](#q65) <span class="advanced">Advanced</span>
+66. [What is WebAuthn / Passkeys?](#q66) <span class="advanced">Advanced</span>
+67. [What is Certificate Pinning?](#q67) <span class="advanced">Expert</span>
+68. [What is DNS Rebinding?](#q68) <span class="advanced">Expert</span>
+69. [What is a Padding Oracle Attack?](#q69) <span class="advanced">Expert</span>
+70. [What is a Dependency Confusion Attack?](#q70) <span class="advanced">Advanced</span>
+71. [What tools can detect secrets in code?](#q71) <span class="beginner">Beginner</span>
+72. [What is a Secure Code Review Checklist?](#q72) <span class="intermediate">Intermediate</span>
+73. [What is STRIDE in Threat Modeling?](#q73) <span class="intermediate">Intermediate</span>
+74. [What are the phases of Penetration Testing?](#q74) <span class="intermediate">Intermediate</span>
+75. [What is the Incident Response Lifecycle?](#q75) <span class="advanced">Advanced</span>
+76. [What is a DevSecOps Pipeline?](#q76) <span class="intermediate">Intermediate</span>
+77. [What is the difference between SAST and DAST?](#q77) <span class="intermediate">Intermediate</span>
+78. [What is IAST (Interactive Application Security Testing)?](#q78) <span class="advanced">Advanced</span>
+79. [What is RASP (Runtime Application Self-Protection)?](#q79) <span class="advanced">Expert</span>
+80. [What is Shadow IT and why is it a risk?](#q80) <span class="beginner">Beginner</span>
+81. [How do you prevent Social Engineering attacks?](#q81) <span class="beginner">Beginner</span>
+82. [Why is Physical Security important for servers?](#q82) <span class="beginner">Beginner</span>
+83. [What is the Cloud Shared Responsibility Model?](#q83) <span class="intermediate">Intermediate</span>
+84. [Why use IAM Roles instead of IAM Users in AWS?](#q84) <span class="advanced">Advanced</span>
+85. [How do you secure an S3 Bucket?](#q85) <span class="intermediate">Intermediate</span>
+86. [What are the risks of VPC Peering?](#q86) <span class="advanced">Advanced</span>
+87. [What does a WAF (Web Application Firewall) do?](#q87) <span class="intermediate">Intermediate</span>
+88. [How do you mitigate DDoS attacks?](#q88) <span class="advanced">Advanced</span>
+89. [How do you detect Bot traffic?](#q89) <span class="intermediate">Intermediate</span>
+90. [What are the different types of CAPTCHA?](#q90) <span class="beginner">Beginner</span>
+91. [What are the risks of Biometric Authentication?](#q91) <span class="advanced">Advanced</span>
+92. [What is Privacy by Design?](#q92) <span class="intermediate">Intermediate</span>
+93. [What is the GDPR "Right to be Forgotten"?](#q93) <span class="intermediate">Intermediate</span>
+94. [What is PCI-DSS?](#q94) <span class="advanced">Advanced</span>
+95. [What is HIPAA?](#q95) <span class="advanced">Advanced</span>
+96. [What is SOC 2?](#q96) <span class="advanced">Advanced</span>
+97. [What is ISO 27001?](#q97) <span class="advanced">Advanced</span>
+98. [What are Zero Knowledge Proofs?](#q98) <span class="advanced">Expert</span>
+99. [What is Homomorphic Encryption?](#q99) <span class="advanced">Expert</span>
+100. [How does Quantum Computing threaten cryptography?](#q100) <span class="advanced">Expert</span>
 
 ---
 
@@ -1579,3 +1629,1022 @@ app.post('/transfer',
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+
+<a id="q51"></a>
+
+### Q51: What is the `SameSite` cookie attribute?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`SameSite` controls whether cookies are sent with cross-site requests. `Strict` prevents all cross-site sending, `Lax` allows it for top-level navigations (links), `None` allows all (requires Secure).
+
+**Code Example:**
+
+```http
+Set-Cookie: session_id=xyz; SameSite=Lax; Secure; HttpOnly
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q52"></a>
+
+### Q52: How do you prevent Content Sniffing?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Set the `X-Content-Type-Options: nosniff` header. This forces the browser to strictly follow the MIME type declared in `Content-Type`, preventing executable scripts disguised as images.
+
+**Code Example:**
+
+```javascript
+// Express.js with Helmet
+app.use(helmet.noSniff());
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q53"></a>
+
+### Q53: What is Web Cache Poisoning?
+
+**Difficulty**: Expert
+
+**Strategy:**
+An attacker sends a request that causes the server to cache a harmful response (e.g., reflecting an XSS payload) which is then served to other users. Prevent by validating inputs and not keying cache on unverified headers.
+
+**Code Example:**
+
+```text
+GET /en?region=<script>alert(1)</script> HTTP/1.1
+Host: vulnerable.com
+
+# If server caches this response for /en, all users get XSS.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q54"></a>
+
+### Q54: JWT vs Session IDs: Which is more secure?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Session IDs (server-side) are generally more secure because they can be instantly revoked. JWTs (stateless) are harder to revoke without blacklisting. Use Session IDs for sensitive apps, JWTs for microservices/APIs.
+
+**Code Example:**
+
+```text
+Session ID: Random string stored in HttpOnly cookie.
+JWT: Base64 encoded JSON with signature. If stolen, valid until expiry.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q55"></a>
+
+### Q55: What is the difference between Salting and Peppering?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Salt is unique per user and stored with the hash. Pepper is a secret key shared across all hashes and stored separately (e.g., environment variable or HSM). Pepper adds defense in depth if DB is leaked.
+
+**Code Example:**
+
+```python
+# Concept
+hash = bcrypt(password + salt + pepper)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q56"></a>
+
+### Q56: What is HSTS (HTTP Strict Transport Security)?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+A header that tells browsers to *only* access the site via HTTPS for a specified duration. Prevents SSL Stripping attacks.
+
+**Code Example:**
+
+```http
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q57"></a>
+
+### Q57: Are "Magic Links" secure?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Yes, if implemented correctly: single-use, short expiry (10-15 mins), and invalidates previous tokens. Risk: email compromise gives account access.
+
+**Code Example:**
+
+```text
+https://app.com/login?token=random_high_entropy_string
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q58"></a>
+
+### Q58: How do Race Conditions lead to security vulnerabilities?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Time-of-check to time-of-use (TOCTOU) bugs can allow double spending or unauthorized access. Use database transactions with locking (e.g., `SELECT FOR UPDATE`).
+
+**Code Example:**
+
+```sql
+-- Vulnerable:
+-- Read balance
+-- If balance > amount: Update balance
+-- (Two requests can pass the check simultaneously)
+
+-- Secure:
+UPDATE accounts SET balance = balance - 10 WHERE id = 1 AND balance >= 10;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q59"></a>
+
+### Q59: Why use a CSPRNG over `Math.random()`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`Math.random()` is predictable. CSPRNG (Cryptographically Secure Pseudo-Random Number Generator) uses OS entropy, making it unpredictable and suitable for tokens/keys.
+
+**Code Example:**
+
+```javascript
+// Node.js
+const crypto = require('crypto');
+const token = crypto.randomBytes(32).toString('hex');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q60"></a>
+
+### Q60: How do you prevent Docker Container Breakouts?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Don't run as root (`USER nonroot`). Limit capabilities (`--cap-drop ALL`). Use seccomp profiles. Keep host kernel updated.
+
+**Code Example:**
+
+```dockerfile
+FROM alpine
+RUN adduser -D myuser
+USER myuser
+ENTRYPOINT ["./app"]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q61"></a>
+
+### Q61: What is Kubernetes Pod Security?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use Pod Security Standards (PSS) or OPA Gatekeeper to enforce rules: no privileged containers, read-only root filesystem, restricted volume types.
+
+**Code Example:**
+
+```yaml
+securityContext:
+  runAsNonRoot: true
+  readOnlyRootFilesystem: true
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q62"></a>
+
+### Q62: How do you prevent GraphQL Batching Attacks?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Attackers send thousands of queries in one request to DDoS the server. Limit the number of batched queries or disable batching if not needed.
+
+**Code Example:**
+
+```javascript
+// Apollo Server
+const server = new ApolloServer({
+  allowBatchedHttpRequests: false
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q63"></a>
+
+### Q63: Why is the `state` parameter important in OAuth2?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+It prevents CSRF attacks during the OAuth flow. The client generates a random token, sends it in the auth request, and verifies it when the provider redirects back.
+
+**Code Example:**
+
+```text
+https://auth.com/authorize?response_type=code&client_id=...&state=xyz123
+# Client verifies state=xyz123 on callback
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q64"></a>
+
+### Q64: What is an OIDC Claim?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+OpenID Connect (OIDC) uses claims (key-value pairs) in the ID Token to assert information about the user (sub, name, email, iat, exp).
+
+**Code Example:**
+
+```json
+{
+  "sub": "12345",
+  "name": "Alice",
+  "iat": 1610000000
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q65"></a>
+
+### Q65: How do you secure an API Gateway?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Implement Rate Limiting, IP Whitelisting, Mutual TLS (mTLS), JWT Validation, and WAF protection at the gateway level (e.g., Kong, Nginx, AWS API Gateway).
+
+**Code Example:**
+
+```yaml
+# Kong Rate Limiting Plugin
+config:
+  minute: 100
+  policy: local
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q66"></a>
+
+### Q66: What is WebAuthn / Passkeys?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+A standard for passwordless authentication using public-key cryptography. The user authenticates locally (FaceID, TouchID) and the device signs a challenge sent to the server.
+
+**Code Example:**
+
+```javascript
+navigator.credentials.create({ publicKey: ... })
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q67"></a>
+
+### Q67: What is Certificate Pinning?
+
+**Difficulty**: Expert
+
+**Strategy:**
+Hardcoding the expected SSL certificate or public key in the client (mobile app) to prevent MitM attacks even if a CA is compromised. (Note: Risky if cert rotates/expires).
+
+**Code Example:**
+
+```java
+// Android Network Security Config
+<pin-set>
+  <pin digest="SHA-256">...</pin>
+</pin-set>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q68"></a>
+
+### Q68: What is DNS Rebinding?
+
+**Difficulty**: Expert
+
+**Strategy:**
+An attacker controls a malicious DNS server that resolves a domain to the attacker's IP first (to load a script) and then to a local IP (127.0.0.1) to bypass SOP and access local services.
+
+**Code Example:**
+
+```text
+attacker.com -> 1.2.3.4 (TTL 0)
+# Script loads
+attacker.com -> 127.0.0.1 (TTL 0)
+# Script accesses localhost
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q69"></a>
+
+### Q69: What is a Padding Oracle Attack?
+
+**Difficulty**: Expert
+
+**Strategy:**
+An attack against block ciphers (like CBC mode) where the server leaks information about whether the padding of a decrypted message is valid. Allows decrypting the ciphertext. Fix: Use Authenticated Encryption (AES-GCM).
+
+**Code Example:**
+
+```text
+Error: Invalid Padding vs Error: Decryption Failed
+# Difference allows guessing bytes
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q70"></a>
+
+### Q70: What is a Dependency Confusion Attack?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Uploading a package with the same name as an internal private package to a public registry (npm/PyPI) with a higher version number. Build systems might pull the malicious public version.
+
+**Code Example:**
+
+```json
+"dependencies": {
+  "internal-utils": "^1.0.0" 
+  // Attacker publishes 99.0.0 to public npm
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q71"></a>
+
+### Q71: What tools can detect secrets in code?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Tools like `trufflehog`, `gitleaks`, and GitHub Secret Scanning scan git history for patterns resembling API keys, passwords, and tokens.
+
+**Code Example:**
+
+```bash
+gitleaks detect --source . -v
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q72"></a>
+
+### Q72: What is a Secure Code Review Checklist?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+A list of items to verify during code review: Input Validation, Output Encoding, Auth/Authz checks, Logging (no secrets), Error Handling (no leaks), Cryptography standards.
+
+**Code Example:**
+
+```markdown
+- [ ] All user input is validated?
+- [ ] SQL queries use parameters?
+- [ ] No hardcoded secrets?
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q73"></a>
+
+### Q73: What is STRIDE in Threat Modeling?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+A mnemonic for threats:
+**S**poofing, **T**ampering, **R**epudiation, **I**nformation Disclosure, **D**enial of Service, **E**levation of Privilege.
+
+**Code Example:**
+
+```text
+Analyze login flow:
+- Spoofing: Can I pretend to be user X?
+- Tampering: Can I modify the request?
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q74"></a>
+
+### Q74: What are the phases of Penetration Testing?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+1. Reconnaissance (Info gathering)
+2. Scanning (Vuln discovery)
+3. Exploitation (Gaining access)
+4. Maintaining Access (Persistence)
+5. Reporting (Documentation)
+
+**Code Example:**
+
+```text
+nmap -> burpsuite -> exploit -> report
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q75"></a>
+
+### Q75: What is the Incident Response Lifecycle?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+NIST Framework:
+1. Preparation
+2. Detection & Analysis
+3. Containment, Eradication, & Recovery
+4. Post-Incident Activity (Lessons Learned)
+
+**Code Example:**
+
+```text
+Alert -> Isolate Server -> Patch Vuln -> Restore Backup -> Write Report
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q76"></a>
+
+### Q76: What is a DevSecOps Pipeline?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Integrating security practices within the DevOps process. It involves automated security checks (SAST, SCA, DAST) at every stage of the CI/CD pipeline, not just at the end.
+
+**Code Example:**
+
+```yaml
+steps:
+  - run: npm install
+  - run: npm audit # SCA
+  - run: sonar-scanner # SAST
+  - run: docker build ...
+  - run: trivy image ... # Container Scan
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q77"></a>
+
+### Q77: What is the difference between SAST and DAST?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+SAST (Static Application Security Testing) analyzes source code at rest (white-box). DAST (Dynamic AST) attacks the running application from the outside (black-box).
+
+**Code Example:**
+
+```text
+SAST: SonarQube finding "Hardcoded Password" in code.
+DAST: OWASP ZAP finding "SQL Injection" by sending payloads to login form.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q78"></a>
+
+### Q78: What is IAST (Interactive Application Security Testing)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+IAST combines SAST and DAST. It runs inside the application (via an agent) and analyzes code execution while the app is being tested (e.g., during QA), providing more accurate results with fewer false positives.
+
+**Code Example:**
+
+```text
+Agent attached to Java process monitors request flow to DB and flags SQLi.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q79"></a>
+
+### Q79: What is RASP (Runtime Application Self-Protection)?
+
+**Difficulty**: Expert
+
+**Strategy:**
+RASP is a security technology that is built into or linked into an application or its runtime environment, capable of controlling application execution and detecting/preventing real-time attacks.
+
+**Code Example:**
+
+```text
+RASP detects a SQL injection pattern in a query at runtime and blocks the specific database call, throwing an exception.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q80"></a>
+
+### Q80: What is Shadow IT and why is it a risk?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+The use of IT systems, devices, software, or services without explicit IT department approval (e.g., using personal Dropbox for company files). Risks include data leaks, compliance violations, and lack of patching.
+
+**Code Example:**
+
+```text
+Employee uses 'WeTransfer' to send sensitive customer data because the corporate VPN is slow.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q81"></a>
+
+### Q81: How do you prevent Social Engineering attacks?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Training and awareness are key. Verify identities, don't click suspicious links, enable MFA, and have clear procedures for sensitive actions (e.g., wire transfers).
+
+**Code Example:**
+
+```text
+"CEO" emails asking for urgent gift cards.
+Procedure: Call the CEO to verify.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q82"></a>
+
+### Q82: Why is Physical Security important for servers?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+If an attacker has physical access to a machine, they can bypass most software controls (e.g., boot from USB, remove hard drive). Use locks, cameras, and biometrics for data centers.
+
+**Code Example:**
+
+```text
+"Evil Maid" attack: Modifying the bootloader while the laptop is unattended in a hotel room.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q83"></a>
+
+### Q83: What is the Cloud Shared Responsibility Model?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+The cloud provider is responsible for security _of_ the cloud (hardware, network). The customer is responsible for security _in_ the cloud (data, OS configuration, access management).
+
+**Code Example:**
+
+```text
+AWS protects the data center.
+You protect your S3 bucket permissions.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q84"></a>
+
+### Q84: Why use IAM Roles instead of IAM Users in AWS?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+IAM Users have long-term credentials (access keys) which can be leaked. IAM Roles provide temporary credentials and are assumed by services (EC2, Lambda) or federated users, reducing the attack surface.
+
+**Code Example:**
+
+```json
+// Role trust policy
+"Principal": { "Service": "ec2.amazonaws.com" }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q85"></a>
+
+### Q85: How do you secure an S3 Bucket?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Block public access, enable versioning, enable encryption (SSE-S3/KMS), use bucket policies to restrict access to specific IPs or VPC endpoints, and enable access logging.
+
+**Code Example:**
+
+```json
+"Effect": "Deny",
+"Principal": "*",
+"Action": "s3:*",
+"Condition": { "Bool": { "aws:SecureTransport": "false" } }
+// Enforce HTTPS
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q86"></a>
+
+### Q86: What are the risks of VPC Peering?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+VPC Peering connects two VPCs as if they are on the same network. If one is compromised, the attacker can pivot to the other. Use Security Groups and NACLs to strictly control traffic between peered VPCs.
+
+**Code Example:**
+
+```text
+Dev VPC peered with Prod VPC allow attacker to move laterally.
+Fix: Only allow specific ports/IPs.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q87"></a>
+
+### Q87: What does a WAF (Web Application Firewall) do?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+A WAF sits in front of web applications and inspects HTTP traffic. It blocks common attacks like SQLi, XSS, and bad bots based on rulesets (e.g., OWASP Core Rule Set).
+
+**Code Example:**
+
+```text
+Rule: Block request if query parameter contains "UNION SELECT".
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q88"></a>
+
+### Q88: How do you mitigate DDoS attacks?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use a CDN (Cloudflare, Akamai) to absorb traffic. Implement Rate Limiting. Use Auto-Scaling groups to handle spikes. Minimize attack surface (close unused ports).
+
+**Code Example:**
+
+```text
+SYN Flood -> Enable SYN Cookies.
+Volumetric -> Anycast Network.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q89"></a>
+
+### Q89: How do you detect Bot traffic?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Analyze user behavior (mouse movements, speed). Check IP reputation. Inspect User-Agent (easily spoofed) and TLS fingerprinting (JA3). Use challenges (CAPTCHA).
+
+**Code Example:**
+
+```text
+If 100 requests/sec from one IP -> likely a bot.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q90"></a>
+
+### Q90: What are the different types of CAPTCHA?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Text-based (distorted text), Image-based (select traffic lights), Invisible (analyzes background behavior), and Proof-of-Work (client solves math problem).
+
+**Code Example:**
+
+```text
+reCAPTCHA v3 returns a score (0.0 - 1.0) indicating likelihood of being a human without user interaction.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q91"></a>
+
+### Q91: What are the risks of Biometric Authentication?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Biometrics (fingerprint, face) cannot be changed if compromised. They can be spoofed (high-res photos, molds). Data privacy is critical; store hashes/templates locally, not raw images.
+
+**Code Example:**
+
+```text
+Leak of 1 million passwords -> Reset passwords.
+Leak of 1 million fingerprints -> Users cannot reset fingerprints.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q92"></a>
+
+### Q92: What is Privacy by Design?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Integrating data protection into processing activities and business practices from the design stage, rather than as an afterthought. Minimize data collection.
+
+**Code Example:**
+
+```text
+Don't collect DoB if you only need to know if user is 18+. Ask "Are you 18+?" instead.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q93"></a>
+
+### Q93: What is the GDPR "Right to be Forgotten"?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Users have the right to request erasure of their personal data. Organizations must delete data from all systems (DB, backups, logs) unless there's a legal reason to keep it.
+
+**Code Example:**
+
+```sql
+DELETE FROM users WHERE id = 123;
+-- Also scrub logs and backups
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q94"></a>
+
+### Q94: What is PCI-DSS?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Payment Card Industry Data Security Standard. Requirements for companies processing credit card data. Key rules: Encrypt transmission, don't store CVV, use firewalls, regular testing.
+
+**Code Example:**
+
+```text
+Never log the full PAN (Primary Account Number). Mask it: ****-****-****-1234.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q95"></a>
+
+### Q95: What is HIPAA?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Health Insurance Portability and Accountability Act. US law protecting medical information (PHI). Requires strict access controls, encryption, and audit trails.
+
+**Code Example:**
+
+```text
+Encryption at rest for DB containing patient records is mandatory.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q96"></a>
+
+### Q96: What is SOC 2?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+A auditing procedure ensuring service providers manage data securely. Type I reports on design of controls at a point in time. Type II reports on effectiveness of controls over a period (e.g., 6 months).
+
+**Code Example:**
+
+```text
+Evidence: Showing 6 months of logs proving that terminated employees had access revoked within 24 hours.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q97"></a>
+
+### Q97: What is ISO 27001?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+International standard for Information Security Management Systems (ISMS). It focuses on risk management: identifying assets, assessing risks, and implementing controls.
+
+**Code Example:**
+
+```text
+Policy: All laptops must have full-disk encryption.
+Control: MDM software enforces BitLocker.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q98"></a>
+
+### Q98: What are Zero Knowledge Proofs?
+
+**Difficulty**: Expert
+
+**Strategy:**
+A cryptographic method where one party (prover) can prove to another (verifier) that they know a value (e.g., password) without conveying the information itself.
+
+**Code Example:**
+
+```text
+Proving you are over 18 without revealing your birth date.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q99"></a>
+
+### Q99: What is Homomorphic Encryption?
+
+**Difficulty**: Expert
+
+**Strategy:**
+Allows computation on encrypted data without decrypting it first. The result of the computation is encrypted, and when decrypted, matches the result as if operations were performed on plaintext.
+
+**Code Example:**
+
+```text
+Cloud calculates Sum(Encrypted_Salaries) and returns Encrypted_Total. Cloud never sees individual salaries.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q100"></a>
+
+### Q100: How does Quantum Computing threaten cryptography?
+
+**Difficulty**: Expert
+
+**Strategy:**
+Shor's algorithm running on a powerful quantum computer could factor large integers efficiently, breaking RSA and ECC public-key encryption. Symmetric encryption (AES) is more resistant (requires larger keys).
+
+**Code Example:**
+
+```text
+Mitigation: Post-Quantum Cryptography (Lattice-based algorithms).
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

@@ -10,106 +10,106 @@
 
 ## Table of Contents
 
-1. [How do you manage Goroutine lifecycles to prevent memory leaks?](#q1-how-do-you-manage-goroutine-lifecycles-to-prevent-memory-leaks) <span class="intermediate">Intermediate</span>
-2. [How do you implement the Worker Pool pattern to limit concurrency?](#q2-how-do-you-implement-the-worker-pool-pattern-to-limit-concurrency) <span class="intermediate">Intermediate</span>
-3. [How do you handle errors gracefully using custom error types and wrapping?](#q3-how-do-you-handle-errors-gracefully-using-custom-error-types-and-wrapping) <span class="intermediate">Intermediate</span>
-4. [How do you implement a thread-safe Singleton in Go?](#q4-how-do-you-implement-a-thread-safe-singleton-in-go) <span class="intermediate">Intermediate</span>
-5. [How do you use the Functional Options pattern to configure complex structs?](#q5-how-do-you-use-the-functional-options-pattern-to-configure-complex-structs) <span class="intermediate">Intermediate</span>
-6. [How do you implement a Graceful Shutdown for an HTTP server?](#q6-how-do-you-implement-a-graceful-shutdown-for-an-http-server) <span class="intermediate">Intermediate</span>
-7. [How do you test code effectively using Table-Driven Tests?](#q7-how-do-you-test-code-effectively-using-table-driven-tests) <span class="intermediate">Intermediate</span>
-8. [How do you use Generics to create a type-safe Set data structure?](#q8-how-do-you-use-generics-to-create-a-type-safe-set-data-structure) <span class="intermediate">Intermediate</span>
-9. [How do you use `sync.WaitGroup` to wait for multiple concurrent operations?](#q9-how-do-you-use-sync.waitgroup-to-wait-for-multiple-concurrent-operations) <span class="intermediate">Intermediate</span>
-10. [How do you implement middleware for an HTTP handler?](#q10-how-do-you-implement-middleware-for-an-http-handler) <span class="intermediate">Intermediate</span>
-11. [How do you use interfaces for dependency injection to improve testability?](#q11-how-do-you-use-interfaces-for-dependency-injection-to-improve-testability) <span class="intermediate">Intermediate</span>
-12. [How do you use the `select` statement to implement a timeout?](#q12-how-do-you-use-the-select-statement-to-implement-a-timeout) <span class="intermediate">Intermediate</span>
-13. [How do you use `io.Reader` and `io.Writer` to stream data efficiently?](#q13-how-do-you-use-io.reader-and-io.writer-to-stream-data-efficiently) <span class="intermediate">Intermediate</span>
-14. [How do you prevent race conditions using `sync.Mutex`?](#q14-how-do-you-prevent-race-conditions-using-sync.mutex) <span class="intermediate">Intermediate</span>
-15. [How do you optimize memory usage with `sync.Pool`?](#q15-how-do-you-optimize-memory-usage-with-sync.pool) <span class="intermediate">Intermediate</span>
-16. [How do you implement a custom JSON Marshaler to hide sensitive fields?](#q16-how-do-you-implement-a-custom-json-marshaler-to-hide-sensitive-fields) <span class="intermediate">Intermediate</span>
-17. [How do you use `sync.Once` to ensure a function runs exactly once?](#q17-how-do-you-use-sync.once-to-ensure-a-function-runs-exactly-once) <span class="intermediate">Intermediate</span>
-18. [How do you implement a rate limiter using a Token Bucket algorithm?](#q18-how-do-you-implement-a-rate-limiter-using-a-token-bucket-algorithm) <span class="intermediate">Intermediate</span>
-19. [How do you correctly handle loop variables in Goroutines?](#q19-how-do-you-correctly-handle-loop-variables-in-goroutines) <span class="intermediate">Intermediate</span>
-20. [How do you use `go:embed` to bundle static assets?](#q20-how-do-you-use-go:embed-to-bundle-static-assets) <span class="intermediate">Intermediate</span>
-21. [How do you use `errgroup` to manage parallel tasks with error propagation?](#q21-how-do-you-use-errgroup-to-manage-parallel-tasks-with-error-propagation) <span class="intermediate">Intermediate</span>
-22. [How do you implement atomic counters using `sync/atomic`?](#q22-how-do-you-implement-atomic-counters-using-syncatomic) <span class="intermediate">Intermediate</span>
-23. [How do you benchmark code using `testing.B`?](#q23-how-do-you-benchmark-code-using-testing.b) <span class="intermediate">Intermediate</span>
-24. [How do you optimize memory layout by reordering struct fields?](#q24-how-do-you-optimize-memory-layout-by-reordering-struct-fields) <span class="expert">Expert</span>
-25. [How do you use `context.WithValue` to pass request-scoped data?](#q25-how-do-you-use-context.withvalue-to-pass-request-scoped-data) <span class="intermediate">Intermediate</span>
-26. [How do you implement a simple Fan-Out/Fan-In pattern?](#q26-how-do-you-implement-a-simple-fan-outfan-in-pattern) <span class="intermediate">Intermediate</span>
-27. [How do you use `defer` effectively for cleanup (and avoid common traps)?](#q27-how-do-you-use-defer-effectively-for-cleanup-and-avoid-common-traps) <span class="intermediate">Intermediate</span>
-28. [How do you implement a custom HTTP RoundTripper?](#q28-how-do-you-implement-a-custom-http-roundtripper) <span class="expert">Expert</span>
-29. [How do you use `reflect` to iterate over struct fields?](#q29-how-do-you-use-reflect-to-iterate-over-struct-fields) <span class="expert">Expert</span>
-30. [How do you use `slices` package (Go 1.21+) for common operations?](#q30-how-do-you-use-slices-package-go-1.21+-for-common-operations) <span class="intermediate">Intermediate</span>
-31. [How do you use the new `slices` package (Go 1.21+) for common operations?](#q31-how-do-you-use-the-new-slices-package-go-1.21+-for-common-operations) <span class="beginner">Beginner</span>
-32. [How do you iterate over an integer range using `range` in Go 1.22+?](#q32-how-do-you-iterate-over-an-integer-range-using-range-in-go-1.22+) <span class="beginner">Beginner</span>
-33. [How do you use `cmp.Or` (Go 1.22+) to return the first non-zero value?](#q33-how-do-you-use-cmp.or-go-1.22+-to-return-the-first-non-zero-value) <span class="intermediate">Intermediate</span>
-34. [How do you create a structured logger using `log/slog` (Go 1.21+)?](#q34-how-do-you-create-a-structured-logger-using-logslog-go-1.21+) <span class="intermediate">Intermediate</span>
-35. [How do you use `sync.OnceValue` (Go 1.21+) for lazy initialization?](#q35-how-do-you-use-sync.oncevalue-go-1.21+-for-lazy-initialization) <span class="intermediate">Intermediate</span>
-36. [How do you check for race conditions in Go?](#q36-how-do-you-check-for-race-conditions-in-go) <span class="intermediate">Intermediate</span>
-37. [How do you use `context.WithTimeout` to cancel long-running operations?](#q37-how-do-you-use-context.withtimeout-to-cancel-long-running-operations) <span class="intermediate">Intermediate</span>
-38. [How do you embed static files into a Go binary?](#q38-how-do-you-embed-static-files-into-a-go-binary) <span class="beginner">Beginner</span>
-39. [How do you perform atomic operations to avoid mutexes?](#q39-how-do-you-perform-atomic-operations-to-avoid-mutexes) <span class="advanced">Advanced</span>
-40. [How do you benchmark Go code?](#q40-how-do-you-benchmark-go-code) <span class="intermediate">Intermediate</span>
-41. [How do you marshal JSON with custom field names or omission?](#q41-how-do-you-marshal-json-with-custom-field-names-or-omission) <span class="beginner">Beginner</span>
-42. [How do you implement a simple HTTP middleware?](#q42-how-do-you-implement-a-simple-http-middleware) <span class="intermediate">Intermediate</span>
-43. [How do you detect and handle panics in a Goroutine?](#q43-how-do-you-detect-and-handle-panics-in-a-goroutine) <span class="intermediate">Intermediate</span>
-44. [How do you use `io.Pipe` to stream data between a reader and writer?](#q44-how-do-you-use-io.pipe-to-stream-data-between-a-reader-and-writer) <span class="advanced">Advanced</span>
-45. [How do you use Go Fuzzing (Go 1.18+) to find bugs?](#q45-how-do-you-use-go-fuzzing-go-1.18+-to-find-bugs) <span class="advanced">Advanced</span>
-46. [How do you use sync.Map for concurrent map access?](#q46-how-do-you-use-sync.map-for-concurrent-map-access) <span class="intermediate">Intermediate</span>
-47. [How do you use atomic.Pointer[T] (Go 1.19+)?](#q47-how-do-you-use-atomic.pointer[t]-go-1.19+) <span class="advanced">Advanced</span>
-48. [How do you use httptest to test HTTP handlers?](#q48-how-do-you-use-httptest-to-test-http-handlers) <span class="intermediate">Intermediate</span>
-49. [How do you use json.RawMessage to delay parsing?](#q49-how-do-you-use-json.rawmessage-to-delay-parsing) <span class="intermediate">Intermediate</span>
-50. [How do you use pprof to profile CPU usage?](#q50-how-do-you-use-pprof-to-profile-cpu-usage) <span class="advanced">Advanced</span>
-51. [How do you use runtime/trace to analyze latency?](#q51-how-do-you-use-runtimetrace-to-analyze-latency) <span class="expert">Expert</span>
-52. [How do you use Go Workspaces (Go 1.18+) for multi-module development?](#q52-how-do-you-use-go-workspaces-go-1.18+-for-multi-module-development) <span class="intermediate">Intermediate</span>
-53. [How do you implement a custom Scanner using bufio?](#q53-how-do-you-implement-a-custom-scanner-using-bufio) <span class="intermediate">Intermediate</span>
-54. [How do you use text/template for generating dynamic content?](#q54-how-do-you-use-texttemplate-for-generating-dynamic-content) <span class="intermediate">Intermediate</span>
-55. [How do you use Singleflight to prevent cache stampedes?](#q55-how-do-you-use-singleflight-to-prevent-cache-stampedes) <span class="advanced">Advanced</span>
-56. [How do you use sync.Cond for complex synchronization?](#q56-how-do-you-use-sync.cond-for-complex-synchronization) <span class="expert">Expert</span>
-57. [How do you use the os/exec package to run external commands safely?](#q57-how-do-you-use-the-osexec-package-to-run-external-commands-safely) <span class="intermediate">Intermediate</span>
-58. [How do you use the plugin package to load code at runtime?](#q58-how-do-you-use-the-plugin-package-to-load-code-at-runtime) <span class="expert">Expert</span>
-59. [How do you use testing/quick for property-based testing?](#q59-how-do-you-use-testingquick-for-property-based-testing) <span class="advanced">Advanced</span>
-60. [How do you use context.AfterFunc (Go 1.21+) for cleanup?](#q60-how-do-you-use-context.afterfunc-go-1.21+-for-cleanup) <span class="intermediate">Intermediate</span>
-61. [How do you use the new min/max built-ins (Go 1.21+)?](#q61-how-do-you-use-the-new-minmax-built-ins-go-1.21+) <span class="beginner">Beginner</span>
-62. [How do you debug Go memory leaks in microservices?](#q62-how-do-you-debug-go-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for Go code organization in mobile devices?](#q63-best-practices-for-go-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement Go error handling for legacy systems?](#q64-how-do-you-implement-go-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test Go functionality in cloud infrastructure?](#q65-how-do-you-test-go-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle Go state management in real-time systems?](#q66-how-do-you-handle-go-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform Go data validation in distributed systems?](#q67-how-do-you-perform-go-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate Go deployment for high-traffic sites?](#q68-how-do-you-automate-go-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle Go concurrency issues in embedded systems?](#q69-how-do-you-handle-go-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement Go caching in production environments?](#q70-how-do-you-implement-go-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage Go configuration for large scale applications?](#q71-how-do-you-manage-go-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle Go internationalization (i18n) in microservices?](#q72-how-do-you-handle-go-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure Go accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-go-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize Go network requests in legacy systems?](#q74-how-do-you-optimize-go-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle Go performance optimization for cloud infrastructure?](#q75-how-do-you-handle-go-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of Go in real-time systems?](#q76-what-are-the-security-implications-of-go-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug Go memory leaks in distributed systems?](#q77-how-do-you-debug-go-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for Go code organization in high-traffic sites?](#q78-best-practices-for-go-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement Go error handling for embedded systems?](#q79-how-do-you-implement-go-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test Go functionality in production environments?](#q80-how-do-you-test-go-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle Go state management in large scale applications?](#q81-how-do-you-handle-go-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform Go data validation in microservices?](#q82-how-do-you-perform-go-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate Go deployment for mobile devices?](#q83-how-do-you-automate-go-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle Go concurrency issues in legacy systems?](#q84-how-do-you-handle-go-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement Go caching in cloud infrastructure?](#q85-how-do-you-implement-go-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage Go configuration for real-time systems?](#q86-how-do-you-manage-go-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle Go internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-go-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure Go accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-go-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize Go network requests in embedded systems?](#q89-how-do-you-optimize-go-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle Go performance optimization for production environments?](#q90-how-do-you-handle-go-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of Go in large scale applications?](#q91-what-are-the-security-implications-of-go-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug Go memory leaks in microservices?](#q92-how-do-you-debug-go-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for Go code organization in mobile devices?](#q93-best-practices-for-go-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement Go error handling for legacy systems?](#q94-how-do-you-implement-go-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test Go functionality in cloud infrastructure?](#q95-how-do-you-test-go-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle Go state management in real-time systems?](#q96-how-do-you-handle-go-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform Go data validation in distributed systems?](#q97-how-do-you-perform-go-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate Go deployment for high-traffic sites?](#q98-how-do-you-automate-go-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle Go concurrency issues in embedded systems?](#q99-how-do-you-handle-go-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement Go caching in production environments?](#q100-how-do-you-implement-go-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+1. [How do you manage Goroutine lifecycles to prevent memory leaks?](#q1) <span class="intermediate">Intermediate</span>
+2. [How do you implement the Worker Pool pattern to limit concurrency?](#q2) <span class="intermediate">Intermediate</span>
+3. [How do you handle errors gracefully using custom error types and wrapping?](#q3) <span class="intermediate">Intermediate</span>
+4. [How do you implement a thread-safe Singleton in Go?](#q4) <span class="intermediate">Intermediate</span>
+5. [How do you use the Functional Options pattern to configure complex structs?](#q5) <span class="intermediate">Intermediate</span>
+6. [How do you implement a Graceful Shutdown for an HTTP server?](#q6) <span class="intermediate">Intermediate</span>
+7. [How do you test code effectively using Table-Driven Tests?](#q7) <span class="intermediate">Intermediate</span>
+8. [How do you use Generics to create a type-safe Set data structure?](#q8) <span class="intermediate">Intermediate</span>
+9. [How do you use `sync.WaitGroup` to wait for multiple concurrent operations?](#q9) <span class="intermediate">Intermediate</span>
+10. [How do you implement middleware for an HTTP handler?](#q10) <span class="intermediate">Intermediate</span>
+11. [How do you use interfaces for dependency injection to improve testability?](#q11) <span class="intermediate">Intermediate</span>
+12. [How do you use the `select` statement to implement a timeout?](#q12) <span class="intermediate">Intermediate</span>
+13. [How do you use `io.Reader` and `io.Writer` to stream data efficiently?](#q13) <span class="intermediate">Intermediate</span>
+14. [How do you prevent race conditions using `sync.Mutex`?](#q14) <span class="intermediate">Intermediate</span>
+15. [How do you optimize memory usage with `sync.Pool`?](#q15) <span class="intermediate">Intermediate</span>
+16. [How do you implement a custom JSON Marshaler to hide sensitive fields?](#q16) <span class="intermediate">Intermediate</span>
+17. [How do you use `sync.Once` to ensure a function runs exactly once?](#q17) <span class="intermediate">Intermediate</span>
+18. [How do you implement a rate limiter using a Token Bucket algorithm?](#q18) <span class="intermediate">Intermediate</span>
+19. [How do you correctly handle loop variables in Goroutines?](#q19) <span class="intermediate">Intermediate</span>
+20. [How do you use `go:embed` to bundle static assets?](#q20) <span class="intermediate">Intermediate</span>
+21. [How do you use `errgroup` to manage parallel tasks with error propagation?](#q21) <span class="intermediate">Intermediate</span>
+22. [How do you implement atomic counters using `sync/atomic`?](#q22) <span class="intermediate">Intermediate</span>
+23. [How do you benchmark code using `testing.B`?](#q23) <span class="intermediate">Intermediate</span>
+24. [How do you optimize memory layout by reordering struct fields?](#q24) <span class="advanced">Expert</span>
+25. [How do you use `context.WithValue` to pass request-scoped data?](#q25) <span class="intermediate">Intermediate</span>
+26. [How do you implement a simple Fan-Out/Fan-In pattern?](#q26) <span class="intermediate">Intermediate</span>
+27. [How do you use `defer` effectively for cleanup (and avoid common traps)?](#q27) <span class="intermediate">Intermediate</span>
+28. [How do you implement a custom HTTP RoundTripper?](#q28) <span class="advanced">Expert</span>
+29. [How do you use `reflect` to iterate over struct fields?](#q29) <span class="advanced">Expert</span>
+30. [How do you use `slices` package (Go 1.21+) for common operations?](#q30) <span class="intermediate">Intermediate</span>
+31. [How do you use the new `slices` package (Go 1.21+) for common operations?](#q31) <span class="beginner">Beginner</span>
+32. [How do you iterate over an integer range using `range` in Go 1.22+?](#q32) <span class="beginner">Beginner</span>
+33. [How do you use `cmp.Or` (Go 1.22+) to return the first non-zero value?](#q33) <span class="intermediate">Intermediate</span>
+34. [How do you create a structured logger using `log/slog` (Go 1.21+)?](#q34) <span class="intermediate">Intermediate</span>
+35. [How do you use `sync.OnceValue` (Go 1.21+) for lazy initialization?](#q35) <span class="intermediate">Intermediate</span>
+36. [How do you check for race conditions in Go?](#q36) <span class="intermediate">Intermediate</span>
+37. [How do you use `context.WithTimeout` to cancel long-running operations?](#q37) <span class="intermediate">Intermediate</span>
+38. [How do you embed static files into a Go binary?](#q38) <span class="beginner">Beginner</span>
+39. [How do you perform atomic operations to avoid mutexes?](#q39) <span class="advanced">Advanced</span>
+40. [How do you benchmark Go code?](#q40) <span class="intermediate">Intermediate</span>
+41. [How do you marshal JSON with custom field names or omission?](#q41) <span class="beginner">Beginner</span>
+42. [How do you implement a simple HTTP middleware?](#q42) <span class="intermediate">Intermediate</span>
+43. [How do you detect and handle panics in a Goroutine?](#q43) <span class="intermediate">Intermediate</span>
+44. [How do you use `io.Pipe` to stream data between a reader and writer?](#q44) <span class="advanced">Advanced</span>
+45. [How do you use Go Fuzzing (Go 1.18+) to find bugs?](#q45) <span class="advanced">Advanced</span>
+46. [How do you use sync.Map for concurrent map access?](#q46) <span class="intermediate">Intermediate</span>
+47. [How do you use atomic.Pointer[T] (Go 1.19+)?](#q47) <span class="advanced">Advanced</span>
+48. [How do you use httptest to test HTTP handlers?](#q48) <span class="intermediate">Intermediate</span>
+49. [How do you use json.RawMessage to delay parsing?](#q49) <span class="intermediate">Intermediate</span>
+50. [How do you use pprof to profile CPU usage?](#q50) <span class="advanced">Advanced</span>
+51. [How do you use runtime/trace to analyze latency?](#q51) <span class="advanced">Expert</span>
+52. [How do you use Go Workspaces (Go 1.18+) for multi-module development?](#q52) <span class="intermediate">Intermediate</span>
+53. [How do you implement a custom Scanner using bufio?](#q53) <span class="intermediate">Intermediate</span>
+54. [How do you use text/template for generating dynamic content?](#q54) <span class="intermediate">Intermediate</span>
+55. [How do you use Singleflight to prevent cache stampedes?](#q55) <span class="advanced">Advanced</span>
+56. [How do you use sync.Cond for complex synchronization?](#q56) <span class="advanced">Expert</span>
+57. [How do you use the os/exec package to run external commands safely?](#q57) <span class="intermediate">Intermediate</span>
+58. [How do you use the plugin package to load code at runtime?](#q58) <span class="advanced">Expert</span>
+59. [How do you use testing/quick for property-based testing?](#q59) <span class="advanced">Advanced</span>
+60. [How do you use context.AfterFunc (Go 1.21+) for cleanup?](#q60) <span class="intermediate">Intermediate</span>
+61. [How do you use the new min/max built-ins (Go 1.21+)?](#q61) <span class="beginner">Beginner</span>
+62. [How do you reduce GC pressure using `sync.Pool`?](#q62) <span class="advanced">Advanced</span>
+63. [How do you use `sync.Cond` for complex synchronization?](#q63) <span class="advanced">Expert</span>
+64. [How do you perform lock-free operations using `atomic`?](#q64) <span class="advanced">Advanced</span>
+65. [How do you manage groups of goroutines with `errgroup`?](#q65) <span class="intermediate">Intermediate</span>
+66. [What is Escape Analysis?](#q66) <span class="advanced">Advanced</span>
+67. [How do you tune the Garbage Collector with `GOGC`?](#q67) <span class="advanced">Advanced</span>
+68. [How do you write Fuzz Tests in Go (1.18+)?](#q68) <span class="intermediate">Intermediate</span>
+69. [How do you test HTTP handlers with `httptest`?](#q69) <span class="intermediate">Intermediate</span>
+70. [How do you benchmark code?](#q70) <span class="intermediate">Intermediate</span>
+71. [How do you profile a Go application?](#q71) <span class="advanced">Advanced</span>
+72. [How do you use Go Workspaces (`go.work`)?](#q72) <span class="intermediate">Intermediate</span>
+73. [How do you embed files into the binary?](#q73) <span class="beginner">Beginner</span>
+74. [How do you handle Context timeouts?](#q74) <span class="intermediate">Intermediate</span>
+75. [How do you implement Graceful Shutdown?](#q75) <span class="advanced">Advanced</span>
+76. [How do you implement a Worker Pool?](#q76) <span class="advanced">Advanced</span>
+77. [How do you use `iota` for enumerations?](#q77) <span class="beginner">Beginner</span>
+78. [What is Variable Shadowing and how to avoid it?](#q78) <span class="beginner">Beginner</span>
+79. [What does a Slice Header look like internally?](#q79) <span class="advanced">Advanced</span>
+80. [How do you recover from a panic?](#q80) <span class="intermediate">Intermediate</span>
+81. [How do you implement the Middleware pattern in Go?](#q81) <span class="intermediate">Intermediate</span>
+82. [How do you customize JSON marshaling?](#q82) <span class="intermediate">Intermediate</span>
+83. [What is the difference between `time.Ticker` and `time.Timer`?](#q83) <span class="intermediate">Intermediate</span>
+84. [How do you inspect types at runtime using `reflect`?](#q84) <span class="advanced">Advanced</span>
+85. [How do you bypass type safety with `unsafe`?](#q85) <span class="advanced">Expert</span>
+86. [How do you use Build Tags?](#q86) <span class="intermediate">Intermediate</span>
+87. [What are the caveats of the `init()` function?](#q87) <span class="intermediate">Intermediate</span>
+88. [How do you load Go plugins at runtime?](#q88) <span class="advanced">Advanced</span>
+89. [How do you detect data races?](#q89) <span class="intermediate">Intermediate</span>
+90. [How can re-slicing cause memory leaks?](#q90) <span class="advanced">Advanced</span>
+91. [When should you use `sync.Map`?](#q91) <span class="advanced">Advanced</span>
+92. [How do you suppress duplicate function calls with `singleflight`?](#q92) <span class="advanced">Advanced</span>
+93. [When should you use `crypto/rand` vs `math/rand`?](#q93) <span class="beginner">Beginner</span>
+94. [How do you handle NULL values in SQL databases?](#q94) <span class="intermediate">Intermediate</span>
+95. [How do you use Structured Logging (Go 1.21+)?](#q95) <span class="intermediate">Intermediate</span>
+96. [Why are `io.Reader` and `io.Writer` important?](#q96) <span class="beginner">Beginner</span>
+97. [How do you read a file line by line?](#q97) <span class="beginner">Beginner</span>
+98. [How do you run external commands safely?](#q98) <span class="intermediate">Intermediate</span>
+99. [How do you traverse a directory tree?](#q99) <span class="intermediate">Intermediate</span>
+100. [What are Go Proverbs?](#q100) <span class="beginner">Beginner</span>
 
 ---
 
@@ -2659,18 +2659,41 @@ fmt.Println(m) // 20
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+
+---
+
 <a id="q62"></a>
-### Q62: How do you debug Go memory leaks in microservices?
+
+### Q62: How do you reduce GC pressure using `sync.Pool`?
 
 **Difficulty**: Advanced
 
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
+**Strategy:**
+`sync.Pool` caches allocated but unused objects for later reuse, relieving pressure on the garbage collector. Ideal for frequently allocated objects like buffers.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-// Check listeners
-process.on('exit', () => cleanup());
+package main
+
+import (
+	"bytes"
+	"sync"
+)
+
+var bufPool = sync.Pool{
+	New: func() interface{} {
+		return new(bytes.Buffer)
+	},
+}
+
+func main() {
+	b := bufPool.Get().(*bytes.Buffer)
+	b.Reset()
+	b.WriteString("Hello")
+	bufPool.Put(b)
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2678,17 +2701,45 @@ process.on('exit', () => cleanup());
 ---
 
 <a id="q63"></a>
-### Q63: Best practices for Go code organization in mobile devices?
 
-**Difficulty**: Beginner
+### Q63: How do you use `sync.Cond` for complex synchronization?
 
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+**Difficulty**: Expert
 
-**Code Example**:
+**Strategy:**
+`sync.Cond` implements a condition variable, a rendezvous point for goroutines waiting for or announcing the occurrence of an event. It's more efficient than polling.
+
+**Code Example:**
+
 ```go
-// Single responsibility
-function doOneThing() { ... }
+package main
+
+import (
+	"fmt"
+	"sync"
+	"time"
+)
+
+func main() {
+	var mu sync.Mutex
+	cond := sync.NewCond(&mu)
+	ready := false
+
+	go func() {
+		time.Sleep(time.Second)
+		mu.Lock()
+		ready = true
+		cond.Signal() // Wake up one waiter
+		mu.Unlock()
+	}()
+
+	mu.Lock()
+	for !ready {
+		cond.Wait() // Unlocks mu, waits, locks mu
+	}
+	fmt.Println("Ready!")
+	mu.Unlock()
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2696,19 +2747,33 @@ function doOneThing() { ... }
 ---
 
 <a id="q64"></a>
-### Q64: How do you implement Go error handling for legacy systems?
 
-**Difficulty**: Intermediate
+### Q64: How do you perform lock-free operations using `atomic`?
 
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+**Difficulty**: Advanced
 
-**Code Example**:
+**Strategy:**
+The `sync/atomic` package provides low-level atomic memory primitives useful for implementing synchronization algorithms.
+
+**Code Example:**
+
 ```go
-try {
-  await GoOperation();
-} catch (e) {
-  logger.error(e);
+package main
+
+import (
+	"fmt"
+	"sync/atomic"
+)
+
+func main() {
+	var ops int64
+
+	// Increment atomically
+	atomic.AddInt64(&ops, 1)
+
+	// Load safely
+	val := atomic.LoadInt64(&ops)
+	fmt.Println(val) // 1
 }
 ```
 
@@ -2717,18 +2782,40 @@ try {
 ---
 
 <a id="q65"></a>
-### Q65: How do you test Go functionality in cloud infrastructure?
+
+### Q65: How do you manage groups of goroutines with `errgroup`?
 
 **Difficulty**: Intermediate
 
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
+**Strategy:**
+`golang.org/x/sync/errgroup` provides synchronization, error propagation, and context cancellation for groups of goroutines working on a subtask.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-test('Go works', () => {
-  expect(Go()).toBe(true);
-});
+package main
+
+import (
+	"context"
+	"fmt"
+	"golang.org/x/sync/errgroup"
+)
+
+func main() {
+	g, _ := errgroup.WithContext(context.Background())
+
+	g.Go(func() error {
+		return nil
+	})
+
+	g.Go(func() error {
+		return fmt.Errorf("something went wrong")
+	})
+
+	if err := g.Wait(); err != nil {
+		fmt.Println("Error:", err)
+	}
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2736,16 +2823,27 @@ test('Go works', () => {
 ---
 
 <a id="q66"></a>
-### Q66: How do you handle Go state management in real-time systems?
+
+### Q66: What is Escape Analysis?
 
 **Difficulty**: Advanced
 
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+**Strategy:**
+It's a compiler phase that determines whether variables can be allocated on the stack (fast) or must "escape" to the heap (slower, GC managed). Inspect with `go build -gcflags="-m"`.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-const [state, setState] = useState(initial);
+package main
+
+func create() *int {
+	x := 10
+	return &x // x escapes to heap because it's returned
+}
+
+func main() {
+	_ = create()
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2753,16 +2851,22 @@ const [state, setState] = useState(initial);
 ---
 
 <a id="q67"></a>
-### Q67: How do you perform Go data validation in distributed systems?
 
-**Difficulty**: Beginner
+### Q67: How do you tune the Garbage Collector with `GOGC`?
 
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+**Difficulty**: Advanced
 
-**Code Example**:
-```go
-if (!schema.safeParse(data).success) throw Error('Invalid');
+**Strategy:**
+`GOGC` sets the percentage of new heap growth before a GC run. Default is 100 (wait until heap doubles). `GOGC=off` disables GC.
+
+**Code Example:**
+
+```bash
+# Run with aggressive GC (50% growth)
+GOGC=50 go run main.go
+
+# Run with no GC
+GOGC=off go run main.go
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2770,18 +2874,33 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 ---
 
 <a id="q68"></a>
-### Q68: How do you automate Go deployment for high-traffic sites?
 
-**Difficulty**: Advanced
+### Q68: How do you write Fuzz Tests in Go (1.18+)?
 
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Intermediate
 
-**Code Example**:
+**Strategy:**
+Use `FuzzXxx` functions in `_test.go`. Fuzzing feeds random data to your test to find edge cases and crashes.
+
+**Code Example:**
+
 ```go
-steps:
-  - run: npm test
-  - run: docker build
+package main
+
+import "testing"
+
+func Reverse(s string) string { return s } // Buggy
+
+func FuzzReverse(f *testing.F) {
+	f.Add("hello")
+	f.Fuzz(func(t *testing.T, orig string) {
+		rev := Reverse(orig)
+		doubleRev := Reverse(rev)
+		if orig != doubleRev {
+			t.Errorf("Before: %q, after: %q", orig, doubleRev)
+		}
+	})
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2789,18 +2908,39 @@ steps:
 ---
 
 <a id="q69"></a>
-### Q69: How do you handle Go concurrency issues in embedded systems?
 
-**Difficulty**: Advanced
+### Q69: How do you test HTTP handlers with `httptest`?
 
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Intermediate
 
-**Code Example**:
+**Strategy:**
+Use `httptest.NewRecorder` to record the response of an HTTP handler without spinning up a real server.
+
+**Code Example:**
+
 ```go
-await mutex.runExclusive(async () => {
-  // critical section
-});
+package main
+
+import (
+	"net/http"
+	"net/http/httptest"
+	"testing"
+)
+
+func handler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+}
+
+func TestHandler(t *testing.T) {
+	req := httptest.NewRequest("GET", "/", nil)
+	w := httptest.NewRecorder()
+
+	handler(w, req)
+
+	if w.Result().StatusCode != http.StatusOK {
+		t.Error("Expected 200 OK")
+	}
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2808,17 +2948,26 @@ await mutex.runExclusive(async () => {
 ---
 
 <a id="q70"></a>
-### Q70: How do you implement Go caching in production environments?
+
+### Q70: How do you benchmark code?
 
 **Difficulty**: Intermediate
 
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Strategy:**
+Use `BenchmarkXxx` functions in `_test.go`. Run with `go test -bench=.`. Use `b.ResetTimer()` to ignore setup time.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+package main
+
+import "testing"
+
+func BenchmarkAppend(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_ = append([]int{}, i)
+	}
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2826,16 +2975,28 @@ if (cache.has(key)) return cache.get(key);
 ---
 
 <a id="q71"></a>
-### Q71: How do you manage Go configuration for large scale applications?
 
-**Difficulty**: Beginner
+### Q71: How do you profile a Go application?
 
-**Strategy**:
-Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Advanced
 
-**Code Example**:
+**Strategy:**
+Use `net/http/pprof` for web apps or `runtime/pprof` for CLI. Inspect profiles using `go tool pprof`. It shows CPU usage, memory allocation, and blocking goroutines.
+
+**Code Example:**
+
 ```go
-const config = process.env.CONFIG || 'default';
+package main
+
+import (
+	"net/http"
+	_ "net/http/pprof" // Registers handlers
+)
+
+func main() {
+	http.ListenAndServe(":6060", nil)
+}
+// go tool pprof http://localhost:6060/debug/pprof/profile
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2843,16 +3004,24 @@ const config = process.env.CONFIG || 'default';
 ---
 
 <a id="q72"></a>
-### Q72: How do you handle Go internationalization (i18n) in microservices?
+
+### Q72: How do you use Go Workspaces (`go.work`)?
 
 **Difficulty**: Intermediate
 
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
+**Strategy:**
+Workspaces allow you to work on multiple modules simultaneously without publishing them. Create a `go.work` file referencing local module paths.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-t('welcome_message')
+// go.work
+go 1.21
+
+use (
+    ./my-app
+    ./my-library
+)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2860,16 +3029,33 @@ t('welcome_message')
 ---
 
 <a id="q73"></a>
-### Q73: How do you ensure Go accessibility (a11y) in mobile devices?
+
+### Q73: How do you embed files into the binary?
 
 **Difficulty**: Beginner
 
-**Strategy**:
-Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Strategy:**
+Use the `//go:embed` directive (Go 1.16+) to include static files (HTML, SQL, Config) in the compiled binary.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-<button aria-label="Close">X</button>
+package main
+
+import (
+	"embed"
+	"fmt"
+)
+
+//go:embed config.txt
+var content string
+
+//go:embed templates/*.html
+var templates embed.FS
+
+func main() {
+	fmt.Println(content)
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2877,16 +3063,36 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 ---
 
 <a id="q74"></a>
-### Q74: How do you optimize Go network requests in legacy systems?
 
-**Difficulty**: Advanced
+### Q74: How do you handle Context timeouts?
 
-**Strategy**:
-Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Intermediate
 
-**Code Example**:
+**Strategy:**
+Use `context.WithTimeout` to ensure operations don't hang forever. Always `defer cancel()` to release resources.
+
+**Code Example:**
+
 ```go
-debounce(() => fetch(), 300);
+package main
+
+import (
+	"context"
+	"fmt"
+	"time"
+)
+
+func main() {
+	ctx, cancel := context.WithTimeout(context.Background(), 100*time.Millisecond)
+	defer cancel()
+
+	select {
+	case <-time.After(200 * time.Millisecond):
+		fmt.Println("Done")
+	case <-ctx.Done():
+		fmt.Println("Timeout:", ctx.Err()) // Timeout: context deadline exceeded
+	}
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2894,19 +3100,39 @@ debounce(() => fetch(), 300);
 ---
 
 <a id="q75"></a>
-### Q75: How do you handle Go performance optimization for cloud infrastructure?
+
+### Q75: How do you implement Graceful Shutdown?
 
 **Difficulty**: Advanced
 
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
+**Strategy:**
+Listen for OS signals (`SIGINT`, `SIGTERM`) and shutdown the server using `server.Shutdown(ctx)`. This allows active requests to complete.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-const start = performance.now();
-// Go logic
-const end = performance.now();
-console.log('Time:', end - start);
+package main
+
+import (
+	"context"
+	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+)
+
+func main() {
+	srv := &http.Server{Addr: ":8080"}
+	
+	go func() {
+		stop := make(chan os.Signal, 1)
+		signal.Notify(stop, syscall.SIGINT, syscall.SIGTERM)
+		<-stop
+		srv.Shutdown(context.Background())
+	}()
+
+	srv.ListenAndServe()
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2914,17 +3140,45 @@ console.log('Time:', end - start);
 ---
 
 <a id="q76"></a>
-### Q76: What are the security implications of Go in real-time systems?
 
-**Difficulty**: Intermediate
+### Q76: How do you implement a Worker Pool?
 
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
+**Difficulty**: Advanced
 
-**Code Example**:
+**Strategy:**
+Create a fixed number of worker goroutines that consume tasks from a buffered channel. This limits concurrency and resource usage.
+
+**Code Example:**
+
 ```go
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
+package main
+
+import "fmt"
+
+func worker(id int, jobs <-chan int, results chan<- int) {
+	for j := range jobs {
+		fmt.Printf("worker %d started job %d\n", id, j)
+		results <- j * 2
+	}
+}
+
+func main() {
+	jobs := make(chan int, 100)
+	results := make(chan int, 100)
+
+	for w := 1; w <= 3; w++ {
+		go worker(w, jobs, results)
+	}
+
+	for j := 1; j <= 5; j++ {
+		jobs <- j
+	}
+	close(jobs)
+
+	for a := 1; a <= 5; a++ {
+		<-results
+	}
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2932,17 +3186,32 @@ const clean = input.replace(/<script>/g, '');
 ---
 
 <a id="q77"></a>
-### Q77: How do you debug Go memory leaks in distributed systems?
 
-**Difficulty**: Advanced
+### Q77: How do you use `iota` for enumerations?
 
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
+**Difficulty**: Beginner
 
-**Code Example**:
+**Strategy:**
+`iota` is a predeclared identifier representing the untyped integer ordinal number of the current const specification. It simplifies creating auto-incrementing constants.
+
+**Code Example:**
+
 ```go
-// Check listeners
-process.on('exit', () => cleanup());
+package main
+
+import "fmt"
+
+type Status int
+
+const (
+	Pending Status = iota // 0
+	Running               // 1
+	Failed                // 2
+)
+
+func main() {
+	fmt.Println(Running) // 1
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2950,17 +3219,25 @@ process.on('exit', () => cleanup());
 ---
 
 <a id="q78"></a>
-### Q78: Best practices for Go code organization in high-traffic sites?
+
+### Q78: What is Variable Shadowing and how to avoid it?
 
 **Difficulty**: Beginner
 
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+**Strategy:**
+It occurs when a variable in an inner scope has the same name as a variable in an outer scope, hiding the outer one. Use `go vet` or linters to detect it.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-// Single responsibility
-function doOneThing() { ... }
+func main() {
+	x := 10
+	if true {
+		x := 5 // Shadows outer x
+		print(x) // 5
+	}
+	print(x) // 10
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2968,19 +3245,30 @@ function doOneThing() { ... }
 ---
 
 <a id="q79"></a>
-### Q79: How do you implement Go error handling for embedded systems?
 
-**Difficulty**: Intermediate
+### Q79: What does a Slice Header look like internally?
 
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+**Difficulty**: Advanced
 
-**Code Example**:
+**Strategy:**
+A slice is a struct with three fields: a pointer to the underlying array, a length, and a capacity. Understanding this helps avoid memory leaks and performance issues.
+
+**Code Example:**
+
 ```go
-try {
-  await GoOperation();
-} catch (e) {
-  logger.error(e);
+package main
+
+import (
+	"fmt"
+	"reflect"
+	"unsafe"
+)
+
+func main() {
+	s := []int{1, 2, 3}
+	header := (*reflect.SliceHeader)(unsafe.Pointer(&s))
+	
+	fmt.Printf("Data: %x, Len: %d, Cap: %d\n", header.Data, header.Len, header.Cap)
 }
 ```
 
@@ -2989,18 +3277,34 @@ try {
 ---
 
 <a id="q80"></a>
-### Q80: How do you test Go functionality in production environments?
+
+### Q80: How do you recover from a panic?
 
 **Difficulty**: Intermediate
 
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
+**Strategy:**
+Use the `recover()` function inside a deferred function. It stops the panicking sequence and returns the error value passed to `panic()`.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-test('Go works', () => {
-  expect(Go()).toBe(true);
-});
+package main
+
+import "fmt"
+
+func safe() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Recovered from:", r)
+		}
+	}()
+	panic("boom")
+}
+
+func main() {
+	safe()
+	fmt.Println("Continued")
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3008,16 +3312,23 @@ test('Go works', () => {
 ---
 
 <a id="q81"></a>
-### Q81: How do you handle Go state management in large scale applications?
 
-**Difficulty**: Advanced
+### Q81: How do you implement the Middleware pattern in Go?
 
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+**Difficulty**: Intermediate
 
-**Code Example**:
+**Strategy:**
+Middleware wraps an `http.Handler` to perform pre- or post-processing (logging, auth) before calling the next handler.
+
+**Code Example:**
+
 ```go
-const [state, setState] = useState(initial);
+func loggingMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		log.Println(r.RequestURI)
+		next.ServeHTTP(w, r)
+	})
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3025,16 +3336,24 @@ const [state, setState] = useState(initial);
 ---
 
 <a id="q82"></a>
-### Q82: How do you perform Go data validation in microservices?
 
-**Difficulty**: Beginner
+### Q82: How do you customize JSON marshaling?
 
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+**Difficulty**: Intermediate
 
-**Code Example**:
+**Strategy:**
+Implement the `json.Marshaler` interface (`MarshalJSON()`) or `json.Unmarshaler` interface (`UnmarshalJSON()`) on your type.
+
+**Code Example:**
+
 ```go
-if (!schema.safeParse(data).success) throw Error('Invalid');
+type User struct {
+	Name string
+}
+
+func (u User) MarshalJSON() ([]byte, error) {
+	return []byte(`{"name": "Super ` + u.Name + `"}`), nil
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3042,18 +3361,29 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 ---
 
 <a id="q83"></a>
-### Q83: How do you automate Go deployment for mobile devices?
 
-**Difficulty**: Advanced
+### Q83: What is the difference between `time.Ticker` and `time.Timer`?
 
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Intermediate
 
-**Code Example**:
+**Strategy:**
+`Ticker` fires repeatedly at an interval (for periodic tasks). `Timer` fires once after a delay (for timeouts). Both must be stopped to release resources.
+
+**Code Example:**
+
 ```go
-steps:
-  - run: npm test
-  - run: docker build
+ticker := time.NewTicker(1 * time.Second)
+defer ticker.Stop()
+
+timer := time.NewTimer(5 * time.Second)
+defer timer.Stop()
+
+select {
+case <-ticker.C:
+	fmt.Println("Tick")
+case <-timer.C:
+	fmt.Println("Timeout")
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3061,18 +3391,24 @@ steps:
 ---
 
 <a id="q84"></a>
-### Q84: How do you handle Go concurrency issues in legacy systems?
+
+### Q84: How do you inspect types at runtime using `reflect`?
 
 **Difficulty**: Advanced
 
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Strategy:**
+The `reflect` package allows inspecting the type and value of objects at runtime. It's powerful but slow and unsafe; use sparingly.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-await mutex.runExclusive(async () => {
-  // critical section
-});
+import "reflect"
+
+func printType(i interface{}) {
+	t := reflect.TypeOf(i)
+	v := reflect.ValueOf(i)
+	fmt.Printf("Type: %s, Value: %v\n", t, v)
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3080,17 +3416,22 @@ await mutex.runExclusive(async () => {
 ---
 
 <a id="q85"></a>
-### Q85: How do you implement Go caching in cloud infrastructure?
 
-**Difficulty**: Intermediate
+### Q85: How do you bypass type safety with `unsafe`?
 
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Expert
 
-**Code Example**:
+**Strategy:**
+The `unsafe` package allows operations that bypass Go's type safety, like converting a pointer of one type to another. Essential for low-level optimizations but dangerous.
+
+**Code Example:**
+
 ```go
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+import "unsafe"
+
+func float64bits(f float64) uint64 {
+	return *(*uint64)(unsafe.Pointer(&f))
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3098,16 +3439,23 @@ if (cache.has(key)) return cache.get(key);
 ---
 
 <a id="q86"></a>
-### Q86: How do you manage Go configuration for real-time systems?
 
-**Difficulty**: Beginner
+### Q86: How do you use Build Tags?
 
-**Strategy**:
-Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Intermediate
 
-**Code Example**:
+**Strategy:**
+Build tags (constraints) control which files are included in the build. Add `//go:build tagname` at the top of the file.
+
+**Code Example:**
+
 ```go
-const config = process.env.CONFIG || 'default';
+//go:build linux
+package main
+
+func init() {
+	println("Linux build")
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3115,16 +3463,23 @@ const config = process.env.CONFIG || 'default';
 ---
 
 <a id="q87"></a>
-### Q87: How do you handle Go internationalization (i18n) in distributed systems?
+
+### Q87: What are the caveats of the `init()` function?
 
 **Difficulty**: Intermediate
 
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
+**Strategy:**
+`init()` runs before `main()`. It's hard to test, errors can't be handled gracefully (must panic), and order depends on import order. Avoid complex logic in `init()`.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-t('welcome_message')
+var db map[string]string
+
+func init() {
+	db = make(map[string]string)
+	// If DB connection fails here, we must panic
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3132,16 +3487,21 @@ t('welcome_message')
 ---
 
 <a id="q88"></a>
-### Q88: How do you ensure Go accessibility (a11y) in high-traffic sites?
 
-**Difficulty**: Beginner
+### Q88: How do you load Go plugins at runtime?
 
-**Strategy**:
-Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Advanced
 
-**Code Example**:
+**Strategy:**
+Use the `plugin` package to load shared libraries (`.so` files) built with `go build -buildmode=plugin`. Only works on Linux/macOS.
+
+**Code Example:**
+
 ```go
-<button aria-label="Close">X</button>
+p, _ := plugin.Open("myplugin.so")
+sym, _ := p.Lookup("MyFunction")
+myFunc := sym.(func())
+myFunc()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3149,16 +3509,19 @@ Use semantic HTML and ARIA roles. This concept is fundamental in this domain and
 ---
 
 <a id="q89"></a>
-### Q89: How do you optimize Go network requests in embedded systems?
 
-**Difficulty**: Advanced
+### Q89: How do you detect data races?
 
-**Strategy**:
-Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Intermediate
 
-**Code Example**:
-```go
-debounce(() => fetch(), 300);
+**Strategy:**
+Run your tests or application with the `-race` flag. It instruments memory accesses to detect unsynchronized concurrent access.
+
+**Code Example:**
+
+```bash
+go test -race ./...
+go run -race main.go
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3166,19 +3529,27 @@ debounce(() => fetch(), 300);
 ---
 
 <a id="q90"></a>
-### Q90: How do you handle Go performance optimization for production environments?
+
+### Q90: How can re-slicing cause memory leaks?
 
 **Difficulty**: Advanced
 
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
+**Strategy:**
+If you slice a small part of a large array and keep it, the entire underlying array stays in memory. Copy the data to a new slice to release the large array.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-const start = performance.now();
-// Go logic
-const end = performance.now();
-console.log('Time:', end - start);
+var small []byte
+
+func process(large []byte) {
+    // Bad: keeps 'large' in memory
+    // small = large[:10]
+
+    // Good: copies only what is needed
+    small = make([]byte, 10)
+    copy(small, large[:10])
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3186,17 +3557,23 @@ console.log('Time:', end - start);
 ---
 
 <a id="q91"></a>
-### Q91: What are the security implications of Go in large scale applications?
 
-**Difficulty**: Intermediate
+### Q91: When should you use `sync.Map`?
 
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
+**Difficulty**: Advanced
 
-**Code Example**:
+**Strategy:**
+Use `sync.Map` only for specific cases: cache implementations (stable keys) or disjoint sets of keys. For general use, a `map` with a `RWMutex` is faster and type-safe.
+
+**Code Example:**
+
 ```go
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
+var m sync.Map
+
+m.Store("key", "value")
+if v, ok := m.Load("key"); ok {
+	fmt.Println(v)
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3204,17 +3581,27 @@ const clean = input.replace(/<script>/g, '');
 ---
 
 <a id="q92"></a>
-### Q92: How do you debug Go memory leaks in microservices?
+
+### Q92: How do you suppress duplicate function calls with `singleflight`?
 
 **Difficulty**: Advanced
 
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
+**Strategy:**
+`golang.org/x/sync/singleflight` ensures that only one execution of a function happens for a given key at a time, sharing the result with all callers. Prevents cache stampedes.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-// Check listeners
-process.on('exit', () => cleanup());
+import "golang.org/x/sync/singleflight"
+
+var g singleflight.Group
+
+func getData(key string) (string, error) {
+	v, err, _ := g.Do(key, func() (interface{}, error) {
+		return fetchFromDB(key) // Expensive call
+	})
+	return v.(string), err
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3222,17 +3609,28 @@ process.on('exit', () => cleanup());
 ---
 
 <a id="q93"></a>
-### Q93: Best practices for Go code organization in mobile devices?
+
+### Q93: When should you use `crypto/rand` vs `math/rand`?
 
 **Difficulty**: Beginner
 
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
+**Strategy:**
+Use `math/rand` for simulations (fast, deterministic if seeded). Use `crypto/rand` for security (slow, cryptographically secure, OS entropy).
 
-**Code Example**:
+**Code Example:**
+
 ```go
-// Single responsibility
-function doOneThing() { ... }
+import (
+	cRand "crypto/rand"
+	mRand "math/rand"
+)
+
+// Secure
+b := make([]byte, 16)
+cRand.Read(b)
+
+// Fast
+n := mRand.Intn(100)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3240,19 +3638,23 @@ function doOneThing() { ... }
 ---
 
 <a id="q94"></a>
-### Q94: How do you implement Go error handling for legacy systems?
+
+### Q94: How do you handle NULL values in SQL databases?
 
 **Difficulty**: Intermediate
 
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
+**Strategy:**
+Use `sql.NullString`, `sql.NullInt64`, etc., or use pointers (`*string`) when scanning database rows.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-try {
-  await GoOperation();
-} catch (e) {
-  logger.error(e);
+var name sql.NullString
+row.Scan(&name)
+if name.Valid {
+	fmt.Println(name.String)
+} else {
+	fmt.Println("NULL")
 }
 ```
 
@@ -3261,18 +3663,23 @@ try {
 ---
 
 <a id="q95"></a>
-### Q95: How do you test Go functionality in cloud infrastructure?
+
+### Q95: How do you use Structured Logging (Go 1.21+)?
 
 **Difficulty**: Intermediate
 
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
+**Strategy:**
+Use the `log/slog` package. It provides high-performance, structured logging (JSON, Text) with levels and attributes.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-test('Go works', () => {
-  expect(Go()).toBe(true);
-});
+import "log/slog"
+
+func main() {
+	slog.Info("User logged in", "user_id", 42, "ip", "127.0.0.1")
+}
+// Output: time=... level=INFO msg="User logged in" user_id=42 ip=127.0.0.1
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3280,16 +3687,20 @@ test('Go works', () => {
 ---
 
 <a id="q96"></a>
-### Q96: How do you handle Go state management in real-time systems?
 
-**Difficulty**: Advanced
+### Q96: Why are `io.Reader` and `io.Writer` important?
 
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
+**Difficulty**: Beginner
 
-**Code Example**:
+**Strategy:**
+They are the fundamental abstractions for I/O in Go. By implementing them, your types can work with files, network connections, buffers, and compressors seamlessly.
+
+**Code Example:**
+
 ```go
-const [state, setState] = useState(initial);
+func Stream(r io.Reader, w io.Writer) {
+	io.Copy(w, r)
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3297,16 +3708,24 @@ const [state, setState] = useState(initial);
 ---
 
 <a id="q97"></a>
-### Q97: How do you perform Go data validation in distributed systems?
+
+### Q97: How do you read a file line by line?
 
 **Difficulty**: Beginner
 
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
+**Strategy:**
+Use `bufio.Scanner`. It's efficient and handles buffering automatically.
 
-**Code Example**:
+**Code Example:**
+
 ```go
-if (!schema.safeParse(data).success) throw Error('Invalid');
+f, _ := os.Open("file.txt")
+defer f.Close()
+
+scanner := bufio.NewScanner(f)
+for scanner.Scan() {
+	fmt.Println(scanner.Text())
+}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3314,18 +3733,20 @@ if (!schema.safeParse(data).success) throw Error('Invalid');
 ---
 
 <a id="q98"></a>
-### Q98: How do you automate Go deployment for high-traffic sites?
 
-**Difficulty**: Advanced
+### Q98: How do you run external commands safely?
 
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Intermediate
 
-**Code Example**:
+**Strategy:**
+Use `os/exec`. Avoid passing raw strings to shell; pass arguments as a slice to prevent injection.
+
+**Code Example:**
+
 ```go
-steps:
-  - run: npm test
-  - run: docker build
+cmd := exec.Command("grep", "hello", "file.txt")
+out, _ := cmd.Output()
+fmt.Println(string(out))
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3333,18 +3754,23 @@ steps:
 ---
 
 <a id="q99"></a>
-### Q99: How do you handle Go concurrency issues in embedded systems?
 
-**Difficulty**: Advanced
+### Q99: How do you traverse a directory tree?
 
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Intermediate
 
-**Code Example**:
+**Strategy:**
+Use `filepath.WalkDir` (more efficient than `Walk`). It streams directory entries.
+
+**Code Example:**
+
 ```go
-await mutex.runExclusive(async () => {
-  // critical section
-});
+filepath.WalkDir(".", func(path string, d fs.DirEntry, err error) error {
+	if !d.IsDir() {
+		fmt.Println("File:", path)
+	}
+	return nil
+})
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -3352,19 +3778,20 @@ await mutex.runExclusive(async () => {
 ---
 
 <a id="q100"></a>
-### Q100: How do you implement Go caching in production environments?
 
-**Difficulty**: Intermediate
+### Q100: What are Go Proverbs?
 
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Difficulty**: Beginner
 
-**Code Example**:
+**Strategy:**
+Rob Pike's proverbs capture the essence of Go design. Examples: "Don't communicate by sharing memory, share memory by communicating.", "Concurrency is not parallelism."
+
+**Code Example:**
+
 ```go
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
+// Just a concept
+fmt.Println("Errors are values.")
+fmt.Println("A little copying is better than a little dependency.")
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
