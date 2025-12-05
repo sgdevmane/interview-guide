@@ -2,7 +2,7 @@
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
     <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/devops-icon.svg" alt="Interview Guide Logo" width="100" height="100">
   </a>
-  <h1>Microservices Interview Questions</h1>
+  <h1>Microservices Interview Questions & Answers</h1>
   <p><b>Practical, code-focused questions for developers</b></p>
 </div>
 
@@ -10,106 +10,123 @@
 
 ## Table of Contents
 
-1. [What is Microservices Architecture?](#q1-what-is-microservices-architecture) <span class="beginner">Beginner</span>
-2. [Benefits of Microservices?](#q2-benefits-of-microservices) <span class="beginner">Beginner</span>
-3. [Drawbacks of Microservices?](#q3-drawbacks-of-microservices) <span class="beginner">Beginner</span>
-4. [What is API Gateway?](#q4-what-is-api-gateway) <span class="intermediate">Intermediate</span>
-5. [What is Service Discovery?](#q5-what-is-service-discovery) <span class="intermediate">Intermediate</span>
-6. [Client-side vs Server-side Discovery?](#q6-client-side-vs-server-side-discovery) <span class="advanced">Advanced</span>
-7. [What is Circuit Breaker Pattern?](#q7-what-is-circuit-breaker-pattern) <span class="intermediate">Intermediate</span>
-8. [What is Bulkhead Pattern?](#q8-what-is-bulkhead-pattern) <span class="advanced">Advanced</span>
-9. [What is Saga Pattern?](#q9-what-is-saga-pattern) <span class="advanced">Advanced</span>
-10. [Choreography vs Orchestration?](#q10-choreography-vs-orchestration) <span class="advanced">Advanced</span>
-11. [What is Event Sourcing?](#q11-what-is-event-sourcing) <span class="advanced">Advanced</span>
-12. [What is CQRS?](#q12-what-is-cqrs) <span class="advanced">Advanced</span>
-13. [How do you handle Authentication?](#q13-how-do-you-handle-authentication) <span class="intermediate">Intermediate</span>
-14. [What is Distributed Tracing?](#q14-what-is-distributed-tracing) <span class="intermediate">Intermediate</span>
-15. [What is Centralized Logging?](#q15-what-is-centralized-logging) <span class="intermediate">Intermediate</span>
-16. [Idempotency in Microservices?](#q16-idempotency-in-microservices) <span class="intermediate">Intermediate</span>
-17. [How do you handle inter-service communication?](#q17-how-do-you-handle-inter-service-communication) <span class="beginner">Beginner</span>
-18. [What is gRPC?](#q18-what-is-grpc) <span class="intermediate">Intermediate</span>
-19. [REST vs gRPC?](#q19-rest-vs-grpc) <span class="intermediate">Intermediate</span>
-20. [What is a Message Broker?](#q20-what-is-a-message-broker) <span class="beginner">Beginner</span>
-21. [Kafka vs RabbitMQ?](#q21-kafka-vs-rabbitmq) <span class="advanced">Advanced</span>
-22. [What is API Composition?](#q22-what-is-api-composition) <span class="intermediate">Intermediate</span>
-23. [What is Database per Service?](#q23-what-is-database-per-service) <span class="intermediate">Intermediate</span>
-24. [What is Shared Database antipattern?](#q24-what-is-shared-database-antipattern) <span class="intermediate">Intermediate</span>
-25. [How do you handle data consistency?](#q25-how-do-you-handle-data-consistency) <span class="advanced">Advanced</span>
-26. [What is CAP Theorem?](#q26-what-is-cap-theorem) <span class="intermediate">Intermediate</span>
-27. [What is 12-Factor App?](#q27-what-is-12-factor-app) <span class="intermediate">Intermediate</span>
-28. [How do you version APIs?](#q28-how-do-you-version-apis) <span class="beginner">Beginner</span>
-29. [What is Consumer Driven Contracts?](#q29-what-is-consumer-driven-contracts) <span class="advanced">Advanced</span>
-30. [What is Chaos Engineering?](#q30-what-is-chaos-engineering) <span class="advanced">Advanced</span>
-31. [What is Blue/Green Deployment?](#q31-what-is-blue-green-deployment) <span class="intermediate">Intermediate</span>
-32. [What is Canary Release?](#q32-what-is-canary-release) <span class="intermediate">Intermediate</span>
-33. [What is Strangler Fig Pattern?](#q33-what-is-strangler-fig-pattern) <span class="advanced">Advanced</span>
-34. [What is BFF (Backend for Frontend)?](#q34-what-is-bff-backend-for-frontend) <span class="intermediate">Intermediate</span>
-35. [What is Sidecar Pattern?](#q35-what-is-sidecar-pattern) <span class="intermediate">Intermediate</span>
-36. [What is Service Mesh?](#q36-what-is-service-mesh) <span class="advanced">Advanced</span>
-37. [How to prevent cascading failures?](#q37-how-to-prevent-cascading-failures) <span class="intermediate">Intermediate</span>
-38. [What is Rate Limiting?](#q38-what-is-rate-limiting) <span class="beginner">Beginner</span>
-39. [What is Throttling?](#q39-what-is-throttling) <span class="beginner">Beginner</span>
-40. [Stateless vs Stateful services?](#q40-stateless-vs-stateful-services) <span class="beginner">Beginner</span>
-41. [How do you test Microservices?](#q41-how-do-you-test-microservices) <span class="intermediate">Intermediate</span>
-42. [What is Containerization?](#q42-what-is-containerization) <span class="beginner">Beginner</span>
-43. [What is Orchestration?](#q43-what-is-orchestration) <span class="beginner">Beginner</span>
-44. [How to secure microservices?](#q44-how-to-secure-microservices) <span class="intermediate">Intermediate</span>
-45. [What is OAuth2?](#q45-what-is-oauth2) <span class="intermediate">Intermediate</span>
-46. [What is OpenID Connect (OIDC)?](#q46-what-is-openid-connect-oidc) <span class="intermediate">Intermediate</span>
-47. [What is JWT?](#q47-what-is-jwt) <span class="beginner">Beginner</span>
-48. [Synchronous vs Asynchronous?](#q48-synchronous-vs-asynchronous) <span class="beginner">Beginner</span>
-49. [What is Two-Phase Commit (2PC)?](#q49-what-is-two-phase-commit-2pc) <span class="advanced">Advanced</span>
-50. [Why avoid 2PC in Microservices?](#q50-why-avoid-2pc-in-microservices) <span class="advanced">Advanced</span>
-51. [What is Dead Letter Queue (DLQ)?](#q51-what-is-dead-letter-queue-dlq) <span class="intermediate">Intermediate</span>
-52. [What is a Competing Consumers pattern?](#q52-what-is-a-competing-consumers-pattern) <span class="intermediate">Intermediate</span>
-53. [What is Fan-out?](#q53-what-is-fan-out) <span class="intermediate">Intermediate</span>
-54. [What is Polyglot Persistence?](#q54-what-is-polyglot-persistence) <span class="intermediate">Intermediate</span>
-55. [What is Domain Driven Design (DDD)?](#q55-what-is-domain-driven-design-ddd) <span class="advanced">Advanced</span>
-56. [What is a Bounded Context?](#q56-what-is-a-bounded-context) <span class="advanced">Advanced</span>
-57. [What is an Aggregate?](#q57-what-is-an-aggregate) <span class="advanced">Advanced</span>
-58. [What is Anti-Corruption Layer?](#q58-what-is-anti-corruption-layer) <span class="advanced">Advanced</span>
-59. [What is Semantic Versioning?](#q59-what-is-semantic-versioning) <span class="beginner">Beginner</span>
-60. [What is Continuous Integration (CI)?](#q60-what-is-continuous-integration-ci) <span class="beginner">Beginner</span>
-61. [What is Continuous Deployment (CD)?](#q61-what-is-continuous-deployment-cd) <span class="beginner">Beginner</span>
-62. [What is Infrastructure as Code (IaC)?](#q62-what-is-infrastructure-as-code-iac) <span class="intermediate">Intermediate</span>
-63. [What is Immutable Infrastructure?](#q63-what-is-immutable-infrastructure) <span class="intermediate">Intermediate</span>
-64. [What is Serverless?](#q64-what-is-serverless) <span class="intermediate">Intermediate</span>
-65. [Microservices vs Serverless?](#q65-microservices-vs-serverless) <span class="intermediate">Intermediate</span>
-66. [What is Cold Start?](#q66-what-is-cold-start) <span class="intermediate">Intermediate</span>
-67. [How to handle distributed locking?](#q67-how-to-handle-distributed-locking) <span class="advanced">Advanced</span>
-68. [What is Leader Election?](#q68-what-is-leader-election) <span class="advanced">Advanced</span>
-69. [What is Sharding?](#q69-what-is-sharding) <span class="advanced">Advanced</span>
-70. [What is Replication?](#q70-what-is-replication) <span class="intermediate">Intermediate</span>
-71. [What is Auto-scaling?](#q71-what-is-auto-scaling) <span class="beginner">Beginner</span>
-72. [What is Log Aggregation?](#q72-what-is-log-aggregation) <span class="intermediate">Intermediate</span>
-73. [What is Monitoring vs Observability?](#q73-what-is-monitoring-vs-observability) <span class="advanced">Advanced</span>
-74. [What is Alerting?](#q74-what-is-alerting) <span class="beginner">Beginner</span>
-75. [What is a Health Check?](#q75-what-is-a-health-check) <span class="beginner">Beginner</span>
-76. [What is Graceful Shutdown?](#q76-what-is-graceful-shutdown) <span class="intermediate">Intermediate</span>
-77. [What is Retry Pattern?](#q77-what-is-retry-pattern) <span class="beginner">Beginner</span>
-78. [What is Exponential Backoff?](#q78-what-is-exponential-backoff) <span class="intermediate">Intermediate</span>
-79. [What is Jitter?](#q79-what-is-jitter) <span class="advanced">Advanced</span>
-80. [What is load shedding?](#q80-what-is-load-shedding) <span class="advanced">Advanced</span>
-81. [What is a Reverse Proxy?](#q81-what-is-a-reverse-proxy) <span class="beginner">Beginner</span>
-82. [What is a Forward Proxy?](#q82-what-is-a-forward-proxy) <span class="beginner">Beginner</span>
-83. [What is Sticky Sessions?](#q83-what-is-sticky-sessions) <span class="intermediate">Intermediate</span>
-84. [Why avoid Sticky Sessions?](#q84-why-avoid-sticky-sessions) <span class="intermediate">Intermediate</span>
-85. [What is Shadow Deployment?](#q85-what-is-shadow-deployment) <span class="advanced">Advanced</span>
-86. [What is Feature Flag?](#q86-what-is-feature-flag) <span class="beginner">Beginner</span>
+1. [What is Microservices Architecture?](#q1) <span class="beginner">Beginner</span>
+2. [Benefits of Microservices?](#q2) <span class="beginner">Beginner</span>
+3. [Drawbacks of Microservices?](#q3) <span class="beginner">Beginner</span>
+4. [What is an API Gateway?](#q4) <span class="intermediate">Intermediate</span>
+5. [What is Service Discovery?](#q5) <span class="intermediate">Intermediate</span>
+6. [Client-side vs Server-side Discovery?](#q6) <span class="advanced">Advanced</span>
+7. [What is Circuit Breaker Pattern?](#q7) <span class="intermediate">Intermediate</span>
+8. [What is Bulkhead Pattern?](#q8) <span class="advanced">Advanced</span>
+9. [What is Saga Pattern?](#q9) <span class="advanced">Advanced</span>
+10. [Choreography vs Orchestration?](#q10) <span class="advanced">Advanced</span>
+11. [What is Event Sourcing?](#q11) <span class="advanced">Advanced</span>
+12. [What is CQRS?](#q12) <span class="advanced">Advanced</span>
+13. [How do you handle Authentication?](#q13) <span class="intermediate">Intermediate</span>
+14. [What is Distributed Tracing?](#q14) <span class="intermediate">Intermediate</span>
+15. [What is Centralized Logging?](#q15) <span class="intermediate">Intermediate</span>
+16. [Idempotency in Microservices?](#q16) <span class="intermediate">Intermediate</span>
+17. [Inter-service Communication Styles?](#q17) <span class="beginner">Beginner</span>
+18. [What is gRPC?](#q18) <span class="intermediate">Intermediate</span>
+19. [REST vs gRPC?](#q19) <span class="intermediate">Intermediate</span>
+20. [What is a Message Broker?](#q20) <span class="beginner">Beginner</span>
+21. [Kafka vs RabbitMQ?](#q21) <span class="advanced">Advanced</span>
+22. [What is API Composition?](#q22) <span class="intermediate">Intermediate</span>
+23. [What is Database per Service?](#q23) <span class="intermediate">Intermediate</span>
+24. [What is Shared Database Antipattern?](#q24) <span class="intermediate">Intermediate</span>
+25. [How do you handle Data Consistency?](#q25) <span class="advanced">Advanced</span>
+26. [What is CAP Theorem?](#q26) <span class="intermediate">Intermediate</span>
+27. [What is 12-Factor App?](#q27) <span class="intermediate">Intermediate</span>
+28. [How do you version APIs?](#q28) <span class="beginner">Beginner</span>
+29. [What is Consumer Driven Contracts (CDC)?](#q29) <span class="advanced">Advanced</span>
+30. [What is Chaos Engineering?](#q30) <span class="advanced">Advanced</span>
+31. [Blue-Green Deployment?](#q31) <span class="intermediate">Intermediate</span>
+32. [Canary Release?](#q32) <span class="intermediate">Intermediate</span>
+33. [Strangler Fig Pattern?](#q33) <span class="advanced">Advanced</span>
+34. [What is BFF (Backend for Frontend)?](#q34) <span class="intermediate">Intermediate</span>
+35. [What is Sidecar Pattern?](#q35) <span class="intermediate">Intermediate</span>
+36. [What is Service Mesh?](#q36) <span class="advanced">Advanced</span>
+37. [How to prevent Cascading Failures?](#q37) <span class="intermediate">Intermediate</span>
+38. [What is Rate Limiting?](#q38) <span class="beginner">Beginner</span>
+39. [What is Throttling?](#q39) <span class="beginner">Beginner</span>
+40. [Stateless vs Stateful Services?](#q40) <span class="beginner">Beginner</span>
+41. [Testing Strategies in Microservices?](#q41) <span class="intermediate">Intermediate</span>
+42. [What is Containerization (Docker)?](#q42) <span class="beginner">Beginner</span>
+43. [What is Orchestration (Kubernetes)?](#q43) <span class="beginner">Beginner</span>
+44. [How to secure Microservices?](#q44) <span class="intermediate">Intermediate</span>
+45. [OAuth2 Flows?](#q45) <span class="intermediate">Intermediate</span>
+46. [What is OIDC (OpenID Connect)?](#q46) <span class="intermediate">Intermediate</span>
+47. [What is JWT (JSON Web Token)?](#q47) <span class="beginner">Beginner</span>
+48. [Synchronous vs Asynchronous (Deep Dive)?](#q48) <span class="intermediate">Intermediate</span>
+49. [What is Two-Phase Commit (2PC)?](#q49) <span class="advanced">Advanced</span>
+50. [Why avoid 2PC in Microservices?](#q50) <span class="advanced">Advanced</span>
+51. [What is Dead Letter Queue (DLQ)?](#q51) <span class="intermediate">Intermediate</span>
+52. [Competing Consumers Pattern?](#q52) <span class="intermediate">Intermediate</span>
+53. [What is Fan-out?](#q53) <span class="intermediate">Intermediate</span>
+54. [What is Polyglot Persistence?](#q54) <span class="intermediate">Intermediate</span>
+55. [What is Domain Driven Design (DDD)?](#q55) <span class="advanced">Advanced</span>
+56. [What is a Bounded Context?](#q56) <span class="advanced">Advanced</span>
+57. [What is an Aggregate?](#q57) <span class="advanced">Advanced</span>
+58. [What is Anti-Corruption Layer?](#q58) <span class="advanced">Advanced</span>
+59. [What is Semantic Versioning?](#q59) <span class="beginner">Beginner</span>
+60. [What is Continuous Integration (CI)?](#q60) <span class="beginner">Beginner</span>
+61. [What is Continuous Deployment (CD)?](#q61) <span class="beginner">Beginner</span>
+62. [What is Infrastructure as Code (IaC)?](#q62) <span class="intermediate">Intermediate</span>
+63. [What is Immutable Infrastructure?](#q63) <span class="intermediate">Intermediate</span>
+64. [What is Serverless?](#q64) <span class="intermediate">Intermediate</span>
+65. [Microservices vs Serverless?](#q65) <span class="intermediate">Intermediate</span>
+66. [What is Cold Start?](#q66) <span class="intermediate">Intermediate</span>
+67. [How to handle Distributed Locking?](#q67) <span class="advanced">Advanced</span>
+68. [What is Leader Election?](#q68) <span class="advanced">Advanced</span>
+69. [What is Sharding?](#q69) <span class="advanced">Advanced</span>
+70. [What is Replication?](#q70) <span class="intermediate">Intermediate</span>
+71. [What is Auto-scaling?](#q71) <span class="beginner">Beginner</span>
+72. [What is Log Aggregation?](#q72) <span class="intermediate">Intermediate</span>
+73. [Monitoring vs Observability?](#q73) <span class="advanced">Advanced</span>
+74. [What is Alerting?](#q74) <span class="beginner">Beginner</span>
+75. [What is a Health Check?](#q75) <span class="beginner">Beginner</span>
+76. [What is Graceful Shutdown?](#q76) <span class="intermediate">Intermediate</span>
+77. [What is Retry Pattern?](#q77) <span class="beginner">Beginner</span>
+78. [What is Exponential Backoff?](#q78) <span class="intermediate">Intermediate</span>
+79. [What is Jitter?](#q79) <span class="advanced">Advanced</span>
+80. [What is Load Shedding?](#q80) <span class="advanced">Advanced</span>
+81. [What is a Reverse Proxy?](#q81) <span class="beginner">Beginner</span>
+82. [What is a Forward Proxy?](#q82) <span class="beginner">Beginner</span>
+83. [What is Sticky Sessions?](#q83) <span class="intermediate">Intermediate</span>
+84. [Why avoid Sticky Sessions?](#q84) <span class="intermediate">Intermediate</span>
+85. [What is Shadow Deployment?](#q85) <span class="advanced">Advanced</span>
+86. [What is Feature Flag?](#q86) <span class="beginner">Beginner</span>
+87. [What is GitOps?](#q87) <span class="intermediate">Intermediate</span>
+88. [What is Helm?](#q88) <span class="intermediate">Intermediate</span>
+89. [What is a Pod (K8s)?](#q89) <span class="beginner">Beginner</span>
+90. [What is a Namespace?](#q90) <span class="beginner">Beginner</span>
+91. [ConfigMaps vs Secrets?](#q91) <span class="intermediate">Intermediate</span>
+92. [What is StatefulSet?](#q92) <span class="intermediate">Intermediate</span>
+93. [What is DaemonSet?](#q93) <span class="intermediate">Intermediate</span>
+94. [What is Ingress Controller?](#q94) <span class="intermediate">Intermediate</span>
+95. [What is Persistent Volume (PV)?](#q95) <span class="intermediate">Intermediate</span>
+96. [Service Types (ClusterIP, NodePort, LB)?](#q96) <span class="intermediate">Intermediate</span>
+97. [Horizontal Pod Autoscaler (HPA)?](#q97) <span class="intermediate">Intermediate</span>
+98. [Vertical Pod Autoscaler (VPA)?](#q98) <span class="intermediate">Intermediate</span>
+99. [Cluster Autoscaler?](#q99) <span class="intermediate">Intermediate</span>
+100. [Multi-Tenancy in Microservices?](#q100) <span class="advanced">Advanced</span>
+101. [SOA vs Microservices?](#q101) <span class="intermediate">Intermediate</span>
 
 ---
 
 <a id="q1"></a>
+
 ### Q1: What is Microservices Architecture?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Microservices architecture is a design approach where a single application is composed of many loosely coupled and independently deployable smaller services. Each service runs in its own process and communicates with lightweight mechanisms, often an HTTP resource API.
+A style of structuring an application as a collection of small, autonomous services, modeled around a business domain.
 
 **Code Example**:
-```yaml
-# Monolith vs Microservices
+```text
+Monolith: [UI + Logic + DB]
+Microservices: [Service A] <-> [Service B]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -117,16 +134,18 @@ Microservices architecture is a design approach where a single application is co
 ---
 
 <a id="q2"></a>
+
 ### Q2: Benefits of Microservices?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Scalability, independent deployment, tech diversity.
+Independent scaling, technology diversity (polyglot), fault isolation, faster time-to-market (independent deployment).
 
 **Code Example**:
-```yaml
-# Agile teams
+```text
+Team A -> Java -> Deploy
+Team B -> Node.js -> Deploy
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -134,16 +153,17 @@ Scalability, independent deployment, tech diversity.
 ---
 
 <a id="q3"></a>
+
 ### Q3: Drawbacks of Microservices?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Complexity, network latency, distributed data consistency.
+Complexity (distributed system), network latency, data consistency (eventual), operational overhead (DevOps).
 
 **Code Example**:
-```yaml
-# Ops overhead
+```text
+Trace: Service A -> B -> C (Debugging is hard)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -151,16 +171,17 @@ Complexity, network latency, distributed data consistency.
 ---
 
 <a id="q4"></a>
-### Q4: What is API Gateway?
+
+### Q4: What is an API Gateway?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-An API Gateway acts as a reverse proxy to accept all application programming interface (API) calls, aggregate the various services required to fulfill them, and return the appropriate result. It handles cross-cutting concerns like authentication, SSL termination, and rate limiting.
+A server that acts as an entry point for clients. Handles routing, composition, auth, rate limiting, and caching.
 
 **Code Example**:
-```yaml
-path: /api/users -> User Service
+```text
+Client -> API Gateway -> [Service A, Service B]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -168,16 +189,17 @@ path: /api/users -> User Service
 ---
 
 <a id="q5"></a>
+
 ### Q5: What is Service Discovery?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Service discovery is the process of automatically detecting devices and services on a network. In microservices, it allows services to find and communicate with each other without hardcoding hostnames and ports. Tools like Consul, Eureka, or Kubernetes DNS are used.
+Mechanism for services to find each other's dynamic IP addresses. Uses a Service Registry (e.g., Consul, Eureka).
 
 **Code Example**:
-```yaml
-# Consul, Eureka, K8s DNS
+```text
+Service A -> Registry (Get B's IP) -> Service B
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -185,16 +207,18 @@ Service discovery is the process of automatically detecting devices and services
 ---
 
 <a id="q6"></a>
+
 ### Q6: Client-side vs Server-side Discovery?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Client queries registry vs LB queries registry. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Client-side: Client queries registry (Netflix Ribbon). Server-side: Client calls LB, LB queries registry (AWS ELB, K8s Service).
 
 **Code Example**:
-```yaml
-# Netflix Ribbon vs AWS ELB
+```text
+Client -> Registry -> Service (Client-side)
+Client -> Load Balancer -> Service (Server-side)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -202,16 +226,17 @@ Client queries registry vs LB queries registry. This concept is fundamental in t
 ---
 
 <a id="q7"></a>
+
 ### Q7: What is Circuit Breaker Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-The Circuit Breaker pattern prevents an application from repeatedly trying to execute an operation that's likely to fail. It allows your application to fail fast and gracefully without waiting for TCP connection timeouts, preventing cascading failures across the system.
+Prevents cascading failures. If a service fails repeatedly, the circuit 'opens' and returns error instantly without calling the service.
 
 **Code Example**:
-```yaml
-if (failures > 5) openCircuit()
+```text
+if (failures > threshold) open_circuit();
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -219,16 +244,18 @@ if (failures > 5) openCircuit()
 ---
 
 <a id="q8"></a>
+
 ### Q8: What is Bulkhead Pattern?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Isolate resources so one failure doesn't crash whole system.
+Isolating resources (thread pools) so that failure in one part doesn't take down the whole system.
 
 **Code Example**:
-```yaml
-# Separate thread pools
+```text
+ThreadPool A (Service A)
+ThreadPool B (Service B)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -236,16 +263,18 @@ Isolate resources so one failure doesn't crash whole system.
 ---
 
 <a id="q9"></a>
+
 ### Q9: What is Saga Pattern?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-A Saga is a sequence of local transactions. Each local transaction updates the database and publishes a message or event to trigger the next local transaction in the saga. If a local transaction fails because it violates a business rule then the saga executes a series of compensating transactions that undo the changes that were made by the preceding local transactions.
+Managing distributed transactions. Sequence of local transactions. If one fails, execute compensating transactions to undo.
 
 **Code Example**:
-```yaml
-# Choreography vs Orchestration
+```text
+Order -> Payment -> Stock
+If Stock fails -> Refund Payment -> Cancel Order
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -253,16 +282,18 @@ A Saga is a sequence of local transactions. Each local transaction updates the d
 ---
 
 <a id="q10"></a>
+
 ### Q10: Choreography vs Orchestration?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Choreography: Events (Event Bus). Orchestration: Central controller.
+Choreography: Decentralized, event-driven (Kafka). Orchestration: Centralized controller tells services what to do (Camunda).
 
 **Code Example**:
-```yaml
-# Kafka events vs Camunda
+```text
+Choreography: A emits event, B listens.
+Orchestration: Manager calls A, then B.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -270,16 +301,18 @@ Choreography: Events (Event Bus). Orchestration: Central controller.
 ---
 
 <a id="q11"></a>
+
 ### Q11: What is Event Sourcing?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Event Sourcing ensures that all changes to application state are stored as a sequence of events. We can query these events, we can use them to reconstruct past states, and as a foundation to automatically adjust the state to cope with retroactive changes.
+Storing state as a sequence of events rather than current state. Allows time-travel debugging and audit logs.
 
 **Code Example**:
-```yaml
-events: [Created, Updated, Deleted]
+```text
+Events: [Created, Deposited $10, Withdrawn $5]
+State: $5
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -287,16 +320,17 @@ events: [Created, Updated, Deleted]
 ---
 
 <a id="q12"></a>
+
 ### Q12: What is CQRS?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-CQRS stands for Command Query Responsibility Segregation. It's a pattern that separates read and update operations for a data store. Implementing CQRS in your application can maximize its performance, scalability, and security.
+Command Query Responsibility Segregation. Separate models for Write (Command) and Read (Query). Optimizes performance.
 
 **Code Example**:
-```yaml
-Write DB -> Sync -> Read DB
+```text
+Write DB (Normalized) -> Sync -> Read DB (Denormalized)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -304,16 +338,17 @@ Write DB -> Sync -> Read DB
 ---
 
 <a id="q13"></a>
+
 ### Q13: How do you handle Authentication?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Central Auth Service + JWT. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Centralized Identity Provider (IdP). Use OAuth2/OIDC. Pass JWT tokens between services.
 
 **Code Example**:
-```yaml
-Authorization: Bearer <token>
+```text
+Header: Authorization: Bearer <JWT>
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -321,16 +356,17 @@ Authorization: Bearer <token>
 ---
 
 <a id="q14"></a>
+
 ### Q14: What is Distributed Tracing?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Tracking requests across services. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Tracking requests across microservices. Assign a Trace ID at ingress and propagate it. Tools: Jaeger, Zipkin.
 
 **Code Example**:
-```yaml
-# Jaeger, Zipkin (TraceID)
+```text
+X-Trace-ID: abc-123
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -338,16 +374,17 @@ Tracking requests across services. This concept is fundamental in this domain an
 ---
 
 <a id="q15"></a>
+
 ### Q15: What is Centralized Logging?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Aggregating logs from all services. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Aggregating logs from all services into one place for searching. ELK Stack (Elasticsearch, Logstash, Kibana).
 
 **Code Example**:
-```yaml
-# ELK Stack
+```text
+Service -> Fluentd -> Elasticsearch -> Kibana
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -355,16 +392,17 @@ Aggregating logs from all services. This concept is fundamental in this domain a
 ---
 
 <a id="q16"></a>
+
 ### Q16: Idempotency in Microservices?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Retry safe operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Ensuring replaying a request doesn't change state twice. Use Idempotency Keys.
 
 **Code Example**:
-```yaml
-Header: Idempotency-Key
+```text
+if (processed(key)) return saved_response;
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -372,16 +410,18 @@ Header: Idempotency-Key
 ---
 
 <a id="q17"></a>
-### Q17: How do you handle inter-service communication?
+
+### Q17: Inter-service Communication Styles?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Sync (REST/gRPC) vs Async (Message Queue). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Synchronous (HTTP/REST, gRPC) vs Asynchronous (Message Queues, Pub/Sub).
 
 **Code Example**:
-```yaml
-# HTTP vs RabbitMQ
+```text
+Sync: A waits for B.
+Async: A sends message, B processes later.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -389,16 +429,17 @@ Sync (REST/gRPC) vs Async (Message Queue). This concept is fundamental in this d
 ---
 
 <a id="q18"></a>
+
 ### Q18: What is gRPC?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-High performance RPC framework using Protobuf. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+High-performance RPC framework. Uses Protobuf (binary) and HTTP/2. Strongly typed.
 
 **Code Example**:
-```yaml
-service Greeter { rpc SayHello... }
+```text
+service Greeter { rpc SayHello (HelloRequest) returns (HelloReply) {} }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -406,16 +447,18 @@ service Greeter { rpc SayHello... }
 ---
 
 <a id="q19"></a>
+
 ### Q19: REST vs gRPC?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-REST: Text (JSON), Browser friendly. gRPC: Binary, Faster.
+REST: Text (JSON), HTTP/1.1, human readable. gRPC: Binary (Protobuf), HTTP/2, faster, strict contracts.
 
 **Code Example**:
-```yaml
-# gRPC for internal comms
+```text
+REST: GET /users/1
+gRPC: GetUser(id=1)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -423,16 +466,17 @@ REST: Text (JSON), Browser friendly. gRPC: Binary, Faster.
 ---
 
 <a id="q20"></a>
+
 ### Q20: What is a Message Broker?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Intermediary for messages. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Intermediary that translates messages between sender and receiver. Decouples services. Examples: RabbitMQ, Kafka.
 
 **Code Example**:
-```yaml
-# RabbitMQ, Kafka, ActiveMQ
+```text
+Producer -> Broker -> Consumer
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -440,16 +484,18 @@ Intermediary for messages. This concept is fundamental in this domain and unders
 ---
 
 <a id="q21"></a>
+
 ### Q21: Kafka vs RabbitMQ?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Kafka: Log stream (replayable). RabbitMQ: Queue (transient).
+Kafka: Log-based, high throughput, replayable, persistent. RabbitMQ: Queue-based, complex routing, ack/nack, transient.
 
 **Code Example**:
-```yaml
-# Kafka for event sourcing
+```text
+Kafka: Stream processing.
+RabbitMQ: Task queue.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -457,16 +503,17 @@ Kafka: Log stream (replayable). RabbitMQ: Queue (transient).
 ---
 
 <a id="q22"></a>
+
 ### Q22: What is API Composition?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Gateway aggregates results from multiple services.
+API Gateway or specific service queries multiple services and combines results.
 
 **Code Example**:
-```yaml
-{ user, orders, payments }
+```text
+Composite = UserDetails + Orders + Reviews
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -474,16 +521,18 @@ Gateway aggregates results from multiple services.
 ---
 
 <a id="q23"></a>
+
 ### Q23: What is Database per Service?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Each service owns its DB. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Each service has its own private database. Ensures loose coupling. Data accessible only via API.
 
 **Code Example**:
-```yaml
-# Decoupling data
+```text
+Service A -> DB A
+Service B -> DB B
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -491,16 +540,17 @@ Each service owns its DB. This concept is fundamental in this domain and underst
 ---
 
 <a id="q24"></a>
-### Q24: What is Shared Database antipattern?
+
+### Q24: What is Shared Database Antipattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Services sharing DB creates coupling. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Multiple services accessing the same DB. Leads to tight coupling and performance bottlenecks.
 
 **Code Example**:
-```yaml
-# Avoid if possible
+```text
+Service A -> DB <- Service B (Avoid)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -508,16 +558,17 @@ Services sharing DB creates coupling. This concept is fundamental in this domain
 ---
 
 <a id="q25"></a>
-### Q25: How do you handle data consistency?
+
+### Q25: How do you handle Data Consistency?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Eventual consistency. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Embrace Eventual Consistency. Use Sagas for distributed transactions. 2PC is rarely used.
 
 **Code Example**:
-```yaml
-# BASE vs ACID
+```text
+Update A -> Publish Event -> Update B
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -525,16 +576,18 @@ Eventual consistency. This concept is fundamental in this domain and understandi
 ---
 
 <a id="q26"></a>
+
 ### Q26: What is CAP Theorem?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Consistency, Availability, Partition Tolerance. Pick 2.
+Choose 2: Consistency, Availability, Partition Tolerance. Microservices usually choose AP (Availability + Partition Tolerance).
 
 **Code Example**:
-```yaml
-# Microservices usually AP
+```text
+CP: MongoDB (default)
+AP: Cassandra
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -542,16 +595,18 @@ Consistency, Availability, Partition Tolerance. Pick 2.
 ---
 
 <a id="q27"></a>
+
 ### Q27: What is 12-Factor App?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-The 12-Factor App is a methodology for building software-as-a-service apps. It includes principles like storing config in the environment, keeping dev/prod parity, treating logs as event streams, and handling concurrency via the process model.
+Methodology for building SaaS apps. Config in env, backing services as resources, stateless processes, dev/prod parity.
 
 **Code Example**:
-```yaml
-# Config in env, Stateless
+```text
+Config: ENV_VAR
+Logs: Stream to stdout
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -559,16 +614,17 @@ The 12-Factor App is a methodology for building software-as-a-service apps. It i
 ---
 
 <a id="q28"></a>
+
 ### Q28: How do you version APIs?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-URL path, Header, or Query param. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+URI Versioning (/v1/users), Header Versioning (Accept: application/vnd.v1+json).
 
 **Code Example**:
-```yaml
-/v1/users
+```text
+GET /v1/resource
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -576,16 +632,17 @@ URL path, Header, or Query param. This concept is fundamental in this domain and
 ---
 
 <a id="q29"></a>
-### Q29: What is Consumer Driven Contracts?
+
+### Q29: What is Consumer Driven Contracts (CDC)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Consumers define expectations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Testing strategy where consumers define expectations (contracts). Providers verify they meet them. Tool: Pact.
 
 **Code Example**:
-```yaml
-# Pact testing
+```text
+Consumer defines: 'I expect {id: 1}'
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -593,16 +650,17 @@ Consumers define expectations. This concept is fundamental in this domain and un
 ---
 
 <a id="q30"></a>
+
 ### Q30: What is Chaos Engineering?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Testing resilience by breaking things. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Testing resilience by intentionally injecting faults (killing pods, latency) in prod/staging.
 
 **Code Example**:
-```yaml
-# Chaos Monkey
+```text
+Chaos Monkey: Randomly terminates instances.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -610,16 +668,18 @@ Testing resilience by breaking things. This concept is fundamental in this domai
 ---
 
 <a id="q31"></a>
-### Q31: What is Blue/Green Deployment?
+
+### Q31: Blue-Green Deployment?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Zero downtime release. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Two identical envs. Blue is live. Deploy to Green. Switch router to Green. Instant rollback.
 
 **Code Example**:
-```yaml
-# Switch traffic
+```text
+Router -> Blue (v1)
+Switch -> Green (v2)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -627,16 +687,17 @@ Zero downtime release. This concept is fundamental in this domain and understand
 ---
 
 <a id="q32"></a>
-### Q32: What is Canary Release?
+
+### Q32: Canary Release?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Rollout to small subset. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Rollout to small % of users first. Monitor. Gradually increase traffic.
 
 **Code Example**:
-```yaml
-# 10% traffic
+```text
+v1: 90%, v2: 10%
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -644,16 +705,17 @@ Rollout to small subset. This concept is fundamental in this domain and understa
 ---
 
 <a id="q33"></a>
-### Q33: What is Strangler Fig Pattern?
+
+### Q33: Strangler Fig Pattern?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Migrate monolith to microservices gradually. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Migrating monolith to microservices by gradually replacing specific functionality with new services.
 
 **Code Example**:
-```yaml
-# Intercept calls
+```text
+Facade -> [New Service, Monolith]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -661,16 +723,18 @@ Migrate monolith to microservices gradually. This concept is fundamental in this
 ---
 
 <a id="q34"></a>
+
 ### Q34: What is BFF (Backend for Frontend)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Separate API for Mobile vs Web. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Creating separate backend services for different frontend clients (Mobile, Web) to optimize data.
 
 **Code Example**:
-```yaml
-# Optimized payloads
+```text
+Mobile BFF -> Minimal Data
+Web BFF -> Rich Data
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -678,16 +742,17 @@ Separate API for Mobile vs Web. This concept is fundamental in this domain and u
 ---
 
 <a id="q35"></a>
+
 ### Q35: What is Sidecar Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Offload tasks (ssl, logging) to side container. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Deploying helper container alongside main container to handle cross-cutting concerns (logging, proxy, mTLS).
 
 **Code Example**:
-```yaml
-# Service Mesh
+```text
+Pod: [App Container] + [Envoy Proxy]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -695,16 +760,17 @@ Offload tasks (ssl, logging) to side container. This concept is fundamental in t
 ---
 
 <a id="q36"></a>
+
 ### Q36: What is Service Mesh?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Infrastructure layer for service comms. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Infrastructure layer for handling service-to-service communication. Uses sidecars. Features: Traffic mgmt, security, observability.
 
 **Code Example**:
-```yaml
-# Istio, Linkerd
+```text
+Istio, Linkerd
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -712,16 +778,17 @@ Infrastructure layer for service comms. This concept is fundamental in this doma
 ---
 
 <a id="q37"></a>
-### Q37: How to prevent cascading failures?
+
+### Q37: How to prevent Cascading Failures?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Timeouts, Circuit Breakers, Bulkheads. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Circuit Breakers, Timeouts, Retries with Backoff, Bulkheads.
 
 **Code Example**:
-```yaml
-timeout: 5s
+```text
+Timeout: 200ms
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -729,16 +796,17 @@ timeout: 5s
 ---
 
 <a id="q38"></a>
+
 ### Q38: What is Rate Limiting?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Control traffic flow. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Controlling the rate of traffic sent or received. Prevents DoS.
 
 **Code Example**:
-```yaml
-429 Too Many Requests
+```text
+100 req/min
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -746,16 +814,17 @@ Control traffic flow. This concept is fundamental in this domain and understandi
 ---
 
 <a id="q39"></a>
+
 ### Q39: What is Throttling?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Slow down requests. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Intentionally slowing down a service when it's overloaded, or rejecting requests.
 
 **Code Example**:
-```yaml
-# Leaky bucket
+```text
+Queue full -> Reject
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -763,16 +832,18 @@ Slow down requests. This concept is fundamental in this domain and understanding
 ---
 
 <a id="q40"></a>
-### Q40: Stateless vs Stateful services?
+
+### Q40: Stateless vs Stateful Services?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Stateless scales easier. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Stateless: No session data stored locally. Easy to scale. Stateful: Stores session/data locally. Harder to scale.
 
 **Code Example**:
-```yaml
-# Store state in Redis/DB
+```text
+Stateless: REST API
+Stateful: Database
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -780,16 +851,17 @@ Stateless scales easier. This concept is fundamental in this domain and understa
 ---
 
 <a id="q41"></a>
-### Q41: How do you test Microservices?
+
+### Q41: Testing Strategies in Microservices?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Unit, Integration, Contract, E2E. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Unit (Logic), Integration (DB/Queue), Component (Service isolation), Contract (API), E2E (User flow).
 
 **Code Example**:
-```yaml
-# Mock external services
+```text
+Pyramid: Unit > Integration > E2E
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -797,16 +869,17 @@ Unit, Integration, Contract, E2E. This concept is fundamental in this domain and
 ---
 
 <a id="q42"></a>
-### Q42: What is Containerization?
+
+### Q42: What is Containerization (Docker)?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Packaging app with dependencies. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Packaging code and dependencies into a standard unit (Container) that runs anywhere.
 
 **Code Example**:
-```yaml
-# Docker
+```text
+Dockerfile -> Image -> Container
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -814,16 +887,17 @@ Packaging app with dependencies. This concept is fundamental in this domain and 
 ---
 
 <a id="q43"></a>
-### Q43: What is Orchestration?
+
+### Q43: What is Orchestration (Kubernetes)?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Managing containers. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Automating deployment, scaling, and management of containerized applications.
 
 **Code Example**:
-```yaml
-# Kubernetes
+```text
+K8s Scheduler -> Nodes
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -831,16 +905,17 @@ Managing containers. This concept is fundamental in this domain and understandin
 ---
 
 <a id="q44"></a>
-### Q44: How to secure microservices?
+
+### Q44: How to secure Microservices?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-mTLS, OAuth2, OIDC. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+HTTPS/TLS, mTLS (Service-to-Service), OAuth2 (User Auth), API Gateway as firewall.
 
 **Code Example**:
-```yaml
-# Zero Trust
+```text
+mTLS: Mutual Certificate Auth
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -848,16 +923,17 @@ mTLS, OAuth2, OIDC. This concept is fundamental in this domain and understanding
 ---
 
 <a id="q45"></a>
-### Q45: What is OAuth2?
+
+### Q45: OAuth2 Flows?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Delegated authorization. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Authorization Code (Web), Client Credentials (M2M), Implicit (Legacy).
 
 **Code Example**:
-```yaml
-# Access Tokens
+```text
+App -> Auth Server -> Token -> Resource Server
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -865,16 +941,17 @@ Delegated authorization. This concept is fundamental in this domain and understa
 ---
 
 <a id="q46"></a>
-### Q46: What is OpenID Connect (OIDC)?
+
+### Q46: What is OIDC (OpenID Connect)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Identity layer on OAuth2. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Identity layer on top of OAuth2. Provides authentication (Who are you?) via ID Token.
 
 **Code Example**:
-```yaml
-# ID Tokens
+```text
+Scope: openid profile email
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -882,16 +959,17 @@ Identity layer on OAuth2. This concept is fundamental in this domain and underst
 ---
 
 <a id="q47"></a>
-### Q47: What is JWT?
+
+### Q47: What is JWT (JSON Web Token)?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-JSON Web Token. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Compact, URL-safe token for representing claims. Stateless auth.
 
 **Code Example**:
-```yaml
-header.payload.signature
+```text
+Header.Payload.Signature
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -899,16 +977,18 @@ header.payload.signature
 ---
 
 <a id="q48"></a>
-### Q48: Synchronous vs Asynchronous?
 
-**Difficulty**: Beginner
+### Q48: Synchronous vs Asynchronous (Deep Dive)?
+
+**Difficulty**: Intermediate
 
 **Strategy**:
-Blocking vs Non-blocking. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Sync: Tight coupling, blocking. Async: Loose coupling, non-blocking, better resilience.
 
 **Code Example**:
-```yaml
-# Async for decoupling
+```text
+Sync: Request/Response
+Async: Event Driven
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -916,16 +996,17 @@ Blocking vs Non-blocking. This concept is fundamental in this domain and underst
 ---
 
 <a id="q49"></a>
+
 ### Q49: What is Two-Phase Commit (2PC)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Distributed transaction protocol. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Distributed transaction protocol. Prepare phase (vote) + Commit phase. Blocking. Not recommended for microservices.
 
 **Code Example**:
-```yaml
-# Prepare -> Commit
+```text
+Coordinator -> Prepare -> Commit
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -933,16 +1014,17 @@ Distributed transaction protocol. This concept is fundamental in this domain and
 ---
 
 <a id="q50"></a>
+
 ### Q50: Why avoid 2PC in Microservices?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Blocking, poor scalability. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+It blocks resources (locks), reduces availability (if coordinator dies), and increases latency.
 
 **Code Example**:
-```yaml
-# Use Sagas instead
+```text
+Use Sagas instead.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -950,16 +1032,17 @@ Blocking, poor scalability. This concept is fundamental in this domain and under
 ---
 
 <a id="q51"></a>
+
 ### Q51: What is Dead Letter Queue (DLQ)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Queue for failed messages. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A queue where messages that cannot be processed (failed consumers) are sent for inspection/replay.
 
 **Code Example**:
-```yaml
-# For manual inspection
+```text
+Queue -> Consumer (Fail) -> DLQ
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -967,16 +1050,17 @@ Queue for failed messages. This concept is fundamental in this domain and unders
 ---
 
 <a id="q52"></a>
-### Q52: What is a Competing Consumers pattern?
+
+### Q52: Competing Consumers Pattern?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Multiple workers reading same queue. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Multiple consumers reading from the same queue to process messages concurrently. Load balancing.
 
 **Code Example**:
-```yaml
-# Load balancing
+```text
+Queue -> [Consumer A, Consumer B]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -984,16 +1068,17 @@ Multiple workers reading same queue. This concept is fundamental in this domain 
 ---
 
 <a id="q53"></a>
+
 ### Q53: What is Fan-out?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-One message to multiple queues. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Sending a message to an exchange that broadcasts it to all bound queues (Pub/Sub).
 
 **Code Example**:
-```yaml
-# Pub/Sub
+```text
+Exchange -> [Queue A, Queue B]
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1001,16 +1086,17 @@ One message to multiple queues. This concept is fundamental in this domain and u
 ---
 
 <a id="q54"></a>
+
 ### Q54: What is Polyglot Persistence?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Using different DBs for different needs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Using different data storage technologies for different services based on needs (SQL, NoSQL, Graph).
 
 **Code Example**:
-```yaml
-# SQL + Mongo + Redis
+```text
+UserService (MySQL), CatalogService (Mongo)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1018,16 +1104,17 @@ Using different DBs for different needs. This concept is fundamental in this dom
 ---
 
 <a id="q55"></a>
+
 ### Q55: What is Domain Driven Design (DDD)?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Aligning software with business domain. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Software design approach focusing on modelling software to match a domain. Core concepts: Bounded Context, Entities, Aggregates.
 
 **Code Example**:
-```yaml
-# Bounded Contexts
+```text
+Domain: E-Commerce -> Contexts: Order, Shipping
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1035,16 +1122,18 @@ Aligning software with business domain. This concept is fundamental in this doma
 ---
 
 <a id="q56"></a>
+
 ### Q56: What is a Bounded Context?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Boundary where a model applies. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A linguistic boundary within which a domain model applies. Ideally maps to a Microservice.
 
 **Code Example**:
-```yaml
-# Sales Context vs Support Context
+```text
+Context: Sales (Customer = Buyer)
+Context: Support (Customer = Ticket Owner)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1052,16 +1141,17 @@ Boundary where a model applies. This concept is fundamental in this domain and u
 ---
 
 <a id="q57"></a>
+
 ### Q57: What is an Aggregate?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Cluster of objects treated as unit. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A cluster of domain objects that can be treated as a single unit. Has a Root Entity. Transactions should not cross aggregates.
 
 **Code Example**:
-```yaml
-# Order + OrderItems
+```text
+Order (Root) + OrderItems
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1069,16 +1159,17 @@ Cluster of objects treated as unit. This concept is fundamental in this domain a
 ---
 
 <a id="q58"></a>
+
 ### Q58: What is Anti-Corruption Layer?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Translator between systems. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A layer that translates between two different domain models (e.g., Legacy Monolith <-> New Microservice) to prevent pollution.
 
 **Code Example**:
-```yaml
-# Adapter
+```text
+New System <-> ACL <-> Legacy System
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1086,16 +1177,17 @@ Translator between systems. This concept is fundamental in this domain and under
 ---
 
 <a id="q59"></a>
+
 ### Q59: What is Semantic Versioning?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Major.Minor.Patch. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Versioning scheme: Major.Minor.Patch (e.g., 1.0.2). Major = Breaking, Minor = Feature, Patch = Fix.
 
 **Code Example**:
-```yaml
-v1.0.0
+```text
+v1.0.0 -> v2.0.0 (Breaking Change)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1103,16 +1195,17 @@ v1.0.0
 ---
 
 <a id="q60"></a>
+
 ### Q60: What is Continuous Integration (CI)?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Merge code frequently + Tests. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Practice of merging code changes frequently, followed by automated build and test.
 
 **Code Example**:
-```yaml
-# Jenkins, GitHub Actions
+```text
+Git Push -> Jenkins Build -> Test
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1120,16 +1213,17 @@ Merge code frequently + Tests. This concept is fundamental in this domain and un
 ---
 
 <a id="q61"></a>
+
 ### Q61: What is Continuous Deployment (CD)?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Auto deploy to prod. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Automated release of code to production after passing CI.
 
 **Code Example**:
-```yaml
-# Automated pipeline
+```text
+CI Pass -> Deploy to Prod
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1137,16 +1231,17 @@ Auto deploy to prod. This concept is fundamental in this domain and understandin
 ---
 
 <a id="q62"></a>
+
 ### Q62: What is Infrastructure as Code (IaC)?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Managing infra via code. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Managing infrastructure through code/files rather than manual configuration. Tools: Terraform, Ansible.
 
 **Code Example**:
-```yaml
-# Terraform, Ansible
+```text
+resource 'aws_instance' 'web' {...}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1154,16 +1249,17 @@ Managing infra via code. This concept is fundamental in this domain and understa
 ---
 
 <a id="q63"></a>
+
 ### Q63: What is Immutable Infrastructure?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Replace servers instead of patching. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Servers are never modified after deployment. If update needed, replace with new server.
 
 **Code Example**:
-```yaml
-# New VM/Container per deploy
+```text
+Deploy v2 -> Terminate v1
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1171,16 +1267,17 @@ Replace servers instead of patching. This concept is fundamental in this domain 
 ---
 
 <a id="q64"></a>
+
 ### Q64: What is Serverless?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Run code without managing servers. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Cloud execution model where provider manages servers. Pay per execution. Function as a Service (FaaS).
 
 **Code Example**:
-```yaml
-# AWS Lambda
+```text
+AWS Lambda, Azure Functions
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1188,16 +1285,17 @@ Run code without managing servers. This concept is fundamental in this domain an
 ---
 
 <a id="q65"></a>
+
 ### Q65: Microservices vs Serverless?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Long running vs Event driven. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Microservices: Long-running processes, control over env. Serverless: Event-driven, ephemeral, no ops.
 
 **Code Example**:
-```yaml
-# Can use both
+```text
+K8s Pod vs Lambda Function
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1205,16 +1303,17 @@ Long running vs Event driven. This concept is fundamental in this domain and und
 ---
 
 <a id="q66"></a>
+
 ### Q66: What is Cold Start?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Latency when function starts. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Latency experienced when a Serverless function is invoked for the first time (container spin-up).
 
 **Code Example**:
-```yaml
-# Serverless issue
+```text
+First req: 1s. Subsequent: 50ms.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1222,16 +1321,17 @@ Latency when function starts. This concept is fundamental in this domain and und
 ---
 
 <a id="q67"></a>
-### Q67: How to handle distributed locking?
+
+### Q67: How to handle Distributed Locking?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Redis (Redlock) or Zookeeper. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Using a shared store (Redis/Zookeeper) to ensure only one process performs an action.
 
 **Code Example**:
-```yaml
-# Prevent race conditions
+```text
+Redis: SET resource_name my_random_value NX PX 30000
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1239,16 +1339,17 @@ Redis (Redlock) or Zookeeper. This concept is fundamental in this domain and und
 ---
 
 <a id="q68"></a>
+
 ### Q68: What is Leader Election?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Choosing a coordinator. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Process of designating a single process as the organizer/coordinator. Tools: Zookeeper, Etcd.
 
 **Code Example**:
-```yaml
-# Zookeeper/etcd
+```text
+Nodes vote -> Leader selected
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1256,16 +1357,17 @@ Choosing a coordinator. This concept is fundamental in this domain and understan
 ---
 
 <a id="q69"></a>
+
 ### Q69: What is Sharding?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Horizontal data partitioning. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Partitioning data horizontally across databases to scale. Based on Shard Key.
 
 **Code Example**:
-```yaml
-# Scale DB
+```text
+User ID % 4 -> Shard 1
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1273,16 +1375,17 @@ Horizontal data partitioning. This concept is fundamental in this domain and und
 ---
 
 <a id="q70"></a>
+
 ### Q70: What is Replication?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Copying data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Copying data to multiple nodes for redundancy and read scaling.
 
 **Code Example**:
-```yaml
-# Availability
+```text
+Master (Write) -> Slaves (Read)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1290,16 +1393,17 @@ Copying data. This concept is fundamental in this domain and understanding it al
 ---
 
 <a id="q71"></a>
+
 ### Q71: What is Auto-scaling?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Dynamic resource adjustment. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Automatically adjusting the number of compute resources based on load (CPU/RAM).
 
 **Code Example**:
-```yaml
-# Scale out/in
+```text
+HPA: Target CPU 50%
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1307,16 +1411,17 @@ Dynamic resource adjustment. This concept is fundamental in this domain and unde
 ---
 
 <a id="q72"></a>
+
 ### Q72: What is Log Aggregation?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Centralized logs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Collecting logs from all services into a central system (ELK, Splunk, Datadog).
 
 **Code Example**:
-```yaml
-# Fluentd
+```text
+Log -> Agent -> Central Store
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1324,16 +1429,17 @@ Centralized logs. This concept is fundamental in this domain and understanding i
 ---
 
 <a id="q73"></a>
-### Q73: What is Monitoring vs Observability?
+
+### Q73: Monitoring vs Observability?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Monitoring: Is it healthy? Observability: Why is it broken?
+Monitoring: 'Is the system healthy?' (Known unknowns). Observability: 'Why is it behaving this way?' (Unknown unknowns).
 
 **Code Example**:
-```yaml
-# Logs, Metrics, Traces
+```text
+Metrics vs Traces/Logs
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1341,16 +1447,17 @@ Monitoring: Is it healthy? Observability: Why is it broken?
 ---
 
 <a id="q74"></a>
+
 ### Q74: What is Alerting?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Notifications on issues. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Notifying humans when metrics cross thresholds.
 
 **Code Example**:
-```yaml
-# PagerDuty
+```text
+If ErrorRate > 1% -> PageDuty
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1358,16 +1465,17 @@ Notifications on issues. This concept is fundamental in this domain and understa
 ---
 
 <a id="q75"></a>
+
 ### Q75: What is a Health Check?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Endpoint to check status. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Endpoint (/health) that reveals service status. Liveness (Restart if dead) vs Readiness (Don't send traffic until ready).
 
 **Code Example**:
-```yaml
-GET /health
+```text
+GET /health -> 200 OK
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1375,16 +1483,17 @@ GET /health
 ---
 
 <a id="q76"></a>
+
 ### Q76: What is Graceful Shutdown?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Finish requests before stopping. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Service stops accepting new requests, finishes current ones, closes connections, then exits.
 
 **Code Example**:
-```yaml
-server.close()
+```text
+SIGTERM -> Stop Listener -> Drain -> Exit
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1392,16 +1501,17 @@ server.close()
 ---
 
 <a id="q77"></a>
+
 ### Q77: What is Retry Pattern?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Retry failed request. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Automatically retrying a failed operation (transient error).
 
 **Code Example**:
-```yaml
-retry(3)
+```text
+try { call() } catch { retry() }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1409,16 +1519,17 @@ retry(3)
 ---
 
 <a id="q78"></a>
+
 ### Q78: What is Exponential Backoff?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Increase wait time between retries. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Increasing the wait time between retries exponentially (1s, 2s, 4s, 8s) to reduce load.
 
 **Code Example**:
-```yaml
-1s, 2s, 4s, 8s
+```text
+wait = base * 2^attempt
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1426,16 +1537,17 @@ Increase wait time between retries. This concept is fundamental in this domain a
 ---
 
 <a id="q79"></a>
+
 ### Q79: What is Jitter?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Randomize retry intervals. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Adding random variation to backoff intervals to prevent Thundering Herd.
 
 **Code Example**:
-```yaml
-Avoid thundering herd
+```text
+wait = base * 2^attempt + random()
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1443,16 +1555,17 @@ Avoid thundering herd
 ---
 
 <a id="q80"></a>
-### Q80: What is load shedding?
+
+### Q80: What is Load Shedding?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Drop requests when overloaded. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Intentionally dropping requests when system is near capacity to prevent total collapse.
 
 **Code Example**:
-```yaml
-503 Service Unavailable
+```text
+If CPU > 90% -> Return 503
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1460,16 +1573,17 @@ Drop requests when overloaded. This concept is fundamental in this domain and un
 ---
 
 <a id="q81"></a>
+
 ### Q81: What is a Reverse Proxy?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Gateway in front of servers. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Server sitting in front of backend servers. Client -> Proxy -> Server. Hides backend.
 
 **Code Example**:
-```yaml
-# Nginx
+```text
+Nginx, HAProxy
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1477,16 +1591,17 @@ Gateway in front of servers. This concept is fundamental in this domain and unde
 ---
 
 <a id="q82"></a>
+
 ### Q82: What is a Forward Proxy?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Proxy for clients. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Server sitting in front of clients. Client -> Proxy -> Internet. Hides client.
 
 **Code Example**:
-```yaml
-# VPN
+```text
+VPN, Corporate Proxy
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1494,16 +1609,17 @@ Proxy for clients. This concept is fundamental in this domain and understanding 
 ---
 
 <a id="q83"></a>
+
 ### Q83: What is Sticky Sessions?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Route user to same server. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Routing all requests from a user to the same specific server instance.
 
 **Code Example**:
-```yaml
-# Cookie based
+```text
+Load Balancer (Hash IP) -> Server A
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1511,16 +1627,17 @@ Route user to same server. This concept is fundamental in this domain and unders
 ---
 
 <a id="q84"></a>
+
 ### Q84: Why avoid Sticky Sessions?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Uneven load balancing. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Causes uneven load balancing. Makes auto-scaling and failover harder.
 
 **Code Example**:
-```yaml
-# Use stateless instead
+```text
+Use Distributed Cache (Redis) instead.
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1528,16 +1645,17 @@ Uneven load balancing. This concept is fundamental in this domain and understand
 ---
 
 <a id="q85"></a>
+
 ### Q85: What is Shadow Deployment?
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Run new version with real traffic (ignored response).
+Replaying live production traffic to a new version (shadow) without returning responses to user. Tests performance/errors.
 
 **Code Example**:
-```yaml
-# Test in prod safely
+```text
+Traffic -> v1 (Live) & v2 (Shadow)
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1545,18 +1663,290 @@ Run new version with real traffic (ignored response).
 ---
 
 <a id="q86"></a>
+
 ### Q86: What is Feature Flag?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Toggle features dynamically. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Toggle functionality on/off at runtime without deploying code.
 
 **Code Example**:
-```yaml
-if (feature.enabled) ...
+```text
+if (feature.isEnabled('dark_mode'))
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+
+<a id="q87"></a>
+
+### Q87: What is GitOps?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Using Git as the single source of truth for infrastructure/deployment. ArgoCD syncs Git state to K8s.
+
+**Code Example**:
+```text
+Git Commit -> ArgoCD -> K8s Apply
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q88"></a>
+
+### Q88: What is Helm?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Package manager for Kubernetes. Manages charts (templates).
+
+**Code Example**:
+```text
+helm install my-app ./chart
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q89"></a>
+
+### Q89: What is a Pod (K8s)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Smallest deployable unit in K8s. Can contain one or more containers sharing network/storage.
+
+**Code Example**:
+```text
+Pod = [Container A, Container B]
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q90"></a>
+
+### Q90: What is a Namespace?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Virtual cluster inside K8s. Isolates resources between teams/envs.
+
+**Code Example**:
+```text
+kubectl get pods -n production
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q91"></a>
+
+### Q91: ConfigMaps vs Secrets?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+ConfigMap: Non-sensitive config (URLs). Secret: Sensitive data (passwords, keys), base64 encoded.
+
+**Code Example**:
+```text
+Env: DB_HOST (ConfigMap), DB_PASS (Secret)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q92"></a>
+
+### Q92: What is StatefulSet?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+K8s controller for stateful apps (DBs). Guarantees ordering and stable network IDs.
+
+**Code Example**:
+```text
+web-0, web-1, web-2
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q93"></a>
+
+### Q93: What is DaemonSet?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Ensures a copy of a Pod runs on all (or specific) nodes. Used for logs/monitoring agents.
+
+**Code Example**:
+```text
+Fluentd on every node
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q94"></a>
+
+### Q94: What is Ingress Controller?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Manages external access to services (HTTP/HTTPS). Acts as L7 Load Balancer.
+
+**Code Example**:
+```text
+Internet -> Ingress -> Service
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q95"></a>
+
+### Q95: What is Persistent Volume (PV)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Storage resource in the cluster. PVC (Claim) requests storage from PV.
+
+**Code Example**:
+```text
+Pod -> PVC -> PV -> EBS/Disk
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q96"></a>
+
+### Q96: Service Types (ClusterIP, NodePort, LB)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+ClusterIP: Internal only. NodePort: Exposes on static port on nodes. LoadBalancer: External Cloud LB.
+
+**Code Example**:
+```text
+ClusterIP (Default)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q97"></a>
+
+### Q97: Horizontal Pod Autoscaler (HPA)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Scales number of pods based on metrics (CPU).
+
+**Code Example**:
+```text
+Scale 1 -> 10 pods
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q98"></a>
+
+### Q98: Vertical Pod Autoscaler (VPA)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Adjusts CPU/Memory requests/limits of containers.
+
+**Code Example**:
+```text
+Increase RAM 1GB -> 2GB
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q99"></a>
+
+### Q99: Cluster Autoscaler?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Adds/removes nodes from the cluster when pods cannot be scheduled.
+
+**Code Example**:
+```text
+Add Node if Pending Pods
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q100"></a>
+
+### Q100: Multi-Tenancy in Microservices?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Serving multiple customers (tenants) from single instance (Shared DB) or isolated instances (Database per Tenant).
+
+**Code Example**:
+```text
+TenantID in every query
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q101"></a>
+
+### Q101: SOA vs Microservices?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+SOA: Enterprise Service Bus (ESB), smart pipes, larger services. Microservices: Smart endpoints, dumb pipes, smaller scope.
+
+**Code Example**:
+```text
+SOA: XML/SOAP. Microservices: JSON/REST.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+

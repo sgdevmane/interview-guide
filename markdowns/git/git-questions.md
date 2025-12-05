@@ -35,6 +35,58 @@
 23. [What is `git diff` vs `git diff --staged`?](#q23) <span class="beginner">Beginner</span>
 24. [How do you tag a specific commit?](#q24) <span class="beginner">Beginner</span>
 25. [What is `git submodule`?](#q25) <span class="advanced">Advanced</span>
+51. [How do you find the common ancestor of two branches?](#q51) <span class="intermediate">Intermediate</span>
+52. [What is `git bisect run`?](#q52) <span class="advanced">Advanced</span>
+53. [How do you list all remote branches?](#q53) <span class="beginner">Beginner</span>
+54. [How do you remove a file from the index (staging) but keep it in working directory?](#q54) <span class="beginner">Beginner</span>
+55. [What is the `.git` directory?](#q55) <span class="intermediate">Intermediate</span>
+56. [How do you view the history of a specific function in a file?](#q56) <span class="advanced">Advanced</span>
+57. [What is `git stash apply` vs `git stash pop`?](#q57) <span class="intermediate">Intermediate</span>
+58. [How do you search for a string in all commits (history)?](#q58) <span class="advanced">Advanced</span>
+59. [How do you show changes in a specific commit?](#q59) <span class="beginner">Beginner</span>
+60. [How do you prune remote-tracking branches that no longer exist on remote?](#q60) <span class="intermediate">Intermediate</span>
+61. [What is `git rebase --onto`?](#q61) <span class="expert">Expert</span>
+62. [How do you count the number of commits in a branch?](#q62) <span class="intermediate">Intermediate</span>
+63. [How do you rename a remote branch?](#q63) <span class="intermediate">Intermediate</span>
+64. [What is `git bundle`?](#q64) <span class="advanced">Advanced</span>
+65. [How do you change the URI (URL) for a remote?](#q65) <span class="beginner">Beginner</span>
+66. [What is `git shortlog`?](#q66) <span class="intermediate">Intermediate</span>
+67. [How do you find the most recent tag?](#q67) <span class="intermediate">Intermediate</span>
+68. [How do you stage all deleted files?](#q68) <span class="intermediate">Intermediate</span>
+69. [What is `git fsck`?](#q69) <span class="advanced">Advanced</span>
+70. [How do you configure global username and email?](#q70) <span class="beginner">Beginner</span>
+71. [What is `git rev-parse`?](#q71) <span class="advanced">Advanced</span>
+72. [How do you reorder commits?](#q72) <span class="intermediate">Intermediate</span>
+73. [How do you create an empty commit?](#q73) <span class="intermediate">Intermediate</span>
+74. [How do you backup untracked files?](#q74) <span class="intermediate">Intermediate</span>
+75. [How do you see the diff of a stash without popping it?](#q75) <span class="intermediate">Intermediate</span>
+76. [How do you create a zip archive of the repository?](#q76) <span class="intermediate">Intermediate</span>
+77. [How do you find the author of a specific commit?](#q77) <span class="beginner">Beginner</span>
+78. [How do you show the commit history of a file including renames?](#q78) <span class="intermediate">Intermediate</span>
+79. [How do you check if a branch is merged into main?](#q79) <span class="intermediate">Intermediate</span>
+80. [How do you set up an alias for a complex log graph?](#q80) <span class="intermediate">Intermediate</span>
+81. [How do you count lines of code in a repo?](#q81) <span class="intermediate">Intermediate</span>
+82. [How do you undo `git add .` (unstage all)?](#q82) <span class="beginner">Beginner</span>
+83. [How do you push tags to remote?](#q83) <span class="beginner">Beginner</span>
+84. [What is `git status -s`?](#q84) <span class="beginner">Beginner</span>
+85. [How do you view diff of a file in another branch?](#q85) <span class="intermediate">Intermediate</span>
+86. [How do you copy a file from another branch?](#q86) <span class="intermediate">Intermediate</span>
+87. [What is `git clean -n`?](#q87) <span class="beginner">Beginner</span>
+88. [How do you revert a merge commit?](#q88) <span class="advanced">Advanced</span>
+89. [How do you grep commits by author?](#q89) <span class="intermediate">Intermediate</span>
+90. [How do you list files with conflicts?](#q90) <span class="intermediate">Intermediate</span>
+91. [How do you show only the file names that changed in a commit?](#q91) <span class="beginner">Beginner</span>
+92. [How do you ignore file mode (permission) changes?](#q92) <span class="advanced">Advanced</span>
+93. [What is `git fetch --all`?](#q93) <span class="beginner">Beginner</span>
+94. [How do you remove a remote?](#q94) <span class="beginner">Beginner</span>
+95. [How do you verify what branch `HEAD` points to?](#q95) <span class="beginner">Beginner</span>
+96. [How do you apply a patch file?](#q96) <span class="advanced">Advanced</span>
+97. [What is `git describe`?](#q97) <span class="intermediate">Intermediate</span>
+98. [How do you reset a single file to HEAD?](#q98) <span class="beginner">Beginner</span>
+99. [How do you see what you are about to push?](#q99) <span class="intermediate">Intermediate</span>
+100. [What is the Reflog?](#q100) <span class="advanced">Advanced</span>
+
+---
 
 ---
 
@@ -578,6 +630,967 @@ git submodule add https://github.com/lib/lib.git
 
 # Clone repo with submodules
 git clone --recursive https://github.com/my/app.git
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q51"></a>
+
+### Q51: How do you find the common ancestor of two branches?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git merge-base branch1 branch2`. It outputs the commit hash of the best common ancestor.
+
+**Code Example:**
+
+```bash
+git merge-base main feature
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q52"></a>
+
+### Q52: What is `git bisect run`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+It automates the binary search process to find a bug. You provide a script that returns 0 for good and non-zero for bad. Git runs this script on each checked-out commit.
+
+**Code Example:**
+
+```bash
+git bisect start HEAD v1.0
+git bisect run npm test
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q53"></a>
+
+### Q53: How do you list all remote branches?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git branch -r` or `git branch -a` (all).
+
+**Code Example:**
+
+```bash
+git branch -r
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q54"></a>
+
+### Q54: How do you remove a file from the index (staging) but keep it in working directory?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git reset HEAD <file>` (old way) or `git restore --staged <file>` (new way).
+
+**Code Example:**
+
+```bash
+git restore --staged file.txt
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q55"></a>
+
+### Q55: What is the `.git` directory?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+It contains all the metadata for the repository: objects (commits, trees, blobs), refs (heads, tags), configuration, and hooks.
+
+**Code Example:**
+
+```bash
+ls .git
+# objects/ refs/ config HEAD ...
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q56"></a>
+
+### Q56: How do you view the history of a specific function in a file?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `git log -L :funcname:filename`. This traces the evolution of a specific function block.
+
+**Code Example:**
+
+```bash
+git log -L :myFunction:main.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q57"></a>
+
+### Q57: What is `git stash apply` vs `git stash pop`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`pop` applies the stash and removes it from the stash list. `apply` applies it but keeps it in the list (useful if you want to apply it to multiple branches).
+
+**Code Example:**
+
+```bash
+git stash apply
+# stash@{0} still exists
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q58"></a>
+
+### Q58: How do you search for a string in all commits (history)?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `git grep <text> $(git rev-list --all)` or `git log -S <text>`. `git grep` searches content, `git log -S` searches for diffs adding/removing the text (pickaxe).
+
+**Code Example:**
+
+```bash
+git log -S "password123"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q59"></a>
+
+### Q59: How do you show changes in a specific commit?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git show <commit-hash>`.
+
+**Code Example:**
+
+```bash
+git show a1b2c3d
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q60"></a>
+
+### Q60: How do you prune remote-tracking branches that no longer exist on remote?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git fetch --prune` (or `-p`). This cleans up `origin/deleted-branch` references locally.
+
+**Code Example:**
+
+```bash
+git fetch -p
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q61"></a>
+
+### Q61: What is `git rebase --onto`?
+
+**Difficulty**: Expert
+
+**Strategy:**
+Used for advanced rebasing, like transplanting a sub-branch to a new base. `git rebase --onto newbase oldbase branch`.
+
+**Code Example:**
+
+```bash
+# Move feature branch from old-main to new-main
+git rebase --onto new-main old-main feature
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q62"></a>
+
+### Q62: How do you count the number of commits in a branch?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git rev-list --count <branch>`.
+
+**Code Example:**
+
+```bash
+git rev-list --count HEAD
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q63"></a>
+
+### Q63: How do you rename a remote branch?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+
+1. Rename local branch. 2. Push new name. 3. Delete old remote name.
+
+**Code Example:**
+
+```bash
+git branch -m old new
+git push origin -u new
+git push origin --delete old
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q64"></a>
+
+### Q64: What is `git bundle`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+It packages objects and references into a single archive file. Useful for transferring git data via offline means (USB drive).
+
+**Code Example:**
+
+```bash
+git bundle create repo.bundle --all
+git clone repo.bundle
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q65"></a>
+
+### Q65: How do you change the URI (URL) for a remote?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git remote set-url origin <new-url>`.
+
+**Code Example:**
+
+```bash
+git remote set-url origin git@github.com:user/repo.git
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q66"></a>
+
+### Q66: What is `git shortlog`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Summarizes `git log` output. Useful for generating release notes or checking contributor stats (`-sn`).
+
+**Code Example:**
+
+```bash
+git shortlog -sn
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q67"></a>
+
+### Q67: How do you find the most recent tag?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git describe --tags`.
+
+**Code Example:**
+
+```bash
+git describe --tags
+# v1.0-4-g12345 (4 commits after v1.0)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q68"></a>
+
+### Q68: How do you stage all deleted files?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+`git add -u` stages modifications and deletions, but not new files.
+
+**Code Example:**
+
+```bash
+git add -u
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q69"></a>
+
+### Q69: What is `git fsck`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+"File System Check". Verifies the connectivity and validity of the objects in the database. Can find dangling objects (commits not reachable by any ref).
+
+**Code Example:**
+
+```bash
+git fsck --lost-found
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q70"></a>
+
+### Q70: How do you configure global username and email?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git config --global user.name` and `user.email`.
+
+**Code Example:**
+
+```bash
+git config --global user.name "John Doe"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q71"></a>
+
+### Q71: What is `git rev-parse`?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+An internal command (plumbing) used to parse revision specifications, flags, and retrieve internal details (like absolute path of .git dir).
+
+**Code Example:**
+
+```bash
+git rev-parse --show-toplevel
+# /path/to/repo/root
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q72"></a>
+
+### Q72: How do you reorder commits?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use interactive rebase (`git rebase -i`). In the editor, rearrange the lines of commits.
+
+**Code Example:**
+
+```bash
+git rebase -i HEAD~3
+# Swap lines 1 and 2
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q73"></a>
+
+### Q73: How do you create an empty commit?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git commit --allow-empty`. Useful for triggering CI pipelines without changing code.
+
+**Code Example:**
+
+```bash
+git commit --allow-empty -m "Trigger build"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q74"></a>
+
+### Q74: How do you backup untracked files?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+You can stash them with `git stash -u` (include untracked).
+
+**Code Example:**
+
+```bash
+git stash -u
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q75"></a>
+
+### Q75: How do you see the diff of a stash without popping it?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git stash show -p stash@{0}`.
+
+**Code Example:**
+
+```bash
+git stash show -p
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q76"></a>
+
+### Q76: How do you create a zip archive of the repository?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git archive`. It creates an archive of the specified tree (branch, tag) without the `.git` folder.
+
+**Code Example:**
+
+```bash
+git archive --format=zip --output=v1.0.zip HEAD
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q77"></a>
+
+### Q77: How do you find the author of a specific commit?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git show -s --format='%an' <commit>`.
+
+**Code Example:**
+
+```bash
+git show -s --format='%an' HEAD
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q78"></a>
+
+### Q78: How do you show the commit history of a file including renames?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git log --follow <file>`. This tracks the file across renames.
+
+**Code Example:**
+
+```bash
+git log --follow src/main.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q79"></a>
+
+### Q79: How do you check if a branch is merged into main?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git branch --merged main`. If your branch appears in the list, it is merged.
+
+**Code Example:**
+
+```bash
+git branch --merged main
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q80"></a>
+
+### Q80: How do you set up an alias for a complex log graph?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git config`.
+
+**Code Example:**
+
+```bash
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q81"></a>
+
+### Q81: How do you count lines of code in a repo?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git ls-files` piped to `xargs wc -l`.
+
+**Code Example:**
+
+```bash
+git ls-files | xargs wc -l
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q82"></a>
+
+### Q82: How do you undo `git add .` (unstage all)?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git reset` (defaults to mixed reset, unstage everything but keep changes). Or `git restore --staged .`.
+
+**Code Example:**
+
+```bash
+git reset
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q83"></a>
+
+### Q83: How do you push tags to remote?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+`git push` does not push tags by default. Use `git push origin <tagname>` or `git push origin --tags`.
+
+**Code Example:**
+
+```bash
+git push origin --tags
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q84"></a>
+
+### Q84: What is `git status -s`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Short format status. Less verbose than standard `git status`.
+
+**Code Example:**
+
+```bash
+git status -s
+# M  file.js (modified)
+# ?? new.js (untracked)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q85"></a>
+
+### Q85: How do you view diff of a file in another branch?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git show branch:file`.
+
+**Code Example:**
+
+```bash
+git show main:src/config.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q86"></a>
+
+### Q86: How do you copy a file from another branch?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git checkout branch -- file`.
+
+**Code Example:**
+
+```bash
+git checkout main -- src/utils.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q87"></a>
+
+### Q87: What is `git clean -n`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Dry run. Shows what files *would* be removed by `git clean` without actually deleting them. Always do this before `-f`.
+
+**Code Example:**
+
+```bash
+git clean -n
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q88"></a>
+
+### Q88: How do you revert a merge commit?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `git revert -m 1 <merge-commit>`. You must specify the parent number (`-m 1` usually main) to revert to.
+
+**Code Example:**
+
+```bash
+git revert -m 1 abc1234
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q89"></a>
+
+### Q89: How do you grep commits by author?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git log --author="Name"`.
+
+**Code Example:**
+
+```bash
+git log --author="Alice"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q90"></a>
+
+### Q90: How do you list files with conflicts?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git diff --name-only --diff-filter=U`.
+
+**Code Example:**
+
+```bash
+git diff --name-only --diff-filter=U
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q91"></a>
+
+### Q91: How do you show only the file names that changed in a commit?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git show --name-only <commit>`.
+
+**Code Example:**
+
+```bash
+git show --name-only HEAD
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q92"></a>
+
+### Q92: How do you ignore file mode (permission) changes?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Set `core.fileMode` to false in config.
+
+**Code Example:**
+
+```bash
+git config core.fileMode false
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q93"></a>
+
+### Q93: What is `git fetch --all`?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Fetches the latest changes from all configured remotes.
+
+**Code Example:**
+
+```bash
+git fetch --all
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q94"></a>
+
+### Q94: How do you remove a remote?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git remote remove <name>`.
+
+**Code Example:**
+
+```bash
+git remote remove origin
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q95"></a>
+
+### Q95: How do you verify what branch `HEAD` points to?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git symbolic-ref --short HEAD` or just `git branch --show-current`.
+
+**Code Example:**
+
+```bash
+git branch --show-current
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q96"></a>
+
+### Q96: How do you apply a patch file?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+Use `git apply <file.patch>`.
+
+**Code Example:**
+
+```bash
+git apply fix.patch
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q97"></a>
+
+### Q97: What is `git describe`?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Finds the most recent tag that is reachable from a commit. Used to generate build version strings.
+
+**Code Example:**
+
+```bash
+git describe --long
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q98"></a>
+
+### Q98: How do you reset a single file to HEAD?
+
+**Difficulty**: Beginner
+
+**Strategy:**
+Use `git checkout HEAD -- <file>` or `git restore <file>`.
+
+**Code Example:**
+
+```bash
+git restore config.json
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q99"></a>
+
+### Q99: How do you see what you are about to push?
+
+**Difficulty**: Intermediate
+
+**Strategy:**
+Use `git diff origin/main..HEAD` (assuming pushing to main) or `git log origin/main..HEAD`.
+
+**Code Example:**
+
+```bash
+git log origin/main..HEAD
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q100"></a>
+
+### Q100: What is the Reflog?
+
+**Difficulty**: Advanced
+
+**Strategy:**
+A local log of where HEAD and branch references have been. It allows you to recover lost commits that are not referenced by any branch (e.g., after a bad rebase).
+
+**Code Example:**
+
+```bash
+git reflog
+git reset --hard HEAD@{1}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
