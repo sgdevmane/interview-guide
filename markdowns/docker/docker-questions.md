@@ -10,105 +10,106 @@
 
 ## Table of Contents
 
-1. [How do you optimize a Docker image size using multi-stage builds?](#q1-how-do-you-optimize-a-docker-image-size-using-multi-stage-builds) <span class="intermediate">Intermediate</span>
-2. [How do you secure a Docker container by running it as a non-root user?](#q2-how-do-you-secure-a-docker-container-by-running-it-as-a-non-root-user) <span class="intermediate">Intermediate</span>
-3. [How do you implement health checks in Docker Compose to ensure dependent services start in order?](#q3-how-do-you-implement-health-checks-in-docker-compose-to-ensure-dependent-services-start-in-order) <span class="intermediate">Intermediate</span>
-4. [How do you persist database data using Docker Volumes?](#q4-how-do-you-persist-database-data-using-docker-volumes) <span class="beginner">Beginner</span>
-5. [How do you debug a crashing container that exits immediately upon starting?](#q5-how-do-you-debug-a-crashing-container-that-exits-immediately-upon-starting) <span class="intermediate">Intermediate</span>
-6. [How do you connect two containers on the same host so they can communicate by name?](#q6-how-do-you-connect-two-containers-on-the-same-host-so-they-can-communicate-by-name) <span class="beginner">Beginner</span>
-7. [How do you pass sensitive configuration (secrets) to a Docker container securely?](#q7-how-do-you-pass-sensitive-configuration-secrets-to-a-docker-container-securely) <span class="advanced">Advanced</span>
-8. [How do you speed up Docker builds by leveraging the build cache effectively?](#q8-how-do-you-speed-up-docker-builds-by-leveraging-the-build-cache-effectively) <span class="intermediate">Intermediate</span>
-9. [How do you limit the memory and CPU usage of a Docker container?](#q9-how-do-you-limit-the-memory-and-cpu-usage-of-a-docker-container) <span class="intermediate">Intermediate</span>
-10. [How do you export and import a Docker image to transfer it between air-gapped systems?](#q10-how-do-you-export-and-import-a-docker-image-to-transfer-it-between-air-gapped-systems) <span class="intermediate">Intermediate</span>
-11. [How do you mount a local configuration file into a container to override defaults?](#q11-how-do-you-mount-a-local-configuration-file-into-a-container-to-override-defaults) <span class="beginner">Beginner</span>
-12. [How do you prevent a Docker container from accumulating large log files?](#q12-how-do-you-prevent-a-docker-container-from-accumulating-large-log-files) <span class="advanced">Advanced</span>
-13. [How do you execute a command inside a running container?](#q13-how-do-you-execute-a-command-inside-a-running-container) <span class="beginner">Beginner</span>
-14. [How do you clean up unused Docker resources (images, containers, networks, volumes)?](#q14-how-do-you-clean-up-unused-docker-resources-images-containers-networks-volumes) <span class="beginner">Beginner</span>
-15. [How do you run a container that automatically restarts on failure?](#q15-how-do-you-run-a-container-that-automatically-restarts-on-failure) <span class="beginner">Beginner</span>
-16. [How do you use `docker buildx` for multi-architecture builds?](#q16-how-do-you-use-docker-buildx-for-multi-architecture-builds) <span class="advanced">Advanced</span>
-17. [How do you speed up builds using BuildKit cache mounts?](#q17-how-do-you-speed-up-builds-using-buildkit-cache-mounts) <span class="advanced">Advanced</span>
-18. [How do you implement a healthcheck in Docker Compose?](#q18-how-do-you-implement-a-healthcheck-in-docker-compose) <span class="intermediate">Intermediate</span>
-19. [How do you secure a container using read-only filesystems?](#q19-how-do-you-secure-a-container-using-read-only-filesystems) <span class="intermediate">Intermediate</span>
-20. [How do you copy files between a container and the host?](#q20-how-do-you-copy-files-between-a-container-and-the-host) <span class="beginner">Beginner</span>
-21. [How do you analyze the contents and layers of an image?](#q21-how-do-you-analyze-the-contents-and-layers-of-an-image) <span class="intermediate">Intermediate</span>
-22. [How do you change the default ENTRYPOINT of an image at runtime?](#q22-how-do-you-change-the-default-entrypoint-of-an-image-at-runtime) <span class="intermediate">Intermediate</span>
-23. [How do you create a Docker network for container communication?](#q23-how-do-you-create-a-docker-network-for-container-communication) <span class="intermediate">Intermediate</span>
-24. [How do you use `.dockerignore` to optimize build context?](#q24-how-do-you-use-.dockerignore-to-optimize-build-context) <span class="beginner">Beginner</span>
-25. [How do you mount a specific file as a volume (Bind Mount)?](#q25-how-do-you-mount-a-specific-file-as-a-volume-bind-mount) <span class="beginner">Beginner</span>
-26. [How do you view the logs of a running container in real-time?](#q26-how-do-you-view-the-logs-of-a-running-container-in-real-time) <span class="beginner">Beginner</span>
-27. [How do you inspect a container's IP address and configuration?](#q27-how-do-you-inspect-a-containers-ip-address-and-configuration) <span class="intermediate">Intermediate</span>
-29. [How do you implement caching for `pip install` or `npm install` in Docker builds?](#q29-how-do-you-implement-caching-for-pip-install-or-npm-install-in-docker-builds) <span class="advanced">Advanced</span>
-30. [How do you network containers across multiple hosts (Overlay Network)?](#q30-how-do-you-network-containers-across-multiple-hosts-overlay-network) <span class="advanced">Advanced</span>
-31. [How do you use Docker Context to manage multiple Docker daemons?](#q31-how-do-you-use-docker-context-to-manage-multiple-docker-daemons) <span class="intermediate">Intermediate</span>
-32. [How do you debug a container that fails to start due to an 'Exec format error'?](#q32-how-do-you-debug-a-container-that-fails-to-start-due-to-an-exec-format-error) <span class="intermediate">Intermediate</span>
-33. [How do you flatten a Docker image to reduce layers?](#q33-how-do-you-flatten-a-docker-image-to-reduce-layers) <span class="advanced">Advanced</span>
-34. [How do you prevent the 'PID 1 zombie reaping' problem in Docker?](#q34-how-do-you-prevent-the-pid-1-zombie-reaping-problem-in-docker) <span class="advanced">Advanced</span>
-35. [How do you optimize Docker layer caching for `apt-get install`?](#q35-how-do-you-optimize-docker-layer-caching-for-apt-get-install) <span class="intermediate">Intermediate</span>
-36. [How do you use Docker in Docker (DinD) for CI pipelines?](#q36-how-do-you-use-docker-in-docker-dind-for-ci-pipelines) <span class="advanced">Advanced</span>
-37. [How do you change the default logging driver for all containers?](#q37-how-do-you-change-the-default-logging-driver-for-all-containers) <span class="intermediate">Intermediate</span>
-38. [How do you inspect the resource usage (stats) of running containers?](#q38-how-do-you-inspect-the-resource-usage-stats-of-running-containers) <span class="beginner">Beginner</span>
-39. [How do you use multi-stage builds to run tests before building the final image?](#q39-how-do-you-use-multi-stage-builds-to-run-tests-before-building-the-final-image) <span class="intermediate">Intermediate</span>
-40. [How do you handle timezones in Docker containers?](#q40-how-do-you-handle-timezones-in-docker-containers) <span class="beginner">Beginner</span>
-41. [How do you scan Docker images for security vulnerabilities?](#q41-how-do-you-scan-docker-images-for-security-vulnerabilities) <span class="intermediate">Intermediate</span>
-42. [How do you force a rebuild of a specific Docker layer?](#q42-how-do-you-force-a-rebuild-of-a-specific-docker-layer) <span class="intermediate">Intermediate</span>
-43. [How do you back up a Docker volume?](#q43-how-do-you-back-up-a-docker-volume) <span class="intermediate">Intermediate</span>
-44. [How do you run a command when a container stops (Traps)?](#q44-how-do-you-run-a-command-when-a-container-stops-traps) <span class="advanced">Advanced</span>
-45. [How do you limit container restart attempts (Restart Policy)?](#q45-how-do-you-limit-container-restart-attempts-restart-policy) <span class="beginner">Beginner</span>
-46. [How do you share a Unix socket between containers?](#q46-how-do-you-share-a-unix-socket-between-containers) <span class="advanced">Advanced</span>
-47. [How do you implement a warm-up period for a container before it receives traffic?](#q47-how-do-you-implement-a-warm-up-period-for-a-container-before-it-receives-traffic) <span class="intermediate">Intermediate</span>
-48. [How do you prevent 'works on my machine' issues using Dev Containers?](#q48-how-do-you-prevent-works-on-my-machine-issues-using-dev-containers) <span class="intermediate">Intermediate</span>
-49. [How do you verify the authenticity of a Docker image (Content Trust)?](#q49-how-do-you-verify-the-authenticity-of-a-docker-image-content-trust) <span class="advanced">Advanced</span>
-50. [How do you debug a container's network connectivity using `nsenter`?](#q50-how-do-you-debug-a-containers-network-connectivity-using-nsenter) <span class="advanced">Advanced</span>
-51. [How do you handle Docker state management in large scale applications?](#q51-how-do-you-handle-docker-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-52. [How do you perform Docker data validation in microservices?](#q52-how-do-you-perform-docker-data-validation-in-microservices) <span class="beginner">Beginner</span>
-53. [How do you automate Docker deployment for mobile devices?](#q53-how-do-you-automate-docker-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-54. [How do you handle Docker concurrency issues in legacy systems?](#q54-how-do-you-handle-docker-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-55. [How do you implement Docker caching in cloud infrastructure?](#q55-how-do-you-implement-docker-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-56. [How do you manage Docker configuration for real-time systems?](#q56-how-do-you-manage-docker-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-57. [How do you handle Docker internationalization (i18n) in distributed systems?](#q57-how-do-you-handle-docker-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-58. [How do you ensure Docker accessibility (a11y) in high-traffic sites?](#q58-how-do-you-ensure-docker-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-59. [How do you optimize Docker network requests in embedded systems?](#q59-how-do-you-optimize-docker-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-60. [How do you handle Docker performance optimization for production environments?](#q60-how-do-you-handle-docker-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-61. [What are the security implications of Docker in large scale applications?](#q61-what-are-the-security-implications-of-docker-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug Docker memory leaks in microservices?](#q62-how-do-you-debug-docker-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for Docker code organization in mobile devices?](#q63-best-practices-for-docker-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement Docker error handling for legacy systems?](#q64-how-do-you-implement-docker-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test Docker functionality in cloud infrastructure?](#q65-how-do-you-test-docker-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle Docker state management in real-time systems?](#q66-how-do-you-handle-docker-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform Docker data validation in distributed systems?](#q67-how-do-you-perform-docker-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate Docker deployment for high-traffic sites?](#q68-how-do-you-automate-docker-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle Docker concurrency issues in embedded systems?](#q69-how-do-you-handle-docker-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement Docker caching in production environments?](#q70-how-do-you-implement-docker-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage Docker configuration for large scale applications?](#q71-how-do-you-manage-docker-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle Docker internationalization (i18n) in microservices?](#q72-how-do-you-handle-docker-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure Docker accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-docker-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize Docker network requests in legacy systems?](#q74-how-do-you-optimize-docker-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle Docker performance optimization for cloud infrastructure?](#q75-how-do-you-handle-docker-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of Docker in real-time systems?](#q76-what-are-the-security-implications-of-docker-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug Docker memory leaks in distributed systems?](#q77-how-do-you-debug-docker-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for Docker code organization in high-traffic sites?](#q78-best-practices-for-docker-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement Docker error handling for embedded systems?](#q79-how-do-you-implement-docker-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test Docker functionality in production environments?](#q80-how-do-you-test-docker-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle Docker state management in large scale applications?](#q81-how-do-you-handle-docker-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform Docker data validation in microservices?](#q82-how-do-you-perform-docker-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate Docker deployment for mobile devices?](#q83-how-do-you-automate-docker-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle Docker concurrency issues in legacy systems?](#q84-how-do-you-handle-docker-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement Docker caching in cloud infrastructure?](#q85-how-do-you-implement-docker-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage Docker configuration for real-time systems?](#q86-how-do-you-manage-docker-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle Docker internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-docker-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure Docker accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-docker-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize Docker network requests in embedded systems?](#q89-how-do-you-optimize-docker-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle Docker performance optimization for production environments?](#q90-how-do-you-handle-docker-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of Docker in large scale applications?](#q91-what-are-the-security-implications-of-docker-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug Docker memory leaks in microservices?](#q92-how-do-you-debug-docker-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for Docker code organization in mobile devices?](#q93-best-practices-for-docker-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement Docker error handling for legacy systems?](#q94-how-do-you-implement-docker-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test Docker functionality in cloud infrastructure?](#q95-how-do-you-test-docker-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle Docker state management in real-time systems?](#q96-how-do-you-handle-docker-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform Docker data validation in distributed systems?](#q97-how-do-you-perform-docker-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate Docker deployment for high-traffic sites?](#q98-how-do-you-automate-docker-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle Docker concurrency issues in embedded systems?](#q99-how-do-you-handle-docker-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement Docker caching in production environments?](#q100-how-do-you-implement-docker-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+1. [How do you optimize a Docker image size using multi-stage builds?](#q1) <span class="intermediate">Intermediate</span>
+2. [How do you secure a Docker container by running it as a non-root user?](#q2) <span class="intermediate">Intermediate</span>
+3. [How do you implement health checks in Docker Compose to ensure dependent services start in order?](#q3) <span class="intermediate">Intermediate</span>
+4. [How do you persist database data using Docker Volumes?](#q4) <span class="beginner">Beginner</span>
+5. [How do you debug a crashing container that exits immediately upon starting?](#q5) <span class="intermediate">Intermediate</span>
+6. [How do you connect two containers on the same host so they can communicate by name?](#q6) <span class="beginner">Beginner</span>
+7. [How do you pass sensitive configuration (secrets) to a Docker container securely?](#q7) <span class="advanced">Advanced</span>
+8. [How do you speed up Docker builds by leveraging the build cache effectively?](#q8) <span class="intermediate">Intermediate</span>
+9. [How do you limit the memory and CPU usage of a Docker container?](#q9) <span class="intermediate">Intermediate</span>
+10. [How do you export and import a Docker image to transfer it between air-gapped systems?](#q10) <span class="intermediate">Intermediate</span>
+11. [How do you mount a local configuration file into a container to override defaults?](#q11) <span class="beginner">Beginner</span>
+12. [How do you prevent a Docker container from accumulating large log files?](#q12) <span class="advanced">Advanced</span>
+13. [How do you execute a command inside a running container?](#q13) <span class="beginner">Beginner</span>
+14. [How do you clean up unused Docker resources (images, containers, networks, volumes)?](#q14) <span class="beginner">Beginner</span>
+15. [How do you run a container that automatically restarts on failure?](#q15) <span class="beginner">Beginner</span>
+16. [How do you use `docker buildx` for multi-architecture builds?](#q16) <span class="advanced">Advanced</span>
+17. [How do you speed up builds using BuildKit cache mounts?](#q17) <span class="advanced">Advanced</span>
+18. [How do you implement a healthcheck in Docker Compose?](#q18) <span class="intermediate">Intermediate</span>
+19. [How do you secure a container using read-only filesystems?](#q19) <span class="intermediate">Intermediate</span>
+20. [How do you copy files between a container and the host?](#q20) <span class="beginner">Beginner</span>
+21. [How do you analyze the contents and layers of an image?](#q21) <span class="intermediate">Intermediate</span>
+22. [How do you change the default ENTRYPOINT of an image at runtime?](#q22) <span class="intermediate">Intermediate</span>
+23. [How do you create a Docker network for container communication?](#q23) <span class="intermediate">Intermediate</span>
+24. [How do you use `.dockerignore` to optimize build context?](#q24) <span class="beginner">Beginner</span>
+25. [How do you mount a specific file as a volume (Bind Mount)?](#q25) <span class="beginner">Beginner</span>
+26. [How do you view the logs of a running container in real-time?](#q26) <span class="beginner">Beginner</span>
+27. [How do you inspect a container's IP address and configuration?](#q27) <span class="intermediate">Intermediate</span>
+29. [How do you implement caching for `pip install` or `npm install` in Docker builds?](#q29) <span class="advanced">Advanced</span>
+30. [How do you network containers across multiple hosts (Overlay Network)?](#q30) <span class="advanced">Advanced</span>
+31. [How do you use Docker Context to manage multiple Docker daemons?](#q31) <span class="intermediate">Intermediate</span>
+32. [How do you debug a container that fails to start due to an 'Exec format error'?](#q32) <span class="intermediate">Intermediate</span>
+33. [How do you flatten a Docker image to reduce layers?](#q33) <span class="advanced">Advanced</span>
+34. [How do you prevent the 'PID 1 zombie reaping' problem in Docker?](#q34) <span class="advanced">Advanced</span>
+35. [How do you optimize Docker layer caching for `apt-get install`?](#q35) <span class="intermediate">Intermediate</span>
+36. [How do you use Docker in Docker (DinD) for CI pipelines?](#q36) <span class="advanced">Advanced</span>
+37. [How do you change the default logging driver for all containers?](#q37) <span class="intermediate">Intermediate</span>
+38. [How do you inspect the resource usage (stats) of running containers?](#q38) <span class="beginner">Beginner</span>
+39. [How do you use multi-stage builds to run tests before building the final image?](#q39) <span class="intermediate">Intermediate</span>
+40. [How do you handle timezones in Docker containers?](#q40) <span class="beginner">Beginner</span>
+41. [How do you scan Docker images for security vulnerabilities?](#q41) <span class="intermediate">Intermediate</span>
+42. [How do you force a rebuild of a specific Docker layer?](#q42) <span class="intermediate">Intermediate</span>
+43. [How do you back up a Docker volume?](#q43) <span class="intermediate">Intermediate</span>
+44. [How do you run a command when a container stops (Traps)?](#q44) <span class="advanced">Advanced</span>
+45. [How do you limit container restart attempts (Restart Policy)?](#q45) <span class="beginner">Beginner</span>
+46. [How do you share a Unix socket between containers?](#q46) <span class="advanced">Advanced</span>
+47. [How do you implement a warm-up period for a container before it receives traffic?](#q47) <span class="intermediate">Intermediate</span>
+48. [How do you prevent 'works on my machine' issues using Dev Containers?](#q48) <span class="intermediate">Intermediate</span>
+49. [How do you verify the authenticity of a Docker image (Content Trust)?](#q49) <span class="advanced">Advanced</span>
+50. [How do you debug a container's network connectivity using `nsenter`?](#q50) <span class="advanced">Advanced</span>
+51. [How do you handle Docker state management in large scale applications?](#q51) <span class="advanced">Advanced</span>
+52. [How do you perform Docker data validation in microservices?](#q52) <span class="beginner">Beginner</span>
+53. [How do you automate Docker deployment for mobile devices?](#q53) <span class="advanced">Advanced</span>
+54. [How do you handle Docker concurrency issues in legacy systems?](#q54) <span class="advanced">Advanced</span>
+55. [How do you implement Docker caching in cloud infrastructure?](#q55) <span class="intermediate">Intermediate</span>
+56. [How do you manage Docker configuration for real-time systems?](#q56) <span class="beginner">Beginner</span>
+57. [How do you handle Docker internationalization (i18n) in distributed systems?](#q57) <span class="intermediate">Intermediate</span>
+58. [How do you ensure Docker accessibility (a11y) in high-traffic sites?](#q58) <span class="beginner">Beginner</span>
+59. [How do you optimize Docker network requests in embedded systems?](#q59) <span class="advanced">Advanced</span>
+60. [How do you handle Docker performance optimization for production environments?](#q60) <span class="advanced">Advanced</span>
+61. [What are the security implications of Docker in large scale applications?](#q61) <span class="intermediate">Intermediate</span>
+62. [How do you debug Docker memory leaks in microservices?](#q62) <span class="advanced">Advanced</span>
+63. [Best practices for Docker code organization in mobile devices?](#q63) <span class="beginner">Beginner</span>
+64. [How do you implement Docker error handling for legacy systems?](#q64) <span class="intermediate">Intermediate</span>
+65. [How do you test Docker functionality in cloud infrastructure?](#q65) <span class="intermediate">Intermediate</span>
+66. [How do you handle Docker state management in real-time systems?](#q66) <span class="advanced">Advanced</span>
+67. [How do you perform Docker data validation in distributed systems?](#q67) <span class="beginner">Beginner</span>
+68. [How do you automate Docker deployment for high-traffic sites?](#q68) <span class="advanced">Advanced</span>
+69. [How do you handle Docker concurrency issues in embedded systems?](#q69) <span class="advanced">Advanced</span>
+70. [How do you implement Docker caching in production environments?](#q70) <span class="intermediate">Intermediate</span>
+71. [How do you manage Docker configuration for large scale applications?](#q71) <span class="beginner">Beginner</span>
+72. [How do you handle Docker internationalization (i18n) in microservices?](#q72) <span class="intermediate">Intermediate</span>
+73. [How do you ensure Docker accessibility (a11y) in mobile devices?](#q73) <span class="beginner">Beginner</span>
+74. [How do you optimize Docker network requests in legacy systems?](#q74) <span class="advanced">Advanced</span>
+75. [How do you handle Docker performance optimization for cloud infrastructure?](#q75) <span class="advanced">Advanced</span>
+76. [What are the security implications of Docker in real-time systems?](#q76) <span class="intermediate">Intermediate</span>
+77. [How do you debug Docker memory leaks in distributed systems?](#q77) <span class="advanced">Advanced</span>
+78. [Best practices for Docker code organization in high-traffic sites?](#q78) <span class="beginner">Beginner</span>
+79. [How do you implement Docker error handling for embedded systems?](#q79) <span class="intermediate">Intermediate</span>
+80. [How do you test Docker functionality in production environments?](#q80) <span class="intermediate">Intermediate</span>
+81. [How do you handle Docker state management in large scale applications?](#q81) <span class="advanced">Advanced</span>
+82. [How do you perform Docker data validation in microservices?](#q82) <span class="beginner">Beginner</span>
+83. [How do you automate Docker deployment for mobile devices?](#q83) <span class="advanced">Advanced</span>
+84. [How do you handle Docker concurrency issues in legacy systems?](#q84) <span class="advanced">Advanced</span>
+85. [How do you implement Docker caching in cloud infrastructure?](#q85) <span class="intermediate">Intermediate</span>
+86. [How do you manage Docker configuration for real-time systems?](#q86) <span class="beginner">Beginner</span>
+87. [How do you handle Docker internationalization (i18n) in distributed systems?](#q87) <span class="intermediate">Intermediate</span>
+88. [How do you ensure Docker accessibility (a11y) in high-traffic sites?](#q88) <span class="beginner">Beginner</span>
+89. [How do you optimize Docker network requests in embedded systems?](#q89) <span class="advanced">Advanced</span>
+90. [How do you handle Docker performance optimization for production environments?](#q90) <span class="advanced">Advanced</span>
+91. [What are the security implications of Docker in large scale applications?](#q91) <span class="intermediate">Intermediate</span>
+92. [How do you debug Docker memory leaks in microservices?](#q92) <span class="advanced">Advanced</span>
+93. [Best practices for Docker code organization in mobile devices?](#q93) <span class="beginner">Beginner</span>
+94. [How do you implement Docker error handling for legacy systems?](#q94) <span class="intermediate">Intermediate</span>
+95. [How do you test Docker functionality in cloud infrastructure?](#q95) <span class="intermediate">Intermediate</span>
+96. [How do you handle Docker state management in real-time systems?](#q96) <span class="advanced">Advanced</span>
+97. [How do you perform Docker data validation in distributed systems?](#q97) <span class="beginner">Beginner</span>
+98. [How do you automate Docker deployment for high-traffic sites?](#q98) <span class="advanced">Advanced</span>
+99. [How do you handle Docker concurrency issues in embedded systems?](#q99) <span class="advanced">Advanced</span>
+100. [How do you implement Docker caching in production environments?](#q100) <span class="intermediate">Intermediate</span>
+100. [How do you secure a Docker socket?](#q100) <span class="advanced">Advanced</span>
 
 ---
 
@@ -2137,3 +2138,26 @@ if (cache.has(key)) return cache.get(key);
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+<a id="q100"></a>
+
+### Q100: How do you secure a Docker socket?
+
+**Difficulty**: Advanced
+
+**Strategy**: Never expose the Docker socket (/var/run/docker.sock) to untrusted containers. If remote access is needed, use TLS authentication (Docker over TLS) to ensure only authorized clients can control the daemon.
+
+**Code Example**: 
+```bash
+# Enable TLS in daemon.json
+{
+  "tls": true,
+  "tlscacert": "/etc/docker/ca.pem",
+  "tlscert": "/etc/docker/server-cert.pem",
+  "tlskey": "/etc/docker/server-key.pem"
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+

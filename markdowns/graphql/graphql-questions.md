@@ -10,100 +10,107 @@
 
 ## Table of Contents
 
-1. [Difference between Query and Mutation?](#q1-difference-between-query-and-mutation) <span class="beginner">Beginner</span>
-2. [How do you solve the N+1 problem in GraphQL?](#q2-how-do-you-solve-the-n1-problem-in-graphql) <span class="advanced">Advanced</span>
-3. [How do you handle error handling in GraphQL?](#q3-how-do-you-handle-error-handling-in-graphql) <span class="intermediate">Intermediate</span>
-4. [How do you implement pagination in GraphQL?](#q4-how-do-you-implement-pagination-in-graphql) <span class="intermediate">Intermediate</span>
-5. [How do you secure a GraphQL API?](#q5-how-do-you-secure-a-graphql-api) <span class="advanced">Advanced</span>
-6. [How do you use Fragments?](#q6-how-do-you-use-fragments) <span class="beginner">Beginner</span>
-7. [What are Subscriptions?](#q7-what-are-subscriptions) <span class="intermediate">Intermediate</span>
-8. [How do you handle file uploads?](#q8-how-do-you-handle-file-uploads) <span class="intermediate">Intermediate</span>
-9. [Schema First vs Code First?](#q9-schema-first-vs-code-first) <span class="intermediate">Intermediate</span>
-10. [How do you deprecate a field?](#q10-how-do-you-deprecate-a-field) <span class="beginner">Beginner</span>
-11. [What are Directives in GraphQL?](#q11-what-are-directives-in-graphql) <span class="intermediate">Intermediate</span>
-12. [What is Over-fetching and Under-fetching?](#q12-what-is-over-fetching-and-under-fetching) <span class="beginner">Beginner</span>
-13. [How do you handle Authentication in GraphQL?](#q13-how-do-you-handle-authentication-in-graphql) <span class="intermediate">Intermediate</span>
-14. [What are Resolvers?](#q14-what-are-resolvers) <span class="beginner">Beginner</span>
-15. [What is Introspection?](#q15-what-is-introspection) <span class="intermediate">Intermediate</span>
-16. [How do you handle caching in GraphQL?](#q16-how-do-you-handle-caching-in-graphql) <span class="advanced">Advanced</span>
-17. [What is a Union type?](#q17-what-is-a-union-type) <span class="intermediate">Intermediate</span>
-18. [What is an Interface type?](#q18-what-is-an-interface-type) <span class="intermediate">Intermediate</span>
-19. [How do you version a GraphQL API?](#q19-how-do-you-version-a-graphql-api) <span class="intermediate">Intermediate</span>
-20. [What are Enums in GraphQL?](#q20-what-are-enums-in-graphql) <span class="beginner">Beginner</span>
-21. [How do you handle input validation?](#q21-how-do-you-handle-input-validation) <span class="intermediate">Intermediate</span>
-22. [What is Apollo Federation?](#q22-what-is-apollo-federation) <span class="advanced">Advanced</span>
-23. [How do you test GraphQL resolvers?](#q23-how-do-you-test-graphql-resolvers) <span class="intermediate">Intermediate</span>
-24. [What is Schema Stitching?](#q24-what-is-schema-stitching) <span class="advanced">Advanced</span>
-25. [How do you handle aliases?](#q25-how-do-you-handle-aliases) <span class="beginner">Beginner</span>
-26. [What is a Scalar type?](#q26-what-is-a-scalar-type) <span class="beginner">Beginner</span>
-27. [What is an Object type?](#q27-what-is-an-object-type) <span class="beginner">Beginner</span>
-28. [What is the root Query type?](#q28-what-is-the-root-query-type) <span class="beginner">Beginner</span>
-29. [What is the root Mutation type?](#q29-what-is-the-root-mutation-type) <span class="beginner">Beginner</span>
-30. [What is the root Subscription type?](#q30-what-is-the-root-subscription-type) <span class="intermediate">Intermediate</span>
-31. [What are Input types?](#q31-what-are-input-types) <span class="intermediate">Intermediate</span>
-32. [What is Non-Null (!)?](#q32-what-is-non-null-) <span class="beginner">Beginner</span>
-33. [What is a List ([])?](#q33-what-is-a-list-) <span class="beginner">Beginner</span>
-34. [How do you define arguments?](#q34-how-do-you-define-arguments) <span class="beginner">Beginner</span>
-35. [What is GraphiQL?](#q35-what-is-graphiql) <span class="beginner">Beginner</span>
-36. [What is GraphQL Playground?](#q36-what-is-graphql-playground) <span class="beginner">Beginner</span>
-37. [What is Apollo Server?](#q37-what-is-apollo-server) <span class="intermediate">Intermediate</span>
-38. [What is `info` argument in resolver?](#q38-what-is-info-argument-in-resolver) <span class="advanced">Advanced</span>
-39. [How do you handle authentication?](#q39-how-do-you-handle-authentication) <span class="intermediate">Intermediate</span>
-40. [What is `context`?](#q40-what-is-context) <span class="intermediate">Intermediate</span>
-41. [How do you batch requests?](#q41-how-do-you-batch-requests) <span class="advanced">Advanced</span>
-42. [What is Persisted Queries?](#q42-what-is-persisted-queries) <span class="advanced">Advanced</span>
-43. [What is Schema Stitching?](#q43-what-is-schema-stitching) <span class="advanced">Advanced</span>
-44. [What is Federation?](#q44-what-is-federation) <span class="advanced">Advanced</span>
-45. [What is a Gateway?](#q45-what-is-a-gateway) <span class="advanced">Advanced</span>
-46. [How do you mock data?](#q46-how-do-you-mock-data) <span class="intermediate">Intermediate</span>
-47. [What is Schema Directives?](#q47-what-is-schema-directives) <span class="advanced">Advanced</span>
-48. [How do you handle pagination?](#q48-how-do-you-handle-pagination) <span class="intermediate">Intermediate</span>
-49. [What is Cursor Pagination?](#q49-what-is-cursor-pagination) <span class="intermediate">Intermediate</span>
-50. [What is Connection pattern?](#q50-what-is-connection-pattern) <span class="intermediate">Intermediate</span>
-51. [How do you handle N+1 problem?](#q51-how-do-you-handle-n1-problem) <span class="advanced">Advanced</span>
-52. [What is `dataloader` library?](#q52-what-is-dataloader-library) <span class="advanced">Advanced</span>
-53. [How do you upload files?](#q53-how-do-you-upload-files) <span class="intermediate">Intermediate</span>
-54. [What is Apollo Client?](#q54-what-is-apollo-client) <span class="beginner">Beginner</span>
-55. [What is Relay?](#q55-what-is-relay) <span class="advanced">Advanced</span>
-56. [What is Urql?](#q56-what-is-urql) <span class="intermediate">Intermediate</span>
-57. [How do you cache on client?](#q57-how-do-you-cache-on-client) <span class="intermediate">Intermediate</span>
-58. [What is `__typename`?](#q58-what-is-typename) <span class="intermediate">Intermediate</span>
-59. [How do you use fragments on client?](#q59-how-do-you-use-fragments-on-client) <span class="intermediate">Intermediate</span>
-60. [What is Inline Fragment?](#q60-what-is-inline-fragment) <span class="intermediate">Intermediate</span>
-61. [How do you handle errors on client?](#q61-how-do-you-handle-errors-on-client) <span class="intermediate">Intermediate</span>
-62. [What is Optimistic UI?](#q62-what-is-optimistic-ui) <span class="advanced">Advanced</span>
-63. [How do you refetch data?](#q63-how-do-you-refetch-data) <span class="beginner">Beginner</span>
-64. [What is Polling?](#q64-what-is-polling) <span class="intermediate">Intermediate</span>
-65. [What is `network-only` policy?](#q65-what-is-network-only-policy) <span class="intermediate">Intermediate</span>
-66. [What is `cache-first` policy?](#q66-what-is-cache-first-policy) <span class="intermediate">Intermediate</span>
-67. [What is `cache-and-network`?](#q67-what-is-cache-and-network) <span class="intermediate">Intermediate</span>
-68. [How do you update cache after mutation?](#q68-how-do-you-update-cache-after-mutation) <span class="advanced">Advanced</span>
-69. [What is `readQuery`?](#q69-what-is-readquery) <span class="advanced">Advanced</span>
-70. [What is `writeQuery`?](#q70-what-is-writequery) <span class="advanced">Advanced</span>
-71. [What is `client` directive?](#q71-what-is-client-directive) <span class="intermediate">Intermediate</span>
-72. [How do you manage local state?](#q72-how-do-you-manage-local-state) <span class="intermediate">Intermediate</span>
-73. [What is Code Generation?](#q73-what-is-code-generation) <span class="intermediate">Intermediate</span>
-74. [How do you document schema?](#q74-how-do-you-document-schema) <span class="beginner">Beginner</span>
-75. [What is Deprecation?](#q75-what-is-deprecation) <span class="beginner">Beginner</span>
-76. [How do you limit query depth?](#q76-how-do-you-limit-query-depth) <span class="advanced">Advanced</span>
-77. [What is Query Cost Analysis?](#q77-what-is-query-cost-analysis) <span class="advanced">Advanced</span>
-78. [How do you prevent introspection in prod?](#q78-how-do-you-prevent-introspection-in-prod) <span class="intermediate">Intermediate</span>
-79. [What is `graphql-tools`?](#q79-what-is-graphql-tools) <span class="intermediate">Intermediate</span>
-80. [How do you merge schemas?](#q80-how-do-you-merge-schemas) <span class="advanced">Advanced</span>
-81. [What is Type merging?](#q81-what-is-type-merging) <span class="advanced">Advanced</span>
-82. [How do you handle timeouts?](#q82-how-do-you-handle-timeouts) <span class="intermediate">Intermediate</span>
-83. [What is Tracing?](#q83-what-is-tracing) <span class="advanced">Advanced</span>
-84. [What is Apollo Studio?](#q84-what-is-apollo-studio) <span class="intermediate">Intermediate</span>
-85. [How do you secure against DoS?](#q85-how-do-you-secure-against-dos) <span class="advanced">Advanced</span>
-86. [What is JSON scalar?](#q86-what-is-json-scalar) <span class="intermediate">Intermediate</span>
-87. [How do you handle Date?](#q87-how-do-you-handle-date) <span class="intermediate">Intermediate</span>
-88. [What is the difference between REST and GraphQL?](#q88-what-is-the-difference-between-rest-and-graphql) <span class="beginner">Beginner</span>
-89. [When to use GraphQL?](#q89-when-to-use-graphql) <span class="beginner">Beginner</span>
-90. [When NOT to use GraphQL?](#q90-when-not-to-use-graphql) <span class="intermediate">Intermediate</span>
-91. [What is `extensions` field?](#q91-what-is-extensions-field) <span class="advanced">Advanced</span>
-92. [How do you debug resolvers?](#q92-how-do-you-debug-resolvers) <span class="beginner">Beginner</span>
-93. [What is `parent` argument?](#q93-what-is-parent-argument) <span class="beginner">Beginner</span>
-94. [How do you resolve abstract types?](#q94-how-do-you-resolve-abstract-types) <span class="advanced">Advanced</span>
+1. [Difference between Query and Mutation?](#q1) <span class="beginner">Beginner</span>
+2. [How do you solve the N+1 problem in GraphQL?](#q2) <span class="advanced">Advanced</span>
+3. [How do you handle error handling in GraphQL?](#q3) <span class="intermediate">Intermediate</span>
+4. [How do you implement pagination in GraphQL?](#q4) <span class="intermediate">Intermediate</span>
+5. [How do you secure a GraphQL API?](#q5) <span class="advanced">Advanced</span>
+6. [How do you use Fragments?](#q6) <span class="beginner">Beginner</span>
+7. [What are Subscriptions?](#q7) <span class="intermediate">Intermediate</span>
+8. [How do you handle file uploads?](#q8) <span class="intermediate">Intermediate</span>
+9. [Schema First vs Code First?](#q9) <span class="intermediate">Intermediate</span>
+10. [How do you deprecate a field?](#q10) <span class="beginner">Beginner</span>
+11. [What are Directives in GraphQL?](#q11) <span class="intermediate">Intermediate</span>
+12. [What is Over-fetching and Under-fetching?](#q12) <span class="beginner">Beginner</span>
+13. [How do you handle Authentication in GraphQL?](#q13) <span class="intermediate">Intermediate</span>
+14. [What are Resolvers?](#q14) <span class="beginner">Beginner</span>
+15. [What is Introspection?](#q15) <span class="intermediate">Intermediate</span>
+16. [How do you handle caching in GraphQL?](#q16) <span class="advanced">Advanced</span>
+17. [What is a Union type?](#q17) <span class="intermediate">Intermediate</span>
+18. [What is an Interface type?](#q18) <span class="intermediate">Intermediate</span>
+19. [How do you version a GraphQL API?](#q19) <span class="intermediate">Intermediate</span>
+20. [What are Enums in GraphQL?](#q20) <span class="beginner">Beginner</span>
+21. [How do you handle input validation?](#q21) <span class="intermediate">Intermediate</span>
+22. [What is Apollo Federation?](#q22) <span class="advanced">Advanced</span>
+23. [How do you test GraphQL resolvers?](#q23) <span class="intermediate">Intermediate</span>
+24. [What is Schema Stitching?](#q24) <span class="advanced">Advanced</span>
+25. [How do you handle aliases?](#q25) <span class="beginner">Beginner</span>
+26. [What is a Scalar type?](#q26) <span class="beginner">Beginner</span>
+27. [What is an Object type?](#q27) <span class="beginner">Beginner</span>
+28. [What is the root Query type?](#q28) <span class="beginner">Beginner</span>
+29. [What is the root Mutation type?](#q29) <span class="beginner">Beginner</span>
+30. [What is the root Subscription type?](#q30) <span class="intermediate">Intermediate</span>
+31. [What are Input types?](#q31) <span class="intermediate">Intermediate</span>
+32. [What is Non-Null (!)?](#q32) <span class="beginner">Beginner</span>
+33. [What is a List ([])?](#q33) <span class="beginner">Beginner</span>
+34. [How do you define arguments?](#q34) <span class="beginner">Beginner</span>
+35. [What is GraphiQL?](#q35) <span class="beginner">Beginner</span>
+36. [What is GraphQL Playground?](#q36) <span class="beginner">Beginner</span>
+37. [What is Apollo Server?](#q37) <span class="intermediate">Intermediate</span>
+38. [What is `info` argument in resolver?](#q38) <span class="advanced">Advanced</span>
+39. [How do you handle authentication?](#q39) <span class="intermediate">Intermediate</span>
+40. [What is `context`?](#q40) <span class="intermediate">Intermediate</span>
+41. [How do you batch requests?](#q41) <span class="advanced">Advanced</span>
+42. [What is Persisted Queries?](#q42) <span class="advanced">Advanced</span>
+43. [What is Schema Stitching?](#q43) <span class="advanced">Advanced</span>
+44. [What is Federation?](#q44) <span class="advanced">Advanced</span>
+45. [What is a Gateway?](#q45) <span class="advanced">Advanced</span>
+46. [How do you mock data?](#q46) <span class="intermediate">Intermediate</span>
+47. [What is Schema Directives?](#q47) <span class="advanced">Advanced</span>
+48. [How do you handle pagination?](#q48) <span class="intermediate">Intermediate</span>
+49. [What is Cursor Pagination?](#q49) <span class="intermediate">Intermediate</span>
+50. [What is Connection pattern?](#q50) <span class="intermediate">Intermediate</span>
+51. [How do you handle N+1 problem?](#q51) <span class="advanced">Advanced</span>
+52. [What is `dataloader` library?](#q52) <span class="advanced">Advanced</span>
+53. [How do you upload files?](#q53) <span class="intermediate">Intermediate</span>
+54. [What is Apollo Client?](#q54) <span class="beginner">Beginner</span>
+55. [What is Relay?](#q55) <span class="advanced">Advanced</span>
+56. [What is Urql?](#q56) <span class="intermediate">Intermediate</span>
+57. [How do you cache on client?](#q57) <span class="intermediate">Intermediate</span>
+58. [What is `__typename`?](#q58) <span class="intermediate">Intermediate</span>
+59. [How do you use fragments on client?](#q59) <span class="intermediate">Intermediate</span>
+60. [What is Inline Fragment?](#q60) <span class="intermediate">Intermediate</span>
+61. [How do you handle errors on client?](#q61) <span class="intermediate">Intermediate</span>
+62. [What is Optimistic UI?](#q62) <span class="advanced">Advanced</span>
+63. [How do you refetch data?](#q63) <span class="beginner">Beginner</span>
+64. [What is Polling?](#q64) <span class="intermediate">Intermediate</span>
+65. [What is `network-only` policy?](#q65) <span class="intermediate">Intermediate</span>
+66. [What is `cache-first` policy?](#q66) <span class="intermediate">Intermediate</span>
+67. [What is `cache-and-network`?](#q67) <span class="intermediate">Intermediate</span>
+68. [How do you update cache after mutation?](#q68) <span class="advanced">Advanced</span>
+69. [What is `readQuery`?](#q69) <span class="advanced">Advanced</span>
+70. [What is `writeQuery`?](#q70) <span class="advanced">Advanced</span>
+71. [What is `client` directive?](#q71) <span class="intermediate">Intermediate</span>
+72. [How do you manage local state?](#q72) <span class="intermediate">Intermediate</span>
+73. [What is Code Generation?](#q73) <span class="intermediate">Intermediate</span>
+74. [How do you document schema?](#q74) <span class="beginner">Beginner</span>
+75. [What is Deprecation?](#q75) <span class="beginner">Beginner</span>
+76. [How do you limit query depth?](#q76) <span class="advanced">Advanced</span>
+77. [What is Query Cost Analysis?](#q77) <span class="advanced">Advanced</span>
+78. [How do you prevent introspection in prod?](#q78) <span class="intermediate">Intermediate</span>
+79. [What is `graphql-tools`?](#q79) <span class="intermediate">Intermediate</span>
+80. [How do you merge schemas?](#q80) <span class="advanced">Advanced</span>
+81. [What is Type merging?](#q81) <span class="advanced">Advanced</span>
+82. [How do you handle timeouts?](#q82) <span class="intermediate">Intermediate</span>
+83. [What is Tracing?](#q83) <span class="advanced">Advanced</span>
+84. [What is Apollo Studio?](#q84) <span class="intermediate">Intermediate</span>
+85. [How do you secure against DoS?](#q85) <span class="advanced">Advanced</span>
+86. [What is JSON scalar?](#q86) <span class="intermediate">Intermediate</span>
+87. [How do you handle Date?](#q87) <span class="intermediate">Intermediate</span>
+88. [What is the difference between REST and GraphQL?](#q88) <span class="beginner">Beginner</span>
+89. [When to use GraphQL?](#q89) <span class="beginner">Beginner</span>
+90. [When NOT to use GraphQL?](#q90) <span class="intermediate">Intermediate</span>
+91. [What is `extensions` field?](#q91) <span class="advanced">Advanced</span>
+92. [How do you debug resolvers?](#q92) <span class="beginner">Beginner</span>
+93. [What is `parent` argument?](#q93) <span class="beginner">Beginner</span>
+94. [How do you resolve abstract types?](#q94) <span class="advanced">Advanced</span>
+95. [What are Persisted Queries?](#q95) <span class="advanced">Advanced</span>
+96. [Explain the `@defer` directive.](#q96) <span class="advanced">Advanced</span>
+97. [How do you limit Query Depth?](#q97) <span class="intermediate">Intermediate</span>
+98. [What is Query Complexity Analysis?](#q98) <span class="advanced">Advanced</span>
+99. [GraphQL over WebSockets vs HTTP/2 Streams?](#q99) <span class="advanced">Advanced</span>
+100. [How to handle N+1 problem with DataLoader?](#q100) <span class="advanced">Advanced</span>
+101. [What are the benefits of Code-First vs Schema-First?](#q101) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1704,4 +1711,153 @@ parent.id
 __resolveType(obj) { return 'User' }
 ```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div><a id="q95"></a>
+
+### Q95: What are Persisted Queries?
+
+**Difficulty**: Advanced
+
+**Strategy**: Persisted queries are a technique where the query string is sent to the server once, hashed, and stored. subsequent requests send only the hash. This improves performance by reducing payload size and allows whitelisting queries for security.
+
+**Code Example**: 
+```javascript
+// Client sends hash instead of full query string
+// GET /graphql?extensions={"persistedQuery":{"version":1,"sha256Hash":"..."}}
+```
+
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q96"></a>
+
+### Q96: Explain the `@defer` directive.
+
+**Difficulty**: Advanced
+
+**Strategy**: `@defer` allows you to delay the delivery of certain fields in the response. This is useful for fields that are slow to resolve (like expensive computations or third-party API calls) but are not critical for the initial render. It enables incremental delivery of data.
+
+**Code Example**: 
+```javascript
+query {
+  user(id: "1") {
+    name
+    ... @defer {
+      purchaseHistory # Slow field
+    }
+  }
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q97"></a>
+
+### Q97: How do you limit Query Depth?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Query depth limiting prevents malicious or expensive recursive queries (like A -> B -> A -> B...) by rejecting queries that are nested too deeply. This is usually implemented using a validation rule in the GraphQL server setup.
+
+**Code Example**: 
+```javascript
+import depthLimit from 'graphql-depth-limit';
+
+const server = new ApolloServer({
+  schema,
+  validationRules: [depthLimit(5)] // Max depth of 5
+});
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q98"></a>
+
+### Q98: What is Query Complexity Analysis?
+
+**Difficulty**: Advanced
+
+**Strategy**: Query complexity analysis assigns a 'cost' to each field and rejects queries that exceed a total cost threshold. This is more sophisticated than depth limiting as it accounts for the computational expense of specific fields.
+
+**Code Example**: 
+```javascript
+// Example cost configuration
+// simpleField: 1
+// complexField: 10
+// listField: 5 * limit
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q99"></a>
+
+### Q99: GraphQL over WebSockets vs HTTP/2 Streams?
+
+**Difficulty**: Advanced
+
+**Strategy**: Traditionally, Subscriptions used WebSockets for persistent connections. However, HTTP/2 Streams (and Server-Sent Events) are becoming popular as they are easier to manage through firewalls/proxies and don't require a separate protocol handshake. `@stream` and `@defer` typically use multipart HTTP responses.
+
+**Code Example**: 
+```javascript
+// SSE (Server-Sent Events) is often preferred now for simple unidirectional streams over managing full WebSocket connections.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q100"></a>
+
+### Q100: How to handle N+1 problem with DataLoader?
+
+**Difficulty**: Advanced
+
+**Strategy**: DataLoader batches multiple requests for data into a single request to the database. It uses a tick-based batching mechanism. Instead of executing a SQL query for each resolver, it collects all IDs and executes `SELECT * FROM table WHERE id IN (...)`.
+
+**Code Example**: 
+```javascript
+const userLoader = new DataLoader(async keys => {
+  const users = await getUsers(keys);
+  return keys.map(key => users.find(user => user.id === key));
+});
+
+// Resolver
+resolve(parent) {
+  return userLoader.load(parent.userId);
+}
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q101"></a>
+
+### Q101: What are the benefits of Code-First vs Schema-First?
+
+**Difficulty**: Intermediate
+
+**Strategy**: **Schema-First**: Good for API design discussions, language agnostic. 
+**Code-First** (e.g., Nexus, Pothos): Better type safety in implementation, code acts as source of truth, easier to refactor. The choice often depends on team preference and tooling.
+
+**Code Example**: 
+```javascript
+// Code-First (Nexus)
+objectType({
+  name: 'User',
+  definition(t) {
+    t.string('name')
+  }
+})
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+

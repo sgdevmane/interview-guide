@@ -85,6 +85,32 @@
 98. [What is `nc` (Netcat)?](#q98) <span class="advanced">Advanced</span>
 99. [How do you trace the path to a network host?](#q99) <span class="intermediate">Intermediate</span>
 100. [What is the difference between `apt` and `apt-get`?](#q100) <span class="beginner">Beginner</span>
+76. [How do you create a systemd service?](#q76) <span class="advanced">Advanced</span>
+77. [How do you filter journal logs by service?](#q77) <span class="intermediate">Intermediate</span>
+78. [What is `strace` used for?](#q78) <span class="advanced">Advanced</span>
+79. [How do you find which process is using a port?](#q79) <span class="intermediate">Intermediate</span>
+80. [How do you capture network traffic with `tcpdump`?](#q80) <span class="advanced">Advanced</span>
+81. [Difference between `netstat` and `ss`?](#q81) <span class="intermediate">Intermediate</span>
+82. [How do you schedule a task with Systemd Timers?](#q82) <span class="advanced">Advanced</span>
+83. [How do you print the 2nd column of a file with awk?](#q83) <span class="intermediate">Intermediate</span>
+84. [How do you replace text in a file with sed?](#q84) <span class="intermediate">Intermediate</span>
+85. [How do you delete files found by `find`?](#q85) <span class="intermediate">Intermediate</span>
+86. [What does `xargs` do?](#q86) <span class="intermediate">Intermediate</span>
+87. [How do you change process priority?](#q87) <span class="intermediate">Intermediate</span>
+88. [How do you keep a process running after logout?](#q88) <span class="beginner">Beginner</span>
+89. [How do you create an SSH tunnel (Local Forwarding)?](#q89) <span class="advanced">Advanced</span>
+90. [Difference between `scp` and `rsync`?](#q90) <span class="intermediate">Intermediate</span>
+91. [How do you extract a `.tar.gz` file?](#q91) <span class="beginner">Beginner</span>
+92. [What is the Sticky Bit?](#q92) <span class="advanced">Advanced</span>
+93. [How do you check open file limits?](#q93) <span class="advanced">Advanced</span>
+94. [What is the `/proc` filesystem?](#q94) <span class="advanced">Advanced</span>
+95. [How do you check kernel ring buffer logs?](#q95) <span class="intermediate">Intermediate</span>
+96. [How do you check memory usage details?](#q96) <span class="beginner">Beginner</span>
+97. [How do you check Disk I/O stats?](#q97) <span class="advanced">Advanced</span>
+98. [Difference between `top` and `htop`?](#q98) <span class="beginner">Beginner</span>
+99. [Difference between SIGTERM and SIGKILL?](#q99) <span class="intermediate">Intermediate</span>
+100. [Difference between `curl` and `wget`?](#q100) <span class="intermediate">Intermediate</span>
+101. [How do you make an environment variable persistent?](#q101) <span class="beginner">Beginner</span>
 
 ---
 
@@ -1690,3 +1716,452 @@ apt install git
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q76"></a>
+
+### Q76: How do you create a systemd service?
+
+**Difficulty**: Advanced
+
+**Strategy**: Create a `.service` file in `/etc/systemd/system/`. Define `[Unit]`, `[Service]`, and `[Install]` sections. Then `systemctl enable` and `start` it.
+
+**Code Example**: 
+```bash
+[Service]
+ExecStart=/usr/bin/python3 /opt/script.py
+Restart=always
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q77"></a>
+
+### Q77: How do you filter journal logs by service?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `journalctl -u <service_name>`. You can add `-f` to follow live logs.
+
+**Code Example**: 
+```bash
+journalctl -u nginx -f
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q78"></a>
+
+### Q78: What is `strace` used for?
+
+**Difficulty**: Advanced
+
+**Strategy**: It traces system calls and signals. Useful for debugging why a program is failing (e.g., file not found, permission denied) by seeing exactly what kernel requests it makes.
+
+**Code Example**: 
+```bash
+strace -p <PID>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q79"></a>
+
+### Q79: How do you find which process is using a port?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `lsof -i :<port>` or `netstat -tulnp | grep <port>`.
+
+**Code Example**: 
+```bash
+lsof -i :8080
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q80"></a>
+
+### Q80: How do you capture network traffic with `tcpdump`?
+
+**Difficulty**: Advanced
+
+**Strategy**: `tcpdump` captures packets. Use `-i` for interface, `-w` to write to file.
+
+**Code Example**: 
+```bash
+tcpdump -i eth0 port 80
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q81"></a>
+
+### Q81: Difference between `netstat` and `ss`?
+
+**Difficulty**: Intermediate
+
+**Strategy**: `ss` (Socket Statistics) is the modern replacement for `netstat`. It is faster and shows more information.
+
+**Code Example**: 
+```bash
+ss -tuln
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q82"></a>
+
+### Q82: How do you schedule a task with Systemd Timers?
+
+**Difficulty**: Advanced
+
+**Strategy**: Create a matching `.timer` file for your `.service`. Timers are more flexible than cron (can depend on boot time, handle missed runs).
+
+**Code Example**: 
+```bash
+[Timer]
+OnCalendar=*-*-* 00:00:00
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q83"></a>
+
+### Q83: How do you print the 2nd column of a file with awk?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `awk '{print $2}'`.
+
+**Code Example**: 
+```bash
+ls -l | awk '{print $2}'
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q84"></a>
+
+### Q84: How do you replace text in a file with sed?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `sed -i 's/old/new/g' filename`.
+
+**Code Example**: 
+```bash
+sed -i 's/foo/bar/g' config.txt
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q85"></a>
+
+### Q85: How do you delete files found by `find`?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use the `-exec` option or delete flag.
+
+**Code Example**: 
+```bash
+find . -name "*.tmp" -delete
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q86"></a>
+
+### Q86: What does `xargs` do?
+
+**Difficulty**: Intermediate
+
+**Strategy**: It builds and executes command lines from standard input. Useful when the list of arguments is too long for a single command.
+
+**Code Example**: 
+```bash
+find . -name "*.log" | xargs rm
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q87"></a>
+
+### Q87: How do you change process priority?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `nice` when starting a process or `renice` for a running process. Values range from -20 (highest priority) to 19 (lowest).
+
+**Code Example**: 
+```bash
+renice -n 10 -p 1234
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q88"></a>
+
+### Q88: How do you keep a process running after logout?
+
+**Difficulty**: Beginner
+
+**Strategy**: Use `nohup`, `disown`, or a terminal multiplexer like `screen` or `tmux`.
+
+**Code Example**: 
+```bash
+nohup python script.py &
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q89"></a>
+
+### Q89: How do you create an SSH tunnel (Local Forwarding)?
+
+**Difficulty**: Advanced
+
+**Strategy**: Use `ssh -L local_port:destination_host:destination_port user@ssh_server`. This forwards traffic from a local port to a destination via the SSH server.
+
+**Code Example**: 
+```bash
+ssh -L 3000:localhost:5432 user@db-server
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q90"></a>
+
+### Q90: Difference between `scp` and `rsync`?
+
+**Difficulty**: Intermediate
+
+**Strategy**: **scp**: Simple copy. 
+**rsync**: Delta transfer algorithm (only sends changes), supports resume, preserves permissions better. Preferred for backups.
+
+**Code Example**: 
+```bash
+rsync -avz source/ user@host:/dest/
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q91"></a>
+
+### Q91: How do you extract a `.tar.gz` file?
+
+**Difficulty**: Beginner
+
+**Strategy**: Use `tar -xzvf`. x=extract, z=gzip, v=verbose, f=file.
+
+**Code Example**: 
+```bash
+tar -xzvf archive.tar.gz
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q92"></a>
+
+### Q92: What is the Sticky Bit?
+
+**Difficulty**: Advanced
+
+**Strategy**: When set on a directory (like `/tmp`), only the file owner (or root) can delete or rename files within it, even if others have write permission on the directory.
+
+**Code Example**: 
+```bash
+chmod +t /tmp
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q93"></a>
+
+### Q93: How do you check open file limits?
+
+**Difficulty**: Advanced
+
+**Strategy**: Use `ulimit -n` for the current shell, or check `/etc/security/limits.conf`.
+
+**Code Example**: 
+```bash
+ulimit -n
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q94"></a>
+
+### Q94: What is the `/proc` filesystem?
+
+**Difficulty**: Advanced
+
+**Strategy**: A pseudo-filesystem that provides an interface to kernel data structures. It contains information about processes (e.g., `/proc/PID`) and system hardware.
+
+**Code Example**: 
+```bash
+cat /proc/cpuinfo
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q95"></a>
+
+### Q95: How do you check kernel ring buffer logs?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `dmesg`. Useful for debugging hardware or driver issues at boot.
+
+**Code Example**: 
+```bash
+dmesg | grep usb
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q96"></a>
+
+### Q96: How do you check memory usage details?
+
+**Difficulty**: Beginner
+
+**Strategy**: Use `free -h` (human readable). `vmstat` provides virtual memory statistics.
+
+**Code Example**: 
+```bash
+free -h
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q97"></a>
+
+### Q97: How do you check Disk I/O stats?
+
+**Difficulty**: Advanced
+
+**Strategy**: Use `iostat` (part of sysstat package).
+
+**Code Example**: 
+```bash
+iostat -x 1
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q98"></a>
+
+### Q98: Difference between `top` and `htop`?
+
+**Difficulty**: Beginner
+
+**Strategy**: **top**: Standard, installed everywhere. 
+**htop**: Interactive, colorful, supports scrolling and mouse, visualizes CPU bars.
+
+**Code Example**: 
+```bash
+htop
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q99"></a>
+
+### Q99: Difference between SIGTERM and SIGKILL?
+
+**Difficulty**: Intermediate
+
+**Strategy**: **SIGTERM (15)**: Polite request to stop. Process can catch it and cleanup. 
+**SIGKILL (9)**: Immediate termination by kernel. Process cannot catch it. Potential data corruption.
+
+**Code Example**: 
+```bash
+kill -9 <PID>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q100"></a>
+
+### Q100: Difference between `curl` and `wget`?
+
+**Difficulty**: Intermediate
+
+**Strategy**: **curl**: Powered by libcurl, supports many protocols, outputs to stdout by default. Great for APIs. 
+**wget**: Great for downloading files recursively, robust against unstable networks.
+
+**Code Example**: 
+```bash
+curl -I https://google.com
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q101"></a>
+
+### Q101: How do you make an environment variable persistent?
+
+**Difficulty**: Beginner
+
+**Strategy**: Add `export VAR=value` to `~/.bashrc` (for user) or `/etc/environment` (for system).
+
+**Code Example**: 
+```bash
+echo 'export PATH=$PATH:/opt/bin' >> ~/.bashrc
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+

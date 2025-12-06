@@ -10,86 +10,107 @@
 
 ## Table of Contents
 
-1. [What are Microfrontends?](#q1-what-are-microfrontends) <span class="beginner">Beginner</span>
-2. [What are the key benefits of Microfrontends?](#q2-what-are-the-key-benefits-of-microfrontends) <span class="beginner">Beginner</span>
-3. [What are the drawbacks of Microfrontends?](#q3-what-are-the-drawbacks-of-microfrontends) <span class="beginner">Beginner</span>
-4. [What is Build-time integration?](#q4-what-is-build-time-integration) <span class="intermediate">Intermediate</span>
-5. [What is Run-time integration?](#q5-what-is-run-time-integration) <span class="intermediate">Intermediate</span>
-6. [What is Webpack Module Federation?](#q6-what-is-webpack-module-federation) <span class="advanced">Advanced</span>
-7. [How do Microfrontends communicate?](#q7-how-do-microfrontends-communicate) <span class="intermediate">Intermediate</span>
-8. [What is Single-SPA?](#q8-what-is-single-spa) <span class="intermediate">Intermediate</span>
-9. [How do you handle shared state?](#q9-how-do-you-handle-shared-state) <span class="advanced">Advanced</span>
-10. [How do you handle CSS isolation?](#q10-how-do-you-handle-css-isolation) <span class="intermediate">Intermediate</span>
-11. [What is Shadow DOM?](#q11-what-is-shadow-dom) <span class="intermediate">Intermediate</span>
-12. [How do you handle routing in Microfrontends?](#q12-how-do-you-handle-routing-in-microfrontends) <span class="advanced">Advanced</span>
-13. [What is the Shell (Container) App?](#q13-what-is-the-shell-container-app) <span class="beginner">Beginner</span>
-14. [How do you handle version mismatches (e.g., React 16 vs 18)?](#q14-how-do-you-handle-version-mismatches-eg-react-16-vs-18) <span class="advanced">Advanced</span>
-15. [What is Server-Side Composition (SSI)?](#q15-what-is-server-side-composition-ssi) <span class="intermediate">Intermediate</span>
-16. [How do you test Microfrontends?](#q16-how-do-you-test-microfrontends) <span class="intermediate">Intermediate</span>
-17. [What is Bit?](#q17-what-is-bit) <span class="advanced">Advanced</span>
-18. [How do you handle authentication?](#q18-how-do-you-handle-authentication) <span class="intermediate">Intermediate</span>
-19. [What is iframe integration?](#q19-what-is-iframe-integration) <span class="beginner">Beginner</span>
-20. [What is Web Components approach?](#q20-what-is-web-components-approach) <span class="intermediate">Intermediate</span>
-21. [How do you share dependencies (e.g., Lodash)?](#q21-how-do-you-share-dependencies-eg-lodash) <span class="intermediate">Intermediate</span>
-22. [What are Import Maps?](#q22-what-are-import-maps) <span class="advanced">Advanced</span>
-23. [How do you handle error boundaries?](#q23-how-do-you-handle-error-boundaries) <span class="intermediate">Intermediate</span>
-24. [What is Lazy Loading in MFE?](#q24-what-is-lazy-loading-in-mfe) <span class="beginner">Beginner</span>
-25. [How do you handle local development?](#q25-how-do-you-handle-local-development) <span class="intermediate">Intermediate</span>
-26. [What is the Backend for Frontend (BFF) pattern in MFE?](#q26-what-is-the-backend-for-frontend-bff-pattern-in-mfe) <span class="advanced">Advanced</span>
-27. [How do you handle navigation between MFEs?](#q27-how-do-you-handle-navigation-between-mfes) <span class="intermediate">Intermediate</span>
-28. [What is Piral?](#q28-what-is-piral) <span class="advanced">Advanced</span>
-29. [What is Luigis?](#q29-what-is-luigis) <span class="advanced">Advanced</span>
-30. [How do you optimize performance?](#q30-how-do-you-optimize-performance) <span class="advanced">Advanced</span>
-31. [What is Resiliency?](#q31-what-is-resiliency) <span class="beginner">Beginner</span>
-32. [How do you handle global styles/resets?](#q32-how-do-you-handle-global-styles-resets) <span class="intermediate">Intermediate</span>
-33. [What is Cross-Application Communication?](#q33-what-is-cross-application-communication) <span class="intermediate">Intermediate</span>
-34. [How do you deploy Microfrontends?](#q34-how-do-you-deploy-microfrontends) <span class="intermediate">Intermediate</span>
-35. [What is a Monorepo?](#q35-what-is-a-monorepo) <span class="beginner">Beginner</span>
-36. [Monorepo vs Polyrepo for MFE?](#q36-monorepo-vs-polyrepo-for-mfe) <span class="intermediate">Intermediate</span>
-37. [What is Dependency Hell?](#q37-what-is-dependency-hell) <span class="intermediate">Intermediate</span>
-38. [How do you fix Dependency Hell?](#q38-how-do-you-fix-dependency-hell) <span class="advanced">Advanced</span>
-39. [What is Zone.js in MFE?](#q39-what-is-zonejs-in-mfe) <span class="advanced">Advanced</span>
-40. [Can you mix Frameworks (React + Angular)?](#q40-can-you-mix-frameworks-react--angular) <span class="beginner">Beginner</span>
-41. [What is Hydration in SSR MFE?](#q41-what-is-hydration-in-ssr-mfe) <span class="advanced">Advanced</span>
-42. [What is Tailor?](#q42-what-is-tailor) <span class="advanced">Advanced</span>
-43. [How do you handle analytics?](#q43-how-do-you-handle-analytics) <span class="intermediate">Intermediate</span>
-44. [What is a Manifest file?](#q44-what-is-a-manifest-file) <span class="intermediate">Intermediate</span>
-45. [How do you handle shared UI components?](#q45-how-do-you-handle-shared-ui-components) <span class="intermediate">Intermediate</span>
-46. [What is Code Splitting?](#q46-what-is-code-splitting) <span class="beginner">Beginner</span>
-47. [How do you handle fonts and assets?](#q47-how-do-you-handle-fonts-and-assets) <span class="intermediate">Intermediate</span>
-48. [What is Federated Modules Loader?](#q48-what-is-federated-modules-loader) <span class="advanced">Advanced</span>
-49. [What is Atomic Design?](#q49-what-is-atomic-design) <span class="beginner">Beginner</span>
-50. [How do you secure MFE routes?](#q50-how-do-you-secure-mfe-routes) <span class="intermediate">Intermediate</span>
-51. [What is Feature Toggles?](#q51-what-is-feature-toggles) <span class="beginner">Beginner</span>
-52. [What is 'Islands Architecture'?](#q52-what-is-islands-architecture) <span class="advanced">Advanced</span>
-53. [Islands vs Microfrontends?](#q53-islands-vs-microfrontends) <span class="advanced">Advanced</span>
-54. [How do you debug production issues?](#q54-how-do-you-debug-production-issues) <span class="intermediate">Intermediate</span>
-55. [What is Layout Thrashing?](#q55-what-is-layout-thrashing) <span class="advanced">Advanced</span>
-56. [How do you use Skeletons?](#q56-how-do-you-use-skeletons) <span class="beginner">Beginner</span>
-57. [What is 'Vertical Split'?](#q57-what-is-vertical-split) <span class="intermediate">Intermediate</span>
-58. [What is 'Horizontal Split'?](#q58-what-is-horizontal-split) <span class="intermediate">Intermediate</span>
-59. [How do you handle internationalization (i18n)?](#q59-how-do-you-handle-internationalization-i18n) <span class="intermediate">Intermediate</span>
-60. [What is Context API in React MFE?](#q60-what-is-context-api-in-react-mfe) <span class="intermediate">Intermediate</span>
-61. [How do you handle cookies?](#q61-how-do-you-handle-cookies) <span class="beginner">Beginner</span>
-62. [What is CORS in MFE?](#q62-what-is-cors-in-mfe) <span class="intermediate">Intermediate</span>
-63. [What is Content Security Policy (CSP)?](#q63-what-is-content-security-policy-csp) <span class="advanced">Advanced</span>
-64. [How do you upgrade a shared library?](#q64-how-do-you-upgrade-a-shared-library) <span class="advanced">Advanced</span>
-65. [What is Web Workers?](#q65-what-is-web-workers) <span class="advanced">Advanced</span>
-66. [How do you handle memory leaks?](#q66-how-do-you-handle-memory-leaks) <span class="intermediate">Intermediate</span>
-67. [What is a 'Remote'?](#q67-what-is-a-remote) <span class="beginner">Beginner</span>
-68. [What is a 'Host'?](#q68-what-is-a-host) <span class="beginner">Beginner</span>
-69. [What is Bi-directional Module Federation?](#q69-what-is-bi-directional-module-federation) <span class="advanced">Advanced</span>
-70. [How do you handle form state across MFEs?](#q70-how-do-you-handle-form-state-across-mfes) <span class="intermediate">Intermediate</span>
-71. [What is 'fragment' in SSI?](#q71-what-is-fragment-in-ssi) <span class="beginner">Beginner</span>
-72. [How do you handle SEO?](#q72-how-do-you-handle-seo) <span class="advanced">Advanced</span>
-73. [What is qiankun?](#q73-what-is-qiankun) <span class="advanced">Advanced</span>
-74. [How do you handle local storage?](#q74-how-do-you-handle-local-storage) <span class="beginner">Beginner</span>
-75. [What is 'Runtime Chunk'?](#q75-what-is-runtime-chunk) <span class="advanced">Advanced</span>
-76. [How do you handle slow networks?](#q76-how-do-you-handle-slow-networks) <span class="intermediate">Intermediate</span>
-77. [What is Module Federation Dashboard?](#q77-what-is-module-federation-dashboard) <span class="advanced">Advanced</span>
-78. [How do you handle breaking changes?](#q78-how-do-you-handle-breaking-changes) <span class="intermediate">Intermediate</span>
-79. [What is 'Loose Coupling'?](#q79-what-is-loose-coupling) <span class="beginner">Beginner</span>
-80. [What is 'High Cohesion'?](#q80-what-is-high-cohesion) <span class="beginner">Beginner</span>
+1. [What are Microfrontends?](#q1) <span class="beginner">Beginner</span>
+2. [What are the key benefits of Microfrontends?](#q2) <span class="beginner">Beginner</span>
+3. [What are the drawbacks of Microfrontends?](#q3) <span class="beginner">Beginner</span>
+4. [What is Build-time integration?](#q4) <span class="intermediate">Intermediate</span>
+5. [What is Run-time integration?](#q5) <span class="intermediate">Intermediate</span>
+6. [What is Webpack Module Federation?](#q6) <span class="advanced">Advanced</span>
+7. [How do Microfrontends communicate?](#q7) <span class="intermediate">Intermediate</span>
+8. [What is Single-SPA?](#q8) <span class="intermediate">Intermediate</span>
+9. [How do you handle shared state?](#q9) <span class="advanced">Advanced</span>
+10. [How do you handle CSS isolation?](#q10) <span class="intermediate">Intermediate</span>
+11. [What is Shadow DOM?](#q11) <span class="intermediate">Intermediate</span>
+12. [How do you handle routing in Microfrontends?](#q12) <span class="advanced">Advanced</span>
+13. [What is the Shell (Container) App?](#q13) <span class="beginner">Beginner</span>
+14. [How do you handle version mismatches (e.g., React 16 vs 18)?](#q14) <span class="advanced">Advanced</span>
+15. [What is Server-Side Composition (SSI)?](#q15) <span class="intermediate">Intermediate</span>
+16. [How do you test Microfrontends?](#q16) <span class="intermediate">Intermediate</span>
+17. [What is Bit?](#q17) <span class="advanced">Advanced</span>
+18. [How do you handle authentication?](#q18) <span class="intermediate">Intermediate</span>
+19. [What is iframe integration?](#q19) <span class="beginner">Beginner</span>
+20. [What is Web Components approach?](#q20) <span class="intermediate">Intermediate</span>
+21. [How do you share dependencies (e.g., Lodash)?](#q21) <span class="intermediate">Intermediate</span>
+22. [What are Import Maps?](#q22) <span class="advanced">Advanced</span>
+23. [How do you handle error boundaries?](#q23) <span class="intermediate">Intermediate</span>
+24. [What is Lazy Loading in MFE?](#q24) <span class="beginner">Beginner</span>
+25. [How do you handle local development?](#q25) <span class="intermediate">Intermediate</span>
+26. [What is the Backend for Frontend (BFF) pattern in MFE?](#q26) <span class="advanced">Advanced</span>
+27. [How do you handle navigation between MFEs?](#q27) <span class="intermediate">Intermediate</span>
+28. [What is Piral?](#q28) <span class="advanced">Advanced</span>
+29. [What is Luigis?](#q29) <span class="advanced">Advanced</span>
+30. [How do you optimize performance?](#q30) <span class="advanced">Advanced</span>
+31. [What is Resiliency?](#q31) <span class="beginner">Beginner</span>
+32. [How do you handle global styles/resets?](#q32) <span class="intermediate">Intermediate</span>
+33. [What is Cross-Application Communication?](#q33) <span class="intermediate">Intermediate</span>
+34. [How do you deploy Microfrontends?](#q34) <span class="intermediate">Intermediate</span>
+35. [What is a Monorepo?](#q35) <span class="beginner">Beginner</span>
+36. [Monorepo vs Polyrepo for MFE?](#q36) <span class="intermediate">Intermediate</span>
+37. [What is Dependency Hell?](#q37) <span class="intermediate">Intermediate</span>
+38. [How do you fix Dependency Hell?](#q38) <span class="advanced">Advanced</span>
+39. [What is Zone.js in MFE?](#q39) <span class="advanced">Advanced</span>
+40. [Can you mix Frameworks (React + Angular)?](#q40) <span class="beginner">Beginner</span>
+41. [What is Hydration in SSR MFE?](#q41) <span class="advanced">Advanced</span>
+42. [What is Tailor?](#q42) <span class="advanced">Advanced</span>
+43. [How do you handle analytics?](#q43) <span class="intermediate">Intermediate</span>
+44. [What is a Manifest file?](#q44) <span class="intermediate">Intermediate</span>
+45. [How do you handle shared UI components?](#q45) <span class="intermediate">Intermediate</span>
+46. [What is Code Splitting?](#q46) <span class="beginner">Beginner</span>
+47. [How do you handle fonts and assets?](#q47) <span class="intermediate">Intermediate</span>
+48. [What is Federated Modules Loader?](#q48) <span class="advanced">Advanced</span>
+49. [What is Atomic Design?](#q49) <span class="beginner">Beginner</span>
+50. [How do you secure MFE routes?](#q50) <span class="intermediate">Intermediate</span>
+51. [What is Feature Toggles?](#q51) <span class="beginner">Beginner</span>
+52. [What is 'Islands Architecture'?](#q52) <span class="advanced">Advanced</span>
+53. [Islands vs Microfrontends?](#q53) <span class="advanced">Advanced</span>
+54. [How do you debug production issues?](#q54) <span class="intermediate">Intermediate</span>
+55. [What is Layout Thrashing?](#q55) <span class="advanced">Advanced</span>
+56. [How do you use Skeletons?](#q56) <span class="beginner">Beginner</span>
+57. [What is 'Vertical Split'?](#q57) <span class="intermediate">Intermediate</span>
+58. [What is 'Horizontal Split'?](#q58) <span class="intermediate">Intermediate</span>
+59. [How do you handle internationalization (i18n)?](#q59) <span class="intermediate">Intermediate</span>
+60. [What is Context API in React MFE?](#q60) <span class="intermediate">Intermediate</span>
+61. [How do you handle cookies?](#q61) <span class="beginner">Beginner</span>
+62. [What is CORS in MFE?](#q62) <span class="intermediate">Intermediate</span>
+63. [What is Content Security Policy (CSP)?](#q63) <span class="advanced">Advanced</span>
+64. [How do you upgrade a shared library?](#q64) <span class="advanced">Advanced</span>
+65. [What is Web Workers?](#q65) <span class="advanced">Advanced</span>
+66. [How do you handle memory leaks?](#q66) <span class="intermediate">Intermediate</span>
+67. [What is a 'Remote'?](#q67) <span class="beginner">Beginner</span>
+68. [What is a 'Host'?](#q68) <span class="beginner">Beginner</span>
+69. [What is Bi-directional Module Federation?](#q69) <span class="advanced">Advanced</span>
+70. [How do you handle form state across MFEs?](#q70) <span class="intermediate">Intermediate</span>
+71. [What is 'fragment' in SSI?](#q71) <span class="beginner">Beginner</span>
+72. [How do you handle SEO?](#q72) <span class="advanced">Advanced</span>
+73. [What is qiankun?](#q73) <span class="advanced">Advanced</span>
+74. [How do you handle local storage?](#q74) <span class="beginner">Beginner</span>
+75. [What is 'Runtime Chunk'?](#q75) <span class="advanced">Advanced</span>
+76. [How do you handle slow networks?](#q76) <span class="intermediate">Intermediate</span>
+77. [What is Module Federation Dashboard?](#q77) <span class="advanced">Advanced</span>
+78. [How do you handle breaking changes?](#q78) <span class="intermediate">Intermediate</span>
+79. [What is 'Loose Coupling'?](#q79) <span class="beginner">Beginner</span>
+80. [What is 'High Cohesion'?](#q80) <span class="beginner">Beginner</span>
+81. [What is NX?](#q81) <span class="intermediate">Intermediate</span>
+82. [What is Turborepo?](#q82) <span class="intermediate">Intermediate</span>
+83. [How do you handle CSS naming collisions?](#q83) <span class="intermediate">Intermediate</span>
+84. [What is a 'Pub/Sub' pattern in MFE?](#q84) <span class="intermediate">Intermediate</span>
+85. [How do you handle global error handling?](#q85) <span class="advanced">Advanced</span>
+86. [What is 'Tree Shaking'?](#q86) <span class="intermediate">Intermediate</span>
+87. [What is 'Vendor Chunk'?](#q87) <span class="intermediate">Intermediate</span>
+88. [How do you mock a remote MFE locally?](#q88) <span class="advanced">Advanced</span>
+89. [What is 'Eager Consumption' in Module Federation?](#q89) <span class="advanced">Advanced</span>
+90. [What is 'Singleton' loading?](#q90) <span class="advanced">Advanced</span>
+91. [How do you handle end-to-end (E2E) testing?](#q91) <span class="intermediate">Intermediate</span>
+92. [What is 'Contract Testing' for MFEs?](#q92) <span class="advanced">Advanced</span>
+93. [How do you handle custom fonts?](#q93) <span class="beginner">Beginner</span>
+94. [What is 'Prefetching'?](#q94) <span class="intermediate">Intermediate</span>
+95. [How do you handle A/B Testing?](#q95) <span class="advanced">Advanced</span>
+96. [What is 'Asset Discovery'?](#q96) <span class="advanced">Advanced</span>
+97. [How do you handle Analytics tracking?](#q97) <span class="intermediate">Intermediate</span>
+98. [What is 'Failover Strategy'?](#q98) <span class="advanced">Advanced</span>
+99. [How do you handle authentication tokens?](#q99) <span class="intermediate">Intermediate</span>
+100. [What is 'Route-based Splitting'?](#q100) <span class="beginner">Beginner</span>
+101. [How do you handle 'Flash of Unstyled Content' (FOUC)?](#q101) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1471,3 +1492,381 @@ Code that changes together stays together. This concept is fundamental in this d
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
+<a id="q81"></a>
+
+### Q81: What is NX?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+A smart build system with first-class monorepo support and powerful integrations for Angular, React, and more.
+
+**Code Example**:
+```javascript
+nx serve my-app
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q82"></a>
+
+### Q82: What is Turborepo?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+A high-performance build system for JavaScript/TypeScript monorepos. Caches build results.
+
+**Code Example**:
+```javascript
+turbo run build
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q83"></a>
+
+### Q83: How do you handle CSS naming collisions?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+CSS Modules (scoping classes), BEM naming convention, or Shadow DOM (true isolation).
+
+**Code Example**:
+```javascript
+.button_hash123 { ... }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q84"></a>
+
+### Q84: What is a 'Pub/Sub' pattern in MFE?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Publish-Subscribe. Decoupled communication where senders (publishers) send messages to a topic, and receivers (subscribers) listen.
+
+**Code Example**:
+```javascript
+window.dispatchEvent(new CustomEvent('order:placed'))
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q85"></a>
+
+### Q85: How do you handle global error handling?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Global 'window.onerror' handler in the Shell app, plus React Error Boundaries in each MFE.
+
+**Code Example**:
+```javascript
+window.onerror = function() { logError() }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q86"></a>
+
+### Q86: What is 'Tree Shaking'?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Removing unused code from bundles during the build process. Critical for MFE performance.
+
+**Code Example**:
+```javascript
+import { func } from 'lib'; // Only func is bundled
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q87"></a>
+
+### Q87: What is 'Vendor Chunk'?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+A separate bundle containing third-party libraries (React, Lodash) to improve caching.
+
+**Code Example**:
+```javascript
+vendors.js (cached long-term)
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q88"></a>
+
+### Q88: How do you mock a remote MFE locally?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Point the remote URL to a local dev server or a static mock file in Webpack config.
+
+**Code Example**:
+```javascript
+remotes: { app1: 'http://localhost:3001/remoteEntry.js' }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q89"></a>
+
+### Q89: What is 'Eager Consumption' in Module Federation?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Loading shared modules immediately on startup instead of async. Solves 'Shared module is not available' error.
+
+**Code Example**:
+```javascript
+shared: { react: { eager: true } }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q90"></a>
+
+### Q90: What is 'Singleton' loading?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Ensuring a library (like React) is loaded only once, even if multiple MFEs use different versions.
+
+**Code Example**:
+```javascript
+shared: { react: { singleton: true } }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q91"></a>
+
+### Q91: How do you handle end-to-end (E2E) testing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Test the Shell app with all MFEs integrated using Cypress or Playwright.
+
+**Code Example**:
+```javascript
+cy.visit('/'); cy.get('#cart-mfe').click();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q92"></a>
+
+### Q92: What is 'Contract Testing' for MFEs?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Verifying that the API/Events exposed by an MFE match what the consumer expects. Prevents breaking changes.
+
+**Code Example**:
+```javascript
+Provider: 'I emit {id: number}'. Consumer: 'I expect {id: number}'.
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q93"></a>
+
+### Q93: How do you handle custom fonts?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Load fonts in the Shell app to ensure consistency and avoid duplicate downloads.
+
+**Code Example**:
+```javascript
+<link rel='stylesheet' href='fonts.css'>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q94"></a>
+
+### Q94: What is 'Prefetching'?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Loading resources (chunks) for other MFEs in the background before the user navigates to them.
+
+**Code Example**:
+```javascript
+<link rel='prefetch' href='chunk.js'>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q95"></a>
+
+### Q95: How do you handle A/B Testing?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+The Shell app or a feature flag service decides which version of an MFE to load for a user.
+
+**Code Example**:
+```javascript
+if (user.group === 'B') load('mfe-v2') else load('mfe-v1')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q96"></a>
+
+### Q96: What is 'Asset Discovery'?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Dynamically finding where static assets (images) are located for a remote MFE (using publicPath).
+
+**Code Example**:
+```javascript
+__webpack_public_path__ = scriptUrl;
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q97"></a>
+
+### Q97: How do you handle Analytics tracking?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Centralized analytics service in Shell. MFEs send events to Shell.
+
+**Code Example**:
+```javascript
+shell.track('product_viewed')
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q98"></a>
+
+### Q98: What is 'Failover Strategy'?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+What to display if a remote MFE fails to load. Fallback UI or a cached version.
+
+**Code Example**:
+```javascript
+try { load() } catch { return <ErrorUI /> }
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q99"></a>
+
+### Q99: How do you handle authentication tokens?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Shell handles login and stores token (cookie/localStorage). MFEs read token or attach via interceptor.
+
+**Code Example**:
+```javascript
+const token = localStorage.getItem('token');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q100"></a>
+
+### Q100: What is 'Route-based Splitting'?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Loading a different MFE based on the URL path.
+
+**Code Example**:
+```javascript
+/checkout -> CheckoutMFE
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q101"></a>
+
+### Q101: How do you handle 'Flash of Unstyled Content' (FOUC)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Ensure critical CSS is loaded before JS execution or use SSR.
+
+**Code Example**:
+```javascript
+Critical CSS in <head>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+

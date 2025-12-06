@@ -10,105 +10,106 @@
 
 ## Table of Contents
 
-2. [How do you prevent thread-pool starvation in a high-concurrency .NET application?](#q2-how-do-you-prevent-thread-pool-starvation-in-a-high-concurrency-.net-application) <span class="expert">Expert</span>
-3. [How do you implement efficient caching with automatic expiration using `IMemoryCache`?](#q3-how-do-you-implement-efficient-caching-with-automatic-expiration-using-imemorycache) <span class="intermediate">Intermediate</span>
-4. [How do you handle background tasks in ASP.NET Core without blocking the request thread?](#q4-how-do-you-handle-background-tasks-in-asp.net-core-without-blocking-the-request-thread) <span class="intermediate">Intermediate</span>
-5. [How do you optimize Entity Framework Core queries to avoid the N+1 problem?](#q5-how-do-you-optimize-entity-framework-core-queries-to-avoid-the-n+1-problem) <span class="intermediate">Intermediate</span>
-6. [How do you implement the Outbox Pattern in .NET to ensure reliable messaging?](#q6-how-do-you-implement-the-outbox-pattern-in-.net-to-ensure-reliable-messaging) <span class="expert">Expert</span>
-7. [How do you use `IAsyncEnumerable<T>` to stream data efficiently from a database or API?](#q7-how-do-you-use-iasyncenumerable<t>-to-stream-data-efficiently-from-a-database-or-api) <span class="advanced">Advanced</span>
-8. [How do you implement custom middleware in ASP.NET Core to handle global exceptions?](#q8-how-do-you-implement-custom-middleware-in-asp.net-core-to-handle-global-exceptions) <span class="intermediate">Intermediate</span>
-9. [How do you use `ValueTask` to reduce allocations in hot paths?](#q9-how-do-you-use-valuetask-to-reduce-allocations-in-hot-paths) <span class="advanced">Advanced</span>
-10. [How do you implement dependency injection for a service that requires a runtime parameter?](#q10-how-do-you-implement-dependency-injection-for-a-service-that-requires-a-runtime-parameter) <span class="advanced">Advanced</span>
-11. [How do you cancel a long-running async operation properly?](#q11-how-do-you-cancel-a-long-running-async-operation-properly) <span class="intermediate">Intermediate</span>
-12. [How do you optimize string concatenation in a tight loop?](#q12-how-do-you-optimize-string-concatenation-in-a-tight-loop) <span class="beginner">Beginner</span>
-13. [How do you implement structured logging using Serilog in .NET Core?](#q13-how-do-you-implement-structured-logging-using-serilog-in-.net-core) <span class="intermediate">Intermediate</span>
-14. [How do you ensure a singleton service is thread-safe?](#q14-how-do-you-ensure-a-singleton-service-is-thread-safe) <span class="intermediate">Intermediate</span>
-15. [How do you handle database migrations in a CI/CD pipeline using EF Core?](#q15-how-do-you-handle-database-migrations-in-a-cicd-pipeline-using-ef-core) <span class="advanced">Advanced</span>
-16. [How do you implement efficient caching with `IMemoryCache` and expiration policies?](#q16-how-do-you-implement-efficient-caching-with-imemorycache-and-expiration-policies) <span class="intermediate">Intermediate</span>
-17. [How do you solve the 'N+1' problem in Entity Framework Core?](#q17-how-do-you-solve-the-n+1-problem-in-entity-framework-core) <span class="intermediate">Intermediate</span>
-18. [How do you implement the Outbox Pattern for reliable messaging?](#q18-how-do-you-implement-the-outbox-pattern-for-reliable-messaging) <span class="advanced">Advanced</span>
-19. [How do you use `IHttpClientFactory` to manage HTTP connections?](#q19-how-do-you-use-ihttpclientfactory-to-manage-http-connections) <span class="intermediate">Intermediate</span>
-20. [How do you handle global exceptions in ASP.NET Core?](#q20-how-do-you-handle-global-exceptions-in-asp.net-core) <span class="intermediate">Intermediate</span>
-21. [How do you implement a background service (Hosted Service)?](#q21-how-do-you-implement-a-background-service-hosted-service) <span class="intermediate">Intermediate</span>
-22. [How do you use `ValueTask` to optimize hot paths?](#q22-how-do-you-use-valuetask-to-optimize-hot-paths) <span class="advanced">Advanced</span>
-23. [How do you implement resilient HTTP calls with Polly?](#q23-how-do-you-implement-resilient-http-calls-with-polly) <span class="intermediate">Intermediate</span>
-24. [How do you optimize LINQ queries with `AsNoTracking`?](#q24-how-do-you-optimize-linq-queries-with-asnotracking) <span class="intermediate">Intermediate</span>
-25. [How do you use `IAsyncEnumerable` for streaming data?](#q25-how-do-you-use-iasyncenumerable-for-streaming-data) <span class="advanced">Advanced</span>
-26. [How do you use Channels for Producer-Consumer patterns?](#q26-how-do-you-use-channels-for-producer-consumer-patterns) <span class="advanced">Advanced</span>
-27. [How do you implement Structured Logging with Serilog?](#q27-how-do-you-implement-structured-logging-with-serilog) <span class="beginner">Beginner</span>
-28. [How do you prevent Thread Pool starvation?](#q28-how-do-you-prevent-thread-pool-starvation) <span class="advanced">Advanced</span>
-29. [How do you use `ArrayPool<T>` to reduce GC pressure?](#q29-how-do-you-use-arraypool<t>-to-reduce-gc-pressure) <span class="expert">Expert</span>
-30. [How do you implement a custom attribute filter in ASP.NET Core?](#q30-how-do-you-implement-a-custom-attribute-filter-in-asp.net-core) <span class="intermediate">Intermediate</span>
-31. [How do you use `ConcurrentDictionary` safely?](#q31-how-do-you-use-concurrentdictionary-safely) <span class="intermediate">Intermediate</span>
-32. [How do you implement Dependency Injection for multiple implementations of an interface?](#q32-how-do-you-implement-dependency-injection-for-multiple-implementations-of-an-interface) <span class="intermediate">Intermediate</span>
-33. [How do you use `stackalloc` for high-performance memory allocation?](#q33-how-do-you-use-stackalloc-for-high-performance-memory-allocation) <span class="expert">Expert</span>
-34. [How do you secure an API using JWT Authentication?](#q34-how-do-you-secure-an-api-using-jwt-authentication) <span class="intermediate">Intermediate</span>
-35. [How do you use `FrozenDictionary` (common in .NET 8)?](#q35-how-do-you-use-frozendictionary-common-in-.net-8) <span class="advanced">Advanced</span>
-36. [How do you implement Health Checks in ASP.NET Core?](#q36-how-do-you-implement-health-checks-in-asp.net-core) <span class="beginner">Beginner</span>
-37. [How do you use EF Core Interceptors?](#q37-how-do-you-use-ef-core-interceptors) <span class="advanced">Advanced</span>
-38. [How do you implement Rate Limiting in .NET 7+?](#q38-how-do-you-implement-rate-limiting-in-.net-7+) <span class="intermediate">Intermediate</span>
-39. [How do you use `BlockingCollection`?](#q39-how-do-you-use-blockingcollection) <span class="advanced">Advanced</span>
-40. [How do you use `System.Text.Json` Source Generators?](#q40-how-do-you-use-system.text.json-source-generators) <span class="advanced">Advanced</span>
-41. [How do you handle configuration with the Options Pattern?](#q41-how-do-you-handle-configuration-with-the-options-pattern) <span class="beginner">Beginner</span>
-42. [How do you use `PeriodicTimer` (Net 6)?](#q42-how-do-you-use-periodictimer-net-6) <span class="intermediate">Intermediate</span>
-43. [How do you implement a custom Tag Helper in ASP.NET Core?](#q43-how-do-you-implement-a-custom-tag-helper-in-asp.net-core) <span class="intermediate">Intermediate</span>
-44. [How do you use `Interlocked` class for atomic operations?](#q44-how-do-you-use-interlocked-class-for-atomic-operations) <span class="advanced">Advanced</span>
-45. [How do you use Records with `with` expressions?](#q45-how-do-you-use-records-with-with-expressions) <span class="beginner">Beginner</span>
-46. [How do you implement API Versioning?](#q46-how-do-you-implement-api-versioning) <span class="intermediate">Intermediate</span>
-47. [How do you use `simd` (Single Instruction, Multiple Data) in .NET?](#q47-how-do-you-use-simd-single-instruction-multiple-data-in-.net) <span class="expert">Expert</span>
-48. [How do you use `CallerMemberName` attribute?](#q48-how-do-you-use-callermembername-attribute) <span class="beginner">Beginner</span>
-49. [How do you use `Yield Return` for state machine generation?](#q49-how-do-you-use-yield-return-for-state-machine-generation) <span class="intermediate">Intermediate</span>
-50. [How do you use `Unsafe` class for memory manipulation?](#q50-how-do-you-use-unsafe-class-for-memory-manipulation) <span class="expert">Expert</span>
-51. [How do you handle .NET state management in large scale applications?](#q51-how-do-you-handle-.net-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-52. [How do you perform .NET data validation in microservices?](#q52-how-do-you-perform-.net-data-validation-in-microservices) <span class="beginner">Beginner</span>
-53. [How do you automate .NET deployment for mobile devices?](#q53-how-do-you-automate-.net-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-54. [How do you handle .NET concurrency issues in legacy systems?](#q54-how-do-you-handle-.net-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-55. [How do you implement .NET caching in cloud infrastructure?](#q55-how-do-you-implement-.net-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-56. [How do you manage .NET configuration for real-time systems?](#q56-how-do-you-manage-.net-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-57. [How do you handle .NET internationalization (i18n) in distributed systems?](#q57-how-do-you-handle-.net-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-58. [How do you ensure .NET accessibility (a11y) in high-traffic sites?](#q58-how-do-you-ensure-.net-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-59. [How do you optimize .NET network requests in embedded systems?](#q59-how-do-you-optimize-.net-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-60. [How do you handle .NET performance optimization for production environments?](#q60-how-do-you-handle-.net-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-61. [What are the security implications of .NET in large scale applications?](#q61-what-are-the-security-implications-of-.net-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug .NET memory leaks in microservices?](#q62-how-do-you-debug-.net-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for .NET code organization in mobile devices?](#q63-best-practices-for-.net-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement .NET error handling for legacy systems?](#q64-how-do-you-implement-.net-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test .NET functionality in cloud infrastructure?](#q65-how-do-you-test-.net-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle .NET state management in real-time systems?](#q66-how-do-you-handle-.net-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform .NET data validation in distributed systems?](#q67-how-do-you-perform-.net-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate .NET deployment for high-traffic sites?](#q68-how-do-you-automate-.net-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle .NET concurrency issues in embedded systems?](#q69-how-do-you-handle-.net-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement .NET caching in production environments?](#q70-how-do-you-implement-.net-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage .NET configuration for large scale applications?](#q71-how-do-you-manage-.net-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle .NET internationalization (i18n) in microservices?](#q72-how-do-you-handle-.net-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure .NET accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-.net-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize .NET network requests in legacy systems?](#q74-how-do-you-optimize-.net-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle .NET performance optimization for cloud infrastructure?](#q75-how-do-you-handle-.net-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of .NET in real-time systems?](#q76-what-are-the-security-implications-of-.net-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug .NET memory leaks in distributed systems?](#q77-how-do-you-debug-.net-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for .NET code organization in high-traffic sites?](#q78-best-practices-for-.net-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement .NET error handling for embedded systems?](#q79-how-do-you-implement-.net-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test .NET functionality in production environments?](#q80-how-do-you-test-.net-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle .NET state management in large scale applications?](#q81-how-do-you-handle-.net-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform .NET data validation in microservices?](#q82-how-do-you-perform-.net-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate .NET deployment for mobile devices?](#q83-how-do-you-automate-.net-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle .NET concurrency issues in legacy systems?](#q84-how-do-you-handle-.net-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement .NET caching in cloud infrastructure?](#q85-how-do-you-implement-.net-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage .NET configuration for real-time systems?](#q86-how-do-you-manage-.net-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle .NET internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-.net-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure .NET accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-.net-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize .NET network requests in embedded systems?](#q89-how-do-you-optimize-.net-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle .NET performance optimization for production environments?](#q90-how-do-you-handle-.net-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of .NET in large scale applications?](#q91-what-are-the-security-implications-of-.net-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug .NET memory leaks in microservices?](#q92-how-do-you-debug-.net-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for .NET code organization in mobile devices?](#q93-best-practices-for-.net-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement .NET error handling for legacy systems?](#q94-how-do-you-implement-.net-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test .NET functionality in cloud infrastructure?](#q95-how-do-you-test-.net-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle .NET state management in real-time systems?](#q96-how-do-you-handle-.net-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform .NET data validation in distributed systems?](#q97-how-do-you-perform-.net-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate .NET deployment for high-traffic sites?](#q98-how-do-you-automate-.net-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle .NET concurrency issues in embedded systems?](#q99-how-do-you-handle-.net-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement .NET caching in production environments?](#q100-how-do-you-implement-.net-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+2. [How do you prevent thread-pool starvation in a high-concurrency .NET application?](#q2) <span class="expert">Expert</span>
+3. [How do you implement efficient caching with automatic expiration using `IMemoryCache`?](#q3) <span class="intermediate">Intermediate</span>
+4. [How do you handle background tasks in ASP.NET Core without blocking the request thread?](#q4) <span class="intermediate">Intermediate</span>
+5. [How do you optimize Entity Framework Core queries to avoid the N+1 problem?](#q5) <span class="intermediate">Intermediate</span>
+6. [How do you implement the Outbox Pattern in .NET to ensure reliable messaging?](#q6) <span class="expert">Expert</span>
+7. [How do you use `IAsyncEnumerable<T>` to stream data efficiently from a database or API?](#q7) <span class="advanced">Advanced</span>
+8. [How do you implement custom middleware in ASP.NET Core to handle global exceptions?](#q8) <span class="intermediate">Intermediate</span>
+9. [How do you use `ValueTask` to reduce allocations in hot paths?](#q9) <span class="advanced">Advanced</span>
+10. [How do you implement dependency injection for a service that requires a runtime parameter?](#q10) <span class="advanced">Advanced</span>
+11. [How do you cancel a long-running async operation properly?](#q11) <span class="intermediate">Intermediate</span>
+12. [How do you optimize string concatenation in a tight loop?](#q12) <span class="beginner">Beginner</span>
+13. [How do you implement structured logging using Serilog in .NET Core?](#q13) <span class="intermediate">Intermediate</span>
+14. [How do you ensure a singleton service is thread-safe?](#q14) <span class="intermediate">Intermediate</span>
+15. [How do you handle database migrations in a CI/CD pipeline using EF Core?](#q15) <span class="advanced">Advanced</span>
+16. [How do you implement efficient caching with `IMemoryCache` and expiration policies?](#q16) <span class="intermediate">Intermediate</span>
+17. [How do you solve the 'N+1' problem in Entity Framework Core?](#q17) <span class="intermediate">Intermediate</span>
+18. [How do you implement the Outbox Pattern for reliable messaging?](#q18) <span class="advanced">Advanced</span>
+19. [How do you use `IHttpClientFactory` to manage HTTP connections?](#q19) <span class="intermediate">Intermediate</span>
+20. [How do you handle global exceptions in ASP.NET Core?](#q20) <span class="intermediate">Intermediate</span>
+21. [How do you implement a background service (Hosted Service)?](#q21) <span class="intermediate">Intermediate</span>
+22. [How do you use `ValueTask` to optimize hot paths?](#q22) <span class="advanced">Advanced</span>
+23. [How do you implement resilient HTTP calls with Polly?](#q23) <span class="intermediate">Intermediate</span>
+24. [How do you optimize LINQ queries with `AsNoTracking`?](#q24) <span class="intermediate">Intermediate</span>
+25. [How do you use `IAsyncEnumerable` for streaming data?](#q25) <span class="advanced">Advanced</span>
+26. [How do you use Channels for Producer-Consumer patterns?](#q26) <span class="advanced">Advanced</span>
+27. [How do you implement Structured Logging with Serilog?](#q27) <span class="beginner">Beginner</span>
+28. [How do you prevent Thread Pool starvation?](#q28) <span class="advanced">Advanced</span>
+29. [How do you use `ArrayPool<T>` to reduce GC pressure?](#q29) <span class="expert">Expert</span>
+30. [How do you implement a custom attribute filter in ASP.NET Core?](#q30) <span class="intermediate">Intermediate</span>
+31. [How do you use `ConcurrentDictionary` safely?](#q31) <span class="intermediate">Intermediate</span>
+32. [How do you implement Dependency Injection for multiple implementations of an interface?](#q32) <span class="intermediate">Intermediate</span>
+33. [How do you use `stackalloc` for high-performance memory allocation?](#q33) <span class="expert">Expert</span>
+34. [How do you secure an API using JWT Authentication?](#q34) <span class="intermediate">Intermediate</span>
+35. [How do you use `FrozenDictionary` (common in .NET 8)?](#q35) <span class="advanced">Advanced</span>
+36. [How do you implement Health Checks in ASP.NET Core?](#q36) <span class="beginner">Beginner</span>
+37. [How do you use EF Core Interceptors?](#q37) <span class="advanced">Advanced</span>
+38. [How do you implement Rate Limiting in .NET 7+?](#q38) <span class="intermediate">Intermediate</span>
+39. [How do you use `BlockingCollection`?](#q39) <span class="advanced">Advanced</span>
+40. [How do you use `System.Text.Json` Source Generators?](#q40) <span class="advanced">Advanced</span>
+41. [How do you handle configuration with the Options Pattern?](#q41) <span class="beginner">Beginner</span>
+42. [How do you use `PeriodicTimer` (Net 6)?](#q42) <span class="intermediate">Intermediate</span>
+43. [How do you implement a custom Tag Helper in ASP.NET Core?](#q43) <span class="intermediate">Intermediate</span>
+44. [How do you use `Interlocked` class for atomic operations?](#q44) <span class="advanced">Advanced</span>
+45. [How do you use Records with `with` expressions?](#q45) <span class="beginner">Beginner</span>
+46. [How do you implement API Versioning?](#q46) <span class="intermediate">Intermediate</span>
+47. [How do you use `simd` (Single Instruction, Multiple Data) in .NET?](#q47) <span class="expert">Expert</span>
+48. [How do you use `CallerMemberName` attribute?](#q48) <span class="beginner">Beginner</span>
+49. [How do you use `Yield Return` for state machine generation?](#q49) <span class="intermediate">Intermediate</span>
+50. [How do you use `Unsafe` class for memory manipulation?](#q50) <span class="expert">Expert</span>
+51. [How do you handle .NET state management in large scale applications?](#q51) <span class="advanced">Advanced</span>
+52. [How do you perform .NET data validation in microservices?](#q52) <span class="beginner">Beginner</span>
+53. [How do you automate .NET deployment for mobile devices?](#q53) <span class="advanced">Advanced</span>
+54. [How do you handle .NET concurrency issues in legacy systems?](#q54) <span class="advanced">Advanced</span>
+55. [How do you implement .NET caching in cloud infrastructure?](#q55) <span class="intermediate">Intermediate</span>
+56. [How do you manage .NET configuration for real-time systems?](#q56) <span class="beginner">Beginner</span>
+57. [How do you handle .NET internationalization (i18n) in distributed systems?](#q57) <span class="intermediate">Intermediate</span>
+58. [How do you ensure .NET accessibility (a11y) in high-traffic sites?](#q58) <span class="beginner">Beginner</span>
+59. [How do you optimize .NET network requests in embedded systems?](#q59) <span class="advanced">Advanced</span>
+60. [How do you handle .NET performance optimization for production environments?](#q60) <span class="advanced">Advanced</span>
+61. [What are the security implications of .NET in large scale applications?](#q61) <span class="intermediate">Intermediate</span>
+62. [How do you debug .NET memory leaks in microservices?](#q62) <span class="advanced">Advanced</span>
+63. [Best practices for .NET code organization in mobile devices?](#q63) <span class="beginner">Beginner</span>
+64. [How do you implement .NET error handling for legacy systems?](#q64) <span class="intermediate">Intermediate</span>
+65. [How do you test .NET functionality in cloud infrastructure?](#q65) <span class="intermediate">Intermediate</span>
+66. [How do you handle .NET state management in real-time systems?](#q66) <span class="advanced">Advanced</span>
+67. [How do you perform .NET data validation in distributed systems?](#q67) <span class="beginner">Beginner</span>
+68. [How do you automate .NET deployment for high-traffic sites?](#q68) <span class="advanced">Advanced</span>
+69. [How do you handle .NET concurrency issues in embedded systems?](#q69) <span class="advanced">Advanced</span>
+70. [How do you implement .NET caching in production environments?](#q70) <span class="intermediate">Intermediate</span>
+71. [How do you manage .NET configuration for large scale applications?](#q71) <span class="beginner">Beginner</span>
+72. [How do you handle .NET internationalization (i18n) in microservices?](#q72) <span class="intermediate">Intermediate</span>
+73. [How do you ensure .NET accessibility (a11y) in mobile devices?](#q73) <span class="beginner">Beginner</span>
+74. [How do you optimize .NET network requests in legacy systems?](#q74) <span class="advanced">Advanced</span>
+75. [How do you handle .NET performance optimization for cloud infrastructure?](#q75) <span class="advanced">Advanced</span>
+76. [What are the security implications of .NET in real-time systems?](#q76) <span class="intermediate">Intermediate</span>
+77. [How do you debug .NET memory leaks in distributed systems?](#q77) <span class="advanced">Advanced</span>
+78. [Best practices for .NET code organization in high-traffic sites?](#q78) <span class="beginner">Beginner</span>
+79. [How do you implement .NET error handling for embedded systems?](#q79) <span class="intermediate">Intermediate</span>
+80. [How do you test .NET functionality in production environments?](#q80) <span class="intermediate">Intermediate</span>
+81. [How do you handle .NET state management in large scale applications?](#q81) <span class="advanced">Advanced</span>
+82. [How do you perform .NET data validation in microservices?](#q82) <span class="beginner">Beginner</span>
+83. [How do you automate .NET deployment for mobile devices?](#q83) <span class="advanced">Advanced</span>
+84. [How do you handle .NET concurrency issues in legacy systems?](#q84) <span class="advanced">Advanced</span>
+85. [How do you implement .NET caching in cloud infrastructure?](#q85) <span class="intermediate">Intermediate</span>
+86. [How do you manage .NET configuration for real-time systems?](#q86) <span class="beginner">Beginner</span>
+87. [How do you handle .NET internationalization (i18n) in distributed systems?](#q87) <span class="intermediate">Intermediate</span>
+88. [How do you ensure .NET accessibility (a11y) in high-traffic sites?](#q88) <span class="beginner">Beginner</span>
+89. [How do you optimize .NET network requests in embedded systems?](#q89) <span class="advanced">Advanced</span>
+90. [How do you handle .NET performance optimization for production environments?](#q90) <span class="advanced">Advanced</span>
+91. [What are the security implications of .NET in large scale applications?](#q91) <span class="intermediate">Intermediate</span>
+92. [How do you debug .NET memory leaks in microservices?](#q92) <span class="advanced">Advanced</span>
+93. [Best practices for .NET code organization in mobile devices?](#q93) <span class="beginner">Beginner</span>
+94. [How do you implement .NET error handling for legacy systems?](#q94) <span class="intermediate">Intermediate</span>
+95. [How do you test .NET functionality in cloud infrastructure?](#q95) <span class="intermediate">Intermediate</span>
+96. [How do you handle .NET state management in real-time systems?](#q96) <span class="advanced">Advanced</span>
+97. [How do you perform .NET data validation in distributed systems?](#q97) <span class="beginner">Beginner</span>
+98. [How do you automate .NET deployment for high-traffic sites?](#q98) <span class="advanced">Advanced</span>
+99. [How do you handle .NET concurrency issues in embedded systems?](#q99) <span class="advanced">Advanced</span>
+100. [How do you implement .NET caching in production environments?](#q100) <span class="intermediate">Intermediate</span>
+100. [Difference between IEnumerable and IQueryable?](#q100) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -2451,3 +2452,25 @@ if (cache.has(key)) return cache.get(key);
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q100"></a>
+
+### Q100: Difference between IEnumerable and IQueryable?
+
+**Difficulty**: Intermediate
+
+**Strategy**: **IEnumerable**: Executes query in memory (client-side). Suitable for LINQ to Objects.
+**IQueryable**: Executes query at data source (server-side, translates to SQL). Suitable for LINQ to SQL/Entity Framework to filter data before fetching.
+
+**Code Example**: 
+```csharp
+// IQueryable (SQL: SELECT * FROM Users WHERE Age > 18)
+var users = dbContext.Users.Where(u => u.Age > 18);
+
+// IEnumerable (Selects all, then filters in memory)
+var users = dbContext.Users.ToList().Where(u => u.Age > 18);
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+

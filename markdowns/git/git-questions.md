@@ -85,6 +85,32 @@
 98. [How do you reset a single file to HEAD?](#q98) <span class="beginner">Beginner</span>
 99. [How do you see what you are about to push?](#q99) <span class="intermediate">Intermediate</span>
 100. [What is the Reflog?](#q100) <span class="advanced">Advanced</span>
+76. [How do you recover a lost commit using `reflog`?](#q76) <span class="advanced">Advanced</span>
+77. [How do you automate debugging with `git bisect`?](#q77) <span class="advanced">Advanced</span>
+78. [What is `git rerere`?](#q78) <span class="advanced">Advanced</span>
+79. [How do you use `git worktree`?](#q79) <span class="advanced">Advanced</span>
+80. [Difference between Submodules and Subtrees?](#q80) <span class="advanced">Advanced</span>
+81. [How do you bypass pre-commit hooks?](#q81) <span class="intermediate">Intermediate</span>
+82. [How do you cherry-pick a range of commits?](#q82) <span class="intermediate">Intermediate</span>
+83. [How do you squash commits with interactive rebase?](#q83) <span class="intermediate">Intermediate</span>
+84. [How do you sign commits with GPG?](#q84) <span class="advanced">Advanced</span>
+85. [How do you stash specific files only?](#q85) <span class="intermediate">Intermediate</span>
+86. [How do you ignore whitespace changes in `git blame`?](#q86) <span class="intermediate">Intermediate</span>
+87. [How do you clean untracked files (dry run)?](#q87) <span class="beginner">Beginner</span>
+88. [Difference between Annotated and Lightweight tags?](#q88) <span class="intermediate">Intermediate</span>
+89. [What are Git Notes?](#q89) <span class="advanced">Advanced</span>
+90. [How do you remove a file from history (BFG)?](#q90) <span class="advanced">Advanced</span>
+91. [What are the 3 Git config scopes?](#q91) <span class="beginner">Beginner</span>
+92. [How do you create a Git Bundle?](#q92) <span class="advanced">Advanced</span>
+93. [How do you export the repo as a Zip?](#q93) <span class="intermediate">Intermediate</span>
+94. [What is the 'patience' diff algorithm?](#q94) <span class="advanced">Advanced</span>
+95. [How do you pretty print the git log?](#q95) <span class="intermediate">Intermediate</span>
+96. [How do you prune remote tracking branches?](#q96) <span class="intermediate">Intermediate</span>
+97. [How do you enforce Fast-Forward only merges?](#q97) <span class="intermediate">Intermediate</span>
+98. [What does `git rev-parse` do?](#q98) <span class="advanced">Advanced</span>
+99. [Who contributed most lines? (Shortlog)](#q99) <span class="intermediate">Intermediate</span>
+100. [How do you verify a GPG signed commit?](#q100) <span class="advanced">Advanced</span>
+101. [How do you optimize the local repository?](#q101) <span class="advanced">Advanced</span>
 
 ---
 
@@ -1594,3 +1620,457 @@ git reset --hard HEAD@{1}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q76"></a>
+
+### Q76: How do you recover a lost commit using `reflog`?
+
+**Difficulty**: Advanced
+
+**Strategy**: `git reflog` records updates to the tip of branches. If you accidentally reset --hard or deleted a branch, you can find the commit hash in the reflog and checkout or reset to it.
+
+**Code Example**: 
+```bash
+git reflog
+# Find the SHA, e.g., abc1234
+git checkout -b recovered-branch abc1234
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q77"></a>
+
+### Q77: How do you automate debugging with `git bisect`?
+
+**Difficulty**: Advanced
+
+**Strategy**: `git bisect run` automates the binary search. You provide a script that returns exit code 0 (good) or 1 (bad), and git runs it on every step until it finds the culprit.
+
+**Code Example**: 
+```bash
+git bisect start HEAD v1.0
+git bisect run npm test
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q78"></a>
+
+### Q78: What is `git rerere`?
+
+**Difficulty**: Advanced
+
+**Strategy**: "Reuse Recorded Resolution". It remembers how you resolved a hunk conflict so that the next time it sees the same conflict, it resolves it automatically.
+
+**Code Example**: 
+```bash
+git config --global rerere.enabled true
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q79"></a>
+
+### Q79: How do you use `git worktree`?
+
+**Difficulty**: Advanced
+
+**Strategy**: Allows you to check out multiple branches at once in separate directories, linked to the same repository. Useful for running long tests on one branch while working on another.
+
+**Code Example**: 
+```bash
+git worktree add ../hotfix-folder hotfix-branch
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q80"></a>
+
+### Q80: Difference between Submodules and Subtrees?
+
+**Difficulty**: Advanced
+
+**Strategy**: **Submodules**: Separate repo links. Complex to manage, requires explicit updates. 
+**Subtrees**: Copies source code into your repo. Easier for users of the repo, harder to contribute back.
+
+**Code Example**: 
+```bash
+# Submodule
+git submodule add https://github.com/libs/lib.git
+# Subtree
+git subtree add --prefix=lib https://github.com/libs/lib.git main --squash
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q81"></a>
+
+### Q81: How do you bypass pre-commit hooks?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use the `--no-verify` (or `-n`) flag. Use with caution, only when you know the hook is failing incorrectly or you have a valid reason.
+
+**Code Example**: 
+```bash
+git commit -m "WIP" --no-verify
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q82"></a>
+
+### Q82: How do you cherry-pick a range of commits?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `A..B` syntax where A is the parent of the first commit you want, and B is the last commit.
+
+**Code Example**: 
+```bash
+git cherry-pick A..B
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q83"></a>
+
+### Q83: How do you squash commits with interactive rebase?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Run `git rebase -i HEAD~N`. Change `pick` to `squash` (or `s`) for the commits you want to merge into the previous one.
+
+**Code Example**: 
+```bash
+git rebase -i HEAD~3
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q84"></a>
+
+### Q84: How do you sign commits with GPG?
+
+**Difficulty**: Advanced
+
+**Strategy**: Configure your GPG key in git config and use the `-S` flag during commit. GitHub marks these as "Verified".
+
+**Code Example**: 
+```bash
+git config --global user.signingkey <KEYID>
+git commit -S -m "Signed commit"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q85"></a>
+
+### Q85: How do you stash specific files only?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `git stash push -p` (interactive) or list the file paths directly.
+
+**Code Example**: 
+```bash
+git stash push -m "Stashing config only" src/config.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q86"></a>
+
+### Q86: How do you ignore whitespace changes in `git blame`?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use the `-w` flag. This is helpful to see the original author of a line even after re-indentation.
+
+**Code Example**: 
+```bash
+git blame -w src/app.js
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q87"></a>
+
+### Q87: How do you clean untracked files (dry run)?
+
+**Difficulty**: Beginner
+
+**Strategy**: Use `git clean -n` to see what would be deleted. Use `-f` to actually delete, `-d` for directories.
+
+**Code Example**: 
+```bash
+git clean -n -d
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q88"></a>
+
+### Q88: Difference between Annotated and Lightweight tags?
+
+**Difficulty**: Intermediate
+
+**Strategy**: **Lightweight**: Just a pointer to a commit (like a branch that doesn't move). 
+**Annotated**: Stored as a full object, contains tagger name, email, date, message. Recommended for releases.
+
+**Code Example**: 
+```bash
+# Annotated
+git tag -a v1.0 -m "Release 1.0"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q89"></a>
+
+### Q89: What are Git Notes?
+
+**Difficulty**: Advanced
+
+**Strategy**: Git Notes allow you to add metadata to commits without changing the commit SHA (unlike amending). Useful for automated systems to attach build statuses or comments.
+
+**Code Example**: 
+```bash
+git notes add -m "Build passed" <commit-hash>
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q90"></a>
+
+### Q90: How do you remove a file from history (BFG)?
+
+**Difficulty**: Advanced
+
+**Strategy**: Use `git filter-repo` (modern replacement for `filter-branch`) or BFG Repo-Cleaner to remove large files or secrets from all commits.
+
+**Code Example**: 
+```bash
+bfg --delete-files id_rsa
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q91"></a>
+
+### Q91: What are the 3 Git config scopes?
+
+**Difficulty**: Beginner
+
+**Strategy**: 1. **System** (`/etc/gitconfig`): All users. 
+2. **Global** (`~/.gitconfig`): Current user. 
+3. **Local** (`.git/config`): Current repository.
+
+**Code Example**: 
+```bash
+git config --global user.name "John"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q92"></a>
+
+### Q92: How do you create a Git Bundle?
+
+**Difficulty**: Advanced
+
+**Strategy**: Bundles archive the repo into a single file that acts like a remote. Useful for offline transfer.
+
+**Code Example**: 
+```bash
+git bundle create repo.bundle master
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q93"></a>
+
+### Q93: How do you export the repo as a Zip?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `git archive`. It ignores the `.git` folder.
+
+**Code Example**: 
+```bash
+git archive --format=zip HEAD > source.zip
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q94"></a>
+
+### Q94: What is the 'patience' diff algorithm?
+
+**Difficulty**: Advanced
+
+**Strategy**: It tries to match large blocks of code, providing more readable diffs when code has moved significantly.
+
+**Code Example**: 
+```bash
+git diff --patience
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q95"></a>
+
+### Q95: How do you pretty print the git log?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use format placeholders like `%h` (hash), `%an` (author), `%s` (subject).
+
+**Code Example**: 
+```bash
+git log --pretty=format:"%h - %an, %ar : %s"
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q96"></a>
+
+### Q96: How do you prune remote tracking branches?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `git fetch --prune` or `git remote prune origin`. Deletes local references to branches that no longer exist on the remote.
+
+**Code Example**: 
+```bash
+git fetch -p
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q97"></a>
+
+### Q97: How do you enforce Fast-Forward only merges?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Use `--ff-only`. The merge will fail if it requires a merge commit.
+
+**Code Example**: 
+```bash
+git merge --ff-only feature-branch
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q98"></a>
+
+### Q98: What does `git rev-parse` do?
+
+**Difficulty**: Advanced
+
+**Strategy**: It's a plumbing command used to parse revision parameters and return the absolute commit hash or paths. Often used in scripts.
+
+**Code Example**: 
+```bash
+git rev-parse --short HEAD
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q99"></a>
+
+### Q99: Who contributed most lines? (Shortlog)
+
+**Difficulty**: Intermediate
+
+**Strategy**: `git shortlog` summarizes the git log output. `-s` for summary, `-n` to sort by number.
+
+**Code Example**: 
+```bash
+git shortlog -sn
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q100"></a>
+
+### Q100: How do you verify a GPG signed commit?
+
+**Difficulty**: Advanced
+
+**Strategy**: Use `git verify-commit <hash>` or enable signature display in log with `--show-signature`.
+
+**Code Example**: 
+```bash
+git log --show-signature
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q101"></a>
+
+### Q101: How do you optimize the local repository?
+
+**Difficulty**: Advanced
+
+**Strategy**: Use `git maintenance start` (new) or `git gc` (garbage collect) to pack refs, prune loose objects, and optimize performance.
+
+**Code Example**: 
+```bash
+git gc --aggressive
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+

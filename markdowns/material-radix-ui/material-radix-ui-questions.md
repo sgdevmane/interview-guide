@@ -10,105 +10,106 @@
 
 ## Table of Contents
 
-1. [How do you customize the Material UI theme?](#q1-how-do-you-customize-the-material-ui-theme) <span class="beginner">Beginner</span>
-2. [How do you use the `sx` prop in Material UI?](#q2-how-do-you-use-the-sx-prop-in-material-ui) <span class="intermediate">Intermediate</span>
-3. [Difference between Controlled and Uncontrolled components in Radix UI?](#q3-difference-between-controlled-and-uncontrolled-components-in-radix-ui) <span class="intermediate">Intermediate</span>
-4. [How do you optimize Material UI bundle size?](#q4-how-do-you-optimize-material-ui-bundle-size) <span class="advanced">Advanced</span>
-5. [How do you implement a Dialog in Radix UI?](#q5-how-do-you-implement-a-dialog-in-radix-ui) <span class="beginner">Beginner</span>
-6. [How do you handle responsive styles in Material UI?](#q6-how-do-you-handle-responsive-styles-in-material-ui) <span class="intermediate">Intermediate</span>
-7. [How do you style Radix UI components with Tailwind?](#q7-how-do-you-style-radix-ui-components-with-tailwind) <span class="intermediate">Intermediate</span>
-8. [How do you create a custom styled component in MUI?](#q8-how-do-you-create-a-custom-styled-component-in-mui) <span class="intermediate">Intermediate</span>
-9. [How do you handle accessibility (a11y) in Radix UI?](#q9-how-do-you-handle-accessibility-a11y-in-radix-ui) <span class="beginner">Beginner</span>
-10. [How do you implement Dark Mode in MUI?](#q10-how-do-you-implement-dark-mode-in-mui) <span class="intermediate">Intermediate</span>
-11. [What is the `asChild` prop in Radix UI?](#q11-what-is-the-aschild-prop-in-radix-ui) <span class="intermediate">Intermediate</span>
-12. [How do you override default MUI component styles globally?](#q12-how-do-you-override-default-mui-component-styles-globally) <span class="advanced">Advanced</span>
-13. [What is the Box component in MUI?](#q13-what-is-the-box-component-in-mui) <span class="beginner">Beginner</span>
-14. [How do you use useMediaQuery in MUI?](#q14-how-do-you-use-usemediaquery-in-mui) <span class="intermediate">Intermediate</span>
-15. [What is the difference between Radix UI and Headless UI?](#q15-what-is-the-difference-between-radix-ui-and-headless-ui) <span class="intermediate">Intermediate</span>
-16. [How do you handle z-index issues in MUI?](#q16-how-do-you-handle-z-index-issues-in-mui) <span class="intermediate">Intermediate</span>
-17. [How do you make a Radix UI Dialog accessible?](#q17-how-do-you-make-a-radix-ui-dialog-accessible) <span class="beginner">Beginner</span>
-18. [How do you create a layout with MUI Grid?](#q18-how-do-you-create-a-layout-with-mui-grid) <span class="beginner">Beginner</span>
-19. [What is the Portal component used for?](#q19-what-is-the-portal-component-used-for) <span class="intermediate">Intermediate</span>
-20. [How do you enable CSS variables in MUI?](#q20-how-do-you-enable-css-variables-in-mui) <span class="advanced">Advanced</span>
-21. [How do you handle form validation with MUI?](#q21-how-do-you-handle-form-validation-with-mui) <span class="intermediate">Intermediate</span>
-22. [What is the Typography component?](#q22-what-is-the-typography-component) <span class="beginner">Beginner</span>
-23. [What is the Grid system in MUI?](#q23-what-is-the-grid-system-in-mui) <span class="beginner">Beginner</span>
-24. [What is the Box component?](#q24-what-is-the-box-component) <span class="beginner">Beginner</span>
-25. [What is the Stack component?](#q25-what-is-the-stack-component) <span class="beginner">Beginner</span>
-26. [How do you override theme defaults?](#q26-how-do-you-override-theme-defaults) <span class="intermediate">Intermediate</span>
-27. [What is the `sx` prop performance cost?](#q27-what-is-the-sx-prop-performance-cost) <span class="advanced">Advanced</span>
-28. [How do you use Icons in MUI?](#q28-how-do-you-use-icons-in-mui) <span class="beginner">Beginner</span>
-29. [What is the Typography variants?](#q29-what-is-the-typography-variants) <span class="beginner">Beginner</span>
-30. [How do you handle Date Pickers?](#q30-how-do-you-handle-date-pickers) <span class="intermediate">Intermediate</span>
-31. [What is the DataGrid component?](#q31-what-is-the-datagrid-component) <span class="advanced">Advanced</span>
-32. [How do you make a responsive drawer?](#q32-how-do-you-make-a-responsive-drawer) <span class="intermediate">Intermediate</span>
-33. [What is `CssBaseline`?](#q33-what-is-cssbaseline) <span class="beginner">Beginner</span>
-34. [How do you use custom fonts?](#q34-how-do-you-use-custom-fonts) <span class="intermediate">Intermediate</span>
-35. [What is the `makeStyles` (legacy)?](#q35-what-is-the-makestyles-legacy) <span class="intermediate">Intermediate</span>
-36. [How do you migrate from v4 to v5?](#q36-how-do-you-migrate-from-v4-to-v5) <span class="advanced">Advanced</span>
-37. [What is Radix Primitives?](#q37-what-is-radix-primitives) <span class="beginner">Beginner</span>
-38. [How does Radix handle focus?](#q38-how-does-radix-handle-focus) <span class="intermediate">Intermediate</span>
-39. [What is `asChild` in Radix?](#q39-what-is-aschild-in-radix) <span class="intermediate">Intermediate</span>
-40. [How do you style Radix with CSS Modules?](#q40-how-do-you-style-radix-with-css-modules) <span class="beginner">Beginner</span>
-41. [How do you animate Radix components?](#q41-how-do-you-animate-radix-components) <span class="intermediate">Intermediate</span>
-42. [What is Radix Colors?](#q42-what-is-radix-colors) <span class="beginner">Beginner</span>
-43. [How do you use Radix Icons?](#q43-how-do-you-use-radix-icons) <span class="beginner">Beginner</span>
-44. [What is `Portal` in Radix?](#q44-what-is-portal-in-radix) <span class="intermediate">Intermediate</span>
-45. [Difference between Popover and Tooltip?](#q45-difference-between-popover-and-tooltip) <span class="intermediate">Intermediate</span>
-46. [What is Accordion in Radix?](#q46-what-is-accordion-in-radix) <span class="beginner">Beginner</span>
-47. [How do you handle form constraints in Radix?](#q47-how-do-you-handle-form-constraints-in-radix) <span class="intermediate">Intermediate</span>
-48. [What is the `Slot` utility?](#q48-what-is-the-slot-utility) <span class="advanced">Advanced</span>
-49. [How do you implement Toast?](#q49-how-do-you-implement-toast) <span class="intermediate">Intermediate</span>
-50. [What is `VisuallyHidden`?](#q50-what-is-visuallyhidden) <span class="beginner">Beginner</span>
-51. [How do you server render Radix?](#q51-how-do-you-server-render-radix) <span class="intermediate">Intermediate</span>
-52. [What is Shadcn UI?](#q52-what-is-shadcn-ui) <span class="intermediate">Intermediate</span>
-53. [How does Shadcn differ from MUI?](#q53-how-does-shadcn-differ-from-mui) <span class="intermediate">Intermediate</span>
-54. [What is Headless UI?](#q54-what-is-headless-ui) <span class="intermediate">Intermediate</span>
-55. [How do you create a dark mode switch in MUI?](#q55-how-do-you-create-a-dark-mode-switch-in-mui) <span class="beginner">Beginner</span>
-56. [What is `useTheme` hook?](#q56-what-is-usetheme-hook) <span class="beginner">Beginner</span>
-57. [How do you customize breakpoints?](#q57-how-do-you-customize-breakpoints) <span class="intermediate">Intermediate</span>
-58. [What is the `Container` component?](#q58-what-is-the-container-component) <span class="beginner">Beginner</span>
-59. [How do you use Skeleton loading?](#q59-how-do-you-use-skeleton-loading) <span class="beginner">Beginner</span>
-60. [What is the `Autocomplete` component?](#q60-what-is-the-autocomplete-component) <span class="intermediate">Intermediate</span>
-61. [How do you handle virtualized lists in MUI?](#q61-how-do-you-handle-virtualized-lists-in-mui) <span class="advanced">Advanced</span>
-62. [What is the `ClickAwayListener`?](#q62-what-is-the-clickawaylistener) <span class="intermediate">Intermediate</span>
-63. [How do you use `Backdrop`?](#q63-how-do-you-use-backdrop) <span class="beginner">Beginner</span>
-64. [What is `SpeedDial`?](#q64-what-is-speeddial) <span class="intermediate">Intermediate</span>
-65. [How do you customize scrollbars in MUI?](#q65-how-do-you-customize-scrollbars-in-mui) <span class="intermediate">Intermediate</span>
-66. [What is `Collapse` transition?](#q66-what-is-collapse-transition) <span class="beginner">Beginner</span>
-67. [How do you use `Zoom` transition?](#q67-how-do-you-use-zoom-transition) <span class="beginner">Beginner</span>
-68. [What is `Grow` transition?](#q68-what-is-grow-transition) <span class="beginner">Beginner</span>
-69. [What is `Slide` transition?](#q69-what-is-slide-transition) <span class="beginner">Beginner</span>
-70. [How do you use `Fade` transition?](#q70-how-do-you-use-fade-transition) <span class="beginner">Beginner</span>
-71. [What is `GlobalStyles`?](#q71-what-is-globalstyles) <span class="intermediate">Intermediate</span>
-72. [How do you theme variants?](#q72-how-do-you-theme-variants) <span class="intermediate">Intermediate</span>
-73. [What is `shouldForwardProp`?](#q73-what-is-shouldforwardprop) <span class="advanced">Advanced</span>
-74. [How do you use `alpha` utility?](#q74-how-do-you-use-alpha-utility) <span class="intermediate">Intermediate</span>
-75. [What is `darken`/`lighten`?](#q75-what-is-darkenlighten) <span class="intermediate">Intermediate</span>
-76. [How do you use `useScrollTrigger`?](#q76-how-do-you-use-usescrolltrigger) <span class="intermediate">Intermediate</span>
-77. [What is `FocusTrap`?](#q77-what-is-focustrap) <span class="intermediate">Intermediate</span>
-78. [How do you use `NoSsr`?](#q78-how-do-you-use-nossr) <span class="intermediate">Intermediate</span>
-79. [What is `TextareaAutosize`?](#q79-what-is-textareaautosize) <span class="beginner">Beginner</span>
-80. [How do you use `Rating`?](#q80-how-do-you-use-rating) <span class="beginner">Beginner</span>
-81. [What is `Timeline`?](#q81-what-is-timeline) <span class="intermediate">Intermediate</span>
-82. [How do you use `TreeView`?](#q82-how-do-you-use-treeview) <span class="intermediate">Intermediate</span>
-83. [What is `Masonry`?](#q83-what-is-masonry) <span class="intermediate">Intermediate</span>
-84. [How do you use `Snackbar`?](#q84-how-do-you-use-snackbar) <span class="beginner">Beginner</span>
-85. [What is `Alert`?](#q85-what-is-alert) <span class="beginner">Beginner</span>
-86. [How do you customize shadow?](#q86-how-do-you-customize-shadow) <span class="intermediate">Intermediate</span>
-87. [What is `Paper`?](#q87-what-is-paper) <span class="beginner">Beginner</span>
-88. [How do you use `Card`?](#q88-how-do-you-use-card) <span class="beginner">Beginner</span>
-89. [What is `Divider`?](#q89-what-is-divider) <span class="beginner">Beginner</span>
-90. [How do you use `Chip`?](#q90-how-do-you-use-chip) <span class="beginner">Beginner</span>
-91. [What is `Badge`?](#q91-what-is-badge) <span class="beginner">Beginner</span>
-92. [How do you use `Avatar`?](#q92-how-do-you-use-avatar) <span class="beginner">Beginner</span>
-93. [What is `LinearProgress`?](#q93-what-is-linearprogress) <span class="beginner">Beginner</span>
-94. [What is `CircularProgress`?](#q94-what-is-circularprogress) <span class="beginner">Beginner</span>
-95. [How do you use `Tabs`?](#q95-how-do-you-use-tabs) <span class="intermediate">Intermediate</span>
-96. [What is `BottomNavigation`?](#q96-what-is-bottomnavigation) <span class="intermediate">Intermediate</span>
-97. [How do you use `Breadcrumbs`?](#q97-how-do-you-use-breadcrumbs) <span class="beginner">Beginner</span>
-98. [What is `Link` component?](#q98-what-is-link-component) <span class="beginner">Beginner</span>
-99. [How do you use `Stepper`?](#q99-how-do-you-use-stepper) <span class="intermediate">Intermediate</span>
+1. [How do you customize the Material UI theme?](#q1) <span class="beginner">Beginner</span>
+2. [How do you use the `sx` prop in Material UI?](#q2) <span class="intermediate">Intermediate</span>
+3. [Difference between Controlled and Uncontrolled components in Radix UI?](#q3) <span class="intermediate">Intermediate</span>
+4. [How do you optimize Material UI bundle size?](#q4) <span class="advanced">Advanced</span>
+5. [How do you implement a Dialog in Radix UI?](#q5) <span class="beginner">Beginner</span>
+6. [How do you handle responsive styles in Material UI?](#q6) <span class="intermediate">Intermediate</span>
+7. [How do you style Radix UI components with Tailwind?](#q7) <span class="intermediate">Intermediate</span>
+8. [How do you create a custom styled component in MUI?](#q8) <span class="intermediate">Intermediate</span>
+9. [How do you handle accessibility (a11y) in Radix UI?](#q9) <span class="beginner">Beginner</span>
+10. [How do you implement Dark Mode in MUI?](#q10) <span class="intermediate">Intermediate</span>
+11. [What is the `asChild` prop in Radix UI?](#q11) <span class="intermediate">Intermediate</span>
+12. [How do you override default MUI component styles globally?](#q12) <span class="advanced">Advanced</span>
+13. [What is the Box component in MUI?](#q13) <span class="beginner">Beginner</span>
+14. [How do you use useMediaQuery in MUI?](#q14) <span class="intermediate">Intermediate</span>
+15. [What is the difference between Radix UI and Headless UI?](#q15) <span class="intermediate">Intermediate</span>
+16. [How do you handle z-index issues in MUI?](#q16) <span class="intermediate">Intermediate</span>
+17. [How do you make a Radix UI Dialog accessible?](#q17) <span class="beginner">Beginner</span>
+18. [How do you create a layout with MUI Grid?](#q18) <span class="beginner">Beginner</span>
+19. [What is the Portal component used for?](#q19) <span class="intermediate">Intermediate</span>
+20. [How do you enable CSS variables in MUI?](#q20) <span class="advanced">Advanced</span>
+21. [How do you handle form validation with MUI?](#q21) <span class="intermediate">Intermediate</span>
+22. [What is the Typography component?](#q22) <span class="beginner">Beginner</span>
+23. [What is the Grid system in MUI?](#q23) <span class="beginner">Beginner</span>
+24. [What is the Box component?](#q24) <span class="beginner">Beginner</span>
+25. [What is the Stack component?](#q25) <span class="beginner">Beginner</span>
+26. [How do you override theme defaults?](#q26) <span class="intermediate">Intermediate</span>
+27. [What is the `sx` prop performance cost?](#q27) <span class="advanced">Advanced</span>
+28. [How do you use Icons in MUI?](#q28) <span class="beginner">Beginner</span>
+29. [What is the Typography variants?](#q29) <span class="beginner">Beginner</span>
+30. [How do you handle Date Pickers?](#q30) <span class="intermediate">Intermediate</span>
+31. [What is the DataGrid component?](#q31) <span class="advanced">Advanced</span>
+32. [How do you make a responsive drawer?](#q32) <span class="intermediate">Intermediate</span>
+33. [What is `CssBaseline`?](#q33) <span class="beginner">Beginner</span>
+34. [How do you use custom fonts?](#q34) <span class="intermediate">Intermediate</span>
+35. [What is the `makeStyles` (legacy)?](#q35) <span class="intermediate">Intermediate</span>
+36. [How do you migrate from v4 to v5?](#q36) <span class="advanced">Advanced</span>
+37. [What is Radix Primitives?](#q37) <span class="beginner">Beginner</span>
+38. [How does Radix handle focus?](#q38) <span class="intermediate">Intermediate</span>
+39. [What is `asChild` in Radix?](#q39) <span class="intermediate">Intermediate</span>
+40. [How do you style Radix with CSS Modules?](#q40) <span class="beginner">Beginner</span>
+41. [How do you animate Radix components?](#q41) <span class="intermediate">Intermediate</span>
+42. [What is Radix Colors?](#q42) <span class="beginner">Beginner</span>
+43. [How do you use Radix Icons?](#q43) <span class="beginner">Beginner</span>
+44. [What is `Portal` in Radix?](#q44) <span class="intermediate">Intermediate</span>
+45. [Difference between Popover and Tooltip?](#q45) <span class="intermediate">Intermediate</span>
+46. [What is Accordion in Radix?](#q46) <span class="beginner">Beginner</span>
+47. [How do you handle form constraints in Radix?](#q47) <span class="intermediate">Intermediate</span>
+48. [What is the `Slot` utility?](#q48) <span class="advanced">Advanced</span>
+49. [How do you implement Toast?](#q49) <span class="intermediate">Intermediate</span>
+50. [What is `VisuallyHidden`?](#q50) <span class="beginner">Beginner</span>
+51. [How do you server render Radix?](#q51) <span class="intermediate">Intermediate</span>
+52. [What is Shadcn UI?](#q52) <span class="intermediate">Intermediate</span>
+53. [How does Shadcn differ from MUI?](#q53) <span class="intermediate">Intermediate</span>
+54. [What is Headless UI?](#q54) <span class="intermediate">Intermediate</span>
+55. [How do you create a dark mode switch in MUI?](#q55) <span class="beginner">Beginner</span>
+56. [What is `useTheme` hook?](#q56) <span class="beginner">Beginner</span>
+57. [How do you customize breakpoints?](#q57) <span class="intermediate">Intermediate</span>
+58. [What is the `Container` component?](#q58) <span class="beginner">Beginner</span>
+59. [How do you use Skeleton loading?](#q59) <span class="beginner">Beginner</span>
+60. [What is the `Autocomplete` component?](#q60) <span class="intermediate">Intermediate</span>
+61. [How do you handle virtualized lists in MUI?](#q61) <span class="advanced">Advanced</span>
+62. [What is the `ClickAwayListener`?](#q62) <span class="intermediate">Intermediate</span>
+63. [How do you use `Backdrop`?](#q63) <span class="beginner">Beginner</span>
+64. [What is `SpeedDial`?](#q64) <span class="intermediate">Intermediate</span>
+65. [How do you customize scrollbars in MUI?](#q65) <span class="intermediate">Intermediate</span>
+66. [What is `Collapse` transition?](#q66) <span class="beginner">Beginner</span>
+67. [How do you use `Zoom` transition?](#q67) <span class="beginner">Beginner</span>
+68. [What is `Grow` transition?](#q68) <span class="beginner">Beginner</span>
+69. [What is `Slide` transition?](#q69) <span class="beginner">Beginner</span>
+70. [How do you use `Fade` transition?](#q70) <span class="beginner">Beginner</span>
+71. [What is `GlobalStyles`?](#q71) <span class="intermediate">Intermediate</span>
+72. [How do you theme variants?](#q72) <span class="intermediate">Intermediate</span>
+73. [What is `shouldForwardProp`?](#q73) <span class="advanced">Advanced</span>
+74. [How do you use `alpha` utility?](#q74) <span class="intermediate">Intermediate</span>
+75. [What is `darken`/`lighten`?](#q75) <span class="intermediate">Intermediate</span>
+76. [How do you use `useScrollTrigger`?](#q76) <span class="intermediate">Intermediate</span>
+77. [What is `FocusTrap`?](#q77) <span class="intermediate">Intermediate</span>
+78. [How do you use `NoSsr`?](#q78) <span class="intermediate">Intermediate</span>
+79. [What is `TextareaAutosize`?](#q79) <span class="beginner">Beginner</span>
+80. [How do you use `Rating`?](#q80) <span class="beginner">Beginner</span>
+81. [What is `Timeline`?](#q81) <span class="intermediate">Intermediate</span>
+82. [How do you use `TreeView`?](#q82) <span class="intermediate">Intermediate</span>
+83. [What is `Masonry`?](#q83) <span class="intermediate">Intermediate</span>
+84. [How do you use `Snackbar`?](#q84) <span class="beginner">Beginner</span>
+85. [What is `Alert`?](#q85) <span class="beginner">Beginner</span>
+86. [How do you customize shadow?](#q86) <span class="intermediate">Intermediate</span>
+87. [What is `Paper`?](#q87) <span class="beginner">Beginner</span>
+88. [How do you use `Card`?](#q88) <span class="beginner">Beginner</span>
+89. [What is `Divider`?](#q89) <span class="beginner">Beginner</span>
+90. [How do you use `Chip`?](#q90) <span class="beginner">Beginner</span>
+91. [What is `Badge`?](#q91) <span class="beginner">Beginner</span>
+92. [How do you use `Avatar`?](#q92) <span class="beginner">Beginner</span>
+93. [What is `LinearProgress`?](#q93) <span class="beginner">Beginner</span>
+94. [What is `CircularProgress`?](#q94) <span class="beginner">Beginner</span>
+95. [How do you use `Tabs`?](#q95) <span class="intermediate">Intermediate</span>
+96. [What is `BottomNavigation`?](#q96) <span class="intermediate">Intermediate</span>
+97. [How do you use `Breadcrumbs`?](#q97) <span class="beginner">Beginner</span>
+98. [What is `Link` component?](#q98) <span class="beginner">Beginner</span>
+99. [How do you use `Stepper`?](#q99) <span class="intermediate">Intermediate</span>
+100. [How does Radix UI handle accessibility?](#q100) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1791,4 +1792,30 @@ Step-by-step wizard. This concept is fundamental in this domain and understandin
 <Stepper activeStep={1}>...</Stepper>
 ```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div><a id="q100"></a>
+
+### Q100: How does Radix UI handle accessibility?
+
+**Difficulty**: Intermediate
+
+**Strategy**: Radix UI primitives manage ARIA attributes, focus management, and keyboard navigation out of the box. They follow the WAI-ARIA authoring practices, allowing developers to focus on styling without worrying about complex accessibility logic.
+
+**Code Example**: 
+```javascript
+// Accessible Dialog component
+<Dialog.Root>
+  <Dialog.Trigger>Open</Dialog.Trigger>
+  <Dialog.Portal>
+    <Dialog.Content>
+      <Dialog.Title>Edit profile</Dialog.Title>
+      <Dialog.Description>Make changes to your profile.</Dialog.Description>
+      <Dialog.Close>Save</Dialog.Close>
+    </Dialog.Content>
+  </Dialog.Portal>
+</Dialog.Root>
+```
+
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+

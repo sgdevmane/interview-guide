@@ -10,98 +10,108 @@
 
 ## Table of Contents
 
-1. [How do you mock a module in Jest?](#q1-how-do-you-mock-a-module-in-jest) <span class="beginner">Beginner</span>
-2. [What is Snapshot Testing in Jest?](#q2-what-is-snapshot-testing-in-jest) <span class="beginner">Beginner</span>
-3. [How do you test asynchronous code in Jest?](#q3-how-do-you-test-asynchronous-code-in-jest) <span class="intermediate">Intermediate</span>
-4. [Difference between `shallow` and `mount` in Enzyme?](#q4-difference-between-shallow-and-mount-in-enzyme) <span class="intermediate">Intermediate</span>
-5. [How do you spy on a method with Jest?](#q5-how-do-you-spy-on-a-method-with-jest) <span class="intermediate">Intermediate</span>
-6. [How do you setup and teardown tests in Mocha?](#q6-how-do-you-setup-and-teardown-tests-in-mocha) <span class="beginner">Beginner</span>
-7. [How do you mock a timer in Jest?](#q7-how-do-you-mock-a-timer-in-jest) <span class="advanced">Advanced</span>
-8. [How do you test a React Hook?](#q8-how-do-you-test-a-react-hook) <span class="advanced">Advanced</span>
-9. [How do you mock a default export in Jest?](#q9-how-do-you-mock-a-default-export-in-jest) <span class="advanced">Advanced</span>
-10. [How do you test for an exception in Jest?](#q10-how-do-you-test-for-an-exception-in-jest) <span class="beginner">Beginner</span>
-11. [What is the difference between `describe` and `test`?](#q11-what-is-the-difference-between-describe-and-test) <span class="beginner">Beginner</span>
-12. [How do you access the DOM in Jest?](#q12-how-do-you-access-the-dom-in-jest) <span class="intermediate">Intermediate</span>
-13. [What is `jest.fn()`?](#q13-what-is-jestfn) <span class="beginner">Beginner</span>
-14. [How do you skip a test?](#q14-how-do-you-skip-a-test) <span class="beginner">Beginner</span>
-15. [How do you run only one test?](#q15-how-do-you-run-only-one-test) <span class="beginner">Beginner</span>
-16. [How do you test React components without Enzyme?](#q16-how-do-you-test-react-components-without-enzyme) <span class="intermediate">Intermediate</span>
-17. [How do you mock global objects like `localStorage`?](#q17-how-do-you-mock-global-objects-like-localstorage) <span class="intermediate">Intermediate</span>
-18. [What is Code Coverage?](#q18-what-is-code-coverage) <span class="intermediate">Intermediate</span>
-19. [How do you parameterize tests in Jest?](#q19-how-do-you-parameterize-tests-in-jest) <span class="intermediate">Intermediate</span>
-20. [How do you reset mocks between tests?](#q20-how-do-you-reset-mocks-between-tests) <span class="intermediate">Intermediate</span>
-21. [What is a Spy in testing?](#q21-what-is-a-spy-in-testing) <span class="beginner">Beginner</span>
-22. [How do you test Redux connected components?](#q22-how-do-you-test-redux-connected-components) <span class="advanced">Advanced</span>
-23. [What is TDD?](#q23-what-is-tdd) <span class="beginner">Beginner</span>
-24. [What is BDD?](#q24-what-is-bdd) <span class="beginner">Beginner</span>
-25. [Difference between Unit and Integration tests?](#q25-difference-between-unit-and-integration-tests) <span class="beginner">Beginner</span>
-26. [What is E2E testing?](#q26-what-is-e2e-testing) <span class="beginner">Beginner</span>
-27. [What is Jest?](#q27-what-is-jest) <span class="beginner">Beginner</span>
-28. [What is Mocha?](#q28-what-is-mocha) <span class="beginner">Beginner</span>
-29. [What is Chai?](#q29-what-is-chai) <span class="beginner">Beginner</span>
-30. [What is Enzyme?](#q30-what-is-enzyme) <span class="intermediate">Intermediate</span>
-31. [What is React Testing Library (RTL)?](#q31-what-is-react-testing-library-rtl) <span class="intermediate">Intermediate</span>
-32. [How do you mock a function?](#q32-how-do-you-mock-a-function) <span class="beginner">Beginner</span>
-33. [How do you mock a module?](#q33-how-do-you-mock-a-module) <span class="intermediate">Intermediate</span>
-34. [What is Snapshot testing?](#q34-what-is-snapshot-testing) <span class="beginner">Beginner</span>
-35. [How do you update snapshots?](#q35-how-do-you-update-snapshots) <span class="beginner">Beginner</span>
-36. [What is `beforeAll`?](#q36-what-is-beforeall) <span class="beginner">Beginner</span>
-37. [What is `afterEach`?](#q37-what-is-aftereach) <span class="beginner">Beginner</span>
-38. [How do you test async code?](#q38-how-do-you-test-async-code) <span class="intermediate">Intermediate</span>
-39. [How do you mock timers?](#q39-how-do-you-mock-timers) <span class="advanced">Advanced</span>
-40. [What is `spyOn`?](#q40-what-is-spyon) <span class="intermediate">Intermediate</span>
-41. [How do you mock API calls?](#q41-how-do-you-mock-api-calls) <span class="intermediate">Intermediate</span>
-42. [What is Coverage?](#q42-what-is-coverage) <span class="beginner">Beginner</span>
-43. [How do you test hooks?](#q43-how-do-you-test-hooks) <span class="advanced">Advanced</span>
-44. [How do you test context?](#q44-how-do-you-test-context) <span class="intermediate">Intermediate</span>
-45. [What is `act`?](#q45-what-is-act) <span class="advanced">Advanced</span>
-46. [How do you find elements in RTL?](#q46-how-do-you-find-elements-in-rtl) <span class="beginner">Beginner</span>
-47. [Difference between `getBy` and `queryBy`?](#q47-difference-between-getby-and-queryby) <span class="intermediate">Intermediate</span>
-48. [Difference between `getBy` and `findBy`?](#q48-difference-between-getby-and-findby) <span class="intermediate">Intermediate</span>
-49. [How do you simulate events?](#q49-how-do-you-simulate-events) <span class="beginner">Beginner</span>
-50. [What is `user-event`?](#q50-what-is-user-event) <span class="intermediate">Intermediate</span>
-51. [How do you debug tests?](#q51-how-do-you-debug-tests) <span class="beginner">Beginner</span>
-52. [How do you skip a test?](#q52-how-do-you-skip-a-test) <span class="beginner">Beginner</span>
-53. [How do you focus a test?](#q53-how-do-you-focus-a-test) <span class="beginner">Beginner</span>
-54. [What is `describe`?](#q54-what-is-describe) <span class="beginner">Beginner</span>
-55. [How do you mock local storage?](#q55-how-do-you-mock-local-storage) <span class="intermediate">Intermediate</span>
-56. [How do you test routing?](#q56-how-do-you-test-routing) <span class="intermediate">Intermediate</span>
-57. [What is Cypress?](#q57-what-is-cypress) <span class="intermediate">Intermediate</span>
-58. [What is Playwright?](#q58-what-is-playwright) <span class="intermediate">Intermediate</span>
-59. [Difference between Mock and Stub?](#q59-difference-between-mock-and-stub) <span class="advanced">Advanced</span>
-60. [What is Mutation Testing?](#q60-what-is-mutation-testing) <span class="advanced">Advanced</span>
-61. [How do you test accessibility?](#q61-how-do-you-test-accessibility) <span class="intermediate">Intermediate</span>
-62. [What is Visual Regression Testing?](#q62-what-is-visual-regression-testing) <span class="advanced">Advanced</span>
-63. [How do you test Redux?](#q63-how-do-you-test-redux) <span class="intermediate">Intermediate</span>
-64. [How do you mock Date?](#q64-how-do-you-mock-date) <span class="intermediate">Intermediate</span>
-65. [What is `cleanup`?](#q65-what-is-cleanup) <span class="intermediate">Intermediate</span>
-66. [How do you test portals?](#q66-how-do-you-test-portals) <span class="advanced">Advanced</span>
-67. [What is Property Based Testing?](#q67-what-is-property-based-testing) <span class="advanced">Advanced</span>
-68. [How do you setup global config?](#q68-how-do-you-setup-global-config) <span class="intermediate">Intermediate</span>
-69. [What is the Pyramid of Testing?](#q69-what-is-the-pyramid-of-testing) <span class="beginner">Beginner</span>
-70. [How do you test strict mode?](#q70-how-do-you-test-strict-mode) <span class="intermediate">Intermediate</span>
-71. [How do you test error boundaries?](#q71-how-do-you-test-error-boundaries) <span class="advanced">Advanced</span>
-72. [What is shallow rendering?](#q72-what-is-shallow-rendering) <span class="intermediate">Intermediate</span>
-73. [Why prefer full rendering?](#q73-why-prefer-full-rendering) <span class="intermediate">Intermediate</span>
-74. [How do you test observables?](#q74-how-do-you-test-observables) <span class="advanced">Advanced</span>
-75. [What is CI/CD testing?](#q75-what-is-cicd-testing) <span class="intermediate">Intermediate</span>
-76. [How do you parallelize tests?](#q76-how-do-you-parallelize-tests) <span class="intermediate">Intermediate</span>
-77. [What is Flaky test?](#q77-what-is-flaky-test) <span class="beginner">Beginner</span>
-78. [How do you fix flaky tests?](#q78-how-do-you-fix-flaky-tests) <span class="intermediate">Intermediate</span>
-79. [What is Contract Testing?](#q79-what-is-contract-testing) <span class="advanced">Advanced</span>
-80. [How do you test WebSockets?](#q80-how-do-you-test-websockets) <span class="advanced">Advanced</span>
-81. [How do you test Service Workers?](#q81-how-do-you-test-service-workers) <span class="advanced">Advanced</span>
-82. [What is `test.todo`?](#q82-what-is-testtodo) <span class="beginner">Beginner</span>
-83. [How do you mock a module partially?](#q83-how-do-you-mock-a-module-partially) <span class="intermediate">Intermediate</span>
-84. [What is `__mocks__` folder?](#q84-what-is-mocks-folder) <span class="intermediate">Intermediate</span>
-85. [How do you test memory leaks?](#q85-how-do-you-test-memory-leaks) <span class="advanced">Advanced</span>
-86. [What is Static Analysis?](#q86-what-is-static-analysis) <span class="beginner">Beginner</span>
-87. [How do you test Canvas?](#q87-how-do-you-test-canvas) <span class="advanced">Advanced</span>
-88. [What is Headless Browser?](#q88-what-is-headless-browser) <span class="beginner">Beginner</span>
-89. [How do you test performance?](#q89-how-do-you-test-performance) <span class="advanced">Advanced</span>
-90. [What is Chaos Engineering?](#q90-what-is-chaos-engineering) <span class="advanced">Advanced</span>
-91. [How do you test i18n?](#q91-how-do-you-test-i18n) <span class="intermediate">Intermediate</span>
-92. [What is Snapshot serialization?](#q92-what-is-snapshot-serialization) <span class="advanced">Advanced</span>
+1. [How do you mock a module in Jest?](#q1) <span class="beginner">Beginner</span>
+2. [What is Snapshot Testing in Jest?](#q2) <span class="beginner">Beginner</span>
+3. [How do you test asynchronous code in Jest?](#q3) <span class="intermediate">Intermediate</span>
+4. [Difference between `shallow` and `mount` in Enzyme?](#q4) <span class="intermediate">Intermediate</span>
+5. [How do you spy on a method with Jest?](#q5) <span class="intermediate">Intermediate</span>
+6. [How do you setup and teardown tests in Mocha?](#q6) <span class="beginner">Beginner</span>
+7. [How do you mock a timer in Jest?](#q7) <span class="advanced">Advanced</span>
+8. [How do you test a React Hook?](#q8) <span class="advanced">Advanced</span>
+9. [How do you mock a default export in Jest?](#q9) <span class="advanced">Advanced</span>
+10. [How do you test for an exception in Jest?](#q10) <span class="beginner">Beginner</span>
+11. [What is the difference between `describe` and `test`?](#q11) <span class="beginner">Beginner</span>
+12. [How do you access the DOM in Jest?](#q12) <span class="intermediate">Intermediate</span>
+13. [What is `jest.fn()`?](#q13) <span class="beginner">Beginner</span>
+14. [How do you skip a test?](#q14) <span class="beginner">Beginner</span>
+15. [How do you run only one test?](#q15) <span class="beginner">Beginner</span>
+16. [How do you test React components without Enzyme?](#q16) <span class="intermediate">Intermediate</span>
+17. [How do you mock global objects like `localStorage`?](#q17) <span class="intermediate">Intermediate</span>
+18. [What is Code Coverage?](#q18) <span class="intermediate">Intermediate</span>
+19. [How do you parameterize tests in Jest?](#q19) <span class="intermediate">Intermediate</span>
+20. [How do you reset mocks between tests?](#q20) <span class="intermediate">Intermediate</span>
+21. [What is a Spy in testing?](#q21) <span class="beginner">Beginner</span>
+22. [How do you test Redux connected components?](#q22) <span class="advanced">Advanced</span>
+23. [What is TDD?](#q23) <span class="beginner">Beginner</span>
+24. [What is BDD?](#q24) <span class="beginner">Beginner</span>
+25. [Difference between Unit and Integration tests?](#q25) <span class="beginner">Beginner</span>
+26. [What is E2E testing?](#q26) <span class="beginner">Beginner</span>
+27. [What is Jest?](#q27) <span class="beginner">Beginner</span>
+28. [What is Mocha?](#q28) <span class="beginner">Beginner</span>
+29. [What is Chai?](#q29) <span class="beginner">Beginner</span>
+30. [What is Enzyme?](#q30) <span class="intermediate">Intermediate</span>
+31. [What is React Testing Library (RTL)?](#q31) <span class="intermediate">Intermediate</span>
+32. [How do you mock a function?](#q32) <span class="beginner">Beginner</span>
+33. [How do you mock a module?](#q33) <span class="intermediate">Intermediate</span>
+34. [What is Snapshot testing?](#q34) <span class="beginner">Beginner</span>
+35. [How do you update snapshots?](#q35) <span class="beginner">Beginner</span>
+36. [What is `beforeAll`?](#q36) <span class="beginner">Beginner</span>
+37. [What is `afterEach`?](#q37) <span class="beginner">Beginner</span>
+38. [How do you test async code?](#q38) <span class="intermediate">Intermediate</span>
+39. [How do you mock timers?](#q39) <span class="advanced">Advanced</span>
+40. [What is `spyOn`?](#q40) <span class="intermediate">Intermediate</span>
+41. [How do you mock API calls?](#q41) <span class="intermediate">Intermediate</span>
+42. [What is Coverage?](#q42) <span class="beginner">Beginner</span>
+43. [How do you test hooks?](#q43) <span class="advanced">Advanced</span>
+44. [How do you test context?](#q44) <span class="intermediate">Intermediate</span>
+45. [What is `act`?](#q45) <span class="advanced">Advanced</span>
+46. [How do you find elements in RTL?](#q46) <span class="beginner">Beginner</span>
+47. [Difference between `getBy` and `queryBy`?](#q47) <span class="intermediate">Intermediate</span>
+48. [Difference between `getBy` and `findBy`?](#q48) <span class="intermediate">Intermediate</span>
+49. [How do you simulate events?](#q49) <span class="beginner">Beginner</span>
+50. [What is `user-event`?](#q50) <span class="intermediate">Intermediate</span>
+51. [How do you debug tests?](#q51) <span class="beginner">Beginner</span>
+52. [How do you skip a test?](#q52) <span class="beginner">Beginner</span>
+53. [How do you focus a test?](#q53) <span class="beginner">Beginner</span>
+54. [What is `describe`?](#q54) <span class="beginner">Beginner</span>
+55. [How do you mock local storage?](#q55) <span class="intermediate">Intermediate</span>
+56. [How do you test routing?](#q56) <span class="intermediate">Intermediate</span>
+57. [What is Cypress?](#q57) <span class="intermediate">Intermediate</span>
+58. [What is Playwright?](#q58) <span class="intermediate">Intermediate</span>
+59. [Difference between Mock and Stub?](#q59) <span class="advanced">Advanced</span>
+60. [What is Mutation Testing?](#q60) <span class="advanced">Advanced</span>
+61. [How do you test accessibility?](#q61) <span class="intermediate">Intermediate</span>
+62. [What is Visual Regression Testing?](#q62) <span class="advanced">Advanced</span>
+63. [How do you test Redux?](#q63) <span class="intermediate">Intermediate</span>
+64. [How do you mock Date?](#q64) <span class="intermediate">Intermediate</span>
+65. [What is `cleanup`?](#q65) <span class="intermediate">Intermediate</span>
+66. [How do you test portals?](#q66) <span class="advanced">Advanced</span>
+67. [What is Property Based Testing?](#q67) <span class="advanced">Advanced</span>
+68. [How do you setup global config?](#q68) <span class="intermediate">Intermediate</span>
+69. [What is the Pyramid of Testing?](#q69) <span class="beginner">Beginner</span>
+70. [How do you test strict mode?](#q70) <span class="intermediate">Intermediate</span>
+71. [How do you test error boundaries?](#q71) <span class="advanced">Advanced</span>
+72. [What is shallow rendering?](#q72) <span class="intermediate">Intermediate</span>
+73. [Why prefer full rendering?](#q73) <span class="intermediate">Intermediate</span>
+74. [How do you test observables?](#q74) <span class="advanced">Advanced</span>
+75. [What is CI/CD testing?](#q75) <span class="intermediate">Intermediate</span>
+76. [How do you parallelize tests?](#q76) <span class="intermediate">Intermediate</span>
+77. [What is Flaky test?](#q77) <span class="beginner">Beginner</span>
+78. [How do you fix flaky tests?](#q78) <span class="intermediate">Intermediate</span>
+79. [What is Contract Testing?](#q79) <span class="advanced">Advanced</span>
+80. [How do you test WebSockets?](#q80) <span class="advanced">Advanced</span>
+81. [How do you test Service Workers?](#q81) <span class="advanced">Advanced</span>
+82. [What is `test.todo`?](#q82) <span class="beginner">Beginner</span>
+83. [How do you mock a module partially?](#q83) <span class="intermediate">Intermediate</span>
+84. [What is `__mocks__` folder?](#q84) <span class="intermediate">Intermediate</span>
+85. [How do you test memory leaks?](#q85) <span class="advanced">Advanced</span>
+86. [What is Static Analysis?](#q86) <span class="beginner">Beginner</span>
+87. [How do you test Canvas?](#q87) <span class="advanced">Advanced</span>
+88. [What is Headless Browser?](#q88) <span class="beginner">Beginner</span>
+89. [How do you test performance?](#q89) <span class="advanced">Advanced</span>
+90. [What is Chaos Engineering?](#q90) <span class="advanced">Advanced</span>
+91. [How do you test i18n?](#q91) <span class="intermediate">Intermediate</span>
+92. [What is Snapshot serialization?](#q92) <span class="advanced">Advanced</span>
+93. [What is Property Based Testing?](#q93) <span class="advanced">Advanced</span>
+94. [How do you debug Jest tests?](#q94) <span class="intermediate">Intermediate</span>
+95. [What is `jest.isolateModules()`?](#q95) <span class="advanced">Advanced</span>
+96. [How do you test a resize event?](#q96) <span class="intermediate">Intermediate</span>
+97. [How do you mock `Date.now()`?](#q97) <span class="intermediate">Intermediate</span>
+98. [What is `test.todo`?](#q98) <span class="beginner">Beginner</span>
+99. [How do you test cookies in Jest?](#q99) <span class="intermediate">Intermediate</span>
+100. [What is `jest.requireActual()`?](#q100) <span class="advanced">Advanced</span>
+101. [How do you test intersection observer?](#q101) <span class="advanced">Advanced</span>
+102. [What is Visual Regression Testing?](#q102) <span class="intermediate">Intermediate</span>
 
 ---
 
@@ -1665,4 +1675,183 @@ Format snapshot output. This concept is fundamental in this domain and understan
 expect.addSnapshotSerializer(...) 
 ```
 
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div><a id="q93"></a>
+
+### Q93: What is Property Based Testing?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Generating random inputs (properties) to verify that certain invariants hold true for a function (e.g., fast-check).
+
+**Code Example**:
+```javascript
+fc.assert(fc.property(fc.integer(), n => n + 0 === n));
+```
+
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q94"></a>
+
+### Q94: How do you debug Jest tests?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `node --inspect-brk` or VS Code's debugger. Place `debugger;` statement in test.
+
+**Code Example**:
+```javascript
+node --inspect-brk node_modules/.bin/jest --runInBand
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q95"></a>
+
+### Q95: What is `jest.isolateModules()`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Used to run a block of code with a fresh module registry (re-importing modules). Good for testing stateful modules.
+
+**Code Example**:
+```javascript
+jest.isolateModules(() => { const mod = require('./myModule'); });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q96"></a>
+
+### Q96: How do you test a resize event?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Mock `window.innerWidth` and dispatch a 'resize' event on window.
+
+**Code Example**:
+```javascript
+window.innerWidth = 500; window.dispatchEvent(new Event('resize'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q97"></a>
+
+### Q97: How do you mock `Date.now()`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `jest.useFakeTimers()` and `jest.setSystemTime()`.
+
+**Code Example**:
+```javascript
+jest.useFakeTimers(); jest.setSystemTime(new Date('2023-01-01'));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q98"></a>
+
+### Q98: What is `test.todo`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+A way to write a placeholder for a test you plan to write later. It appears in the output but doesn't fail.
+
+**Code Example**:
+```javascript
+test.todo('should handle edge case');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q99"></a>
+
+### Q99: How do you test cookies in Jest?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Mock `document.cookie` (getter/setter) usually via `jest-environment-jsdom` or manually defined property.
+
+**Code Example**:
+```javascript
+Object.defineProperty(document, 'cookie', { ... });
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q100"></a>
+
+### Q100: What is `jest.requireActual()`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Used inside a manual mock to import the original module (e.g., to mock only one function of a library).
+
+**Code Example**:
+```javascript
+const original = jest.requireActual('axios');
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q101"></a>
+
+### Q101: How do you test intersection observer?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Since it's not in JSDOM, you must mock `window.IntersectionObserver` class and its methods.
+
+**Code Example**:
+```javascript
+window.IntersectionObserver = jest.fn(() => ({ observe: jest.fn(), ... }));
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
+<a id="q102"></a>
+
+### Q102: What is Visual Regression Testing?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comparing screenshots of UI components pixel-by-pixel to detect unintended visual changes (e.g., Percy, Chromatic).
+
+**Code Example**:
+```javascript
+cy.matchImageSnapshot();
+```
+
+<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
