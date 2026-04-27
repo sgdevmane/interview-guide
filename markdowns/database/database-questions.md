@@ -1423,7 +1423,6 @@ CREATE INDEX idx_name ON users(name);
 **Difficulty**: Intermediate
 
 **Strategy**:
-B-Tree, Hash, Bitmap, GiST, GIN. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1491,7 +1490,6 @@ SELECT * FROM A JOIN B ON A.id = B.id
 **Difficulty**: Beginner
 
 **Strategy**:
-Virtual table based on query. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1508,7 +1506,6 @@ CREATE VIEW active_users AS ...
 **Difficulty**: Intermediate
 
 **Strategy**:
-Code stored in DB. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1525,7 +1522,6 @@ CREATE PROCEDURE ...
 **Difficulty**: Intermediate
 
 **Strategy**:
-Auto-executes on event. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1576,7 +1572,6 @@ Sharding is a method of splitting and storing a single logical dataset in multip
 **Difficulty**: Intermediate
 
 **Strategy**:
-Copying data to multiple nodes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1610,7 +1605,6 @@ The CAP Theorem states that a distributed computer system can only provide two o
 **Difficulty**: Intermediate
 
 **Strategy**:
-Data will become consistent over time. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1661,7 +1655,6 @@ SET TRANSACTION ISOLATION LEVEL ...
 **Difficulty**: Intermediate
 
 **Strategy**:
-Two processes waiting for each other. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1695,7 +1688,6 @@ Optimistic Locking assumes that multiple transactions can complete without affec
 **Difficulty**: Intermediate
 
 **Strategy**:
-Reuse open connections. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1712,7 +1704,6 @@ Reuse open connections. This concept is fundamental in this domain and understan
 **Difficulty**: Beginner
 
 **Strategy**:
-Object Relational Mapper. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1746,7 +1737,6 @@ The N+1 problem occurs when an application makes one query to retrieve a parent 
 **Difficulty**: Beginner
 
 **Strategy**:
-Document store (BSON). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1780,7 +1770,6 @@ SET key value
 **Difficulty**: Advanced
 
 **Strategy**:
-Wide-column store. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1797,7 +1786,6 @@ Wide-column store. This concept is fundamental in this domain and understanding 
 **Difficulty**: Beginner
 
 **Strategy**:
-Unique identifier. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1814,7 +1802,6 @@ id INT PRIMARY KEY
 **Difficulty**: Beginner
 
 **Strategy**:
-Link to another table. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1848,7 +1835,6 @@ Database migration is the management of incremental, reversible changes and vers
 **Difficulty**: Intermediate
 
 **Strategy**:
-EXPLAIN, Indexes, select specific columns. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1882,7 +1868,6 @@ SQL injection is a code injection technique that might destroy your database. It
 **Difficulty**: Intermediate
 
 **Strategy**:
-Pointer to result set row. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1899,7 +1884,6 @@ FETCH NEXT FROM cursor
 **Difficulty**: Intermediate
 
 **Strategy**:
-Extract, Transform, Load. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1933,7 +1917,6 @@ OLTP (Online Transaction Processing) captures, stores, and processes data from t
 **Difficulty**: Intermediate
 
 **Strategy**:
-Optimized for time-stamped data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1950,7 +1933,6 @@ Optimized for time-stamped data. This concept is fundamental in this domain and 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Nodes and Edges. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1967,7 +1949,6 @@ Nodes and Edges. This concept is fundamental in this domain and understanding it
 **Difficulty**: Advanced
 
 **Strategy**:
-Splitting table into smaller tables. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2001,7 +1982,6 @@ Multiversion concurrency control (MVCC) is a concurrency control method used by 
 **Difficulty**: Advanced
 
 **Strategy**:
-Log changes before writing to disk. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2018,7 +1998,6 @@ Log changes before writing to disk. This concept is fundamental in this domain a
 **Difficulty**: Intermediate
 
 **Strategy**:
-Physically stored view, refreshed periodically. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2035,7 +2014,6 @@ REFRESH MATERIALIZED VIEW
 **Difficulty**: Beginner
 
 **Strategy**:
-Flag as deleted instead of removing. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2052,7 +2030,6 @@ UPDATE users SET deleted_at = NOW()
 **Difficulty**: Advanced
 
 **Strategy**:
-Real-time copy for High Availability. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2086,7 +2063,6 @@ Row-oriented databases store data row by row. This is great for transaction proc
 **Difficulty**: Intermediate
 
 **Strategy**:
-Key made of multiple columns. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2103,7 +2079,6 @@ PRIMARY KEY (a, b)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Artificial key (e.g. auto-increment ID). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2120,7 +2095,6 @@ Artificial key (e.g. auto-increment ID). This concept is fundamental in this dom
 **Difficulty**: Beginner
 
 **Strategy**:
-Consistency of relationships. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2137,7 +2111,6 @@ Consistency of relationships. This concept is fundamental in this domain and und
 **Difficulty**: Advanced
 
 **Strategy**:
-Check if element exists in set (probabilistic). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2154,7 +2127,6 @@ Check if element exists in set (probabilistic). This concept is fundamental in t
 **Difficulty**: Advanced
 
 **Strategy**:
-Distributed transaction protocol. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2188,7 +2160,6 @@ Change Data Capture (CDC) is a set of software design patterns used to determine
 **Difficulty**: Intermediate
 
 **Strategy**:
-Reclaiming storage (Postgres). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2205,7 +2176,6 @@ VACUUM FULL
 **Difficulty**: Advanced
 
 **Strategy**:
-Sorts table data physically. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2222,7 +2192,6 @@ Sorts table data physically. This concept is fundamental in this domain and unde
 **Difficulty**: Advanced
 
 **Strategy**:
-Separate structure pointing to data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2256,7 +2225,6 @@ Sharding: across servers. Partitioning: within one server.
 **Difficulty**: Intermediate
 
 **Strategy**:
-For geo data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2273,7 +2241,6 @@ For geo data. This concept is fundamental in this domain and understanding it al
 **Difficulty**: Intermediate
 
 **Strategy**:
-Searching text docs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2290,7 +2257,6 @@ Searching text docs. This concept is fundamental in this domain and understandin
 **Difficulty**: Advanced
 
 **Strategy**:
-Self-balancing tree data structure. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2307,7 +2273,6 @@ Self-balancing tree data structure. This concept is fundamental in this domain a
 **Difficulty**: Advanced
 
 **Strategy**:
-O(1) lookups. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

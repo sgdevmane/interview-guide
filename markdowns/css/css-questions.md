@@ -122,6 +122,7 @@
 **Difficulty**: Intermediate
 
 **Strategy**:
+The 12-column grid is the industry standard for responsive layouts, mirroring frameworks like Bootstrap but without the overhead. CSS Grid's `repeat()` and `fr` unit make this trivial to implement natively. In interviews, demonstrate that you understand `span` for column allocation and media queries for mobile stacking. A common pitfall is forgetting to handle the mobile breakpoint where columns should collapse to full width.
 
 **Strategy:**
 **Difficulty: Intermediate**
@@ -169,6 +170,7 @@ We can then place items on this grid spanning multiple columns.
 **Difficulty**: Intermediate
 
 **Strategy**:
+Centering is one of the most frequently asked CSS questions because it reveals whether you understand positioning and transform. The `top: 50%` + `translate(-50%, -50%)` technique works because percentage-based `top`/`left` references the parent, while percentage-based `translate` references the element itself. Be prepared to discuss modern alternatives like `place-items: center` with Grid, which is simpler but requires block-level layout control.
 
 **Strategy:**
 **Difficulty: Intermediate**
@@ -212,6 +214,7 @@ There are multiple ways (Flexbox/Grid are preferred), but for absolute positioni
 **Difficulty**: Intermediate
 
 **Strategy**:
+The sticky footer is a classic layout problem that tests your understanding of Flexbox's space distribution. The key insight is that `flex: 1` on the main content area tells it to grow and fill available space, naturally pushing the footer to the viewport bottom. Avoid the old negative-margin hacks. A common mistake is forgetting `min-height: 100vh` on the container, which prevents the flex layout from stretching the full viewport.
 
 **Strategy:**
 **Difficulty: Intermediate**
@@ -252,6 +255,7 @@ footer {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Pure CSS tooltips demonstrate mastery of pseudo-elements and the `attr()` function, which pulls values from HTML data attributes. This pattern avoids JavaScript for simple hover hints and keeps behavior declarative. The `pointer-events: none` on the tooltip prevents it from blocking clicks, and `white-space: nowrap` keeps text on one line. Remember that `content: attr()` only works in pseudo-elements, not on real elements.
 
 **Strategy:**
 **Difficulty: Intermediate**
@@ -300,6 +304,7 @@ Show it on hover.
 **Difficulty**: Intermediate
 
 **Strategy**:
+Custom form controls are a common interview topic because they test your understanding of accessibility alongside styling. The key technique is hiding the native input visually while keeping it focusable and screen-reader accessible, then using the sibling combinator (`~`) with `:checked` to style the custom element. Never use `display: none` to hide the input, as that removes it from the keyboard tab order and breaks accessibility.
 
 **Strategy:**
 **Difficulty: Intermediate**
@@ -354,6 +359,7 @@ Show it on hover.
 **Difficulty**: Intermediate
 
 **Strategy**:
+CSS custom properties (variables) are the foundation of theming systems in modern web apps. Defining colors in `:root` and overriding them with a data-attribute selector or `prefers-color-scheme` media query creates a clean separation between theme definitions and component styles. The `transition` on background-color provides a polished switch. In real-world apps, pair the data-attribute approach with JavaScript to persist user preference in localStorage.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -392,6 +398,7 @@ body {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Maintaining aspect ratios is essential for responsive video embeds, image placeholders, and card layouts. The modern `aspect-ratio` property is the preferred approach and has broad browser support. The older padding-top hack exploits the fact that vertical padding percentages resolve against the element's width, not height. In interviews, mention both approaches to show awareness of legacy techniques while favoring the modern solution.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -436,6 +443,7 @@ Old hack: Use `padding-top` percentage on a container (percentage is based on wi
 **Difficulty**: Intermediate
 
 **Strategy**:
+Text truncation appears constantly in real-world UIs -- card titles, table cells, notification text -- so interviewers expect fluency here. Single-line truncation requires all three properties working together: `white-space: nowrap` prevents wrapping, `overflow: hidden` clips the overflow, and `text-overflow: ellipsis` adds the visual indicator. For multi-line, the `-webkit-line-clamp` approach is widely supported despite its vendor prefix and uses the older flexbox box model.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -473,6 +481,7 @@ Multi-line: Use `line-clamp` (webkit prefixed, but standardizing).
 **Difficulty**: Intermediate
 
 **Strategy**:
+Container queries are a paradigm shift from media queries because they enable truly reusable components that respond to their own container size, not the viewport. This is critical for design systems where the same card component may appear in a sidebar or a full-width page. You must declare `container-type` on the parent before `@container` rules will work. This feature shows interviewers you keep up with modern CSS evolution.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -512,6 +521,7 @@ Container Queries allow components to style themselves based on the size of thei
 **Difficulty**: Intermediate
 
 **Strategy**:
+CSS performance optimization separates senior developers from juniors. The browser rendering pipeline goes through Style, Layout, Paint, and Composite -- properties like `transform` and `opacity` skip Layout and Paint entirely, going straight to the GPU compositor. Animating `width`, `height`, or `top` forces the browser to recalculate layout for the entire subtree. Use `will-change` judiciously, as overusing it wastes GPU memory.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -551,6 +561,7 @@ Container Queries allow components to style themselves based on the size of thei
 **Difficulty**: Intermediate
 
 **Strategy**:
+CSS-only parallax leverages 3D transforms without JavaScript scroll listeners, making it more performant. Setting `perspective` on the scroll container and `translateZ` on child layers creates the illusion of depth because the browser scales elements based on their Z-position. A critical implementation detail is `overflow-y: auto` with `perspective` on the same element. Be aware this technique can cause issues on some mobile browsers.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -599,6 +610,7 @@ Elements "further away" (negative Z) move slower than elements closer.
 **Difficulty**: Intermediate
 
 **Strategy**:
+The `.sr-only` (screen-reader-only) pattern is a staple of accessible web development and appears in every major CSS framework. Using `display: none` or `visibility: hidden` completely removes the element from the accessibility tree, making it invisible to assistive technology. The clip-based approach keeps the element in the DOM and accessible while rendering it invisible on screen. This class is essential for providing context to screen readers on icon buttons and skip-navigation links.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -633,6 +645,7 @@ Use a utility class that clips the element to 1px rect.
 **Difficulty**: Intermediate
 
 **Strategy**:
+CSS triangles are a classic interview trick question that tests your understanding of the CSS box model and border rendering. When an element has zero width and height, borders from opposing sides meet at diagonal edges, creating triangular shapes. By making three borders transparent and one colored, you control which triangle is visible. While largely replaced by `clip-path` and SVG in production, this technique still appears in legacy codebases and demonstrates deep CSS knowledge.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -670,6 +683,7 @@ Use transparent borders. A box with 0 width/height and thick borders creates tri
 **Difficulty**: Intermediate
 
 **Strategy**:
+Cumulative Layout Shift (CLS) is a Core Web Vital that Google uses for search ranking, making it critical in production. When images lack explicit dimensions, the browser cannot reserve space and content jumps when the image loads. Always set `width` and `height` attributes in HTML combined with `max-width: 100%; height: auto` in CSS for responsive images. The `aspect-ratio` CSS property provides a modern fallback when HTML attributes are not available.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -708,6 +722,7 @@ Always define `width` and `height` attributes (or aspect-ratio) so the browser r
 **Difficulty**: Intermediate
 
 **Strategy**:
+Masonry layouts (like Pinterest) remain one of the trickiest layouts to achieve with pure CSS. The multi-column approach (`column-count`) is the most reliable pure-CSS solution but orders items top-to-bottom instead of left-to-right, which may not match design intent. The experimental `grid-template-rows: masonry` in CSS Grid solves this natively but has limited browser support. For production, JavaScript-based libraries like Masonry.js are still common, but demonstrating the CSS-only approach shows initiative.
 
 **Strategy:**
 **Difficulty: Advanced**
@@ -744,6 +759,7 @@ Pure CSS masonry is tricky.
 **Difficulty**: Intermediate
 
 **Strategy**:
+Flexbox is the go-to solution for navigation bars because it handles both horizontal distribution and vertical alignment in a single declaration. The `space-between` value pushes the logo to one end and navigation links to the other, which is the most common nav pattern. For responsive behavior, wrap nav links in a `<ul>` and switch to `flex-direction: column` on mobile breakpoints.
 
 **Strategy:**
 Use `display: flex` on the container. `justify-content: space-between` pushes logo and links apart. `align-items: center` vertically centers them.
@@ -767,6 +783,7 @@ Use `display: flex` on the container. `justify-content: space-between` pushes lo
 **Difficulty**: Intermediate
 
 **Strategy**:
+Understanding the three components of `flex` is fundamental to mastering Flexbox layouts. The `flex` shorthand (`flex: grow shrink basis`) is preferred over individual properties because it resets all three values intelligently and avoids common pitfalls with `flex-basis: auto`. The shorthand `flex: 1` is equivalent to `flex: 1 1 0%`, which distributes space equally. A frequent interview mistake is confusing `flex-basis` with `width` -- basis sets the initial size before free space is distributed.
 
 **Strategy:**
 `flex-grow`: How much space to take (0 default). `flex-shrink`: How much to shrink (1 default). `flex-basis`: Initial size. `flex: 1` sets grow:1, shrink:1, basis:0%.
@@ -789,6 +806,7 @@ Use `display: flex` on the container. `justify-content: space-between` pushes lo
 **Difficulty**: Intermediate
 
 **Strategy**:
+The sidebar layout is one of the most common page-level patterns and Flexbox handles it elegantly. The sidebar gets a fixed basis via `flex: 0 0 250px` (no grow, no shrink, 250px basis), while the main content uses `flex: 1` to consume all remaining space. This approach avoids the fragile float-based sidebars of the past. For responsive behavior, switch to `flex-direction: column` on smaller screens to stack the sidebar above the content.
 
 **Strategy:**
 Container: `display: flex`. Sidebar: Fixed width or `flex: 0 0 250px`. Main content: `flex: 1` to take remaining space.
@@ -816,6 +834,7 @@ Container: `display: flex`. Sidebar: Fixed width or `flex: 0 0 250px`. Main cont
 **Difficulty**: Intermediate
 
 **Strategy**:
+Grid alignment properties control how items are placed within their grid cells, and confusing them with Flexbox alignment is a common interview mistake. In Grid, `justify-items` aligns along the inline (row) axis and `align-items` along the block (column) axis, and both apply to individual grid items within their cells. The default is `stretch`, which is why grid children expand to fill their cells unless you override it. For centering a single item in its cell, `place-items: center` is the shorthand.
 
 **Strategy:**
 `justify-items`: Horizontal alignment (start, center, end, stretch). `align-items`: Vertical alignment. Defaults to `stretch`.
@@ -839,6 +858,7 @@ Container: `display: flex`. Sidebar: Fixed width or `flex: 0 0 250px`. Main cont
 **Difficulty**: Intermediate
 
 **Strategy**:
+`minmax()` is the key to building truly responsive grids without media queries. Combined with `auto-fit` or `auto-fill`, it creates a grid that automatically wraps items into as many columns as will fit. `minmax(200px, 1fr)` means each column is at least 200px wide but shares any extra space equally. The difference between `auto-fit` (collapses empty tracks) and `auto-fill` (preserves empty tracks) is a common follow-up question in interviews.
 
 **Strategy:**
 Defines a size range. `minmax(100px, 1fr)` means at least 100px, but stretch to fill 1fr if space allows.
@@ -860,6 +880,7 @@ Defines a size range. `minmax(100px, 1fr)` means at least 100px, but stretch to 
 **Difficulty**: Intermediate
 
 **Strategy**:
+One of CSS Grid's unique strengths is that multiple items can occupy the same grid cell, creating overlapping layouts without `position: absolute`. This is useful for hero sections, image overlays, and decorative elements. Later DOM elements naturally stack on top of earlier ones, and `z-index` controls the order within the same stacking context. This approach is more maintainable than absolute positioning because items remain in the document flow.
 
 **Strategy:**
 Place items in the same grid cell(s) using line numbers. Later items stack on top (control with z-index if needed).
@@ -880,6 +901,7 @@ Place items in the same grid cell(s) using line numbers. Later items stack on to
 **Difficulty**: Intermediate
 
 **Strategy**:
+Stacking contexts are one of the most misunderstood CSS concepts and a frequent source of bugs in complex UIs. A stacking context is created not just by `z-index` but also by `opacity` less than 1, `transform`, `filter`, `will-change`, and several other properties. Once a stacking context is created, `z-index` values of children cannot escape it to overlap elements in a sibling context. Understanding this prevents the "z-index arms race" of ever-increasing values.
 
 **Strategy:**
 `z-index` only works on positioned elements (relative, absolute, fixed, sticky) or flex/grid children. A new stacking context is created by opacity < 1, transform, filter, etc.
@@ -902,6 +924,7 @@ Place items in the same grid cell(s) using line numbers. Later items stack on to
 **Difficulty**: Intermediate
 
 **Strategy**:
+Debugging z-index issues requires a systematic approach because the root cause is usually a parent stacking context, not the element itself. Start by checking that the element has a positioning context set. Then trace up the DOM tree for properties that create stacking contexts (`transform`, `opacity`, `filter`). Chrome DevTools' "Layers" panel and the "DOM" panel with "Show stacking context" option visualize these hierarchies and help identify where containment is happening.
 
 **Strategy:**
 Check if the element has `position` set (if not flex/grid child). Check parent stacking contexts (e.g., parent has `overflow: hidden` or `opacity`). Use browser devtools 'Layers' view.
@@ -922,6 +945,7 @@ Check if the element has `position` set (if not flex/grid child). Check parent s
 **Difficulty**: Intermediate
 
 **Strategy**:
+Custom scrollbars improve visual consistency but come with a critical caveat: `::-webkit-scrollbar` only works in Chromium and Safari browsers. For Firefox, use the `scrollbar-width` and `scrollbar-color` standard properties. In production, consider whether custom scrollbars are necessary at all, as users may rely on the OS-level scrollbar for usability. Always test with both light and dark themes since scrollbars overlay the content.
 
 **Strategy:**
 Use pseudo-elements: `::-webkit-scrollbar` (width), `::-webkit-scrollbar-track` (background), `::-webkit-scrollbar-thumb` (handle).
@@ -942,6 +966,7 @@ Use pseudo-elements: `::-webkit-scrollbar` (width), `::-webkit-scrollbar-track` 
 **Difficulty**: Intermediate
 
 **Strategy**:
+`scroll-behavior: smooth` is the simplest way to add smooth scrolling for in-page anchor navigation, replacing JavaScript `scrollIntoView()` calls. Apply it to the `html` element for global behavior or to specific scroll containers. Pair it with `prefers-reduced-motion` to disable smooth scrolling for users who experience motion sensitivity, as abrupt stops during smooth scrolling can cause discomfort.
 
 **Strategy:**
 Apply to `html` or a scroll container to enable smooth scrolling for anchor links.
@@ -963,6 +988,7 @@ html {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Scroll snapping creates full-screen section layouts, image carousels, and paginated interfaces without JavaScript. The `mandatory` value forces the scroll to always end at a snap point, while `proximity` only snaps when close to one. Use `mandatory` for fullscreen sections and `proximity` for content lists where forcing snap could feel jarring. Always combine with `overflow-y: scroll` and explicit heights on snap children.
 
 **Strategy:**
 Container: `scroll-snap-type: y mandatory`. Children: `scroll-snap-align: start`.
@@ -990,6 +1016,7 @@ Container: `scroll-snap-type: y mandatory`. Children: `scroll-snap-align: start`
 **Difficulty**: Intermediate
 
 **Strategy**:
+A CSS reset strips browser-default styles to create a consistent baseline across all browsers, which is essential for predictable layouts. The universal selector reset (`*`) is the simplest approach, but production resets like `modern-normalize` or Andy Bell's modern reset handle more edge cases like form elements and media elements. Always pair a reset with `box-sizing: border-box` to prevent padding and borders from breaking your width calculations.
 
 **Strategy:**
 Remove default margins/paddings to ensure consistency. Minimal reset: `* { margin: 0; padding: 0; box-sizing: border-box; }`.
@@ -1013,6 +1040,7 @@ Remove default margins/paddings to ensure consistency. Minimal reset: `* { margi
 **Difficulty**: Intermediate
 
 **Strategy**:
+`border-box` is considered a best practice for every production stylesheet because it changes the CSS box model so that `padding` and `border` are included in the element's declared `width` and `height`. Without it, a `width: 200px` element with `padding: 20px` becomes 240px wide, breaking layouts. Applying it via the universal selector with `inherit` on the root ensures third-party components also adopt it consistently.
 
 **Strategy:**
 Apply it to `*` and pseudo-elements. It includes padding and border in the element's total width/height.
@@ -1034,6 +1062,7 @@ Apply it to `*` and pseudo-elements. It includes padding and border in the eleme
 **Difficulty**: Intermediate
 
 **Strategy**:
+Form elements are notoriously inconsistent across browsers, with Safari, Chrome, and Firefox each applying different default styles. The `appearance: none` property strips all native browser styling, giving you a blank canvas. The critical `font: inherit` declaration prevents inputs from using the system font when the rest of the page uses a custom font. Always test styled inputs on multiple browsers, particularly date and select inputs which remain difficult to fully customize.
 
 **Strategy:**
 Reset `appearance: none`, border, background, and font inheritance.
@@ -1058,6 +1087,7 @@ input {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Removing focus outlines without providing an alternative is one of the most common accessibility violations on the web. The outline is the primary visual indicator for keyboard users navigating with Tab. The modern approach uses `:focus-visible` to show the ring only for keyboard navigation, not mouse clicks. If you replace the outline with `box-shadow`, ensure it meets WCAG contrast requirements and remains visible on all background colors.
 
 **Strategy:**
 Never set `outline: none` without a replacement. Use `box-shadow` or a custom `outline` for accessibility.
@@ -1080,6 +1110,7 @@ button:focus-visible {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Broken images degrade the user experience, but CSS can provide a graceful fallback. The `::before` pseudo-element on an `img` only renders when the image fails to load, because a replaced element normally has no pseudo-element support. This creates an opportunity to display a custom error message and background. This technique works in Chrome, Firefox, and Edge but has inconsistent behavior in Safari, so always provide an `alt` attribute as the primary fallback.
 
 **Strategy:**
 The `::before` and `::after` pseudo-elements on `img` only render if the image fails to load. Use absolute positioning to cover the broken icon.
@@ -1109,6 +1140,7 @@ img::before {
 **Difficulty**: Intermediate
 
 **Strategy**:
+The `::marker` pseudo-element provides direct styling of list bullets and numbered markers without the older workaround of `list-style: none` plus `::before` pseudo-elements. It supports a limited set of properties: `color`, `font-*`, `content`, and `animation`. This is especially useful for customizing summary element disclosure markers and creating visually consistent bullet styles across different list types.
 
 **Strategy:**
 Use the `::marker` pseudo-element on `li` or `summary`. Supports `color`, `font-*`, `content`.
@@ -1131,6 +1163,7 @@ li::marker {
 **Difficulty**: Intermediate
 
 **Strategy**:
+`object-fit` solves the common problem of images distorting when placed in fixed-dimension containers like cards or avatars. `cover` fills the container while maintaining aspect ratio (cropping overflow), while `contain` shows the full image with possible letterboxing. The `object-position` property controls which part of the image remains visible after cropping. This is conceptually similar to `background-size` but works directly on `img`, `video`, and `iframe` elements.
 
 **Strategy:**
 `object-fit: cover` crops image to fill container. `object-position` adjusts the crop focus.
@@ -1155,6 +1188,7 @@ img {
 **Difficulty**: Intermediate
 
 **Strategy**:
+`background-size: cover` and `contain` control how background images fill their container and are fundamental to hero sections and banner designs. `cover` ensures no empty space by scaling up and cropping, making it ideal for full-bleed backgrounds. `contain` ensures the entire image is visible, which is useful for logos or watermarks. Always pair `cover` with `background-position: center` to ensure the focal point of the image stays visible after cropping.
 
 **Strategy:**
 `cover`: Fills entire area, cropping if needed. `contain`: Shows entire image, leaving space if needed.
@@ -1178,6 +1212,7 @@ img {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Gradients are set as `background-image`, not `background-color`, which means they layer on top of background colors and can be combined with other images. CSS supports three gradient types: `linear-gradient` for directional blends, `radial-gradient` for circular/elliptical fades, and `conic-gradient` for pie-chart-like patterns. You can chain multiple gradients and use `repeating-*` variants for striped patterns. Gradients also work in `border-image` and `list-style-image`.
 
 **Strategy:**
 Use `linear-gradient`, `radial-gradient`, or `conic-gradient` as `background-image`.
@@ -1199,6 +1234,7 @@ Use `linear-gradient`, `radial-gradient`, or `conic-gradient` as `background-ima
 **Difficulty**: Intermediate
 
 **Strategy**:
+Text gradients are a popular design trend that combines `background-clip: text` with a transparent `color` to render gradient fills on text characters. The gradient is applied as a background, then clipped to the text shape. The `-webkit-` prefix is still needed in some browsers for `background-clip: text`. Note that this technique makes text unselectable in some browsers, so use it on headings rather than body text.
 
 **Strategy:**
 Background clip text + transparent text color.
@@ -1222,6 +1258,7 @@ Background clip text + transparent text color.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`clip-path` is the modern replacement for CSS hack shapes (like border triangles), offering clean geometric clipping without pseudo-elements. `polygon()` accepts percentage-based coordinates and can create any straight-edged shape, while `circle()` and `ellipse()` handle curved edges. Tools like Clippy (bennettfeely.com/clippy) generate polygon points visually. Unlike `overflow: hidden`, `clip-path` also clips shadows and borders. Animated clip-paths create dramatic reveal effects.
 
 **Strategy:**
 Defines a clipping region. Parts outside are hidden. Use `polygon()`, `circle()`, `ellipse()`, or `path()`.
@@ -1245,6 +1282,7 @@ Defines a clipping region. Parts outside are hidden. Use `polygon()`, `circle()`
 **Difficulty**: Intermediate
 
 **Strategy**:
+CSS masking uses the alpha channel of an image or gradient to control element visibility, similar to layer masks in design tools. Black pixels show the element, transparent pixels hide it, and gray pixels create partial transparency. A common use case is fading an element's edges with a gradient mask. The `-webkit-` prefix is still required in Safari. Masking differs from `clip-path` in that it supports soft edges and partial transparency.
 
 **Strategy:**
 Uses an image (alpha channel) to mask element visibility. Black = visible, Transparent = hidden.
@@ -1267,6 +1305,7 @@ Uses an image (alpha channel) to mask element visibility. Black = visible, Trans
 **Difficulty**: Intermediate
 
 **Strategy**:
+`backdrop-filter` applies visual effects to the content behind an element, which is the key to the popular glassmorphism design trend. A semi-transparent background (`rgba` with low alpha) lets underlying content show through, while `backdrop-filter: blur()` softens it. Performance can be an issue on lower-end devices because the browser must composite layers in real-time. Always provide a fallback solid or semi-transparent background for browsers that do not support it.
 
 **Strategy:**
 Applies filter to area *behind* the element. Requires semi-transparent background.
@@ -1289,9 +1328,8 @@ Applies filter to area *behind* the element. Requires semi-transparent backgroun
 **Difficulty**: Intermediate
 
 **Strategy**:
+The CSS `filter` property applies graphical effects like blur, brightness, contrast, and grayscale directly to elements, making it essential for image-heavy UIs and interactive hover states. Filters are composited on the GPU, so they perform well for visual effects without requiring image assets. A common pitfall is stacking too many filters on large elements, which can hurt performance on mobile devices.
 
-**Strategy:**
-Applies graphical effects to the element itself.
 
 **Code Snippet:**
 ```css
@@ -1310,9 +1348,8 @@ img:hover {
 **Difficulty**: Intermediate
 
 **Strategy**:
+`mix-blend-mode` controls how an element's colors blend with the content behind it, similar to layer blend modes in design tools like Photoshop. It is widely used for creative text-over-image effects, dark mode inversions, and overlay UIs without requiring pre-composited assets. Be aware that `mix-blend-mode` can be expensive to render when applied to large areas, so test performance on complex pages.
 
-**Strategy:**
-Blends element with its parent/background (like Photoshop layers).
 
 **Code Snippet:**
 ```css
@@ -1332,9 +1369,8 @@ Blends element with its parent/background (like Photoshop layers).
 **Difficulty**: Intermediate
 
 **Strategy**:
+Loading spinners are a staple of UI development, and creating them with pure CSS avoids unnecessary JavaScript or image dependencies. The classic approach uses a circular element with a partially transparent border, animated with `@keyframes` rotation. A common mistake is forgetting `linear` timing for smooth continuous spinning, which otherwise causes stuttering at each loop boundary.
 
-**Strategy:**
-Rotate a border with one transparent side.
 
 **Code Snippet:**
 ```css
@@ -1358,18 +1394,8 @@ Rotate a border with one transparent side.
 **Difficulty**: Intermediate
 
 **Strategy**:
+Shake animations provide immediate visual feedback for errors or invalid actions, making them a practical UX pattern interviewers look for. The technique uses `@keyframes` with alternating `translateX` values to create a rapid side-to-side motion. Keep the animation short (0.3s-0.5s) and combine it with `animation-fill-mode: forwards` so the element stays in its final resting position.
 
-**Strategy:**
-Translate X back and forth rapidly. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Snippet:**
-```css
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}
-.error { animation: shake 0.3s; }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1382,15 +1408,8 @@ Translate X back and forth rapidly. This concept is fundamental in this domain a
 **Difficulty**: Intermediate
 
 **Strategy**:
+`animation-play-state` gives you control over running CSS animations without JavaScript, enabling interactive pause/resume behavior purely through CSS. This is useful for carousels, loading indicators, or any continuously animated element that should freeze on user interaction. A best practice is to always provide a clear visual cue (like reduced opacity) so users know the animation is intentionally paused.
 
-**Strategy:**
-Use `animation-play-state`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Snippet:**
-```css
-.box:hover {
-  animation-play-state: paused;
-}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1403,9 +1422,8 @@ Use `animation-play-state`. This concept is fundamental in this domain and under
 **Difficulty**: Intermediate
 
 **Strategy**:
+CSS transitions provide smooth state changes between property values and are fundamental to polished UI interactions. The key rule is to always define the `transition` property on the base element state, not on the `:hover` state, so both entering and leaving transitions are smooth. A common mistake is transitioning expensive properties like `width` or `height` instead of using `transform` for better performance.
 
-**Strategy:**
-Define `transition` on the base state, not the hover state.
 
 **Code Snippet:**
 ```css
@@ -1428,9 +1446,8 @@ Define `transition` on the base state, not the hover state.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`:not()` is the negation pseudo-class that excludes elements matching a selector, useful for applying styles broadly while carving out exceptions. A common real-world pattern is `li:not(:last-child)` to add separators between items without a trailing one. Keep `:not()` selectors simple -- complex nested negations are hard to read, increase specificity, and can cause unexpected matching that is difficult to debug.
 
-**Strategy:**
-Selects elements that do NOT match the selector.
 
 **Code Snippet:**
 ```css
@@ -1449,9 +1466,8 @@ li:not(:last-child) {
 **Difficulty**: Intermediate
 
 **Strategy**:
+`:has()` is often called the "parent selector" and is one of the most impactful CSS features added in recent years, enabling styles based on descendant content. It solves long-standing patterns that previously required JavaScript, such as styling a form group differently when it contains an invalid input. A best practice is to keep `:has()` selectors reasonably specific, as complex queries can impact selector-matching performance.
 
-**Strategy:**
-Selects a parent if it contains a specific child. 'Parent selector'.
 
 **Code Snippet:**
 ```css
@@ -1471,9 +1487,8 @@ Selects a parent if it contains a specific child. 'Parent selector'.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`:is()` and `:where()` both reduce repetitive selector lists, but differ in specificity behavior that interviewers love to quiz you on. `:is()` adopts the specificity of its most specific argument, while `:where()` always has zero specificity, making it ideal for utility classes and themes that must be easily overridable. A common pitfall is using `:is()` in base styles where you later need overrides to win the specificity war.
 
-**Strategy:**
-`is()` and `:where()` group selectors. `:is()` takes specificity of most specific arg. `:where()` has 0 specificity.
 
 **Code Snippet:**
 ```css
@@ -1491,9 +1506,8 @@ Selects a parent if it contains a specific child. 'Parent selector'.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`:nth-child()` and `:nth-of-type()` are essential for targeting elements without adding classes, commonly used for zebra-striping tables, alternating grid layouts, and typographic styling. The critical distinction is that `:nth-child()` counts all sibling elements regardless of type, while `:nth-of-type()` only counts siblings of the same element type. A frequent mistake is using `:nth-child(2)` expecting the second paragraph when a heading precedes it.
 
-**Strategy:**
-`:nth-child` counts ALL children. `:nth-of-type` counts only children of that tag type.
 
 **Code Snippet:**
 ```css
@@ -1511,9 +1525,8 @@ p:nth-of-type(2) { font-weight: bold; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+`::first-letter` and `::first-line` provide typographic control similar to print design, enabling drop caps and differentiated first-line styling without extra markup. They only work on block-level elements and have a specific set of properties they can apply. A common gotcha is that `::first-letter` will not work if there is whitespace or an inline element immediately inside the target before the text.
 
-**Strategy:**
-Styles the first letter or first line of a block element.
 
 **Code Snippet:**
 ```css
@@ -1533,9 +1546,8 @@ p::first-letter {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Attribute selectors let you target elements based on HTML attributes and their values, which is invaluable for styling form controls, links, and data-attribute-driven UIs without extra classes. The five matcher variations (`[attr]`, `[attr=val]`, `[attr*=val]`, `[attr^=val]`, `[attr$=val]`) cover existence, exact match, contains, starts-with, and ends-with patterns. Remember to quote values containing special characters, and prefer attribute selectors over inline styles for dynamic state changes.
 
-**Strategy:**
-`[attr]` (exists), `[attr=val]` (exact), `[attr*=val]` (contains), `[attr^=val]` (starts), `[attr$=val]` (ends).
 
 **Code Snippet:**
 ```css
@@ -1553,16 +1565,8 @@ input[type="text"] { width: 100%; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+Styling placeholder text ensures form inputs match your design system, improving visual consistency across browsers. The `::placeholder` pseudo-element is the standard approach, though older browsers may still need vendor prefixes like `::-webkit-input-placeholder`. A common pitfall is using very light placeholder colors that fail WCAG contrast requirements -- always ensure at least a 3:1 ratio against the background.
 
-**Strategy:**
-Use `::placeholder` pseudo-element. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Snippet:**
-```css
-input::placeholder {
-  color: #999;
-  font-style: italic;
-}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1575,9 +1579,8 @@ input::placeholder {
 **Difficulty**: Intermediate
 
 **Strategy**:
+`::selection` lets you customize the highlight appearance when users select text, reinforcing brand identity in a subtle but noticeable way. Only a limited set of properties work -- `color`, `background`, `text-shadow`, and `outline` -- so keep expectations realistic. A best practice is to ensure the selection colors maintain sufficient contrast for readability, as inverted colors can sometimes confuse users.
 
-**Strategy:**
-Use `::selection` pseudo-element. Only supports color, background, text-shadow.
 
 **Code Snippet:**
 ```css
@@ -1597,9 +1600,8 @@ Use `::selection` pseudo-element. Only supports color, background, text-shadow.
 **Difficulty**: Intermediate
 
 **Strategy**:
+CSS Variables (custom properties) enable design tokens that centralize spacing, typography, and color decisions in `:root`, making theme switching and maintenance straightforward. They cascade and can be overridden at any selector level, unlike preprocessor variables which are compiled once. A best practice is to establish a naming convention like `--space-{size}` or `--font-{scale}` to keep your token system predictable and scalable.
 
-**Strategy:**
-Define vars in `:root` for global reuse.
 
 **Code Snippet:**
 ```css
@@ -1620,13 +1622,8 @@ Define vars in `:root` for global reuse.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`calc()` lets you combine different CSS units in a single expression, bridging the gap between fixed and relative values. It is essential for layouts where an element must account for a fixed sidebar, header height, or padding while filling remaining space. A common mistake is forgetting spaces around the `+` and `-` operators, which causes the entire expression to fail silently.
 
-**Strategy:**
-Perform math mixing units. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Snippet:**
-```css
-.sidebar { width: 300px; }
 .content { width: calc(100% - 300px); }
 ```
 
@@ -1640,9 +1637,8 @@ Perform math mixing units. This concept is fundamental in this domain and unders
 **Difficulty**: Intermediate
 
 **Strategy**:
+`clamp()` is the modern solution for fluid typography and spacing, accepting a minimum, preferred, and maximum value in a single declaration. It eliminates the need for multiple media query breakpoints for font sizes, creating smooth scaling between viewport sizes. A common pattern is `clamp(1rem, 2.5vw, 2rem)` -- just ensure the minimum is readable on mobile and the maximum does not overwhelm desktop layouts.
 
-**Strategy:**
-`clamp(min, preferred, max)`. Font size scales with viewport but stays within bounds.
 
 **Code Snippet:**
 ```css
@@ -1661,9 +1657,8 @@ h1 {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Viewport units are critical for full-screen layouts and responsive sizing, but mobile browsers have historically made `100vh` unreliable due to dynamic address bars. `dvh` (dynamic viewport height) is the modern fix that adjusts as browser chrome expands or collapses, while `svh` and `lvh` give you the smallest and largest possible viewport heights. A best practice is to pair `dvh` with a `vh` fallback for browsers that do not yet support it.
 
-**Strategy:**
-`100vh` is full height. `100dvh` (dynamic) accounts for mobile browser bars expanding/collapsing.
 
 **Code Snippet:**
 ```css
@@ -1682,9 +1677,8 @@ h1 {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Safe area insets handle the notched and rounded-corner devices (like iPhones) where content can be obscured by hardware features. The `env(safe-area-inset-*)` functions provide pixel values for each edge that should be avoided, and they require the `viewport-fit=cover` meta tag to activate. A common mistake is applying safe area padding globally instead of only on fixed or sticky elements that could overlap the notch.
 
-**Strategy:**
-Use `env(safe-area-inset-*)` in padding/margin.
 
 **Code Snippet:**
 ```css
@@ -1704,9 +1698,8 @@ body {
 **Difficulty**: Intermediate
 
 **Strategy**:
+High contrast mode is an accessibility requirement for users with low vision, and supporting it demonstrates mature CSS practices. The `prefers-contrast: more` media query lets you add explicit borders, increase text weight, or adjust colors when the OS high contrast setting is active. A common pitfall is relying solely on subtle color differences to convey meaning -- always pair color with text, icons, or patterns.
 
-**Strategy:**
-Use `@media (prefers-contrast: more)`. Avoid relying solely on color.
 
 **Code Snippet:**
 ```css
@@ -1725,9 +1718,8 @@ Use `@media (prefers-contrast: more)`. Avoid relying solely on color.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`prefers-reduced-motion` is an accessibility media query that respects the user's OS-level motion preference, and omitting it is an WCAG compliance failure. Rather than removing all animation, the best practice is to reduce duration to near-zero while preserving the final state so functionality is not lost. Always test by enabling "Reduce Motion" in your operating system accessibility settings to verify the experience.
 
-**Strategy:**
-Disable or reduce animations for users prone to motion sickness.
 
 **Code Snippet:**
 ```css
@@ -1746,9 +1738,8 @@ Disable or reduce animations for users prone to motion sickness.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`@supports` (feature queries) lets you apply CSS conditionally based on browser support, serving as CSS's native progressive enhancement tool. Use it to provide modern layouts like Grid or Flexbox only where supported, with safe fallbacks for older browsers. A common mistake is wrapping too many properties in feature queries -- apply them only where the fallback layout would actually break.
 
-**Strategy:**
-Feature queries. Apply styles only if browser supports a property.
 
 **Code Snippet:**
 ```css
@@ -1767,9 +1758,8 @@ Feature queries. Apply styles only if browser supports a property.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`@font-face` is how you load self-hosted custom fonts, giving you full control over typography without relying on external services. Always provide `woff2` format as it offers the best compression, and include `font-weight` and `font-style` declarations so the browser matches the correct face. A common pitfall is loading too many font variations, which significantly increases page load time.
 
-**Strategy:**
-Define font family and source files (woff2 preferred).
 
 **Code Snippet:**
 ```css
@@ -1789,9 +1779,8 @@ Define font family and source files (woff2 preferred).
 **Difficulty**: Intermediate
 
 **Strategy**:
+`font-display: swap` solves the Flash of Invisible Text (FOIT) problem by showing a fallback font immediately and swapping in the custom font once it loads. This dramatically improves perceived performance and is recommended by Lighthouse audits. A best practice is to pair it with well-matched fallback fonts using `font-family` stacks so the swap is barely noticeable.
 
-**Strategy:**
-Shows fallback font immediately, swaps to custom font when loaded (avoids invisible text).
 
 **Code Snippet:**
 ```css
@@ -1812,9 +1801,8 @@ Shows fallback font immediately, swaps to custom font when loaded (avoids invisi
 **Difficulty**: Intermediate
 
 **Strategy**:
+`user-select` controls whether users can highlight and copy text, which is essential for polished UI controls like buttons, icons, and interactive elements where accidental selection looks unprofessional. Apply `user-select: none` sparingly -- overusing it harms accessibility and prevents users from copying legitimate content. Always pair it with a `cursor: pointer` to signal interactivity.
 
-**Strategy:**
-Use `user-select: none`. Useful for buttons/UI controls.
 
 **Code Snippet:**
 ```css
@@ -1833,9 +1821,8 @@ Use `user-select: none`. Useful for buttons/UI controls.
 **Difficulty**: Intermediate
 
 **Strategy**:
+Hardware acceleration offloads animation rendering to the GPU, eliminating jank by promoting elements to their own compositor layer. `will-change` hints to the browser which properties will animate so it can prepare in advance, while `transform: translateZ(0)` forces layer promotion in older browsers. A critical best practice is to remove `will-change` after animations complete, as each promoted layer consumes GPU memory.
 
-**Strategy:**
-Use `transform: translateZ(0)` or `will-change` to promote element to a new layer.
 
 **Code Snippet:**
 ```css
@@ -1855,9 +1842,8 @@ Use `transform: translateZ(0)` or `will-change` to promote element to a new laye
 **Difficulty**: Intermediate
 
 **Strategy**:
+`<details>` and `<summary>` provide native accordion behavior without JavaScript, making them valuable for accessible, progressively enhanced UIs. Styling focuses on the `summary` element (remove default markers, add custom icons) and the `[open]` attribute selector for expanded state styles. A common pitfall is forgetting that the disclosure triangle is hard to style cross-browser -- use `list-style: none` and create a custom marker with `::marker` or pseudo-elements.
 
-**Strategy:**
-Style `summary` for the header (cursor pointer, remove list-style). Content shows when open.
 
 **Code Snippet:**
 ```css
@@ -1878,9 +1864,8 @@ details[open] { background: #f9f9f9; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+Range input styling requires resetting browser defaults with `appearance: none` before applying custom styles, making it a practical test of cross-browser CSS skills. You must target both WebKit (`::-webkit-slider-thumb`, `::-webkit-slider-runnable-track`) and Firefox (`::-moz-range-thumb`, `::-moz-range-track`) pseudo-elements for consistent results. A common mistake is forgetting to also reset `appearance: none` on the thumb itself, which causes it to render with default OS styling.
 
-**Strategy:**
-Use `appearance: none` and style `::-webkit-slider-thumb` and `::-webkit-slider-runnable-track`.
 
 **Code Snippet:**
 ```css
@@ -1898,9 +1883,8 @@ input[type=range]::-webkit-slider-thumb { appearance: none; height: 20px; width:
 **Difficulty**: Intermediate
 
 **Strategy**:
+File inputs are notoriously difficult to style directly, so the standard technique hides the native input and uses a `<label>` with a matching `for` attribute as the visual trigger. The label can be fully styled as a button, drag zone, or any custom design. Ensure the label includes clear visual feedback and accessible text, since hiding the input removes the browser's default file selection affordance.
 
-**Strategy:**
-Hide the actual input `display: none` and use a `label` styled as a button.
 
 **Code Snippet:**
 ```css
@@ -1918,9 +1902,8 @@ input[type=file] { display: none; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+Custom toggle switches are a common interview exercise that combines hidden checkbox inputs, adjacent sibling selectors, and pseudo-elements. The pattern uses a hidden checkbox, a styled label as the track, and `::after` as the sliding thumb, with `:checked` state driving the position and color change. Always include `:focus-visible` styles on the hidden input to maintain keyboard accessibility.
 
-**Strategy:**
-Hide checkbox. Style label as track, `::after` as thumb. Change position on `:checked`.
 
 **Code Snippet:**
 ```css
@@ -1940,14 +1923,8 @@ Hide checkbox. Style label as track, `::after` as thumb. Change position on `:ch
 **Difficulty**: Intermediate
 
 **Strategy**:
+Pure CSS dropdowns leverage the `:hover` pseudo-class on a parent container to reveal nested submenu lists without any JavaScript. Position the submenu absolutely within a relatively positioned parent, and toggle visibility with `display` or `opacity` transitions. A common pitfall is having gaps between the parent and submenu that cause the hover state to collapse -- use padding on the parent or overlap zones to prevent this.
 
-**Strategy:**
-Show submenu on parent hover. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Snippet:**
-```css
-.submenu { display: none; position: absolute; }
-.has-submenu:hover .submenu { display: block; }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -1960,9 +1937,8 @@ Show submenu on parent hover. This concept is fundamental in this domain and und
 **Difficulty**: Intermediate
 
 **Strategy**:
+Pure CSS modals demonstrate creative use of the `:target` pseudo-class or the checkbox hack to manage open/close state without JavaScript. The `:target` approach activates when the URL hash matches the modal's ID, while the checkbox hack uses a hidden input and label toggle. Both approaches have accessibility limitations -- real production modals should include focus trapping and ARIA attributes via JavaScript.
 
-**Strategy:**
-Use `:target` to show modal when URL matches `#modal-id`.
 
 **Code Snippet:**
 ```css
@@ -1980,9 +1956,8 @@ Use `:target` to show modal when URL matches `#modal-id`.
 **Difficulty**: Intermediate
 
 **Strategy**:
+Pure CSS accordions use hidden radio inputs (single-open behavior) or checkboxes (multi-open behavior) combined with labels to toggle content visibility through adjacent sibling selectors. The content panel typically transitions `max-height` from `0` to a set value for a smooth expand effect. Be aware that `max-height` transitions require guessing a maximum value, which can cause delayed animations if the value is much larger than actual content.
 
-**Strategy:**
-Use Radio buttons (for one open at a time) or Checkboxes + Labels.
 
 **Code Snippet:**
 ```css
@@ -2000,9 +1975,8 @@ input:checked + .content { max-height: 200px; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+Pure CSS tab systems use hidden radio inputs paired with labels to control which tab panel is visible, leveraging the general sibling combinator (`~`) to target content panels. Radio inputs enforce single-selection (one tab at a time), while checkboxes allow multi-tab behavior. This pattern is useful for interviews but in production, JavaScript-based tabs provide better keyboard navigation and ARIA support.
 
-**Strategy:**
-Radio buttons + Labels. Content hidden by default, shown when corresponding radio is checked.
 
 **Code Snippet:**
 ```css
@@ -2020,9 +1994,8 @@ Radio buttons + Labels. Content hidden by default, shown when corresponding radi
 **Difficulty**: Intermediate
 
 **Strategy**:
+CSS counters provide automatic numbering for lists, sections, or any repeated elements without manually numbering in HTML. The three-step process is `counter-reset` on the parent, `counter-increment` on each child, and `content: counter()` in a pseudo-element to display. A common pitfall is forgetting to reset the counter on the parent, causing numbering to continue from previous instances on the page.
 
-**Strategy:**
-Initialize with `counter-reset`, increment with `counter-increment`, display with `content: counter(name)`.
 
 **Code Snippet:**
 ```css
@@ -2040,9 +2013,8 @@ li::before { counter-increment: item; content: counter(item) '. '; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+The `content` property in `::before` and `::after` pseudo-elements injects generated text, images, counters, or attribute values without modifying the HTML. It is commonly used for decorative quotes, icons, link URLs in print stylesheets, and dynamic labels via `attr()`. Remember that `content` generated text is not selectable or accessible to screen readers, so never put meaningful content exclusively in pseudo-elements.
 
-**Strategy:**
-Inserts generated content. Can be string, url, counter, or attr().
 
 **Code Snippet:**
 ```css
@@ -2059,9 +2031,8 @@ a::after { content: ' (' attr(href) ')'; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+Text overflow in table cells requires `table-layout: fixed` combined with `white-space: nowrap`, `overflow: hidden`, and `text-overflow: ellipsis` on the cell. Without `table-layout: fixed`, the browser auto-sizes columns based on content, which prevents ellipsis from triggering. A best practice is to add a `title` attribute to the cell so users can see the full text on hover when it is truncated.
 
-**Strategy:**
-`table-layout: fixed`, width on cell, and text-overflow props.
 
 **Code Snippet:**
 ```css
@@ -2083,9 +2054,8 @@ td {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Responsive tables have two main approaches: horizontal scrolling for data integrity, and stacked layout for mobile readability. Wrapping the table in an `overflow-x: auto` container preserves the table structure, while the stacked approach uses a media query to switch rows and cells to `display: block` with `data-*` attribute labels. Choose scrolling for numerical data that needs column alignment, and stacking for content-heavy tables like pricing comparisons.
 
-**Strategy:**
-Scrollable: Wrap in `overflow-x: auto` div. Stacked: `@media` query, `display: block` for rows/cells.
 
 **Code Snippet:**
 ```css
@@ -2102,13 +2072,8 @@ Scrollable: Wrap in `overflow-x: auto` div. Stacked: `@media` query, `display: b
 **Difficulty**: Intermediate
 
 **Strategy**:
+Zebra-striping table rows improves readability by providing visual separation between data rows, and `nth-child(even)` or `nth-child(odd)` is the simplest way to achieve it. This pattern also applies to grids, lists, and card layouts where alternating backgrounds aid scanning. Be careful with row-spanning cells or dynamically added rows, which can break the alternating pattern unexpectedly.
 
-**Strategy:**
-Use `:nth-child(even)` or `odd`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Snippet:**
-```css
-tr:nth-child(even) { background: #f2f2f2; }
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2121,9 +2086,8 @@ tr:nth-child(even) { background: #f2f2f2; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+Sticky table headers keep column labels visible while scrolling through long datasets, significantly improving data table usability. Apply `position: sticky` and `top: 0` to `th` elements with a solid background color to prevent content from showing through. A common pitfall is having an ancestor with `overflow: hidden` or `overflow: auto`, which breaks `position: sticky` entirely.
 
-**Strategy:**
-`position: sticky; top: 0`. Requires table to not have `overflow: hidden` parents usually.
 
 **Code Snippet:**
 ```css
@@ -2140,9 +2104,8 @@ th { position: sticky; top: 0; background: white; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+Print stylesheets ensure your web content renders cleanly on paper, which matters for invoices, reports, and articles that users commonly print. Use `@media print` to remove backgrounds, switch to serif fonts, expand full-width layouts, and hide interactive-only elements like navigation. A best practice is to always include `@page` margin rules and test with your browser's print preview before shipping.
 
-**Strategy:**
-Define styles specifically for printing (black/white, remove backgrounds).
 
 **Code Snippet:**
 ```css
@@ -2161,15 +2124,8 @@ Define styles specifically for printing (black/white, remove backgrounds).
 **Difficulty**: Intermediate
 
 **Strategy**:
+Hiding elements in print view keeps the printed output focused on content by removing navigation, ads, footers, and interactive widgets. Use `display: none` inside `@media print` for a class-based approach (e.g., `.no-print`), or target specific elements like `nav`, `footer`, and `aside`. Avoid using `visibility: hidden` for this purpose as it preserves whitespace, whereas `display: none` collapses the space entirely.
 
-**Strategy:**
-Hide navs, ads, footers. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Snippet:**
-```css
-@media print {
-  .no-print { display: none; }
-}
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
@@ -2182,9 +2138,8 @@ Hide navs, ads, footers. This concept is fundamental in this domain and understa
 **Difficulty**: Intermediate
 
 **Strategy**:
+Page break properties control where printed content splits across pages, preventing awkward breaks in the middle of tables, images, or code blocks. The modern `break-before` and `break-after` properties replace the older `page-break-before` and `page-break-after` aliases, though both work. A common pitfall is using `break-inside: avoid` on very tall elements -- if they exceed a full page, the browser will break them anyway regardless of the property.
 
-**Strategy:**
-Use `break-before`, `break-after`, `page-break-*`.
 
 **Code Snippet:**
 ```css
@@ -2201,9 +2156,8 @@ Use `break-before`, `break-after`, `page-break-*`.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`shape-outside` wraps inline content around a custom shape instead of the default rectangular bounding box, creating magazine-quality text layouts. It only works on floated elements, and the shape functions (`circle()`, `ellipse()`, `polygon()`, `url()`) define the wrapping boundary. A common mistake is forgetting that the shape affects text wrapping, not the element's visual rendering -- pair it with `clip-path` if you want both the shape and the visual to match.
 
-**Strategy:**
-Floats element and wraps text around a defined shape.
 
 **Code Snippet:**
 ```css
@@ -2225,9 +2179,8 @@ Floats element and wraps text around a defined shape.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`writing-mode` controls the direction in which text flows, enabling vertical text layouts common in East Asian typography and modern creative designs. The `vertical-rl` and `vertical-lr` values switch text from horizontal to vertical while maintaining readability. Be aware that `writing-mode` also affects block flow direction, which changes how Flexbox and Grid layouts behave -- test thoroughly when combining them.
 
-**Strategy:**
-Changes text orientation (e.g., for Asian languages or design).
 
 **Code Snippet:**
 ```css
@@ -2244,9 +2197,8 @@ Changes text orientation (e.g., for Asian languages or design).
 **Difficulty**: Intermediate
 
 **Strategy**:
+`direction: rtl` is fundamental for internationalization, setting the base text direction for right-to-left languages like Arabic and Hebrew. It reverses not only text flow but also the default alignment and layout direction of block-level elements. A best practice is to use logical properties (`margin-inline-start` instead of `margin-left`) throughout your CSS so layouts adapt automatically when direction changes.
 
-**Strategy:**
-Sets direction for Arabic/Hebrew. Usually set on `html` or `body`.
 
 **Code Snippet:**
 ```css
@@ -2263,9 +2215,8 @@ html { direction: rtl; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+`text-align-last` controls the alignment of the final line in a justified text block, solving the common issue of awkwardly spaced last lines. Without it, the last line of `text-align: justify` content defaults to the start direction, which can look inconsistent in centered designs. Use `text-align-last: center` or `start` to give the final line a polished appearance that matches your layout intent.
 
-**Strategy:**
-Aligns the last line of a justified block.
 
 **Code Snippet:**
 ```css
@@ -2285,9 +2236,8 @@ p {
 **Difficulty**: Intermediate
 
 **Strategy**:
+The `text-decoration` shorthand and its longhand properties (`text-decoration-line`, `text-decoration-color`, `text-decoration-style`, `text-decoration-thickness`) provide fine-grained control over underlines and strikethroughs. This is especially useful for link styling where the default underline color does not match the text color. A best practice is to set `text-underline-offset` alongside thickness to prevent underlines from clipping descenders on letters like "g" and "y".
 
-**Strategy:**
-Shorthand for line, style, color, thickness.
 
 **Code Snippet:**
 ```css
@@ -2304,9 +2254,8 @@ a { text-decoration: underline wavy red 2px; }
 **Difficulty**: Intermediate
 
 **Strategy**:
+`text-transform` controls text capitalization purely through CSS, ensuring consistent casing without modifying source content. This is essential for headings, buttons, and labels where uppercase styling is a design requirement but the source text should remain in normal case for accessibility and SEO. Avoid using `text-transform` to compensate for inconsistent data -- fix the data source instead.
 
-**Strategy:**
-Controls capitalization (uppercase, lowercase, capitalize).
 
 **Code Snippet:**
 ```css
@@ -2323,9 +2272,8 @@ Controls capitalization (uppercase, lowercase, capitalize).
 **Difficulty**: Beginner
 
 **Strategy**:
+`letter-spacing` and `word-spacing` fine-tune typographic rhythm, with letter-spacing (tracking) commonly used on headings and uppercase labels for visual polish. Always use relative units like `em` rather than `px` so spacing scales proportionally with font size. A common mistake is over-spacing body text, which hurts readability -- reserve generous letter-spacing for display text and short labels only.
 
-**Strategy:**
-Use `letter-spacing` to adjust the space between characters (tracking) and `word-spacing` for space between words. Use relative units (`em`) for better responsiveness.
 
 **Code Snippet:**
 ```css
@@ -2347,9 +2295,8 @@ p {
 **Difficulty**: Intermediate
 
 **Strategy**:
+`white-space` is a deceptively powerful property that controls how whitespace, line breaks, and text wrapping behave -- it is essential for text truncation, code blocks, and preserving user-entered formatting. The most interview-relevant values are `nowrap` (single-line truncation with ellipsis), `pre-wrap` (preserves spaces and newlines but wraps), and `pre` (preserves everything, no wrapping). A common mistake is using `nowrap` without `overflow: hidden` and `text-overflow: ellipsis`, which causes horizontal overflow.
 
-**Strategy:**
-Controls how whitespace and line breaks are handled. `nowrap` prevents wrapping. `pre-wrap` preserves whitespace and wraps text. `pre` preserves both (like HTML `<pre>`).
 
 **Code Snippet:**
 ```css
@@ -2376,9 +2323,8 @@ Controls how whitespace and line breaks are handled. `nowrap` prevents wrapping.
 **Difficulty**: Intermediate
 
 **Strategy**:
+`word-break` and `overflow-wrap` solve the problem of long unbreakable strings (URLs, emails, hashes) breaking layout containers. `overflow-wrap: break-word` is the safest default -- it only breaks words that would otherwise overflow their container. `word-break: break-all` is more aggressive, breaking at any character, and is better suited for CJK (Chinese/Japanese/Korean) text content. A best practice is to set `overflow-wrap: break-word` as a global body rule to prevent layout explosions.
 
-**Strategy:**
-Use `overflow-wrap: break-word` (standard) to break long words only if they cause overflow. Use `word-break: break-all` to break words at any character (useful for CJK or long URLs).
 
 **Code Snippet:**
 ```css
@@ -2399,9 +2345,8 @@ Use `overflow-wrap: break-word` (standard) to break long words only if they caus
 **Difficulty**: Intermediate
 
 **Strategy**:
+`hyphens: auto` enables automatic word hyphenation at line breaks, improving the appearance of justified text and narrow columns. It requires the `lang` attribute on the HTML element so the browser can use the correct hyphenation dictionary for the language. A common pitfall is enabling auto-hyphens on short-line layouts where excessive hyphenation looks worse than ragged right text -- test with real content before committing.
 
-**Strategy:**
-Use `hyphens: auto` to allow the browser to hyphenate words at line breaks. Requires the `lang` attribute to be set on the HTML element (e.g., `<html lang="en">`).
 
 **Code Snippet:**
 ```css
@@ -2421,9 +2366,8 @@ p {
 **Difficulty**: Beginner
 
 **Strategy**:
+`caret-color` customizes the text insertion cursor (caret) in editable elements, providing a simple branding touch that improves visual consistency in custom-styled forms. It accepts any CSS color value including `transparent` to hide the caret entirely. A best practice is to ensure the caret color contrasts well with both the input background and text color for visibility.
 
-**Strategy:**
-Customizes the color of the text insertion cursor (caret) in inputs and textareas.
 
 **Code Snippet:**
 ```css
@@ -2442,9 +2386,8 @@ input {
 **Difficulty**: Intermediate
 
 **Strategy**:
+`pointer-events` controls whether an element is a target for mouse, touch, and pointer events, with `none` making it click-through to elements below. This is invaluable for decorative overlays, label overlays on images, and preventing interaction during loading states. Remember that `pointer-events: none` does not prevent keyboard focus or tab navigation -- pair it with `tabindex="-1"` and `aria-hidden="true"` for full non-interactive behavior.
 
-**Strategy:**
-`pointer-events: none` makes an element ignore mouse events (clicks, hovers), allowing clicks to pass through to elements behind it. `auto` restores default behavior.
 
 **Code Snippet:**
 ```css
@@ -2466,9 +2409,8 @@ input {
 **Difficulty**: Beginner
 
 **Strategy**:
+The `cursor` property communicates interactivity to users by changing the mouse pointer appearance, reinforcing what actions are possible. Common values include `pointer` for clickable elements, `not-allowed` for disabled states, and `grab`/`grabbing` for drag-and-drop interfaces. A best practice is to always match cursor styling with the actual element behavior -- never use `cursor: pointer` on non-interactive elements, as it confuses users and hurts accessibility.
 
-**Strategy:**
-Changes the mouse cursor to indicate interaction type. Common values: `pointer` (links/buttons), `not-allowed` (disabled), `grab`/`grabbing` (drag and drop).
 
 **Code Snippet:**
 ```css
@@ -2491,9 +2433,8 @@ button:disabled {
 **Difficulty**: Intermediate
 
 **Strategy**:
+Understanding the difference between `outline` and `border` is critical for accessibility and layout debugging. Borders participate in the box model and affect layout dimensions, while outlines are drawn outside the box model and do not affect layout at all. This makes outlines perfect for `:focus-visible` rings, which need to appear without shifting content -- use `outline-offset` to add spacing between the element edge and the outline.
 
-**Strategy:**
-`border` takes up layout space; `outline` does not. `outline` is often used for accessibility focus rings (`:focus-visible`). Use `outline-offset` to create space between the element and the outline.
 
 **Code Snippet:**
 ```css
@@ -2514,9 +2455,8 @@ button:focus-visible {
 **Difficulty**: Beginner
 
 **Strategy**:
+`box-shadow` creates visual depth and elevation, and stacking multiple shadows with different blur radii produces realistic Material Design-style elevation. The key to natural-looking shadows is combining a tight direct shadow (low blur) with a softer ambient shadow (high blur, lower opacity). Avoid using very large spread values, which create harsh edges that look unnatural -- rely on blur radius for soft transitions instead.
 
-**Strategy:**
-Use `box-shadow` to create depth. Combine multiple shadows (ambient and direct) for realistic effects.
 
 **Code Snippet:**
 ```css
@@ -2537,9 +2477,8 @@ Use `box-shadow` to create depth. Combine multiple shadows (ambient and direct) 
 **Difficulty**: Beginner
 
 **Strategy**:
+`border-radius` creates rounded corners and shapes, with percentage-based values referencing the element's dimensions. `50%` creates a perfect circle when width equals height, and `9999px` creates pill-shaped elements regardless of dimensions. The four-value syntax (`top-left top-right bottom-right bottom-left`) and the eight-value slash syntax for elliptical corners give you full control over each corner independently.
 
-**Strategy:**
-Use `50%` for circles (if width equals height). Use 4 values for different corners, or 8 values (slashes) for elliptical corners.
 
 **Code Snippet:**
 ```css
@@ -2562,9 +2501,8 @@ Use `50%` for circles (if width equals height). Use 4 values for different corne
 **Difficulty**: Advanced
 
 **Strategy**:
+`display: contents` makes an element invisible to the box tree while preserving its children, effectively removing the wrapper from layout without removing the content. This is especially powerful when a semantic wrapper element would otherwise break Grid or Flex layout patterns. Be cautious with accessibility -- some browsers historically removed the element from the accessibility tree, though modern implementations preserve ARIA semantics.
 
-**Strategy:**
-The element itself is removed from the box tree, but its children remain. Useful when you want children of a wrapper to participate in a parent's Grid or Flex layout directly.
 
 **Code Snippet:**
 ```css
@@ -2584,9 +2522,8 @@ The element itself is removed from the box tree, but its children remain. Useful
 **Difficulty**: Beginner
 
 **Strategy**:
+The `gap` property in Flexbox (originally a Grid-only feature) provides clean, consistent spacing between items without the margin hacks that plagued Flexbox layouts. Unlike margins, `gap` only applies between items -- never before the first or after the last -- eliminating the need for `:first-child`/`:last-child` margin removal. Use `row-gap` and `column-gap` separately for asymmetric spacing in wrapped Flexbox layouts.
 
-**Strategy:**
-Use `gap` (formerly `grid-gap`) to define space between flex items, replacing the need for margins on children.
 
 **Code Snippet:**
 ```css
@@ -2606,9 +2543,8 @@ Use `gap` (formerly `grid-gap`) to define space between flex items, replacing th
 **Difficulty**: Intermediate
 
 **Strategy**:
+Logical properties replace physical directions (`top`, `right`, `bottom`, `left`) with flow-relative equivalents (`block-start`, `inline-end`, etc.) that automatically adapt to different writing modes and text directions. This is essential for internationalized applications that support both LTR and RTL languages without maintaining separate stylesheets. A best practice is to adopt logical properties as your default -- they future-proof your CSS and make switching to RTL as simple as changing `direction: rtl`.
 
-**Strategy:**
-Use logical properties instead of physical (`top`, `left`, etc.) to support internationalization (LTR/RTL modes) automatically. `block` is vertical (usually), `inline` is horizontal.
 
 **Code Snippet:**
 ```css
@@ -2629,9 +2565,8 @@ Use logical properties instead of physical (`top`, `left`, etc.) to support inte
 **Difficulty**: Intermediate
 
 **Strategy**:
+The `inset` property is a shorthand for `top`, `right`, `bottom`, and `left`, simplifying absolute and fixed positioning declarations. `inset: 0` is the cleanest way to stretch an element to fill its positioned parent, replacing four separate declarations. It follows the same clockwise shorthand rules as `margin` and `padding`, and pairs perfectly with `position: fixed` for full-viewport overlays and modals.
 
-**Strategy:**
-Shorthand for `top`, `right`, `bottom`, `left`. Useful for positioning absolute/fixed elements.
 
 **Code Snippet:**
 ```css
@@ -2653,9 +2588,8 @@ Shorthand for `top`, `right`, `bottom`, `left`. Useful for positioning absolute/
 **Difficulty**: Intermediate
 
 **Strategy**:
+`place-items: center` is the most concise way to center content in CSS Grid, combining `align-items` and `justify-items` into a single declaration. It centers along both the block and inline axes simultaneously, replacing the older `display: flex; justify-content: center; align-items: center` pattern with just three lines. Remember that `place-items` works on Grid containers, while `place-content` centers the grid tracks themselves within the container.
 
-**Strategy:**
-Shorthand for `align-items` and `justify-items`. In CSS Grid, `place-items: center` is the modern way to perfectly center content.
 
 **Code Snippet:**
 ```css

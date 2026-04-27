@@ -849,7 +849,6 @@ Defines a grammar for a language and an interpreter.
 **Difficulty**: Beginner
 
 **Strategy**:
-Access elements of a collection sequentially. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -866,7 +865,6 @@ for (let item of collection) { ... }
 **Difficulty**: Advanced
 
 **Strategy**:
-Centralizes communication between objects. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -883,7 +881,6 @@ mediator.notify(sender, 'event');
 **Difficulty**: Advanced
 
 **Strategy**:
-Captures object state for undo/rollback. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -917,7 +914,6 @@ subject.subscribe(observer);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Object changes behavior when state changes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -951,7 +947,6 @@ context.setStrategy(new SortStrategy());
 **Difficulty**: Intermediate
 
 **Strategy**:
-Skeleton of algorithm in superclass. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -968,7 +963,6 @@ class Base { step1(); step2(); }
 **Difficulty**: Advanced
 
 **Strategy**:
-Add operations to objects without changing them. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -985,7 +979,6 @@ element.accept(visitor);
 **Difficulty**: Beginner
 
 **Strategy**:
-Connects incompatible interfaces. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1002,7 +995,6 @@ class Adapter { request() { return old.specificRequest(); } }
 **Difficulty**: Advanced
 
 **Strategy**:
-Decouples abstraction from implementation. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1019,7 +1011,6 @@ class Remote { constructor(device) { ... } }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Tree structure of objects. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1036,7 +1027,6 @@ composite.add(leaf);
 **Difficulty**: Beginner
 
 **Strategy**:
-Adds behavior dynamically. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1053,7 +1043,6 @@ Adds behavior dynamically. This concept is fundamental in this domain and unders
 **Difficulty**: Beginner
 
 **Strategy**:
-Simplified interface to complex system. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1070,7 +1059,6 @@ facade.startComputer();
 **Difficulty**: Advanced
 
 **Strategy**:
-Share common state to save memory. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1087,7 +1075,6 @@ factory.getFlyweight(key);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Placeholder for another object. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1104,7 +1091,6 @@ const proxy = new Proxy(target, handler);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Pass request along a chain of handlers. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1121,7 +1107,6 @@ h1.setNext(h2); h1.handle(req);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Families of related objects. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1138,7 +1123,6 @@ factory.createButton(); factory.createCheckbox();
 **Difficulty**: Intermediate
 
 **Strategy**:
-Step-by-step object construction. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1172,7 +1156,6 @@ createAnimal() { return new Dog(); }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Cloning objects. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1274,7 +1257,6 @@ Model-View-Controller (MVC) is an architectural pattern that separates an applic
 **Difficulty**: Intermediate
 
 **Strategy**:
-Model-View-Presenter. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1291,7 +1273,6 @@ Model-View-Presenter. This concept is fundamental in this domain and understandi
 **Difficulty**: Intermediate
 
 **Strategy**:
-Abstraction of data layer. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1308,7 +1289,6 @@ repo.getUser(id);
 **Difficulty**: Advanced
 
 **Strategy**:
-Tracks changes for a transaction. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1325,7 +1305,6 @@ uow.commit();
 **Difficulty**: Intermediate
 
 **Strategy**:
-Object wraps a row in DB table. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1342,7 +1321,6 @@ user.save();
 **Difficulty**: Advanced
 
 **Strategy**:
-Separates in-memory objects from DB. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1393,7 +1371,6 @@ CQRS (Command Query Responsibility Segregation) fits well with Event Sourcing. I
 **Difficulty**: Advanced
 
 **Strategy**:
-Long running transactions in microservices. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1427,7 +1404,6 @@ if (failures > threshold) openCircuit();
 **Difficulty**: Advanced
 
 **Strategy**:
-Isolate resources pools. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1444,7 +1420,6 @@ Isolate resources pools. This concept is fundamental in this domain and understa
 **Difficulty**: Intermediate
 
 **Strategy**:
-Helper process alongside main app. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1478,7 +1453,6 @@ An API Gateway is a server that is the single entry point into the system. It en
 **Difficulty**: Intermediate
 
 **Strategy**:
-Separate backend per UI. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1495,7 +1469,6 @@ Separate backend per UI. This concept is fundamental in this domain and understa
 **Difficulty**: Advanced
 
 **Strategy**:
-Gradually replace legacy system. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1512,7 +1485,6 @@ Gradually replace legacy system. This concept is fundamental in this domain and 
 **Difficulty**: Beginner
 
 **Strategy**:
-Retry failed operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1529,7 +1501,6 @@ retry(fn, 3);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Limit rate of operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1546,7 +1517,6 @@ if (rate > limit) reject();
 **Difficulty**: Beginner
 
 **Strategy**:
-Wait for pause in events. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1563,7 +1533,6 @@ setTimeout(fn, delay);
 **Difficulty**: Beginner
 
 **Strategy**:
-Load on demand. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1580,7 +1549,6 @@ if (needed) load();
 **Difficulty**: Beginner
 
 **Strategy**:
-Load everything upfront. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1597,7 +1565,6 @@ loadAll();
 **Difficulty**: Advanced
 
 **Strategy**:
-Reuse objects instead of creating new. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1614,7 +1581,6 @@ pool.acquire();
 **Difficulty**: Intermediate
 
 **Strategy**:
-Object with no-op behavior instead of null. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1631,7 +1597,6 @@ class NullUser { getName() { return 'Guest'; } }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Registry of services. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1648,7 +1613,6 @@ locator.get('Service');
 **Difficulty**: Beginner
 
 **Strategy**:
-Encapsulation with closures. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1665,7 +1629,6 @@ return { publicMethod };
 **Difficulty**: Intermediate
 
 **Strategy**:
-Expose references to private functions. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1682,7 +1645,6 @@ return { start: startFn };
 **Difficulty**: Intermediate
 
 **Strategy**:
-Add functionality to class. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1699,7 +1661,6 @@ Object.assign(Class.prototype, mixin);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Intercept requests/responses. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1716,7 +1677,6 @@ axios.interceptors.request.use(...)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Filter list of objects. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1733,7 +1693,6 @@ list.filter(criteria);
 **Difficulty**: Beginner
 
 **Strategy**:
-Msg queue decoupling. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1750,7 +1709,6 @@ pub.publish(topic, msg);
 **Difficulty**: Advanced
 
 **Strategy**:
-Shared knowledge base for AI. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1767,7 +1725,6 @@ Shared knowledge base for AI. This concept is fundamental in this domain and und
 **Difficulty**: Beginner
 
 **Strategy**:
-Separation into layers (UI, Business, Data). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1784,7 +1741,6 @@ Separation into layers (UI, Business, Data). This concept is fundamental in this
 **Difficulty**: Advanced
 
 **Strategy**:
-Ports and Adapters. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1801,7 +1757,6 @@ Ports and Adapters. This concept is fundamental in this domain and understanding
 **Difficulty**: Advanced
 
 **Strategy**:
-Dependency Rule (inwards). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1818,7 +1773,6 @@ Dependency Rule (inwards). This concept is fundamental in this domain and unders
 **Difficulty**: Advanced
 
 **Strategy**:
-Focus on core domain logic. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1835,7 +1789,6 @@ Focus on core domain logic. This concept is fundamental in this domain and under
 **Difficulty**: Advanced
 
 **Strategy**:
-Game development pattern. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1869,7 +1822,6 @@ Flux is an application architecture for building client-side web applications. I
 **Difficulty**: Intermediate
 
 **Strategy**:
-Single source of truth, immutability. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1886,7 +1838,6 @@ reducer(state, action)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Data Access Object. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1903,7 +1854,6 @@ dao.findById(1);
 **Difficulty**: Beginner
 
 **Strategy**:
-Data Transfer Object. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1920,7 +1870,6 @@ class UserDTO { name; email; }
 **Difficulty**: Beginner
 
 **Strategy**:
-Plain Old Java/JS Object. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1937,7 +1886,6 @@ Plain Old Java/JS Object. This concept is fundamental in this domain and underst
 **Difficulty**: Intermediate
 
 **Strategy**:
-Object defined by attributes, immutable. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1954,7 +1902,6 @@ new Money(10, 'USD');
 **Difficulty**: Advanced
 
 **Strategy**:
-Entry point to cluster of objects. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1971,7 +1918,6 @@ Entry point to cluster of objects. This concept is fundamental in this domain an
 **Difficulty**: Advanced
 
 **Strategy**:
-Business rules as objects. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -1988,7 +1934,6 @@ spec.isSatisfiedBy(obj);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Elements processed by priority. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2005,7 +1950,6 @@ heap.insert(item);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Least Recently Used eviction. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2022,7 +1966,6 @@ cache.get(key);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Control traffic. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2039,7 +1982,6 @@ Token Bucket algorithm
 **Difficulty**: Advanced
 
 **Strategy**:
-Distributed caching/sharding. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2056,7 +1998,6 @@ hash(key) % nodes
 **Difficulty**: Advanced
 
 **Strategy**:
-Probabilistic set membership. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2073,7 +2014,6 @@ mightContain(item)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Consistency, Availability, Partition Tolerance. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2124,7 +2064,6 @@ DRY stands for 'Don't Repeat Yourself'. It is a principle of software developmen
 **Difficulty**: Beginner
 
 **Strategy**:
-Keep It Simple, Stupid. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript
@@ -2141,7 +2080,6 @@ Keep It Simple, Stupid. This concept is fundamental in this domain and understan
 **Difficulty**: Beginner
 
 **Strategy**:
-You Ain't Gonna Need It. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
 
 **Code Example**:
 ```javascript

@@ -59,66 +59,15 @@
 47. [How do you cancel an HTTP request when the component is destroyed?](#q47-how-do-you-cancel-an-http-request-when-the-component-is-destroyed) <span class="intermediate">Intermediate</span>
 48. [How do you manage Forms with NgRx?](#q48-how-do-you-manage-forms-with-ngrx) <span class="intermediate">Intermediate</span>
 49. [How do you use `ngrx-data`?](#q49-how-do-you-use-ngrx-data) <span class="advanced">Advanced</span>
-50. [How do you migrate from NgRx Global Store to SignalStore?](#q50-how-do-you-migrate-from-ngrx-global-store-to-signalstore) <span class="advanced">Advanced</span>
-51. [How do you handle NgRx state management in large scale applications?](#q51-how-do-you-handle-ngrx-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-52. [How do you perform NgRx data validation in microservices?](#q52-how-do-you-perform-ngrx-data-validation-in-microservices) <span class="beginner">Beginner</span>
-53. [How do you automate NgRx deployment for mobile devices?](#q53-how-do-you-automate-ngrx-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-54. [How do you handle NgRx concurrency issues in legacy systems?](#q54-how-do-you-handle-ngrx-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-55. [How do you implement NgRx caching in cloud infrastructure?](#q55-how-do-you-implement-ngrx-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-56. [How do you manage NgRx configuration for real-time systems?](#q56-how-do-you-manage-ngrx-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-57. [How do you handle NgRx internationalization (i18n) in distributed systems?](#q57-how-do-you-handle-ngrx-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-58. [How do you ensure NgRx accessibility (a11y) in high-traffic sites?](#q58-how-do-you-ensure-ngrx-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-59. [How do you optimize NgRx network requests in embedded systems?](#q59-how-do-you-optimize-ngrx-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-60. [How do you handle NgRx performance optimization for production environments?](#q60-how-do-you-handle-ngrx-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-61. [What are the security implications of NgRx in large scale applications?](#q61-what-are-the-security-implications-of-ngrx-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug NgRx memory leaks in microservices?](#q62-how-do-you-debug-ngrx-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for NgRx code organization in mobile devices?](#q63-best-practices-for-ngrx-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement NgRx error handling for legacy systems?](#q64-how-do-you-implement-ngrx-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test NgRx functionality in cloud infrastructure?](#q65-how-do-you-test-ngrx-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle NgRx state management in real-time systems?](#q66-how-do-you-handle-ngrx-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform NgRx data validation in distributed systems?](#q67-how-do-you-perform-ngrx-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate NgRx deployment for high-traffic sites?](#q68-how-do-you-automate-ngrx-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle NgRx concurrency issues in embedded systems?](#q69-how-do-you-handle-ngrx-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement NgRx caching in production environments?](#q70-how-do-you-implement-ngrx-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage NgRx configuration for large scale applications?](#q71-how-do-you-manage-ngrx-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle NgRx internationalization (i18n) in microservices?](#q72-how-do-you-handle-ngrx-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure NgRx accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-ngrx-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize NgRx network requests in legacy systems?](#q74-how-do-you-optimize-ngrx-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle NgRx performance optimization for cloud infrastructure?](#q75-how-do-you-handle-ngrx-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of NgRx in real-time systems?](#q76-what-are-the-security-implications-of-ngrx-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug NgRx memory leaks in distributed systems?](#q77-how-do-you-debug-ngrx-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for NgRx code organization in high-traffic sites?](#q78-best-practices-for-ngrx-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement NgRx error handling for embedded systems?](#q79-how-do-you-implement-ngrx-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test NgRx functionality in production environments?](#q80-how-do-you-test-ngrx-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle NgRx state management in large scale applications?](#q81-how-do-you-handle-ngrx-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform NgRx data validation in microservices?](#q82-how-do-you-perform-ngrx-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate NgRx deployment for mobile devices?](#q83-how-do-you-automate-ngrx-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle NgRx concurrency issues in legacy systems?](#q84-how-do-you-handle-ngrx-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement NgRx caching in cloud infrastructure?](#q85-how-do-you-implement-ngrx-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage NgRx configuration for real-time systems?](#q86-how-do-you-manage-ngrx-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle NgRx internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-ngrx-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure NgRx accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-ngrx-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize NgRx network requests in embedded systems?](#q89-how-do-you-optimize-ngrx-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle NgRx performance optimization for production environments?](#q90-how-do-you-handle-ngrx-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of NgRx in large scale applications?](#q91-what-are-the-security-implications-of-ngrx-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug NgRx memory leaks in microservices?](#q92-how-do-you-debug-ngrx-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for NgRx code organization in mobile devices?](#q93-best-practices-for-ngrx-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement NgRx error handling for legacy systems?](#q94-how-do-you-implement-ngrx-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test NgRx functionality in cloud infrastructure?](#q95-how-do-you-test-ngrx-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle NgRx state management in real-time systems?](#q96-how-do-you-handle-ngrx-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform NgRx data validation in distributed systems?](#q97-how-do-you-perform-ngrx-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate NgRx deployment for high-traffic sites?](#q98-how-do-you-automate-ngrx-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle NgRx concurrency issues in embedded systems?](#q99-how-do-you-handle-ngrx-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement NgRx caching in production environments?](#q100-how-do-you-implement-ngrx-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+50. [How do you migrate from NgRx Global Store to SignalStore?](#q50) <span class="advanced">Advanced</span>
 
 ---
-
 <a id="q1"></a>
 ### Q1: What is the difference between NgRx Global Store and NgRx ComponentStore?
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Understanding when to use global versus local state management is a fundamental architectural decision in Angular apps. The Global Store follows the Redux pattern with actions, reducers, and effects for app-wide shared state, while ComponentStore provides a lighter, service-based approach for component-scoped state without boilerplate. A common pitfall is overusing the Global Store for state that only lives within a single component, which adds unnecessary complexity.
 
 **Strategy:**
 *   **Global Store**: Single source of truth for the entire app. Used for shared state (Auth, Config). Dispatches actions, uses reducers/effects.
@@ -143,7 +92,7 @@ StoreModule.forRoot({ movies: moviesReducer })
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Selector memoization is critical for NgRx performance, and factory selectors that accept dynamic arguments can silently break memoization if not designed carefully. The key insight is that selectors cache based on input references, so passing new arguments on every call defeats the cache. Best practice is to keep selectors as simple as possible and move dynamic filtering logic into component-level computations or return dictionaries from selectors.
 
 **Strategy:**
 Use a "factory selector" function that returns the selector, or use the `props` argument carefully. Memoization breaks if arguments are dynamic. Ideally, filter data in the component or use `createSelector` to return a dictionary and pick from it.
@@ -164,7 +113,7 @@ export const selectTodoById = (id: string) => createSelector(
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: ComponentStore is NgRx's answer to managing state that does not need to be shared across the entire application, reducing boilerplate compared to the full Global Store. It uses `updater` methods for synchronous state changes and `effect` methods for handling side effects like API calls, all within an injectable service. A common mistake is reaching for the Global Store when ComponentStore would be simpler and more maintainable for feature-local data.
 
 **Strategy:**
 Extend `ComponentStore`, define state interface, and use `updater` for state changes and `effect` for side effects.
@@ -204,7 +153,7 @@ export class TodoStore extends ComponentStore<TodoState> {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: The Facade pattern decouples components from the underlying state management implementation, making it easier to refactor or swap NgRx for another solution later. By exposing only Observables and methods through a service, components remain clean and unaware of actions, selectors, or store dispatching. This pattern is especially valuable in large teams where you want to enforce a consistent API boundary between UI and state layers.
 
 **Strategy:**
 Create an Injectable service that exposes Observables (selectors) and methods (dispatching actions). Components inject this facade instead of the Store directly.
@@ -235,7 +184,7 @@ export class TodoFacade {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Race conditions are one of the most common bugs in reactive applications, where multiple overlapping HTTP requests return results in an unpredictable order. The solution hinges on choosing the right RxJS flattening operator: `switchMap` cancels the previous request when a new one arrives, `concatMap` queues them, and `mergeMap` runs them all in parallel. For typeahead search, always use `switchMap` combined with `debounceTime` to avoid firing requests on every keystroke.
 
 **Strategy:**
 Use the `switchMap` operator. It cancels the previous inner observable (HTTP request) if a new action arrives before the previous one completes.
@@ -259,7 +208,7 @@ search$ = createEffect(() => this.actions$.pipe(
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Storing denormalized nested objects in the store makes updates error-prone and leads to data duplication across state slices. Normalization flattens nested structures into separate entity collections keyed by ID, enabling O(1) lookups and consistent updates. A common pitfall is storing the raw API response directly without transformation, which makes reducer logic fragile when the API shape changes.
 
 **Strategy:**
 Flatten the data structure using `normalizr` or manual mapping before storing it. Use `EntityAdapter` to manage the flat collections.
@@ -285,7 +234,7 @@ const userReducer = createReducer(
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: State immutability is a core Redux principle, and accidentally mutating state is one of the hardest bugs to track down because changes may not trigger re-renders. NgRx provides built-in runtime checks that throw clear errors whenever state or actions are mutated directly. Always enable these checks in development mode and disable them in production for performance, using the `runtimeChecks` configuration object.
 
 **Strategy:**
 Use `store-devtools` or `ngrx-store-freeze` (meta-reducer) in development mode to throw errors if state is mutated directly.
@@ -312,7 +261,7 @@ export class AppModule {}
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Real-world reducers often need to handle the same state transition for different actions, such as resetting an error flag on both login and registration attempts. NgRx's `on()` function accepts multiple action creators as arguments, keeping the reducer DRY and maintainable. A common mistake is duplicating the same reducer logic in separate `on()` clauses, which increases maintenance burden and the risk of drift.
 
 **Strategy:**
 List multiple actions in the `on()` function of `createReducer`.
@@ -336,7 +285,7 @@ export const reducer = createReducer(
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: State hydration allows the application to restore a previous session without re-fetching everything, improving perceived load time and offline resilience. The meta-reducer pattern intercepts the initial `INIT` action to merge persisted data into the store before any reducer runs. Be cautious about versioning your stored state and excluding sensitive or transient data to avoid stale or corrupted state on app updates.
 
 **Strategy:**
 Use a meta-reducer to intercept the `INIT` or `UPDATE` action and merge the state from LocalStorage.
@@ -365,7 +314,7 @@ export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionRedu
 
 **Difficulty**: Expert
 
-**Strategy**:
+**Strategy**: Undo/redo is a challenging feature that demonstrates deep understanding of reducer composition and state history management. The meta-reducer approach wraps the base reducer and maintains separate stacks for past and future states, swapping them on undo/redo actions. A common pitfall is storing the entire state on every action without limiting history size, which can cause memory leaks in long-running sessions.
 
 **Strategy:**
 Use a higher-order reducer (meta-reducer) that keeps a history of past and future states.
@@ -403,7 +352,7 @@ export function undoRedo(reducer: ActionReducer<State>): ActionReducer<State> {
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Testing time-dependent RxJS operators like `debounceTime` requires controlling virtual time, otherwise tests become slow and flaky. The `TestScheduler` from `rxjs/testing` provides deterministic virtual time using marble notation, letting you verify debouncing behavior in milliseconds rather than waiting real time. A common mistake is using real delays with `setTimeout` in tests, which makes them non-deterministic and prone to timeout failures.
 
 **Strategy:**
 Use `TestScheduler` from `rxjs/testing` to control virtual time, or `fakeAsync` with `tick`.
@@ -431,7 +380,7 @@ it('should debounce search', () => {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Cross-feature data composition is common in dashboards and detail pages that need information from different domain slices. `createSelector` accepts selectors from any number of feature stores, and NgRx re-runs the projector only when any input selector emits a new value. Keep in mind that combining selectors across features creates a coupling between those state slices, so use this sparingly and prefer keeping related data together when possible.
 
 **Strategy:**
 Import selectors from different feature slices and combine them using `createSelector`.
@@ -452,7 +401,7 @@ export const selectUserOrders = createSelector(
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Authentication is a canonical use case for NgRx because auth state is global, affects the entire UI, and involves side effects like API calls and navigation. The flow follows a clear pattern: actions trigger effects for async work, success actions update the store with tokens, and additional effects handle post-login navigation or post-logout cleanup. A common pitfall is forgetting to clear all auth-related state and cancel pending requests on logout, which can lead to stale data leaks.
 
 **Strategy:**
 1.  **Login:** Action -> Effect (API) -> Success Action (Store Token) -> Effect (Navigate).
@@ -473,7 +422,7 @@ loginSuccess$ = createEffect(() => this.actions$.pipe(
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Performance degrades quickly when storing hundreds or thousands of entities in a plain JavaScript array, since lookups and updates are O(n). NgRx Entity replaces arrays with a normalized dictionary structure keyed by ID, enabling O(1) lookups and efficient CRUD operations through the EntityAdapter. A common mistake is storing large collections as arrays and using `Array.find` in selectors, which re-scans the entire list on every state change.
 
 **Strategy:**
 Use `@ngrx/entity`. It stores collections as a dictionary (map) `{ ids: [], entities: {} }` providing O(1) access and easy CRUD operations.
@@ -498,7 +447,7 @@ const reducer = createReducer(
 
 **Difficulty**: Expert
 
-**Strategy**:
+**Strategy**: Migrating from service-based state to NgRx is a common real-world scenario when Angular apps outgrow simple service patterns and need predictable state management. The key is an incremental approach: map each service property to a state slice, each service method to an action, and each API call to an effect. Avoid the "big bang" migration of all services at once; instead, migrate one feature module at a time, keeping the app functional throughout.
 
 **Strategy:**
 1.  Identify state properties in the service.
@@ -516,7 +465,7 @@ const reducer = createReducer(
 
 **Difficulty**: Expert
 
-**Strategy**:
+**Strategy**: Marble testing provides a visual and precise way to verify complex async flows in Effects, including timing, ordering, and error handling. Hot observables simulate actions coming into the effect, cold observables simulate service responses, and `expectObservable` asserts the output stream. A common pitfall is confusing hot and cold observables: hot represents values already in flight, cold represents values that start on subscription.
 
 **Strategy:**
 Use `jasmine-marbles` or `rxjs/testing` to represent time and streams visually. Hot observables (`-a-`) simulate actions, cold (`-a|`) simulate service responses.
@@ -537,7 +486,7 @@ expectObservable(effects.load$).toBe('--c', { c: success() });
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: `OnPush` change detection is essential for Angular performance, and understanding how NgRx Observables trigger it correctly is a key interview topic. The `async` pipe subscribes to store selectors and automatically marks the component for checking when a new value emits, making NgRx and OnPush a natural fit. A common mistake is manually subscribing to selectors in the component and failing to trigger change detection, leading to stale UI.
 
 **Strategy:**
 NgRx streams (Observables) used with the `async` pipe automatically trigger change detection when a new value is emitted, making `OnPush` highly efficient.
@@ -557,7 +506,7 @@ NgRx streams (Observables) used with the `async` pipe automatically trigger chan
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Polling is needed for real-time dashboards and status monitors, and implementing it correctly with proper start/stop lifecycle management is a practical interview challenge. The pattern uses `switchMap` to start an `interval` on a trigger action and `takeUntil` to cancel it when a stop action fires. A common pitfall is forgetting the `takeUntil` guard, which leaves background HTTP requests running even after the component is destroyed.
 
 **Strategy:**
 Listen for a 'Start' action, switchMap to a timer/interval, and `takeUntil` a 'Stop' action.
@@ -580,7 +529,7 @@ startPolling$ = createEffect(() => actions$.pipe(
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Meta-reducers are middleware-like functions that wrap the root reducer, making them ideal for cross-cutting concerns like logging, analytics, and state hydration. They receive every action before the actual reducer, allowing you to inspect, transform, or log the action and resulting state. A best practice is to keep meta-reducers focused on a single responsibility and to register them only in development mode when they are used for debugging.
 
 **Strategy:**
 A meta-reducer wraps the main reducer. It can inspect/log the action and state before/after the inner reducer runs.
@@ -602,7 +551,7 @@ export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Keeping entity collections sorted eliminates the need for repeated client-side sorting in selectors and ensures consistent display order. The `sortComparer` option in `createEntityAdapter` automatically maintains sort order whenever entities are added or updated. Be aware that sorting on every insertion has a performance cost for very large collections, so consider whether sorting in a selector instead would be more efficient.
 
 **Strategy:**
 Provide a `sortComparer` function to `createEntityAdapter`. The collection will maintain sort order on insertion/update.
@@ -621,7 +570,7 @@ export const adapter = createEntityAdapter<User>({
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Error handling in Observable streams is tricky because an error tears down the entire subscription, breaking the effect permanently. `tapResponse` is NgRx's solution: it catches errors gracefully like `catchError` but does not tear down the stream, allowing the effect to continue handling future triggers. A common mistake is using a bare `tap` with a `catchError` inside `switchMap`, which can leave the effect in a dead state after an error.
 
 **Strategy:**
 `tapResponse` safely handles side effects (success/error) in an Effect without breaking the stream on error (unlike a simple `subscribe`).
@@ -645,7 +594,7 @@ this.effect(trigger$ => trigger$.pipe(
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: SignalStore is NgRx's modern, signal-based state management approach that leverages Angular signals for fine-grained reactivity without Zone.js. It uses a composable API with `withState`, `withComputed`, and `withMethods` to build stores declaratively. Understanding SignalStore is important for interviews because it represents the direction Angular is heading, and developers should know when to adopt it over the traditional Global Store.
 
 **Strategy:**
 Use `signalStore` with `withState`, `withComputed`, and `withMethods`.
@@ -668,7 +617,7 @@ export const CounterStore = signalStore(
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: `rxMethod` bridges the reactive Observable world with Angular's signal-based SignalStore, enabling you to handle async operations like API calls within a signal context. It accepts a value, a Signal, or an Observable as input and runs the full RxJS pipeline you define. This is essential for real-world apps where most data comes from async sources, and knowing it shows you understand how to blend signals and Observables effectively.
 
 **Strategy:**
 `rxMethod` creates a reactive method that can accept a value, Signal, or Observable, and run a pipeline (like Effects).
@@ -689,7 +638,7 @@ load = rxMethod<void>(pipe(
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Organizing actions by source domain improves code discoverability and reduces the scattered `createAction` declarations across large codebases. `createActionGroup` lets you define all actions for a feature in one object with consistent naming conventions. A best practice is to group actions by the API or domain event they represent (e.g., `BooksApi`, `BooksPage`) rather than lumping everything into a single group.
 
 **Strategy:**
 Use `createActionGroup` to define a source and event dictionary. Reduces boilerplate and enforces consistent naming.
@@ -713,7 +662,7 @@ export const AuthActions = createActionGroup({
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Angular's move to standalone APIs means NgRx setup no longer requires `NgModule` boilerplate, and interviewers expect you to know the modern `provideStore` and `provideEffects` pattern. These providers go directly into `app.config.ts` or lazy-loaded route configurations. A common mistake is still wrapping NgRx setup in a feature module when the rest of the app has migrated to standalone components.
 
 **Strategy:**
 Use `provideStore` and `provideEffects` in the `app.config.ts` providers array.
@@ -736,7 +685,7 @@ bootstrapApplication(App, {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Functional Effects eliminate the need for class-based Effect services, aligning with Angular's shift toward functional and tree-shakable patterns. They use `inject()` for dependency injection and the `functional: true` flag, resulting in less boilerplate. This is increasingly the preferred approach in modern NgRx codebases, and knowing it signals that you keep up with current Angular ecosystem trends.
 
 **Strategy:**
 Define effects as functions using `createEffect` with `inject`. No class needed.
@@ -755,7 +704,7 @@ export const loadUsers = createEffect(
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Non-serializable values in the store (Date objects, class instances, functions) break time-travel debugging, state hydration, and can cause subtle bugs. Enabling `strictStateSerializability` and `strictActionSerializability` catches these violations at development time with clear error messages. A common pitfall is storing `Date` objects directly instead of ISO strings, which serializes correctly but loses the Date methods.
 
 **Strategy:**
 Enable `strictActionSerializability` and `strictStateSerializability` in store config. This prevents putting non-serializable objects (like Dates, Class instances) in the store.
@@ -777,7 +726,7 @@ provideStore(reducers, {
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: The default router store state includes the entire router snapshot tree, which is large and expensive to serialize and compare for changes. A custom `RouterStateSerializer` extracts only the specific fields your selectors need, dramatically reducing store size and improving performance. This optimization is particularly important in apps that react to route changes frequently, such as those with complex navigation or breadcrumb logic.
 
 **Strategy:**
 Implement `RouterStateSerializer` to extract only necessary router data (url, params, queryParams) into the store, keeping the state clean.
@@ -798,7 +747,7 @@ export class CustomSerializer implements RouterStateSerializer<MinimalRouterStat
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Properly mocking the NgRx Store is essential for writing fast, isolated unit tests for components and services without setting up the full store chain. `provideMockStore` gives you a `MockStore` instance where you can override any selector's return value with `overrideSelector`. A best practice is to use `MockStore` for component tests and reserve integration-level tests with the real store for testing reducer and effect logic.
 
 **Strategy:**
 Use `provideMockStore` and `MockStore`. You can override selectors to return specific test data.
@@ -818,7 +767,7 @@ store.overrideSelector(selectUser, { name: 'Test' });
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: NgRx is often criticized for its boilerplate, and `createFeature` is the primary API for reducing it by generating selectors, the feature name, and the reducer in a single call. This ensures consistent naming conventions and eliminates the need to manually write feature selectors. Adopting `createFeature` is considered a best practice in modern NgRx and demonstrates that you write concise, maintainable store code.
 
 **Strategy:**
 `createFeature` generates the reducer, selectors, and feature name in one go.
@@ -840,7 +789,7 @@ const { selectCount } = counterFeature;
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Not every side effect needs to update the store; navigation, logging, and showing notifications are common examples that perform work without changing state. Non-dispatching effects use `{ dispatch: false }` to tell NgRx that the effect's output should not be treated as a new action. A common mistake is forgetting this flag and having the effect's return value accidentally dispatched as an action, causing errors.
 
 **Strategy:**
 Set `{ dispatch: false }`. Use this for side effects that don't update state (e.g., navigation, alerts, logging).
@@ -859,7 +808,7 @@ log$ = createEffect(() => actions$.pipe(
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Angular signals offer finer-grained reactivity than Observables, and `selectSignal` bridges NgRx with the signal ecosystem by returning a Signal instead of an Observable. This eliminates the need for the `async` pipe and works seamlessly with signal-based components and computed values. Knowing when to use `selectSignal` versus `store.select` demonstrates understanding of Angular's evolving reactivity model.
 
 **Strategy:**
 Use `store.selectSignal(selector)`. It returns a Signal instead of an Observable, useful for Angular 17+ signal-based components.
@@ -877,7 +826,7 @@ count = this.store.selectSignal(selectCount);
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Centralized error handling prevents scattered `console.error` calls and ensures users see consistent error feedback like toast notifications. The pattern involves catching errors in feature effects and dispatching a shared error action that a central effect listens to for UI notification. A best practice is to include enough context (source, error code, user message) in the error action so the central handler can make smart decisions about how to display it.
 
 **Strategy:**
 Catch errors in feature effects and dispatch a shared `GlobalActions.error` action. A central effect listens for this and shows a toast/snackbar.
@@ -894,7 +843,7 @@ catchError(error => of(GlobalActions.error({ message: error.message })))
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Deep signals automatically create granular signal references for nested state properties, enabling fine-grained change detection without manual decomposition. Accessing `store.user.address.city()` gives you a signal that only updates when the city value actually changes, not when unrelated parts of the user object change. This is a powerful optimization for complex state trees where only a small subset of data changes frequently.
 
 **Strategy:**
 SignalStore creates deep signals for nested state automatically. You can access nested properties directly as signals.
@@ -913,7 +862,7 @@ effect(() => console.log(store.user.address.city()));
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Lazy-loaded feature states reduce the initial bundle size and avoid allocating memory for state slices that the user may never visit. By registering state with `provideState` or `StoreModule.forFeature` inside lazy-loaded routes, the state slice appears in the store only when that module loads. A common pitfall is referencing selectors for a lazy feature before it has been loaded, which returns `undefined` and can cause runtime errors.
 
 **Strategy:**
 Register the feature state (`StoreModule.forFeature`) in the lazy-loaded module/route. The state slice is created only when the module loads.
@@ -932,7 +881,7 @@ providers: [
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Accessing current store state inside an effect is a common need, but using `store.select` directly creates a long-lived subscription that can cause memory leaks and unexpected behavior. `concatLatestFrom` lazily reads the current state value only when the effect pipeline reaches it, avoiding unnecessary subscriptions. It is the recommended replacement for the deprecated `withLatestFrom` pattern within NgRx effects.
 
 **Strategy:**
 `concatLatestFrom` (from `@ngrx/effects`) safely selects state within an effect without subscribing to the store manually. It's lazy and non-blocking.
@@ -950,7 +899,7 @@ tap(([action, user]) => ...)
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Resetting state on logout is critical for security, preventing a new user from seeing the previous user's cached data. The meta-reducer pattern intercepts a logout action and passes `undefined` as state to the inner reducer, which triggers the initial state default values. A common mistake is trying to manually reset each feature slice individually instead of using this centralized approach.
 
 **Strategy:**
 Listen for a `LOGOUT` action. If received, return `undefined` to the inner reducer, forcing it to re-initialize state.
@@ -969,7 +918,7 @@ if (action.type === 'LOGOUT') {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: ComponentStore is an injectable service, so testing it follows the same patterns as testing any Angular service with `TestBed`. You can call updater methods directly, trigger effects, and assert on the resulting state through selectors. A best practice is to mock external service dependencies rather than making real HTTP calls, keeping tests fast and deterministic.
 
 **Strategy:**
 Test it like a service. Subscribe to selectors or call effects and verify state changes or spy on dependencies.
@@ -987,7 +936,7 @@ store.todos$.subscribe(t => expect(t).toContain(todo));
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Every async operation needs loading and error tracking, and duplicating this logic across every feature creates maintenance headaches. The `CallState` pattern wraps entity data with a status enum (`init`, `loading`, `loaded`, `error`), providing a consistent API for the UI to show spinners and error messages. A common pitfall is using separate boolean flags (`isLoading`, `hasError`) which can reach invalid combinations like both being true simultaneously.
 
 **Strategy:**
 Use a higher-order state interface (e.g., `CallState` pattern) or a shared utility to wrap entity state with `loading` and `error` flags.
@@ -1007,7 +956,7 @@ interface State<T> {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Reacting to navigation events is essential for features like analytics tracking, breadcrumb updates, and fetching data tied to route changes. The `routerNavigated` action from `@ngrx/router-store` fires after a successful navigation, giving you access to the full router state in an effect. A best practice is to use `routerNavigated` instead of subscribing to `Router.events` directly, keeping all side-effect logic centralized in NgRx effects.
 
 **Strategy:**
 Listen to `routerNavigated` from `@ngrx/router-store` in an effect to trigger actions based on successful navigation (e.g., analytics).
@@ -1025,7 +974,7 @@ tap(action => trackPageView(action.payload.routerState.url))
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Implementing undo/redo with SignalStore demonstrates how to build custom store features using the composable `with*` pattern. The approach maintains a history stack signal alongside the current state, pushing snapshots on each mutation and popping them on undo. A key consideration is limiting the history depth to prevent memory issues and deciding which state properties should be tracked to avoid undoing trivial changes.
 
 **Strategy:**
 Use `withUndoRedo` custom feature (community or manual). Maintain a history stack signal and update current state on undo.
@@ -1057,7 +1006,7 @@ store.redo();
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Combining router state with entity data is a frequent requirement in detail pages, where the URL parameter determines which entity to display. Using `selectRouteParams` from RouterStore in a `createSelector` composition keeps the data derivation declarative and memoized. A common pitfall is subscribing to route params and the store separately in the component and combining them imperatively, which loses the benefits of selector memoization.
 
 **Strategy:**
 Use `selectRouteParams` from RouterStore selectors combined with entity selectors.
@@ -1084,7 +1033,7 @@ export const selectSelectedUser = createSelector(
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: `OnPush` components only re-render when input references change, so selectors returning new object references on every call defeat change detection optimization. The solution is to ensure selectors return the same reference when the underlying data has not changed, leveraging memoization correctly. A common mistake is creating new objects or arrays inside selector projectors without checking if the output is actually different from the previous result.
 
 **Strategy:**
 Ensure selectors return new references only when data actually changes (memoization). Avoid returning new objects `{...}` in selectors if data is unchanged.
@@ -1113,7 +1062,7 @@ export const selectGood = createSelector(
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Real-time features like chat, notifications, and live dashboards require WebSocket integration with the store, and NgRx Effects provide a natural bridge. The effect subscribes to the WebSocket stream and maps incoming messages to actions, keeping the store as the single source of truth for real-time data. A critical consideration is managing the connection lifecycle: open the socket on login or feature activation and close it on logout using `takeUntil`.
 
 **Strategy:**
 Create an effect that connects to the socket and maps incoming messages to Actions. Dispatch actions to update state.
@@ -1140,7 +1089,7 @@ listenToMessages$ = createEffect(() => {
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Redux DevTools is one of the most powerful debugging tools for state management, enabling time-travel debugging and action inspection. `provideStoreDevtools` configures it for standalone Angular apps with options like `maxAge` to limit action history and `logOnly` for production safety. A best practice is to never ship DevTools enabled in production with trace mode on, as it can expose sensitive state data and impact performance.
 
 **Strategy:**
 Add it to providers. Configure `maxAge` and `logOnly` for production.
@@ -1172,7 +1121,7 @@ bootstrapApplication(AppComponent, {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Pagination is a standard feature in data-heavy applications, and implementing it with NgRx demonstrates proper state, effect, and selector composition. Store pagination parameters (`page`, `pageSize`) in the state, trigger API calls through effects with those params, and use selectors to derive the current page slice from the response. A common pitfall is storing the entire dataset client-side and slicing in a selector, rather than letting the server handle pagination.
 
 **Strategy:**
 Store `page`, `pageSize`, and `total` in state. Effects trigger API calls with these params. Selectors derive the current page slice.
@@ -1199,7 +1148,7 @@ loadPage$ = createEffect(() => this.actions$.pipe(
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Uncanceled HTTP requests create memory leaks and can cause state updates on destroyed components, leading to confusing errors. With ComponentStore, effects are tied to the component lifecycle and cancel automatically, but with the Global Store you must dispatch a destroy action and use `takeUntil` in the effect. A best practice is to always pair load actions with corresponding cancel/destroy actions to ensure clean teardown.
 
 **Strategy:**
 If using `ComponentStore`, the effect is tied to the lifecycle and cancels automatically. In global Effects, listen for a specific Cancel action dispatch in `ngOnDestroy`.
@@ -1230,7 +1179,7 @@ loadData$ = createEffect(() => this.actions$.pipe(
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Storing every keystroke in the NgRx store is an anti-pattern that creates excessive action dispatching and performance overhead. The recommended approach is to use Reactive Forms for local form state and dispatch a single action only on form submission. Reserve `ngrx-forms` for rare cases where form state genuinely needs to be shared across distant components or persisted across navigation.
 
 **Strategy:**
 Avoid storing every keystroke in Redux. Use local state for the form, and dispatch a single action on Submit. Or use Reactive Forms with `ngrx-forms` (if complex).
@@ -1260,7 +1209,7 @@ export class ContactComponent {
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: `ngrx-data` dramatically reduces CRUD boilerplate by generating actions, reducers, selectors, and effects automatically based on entity metadata. It is best suited for applications with many standard REST-backed entities where the CRUD pattern is repetitive and consistent. A key consideration is that while `ngrx-data` speeds up development for standard cases, customizing non-standard behavior can be more difficult than writing the NgRx code manually.
 
 **Strategy:**
 `ngrx-data` automates standard CRUD. Define `EntityMetadataMap`, register it, and inject `EntityCollectionService<T>`.
@@ -1291,7 +1240,7 @@ export class HeroService extends EntityCollectionServiceBase<Hero> {
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Migrating to SignalStore is an increasingly relevant topic as Angular signals mature and become the default reactivity model. The migration maps reducers to `withMethods`, selectors to `withComputed`, and effects to `rxMethod`, adopting a more composable and less boilerplate-heavy pattern. A best practice is to migrate incrementally, keeping the Global Store for truly app-wide state like authentication while moving feature state to SignalStore.
 
 **Strategy:**
 Refactor Feature States to SignalStores. Replace Selectors with computed signals. Replace Actions/Effects with `rxMethod`. Keep Global Store for truly global data (Auth).
@@ -1310,907 +1259,3 @@ withMethods((store) => ({
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-<a id="q51"></a>
-### Q51: How do you handle NgRx state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q52"></a>
-### Q52: How do you perform NgRx data validation in microservices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q53"></a>
-### Q53: How do you automate NgRx deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q54"></a>
-### Q54: How do you handle NgRx concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q55"></a>
-### Q55: How do you implement NgRx caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q56"></a>
-### Q56: How do you manage NgRx configuration for real-time systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q57"></a>
-### Q57: How do you handle NgRx internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q58"></a>
-### Q58: How do you ensure NgRx accessibility (a11y) in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q59"></a>
-### Q59: How do you optimize NgRx network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q60"></a>
-### Q60: How do you handle NgRx performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// NgRx logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q61"></a>
-### Q61: What are the security implications of NgRx in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q62"></a>
-### Q62: How do you debug NgRx memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q63"></a>
-### Q63: Best practices for NgRx code organization in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q64"></a>
-### Q64: How do you implement NgRx error handling for legacy systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await NgRxOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q65"></a>
-### Q65: How do you test NgRx functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('NgRx works', () => {
-  expect(NgRx()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q66"></a>
-### Q66: How do you handle NgRx state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q67"></a>
-### Q67: How do you perform NgRx data validation in distributed systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q68"></a>
-### Q68: How do you automate NgRx deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q69"></a>
-### Q69: How do you handle NgRx concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q70"></a>
-### Q70: How do you implement NgRx caching in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q71"></a>
-### Q71: How do you manage NgRx configuration for large scale applications?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q72"></a>
-### Q72: How do you handle NgRx internationalization (i18n) in microservices?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q73"></a>
-### Q73: How do you ensure NgRx accessibility (a11y) in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q74"></a>
-### Q74: How do you optimize NgRx network requests in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q75"></a>
-### Q75: How do you handle NgRx performance optimization for cloud infrastructure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// NgRx logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q76"></a>
-### Q76: What are the security implications of NgRx in real-time systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q77"></a>
-### Q77: How do you debug NgRx memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q78"></a>
-### Q78: Best practices for NgRx code organization in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q79"></a>
-### Q79: How do you implement NgRx error handling for embedded systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await NgRxOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q80"></a>
-### Q80: How do you test NgRx functionality in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('NgRx works', () => {
-  expect(NgRx()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q81"></a>
-### Q81: How do you handle NgRx state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q82"></a>
-### Q82: How do you perform NgRx data validation in microservices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q83"></a>
-### Q83: How do you automate NgRx deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q84"></a>
-### Q84: How do you handle NgRx concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q85"></a>
-### Q85: How do you implement NgRx caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q86"></a>
-### Q86: How do you manage NgRx configuration for real-time systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q87"></a>
-### Q87: How do you handle NgRx internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q88"></a>
-### Q88: How do you ensure NgRx accessibility (a11y) in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q89"></a>
-### Q89: How do you optimize NgRx network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q90"></a>
-### Q90: How do you handle NgRx performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// NgRx logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q91"></a>
-### Q91: What are the security implications of NgRx in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q92"></a>
-### Q92: How do you debug NgRx memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q93"></a>
-### Q93: Best practices for NgRx code organization in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q94"></a>
-### Q94: How do you implement NgRx error handling for legacy systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await NgRxOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q95"></a>
-### Q95: How do you test NgRx functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('NgRx works', () => {
-  expect(NgRx()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q96"></a>
-### Q96: How do you handle NgRx state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q97"></a>
-### Q97: How do you perform NgRx data validation in distributed systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q98"></a>
-### Q98: How do you automate NgRx deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q99"></a>
-### Q99: How do you handle NgRx concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q100"></a>
-### Q100: How do you implement NgRx caching in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>

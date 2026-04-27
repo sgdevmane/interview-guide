@@ -349,7 +349,7 @@ maxReplicas: 10
 **Difficulty**: Advanced
 
 **Strategy**:
-Adjusts CPU/RAM requests of pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+VPA automatically adjusts CPU and memory requests for individual Pods based on historical usage patterns. Unlike HPA which adds or removes Pods, VPA right-sizes existing containers to avoid resource waste or starvation. Be cautious not to use VPA and HPA together on the same metric (e.g., CPU), as they can conflict and cause unstable scaling behavior.
 
 **Code Example**:
 ```yaml
@@ -386,7 +386,7 @@ livenessProbe:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Helper container in same pod (e.g., log shipper). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The sidecar pattern extends a main application container by co-locating a helper container within the same Pod, sharing the same network namespace and storage volumes. Common use cases include log forwarding (Fluentd), proxying (Envoy in service meshes), and secrets injection. This pattern is frequently tested because it demonstrates understanding of Pod composition and the single-responsibility principle in container design.
 
 **Code Example**:
 ```yaml
@@ -405,7 +405,7 @@ containers:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Runs before app containers. Good for setup. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Init Containers run to completion before the main application containers start, making them ideal for setup tasks like downloading configs, waiting for dependencies, or initializing databases. They run sequentially and must all succeed before the app container launches. A common pitfall is making init containers too complex or slow, which delays Pod startup and can block deployments.
 
 **Code Example**:
 ```yaml
@@ -424,7 +424,7 @@ initContainers:
 **Difficulty**: Advanced
 
 **Strategy**:
-Taint: Node repels pods. Toleration: Pod ignores taint.
+Taints are applied to nodes to repel Pods that do not tolerate them, while tolerations are added to Pods to allow scheduling onto tainted nodes. This mechanism is essential for dedicating nodes to specific workloads (e.g., GPU nodes, control-plane nodes) and is commonly used in production clusters. A key distinction to remember in interviews: tolerations allow a Pod to be scheduled on a tainted node but do not guarantee it -- use node affinity for that guarantee.
 
 **Code Example**:
 ```yaml
@@ -443,7 +443,7 @@ tolerations:
 **Difficulty**: Advanced
 
 **Strategy**:
-Constrain pods to nodes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Node Affinity lets you constrain which nodes a Pod can be scheduled on based on node labels, offering more expressive rules than simple nodeSelector. It supports `required` (hard constraint) and `preferred` (soft constraint) modes, giving fine-grained control over placement. This is critical for workloads with hardware requirements (e.g., SSD storage, specific CPU architectures) or compliance-driven placement policies.
 
 **Code Example**:
 ```yaml
@@ -461,7 +461,7 @@ affinity:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Storage resource in cluster. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A Persistent Volume is a cluster-wide storage resource provisioned by an administrator or dynamically via StorageClasses, abstracting storage backend details (NFS, cloud disks, etc.) from Pod lifecycle. PVs exist independently of Pods, surviving Pod deletions and rescheduling. Understanding PV reclaim policies (Retain, Delete, Recycle) is critical for interviews since choosing the wrong policy can lead to data loss or orphaned storage costs.
 
 **Code Example**:
 ```yaml
@@ -478,7 +478,7 @@ kind: PersistentVolume
 **Difficulty**: Intermediate
 
 **Strategy**:
-Request for storage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A PVC is a user's request for storage, similar to how a Pod consumes compute resources. The control plane binds the PVC to a matching PV based on size, access mode, and storage class. This abstraction decouples storage consumption from provisioning -- developers request capacity without needing to know the underlying infrastructure. A common interview trap is confusing access modes: ReadWriteOnce means one node, not one Pod.
 
 **Code Example**:
 ```yaml
@@ -498,7 +498,7 @@ resources:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Defines class of storage (SSD, HDD). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+StorageClass defines categories of storage (e.g., fast SSD, standard HDD) and enables dynamic provisioning -- when a PVC is created, Kubernetes automatically provisions a PV using the StorageClass provider. This eliminates the need for admins to pre-provision storage manually. Be prepared to discuss how the `default` StorageClass annotation works and what happens when a PVC does not specify a storageClassName.
 
 **Code Example**:
 ```yaml
@@ -516,7 +516,7 @@ provisioner: aws-ebs
 **Difficulty**: Beginner
 
 **Strategy**:
-Default strategy. Update pods one by one. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Rolling updates are the default deployment strategy, gradually replacing old Pods with new ones to ensure zero downtime. You control the pace with `maxSurge` (how many extra Pods can be created) and `maxUnavailable` (how many Pods can be down during the update). This is a fundamental interview topic because misconfigured values can cause service outages -- for example, setting maxUnavailable to 100% effectively becomes a recreate strategy.
 
 **Code Example**:
 ```yaml
@@ -534,7 +534,7 @@ strategy:
 **Difficulty**: Advanced
 
 **Strategy**:
-Route small % of traffic to new version. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A canary deployment gradually routes a small percentage of traffic to the new version before a full rollout, allowing you to validate changes with real users at low risk. In Kubernetes, this is typically implemented using Ingress weight-based routing or service mesh traffic splitting. The key interview insight is that native Kubernetes lacks built-in canary support -- you need Ingress controllers (NGINX, Istio, Argo Rollouts) for percentage-based traffic shifting.
 
 **Code Example**:
 ```yaml
@@ -551,7 +551,7 @@ Route small % of traffic to new version. This concept is fundamental in this dom
 **Difficulty**: Advanced
 
 **Strategy**:
-Two identical envs. Switch traffic instantly. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Blue/Green deployments maintain two identical environments (blue = current, green = new) and switch all traffic at once by updating a Service's selector labels. This gives instant rollback capability -- just switch the selector back. The trade-off is that it requires double the resources during the switchover. In interviews, emphasize how this differs from canary: Blue/Green is an all-or-nothing cutover, not a gradual traffic shift.
 
 **Code Example**:
 ```yaml
@@ -568,7 +568,7 @@ Two identical envs. Switch traffic instantly. This concept is fundamental in thi
 **Difficulty**: Beginner
 
 **Strategy**:
-Package manager for Kubernetes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Helm is the package manager for Kubernetes, templating and managing application deployments as reusable "charts." It handles versioning, dependencies, and configuration through values files, making it easy to deploy complex applications (databases, monitoring stacks) with a single command. In interviews, be ready to discuss the difference between `helm install` (new release) and `helm upgrade` (modify existing), and how `helm rollback` leverages stored release history.
 
 **Code Example**:
 ```yaml
@@ -585,7 +585,7 @@ helm install my-app ./chart
 **Difficulty**: Beginner
 
 **Strategy**:
-CLI tool for Kubernetes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl` is the primary CLI tool for communicating with the Kubernetes API server, letting you create, read, update, and delete cluster resources. It supports both imperative commands (`kubectl run`) and declarative management (`kubectl apply -f`). Interviewers often test whether you know useful flags like `-o wide`, `-o yaml`, `-w` (watch), and `--sort-by`, as well as how to use `kubectl api-resources` to discover available resource types.
 
 **Code Example**:
 ```yaml
@@ -602,7 +602,7 @@ kubectl get pods
 **Difficulty**: Beginner
 
 **Strategy**:
-Check logs and describe pod. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+CrashLoopBackOff means a container keeps crashing and restarting in a loop, which is one of the most common production issues. Start with `kubectl logs <pod> --previous` to see logs from the crashed container, then `kubectl describe pod` to check events and exit codes. Common causes include missing ConfigMaps/Secrets, failed health checks, incorrect command/args, or the application crashing on startup due to missing dependencies.
 
 **Code Example**:
 ```yaml
@@ -620,7 +620,7 @@ kubectl describe pod pod-name
 **Difficulty**: Advanced
 
 **Strategy**:
-Key-value store for cluster data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+etcd is a distributed key-value store that serves as the single source of truth for all Kubernetes cluster state -- every Pod, Service, ConfigMap, and Secret is stored here. It uses the Raft consensus algorithm for consistency across the control plane. In interviews, emphasize that losing etcd without a backup means losing the entire cluster, which is why regular etcd backups and running an odd number of etcd nodes (3 or 5) for quorum are critical production practices.
 
 **Code Example**:
 ```yaml
@@ -637,7 +637,7 @@ Key-value store for cluster data. This concept is fundamental in this domain and
 **Difficulty**: Advanced
 
 **Strategy**:
-Agent running on each node. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The Kubelet is the agent that runs on every worker node, responsible for ensuring that Pods and their containers are running as declared in the PodSpec. It talks to the API server to get Pod assignments, pulls container images, and reports node and Pod status back. A key interview point is that the Kubelet is the only core component that runs on worker nodes -- understanding its role is essential for debugging node-level issues like image pull failures or volume mount errors.
 
 **Code Example**:
 ```yaml
@@ -654,7 +654,7 @@ Agent running on each node. This concept is fundamental in this domain and under
 **Difficulty**: Advanced
 
 **Strategy**:
-Network proxy on each node. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Kube-Proxy runs on every node and maintains network rules that enable Service abstraction -- it routes traffic from a Service's ClusterIP to the correct backend Pod. It can operate in iptables mode (default, rule-based) or IPVS mode (for better performance at scale). Interviewers may ask why a Service is unreachable -- checking kube-proxy logs and iptables rules is a key debugging step when Service connectivity fails.
 
 **Code Example**:
 ```yaml
@@ -671,7 +671,7 @@ Network proxy on each node. This concept is fundamental in this domain and under
 **Difficulty**: Intermediate
 
 **Strategy**:
-Master node components (API Server, Scheduler, Controller Manager, etcd).
+The control plane is the brain of the cluster, consisting of four components: the API Server (entry point for all REST commands), etcd (persistent store), the Scheduler (assigns Pods to nodes), and the Controller Manager (runs reconciliation loops for Deployments, ReplicaSets, etc.). In interviews, understanding how these components interact -- especially that all state changes go through the API Server -- demonstrates a solid grasp of Kubernetes architecture and helps with troubleshooting control plane failures.
 
 **Code Example**:
 ```yaml
@@ -688,7 +688,7 @@ Master node components (API Server, Scheduler, Controller Manager, etcd).
 **Difficulty**: Intermediate
 
 **Strategy**:
-Role Based Access Control. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Role-Based Access Control (RBAC) regulates access to Kubernetes API resources based on the roles assigned to users or ServiceAccounts. Roles define permissions within a namespace, while ClusterRoles define cluster-wide permissions -- both are bound to subjects via RoleBindings or ClusterRoleBindings. This is a high-priority interview topic because overly permissive RBAC is a common security misconfiguration; always follow the principle of least privilege.
 
 **Code Example**:
 ```yaml
@@ -707,7 +707,7 @@ rules:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Identity for processes in pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A ServiceAccount provides an identity for Pods to authenticate with the Kubernetes API server, controlling what actions the Pod can perform via RBAC policies. Every namespace has a default ServiceAccount, but production workloads should use dedicated ServiceAccounts with minimal permissions. A common interview pitfall is confusing ServiceAccounts (for in-cluster processes) with user accounts (for human access) -- they are separate authentication mechanisms.
 
 **Code Example**:
 ```yaml
@@ -724,7 +724,7 @@ serviceAccountName: my-sa
 **Difficulty**: Advanced
 
 **Strategy**:
-Firewall rules for pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+NetworkPolicy controls traffic flow at the Pod level, acting as a firewall that specifies which Pods can communicate with each other and with external endpoints. By default, all Pods can talk to all Pods -- NetworkPolicy restricts this using label selectors, namespace selectors, and IP blocks. A key caveat: NetworkPolicy is enforced by the CNI plugin, so not all network providers support it (e.g., Flannel does not natively support network policies).
 
 **Code Example**:
 ```yaml
@@ -743,7 +743,7 @@ spec:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Limit total resources per namespace. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+ResourceQuota limits aggregate resource consumption per namespace, capping the total CPU, memory, storage, and object counts (Pods, Services, etc.) that can be used. This prevents any single team or application from monopolizing cluster resources. In multi-tenant environments, ResourceQuotas are essential -- but remember they only work when Pods have resource requests defined, since quotas are enforced against requests, not actual usage.
 
 **Code Example**:
 ```yaml
@@ -760,7 +760,7 @@ kind: ResourceQuota
 **Difficulty**: Intermediate
 
 **Strategy**:
-Default limits per pod/container. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+LimitRange sets default, minimum, and maximum resource constraints for individual Pods or containers within a namespace. It complements ResourceQuota by providing guardrails at the container level -- for example, ensuring no container can request more than 4 CPUs. A practical interview insight: LimitRange auto-assigns default requests/limits to Pods that do not specify them, which silently affects scheduling and quota consumption.
 
 **Code Example**:
 ```yaml
@@ -777,7 +777,7 @@ kind: LimitRange
 **Difficulty**: Advanced
 
 **Strategy**:
-Service without ClusterIP. Returns pod IPs directly.
+A Headless Service sets `clusterIP: None`, which means no load-balanced proxy is created -- DNS queries return the individual Pod IPs directly instead of a single virtual IP. This is essential for StatefulSets (e.g., databases like MySQL or Cassandra) where each replica needs a stable, discoverable network identity. In interviews, connecting Headless Services to StatefulSet DNS patterns (`pod-name.service-name.namespace.svc.cluster.local`) demonstrates deep understanding.
 
 **Code Example**:
 ```yaml
@@ -794,7 +794,7 @@ clusterIP: None
 **Difficulty**: Advanced
 
 **Strategy**:
-Ensure min available pods during maintenance. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A PDB defines the minimum number of Pods that must remain available during voluntary disruptions like node drains or cluster upgrades, preventing too many replicas from being taken down simultaneously. It specifies either `minAvailable` or `maxUnavailable` but only applies to eviction-based disruptions, not Pod crashes or node failures. This is critical for production readiness -- without a PDB, a rolling node upgrade could take down all replicas of a critical service.
 
 **Code Example**:
 ```yaml
@@ -812,7 +812,7 @@ minAvailable: 1
 **Difficulty**: Advanced
 
 **Strategy**:
-Extend K8s API with custom types. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A CRD extends the Kubernetes API with custom resource types beyond built-in objects like Pods and Services. Once a CRD is registered, you can create and manage custom resources using `kubectl` just like native objects. CRDs are the foundation of the Kubernetes ecosystem -- tools like Cert-Manager, Prometheus Operator, and ArgoCD all rely on them. Be prepared to explain that CRDs alone only define data schema; you need a custom controller to act on the data.
 
 **Code Example**:
 ```yaml
@@ -829,7 +829,7 @@ kind: CustomResourceDefinition
 **Difficulty**: Advanced
 
 **Strategy**:
-Controller for CRDs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+An Operator combines a CRD (custom resource definition) with a custom controller that encodes human operational knowledge -- automating tasks like backups, scaling, failover, and upgrades for complex applications. Think of it as a Kubernetes-native way to package domain expertise (e.g., how to safely upgrade a PostgreSQL cluster). Operators are a popular interview topic because they demonstrate understanding of both the Kubernetes extension model and real-world operational challenges.
 
 **Code Example**:
 ```yaml
@@ -846,7 +846,7 @@ Controller for CRDs. This concept is fundamental in this domain and understandin
 **Difficulty**: Beginner
 
 **Strategy**:
-Request: Min guaranteed. Limit: Max allowed. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Requests define the minimum guaranteed resources a container gets (used for scheduling decisions), while Limits define the maximum it can consume. A container using more CPU than its limit gets throttled, and exceeding memory limits triggers an OOMKill. Setting Requests equal to Limits provides predictable performance but reduces bin-packing efficiency, while a large gap between them allows overcommit but risks resource contention under pressure.
 
 **Code Example**:
 ```yaml
@@ -865,7 +865,7 @@ resources:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Evict all pods for maintenance. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl drain` gracefully evicts all Pods from a node in preparation for maintenance, respecting PodDisruptionBudgets and DaemonSet exclusions. It cordons the node first (preventing new scheduling), then evicts Pods one by one. A common pitfall is draining without the `--ignore-daemonsets` flag when DaemonSets are present, which causes the command to fail. Always verify that evicted Pods reschedule successfully on other nodes before proceeding with node maintenance.
 
 **Code Example**:
 ```yaml
@@ -882,7 +882,7 @@ kubectl drain node-1
 **Difficulty**: Intermediate
 
 **Strategy**:
-Mark node as unschedulable. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Cordoning marks a node as unschedulable, preventing the Kubernetes scheduler from placing new Pods on it while leaving existing Pods untouched. This is useful during node investigation or pre-maintenance without immediately disrupting running workloads. Remember that cordoning is reversible with `kubectl uncordon`, and it does not affect DaemonSets or static Pods since they bypass the scheduler entirely.
 
 **Code Example**:
 ```yaml
@@ -899,7 +899,7 @@ kubectl cordon node-1
 **Difficulty**: Advanced
 
 **Strategy**:
-Managed directly by Kubelet, not API server. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Static Pods are managed directly by the Kubelet using manifest files from a directory on the node (typically `/etc/kubernetes/manifests`), bypassing the API server entirely. The Kubelet watches this directory and creates a mirror Pod object in the API server for visibility, but the Kubelet is the true controller. This mechanism is how Kubernetes bootstraps its own control plane components -- the API server, scheduler, and controller manager are deployed as static Pods.
 
 **Code Example**:
 ```yaml
@@ -916,7 +916,7 @@ Managed directly by Kubelet, not API server. This concept is fundamental in this
 **Difficulty**: Advanced
 
 **Strategy**:
-Plugin interface for runtimes (containerd, CRI-O).
+The Container Runtime Interface (CRI) is a plugin interface that lets Kubernetes use different container runtimes (containerd, CRI-O, formerly Docker) without modifying the Kubelet. It standardizes the API for image management, container lifecycle, and exec operations. A common interview point is that Docker was deprecated in Kubernetes 1.20 and removed in 1.24 -- the `dockershim` was replaced by direct CRI-compatible runtimes like containerd.
 
 **Code Example**:
 ```yaml
@@ -933,7 +933,7 @@ Plugin interface for runtimes (containerd, CRI-O).
 **Difficulty**: Advanced
 
 **Strategy**:
-Plugin for networking (Calico, Flannel). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+CNI is the plugin specification that handles Pod networking -- assigning IP addresses, setting up routes, and enabling Pod-to-Pod communication across nodes. Popular CNI plugins include Calico, Cilium, Flannel, and Weave, each with different capabilities around network policy support and performance. Understanding CNI is important for troubleshooting Pod connectivity issues, since a misconfigured CNI plugin is a common cause of cross-node communication failures.
 
 **Code Example**:
 ```yaml
@@ -950,7 +950,7 @@ Plugin for networking (Calico, Flannel). This concept is fundamental in this dom
 **Difficulty**: Advanced
 
 **Strategy**:
-Plugin for storage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+CSI is a standardized interface that allows Kubernetes to use any storage vendor's driver (AWS EBS, GCE PD, NFS, Ceph, etc.) without modifying core Kubernetes code. It replaced the old in-tree volume plugins, enabling storage vendors to maintain their own drivers independently. In interviews, note that CSI drivers enable advanced features like volume snapshots, cloning, and resize -- capabilities that were difficult or impossible with the legacy plugin model.
 
 **Code Example**:
 ```yaml
@@ -967,7 +967,7 @@ Plugin for storage. This concept is fundamental in this domain and understanding
 **Difficulty**: Intermediate
 
 **Strategy**:
-Grace period 0. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Force deletion bypasses the graceful shutdown process and immediately removes a Pod from etcd and the API server, useful when a Pod is stuck in `Terminating` state due to a dead node or unresponsive Kubelet. Use `--grace-period=0 --force` together, as setting only one flag does not work. This is a last resort -- always try normal deletion first, because force deleting a StatefulSet Pod can cause split-brain issues if the old process is still running.
 
 **Code Example**:
 ```yaml
@@ -984,7 +984,7 @@ kubectl delete pod x --grace-period=0 --force
 **Difficulty**: Beginner
 
 **Strategy**:
-Apply is declarative (upsert). Create is imperative.
+`kubectl apply` is declarative -- it computes a diff against the live state and applies changes, making it safe for repeated use in CI/CD pipelines. `kubectl create` is imperative -- it creates a resource from scratch and fails if the resource already exists. The key difference is that `apply` stores a `kubectl.kubernetes.io/last-applied-configuration` annotation for three-way merge diffs, enabling smarter conflict resolution during updates.
 
 **Code Example**:
 ```yaml
@@ -1001,7 +1001,7 @@ kubectl apply -f file.yaml
 **Difficulty**: Beginner
 
 **Strategy**:
-Access pod port locally. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl port-forward` creates a secure tunnel from your local machine to a Pod, Service, or Deployment, enabling quick debugging without exposing resources externally. It proxies a local port to a remote port through the API server, making it invaluable for accessing databases, admin UIs, or REST APIs during development. Be aware that port-forwarding sessions are temporary and break on network interruption -- they are not suitable for production access.
 
 **Code Example**:
 ```yaml
@@ -1018,7 +1018,7 @@ kubectl port-forward pod-x 8080:80
 **Difficulty**: Beginner
 
 **Strategy**:
-Cluster + User + Namespace config. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A context in `kubectl` defines a tuple of cluster (API server URL), user (authentication credentials), and namespace, stored in the kubeconfig file. Switching contexts with `kubectl config use-context` lets you operate across multiple clusters or environments without re-entering credentials. A best practice is to name contexts clearly (e.g., `dev-cluster`, `prod-us-east`) and always verify the current context before running destructive commands.
 
 **Code Example**:
 ```yaml
@@ -1035,7 +1035,7 @@ kubectl config use-context prod
 **Difficulty**: Intermediate
 
 **Strategy**:
-Get all. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl get all` only shows a subset of common resources (Pods, Services, Deployments, ReplicaSets), not truly "all" resources. To see everything, use `kubectl get all --all-namespaces` combined with `kubectl api-resources` to discover the full list of resource types. For a comprehensive audit, tools like `kubectl get cm,secret,ing,pvc --all-namespaces` are more reliable than relying on the shorthand `all` alias.
 
 **Code Example**:
 ```yaml
@@ -1052,7 +1052,7 @@ kubectl get all --all-namespaces
 **Difficulty**: Advanced
 
 **Strategy**:
-Blocks deletion until logic runs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Finalizers are metadata keys that prevent Kubernetes from deleting a resource until cleanup actions (releasing external connections, removing cloud resources) are completed. When you delete a resource with finalizers, it enters a `Terminating` state and waits for the controller to remove the finalizer entries. A common debugging scenario is a resource stuck in `Terminating` because the controller that should clear the finalizer is no longer running -- manual finalizer removal may be needed.
 
 **Code Example**:
 ```yaml
@@ -1070,7 +1070,7 @@ finalizers:
 **Difficulty**: Advanced
 
 **Strategy**:
-Deleting orphaned resources. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Kubernetes garbage collection automatically cleans up dependent resources when a parent object is deleted, using `ownerReferences` metadata to track parent-child relationships. For example, deleting a Deployment automatically removes its ReplicaSets and Pods. You can control this behavior with propagation policies: `foreground` (children deleted first), `background` (parent deleted first, children cleaned up async), or `orphan` (children kept). Understanding this is essential to avoid orphaned resources that waste cluster capacity.
 
 **Code Example**:
 ```yaml
@@ -1087,7 +1087,7 @@ Deleting orphaned resources. This concept is fundamental in this domain and unde
 **Difficulty**: Intermediate
 
 **Strategy**:
-Container used more RAM than limit. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+OOMKilled (exit code 137) occurs when the Linux kernel terminates a container because it exceeded its memory limit -- this is the kernel's Out-Of-OMemory killer in action, not a Kubernetes restart. To resolve it, either increase the memory limit, optimize the application's memory usage, or investigate memory leaks. A critical distinction: OOMKilled means the limit was hit, not the request -- the node itself may still have plenty of memory available.
 
 **Code Example**:
 ```yaml
@@ -1104,7 +1104,7 @@ Container used more RAM than limit. This concept is fundamental in this domain a
 **Difficulty**: Beginner
 
 **Strategy**:
-Cannot pull image (auth, typo). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+ImagePullBackOff means the Kubelet could not pull the container image, and it will retry with exponential backoff. Common causes include wrong image names, missing tags, authentication failures with private registries, or network connectivity issues. Start debugging with `kubectl describe pod` to see the exact pull error, and verify that imagePullSecrets are configured if using a private container registry.
 
 **Code Example**:
 ```yaml
@@ -1121,7 +1121,7 @@ Cannot pull image (auth, typo). This concept is fundamental in this domain and u
 **Difficulty**: Advanced
 
 **Strategy**:
-Cluster Autoscaler. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The Cluster Autoscaler automatically adds nodes when Pods are pending due to insufficient resources and removes nodes when they are underutilized for a configurable period. It integrates with cloud provider APIs (AWS ASG, GCP MIG) to adjust the node pool size. Key interview considerations include scale-down delays (to avoid flapping), Pod Disruption Budgets preventing node removal, and that it does not scale based on CPU/memory utilization -- only on Pod scheduling pressure.
 
 **Code Example**:
 ```yaml
@@ -1138,7 +1138,7 @@ Cluster Autoscaler. This concept is fundamental in this domain and understanding
 **Difficulty**: Advanced
 
 **Strategy**:
-Traffic management, security, observability. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A service mesh injects sidecar proxies (Envoy) alongside every Pod to handle inter-service communication, providing observability, traffic management, and security (mTLS) without changing application code. Istio and Linkerd are the two leading implementations, with Istio offering more features and Linkerd prioritizing simplicity and performance. A common pitfall is adopting a service mesh prematurely -- start with Kubernetes-native primitives (Services, NetworkPolicies) and add a mesh only when you need advanced features like canary traffic splitting or mutual TLS between services.
 
 **Code Example**:
 ```yaml
@@ -1155,7 +1155,7 @@ Traffic management, security, observability. This concept is fundamental in this
 **Difficulty**: Intermediate
 
 **Strategy**:
-RBAC + Auth Proxy. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The Kubernetes dashboard is a frequent attack vector if exposed publicly, so it must be secured with RBAC (least-privilege ServiceAccount), network restrictions, and authentication -- never use the `--enable-skip-login` flag in production. Access it via `kubectl proxy` or an Ingress with OIDC authentication rather than exposing it as a NodePort or LoadBalancer. A best practice is to restrict dashboard access using a dedicated ServiceAccount with a RoleBinding scoped to only the namespaces the user needs, rather than granting cluster-admin privileges.
 
 **Code Example**:
 ```yaml
@@ -1172,7 +1172,7 @@ RBAC + Auth Proxy. This concept is fundamental in this domain and understanding 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Git as source of truth (ArgoCD, Flux). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+GitOps uses Git as the single source of truth for declarative infrastructure and application definitions, with automated processes (like ArgoCD or Flux) continuously reconciling the cluster state with the Git repository. Every change goes through a Git commit and review process, providing an audit trail, easy rollback via `git revert`, and eliminating configuration drift. The key trade-off is that GitOps introduces a slight delay between committing and deploying, which can be a challenge for rapid hotfix workflows where direct `kubectl apply` may still be needed.
 
 **Code Example**:
 ```yaml
@@ -1189,7 +1189,7 @@ Git as source of truth (ArgoCD, Flux). This concept is fundamental in this domai
 **Difficulty**: Advanced
 
 **Strategy**:
-etcdctl snapshot save. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Since etcd holds the entire cluster state, regular backups are your disaster recovery safety net -- losing etcd without a backup means rebuilding the entire cluster from scratch. Use `etcdctl snapshot save` with the correct endpoints, certificates, and keys to create a consistent snapshot, and store backups off-cluster (e.g., S3). A common pitfall is backing up only one etcd member in a HA setup -- while any member can serve a snapshot, always verify backup integrity with `etcdctl snapshot status` and test restoration periodically.
 
 **Code Example**:
 ```yaml
@@ -1206,7 +1206,7 @@ etcdctl snapshot save backup.db
 **Difficulty**: Advanced
 
 **Strategy**:
-Scheduling priority. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+PriorityClass maps a name to an integer priority value, controlling which Pods get scheduled first and which get evicted when the cluster is under resource pressure. Higher-value Pods preempt (evict) lower-value Pods, making this essential for ensuring critical workloads (databases, monitoring) stay running during resource contention. A best practice is to define a few well-named tiers (e.g., `system-critical`, `high`, `low`) rather than many granular classes, and always set `preemptionPolicy: PreemptLowerPriority` explicitly for clarity.
 
 **Code Example**:
 ```yaml
@@ -1224,7 +1224,7 @@ value: 1000000
 **Difficulty**: Advanced
 
 **Strategy**:
-Replace PSP. Enforce security standards. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Pod Security Admission (PSA) replaced the deprecated PodSecurityPolicies, enforcing security standards at the namespace level using three privilege profiles: `privileged` (unrestricted), `baseline` (minimally restrictive), and `restricted` (heavily restricted). It operates in three modes -- `enforce` (block violations), `audit` (log violations), and `warn` (warn on violations) -- giving teams a gradual adoption path. A common pitfall is setting the `restricted` profile in enforce mode without testing, which can break existing workloads that use capabilities like `NET_BIND_SERVICE` or run as root.
 
 **Code Example**:
 ```yaml
@@ -1242,7 +1242,7 @@ labels:
 **Difficulty**: Intermediate
 
 **Strategy**:
-subPath in volumeMounts. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Mounting a single file from a ConfigMap or Secret uses the `subPath` field in the volumeMount definition, which mounts only that specific key without overwriting the entire directory. Without `subPath`, mounting a ConfigMap volume replaces the whole target directory contents, which can unintentionally hide existing files in the container. A common pitfall is that `subPath` mounts do not receive live updates when the ConfigMap changes -- you must restart the Pod to pick up changes to that file.
 
 **Code Example**:
 ```yaml
@@ -1261,7 +1261,7 @@ volumeMounts:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Local disk used by logs/emptyDir. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Ephemeral storage tracks the local, non-persistent disk usage of a Pod -- including container writable layers, logs, and emptyDir volumes -- allowing you to set requests and limits just like CPU and memory. When a container exceeds its ephemeral-storage limit, the Pod gets evicted, making this crucial for preventing node disk exhaustion from runaway log files or large temporary data. A best practice is to set ephemeral-storage limits on log-heavy workloads and use `emptyDir.sizeLimit` to cap temporary volumes, since node disk full conditions can destabilize the entire node.
 
 **Code Example**:
 ```yaml
@@ -1279,7 +1279,7 @@ requests:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Check CoreDNS pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Kubernetes DNS (CoreDNS) resolves Service names to ClusterIPs, and DNS failures are a common cause of inter-service communication breakdowns. Start by running `nslookup` or `dig` from a debug Pod to test resolution, check CoreDNS Pod health with `kubectl get pods -n kube-system`, and review CoreDNS logs for errors. A frequent issue is misconfigured `resolv.conf` settings (especially `ndots:5` causing excessive DNS queries) or NetworkPolicies blocking DNS traffic on port 53 -- always ensure the `kube-dns` service is allowed in any default-deny NetworkPolicy setup.
 
 **Code Example**:
 ```yaml
@@ -1296,7 +1296,7 @@ nslookup myservice
 **Difficulty**: Beginner
 
 **Strategy**:
-Show metrics (CPU/RAM). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl top` displays real-time CPU and memory usage for Pods and nodes, making it the quickest way to identify resource bottlenecks without installing third-party monitoring tools. It requires the Metrics Server to be running in the cluster, which scrapes resource usage from Kubelet's cAdvisor endpoint. A common pitfall is getting a "Metrics API not available" error -- this means the Metrics Server is not installed or not reachable, not that the cluster is broken.
 
 **Code Example**:
 ```yaml
@@ -1313,7 +1313,7 @@ kubectl top pods
 **Difficulty**: Intermediate
 
 **Strategy**:
-Aggregates resource usage. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Metrics Server is a lightweight, cluster-wide aggregator of resource usage data that collects CPU and memory metrics from each Kubelet and exposes them via the Metrics API. It is a prerequisite for `kubectl top` commands and the Horizontal Pod Autoscaler (HPA) to function -- without it, HPA cannot make scaling decisions. Be aware that Metrics Server is designed for autoscaling, not for long-term historical monitoring -- for that, you need a full monitoring stack like Prometheus plus Grafana.
 
 **Code Example**:
 ```yaml
@@ -1330,7 +1330,7 @@ Aggregates resource usage. This concept is fundamental in this domain and unders
 **Difficulty**: Beginner
 
 **Strategy**:
-kubectl cp. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl cp` transfers files between your local machine and a running Pod, which is essential for debugging (extracting logs, config files) or injecting temporary data without rebuilding the image. It uses tar under the hood, so the container must have `tar` installed in its filesystem for the command to work. A common pitfall is trying to copy from a crashed or pending Pod -- the Pod must be in a Running state, and for multi-container Pods you must specify the container with the `-c` flag.
 
 **Code Example**:
 ```yaml
@@ -1347,7 +1347,7 @@ kubectl cp ./file pod:/path
 **Difficulty**: Beginner
 
 **Strategy**:
-Run command in container. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl exec` opens an interactive shell session inside a running container, allowing you to inspect the filesystem, run diagnostic commands, and troubleshoot issues in real time. Use the `-it` flags for an interactive TTY session, and specify `--` before the command to separate kubectl flags from the container command. A best practice is to avoid relying on `exec` in production for routine tasks -- if you frequently need to exec into containers, consider adding health endpoints, better logging, or a debug sidecar instead.
 
 **Code Example**:
 ```yaml
@@ -1364,7 +1364,7 @@ kubectl exec -it pod -- bash
 **Difficulty**: Advanced
 
 **Strategy**:
-Expose pod info to container. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The Downward API exposes Pod and container metadata (name, namespace, labels, annotations, resource limits) as environment variables or mounted files, letting containers discover their own runtime context without querying the API server. This is useful for applications that need to know their Pod name for identity (e.g., StatefulSet members) or want to log their resource constraints. A key distinction: the Downward API does not call the Kubernetes API -- it injects values at Pod creation time, so changing a label after creation does not update an already-mounted file.
 
 **Code Example**:
 ```yaml
@@ -1383,7 +1383,7 @@ valueFrom:
 **Difficulty**: Advanced
 
 **Strategy**:
-Spread pods across zones. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Topology Spread Constraints distribute Pods evenly across failure domains (zones, nodes, regions) by controlling the maximum skew -- the difference in Pod count between any two topology domains. Unlike Pod Anti-Affinity (which only prevents co-location), topology spreading actively balances placement, making it the preferred mechanism for high availability. A common pitfall is using `whenUnsatisfiable: DoNotSchedule` with a tight `maxSkew` on small clusters, which can leave Pods pending -- use `ScheduleAnyway` for softer balancing that still prefers even distribution.
 
 **Code Example**:
 ```yaml
@@ -1401,7 +1401,7 @@ topologySpreadConstraints:
 **Difficulty**: Advanced
 
 **Strategy**:
-Co-locate pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Pod Affinity lets you schedule Pods onto nodes where other Pods with matching labels are already running, enabling co-location of interdependent services (e.g., placing a cache Pod on the same node as the application that uses it). It supports `required` (hard constraint, Pod stays pending if no match) and `preferred` (soft constraint, best-effort) modes, with topology keys defining the failure domain scope. Be cautious with required affinity rules in small clusters, as they can create scheduling deadlocks where Pods wait for each other indefinitely.
 
 **Code Example**:
 ```yaml
@@ -1419,7 +1419,7 @@ podAffinity:
 **Difficulty**: Advanced
 
 **Strategy**:
-Separate pods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Pod Anti-Affinity prevents Pods from being scheduled on the same node (or topology domain) as Pods with specific labels, which is critical for spreading replicas across failure domains for high availability. It uses the same `required`/`preferred` modes as affinity, with topology keys like `kubernetes.io/hostname` for node-level or `topology.kubernetes.io/zone` for zone-level spreading. A best practice is to use `preferred` anti-affinity for most workloads rather than `required`, since strict rules can block scheduling when cluster capacity is limited.
 
 **Code Example**:
 ```yaml
@@ -1437,7 +1437,7 @@ podAntiAffinity:
 **Difficulty**: Advanced
 
 **Strategy**:
-EncryptionConfiguration for etcd. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+By default, Kubernetes Secrets are stored in etcd as base64-encoded (not encrypted) data, so enabling EncryptionConfiguration at the API server level is essential for protecting sensitive data at rest. Configure an encryption provider (AES-CBC, AES-GCM, or a KMS plugin like AWS KMS, Azure Key Vault) in the API server's `--encryption-provider-config` flag to encrypt secret data before writing to etcd. A common pitfall is enabling encryption but forgetting to re-encrypt existing Secrets -- new Secrets are encrypted, but old ones remain in plaintext until you rewrite them.
 
 **Code Example**:
 ```yaml
@@ -1454,7 +1454,7 @@ EncryptionConfiguration for etcd. This concept is fundamental in this domain and
 **Difficulty**: Advanced
 
 **Strategy**:
-Request cert from K8s CA. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A CertificateSigningRequest (CSR) is a Kubernetes API object that allows nodes, users, or applications to request X.509 certificates signed by the cluster's certificate authority. This is how new worker nodes authenticate to the cluster during TLS bootstrapping and how service mesh sidecars obtain mTLS certificates. The CSR must be explicitly approved (via `kubectl certificate approve` or an auto-approving controller) before the CA signs it -- a key security control that prevents unauthorized identities from obtaining cluster certificates.
 
 **Code Example**:
 ```yaml
@@ -1471,7 +1471,7 @@ kind: CertificateSigningRequest
 **Difficulty**: Advanced
 
 **Strategy**:
-kubeadm certs renew. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Kubernetes cluster certificates (API server, etcd, kubelet, etc.) expire after one year by default, and expired certs will completely lock you out of the cluster. Use `kubeadm certs check-expiration` to monitor remaining validity and `kubeadm certs renew all` to renew them before expiration. A critical best practice is to automate cert renewal (via a cron job or the `cert-manager` operator) and always restart control plane components after renewal, since the old certificates remain in memory until the processes are restarted.
 
 **Code Example**:
 ```yaml
@@ -1488,7 +1488,7 @@ kubeadm certs renew all
 **Difficulty**: Intermediate
 
 **Strategy**:
-Tool to bootstrap cluster. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+kubeadm is the official tool for bootstrapping Kubernetes clusters, handling the complex setup of control plane components, TLS certificates, etcd, and kubeconfig files with simple commands like `kubeadm init` and `kubeadm join`. It follows Kubernetes best practices by default but intentionally does not provision networking, storage, or add-ons -- you must install a CNI plugin separately after initialization. Interviewers often ask about kubeadm to verify you understand the difference between bootstrapping a cluster (kubeadm) and managing workloads on an already-running cluster.
 
 **Code Example**:
 ```yaml
@@ -1505,7 +1505,7 @@ kubeadm init
 **Difficulty**: Beginner
 
 **Strategy**:
-Local single-node cluster. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Minikube runs a single-node Kubernetes cluster locally on your machine using a VM or Docker container, providing a full Kubernetes environment for learning, development, and testing manifests before deploying to production. It supports features like add-ons (dashboard, ingress, metrics-server), multi-cluster management, and driver selection (Docker, VirtualBox, HyperKit). A key point for interviews: Minikube is for local development only -- it cannot replicate multi-node networking, node affinity, or real cluster autoscaling behavior.
 
 **Code Example**:
 ```yaml
@@ -1522,7 +1522,7 @@ minikube start
 **Difficulty**: Beginner
 
 **Strategy**:
-Kubernetes in Docker. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Kind (Kubernetes IN Docker) runs Kubernetes clusters inside Docker containers, making it faster and lighter than VM-based solutions like Minikube. It excels in CI/CD pipelines and automated testing because clusters can be created and torn down in seconds, and it supports multi-node topologies (multiple control plane and worker nodes). A practical distinction for interviews: unlike Minikube which focuses on developer experience with add-ons, Kind focuses on speed and testability -- it is the tool of choice for testing Kubernetes controllers and operators.
 
 **Code Example**:
 ```yaml
@@ -1539,7 +1539,7 @@ kind create cluster
 **Difficulty**: Beginner
 
 **Strategy**:
-Lightweight K8s. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+k3s is a lightweight, CNCF-certified Kubernetes distribution by Rancher that packages the entire control plane into a single binary under 100MB, making it ideal for edge computing, IoT, and resource-constrained environments. It replaces etcd with SQLite by default (with MySQL/Postgres options for HA) and uses Traefik as the default ingress controller. An important interview distinction: k3s is production-ready and fully conformant, unlike Minikube or Kind which are development tools -- many organizations run k3s in production for lightweight workloads.
 
 **Code Example**:
 ```yaml
@@ -1556,7 +1556,7 @@ curl ... | sh -
 **Difficulty**: Intermediate
 
 **Strategy**:
-Kubeconfig contexts. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Multi-cluster management uses kubeconfig files that contain multiple contexts, where each context maps a cluster (API server URL + CA cert), user (credentials), and namespace into a single switchable profile. You can merge kubeconfig files with the `KUBECONFIG` environment variable or `kubectl config` commands to manage dev, staging, and production clusters from one machine. A critical best practice is to always verify the current context with `kubectl config current-context` before running any command, especially destructive operations like deletions or scale-downs.
 
 **Code Example**:
 ```yaml
@@ -1573,7 +1573,7 @@ KUBECONFIG=c1:c2 kubectl get pods
 **Difficulty**: Advanced
 
 **Strategy**:
-Coordinate multiple clusters. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+KubeFed (Kubernetes Federation v2) enables managing multiple Kubernetes clusters as a single entity, syncing resources like Deployments and Services across clusters for geographic redundancy and disaster recovery. It uses a host cluster to propagate FederatedResource templates to member clusters, with override policies for cluster-specific configurations. Be aware that KubeFed has been archived and is no longer actively maintained -- in interviews, mention modern alternatives like Karmada or cluster-management approaches using GitOps (ArgoCD with multiple clusters) instead.
 
 **Code Example**:
 ```yaml
@@ -1590,7 +1590,7 @@ Coordinate multiple clusters. This concept is fundamental in this domain and und
 **Difficulty**: Advanced
 
 **Strategy**:
-tcpdump, netshoot container. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Networking issues in Kubernetes span multiple layers (Pod-to-Pod, Pod-to-Service, external-to-internal), so debugging requires a systematic approach starting from DNS resolution, then Service connectivity, then CNI plugin health. Deploy a debug Pod with networking tools (e.g., `nicolaka/netshoot`) to test DNS lookups, `curl` Service endpoints, and trace packet flow with `tcpdump`. A key diagnostic pattern: if DNS works but Service IP is unreachable, check kube-proxy and iptables; if cross-node Pod communication fails, investigate the CNI plugin and node network routes.
 
 **Code Example**:
 ```yaml
@@ -1607,7 +1607,7 @@ kubectl run debug --image=nicolaka/netshoot
 **Difficulty**: Advanced
 
 **Strategy**:
-Distributed lock (e.g., leader election). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A Lease is a lightweight API object used for distributed coordination and heartbeat mechanisms, allowing controllers to signal they are alive without updating heavier resource objects. The kubelet uses Leases for node heartbeats (instead of updating NodeStatus every few seconds), and the leader-election mechanism uses them to ensure only one controller replica is active at a time. Understanding Leases is important for debugging leader election failures -- if the holder identity in the Lease is stale, a previous leader crashed without releasing it and the new leader must wait for the lease to expire.
 
 **Code Example**:
 ```yaml
@@ -1624,7 +1624,7 @@ kind: Lease
 **Difficulty**: Intermediate
 
 **Strategy**:
-ttlSecondsAfterFinished. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Completed Jobs and CronJobs accumulate in the cluster over time, consuming etcd storage and cluttering `kubectl get jobs` output if not cleaned up automatically. Use `ttlSecondsAfterFinished` on Jobs to have Kubernetes garbage-collect them after completion, and configure `successfulJobsHistoryLimit` / `failedJobsHistoryLimit` on CronJobs to cap retained records. A common pitfall is not setting these limits on CronJobs that run every minute -- without cleanup, thousands of completed Job objects can slow down the API server and exhaust etcd space.
 
 **Code Example**:
 ```yaml
@@ -1641,7 +1641,7 @@ ttlSecondsAfterFinished: 100
 **Difficulty**: Intermediate
 
 **Strategy**:
-Run before termination. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The PreStop hook is a lifecycle handler that runs synchronously immediately before a container is terminated, giving it time to gracefully shut down (finish in-flight requests, close database connections). It runs before the SIGTERM signal and the grace period countdown, so its execution time counts against the `terminationGracePeriodSeconds`. A best practice is to combine a PreStop hook with an application SIGTERM handler, and avoid long-running operations in the hook -- if the combined shutdown exceeds the grace period, the container receives SIGKILL.
 
 **Code Example**:
 ```yaml
@@ -1660,7 +1660,7 @@ lifecycle:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Run after start. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The PostStart hook runs immediately after a container is created, executing a command or HTTP call before the application starts serving traffic. Unlike init containers, PostStart runs concurrently with the container's main process, which means the hook can fail if the application is not yet ready to handle the request. A common pitfall is relying on PostStart for critical setup that must complete before the app starts -- use init containers for sequential pre-startup tasks instead, since PostStart provides no ordering guarantee relative to the main process.
 
 **Code Example**:
 ```yaml
@@ -1678,7 +1678,7 @@ lifecycle:
 **Difficulty**: Beginner
 
 **Strategy**:
-env or envFrom. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Kubernetes supports multiple methods for injecting environment variables into containers: static `value` fields, `valueFrom` (referencing ConfigMaps, Secrets, or Downward API fields), and `envFrom` (injecting all keys from a ConfigMap or Secret at once). This is the primary mechanism for decoupling configuration from container images, enabling the same image to run in dev, staging, and production with different settings. A common pitfall is using `envFrom` with large ConfigMaps that inject unnecessary variables -- prefer explicit `env` entries referencing specific keys for clarity and security.
 
 **Code Example**:
 ```yaml
@@ -1697,7 +1697,7 @@ env:
 **Difficulty**: Intermediate
 
 **Strategy**:
-Command = Entrypoint, Args = Cmd. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+In Kubernetes, `command` overrides the container's Docker ENTRYPOINT and `args` overrides the CMD, following the same convention as the OCI container specification. If you specify only `args`, the original ENTRYPOINT from the image runs with your custom arguments; if you specify only `command`, it runs with no arguments. A frequent source of confusion is that omitting both fields uses the image's default ENTRYPOINT and CMD -- but specifying either field completely overrides the corresponding image field, which can silently break containers that depend on their default startup behavior.
 
 **Code Example**:
 ```yaml
@@ -1715,7 +1715,7 @@ args: ["-c", "echo hi"]
 **Difficulty**: Beginner
 
 **Strategy**:
-Rollout restart. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl rollout restart` triggers a rolling restart of all Pods in a Deployment by updating the pod template annotation with a timestamp, causing the Deployment controller to recreate Pods one by one. This is the recommended way to restart without downtime -- it respects the Deployment's rolling update strategy (maxSurge, maxUnavailable). A common mistake is using `kubectl scale deployment --replicas=0` followed by scaling back up, which causes full downtime -- always prefer `rollout restart` for zero-downtime restarts.
 
 **Code Example**:
 ```yaml
@@ -1732,7 +1732,7 @@ kubectl rollout restart deploy/app
 **Difficulty**: Beginner
 
 **Strategy**:
-Rollout undo. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl rollout undo` rolls a Deployment back to its previous revision by default, or to a specific revision with `--to-revision=N`, leveraging the Deployment's revision history stored in ReplicaSets. This is your fastest recovery mechanism when a bad deploy causes errors -- it restores the previous pod template spec without needing to re-run CI/CD. A critical point: the revision history is limited by `revisionHistoryLimit` (default 10) -- older ReplicaSets are cleaned up, so if you need to roll back further than the retained history, you must apply the original manifest manually.
 
 **Code Example**:
 ```yaml
@@ -1749,7 +1749,7 @@ kubectl rollout undo deploy/app
 **Difficulty**: Beginner
 
 **Strategy**:
-Documentation in CLI. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`kubectl explain` is a built-in reference tool that shows the API schema for any Kubernetes resource field directly from the terminal, eliminating the need to search documentation online. You can drill into nested fields with dot notation (e.g., `kubectl explain pod.spec.containers.resources`) to discover available fields, types, and descriptions. This is especially useful during interviews or exams when you cannot look things up online -- mastering `kubectl explain` lets you self-document the API without leaving the CLI.
 
 **Code Example**:
 ```yaml
@@ -1766,7 +1766,7 @@ kubectl explain pod.spec
 **Difficulty**: Beginner
 
 **Strategy**:
-Print yaml without applying. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Dry-run mode (`--dry-run=client` or `--dry-run=server`) lets you validate or generate Kubernetes manifests without actually creating resources, making it invaluable for testing and scaffolding. Client-side dry-run validates locally and is great for generating YAML templates (combine with `-o yaml`), while server-side dry-run sends the request to the API server for full validation including admission webhooks. A practical pattern is using `--dry-run=client -o yaml` to scaffold a manifest quickly, then edit it before applying -- faster than writing YAML from scratch.
 
 **Code Example**:
 ```yaml
@@ -1783,7 +1783,7 @@ kubectl create deploy x --dry-run=client -o yaml
 **Difficulty**: Beginner
 
 **Strategy**:
-YAML file defining resources. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A manifest is a YAML (or JSON) file that declaratively describes the desired state of a Kubernetes resource -- specifying the API version, kind, metadata, and spec that tell Kubernetes what to create and configure. Manifests are the foundation of GitOps and infrastructure-as-code practices because they can be version-controlled, reviewed, and applied repeatedly with `kubectl apply`. A best practice is to keep manifests in version control rather than using imperative commands, so your cluster state is always reproducible and auditable.
 
 **Code Example**:
 ```yaml
@@ -1800,7 +1800,7 @@ YAML file defining resources. This concept is fundamental in this domain and und
 **Difficulty**: Intermediate
 
 **Strategy**:
-kubeval or kubectl --dry-run. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Validating Kubernetes YAML before applying catches errors early -- use `kubectl apply --dry-run=client` for basic schema validation or specialized tools like `kubeval`, `kubeconform`, or `kubectl-neat` for deeper checks. Server-side dry-run (`--dry-run=server`) goes further by running admission webhooks and RBAC checks, providing the most realistic validation without creating resources. Integrating validation into CI/CD pipelines prevents invalid manifests from reaching production -- a best practice is to validate on every pull request alongside linting tools like `yamllint`.
 
 **Code Example**:
 ```yaml
@@ -1817,7 +1817,7 @@ kubeval pod.yaml
 **Difficulty**: Advanced
 
 **Strategy**:
-Policy engine (Gatekeeper). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+OPA (Open Policy Agent) is a general-purpose policy engine that, when integrated with Kubernetes via Gatekeeper, enforces organizational policies on resource creation (e.g., "all Pods must have resource limits", "no containers can run as root"). It uses the Rego language to write expressive policies that go beyond what RBAC or Pod Security Admission can enforce. A common interview topic is the difference between OPA/Gatekeeper (validating/mutating admission webhooks) and native Kubernetes controls -- Gatekeeper can enforce cross-resource constraints like "no two Ingresses can share the same host".
 
 **Code Example**:
 ```yaml
@@ -1834,7 +1834,7 @@ Policy engine (Gatekeeper). This concept is fundamental in this domain and under
 **Difficulty**: Beginner
 
 **Strategy**:
-EFK/ELK stack or Loki. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Kubernetes logs are written to stdout/stderr on each node and are ephemeral (lost when a Pod is deleted or a node crashes), so a centralized logging stack is essential for production. The standard approach uses Fluentd or Fluent Bit to collect container logs, sends them to Elasticsearch or Loki for storage, and uses Kibana or Grafana for visualization (the EFK/PLG stack). A best practice is to never rely on `kubectl logs` for production monitoring -- it only shows a single container's output with no aggregation, search, or alerting capabilities.
 
 **Code Example**:
 ```yaml
@@ -1851,7 +1851,7 @@ EFK/ELK stack or Loki. This concept is fundamental in this domain and understand
 **Difficulty**: Intermediate
 
 **Strategy**:
-Metrics collection. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Prometheus is the de facto standard monitoring system for Kubernetes, scraping time-series metrics from instrumented applications and kubelet cAdvisor endpoints via HTTP pull at configurable intervals. It uses PromQL for powerful queries and supports alerting rules that trigger notifications via Alertmanager. A key architectural point for interviews: Prometheus uses a pull model (it scrapes targets), not push -- this means Services must expose a `/metrics` endpoint, and Prometheus uses service discovery to automatically find scrape targets in Kubernetes.
 
 **Code Example**:
 ```yaml
@@ -1868,7 +1868,7 @@ Metrics collection. This concept is fundamental in this domain and understanding
 **Difficulty**: Intermediate
 
 **Strategy**:
-Visualization. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Grafana is a visualization and dashboarding platform that connects to data sources like Prometheus, Loki, and Elasticsearch to create rich, interactive dashboards for Kubernetes cluster and application monitoring. It supports templating variables (e.g., switching between namespaces or clusters), alerting rules, and shared dashboards that teams can import from Grafana's public library. In interviews, emphasize that Grafana is the presentation layer -- it does not collect or store metrics itself, so it must be paired with a time-series database like Prometheus to be useful.
 
 **Code Example**:
 ```yaml

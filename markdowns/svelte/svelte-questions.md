@@ -138,7 +138,7 @@ onMount(() => { console.log('Mounted'); });
 **Difficulty**: Beginner
 
 **Strategy**:
-Use the `$:` label. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Understanding reactive declarations is fundamental to Svelte because they define computed values that automatically update when their dependencies change. The `$:` syntax tells the compiler to track referenced variables and re-run the statement whenever they change, replacing the need for manual dependency arrays found in other frameworks. A common pitfall is trying to use reactive declarations for side effects without understanding that they execute synchronously during the component update cycle.
 
 **Code Example**:
 ```javascript
@@ -172,7 +172,7 @@ export const count = writable(0);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `createEventDispatcher`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Custom events are the primary mechanism for child-to-parent communication in Svelte, making this essential for building composable component hierarchies. The `createEventDispatcher` must be called at the top level of the component script during initialization, not inside functions or conditionals. A common mistake is forgetting that dispatched events do not bubble through intermediate components, so each layer must explicitly forward them.
 
 **Code Example**:
 ```javascript
@@ -189,7 +189,7 @@ const dispatch = createEventDispatcher(); dispatch('msg', 'hello');
 **Difficulty**: Beginner
 
 **Strategy**:
-Use the `<slot>` element. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Slots are Svelte's composition mechanism, allowing parent components to inject content into child components, which is critical for building reusable UI wrappers and layouts. Default slot content is rendered only when no content is provided by the parent. A common pitfall is expecting slot content to have access to the child component's variables, but slots are scoped to the parent where they are defined.
 
 **Code Example**:
 ```javascript
@@ -206,7 +206,7 @@ Use the `<slot>` element. This concept is fundamental in this domain and underst
 **Difficulty**: Intermediate
 
 **Strategy**:
-Provide a unique key in parentheses. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Keyed each blocks are important for performance when rendering dynamic lists because they let Svelte reconcile DOM elements by identity rather than by index. Without a key, Svelte reuses DOM nodes in place, which can cause unintended state retention (like input values persisting when list items are reordered). Always use a stable, unique identifier as the key rather than the array index to avoid subtle bugs.
 
 **Code Example**:
 ```javascript
@@ -223,7 +223,7 @@ Provide a unique key in parentheses. This concept is fundamental in this domain 
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `bind:value`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Two-way binding on form inputs is one of Svelte's most convenient features, drastically reducing boilerplate compared to manual event handlers. The `bind:value` directive keeps the variable and input in sync automatically, and Svelte supports binding to different properties like `bind:checked` for checkboxes and `bind:files` for file inputs. A common pitfall is using `bind:value` with a constant or non-reactive variable, which silently fails to update.
 
 **Code Example**:
 ```javascript
@@ -257,7 +257,7 @@ function tooltip(node, params) { ... } <div use:tooltip>
 **Difficulty**: Intermediate
 
 **Strategy**:
-Import from `svelte/transition`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Transitions are a key differentiator for Svelte because they are built into the framework with first-class support, making animated UIs far easier to implement than in most alternatives. Svelte provides `transition:`, `in:`, and `out:` directives that integrate with element lifecycle, and transitions only play when elements are actually added or removed from the DOM. A common mistake is applying transitions inside `{#each}` blocks without adding a unique key, which causes animations to target wrong elements.
 
 **Code Example**:
 ```javascript
@@ -308,7 +308,7 @@ Svelte is a compiler that converts components to imperative code at build time. 
 **Difficulty**: Intermediate
 
 **Strategy**:
-To insert elements into the document `<head>`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `<svelte:head>` element is essential for SEO and meta-tag management because it allows components to inject content into the document's `<head>` from anywhere in the component tree. During SSR, Svelte renders this content server-side so search engines and social media crawlers can read it. A best practice is to use it in layout or page-level components rather than deeply nested ones, to keep head management predictable and avoid conflicts.
 
 **Code Example**:
 ```javascript
@@ -376,7 +376,7 @@ To render a component dynamically based on a variable.
 **Difficulty**: Beginner
 
 **Strategy**:
-Add a second argument to the `#each` block. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Looping with an index is a basic but frequently needed skill when rendering lists where position matters, such as numbered items or alternating row styles. The second argument in the `{#each}` block provides the index, and a third argument is available for the key expression. A common pitfall is relying on the index as a key in dynamic lists where items can be added, removed, or reordered, which leads to incorrect DOM reuse.
 
 **Code Example**:
 ```javascript
@@ -444,7 +444,7 @@ The official application framework for Svelte, handling routing, SSR, SSG, etc.
 **Difficulty**: Intermediate
 
 **Strategy**:
-To handle promises directly in the template. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `await` block is a powerful Svelte feature that lets you handle promises declaratively in your template, eliminating the need for manual loading-state management in many cases. It provides three branches -- pending, resolved, and rejected -- giving you a clean way to show loading spinners, data, or error messages. A common pitfall is reassigning the promise variable on every render instead of keeping a stable reference, which causes the loading state to re-trigger unnecessarily.
 
 **Code Example**:
 ```javascript
@@ -461,7 +461,7 @@ To handle promises directly in the template. This concept is fundamental in this
 **Difficulty**: Advanced
 
 **Strategy**:
-Any object with a `subscribe` method is a store. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Custom stores demonstrate advanced Svelte patterns by wrapping writable store internals behind a tailored API, which is key for encapsulating business logic in real applications. Any object with a `subscribe` method satisfies the store contract, so you can expose only the methods you want (like `increment`, `reset`) while hiding direct mutation. A best practice is to keep custom stores focused on a single domain and export them from dedicated modules for testability.
 
 **Code Example**:
 ```javascript
@@ -495,7 +495,7 @@ Styles in `<style>` blocks are scoped to the component by default.
 **Difficulty**: Beginner
 
 **Strategy**:
-To render raw HTML strings. Be careful of XSS. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `{@html}` tag is essential when you need to render raw HTML strings in your template, such as rich text from a CMS or Markdown output. Unlike normal interpolation, it bypasses Svelte's automatic HTML escaping, so you must sanitize any user-supplied content before passing it to `{@html}` to prevent XSS attacks. A common mistake is using it for simple text formatting when standard template syntax would be safer and more idiomatic.
 
 **Code Example**:
 ```javascript
@@ -529,7 +529,7 @@ Modifiers change event behavior. `once` removes the handler after first trigger.
 **Difficulty**: Intermediate
 
 **Strategy**:
-By adding `on:eventname` without a handler. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Event forwarding is crucial for building wrapper components that transparently pass DOM events up to parent consumers without manual dispatching. Adding an `on:event` directive without a handler (e.g., `on:click`) on a DOM element forwards the event to the parent. A common pitfall is assuming custom events forward automatically -- only native DOM events forward with this pattern, while custom dispatched events must be explicitly forwarded via `createEventDispatcher`.
 
 **Code Example**:
 ```javascript
@@ -546,7 +546,7 @@ By adding `on:eventname` without a handler. This concept is fundamental in this 
 **Difficulty**: Beginner
 
 **Strategy**:
-Conditionally toggle classes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `class:` directive is Svelte's concise way to conditionally apply CSS classes, making it cleaner than string interpolation or ternary expressions in the `class` attribute. It adds the class when the expression is truthy and removes it when falsy, and you can use shorthand `class:name` when the variable name matches the class name. A best practice is to prefer `class:` over dynamic string concatenation because it integrates better with Svelte's scoped style analysis.
 
 **Code Example**:
 ```javascript
@@ -563,7 +563,7 @@ Conditionally toggle classes. This concept is fundamental in this domain and und
 **Difficulty**: Intermediate
 
 **Strategy**:
-To add event listeners to the window object. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `<svelte:window>` element is important for declaratively binding to window events like `resize`, `scroll`, or `keydown` without manual `addEventListener`/`removeEventListener` cleanup. You can also bind window properties such as `bind:scrollY` or `bind:innerWidth` for reactive access. A common mistake is placing `<svelte:window>` inside conditional blocks, which can cause unexpected event listener lifecycle issues.
 
 **Code Example**:
 ```javascript
@@ -580,7 +580,7 @@ To add event listeners to the window object. This concept is fundamental in this
 **Difficulty**: Intermediate
 
 **Strategy**:
-To add listeners to document.body. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `<svelte:body>` element lets you attach event listeners to the document body declaratively, which is useful for global interactions like mouse tracking or escape-key handling that should work regardless of which element is focused. Like `<svelte:window>`, it automatically handles listener cleanup when the component is destroyed. A best practice is to use it sparingly and prefer `<svelte:window>` for most global events, reserving `<svelte:body>` for events that specifically need body-level handling.
 
 **Code Example**:
 ```javascript
@@ -597,7 +597,7 @@ To add listeners to document.body. This concept is fundamental in this domain an
 **Difficulty**: Intermediate
 
 **Strategy**:
-To inject elements into the head (title, meta). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`<svelte:head>` allows components to inject elements into the document `<head>`, which is critical for per-page SEO tags, Open Graph metadata, and dynamically loading external stylesheets or scripts. During server-side rendering, these elements are merged into the initial HTML response, ensuring crawlers see them. A common pitfall is inserting duplicate tags (like multiple `<title>` elements) when multiple components each add their own head content, so coordinate ownership carefully.
 
 **Code Example**:
 ```javascript
@@ -633,7 +633,7 @@ Scripts that run once per module, not per instance.
 **Difficulty**: Beginner
 
 **Strategy**:
-Put content inside the `<slot>` tag. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Fallback content in slots provides sensible defaults for reusable components when the consumer does not supply custom content. Any markup placed inside a `<slot>` tag is rendered only when the parent omits that slot, making components work out of the box while remaining extensible. A common pitfall is assuming fallback content is always rendered alongside consumer content, but it is completely replaced when content is provided.
 
 **Code Example**:
 ```javascript
@@ -667,7 +667,7 @@ console.log($$props);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Props that are not explicitly exported. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`$$restProps` captures all props passed to a component that are not explicitly declared with `export let`, making it invaluable for building thin wrapper components that forward unknown attributes to an underlying element. It differs from `$$props` by excluding declared props, preventing accidental attribute duplication. A best practice is to use `$$restProps` with `{...$$restProps}` spread on the target element rather than manually forwarding individual attributes.
 
 **Code Example**:
 ```javascript
@@ -684,7 +684,7 @@ Props that are not explicitly exported. This concept is fundamental in this doma
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `{@debug variable}`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Debugging reactivity is a common challenge in Svelte interviews because reactive bugs are often caused by subtle assignment issues like mutating arrays or objects in place. The `{@debug}` tag pauses execution and logs specified variables whenever they change, acting as a reactive-aware breakpoint. A common pitfall is expecting reactivity to trigger on property mutations like `obj.key = newVal` without reassigning the variable itself; you must use `obj = obj` or spread patterns to notify Svelte of the change.
 
 **Code Example**:
 ```javascript
@@ -701,7 +701,7 @@ Use `{@debug variable}`. This concept is fundamental in this domain and understa
 **Difficulty**: Intermediate
 
 **Strategy**:
-Re-creates the component when the key changes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `{#key}` block forces Svelte to destroy and recreate its contents whenever the key expression changes, which is useful for resetting component state or re-triggering transitions. Unlike keyed `{#each}` blocks which reconcile list items, `{#key}` destroys the entire subtree and rebuilds it from scratch. A common use case is resetting a form or animation when an ID changes, but overusing it can hurt performance since it bypasses Svelte's efficient DOM diffing.
 
 **Code Example**:
 ```javascript
@@ -718,7 +718,7 @@ Re-creates the component when the key changes. This concept is fundamental in th
 **Difficulty**: Beginner
 
 **Strategy**:
-Use the `export` keyword. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Props are the foundational mechanism for passing data into child components, and understanding them is essential for any Svelte interview. Props are declared using `export let` inside the component's script block, and default values can be provided directly in the declaration. A common pitfall is forgetting that prop changes from the parent trigger reactive updates in the child, so you should avoid simultaneously mutating a prop locally and from the parent.
 
 **Code Example**:
 ```javascript
@@ -735,7 +735,7 @@ export let name = 'World';
 **Difficulty**: Intermediate
 
 **Strategy**:
-Creates a function to dispatch custom events. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`createEventDispatcher` is the standard way for child components to communicate upward to parents, which is critical to understand since Svelte uses one-way data flow. The dispatcher must be instantiated at component initialization time (top level of the script), not lazily inside functions. Note that in Svelte 5, this pattern is replaced by callback props, so mentioning both approaches in an interview demonstrates up-to-date knowledge.
 
 **Code Example**:
 ```javascript
@@ -752,7 +752,7 @@ const dispatch = createEventDispatcher();
 **Difficulty**: Advanced
 
 **Strategy**:
-Attaches a lifecycle to an element. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Actions are a powerful but underutilized Svelte feature that lets you directly interact with DOM elements when they are created, making them ideal for integrating third-party libraries, tooltips, drag-and-drop, and click-outside detection. The action function receives the DOM node and optional parameters, and can return an update and destroy lifecycle. A best practice is to keep actions focused on a single concern and make them reusable across components by defining them in separate utility files.
 
 **Code Example**:
 ```javascript
@@ -769,7 +769,7 @@ Attaches a lifecycle to an element. This concept is fundamental in this domain a
 **Difficulty**: Advanced
 
 **Strategy**:
-An object with `update` and `destroy` methods. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Understanding action return values is essential for writing production-quality actions that properly clean up after themselves and respond to parameter changes. The returned object can include `destroy` (called when the element is removed), `update` (called when parameters change), and an `abort` method for intro transitions. A common pitfall is forgetting to return a `destroy` function, which leads to memory leaks from dangling event listeners or intervals.
 
 **Code Example**:
 ```javascript
@@ -786,7 +786,7 @@ return { destroy() { ... } }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `bind:this` to get a reference. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `bind:this` directive gives you a direct reference to a DOM element or component instance, which is necessary when you need to call imperative methods like `focus()`, `scrollIntoView()`, or measure element dimensions. The bound variable is `undefined` until the element mounts, so you must guard against accessing it before `onMount` fires. A best practice is to prefer declarative Svelte patterns over imperative `bind:this` whenever possible.
 
 **Code Example**:
 ```javascript
@@ -803,7 +803,7 @@ Use `bind:this` to get a reference. This concept is fundamental in this domain a
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `bind:propName`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Binding component props with `bind:` on a child component enables two-way data flow, which is essential for form-like patterns where child components manage their own state but the parent needs to stay in sync. This works by allowing the child to write back to the parent's variable through its exported prop. A common pitfall is using `bind:` on components that don't expect it, since the child must explicitly declare the prop with `export let` for binding to work.
 
 **Code Example**:
 ```javascript
@@ -820,7 +820,7 @@ Use `bind:propName`. This concept is fundamental in this domain and understandin
 **Difficulty**: Advanced
 
 **Strategy**:
-Any object with a `subscribe` method. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The store contract is the foundation of Svelte's reactivity system for cross-component state, and understanding it unlocks the ability to create any custom store implementation. An object qualifies as a store if it has a `subscribe` method that returns an `unsubscribe` function, and Svelte's `$` prefix auto-subscription relies on this contract alone. A common pitfall is forgetting to return the unsubscribe function from `subscribe`, which causes memory leaks in long-lived components.
 
 **Code Example**:
 ```javascript
@@ -837,7 +837,7 @@ const store = { subscribe: (cb) => { ... } }
 **Difficulty**: Beginner
 
 **Strategy**:
-Prefix with `$`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Auto-subscription with the `$` prefix is Svelte's most ergonomic store feature, eliminating the need for manual `subscribe`/`unsubscribe` lifecycle management. The compiler automatically subscribes when the component mounts and unsubscribes when it destroys, and you can both read and write to `$store` in reactive contexts. A common mistake is trying to use the `$` prefix in non-component files like plain `.js` utilities, where it is not compiled and will throw an error.
 
 **Code Example**:
 ```javascript
@@ -871,7 +871,7 @@ const value = get(store);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `readonly` from `svelte/store`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Making stores read-only is important for enforcing unidirectional data flow and protecting shared state from unintended mutations by consumer components. The `readonly` utility wraps a writable store and exposes only the `subscribe` method, silently ignoring any `set` or `update` calls. A best practice is to export writable stores as `readonly` from modules when consumers should only read the state, while keeping the writable reference private for authorized mutations.
 
 **Code Example**:
 ```javascript
@@ -888,7 +888,7 @@ const read = readonly(write);
 **Difficulty**: Intermediate
 
 **Strategy**:
-A store based on other stores. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Derived stores are the Svelte equivalent of computed properties at the application level, letting you compute new state from one or more source stores without duplicating logic. They automatically recalculate when any dependency changes and support both synchronous and asynchronous derivation functions. A common pitfall is performing expensive computations inside the derivation without using the `get()` function or caching, which can degrade performance in frequently updated stores.
 
 **Code Example**:
 ```javascript
@@ -905,7 +905,7 @@ const double = derived(count, $c => $c * 2);
 **Difficulty**: Beginner
 
 **Strategy**:
-Set inline styles conditionally. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `style:` directive provides a clean way to set inline styles reactively, avoiding the string concatenation mess of the traditional `style` attribute. Svelte also supports shorthand like `style:color` when the CSS property name matches the variable name. A best practice is to use `style:` for dynamic values that change at runtime (like positions or dimensions) while keeping static styles in the `<style>` block for better scoping and maintainability.
 
 **Code Example**:
 ```javascript
@@ -956,7 +956,7 @@ if (browser) { ... }
 **Difficulty**: Advanced
 
 **Strategy**:
-Attaching interactivity to server-rendered HTML. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Hydration is a critical concept in SSR applications because it bridges server-rendered static HTML with interactive client-side Svelte components, and interviewers often test this to gauge SSR understanding. During hydration, Svelte attaches event listeners and reactive state to the existing DOM without destroying and recreating it, which preserves the fast initial paint from SSR. A common pitfall is generating mismatched HTML between server and client, which forces Svelte to discard the server-rendered DOM and re-render from scratch.
 
 **Code Example**:
 ```javascript
@@ -973,7 +973,7 @@ Attaching interactivity to server-rendered HTML. This concept is fundamental in 
 **Difficulty**: Advanced
 
 **Strategy**:
-Return a config object (duration, css, tick). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Custom transitions let you create bespoke animation effects beyond the built-in `fade`, `slide`, and `fly`, which is valuable for branded or complex UI motion design. A transition function receives the DOM node and a parameters object, and must return a CSS or JavaScript animation object with `duration`, `delay`, and easing properties. A common pitfall is forgetting to handle the `direction` parameter (`in` or `out`) when the transition should behave differently for enter versus exit.
 
 **Code Example**:
 ```javascript
@@ -1007,7 +1007,7 @@ const [send, receive] = crossfade(...)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Animates reordering of list items. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `animate:flip` directive creates smooth position-change animations when list items are reordered, which significantly improves user experience in sortable lists and filtered views. It works by remembering an element's position before the update and animating it to the new position using the FLIP (First, Last, Invert, Play) technique. A common pitfall is using `animate:flip` without a keyed `{#each}` block, which causes the animation to target wrong elements.
 
 **Code Example**:
 ```javascript
@@ -1058,7 +1058,7 @@ Use dynamic imports in `await` block or SvelteKit's features.
 **Difficulty**: Intermediate
 
 **Strategy**:
-`bind:group` is for radio/checkbox groups. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Understanding these two binding mechanisms is important for building forms correctly, as they serve different purposes for different input types. `bind:value` binds the input's value to a variable for text and select inputs, while `bind:group` binds multiple radio buttons or checkboxes to a single shared variable, automatically managing checked state. A common pitfall is using `bind:value` on radio buttons instead of `bind:group`, which prevents proper mutual exclusion behavior.
 
 **Code Example**:
 ```javascript
@@ -1075,7 +1075,7 @@ Use dynamic imports in `await` block or SvelteKit's features.
 **Difficulty**: Beginner
 
 **Strategy**:
-Standard class attribute or `class:` directive. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Managing multiple conditional classes is a day-to-day task in component development, and Svelte offers several approaches worth comparing in interviews. You can combine static class strings with ternary expressions, use multiple `class:` directives, or pass an object or array to the `class` attribute. A best practice is to prefer the `class:` directive for conditional classes because it produces cleaner template code and works seamlessly with Svelte's scoped style system.
 
 **Code Example**:
 ```javascript
@@ -1092,7 +1092,7 @@ class="btn {active ? 'active' : ''}"
 **Difficulty**: Intermediate
 
 **Strategy**:
-Comments to suppress compiler warnings. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `svelte-ignore` comment directive lets you suppress specific compiler warnings, most commonly accessibility warnings that are false positives in your specific context. Svelte includes strong a11y warnings by default (like requiring alt attributes on images and key events on clickable elements), which is a great feature but sometimes needs selective suppression. A best practice is to always add a comment explaining why the ignore is justified, rather than silencing warnings out of convenience.
 
 **Code Example**:
 ```javascript
@@ -1109,7 +1109,7 @@ Comments to suppress compiler warnings. This concept is fundamental in this doma
 **Difficulty**: Advanced
 
 **Strategy**:
-Use `bind:this` on the component tag. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Accessing a component instance via `bind:this` is necessary when you need to call methods exposed by the child component imperatively from the parent. For this to work, the child must export functions from its script block so they are accessible on the instance object. A common pitfall is trying to access the instance before the component mounts (the variable will be `undefined`), so always guard instance method calls inside `onMount` or after lifecycle confirmation.
 
 **Code Example**:
 ```javascript
@@ -1126,7 +1126,7 @@ Use `bind:this` on the component tag. This concept is fundamental in this domain
 **Difficulty**: Intermediate
 
 **Strategy**:
-Runs before the DOM updates. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`beforeUpdate` is a lifecycle function that runs before the DOM is updated after a state change, useful for measuring or saving the previous DOM state. It fires on initial render as well, unlike `afterUpdate`, so you need to handle the first-call case explicitly. A common pitfall is modifying reactive state inside `beforeUpdate`, which can create infinite update loops since state changes trigger another `beforeUpdate` call.
 
 **Code Example**:
 ```javascript
@@ -1143,7 +1143,7 @@ beforeUpdate(() => { ... })
 **Difficulty**: Intermediate
 
 **Strategy**:
-Runs after the DOM updates. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`afterUpdate` runs after the DOM has been updated following a state change, making it the right place to perform DOM measurements, third-party library synchronization, or scroll-position adjustments. Unlike `beforeUpdate`, it does not fire on the initial render, only on subsequent updates. A common pitfall is calling `afterUpdate` to modify state that triggers another update, creating an infinite loop that degrades performance.
 
 **Code Example**:
 ```javascript
@@ -1177,7 +1177,7 @@ function createCount() { ... }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Physics-based store for animations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`spring` provides physics-based animation that feels natural because it uses stiffness and damping parameters instead of fixed durations, making it ideal for interactive elements like drag handles and toggles. Unlike `tweened`, spring animations naturally handle interruptions gracefully -- if the target value changes mid-animation, the spring adjusts smoothly without jarring resets. A common pitfall is setting the stiffness too high, which causes rapid oscillations that look buggy rather than smooth.
 
 **Code Example**:
 ```javascript
@@ -1194,7 +1194,7 @@ const coords = spring({ x: 0, y: 0 });
 **Difficulty**: Intermediate
 
 **Strategy**:
-Interpolation-based store. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`tweened` provides time-based interpolation between values using easing functions, which is ideal for progress bars, sliders, and other UI elements that need predictable duration-based animation. It interpolates between the current and target value over a specified duration whenever the store value changes. A common pitfall is rapid successive updates to the same tweened store, which restarts the animation each time and can appear stuttery; use `spring` instead for frequently changing interactive values.
 
 **Code Example**:
 ```javascript
@@ -1211,7 +1211,7 @@ const progress = tweened(0);
 **Difficulty**: Intermediate
 
 **Strategy**:
-Recursively render the current component. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`svelte:self` allows a component to render instances of itself recursively, which is essential for tree views, nested menus, comment threads, and other recursive data structures. Without it, you would need to dynamically import the component or use `<svelte:component>` with a reference to itself. A common pitfall is forgetting to provide a base case in your template logic, which causes infinite recursion and crashes the browser.
 
 **Code Example**:
 ```javascript
@@ -1228,7 +1228,7 @@ Recursively render the current component. This concept is fundamental in this do
 **Difficulty**: Beginner
 
 **Strategy**:
-File-based routing directory. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `src/routes` folder is the backbone of SvelteKit's file-based routing system, where the directory structure directly maps to your application's URL structure. Each route directory can contain page components, server logic, layout wrappers, and error handlers, making it intuitive to organize features by URL. A common pitfall is mixing up page files and layout files or placing non-route files directly in the routes directory, which can accidentally create unwanted routes.
 
 **Code Example**:
 ```javascript
@@ -1245,7 +1245,7 @@ File-based routing directory. This concept is fundamental in this domain and und
 **Difficulty**: Beginner
 
 **Strategy**:
-Defines the UI for a route. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`+page.svelte` is the core building block of SvelteKit routing, representing the UI component rendered when a user visits a specific route. It receives data from its corresponding `+page.js` or `+page.server.js` load function through the `data` prop, keeping data fetching and presentation cleanly separated. A common mistake is putting server-only logic (database calls, private env vars) directly in `+page.svelte` instead of the server load file.
 
 **Code Example**:
 ```javascript
@@ -1262,7 +1262,7 @@ Defines the UI for a route. This concept is fundamental in this domain and under
 **Difficulty**: Intermediate
 
 **Strategy**:
-Server-side load function for data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`+page.server.js` is critical for SvelteKit's server-side data loading, as its `load` function runs exclusively on the server and has access to databases, private environment variables, and other server-only resources. The returned data is serialized and passed to the page component as props, and during client-side navigation it is fetched via a network call. A common pitfall is returning non-serializable values (like functions or class instances) from load, which causes runtime errors during dehydration.
 
 **Code Example**:
 ```javascript
@@ -1279,7 +1279,7 @@ export function load() { ... }
 **Difficulty**: Beginner
 
 **Strategy**:
-Defines a layout wrapper for pages. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Layout components wrap all pages within their route subtree, making them essential for shared UI elements like navigation bars, sidebars, and footers that persist across page navigations. The `<slot/>` tag in a layout renders the matched child page or nested layout, and layouts can be nested by placing `+layout.svelte` files at different route depths. A common pitfall is putting one-time initialization logic in layouts that rerun on every child navigation.
 
 **Code Example**:
 ```javascript
@@ -1296,7 +1296,7 @@ Defines a layout wrapper for pages. This concept is fundamental in this domain a
 **Difficulty**: Intermediate
 
 **Strategy**:
-Export `actions` in `+page.server.js`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Form actions are SvelteKit's built-in solution for handling form submissions on the server, providing a progressive-enhancement-friendly alternative to custom API endpoints. Named actions in `+page.server.js` receive form data, validate it, and return success or failure results that the page component can react to. A best practice is always validating input on the server side even if you have client-side validation, because client validation can be bypassed.
 
 **Code Example**:
 ```javascript
@@ -1313,7 +1313,7 @@ export const actions = { default: async ({ request }) => { ... } }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Progressive enhancement for forms. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `use:enhance` directive progressively enhances standard HTML forms to use SvelteKit's client-side navigation instead of full page reloads, while maintaining full functionality without JavaScript. It intercepts the form submission, sends it via `fetch`, and handles the response without a page reload, giving users a smoother experience. A common pitfall is adding custom submit handlers with `use:enhance` without calling `form.submit()` or managing the `cancel()` method, which breaks the default enhanced behavior.
 
 **Code Example**:
 ```javascript
@@ -1330,7 +1330,7 @@ Progressive enhancement for forms. This concept is fundamental in this domain an
 **Difficulty**: Intermediate
 
 **Strategy**:
-Import from `$env/static/private` or `public`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Environment variables in SvelteKit are split into public (`$env/static/public`) and private (`$env/static/private`) modules, which is critical for security since private variables are never exposed to the client bundle. Static imports are validated at build time and replaced with actual values, while dynamic imports from `$env/dynamic/*` read values at request time. A common pitfall is accidentally importing a private env var in a client-side file, which SvelteKit will catch and throw an error for.
 
 **Code Example**:
 ```javascript
@@ -1364,7 +1364,7 @@ import adapter from '@sveltejs/adapter-auto';
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `+error.svelte` or throw `error()` helper. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Error handling in SvelteKit uses a layered approach with `+error.svelte` pages at each route level, `handleError` hooks for unexpected errors, and the `error()` function for expected HTTP errors. The `error()` function throws a properly formatted HTTP error that the nearest error boundary catches and displays. A best practice is to create custom error pages for common status codes and to use `handleError` in `hooks.server.js` for logging unexpected errors to monitoring services.
 
 **Code Example**:
 ```javascript
@@ -1381,7 +1381,7 @@ throw error(404, 'Not found');
 **Difficulty**: Advanced
 
 **Strategy**:
-Global server-side hooks (handle, fetch). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`hooks.server.js` is the central interception layer in SvelteKit that runs on every server request, making it essential for authentication, logging, CORS handling, and request transformation. The `handle` function wraps every request and can modify the request before it reaches your route and the response before it reaches the client. A common pitfall is making `handle` async operations expensive (like unnecessary database calls on every request), which adds latency to every page load.
 
 **Code Example**:
 ```javascript
@@ -1398,7 +1398,7 @@ export async function handle({ event, resolve }) { ... }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `<a data-sveltekit-preload-data>`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Prefetching dramatically improves perceived performance by loading route data and code before the user clicks a link, making navigation feel instant. The `data-sveltekit-preload-data` attribute on anchor tags triggers prefetching on hover by default, and you can configure it globally or per-link. A common pitfall is over-prefetching on pages with many links, which can saturate the user's bandwidth and slow down the current page.
 
 **Code Example**:
 ```javascript
@@ -1432,7 +1432,7 @@ Use `<a data-sveltekit-preload-data>`. This concept is fundamental in this domai
 **Difficulty**: Beginner
 
 **Strategy**:
-Use `:global(...)` or a global stylesheet. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Understanding global versus scoped styles is essential because Svelte scopes all `<style>` block CSS to the component by default, but real applications need some global styles for resets, fonts, and theme variables. The `:global()` modifier lets you break out of scoping for specific selectors, and you can also place global CSS in a top-level stylesheet imported in your root layout. A best practice is to minimize global styles and use CSS custom properties for theming to keep component encapsulation intact.
 
 **Code Example**:
 ```javascript
@@ -1449,7 +1449,7 @@ Use `:global(...)` or a global stylesheet. This concept is fundamental in this d
 **Difficulty**: Beginner
 
 **Strategy**:
-Compiler warnings for A11y issues. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Svelte's built-in accessibility warnings are a standout feature that catches common a11y mistakes at compile time, such as missing `alt` attributes, non-semantic clickable elements, and improper ARIA usage. These warnings help developers build inclusive applications by default without needing external linting tools. A best practice is to fix the underlying issue rather than silencing warnings with `svelte-ignore`, unless there is a well-documented reason for the exception.
 
 **Code Example**:
 ```javascript
@@ -1466,7 +1466,7 @@ Compiler warnings for A11y issues. This concept is fundamental in this domain an
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use keyed each blocks. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Optimizing loops is crucial for rendering large lists efficiently in Svelte, and interviewers use this to assess whether you understand reconciliation performance. Key techniques include using keyed `{#each}` blocks with unique identifiers, avoiding expensive computations inside the loop body, and leveraging the `immutable` compiler option when list data never mutates in place. A common pitfall is creating new object references on every render for items that haven't changed, which forces unnecessary DOM updates.
 
 **Code Example**:
 ```javascript
@@ -1483,7 +1483,7 @@ Use keyed each blocks. This concept is fundamental in this domain and understand
 **Difficulty**: Advanced
 
 **Strategy**:
-To wait for DOM updates after state change. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`tick()` is essential in testing because Svelte batches DOM updates asynchronously, so assertions immediately after state changes may fail if the DOM hasn't updated yet. Calling `await tick()` flushes all pending updates and ensures the DOM reflects the current state before you make assertions. A common pitfall is using arbitrary `setTimeout` delays instead of `tick()`, which makes tests flaky and slow.
 
 **Code Example**:
 ```javascript
@@ -1500,7 +1500,7 @@ await tick(); expect(...)
 **Difficulty**: Intermediate
 
 **Strategy**:
-Using `@testing-library/svelte`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Testing components effectively is crucial for maintaining confidence in your UI code, and Svelte's compiled output requires specific tooling like `@testing-library/svelte` or `svelte-testing-library`. These tools encourage testing user-visible behavior (clicking, typing, reading text) rather than implementation details like internal state variables. A best practice is to use `vitest` as the test runner since it shares the same Vite configuration as your SvelteKit project, eliminating configuration drift.
 
 **Code Example**:
 ```javascript
@@ -1517,7 +1517,7 @@ render(Component);
 **Difficulty**: Beginner
 
 **Strategy**:
-The build tool and dev server. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Vite is the build tool that powers SvelteKit, replacing older bundlers like Rollup and Webpack with dramatically faster development experience through native ES modules and hot module replacement. In development, Vite serves modules on demand without bundling, giving near-instant startup, and in production it uses Rollup for optimized output. A common pitfall is assuming all Vite plugins work with SvelteKit out of the box, since some require specific Svelte-aware configuration.
 
 **Code Example**:
 ```javascript
@@ -1534,7 +1534,7 @@ The build tool and dev server. This concept is fundamental in this domain and un
 **Difficulty**: Beginner
 
 **Strategy**:
-Build via adapter and deploy output. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Deployment is the final step in delivering a Svelte application, and the approach depends on whether you use SvelteKit (with adapters) or plain Svelte (static build). For SvelteKit, adapters transform the build output for specific platforms like Vercel, Netlify, or a Node.js server, while plain Svelte outputs static assets deployable to any hosting provider. A common pitfall is forgetting to set the correct adapter before deploying, which results in a build that doesn't work on the target platform.
 
 **Code Example**:
 ```javascript
@@ -1551,7 +1551,7 @@ npm run build
 **Difficulty**: Intermediate
 
 **Strategy**:
-CLI tool for type checking and diagnostics. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`svelte-check` is a command-line tool that performs type checking and static analysis on your entire Svelte project, catching errors that the editor might miss. It checks TypeScript types in script blocks, validates component props, detects unused CSS, and reports accessibility warnings across all files. A best practice is to integrate `svelte-check` into your CI pipeline to prevent type errors and a11y issues from reaching production.
 
 **Code Example**:
 ```javascript
@@ -1568,7 +1568,7 @@ svelte-check --watch
 **Difficulty**: Beginner
 
 **Strategy**:
-Add `lang="ts"` to script tag. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+TypeScript integration is a key skill since modern Svelte projects default to TypeScript, and interviewers expect you to know how to type props, events, and stores properly. Add `lang="ts"` to your script tag to enable TypeScript, and Svelte's preprocessor handles type stripping at build time. A common pitfall is not properly typing generic stores or event payloads, which weakens the type safety benefits that TypeScript provides.
 
 **Code Example**:
 ```javascript
@@ -1585,7 +1585,7 @@ Add `lang="ts"` to script tag. This concept is fundamental in this domain and un
 **Difficulty**: Advanced
 
 **Strategy**:
-Object checking which slots are passed. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+`$$slots` is a special object that tells you which named slots the parent has provided content for, enabling conditional rendering based on slot presence. This is useful for layout components that should only render wrapper elements (like headers or footers) when the corresponding slot content exists. A common pitfall is checking for default slot content with `$$slots.default`, which can be truthy even when the parent passes only whitespace.
 
 **Code Example**:
 ```javascript
@@ -1602,7 +1602,7 @@ if ($$slots.header) { ... }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Custom action or logic in handler. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Debouncing is essential for performance when handling rapid-fire input events like search-as-you-type, preventing excessive API calls or expensive computations on every keystroke. The pattern uses `setTimeout` and `clearTimeout` to delay processing until the user pauses typing, typically for 300-500 milliseconds. A common pitfall is forgetting to clear the timeout when the component is destroyed via `onDestroy`, which can cause "state update on unmounted component" errors.
 
 **Code Example**:
 ```javascript
@@ -1619,7 +1619,7 @@ let timer; const handle = () => { clearTimeout(timer); timer = setTimeout(...) }
 **Difficulty**: Beginner
 
 **Strategy**:
-Handles promise rejection. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `{:catch}` branch of the `await` block handles promise rejections declaratively in your template, giving you a clean way to display error messages without try/catch wrapping in your script. It receives the rejection value as a variable you can use to show specific error details to the user. A best practice is to always include a `{:catch}` branch in your `await` blocks, since unhandled promise rejections in templates fail silently and leave users staring at a loading state.
 
 **Code Example**:
 ```javascript
@@ -1636,7 +1636,7 @@ Handles promise rejection. This concept is fundamental in this domain and unders
 **Difficulty**: Beginner
 
 **Strategy**:
-Standard HTML attribute. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The placeholder attribute is a basic but important UX feature for form inputs, providing hint text that guides users on expected input format. In Svelte, standard HTML attributes like `placeholder` work as expected, and you can bind the value dynamically with `bind:value` or set it via a variable. A best practice is to use placeholder as a supplementary hint rather than a replacement for proper labels, since placeholder text disappears when users start typing.
 
 **Code Example**:
 ```javascript
@@ -1653,7 +1653,7 @@ Standard HTML attribute. This concept is fundamental in this domain and understa
 **Difficulty**: Advanced
 
 **Strategy**:
-Yes, one `context="module"` and one normal. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Svelte supports exactly two script tags per component: one with `context="module"` for instance-shared logic and one regular script for per-instance logic, and understanding their differences is key to advanced component design. The module script runs once when the component is first imported and shares its exported values across all instances, while the instance script runs for each component creation. A common pitfall is trying to access instance-specific variables (like props or reactive declarations) from the module script, which is impossible since the module context has no access to individual component state.
 
 **Code Example**:
 ```javascript
@@ -1670,7 +1670,7 @@ Yes, one `context="module"` and one normal. This concept is fundamental in this 
 **Difficulty**: Advanced
 
 **Strategy**:
-Tells Svelte to use strict equality for props. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `immutable` compiler option is a performance optimization that tells Svelte it can skip equality checks on prop changes, relying on reference equality instead of deep comparison. When enabled, Svelte assumes that if a prop reference hasn't changed, its value hasn't either, which eliminates unnecessary update checks in data-heavy components. A common pitfall is enabling `immutable` while still mutating objects in place, which causes the UI to silently stop updating because Svelte thinks nothing changed.
 
 **Code Example**:
 ```javascript
@@ -1687,7 +1687,7 @@ Tells Svelte to use strict equality for props. This concept is fundamental in th
 **Difficulty**: Intermediate
 
 **Strategy**:
-Check `browser` check or `onMount`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Accessing `window` safely is critical in SvelteKit applications because server-side rendering runs in Node.js where `window` is undefined, causing crashes if you reference it unconditionally. The safest approach is to use `onMount` (which only runs in the browser) or check `typeof window !== 'undefined'` before accessing it. A common pitfall is using `window` in reactive declarations or at the top level of a component script, which executes during SSR and throws a reference error.
 
 **Code Example**:
 ```javascript
@@ -1704,7 +1704,7 @@ onMount(() => window.scrollTo(0,0))
 **Difficulty**: Intermediate
 
 **Strategy**:
-Module for `spring` and `tweened`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `svelte/motion` module provides `spring` and `tweened` stores that animate numeric values over time, bridging the gap between state management and visual animation. These animated stores behave like regular stores but interpolate their values when updated, making them ideal for progress indicators, animated counters, and drag interactions. A common pitfall is using motion stores for CSS-animatable properties where `transition:` directives would be more performant since they leverage the browser's animation engine.
 
 **Code Example**:
 ```javascript
@@ -1721,7 +1721,7 @@ import { spring } from 'svelte/motion';
 **Difficulty**: Beginner
 
 **Strategy**:
-Easing functions for transitions. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `svelte/easing` module provides a comprehensive library of easing functions that control the acceleration curve of animations and transitions, which is essential for creating natural-feeling motion. Easing functions like `cubicInOut`, `elasticOut`, and `bounceOut` transform a linear time progression into non-linear curves that match real-world physics. A best practice is to use `easeInOut` variants for most UI transitions and reserve dramatic easings like `bounce` or `elastic` for playful, attention-grabbing moments.
 
 **Code Example**:
 ```javascript
@@ -1755,7 +1755,7 @@ return { user: ... }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Contains info about current route, params, data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `page` store is a central SvelteKit store that provides reactive access to the current URL, parameters, and route data, making it essential for navigation-aware UI components. It exposes `$page.url`, `$page.params`, `$page.route`, and `$page.data`, all of which update automatically during client-side navigation. A common pitfall is destructuring the page store outside of reactive contexts, which captures stale values instead of tracking changes.
 
 **Code Example**:
 ```javascript
@@ -1772,7 +1772,7 @@ import { page } from '$app/stores';
 **Difficulty**: Intermediate
 
 **Strategy**:
-Tracks navigation state. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `navigating` store provides a reactive way to detect when client-side navigation is in progress, which is essential for showing loading indicators during slow data fetches. It is `null` when no navigation is active and contains `from` and `to` route information during navigation, letting you build global progress bars or skeleton loaders. A common pitfall is relying on `navigating` for page transitions that are fast enough to not need indicators, which causes distracting flash effects.
 
 **Code Example**:
 ```javascript
@@ -1789,7 +1789,7 @@ if ($navigating) Loading...
 **Difficulty**: Advanced
 
 **Strategy**:
-Notifies when a new version of app is available. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `updated` store is a SvelteKit feature for handling service worker updates, becoming `true` when a new version of the application is available after the initial load. This enables you to prompt users to reload for the latest version, which is critical for applications that are updated frequently. A best practice is to show a non-intrusive toast or banner rather than forcing an immediate reload, giving users control over when they switch to the new version.
 
 **Code Example**:
 ```javascript
@@ -1806,7 +1806,7 @@ if ($updated) location.reload()
 **Difficulty**: Beginner
 
 **Strategy**:
-Create a `+error.svelte` file. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Handling 404s properly is important for user experience and SEO, and SvelteKit provides a structured approach through error boundaries and the `$page.status` value. You create `+error.svelte` components at different route levels to display custom not-found pages, and the root-level error page acts as a catch-all for unmatched routes. A best practice is to include helpful navigation links and a search function on your 404 page to help users find what they were looking for.
 
 **Code Example**:
 ```javascript
@@ -1823,7 +1823,7 @@ Create a `+error.svelte` file. This concept is fundamental in this domain and un
 **Difficulty**: Intermediate
 
 **Strategy**:
-Forces a full page reload on link click. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The `data-sveltekit-reload` attribute forces a full page reload instead of SvelteKit's default client-side navigation, which is necessary for certain scenarios like linking to external domains or resetting application state. Without it, SvelteKit intercepts all internal link clicks and handles them via the router, which can cause issues with third-party scripts that expect a full page load. A common use case is adding it to logout links to ensure all client-side state is cleared.
 
 **Code Example**:
 ```javascript
@@ -1840,7 +1840,7 @@ Forces a full page reload on link click. This concept is fundamental in this dom
 **Difficulty**: Intermediate
 
 **Strategy**:
-Manually set it to initial value. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Resetting a store to its initial state is a common requirement in form workflows, game state management, and logout handlers, making it a practical interview topic. The approach depends on your store type: for writable stores, call `.set(initialValue)`, and for custom stores, expose a dedicated `reset()` method. A best practice is to store the initial value in a separate constant so you always have a clean reference to reset to, rather than hardcoding the same value in multiple places.
 
 **Code Example**:
 ```javascript

@@ -462,7 +462,7 @@ Hard isolation. Oldest method. Difficult to build responsive/seamless UX.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Wrap frameworks in Custom Elements. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Web Components (Custom Elements, Shadow DOM, HTML Templates) provide a framework-agnostic way to build microfrontends. Each MFE is registered as a custom HTML element that the shell can drop into the page like any native tag. This approach matters because it avoids vendor lock-in and gives you true encapsulation without extra libraries. The main trade-off is that you lose framework-specific features like React's state management inside the Shadow DOM boundary.
 
 **Code Example**:
 ```javascript
@@ -479,7 +479,7 @@ Wrap frameworks in Custom Elements. This concept is fundamental in this domain a
 **Difficulty**: Intermediate
 
 **Strategy**:
-Module Federation 'shared' config or Import Maps. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Sharing dependencies reduces bundle size by ensuring common libraries like React or Lodash are loaded only once across all microfrontends. Module Federation's `shared` config and Import Maps are the two primary mechanisms for achieving this. The key pitfall is version conflicts -- if two MFEs require incompatible versions, you must decide whether to duplicate the library or coordinate an upgrade across teams.
 
 **Code Example**:
 ```javascript
@@ -530,7 +530,7 @@ Wrap each MFE in an Error Boundary to prevent crashing the shell.
 **Difficulty**: Beginner
 
 **Strategy**:
-Load MFE code only when route is visited. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Lazy loading defers fetching a microfrontend's code until it is actually needed, typically when the user navigates to the relevant route. This is critical for initial page load performance because the browser does not waste bandwidth downloading features the user may never visit. The trade-off is a slight delay on first navigation, which can be mitigated with prefetching or skeleton placeholders while the chunk loads.
 
 **Code Example**:
 ```javascript
@@ -564,7 +564,7 @@ Run shell + MFE locally, or proxy production shell to local MFE.
 **Difficulty**: Advanced
 
 **Strategy**:
-Each MFE has its own BFF to aggregate data. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Each microfrontend owns a dedicated backend service (its BFF) that aggregates and tailors data specifically for that frontend. This pattern keeps teams fully autonomous because they control both the UI and the API surface it consumes. The downside is potential data duplication across BFFs, so a shared API gateway or caching layer is often introduced to reduce redundancy and maintain consistency.
 
 **Code Example**:
 ```javascript
@@ -581,7 +581,7 @@ Each MFE has its own BFF to aggregate data. This concept is fundamental in this 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Shell navigation function or history API. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Navigation between microfrontends should go through the shell's router to ensure a consistent user experience and proper loading/unloading lifecycle. Using the History API or a shared router instance prevents full page reloads and preserves application state where possible. A common mistake is letting an MFE hard-link to another MFE's URL, which causes a full reload and breaks the single-page app experience.
 
 **Code Example**:
 ```javascript
@@ -598,7 +598,7 @@ history.pushState(null, null, '/app2')
 **Difficulty**: Advanced
 
 **Strategy**:
-Framework for microfrontends based on 'Pilets'. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Piral is an open-source framework for building microfrontend applications using a plugin-based architecture called "pilets." The shell (called a Piral instance) defines extension slots that pilets can plug into dynamically at runtime. It is worth knowing because it handles many cross-cutting concerns out of the box -- dependency sharing, event bus, and shared state. A potential drawback is its opinionated API, which requires teams to learn Piral-specific patterns.
 
 **Code Example**:
 ```javascript
@@ -615,7 +615,7 @@ Framework for microfrontends based on 'Pilets'. This concept is fundamental in t
 **Difficulty**: Advanced
 
 **Strategy**:
-Microfrontend framework by SAP. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Luigi is an open-source microfrontend framework developed by SAP that uses a configuration-driven approach. The shell defines navigation, authorization, and lifecycle hooks through a central JSON/JS config, while each microfrontend runs inside an iframe or a shadow DOM slot. Interviewers ask about Luigi because it highlights the config-over-code philosophy and strong enterprise features like role-based visibility. Be aware that heavy iframe usage can limit shared state and responsive design.
 
 **Code Example**:
 ```javascript
@@ -632,7 +632,7 @@ Microfrontend framework by SAP. This concept is fundamental in this domain and u
 **Difficulty**: Advanced
 
 **Strategy**:
-Share common libs, lazy load, HTTP/2. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Performance optimization in microfrontends requires deduplicating shared dependencies, lazy loading non-critical MFEs, and leveraging browser caching via content-hashed filenames. Code splitting at the route level and prefetching chunks the user is likely to visit next are also essential techniques. The most common pitfall is neglecting bundle analysis -- without it, teams accidentally ship the same library multiple times or include unused code that inflates the total payload.
 
 **Code Example**:
 ```javascript
@@ -649,7 +649,7 @@ Share common libs, lazy load, HTTP/2. This concept is fundamental in this domain
 **Difficulty**: Beginner
 
 **Strategy**:
-If one MFE fails, the rest should work. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Resiliency means the shell and sibling microfrontends continue to function even when one MFE fails to load or crashes at runtime. This is achieved through error boundaries, fallback UIs, and timeout-based loading strategies. Without resiliency, a single broken MFE can take down the entire application, defeating the isolation benefit that microfrontends promise.
 
 **Code Example**:
 ```javascript
@@ -683,7 +683,7 @@ Shell defines base styles. MFEs should avoid global resets.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Passing messages between distinct MFEs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Cross-application communication refers to how independent microfrontends exchange data without creating tight coupling. Preferred mechanisms include Custom Events, BroadcastChannel API, and a shared event bus provided by the shell. The key best practice is to keep messages small, typed, and one-directional -- bidirectional syncing of complex state almost always leads to race conditions and debugging nightmares.
 
 **Code Example**:
 ```javascript
@@ -700,7 +700,7 @@ const bus = new BroadcastChannel('app_bus');
 **Difficulty**: Intermediate
 
 **Strategy**:
-Upload assets to CDN. Update import map/manifest. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Each microfrontend should have its own CI/CD pipeline that builds, tests, and deploys independently to a CDN or static host. The shell application references each MFE via a URL, often resolved at runtime through a manifest or remote entry file. A common pitfall is forgetting to version or cache-bust remote entries, which can cause users to load stale MFE code after a new deployment.
 
 **Code Example**:
 ```javascript
@@ -717,7 +717,7 @@ Upload assets to CDN. Update import map/manifest. This concept is fundamental in
 **Difficulty**: Beginner
 
 **Strategy**:
-Single repo for all MFEs (e.g., Nx, Turborepo). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A monorepo stores multiple related projects (shell and all microfrontends) in a single version-controlled repository. This simplifies code sharing, enforces consistent tooling, and makes cross-team refactoring straightforward. The trade-off is that the repository can grow large, so tools like Nx or Turborepo are typically used to manage build caching and avoid rebuilding unaffected projects.
 
 **Code Example**:
 ```javascript
@@ -751,7 +751,7 @@ Monorepo: Easier coordination. Polyrepo: Strict independence.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Conflicting versions of shared libs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Dependency hell occurs when multiple microfrontends require incompatible versions of the same library, such as one team needing React 16 while another uses React 18. This matters because loading duplicate versions increases bundle size and can cause runtime errors if shared global state is expected. Left unchecked, dependency conflicts become the single biggest source of bugs in a microfrontend architecture.
 
 **Code Example**:
 ```javascript
@@ -819,7 +819,7 @@ Yes, that's a key feature. Use Web Components or Single-SPA.
 **Difficulty**: Advanced
 
 **Strategy**:
-Client takes over server-rendered HTML. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Hydration is the process of attaching JavaScript event listeners to server-rendered HTML so the page becomes interactive without a full re-render. In a microfrontend context, each MFE must hydrate its own fragment independently, which gets complex when different frameworks (React, Angular) manage hydration differently. A common pitfall is hydration mismatches where the client-rendered output differs from the server HTML, causing duplicate nodes or lost state.
 
 **Code Example**:
 ```javascript
@@ -836,7 +836,7 @@ Client takes over server-rendered HTML. This concept is fundamental in this doma
 **Difficulty**: Advanced
 
 **Strategy**:
-Layout service by Zalando for SSI. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Tailor is a layout and template composition server developed by Zuora that assembles HTML fragments from multiple services into a single response using streaming. It processes templates with special tags to fetch and stitch together microfrontend fragments on the server side. This approach is relevant because it enables server-side composition with progressive rendering -- the browser starts painting as soon as the first fragment arrives. The trade-off is that Tailor requires a Node.js middleware layer and a specific template syntax.
 
 **Code Example**:
 ```javascript
@@ -870,7 +870,7 @@ shell.track('button_click')
 **Difficulty**: Intermediate
 
 **Strategy**:
-JSON mapping MFE names to URLs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A manifest file is a JSON configuration that maps each microfrontend name to its deployed URL (or remote entry file). The shell reads this manifest at runtime to discover where to load each MFE from, enabling zero-downtime updates by simply changing the URL in the manifest. A best practice is to serve the manifest from a highly available endpoint and cache it with a short TTL so updates propagate quickly without hammering the server.
 
 **Code Example**:
 ```javascript
@@ -904,7 +904,7 @@ import { Button } from 'design-system'
 **Difficulty**: Beginner
 
 **Strategy**:
-Breaking bundle into chunks. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Code splitting breaks a large JavaScript bundle into smaller chunks that are loaded on demand rather than upfront. This is fundamental to microfrontend performance because it ensures users only download the code they need for the current view. Route-based splitting and dynamic `import()` are the most common approaches; the main pitfall is over-splitting, which creates too many small HTTP requests and can actually hurt performance on slow networks.
 
 **Code Example**:
 ```javascript
@@ -921,7 +921,7 @@ import()
 **Difficulty**: Intermediate
 
 **Strategy**:
-Serve from CDN with absolute paths. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Static assets like fonts, images, and icons should be centralized on a CDN and referenced by absolute URLs so every microfrontend loads the same version without duplication. The shell app is typically responsible for loading fonts to avoid flash-of-unstyled-text and redundant requests. A common mistake is bundling fonts inside each MFE, which bloats bundles and causes the browser to download the same font file multiple times.
 
 **Code Example**:
 ```javascript
@@ -938,7 +938,7 @@ url('https://cdn.../font.woff')
 **Difficulty**: Advanced
 
 **Strategy**:
-Dynamic loading of remotes. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The Federated Modules Loader is Webpack's internal runtime that resolves, loads, and shares modules across separately built applications at runtime. It handles the negotiation of shared dependencies, ensuring only one copy of a singleton library is loaded. Understanding this loader is important for debugging "shared module not available" errors, which typically occur when the loading order or version negotiation fails between the host and a remote.
 
 **Code Example**:
 ```javascript
@@ -972,7 +972,7 @@ Atomic Design is a methodology for creating design systems. It breaks interfaces
 **Difficulty**: Intermediate
 
 **Strategy**:
-Route guards in the Shell. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Route security in microfrontends requires coordination between the shell and each MFE -- the shell enforces top-level auth checks, while individual MFEs can add granular permission checks for their own features. A best practice is to never load an MFE's JavaScript bundle until authentication and authorization are confirmed, because shipping protected code to an unauthenticated client is a security risk. Always validate permissions on the server side as well, since client-side checks can be bypassed.
 
 **Code Example**:
 ```javascript
@@ -989,7 +989,7 @@ if (!auth) redirect('/login')
 **Difficulty**: Beginner
 
 **Strategy**:
-Enable/Disable features at runtime. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Feature toggles (or flags) let you enable or disable a microfrontend or specific functionality at runtime without deploying new code. This is especially valuable in MFE architectures because it allows gradual rollouts, A/B testing, and instant kill switches for broken features. The pitfall to watch for is accumulating stale toggles -- every flag adds branching complexity, so teams should archive toggles once a feature is fully rolled out.
 
 **Code Example**:
 ```javascript
@@ -1006,7 +1006,7 @@ if (flags.newCheckout) ...
 **Difficulty**: Advanced
 
 **Strategy**:
-Static HTML with interactive 'islands' (Astro). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Islands Architecture, popularized by frameworks like Astro, renders most of the page as static HTML and only hydrates interactive "islands" of JavaScript. This matters because it dramatically reduces the JavaScript sent to the browser compared to a fully client-rendered MFE. The trade-off is that interactive regions must be clearly delineated ahead of time, and complex state sharing between islands requires extra plumbing compared to a traditional SPA approach.
 
 **Code Example**:
 ```javascript
@@ -1040,7 +1040,7 @@ Islands: Optimization technique. MFEs: Organization technique.
 **Difficulty**: Intermediate
 
 **Strategy**:
-Source maps, correlation IDs, logging. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Debugging microfrontends in production requires distributed tracing, structured logging, and source maps so you can trace an error back to the specific team and deployment that caused it. The shell should attach correlation IDs to every request, and each MFE should tag its log entries with its name and version. A common pitfall is not preserving source maps securely (e.g., on a private server), which makes production stack traces useless.
 
 **Code Example**:
 ```javascript
@@ -1057,7 +1057,7 @@ Source maps, correlation IDs, logging. This concept is fundamental in this domai
 **Difficulty**: Advanced
 
 **Strategy**:
-MFE loading causes page jump. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Layout thrashing occurs when JavaScript repeatedly reads and writes to the DOM in an alternating pattern, forcing the browser to recalculate styles and layout dozens of times per frame. In an MFE context this is especially dangerous because multiple microfrontends mutating the same DOM tree can compound the problem. Prevent it by batching DOM reads before writes, using `requestAnimationFrame`, and relying on placeholder skeletons rather than measuring real elements during load.
 
 **Code Example**:
 ```javascript
@@ -1074,7 +1074,7 @@ MFE loading causes page jump. This concept is fundamental in this domain and und
 **Difficulty**: Beginner
 
 **Strategy**:
-Show placeholder structure while loading. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Skeleton screens are placeholder UI elements that mimic the shape of real content and display while a microfrontend is loading. They improve perceived performance by giving users immediate visual feedback instead of a blank area or spinner. The best practice is to define skeleton components in the shell so they render instantly, then swap them out with the actual MFE content once the remote chunk finishes loading.
 
 **Code Example**:
 ```javascript
@@ -1091,7 +1091,7 @@ Show placeholder structure while loading. This concept is fundamental in this do
 **Difficulty**: Intermediate
 
 **Strategy**:
-Slice by business domain (e.g., Checkout Page). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A vertical split divides the application by business domain or feature -- each microfrontend owns its entire vertical slice from UI to database (e.g., a "Product Catalog" MFE with its own components, state, and API). This is the preferred approach because it maximizes team autonomy and minimizes cross-team coordination. The pitfall is accidentally splitting along technical layers instead of business capabilities, which creates coupling and defeats the purpose of microfrontends.
 
 **Code Example**:
 ```javascript
@@ -1108,7 +1108,7 @@ Slice by business domain (e.g., Checkout Page). This concept is fundamental in t
 **Difficulty**: Intermediate
 
 **Strategy**:
-Slice by visual elements (e.g., Header, Footer). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A horizontal split divides the application by technical layer -- for example, one team owns the header, another owns the footer, and a third owns the sidebar. This approach tends to create coupling because these horizontal sections often share layout logic, data, and styling rules. It is generally discouraged in favor of vertical splits, but it can work for truly isolated layout regions like a global navigation bar that has no data dependency on the rest of the page.
 
 **Code Example**:
 ```javascript
@@ -1125,7 +1125,7 @@ Slice by visual elements (e.g., Header, Footer). This concept is fundamental in 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Shell loads language, MFEs load translations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Internationalization in microfrontends requires a coordinated strategy where the shell determines the user's locale and passes it down, while each MFE manages its own translation files. Using a shared i18n library with namespaced translation keys prevents collisions between MFE dictionaries. A common pitfall is hard-coding locale in individual MFEs instead of receiving it from the shell, which breaks consistency when the user switches languages.
 
 **Code Example**:
 ```javascript
@@ -1142,7 +1142,7 @@ t('welcome')
 **Difficulty**: Intermediate
 
 **Strategy**:
-Can share context if React instance is shared. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+React's Context API provides a way to pass data through the component tree without prop drilling, commonly used for themes, authentication, or locale data. In an MFE architecture, context does not cross microfrontend boundaries because each MFE has its own React instance and component tree. The best practice is for the shell to expose global data through a shared JavaScript object or custom events rather than relying on React Context across MFE borders.
 
 **Code Example**:
 ```javascript
@@ -1159,7 +1159,7 @@ Can share context if React instance is shared. This concept is fundamental in th
 **Difficulty**: Beginner
 
 **Strategy**:
-Same domain cookies are shared. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Cookies are shared across all microfrontends running on the same domain, making them a simple way to pass data like auth tokens or user preferences. However, this shared nature also means MFEs can accidentally overwrite each other's cookies, so namespacing cookie keys is essential. For cross-domain MFE setups, cookies will not be shared automatically and you will need to use token-based authentication passed through headers or postMessage instead.
 
 **Code Example**:
 ```javascript
@@ -1193,7 +1193,7 @@ Access-Control-Allow-Origin: *
 **Difficulty**: Advanced
 
 **Strategy**:
-Whitelist trusted scripts. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Content Security Policy is an HTTP header that restricts which sources the browser is allowed to load scripts, styles, and other resources from. In a microfrontend setup, the CSP must explicitly whitelist every CDN and domain that hosts an MFE or its assets. A common pitfall is setting an overly permissive policy like `*` for convenience, which defeats the security benefit -- instead, list each specific origin and use nonces or hashes for inline scripts.
 
 **Code Example**:
 ```javascript
@@ -1210,7 +1210,7 @@ script-src 'self' https://cdn...
 **Difficulty**: Advanced
 
 **Strategy**:
-Coordination or backward compatibility. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Upgrading a shared library in a microfrontend ecosystem requires a coordinated rollout strategy to avoid breaking consumers. Semantic versioning and Module Federation's `requiredVersion` field let you declare compatibility ranges, while a canary deployment lets you test the upgrade with one MFE before rolling it out to all. The biggest risk is a major version bump that changes the public API, so always communicate changes through a changelog and consider using contract tests to verify compatibility.
 
 **Code Example**:
 ```javascript
@@ -1227,7 +1227,7 @@ Coordination or backward compatibility. This concept is fundamental in this doma
 **Difficulty**: Advanced
 
 **Strategy**:
-Run script in background thread. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Web Workers run JavaScript in a background thread, keeping the main thread free for UI rendering -- valuable when an MFE needs to do heavy computation like data parsing or image processing. Each microfrontend can spawn its own worker without interfering with others, providing natural isolation. The trade-off is that workers cannot access the DOM directly, so all communication must go through `postMessage`, which adds serialization overhead.
 
 **Code Example**:
 ```javascript
@@ -1244,7 +1244,7 @@ new Worker('worker.js')
 **Difficulty**: Intermediate
 
 **Strategy**:
-Cleanup on unmount (remove listeners). This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Memory leaks are especially dangerous in microfrontends because when an MFE is unmounted, it must release all DOM references, event listeners, timers, and subscriptions. The shell must enforce strict lifecycle hooks (`mount`/`unmount`) that every MFE implements, and React's `useEffect` cleanup function is the primary tool for tearing down resources. A common pitfall is forgetting to remove global event listeners or intervals when an MFE is navigated away from, which keeps orphaned objects in memory indefinitely.
 
 **Code Example**:
 ```javascript
@@ -1261,7 +1261,7 @@ useEffect(() => cleanup, [])
 **Difficulty**: Beginner
 
 **Strategy**:
-The MFE being consumed. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+In Module Federation terminology, a Remote is an application that exposes modules (components, functions, or utilities) for other applications to consume at runtime. Each Remote publishes a `remoteEntry.js` file that acts as a catalog of its available modules. The key concept to remember is that a Remote does not need to know who consumes it -- it simply declares what it exposes, keeping the relationship loosely coupled.
 
 **Code Example**:
 ```javascript
@@ -1278,7 +1278,7 @@ exposes: { './App': './src/App' }
 **Difficulty**: Beginner
 
 **Strategy**:
-The app consuming the Remote. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A Host (also called a consumer or shell) is the application that loads and renders modules from one or more Remotes at runtime. It declares which Remotes it depends on in the Module Federation config and handles the overall page layout, routing, and shared dependency coordination. A best practice is to keep the Host as thin as possible -- it should orchestrate, not implement business logic -- so it rarely needs changes.
 
 **Code Example**:
 ```javascript
@@ -1295,7 +1295,7 @@ remotes: { app1: ... }
 **Difficulty**: Advanced
 
 **Strategy**:
-App acts as both Host and Remote. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Bi-directional Module Federation means an application can act as both a Host and a Remote simultaneously -- it consumes modules from others while also exposing its own. This enables peer-to-peer module sharing between microfrontends rather than a strict hub-and-spoke model. The danger is circular dependencies where App A depends on App B which depends on App A, which can cause infinite loading loops if not carefully managed.
 
 **Code Example**:
 ```javascript
@@ -1312,7 +1312,7 @@ App acts as both Host and Remote. This concept is fundamental in this domain and
 **Difficulty**: Intermediate
 
 **Strategy**:
-Lift state to Shell or use URL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+When a multi-step form spans multiple microfrontends (e.g., Step 1 in MFE-A, Step 2 in MFE-B), the state must be persisted through a neutral medium such as URL parameters, a shared store, or session storage. Each MFE validates its own step independently and passes validated data forward, never backward. A common mistake is storing partial form state in a global store that every MFE can mutate, which creates hidden coupling and makes bugs difficult to trace.
 
 **Code Example**:
 ```javascript
@@ -1329,7 +1329,7 @@ Lift state to Shell or use URL. This concept is fundamental in this domain and u
 **Difficulty**: Beginner
 
 **Strategy**:
-Piece of HTML included. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A fragment in Server-Side Includes (SSI) is a self-contained piece of HTML generated by an individual microfrontend's backend service. The composition server (like Nginx or Tailor) assembles these fragments into a single page by including each one at a designated placeholder. This approach is interview-relevant because it achieves microfrontend composition with zero client-side JavaScript overhead. The main limitation is that all fragments must return HTML synchronously unless streaming is supported.
 
 **Code Example**:
 ```javascript
@@ -1346,7 +1346,7 @@ Piece of HTML included. This concept is fundamental in this domain and understan
 **Difficulty**: Advanced
 
 **Strategy**:
-SSR is required for best SEO. CSR is harder. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+SEO in microfrontends is challenging because search engine crawlers may not execute JavaScript, meaning a purely client-rendered MFE produces an empty page in the crawl. Server-side rendering (SSR) or static pre-rendering is the standard solution -- each MFE renders its content on the server so the crawler sees fully formed HTML. A best practice is to use server-side composition (SSI or edge-side includes) so the entire page is delivered as a single HTML response rather than requiring multiple round trips.
 
 **Code Example**:
 ```javascript
@@ -1397,7 +1397,7 @@ localStorage.setItem('app1:key', ...)
 **Difficulty**: Advanced
 
 **Strategy**:
-Webpack boilerplate code. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+A runtime chunk contains Webpack's module resolution and loading logic -- the boilerplate code that knows how to import other chunks and resolve dependencies. Extracting it into a single shared file (`runtimeChunk: 'single'`) is critical in MFE builds because it ensures all microfrontends use the same module resolution mechanism. Without this extraction, each MFE bundles its own runtime, which can cause conflicts when modules are shared across federated applications.
 
 **Code Example**:
 ```javascript
@@ -1414,7 +1414,7 @@ optimization: { runtimeChunk: 'single' }
 **Difficulty**: Intermediate
 
 **Strategy**:
-Service Workers, Caching, Fallback UI. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Slow networks amplify the latency of loading multiple remote microfrontend bundles, so strategies like aggressive caching, service workers, and skeleton UIs become essential. You should also implement timeout-based loading so a slow MFE does not block the entire page -- show a fallback after a reasonable wait. A common pitfall is not testing under throttled network conditions during development, which hides performance problems that real users on mobile connections will experience.
 
 **Code Example**:
 ```javascript
@@ -1431,7 +1431,7 @@ Service Workers, Caching, Fallback UI. This concept is fundamental in this domai
 **Difficulty**: Advanced
 
 **Strategy**:
-Tool to visualize dependencies. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+The Module Federation Dashboard (also called Medusa) is a visualization and management tool that shows which microfrontends are deployed, what modules they expose, and which shared dependencies they consume. It provides real-time visibility into the federated architecture, making it easier to detect version conflicts, unused exports, and dependency mismatches. This is particularly valuable in large organizations where dozens of teams independently publish remotes and need a central registry to track the ecosystem.
 
 **Code Example**:
 ```javascript
@@ -1448,7 +1448,7 @@ Tool to visualize dependencies. This concept is fundamental in this domain and u
 **Difficulty**: Intermediate
 
 **Strategy**:
-Communication and Versioning. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Breaking changes in a microfrontend ecosystem can cascade across all consumers, so they must be managed through versioning, deprecation notices, and gradual migration. Semantic versioning of shared APIs and contract testing between producer and consumer MFEs help catch incompatibilities before they reach production. The key best practice is to maintain backward compatibility for at least one release cycle and communicate upcoming changes through a shared changelog or RFC process.
 
 **Code Example**:
 ```javascript
@@ -1465,7 +1465,7 @@ Communication and Versioning. This concept is fundamental in this domain and und
 **Difficulty**: Beginner
 
 **Strategy**:
-Minimize dependencies between MFEs. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Loose coupling means each microfrontend knows as little as possible about the others, communicating only through well-defined interfaces like events or shared contracts. This is the core goal of microfrontend architecture because it enables independent deployment, testing, and technology choices per team. The pitfall is letting convenience erode coupling over time -- a quick shared-state shortcut today becomes the hardest bug to fix tomorrow.
 
 **Code Example**:
 ```javascript
@@ -1482,7 +1482,7 @@ Minimize dependencies between MFEs. This concept is fundamental in this domain a
 **Difficulty**: Beginner
 
 **Strategy**:
-Code that changes together stays together. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+High cohesion means all the code related to a single business feature (UI components, state, API calls, tests) lives together inside the same microfrontend. This matters because cohesive MFEs are easier to understand, maintain, and deploy as a unit. A common mistake is splitting related functionality across MFEs -- for example, separating the product listing UI from its API layer -- which forces teams to coordinate every change.
 
 **Code Example**:
 ```javascript

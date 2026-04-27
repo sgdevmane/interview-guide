@@ -59,66 +59,15 @@
 47. [How do you debug Network Requests?](#q47-how-do-you-debug-network-requests) <span class="intermediate">Intermediate</span>
 48. [How do you use Native Driver for Animations?](#q48-how-do-you-use-native-driver-for-animations) <span class="intermediate">Intermediate</span>
 49. [How do you measure the dimensions of a View?](#q49-how-do-you-measure-the-dimensions-of-a-view) <span class="beginner">Beginner</span>
-50. [How do you implement a Shadow on Android?](#q50-how-do-you-implement-a-shadow-on-android) <span class="beginner">Beginner</span>
-51. [How do you handle React Native state management in large scale applications?](#q51-how-do-you-handle-react-native-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-52. [How do you perform React Native data validation in microservices?](#q52-how-do-you-perform-react-native-data-validation-in-microservices) <span class="beginner">Beginner</span>
-53. [How do you automate React Native deployment for mobile devices?](#q53-how-do-you-automate-react-native-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-54. [How do you handle React Native concurrency issues in legacy systems?](#q54-how-do-you-handle-react-native-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-55. [How do you implement React Native caching in cloud infrastructure?](#q55-how-do-you-implement-react-native-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-56. [How do you manage React Native configuration for real-time systems?](#q56-how-do-you-manage-react-native-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-57. [How do you handle React Native internationalization (i18n) in distributed systems?](#q57-how-do-you-handle-react-native-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-58. [How do you ensure React Native accessibility (a11y) in high-traffic sites?](#q58-how-do-you-ensure-react-native-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-59. [How do you optimize React Native network requests in embedded systems?](#q59-how-do-you-optimize-react-native-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-60. [How do you handle React Native performance optimization for production environments?](#q60-how-do-you-handle-react-native-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-61. [What are the security implications of React Native in large scale applications?](#q61-what-are-the-security-implications-of-react-native-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-62. [How do you debug React Native memory leaks in microservices?](#q62-how-do-you-debug-react-native-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-63. [Best practices for React Native code organization in mobile devices?](#q63-best-practices-for-react-native-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-64. [How do you implement React Native error handling for legacy systems?](#q64-how-do-you-implement-react-native-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-65. [How do you test React Native functionality in cloud infrastructure?](#q65-how-do-you-test-react-native-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-66. [How do you handle React Native state management in real-time systems?](#q66-how-do-you-handle-react-native-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-67. [How do you perform React Native data validation in distributed systems?](#q67-how-do-you-perform-react-native-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-68. [How do you automate React Native deployment for high-traffic sites?](#q68-how-do-you-automate-react-native-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-69. [How do you handle React Native concurrency issues in embedded systems?](#q69-how-do-you-handle-react-native-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-70. [How do you implement React Native caching in production environments?](#q70-how-do-you-implement-react-native-caching-in-production-environments) <span class="intermediate">Intermediate</span>
-71. [How do you manage React Native configuration for large scale applications?](#q71-how-do-you-manage-react-native-configuration-for-large-scale-applications) <span class="beginner">Beginner</span>
-72. [How do you handle React Native internationalization (i18n) in microservices?](#q72-how-do-you-handle-react-native-internationalization-i18n-in-microservices) <span class="intermediate">Intermediate</span>
-73. [How do you ensure React Native accessibility (a11y) in mobile devices?](#q73-how-do-you-ensure-react-native-accessibility-a11y-in-mobile-devices) <span class="beginner">Beginner</span>
-74. [How do you optimize React Native network requests in legacy systems?](#q74-how-do-you-optimize-react-native-network-requests-in-legacy-systems) <span class="advanced">Advanced</span>
-75. [How do you handle React Native performance optimization for cloud infrastructure?](#q75-how-do-you-handle-react-native-performance-optimization-for-cloud-infrastructure) <span class="advanced">Advanced</span>
-76. [What are the security implications of React Native in real-time systems?](#q76-what-are-the-security-implications-of-react-native-in-real-time-systems) <span class="intermediate">Intermediate</span>
-77. [How do you debug React Native memory leaks in distributed systems?](#q77-how-do-you-debug-react-native-memory-leaks-in-distributed-systems) <span class="advanced">Advanced</span>
-78. [Best practices for React Native code organization in high-traffic sites?](#q78-best-practices-for-react-native-code-organization-in-high-traffic-sites) <span class="beginner">Beginner</span>
-79. [How do you implement React Native error handling for embedded systems?](#q79-how-do-you-implement-react-native-error-handling-for-embedded-systems) <span class="intermediate">Intermediate</span>
-80. [How do you test React Native functionality in production environments?](#q80-how-do-you-test-react-native-functionality-in-production-environments) <span class="intermediate">Intermediate</span>
-81. [How do you handle React Native state management in large scale applications?](#q81-how-do-you-handle-react-native-state-management-in-large-scale-applications) <span class="advanced">Advanced</span>
-82. [How do you perform React Native data validation in microservices?](#q82-how-do-you-perform-react-native-data-validation-in-microservices) <span class="beginner">Beginner</span>
-83. [How do you automate React Native deployment for mobile devices?](#q83-how-do-you-automate-react-native-deployment-for-mobile-devices) <span class="advanced">Advanced</span>
-84. [How do you handle React Native concurrency issues in legacy systems?](#q84-how-do-you-handle-react-native-concurrency-issues-in-legacy-systems) <span class="advanced">Advanced</span>
-85. [How do you implement React Native caching in cloud infrastructure?](#q85-how-do-you-implement-react-native-caching-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-86. [How do you manage React Native configuration for real-time systems?](#q86-how-do-you-manage-react-native-configuration-for-real-time-systems) <span class="beginner">Beginner</span>
-87. [How do you handle React Native internationalization (i18n) in distributed systems?](#q87-how-do-you-handle-react-native-internationalization-i18n-in-distributed-systems) <span class="intermediate">Intermediate</span>
-88. [How do you ensure React Native accessibility (a11y) in high-traffic sites?](#q88-how-do-you-ensure-react-native-accessibility-a11y-in-high-traffic-sites) <span class="beginner">Beginner</span>
-89. [How do you optimize React Native network requests in embedded systems?](#q89-how-do-you-optimize-react-native-network-requests-in-embedded-systems) <span class="advanced">Advanced</span>
-90. [How do you handle React Native performance optimization for production environments?](#q90-how-do-you-handle-react-native-performance-optimization-for-production-environments) <span class="advanced">Advanced</span>
-91. [What are the security implications of React Native in large scale applications?](#q91-what-are-the-security-implications-of-react-native-in-large-scale-applications) <span class="intermediate">Intermediate</span>
-92. [How do you debug React Native memory leaks in microservices?](#q92-how-do-you-debug-react-native-memory-leaks-in-microservices) <span class="advanced">Advanced</span>
-93. [Best practices for React Native code organization in mobile devices?](#q93-best-practices-for-react-native-code-organization-in-mobile-devices) <span class="beginner">Beginner</span>
-94. [How do you implement React Native error handling for legacy systems?](#q94-how-do-you-implement-react-native-error-handling-for-legacy-systems) <span class="intermediate">Intermediate</span>
-95. [How do you test React Native functionality in cloud infrastructure?](#q95-how-do-you-test-react-native-functionality-in-cloud-infrastructure) <span class="intermediate">Intermediate</span>
-96. [How do you handle React Native state management in real-time systems?](#q96-how-do-you-handle-react-native-state-management-in-real-time-systems) <span class="advanced">Advanced</span>
-97. [How do you perform React Native data validation in distributed systems?](#q97-how-do-you-perform-react-native-data-validation-in-distributed-systems) <span class="beginner">Beginner</span>
-98. [How do you automate React Native deployment for high-traffic sites?](#q98-how-do-you-automate-react-native-deployment-for-high-traffic-sites) <span class="advanced">Advanced</span>
-99. [How do you handle React Native concurrency issues in embedded systems?](#q99-how-do-you-handle-react-native-concurrency-issues-in-embedded-systems) <span class="advanced">Advanced</span>
-100. [How do you implement React Native caching in production environments?](#q100-how-do-you-implement-react-native-caching-in-production-environments) <span class="intermediate">Intermediate</span>
+50. [How do you implement a Shadow on Android?](#q50) <span class="beginner">Beginner</span>
 
 ---
-
 <a id="q1"></a>
 ### Q1: How do you optimize the performance of a long FlatList with thousands of items?
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: FlatList performance is critical in production apps because rendering thousands of items naively causes severe frame drops and memory spikes. The key approach is to minimize the number of mounted views, skip unnecessary layout calculations, and batch render cycles. A common pitfall is neglecting `getItemLayout` when items have a fixed height -- without it, FlatList measures every item asynchronously, which is expensive. Always pair these props with `React.memo` on your `renderItem` component to avoid re-rendering unchanged items.
 
 **Strategy:**
 1.  **getItemLayout**: Skip measurement calculation.
@@ -155,7 +104,7 @@ const renderItem = React.useCallback(({ item }) => <Item title={item.title} />, 
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Platform-specific code is essential because iOS and Android have different design conventions, APIs, and styling behaviors. React Native provides two main approaches: inline platform checks for small differences and file-based splitting for entirely divergent implementations. A common mistake is using `Platform.OS` checks scattered throughout your codebase when a `.ios.js` / `.android.js` file extension approach would be cleaner and more maintainable.
 
 **Strategy:**
 1.  **Platform.select/Platform.OS:** For minor logic/style differences.
@@ -187,7 +136,7 @@ if (Platform.OS === 'ios') {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Deep linking is a fundamental feature for user engagement, enabling push notifications, email links, and shared URLs to open specific screens within your app. Interviewers ask this to verify you understand the full flow from native platform URL handling through to React Navigation screen resolution. A key pitfall is forgetting to configure URL schemes in the native `AndroidManifest.xml` and `Info.plist` -- without these, the OS will never route URLs to your app in the first place.
 
 **Strategy:**
 Configure the `linking` prop in the NavigationContainer with prefixes and a config object mapping paths to screens.
@@ -219,7 +168,7 @@ const linking = {
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: The Animated API that ships with React Native runs animations on the JavaScript thread, which causes jank whenever JS is busy. Reanimated solves this by executing animations directly on the native UI thread using shared values and worklets. This distinction is critical in interviews because it demonstrates you understand the bridge bottleneck and can choose the right tool for fluid 60fps animations, especially for gestures and complex transitions.
 
 **Strategy:**
 Use `useSharedValue` for state and `useAnimatedStyle` to run animations on the UI thread, bypassing the JS bridge.
@@ -252,7 +201,7 @@ function Box() {
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Persisting state across app restarts is essential for user experience -- think saved preferences, onboarding flags, and cached user data. AsyncStorage is an unencrypted, asynchronous key-value store, so it is fine for non-sensitive data but should never hold tokens or secrets. A best practice is to create a custom hook or middleware layer that handles serialization, error handling, and default values so your components stay clean.
 
 **Strategy:**
 Use `AsyncStorage.setItem` (stringified) and `AsyncStorage.getItem` (parsed). Ideally, wrap this in a custom hook or state management middleware.
@@ -287,7 +236,7 @@ const getData = async () => {
 
 **Difficulty**: Expert
 
-**Strategy**:
+**Strategy**: Native modules are the bridge between JavaScript and platform-specific capabilities that have no RN equivalent -- Bluetooth, ARKit, payment SDKs, and other hardware or OS-level features. This topic tests whether you can step outside the JavaScript layer and work with the underlying native code. A common pitfall is forgetting to register the module in a package and add that package to the `getPackages()` array, which silently causes the module to be unavailable in JS.
 
 **Strategy:**
 1.  Create a Java/Kotlin class extending `ReactContextBaseJavaModule`.
@@ -313,7 +262,7 @@ class CalendarModule(reactContext: ReactApplicationContext) : ReactContextBaseJa
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Modern devices have notches, dynamic islands, and rounded corners that can clip or overlap your content. Ignoring safe area insets leads to unusable UI on iPhones and certain Android devices. The community library `react-native-safe-area-context` is preferred over the built-in `SafeAreaView` because it provides a `useSafeAreaInsets` hook for granular padding control and works correctly with modal screens and nested navigators.
 
 **Strategy:**
 Use `SafeAreaView` from `react-native-safe-area-context` (preferred over the built-in one) or `useSafeAreaInsets` hook.
@@ -340,7 +289,7 @@ function App() {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Debugging in React Native is inherently more complex than web development because you deal with two platforms, a JavaScript bridge, and native code. Knowing the right tool for each problem is what interviewers look for -- Flipper for network inspection and layout, React DevTools for component hierarchy, and the in-app performance monitor for frame rate issues. A common mistake is leaving `console.log` statements in production, which can degrade performance on Hermes.
 
 **Strategy:**
 1.  **React Native Debugger / Flipper:** For Redux, Network, and Component tree.
@@ -359,7 +308,7 @@ Press `Cmd+D` (iOS) or `Cmd+M` (Android) to open the Dev Menu.
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: The on-screen keyboard covering input fields is one of the most common UX complaints in mobile apps and a reliable interview question. `KeyboardAvoidingView` adjusts the view position when the keyboard appears, but its `behavior` prop behaves differently per platform -- `padding` works best on iOS while `height` is more reliable on Android. A frequent pitfall is nesting multiple `KeyboardAvoidingView` wrappers, which causes unpredictable offset calculations.
 
 **Strategy:**
 Use `KeyboardAvoidingView`. Adjust `behavior` prop based on platform (`padding` for iOS, `height` for Android often works best).
@@ -385,7 +334,7 @@ Use `KeyboardAvoidingView`. Adjust `behavior` prop based on platform (`padding` 
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Infinite scroll is a standard UX pattern for feeds, chat histories, and any paginated data set. The key is using `onEndReached` as a trigger to fetch the next page while managing loading states and duplicate requests. A common pitfall is not guarding against multiple simultaneous fetches -- always use a loading flag and reset it in both the success and error callbacks to prevent overlapping API calls.
 
 **Strategy:**
 Use `onEndReached` and `onEndReachedThreshold` props of `FlatList` to trigger a fetch function.
@@ -408,7 +357,7 @@ Use `onEndReached` and `onEndReachedThreshold` props of `FlatList` to trigger a 
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Custom fonts are a frequent branding requirement and a topic that tests your familiarity with native linking in React Native CLI projects. The process involves placing font files in an assets directory, configuring the asset path in `react-native.config.js`, and running the link command. A common pitfall is using an incorrect `fontFamily` name -- it must match the font's internal name, not necessarily the file name, and iOS and Android can resolve font names differently.
 
 **Strategy:**
 1.  Add font files to `assets/fonts`.
@@ -435,7 +384,7 @@ module.exports = {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Handling offline scenarios is essential for mobile apps since users frequently lose connectivity in transit, tunnels, or dead zones. A robust approach involves subscribing to network state changes and combining that with local data caching or queue mechanisms. A best practice is to show a non-intrusive banner when connectivity drops and gracefully retry queued network requests when the connection is restored, rather than blocking the entire UI.
 
 **Strategy:**
 Use `@react-native-community/netinfo` to subscribe to network state changes.
@@ -459,7 +408,7 @@ useEffect(() => {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Image loading is a major source of performance issues in React Native because the built-in `Image` component provides minimal cache control and can cause flickering on re-renders. Libraries like `react-native-fast-image` leverage native caching systems (Glide on Android, SDWebImage on iOS) to provide priority-based loading, preloading, and proper cache headers. Always set explicit `width` and `height` on images to avoid layout shifts during loading.
 
 **Strategy:**
 Use `react-native-fast-image` for advanced caching, priority, and preloading capabilities, as the default `Image` component has limited caching control.
@@ -485,7 +434,7 @@ import FastImage from 'react-native-fast-image';
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: A translucent status bar lets your app content render behind the system status bar, creating the modern full-screen look users expect on Android. This is especially important for apps with image headers or colored navigation bars. The pitfall is that making the status bar translucent without adding top padding causes content to be obscured, so you must pair it with `SafeAreaView` or manual padding equal to the status bar height.
 
 **Strategy:**
 Use the `StatusBar` component with `translucent={true}` and set `backgroundColor` to transparent.
@@ -506,7 +455,7 @@ Use the `StatusBar` component with `translucent={true}` and set `backgroundColor
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Upgrading React Native is notoriously tricky because the `android/` and `ios/` native folders contain version-specific configurations that conflict when bumped. The React Native Upgrade Helper is the go-to tool because it shows a precise diff between your current and target version for every native file. A best practice is to upgrade one minor version at a time rather than jumping multiple majors, and always test on both platforms after each step.
 
 **Strategy:**
 Use the **React Native Upgrade Helper** web tool to see the diff between versions.
@@ -520,7 +469,7 @@ Run `npx react-native upgrade` (automated) or manually apply changes to `android
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Stack navigation is the most fundamental navigation pattern -- it mimics a stack of cards where each new screen is pushed on top and popping returns to the previous one. This is the starting point for nearly every React Native app, so interviewers expect you to know the setup fluently. A best practice is to define your screen components outside the navigator to avoid unnecessary re-renders and to type your navigation parameters with TypeScript for safety.
 
 **Strategy:**
 Install `@react-navigation/native` and `@react-navigation/stack`. Wrap screens in `Stack.Navigator`.
@@ -548,7 +497,7 @@ function MyStack() {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Redux Toolkit simplifies state management by reducing boilerplate with `createSlice` and enabling immutable updates via Immer under the hood. This is especially valuable in React Native where multiple screens may share complex state like cart data, user profiles, or offline queues. A common pitfall is overusing Redux for local component state -- reserve it for truly global, cross-screen data and keep UI-local state in `useState` or `useReducer`.
 
 **Strategy:**
 Create a slice, configure the store, and wrap the app in `Provider`. Use `useSelector` and `useDispatch` hooks.
@@ -574,7 +523,7 @@ const dispatch = useDispatch();
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Theming via Context API is a lightweight alternative to Redux when you only need to share theme state across your component tree without the overhead of a full state library. The pattern involves creating a context with light/dark values, wrapping your app in a provider, and consuming with `useContext`. A best practice is to also persist the user's theme preference in AsyncStorage so it survives app restarts and to memoize the context value to prevent unnecessary re-renders.
 
 **Strategy:**
 Create a `ThemeContext`. Provide the theme value. Consume it using `useContext`.
@@ -604,7 +553,7 @@ function Toolbar() {
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Understanding the Expo workflow distinction is fundamental because it affects your entire development and deployment pipeline. The managed workflow accelerates development by abstracting away native code, but it limits you to modules included in the Expo SDK or available via config plugins. The bare workflow gives full native access but requires you to manage Xcode and Android Studio projects directly. Choose managed for fast iteration on standard apps and bare when you need custom native modules or deep native configuration.
 
 **Strategy:**
 - **Managed:** Expo handles native code. You write only JS. limited native modules support (unless using config plugins/dev client).
@@ -626,7 +575,7 @@ function Toolbar() {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Hermes is a JavaScript engine optimized for React Native that significantly improves app startup time, reduces memory usage, and decreases download size through bytecode precompilation. Enabling it is one of the simplest high-impact performance wins available. Note that after enabling Hermes you must clean and rebuild the native project, and some libraries that depend on `eval()` or dynamic code execution may have compatibility issues.
 
 **Strategy:**
 In `android/app/build.gradle`, set `enableHermes: true`.
@@ -645,7 +594,7 @@ project.ext.react = [
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: TurboModules represent a core piece of React Native's New Architecture and understanding them signals that you stay current with the framework's evolution. Unlike legacy bridge modules that eagerly initialize all native modules at startup, TurboModules load lazily on demand, which dramatically reduces app launch time. They also communicate through JSI (JavaScript Interface) for synchronous calls, eliminating the asynchronous JSON serialization bottleneck of the old bridge.
 
 **Strategy:**
 TurboModules are part of the New Architecture (JSI). They allow lazy loading of native modules and direct C++ to JS communication without the asynchronous bridge serialization overhead.
@@ -663,7 +612,7 @@ TurboModules are part of the New Architecture (JSI). They allow lazy loading of 
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: Fabric is the New Architecture's rendering layer and replaces the legacy asynchronous shadow tree management with a synchronous, C++-based system. This matters because it enables concurrent React features like Suspense and Transitions, improves cross-platform interoperability, and allows state updates to be committed synchronously. Interviewers ask about Fabric to gauge whether you understand why the old bridge-based architecture had fundamental performance ceilings.
 
 **Strategy:**
 Fabric is the new UI rendering system. It moves rendering logic to C++, improving performance, interoperability with host platforms, and enabling concurrent React features.
@@ -681,7 +630,7 @@ Fabric is the new UI rendering system. It moves rendering logic to C++, improvin
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Push notifications are essential for user re-engagement and are almost always required in production mobile apps. The implementation involves three distinct phases: requesting OS-level permissions, registering for a device token via FCM, and handling both foreground and background message listeners. A common pitfall is only handling foreground messages -- you must also configure background handlers and headless tasks for notifications received when the app is terminated.
 
 **Strategy:**
 Use `@react-native-firebase/messaging`. Request permission, get token, and listen for messages.
@@ -710,7 +659,7 @@ useEffect(() => {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Map integration is a common requirement for delivery, ride-sharing, and location-aware apps. The `react-native-maps` library wraps Apple Maps and Google Maps behind a unified API, but you must configure API keys separately for each platform in native configuration files. A frequent pitfall is forgetting to enable the Google Maps SDK in the Google Cloud Console or omitting the API key in `AndroidManifest.xml`, which results in a blank map with no error message.
 
 **Strategy:**
 Use `react-native-maps`. Configure API key in AndroidManifest and AppDelegate.
@@ -739,7 +688,7 @@ import MapView, { Marker } from 'react-native-maps';
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Camera access is a core feature for apps involving QR scanning, photo sharing, or document capture. The critical first step is always requesting runtime permissions -- failing to handle the denied or restricted states leads to crashes. Libraries like `react-native-vision-camera` offer better performance and frame-level control than older alternatives, making them the preferred choice for production apps that need real-time processing or custom frame capture.
 
 **Strategy:**
 Use `react-native-vision-camera` (performance) or `expo-camera`. Request permissions first.
@@ -762,7 +711,7 @@ return <Camera style={StyleSheet.absoluteFill} device={device} isActive={true} /
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Biometric authentication (fingerprint, Face ID) adds a critical security layer for banking, healthcare, and any app handling sensitive data. The key approach is to first check device capability with `isEnrolledAsync()` before attempting authentication, since not all devices support biometrics. Always provide a fallback mechanism such as a PIN entry so users with damaged sensors or unenrolled biometrics are not locked out of your app.
 
 **Strategy:**
 Use `expo-local-authentication` or `react-native-biometrics`.
@@ -786,7 +735,7 @@ async function authenticate() {
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Accessibility is both a legal requirement in many jurisdictions and a mark of professional-quality apps. Custom touchable components do not automatically convey their purpose to screen readers like VoiceOver or TalkBack. The `accessible` prop marks the element as an accessibility node, while `accessibilityLabel` provides the spoken description and `accessibilityHint` explains the action the element performs. Always test with a screen reader enabled to verify your labels make sense in context.
 
 **Strategy:**
 Use `accessible`, `accessibilityLabel`, and `accessibilityHint` props.
@@ -810,7 +759,7 @@ Use `accessible`, `accessibilityLabel`, and `accessibilityHint` props.
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Internationalization is essential for any app targeting users across multiple regions and languages. The `i18next` ecosystem is the industry standard because it provides interpolation, pluralization, lazy-loaded namespaces, and language detection out of the box. A common pitfall is hardcoding strings during development and deferring i18n to late in the project -- always wrap strings in translation functions from the start to avoid a painful refactor later.
 
 **Strategy:**
 Use `i18next` and `react-i18next`. Define resources and init.
@@ -832,7 +781,7 @@ function MyComponent() {
 
 **Difficulty**: Advanced
 
-**Strategy**:
+**Strategy**: OTA updates allow you to push JavaScript bundle changes directly to users without going through the app store review process, making them invaluable for bug fixes and quick iterations. CodePush wraps your root component and checks for updates on launch or resume, downloading and applying the new bundle in the background. A critical best practice is to always test OTA updates on a staging deployment before promoting to production, and to implement rollback logic in case the update causes crashes.
 
 **Strategy:**
 Use `react-native-code-push` (Microsoft) or `expo-updates`.
@@ -852,10 +801,10 @@ App = CodePush(App); // Wrap root component
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: WebViews are essential when you need to embed existing web content such as payment gateways, terms of service pages, or third-party tools that cannot be rebuilt natively. The `react-native-webview` library is the maintained successor to the built-in WebView and supports JavaScript injection, postMessage communication, and custom headers. A common pitfall is using WebViews for content that should be native -- always prefer native components for core UI and reserve WebViews for truly web-only content.
 
 **Strategy:**
-Use `react-native-webview`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Use `react-native-webview`. Pass a URI or HTML string to the `source` prop.
 
 **Code Example:**
 import { WebView } from 'react-native-webview';
@@ -871,7 +820,7 @@ import { WebView } from 'react-native-webview';
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: SVG support is essential for rendering resolution-independent icons, illustrations, and logos that look crisp on all screen densities. Unlike the web, React Native cannot render SVG natively, so you need `react-native-svg` for component-based SVG and `react-native-svg-transformer` to import `.svg` files directly. A common pitfall is trying to use SVG in `Image` tags without the transformer, which silently fails.
 
 **Strategy:**
 Use `react-native-svg`. Import `Svg`, `Path`, `Circle` etc., or use `react-native-svg-transformer` to import .svg files.
@@ -892,7 +841,7 @@ import Svg, { Circle } from 'react-native-svg';
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Complex gesture handling is critical for interactive UIs like swipeable cards, draggable elements, and pull-to-refresh patterns. The `react-native-gesture-handler` library provides composable gesture primitives that run on the native thread, avoiding JS bridge latency. Always pair gestures with Reanimated for smooth visual feedback, and compose multiple gestures using `Race`, `Simultaneous`, or `Exclusive` to define how they interact.
 
 **Strategy:**
 Use `react-native-gesture-handler` (GestureDetector) and `react-native-reanimated`.
@@ -918,10 +867,10 @@ const gesture = Gesture.Pan()
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: The Share API enables users to distribute content from your app to social media, messaging apps, or email without integrating each platform's SDK individually. It is a built-in React Native API that triggers the native sharing sheet on both platforms. A best practice is to provide both a `message` and a `url` in the share payload for richer previews, and to handle the promise result to know whether the user completed or dismissed the share action.
 
 **Strategy:**
-Use the `Share` API. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Use the built-in `Share` API to trigger the native share sheet.
 
 **Code Example:**
 import { Share } from 'react-native';
@@ -941,10 +890,10 @@ const onShare = async () => {
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Detecting app state transitions is essential for pausing video playback, stopping location tracking, refreshing data on return, or triggering analytics events. The `AppState` API provides `active`, `background`, and `inactive` states, and you subscribe via `addEventListener` in a `useEffect` hook. A common pitfall is forgetting to remove the subscription on unmount, which causes memory leaks and stale callbacks.
 
 **Strategy:**
-Use `AppState` API. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Subscribe to `AppState.addEventListener('change', callback)` and clean up on unmount.
 
 **Code Example:**
 import { AppState } from 'react-native';
@@ -967,10 +916,10 @@ useEffect(() => {
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Directing users to device settings is a common requirement when your app needs permissions (location, notifications, camera) that were previously denied. The `Linking.openSettings()` method deep-links directly to your app's settings page on both iOS and Android. A best practice is to detect the denied permission state first and show an explanatory dialog before sending the user to settings, since they otherwise may not understand why they were redirected.
 
 **Strategy:**
-Use `Linking.openSettings()`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Use `Linking.openSettings()` to navigate to the app's system settings screen.
 
 **Code Example:**
 import { Linking } from 'react-native';
@@ -986,7 +935,7 @@ import { Linking } from 'react-native';
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Storing authentication tokens, API keys, or user credentials in AsyncStorage is a security risk because it is unencrypted and readable by anyone with physical device access. Secure storage libraries use the iOS Keychain and Android Keystore, which provide hardware-backed encryption. A critical best practice is to never store refresh tokens in plain AsyncStorage and to always clear secure storage on logout to prevent token reuse attacks.
 
 **Strategy:**
 Do NOT use AsyncStorage. Use `expo-secure-store` or `react-native-keychain` or `react-native-encrypted-storage`.
@@ -1006,10 +955,10 @@ const token = await SecureStore.getItemAsync('secure_token');
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Vector icons are a staple of mobile UI for navigation tabs, action buttons, and status indicators. The `react-native-vector-icons` library bundles popular icon sets like FontAwesome, Material Icons, and Ionicons, rendering them as native vector graphics that scale perfectly. A common pitfall is not linking the font assets after installation -- you must run the link command or manually add fonts to your Xcode and Android Studio projects.
 
 **Strategy:**
-Use `react-native-vector-icons`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Install `react-native-vector-icons`, link font assets, and use the icon component with a `name` prop.
 
 **Code Example:**
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -1025,7 +974,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Lottie animations provide a way to render complex, designer-created After Effects animations as lightweight JSON files instead of GIFs or video, resulting in smaller bundle sizes and resolution-independent playback. This makes them ideal for loading states, onboarding flows, and success celebrations. A best practice is to preload animations that appear on app launch and to use hardware-accelerated rendering on Android for smoother playback.
 
 **Strategy:**
 Use `lottie-react-native`. Import the JSON file.
@@ -1044,7 +993,7 @@ import LottieView from 'lottie-react-native';
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Blur effects are commonly used for privacy screens, modal overlays, and the frosted-glass aesthetic popular in modern mobile UI design. The `@react-native-community/blur` library provides a native `BlurView` that leverages platform blur APIs for GPU-accelerated rendering. Be mindful that excessive blur amounts can cause performance issues on older devices, so test on lower-end hardware and limit blur usage to visible areas.
 
 **Strategy:**
 Use `@react-native-community/blur` (BlurView).
@@ -1067,7 +1016,7 @@ import { BlurView } from "@react-native-community/blur";
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Linear gradients are used extensively for buttons, headers, backgrounds, and branding elements. React Native does not include a gradient component, so `react-native-linear-gradient` (or `expo-linear-gradient`) fills that gap with a native implementation that performs well. A common pitfall is forgetting that the `colors` prop requires an array of valid CSS color strings, and that gradient direction is controlled by `start` and `end` coordinate objects rather than CSS angle values.
 
 **Strategy:**
 Use `react-native-linear-gradient` (or `expo-linear-gradient`).
@@ -1088,10 +1037,10 @@ import LinearGradient from 'react-native-linear-gradient';
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Android devices have a hardware or gesture-based back button that by default exits the app or pops the current screen, which may not always be the desired behavior. Using `BackHandler.addEventListener`, you can intercept the press and implement custom logic like showing a confirmation dialog before exiting or navigating back within a webview. Always return `true` from your handler to prevent the default back action, and clean up the listener on unmount to avoid stacking multiple handlers.
 
 **Strategy:**
-Use `BackHandler` API. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Listen to `hardwareBackPress` events with `BackHandler` and return `true` to override default behavior.
 
 **Code Example:**
 useEffect(() => {
@@ -1116,10 +1065,10 @@ useEffect(() => {
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Device information is essential for analytics, debugging user-reported issues, and conditionally enabling features based on OS version or device capability. The `react-native-device-info` library provides a comprehensive API for device model, system version, unique identifiers, carrier info, and more. A best practice is to collect device info for error reporting and support tickets, but avoid using device IDs for tracking without user consent to comply with privacy regulations.
 
 **Strategy:**
-Use `react-native-device-info`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Use `react-native-device-info` to access model, OS version, and other device properties.
 
 **Code Example:**
 import DeviceInfo from 'react-native-device-info';
@@ -1136,7 +1085,7 @@ let model = DeviceInfo.getModel();
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Clipboard operations are a small but essential UX feature for copy-to-clipboard actions on referral codes, addresses, and transaction details. The `@react-native-clipboard/clipboard` library replaced the deprecated built-in `Clipboard` module and provides both `setString` for writing and `getString` for reading. Always provide user feedback such as a toast or brief highlight when text is copied so users know the action succeeded.
 
 **Strategy:**
 Use `@react-native-clipboard/clipboard`.
@@ -1157,10 +1106,10 @@ const copyToClipboard = () => {
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Modals are fundamental UI patterns for confirmations, bottom sheets, image viewers, and form overlays that need to appear above the current screen. The built-in `Modal` component renders its children above the enclosing `StackNavigator` and supports `animationType`, `transparent`, and `onRequestClose` props. A common pitfall on Android is ignoring `onRequestClose` -- it is required to handle the hardware back button, and omitting it causes a warning.
 
 **Strategy:**
-Use the `Modal` component. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Use the built-in `Modal` component with `visible`, `animationType`, and `onRequestClose` props.
 
 **Code Example:**
 <Modal
@@ -1185,10 +1134,10 @@ Use the `Modal` component. This concept is fundamental in this domain and unders
 
 **Difficulty**: Beginner
 
-**Strategy**:
+**Strategy**: Knowing the connectivity type helps you adapt app behavior -- for example, delaying large downloads on cellular to save user data plans, or warning users before streaming HD video on metered connections. The `@react-native-community/netinfo` library provides both a one-time `fetch()` and a subscription-based `addEventListener` for real-time updates. A best practice is to combine connectivity type checks with reachability tests, since being on WiFi does not guarantee internet access.
 
 **Strategy:**
-Use `NetInfo`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Use `NetInfo.fetch()` to get connection type, or subscribe with `NetInfo.addEventListener()` for live updates.
 
 **Code Example:**
 NetInfo.fetch().then(state => {
@@ -1205,10 +1154,10 @@ NetInfo.fetch().then(state => {
 
 **Difficulty**: Intermediate
 
-**Strategy**:
+**Strategy**: Pager views provide a horizontally or vertically scrollable container for swiping between full-screen pages, commonly used for onboarding flows, image carousels, and tab-like interfaces. The `react-native-pager-view` library wraps the native `ViewPager` on Android and `UIPageViewController` on iOS, delivering smooth, gesture-responsive paging. Remember to assign unique `key` props to each child view for proper page tracking and to avoid rendering issues during page transitions.
 
 **Strategy:**
-Use `react-native-pager-view`. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+Use `react-native-pager-view` with child views, each requiring a unique `key` prop.
 
 **Code Example:**
 import PagerView from 'react-native-pager-view';
@@ -1228,9 +1177,7 @@ import PagerView from 'react-native-pager-view';
 **Difficulty**: Intermediate
 
 **Strategy**:
-
-**Strategy:**
-Use React Native Debugger (includes Network tab) or Flipper.
+Network debugging in React Native requires specialized tooling since you can't use browser DevTools directly. React Native Debugger (the standalone app) includes a Chrome DevTools Network tab that intercepts all `fetch`/`XMLHttpRequest` calls. Flipper (Meta's platform debugger) is the modern approach and is integrated by default in newer RN projects -- it shows network requests, logs, and layout inspector in one window.
 
 **Code Example:**
 // No code needed, just tooling setup.
@@ -1246,9 +1193,7 @@ Use React Native Debugger (includes Network tab) or Flipper.
 **Difficulty**: Intermediate
 
 **Strategy**:
-
-**Strategy:**
-Set `useNativeDriver: true` in `Animated` configurations to offload animation to the UI thread.
+The Native Driver offloads animation execution from the JS thread to the native UI thread, preventing jank when JS is busy. Without it, every animation frame must cross the bridge. The key limitation is that `useNativeDriver` only works with non-layout properties (opacity, transform) -- it cannot animate `height`, `width`, or `position` natively. Always enable it for smooth 60fps animations.
 
 **Code Example:**
 Animated.timing(fadeAnim, {
@@ -1268,8 +1213,8 @@ Animated.timing(fadeAnim, {
 
 **Strategy**:
 
-**Strategy:**
-Use the `onLayout` prop. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
+**Strategy**:
+Use the `onLayout` callback prop on any View to get its position and dimensions relative to its parent. For screen-level dimensions, use `Dimensions.get('window')`. A common pitfall is measuring too early (before layout completes) -- always use `onLayout` for dynamic measurements rather than guessing dimensions.
 
 **Code Example:**
 <View onLayout={(event) => {
@@ -1287,9 +1232,7 @@ Use the `onLayout` prop. This concept is fundamental in this domain and understa
 **Difficulty**: Beginner
 
 **Strategy**:
-
-**Strategy:**
-Use `elevation` style property (Android only). For iOS, use `shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowRadius`.
+iOS and Android handle shadows completely differently. iOS uses CSS-like shadow properties (`shadowColor`, `shadowOffset`, `shadowOpacity`, `shadowRadius`), while Android uses the Material Design `elevation` property. The key pitfall is that Android's `elevation` renders a fixed shadow you can't customize in color or offset. For cross-platform consistency, use `Platform.select()` to apply platform-specific styles, or use a library like `react-native-shadow-2` for pixel-perfect shadows on both platforms.
 
 **Code Example:**
 style: {
@@ -1309,908 +1252,3 @@ style: {
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-
-
-<a id="q51"></a>
-### Q51: How do you handle React Native state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q52"></a>
-### Q52: How do you perform React Native data validation in microservices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q53"></a>
-### Q53: How do you automate React Native deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q54"></a>
-### Q54: How do you handle React Native concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q55"></a>
-### Q55: How do you implement React Native caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q56"></a>
-### Q56: How do you manage React Native configuration for real-time systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q57"></a>
-### Q57: How do you handle React Native internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q58"></a>
-### Q58: How do you ensure React Native accessibility (a11y) in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q59"></a>
-### Q59: How do you optimize React Native network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q60"></a>
-### Q60: How do you handle React Native performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// React Native logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q61"></a>
-### Q61: What are the security implications of React Native in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q62"></a>
-### Q62: How do you debug React Native memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q63"></a>
-### Q63: Best practices for React Native code organization in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q64"></a>
-### Q64: How do you implement React Native error handling for legacy systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await React NativeOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q65"></a>
-### Q65: How do you test React Native functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('React Native works', () => {
-  expect(React Native()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q66"></a>
-### Q66: How do you handle React Native state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q67"></a>
-### Q67: How do you perform React Native data validation in distributed systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q68"></a>
-### Q68: How do you automate React Native deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q69"></a>
-### Q69: How do you handle React Native concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q70"></a>
-### Q70: How do you implement React Native caching in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q71"></a>
-### Q71: How do you manage React Native configuration for large scale applications?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q72"></a>
-### Q72: How do you handle React Native internationalization (i18n) in microservices?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q73"></a>
-### Q73: How do you ensure React Native accessibility (a11y) in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q74"></a>
-### Q74: How do you optimize React Native network requests in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q75"></a>
-### Q75: How do you handle React Native performance optimization for cloud infrastructure?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// React Native logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q76"></a>
-### Q76: What are the security implications of React Native in real-time systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q77"></a>
-### Q77: How do you debug React Native memory leaks in distributed systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q78"></a>
-### Q78: Best practices for React Native code organization in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q79"></a>
-### Q79: How do you implement React Native error handling for embedded systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await React NativeOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q80"></a>
-### Q80: How do you test React Native functionality in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('React Native works', () => {
-  expect(React Native()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q81"></a>
-### Q81: How do you handle React Native state management in large scale applications?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q82"></a>
-### Q82: How do you perform React Native data validation in microservices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q83"></a>
-### Q83: How do you automate React Native deployment for mobile devices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q84"></a>
-### Q84: How do you handle React Native concurrency issues in legacy systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q85"></a>
-### Q85: How do you implement React Native caching in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q86"></a>
-### Q86: How do you manage React Native configuration for real-time systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use environment variables or config files. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const config = process.env.CONFIG || 'default';
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q87"></a>
-### Q87: How do you handle React Native internationalization (i18n) in distributed systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use i18n libraries. Extract strings to resource files.
-
-**Code Example**:
-```javascript
-t('welcome_message')
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q88"></a>
-### Q88: How do you ensure React Native accessibility (a11y) in high-traffic sites?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use semantic HTML and ARIA roles. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-<button aria-label="Close">X</button>
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q89"></a>
-### Q89: How do you optimize React Native network requests in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use batching, debouncing, or GraphQL. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-debounce(() => fetch(), 300);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q90"></a>
-### Q90: How do you handle React Native performance optimization for production environments?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Profile first, then optimize hot paths. Use caching and efficient algorithms.
-
-**Code Example**:
-```javascript
-const start = performance.now();
-// React Native logic
-const end = performance.now();
-console.log('Time:', end - start);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q91"></a>
-### Q91: What are the security implications of React Native in large scale applications?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Validate all inputs. Sanitize data. Use least privilege principle.
-
-**Code Example**:
-```javascript
-// Sanitize input
-const clean = input.replace(/<script>/g, '');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q92"></a>
-### Q92: How do you debug React Native memory leaks in microservices?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use heap snapshots and look for detached DOM nodes or uncleared listeners.
-
-**Code Example**:
-```javascript
-// Check listeners
-process.on('exit', () => cleanup());
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q93"></a>
-### Q93: Best practices for React Native code organization in mobile devices?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Follow SOLID principles. Keep functions small and focused.
-
-**Code Example**:
-```javascript
-// Single responsibility
-function doOneThing() { ... }
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q94"></a>
-### Q94: How do you implement React Native error handling for legacy systems?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use try/catch blocks or global error boundaries. Log errors for monitoring.
-
-**Code Example**:
-```javascript
-try {
-  await React NativeOperation();
-} catch (e) {
-  logger.error(e);
-}
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q95"></a>
-### Q95: How do you test React Native functionality in cloud infrastructure?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Write unit tests for logic and integration tests for flows.
-
-**Code Example**:
-```javascript
-test('React Native works', () => {
-  expect(React Native()).toBe(true);
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q96"></a>
-### Q96: How do you handle React Native state management in real-time systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use immutable state where possible. Avoid prop drilling.
-
-**Code Example**:
-```javascript
-const [state, setState] = useState(initial);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q97"></a>
-### Q97: How do you perform React Native data validation in distributed systems?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-Use schema validation libraries (Zod, Joi) or custom checks.
-
-**Code Example**:
-```javascript
-if (!schema.safeParse(data).success) throw Error('Invalid');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q98"></a>
-### Q98: How do you automate React Native deployment for high-traffic sites?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use CI/CD pipelines. Dockerize the application. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-steps:
-  - run: npm test
-  - run: docker build
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q99"></a>
-### Q99: How do you handle React Native concurrency issues in embedded systems?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Use locks, queues, or atomic operations. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-await mutex.runExclusive(async () => {
-  // critical section
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q100"></a>
-### Q100: How do you implement React Native caching in production environments?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Use Redis or in-memory LRU caches. This concept is fundamental in this domain and understanding it allows developers to write more efficient and maintainable code. It is commonly asked in interviews to test foundational knowledge.
-
-**Code Example**:
-```javascript
-const cache = new Map();
-if (cache.has(key)) return cache.get(key);
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
