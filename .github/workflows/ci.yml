@@ -1,0 +1,53 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  audit-markdowns:
+    name: Markdown Quality & TOC Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Verify All 46 Categories Have >= 100 Qs and 0 Dupes
+        run: python3 scripts/analyze_markdowns.py
+
+  backend-check:
+    name: Rust Backend Check & Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Rust Toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+          components: clippy, rustfmt
+
+      - name: Check Backend Compilation
+        run: cargo check --manifest-path backend/Cargo.toml
+
+      - name: Run Backend Tests
+        run: cargo test --manifest-path backend/Cargo.toml
+
+  schema-validation:
+    name: OpenAPI & Postman Schema Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate JSON Files
+        run: |
+          python3 -c "import json; json.load(open('docs/swagger.json')); json.load(open('docs/postman_collection.json')); print('All API specs valid!')"

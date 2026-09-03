@@ -222,3 +222,4 @@ docs/build/
 *.log
 *.out
 *.err
+backend/target/

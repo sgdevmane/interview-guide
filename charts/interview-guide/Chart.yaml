@@ -1,0 +1,9 @@
+apiVersion: v2
+name: interview-guide
+description: Enterprise Helm Chart for Interview Guide Platform
+type: application
+version: 2.0.0
+appVersion: "2.0.0"
+maintainers:
+  - name: Platform Engineering
+    email: eng@interviewguide.internal

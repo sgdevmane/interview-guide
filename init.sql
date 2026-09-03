@@ -138,9 +138,51 @@ INSERT INTO categories (id, name, description, total_questions) VALUES
 ('microservices', 'Microservices', 'Service Discovery, Saga Pattern, Circuit Breakers, Kafka', 101),
 ('python', 'Python & Django', 'GIL, Asyncio, Generators, Metaclasses, Django ORM', 100),
 ('svelte', 'Svelte & SvelteKit', 'Runes, Svelte 5, Compiler Reactivity, SSR, Hydration', 102),
-('system-design', 'System Design', 'Scalability, Load Balancing, Caching, CAP Theorem, Event-Driven', 132)
+('system-design', 'System Design', 'Scalability, Load Balancing, Caching, CAP Theorem, Event-Driven', 132),
+('behavioral', 'Behavioral & Leadership (STAR)', 'STAR Method, Conflict Resolution, System Outages, and Leadership', 100),
+('devsecops', 'DevSecOps & Threat Modeling', 'STRIDE, Zero-Trust, Supply Chain Security, SBOM, and Container Hardening', 100),
+('ai-engineering', 'AI Engineering & LLMs', 'RAG, Transformers, LoRA, Vector Databases, and Agents', 100),
+('sre', 'Site Reliability Engineering (SRE)', 'SLOs, Error Budgets, OpenTelemetry, Incident Response, and Chaos Engineering', 100),
+('fintech', 'Low-Latency FinTech & High-Frequency Systems', 'Kernel Bypass, DPDK, LMAX Disruptor, Limit Order Books, and FIX Protocol', 100),
+('embedded', 'Embedded Systems & RTOS', 'FreeRTOS, Priority Inversion, Memory-Mapped I/O, ISRs, and DMA', 100),
+('web3-solidity', 'Web3 & Solidity Security', 'Reentrancy, Storage Slot Packing, Flash Loans, EVM Internals, and MEV', 100),
+('compiler-design', 'Compiler Design & LLVM', 'SSA Form, LR Parsers, JIT Compilation, LLVM IR, and Register Allocation', 100),
+('linux-kernel-ebpf', 'Linux Kernel & eBPF Engineering', 'eBPF Verifier, XDP Line-Rate Packet Filtering, Ring Buffers, and Kernel Internals', 100),
+('distributed-storage', 'Distributed Storage & Filesystems', 'Ceph CRUSH, LSM Trees, NVMe-oF, Erasure Coding, and ZFS', 100),
+('cryptography-zk', 'Applied Cryptography & Zero-Knowledge', 'ECDSA, zk-SNARKs, AES-GCM AEAD, Constant-Time Implementations, and R1CS', 100),
+('graphics-webgpu', 'Computer Graphics & WebGPU', 'WebGPU Compute Pipelines, WGSL, Memory Coalescing, PSOs, and Workgroups', 100),
+('networking-protocols', 'Modern Networking Protocols (HTTP/3, QUIC, gRPC)', 'HTTP/3, QUIC 0-RTT, Head-of-Line Blocking, Protobuf Varints, and BBR', 100)
 ON CONFLICT (id) DO UPDATE SET 
     name = EXCLUDED.name,
     description = EXCLUDED.description,
     total_questions = EXCLUDED.total_questions,
     updated_at = CURRENT_TIMESTAMP;
+
+-- 8. Mock Quizzes & Test Sessions Table
+CREATE TABLE IF NOT EXISTS mock_quizzes (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES users(id) ON DELETE SET NULL,
+    category_id VARCHAR(64) REFERENCES categories(id) ON DELETE SET NULL,
+    title VARCHAR(255) NOT NULL,
+    duration_minutes INT DEFAULT 45,
+    score_percentage NUMERIC(5, 2),
+    total_questions INT NOT NULL,
+    correct_answers INT DEFAULT 0,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 9. Code Playground Submissions Table
+CREATE TABLE IF NOT EXISTS code_playground_submissions (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID REFERENCES users(id) ON DELETE SET NULL,
+    language VARCHAR(32) NOT NULL,
+    code_content TEXT NOT NULL,
+    execution_output TEXT,
+    execution_time_ms NUMERIC(8, 2),
+    status VARCHAR(32) DEFAULT 'success',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_quizzes_user ON mock_quizzes(user_id);
+CREATE INDEX IF NOT EXISTS idx_playground_user ON code_playground_submissions(user_id);
+

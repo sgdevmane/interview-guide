@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "7f8b9a10-2345-4cde-8901-abcdef123456",
     "name": "Interview Guide Platform API",
-    "description": "Postman Collection for querying Interview Guide topics, questions, search, and metrics.",
+    "description": "Postman Collection for querying Interview Guide topics, questions, search, mock quizzes, SM-2 spaced repetition, bookmarks, and telemetry.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -10,7 +10,7 @@
       "name": "Categories",
       "item": [
         {
-          "name": "Get All Categories",
+          "name": "Get All 55 Categories",
           "request": {
             "method": "GET",
             "header": [],
@@ -18,25 +18,52 @@
               "raw": "{{baseUrl}}/categories",
               "host": ["{{baseUrl}}"],
               "path": ["categories"]
-            },
-            "description": "Fetches all 42 interview categories with question counts."
+            }
           }
         },
+        {
+          "name": "Get Category by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/categories/javascript",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories", "javascript"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Questions",
+      "item": [
         {
           "name": "Get Questions by Category",
           "request": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/categories/javascript/questions?difficulty=Advanced&limit=100",
+              "raw": "{{baseUrl}}/categories/rust/questions?difficulty=Advanced&limit=100",
               "host": ["{{baseUrl}}"],
-              "path": ["categories", "javascript", "questions"],
+              "path": ["categories", "rust", "questions"],
               "query": [
                 { "key": "difficulty", "value": "Advanced" },
                 { "key": "limit", "value": "100" }
               ]
-            },
-            "description": "Fetches questions for a specific category filtered by difficulty."
+            }
+          }
+        },
+        {
+          "name": "Get Single Question",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/categories/rust/questions/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories", "rust", "questions", "1"]
+            }
           }
         }
       ]
@@ -45,7 +72,7 @@
       "name": "Search",
       "item": [
         {
-          "name": "Global Cross-Category Search",
+          "name": "Global Full-Text Search",
           "request": {
             "method": "GET",
             "header": [],
@@ -53,11 +80,66 @@
               "raw": "{{baseUrl}}/search?q=closure",
               "host": ["{{baseUrl}}"],
               "path": ["search"],
+              "query": [{ "key": "q", "value": "closure" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mock Quiz",
+      "item": [
+        {
+          "name": "Generate Timed Quiz",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/quiz/generate?category_id=java&count=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["quiz", "generate"],
               "query": [
-                { "key": "q", "value": "closure" }
+                { "key": "category_id", "value": "java" },
+                { "key": "count", "value": "10" }
               ]
+            }
+          }
+        },
+        {
+          "name": "Submit Quiz",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"session_id\": \"test-session-123\",\n  \"answers\": [0, 1, 0, 2, 0]\n}"
             },
-            "description": "Searches questions and answers across all categories."
+            "url": {
+              "raw": "{{baseUrl}}/quiz/submit",
+              "host": ["{{baseUrl}}"],
+              "path": ["quiz", "submit"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Spaced Repetition",
+      "item": [
+        {
+          "name": "Record Review (SM-2)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"category_id\": \"rust\",\n  \"question_number\": 1,\n  \"rating\": 4\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/progress/review",
+              "host": ["{{baseUrl}}"],
+              "path": ["progress", "review"]
+            }
           }
         }
       ]
@@ -76,6 +158,18 @@
               "path": ["metrics"]
             }
           }
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            }
+          }
         }
       ]
     }
@@ -83,7 +177,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://localhost:3000/api",
+      "value": "http://localhost:8080/api",
       "type": "string"
     }
   ]

@@ -1,0 +1,42 @@
+groups:
+  - name: interview_guide_alerts
+    rules:
+      - alert: HighHttpErrorRate
+        expr: rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]) * 100 > 1
+        for: 2m
+        labels:
+          severity: critical
+          environment: production
+        annotations:
+          summary: "High HTTP 5xx error rate detected"
+          description: "HTTP 5xx error rate on {{ $labels.instance }} is currently {{ $value | printf \"%.2f\" }}% (> 1%)."
+
+      - alert: HighRequestLatency
+        expr: histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by (le)) > 0.5
+        for: 3m
+        labels:
+          severity: warning
+          environment: production
+        annotations:
+          summary: "Elevated p95 request latency"
+          description: "p95 latency on {{ $labels.instance }} exceeded 500ms (current: {{ $value | printf \"%.3f\" }}s)."
+
+      - alert: RateLimitSurge
+        expr: rate(rate_limit_exceeded_total[5m]) > 10
+        for: 1m
+        labels:
+          severity: warning
+          environment: production
+        annotations:
+          summary: "Surge in rate limit rejections"
+          description: "Token-bucket rate limiter rejected >10 requests/sec on {{ $labels.instance }}."
+
+      - alert: ServiceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+          environment: production
+        annotations:
+          summary: "Target backend service instance is unreachable"
+          description: "{{ $labels.job }} target at {{ $labels.instance }} has been down for >1 minute."

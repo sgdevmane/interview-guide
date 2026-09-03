@@ -1,199 +1,210 @@
 # 🚀 Interview Guide & Technical Knowledge Platform
 
 [![Docker](https://img.shields.io/badge/Docker-Staging%20%7C%20Production-blue.svg?logo=docker)](file:///Users/santoshdevmane/github/interview-guide/docker-compose.production.yml)
+[![Rust Backend](https://img.shields.io/badge/Rust-Axum%202.0-DEA584.svg?logo=rust)](file:///Users/santoshdevmane/github/interview-guide/backend/Cargo.toml)
 [![Prometheus](https://img.shields.io/badge/Prometheus-Enabled-orange.svg?logo=prometheus)](file:///Users/santoshdevmane/github/interview-guide/docker/prometheus/prometheus.yml)
 [![Grafana](https://img.shields.io/badge/Grafana-Monitored-F46800.svg?logo=grafana)](file:///Users/santoshdevmane/github/interview-guide/docker/grafana/provisioning/dashboards/dashboards.yml)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-init.sql-336791.svg?logo=postgresql)](file:///Users/santoshdevmane/github/interview-guide/init.sql)
-[![Questions](https://img.shields.io/badge/Questions-4%2C200%2B%20Verified-brightgreen.svg)](#content-coverage)
+[![Questions](https://img.shields.io/badge/Questions-5%2C500%2B%20Verified-brightgreen.svg)](#content-coverage)
 [![OpenAPI](https://img.shields.io/badge/OpenAPI-3.0%20Swagger-85EA2D.svg?logo=swagger)](file:///Users/santoshdevmane/github/interview-guide/docs/swagger.json)
+[![Helm](https://img.shields.io/badge/Kubernetes-Helm%20Chart-326CE5.svg?logo=helm)](file:///Users/santoshdevmane/github/interview-guide/charts/interview-guide/)
+[![Terraform](https://img.shields.io/badge/Terraform-IaC%20Ready-7B42BC.svg?logo=terraform)](file:///Users/santoshdevmane/github/interview-guide/terraform/)
 
-An enterprise-grade, comprehensive interview preparation and technical mastery platform featuring **42 specialized categories** with **100+ deep, production-tested Questions and Answers per technology**, verified code examples, responsive web UI with smooth non-blocking Floating Action Navigation, and full production observability.
+An enterprise-grade, 100% tokenless and local-first technical interview platform featuring **55 specialized categories** with **100+ deep Questions and Answers per technology (5,500+ total verified QnAs)**, high-performance **Rust Axum microservice** with Token-Bucket rate limiting, **In-Browser Multi-Language Sandbox (JS/TS + Relational SQL Engine)**, **Call Stack vs. Heap Memory Visualizer**, **Raft Consensus Protocol Simulation**, **Algorithm Benchmark Runner (Ops/sec)**, **Candidate Readiness Radar Index**, **WebRTC Peer-to-Peer Mock Interview Rooms**, **SM-2 Spaced Repetition Flashcards**, **Terminal User Interface (`./guide-cli tui`)**, and full production observability.
 
 ---
 
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
-- [Architecture & Design System](#-architecture--design-system)
-- [Content Coverage (42 Categories / 4,200+ Questions)](#-content-coverage)
-- [Directory Structure](#-directory-structure)
+- [Architecture & System Design](#-architecture--system-design)
+- [Interactive Platform Features](#-interactive-platform-features)
+- [Content Coverage (55 Categories / 5,500+ Questions)](#-content-coverage)
+- [Terminal Practice CLI & TUI (`guide-cli`)](#-terminal-practice-cli--tui-guide-cli)
+- [Rust Backend Microservice (`backend/`)](#-rust-backend-microservice-backend)
 - [Database Schema (`init.sql`)](#-database-schema-initsql)
-- [Observability (Prometheus & Grafana)](#-observability-prometheus--grafana)
+- [Observability (Prometheus Alerting & Grafana)](#-observability-prometheus-alerting--grafana)
 - [API Documentation (Swagger & Postman)](#-api-documentation-swagger--postman)
+- [Kubernetes & Terraform Deployment](#-kubernetes--terraform-deployment)
 - [Getting Started & Local Execution](#-getting-started--local-execution)
 - [Docker Compose Deployment (Staging & Production)](#-docker-compose-deployment)
 - [Engineering Guidelines: Dos and Don'ts](#-engineering-guidelines-dos-and-donts)
-- [Contributing](#-contributing)
 - [License](#-license)
 
 ---
 
 ## 🎯 Overview
 
-The **Interview Guide Platform** is designed for software engineers, tech leads, engineering managers, and architects. Every question is curated to meet strict production standards:
+The **Interview Guide Platform** is built for engineers preparing for Staff/Principal, High-Frequency Trading, Distributed Systems, SRE, and Embedded interview rounds:
+- **100% Tokenless & Local-First**: No external AI API tokens or cloud LLMs required. Everything executes client-side (via WebAssembly, Web Workers, WebRTC, Web Crypto) or in the native Rust backend.
 - **Consistent Design Layout**: Modeled after the benchmark JavaScript golden template with centered logos, comprehensive 1-100 Table of Contents, difficulty badges (`Beginner`, `Intermediate`, `Advanced`, `Expert`), strategy explanations, and verified code examples.
-- **Zero Duplicate Policy**: 100% of duplicate questions eliminated across all 42 categories.
-- **Modern Web Application**: Interactive dashboard (`dashboard.html` / `index.html`) featuring fast client-side markdown parsing with Marked.js, search filters, theme toggles, and responsive **Floating Action Button (FAB) Scroll-to-Top**.
+- **Zero Duplicate Policy**: 100% of duplicate questions eliminated across all 55 categories.
 
 ---
 
-## 🏗️ Architecture & Design System
+## 🏗️ Architecture & System Design
 
 ```mermaid
 graph TD
-    Client["Client Browser (Desktop / Mobile)"] --> |HTTP / Static Assets| Nginx["Nginx / Node Web Server"]
-    Nginx --> Dashboard["Interactive Dashboard (dashboard.html)"]
-    Dashboard --> MarkedEngine["Marked.js Markdown Parser"]
-    Dashboard --> FAB["FAB Scroll-to-Top (Smooth, Non-Blocking)"]
-    MarkedEngine --> Markdowns["42 Categorized Markdowns (/markdowns/*)"]
+    Client["Client Browser (Desktop / Mobile PWA)"] --> |HTTP / Static Assets| Nginx["Nginx Web Server (:3000)"]
+    Client --> |REST APIs / JSON| RustBackend["Rust Microservice (Axum / Tokio :8080)"]
     
-    BackendAPI["Backend API Service (/api)"] --> RemoteDB[("Remote PostgreSQL (DATABASE_URL)")]
-    BackendAPI --> Swagger["OpenAPI 3.0 / Swagger UI"]
+    RustBackend --> RemoteDB[("Remote PostgreSQL (DATABASE_URL)")]
+    RustBackend --> SwaggerUI["Embedded Swagger UI (/swagger-ui)"]
+    RustBackend --> MetricsHandler["Prometheus Metrics (/metrics)"]
+    RustBackend --> RateLimiter["Token-Bucket Rate Limiter (100 req/sec)"]
     
-    Prometheus["Prometheus (:9090)"] --> |Scrapes /metrics| BackendAPI
-    Grafana["Grafana (:3001)"] --> |Visualizes Dashboards| Prometheus
+    Prometheus["Prometheus (:9090)"] --> |Scrapes /metrics| MetricsHandler
+    Prometheus --> |Evaluates alerts.yml| PrometheusAlerts["Alertmanager"]
+    Grafana["Grafana (:3001)"] --> |Visualizes platform_dashboard.json| Prometheus
 ```
 
-### Key Design Patterns
-- **Golden Standard Layout**: Every markdown includes `<span class="beginner|intermediate|advanced">` tags, unique anchor links (`<a id="qX"></a>`), and structured metadata (`Difficulty`, `Strategy`, `Code Example`).
-- **Responsive Floating Action Button**: Fixed `bottom-right` FAB with smooth multi-container tracking (`window`, `.main-content`, `#contentArea`) that remains completely non-blocking on mobile viewports.
-- **Safe Hash Navigation**: Custom anchor handling in `assets/js/app-main.js` preventing invalid file fetches on anchor transitions.
+---
+
+## ⚡ Interactive Platform Features
+
+1. **🔍 Instant Client-Side Fuzzy Search**: Sub-millisecond global search (`Cmd+K` / `Ctrl+K` / `/`) querying questions and answers across all 55 categories.
+2. **⚡ Multi-Engine Code & SQL Sandbox**: In-browser execution for JavaScript/TypeScript and **Relational SQL queries** on mock database tables (`employees`, `departments`) with instant tabular output.
+3. **🚢 Raft Consensus Protocol Simulation**: Interactive 3-node distributed consensus simulation with heartbeats, election timeouts, leader crash triggers, and term increments.
+4. **⚡ Algorithm Benchmark Comparator**: Side-by-side performance runner measuring operations per second (Ops/sec) and latency percentiles using high-resolution timers (`performance.now()`).
+5. **🎯 Candidate Readiness Score Radar**: HTML5 Canvas drawing a 5-axis competency radar chart (Algorithms, Systems, Architecture, Security, Web).
+6. **⏱️ Deep Focus Pomodoro Timer**: 25-minute focus countdown timer with sound alerts and streak logging.
+7. **⌨️ Vim Keybindings Navigation Mode**: Toggle Vim mode (`j`/`k` scroll questions, `G`/`g` top/bottom, `/` search).
+8. **📦 LSM-Tree Storage Engine & Compaction Simulator**: Live HTML5 Canvas animating MemTable in-memory writes, flush to Level 0 SSTables, and background multi-way merge sort compaction into Level 1.
+9. **⭕ Consistent Hashing 360° Ring Simulator**: Interactive distributed hashing ring with virtual nodes, demonstrating minimal key migration when server nodes fail or revive without full keyspace reshuffling.
+10. **🎯 Curated Quick Filters**: Instantly filter questions by career archetypes (Staff/Principal Essentials, HFT & Low-Latency, Security & Kernel, AI & ML).
+11. **🖨️ Clean Print / PDF Exporter**: Dedicated `@media print` stylesheet that strips UI navigation and formats question banks cleanly for offline PDF study.
+12. **🔬 Memory Model Visualizer**: Interactive HTML5 Canvas animating stack frames, pointers, and dynamic heap memory blocks.
+13. **📹 WebRTC Peer-to-Peer Mock Interview Room**: Direct browser-to-browser peer video calling and synchronized coding without server relay costs.
+14. **🧠 Spaced Repetition Flashcards (SM-2)**: 3D flip-card study mode with SuperMemo SM-2 interval calculations (`Again`, `Hard`, `Good`, `Easy`).
+15. **🔒 Client-Side E2E Encrypted Notes**: AES-256-GCM encryption with PBKDF2 user passphrase key derivation for confidential candidate notes.
+16. **📥 Anki Deck Exporter**: Export any category directly into standard `.csv` flashcards for Anki software.
+
+---
+
+## 🖥️ Terminal Practice CLI & TUI (`guide-cli`)
+
+A fast, interactive command-line tool for developers who prefer practicing directly inside tmux or their shell:
+
+```bash
+# Launch full-screen interactive Terminal User Interface (TUI)
+./guide-cli tui
+
+# List all 55 categories
+./guide-cli list
+
+# View question, difficulty, strategy & code
+./guide-cli view linux-kernel-ebpf 1
+./guide-cli view fintech 2
+
+# Search questions across all 5,500+ questions
+./guide-cli search "eBPF"
+
+# Run an interactive terminal quiz
+./guide-cli quiz fintech
+```
 
 ---
 
 ## 📚 Content Coverage
 
-The platform encompasses **42 categories**, each containing **at least 100 detailed questions and answers**:
+The platform encompasses **55 specialized categories**, each containing **at least 100 detailed questions and answers**:
 
 | Domain | Categories | Questions Count |
 | :--- | :--- | :--- |
-| **Core Web & Frontend** | JavaScript, TypeScript, HTML5, CSS3, Tailwind & Bootstrap, Material/Radix UI | 603+ Qs |
+| **Core Web & Styling** | JavaScript, TypeScript, HTML5, CSS3, Tailwind & Bootstrap, Material/Radix UI | 603+ Qs |
 | **Frontend Frameworks** | React.js, Next.js, Angular 14-18, Vue.js 3, Svelte & SvelteKit | 502+ Qs |
 | **State Management** | NgRx, Redux Toolkit & Zustand | 200+ Qs |
-| **Backend & Languages** | Node.js, Java & Spring Boot, Modern C++ (C++20/23), .NET 8 & C# 12, Rust 2024, Python & Django, Go (Golang) | 700+ Qs |
+| **Backend & Languages** | Node.js, Java & Spring Boot, Modern C++, .NET 8 & C#, Rust 2024, Python & Django, Go | 700+ Qs |
 | **Mobile Development** | Swift & SwiftUI (iOS), Kotlin & Android, Flutter & Dart, React Native | 400+ Qs |
-| **Cloud, DevOps & Arch** | Docker & Containers, Kubernetes, AWS Cloud, Microservices, Micro-frontends, System Design | 634+ Qs |
-| **Data & APIs** | Database & SQL, GraphQL, Integration & Modern APIs, Web Performance, Application Security | 502+ Qs |
-| **CS & Quality** | Algorithms, Data Structures, Git Version Control, Linux & Shell, Testing & QA | 500+ Qs |
-| **Total** | **42 Categories** | **4,200+ Verified QnAs** |
+| **Cloud & Architecture** | Docker, Kubernetes, AWS Cloud, Microservices, Micro-frontends, System Design | 634+ Qs |
+| **Data & APIs** | Database & SQL, GraphQL, Integration & APIs, Web Performance, Security | 502+ Qs |
+| **CS & Infrastructure** | Algorithms, Data Structures, Git, Linux & Shell, Testing & QA | 500+ Qs |
+| **Leadership & Reliability** | Behavioral (STAR), DevSecOps, AI Engineering, Site Reliability Engineering (SRE) | 400+ Qs |
+| **Systems & Low-Level** | Low-Latency FinTech (HFT), Embedded Systems & RTOS, Web3 & Solidity, Compiler Design & LLVM | 400+ Qs |
+| **Advanced Systems Engineering** | Linux Kernel & eBPF, Distributed Storage (Ceph/NVMe-oF), Applied Cryptography & ZK, Computer Graphics & WebGPU, Modern Networking Protocols (HTTP/3, QUIC, gRPC) | 500+ Qs |
+| **Total** | **55 Categories** | **5,541 Verified QnAs** |
 
 ---
 
-## 📁 Directory Structure
+## 🦀 Rust Backend Microservice (`backend/`)
 
-```
-interview-guide/
-├── index.html                          # Landing page
-├── dashboard.html                      # Interactive interview dashboard with 42 categories
-├── styles.css                          # Core web styles
-├── assets/
-│   ├── css/
-│   │   └── inline-styles.css           # Styling, FAB animations, and responsiveness
-│   ├── js/
-│   │   ├── app-main.js                 # App routing, safe hash scrolling, FAB button
-│   │   └── marked.min.js               # Markdown parser
-│   └── images/                         # Technology icons and logos
-├── markdowns/                          # 42 Categories with 100+ QnAs each
-│   ├── javascript/javascript-questions.md
-│   ├── react/react-questions.md
-│   ├── nextjs/nextjs-questions.md
-│   ├── angular/angular-questions.md
-│   ├── vue/vue-questions.md
-│   ├── rust/rust-questions.md
-│   ├── nodejs/nodejs-questions.md
-│   ├── java/java-questions.md
-│   ├── cpp/cpp-questions.md
-│   ├── dotnet/dotnet-questions.md
-│   └── ... (all 42 categories)
-├── docker/
-│   ├── prometheus/
-│   │   └── prometheus.yml              # Prometheus scrape configuration
-│   └── grafana/
-│       └── provisioning/               # Grafana automated datasources and dashboards
-├── docs/
-│   ├── swagger.json                    # OpenAPI 3.0 API specification
-│   └── postman_collection.json         # Postman API Collection
-├── scripts/
-│   ├── analyze_markdowns.py            # Master validation and audit script
-│   ├── batch_base.py                   # Golden markdown generation engine
-│   └── run_all_generators.py           # Master content generation pipeline
-├── init.sql                            # Fresh server PostgreSQL setup script
-├── docker-compose.staging.yml          # Staging Docker Compose
-├── docker-compose.production.yml       # Production Docker Compose with resource limits
-├── .env.local                          # Local development environment
-├── .env.staging                        # Staging environment
-└── .env.production                     # Production environment
-```
+Built with **Rust**, **Axum**, **Tokio**, and **SQLx**:
+- **Token-Bucket Rate Limiter**: Native middleware protecting all endpoints against request flooding.
+- **Inverted Search Index**: Sub-millisecond search across 5,500+ questions.
+- **Embedded Swagger UI**: Interactive API documentation at `http://localhost:8080/swagger-ui`.
+- **Prometheus Metrics**: High-throughput telemetry exported at `http://localhost:8080/metrics`.
+- **Run Backend Locally**:
+  ```bash
+  cd backend
+  cargo run
+  ```
 
 ---
 
 ## 🗄️ Database Schema (`init.sql`)
 
 When setting up a fresh database server, `init.sql` provisions all relational structures:
-- `categories`: Metadata and total question counters.
-- `questions`: Question numbers, categories, difficulty levels, strategies, markdown answers, and code examples.
-- `users`: User authentication with pgcrypto password hashing.
+- `categories`: Metadata and total question counters for all 55 categories.
+- `questions`: Question numbers, categories, difficulty levels, strategies, and code examples.
+- `mock_quizzes`: User assessment sessions, scores, and timestamps.
+- `code_playground_submissions`: Sandboxed code execution history.
 - `user_bookmarks`: Bookmarked questions per user.
 - `user_question_notes`: User-specific study notes on questions.
 - `user_study_progress`: Leitner spaced-repetition progress (`unseen`, `learning`, `mastered`, `needs_review`).
-- `search_telemetry`: Search query performance and latency telemetry.
 
 ---
 
-## 📊 Observability (Prometheus & Grafana)
+## 📊 Observability (Prometheus Alerting & Grafana)
 
 Prometheus and Grafana configurations are pre-wired in `docker-compose.staging.yml` and `docker-compose.production.yml`:
-- **Prometheus UI**: `http://localhost:9090` (Scrapes `/metrics` every 10s).
-- **Grafana Dashboard**: `http://localhost:3001` (Pre-provisioned with Prometheus data source).
+- **Prometheus Scrapes & Alert Rules**: `docker/prometheus/prometheus.yml` and `docker/prometheus/alerts.yml`.
+- **Grafana Dashboard JSON**: Pre-provisioned telemetry dashboard in `docker/grafana/provisioning/dashboards/platform_dashboard.json`.
+- **Prometheus UI**: `http://localhost:9090`.
+- **Grafana UI**: `http://localhost:3001` (admin / admin).
 
 ---
 
 ## 🚀 Getting Started & Local Execution
 
-### 1. Run with Python Local Server
+### 1. Run Web UI
 ```bash
-# Start local static server
 python3 -m http.server 3000
-
-# Open in browser:
-# http://localhost:3000/dashboard.html
+# Open in browser: http://localhost:3000/dashboard.html
 ```
 
-### 2. Audit and Validate Content Quality
+### 2. Run Rust Backend
 ```bash
-# Run the validation script to verify 100% question counts and 0 duplicates
+cd backend
+cargo run
+# Backend API & Swagger: http://localhost:8080/swagger-ui
+```
+
+### 3. Run Content Quality Audit
+```bash
 python3 scripts/analyze_markdowns.py
+```
+
+### 4. Practice in Terminal
+```bash
+./guide-cli tui
+./guide-cli list
+./guide-cli quiz
 ```
 
 ---
 
 ## 🐳 Docker Compose Deployment
 
-### Staging Environment
+### Staging
 ```bash
 docker-compose -f docker-compose.staging.yml --env-file .env.staging up -d --build
 ```
 
-### Production Environment
+### Production
 ```bash
 docker-compose -f docker-compose.production.yml --env-file .env.production up -d --build
 ```
-
----
-
-## 🛡️ Engineering Guidelines: Dos and Don'ts
-
-### ✅ Dos
-1. **Follow the Golden Template**: Every markdown must have a centered logo, 1-100 Table of Contents with difficulty badges, unique `<a id="qX"></a>` anchors, and complete code examples.
-2. **Use Parameterized SQL**: Always use parameterized queries or trusted ORMs to prevent SQL injection.
-3. **Handle Backpressure**: When writing streams in Node.js / Rust, always respect backpressure and handle drain events.
-4. **Enforce Immutability**: Leverage readonly records, const assertions, and pure functions across state reducers.
-
-### ❌ Don'ts
-1. **No Duplicates**: Never copy-paste questions across categories without distinct language-specific nuances.
-2. **No Synchronous File I/O on Event Loops**: Avoid `fs.readFileSync` inside Node.js request handlers.
-3. **No Direct DOM Mutation in Frameworks**: Avoid modifying DOM directly outside React/Vue refs or Angular Renderers.
-4. **No Unhandled Promises**: Always handle promise rejections and listen to `unhandledRejection` handlers.
 
 ---
 

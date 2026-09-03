@@ -626,19 +626,173 @@
               React-Native <span class="badge">100+</span>
             </button>
           </div>
+
+          <!-- Leadership & Advanced Tracks -->
+          <div class="nav-section">
+            <div class="nav-section-title">Leadership & Advanced Tracks</div>
+            <button
+              class="nav-item"
+              data-file="markdowns/behavioral/behavioral-questions.md"
+            >
+              Behavioral & Leadership (STAR) <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/devsecops/devsecops-questions.md"
+            >
+              DevSecOps & Threat Modeling <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/ai-engineering/ai-engineering-questions.md"
+            >
+              AI Engineering & LLMs <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/sre/sre-questions.md"
+            >
+              Site Reliability Engineering (SRE) <span class="badge">100+</span>
+            </button>
+          </div>
+
+          <!-- Systems & Low-Level Tracks -->
+          <div class="nav-section">
+            <div class="nav-section-title">Systems & Low-Level Tracks</div>
+            <button
+              class="nav-item"
+              data-file="markdowns/fintech/fintech-questions.md"
+            >
+              Low-Latency FinTech (HFT) <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/embedded/embedded-questions.md"
+            >
+              Embedded Systems & RTOS <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/web3-solidity/web3-solidity-questions.md"
+            >
+              Web3 & Solidity Security <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/compiler-design/compiler-design-questions.md"
+            >
+              Compiler Design & LLVM <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/linux-kernel-ebpf/linux-kernel-ebpf-questions.md"
+            >
+              Linux Kernel & eBPF <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/distributed-storage/distributed-storage-questions.md"
+            >
+              Distributed Storage (Ceph/NVMe) <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/cryptography-zk/cryptography-zk-questions.md"
+            >
+              Applied Cryptography & ZK <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/graphics-webgpu/graphics-webgpu-questions.md"
+            >
+              Computer Graphics & WebGPU <span class="badge">100+</span>
+            </button>
+            <button
+              class="nav-item"
+              data-file="markdowns/networking-protocols/networking-protocols-questions.md"
+            >
+              Networking Protocols (HTTP/3) <span class="badge">100+</span>
+            </button>
+          </div>
         </nav>
       </article>
 
       <!-- Main Content Area -->
       <main class="main-content">
+        <!-- Interactive Action Toolbar -->
+        <div class="platform-action-toolbar">
+          <button class="action-pill-btn" onclick="window.InstantSearch.open()">
+            🔍 Instant Search <span class="kbd-shortcut">Cmd+K</span>
+          </button>
+          <button class="action-pill-btn" onclick="window.CodePlayground.open()">
+            ⚡ Code / SQL Sandbox
+          </button>
+          <button class="action-pill-btn" onclick="window.FlashcardMode.open()">
+            🧠 Flashcards (SM-2)
+          </button>
+          <button class="action-pill-btn" onclick="window.MockQuiz.open()">
+            ⏱️ Mock Quiz
+          </button>
+          <button class="action-pill-btn" onclick="window.ArchitectureCanvas.open()">
+            📐 Architecture Canvas
+          </button>
+          <button class="action-pill-btn" onclick="document.getElementById('memoryModal').classList.add('active'); window.MemoryVisualizer.draw();">
+            🔬 Memory Visualizer
+          </button>
+          <button class="action-pill-btn" onclick="window.RaftSimulator.open()">
+            🚢 Raft Simulator
+          </button>
+          <button class="action-pill-btn" onclick="window.LSMTreeSimulator.open()">
+            📦 LSM-Tree Compaction
+          </button>
+          <button class="action-pill-btn" onclick="window.ConsistentHashSimulator.open()">
+            ⭕ Consistent Hash Ring
+          </button>
+          <button class="action-pill-btn" onclick="window.BenchmarkRunner.open()">
+            ⚡ Benchmark Runner
+          </button>
+          <button class="action-pill-btn" onclick="window.ReadinessRadar.open()">
+            🎯 Readiness Radar
+          </button>
+          <button class="action-pill-btn" onclick="window.PomodoroTimer.open()">
+            ⏱️ Pomodoro
+          </button>
+          <button class="action-pill-btn" onclick="window.VimMode.toggle()">
+            ⌨️ Vim: <span id="vimModeTag">OFF</span>
+          </button>
+          <button class="action-pill-btn" onclick="window.WebRTCInterview.open()">
+            📹 P2P Mock Room
+          </button>
+          <button class="action-pill-btn" onclick="window.AnkiExporter.exportCurrentCategory()">
+            📥 Anki Export
+          </button>
+          <button class="action-pill-btn" onclick="window.PDFExporter.exportCurrent()">
+            🖨️ PDF / Print
+          </button>
+          <button class="action-pill-btn" onclick="window.ThemeEngine.cycleTheme()">
+            🎨 Theme: <span id="currentThemeIndicator">Dark</span>
+          </button>
+        </div>
+
+        <!-- Curated Quick Preset Filters -->
+        <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">
+          <span style="font-size:12px;color:#94a3b8;font-weight:700;">🎯 Curated Filters:</span>
+          <button class="action-pill-btn" style="padding:4px 12px;font-size:11px;" onclick="window.CuratedFilters.applyPreset('staff')">🔥 Staff/Principal Essentials</button>
+          <button class="action-pill-btn" style="padding:4px 12px;font-size:11px;" onclick="window.CuratedFilters.applyPreset('hft')">⚡ HFT & Low-Latency</button>
+          <button class="action-pill-btn" style="padding:4px 12px;font-size:11px;" onclick="window.CuratedFilters.applyPreset('security')">🛡️ Security & Kernel</button>
+        </div>
+
         <div class="content-header">
           <h1>Technical Interview Guide</h1>
           <p>
-            Comprehensive collection of interview questions covering React.js,
-            Angular 14, JavaScript, TypeScript, HTML5, CSS3, NgRx, Backend-
-            related technologies, Performance, Security, and Integration
-            patterns.
+            Comprehensive collection of interview questions covering 55 categories,
+            featuring 5,500+ verified Questions and Answers, interactive multi-language playgrounds,
+            in-browser SQL execution, consensus visualizers, spaced-repetition review, and systems architecture diagrams.
           </p>
+          <div style="margin-top: 14px; display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 12px; color: #94a3b8; font-weight: 600;">Activity Heatmap:</span>
+            <div id="activityHeatmapGrid" style="display: flex; gap: 3px; align-items: center;"></div>
+          </div>
         </div>
 
         <div id="contentArea">
@@ -814,5 +968,264 @@
 
     <!-- Main Application Script -->
     <script src="assets/js/app-main.js"></script>
+    <script src="assets/js/platform-features.js"></script>
+
+    <!-- Interactive Platform Modals -->
+    <!-- 1. Instant Search Modal -->
+    <div id="searchModal" class="platform-modal-overlay">
+      <div class="platform-modal-content">
+        <div class="modal-header">
+          <h3>🔍 Instant Full-Text Search</h3>
+          <button class="modal-close-btn" onclick="window.InstantSearch.close()">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="search-input-wrapper">
+            <input
+              id="searchModalInput"
+              type="text"
+              class="search-modal-input"
+              placeholder="Search across all 50 categories and 5,000+ questions (Press Esc to close)..."
+              autocomplete="off"
+            />
+          </div>
+          <div id="searchResultsList" class="search-results-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Multi-Language Code & SQL Sandbox Modal -->
+    <div id="playgroundModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 960px;">
+        <div class="modal-header">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <h3>⚡ In-Browser Code & SQL Sandbox</h3>
+            <select id="playgroundLang" style="background:#1e293b;color:#38bdf8;border:1px solid #475569;border-radius:6px;padding:4px 8px;font-size:12px;font-weight:600;" onchange="window.CodePlayground.setLanguage(this.value)">
+              <option value="javascript">JavaScript / TypeScript</option>
+              <option value="sql">SQL (In-Memory Relational Engine)</option>
+            </select>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="action-pill-btn" style="background:#10b981;border-color:#10b981;" onclick="window.CodePlayground.runCode()">▶ Run Query / Code</button>
+            <button class="modal-close-btn" onclick="window.CodePlayground.close()">✕</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="playground-container">
+            <div class="playground-editor-area">
+              <label style="color:#94a3b8;font-size:12px;font-weight:600;">Interactive Editor</label>
+              <textarea id="playgroundEditor" class="playground-textarea" spellcheck="false"></textarea>
+            </div>
+            <div class="playground-editor-area">
+              <label style="color:#94a3b8;font-size:12px;font-weight:600;">Execution Output & Query Results</label>
+              <div id="playgroundConsole" class="playground-console">Click 'Run Query / Code' to execute.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Flashcard Spaced Repetition (SM-2) Modal -->
+    <div id="flashcardModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 650px;">
+        <div class="modal-header">
+          <h3>🧠 Spaced Repetition Flashcards (SM-2)</h3>
+          <button class="modal-close-btn" onclick="window.FlashcardMode.close()">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="flashcard-scene" onclick="window.FlashcardMode.flip()">
+            <div id="flashcardCard" class="flashcard-card">
+              <div id="flashcardFront" class="flashcard-face"></div>
+              <div id="flashcardBack" class="flashcard-face flashcard-back"></div>
+            </div>
+          </div>
+          <div class="sm2-rating-bar">
+            <button class="sm2-btn sm2-again" onclick="window.FlashcardMode.rate(1)">Again (1d)</button>
+            <button class="sm2-btn sm2-hard" onclick="window.FlashcardMode.rate(2)">Hard (3d)</button>
+            <button class="sm2-btn sm2-good" onclick="window.FlashcardMode.rate(3)">Good (6d)</button>
+            <button class="sm2-btn sm2-easy" onclick="window.FlashcardMode.rate(4)">Easy (14d)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Timed Mock Interview Quiz Modal -->
+    <div id="quizModal" class="platform-modal-overlay">
+      <div class="platform-modal-content">
+        <div class="modal-header">
+          <h3>⏱️ Timed Mock Interview Assessment</h3>
+          <button class="modal-close-btn" onclick="window.MockQuiz.close()">✕</button>
+        </div>
+        <div id="quizModalBody" class="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- 5. Architecture Design Canvas Modal -->
+    <div id="canvasModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 900px;">
+        <div class="modal-header">
+          <h3>📐 System Architecture Sketch Canvas</h3>
+          <button class="modal-close-btn" onclick="window.ArchitectureCanvas.close()">✕</button>
+        </div>
+        <div class="modal-body" style="text-align:center;">
+          <canvas id="archCanvas" width="800" height="400" style="background:#020617;border-radius:10px;border:1px solid rgba(255,255,255,0.1);"></canvas>
+          <div style="margin-top:12px;color:#94a3b8;font-size:12px;">Standard Microservices 3-Tier Architecture Pattern with Gateway, Services, Primary DB, and Distributed Cache</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Memory Model Visualizer Modal (Stack vs Heap) -->
+    <div id="memoryModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 860px;">
+        <div class="modal-header">
+          <h3>🔬 Call Stack vs Heap Memory Layout Visualizer</h3>
+          <button class="modal-close-btn" onclick="document.getElementById('memoryModal').classList.remove('active')">✕</button>
+        </div>
+        <div class="modal-body" style="text-align:center;">
+          <canvas id="memoryCanvas" width="800" height="300" style="background:#020617;border-radius:10px;border:1px solid rgba(255,255,255,0.1);"></canvas>
+          <div style="margin-top:12px;color:#94a3b8;font-size:12px;">Visual memory model tracking pointer references from Stack Frames to Dynamic Heap Blocks</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. WebRTC Peer-to-Peer Mock Room Modal -->
+    <div id="webrtcModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 840px;">
+        <div class="modal-header">
+          <div style="display:flex;gap:12px;align-items:center;">
+            <h3>📹 WebRTC Peer-to-Peer Mock Interview Room</h3>
+            <span id="webrtcRoomId" style="background:#0369a1;color:#fff;padding:2px 8px;border-radius:4px;font-family:monospace;font-size:11px;">ROOM-LOCAL</span>
+          </div>
+          <button class="modal-close-btn" onclick="window.WebRTCInterview.close()">✕</button>
+        </div>
+        <div class="modal-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+            <div style="background:#0f172a;border-radius:8px;padding:10px;text-align:center;">
+              <div style="color:#94a3b8;font-size:12px;margin-bottom:6px;">Candidate Local Video</div>
+              <video id="webrtcLocalVideo" autoplay playsinline muted style="width:100%;height:180px;background:#020617;border-radius:6px;object-fit:cover;"></video>
+            </div>
+            <div style="background:#0f172a;border-radius:8px;padding:10px;text-align:center;">
+              <div style="color:#94a3b8;font-size:12px;margin-bottom:6px;">Peer Interviewer Video (P2P Mesh)</div>
+              <div style="width:100%;height:180px;background:#020617;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#475569;font-size:12px;">Waiting for peer connection...</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;justify-content:center;">
+            <button class="action-pill-btn" onclick="window.WebRTCInterview.startCamera()">🎥 Enable Camera / Mic</button>
+            <button class="action-pill-btn" style="background:#3b82f6;" onclick="navigator.clipboard.writeText(window.location.href); alert('Interview link copied to clipboard!');">🔗 Copy Peer Invite Link</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Raft Consensus Cluster Simulator Modal -->
+    <div id="raftModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 860px;">
+        <div class="modal-header">
+          <h3>🚢 Raft Consensus Protocol Simulation</h3>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="action-pill-btn" style="background:#ef4444;border-color:#ef4444;" onclick="window.RaftSimulator.killLeader()">⚠️ Crash Leader</button>
+            <button class="action-pill-btn" style="background:#10b981;border-color:#10b981;" onclick="window.RaftSimulator.resetCluster()">🔄 Reset Cluster</button>
+            <button class="modal-close-btn" onclick="window.RaftSimulator.close()">✕</button>
+          </div>
+        </div>
+        <div class="modal-body" style="text-align:center;">
+          <canvas id="raftCanvas" width="800" height="340" style="background:#020617;border-radius:10px;border:1px solid rgba(255,255,255,0.1);"></canvas>
+          <div style="margin-top:10px;color:#94a3b8;font-size:12px;">Live state machine showing Leader Heartbeats, Election Timeouts, and Term Increments</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Algorithm Performance Benchmark Modal -->
+    <div id="benchmarkModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 900px;">
+        <div class="modal-header">
+          <h3>⚡ Algorithm Performance Benchmark Comparator</h3>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="action-pill-btn" style="background:#10b981;border-color:#10b981;" onclick="window.BenchmarkRunner.runBenchmark()">▶ Run Benchmark</button>
+            <button class="modal-close-btn" onclick="window.BenchmarkRunner.close()">✕</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+            <div>
+              <label style="color:#38bdf8;font-size:12px;font-weight:700;">Algorithm A (Reference)</label>
+              <textarea id="benchCodeA" class="playground-textarea" style="height:120px;" spellcheck="false"></textarea>
+            </div>
+            <div>
+              <label style="color:#10b981;font-size:12px;font-weight:700;">Algorithm B (Optimized)</label>
+              <textarea id="benchCodeB" class="playground-textarea" style="height:120px;" spellcheck="false"></textarea>
+            </div>
+          </div>
+          <div id="benchOutput" style="background:#020617;padding:12px;border-radius:8px;border:1px solid #1e293b;color:#f8fafc;font-size:13px;">Click 'Run Benchmark' to measure operations per second.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Candidate Readiness Score Radar Modal -->
+    <div id="radarModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 600px;">
+        <div class="modal-header">
+          <h3>🎯 Technical Readiness Radar Index</h3>
+          <button class="modal-close-btn" onclick="window.ReadinessRadar.close()">✕</button>
+        </div>
+        <div class="modal-body" style="text-align:center;">
+          <canvas id="radarCanvas" width="480" height="340" style="background:#020617;border-radius:10px;"></canvas>
+          <div style="margin-top:10px;color:#94a3b8;font-size:12px;">Competency scoring calculated from quiz evaluations and SM-2 spaced repetition retention</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Pomodoro Focus Timer Modal -->
+    <div id="pomodoroModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 440px;">
+        <div class="modal-header">
+          <h3>⏱️ Deep Focus Pomodoro Timer</h3>
+          <button class="modal-close-btn" onclick="window.PomodoroTimer.close()">✕</button>
+        </div>
+        <div class="modal-body" style="text-align:center;padding:30px 20px;">
+          <div id="pomoDisplay" style="font-size:54px;font-weight:900;color:#38bdf8;font-family:monospace;letter-spacing:2px;margin-bottom:20px;">25:00</div>
+          <div style="display:flex;gap:12px;justify-content:center;">
+            <button id="pomoStartBtn" class="action-pill-btn" style="background:#10b981;border-color:#10b981;font-size:14px;padding:8px 20px;" onclick="window.PomodoroTimer.toggle()">Start Focus</button>
+            <button class="action-pill-btn" style="background:#64748b;border-color:#64748b;font-size:14px;padding:8px 20px;" onclick="window.PomodoroTimer.reset()">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. LSM-Tree Compaction Simulator Modal -->
+    <div id="lsmModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 860px;">
+        <div class="modal-header">
+          <h3>📦 LSM-Tree Storage Engine & Compaction Simulator</h3>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="action-pill-btn" style="background:#38bdf8;border-color:#38bdf8;" onclick="window.LSMTreeSimulator.insertKey()">+ Write Key</button>
+            <button class="action-pill-btn" style="background:#f59e0b;border-color:#f59e0b;" onclick="window.LSMTreeSimulator.flushMemtable()">💾 Flush MemTable</button>
+            <button class="action-pill-btn" style="background:#10b981;border-color:#10b981;" onclick="window.LSMTreeSimulator.compactL0toL1()">⚡ Compact L0 → L1</button>
+            <button class="modal-close-btn" onclick="window.LSMTreeSimulator.close()">✕</button>
+          </div>
+        </div>
+        <div class="modal-body" style="text-align:center;">
+          <canvas id="lsmCanvas" width="800" height="280" style="background:#020617;border-radius:10px;border:1px solid rgba(255,255,255,0.1);"></canvas>
+          <div style="margin-top:10px;color:#94a3b8;font-size:12px;">Live state machine showing MemTable SkipList flushes to immutable SSTables and multi-way merge sort compaction</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Consistent Hashing Ring Simulator Modal -->
+    <div id="hashRingModal" class="platform-modal-overlay">
+      <div class="platform-modal-content" style="max-width: 680px;">
+        <div class="modal-header">
+          <h3>⭕ Consistent Hashing 360° Ring Simulator</h3>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button class="action-pill-btn" style="background:#38bdf8;border-color:#38bdf8;" onclick="window.ConsistentHashSimulator.addRandomKey()">+ Add Key</button>
+            <button class="action-pill-btn" style="background:#ef4444;border-color:#ef4444;" onclick="window.ConsistentHashSimulator.toggleNodeB()">⚠️ Fail / Revive Node B</button>
+            <button class="modal-close-btn" onclick="window.ConsistentHashSimulator.close()">✕</button>
+          </div>
+        </div>
+        <div class="modal-body" style="text-align:center;">
+          <canvas id="hashRingCanvas" width="560" height="340" style="background:#020617;border-radius:10px;border:1px solid rgba(255,255,255,0.1);"></canvas>
+          <div style="margin-top:10px;color:#94a3b8;font-size:12px;">Demonstrates virtual node routing and minimal key migration upon node failure without full reshuffling</div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
