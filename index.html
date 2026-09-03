@@ -1725,6 +1725,34 @@
           }
         });
       });
+
+      // Index FAB scroll to top
+      const fabButton = document.getElementById("fabButton");
+      if (fabButton) {
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 200) {
+            fabButton.style.opacity = "1";
+            fabButton.style.pointerEvents = "auto";
+            fabButton.style.transform = "translateY(0) scale(1)";
+          } else {
+            fabButton.style.opacity = "0";
+            fabButton.style.pointerEvents = "none";
+            fabButton.style.transform = "translateY(16px) scale(0.9)";
+          }
+        });
+        fabButton.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
     </script>
+
+    <!-- FAB Button -->
+    <button
+      class="fab-button"
+      id="fabButton"
+      aria-label="Scroll to top"
+      title="Scroll to Top"
+      style="position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; background: linear-gradient(135deg, var(--gold, #22c55e), #16a34a); border: none; border-radius: 50%; color: #ffffff; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(16px) scale(0.9); pointer-events: none; transition: all 0.3s ease;"
+    >↑</button>
 </body>
 </html>

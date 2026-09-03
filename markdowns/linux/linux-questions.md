@@ -35,56 +35,56 @@
 23. [How do you use `sed` for text replacement?](#q23) <span class="intermediate">Intermediate</span>
 24. [What is `awk` used for?](#q24) <span class="advanced">Advanced</span>
 25. [How do you check network connectivity (ping/curl)?](#q25) <span class="beginner">Beginner</span>
-51. [How do you combine files (concatenate)?](#q51) <span class="beginner">Beginner</span>
-52. [What is `xargs`?](#q52) <span class="intermediate">Intermediate</span>
-53. [How do you monitor disk I/O usage?](#q53) <span class="intermediate">Intermediate</span>
-54. [What is the `PATH` environment variable?](#q54) <span class="beginner">Beginner</span>
-55. [How do you check the size of a directory?](#q55) <span class="beginner">Beginner</span>
-56. [What is `cut` command used for?](#q56) <span class="intermediate">Intermediate</span>
-57. [How do you create a symbolic link?](#q57) <span class="beginner">Beginner</span>
-58. [What is `netstat`?](#q58) <span class="intermediate">Intermediate</span>
-59. [How do you watch a command output periodically?](#q59) <span class="intermediate">Intermediate</span>
-60. [How do you terminate a shell session?](#q60) <span class="beginner">Beginner</span>
-61. [What is the difference between `who` and `whoami`?](#q61) <span class="beginner">Beginner</span>
-62. [How do you zip and unzip files using `zip`?](#q62) <span class="beginner">Beginner</span>
-63. [How do you debug a shell script?](#q63) <span class="intermediate">Intermediate</span>
-64. [What is `chroot`?](#q64) <span class="advanced">Advanced</span>
-65. [How do you find the location of a command?](#q65) <span class="beginner">Beginner</span>
-66. [What is `tee` command?](#q66) <span class="intermediate">Intermediate</span>
-67. [How do you check OS release info?](#q67) <span class="beginner">Beginner</span>
-68. [What is `tcpdump`?](#q68) <span class="advanced">Advanced</span>
-69. [How do you get the last lines of a file?](#q69) <span class="beginner">Beginner</span>
-70. [How do you get the first lines of a file?](#q70) <span class="beginner">Beginner</span>
-71. [What is `alias`?](#q71) <span class="beginner">Beginner</span>
-72. [How do you perform math in bash?](#q72) <span class="intermediate">Intermediate</span>
-73. [How do you check user groups?](#q73) <span class="beginner">Beginner</span>
-74. [What is `/etc/passwd`?](#q74) <span class="intermediate">Intermediate</span>
-75. [How do you download a file from the web?](#q75) <span class="beginner">Beginner</span>
-76. [What is `ssh-copy-id`?](#q76) <span class="beginner">Beginner</span>
-77. [What is the difference between `/bin` and `/usr/bin`?](#q77) <span class="intermediate">Intermediate</span>
-78. [How do you rename a file?](#q78) <span class="beginner">Beginner</span>
-79. [What is `/var/log`?](#q79) <span class="beginner">Beginner</span>
-80. [How do you check CPU info?](#q80) <span class="beginner">Beginner</span>
-81. [How do you create a new user?](#q81) <span class="beginner">Beginner</span>
-82. [What is `env` command?](#q82) <span class="beginner">Beginner</span>
-83. [How do you delete a user?](#q83) <span class="beginner">Beginner</span>
-84. [What is the `root` user?](#q84) <span class="beginner">Beginner</span>
-85. [How do you check the kernel ring buffer (boot messages)?](#q85) <span class="intermediate">Intermediate</span>
-86. [What is `mount`?](#q86) <span class="intermediate">Intermediate</span>
-87. [What is `/etc/fstab`?](#q87) <span class="intermediate">Intermediate</span>
-88. [How do you reload systemd configuration?](#q88) <span class="intermediate">Intermediate</span>
-89. [How do you enable a service to start at boot?](#q89) <span class="beginner">Beginner</span>
-90. [What is `journalctl`?](#q90) <span class="intermediate">Intermediate</span>
-91. [How do you create a hard link?](#q91) <span class="intermediate">Intermediate</span>
-92. [What is `/tmp`?](#q92) <span class="beginner">Beginner</span>
-93. [How do you change your password?](#q93) <span class="beginner">Beginner</span>
-94. [What is `uniq` command?](#q94) <span class="intermediate">Intermediate</span>
-95. [How do you view hidden files?](#q95) <span class="beginner">Beginner</span>
-96. [What is `file` command?](#q96) <span class="beginner">Beginner</span>
-97. [How do you shutdown the system?](#q97) <span class="beginner">Beginner</span>
-98. [What is `nc` (Netcat)?](#q98) <span class="advanced">Advanced</span>
-99. [How do you trace the path to a network host?](#q99) <span class="intermediate">Intermediate</span>
-100. [What is the difference between `apt` and `apt-get`?](#q100) <span class="beginner">Beginner</span>
+26. [How do you combine files (concatenate)?](#q26) <span class="beginner">Beginner</span>
+27. [What is `xargs`?](#q27) <span class="intermediate">Intermediate</span>
+28. [How do you monitor disk I/O usage?](#q28) <span class="intermediate">Intermediate</span>
+29. [What is the `PATH` environment variable?](#q29) <span class="beginner">Beginner</span>
+30. [How do you check the size of a directory?](#q30) <span class="beginner">Beginner</span>
+31. [What is `cut` command used for?](#q31) <span class="intermediate">Intermediate</span>
+32. [How do you create a symbolic link?](#q32) <span class="beginner">Beginner</span>
+33. [What is `netstat`?](#q33) <span class="intermediate">Intermediate</span>
+34. [How do you watch a command output periodically?](#q34) <span class="intermediate">Intermediate</span>
+35. [How do you terminate a shell session?](#q35) <span class="beginner">Beginner</span>
+36. [What is the difference between `who` and `whoami`?](#q36) <span class="beginner">Beginner</span>
+37. [How do you zip and unzip files using `zip`?](#q37) <span class="beginner">Beginner</span>
+38. [How do you debug a shell script?](#q38) <span class="intermediate">Intermediate</span>
+39. [What is `chroot`?](#q39) <span class="advanced">Advanced</span>
+40. [How do you find the location of a command?](#q40) <span class="beginner">Beginner</span>
+41. [What is `tee` command?](#q41) <span class="intermediate">Intermediate</span>
+42. [How do you check OS release info?](#q42) <span class="beginner">Beginner</span>
+43. [What is `tcpdump`?](#q43) <span class="advanced">Advanced</span>
+44. [How do you get the last lines of a file?](#q44) <span class="beginner">Beginner</span>
+45. [How do you get the first lines of a file?](#q45) <span class="beginner">Beginner</span>
+46. [What is `alias`?](#q46) <span class="beginner">Beginner</span>
+47. [How do you perform math in bash?](#q47) <span class="intermediate">Intermediate</span>
+48. [How do you check user groups?](#q48) <span class="beginner">Beginner</span>
+49. [What is `/etc/passwd`?](#q49) <span class="intermediate">Intermediate</span>
+50. [How do you download a file from the web?](#q50) <span class="beginner">Beginner</span>
+51. [What is `ssh-copy-id`?](#q51) <span class="beginner">Beginner</span>
+52. [What is the difference between `/bin` and `/usr/bin`?](#q52) <span class="intermediate">Intermediate</span>
+53. [How do you rename a file?](#q53) <span class="beginner">Beginner</span>
+54. [What is `/var/log`?](#q54) <span class="beginner">Beginner</span>
+55. [How do you check CPU info?](#q55) <span class="beginner">Beginner</span>
+56. [How do you create a new user?](#q56) <span class="beginner">Beginner</span>
+57. [What is `env` command?](#q57) <span class="beginner">Beginner</span>
+58. [How do you delete a user?](#q58) <span class="beginner">Beginner</span>
+59. [What is the `root` user?](#q59) <span class="beginner">Beginner</span>
+60. [How do you check the kernel ring buffer (boot messages)?](#q60) <span class="intermediate">Intermediate</span>
+61. [What is `mount`?](#q61) <span class="intermediate">Intermediate</span>
+62. [What is `/etc/fstab`?](#q62) <span class="intermediate">Intermediate</span>
+63. [How do you reload systemd configuration?](#q63) <span class="intermediate">Intermediate</span>
+64. [How do you enable a service to start at boot?](#q64) <span class="beginner">Beginner</span>
+65. [What is `journalctl`?](#q65) <span class="intermediate">Intermediate</span>
+66. [How do you create a hard link?](#q66) <span class="intermediate">Intermediate</span>
+67. [What is `/tmp`?](#q67) <span class="beginner">Beginner</span>
+68. [How do you change your password?](#q68) <span class="beginner">Beginner</span>
+69. [What is `systemd` and how do you create and manage a custom Linux service unit file?](#q69) <span class="advanced">Advanced</span>
+70. [How do you view hidden files?](#q70) <span class="beginner">Beginner</span>
+71. [What is `file` command?](#q71) <span class="beginner">Beginner</span>
+72. [How do you shutdown the system?](#q72) <span class="beginner">Beginner</span>
+73. [What is `nc` (Netcat)?](#q73) <span class="advanced">Advanced</span>
+74. [How do you trace the path to a network host?](#q74) <span class="intermediate">Intermediate</span>
+75. [What is the difference between `apt` and `apt-get`?](#q75) <span class="beginner">Beginner</span>
 76. [How do you create a systemd service?](#q76) <span class="advanced">Advanced</span>
 77. [How do you filter journal logs by service?](#q77) <span class="intermediate">Intermediate</span>
 78. [What is `strace` used for?](#q78) <span class="advanced">Advanced</span>
@@ -103,23 +103,19 @@
 91. [How do you extract a `.tar.gz` file?](#q91) <span class="beginner">Beginner</span>
 92. [What is the Sticky Bit?](#q92) <span class="advanced">Advanced</span>
 93. [How do you check open file limits?](#q93) <span class="advanced">Advanced</span>
-94. [What is the `/proc` filesystem?](#q94) <span class="advanced">Advanced</span>
-95. [How do you check kernel ring buffer logs?](#q95) <span class="intermediate">Intermediate</span>
-96. [How do you check memory usage details?](#q96) <span class="beginner">Beginner</span>
-97. [How do you check Disk I/O stats?](#q97) <span class="advanced">Advanced</span>
-98. [Difference between `top` and `htop`?](#q98) <span class="beginner">Beginner</span>
-99. [Difference between SIGTERM and SIGKILL?](#q99) <span class="intermediate">Intermediate</span>
-100. [Difference between `curl` and `wget`?](#q100) <span class="intermediate">Intermediate</span>
-101. [How do you make an environment variable persistent?](#q101) <span class="beginner">Beginner</span>
-
----
+94. [How do you check kernel ring buffer logs?](#q94) <span class="intermediate">Intermediate</span>
+95. [How do you check memory usage details?](#q95) <span class="beginner">Beginner</span>
+96. [How do you check Disk I/O stats?](#q96) <span class="advanced">Advanced</span>
+97. [Difference between `top` and `htop`?](#q97) <span class="beginner">Beginner</span>
+98. [Difference between SIGTERM and SIGKILL?](#q98) <span class="intermediate">Intermediate</span>
+99. [Difference between `curl` and `wget`?](#q99) <span class="intermediate">Intermediate</span>
+100. [How do you make an environment variable persistent?](#q100) <span class="beginner">Beginner</span>
 
 ---
 
 <a id="q1"></a>
 ### Q1: How do you check disk space usage?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 Disk space management is crucial for server health.
@@ -142,10 +138,11 @@ du -h --max-depth=1 | sort -hr | head -n 5
 
 ---
 
+---
+
 <a id="q2"></a>
 ### Q2: How do you manage file permissions (chmod)?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 Linux permissions control who can Read (r=4), Write (w=2), and Execute (x=1) a file.
@@ -169,10 +166,11 @@ chmod go-w file.txt
 
 ---
 
+---
+
 <a id="q3"></a>
 ### Q3: How do you find a file by name or content?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**:
 *   **`find`:** Search for files in a directory hierarchy based on name, size, time, etc.
@@ -198,10 +196,11 @@ grep -r "error" .
 
 ---
 
+---
+
 <a id="q4"></a>
 ### Q4: What is Grep and how do you use it?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 `grep` (Global Regular Expression Print) is a powerful command-line tool used for searching plain-text data sets for lines that match a regular expression. It is essential for log analysis.
@@ -225,10 +224,11 @@ grep -v "200 OK" access.log
 
 ---
 
+---
+
 <a id="q5"></a>
 ### Q5: How do you check and kill running processes?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**:
 *   **`ps`:** Snapshot of current processes.
@@ -258,10 +258,11 @@ pkill node
 
 ---
 
+---
+
 <a id="q6"></a>
 ### Q6: What is the difference between Soft Link and Hard Link?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**:
 *   **Soft Link (Symbolic Link):** A shortcut. It points to the *path* of the original file. If the original is deleted, the link breaks (dangling). Can link across filesystems.
@@ -280,10 +281,11 @@ ln file.txt file_backup.txt
 
 ---
 
+---
+
 <a id="q7"></a>
 ### Q7: How do you check listening ports?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**:
 Identifying which application is using a port is common for debugging connectivity issues.
@@ -307,10 +309,11 @@ sudo lsof -i :80
 
 ---
 
+---
+
 <a id="q8"></a>
 ### Q8: What is the difference between Cron and Crontab?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**:
 *   **Cron:** The system daemon (service) that runs in the background and executes scheduled tasks.
@@ -333,10 +336,11 @@ crontab -l
 
 ---
 
+---
+
 <a id="q9"></a>
 ### Q9: Process vs Thread in Linux?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**:
 *   **Process:** An instance of a running program. Has its own isolated memory space, PID, and file descriptors. Heavyweight context switch.
@@ -356,10 +360,11 @@ ls /proc/<PID>/task | wc -l
 
 ---
 
+---
+
 <a id="q10"></a>
 ### Q10: How do you check memory usage?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 *   **`free`:** Displays total, used, and free memory/swap.
@@ -379,10 +384,11 @@ vmstat 2
 
 ---
 
+---
+
 <a id="q11"></a>
 ### Q11: What is SSH and how does it work?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**:
 **SSH (Secure Shell)** is a protocol for securely accessing network services over an unsecured network. It replaces insecure Telnet/FTP.
@@ -406,10 +412,11 @@ ssh-copy-id user@192.168.1.10
 
 ---
 
+---
+
 <a id="q12"></a>
 ### Q12: Explain Standard Streams (Stdin, Stdout, Stderr)?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**:
 In Linux, Everything is a file. Processes have 3 default file descriptors:
@@ -440,10 +447,11 @@ command > /dev/null 2>&1
 
 ---
 
+---
+
 <a id="q13"></a>
 ### Q13: How do you monitor log files in real-time?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 *   **`tail -f`:** Follows the file as it grows.
@@ -463,10 +471,11 @@ tail -f app.log | grep "error"
 
 ---
 
+---
+
 <a id="q14"></a>
 ### Q14: What is a Daemon?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**:
 A **Daemon** is a background process that runs without direct user interaction. They usually handle system services (web server, database, printing).
@@ -486,10 +495,11 @@ sudo systemctl restart nginx
 
 ---
 
+---
+
 <a id="q15"></a>
 ### Q15: How do you change file ownership (chown)?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 `chown` changes the user and/or group ownership of a file.
@@ -509,10 +519,11 @@ sudo chown -R www-data:www-data /var/www/html
 
 ---
 
+---
+
 <a id="q16"></a>
 ### Q16: What is the /proc filesystem?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**:
 `/proc` is a **pseudo-filesystem**. It doesn't exist on disk; it's created in memory by the kernel at boot.
@@ -533,10 +544,11 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 
 ---
 
+---
+
 <a id="q17"></a>
 ### Q17: How do you archive and compress files (tar)?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 `tar` (Tape Archive) is the standard tool. It bundles files. Compression (gzip) is usually added.
@@ -562,10 +574,11 @@ tar -tf archive.tar.gz
 
 ---
 
+---
+
 <a id="q18"></a>
 ### Q18: What is systemd?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**:
 **Systemd** is the modern init system (PID 1) for most Linux distributions (Ubuntu, CentOS, RHEL).
@@ -586,10 +599,11 @@ journalctl -p 3 -xb
 
 ---
 
+---
+
 <a id="q19"></a>
 ### Q19: How do you check the Linux Kernel version?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 Knowing the kernel version is important for compatibility and security patching.
@@ -610,10 +624,11 @@ cat /proc/version
 
 ---
 
+---
+
 <a id="q20"></a>
 ### Q20: What is the difference between TCP and UDP?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**:
 *   **TCP (Transmission Control Protocol):** Connection-oriented, Reliable, Ordered, Error-checking. Heavyweight. Used for Web (HTTP), Email (SMTP), SSH.
@@ -632,10 +647,11 @@ ss -u
 
 ---
 
+---
+
 <a id="q21"></a>
 ### Q21: How do you set environment variables?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 Variables that affect the behavior of processes on the system (e.g., `PATH`, `EDITOR`).
@@ -659,10 +675,11 @@ source ~/.bashrc
 
 ---
 
+---
+
 <a id="q22"></a>
 ### Q22: What is the `top` vs `htop` command?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 Both monitor system resources (CPU/RAM) and processes.
@@ -680,10 +697,11 @@ htop
 
 ---
 
+---
+
 <a id="q23"></a>
 ### Q23: How do you use `sed` for text replacement?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**:
 `sed` (Stream Editor) allows filtering and transforming text. Most common use: Find and Replace.
@@ -705,10 +723,11 @@ sed -i 's/localhost/127.0.0.1/g' config.conf
 
 ---
 
+---
+
 <a id="q24"></a>
 ### Q24: What is `awk` used for?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**:
 `awk` is a complete programming language designed for text processing and data extraction. It processes data row by row and splits it into columns (fields).
@@ -731,10 +750,11 @@ awk '{sum += $1} END {print sum}' numbers.txt
 
 ---
 
+---
+
 <a id="q25"></a>
 ### Q25: How do you check network connectivity (ping/curl)?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**:
 *   **`ping`:** Check reachability (ICMP).
@@ -755,11 +775,11 @@ curl -O https://example.com/file.zip
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
-<a id="q51"></a>
+---
 
-### Q51: How do you combine files (concatenate)?
-
-**Difficulty**: Beginner
+<a id="q26"></a>
+### Q26: How do you combine files (concatenate)?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use the `cat` command. It reads data from files and outputs them to stdout.
@@ -774,11 +794,11 @@ cat file1.txt file2.txt > combined.txt
 
 ---
 
-<a id="q52"></a>
+---
 
-### Q52: What is `xargs`?
-
-**Difficulty**: Intermediate
+<a id="q27"></a>
+### Q27: What is `xargs`?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 It builds and executes commands from standard input. Useful when you want to pass the output of one command as arguments to another command that doesn't support piping directly.
@@ -794,11 +814,11 @@ ls *.log | xargs rm
 
 ---
 
-<a id="q53"></a>
+---
 
-### Q53: How do you monitor disk I/O usage?
-
-**Difficulty**: Intermediate
+<a id="q28"></a>
+### Q28: How do you monitor disk I/O usage?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Use `iotop` or `iostat`. `iotop` shows I/O usage by process, similar to `top`.
@@ -813,11 +833,11 @@ sudo iotop
 
 ---
 
-<a id="q54"></a>
+---
 
-### Q54: What is the `PATH` environment variable?
-
-**Difficulty**: Beginner
+<a id="q29"></a>
+### Q29: What is the `PATH` environment variable?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 A colon-separated list of directories where the shell looks for executable commands. If a command is not in PATH, you must provide the full path to run it.
@@ -833,11 +853,11 @@ export PATH=$PATH:/opt/new/bin
 
 ---
 
-<a id="q55"></a>
+---
 
-### Q55: How do you check the size of a directory?
-
-**Difficulty**: Beginner
+<a id="q30"></a>
+### Q30: How do you check the size of a directory?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `du -sh`. `-s` for summary (total), `-h` for human-readable.
@@ -852,11 +872,11 @@ du -sh /var/log
 
 ---
 
-<a id="q56"></a>
+---
 
-### Q56: What is `cut` command used for?
-
-**Difficulty**: Intermediate
+<a id="q31"></a>
+### Q31: What is `cut` command used for?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 It removes sections from each line of files. Useful for extracting columns from CSV or delimited data.
@@ -872,11 +892,11 @@ cut -d: -f1 /etc/passwd
 
 ---
 
-<a id="q57"></a>
+---
 
-### Q57: How do you create a symbolic link?
-
-**Difficulty**: Beginner
+<a id="q32"></a>
+### Q32: How do you create a symbolic link?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `ln -s target link_name`.
@@ -891,11 +911,11 @@ ln -s /etc/nginx/sites-available/app /etc/nginx/sites-enabled/
 
 ---
 
-<a id="q58"></a>
+---
 
-### Q58: What is `netstat`?
-
-**Difficulty**: Intermediate
+<a id="q33"></a>
+### Q33: What is `netstat`?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 A network utility that displays network connections, routing tables, interface statistics, masquerade connections, and multicast memberships. Deprecated in favor of `ss`.
@@ -911,11 +931,11 @@ netstat -tuln
 
 ---
 
-<a id="q59"></a>
+---
 
-### Q59: How do you watch a command output periodically?
-
-**Difficulty**: Intermediate
+<a id="q34"></a>
+### Q34: How do you watch a command output periodically?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Use the `watch` command. It runs a command repeatedly and displays the output.
@@ -930,11 +950,11 @@ watch -n 1 "cat /proc/meminfo"
 
 ---
 
-<a id="q60"></a>
+---
 
-### Q60: How do you terminate a shell session?
-
-**Difficulty**: Beginner
+<a id="q35"></a>
+### Q35: How do you terminate a shell session?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `exit` or press `Ctrl + D`.
@@ -949,11 +969,11 @@ exit
 
 ---
 
-<a id="q61"></a>
+---
 
-### Q61: What is the difference between `who` and `whoami`?
-
-**Difficulty**: Beginner
+<a id="q36"></a>
+### Q36: What is the difference between `who` and `whoami`?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 *   `who`: Shows who is logged on (all users).
@@ -970,11 +990,11 @@ whoami
 
 ---
 
-<a id="q62"></a>
+---
 
-### Q62: How do you zip and unzip files using `zip`?
-
-**Difficulty**: Beginner
+<a id="q37"></a>
+### Q37: How do you zip and unzip files using `zip`?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `zip` to compress and `unzip` to extract.
@@ -990,11 +1010,11 @@ unzip archive.zip
 
 ---
 
-<a id="q63"></a>
+---
 
-### Q63: How do you debug a shell script?
-
-**Difficulty**: Intermediate
+<a id="q38"></a>
+### Q38: How do you debug a shell script?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Run the script with `bash -x`. It prints each command before executing it.
@@ -1009,11 +1029,11 @@ bash -x script.sh
 
 ---
 
-<a id="q64"></a>
+---
 
-### Q64: What is `chroot`?
-
-**Difficulty**: Advanced
+<a id="q39"></a>
+### Q39: What is `chroot`?
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy:**
 Changes the root directory for the current running process and its children. Used for isolation (jails) and recovery.
@@ -1028,11 +1048,11 @@ chroot /mnt/rescue /bin/bash
 
 ---
 
-<a id="q65"></a>
+---
 
-### Q65: How do you find the location of a command?
-
-**Difficulty**: Beginner
+<a id="q40"></a>
+### Q40: How do you find the location of a command?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `which` or `whereis`. `which` searches PATH. `whereis` searches binary, source, and manual page files.
@@ -1048,11 +1068,11 @@ whereis python
 
 ---
 
-<a id="q66"></a>
+---
 
-### Q66: What is `tee` command?
-
-**Difficulty**: Intermediate
+<a id="q41"></a>
+### Q41: What is `tee` command?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Reads from standard input and writes to standard output AND files. Useful for viewing output while logging it.
@@ -1067,11 +1087,11 @@ ls -l | tee file_list.txt
 
 ---
 
-<a id="q67"></a>
+---
 
-### Q67: How do you check OS release info?
-
-**Difficulty**: Beginner
+<a id="q42"></a>
+### Q42: How do you check OS release info?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Check `/etc/os-release` or use `lsb_release -a`.
@@ -1086,11 +1106,11 @@ cat /etc/os-release
 
 ---
 
-<a id="q68"></a>
+---
 
-### Q68: What is `tcpdump`?
-
-**Difficulty**: Advanced
+<a id="q43"></a>
+### Q43: What is `tcpdump`?
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy:**
 A command-line packet analyzer. Used for capturing and analyzing network traffic.
@@ -1105,11 +1125,11 @@ tcpdump -i eth0 port 80
 
 ---
 
-<a id="q69"></a>
+---
 
-### Q69: How do you get the last lines of a file?
-
-**Difficulty**: Beginner
+<a id="q44"></a>
+### Q44: How do you get the last lines of a file?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `tail`. `tail -n 10` gets last 10 lines. `tail -f` follows the file (real-time).
@@ -1124,11 +1144,11 @@ tail -n 20 log.txt
 
 ---
 
-<a id="q70"></a>
+---
 
-### Q70: How do you get the first lines of a file?
-
-**Difficulty**: Beginner
+<a id="q45"></a>
+### Q45: How do you get the first lines of a file?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `head`.
@@ -1143,11 +1163,11 @@ head -n 10 log.txt
 
 ---
 
-<a id="q71"></a>
+---
 
-### Q71: What is `alias`?
-
-**Difficulty**: Beginner
+<a id="q46"></a>
+### Q46: What is `alias`?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 A command that allows you to define shortcuts for longer commands. Persistent aliases go in `~/.bashrc` or `~/.zshrc`.
@@ -1162,11 +1182,11 @@ alias ll='ls -la'
 
 ---
 
-<a id="q72"></a>
+---
 
-### Q72: How do you perform math in bash?
-
-**Difficulty**: Intermediate
+<a id="q47"></a>
+### Q47: How do you perform math in bash?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Use `expr`, `bc`, or double parentheses `(( ))`.
@@ -1181,11 +1201,11 @@ echo $(( 10 + 5 ))
 
 ---
 
-<a id="q73"></a>
+---
 
-### Q73: How do you check user groups?
-
-**Difficulty**: Beginner
+<a id="q48"></a>
+### Q48: How do you check user groups?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `groups [user]` or `id`.
@@ -1200,11 +1220,11 @@ groups ubuntu
 
 ---
 
-<a id="q74"></a>
+---
 
-### Q74: What is `/etc/passwd`?
-
-**Difficulty**: Intermediate
+<a id="q49"></a>
+### Q49: What is `/etc/passwd`?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Stores user account information (username, UID, GID, home dir, shell). Passwords are usually stored encrypted in `/etc/shadow`.
@@ -1219,11 +1239,11 @@ cat /etc/passwd
 
 ---
 
-<a id="q75"></a>
+---
 
-### Q75: How do you download a file from the web?
-
-**Difficulty**: Beginner
+<a id="q50"></a>
+### Q50: How do you download a file from the web?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `wget` or `curl -O`.
@@ -1238,11 +1258,11 @@ wget http://example.com/file.zip
 
 ---
 
-<a id="q76"></a>
+---
 
-### Q76: What is `ssh-copy-id`?
-
-**Difficulty**: Beginner
+<a id="q51"></a>
+### Q51: What is `ssh-copy-id`?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 A script that installs your public key in a remote machine's `authorized_keys`. It allows passwordless login.
@@ -1257,11 +1277,11 @@ ssh-copy-id user@remote
 
 ---
 
-<a id="q77"></a>
+---
 
-### Q77: What is the difference between `/bin` and `/usr/bin`?
-
-**Difficulty**: Intermediate
+<a id="q52"></a>
+### Q52: What is the difference between `/bin` and `/usr/bin`?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 *   `/bin`: Essential user binaries (available in single-user mode).
@@ -1278,11 +1298,11 @@ ls /usr/bin
 
 ---
 
-<a id="q78"></a>
+---
 
-### Q78: How do you rename a file?
-
-**Difficulty**: Beginner
+<a id="q53"></a>
+### Q53: How do you rename a file?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use the `mv` (move) command.
@@ -1297,11 +1317,11 @@ mv old.txt new.txt
 
 ---
 
-<a id="q79"></a>
+---
 
-### Q79: What is `/var/log`?
-
-**Difficulty**: Beginner
+<a id="q54"></a>
+### Q54: What is `/var/log`?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 The directory where log files are stored. Important files: `syslog`, `auth.log`, `kern.log`.
@@ -1316,11 +1336,11 @@ ls /var/log
 
 ---
 
-<a id="q80"></a>
+---
 
-### Q80: How do you check CPU info?
-
-**Difficulty**: Beginner
+<a id="q55"></a>
+### Q55: How do you check CPU info?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `lscpu` or `cat /proc/cpuinfo`.
@@ -1335,11 +1355,11 @@ lscpu
 
 ---
 
-<a id="q81"></a>
+---
 
-### Q81: How do you create a new user?
-
-**Difficulty**: Beginner
+<a id="q56"></a>
+### Q56: How do you create a new user?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `useradd` (low level) or `adduser` (interactive, preferred on Debian/Ubuntu).
@@ -1354,11 +1374,11 @@ sudo adduser newuser
 
 ---
 
-<a id="q82"></a>
+---
 
-### Q82: What is `env` command?
-
-**Difficulty**: Beginner
+<a id="q57"></a>
+### Q57: What is `env` command?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 It displays the current environment variables or runs a command in a modified environment.
@@ -1374,11 +1394,11 @@ env VAR=value ./script.sh
 
 ---
 
-<a id="q83"></a>
+---
 
-### Q83: How do you delete a user?
-
-**Difficulty**: Beginner
+<a id="q58"></a>
+### Q58: How do you delete a user?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `userdel`. Add `-r` to remove the home directory.
@@ -1393,11 +1413,11 @@ sudo userdel -r olduser
 
 ---
 
-<a id="q84"></a>
+---
 
-### Q84: What is the `root` user?
-
-**Difficulty**: Beginner
+<a id="q59"></a>
+### Q59: What is the `root` user?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 The superuser account with UID 0. It has unrestricted access to all commands and files.
@@ -1413,11 +1433,11 @@ whoami
 
 ---
 
-<a id="q85"></a>
+---
 
-### Q85: How do you check the kernel ring buffer (boot messages)?
-
-**Difficulty**: Intermediate
+<a id="q60"></a>
+### Q60: How do you check the kernel ring buffer (boot messages)?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Use `dmesg`. It prints the message buffer of the kernel. Useful for debugging hardware or driver issues.
@@ -1432,11 +1452,11 @@ dmesg | grep usb
 
 ---
 
-<a id="q86"></a>
+---
 
-### Q86: What is `mount`?
-
-**Difficulty**: Intermediate
+<a id="q61"></a>
+### Q61: What is `mount`?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Attaches a filesystem found on some device to the big file tree. `umount` detaches it.
@@ -1451,11 +1471,11 @@ mount /dev/sdb1 /mnt/usb
 
 ---
 
-<a id="q87"></a>
+---
 
-### Q87: What is `/etc/fstab`?
-
-**Difficulty**: Intermediate
+<a id="q62"></a>
+### Q62: What is `/etc/fstab`?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 File System Table. Configuration file that contains information about static filesystems. It defines how disks/partitions are mounted at boot.
@@ -1470,11 +1490,11 @@ cat /etc/fstab
 
 ---
 
-<a id="q88"></a>
+---
 
-### Q88: How do you reload systemd configuration?
-
-**Difficulty**: Intermediate
+<a id="q63"></a>
+### Q63: How do you reload systemd configuration?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Use `systemctl daemon-reload`. Required after changing a unit file.
@@ -1489,11 +1509,11 @@ sudo systemctl daemon-reload
 
 ---
 
-<a id="q89"></a>
+---
 
-### Q89: How do you enable a service to start at boot?
-
-**Difficulty**: Beginner
+<a id="q64"></a>
+### Q64: How do you enable a service to start at boot?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `systemctl enable <service>`.
@@ -1508,11 +1528,11 @@ sudo systemctl enable nginx
 
 ---
 
-<a id="q90"></a>
+---
 
-### Q90: What is `journalctl`?
-
-**Difficulty**: Intermediate
+<a id="q65"></a>
+### Q65: What is `journalctl`?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 A command to query and display logs from `systemd-journald`. It centralizes logs from all services managed by systemd.
@@ -1527,11 +1547,11 @@ journalctl -u nginx -f
 
 ---
 
-<a id="q91"></a>
+---
 
-### Q91: How do you create a hard link?
-
-**Difficulty**: Intermediate
+<a id="q66"></a>
+### Q66: How do you create a hard link?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Use `ln target link_name` (without `-s`). Hard links point to the same inode.
@@ -1546,11 +1566,11 @@ ln file.txt hardlink.txt
 
 ---
 
-<a id="q92"></a>
+---
 
-### Q92: What is `/tmp`?
-
-**Difficulty**: Beginner
+<a id="q67"></a>
+### Q67: What is `/tmp`?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 A directory for temporary files. Files are often deleted upon reboot or by periodic jobs.
@@ -1565,11 +1585,11 @@ cd /tmp
 
 ---
 
-<a id="q93"></a>
+---
 
-### Q93: How do you change your password?
-
-**Difficulty**: Beginner
+<a id="q68"></a>
+### Q68: How do you change your password?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use the `passwd` command.
@@ -1584,30 +1604,44 @@ passwd
 
 ---
 
-<a id="q94"></a>
+---
 
-### Q94: What is `uniq` command?
+<a id="q69"></a>
+### Q69: What is `systemd` and how do you create and manage a custom Linux service unit file?
+**Difficulty**: <span class="advanced">Advanced</span>  
 
-**Difficulty**: Intermediate
+**Category**: Service Management & Init Systems  
 
-**Strategy:**
-Filters adjacent matching lines from input. Usually used with `sort`.
+**Strategy**: Explain systemd init system, unit file syntax in /etc/systemd/system/, and systemctl daemon management.
 
-**Code Example:**
+`systemd` is the standard Linux init system and service manager. Services are defined in `.service` unit files specifying startup commands, restart policies, user permissions, and dependency ordering.
 
-```bash
-sort file.txt | uniq -c
+**Code Example**:
+```ini
+# /etc/systemd/system/myapp.service
+[Unit]
+Description=My Node.js Application Service
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/myapp
+ExecStart=/usr/bin/node /var/www/myapp/dist/server.js
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
-<a id="q95"></a>
+---
 
-### Q95: How do you view hidden files?
-
-**Difficulty**: Beginner
+<a id="q70"></a>
+### Q70: How do you view hidden files?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `ls -a`. Hidden files start with a dot (`.`).
@@ -1622,11 +1656,11 @@ ls -a
 
 ---
 
-<a id="q96"></a>
+---
 
-### Q96: What is `file` command?
-
-**Difficulty**: Beginner
+<a id="q71"></a>
+### Q71: What is `file` command?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Determines file type.
@@ -1642,11 +1676,11 @@ file image.jpg
 
 ---
 
-<a id="q97"></a>
+---
 
-### Q97: How do you shutdown the system?
-
-**Difficulty**: Beginner
+<a id="q72"></a>
+### Q72: How do you shutdown the system?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 Use `shutdown now` or `poweroff`.
@@ -1661,11 +1695,11 @@ sudo shutdown now
 
 ---
 
-<a id="q98"></a>
+---
 
-### Q98: What is `nc` (Netcat)?
-
-**Difficulty**: Advanced
+<a id="q73"></a>
+### Q73: What is `nc` (Netcat)?
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy:**
 A networking utility for reading from and writing to network connections using TCP or UDP. "Swiss army knife" of networking.
@@ -1681,11 +1715,11 @@ nc -zv localhost 80
 
 ---
 
-<a id="q99"></a>
+---
 
-### Q99: How do you trace the path to a network host?
-
-**Difficulty**: Intermediate
+<a id="q74"></a>
+### Q74: How do you trace the path to a network host?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy:**
 Use `traceroute` (or `tracepath`). It shows the hops (routers) a packet takes.
@@ -1700,11 +1734,11 @@ traceroute google.com
 
 ---
 
-<a id="q100"></a>
+---
 
-### Q100: What is the difference between `apt` and `apt-get`?
-
-**Difficulty**: Beginner
+<a id="q75"></a>
+### Q75: What is the difference between `apt` and `apt-get`?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy:**
 `apt` is a newer, more user-friendly command line interface for package management. `apt-get` is lower-level and more stable for scripts.
@@ -1716,11 +1750,12 @@ apt install git
 ```
 
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+
+---
+
 <a id="q76"></a>
-
 ### Q76: How do you create a systemd service?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**: Create a `.service` file in `/etc/systemd/system/`. Define `[Unit]`, `[Service]`, and `[Install]` sections. Then `systemctl enable` and `start` it.
 
@@ -1735,11 +1770,11 @@ Restart=always
 
 ---
 
+---
+
 <a id="q77"></a>
-
 ### Q77: How do you filter journal logs by service?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: Use `journalctl -u <service_name>`. You can add `-f` to follow live logs.
 
@@ -1752,11 +1787,11 @@ journalctl -u nginx -f
 
 ---
 
+---
+
 <a id="q78"></a>
-
 ### Q78: What is `strace` used for?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**: It traces system calls and signals. Useful for debugging why a program is failing (e.g., file not found, permission denied) by seeing exactly what kernel requests it makes.
 
@@ -1769,11 +1804,11 @@ strace -p <PID>
 
 ---
 
+---
+
 <a id="q79"></a>
-
 ### Q79: How do you find which process is using a port?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: Use `lsof -i :<port>` or `netstat -tulnp | grep <port>`.
 
@@ -1786,11 +1821,11 @@ lsof -i :8080
 
 ---
 
+---
+
 <a id="q80"></a>
-
 ### Q80: How do you capture network traffic with `tcpdump`?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**: `tcpdump` captures packets. Use `-i` for interface, `-w` to write to file.
 
@@ -1803,11 +1838,11 @@ tcpdump -i eth0 port 80
 
 ---
 
+---
+
 <a id="q81"></a>
-
 ### Q81: Difference between `netstat` and `ss`?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: `ss` (Socket Statistics) is the modern replacement for `netstat`. It is faster and shows more information.
 
@@ -1820,11 +1855,11 @@ ss -tuln
 
 ---
 
+---
+
 <a id="q82"></a>
-
 ### Q82: How do you schedule a task with Systemd Timers?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**: Create a matching `.timer` file for your `.service`. Timers are more flexible than cron (can depend on boot time, handle missed runs).
 
@@ -1838,11 +1873,11 @@ OnCalendar=*-*-* 00:00:00
 
 ---
 
+---
+
 <a id="q83"></a>
-
 ### Q83: How do you print the 2nd column of a file with awk?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: Use `awk '{print $2}'`.
 
@@ -1855,11 +1890,11 @@ ls -l | awk '{print $2}'
 
 ---
 
+---
+
 <a id="q84"></a>
-
 ### Q84: How do you replace text in a file with sed?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: Use `sed -i 's/old/new/g' filename`.
 
@@ -1872,11 +1907,11 @@ sed -i 's/foo/bar/g' config.txt
 
 ---
 
+---
+
 <a id="q85"></a>
-
 ### Q85: How do you delete files found by `find`?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: Use the `-exec` option or delete flag.
 
@@ -1889,11 +1924,11 @@ find . -name "*.tmp" -delete
 
 ---
 
+---
+
 <a id="q86"></a>
-
 ### Q86: What does `xargs` do?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: It builds and executes command lines from standard input. Useful when the list of arguments is too long for a single command.
 
@@ -1906,11 +1941,11 @@ find . -name "*.log" | xargs rm
 
 ---
 
+---
+
 <a id="q87"></a>
-
 ### Q87: How do you change process priority?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: Use `nice` when starting a process or `renice` for a running process. Values range from -20 (highest priority) to 19 (lowest).
 
@@ -1923,11 +1958,11 @@ renice -n 10 -p 1234
 
 ---
 
+---
+
 <a id="q88"></a>
-
 ### Q88: How do you keep a process running after logout?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**: Use `nohup`, `disown`, or a terminal multiplexer like `screen` or `tmux`.
 
@@ -1940,11 +1975,11 @@ nohup python script.py &
 
 ---
 
+---
+
 <a id="q89"></a>
-
 ### Q89: How do you create an SSH tunnel (Local Forwarding)?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**: Use `ssh -L local_port:destination_host:destination_port user@ssh_server`. This forwards traffic from a local port to a destination via the SSH server.
 
@@ -1957,11 +1992,11 @@ ssh -L 3000:localhost:5432 user@db-server
 
 ---
 
+---
+
 <a id="q90"></a>
-
 ### Q90: Difference between `scp` and `rsync`?
-
-**Difficulty**: Intermediate
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: **scp**: Simple copy. 
 **rsync**: Delta transfer algorithm (only sends changes), supports resume, preserves permissions better. Preferred for backups.
@@ -1975,11 +2010,11 @@ rsync -avz source/ user@host:/dest/
 
 ---
 
+---
+
 <a id="q91"></a>
-
 ### Q91: How do you extract a `.tar.gz` file?
-
-**Difficulty**: Beginner
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**: Use `tar -xzvf`. x=extract, z=gzip, v=verbose, f=file.
 
@@ -1992,11 +2027,11 @@ tar -xzvf archive.tar.gz
 
 ---
 
+---
+
 <a id="q92"></a>
-
 ### Q92: What is the Sticky Bit?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**: When set on a directory (like `/tmp`), only the file owner (or root) can delete or rename files within it, even if others have write permission on the directory.
 
@@ -2009,11 +2044,11 @@ chmod +t /tmp
 
 ---
 
+---
+
 <a id="q93"></a>
-
 ### Q93: How do you check open file limits?
-
-**Difficulty**: Advanced
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**: Use `ulimit -n` for the current shell, or check `/etc/security/limits.conf`.
 
@@ -2026,28 +2061,11 @@ ulimit -n
 
 ---
 
-<a id="q94"></a>
-
-### Q94: What is the `/proc` filesystem?
-
-**Difficulty**: Advanced
-
-**Strategy**: A pseudo-filesystem that provides an interface to kernel data structures. It contains information about processes (e.g., `/proc/PID`) and system hardware.
-
-**Code Example**: 
-```bash
-cat /proc/cpuinfo
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
 
-<a id="q95"></a>
-
-### Q95: How do you check kernel ring buffer logs?
-
-**Difficulty**: Intermediate
+<a id="q94"></a>
+### Q94: How do you check kernel ring buffer logs?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: Use `dmesg`. Useful for debugging hardware or driver issues at boot.
 
@@ -2060,11 +2078,11 @@ dmesg | grep usb
 
 ---
 
-<a id="q96"></a>
+---
 
-### Q96: How do you check memory usage details?
-
-**Difficulty**: Beginner
+<a id="q95"></a>
+### Q95: How do you check memory usage details?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**: Use `free -h` (human readable). `vmstat` provides virtual memory statistics.
 
@@ -2077,11 +2095,11 @@ free -h
 
 ---
 
-<a id="q97"></a>
+---
 
-### Q97: How do you check Disk I/O stats?
-
-**Difficulty**: Advanced
+<a id="q96"></a>
+### Q96: How do you check Disk I/O stats?
+**Difficulty**: <span class="advanced">Advanced</span>  
 
 **Strategy**: Use `iostat` (part of sysstat package).
 
@@ -2094,11 +2112,11 @@ iostat -x 1
 
 ---
 
-<a id="q98"></a>
+---
 
-### Q98: Difference between `top` and `htop`?
-
-**Difficulty**: Beginner
+<a id="q97"></a>
+### Q97: Difference between `top` and `htop`?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**: **top**: Standard, installed everywhere. 
 **htop**: Interactive, colorful, supports scrolling and mouse, visualizes CPU bars.
@@ -2112,11 +2130,11 @@ htop
 
 ---
 
-<a id="q99"></a>
+---
 
-### Q99: Difference between SIGTERM and SIGKILL?
-
-**Difficulty**: Intermediate
+<a id="q98"></a>
+### Q98: Difference between SIGTERM and SIGKILL?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: **SIGTERM (15)**: Polite request to stop. Process can catch it and cleanup. 
 **SIGKILL (9)**: Immediate termination by kernel. Process cannot catch it. Potential data corruption.
@@ -2130,11 +2148,11 @@ kill -9 <PID>
 
 ---
 
-<a id="q100"></a>
+---
 
-### Q100: Difference between `curl` and `wget`?
-
-**Difficulty**: Intermediate
+<a id="q99"></a>
+### Q99: Difference between `curl` and `wget`?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
 
 **Strategy**: **curl**: Powered by libcurl, supports many protocols, outputs to stdout by default. Great for APIs. 
 **wget**: Great for downloading files recursively, robust against unstable networks.
@@ -2148,11 +2166,11 @@ curl -I https://google.com
 
 ---
 
-<a id="q101"></a>
+---
 
-### Q101: How do you make an environment variable persistent?
-
-**Difficulty**: Beginner
+<a id="q100"></a>
+### Q100: How do you make an environment variable persistent?
+**Difficulty**: <span class="beginner">Beginner</span>  
 
 **Strategy**: Add `export VAR=value` to `~/.bashrc` (for user) or `/etc/environment` (for system).
 
@@ -2164,4 +2182,3 @@ echo 'export PATH=$PATH:/opt/bin' >> ~/.bashrc
 <div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
-

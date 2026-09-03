@@ -844,18 +844,35 @@ Defines a grammar for a language and an interpreter.
 ---
 
 <a id="q25"></a>
-### Q25: What is the Iterator Pattern?
+### Q25: What is the Null Object Pattern?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
+**Category**: Behavioral Patterns  
 
-**Difficulty**: Beginner
+**Strategy**: Explain how substituting a do-nothing object eliminates repetitive null checks.
 
-**Strategy**:
+The Null Object Pattern provides an object that conforms to the expected interface but has empty or default behavior, avoiding defensive `if (object != null)` checks throughout the codebase.
 
 **Code Example**:
-```javascript
-for (let item of collection) { ... }
-```
+```typescript
+interface Logger {
+  log(message: string): void;
+}
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+class ConsoleLogger implements Logger {
+  log(msg: string) { console.log(`[LOG]: ${msg}`); }
+}
+
+class NullLogger implements Logger {
+  log(msg: string) { /* Do nothing safely */ }
+}
+
+class OrderProcessor {
+  constructor(private logger: Logger = new NullLogger()) {}
+  processOrder() {
+    this.logger.log("Order processed"); // Never throws null pointer error
+  }
+}
+```
 
 ---
 

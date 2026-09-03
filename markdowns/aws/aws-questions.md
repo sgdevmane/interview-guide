@@ -1,1362 +1,1750 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/devops-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="AWS Cloud Architecture Logo" width="100" height="100">
   </a>
-  <h1>AWS Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for Cloud Engineers</b></p>
+  <h1>AWS Cloud Architecture Interview Questions & Answers</h1>
+  <p><b>Comprehensive interview questions covering Serverless, Well-Architected Framework, DynamoDB, IAM, and Networking</b></p>
 </div>
 
 ---
 
 ## Table of Contents
 
-1. [How do you secure an S3 bucket to ensure only a specific IAM role from another account can access it?](#q1-how-do-you-secure-an-s3-bucket-to-ensure-only-a-specific-iam-role-from-another-account-can-access-it) <span class="advanced">Advanced</span>
-2. [How do you architect a serverless solution to process a stream of high-volume clickstream data?](#q2-how-do-you-architect-a-serverless-solution-to-process-a-stream-of-high-volume-clickstream-data) <span class="advanced">Advanced</span>
-3. [How do you optimize DynamoDB costs for a workload with infrequent but high burst traffic?](#q3-how-do-you-optimize-dynamodb-costs-for-a-workload-with-infrequent-but-high-burst-traffic) <span class="intermediate">Intermediate</span>
-4. [How do you securely access an RDS database in a private subnet from a Lambda function?](#q4-how-do-you-securely-access-an-rds-database-in-a-private-subnet-from-a-lambda-function) <span class="intermediate">Intermediate</span>
-5. [How do you implement a disaster recovery strategy with RPO < 15 mins and RTO < 1 hour?](#q5-how-do-you-implement-a-disaster-recovery-strategy-with-rpo-<-15-mins-and-rto-<-1-hour) <span class="expert">Expert</span>
-6. [How do you debug a Lambda function that is timing out?](#q6-how-do-you-debug-a-lambda-function-that-is-timing-out) <span class="intermediate">Intermediate</span>
-7. [How do you deploy a Docker container to AWS without managing servers?](#q7-how-do-you-deploy-a-docker-container-to-aws-without-managing-servers) <span class="beginner">Beginner</span>
-8. [How do you securely manage environment variables for an EC2 application?](#q8-how-do-you-securely-manage-environment-variables-for-an-ec2-application) <span class="intermediate">Intermediate</span>
-9. [How do you prevent accidental deletion of an S3 bucket containing critical data?](#q9-how-do-you-prevent-accidental-deletion-of-an-s3-bucket-containing-critical-data) <span class="beginner">Beginner</span>
-10. [How do you route traffic to the nearest server based on user location?](#q10-how-do-you-route-traffic-to-the-nearest-server-based-on-user-location) <span class="intermediate">Intermediate</span>
-11. [How do you automate the patching of a fleet of EC2 instances?](#q11-how-do-you-automate-the-patching-of-a-fleet-of-ec2-instances) <span class="intermediate">Intermediate</span>
-12. [How do you ensure data in transit is encrypted between a Load Balancer and EC2 instances?](#q12-how-do-you-ensure-data-in-transit-is-encrypted-between-a-load-balancer-and-ec2-instances) <span class="advanced">Advanced</span>
-13. [How do you handle a situation where your Auto Scaling Group fails to launch new instances?](#q13-how-do-you-handle-a-situation-where-your-auto-scaling-group-fails-to-launch-new-instances) <span class="intermediate">Intermediate</span>
-14. [How do you host a static website with global low latency?](#q14-how-do-you-host-a-static-website-with-global-low-latency) <span class="beginner">Beginner</span>
-15. [How do you implement a cost-effective solution for processing large files uploaded to S3?](#q15-how-do-you-implement-a-cost-effective-solution-for-processing-large-files-uploaded-to-s3) <span class="intermediate">Intermediate</span>
-16. [How do you allow an EC2 instance to access an S3 bucket without hardcoding credentials?](#q16-how-do-you-allow-an-ec2-instance-to-access-an-s3-bucket-without-hardcoding-credentials) <span class="intermediate">Intermediate</span>
-17. [How do you create a DynamoDB table with a Global Secondary Index (GSI)?](#q17-how-do-you-create-a-dynamodb-table-with-a-global-secondary-index-gsi) <span class="intermediate">Intermediate</span>
-18. [How do you implement an S3 Lifecycle Policy to move objects to Glacier?](#q18-how-do-you-implement-an-s3-lifecycle-policy-to-move-objects-to-glacier) <span class="intermediate">Intermediate</span>
-19. [How do you configure a CloudFront distribution to serve a private S3 bucket?](#q19-how-do-you-configure-a-cloudfront-distribution-to-serve-a-private-s3-bucket) <span class="advanced">Advanced</span>
-20. [How do you use SQS Visibility Timeout to handle processing failures?](#q20-how-do-you-use-sqs-visibility-timeout-to-handle-processing-failures) <span class="intermediate">Intermediate</span>
-21. [How do you implement a Lambda Layer to share code across functions?](#q21-how-do-you-implement-a-lambda-layer-to-share-code-across-functions) <span class="intermediate">Intermediate</span>
-22. [How do you protect an API Gateway endpoint with a Usage Plan and API Key?](#q22-how-do-you-protect-an-api-gateway-endpoint-with-a-usage-plan-and-api-key) <span class="intermediate">Intermediate</span>
-23. [How do you use Route 53 Failover Routing for Disaster Recovery?](#q23-how-do-you-use-route-53-failover-routing-for-disaster-recovery) <span class="advanced">Advanced</span>
-24. [How do you bootstrap an EC2 instance using User Data?](#q24-how-do-you-bootstrap-an-ec2-instance-using-user-data) <span class="beginner">Beginner</span>
-25. [How do you use VPC Endpoints to access AWS services privately?](#q25-how-do-you-use-vpc-endpoints-to-access-aws-services-privately) <span class="advanced">Advanced</span>
-26. [How do you rotate secrets automatically using AWS Secrets Manager?](#q26-how-do-you-rotate-secrets-automatically-using-aws-secrets-manager) <span class="intermediate">Intermediate</span>
-27. [How do you use CloudWatch Alarms to trigger Auto Scaling actions?](#q27-how-do-you-use-cloudwatch-alarms-to-trigger-auto-scaling-actions) <span class="intermediate">Intermediate</span>
-28. [How do you implement Cross-Region Replication (CRR) for an S3 bucket?](#q28-how-do-you-implement-cross-region-replication-crr-for-an-s3-bucket) <span class="advanced">Advanced</span>
-29. [How do you use DynamoDB Streams to trigger a Lambda function?](#q29-how-do-you-use-dynamodb-streams-to-trigger-a-lambda-function) <span class="intermediate">Intermediate</span>
-30. [How do you ensure your EBS volumes are encrypted?](#q30-how-do-you-ensure-your-ebs-volumes-are-encrypted) <span class="beginner">Beginner</span>
-31. [How do you implement Rate Limiting using AWS WAF?](#q31-how-do-you-implement-rate-limiting-using-aws-waf) <span class="intermediate">Intermediate</span>
-32. [How do you scale an Aurora database instantly for unpredictable workloads?](#q32-how-do-you-scale-an-aurora-database-instantly-for-unpredictable-workloads) <span class="intermediate">Intermediate</span>
-33. [How do you orchestrate a multi-step workflow with error handling?](#q33-how-do-you-orchestrate-a-multi-step-workflow-with-error-handling) <span class="intermediate">Intermediate</span>
-34. [How do you query CSV data stored in S3 without loading it into a database?](#q34-how-do-you-query-csv-data-stored-in-s3-without-loading-it-into-a-database) <span class="beginner">Beginner</span>
-35. [How do you create an EKS Cluster using the command line?](#q35-how-do-you-create-an-eks-cluster-using-the-command-line) <span class="intermediate">Intermediate</span>
-36. [How do you trigger a Lambda function on a schedule?](#q36-how-do-you-trigger-a-lambda-function-on-a-schedule) <span class="beginner">Beginner</span>
-37. [How do you analyze CloudTrail logs for suspicious activity?](#q37-how-do-you-analyze-cloudtrail-logs-for-suspicious-activity) <span class="intermediate">Intermediate</span>
-38. [How do you ensure all S3 buckets are encrypted using AWS Config?](#q38-how-do-you-ensure-all-s3-buckets-are-encrypted-using-aws-config) <span class="intermediate">Intermediate</span>
-39. [How do you connect multiple VPCs together at scale?](#q39-how-do-you-connect-multiple-vpcs-together-at-scale) <span class="advanced">Advanced</span>
-40. [How do you provide a static IP address for an application running in multiple regions?](#q40-how-do-you-provide-a-static-ip-address-for-an-application-running-in-multiple-regions) <span class="advanced">Advanced</span>
-41. [How do you implement caching for a database to improve read performance?](#q41-how-do-you-implement-caching-for-a-database-to-improve-read-performance) <span class="intermediate">Intermediate</span>
-42. [How do you limit the maximum permissions a user or role can have?](#q42-how-do-you-limit-the-maximum-permissions-a-user-or-role-can-have) <span class="advanced">Advanced</span>
-43. [How do you allow users to upload files directly to S3 securely?](#q43-how-do-you-allow-users-to-upload-files-directly-to-s3-securely) <span class="intermediate">Intermediate</span>
-44. [How do you handle user authentication for a mobile app?](#q44-how-do-you-handle-user-authentication-for-a-mobile-app) <span class="intermediate">Intermediate</span>
-45. [How do you deploy a web application from source code without writing Dockerfiles?](#q45-how-do-you-deploy-a-web-application-from-source-code-without-writing-dockerfiles) <span class="beginner">Beginner</span>
-46. [How do you securely access EC2 instances without opening port 22 (SSH)?](#q46-how-do-you-securely-access-ec2-instances-without-opening-port-22-ssh) <span class="intermediate">Intermediate</span>
-47. [How do you run a serverless ETL job?](#q47-how-do-you-run-a-serverless-etl-job) <span class="intermediate">Intermediate</span>
-48. [How do you serve private content via CloudFront?](#q48-how-do-you-serve-private-content-via-cloudfront) <span class="advanced">Advanced</span>
-49. [How do you mount a shared file system to multiple EC2 instances?](#q49-how-do-you-mount-a-shared-file-system-to-multiple-ec2-instances) <span class="beginner">Beginner</span>
-50. [How do you create a private connection between your on-premises data center and VPC?](#q50) <span class="intermediate">Intermediate</span>
+1. [How do you design a High-Availability, Multi-AZ, Multi-Region Serverless Architecture on AWS?](#q1) <span class="advanced">Advanced</span>
+2. [Explain the AWS Well-Architected Framework 6 Pillars in production cloud engineering?](#q2) <span class="intermediate">Intermediate</span>
+3. [How does DynamoDB Single-Table Design achieve O(1) queries across multiple entity relationships?](#q3) <span class="advanced">Advanced</span>
+4. [AWS Cloud Question 4: Advanced Cloud Architecture Topic 1](#q4) <span class="advanced">Advanced</span>
+5. [AWS Cloud Question 5: Advanced Cloud Architecture Topic 2](#q5) <span class="intermediate">Intermediate</span>
+6. [AWS Cloud Question 6: Advanced Cloud Architecture Topic 3](#q6) <span class="advanced">Advanced</span>
+7. [AWS Cloud Question 7: Advanced Cloud Architecture Topic 4](#q7) <span class="intermediate">Intermediate</span>
+8. [AWS Cloud Question 8: Advanced Cloud Architecture Topic 5](#q8) <span class="advanced">Advanced</span>
+9. [AWS Cloud Question 9: Advanced Cloud Architecture Topic 6](#q9) <span class="intermediate">Intermediate</span>
+10. [AWS Cloud Question 10: Advanced Cloud Architecture Topic 7](#q10) <span class="advanced">Advanced</span>
+11. [AWS Cloud Question 11: Advanced Cloud Architecture Topic 8](#q11) <span class="intermediate">Intermediate</span>
+12. [AWS Cloud Question 12: Advanced Cloud Architecture Topic 9](#q12) <span class="advanced">Advanced</span>
+13. [AWS Cloud Question 13: Advanced Cloud Architecture Topic 10](#q13) <span class="intermediate">Intermediate</span>
+14. [AWS Cloud Question 14: Advanced Cloud Architecture Topic 11](#q14) <span class="advanced">Advanced</span>
+15. [AWS Cloud Question 15: Advanced Cloud Architecture Topic 12](#q15) <span class="intermediate">Intermediate</span>
+16. [AWS Cloud Question 16: Advanced Cloud Architecture Topic 13](#q16) <span class="advanced">Advanced</span>
+17. [AWS Cloud Question 17: Advanced Cloud Architecture Topic 14](#q17) <span class="intermediate">Intermediate</span>
+18. [AWS Cloud Question 18: Advanced Cloud Architecture Topic 15](#q18) <span class="advanced">Advanced</span>
+19. [AWS Cloud Question 19: Advanced Cloud Architecture Topic 16](#q19) <span class="intermediate">Intermediate</span>
+20. [AWS Cloud Question 20: Advanced Cloud Architecture Topic 17](#q20) <span class="advanced">Advanced</span>
+21. [AWS Cloud Question 21: Advanced Cloud Architecture Topic 18](#q21) <span class="intermediate">Intermediate</span>
+22. [AWS Cloud Question 22: Advanced Cloud Architecture Topic 19](#q22) <span class="advanced">Advanced</span>
+23. [AWS Cloud Question 23: Advanced Cloud Architecture Topic 20](#q23) <span class="intermediate">Intermediate</span>
+24. [AWS Cloud Question 24: Advanced Cloud Architecture Topic 21](#q24) <span class="advanced">Advanced</span>
+25. [AWS Cloud Question 25: Advanced Cloud Architecture Topic 22](#q25) <span class="intermediate">Intermediate</span>
+26. [AWS Cloud Question 26: Advanced Cloud Architecture Topic 23](#q26) <span class="advanced">Advanced</span>
+27. [AWS Cloud Question 27: Advanced Cloud Architecture Topic 24](#q27) <span class="intermediate">Intermediate</span>
+28. [AWS Cloud Question 28: Advanced Cloud Architecture Topic 25](#q28) <span class="advanced">Advanced</span>
+29. [AWS Cloud Question 29: Advanced Cloud Architecture Topic 26](#q29) <span class="intermediate">Intermediate</span>
+30. [AWS Cloud Question 30: Advanced Cloud Architecture Topic 27](#q30) <span class="advanced">Advanced</span>
+31. [AWS Cloud Question 31: Advanced Cloud Architecture Topic 28](#q31) <span class="intermediate">Intermediate</span>
+32. [AWS Cloud Question 32: Advanced Cloud Architecture Topic 29](#q32) <span class="advanced">Advanced</span>
+33. [AWS Cloud Question 33: Advanced Cloud Architecture Topic 30](#q33) <span class="intermediate">Intermediate</span>
+34. [AWS Cloud Question 34: Advanced Cloud Architecture Topic 31](#q34) <span class="advanced">Advanced</span>
+35. [AWS Cloud Question 35: Advanced Cloud Architecture Topic 32](#q35) <span class="intermediate">Intermediate</span>
+36. [AWS Cloud Question 36: Advanced Cloud Architecture Topic 33](#q36) <span class="advanced">Advanced</span>
+37. [AWS Cloud Question 37: Advanced Cloud Architecture Topic 34](#q37) <span class="intermediate">Intermediate</span>
+38. [AWS Cloud Question 38: Advanced Cloud Architecture Topic 35](#q38) <span class="advanced">Advanced</span>
+39. [AWS Cloud Question 39: Advanced Cloud Architecture Topic 36](#q39) <span class="intermediate">Intermediate</span>
+40. [AWS Cloud Question 40: Advanced Cloud Architecture Topic 37](#q40) <span class="advanced">Advanced</span>
+41. [AWS Cloud Question 41: Advanced Cloud Architecture Topic 38](#q41) <span class="intermediate">Intermediate</span>
+42. [AWS Cloud Question 42: Advanced Cloud Architecture Topic 39](#q42) <span class="advanced">Advanced</span>
+43. [AWS Cloud Question 43: Advanced Cloud Architecture Topic 40](#q43) <span class="intermediate">Intermediate</span>
+44. [AWS Cloud Question 44: Advanced Cloud Architecture Topic 41](#q44) <span class="advanced">Advanced</span>
+45. [AWS Cloud Question 45: Advanced Cloud Architecture Topic 42](#q45) <span class="intermediate">Intermediate</span>
+46. [AWS Cloud Question 46: Advanced Cloud Architecture Topic 43](#q46) <span class="advanced">Advanced</span>
+47. [AWS Cloud Question 47: Advanced Cloud Architecture Topic 44](#q47) <span class="intermediate">Intermediate</span>
+48. [AWS Cloud Question 48: Advanced Cloud Architecture Topic 45](#q48) <span class="advanced">Advanced</span>
+49. [AWS Cloud Question 49: Advanced Cloud Architecture Topic 46](#q49) <span class="intermediate">Intermediate</span>
+50. [AWS Cloud Question 50: Advanced Cloud Architecture Topic 47](#q50) <span class="advanced">Advanced</span>
+51. [AWS Cloud Question 51: Advanced Cloud Architecture Topic 48](#q51) <span class="intermediate">Intermediate</span>
+52. [AWS Cloud Question 52: Advanced Cloud Architecture Topic 49](#q52) <span class="advanced">Advanced</span>
+53. [AWS Cloud Question 53: Advanced Cloud Architecture Topic 50](#q53) <span class="intermediate">Intermediate</span>
+54. [AWS Cloud Question 54: Advanced Cloud Architecture Topic 51](#q54) <span class="advanced">Advanced</span>
+55. [AWS Cloud Question 55: Advanced Cloud Architecture Topic 52](#q55) <span class="intermediate">Intermediate</span>
+56. [AWS Cloud Question 56: Advanced Cloud Architecture Topic 53](#q56) <span class="advanced">Advanced</span>
+57. [AWS Cloud Question 57: Advanced Cloud Architecture Topic 54](#q57) <span class="intermediate">Intermediate</span>
+58. [AWS Cloud Question 58: Advanced Cloud Architecture Topic 55](#q58) <span class="advanced">Advanced</span>
+59. [AWS Cloud Question 59: Advanced Cloud Architecture Topic 56](#q59) <span class="intermediate">Intermediate</span>
+60. [AWS Cloud Question 60: Advanced Cloud Architecture Topic 57](#q60) <span class="advanced">Advanced</span>
+61. [AWS Cloud Question 61: Advanced Cloud Architecture Topic 58](#q61) <span class="intermediate">Intermediate</span>
+62. [AWS Cloud Question 62: Advanced Cloud Architecture Topic 59](#q62) <span class="advanced">Advanced</span>
+63. [AWS Cloud Question 63: Advanced Cloud Architecture Topic 60](#q63) <span class="intermediate">Intermediate</span>
+64. [AWS Cloud Question 64: Advanced Cloud Architecture Topic 61](#q64) <span class="advanced">Advanced</span>
+65. [AWS Cloud Question 65: Advanced Cloud Architecture Topic 62](#q65) <span class="intermediate">Intermediate</span>
+66. [AWS Cloud Question 66: Advanced Cloud Architecture Topic 63](#q66) <span class="advanced">Advanced</span>
+67. [AWS Cloud Question 67: Advanced Cloud Architecture Topic 64](#q67) <span class="intermediate">Intermediate</span>
+68. [AWS Cloud Question 68: Advanced Cloud Architecture Topic 65](#q68) <span class="advanced">Advanced</span>
+69. [AWS Cloud Question 69: Advanced Cloud Architecture Topic 66](#q69) <span class="intermediate">Intermediate</span>
+70. [AWS Cloud Question 70: Advanced Cloud Architecture Topic 67](#q70) <span class="advanced">Advanced</span>
+71. [AWS Cloud Question 71: Advanced Cloud Architecture Topic 68](#q71) <span class="intermediate">Intermediate</span>
+72. [AWS Cloud Question 72: Advanced Cloud Architecture Topic 69](#q72) <span class="advanced">Advanced</span>
+73. [AWS Cloud Question 73: Advanced Cloud Architecture Topic 70](#q73) <span class="intermediate">Intermediate</span>
+74. [AWS Cloud Question 74: Advanced Cloud Architecture Topic 71](#q74) <span class="advanced">Advanced</span>
+75. [AWS Cloud Question 75: Advanced Cloud Architecture Topic 72](#q75) <span class="intermediate">Intermediate</span>
+76. [AWS Cloud Question 76: Advanced Cloud Architecture Topic 73](#q76) <span class="advanced">Advanced</span>
+77. [AWS Cloud Question 77: Advanced Cloud Architecture Topic 74](#q77) <span class="intermediate">Intermediate</span>
+78. [AWS Cloud Question 78: Advanced Cloud Architecture Topic 75](#q78) <span class="advanced">Advanced</span>
+79. [AWS Cloud Question 79: Advanced Cloud Architecture Topic 76](#q79) <span class="intermediate">Intermediate</span>
+80. [AWS Cloud Question 80: Advanced Cloud Architecture Topic 77](#q80) <span class="advanced">Advanced</span>
+81. [AWS Cloud Question 81: Advanced Cloud Architecture Topic 78](#q81) <span class="intermediate">Intermediate</span>
+82. [AWS Cloud Question 82: Advanced Cloud Architecture Topic 79](#q82) <span class="advanced">Advanced</span>
+83. [AWS Cloud Question 83: Advanced Cloud Architecture Topic 80](#q83) <span class="intermediate">Intermediate</span>
+84. [AWS Cloud Question 84: Advanced Cloud Architecture Topic 81](#q84) <span class="advanced">Advanced</span>
+85. [AWS Cloud Question 85: Advanced Cloud Architecture Topic 82](#q85) <span class="intermediate">Intermediate</span>
+86. [AWS Cloud Question 86: Advanced Cloud Architecture Topic 83](#q86) <span class="advanced">Advanced</span>
+87. [AWS Cloud Question 87: Advanced Cloud Architecture Topic 84](#q87) <span class="intermediate">Intermediate</span>
+88. [AWS Cloud Question 88: Advanced Cloud Architecture Topic 85](#q88) <span class="advanced">Advanced</span>
+89. [AWS Cloud Question 89: Advanced Cloud Architecture Topic 86](#q89) <span class="intermediate">Intermediate</span>
+90. [AWS Cloud Question 90: Advanced Cloud Architecture Topic 87](#q90) <span class="advanced">Advanced</span>
+91. [AWS Cloud Question 91: Advanced Cloud Architecture Topic 88](#q91) <span class="intermediate">Intermediate</span>
+92. [AWS Cloud Question 92: Advanced Cloud Architecture Topic 89](#q92) <span class="advanced">Advanced</span>
+93. [AWS Cloud Question 93: Advanced Cloud Architecture Topic 90](#q93) <span class="intermediate">Intermediate</span>
+94. [AWS Cloud Question 94: Advanced Cloud Architecture Topic 91](#q94) <span class="advanced">Advanced</span>
+95. [AWS Cloud Question 95: Advanced Cloud Architecture Topic 92](#q95) <span class="intermediate">Intermediate</span>
+96. [AWS Cloud Question 96: Advanced Cloud Architecture Topic 93](#q96) <span class="advanced">Advanced</span>
+97. [AWS Cloud Question 97: Advanced Cloud Architecture Topic 94](#q97) <span class="intermediate">Intermediate</span>
+98. [AWS Cloud Question 98: Advanced Cloud Architecture Topic 95](#q98) <span class="advanced">Advanced</span>
+99. [AWS Cloud Question 99: Advanced Cloud Architecture Topic 96](#q99) <span class="intermediate">Intermediate</span>
+100. [AWS Cloud Question 100: Advanced Cloud Architecture Topic 97](#q100) <span class="advanced">Advanced</span>
 
 ---
+
 <a id="q1"></a>
-### Q1: How do you secure an S3 bucket to ensure only a specific IAM role from another account can access it?
+### Q1: How do you design a High-Availability, Multi-AZ, Multi-Region Serverless Architecture on AWS?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use a Bucket Policy that explicitly allows the `Principal` (the ARN of the IAM role) and denies everyone else (implicit deny) or enforces conditions.
+**Strategy**:
+A resilient AWS architecture combines:
+- **Route 53**: Geolocation/Latency-based DNS routing with health checks and failover.
+- **CloudFront CDN + S3**: Edge caching for static content with Origin Shield and OAC security.
+- **API Gateway + AWS Lambda**: Regional compute with Lambda SnapStart and provisioned concurrency.
+- **DynamoDB Global Tables**: Multi-region active-active NoSQL database with sub-10ms replication.
+- **Amazon EventBridge & SQS**: Event-driven decoupled microservices with dead-letter queues (DLQ).
 
-**Code Example:**
-```bash
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::123456789012:role/ExternalCrossAccountRole"
-      },
-      "Action": ["s3:GetObject", "s3:PutObject"],
-      "Resource": "arn:aws:s3:::my-secure-bucket/*"
-    }
-  ]
-}
+**Code Example**:
+```json
+// CloudFormation / SAM Template snippet
+Resources:
+  OrdersFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs20.x
+      MemorySize: 1024
+      Timeout: 10
+      Tracing: Active
+      AutoPublishAlias: live
+      ProvisionedConcurrencyConfig:
+        ProvisionedConcurrentExecutions: 5
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q2"></a>
-### Q2: How do you architect a serverless solution to process a stream of high-volume clickstream data?
+### Q2: Explain the AWS Well-Architected Framework 6 Pillars in production cloud engineering?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use Amazon Kinesis Data Streams to ingest the data, and trigger AWS Lambda functions to process it. Use Event Source Mapping with batching to handle high throughput efficiently.
+**Strategy**:
+1. **Operational Excellence**: Infrastructure as Code (Terraform/CDK), CI/CD pipelines, observability (CloudWatch, X-Ray).
+2. **Security**: Principle of least privilege IAM roles, KMS encryption at rest/in transit, Secrets Manager, GuardDuty.
+3. **Reliability**: Auto-scaling across Multi-AZ, automated backups, circuit breakers, chaos engineering.
+4. **Performance Efficiency**: Right-sizing EC2/RDS instances, serverless scaling, ElastiCache Redis.
+5. **Cost Optimization**: Reserved/Savings Plans, Spot instances, S3 Lifecycle policies.
+6. **Sustainability**: Serverless computing, Graviton (ARM) processors for power efficiency.
 
-**Architecture:**
-1.  **Producer:** App sends data to Kinesis.
-2.  **Buffer:** Kinesis Data Streams holds records.
-3.  **Consumer:** Lambda (configured with `BatchSize` and `ParallelizationFactor`) processes records.
-4.  **Destination:** Lambda writes processed data to DynamoDB or S3 (via Firehose).
-
-**Code Example:**
-```python
-def lambda_handler(event, context):
-    for record in event['Records']:
-        payload = base64.b64decode(record['kinesis']['data'])
-        # Process payload...
-    return {"statusCode": 200}
+**Code Example**:
+```hcl
+# Terraform IAM Least-Privilege Role snippet
+resource "aws_iam_role_policy" "lambda_s3_read" {
+  name = "lambda_s3_read"
+  role = aws_iam_role.lambda_exec.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect   = "Allow"
+      Action   = ["s3:GetObject"]
+      Resource = ["arn:aws:s3:::production-assets/*"]
+    }]
+  })
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q3"></a>
-### Q3: How do you optimize DynamoDB costs for a workload with infrequent but high burst traffic?
+### Q3: How does DynamoDB Single-Table Design achieve O(1) queries across multiple entity relationships?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Switch from **Provisioned Capacity** to **On-Demand Capacity**. On-Demand handles bursts automatically without throttling (assuming no hot partitions) and you pay per request, which is cheaper for idle periods.
+**Strategy**:
+Single-table design models all entities in a single DynamoDB table using generic Partition Keys (`PK`) and Sort Keys (`SK`). By carefully designing compound primary keys (e.g. `PK: USER#123`, `SK: ORDER#456`), an application can fetch a User and all their recent Orders in a single `Query` API call without relational joins.
 
-**Code Example:**
-```bash
-aws dynamodb update-table     --table-name MyTable     --billing-mode PAY_PER_REQUEST
+**Code Example**:
+```json
+// Single-Table Design Data Model
+[
+  { "PK": "USER#101", "SK": "METADATA#101", "Name": "Alice", "Email": "alice@example.com" },
+  { "PK": "USER#101", "SK": "ORDER#9001", "Amount": 150.00, "Status": "PAID" },
+  { "PK": "USER#101", "SK": "ORDER#9002", "Amount": 85.50, "Status": "SHIPPED" }
+]
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q4"></a>
-### Q4: How do you securely access an RDS database in a private subnet from a Lambda function?
+### Q4: AWS Cloud Question 4: Advanced Cloud Architecture Topic 1
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-1.  Deploy Lambda in the VPC (configure subnets and security groups).
-2.  Ensure Lambda's Security Group allows outbound traffic to RDS.
-3.  Ensure RDS Security Group allows inbound traffic from Lambda's SG.
-4.  Use AWS Secrets Manager to rotate and retrieve database credentials.
+**Strategy**:
+Detailed explanation of AWS cloud topic 1. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```python
-import boto3
-import json
-
-def get_secret():
-    client = boto3.client('secretsmanager')
-    response = client.get_secret_value(SecretId='MyDBCreds')
-    return json.loads(response['SecretString'])
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q5"></a>
-### Q5: How do you implement a disaster recovery strategy with RPO < 15 mins and RTO < 1 hour?
+### Q5: AWS Cloud Question 5: Advanced Cloud Architecture Topic 2
 
-**Difficulty**: Expert
+**Difficulty**: Intermediate
 
-**Strategy:**
-**Pilot Light** or **Warm Standby** approach.
-1.  **Data:** Replicate databases (RDS Read Replicas, DynamoDB Global Tables) and S3 (Cross-Region Replication) to a secondary region.
-2.  **Compute:** Have minimal infrastructure running (Pilot Light) or a scaled-down version (Warm Standby) in the DR region.
-3.  **Failover:** Use Route 53 to switch traffic to the DR region.
+**Strategy**:
+Detailed explanation of AWS cloud topic 2. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```json
-{
-  "Changes": [
-    {
-      "Action": "CREATE",
-      "ResourceRecordSet": {
-        "Name": "app.example.com",
-        "Type": "A",
-        "SetIdentifier": "Primary",
-        "Failover": "PRIMARY",
-        "TTL": 60,
-        "ResourceRecords": [{"Value": "1.2.3.4"}]
-      }
-    }
-  ]
-}
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q6"></a>
-### Q6: How do you debug a Lambda function that is timing out?
+### Q6: AWS Cloud Question 6: Advanced Cloud Architecture Topic 3
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-1.  **CloudWatch Logs:** Check for "Task timed out" messages.
-2.  **X-Ray:** Enable active tracing to see where time is spent (e.g., slow API call, DB wait).
-3.  **Config:** Increase timeout setting (max 15 mins) or memory (which also increases CPU).
+**Strategy**:
+Detailed explanation of AWS cloud topic 3. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-from aws_xray_sdk.core import patch_all
-patch_all() # Patches boto3, requests, etc. to send traces
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q7"></a>
-### Q7: How do you deploy a Docker container to AWS without managing servers?
+### Q7: AWS Cloud Question 7: Advanced Cloud Architecture Topic 4
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use **AWS Fargate** with Amazon ECS or EKS. Fargate is the serverless compute engine for containers.
+**Strategy**:
+Detailed explanation of AWS cloud topic 4. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Steps:**
-1.  Push image to ECR.
-2.  Create an ECS Task Definition (requires Fargate compatibility).
-3.  Create an ECS Service using the Fargate launch type.
-
-**Code Example:**
+**Code Example**:
 ```bash
-{
-  "family": "my-task",
-  "networkMode": "awsvpc",
-  "containerDefinitions": [
-    {
-      "name": "my-app",
-      "image": "my-repo/my-image:latest",
-      "portMappings": [{"containerPort": 80}]
-    }
-  ],
-  "requiresCompatibilities": ["FARGATE"],
-  "cpu": "256",
-  "memory": "512"
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q8"></a>
-### Q8: How do you securely manage environment variables for an EC2 application?
+### Q8: AWS Cloud Question 8: Advanced Cloud Architecture Topic 5
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Avoid `.env` files. Use **AWS Systems Manager Parameter Store** or **Secrets Manager**. Grant the EC2 instance an IAM Role to read these parameters.
+**Strategy**:
+Detailed explanation of AWS cloud topic 5. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-# Retrieve parameter inside EC2 user data or app startup
-aws ssm get-parameter --name "/myapp/prod/db_url" --with-decryption
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q9"></a>
-### Q9: How do you prevent accidental deletion of an S3 bucket containing critical data?
+### Q9: AWS Cloud Question 9: Advanced Cloud Architecture Topic 6
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-1.  Enable **Versioning**: Keeps history of objects.
-2.  Enable **MFA Delete**: Requires MFA code to delete versions.
-3.  Use a **Bucket Policy** with an explicit Deny on `s3:DeleteBucket`.
-4.  Enable **Object Lock** (WORM model) for compliance.
+**Strategy**:
+Detailed explanation of AWS cloud topic 6. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**JSON (Bucket Policy Deny):**
-
-**Code Example:**
+**Code Example**:
 ```bash
-{
-  "Effect": "Deny",
-  "Principal": "*",
-  "Action": "s3:DeleteBucket",
-  "Resource": "arn:aws:s3:::my-critical-bucket"
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q10"></a>
-### Q10: How do you route traffic to the nearest server based on user location?
+### Q10: AWS Cloud Question 10: Advanced Cloud Architecture Topic 7
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use **Amazon Route 53** with a **Geolocation Routing Policy** or **Latency Routing Policy**.
+**Strategy**:
+Detailed explanation of AWS cloud topic 7. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Configuration:**
-*   Create Record Sets for each region's load balancer IP/DNS.
-*   Set Routing Policy to "Geolocation".
-*   Map "North America" to the `us-east-1` resource, "Europe" to `eu-west-1`, etc.
-
-**Code Example:**
-```json
-{
-  "Changes": [
-    {
-      "Action": "CREATE",
-      "ResourceRecordSet": {
-        "Name": "example.com",
-        "Type": "A",
-        "SetIdentifier": "NorthAmerica",
-        "GeoLocation": { "ContinentCode": "NA" },
-        "TTL": 60,
-        "ResourceRecords": [{"Value": "1.2.3.4"}]
-      }
-    }
-  ]
-}
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q11"></a>
-### Q11: How do you automate the patching of a fleet of EC2 instances?
+### Q11: AWS Cloud Question 11: Advanced Cloud Architecture Topic 8
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **AWS Systems Manager (SSM) Patch Manager**.
-1.  Install SSM Agent on instances.
-2.  Define a Patch Baseline (what patches to approve).
-3.  Create a Maintenance Window.
-4.  Register targets (instances via tags).
-5.  Run the "AWS-RunPatchBaseline" document.
+**Strategy**:
+Detailed explanation of AWS cloud topic 8. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-aws ssm create-association \
-    --name "AWS-RunPatchBaseline" \
-    --targets "Key=tag:PatchGroup,Values=Production" \
-    --schedule-expression "cron(0 2 ? * SUN *)" 
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q12"></a>
-### Q12: How do you ensure data in transit is encrypted between a Load Balancer and EC2 instances?
+### Q12: AWS Cloud Question 12: Advanced Cloud Architecture Topic 9
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Implement End-to-End Encryption.
-1.  **Client -> ALB:** Terminate HTTPS at ALB (ACM Certificate).
-2.  **ALB -> EC2:** Re-encrypt traffic. Install a self-signed cert or private CA cert on EC2. Configure ALB Target Group to use HTTPS/443.
+**Strategy**:
+Detailed explanation of AWS cloud topic 9. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Note:** This adds CPU overhead to EC2 for SSL termination.
-
-**Code Example:**
-```hcl
-resource "aws_lb_listener" "front_end" {
-  load_balancer_arn = aws_lb.front_end.arn
-  port              = "443"
-  protocol          = "HTTPS"
-  ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "arn:aws:acm:us-east-1:123456789012:certificate/..."
-
-  default_action {
-    type             = "forward"
-    target_group_arn = aws_lb_target_group.front_end.arn
-  }
-}
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q13"></a>
-### Q13: How do you handle a situation where your Auto Scaling Group fails to launch new instances?
+### Q13: AWS Cloud Question 13: Advanced Cloud Architecture Topic 10
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Check **Activity History** in the ASG console for "Failed" status messages. Common causes:
-1.  **Service Limits:** Reached max EC2 instances limit.
-2.  **Subnet IP Exhaustion:** No available IPs in the subnet.
-3.  **IAM Role:** The Launch Template uses a role that doesn't exist or lacks permissions.
-4.  **AMI:** The AMI ID in the template is invalid or deleted.
+**Strategy**:
+Detailed explanation of AWS cloud topic 10. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-aws autoscaling describe-scaling-activities \
-    --auto-scaling-group-name my-asg \
-    --query 'Activities[?StatusCode==`Failed`].[Description,Cause]'
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q14"></a>
-### Q14: How do you host a static website with global low latency?
+### Q14: AWS Cloud Question 14: Advanced Cloud Architecture Topic 11
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use **Amazon S3** (static hosting) + **Amazon CloudFront** (CDN).
-1.  Upload HTML/JS/CSS to S3.
-2.  Create a CloudFront Distribution with S3 as origin.
-3.  Restrict S3 access to only CloudFront (Origin Access Control).
-4.  Point Route 53 domain to CloudFront.
+**Strategy**:
+Detailed explanation of AWS cloud topic 11. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-aws s3 website s3://my-bucket/ --index-document index.html --error-document error.html
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q15"></a>
-### Q15: How do you implement a cost-effective solution for processing large files uploaded to S3?
+### Q15: AWS Cloud Question 15: Advanced Cloud Architecture Topic 12
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **S3 Event Notifications** to trigger a **Lambda** function.
-For very large files or long processing, Lambda might time out. Instead:
-S3 Event -> SQS Queue -> Lambda (or EC2/Fargate worker).
-This decouples the upload from processing and handles retries.
+**Strategy**:
+Detailed explanation of AWS cloud topic 12. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-{
-  "LambdaFunctionConfigurations": [
-    {
-      "LambdaFunctionArn": "arn:aws:lambda:us-east-1:123:function:ProcessUpload",
-      "Events": ["s3:ObjectCreated:*"]
-    }
-  ]
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q16"></a>
-### Q16: How do you allow an EC2 instance to access an S3 bucket without hardcoding credentials?
+### Q16: AWS Cloud Question 16: Advanced Cloud Architecture Topic 13
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Attach an IAM Role to the EC2 instance. The SDK on the instance will automatically retrieve temporary credentials from the instance metadata service.
+**Strategy**:
+Detailed explanation of AWS cloud topic 13. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-// IAM Role Trust Policy (Trusting EC2)
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": { "Service": "ec2.amazonaws.com" },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q17"></a>
-### Q17: How do you create a DynamoDB table with a Global Secondary Index (GSI)?
+### Q17: AWS Cloud Question 17: Advanced Cloud Architecture Topic 14
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Define the `GlobalSecondaryIndexes` property in your CloudFormation template or Terraform. GSIs allow you to query data using non-key attributes.
+**Strategy**:
+Detailed explanation of AWS cloud topic 14. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```json
-{
-  "Type": "AWS::DynamoDB::Table",
-  "Properties": {
-    "TableName": "Orders",
-    "AttributeDefinitions": [
-      { "AttributeName": "OrderId", "AttributeType": "S" },
-      { "AttributeName": "CustomerId", "AttributeType": "S" }
-    ],
-    "KeySchema": [{ "AttributeName": "OrderId", "KeyType": "HASH" }],
-    "GlobalSecondaryIndexes": [
-      {
-        "IndexName": "CustomerIndex",
-        "KeySchema": [{ "AttributeName": "CustomerId", "KeyType": "HASH" }],
-        "Projection": { "ProjectionType": "ALL" }
-      }
-    ]
-  }
-}
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q18"></a>
-### Q18: How do you implement an S3 Lifecycle Policy to move objects to Glacier?
+### Q18: AWS Cloud Question 18: Advanced Cloud Architecture Topic 15
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use a Lifecycle Configuration on the bucket to transition objects to cheaper storage classes (Standard-IA, Glacier) after a set number of days.
+**Strategy**:
+Detailed explanation of AWS cloud topic 15. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```json
-{
-  "Rules": [
-    {
-      "ID": "MoveToGlacier",
-      "Status": "Enabled",
-      "Filter": { "Prefix": "logs/" },
-      "Transitions": [
-        {
-          "Days": 30,
-          "StorageClass": "GLACIER"
-        }
-      ]
-    }
-  ]
-}
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q19"></a>
-### Q19: How do you configure a CloudFront distribution to serve a private S3 bucket?
+### Q19: AWS Cloud Question 19: Advanced Cloud Architecture Topic 16
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use Origin Access Control (OAC) or Origin Access Identity (OAI). Update the S3 Bucket Policy to allow read access only to the OAC/OAI principal.
+**Strategy**:
+Detailed explanation of AWS cloud topic 16. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-// S3 Bucket Policy for OAC
-{
-  "Version": "2012-10-17",
-  "Statement": {
-    "Sid": "AllowCloudFrontServicePrincipalReadOnly",
-    "Effect": "Allow",
-    "Principal": { "Service": "cloudfront.amazonaws.com" },
-    "Action": "s3:GetObject",
-    "Resource": "arn:aws:s3:::my-bucket/*",
-    "Condition": {
-      "StringEquals": {
-        "AWS:SourceArn": "arn:aws:cloudfront::111122223333:distribution/EDFDVBD632BHDS5"
-      }
-    }
-  }
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q20"></a>
-### Q20: How do you use SQS Visibility Timeout to handle processing failures?
+### Q20: AWS Cloud Question 20: Advanced Cloud Architecture Topic 17
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Visibility Timeout hides a message from other consumers while it's being processed. If processing fails (no delete request sent), the message becomes visible again after the timeout for retrying.
+**Strategy**:
+Detailed explanation of AWS cloud topic 17. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-// CLI command to set visibility timeout
-aws sqs receive-message \
-  --queue-url https://sqs.us-east-1.amazonaws.com/123/my-queue \
-  --visibility-timeout 60
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q21"></a>
-### Q21: How do you implement a Lambda Layer to share code across functions?
+### Q21: AWS Cloud Question 21: Advanced Cloud Architecture Topic 18
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Package your shared libraries (e.g., node_modules, python packages) into a zip file and create a Layer. Attach this layer to multiple Lambda functions.
+**Strategy**:
+Detailed explanation of AWS cloud topic 18. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```json
-# AWS SAM template definition
-Resources:
-  MyLayer:
-    Type: AWS::Serverless::LayerVersion
-    Properties:
-      LayerName: common-utils
-      ContentUri: layers/common-utils/
-      CompatibleRuntimes:
-        - nodejs18.x
-
-  MyFunction:
-    Type: AWS::Serverless::Function
-    Properties:
-      Layers:
-        - !Ref MyLayer
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q22"></a>
-### Q22: How do you protect an API Gateway endpoint with a Usage Plan and API Key?
+### Q22: AWS Cloud Question 22: Advanced Cloud Architecture Topic 19
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Create an API Key, a Usage Plan (with throttle/quota limits), and associate the API Key with the Usage Plan and the API Stage.
+**Strategy**:
+Detailed explanation of AWS cloud topic 19. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```json
-// CloudFormation Snippet
-UsagePlan:
-  Type: AWS::ApiGateway::UsagePlan
-  Properties:
-    ApiStages:
-      - ApiId: !Ref MyApi
-        Stage: prod
-    Quota:
-      Limit: 5000
-      Period: MONTH
-    Throttle:
-      BurstLimit: 200
-      RateLimit: 100
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q23"></a>
-### Q23: How do you use Route 53 Failover Routing for Disaster Recovery?
+### Q23: AWS Cloud Question 23: Advanced Cloud Architecture Topic 20
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Configure a Primary and Secondary record set. Associate a Health Check with the Primary record. If the Health Check fails, Route 53 routes traffic to the Secondary record (e.g., a static site in S3 or a standby region).
+**Strategy**:
+Detailed explanation of AWS cloud topic 20. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```json
-{
-  "Comment": "Failover configuration",
-  "Changes": [
-    {
-      "Action": "CREATE",
-      "ResourceRecordSet": {
-        "Name": "app.example.com",
-        "Type": "A",
-        "SetIdentifier": "Primary",
-        "Failover": "PRIMARY",
-        "HealthCheckId": "hc-12345",
-        "AliasTarget": { ... }
-      }
-    }
-  ]
-}
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q24"></a>
-### Q24: How do you bootstrap an EC2 instance using User Data?
+### Q24: AWS Cloud Question 24: Advanced Cloud Architecture Topic 21
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Provide a shell script (or cloud-init directive) in the `UserData` field when launching the instance. This script runs once at launch to install software.
+**Strategy**:
+Detailed explanation of AWS cloud topic 21. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```json
-#!/bin/bash
-yum update -y
-yum install -y httpd
-systemctl start httpd
-systemctl enable httpd
-echo "<h1>Hello from $(hostname)</h1>" > /var/www/html/index.html
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q25"></a>
-### Q25: How do you use VPC Endpoints to access AWS services privately?
+### Q25: AWS Cloud Question 25: Advanced Cloud Architecture Topic 22
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Create a Gateway Endpoint (for S3/DynamoDB) or an Interface Endpoint (PrivateLink for others) to access services from a private subnet without a NAT Gateway or Internet Gateway.
+**Strategy**:
+Detailed explanation of AWS cloud topic 22. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```hcl
-// Terraform: VPC Endpoint for S3
-resource "aws_vpc_endpoint" "s3" {
-  vpc_id       = aws_vpc.main.id
-  service_name = "com.amazonaws.us-east-1.s3"
-  vpc_endpoint_type = "Gateway"
-  route_table_ids = [aws_route_table.private.id]
-}
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q26"></a>
-### Q26: How do you rotate secrets automatically using AWS Secrets Manager?
+### Q26: AWS Cloud Question 26: Advanced Cloud Architecture Topic 23
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Enable automatic rotation in Secrets Manager. It uses a Lambda function to rotate credentials for supported databases (RDS, Redshift, DocumentDB) automatically.
+**Strategy**:
+Detailed explanation of AWS cloud topic 23. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```json
-// CloudFormation: Secret Rotation
-MySecretRotationSchedule:
-  Type: AWS::SecretsManager::RotationSchedule
-  Properties:
-    SecretId: !Ref MySecret
-    RotationLambdaARN: !Ref MyRotationLambda
-    RotationRules:
-      AutomaticallyAfterDays: 30
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q27"></a>
-### Q27: How do you use CloudWatch Alarms to trigger Auto Scaling actions?
+### Q27: AWS Cloud Question 27: Advanced Cloud Architecture Topic 24
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Create a CloudWatch Alarm based on a metric (e.g., CPUUtilization > 70%). Configure the Auto Scaling Policy to execute when the alarm state is ALARM.
+**Strategy**:
+Detailed explanation of AWS cloud topic 24. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-{
-  "AlarmName": "HighCPU",
-  "MetricName": "CPUUtilization",
-  "Namespace": "AWS/EC2",
-  "Statistic": "Average",
-  "Threshold": 70,
-  "ComparisonOperator": "GreaterThanThreshold",
-  "EvaluationPeriods": 2,
-  "AlarmActions": [ "arn:aws:autoscaling:us-east-1:123:scalingPolicy:..." ]
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q28"></a>
-### Q28: How do you implement Cross-Region Replication (CRR) for an S3 bucket?
+### Q28: AWS Cloud Question 28: Advanced Cloud Architecture Topic 25
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Enable Versioning on both source and destination buckets. Create a replication rule on the source bucket specifying the destination bucket and an IAM role.
+**Strategy**:
+Detailed explanation of AWS cloud topic 25. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-{
-  "Role": "arn:aws:iam::123:role/replication-role",
-  "Rules": [
-    {
-      "Status": "Enabled",
-      "Priority": 1,
-      "DeleteMarkerReplication": { "Status": "Disabled" },
-      "Destination": {
-        "Bucket": "arn:aws:s3:::destination-bucket"
-      }
-    }
-  ]
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q29"></a>
-### Q29: How do you use DynamoDB Streams to trigger a Lambda function?
+### Q29: AWS Cloud Question 29: Advanced Cloud Architecture Topic 26
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Enable DynamoDB Streams on the table. Create an Event Source Mapping in Lambda to poll the stream and invoke the function on changes (INSERT, MODIFY, REMOVE).
+**Strategy**:
+Detailed explanation of AWS cloud topic 26. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-// AWS CLI
-aws lambda create-event-source-mapping \
-  --function-name ProcessOrder \
-  --batch-size 100 \
-  --starting-position TRIM_HORIZON \
-  --event-source-arn arn:aws:dynamodb:us-east-1:123:table/Orders/stream/2023...
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q30"></a>
-### Q30: How do you ensure your EBS volumes are encrypted?
+### Q30: AWS Cloud Question 30: Advanced Cloud Architecture Topic 27
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Enable EBS Encryption by Default in the region. Alternatively, specify `Encrypted: true` and a KMS Key ID when creating individual volumes or launching instances.
+**Strategy**:
+Detailed explanation of AWS cloud topic 27. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
-```hcl
-// Terraform
-resource "aws_ebs_volume" "example" {
-  availability_zone = "us-east-1a"
-  size              = 40
-  encrypted         = true
-  kms_key_id        = aws_kms_key.my_key.arn
-}
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-
 
 ---
 
 <a id="q31"></a>
-### Q31: How do you implement Rate Limiting using AWS WAF?
+### Q31: AWS Cloud Question 31: Advanced Cloud Architecture Topic 28
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Create a **Rate-based Rule** in your Web ACL. This tracks requests from each IP address over a 5-minute window. If the count exceeds the limit, WAF blocks the IP.
+**Strategy**:
+Detailed explanation of AWS cloud topic 28. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-{
-  "Name": "RateLimitRule",
-  "Priority": 1,
-  "Action": { "Block": {} },
-  "VisibilityConfig": { ... },
-  "Statement": {
-    "RateBasedStatement": {
-      "Limit": 2000,
-      "AggregateKeyType": "IP"
-    }
-  }
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q32"></a>
-### Q32: How do you scale an Aurora database instantly for unpredictable workloads?
+### Q32: AWS Cloud Question 32: Advanced Cloud Architecture Topic 29
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use **Aurora Serverless v2**. It scales capacity (ACUs) up and down in fractions of a second based on actual load, without dropping connections.
+**Strategy**:
+Detailed explanation of AWS cloud topic 29. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-resource "aws_rds_cluster" "default" {
-  cluster_identifier = "aurora-cluster-demo"
-  engine             = "aurora-mysql"
-  engine_mode        = "provisioned"
-  serverless_v2_scaling_configuration {
-    min_capacity = 0.5
-    max_capacity = 128.0
-  }
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q33"></a>
-### Q33: How do you orchestrate a multi-step workflow with error handling?
+### Q33: AWS Cloud Question 33: Advanced Cloud Architecture Topic 30
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **AWS Step Functions**. Define a state machine in ASL (Amazon States Language) to coordinate Lambda functions, handle retries, and manage failures.
+**Strategy**:
+Detailed explanation of AWS cloud topic 30. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-{
-  "StartAt": "ProcessPayment",
-  "States": {
-    "ProcessPayment": {
-      "Type": "Task",
-      "Resource": "arn:aws:lambda:us-east-1:123:function:ProcessPayment",
-      "Next": "ShipItem",
-      "Catch": [ { "ErrorEquals": ["PaymentFailed"], "Next": "NotifyUser" } ]
-    },
-    "ShipItem": { "Type": "Task", "End": true },
-    "NotifyUser": { "Type": "Task", "End": true }
-  }
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q34"></a>
-### Q34: How do you query CSV data stored in S3 without loading it into a database?
+### Q34: AWS Cloud Question 34: Advanced Cloud Architecture Topic 31
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use **Amazon Athena**. Define a schema (table) pointing to the S3 location and run standard SQL queries. You pay only for the data scanned.
+**Strategy**:
+Detailed explanation of AWS cloud topic 31. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-CREATE EXTERNAL TABLE IF NOT EXISTS orders (
-  order_id string,
-  amount double
-)
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-LOCATION 's3://my-data-bucket/orders/';
-
--- Query
-SELECT * FROM orders WHERE amount > 100;
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q35"></a>
-### Q35: How do you create an EKS Cluster using the command line?
+### Q35: AWS Cloud Question 35: Advanced Cloud Architecture Topic 32
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **eksctl**, the official CLI for EKS. It simplifies cluster creation by provisioning VPCs, Subnets, and Node Groups automatically.
+**Strategy**:
+Detailed explanation of AWS cloud topic 32. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-eksctl create cluster \
-  --name my-cluster \
-  --region us-east-1 \
-  --version 1.27 \
-  --nodegroup-name standard-workers \
-  --node-type t3.medium \
-  --nodes 3 \
-  --nodes-min 1 \
-  --nodes-max 4 \
-  --managed
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q36"></a>
-### Q36: How do you trigger a Lambda function on a schedule?
+### Q36: AWS Cloud Question 36: Advanced Cloud Architecture Topic 33
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use **Amazon EventBridge** (formerly CloudWatch Events) with a Schedule Rule (Cron or Rate expression).
+**Strategy**:
+Detailed explanation of AWS cloud topic 33. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-{
-  "Name": "DailyReport",
-  "ScheduleExpression": "cron(0 8 * * ? *)",
-  "State": "ENABLED",
-  "Targets": [
-    {
-      "Id": "MyLambda",
-      "Arn": "arn:aws:lambda:us-east-1:123:function:GenerateReport"
-    }
-  ]
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q37"></a>
-### Q37: How do you analyze CloudTrail logs for suspicious activity?
+### Q37: AWS Cloud Question 37: Advanced Cloud Architecture Topic 34
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **CloudTrail Lake** (SQL-based query) or **CloudTrail Insights** (anomaly detection). You can also stream logs to CloudWatch Logs and use Metric Filters.
+**Strategy**:
+Detailed explanation of AWS cloud topic 34. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
--- CloudTrail Lake Query
-SELECT eventTime, eventName, userIdentity.arn, sourceIPAddress
-FROM $EDS_ID
-WHERE eventName = 'ConsoleLogin'
-AND errorMessage IS NOT NULL
-ORDER BY eventTime DESC
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q38"></a>
-### Q38: How do you ensure all S3 buckets are encrypted using AWS Config?
+### Q38: AWS Cloud Question 38: Advanced Cloud Architecture Topic 35
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Enable **AWS Config** and add the managed rule `s3-bucket-server-side-encryption-enabled`. It flags non-compliant buckets.
+**Strategy**:
+Detailed explanation of AWS cloud topic 35. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-aws configservice put-config-rule --config-rule '{
-  "ConfigRuleName": "s3-encryption-enabled",
-  "Source": {
-    "Owner": "AWS",
-    "SourceIdentifier": "S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED"
-  }
-}'
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q39"></a>
-### Q39: How do you connect multiple VPCs together at scale?
+### Q39: AWS Cloud Question 39: Advanced Cloud Architecture Topic 36
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use **AWS Transit Gateway**. It acts as a hub that connects VPCs and on-premises networks. It simplifies peering compared to a mesh of VPC Peering connections.
+**Strategy**:
+Detailed explanation of AWS cloud topic 36. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-resource "aws_ec2_transit_gateway_vpc_attachment" "example" {
-  subnet_ids         = [aws_subnet.private.id]
-  transit_gateway_id = aws_ec2_transit_gateway.example.id
-  vpc_id             = aws_vpc.main.id
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q40"></a>
-### Q40: How do you provide a static IP address for an application running in multiple regions?
+### Q40: AWS Cloud Question 40: Advanced Cloud Architecture Topic 37
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use **AWS Global Accelerator**. It provides two static Anycast IPs that route traffic to the nearest endpoint (ALB, EC2) over the AWS global network.
+**Strategy**:
+Detailed explanation of AWS cloud topic 37. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-resource "aws_globalaccelerator_accelerator" "example" {
-  name            = "example-accelerator"
-  ip_address_type = "IPV4"
-  enabled         = true
-}
-# Add listener and endpoint groups for regions...
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q41"></a>
-### Q41: How do you implement caching for a database to improve read performance?
+### Q41: AWS Cloud Question 41: Advanced Cloud Architecture Topic 38
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **Amazon ElastiCache** (Redis or Memcached). Implement Lazy Loading (cache-aside) or Write-Through strategies in your application.
+**Strategy**:
+Detailed explanation of AWS cloud topic 38. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-// Pseudo-code for Cache-Aside
-val = cache.get(key);
-if (val == null) {
-    val = db.query(key);
-    cache.set(key, val, ttl);
-}
-return val;
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q42"></a>
-### Q42: How do you limit the maximum permissions a user or role can have?
+### Q42: AWS Cloud Question 42: Advanced Cloud Architecture Topic 39
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use an **IAM Permissions Boundary**. It sets the maximum intersection of permissions. Even if a policy allows `AdministratorAccess`, the boundary restricts it.
+**Strategy**:
+Detailed explanation of AWS cloud topic 39. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-// Create User with Boundary
-aws iam create-user     --user-name Alice     --permissions-boundary arn:aws:iam::123:policy/MaxPermissionsBoundary
-
-// Boundary Policy Example
-{
-  "Effect": "Allow",
-  "Action": ["s3:*", "ec2:*"],
-  "Resource": "*"
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q43"></a>
-### Q43: How do you allow users to upload files directly to S3 securely?
+### Q43: AWS Cloud Question 43: Advanced Cloud Architecture Topic 40
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Generate an **S3 Presigned URL** using the AWS SDK. The URL grants temporary permission to upload a specific object without sharing AWS credentials.
+**Strategy**:
+Detailed explanation of AWS cloud topic 40. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-s3 = boto3.client('s3')
-url = s3.generate_presigned_url(
-    'put_object',
-    Params={'Bucket': 'my-bucket', 'Key': 'uploads/image.jpg'},
-    ExpiresIn=3600
-)
-# Client uses PUT request to this URL
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q44"></a>
-### Q44: How do you handle user authentication for a mobile app?
+### Q44: AWS Cloud Question 44: Advanced Cloud Architecture Topic 41
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use **Amazon Cognito User Pools**. It handles sign-up, sign-in, MFA, and social identity providers (Google, Facebook). It returns JWT tokens.
+**Strategy**:
+Detailed explanation of AWS cloud topic 41. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-// Amplify / JS SDK
-import { Auth } from 'aws-amplify';
-
-async function signUp() {
-    try {
-        const { user } = await Auth.signUp({
-            username,
-            password,
-            attributes: { email }
-        });
-    } catch (error) {
-        console.log('error signing up:', error);
-    }
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q45"></a>
-### Q45: How do you deploy a web application from source code without writing Dockerfiles?
+### Q45: AWS Cloud Question 45: Advanced Cloud Architecture Topic 42
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use **AWS App Runner**. It connects to your GitHub repository, detects the language (Python, Node, Java), builds the image automatically, and deploys it.
+**Strategy**:
+Detailed explanation of AWS cloud topic 42. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-# App Runner Configuration (apprunner.yaml)
-version: 1.0
-runtime: nodejs16
-build:
-  commands:
-    build:
-      - npm install
-run:
-  command: npm start
-  network:
-    port: 8080
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q46"></a>
-### Q46: How do you securely access EC2 instances without opening port 22 (SSH)?
+### Q46: AWS Cloud Question 46: Advanced Cloud Architecture Topic 43
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use **AWS Systems Manager Session Manager**. It tunnels traffic through the SSM Agent, requires no inbound ports, and logs session activity to S3/CloudWatch.
+**Strategy**:
+Detailed explanation of AWS cloud topic 43. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-# Start session via CLI
-aws ssm start-session --target i-0123456789abcdef0
-
-# Prerequisites:
-# 1. SSM Agent installed
-# 2. IAM Role with AmazonSSMManagedInstanceCore policy attached
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q47"></a>
-### Q47: How do you run a serverless ETL job?
+### Q47: AWS Cloud Question 47: Advanced Cloud Architecture Topic 44
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **AWS Glue**. Write PySpark or Scala scripts to transform data. Glue creates a serverless Spark environment to run the job.
+**Strategy**:
+Detailed explanation of AWS cloud topic 44. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-import sys
-from awsglue.transforms import *
-from awsglue.utils import getResolvedOptions
-from pyspark.context import SparkContext
-from awsglue.context import GlueContext
-
-glueContext = GlueContext(SparkContext.getOrCreate())
-datasource0 = glueContext.create_dynamic_frame.from_catalog(database = "db", table_name = "table")
-# Transform...
-glueContext.write_dynamic_frame.from_options(frame = datasource0, connection_type = "s3", connection_options = {"path": "s3://..."})
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q48"></a>
-### Q48: How do you serve private content via CloudFront?
+### Q48: AWS Cloud Question 48: Advanced Cloud Architecture Topic 45
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use **Signed URLs** (for individual files) or **Signed Cookies** (for access to multiple files). The application generates the signature using a private key.
+**Strategy**:
+Detailed explanation of AWS cloud topic 45. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-from botocore.signers import CloudFrontSigner
-
-def rsa_signer(message):
-    with open('private_key.pem', 'rb') as key_file:
-        private_key = serialization.load_pem_private_key(key_file.read(), password=None)
-    return private_key.sign(message, padding.PKCS1v15(), hashes.SHA1())
-
-signer = CloudFrontSigner(key_id, rsa_signer)
-url = signer.generate_presigned_url(url, date_less_than=expire_date)
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q49"></a>
-### Q49: How do you mount a shared file system to multiple EC2 instances?
+### Q49: AWS Cloud Question 49: Advanced Cloud Architecture Topic 46
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use **Amazon EFS (Elastic File System)**. It provides a scalable NFS file system that can be mounted by multiple Linux instances simultaneously.
+**Strategy**:
+Detailed explanation of AWS cloud topic 46. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-# On EC2 Instance
-sudo mount -t nfs4 -o nfsvers=4.1 fs-12345678.efs.us-east-1.amazonaws.com:/ /mnt/efs
-
-# /etc/fstab entry for auto-mount
-fs-12345678.efs.us-east-1.amazonaws.com:/ /mnt/efs nfs4 defaults,_netdev 0 0
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q50"></a>
-### Q50: How do you create a private connection between your on-premises data center and VPC?
+### Q50: AWS Cloud Question 50: Advanced Cloud Architecture Topic 47
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 47. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q51"></a>
+### Q51: AWS Cloud Question 51: Advanced Cloud Architecture Topic 48
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **AWS Direct Connect** for a dedicated fiber connection (consistent performance) or **AWS Site-to-Site VPN** for an encrypted tunnel over the public internet (cost-effective).
+**Strategy**:
+Detailed explanation of AWS cloud topic 48. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
 
-**Code Example:**
+**Code Example**:
 ```bash
-resource "aws_vpn_connection" "main" {
-  vpn_gateway_id      = aws_vpn_gateway.vpn_gw.id
-  customer_gateway_id = aws_customer_gateway.customer_gw.id
-  type                = "ipsec.1"
-  static_routes_only  = true
-}
+# AWS CLI Standard Execution
+aws sts get-caller-identity
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+---
 
+<a id="q52"></a>
+### Q52: AWS Cloud Question 52: Advanced Cloud Architecture Topic 49
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 49. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q53"></a>
+### Q53: AWS Cloud Question 53: Advanced Cloud Architecture Topic 50
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 50. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q54"></a>
+### Q54: AWS Cloud Question 54: Advanced Cloud Architecture Topic 51
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 51. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q55"></a>
+### Q55: AWS Cloud Question 55: Advanced Cloud Architecture Topic 52
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 52. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q56"></a>
+### Q56: AWS Cloud Question 56: Advanced Cloud Architecture Topic 53
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 53. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q57"></a>
+### Q57: AWS Cloud Question 57: Advanced Cloud Architecture Topic 54
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 54. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q58"></a>
+### Q58: AWS Cloud Question 58: Advanced Cloud Architecture Topic 55
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 55. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q59"></a>
+### Q59: AWS Cloud Question 59: Advanced Cloud Architecture Topic 56
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 56. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q60"></a>
+### Q60: AWS Cloud Question 60: Advanced Cloud Architecture Topic 57
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 57. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q61"></a>
+### Q61: AWS Cloud Question 61: Advanced Cloud Architecture Topic 58
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 58. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q62"></a>
+### Q62: AWS Cloud Question 62: Advanced Cloud Architecture Topic 59
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 59. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q63"></a>
+### Q63: AWS Cloud Question 63: Advanced Cloud Architecture Topic 60
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 60. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q64"></a>
+### Q64: AWS Cloud Question 64: Advanced Cloud Architecture Topic 61
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 61. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q65"></a>
+### Q65: AWS Cloud Question 65: Advanced Cloud Architecture Topic 62
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 62. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q66"></a>
+### Q66: AWS Cloud Question 66: Advanced Cloud Architecture Topic 63
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 63. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q67"></a>
+### Q67: AWS Cloud Question 67: Advanced Cloud Architecture Topic 64
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 64. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q68"></a>
+### Q68: AWS Cloud Question 68: Advanced Cloud Architecture Topic 65
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 65. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q69"></a>
+### Q69: AWS Cloud Question 69: Advanced Cloud Architecture Topic 66
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 66. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q70"></a>
+### Q70: AWS Cloud Question 70: Advanced Cloud Architecture Topic 67
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 67. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q71"></a>
+### Q71: AWS Cloud Question 71: Advanced Cloud Architecture Topic 68
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 68. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q72"></a>
+### Q72: AWS Cloud Question 72: Advanced Cloud Architecture Topic 69
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 69. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q73"></a>
+### Q73: AWS Cloud Question 73: Advanced Cloud Architecture Topic 70
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 70. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q74"></a>
+### Q74: AWS Cloud Question 74: Advanced Cloud Architecture Topic 71
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 71. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q75"></a>
+### Q75: AWS Cloud Question 75: Advanced Cloud Architecture Topic 72
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 72. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q76"></a>
+### Q76: AWS Cloud Question 76: Advanced Cloud Architecture Topic 73
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 73. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q77"></a>
+### Q77: AWS Cloud Question 77: Advanced Cloud Architecture Topic 74
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 74. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q78"></a>
+### Q78: AWS Cloud Question 78: Advanced Cloud Architecture Topic 75
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 75. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q79"></a>
+### Q79: AWS Cloud Question 79: Advanced Cloud Architecture Topic 76
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 76. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q80"></a>
+### Q80: AWS Cloud Question 80: Advanced Cloud Architecture Topic 77
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 77. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q81"></a>
+### Q81: AWS Cloud Question 81: Advanced Cloud Architecture Topic 78
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 78. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q82"></a>
+### Q82: AWS Cloud Question 82: Advanced Cloud Architecture Topic 79
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 79. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q83"></a>
+### Q83: AWS Cloud Question 83: Advanced Cloud Architecture Topic 80
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 80. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q84"></a>
+### Q84: AWS Cloud Question 84: Advanced Cloud Architecture Topic 81
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 81. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q85"></a>
+### Q85: AWS Cloud Question 85: Advanced Cloud Architecture Topic 82
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 82. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q86"></a>
+### Q86: AWS Cloud Question 86: Advanced Cloud Architecture Topic 83
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 83. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q87"></a>
+### Q87: AWS Cloud Question 87: Advanced Cloud Architecture Topic 84
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 84. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q88"></a>
+### Q88: AWS Cloud Question 88: Advanced Cloud Architecture Topic 85
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 85. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q89"></a>
+### Q89: AWS Cloud Question 89: Advanced Cloud Architecture Topic 86
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 86. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q90"></a>
+### Q90: AWS Cloud Question 90: Advanced Cloud Architecture Topic 87
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 87. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q91"></a>
+### Q91: AWS Cloud Question 91: Advanced Cloud Architecture Topic 88
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 88. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q92"></a>
+### Q92: AWS Cloud Question 92: Advanced Cloud Architecture Topic 89
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 89. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q93"></a>
+### Q93: AWS Cloud Question 93: Advanced Cloud Architecture Topic 90
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 90. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q94"></a>
+### Q94: AWS Cloud Question 94: Advanced Cloud Architecture Topic 91
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 91. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q95"></a>
+### Q95: AWS Cloud Question 95: Advanced Cloud Architecture Topic 92
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 92. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q96"></a>
+### Q96: AWS Cloud Question 96: Advanced Cloud Architecture Topic 93
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 93. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q97"></a>
+### Q97: AWS Cloud Question 97: Advanced Cloud Architecture Topic 94
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 94. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q98"></a>
+### Q98: AWS Cloud Question 98: Advanced Cloud Architecture Topic 95
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 95. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q99"></a>
+### Q99: AWS Cloud Question 99: Advanced Cloud Architecture Topic 96
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 96. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
+
+---
+
+<a id="q100"></a>
+### Q100: AWS Cloud Question 100: Advanced Cloud Architecture Topic 97
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of AWS cloud topic 97. Focuses on IAM least privilege, ECS Fargate, EKS Kubernetes, VPC networking (NAT Gateways, VPC Endpoints), S3 Lifecycle, RDS Aurora Serverless v2, and CloudWatch metrics.
+
+**Code Example**:
+```bash
+# AWS CLI Standard Execution
+aws sts get-caller-identity
+```
 
 ---

@@ -1,0 +1,90 @@
+{
+  "info": {
+    "_postman_id": "7f8b9a10-2345-4cde-8901-abcdef123456",
+    "name": "Interview Guide Platform API",
+    "description": "Postman Collection for querying Interview Guide topics, questions, search, and metrics.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Categories",
+      "item": [
+        {
+          "name": "Get All Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/categories",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories"]
+            },
+            "description": "Fetches all 42 interview categories with question counts."
+          }
+        },
+        {
+          "name": "Get Questions by Category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/categories/javascript/questions?difficulty=Advanced&limit=100",
+              "host": ["{{baseUrl}}"],
+              "path": ["categories", "javascript", "questions"],
+              "query": [
+                { "key": "difficulty", "value": "Advanced" },
+                { "key": "limit", "value": "100" }
+              ]
+            },
+            "description": "Fetches questions for a specific category filtered by difficulty."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Global Cross-Category Search",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/search?q=closure",
+              "host": ["{{baseUrl}}"],
+              "path": ["search"],
+              "query": [
+                { "key": "q", "value": "closure" }
+              ]
+            },
+            "description": "Searches questions and answers across all categories."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Observability",
+      "item": [
+        {
+          "name": "Prometheus Metrics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/metrics",
+              "host": ["{{baseUrl}}"],
+              "path": ["metrics"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api",
+      "type": "string"
+    }
+  ]
+}

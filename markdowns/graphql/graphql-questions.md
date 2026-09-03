@@ -52,7 +52,7 @@
 40. [What is `context`?](#q40) <span class="intermediate">Intermediate</span>
 41. [How do you batch requests?](#q41) <span class="advanced">Advanced</span>
 42. [What is Persisted Queries?](#q42) <span class="advanced">Advanced</span>
-43. [What is Schema Stitching?](#q43) <span class="advanced">Advanced</span>
+43. [What are GraphQL Directives (`@deprecated`, `@include`, `@skip`)?](#q43) <span class="advanced">Advanced</span>
 44. [What is Federation?](#q44) <span class="advanced">Advanced</span>
 45. [What is a Gateway?](#q45) <span class="advanced">Advanced</span>
 46. [How do you mock data?](#q46) <span class="intermediate">Intermediate</span>
@@ -106,7 +106,7 @@
 94. [How do you resolve abstract types?](#q94) <span class="advanced">Advanced</span>
 95. [What are Persisted Queries?](#q95) <span class="advanced">Advanced</span>
 96. [Explain the `@defer` directive.](#q96) <span class="advanced">Advanced</span>
-97. [How do you limit Query Depth?](#q97) <span class="intermediate">Intermediate</span>
+97. [How does DataLoader batching prevent the N+1 Query problem in GraphQL?](#q97) <span class="intermediate">Intermediate</span>
 98. [What is Query Complexity Analysis?](#q98) <span class="advanced">Advanced</span>
 99. [GraphQL over WebSockets vs HTTP/2 Streams?](#q99) <span class="advanced">Advanced</span>
 100. [How to handle N+1 problem with DataLoader?](#q100) <span class="advanced">Advanced</span>
@@ -803,18 +803,25 @@ context: ({ req }) => ({ user: verify(req) })
 ---
 
 <a id="q43"></a>
-### Q43: What is Schema Stitching?
+### Q43: What are GraphQL Directives (`@deprecated`, `@include`, `@skip`)?
+**Difficulty**: <span class="intermediate">Intermediate</span>  
+**Category**: GraphQL Schema & Query Syntax  
 
-**Difficulty**: Advanced
+**Strategy**: Explain how directives dynamically alter schema behavior and query execution.
 
-**Strategy**: Schema Stitching is the process of combining multiple independent GraphQL schemas into a single unified gateway schema, allowing clients to query across services as if they were one graph. It differs from Federation in that it merges schemas at the gateway level without requiring subgraphs to follow a specific specification. While powerful, it can become complex to maintain as services grow, which is why Apollo Federation has become the more popular choice for large-scale microservice architectures.
+Directives decorate schema fields or queries with `@directiveName`. Built-in directives include `@deprecated(reason: "...")`, `@include(if: Boolean)`, and `@skip(if: Boolean)`.
 
 **Code Example**:
-```javascript
-stitchSchemas({ subschemas: [...] })
+```graphql
+query GetUser($showDetails: Boolean!) {
+  user(id: "101") {
+    id
+    name
+    email @include(if: $showDetails)
+    internalNotes @skip(if: $showDetails)
+  }
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
@@ -1673,24 +1680,31 @@ query {
 ---
 
 <a id="q97"></a>
+### Q97: How does DataLoader batching prevent the N+1 Query problem in GraphQL?
+**Difficulty**: <span class="advanced">Advanced</span>  
+**Category**: Performance & Caching  
 
-### Q97: How do you limit Query Depth?
+**Strategy**: Explain how DataLoader coalesces individual ID lookups into a single batched database query using Node.js event loop ticks.
 
-**Difficulty**: Intermediate
+DataLoader collects individual `id` requests made across various resolvers within a single execution tick and executes a single `WHERE id IN (...)` batch query, caching the result promises.
 
-**Strategy**: Query depth limiting prevents malicious or expensive recursive queries (like A -> B -> A -> B...) by rejecting queries that are nested too deeply. This is usually implemented using a validation rule in the GraphQL server setup.
-
-**Code Example**: 
+**Code Example**:
 ```javascript
-import depthLimit from 'graphql-depth-limit';
+const DataLoader = require('dataloader');
 
-const server = new ApolloServer({
-  schema,
-  validationRules: [depthLimit(5)] // Max depth of 5
+// Batch loading function
+const userLoader = new DataLoader(async (keys) => {
+  const users = await db.users.find({ _id: { $in: keys } });
+  return keys.map(k => users.find(u => u._id === k));
 });
-```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+// Resolver
+const resolvers = {
+  Post: {
+    author: (post) => userLoader.load(post.authorId)
+  }
+};
+```
 
 ---
 

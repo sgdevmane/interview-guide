@@ -72,7 +72,7 @@
 60. [How do you use context.AfterFunc (Go 1.21+) for cleanup?](#q60) <span class="intermediate">Intermediate</span>
 61. [How do you use the new min/max built-ins (Go 1.21+)?](#q61) <span class="beginner">Beginner</span>
 62. [How do you reduce GC pressure using `sync.Pool`?](#q62) <span class="advanced">Advanced</span>
-63. [How do you use `sync.Cond` for complex synchronization?](#q63) <span class="advanced">Expert</span>
+63. [How does Go's `runtime.Gosched()` yield execution to other goroutines?](#q63) <span class="advanced">Expert</span>
 64. [How do you perform lock-free operations using `atomic`?](#q64) <span class="advanced">Advanced</span>
 65. [How do you manage groups of goroutines with `errgroup`?](#q65) <span class="intermediate">Intermediate</span>
 66. [What is Escape Analysis?](#q66) <span class="advanced">Advanced</span>
@@ -2701,48 +2701,37 @@ func main() {
 ---
 
 <a id="q63"></a>
+### Q63: How does Go's `runtime.Gosched()` yield execution to other goroutines?
+**Difficulty**: <span class="advanced">Advanced</span>  
+**Category**: Concurrency & Runtime  
 
-### Q63: How do you use `sync.Cond` for complex synchronization?
+**Strategy**: Explain cooperative scheduling in the Go runtime scheduler.
 
-**Difficulty**: Expert
+`runtime.Gosched()` yields the processor, allowing other goroutines to run. It does not suspend the current goroutine, so execution resumes automatically when the scheduler picks it up again.
 
-**Strategy:**
-`sync.Cond` implements a condition variable, a rendezvous point for goroutines waiting for or announcing the occurrence of an event. It's more efficient than polling.
-
-**Code Example:**
-
+**Code Example**:
 ```go
 package main
 
 import (
 	"fmt"
-	"sync"
-	"time"
+	"runtime"
 )
 
 func main() {
-	var mu sync.Mutex
-	cond := sync.NewCond(&mu)
-	ready := false
-
 	go func() {
-		time.Sleep(time.Second)
-		mu.Lock()
-		ready = true
-		cond.Signal() // Wake up one waiter
-		mu.Unlock()
+		for i := 0; i < 5; i++ {
+			fmt.Println("Goroutine working")
+			runtime.Gosched() // Yield CPU
+		}
 	}()
 
-	mu.Lock()
-	for !ready {
-		cond.Wait() // Unlocks mu, waits, locks mu
+	for i := 0; i < 5; i++ {
+		fmt.Println("Main thread working")
+		runtime.Gosched()
 	}
-	fmt.Println("Ready!")
-	mu.Unlock()
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

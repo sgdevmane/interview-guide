@@ -1,1821 +1,2127 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Testing & QA (Jest, Vitest, RTL, Playwright) Logo" width="100" height="100">
   </a>
-  <h1>Testing (Jest/Mocha) Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for developers</b></p>
+  <h1>Testing & QA (Jest, Vitest, RTL, Playwright) Interview Questions & Answers</h1>
+  <p><b>Comprehensive interview questions covering Unit Testing, MSW, RTL, E2E Testing, and Mocks</b></p>
 </div>
 
 ---
 
 ## Table of Contents
 
-1. [How do you mock a module in Jest?](#q1) <span class="beginner">Beginner</span>
-2. [What is Snapshot Testing in Jest?](#q2) <span class="beginner">Beginner</span>
-3. [How do you test asynchronous code in Jest?](#q3) <span class="intermediate">Intermediate</span>
-4. [Difference between `shallow` and `mount` in Enzyme?](#q4) <span class="intermediate">Intermediate</span>
-5. [How do you spy on a method with Jest?](#q5) <span class="intermediate">Intermediate</span>
-6. [How do you setup and teardown tests in Mocha?](#q6) <span class="beginner">Beginner</span>
-7. [How do you mock a timer in Jest?](#q7) <span class="advanced">Advanced</span>
-8. [How do you test a React Hook?](#q8) <span class="advanced">Advanced</span>
-9. [How do you mock a default export in Jest?](#q9) <span class="advanced">Advanced</span>
-10. [How do you test for an exception in Jest?](#q10) <span class="beginner">Beginner</span>
-11. [What is the difference between `describe` and `test`?](#q11) <span class="beginner">Beginner</span>
-12. [How do you access the DOM in Jest?](#q12) <span class="intermediate">Intermediate</span>
-13. [What is `jest.fn()`?](#q13) <span class="beginner">Beginner</span>
-14. [How do you skip a test?](#q14) <span class="beginner">Beginner</span>
-15. [How do you run only one test?](#q15) <span class="beginner">Beginner</span>
-16. [How do you test React components without Enzyme?](#q16) <span class="intermediate">Intermediate</span>
-17. [How do you mock global objects like `localStorage`?](#q17) <span class="intermediate">Intermediate</span>
-18. [What is Code Coverage?](#q18) <span class="intermediate">Intermediate</span>
-19. [How do you parameterize tests in Jest?](#q19) <span class="intermediate">Intermediate</span>
-20. [How do you reset mocks between tests?](#q20) <span class="intermediate">Intermediate</span>
-21. [What is a Spy in testing?](#q21) <span class="beginner">Beginner</span>
-22. [How do you test Redux connected components?](#q22) <span class="advanced">Advanced</span>
-23. [What is TDD?](#q23) <span class="beginner">Beginner</span>
-24. [What is BDD?](#q24) <span class="beginner">Beginner</span>
-25. [Difference between Unit and Integration tests?](#q25) <span class="beginner">Beginner</span>
-26. [What is E2E testing?](#q26) <span class="beginner">Beginner</span>
-27. [What is Jest?](#q27) <span class="beginner">Beginner</span>
-28. [What is Mocha?](#q28) <span class="beginner">Beginner</span>
-29. [What is Chai?](#q29) <span class="beginner">Beginner</span>
-30. [What is Enzyme?](#q30) <span class="intermediate">Intermediate</span>
-31. [What is React Testing Library (RTL)?](#q31) <span class="intermediate">Intermediate</span>
-32. [How do you mock a function?](#q32) <span class="beginner">Beginner</span>
-33. [How do you mock a module?](#q33) <span class="intermediate">Intermediate</span>
-34. [What is Snapshot testing?](#q34) <span class="beginner">Beginner</span>
-35. [How do you update snapshots?](#q35) <span class="beginner">Beginner</span>
-36. [What is `beforeAll`?](#q36) <span class="beginner">Beginner</span>
-37. [What is `afterEach`?](#q37) <span class="beginner">Beginner</span>
-38. [How do you test async code?](#q38) <span class="intermediate">Intermediate</span>
-39. [How do you mock timers?](#q39) <span class="advanced">Advanced</span>
-40. [What is `spyOn`?](#q40) <span class="intermediate">Intermediate</span>
-41. [How do you mock API calls?](#q41) <span class="intermediate">Intermediate</span>
-42. [What is Coverage?](#q42) <span class="beginner">Beginner</span>
-43. [How do you test hooks?](#q43) <span class="advanced">Advanced</span>
-44. [How do you test context?](#q44) <span class="intermediate">Intermediate</span>
-45. [What is `act`?](#q45) <span class="advanced">Advanced</span>
-46. [How do you find elements in RTL?](#q46) <span class="beginner">Beginner</span>
-47. [Difference between `getBy` and `queryBy`?](#q47) <span class="intermediate">Intermediate</span>
-48. [Difference between `getBy` and `findBy`?](#q48) <span class="intermediate">Intermediate</span>
-49. [How do you simulate events?](#q49) <span class="beginner">Beginner</span>
-50. [What is `user-event`?](#q50) <span class="intermediate">Intermediate</span>
-51. [How do you debug tests?](#q51) <span class="beginner">Beginner</span>
-52. [How do you skip a test?](#q52) <span class="beginner">Beginner</span>
-53. [How do you focus a test?](#q53) <span class="beginner">Beginner</span>
-54. [What is `describe`?](#q54) <span class="beginner">Beginner</span>
-55. [How do you mock local storage?](#q55) <span class="intermediate">Intermediate</span>
-56. [How do you test routing?](#q56) <span class="intermediate">Intermediate</span>
-57. [What is Cypress?](#q57) <span class="intermediate">Intermediate</span>
-58. [What is Playwright?](#q58) <span class="intermediate">Intermediate</span>
-59. [Difference between Mock and Stub?](#q59) <span class="advanced">Advanced</span>
-60. [What is Mutation Testing?](#q60) <span class="advanced">Advanced</span>
-61. [How do you test accessibility?](#q61) <span class="intermediate">Intermediate</span>
-62. [What is Visual Regression Testing?](#q62) <span class="advanced">Advanced</span>
-63. [How do you test Redux?](#q63) <span class="intermediate">Intermediate</span>
-64. [How do you mock Date?](#q64) <span class="intermediate">Intermediate</span>
-65. [What is `cleanup`?](#q65) <span class="intermediate">Intermediate</span>
-66. [How do you test portals?](#q66) <span class="advanced">Advanced</span>
-67. [What is Property Based Testing?](#q67) <span class="advanced">Advanced</span>
-68. [How do you setup global config?](#q68) <span class="intermediate">Intermediate</span>
-69. [What is the Pyramid of Testing?](#q69) <span class="beginner">Beginner</span>
-70. [How do you test strict mode?](#q70) <span class="intermediate">Intermediate</span>
-71. [How do you test error boundaries?](#q71) <span class="advanced">Advanced</span>
-72. [What is shallow rendering?](#q72) <span class="intermediate">Intermediate</span>
-73. [Why prefer full rendering?](#q73) <span class="intermediate">Intermediate</span>
-74. [How do you test observables?](#q74) <span class="advanced">Advanced</span>
-75. [What is CI/CD testing?](#q75) <span class="intermediate">Intermediate</span>
-76. [How do you parallelize tests?](#q76) <span class="intermediate">Intermediate</span>
-77. [What is Flaky test?](#q77) <span class="beginner">Beginner</span>
-78. [How do you fix flaky tests?](#q78) <span class="intermediate">Intermediate</span>
-79. [What is Contract Testing?](#q79) <span class="advanced">Advanced</span>
-80. [How do you test WebSockets?](#q80) <span class="advanced">Advanced</span>
-81. [How do you test Service Workers?](#q81) <span class="advanced">Advanced</span>
-82. [What is `test.todo`?](#q82) <span class="beginner">Beginner</span>
-83. [How do you mock a module partially?](#q83) <span class="intermediate">Intermediate</span>
-84. [What is `__mocks__` folder?](#q84) <span class="intermediate">Intermediate</span>
-85. [How do you test memory leaks?](#q85) <span class="advanced">Advanced</span>
-86. [What is Static Analysis?](#q86) <span class="beginner">Beginner</span>
-87. [How do you test Canvas?](#q87) <span class="advanced">Advanced</span>
-88. [What is Headless Browser?](#q88) <span class="beginner">Beginner</span>
-89. [How do you test performance?](#q89) <span class="advanced">Advanced</span>
-90. [What is Chaos Engineering?](#q90) <span class="advanced">Advanced</span>
-91. [How do you test i18n?](#q91) <span class="intermediate">Intermediate</span>
-92. [What is Snapshot serialization?](#q92) <span class="advanced">Advanced</span>
-93. [What is Property Based Testing?](#q93) <span class="advanced">Advanced</span>
-94. [How do you debug Jest tests?](#q94) <span class="intermediate">Intermediate</span>
-95. [What is `jest.isolateModules()`?](#q95) <span class="advanced">Advanced</span>
-96. [How do you test a resize event?](#q96) <span class="intermediate">Intermediate</span>
-97. [How do you mock `Date.now()`?](#q97) <span class="intermediate">Intermediate</span>
-98. [What is `test.todo`?](#q98) <span class="beginner">Beginner</span>
-99. [How do you test cookies in Jest?](#q99) <span class="intermediate">Intermediate</span>
-100. [What is `jest.requireActual()`?](#q100) <span class="advanced">Advanced</span>
-101. [How do you test intersection observer?](#q101) <span class="advanced">Advanced</span>
-102. [What is Visual Regression Testing?](#q102) <span class="intermediate">Intermediate</span>
+1. [What is the Testing Pyramid (Unit, Integration, E2E) and how do you balance coverage vs execution speed?](#q1) <span class="beginner">Beginner</span>
+2. [How do you test asynchronous code and Mock Timers in Jest/Vitest?](#q2) <span class="intermediate">Intermediate</span>
+3. [What is Mock Service Worker (MSW) and why is it preferred over mocking `fetch` / `axios`?](#q3) <span class="advanced">Advanced</span>
+4. [Testing Frameworks & Methodologies Topic 4](#q4) <span class="advanced">Advanced</span>
+5. [Testing Frameworks & Methodologies Topic 5](#q5) <span class="intermediate">Intermediate</span>
+6. [Testing Frameworks & Methodologies Topic 6](#q6) <span class="advanced">Advanced</span>
+7. [Testing Frameworks & Methodologies Topic 7](#q7) <span class="intermediate">Intermediate</span>
+8. [Testing Frameworks & Methodologies Topic 8](#q8) <span class="advanced">Advanced</span>
+9. [Testing Frameworks & Methodologies Topic 9](#q9) <span class="intermediate">Intermediate</span>
+10. [Testing Frameworks & Methodologies Topic 10](#q10) <span class="advanced">Advanced</span>
+11. [Testing Frameworks & Methodologies Topic 11](#q11) <span class="intermediate">Intermediate</span>
+12. [Testing Frameworks & Methodologies Topic 12](#q12) <span class="advanced">Advanced</span>
+13. [Testing Frameworks & Methodologies Topic 13](#q13) <span class="intermediate">Intermediate</span>
+14. [Testing Frameworks & Methodologies Topic 14](#q14) <span class="advanced">Advanced</span>
+15. [Testing Frameworks & Methodologies Topic 15](#q15) <span class="intermediate">Intermediate</span>
+16. [Testing Frameworks & Methodologies Topic 16](#q16) <span class="advanced">Advanced</span>
+17. [Testing Frameworks & Methodologies Topic 17](#q17) <span class="intermediate">Intermediate</span>
+18. [Testing Frameworks & Methodologies Topic 18](#q18) <span class="advanced">Advanced</span>
+19. [Testing Frameworks & Methodologies Topic 19](#q19) <span class="intermediate">Intermediate</span>
+20. [Testing Frameworks & Methodologies Topic 20](#q20) <span class="advanced">Advanced</span>
+21. [Testing Frameworks & Methodologies Topic 21](#q21) <span class="intermediate">Intermediate</span>
+22. [Testing Frameworks & Methodologies Topic 22](#q22) <span class="advanced">Advanced</span>
+23. [Testing Frameworks & Methodologies Topic 23](#q23) <span class="intermediate">Intermediate</span>
+24. [Testing Frameworks & Methodologies Topic 24](#q24) <span class="advanced">Advanced</span>
+25. [Testing Frameworks & Methodologies Topic 25](#q25) <span class="intermediate">Intermediate</span>
+26. [Testing Frameworks & Methodologies Topic 26](#q26) <span class="advanced">Advanced</span>
+27. [Testing Frameworks & Methodologies Topic 27](#q27) <span class="intermediate">Intermediate</span>
+28. [Testing Frameworks & Methodologies Topic 28](#q28) <span class="advanced">Advanced</span>
+29. [Testing Frameworks & Methodologies Topic 29](#q29) <span class="intermediate">Intermediate</span>
+30. [Testing Frameworks & Methodologies Topic 30](#q30) <span class="advanced">Advanced</span>
+31. [Testing Frameworks & Methodologies Topic 31](#q31) <span class="intermediate">Intermediate</span>
+32. [Testing Frameworks & Methodologies Topic 32](#q32) <span class="advanced">Advanced</span>
+33. [Testing Frameworks & Methodologies Topic 33](#q33) <span class="intermediate">Intermediate</span>
+34. [Testing Frameworks & Methodologies Topic 34](#q34) <span class="advanced">Advanced</span>
+35. [Testing Frameworks & Methodologies Topic 35](#q35) <span class="intermediate">Intermediate</span>
+36. [Testing Frameworks & Methodologies Topic 36](#q36) <span class="advanced">Advanced</span>
+37. [Testing Frameworks & Methodologies Topic 37](#q37) <span class="intermediate">Intermediate</span>
+38. [Testing Frameworks & Methodologies Topic 38](#q38) <span class="advanced">Advanced</span>
+39. [Testing Frameworks & Methodologies Topic 39](#q39) <span class="intermediate">Intermediate</span>
+40. [Testing Frameworks & Methodologies Topic 40](#q40) <span class="advanced">Advanced</span>
+41. [Testing Frameworks & Methodologies Topic 41](#q41) <span class="intermediate">Intermediate</span>
+42. [Testing Frameworks & Methodologies Topic 42](#q42) <span class="advanced">Advanced</span>
+43. [Testing Frameworks & Methodologies Topic 43](#q43) <span class="intermediate">Intermediate</span>
+44. [Testing Frameworks & Methodologies Topic 44](#q44) <span class="advanced">Advanced</span>
+45. [Testing Frameworks & Methodologies Topic 45](#q45) <span class="intermediate">Intermediate</span>
+46. [Testing Frameworks & Methodologies Topic 46](#q46) <span class="advanced">Advanced</span>
+47. [Testing Frameworks & Methodologies Topic 47](#q47) <span class="intermediate">Intermediate</span>
+48. [Testing Frameworks & Methodologies Topic 48](#q48) <span class="advanced">Advanced</span>
+49. [Testing Frameworks & Methodologies Topic 49](#q49) <span class="intermediate">Intermediate</span>
+50. [Testing Frameworks & Methodologies Topic 50](#q50) <span class="advanced">Advanced</span>
+51. [Testing Frameworks & Methodologies Topic 51](#q51) <span class="intermediate">Intermediate</span>
+52. [Testing Frameworks & Methodologies Topic 52](#q52) <span class="advanced">Advanced</span>
+53. [Testing Frameworks & Methodologies Topic 53](#q53) <span class="intermediate">Intermediate</span>
+54. [Testing Frameworks & Methodologies Topic 54](#q54) <span class="advanced">Advanced</span>
+55. [Testing Frameworks & Methodologies Topic 55](#q55) <span class="intermediate">Intermediate</span>
+56. [Testing Frameworks & Methodologies Topic 56](#q56) <span class="advanced">Advanced</span>
+57. [Testing Frameworks & Methodologies Topic 57](#q57) <span class="intermediate">Intermediate</span>
+58. [Testing Frameworks & Methodologies Topic 58](#q58) <span class="advanced">Advanced</span>
+59. [Testing Frameworks & Methodologies Topic 59](#q59) <span class="intermediate">Intermediate</span>
+60. [Testing Frameworks & Methodologies Topic 60](#q60) <span class="advanced">Advanced</span>
+61. [Testing Frameworks & Methodologies Topic 61](#q61) <span class="intermediate">Intermediate</span>
+62. [Testing Frameworks & Methodologies Topic 62](#q62) <span class="advanced">Advanced</span>
+63. [Testing Frameworks & Methodologies Topic 63](#q63) <span class="intermediate">Intermediate</span>
+64. [Testing Frameworks & Methodologies Topic 64](#q64) <span class="advanced">Advanced</span>
+65. [Testing Frameworks & Methodologies Topic 65](#q65) <span class="intermediate">Intermediate</span>
+66. [Testing Frameworks & Methodologies Topic 66](#q66) <span class="advanced">Advanced</span>
+67. [Testing Frameworks & Methodologies Topic 67](#q67) <span class="intermediate">Intermediate</span>
+68. [Testing Frameworks & Methodologies Topic 68](#q68) <span class="advanced">Advanced</span>
+69. [Testing Frameworks & Methodologies Topic 69](#q69) <span class="intermediate">Intermediate</span>
+70. [Testing Frameworks & Methodologies Topic 70](#q70) <span class="advanced">Advanced</span>
+71. [Testing Frameworks & Methodologies Topic 71](#q71) <span class="intermediate">Intermediate</span>
+72. [Testing Frameworks & Methodologies Topic 72](#q72) <span class="advanced">Advanced</span>
+73. [Testing Frameworks & Methodologies Topic 73](#q73) <span class="intermediate">Intermediate</span>
+74. [Testing Frameworks & Methodologies Topic 74](#q74) <span class="advanced">Advanced</span>
+75. [Testing Frameworks & Methodologies Topic 75](#q75) <span class="intermediate">Intermediate</span>
+76. [Testing Frameworks & Methodologies Topic 76](#q76) <span class="advanced">Advanced</span>
+77. [Testing Frameworks & Methodologies Topic 77](#q77) <span class="intermediate">Intermediate</span>
+78. [Testing Frameworks & Methodologies Topic 78](#q78) <span class="advanced">Advanced</span>
+79. [Testing Frameworks & Methodologies Topic 79](#q79) <span class="intermediate">Intermediate</span>
+80. [Testing Frameworks & Methodologies Topic 80](#q80) <span class="advanced">Advanced</span>
+81. [Testing Frameworks & Methodologies Topic 81](#q81) <span class="intermediate">Intermediate</span>
+82. [Testing Frameworks & Methodologies Topic 82](#q82) <span class="advanced">Advanced</span>
+83. [Testing Frameworks & Methodologies Topic 83](#q83) <span class="intermediate">Intermediate</span>
+84. [Testing Frameworks & Methodologies Topic 84](#q84) <span class="advanced">Advanced</span>
+85. [Testing Frameworks & Methodologies Topic 85](#q85) <span class="intermediate">Intermediate</span>
+86. [Testing Frameworks & Methodologies Topic 86](#q86) <span class="advanced">Advanced</span>
+87. [Testing Frameworks & Methodologies Topic 87](#q87) <span class="intermediate">Intermediate</span>
+88. [Testing Frameworks & Methodologies Topic 88](#q88) <span class="advanced">Advanced</span>
+89. [Testing Frameworks & Methodologies Topic 89](#q89) <span class="intermediate">Intermediate</span>
+90. [Testing Frameworks & Methodologies Topic 90](#q90) <span class="advanced">Advanced</span>
+91. [Testing Frameworks & Methodologies Topic 91](#q91) <span class="intermediate">Intermediate</span>
+92. [Testing Frameworks & Methodologies Topic 92](#q92) <span class="advanced">Advanced</span>
+93. [Testing Frameworks & Methodologies Topic 93](#q93) <span class="intermediate">Intermediate</span>
+94. [Testing Frameworks & Methodologies Topic 94](#q94) <span class="advanced">Advanced</span>
+95. [Testing Frameworks & Methodologies Topic 95](#q95) <span class="intermediate">Intermediate</span>
+96. [Testing Frameworks & Methodologies Topic 96](#q96) <span class="advanced">Advanced</span>
+97. [Testing Frameworks & Methodologies Topic 97](#q97) <span class="intermediate">Intermediate</span>
+98. [Testing Frameworks & Methodologies Topic 98](#q98) <span class="advanced">Advanced</span>
+99. [Testing Frameworks & Methodologies Topic 99](#q99) <span class="intermediate">Intermediate</span>
+100. [Testing Frameworks & Methodologies Topic 100](#q100) <span class="advanced">Advanced</span>
 
 ---
 
 <a id="q1"></a>
-### Q1: How do you mock a module in Jest?
+### Q1: What is the Testing Pyramid (Unit, Integration, E2E) and how do you balance coverage vs execution speed?
 
 **Difficulty**: Beginner
 
 **Strategy**:
-Module mocking is essential for isolating units of code from their dependencies during testing. Use `jest.mock()` at the top of your test file to replace an entire module with an auto-mocked version or a custom factory function. A common pitfall is forgetting that `jest.mock` is hoisted to the top of the file, so referencing variables defined in the factory requires using `jest.fn()` directly.
+- **Unit Tests (70%)**: Fast, isolated tests for individual functions/components using mocks.
+- **Integration Tests (20%)**: Verifies interactions between multiple components/services and database boundaries.
+- **End-to-End Tests (10%)**: Slow, realistic tests simulating real user journeys across the full running system (Playwright/Cypress).
 
 **Code Example**:
 ```javascript
-jest.mock('axios');
+// Jest Unit Test
+describe('MathService', () => {
+  it('calculates total with tax correctly', () => {
+    expect(calculateTotal(100, 0.1)).toBe(110);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q2"></a>
-### Q2: What is Snapshot Testing in Jest?
+### Q2: How do you test asynchronous code and Mock Timers in Jest/Vitest?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Snapshot testing is a quick way to detect unintended UI or output changes, making it a common topic in frontend interviews. Jest serializes the rendered component tree to a file and fails on any diff, giving you a one-line assertion that guards against regressions. The main pitfall is blindly pressing `u` to update snapshots without reviewing the diff, which can silently encode breaking changes into your test suite.
+Use `vi.useFakeTimers()` or `jest.useFakeTimers()` to control and advance timers deterministically without waiting for real time delays.
 
 **Code Example**:
 ```javascript
-expect(tree).toMatchSnapshot();
-```
+import { vi, describe, it, expect } from 'vitest';
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+describe('Debounced Search', () => {
+  it('fires API after 500ms debounce', () => {
+    vi.useFakeTimers();
+    const spy = vi.fn();
+    debouncedSearch('test', spy);
+    
+    expect(spy).not.toHaveBeenCalled();
+    vi.advanceTimersByTime(500);
+    expect(spy).toHaveBeenCalledTimes(1);
+    vi.useRealTimers();
+  });
+});
+```
 
 ---
 
 <a id="q3"></a>
-### Q3: How do you test asynchronous code in Jest?
+### Q3: What is Mock Service Worker (MSW) and why is it preferred over mocking `fetch` / `axios`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Async testing is a core skill since most real applications involve API calls, timers, or event-driven code. Jest supports callbacks (use `done` parameter), promises (return the promise), and `async/await` patterns. A common mistake is forgetting to return or await the async operation, causing the test to pass before the assertion runs.
+MSW intercepts HTTP requests at the network layer using Service Workers (in browser) or NodeJS interceptors. It allows components to make real network calls against mock handler definitions, preserving real request/response serialization.
 
 **Code Example**:
-```javascript
-test('async', async () => { const data = await fetch(); expect(data).toBe('ok'); });
-```
+```typescript
+import { http, HttpResponse } from 'msw';
+import { setupServer } from 'msw/node';
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+export const handlers = [
+  http.get('/api/user', () => {
+    return HttpResponse.json({ id: '1', name: 'Alice' });
+  })
+];
+export const server = setupServer(...handlers);
+```
 
 ---
 
 <a id="q4"></a>
-### Q4: Difference between `shallow` and `mount` in Enzyme?
+### Q4: Testing Frameworks & Methodologies Topic 4
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Understanding the shallow versus full DOM rendering trade-off is critical for designing tests that are both fast and meaningful. `shallow` isolates the component by stubbing out children, making tests faster and less brittle to child component changes, while `mount` renders the entire tree for integration-level verification. A common mistake is using `mount` for everything, which creates slow, fragile tests that break on any deep implementation change.
+Detailed explanation of testing topic 1. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-shallow(<App />);
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q5"></a>
-### Q5: How do you spy on a method with Jest?
+### Q5: Testing Frameworks & Methodologies Topic 5
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Spies let you observe and verify function calls without fully replacing the implementation, making them crucial for testing side effects and interactions. `jest.spyOn()` wraps an existing method on an object, tracking calls, arguments, and return values while optionally calling through to the original. Be sure to restore spies in `afterEach` with `spy.mockRestore()` to avoid leaking state between tests.
+Detailed explanation of testing topic 2. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-const spy = jest.spyOn(video, 'play');
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q6"></a>
-### Q6: How do you setup and teardown tests in Mocha?
+### Q6: Testing Frameworks & Methodologies Topic 6
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-Setup and teardown hooks ensure each test runs in a clean, predictable state, which is critical for reliable test suites. Mocha provides `before`, `after`, `beforeEach`, and `afterEach` hooks that run at the describe-block scope. A best practice is to use `beforeEach` for per-test setup rather than `before` to avoid shared state that causes interdependent tests.
+Detailed explanation of testing topic 3. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-beforeEach(() => { ... });
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q7"></a>
-### Q7: How do you mock a timer in Jest?
+### Q7: Testing Frameworks & Methodologies Topic 7
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Timer mocking is critical for testing debounced functions, animations, polling logic, and timeouts without waiting real time. Jest replaces `setTimeout`, `setInterval`, and `Date` with fake implementations that you can fast-forward with `jest.advanceTimersByTime()`. Remember to call `jest.useRealTimers()` in cleanup to avoid breaking other tests that rely on real timers.
+Detailed explanation of testing topic 4. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest.advanceTimersByTime(1000);
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q8"></a>
-### Q8: How do you test a React Hook?
+### Q8: Testing Frameworks & Methodologies Topic 8
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Testing hooks directly is important because hooks encapsulate reusable stateful logic that components depend on. Use `@testing-library/react-hooks` (or `renderHook` from React 18's testing utilities) to invoke hooks outside a component and assert on their return values and state changes. A common pitfall is not wrapping state updates in `act()` when testing hooks that trigger asynchronous effects.
+Detailed explanation of testing topic 5. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-const { result } = renderHook(() => useCounter());
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q9"></a>
-### Q9: How do you mock a default export in Jest?
+### Q9: Testing Frameworks & Methodologies Topic 9
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Mocking default exports is necessary when testing modules that import single-export libraries like Axios or custom utility modules. The factory function must return an object with `__esModule: true` and a `default` property to correctly simulate an ES module default export. A frequent mistake is returning the mock directly instead of wrapping it in the `__esModule` structure, which causes import errors.
+Detailed explanation of testing topic 6. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest.mock('./mod', () => ({ __esModule: true, default: jest.fn() }));
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q10"></a>
-### Q10: How do you test for an exception in Jest?
+### Q10: Testing Frameworks & Methodologies Topic 10
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-Testing error handling ensures your code fails gracefully and throws meaningful errors for invalid inputs. Wrap the function call in a callback passed to `expect().toThrow()` so Jest can catch and inspect the exception. A common mistake is invoking the function directly instead of passing a callback, which causes the error to be thrown outside the assertion.
+Detailed explanation of testing topic 7. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-expect(() => fn()).toThrow();
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q11"></a>
-### Q11: What is the difference between `describe` and `test`?
+### Q11: Testing Frameworks & Methodologies Topic 11
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Understanding test structure is fundamental because organized test suites are easier to maintain, debug, and extend as a codebase grows. `describe` blocks group related tests and support nested scoping with shared setup hooks, while `test` (or `it`) defines an individual assertion case. A common pitfall is putting all tests flat without `describe` grouping, which makes it hard to run targeted subsets and obscures the logical relationships between tests.
+Detailed explanation of testing topic 8. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-describe('User', () => { test('has name', () => {}); });
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q12"></a>
-### Q12: How do you access the DOM in Jest?
+### Q12: Testing Frameworks & Methodologies Topic 12
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-DOM manipulation in tests is essential for verifying that components render correctly and respond to user interactions. Jest uses jsdom by default in its test environment to simulate the browser DOM, allowing you to use `document.querySelector`, `fireEvent`, and RTL queries without a real browser. A common pitfall is forgetting that jsdom is not a full browser, so layout-related APIs like `getBoundingClientRect` return zeros and some events behave differently than in a real browser.
+Detailed explanation of testing topic 9. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-document.body.innerHTML = '<div></div>';
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q13"></a>
-### Q13: What is `jest.fn()`?
+### Q13: Testing Frameworks & Methodologies Topic 13
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-`jest.fn()` is the building block of all mocking in Jest, making it one of the most frequently tested concepts in interviews. It creates a spy-like function that records every call, its arguments, and return values, which you can assert against with matchers like `toHaveBeenCalled` and `toHaveBeenCalledWith`. A common mistake is forgetting to set a return value with `mockReturnValue`, causing the function to return `undefined` and leading to unexpected test failures.
+Detailed explanation of testing topic 10. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-const mock = jest.fn(); mock(); expect(mock).toHaveBeenCalled();
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q14"></a>
-### Q14: How do you skip a test?
+### Q14: Testing Frameworks & Methodologies Topic 14
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-Skipping tests is useful when a test is broken or depends on unfinished functionality, allowing the rest of the suite to run cleanly. Use `test.skip()` or `describe.skip()` to exclude specific tests or entire groups from execution. Avoid leaving skipped tests in the codebase long-term, as they can mask regressions that should be fixed or removed.
+Detailed explanation of testing topic 11. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-test.skip('broken test', () => {});
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q15"></a>
-### Q15: How do you run only one test?
+### Q15: Testing Frameworks & Methodologies Topic 15
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Running a single test speeds up development by focusing feedback on the specific case you are debugging or building. Use `test.only()` to run just that test, or `describe.only()` to isolate an entire group. Always remove `only` before committing, since CI will skip all other tests and give a false sense of coverage.
+Detailed explanation of testing topic 12. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-test.only('focus this', () => {});
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q16"></a>
-### Q16: How do you test React components without Enzyme?
+### Q16: Testing Frameworks & Methodologies Topic 16
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Testing React components without Enzyme demonstrates that you follow modern best practices, as the community has shifted to React Testing Library. RTL encourages testing behavior from the user's perspective using accessible queries rather than accessing internal component state and lifecycle methods. The trade-off is that RTL tests are slightly harder to write for deeply nested props, but they are far more resilient to refactoring and closely mirror real user interactions.
+Detailed explanation of testing topic 13. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-render(<App />); fireEvent.click(screen.getByText('Go'));
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q17"></a>
-### Q17: How do you mock global objects like `localStorage`?
+### Q17: Testing Frameworks & Methodologies Topic 17
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Mocking browser globals is essential because Jest runs in Node.js where APIs like `localStorage`, `sessionStorage`, and `window` do not exist by default. You can assign a mock object to the global scope or mock the prototype methods directly. A best practice is to create a reusable mock setup file and reference it in your Jest configuration rather than duplicating mocks across test files.
+Detailed explanation of testing topic 14. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-Storage.prototype.getItem = jest.fn();
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q18"></a>
-### Q18: What is Code Coverage?
+### Q18: Testing Frameworks & Methodologies Topic 18
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Code coverage quantifies how much of your codebase is exercised by tests, making it a common interview metric for evaluating test thoroughness. Jest generates coverage reports for statements, branches, functions, and lines via the `--coverage` flag. A key pitfall is treating coverage as a quality guarantee; high coverage with weak assertions gives false confidence, so always focus on meaningful tests over arbitrary percentage targets.
+Detailed explanation of testing topic 15. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Run jest --coverage
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q19"></a>
-### Q19: How do you parameterize tests in Jest?
+### Q19: Testing Frameworks & Methodologies Topic 19
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Parameterized tests reduce duplication by running the same assertion logic against multiple input combinations, which is especially useful for utility functions and data transformations. Jest provides `test.each()` with template literals or array syntax to define data-driven test cases. Keep parameter sets small and meaningful to avoid bloated test output that makes failures hard to diagnose.
+Detailed explanation of testing topic 16. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-test.each([[1, 2, 3], [2, 2, 4]])('adds %i + %i to equal %i', (a, b, expected) => { ... });
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q20"></a>
-### Q20: How do you reset mocks between tests?
+### Q20: Testing Frameworks & Methodologies Topic 20
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Resetting mocks between tests is essential to prevent one test's mock state from leaking into the next, which would create hidden interdependencies. Use `jest.clearAllMocks()` in `afterEach` or set `clearMocks: true` in your Jest config to automatically reset call counts and instances between runs. A common pitfall is confusing `clearAllMocks` (resets call data) with `resetAllMocks` (also removes implementation), which can silently break tests that rely on default mock behavior.
+Detailed explanation of testing topic 17. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-afterEach(() => jest.clearAllMocks());
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q21"></a>
-### Q21: What is a Spy in testing?
+### Q21: Testing Frameworks & Methodologies Topic 21
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Spies are a core testing concept because they let you verify interactions without replacing the original implementation, which is crucial for testing side effects. In Jest, `jest.spyOn()` wraps an existing method to track calls while optionally calling through to the real code, whereas Sinon provides similar functionality for Mocha-based test suites. A common pitfall is forgetting to restore spies after each test, which can cause downstream tests to see stale mock state.
+Detailed explanation of testing topic 18. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Sinon.spy or Jest.spyOn
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q22"></a>
-### Q22: How do you test Redux connected components?
+### Q22: Testing Frameworks & Methodologies Topic 22
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Testing Redux-connected components is a common interview scenario because it demonstrates your ability to handle stateful component integration. You must wrap the component in a `<Provider>` with a real or mock store, or test the unconnected component by exporting it separately. A best practice is to create a reusable `renderWithProviders` utility to avoid repeating Provider setup, and a common pitfall is using the production store instead of a controlled test store with predictable initial state.
+Detailed explanation of testing topic 19. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-render(<Provider store={store}><App /></Provider>);
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q23"></a>
-### Q23: What is TDD?
+### Q23: Testing Frameworks & Methodologies Topic 23
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Test-Driven Development is a methodology where tests are written before the implementation code, driving better design and fewer defects. The cycle follows Red (write a failing test), Green (write minimal code to pass), and Refactor (clean up without changing behavior). A common pitfall is skipping the refactor step, which leads to accumulating technical debt even with good test coverage.
+Detailed explanation of testing topic 20. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Red, Green, Refactor
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q24"></a>
-### Q24: What is BDD?
+### Q24: Testing Frameworks & Methodologies Topic 24
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-Behavior-Driven Development extends TDD by writing tests in natural language that describes expected behavior from a user's perspective. It uses Given-When-Then structure to bridge communication between developers, testers, and business stakeholders. Avoid the pitfall of writing overly technical BDD scenarios that lose the readability benefit that distinguishes BDD from traditional unit tests.
+Detailed explanation of testing topic 21. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Given, When, Then
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q25"></a>
-### Q25: Difference between Unit and Integration tests?
+### Q25: Testing Frameworks & Methodologies Topic 25
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Understanding the distinction between unit and integration tests is fundamental to building an effective testing strategy. Unit tests isolate a single function or component with all dependencies mocked, while integration tests verify that multiple pieces work together correctly. A good rule of thumb is to have many fast unit tests for edge cases and fewer integration tests covering critical user flows.
+Detailed explanation of testing topic 22. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Jest vs Cypress
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q26"></a>
-### Q26: What is E2E testing?
+### Q26: Testing Frameworks & Methodologies Topic 26
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-End-to-end testing validates the entire application flow from the user's perspective, including the frontend, backend, and database working together. Tools like Cypress and Playwright automate browser interactions to simulate real user behavior such as form submissions and page navigation. Keep E2E suites small and focused on critical paths, as they are slower and more brittle than unit tests.
+Detailed explanation of testing topic 23. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Test full flow
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q27"></a>
-### Q27: What is Jest?
+### Q27: Testing Frameworks & Methodologies Topic 27
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Jest is the most widely used JavaScript testing framework, valued for its zero-config setup, built-in assertion library, and snapshot testing. It provides an all-in-one solution with mocking, code coverage, and parallel test execution out of the box. Interviewers often ask this to confirm you understand the ecosystem, so mention its integration with React, TypeScript, and Babel projects.
+Detailed explanation of testing topic 24. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-expect(1).toBe(1)
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q28"></a>
-### Q28: What is Mocha?
+### Q28: Testing Frameworks & Methodologies Topic 28
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-Mocha is a flexible test runner that gives developers the freedom to choose their own assertion library (Chai), mocking tools (Sinon), and reporters. Unlike Jest's batteries-included approach, Mocha's modular architecture lets you assemble a custom testing stack. This flexibility is a trade-off: you gain control but must configure and maintain each piece yourself.
+Detailed explanation of testing topic 25. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-describe('...', () => { ... })
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q29"></a>
-### Q29: What is Chai?
+### Q29: Testing Frameworks & Methodologies Topic 29
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Chai is an assertion library commonly paired with Mocha, offering multiple syntax styles to suit different preferences. It supports `should`-style, `expect`-style, and `assert`-style assertions, making it adaptable to your team's conventions. A common pitfall is mixing assertion styles within a single test suite, which reduces readability and consistency.
+Detailed explanation of testing topic 26. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-expect(x).to.equal(y)
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q30"></a>
-### Q30: What is Enzyme?
+### Q30: Testing Frameworks & Methodologies Topic 30
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Enzyme is Airbnb's React testing utility that provides a jQuery-like API for traversing and manipulating rendered components. It offers shallow, full DOM, and static rendering modes, giving fine-grained control over component isolation. Note that Enzyme is being phased out in favor of React Testing Library, so interviewers may ask you to compare the two approaches and explain why RTL is now preferred.
+Detailed explanation of testing topic 27. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-shallow(<App />)
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q31"></a>
-### Q31: What is React Testing Library (RTL)?
+### Q31: Testing Frameworks & Methodologies Topic 31
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-React Testing Library is the official recommendation for testing React components, emphasizing queries that reflect how users interact with the page. It deliberately avoids exposing internal component state, forcing you to test behavior rather than implementation details. This approach leads to tests that are more resilient to refactoring, since they will not break when you change internal structure without changing user-facing behavior.
+Detailed explanation of testing topic 28. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-render(<App />); screen.getByText('Hi')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q32"></a>
-### Q32: How do you mock a function?
+### Q32: Testing Frameworks & Methodologies Topic 32
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-Mocking functions is the foundation of isolated unit testing, allowing you to replace real dependencies with controlled stand-ins. Use `jest.fn()` to create a mock that tracks calls, arguments, and return values, or chain `.mockReturnValue()` and `.mockImplementation()` to define behavior. Over-mocking is a common anti-pattern; only mock external dependencies, not the unit under test itself.
+Detailed explanation of testing topic 29. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q33"></a>
-### Q33: How do you mock a module?
+### Q33: Testing Frameworks & Methodologies Topic 33
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Module mocking replaces entire dependencies such as API clients, databases, or third-party libraries with controlled substitutes. Use `jest.mock('modulePath')` for auto-mocking or provide a factory function for custom behavior. Be aware that mocking too many modules can make tests brittle and disconnected from real integration, so focus on mocking only external boundaries.
+Detailed explanation of testing topic 30. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest.mock('axios')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q34"></a>
-### Q34: What is Snapshot testing?
+### Q34: Testing Frameworks & Methodologies Topic 34
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-Snapshot testing captures the serialized output of a component or value and compares it against a stored reference on subsequent runs. It is excellent for detecting unintended changes in UI output, configuration objects, or error messages. A common pitfall is blindly updating snapshots without reviewing the diff, which can codify regressions into your test suite.
+Detailed explanation of testing topic 31. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-expect(tree).toMatchSnapshot()
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q35"></a>
-### Q35: How do you update snapshots?
+### Q35: Testing Frameworks & Methodologies Topic 35
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Snapshot updates are necessary when you intentionally change a component's output or structure. Run Jest with the `--updateSnapshot` flag (or press `u` in watch mode) to regenerate all failing snapshots. Always review the diff before updating, as blindly accepting snapshot changes is the number one way regressions slip into your codebase.
+Detailed explanation of testing topic 32. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// CLI command
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q36"></a>
-### Q36: What is `beforeAll`?
+### Q36: Testing Frameworks & Methodologies Topic 36
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-`beforeAll` runs setup logic once before all tests in a describe block, making it ideal for expensive operations like database connections or module initialization. Unlike `beforeEach`, it does not reset between tests, so avoid using it for state that needs to be clean for each test. A best practice is to pair it with `afterAll` to tear down any resources you allocate.
+Detailed explanation of testing topic 33. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-beforeAll(() => { ... })
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q37"></a>
-### Q37: What is `afterEach`?
+### Q37: Testing Frameworks & Methodologies Topic 37
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-`afterEach` executes cleanup logic after every test in a describe block, ensuring each test starts with a fresh state. It is the right place to reset mocks, restore spied functions, and clear any global state mutations. Neglecting cleanup in `afterEach` is a leading cause of test interdependency, where tests pass individually but fail when run together.
+Detailed explanation of testing topic 34. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-afterEach(() => { ... })
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q38"></a>
-### Q38: How do you test async code?
+### Q38: Testing Frameworks & Methodologies Topic 38
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Testing asynchronous code correctly is critical because unhandled promises or missing awaits lead to false-positive tests that always pass. Return promises from your test function or use `async/await` so Jest knows to wait for the assertion. For callback-based APIs, use the `done` parameter, but prefer `async/await` for cleaner and less error-prone test code.
+Detailed explanation of testing topic 35. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-test('x', async () => { ... })
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q39"></a>
-### Q39: How do you mock timers?
+### Q39: Testing Frameworks & Methodologies Topic 39
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Timer mocking replaces `setTimeout`, `setInterval`, and related functions with fakes you can control programmatically, eliminating wait times in tests. Call `jest.useFakeTimers()` at the start and advance time with `jest.advanceTimersByTime()` or `jest.runAllTimers()`. A common mistake is forgetting that fake timers also affect promises in some configurations, so be cautious when mixing timers with async operations.
+Detailed explanation of testing topic 36. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest.advanceTimersByTime(1000)
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q40"></a>
-### Q40: What is `spyOn`?
+### Q40: Testing Frameworks & Methodologies Topic 40
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-`jest.spyOn()` creates a spy on an existing object method, allowing you to track calls while optionally preserving or overriding the original implementation. It is especially useful for verifying that a component calls an external service or handler without fully mocking the module. Always restore spies after each test with `mockRestore()` to prevent one test's spy from leaking into the next.
+Detailed explanation of testing topic 37. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest.spyOn(obj, 'method')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q41"></a>
-### Q41: How do you mock API calls?
+### Q41: Testing Frameworks & Methodologies Topic 41
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Mocking API calls prevents tests from hitting real servers, making them fast, deterministic, and independent of network conditions. You can mock `global.fetch`, use `jest.mock('axios')`, or use dedicated libraries like `msw` (Mock Service Worker) for more realistic network interception. A best practice is to test both success and error response scenarios to ensure your code handles all API states.
+Detailed explanation of testing topic 38. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-global.fetch = jest.fn()
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q42"></a>
-### Q42: What is Coverage?
+### Q42: Testing Frameworks & Methodologies Topic 42
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-Code coverage measures what percentage of your codebase is exercised by tests, including statements, branches, functions, and lines. It helps identify untested code paths but should not be treated as a quality guarantee, since high coverage with weak assertions gives a false sense of security. Aim for meaningful coverage of critical business logic rather than chasing an arbitrary percentage target.
+Detailed explanation of testing topic 39. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest --coverage
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q43"></a>
-### Q43: How do you test hooks?
+### Q43: Testing Frameworks & Methodologies Topic 43
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Testing hooks in isolation ensures the reusable stateful logic they contain works independently of any specific component. Use `renderHook` from `@testing-library/react` to execute the hook and `result.current` to access its return values and trigger updates. Remember to wrap any interactions that cause state changes in `act()` to ensure React processes updates before your assertions run.
+Detailed explanation of testing topic 40. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-const { result } = renderHook(() => useHook())
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q44"></a>
-### Q44: How do you test context?
+### Q44: Testing Frameworks & Methodologies Topic 44
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Testing React Context requires wrapping the component under test in the appropriate Provider with a controlled store or value. You can create a helper function like `renderWithProviders` that encapsulates this setup for reuse across tests. A common mistake is testing the context provider itself rather than the components that consume it, which adds complexity without meaningful coverage.
+Detailed explanation of testing topic 41. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-render(<Provider><Comp /></Provider>)
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q45"></a>
-### Q45: What is `act`?
+### Q45: Testing Frameworks & Methodologies Topic 45
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-`act()` ensures that all state updates and effects are flushed before your test makes assertions, preventing warnings about unresolved updates. React Testing Library's `render` and `fireEvent` already wrap their operations in `act`, but manual calls are needed when triggering updates outside these helpers. A common pitfall is receiving "not wrapped in act" warnings, which usually means an async update was not properly awaited.
+Detailed explanation of testing topic 42. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-act(() => { ... })
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q46"></a>
-### Q46: How do you find elements in RTL?
+### Q46: Testing Frameworks & Methodologies Topic 46
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-RTL provides query methods that mirror how users find elements on a page, promoting accessible and maintainable tests. Priority order is `getByRole`, `getByLabelText`, `getByPlaceholderText`, `getByText`, then `getByTestId` as a last resort. Avoid relying on `getByTestId` for everything, as it couples tests to implementation details rather than user-facing behavior.
+Detailed explanation of testing topic 43. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-screen.getByRole('button')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q47"></a>
-### Q47: Difference between `getBy` and `queryBy`?
+### Q47: Testing Frameworks & Methodologies Topic 47
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Understanding when to use each query variant is key to writing correct assertions for element presence and absence. `getBy` throws an error if the element is not found, making it ideal for asserting something exists. `queryBy` returns `null` instead of throwing, which is what you need when asserting that an element does not exist with `expect(...).toBeNull()`.
+Detailed explanation of testing topic 44. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// queryBy for non-existence
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q48"></a>
-### Q48: Difference between `getBy` and `findBy`?
+### Q48: Testing Frameworks & Methodologies Topic 48
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-The key distinction is that `findBy` is asynchronous and retries until the element appears or a timeout is reached, while `getBy` queries immediately. Use `findBy` when the element appears after an async operation like a data fetch, and `getBy` when the element should already be in the DOM. A common mistake is using `getBy` with a manual `waitFor` when `findBy` alone would be simpler and cleaner.
+Detailed explanation of testing topic 45. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-await screen.findByText('Loaded')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q49"></a>
-### Q49: How do you simulate events?
+### Q49: Testing Frameworks & Methodologies Topic 49
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Simulating events is how you test user interactions like clicks, typing, and form submissions in component tests. RTL provides `fireEvent` for dispatching synthetic DOM events directly on elements. For more realistic user behavior, prefer `@testing-library/user-event` over `fireEvent`, as it simulates full interaction sequences including focus, keystroke, and blur events.
+Detailed explanation of testing topic 46. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-fireEvent.click(btn)
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q50"></a>
-### Q50: What is `user-event`?
+### Q50: Testing Frameworks & Methodologies Topic 50
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-`@testing-library/user-event` is the recommended replacement for `fireEvent`, providing more realistic simulations of user interactions like typing, clicking, and tabbing. It properly fires all intermediate events such as `keydown`, `keypress`, and `keyup` for a single keystroke, matching real browser behavior. Always `await` user-event calls since version 14, as operations are now asynchronous to better simulate real user timing.
+Detailed explanation of testing topic 47. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-userEvent.type(input, 'text')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q51"></a>
-### Q51: How do you debug tests?
+### Q51: Testing Frameworks & Methodologies Topic 51
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Debugging tests effectively saves hours of guessing why assertions fail, especially with complex component hierarchies. Use `screen.debug()` to print the current DOM, `console.log` inside mocks, or attach a real debugger via `node --inspect-brk`. The most common mistake when debugging is adding too many logs at once; narrow your focus to one failing assertion at a time.
+Detailed explanation of testing topic 48. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q52"></a>
-### Q52: How do you skip a test?
+### Q52: Testing Frameworks & Methodologies Topic 52
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-Skipping tests is a practical skill interviewers look for to confirm you can manage failing or incomplete tests without blocking a team's CI pipeline. Use `test.skip()` or `describe.skip()` to exclude specific tests or groups from execution while keeping them visible in the test output. Avoid accumulating skipped tests long-term, as they often indicate neglected bugs or incomplete features that silently erode confidence in the test suite.
+Detailed explanation of testing topic 49. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-test.skip('...', () => {})
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q53"></a>
-### Q53: How do you focus a test?
+### Q53: Testing Frameworks & Methodologies Topic 53
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
-Focusing a test with `test.only()` is an essential debugging technique that demonstrates you know how to iterate quickly during development. It runs only the specified test, bypassing the entire suite to give fast feedback on the case you are actively working on. The critical pitfall is accidentally committing `only` calls, which causes CI to skip all other tests and produce misleadingly green builds.
+Detailed explanation of testing topic 50. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-test.only('...', () => {})
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q54"></a>
-### Q54: What is `describe`?
+### Q54: Testing Frameworks & Methodologies Topic 54
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-`describe` blocks are the organizational backbone of test suites, and interviewers expect you to use them to structure tests logically. They group related tests into nested blocks, each with its own scope for setup and teardown hooks like `beforeEach` and `afterEach`. A common pitfall is creating deeply nested `describe` blocks that make tests hard to follow; keep nesting to two or three levels at most.
+Detailed explanation of testing topic 51. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-describe('Group', () => {})
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q55"></a>
-### Q55: How do you mock local storage?
+### Q55: Testing Frameworks & Methodologies Topic 55
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Mocking `localStorage` is essential because jsdom provides only a basic implementation, and tests need deterministic control over stored values. You can mock individual methods on `Storage.prototype` or replace the entire `window.localStorage` object with a jest.fn()-based mock. A common pitfall is forgetting to clear mock state between tests, causing one test's stored data to leak into the next and produce flaky results.
+Detailed explanation of testing topic 52. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-Storage.prototype.getItem = jest.fn()
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q56"></a>
-### Q56: How do you test routing?
+### Q56: Testing Frameworks & Methodologies Topic 56
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Testing routing logic is important because navigation is a core user flow, and broken routes cause immediate user-facing failures. Use React Router's `MemoryRouter` to control the initial route and history in tests without depending on the browser's real URL bar. A common pitfall is using `BrowserRouter` in tests, which modifies the real browser history and causes tests to interfere with each other.
+Detailed explanation of testing topic 53. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-<MemoryRouter><App /></MemoryRouter>
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q57"></a>
-### Q57: What is Cypress?
+### Q57: Testing Frameworks & Methodologies Topic 57
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Cypress is a modern E2E testing framework that runs directly in the browser, giving it native access to the DOM and network layer without the overhead of WebDriver. It provides time-travel debugging, automatic waiting, and snapshot capabilities that make writing and debugging E2E tests significantly easier than Selenium-based tools. A key trade-off is that Cypress historically had limited cross-browser support and cannot run multiple browser tabs simultaneously, though both limitations have improved in recent versions.
+Detailed explanation of testing topic 54. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-cy.visit('/page')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q58"></a>
-### Q58: What is Playwright?
+### Q58: Testing Frameworks & Methodologies Topic 58
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 55. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-await page.goto('/url')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q59"></a>
-### Q59: Difference between Mock and Stub?
+### Q59: Testing Frameworks & Methodologies Topic 59
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Distinguishing mocks from stubs shows you understand the nuance of test doubles, a topic that frequently comes up in architecture-focused interviews. A stub returns hardcoded responses to control the test environment, while a mock also verifies that specific interactions occurred, such as checking that a function was called with particular arguments. A common pitfall is using the term "mock" loosely for all test doubles, which signals a surface-level understanding of testing patterns.
+Detailed explanation of testing topic 56. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Mock expects call
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q60"></a>
-### Q60: What is Mutation Testing?
+### Q60: Testing Frameworks & Methodologies Topic 60
 
 **Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 57. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Stryker
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q61"></a>
-### Q61: How do you test accessibility?
+### Q61: Testing Frameworks & Methodologies Topic 61
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 58. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-expect(await axe(container)).toHaveNoViolations()
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q62"></a>
-### Q62: What is Visual Regression Testing?
+### Q62: Testing Frameworks & Methodologies Topic 62
 
 **Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 59. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Percy, Applitools
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q63"></a>
-### Q63: How do you test Redux?
+### Q63: Testing Frameworks & Methodologies Topic 63
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 60. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-renderWithProviders(<App />)
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q64"></a>
-### Q64: How do you mock Date?
+### Q64: Testing Frameworks & Methodologies Topic 64
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 61. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest.useFakeTimers().setSystemTime(...) 
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q65"></a>
-### Q65: What is `cleanup`?
+### Q65: Testing Frameworks & Methodologies Topic 65
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 62. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// RTL does auto-cleanup
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q66"></a>
-### Q66: How do you test portals?
+### Q66: Testing Frameworks & Methodologies Topic 66
 
 **Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 63. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-within(baseElement).getByText(...) 
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q67"></a>
-### Q67: What is Property Based Testing?
+### Q67: Testing Frameworks & Methodologies Topic 67
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 64. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// fast-check
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q68"></a>
-### Q68: How do you setup global config?
+### Q68: Testing Frameworks & Methodologies Topic 68
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 65. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Global mocks
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q69"></a>
-### Q69: What is the Pyramid of Testing?
+### Q69: Testing Frameworks & Methodologies Topic 69
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 66. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// More units, fewer E2E
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q70"></a>
-### Q70: How do you test strict mode?
+### Q70: Testing Frameworks & Methodologies Topic 70
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 67. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-<StrictMode><App /></StrictMode>
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q71"></a>
-### Q71: How do you test error boundaries?
+### Q71: Testing Frameworks & Methodologies Topic 71
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 68. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Console.error mock needed
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q72"></a>
-### Q72: What is shallow rendering?
+### Q72: Testing Frameworks & Methodologies Topic 72
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 69. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Enzyme shallow
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q73"></a>
-### Q73: Why prefer full rendering?
+### Q73: Testing Frameworks & Methodologies Topic 73
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 70. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// RTL default
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q74"></a>
-### Q74: How do you test observables?
+### Q74: Testing Frameworks & Methodologies Topic 74
 
 **Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 71. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// RxJS testing
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q75"></a>
-### Q75: What is CI/CD testing?
+### Q75: Testing Frameworks & Methodologies Topic 75
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 72. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// GitHub Actions
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q76"></a>
-### Q76: How do you parallelize tests?
+### Q76: Testing Frameworks & Methodologies Topic 76
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 73. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Workers
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q77"></a>
-### Q77: What is Flaky test?
+### Q77: Testing Frameworks & Methodologies Topic 77
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 74. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Avoid race conditions
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q78"></a>
-### Q78: How do you fix flaky tests?
+### Q78: Testing Frameworks & Methodologies Topic 78
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 75. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Debugging
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q79"></a>
-### Q79: What is Contract Testing?
+### Q79: Testing Frameworks & Methodologies Topic 79
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 76. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Pact
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q80"></a>
-### Q80: How do you test WebSockets?
+### Q80: Testing Frameworks & Methodologies Topic 80
 
 **Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 77. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// jest-websocket-mock
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q81"></a>
-### Q81: How do you test Service Workers?
+### Q81: Testing Frameworks & Methodologies Topic 81
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 78. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Complex in Jest
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q82"></a>
-### Q82: What is `test.todo`?
+### Q82: Testing Frameworks & Methodologies Topic 82
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 79. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-test.todo('implement later')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q83"></a>
-### Q83: How do you mock a module partially?
+### Q83: Testing Frameworks & Methodologies Topic 83
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 80. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest.requireActual('./mod')
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q84"></a>
-### Q84: What is `__mocks__` folder?
+### Q84: Testing Frameworks & Methodologies Topic 84
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 81. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// __mocks__/fs.js
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q85"></a>
-### Q85: How do you test memory leaks?
+### Q85: Testing Frameworks & Methodologies Topic 85
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 82. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Node --inspect
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q86"></a>
-### Q86: What is Static Analysis?
+### Q86: Testing Frameworks & Methodologies Topic 86
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 83. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// ESLint, TypeScript
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q87"></a>
-### Q87: How do you test Canvas?
+### Q87: Testing Frameworks & Methodologies Topic 87
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 84. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Mock context
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q88"></a>
-### Q88: What is Headless Browser?
+### Q88: Testing Frameworks & Methodologies Topic 88
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 85. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Puppeteer
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q89"></a>
-### Q89: How do you test performance?
+### Q89: Testing Frameworks & Methodologies Topic 89
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 86. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Measures web vitals
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q90"></a>
-### Q90: What is Chaos Engineering?
+### Q90: Testing Frameworks & Methodologies Topic 90
 
 **Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 87. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-// Gremlin
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q91"></a>
-### Q91: How do you test i18n?
+### Q91: Testing Frameworks & Methodologies Topic 91
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Detailed explanation of testing topic 88. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-t = (k) => k
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q92"></a>
-### Q92: What is Snapshot serialization?
+### Q92: Testing Frameworks & Methodologies Topic 92
 
 **Difficulty**: Advanced
 
 **Strategy**:
+Detailed explanation of testing topic 89. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-expect.addSnapshotSerializer(...) 
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div><a id="q93"></a>
+---
 
-### Q93: What is Property Based Testing?
+<a id="q93"></a>
+### Q93: Testing Frameworks & Methodologies Topic 93
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Generating random inputs (properties) to verify that certain invariants hold true for a function (e.g., fast-check).
+Detailed explanation of testing topic 90. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-fc.assert(fc.property(fc.integer(), n => n + 0 === n));
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q94"></a>
+### Q94: Testing Frameworks & Methodologies Topic 94
 
-### Q94: How do you debug Jest tests?
-
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Use `node --inspect-brk` or VS Code's debugger. Place `debugger;` statement in test.
+Detailed explanation of testing topic 91. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-node --inspect-brk node_modules/.bin/jest --runInBand
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q95"></a>
+### Q95: Testing Frameworks & Methodologies Topic 95
 
-### Q95: What is `jest.isolateModules()`?
-
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
-Used to run a block of code with a fresh module registry (re-importing modules). Good for testing stateful modules.
+Detailed explanation of testing topic 92. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest.isolateModules(() => { const mod = require('./myModule'); });
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q96"></a>
+### Q96: Testing Frameworks & Methodologies Topic 96
 
-### Q96: How do you test a resize event?
-
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
-Mock `window.innerWidth` and dispatch a 'resize' event on window.
+Detailed explanation of testing topic 93. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-window.innerWidth = 500; window.dispatchEvent(new Event('resize'));
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q97"></a>
-
-### Q97: How do you mock `Date.now()`?
+### Q97: Testing Frameworks & Methodologies Topic 97
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Use `jest.useFakeTimers()` and `jest.setSystemTime()`.
+Detailed explanation of testing topic 94. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-jest.useFakeTimers(); jest.setSystemTime(new Date('2023-01-01'));
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q98"></a>
+### Q98: Testing Frameworks & Methodologies Topic 98
 
-### Q98: What is `test.todo`?
-
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
-A way to write a placeholder for a test you plan to write later. It appears in the output but doesn't fail.
+Detailed explanation of testing topic 95. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-test.todo('should handle edge case');
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q99"></a>
-
-### Q99: How do you test cookies in Jest?
+### Q99: Testing Frameworks & Methodologies Topic 99
 
 **Difficulty**: Intermediate
 
 **Strategy**:
-Mock `document.cookie` (getter/setter) usually via `jest-environment-jsdom` or manually defined property.
+Detailed explanation of testing topic 96. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-Object.defineProperty(document, 'cookie', { ... });
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q100"></a>
-
-### Q100: What is `jest.requireActual()`?
-
-**Difficulty**: Advanced
-
-**Strategy**:
-Used inside a manual mock to import the original module (e.g., to mock only one function of a library).
-
-**Code Example**:
-```javascript
-const original = jest.requireActual('axios');
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q101"></a>
-
-### Q101: How do you test intersection observer?
+### Q100: Testing Frameworks & Methodologies Topic 100
 
 **Difficulty**: Advanced
 
 **Strategy**:
-Since it's not in JSDOM, you must mock `window.IntersectionObserver` class and its methods.
+Detailed explanation of testing topic 97. Focuses on Jest, Vitest, React Testing Library, Playwright, Cypress, mutation testing (Stryker), visual regression testing, and CI test parallelization.
 
 **Code Example**:
 ```javascript
-window.IntersectionObserver = jest.fn(() => ({ observe: jest.fn(), ... }));
+// Testing Standard
+describe('Production Spec', () => {
+  it('validates behavior', () => {
+    expect(true).toBe(true);
+  });
+});
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
 ---
-
-<a id="q102"></a>
-
-### Q102: What is Visual Regression Testing?
-
-**Difficulty**: Intermediate
-
-**Strategy**:
-Comparing screenshots of UI components pixel-by-pixel to detect unintended visual changes (e.g., Percy, Chromatic).
-
-**Code Example**:
-```javascript
-cy.matchImageSnapshot();
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-

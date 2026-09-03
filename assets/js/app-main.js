@@ -275,43 +275,57 @@ class InterviewGuideApp {
   }
 
   handleHashNavigation() {
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-          // Check if hash is a topic name
-          const topicName = hash.split('-')[0]; // Simple heuristic, better to check against valid topics
-          
-          // Try to map hash to a topic file if it looks like a topic
-          // Or just check if it matches a known file structure
-          // For now, let's assume the hash MIGHT be a topic name if we are on dashboard.html
-          
-          // If the hash corresponds to a topic (e.g. #react), load that topic
-          const possibleFilePath = `markdowns/${hash}/${hash}-questions.md`;
-          
-          // We need to check if this file exists or just try to load it.
-          // Since we can't check existence easily without a request, let's try to load it 
-          // IF we are not already on that file.
-          
-          if (this.currentFile !== possibleFilePath) {
-              this.loadContent(possibleFilePath).catch(() => {
-                 // If failed, maybe it's an anchor in the current file?
-                 // But we are in handleHashNavigation, so we should probably scroll.
-                 setTimeout(() => {
-                    const targetElement = this.findTargetElement(hash, "");
-                    if (targetElement) {
-                        this.smoothScrollToElement(targetElement);
-                    }
-                 }, 100);
-              });
-          } else {
-              // Same file, just scroll
-              setTimeout(() => {
-                const targetElement = this.findTargetElement(hash, "");
-                if (targetElement) {
-                    this.smoothScrollToElement(targetElement);
-                }
-              }, 100);
+    const hash = window.location.hash.substring(1);
+    if (!hash) return;
+
+    // First check if it's an in-page anchor (e.g. q1, table-of-contents, or element ID)
+    const existingElement =
+      this.findTargetElement(hash, "") || document.getElementById(hash);
+    if (existingElement) {
+      this.smoothScrollToElement(existingElement);
+      return;
+    }
+
+    // List of known topic identifiers
+    const validTopics = [
+      "javascript", "typescript", "react", "angular", "vue", "svelte", "html", "css",
+      "tailwind-bootstrap", "material-radix-ui", "webpack-babel-vite", "nextjs",
+      "ngrx", "redux-zustand", "nodejs", "python", "java", "cpp", "golang", "rust",
+      "dotnet", "graphql", "docker", "kubernetes", "microservices", "microfrontend",
+      "aws", "database", "security", "testing", "integration", "git", "linux",
+      "algorithms", "data-structures", "system-design", "swift-swiftui", "kotlin",
+      "flutter", "react-native", "performance", "design-patterns"
+    ];
+
+    const hashLower = hash.toLowerCase();
+    const topicMatch = validTopics.find(
+      (t) => t === hashLower || hashLower.startsWith(t + "-") || hashLower.startsWith(t + "_")
+    );
+
+    if (topicMatch) {
+      const possibleFilePath = `markdowns/${topicMatch}/${topicMatch}-questions.md`;
+      if (this.currentFile !== possibleFilePath) {
+        this.loadContent(possibleFilePath).then(() => {
+          const subAnchor = hash.replace(new RegExp(`^${topicMatch}[-_]?`, "i"), "");
+          if (subAnchor) {
+            setTimeout(() => {
+              const target = this.findTargetElement(subAnchor, "");
+              if (target) this.smoothScrollToElement(target);
+            }, 300);
           }
+        }).catch((err) => {
+          console.warn("Could not load topic for hash:", hash, err);
+        });
       }
+    } else {
+      // In-page fallback attempt
+      setTimeout(() => {
+        const targetElement = this.findTargetElement(hash, "");
+        if (targetElement) {
+          this.smoothScrollToElement(targetElement);
+        }
+      }, 100);
+    }
   }
 
   /**
@@ -776,23 +790,28 @@ class InterviewGuideApp {
    * @param {HTMLElement} element - The element to scroll to
    */
   smoothScrollToElement(element) {
-    // Calculate position with offset for fixed headers
-    const yOffset = -80; // Increased offset for better visibility
-    const elementTop = element.getBoundingClientRect().top;
-    const offsetPosition = elementTop + window.pageYOffset + yOffset;
+    if (!element) return;
 
-    // Scroll with smooth behavior
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
+    try {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (e) {
+      const yOffset = -80;
+      const elementTop = element.getBoundingClientRect().top;
+      const offsetPosition = elementTop + window.pageYOffset + yOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
 
     // Add a visual highlight to the target element
-    element.style.transition = "background-color 0.3s ease";
-    element.style.backgroundColor = "#fff3cd";
+    element.style.transition = "background-color 0.3s ease, outline 0.3s ease";
+    element.style.backgroundColor = "rgba(34, 197, 94, 0.15)";
+    element.style.outline = "2px solid rgba(34, 197, 94, 0.4)";
 
     setTimeout(() => {
       element.style.backgroundColor = "";
+      element.style.outline = "";
       setTimeout(() => {
         element.style.transition = "";
       }, 300);
@@ -1703,30 +1722,86 @@ class InterviewGuideApp {
 
   initializeFABButton() {
     const fabButton = document.getElementById("fabButton");
+    if (!fabButton) return;
 
-    fabButton.addEventListener("click", () => {
+    const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      document.documentElement.scrollTo({ top: 0, behavior: "smooth" });
+      document.body.scrollTo({ top: 0, behavior: "smooth" });
+      const mainContent = document.querySelector(".main-content");
+      if (mainContent) {
+        mainContent.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      const contentArea = document.getElementById("contentArea");
+      if (contentArea) {
+        contentArea.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    };
+
+    fabButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      scrollToTop();
     });
 
-    // Show/hide FAB based on scroll position
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
+    const getScrollTop = () => {
+      const mainContent = document.querySelector(".main-content");
+      const contentArea = document.getElementById("contentArea");
+      return (
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        (mainContent ? mainContent.scrollTop : 0) ||
+        (contentArea ? contentArea.scrollTop : 0) ||
+        0
+      );
+    };
+
+    const updateFABVisibility = () => {
+      const scrollPos = getScrollTop();
+      if (scrollPos > 200) {
+        fabButton.classList.add("show");
         fabButton.style.display = "flex";
       } else {
+        fabButton.classList.remove("show");
         fabButton.style.display = "none";
       }
-    });
+    };
+
+    window.addEventListener("scroll", updateFABVisibility, { passive: true });
+    document.addEventListener("scroll", updateFABVisibility, { passive: true });
+    const mainContent = document.querySelector(".main-content");
+    if (mainContent) {
+      mainContent.addEventListener("scroll", updateFABVisibility, { passive: true });
+    }
+    const contentArea = document.getElementById("contentArea");
+    if (contentArea) {
+      contentArea.addEventListener("scroll", updateFABVisibility, { passive: true });
+    }
+
+    updateFABVisibility();
   }
 
   initializeStickyQuestions() {
     const stickyQuestion = document.getElementById("stickyQuestion");
-    let currentQuestion = null;
+    if (!stickyQuestion) return;
 
-    window.addEventListener("scroll", () => {
+    let currentQuestion = null;
+    const mainContent = document.querySelector(".main-content");
+
+    const handleScroll = () => {
       const questions = document.querySelectorAll(
         ".markdown-content h2, .markdown-content h3"
       );
-      const scrollPosition = window.scrollY + 100;
+      if (!questions.length) {
+        stickyQuestion.style.display = "none";
+        return;
+      }
+
+      const scrollPos =
+        window.pageYOffset ||
+        (mainContent ? mainContent.scrollTop : 0) ||
+        0;
+      const scrollPosition = scrollPos + 100;
 
       let activeQuestion = null;
       questions.forEach((question) => {
@@ -1743,7 +1818,12 @@ class InterviewGuideApp {
         stickyQuestion.style.display = "none";
         currentQuestion = null;
       }
-    });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    if (mainContent) {
+      mainContent.addEventListener("scroll", handleScroll, { passive: true });
+    }
   }
 
   debugMobileLayout() {

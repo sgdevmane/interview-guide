@@ -1,0 +1,159 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Interview Guide Platform API",
+    "description": "RESTful API schema for Interview Guide platform providing category navigation, questions querying, search telemetry, bookmarks, and user progress.",
+    "version": "2.0.0",
+    "contact": {
+      "name": "Platform Engineering",
+      "url": "https://github.com/sgdevmane/interview-guide"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "description": "Local Development Server"
+    },
+    {
+      "url": "https://staging-interview.company.internal/api",
+      "description": "Staging Server"
+    },
+    {
+      "url": "https://interview.company.com/api",
+      "description": "Production Server"
+    }
+  ],
+  "paths": {
+    "/categories": {
+      "get": {
+        "summary": "List all interview categories",
+        "description": "Returns array of all 42 interview question categories with counts and icon references.",
+        "responses": {
+          "200": {
+            "description": "Array of categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Category"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories/{categoryId}/questions": {
+      "get": {
+        "summary": "Get questions for a category",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Unique category slug (e.g. javascript, react, rust)"
+          },
+          {
+            "name": "difficulty",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced", "Expert"] }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": { "type": "integer", "default": 100 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of questions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Question"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Global cross-category search",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Search keyword or query phrase"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Question"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/metrics": {
+      "get": {
+        "summary": "Prometheus Metrics endpoint",
+        "responses": {
+          "200": {
+            "description": "Prometheus text metrics",
+            "content": {
+              "text/plain": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "example": "javascript" },
+          "name": { "type": "string", "example": "JavaScript" },
+          "description": { "type": "string", "example": "Core JS, ES6+, Closures, Event Loop, Memory" },
+          "iconPath": { "type": "string", "example": "html-css-js-icon.svg" },
+          "totalQuestions": { "type": "integer", "example": 100 }
+        }
+      },
+      "Question": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string", "format": "uuid" },
+          "categoryId": { "type": "string", "example": "javascript" },
+          "questionNumber": { "type": "integer", "example": 1 },
+          "title": { "type": "string", "example": "What is the difference between var, let, and const?" },
+          "difficulty": { "type": "string", "example": "Beginner" },
+          "strategy": { "type": "string" },
+          "answerMarkdown": { "type": "string" },
+          "codeExample": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,143 +1,284 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="React.js Logo" width="100" height="100">
   </a>
-  <h1>React Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for frontend developers</b></p>
+  <h1>React.js Interview Questions & Answers</h1>
+  <p><b>Comprehensive, practical interview questions covering React 18/19, Hooks, Fiber, and Performance</b></p>
 </div>
 
 ---
 
 ## Table of Contents
 
-1. [How do you implement a custom hook `useFetch` with caching and cancellation?](#q1-how-do-you-implement-a-custom-hook-usefetch-with-caching-and-cancellation) <span class="advanced">Advanced</span>
-2. [How do you optimize a React application using `useMemo` and `useCallback` correctly?](#q2-how-do-you-optimize-a-react-application-using-usememo-and-usecallback-correctly) <span class="advanced">Advanced</span>
-3. [How do you manage global state using React Context without triggering unnecessary re-renders?](#q3-how-do-you-manage-global-state-using-react-context-without-triggering-unnecessary-re-renders) <span class="advanced">Advanced</span>
-4. [How do you implement a Compound Component pattern (e.g., Tabs)?](#q4-how-do-you-implement-a-compound-component-pattern-eg-tabs) <span class="advanced">Advanced</span>
-5. [How do you create a Higher-Order Component (HOC) for authentication?](#q5-how-do-you-create-a-higher-order-component-hoc-for-authentication) <span class="advanced">Advanced</span>
-6. [How do you implement the Render Props pattern for code reuse?](#q6-how-do-you-implement-the-render-props-pattern-for-code-reuse) <span class="intermediate">Intermediate</span>
-7. [How do you implement an Error Boundary to catch crashes in child components?](#q7-how-do-you-implement-an-error-boundary-to-catch-crashes-in-child-components) <span class="intermediate">Intermediate</span>
-8. [How do you use `useImperativeHandle` to expose child methods to a parent?](#q8-how-do-you-use-useimperativehandle-to-expose-child-methods-to-a-parent) <span class="advanced">Advanced</span>
-9. [How do you implement a Portal to render children into a different part of the DOM?](#q9-how-do-you-implement-a-portal-to-render-children-into-a-different-part-of-the-dom) <span class="intermediate">Intermediate</span>
-10. [How do you optimize large lists using Virtualization (Windowing)?](#q10-how-do-you-optimize-large-lists-using-virtualization-windowing) <span class="advanced">Advanced</span>
-11. [How do you implement a custom `useDebounce` hook?](#q11-how-do-you-implement-a-custom-usedebounce-hook) <span class="intermediate">Intermediate</span>
-12. [How do you implement a custom `useLocalStorage` hook?](#q12-how-do-you-implement-a-custom-uselocalstorage-hook) <span class="intermediate">Intermediate</span>
-13. [How do you implement a custom `usePrevious` hook?](#q13-how-do-you-implement-a-custom-useprevious-hook) <span class="intermediate">Intermediate</span>
-14. [What is the difference between `useEffect` and `useLayoutEffect`?](#q14-what-is-the-difference-between-useeffect-and-uselayouteffect) <span class="intermediate">Intermediate</span>
-15. [How do you use `forwardRef` to pass refs to child components?](#q15-how-do-you-use-forwardref-to-pass-refs-to-child-components) <span class="intermediate">Intermediate</span>
-16. [Controlled vs Uncontrolled Components: When to use which?](#q16-controlled-vs-uncontrolled-components-when-to-use-which) <span class="beginner">Beginner</span>
-17. [How do you use `React.memo` to prevent re-renders?](#q17-how-do-you-use-reactmemo-to-prevent-re-renders) <span class="intermediate">Intermediate</span>
-18. [How do you implement Code Splitting using `React.lazy` and `Suspense`?](#q18-how-do-you-implement-code-splitting-using-reactlazy-and-suspense) <span class="intermediate">Intermediate</span>
-19. [How do you handle forms efficiently using React Hook Form?](#q19-how-do-you-handle-forms-efficiently-using-react-hook-form) <span class="intermediate">Intermediate</span>
-20. [How do you manage state with Redux Toolkit (Slice + Thunk)?](#q20-how-do-you-manage-state-with-redux-toolkit-slice--thunk) <span class="advanced">Advanced</span>
-21. [How do you create a simple store using Zustand?](#q21-how-do-you-create-a-simple-store-using-zustand) <span class="intermediate">Intermediate</span>
-22. [How do you implement Private Routes for authentication?](#q22-how-do-you-implement-private-routes-for-authentication) <span class="intermediate">Intermediate</span>
-23. [How do you handle JWT Authentication (Login/Logout)?](#q23-how-do-you-handle-jwt-authentication-loginlogout) <span class="intermediate">Intermediate</span>
-24. [How do you unit test a React component using Jest and React Testing Library?](#q24-how-do-you-unit-test-a-react-component-using-jest-and-react-testing-library) <span class="intermediate">Intermediate</span>
-25. [How do you mock API calls in Jest tests?](#q25-how-do-you-mock-api-calls-in-jest-tests) <span class="intermediate">Intermediate</span>
-26. [How do you prevent XSS attacks in React?](#q26-how-do-you-prevent-xss-attacks-in-react) <span class="intermediate">Intermediate</span>
-27. [How do you fix "Can't perform a React state update on an unmounted component"?](#q27-how-do-you-fix-cant-perform-a-react-state-update-on-an-unmounted-component) <span class="intermediate">Intermediate</span>
-28. [How do you manage focus for accessibility (A11y)?](#q28-how-do-you-manage-focus-for-accessibility-a11y) <span class="intermediate">Intermediate</span>
-29. [SSR vs CSR vs SSG: When to use what?](#q29-ssr-vs-csr-vs-ssg-when-to-use-what) <span class="intermediate">Intermediate</span>
-30. [What is React Fiber and how does it improve performance?](#q30-what-is-react-fiber-and-how-does-it-improve-performance) <span class="expert">Expert</span>
-31. [`useState` vs `useReducer`: When should you choose one over the other?](#q31-usestate-vs-usereducer:-when-should-you-choose-one-over-the-other) <span class="intermediate">Intermediate</span>
-32. [How do you implement a custom hook `useOnClickOutside` to close modals?](#q32-how-do-you-implement-a-custom-hook-useonclickoutside-to-close-modals) <span class="intermediate">Intermediate</span>
-33. [How do you implement a `useMediaQuery` hook for responsive designs?](#q33-how-do-you-implement-a-usemediaquery-hook-for-responsive-designs) <span class="intermediate">Intermediate</span>
-34. [How do you make a custom button accessible using ARIA attributes?](#q34-how-do-you-make-a-custom-button-accessible-using-aria-attributes) <span class="intermediate">Intermediate</span>
-35. [How do you profile a React application to identify performance bottlenecks?](#q35-how-do-you-profile-a-react-application-to-identify-performance-bottlenecks) <span class="advanced">Advanced</span>
-36. [How do you safely render HTML content to prevent XSS attacks?](#q36-how-do-you-safely-render-html-content-to-prevent-xss-attacks) <span class="intermediate">Intermediate</span>
-37. [What is the difference between `fireEvent` and `userEvent` in React Testing Library?](#q37-what-is-the-difference-between-fireevent-and-userevent-in-react-testing-library) <span class="intermediate">Intermediate</span>
-38. [How do you handle errors in Functional Components (since they lack `componentDidCatch`)?](#q38-how-do-you-handle-errors-in-functional-components-since-they-lack-componentdidcatch) <span class="intermediate">Intermediate</span>
-39. [What is Automatic Batching in React 18?](#q39-what-is-automatic-batching-in-react-18) <span class="advanced">Advanced</span>
-40. [How do you use `useTransition` to keep the UI responsive during heavy state updates?](#q40-how-do-you-use-usetransition-to-keep-the-ui-responsive-during-heavy-state-updates) <span class="advanced">Advanced</span>
-41. [What is `useDeferredValue` and when should you use it?](#q41-what-is-usedeferredvalue-and-when-should-you-use-it) <span class="advanced">Advanced</span>
-42. [How does Suspense for Data Fetching work?](#q42-how-does-suspense-for-data-fetching-work) <span class="advanced">Advanced</span>
-43. [Why is using the array index as a key an anti-pattern?](#q43-why-is-using-the-array-index-as-a-key-an-anti-pattern) <span class="beginner">Beginner</span>
-44. [How do you solve Props Drilling without Context?](#q44-how-do-you-solve-props-drilling-without-context) <span class="intermediate">Intermediate</span>
-45. [What are Micro-frontends and how does Module Federation help?](#q45-what-are-micro-frontends-and-how-does-module-federation-help) <span class="expert">Expert</span>
-46. [How do you use Generics in TypeScript with React Props?](#q46-how-do-you-use-generics-in-typescript-with-react-props) <span class="intermediate">Intermediate</span>
-47. [How do you create Discriminated Unions for mutually exclusive props?](#q47-how-do-you-create-discriminated-unions-for-mutually-exclusive-props) <span class="advanced">Advanced</span>
-48. [What does React Strict Mode do?](#q48-what-does-react-strict-mode-do) <span class="beginner">Beginner</span>
-49. [How does Event Delegation work in React?](#q49-how-does-event-delegation-work-in-react) <span class="advanced">Advanced</span>
+1. [Explain the Virtual DOM and React's Reconciliation algorithm?](#q1) <span class="intermediate">Intermediate</span>
+2. [What is React Fiber and how does it enable concurrent rendering?](#q2) <span class="advanced">Advanced</span>
+3. [Difference between `useState` and `useReducer` and when to use each?](#q3) <span class="intermediate">Intermediate</span>
+4. [How does `useEffect` differ from `useLayoutEffect` and `useInsertionEffect`?](#q4) <span class="advanced">Advanced</span>
+5. [Explain `useCallback` vs `useMemo`: Rules, cost of memoization, and anti-patterns?](#q5) <span class="intermediate">Intermediate</span>
+6. [How do you implement a custom `useFetch` hook with caching and AbortController?](#q6) <span class="advanced">Advanced</span>
+7. [What is `useTransition` and how does it differ from `useDeferredValue`?](#q7) <span class="advanced">Advanced</span>
+8. [What are React Server Components (RSC) and how do they differ from SSR?](#q8) <span class="advanced">Advanced</span>
+9. [How does Automatic Batching in React 18 work and how do you opt out?](#q9) <span class="intermediate">Intermediate</span>
+10. [How do you implement an Error Boundary with fallback UI in React?](#q10) <span class="intermediate">Intermediate</span>
+11. [How do you split Context to avoid unnecessary re-renders?](#q11) <span class="advanced">Advanced</span>
+12. [How do you implement Compound Components pattern in React?](#q12) <span class="advanced">Advanced</span>
+13. [How do you use `forwardRef` and `useImperativeHandle`?](#q13) <span class="advanced">Advanced</span>
+14. [How do you render Portals in React and handle event bubbling?](#q14) <span class="intermediate">Intermediate</span>
+15. [How do you virtualize large lists (10,000+ items) in React?](#q15) <span class="advanced">Advanced</span>
+16. [How do you implement a custom `useDebounce` hook?](#q16) <span class="intermediate">Intermediate</span>
+17. [What is the difference between Controlled and Uncontrolled components?](#q17) <span class="beginner">Beginner</span>
+18. [What is React StrictMode and why does it double-invoke effects in development?](#q18) <span class="beginner">Beginner</span>
+19. [How do you implement custom `usePrevious` hook using `useRef`?](#q19) <span class="intermediate">Intermediate</span>
+20. [How do you implement custom `useLocalStorage` hook with multi-tab synchronization?](#q20) <span class="intermediate">Intermediate</span>
+21. [How do you implement custom hook `useOnClickOutside` for dropdowns?](#q21) <span class="intermediate">Intermediate</span>
+22. [What is `useSyncExternalStore` and when should you use it?](#q22) <span class="advanced">Advanced</span>
+23. [What is `useOptimistic` in React 19 and how does it improve UX?](#q23) <span class="advanced">Advanced</span>
+24. [What is `useActionState` in React 19?](#q24) <span class="advanced">Advanced</span>
+25. [What is the difference between shallow and deep comparison in React memoization?](#q25) <span class="intermediate">Intermediate</span>
+26. [Why should you avoid using array index as `key` prop in React lists?](#q26) <span class="beginner">Beginner</span>
+27. [How do you manage Focus for accessibility (a11y) inside React Modals?](#q27) <span class="intermediate">Intermediate</span>
+28. [How do you implement Polymorphic components in React with TypeScript (`as` prop)?](#q28) <span class="advanced">Advanced</span>
+29. [How do you implement code splitting with `React.lazy` and `Suspense`?](#q29) <span class="intermediate">Intermediate</span>
+30. [How do you test React components with Jest and React Testing Library?](#q30) <span class="intermediate">Intermediate</span>
+31. [What causes memory leaks in React and how do you diagnose them?](#q31) <span class="advanced">Advanced</span>
+32. [How does React protect against XSS attacks in JSX?](#q32) <span class="intermediate">Intermediate</span>
+33. [How do you safely render HTML in React with DOMPurify?](#q33) <span class="intermediate">Intermediate</span>
+34. [How do you implement custom `useInterval` hook?](#q34) <span class="intermediate">Intermediate</span>
+35. [How do you implement Infinite Scroll using `IntersectionObserver`?](#q35) <span class="intermediate">Intermediate</span>
+36. [How do you build an accessible Accordion component?](#q36) <span class="intermediate">Intermediate</span>
+37. [How does React Profiler API work in production?](#q37) <span class="advanced">Advanced</span>
+38. [What is Prop Drilling and how does Component Composition resolve it?](#q38) <span class="beginner">Beginner</span>
+39. [How do you handle JWT authentication refresh flow in React?](#q39) <span class="advanced">Advanced</span>
+40. [What is the difference between `React.createElement` and JSX?](#q40) <span class="beginner">Beginner</span>
+41. [How do you handle multi-step forms in React?](#q41) <span class="intermediate">Intermediate</span>
+42. [How do you optimize SVG icons in React?](#q42) <span class="beginner">Beginner</span>
+43. [What is client-side routing vs server-side routing?](#q43) <span class="beginner">Beginner</span>
+44. [How do you create a custom `useMediaQuery` hook?](#q44) <span class="intermediate">Intermediate</span>
+45. [How do you cancel pending Axios requests on unmount?](#q45) <span class="intermediate">Intermediate</span>
+46. [What are Render Props and why did Hooks replace them?](#q46) <span class="intermediate">Intermediate</span>
+47. [How do you implement Dark Mode with CSS Variables?](#q47) <span class="beginner">Beginner</span>
+48. [How do you handle Hydration mismatch errors in React SSR?](#q48) <span class="advanced">Advanced</span>
+49. [What is `useId` and why is it important for accessibility?](#q49) <span class="beginner">Beginner</span>
+50. [How do you implement Drag and Drop in React?](#q50) <span class="intermediate">Intermediate</span>
+51. [What is the purpose of `React.Children.map`?](#q51) <span class="intermediate">Intermediate</span>
+52. [How do you prevent unnecessary re-renders with Context objects?](#q52) <span class="intermediate">Intermediate</span>
+53. [What are Higher-Order Components and what are their limitations?](#q53) <span class="intermediate">Intermediate</span>
+54. [How do you implement Undo/Redo history in React state?](#q54) <span class="advanced">Advanced</span>
+55. [What is the purpose of `useImperativeHandle`?](#q55) <span class="advanced">Advanced</span>
+56. [How do you debounce API validation in React Hook Form?](#q56) <span class="intermediate">Intermediate</span>
+57. [What is the difference in event delegation between React 16 and 17+?](#q57) <span class="advanced">Advanced</span>
+58. [How do you implement Skeleton Loaders during data fetching?](#q58) <span class="beginner">Beginner</span>
+59. [How do you control HTML `<dialog>` element in React?](#q59) <span class="intermediate">Intermediate</span>
+60. [How does Server-Side Rendering (SSR) improve SEO?](#q60) <span class="intermediate">Intermediate</span>
+61. [What is Static Site Generation (SSG)?](#q61) <span class="beginner">Beginner</span>
+62. [What is Incremental Static Regeneration (ISR)?](#q62) <span class="advanced">Advanced</span>
+63. [What is `React.cloneElement` and why is it discouraged in modern React?](#q63) <span class="intermediate">Intermediate</span>
+64. [How do you build a Global Toast Notification system in React?](#q64) <span class="intermediate">Intermediate</span>
+65. [How do you memoize recursive components in React?](#q65) <span class="advanced">Advanced</span>
+66. [What is State Hoisting (Lifting State Up)?](#q66) <span class="beginner">Beginner</span>
+67. [How do you build dynamic breadcrumb navigation in React?](#q67) <span class="intermediate">Intermediate</span>
+68. [What is the difference between `PureComponent` and `Component`?](#q68) <span class="beginner">Beginner</span>
+69. [How do you track file upload progress in React?](#q69) <span class="intermediate">Intermediate</span>
+70. [How do you implement responsive table card layouts in React?](#q70) <span class="intermediate">Intermediate</span>
+71. [What is the difference between `<React.Fragment>` and `<>` shorthand?](#q71) <span class="beginner">Beginner</span>
+72. [How do you handle keyboard arrow navigation in Tabs?](#q72) <span class="intermediate">Intermediate</span>
+73. [What is the difference between `window.location.href` and React Router `navigate`?](#q73) <span class="beginner">Beginner</span>
+74. [How do you mock API calls in Jest without extra libraries?](#q74) <span class="intermediate">Intermediate</span>
+75. [How do you test custom hooks using `renderHook`?](#q75) <span class="intermediate">Intermediate</span>
+76. [What is Micro-frontend Module Federation with React?](#q76) <span class="advanced">Advanced</span>
+77. [How do you optimize Core Web Vitals (LCP, INP, CLS) in React?](#q77) <span class="advanced">Advanced</span>
+78. [How do you implement Copy to Clipboard with temporary tooltip?](#q78) <span class="beginner">Beginner</span>
+79. [What is the difference between dependencies and peerDependencies in React packages?](#q79) <span class="intermediate">Intermediate</span>
+80. [How do you build an accessible Dropdown menu in React?](#q80) <span class="intermediate">Intermediate</span>
+81. [How do you test Error Boundary components with React Testing Library?](#q81) <span class="intermediate">Intermediate</span>
+82. [What was SyntheticEvent pooling in React 16 and why was it removed in React 17?](#q82) <span class="advanced">Advanced</span>
+83. [How do you implement custom `useHover` hook?](#q83) <span class="intermediate">Intermediate</span>
+84. [How do you handle i18n localization in React?](#q84) <span class="intermediate">Intermediate</span>
+85. [What are the advantages of `pnpm` in React monorepos?](#q85) <span class="intermediate">Intermediate</span>
+86. [How do you implement pagination with ellipsis in React?](#q86) <span class="intermediate">Intermediate</span>
+87. [What is client state vs server state in React applications?](#q87) <span class="intermediate">Intermediate</span>
+88. [How do you implement auto-saving forms in React?](#q88) <span class="intermediate">Intermediate</span>
+89. [How do you build a custom Range Slider in React?](#q89) <span class="intermediate">Intermediate</span>
+90. [What are React Server Actions and how do they replace API routes?](#q90) <span class="advanced">Advanced</span>
+91. [How do you implement WebAuthn biometric login in React?](#q91) <span class="advanced">Advanced</span>
+92. [How do you create animated notification badges in React?](#q92) <span class="beginner">Beginner</span>
+93. [What is the difference between `useCallback` and regular inline functions?](#q93) <span class="beginner">Beginner</span>
+94. [How do you implement sticky headers in React?](#q94) <span class="beginner">Beginner</span>
+95. [How do you structure enterprise React codebases?](#q95) <span class="advanced">Advanced</span>
+96. [How do you test accessibility with `@axe-core/react`?](#q96) <span class="intermediate">Intermediate</span>
+97. [What is the difference between SPA and MPA?](#q97) <span class="beginner">Beginner</span>
+98. [How do you handle multi-tab session expiration in React?](#q98) <span class="advanced">Advanced</span>
+99. [How do you implement custom `useCountdown` hook?](#q99) <span class="intermediate">Intermediate</span>
+100. [What is shallow routing in React Router?](#q100) <span class="intermediate">Intermediate</span>
 
 ---
 
 <a id="q1"></a>
-### Q1: How do you implement a custom hook `useFetch` with caching and cancellation?
+### Q1: Explain the Virtual DOM and React's Reconciliation algorithm?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Creating a robust `useFetch` hook involves handling loading states, errors, data caching to avoid redundant requests, and request cancellation to prevent memory leaks or state updates on unmounted components.
+**Strategy**:
+The Virtual DOM (VDOM) is an in-memory representation of real DOM elements. React uses an O(n) heuristic diffing algorithm: 1) Elements of different types tear down and recreate the tree, 2) Keys identify stable list items across renders. In React 16+, Reconciliation is executed incrementally via the Fiber architecture.
 
-**Key Features:**
-1.  **Loading & Error States:** Standard state management for async operations.
-2.  **Caching:** Using `useRef` to store responses keyed by URL.
-3.  **Cancellation:** Using `AbortController` to cancel pending requests if the component unmounts or the URL changes.
+**Code Example**:
+```jsx
+// Stable keys prevent unnecessary DOM node recreations during diffing
+function UserList({ users }) {
+  return (
+    <ul>
+      {users.map(user => (
+        <li key={user.id}>{user.name} ({user.role})</li>
+      ))}
+    </ul>
+  );
+}
+```
 
+---
+
+<a id="q2"></a>
+### Q2: What is React Fiber and how does it enable concurrent rendering?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+React Fiber is a rewrite of React core reconciler. It models units of work as a linked list of Fiber nodes with child, sibling, and return pointers. This enables cooperative multitasking: React can pause, resume, prioritize (via Lanes), or abort rendering work across animation frames.
 
 **Code Example**:
 ```javascript
-import { useState, useEffect, useRef } from 'react';
+// Fiber node conceptual structure
+const fiber = {
+  type: 'div',
+  key: null,
+  stateNode: domElement,
+  child: firstChildFiber,
+  sibling: nextSiblingFiber,
+  return: parentFiber,
+  memoizedProps: prevProps,
+  pendingProps: nextProps,
+  lanes: 0b0001000 // Priority lane
+};
+```
 
-function useFetch(url, options = {}) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  
-  // Use useRef for cache to persist data across renders without causing re-renders
-  const cache = useRef({});
+---
+
+<a id="q3"></a>
+### Q3: Difference between `useState` and `useReducer` and when to use each?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`useState` is suited for independent, simple state. `useReducer` is best when: 1) State logic is complex with multiple transitions, 2) The next state depends on prior state in multiple ways, 3) Passing a stable `dispatch` function down avoids prop-drilling callbacks and prevents child re-renders.
+
+**Code Example**:
+```jsx
+import React, { useReducer } from 'react';
+
+const initialState = { count: 0, step: 1 };
+function reducer(state, action) {
+  switch (action.type) {
+    case 'inc': return { ...state, count: state.count + state.step };
+    case 'setStep': return { ...state, step: action.payload };
+    case 'reset': return initialState;
+    default: return state;
+  }
+}
+export function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  return <button onClick={() => dispatch({ type: 'inc' })}>Count: {state.count}</button>;
+}
+```
+
+---
+
+<a id="q4"></a>
+### Q4: How does `useEffect` differ from `useLayoutEffect` and `useInsertionEffect`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+- `useInsertionEffect`: Fires synchronously BEFORE any DOM mutations. Used by CSS-in-JS libraries to inject `<style>` tags.
+- `useLayoutEffect`: Fires synchronously AFTER DOM mutations but BEFORE browser repaint. Used to measure layout or mutate DOM without flickering.
+- `useEffect`: Fires asynchronously AFTER browser paint. Used for data fetching, timers, and subscriptions.
+
+**Code Example**:
+```jsx
+import { useState, useLayoutEffect, useRef } from 'react';
+
+export function Tooltip({ targetRect }) {
+  const [pos, setPos] = useState({ top: 0, left: 0 });
+  const ref = useRef(null);
+
+  useLayoutEffect(() => {
+    if (ref.current) {
+      const height = ref.current.offsetHeight;
+      setPos({ top: targetRect.top - height - 8, left: targetRect.left });
+    }
+  }, [targetRect]);
+
+  return <div ref={ref} style={{ position: 'fixed', top: pos.top, left: pos.left }}>Tooltip</div>;
+}
+```
+
+---
+
+<a id="q5"></a>
+### Q5: Explain `useCallback` vs `useMemo`: Rules, cost of memoization, and anti-patterns?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+- `useMemo` caches calculation results; `useCallback` caches function definitions.
+- Anti-pattern: Memoizing trivial calculations or callbacks passed to plain DOM tags. Memoization incurs memory for dependency arrays and comparison overhead. Use only when passing to `React.memo` components, preserving object references for hook dependencies, or heavy calculations.
+
+**Code Example**:
+```jsx
+import React, { useState, useMemo, useCallback } from 'react';
+
+const MemoRow = React.memo(({ item, onDelete }) => {
+  return <div>{item.name} <button onClick={() => onDelete(item.id)}>Delete</button></div>;
+});
+
+export function Table({ items }) {
+  const [search, setSearch] = useState('');
+  const filtered = useMemo(() => items.filter(i => i.name.includes(search)), [items, search]);
+  const handleDelete = useCallback((id) => console.log('Delete', id), []);
+  return <div>{filtered.map(i => <MemoRow key={i.id} item={i} onDelete={handleDelete} />)}</div>;
+}
+```
+
+---
+
+<a id="q6"></a>
+### Q6: How do you implement a custom `useFetch` hook with caching and AbortController?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+A robust `useFetch` cancels in-flight requests via `AbortController` on unmount/URL change to avoid race conditions and uses a cache Map to avoid duplicate requests.
+
+**Code Example**:
+```typescript
+import { useState, useEffect } from 'react';
+
+const cache = new Map<string, any>();
+export function useFetch<T>(url: string) {
+  const [data, setData] = useState<T | null>(cache.get(url) || null);
+  const [loading, setLoading] = useState(!cache.has(url));
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     if (!url) return;
-
-    // Check cache first
-    if (cache.current[url]) {
-      setData(cache.current[url]);
-      return;
-    }
-
-    const abortController = new AbortController();
-    const signal = abortController.signal;
-
-    const fetchData = async () => {
-      setLoading(true);
-      setError(null);
-      
-      try {
-        const response = await fetch(url, { ...options, signal });
-        
-        if (!response.ok) {
-          throw new Error(`Error: ${response.statusText}`);
-        }
-        
-        const result = await response.json();
-        
-        // Update cache
-        cache.current[url] = result;
-        
-        // Only update state if not aborted
-        if (!signal.aborted) {
-          setData(result);
-        }
-      } catch (err) {
-        if (!signal.aborted) {
-          setError(err.message);
-        }
-      } finally {
-        if (!signal.aborted) {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchData();
-
-    // Cleanup function to abort fetch on unmount or dependency change
-    return () => {
-      abortController.abort();
-    };
-  }, [url]); // Re-run effect if URL changes
+    if (cache.has(url)) { setData(cache.get(url)); setLoading(false); return; }
+    const controller = new AbortController();
+    setLoading(true);
+    fetch(url, { signal: controller.signal })
+      .then(res => res.json())
+      .then(d => { cache.set(url, d); setData(d); setLoading(false); })
+      .catch(err => { if (err.name !== 'AbortError') { setError(err); setLoading(false); } });
+    return () => controller.abort();
+  }, [url]);
 
   return { data, loading, error };
 }
@@ -145,324 +286,36 @@ function useFetch(url, options = {}) {
 
 ---
 
-<a id="q2"></a>
-### Q2: How do you optimize a React application using `useMemo` and `useCallback` correctly?
+<a id="q7"></a>
+### Q7: What is `useTransition` and how does it differ from `useDeferredValue`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-`useMemo` and `useCallback` are hooks for memoization, but they should be used judiciously. Overusing them can add overhead. They are most effective when performing expensive calculations or preserving referential equality for child components wrapped in `React.memo`.
-
-**Usage:**
-*   **`useMemo`**: Memoizes a *value*. Use it for expensive calculations (e.g., filtering large arrays) or to ensure an object/array dependency in `useEffect` remains stable.
-*   **`useCallback`**: Memoizes a *function*. Use it when passing functions to optimized child components (`React.memo`) to prevent them from re-rendering due to a new function reference.
-
+**Strategy**:
+`useTransition` wraps a state setter to mark it as low-priority (transition) with an `isPending` indicator. `useDeferredValue` wraps a value itself (props or state) and defers updating it until high-priority work (like typing) finishes.
 
 **Code Example**:
-```javascript
-import React, { useState, useMemo, useCallback } from 'react';
+```jsx
+import { useState, useTransition } from 'react';
 
-// A child component optimized with React.memo
-const Child = React.memo(({ onClick, data }) => {
-  console.log('Child rendered');
-  return <button onClick={onClick}>{data.label}</button>;
-});
+export function SearchFilter({ list }) {
+  const [input, setInput] = useState('');
+  const [query, setQuery] = useState('');
+  const [isPending, startTransition] = useTransition();
 
-function Parent() {
-  const [count, setCount] = useState(0);
-  const [text, setText] = useState('');
-
-  // Expensive calculation: only re-runs if 'count' changes
-  const expensiveValue = useMemo(() => {
-    console.log('Computing expensive value...');
-    return count * 2; // Imagine a heavy loop here
-  }, [count]);
-
-  // Function memoization: 'handleClick' reference stays the same unless dependencies change
-  // Essential for passing to React.memo components
-  const handleClick = useCallback(() => {
-    console.log('Button clicked:', count);
-  }, [count]);
-
-  // Object memoization: prevents 'childData' from being a new reference on every render
-  const childData = useMemo(() => ({ label: 'Click Me' }), []);
-
-  return (
-    <div>
-      <h1>Count: {count}</h1>
-      <h2>Double: {expensiveValue}</h2>
-      <button onClick={() => setCount(c => c + 1)}>Increment</button>
-      
-      <input value={text} onChange={e => setText(e.target.value)} placeholder="Type something..." />
-      
-      {/* Child won't re-render when 'text' changes, thanks to memo/useCallback */}
-      <Child onClick={handleClick} data={childData} />
-    </div>
-  );
-}
-```
-
----
-
-<a id="q3"></a>
-### Q3: How do you manage global state using React Context without triggering unnecessary re-renders?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-A common pitfall with React Context is that updating the context value causes *all* consuming components to re-render, even if they only use a part of the data.
-
-**Strategies to avoid re-renders:**
-1.  **Split Contexts:** Separate state into different contexts (e.g., `AuthContext`, `ThemeContext`) so updates in one don't affect consumers of the other.
-2.  **Memoize the Value:** Wrap the context value object in `useMemo` so the reference remains stable unless state changes.
-3.  **Context Selectors (Third-party):** Libraries like `use-context-selector` allow components to listen to only slices of the context.
-
-
-**Code Example**:
-```javascript
-import React, { createContext, useContext, useState, useMemo } from 'react';
-
-const AuthContext = createContext();
-const ThemeContext = createContext();
-
-export function AppProvider({ children }) {
-  const [user, setUser] = useState(null);
-  const [theme, setTheme] = useState('light');
-
-  // Memoize auth value to prevent unnecessary re-renders if only theme changes
-  const authValue = useMemo(() => ({ user, setUser }), [user]);
-  
-  // Memoize theme value
-  const themeValue = useMemo(() => ({ theme, setTheme }), [theme]);
-
-  return (
-    <AuthContext.Provider value={authValue}>
-      <ThemeContext.Provider value={themeValue}>
-        {children}
-      </ThemeContext.Provider>
-    </AuthContext.Provider>
-  );
-}
-
-// Custom hooks for consumption
-export const useAuth = () => useContext(AuthContext);
-export const useTheme = () => useContext(ThemeContext);
-```
-
----
-
-<a id="q4"></a>
-### Q4: How do you implement a Compound Component pattern (e.g., Tabs)?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Compound Components allow you to create flexible components where the parent manages the state, and children communicate with the parent implicitly. This avoids "prop explosion" where the parent needs dozens of props to configure internal children.
-
-**Implementation:**
-Use `React.Children.map` or `React.Context` to share state between the parent (`Tabs`) and children (`Tab`, `TabPanel`). Context is the modern and more flexible approach.
-
-
-**Code Example**:
-```javascript
-import React, { createContext, useContext, useState } from 'react';
-
-const TabsContext = createContext();
-
-function Tabs({ children, defaultIndex = 0 }) {
-  const [activeIndex, setActiveIndex] = useState(defaultIndex);
-
-  return (
-    <TabsContext.Provider value={{ activeIndex, setActiveIndex }}>
-      <div className="tabs">{children}</div>
-    </TabsContext.Provider>
-  );
-}
-
-function TabList({ children }) {
-  return <div className="tab-list">{children}</div>;
-}
-
-function Tab({ index, children }) {
-  const { activeIndex, setActiveIndex } = useContext(TabsContext);
-  const isActive = activeIndex === index;
-
-  return (
-    <button
-      className={`tab ${isActive ? 'active' : ''}`}
-      onClick={() => setActiveIndex(index)}
-    >
-      {children}
-    </button>
-  );
-}
-
-function TabPanel({ index, children }) {
-  const { activeIndex } = useContext(TabsContext);
-  return activeIndex === index ? <div className="tab-panel">{children}</div> : null;
-}
-
-// Usage
-function App() {
-  return (
-    <Tabs defaultIndex={0}>
-      <TabList>
-        <Tab index={0}>Profile</Tab>
-        <Tab index={1}>Settings</Tab>
-      </TabList>
-      <TabPanel index={0}>User Profile Content</TabPanel>
-      <TabPanel index={1}>User Settings Content</TabPanel>
-    </Tabs>
-  );
-}
-```
-
----
-
-<a id="q5"></a>
-### Q5: How do you create a Higher-Order Component (HOC) for authentication?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-A Higher-Order Component (HOC) is a function that takes a component and returns a new component. It's a pattern for reusing component logic. While Hooks have replaced HOCs for many use cases (like data fetching), HOCs are still useful for wrapping components with cross-cutting concerns like authentication or layout injection.
-
-
-**Code Example**:
-```javascript
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Assuming react-router
-
-// HOC definition
-function withAuth(WrappedComponent) {
-  return function AuthComponent(props) {
-    const navigate = useNavigate();
-    // In a real app, check from context or localStorage
-    const isAuthenticated = localStorage.getItem('token');
-
-    useEffect(() => {
-      if (!isAuthenticated) {
-        navigate('/login');
-      }
-    }, [isAuthenticated, navigate]);
-
-    if (!isAuthenticated) {
-      return null; // Or a loading spinner
-    }
-
-    // Pass through props
-    return <WrappedComponent {...props} />;
-  };
-}
-
-// Usage
-function Dashboard() {
-  return <h1>Private Dashboard</h1>;
-}
-
-const ProtectedDashboard = withAuth(Dashboard);
-
-export default ProtectedDashboard;
-```
-
----
-
-<a id="q6"></a>
-### Q6: How do you implement the Render Props pattern for code reuse?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Render Props refers to a technique for sharing code between React components using a prop whose value is a function. This function returns a React element. It allows the internal state of a component to be exposed to the parent, giving the parent full control over the UI.
-
-
-**Code Example**:
-```javascript
-import React, { useState } from 'react';
-
-// Reusable logic component
-function MouseTracker({ render }) {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (event) => {
-    setPosition({
-      x: event.clientX,
-      y: event.clientY
+  const onChange = (e) => {
+    setInput(e.target.value); // Urgent
+    startTransition(() => {
+      setQuery(e.target.value); // Transition
     });
   };
 
   return (
-    <div style={{ height: '100vh' }} onMouseMove={handleMouseMove}>
-      {/* Call the render prop with the state */}
-      {render(position)}
+    <div>
+      <input value={input} onChange={onChange} />
+      {isPending && <span>Filtering...</span>}
+      <ItemList query={query} list={list} />
     </div>
-  );
-}
-
-// Usage
-function App() {
-  return (
-    <MouseTracker
-      render={({ x, y }) => (
-        <h1>
-          The mouse position is ({x}, {y})
-        </h1>
-      )}
-    />
-  );
-}
-```
-
----
-
-<a id="q7"></a>
-### Q7: How do you implement an Error Boundary to catch crashes in child components?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-Error Boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. They must be implemented as **Class Components** because functional components do not yet support `getDerivedStateFromError` or `componentDidCatch`.
-
-
-**Code Example**:
-```javascript
-import React from 'react';
-
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  // Update state so the next render shows the fallback UI
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  // You can also log the error to an error reporting service
-  componentDidCatch(error, errorInfo) {
-    console.error("Uncaught error:", error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return this.props.fallback || <h1>Something went wrong.</h1>;
-    }
-
-    return this.props.children;
-  }
-}
-
-// Usage
-function BuggyComponent() {
-  throw new Error("I crashed!");
-}
-
-function App() {
-  return (
-    <ErrorBoundary fallback={<h1>Sorry, the widget crashed!</h1>}>
-      <BuggyComponent />
-    </ErrorBoundary>
   );
 }
 ```
@@ -470,41 +323,29 @@ function App() {
 ---
 
 <a id="q8"></a>
-### Q8: How do you use `useImperativeHandle` to expose child methods to a parent?
+### Q8: What are React Server Components (RSC) and how do they differ from SSR?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`. It is rarely used but helpful when you need to imperatively control a child (e.g., focus an input, scroll to a node, or trigger a child method) from the parent. It must be used with `forwardRef`.
-
+**Strategy**:
+SSR renders static HTML on the server and still delivers the entire component JavaScript bundle for hydration. RSC execute exclusively on the server, streaming a JSON UI format to the client, never adding their dependencies to the browser bundle.
 
 **Code Example**:
-```javascript
-import React, { useRef, useImperativeHandle, forwardRef } from 'react';
+```jsx
+// app/products/page.tsx - Server Component
+import db from '@/lib/db';
+import LikeButton from './LikeButton';
 
-const CustomInput = forwardRef((props, ref) => {
-  const inputRef = useRef();
-
-  useImperativeHandle(ref, () => ({
-    focus: () => {
-      inputRef.current.focus();
-    },
-    clear: () => {
-      inputRef.current.value = '';
-    }
-  }));
-
-  return <input ref={inputRef} {...props} />;
-});
-
-function App() {
-  const childRef = useRef();
-
+export default async function Products() {
+  const products = await db.query('SELECT * FROM products');
   return (
     <div>
-      <CustomInput ref={childRef} />
-      <button onClick={() => childRef.current.focus()}>Focus Input</button>
-      <button onClick={() => childRef.current.clear()}>Clear Input</button>
+      {products.map(p => (
+        <div key={p.id}>
+          <h3>{p.name}</h3>
+          <LikeButton id={p.id} />
+        </div>
+      ))}
     </div>
   );
 }
@@ -513,297 +354,158 @@ function App() {
 ---
 
 <a id="q9"></a>
-### Q9: How do you implement a Portal to render children into a different part of the DOM?
+### Q9: How does Automatic Batching in React 18 work and how do you opt out?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Portals provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component. This is commonly used for Modals, Tooltips, and Popovers to ensure they appear visually "on top" of other elements and aren't affected by parent CSS (like `overflow: hidden` or `z-index`).
-
+**Strategy**:
+React 18 batches all state updates across promises, `setTimeout`, native events, and fetch calls into one render. Use `ReactDOM.flushSync` if you need immediate synchronous DOM updates.
 
 **Code Example**:
-```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
+```jsx
+import { useState } from 'react';
+import { flushSync } from 'react-dom';
 
-function Modal({ children, onClose }) {
-  // Ensure this element exists in your index.html (e.g., <div id="modal-root"></div>)
-  const modalRoot = document.getElementById('modal-root') || document.body;
+export function BatchDemo() {
+  const [count, setCount] = useState(0);
+  const [flag, setFlag] = useState(false);
 
-  return ReactDOM.createPortal(
-    <div style={overlayStyle}>
-      <div style={modalStyle}>
-        {children}
-        <button onClick={onClose}>Close</button>
-      </div>
-    </div>,
-    modalRoot
-  );
-}
+  const handleAsync = async () => {
+    await fetch('/api/data');
+    // Automatically batched in React 18
+    setCount(c => c + 1);
+    setFlag(f => !f);
+  };
 
-// Styles
-const overlayStyle = {
-  position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-  backgroundColor: 'rgba(0,0,0,0.7)', zIndex: 1000
-};
+  const handleForceSync = () => {
+    flushSync(() => setCount(c => c + 1)); // Synchronous commit
+  };
 
-const modalStyle = {
-  padding: '20px', background: '#fff', margin: '100px auto',
-  width: '300px', borderRadius: '8px'
-};
-
-// Usage
-function App() {
-  const [isOpen, setIsOpen] = React.useState(false);
-  return (
-    <div style={{ overflow: 'hidden' }}>
-      <button onClick={() => setIsOpen(true)}>Open Modal</button>
-      {isOpen && (
-        <Modal onClose={() => setIsOpen(false)}>
-          <h2>I am a Portal!</h2>
-        </Modal>
-      )}
-    </div>
-  );
+  return <button onClick={handleAsync}>Async Click</button>;
 }
 ```
 
 ---
 
 <a id="q10"></a>
-### Q10: How do you optimize large lists using Virtualization (Windowing)?
+### Q10: How do you implement an Error Boundary with fallback UI in React?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Virtualization (or Windowing) renders only the items currently visible in the viewport (plus a small buffer), rather than the entire list of thousands of items. This drastically reduces the number of DOM nodes and improves performance. Libraries like `react-window` or `react-virtualized` are standard.
-
-**Implementation (Manual Concept):**
-To implement it manually, you need to calculate which items overlap with the scroll container's viewport.
-
+**Strategy**:
+Error Boundaries are class components using `static getDerivedStateFromError` (to set error state) and `componentDidCatch` (to log errors). They catch rendering, lifecycle, and constructor errors in child subtrees.
 
 **Code Example**:
-```javascript
-import React, { useState } from 'react';
+```jsx
+import React, { Component } from 'react';
 
-// Simple Fixed Height Virtual List
-const VirtualList = ({ items, itemHeight, windowHeight }) => {
-  const [scrollTop, setScrollTop] = useState(0);
-
-  const totalHeight = items.length * itemHeight;
-  
-  // Calculate start and end indices
-  const startIndex = Math.floor(scrollTop / itemHeight);
-  const endIndex = Math.min(
-    items.length - 1,
-    Math.floor((scrollTop + windowHeight) / itemHeight)
-  );
-
-  const visibleItems = [];
-  for (let i = startIndex; i <= endIndex; i++) {
-    visibleItems.push(
-      <div
-        key={i}
-        style={{
-          position: 'absolute',
-          top: `${i * itemHeight}px`,
-          height: `${itemHeight}px`,
-          width: '100%'
-        }}
-      >
-        {items[i]}
-      </div>
-    );
+export class ErrorBoundary extends Component {
+  state = { hasError: false, error: null };
+  static getDerivedStateFromError(error) { return { hasError: true, error }; }
+  componentDidCatch(err, info) { console.error('Caught:', err, info); }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div role="alert">
+          <h2>Error encountered</h2>
+          <button onClick={() => this.setState({ hasError: false })}>Retry</button>
+        </div>
+      );
+    }
+    return this.props.children;
   }
-
-  return (
-    <div
-      onScroll={(e) => setScrollTop(e.target.scrollTop)}
-      style={{ height: `${windowHeight}px`, overflowY: 'auto', position: 'relative' }}
-    >
-      <div style={{ height: `${totalHeight}px` }}>
-        {visibleItems}
-      </div>
-    </div>
-  );
-};
-
-// Usage
-const items = Array.from({ length: 1000 }, (_, i) => `Item ${i + 1}`);
-
-function App() {
-  return <VirtualList items={items} itemHeight={35} windowHeight={300} />;
 }
 ```
 
 ---
 
 <a id="q11"></a>
-### Q11: How do you implement a custom `useDebounce` hook?
+### Q11: How do you split Context to avoid unnecessary re-renders?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-A `useDebounce` hook is useful for delaying a value update until a specified time has passed since the last change. It's commonly used for search inputs to avoid making an API call on every keystroke.
-
-
-**Code Example**:
-```javascript
-import { useState, useEffect } from 'react';
-
-function useDebounce(value, delay) {
-  const [debouncedValue, setDebouncedValue] = useState(value);
-
-  useEffect(() => {
-    // Set a timeout to update the debounced value after the delay
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-
-    // Cleanup: Clear the timeout if value changes (resetting the timer)
-    // or if the component unmounts
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
-
-  return debouncedValue;
-}
-
-// Usage
-function SearchComponent() {
-  const [text, setText] = useState('');
-  const debouncedText = useDebounce(text, 500);
-
-  useEffect(() => {
-    if (debouncedText) {
-      console.log('API Call for:', debouncedText);
-    }
-  }, [debouncedText]);
-
-  return <input value={text} onChange={(e) => setText(e.target.value)} />;
-}
-```
-
----
-
-<a id="q12"></a>
-### Q12: How do you implement a custom `useLocalStorage` hook?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-This hook syncs a state variable with `localStorage` so that data persists across browser refreshes. It also listens for changes to keep the state in sync.
-
+**Strategy**:
+Context consumers re-render on any value change. Split state and dispatch into separate contexts to prevent components that only dispatch actions from re-rendering.
 
 **Code Example**:
-```javascript
-import { useState, useEffect } from 'react';
-
-function useLocalStorage(key, initialValue) {
-  // Initialize state function to run only once
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch (error) {
-      console.error(error);
-      return initialValue;
-    }
-  });
-
-  // Return a wrapped version of useState's setter function that persists data
-  const setValue = (value) => {
-    try {
-      // Allow value to be a function so we have same API as useState
-      const valueToStore = value instanceof Function ? value(storedValue) : value;
-      setStoredValue(valueToStore);
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  return [storedValue, setValue];
-}
-```
-
----
-
-<a id="q13"></a>
-### Q13: How do you implement a custom `usePrevious` hook?
-
-**Difficulty**: Intermediate
-
-**Strategy:**
-`usePrevious` is used to hold the value of a prop or state from the *previous* render. This is useful for comparing old and new values in effects.
-
-
-**Code Example**:
-```javascript
-import { useRef, useEffect } from 'react';
-
-function usePrevious(value) {
-  const ref = useRef();
-
-  // Store current value in ref
-  useEffect(() => {
-    ref.current = value;
-  }, [value]); // Runs AFTER render
-
-  // Return previous value (happens before update in useEffect)
-  return ref.current;
-}
-
-// Usage
-function Counter() {
-  const [count, setCount] = useState(0);
-  const prevCount = usePrevious(count);
-
+```jsx
+const StateCtx = createContext();
+const DispatchCtx = createContext();
+export function Provider({ children }) {
+  const [state, dispatch] = useReducer(reducer, init);
   return (
-    <h1>
-      Now: {count}, Before: {prevCount}
-    </h1>
+    <StateCtx.Provider value={state}>
+      <DispatchCtx.Provider value={dispatch}>{children}</DispatchCtx.Provider>
+    </StateCtx.Provider>
   );
 }
 ```
 
 ---
 
+<a id="q12"></a>
+### Q12: How do you implement Compound Components pattern in React?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Compound components share implicit state via Context, creating clean JSX composition (e.g. `<Tabs>`, `<Tabs.Tab>`).
+
+**Code Example**:
+```jsx
+const TabCtx = createContext();
+export function Tabs({ children, defaultTab }) {
+  const [active, setActive] = useState(defaultTab);
+  return <TabCtx.Provider value={{ active, setActive }}>{children}</TabCtx.Provider>;
+}
+Tabs.Tab = ({ id, children }) => {
+  const { active, setActive } = useContext(TabCtx);
+  return <button className={active === id ? 'active' : ''} onClick={() => setActive(id)}>{children}</button>;
+};
+```
+
+---
+
+<a id="q13"></a>
+### Q13: How do you use `forwardRef` and `useImperativeHandle`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Forward DOM references and expose explicit imperative API methods to parents.
+
+**Code Example**:
+```jsx
+export const CustomInput = forwardRef((props, ref) => {
+  const inputRef = useRef();
+  useImperativeHandle(ref, () => ({
+    focus: () => inputRef.current.focus(),
+    clear: () => { inputRef.current.value = ''; }
+  }));
+  return <input ref={inputRef} {...props} />;
+});
+```
+
+---
+
 <a id="q14"></a>
-### Q14: What is the difference between `useEffect` and `useLayoutEffect`?
+### Q14: How do you render Portals in React and handle event bubbling?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Both hooks run side effects, but the timing differs:
-*   **`useEffect`**: Runs **asynchronously** *after* the browser has painted the screen. This is good for data fetching, subscriptions, and non-blocking updates. It doesn't block the UI.
-*   **`useLayoutEffect`**: Runs **synchronously** *after* DOM mutations but *before* the browser paints. Use this if you need to measure DOM elements (width, height) and update state immediately to prevent a visual flicker.
-
-**Visual Example:**
-If you set state in `useEffect` that changes layout, the user might see the initial layout, then a flicker as it updates. With `useLayoutEffect`, the update happens before the paint, so no flicker occurs.
-
+**Strategy**:
+`createPortal` mounts children into an external DOM node while preserving React synthetic event bubbling up the virtual tree.
 
 **Code Example**:
-```javascript
-import React, { useLayoutEffect, useRef, useState } from 'react';
-
-function Tooltip() {
-  const [height, setHeight] = useState(0);
-  const ref = useRef(null);
-
-  useLayoutEffect(() => {
-    if (ref.current) {
-      const { height } = ref.current.getBoundingClientRect();
-      setHeight(height);
-    }
-  }, []); // Runs before paint
-
-  return (
-    <div>
-      <div ref={ref}>Content that determines height</div>
-      <p>Height is: {height}px</p>
-    </div>
+```jsx
+import { createPortal } from 'react-dom';
+export function Modal({ isOpen, children, onClose }) {
+  if (!isOpen) return null;
+  return createPortal(
+    <div className="overlay" onClick={onClose}>
+      <div className="modal" onClick={e => e.stopPropagation()}>{children}</div>
+    </div>,
+    document.body
   );
 }
 ```
@@ -811,37 +513,27 @@ function Tooltip() {
 ---
 
 <a id="q15"></a>
-### Q15: How do you use `forwardRef` to pass refs to child components?
+### Q15: How do you virtualize large lists (10,000+ items) in React?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-By default, `ref`s are not passed to functional components. `forwardRef` allows a component to take a `ref` attribute and "forward" it to one of its children (usually a DOM element).
-
+**Strategy**:
+Virtual windowing computes visible items based on scroll offset and only renders DOM elements in view.
 
 **Code Example**:
-```javascript
-import React, { forwardRef, useRef } from 'react';
-
-// Child component capable of receiving a ref
-const CustomButton = forwardRef((props, ref) => (
-  <button ref={ref} className="btn">
-    {props.children}
-  </button>
-));
-
-function App() {
-  const buttonRef = useRef(null);
-
-  const clickHandler = () => {
-    buttonRef.current.focus();
-    buttonRef.current.innerText = "Clicked!";
-  };
-
+```jsx
+export function VirtualList({ items, itemHeight = 40, height = 400 }) {
+  const [scroll, setScroll] = useState(0);
+  const start = Math.floor(scroll / itemHeight);
+  const count = Math.ceil(height / itemHeight) + 2;
+  const visible = items.slice(start, start + count);
   return (
-    <div>
-      <CustomButton ref={buttonRef}>Click Me</CustomButton>
-      <button onClick={clickHandler}>Focus the Custom Button</button>
+    <div style={{ height, overflowY: 'auto' }} onScroll={e => setScroll(e.target.scrollTop)}>
+      <div style={{ height: items.length * itemHeight, position: 'relative' }}>
+        {visible.map((item, idx) => (
+          <div key={item.id} style={{ position: 'absolute', top: (start + idx) * itemHeight }}>{item.title}</div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -850,1192 +542,1407 @@ function App() {
 ---
 
 <a id="q16"></a>
-### Q16: Controlled vs Uncontrolled Components: When to use which?
+### Q16: How do you implement a custom `useDebounce` hook?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-*   **Controlled Components:** React manages the state. The input value is driven by state (`value={state}`) and changes via `onChange`.
-    *   *Pros:* Instant validation, conditional disabling, consistent state.
-    *   *Cons:* More boilerplate, re-renders on every keystroke.
-*   **Uncontrolled Components:** The DOM manages the state. You access the value using a `ref`.
-    *   *Pros:* Easier to integrate with non-React code, less re-rendering.
-    *   *Cons:* Harder to validate conditionally as you type.
-
-**Recommendation:** Use Controlled for most forms. Use Uncontrolled for simple inputs or file uploads where React doesn't need to know the value instantly.
-
+**Strategy**:
+Delay updating state until delay period passes without new changes.
 
 **Code Example**:
-```javascript
-// Controlled
-function ControlledInput() {
-  const [val, setVal] = useState("");
-  return <input value={val} onChange={e => setVal(e.target.value)} />;
-}
-
-// Uncontrolled
-function UncontrolledInput() {
-  const inputRef = useRef();
-  const handleSubmit = () => alert(inputRef.current.value);
-  return (
-    <div>
-      <input ref={inputRef} />
-      <button onClick={handleSubmit}>Submit</button>
-    </div>
-  );
+```typescript
+export function useDebounce<T>(value: T, delay: number): T {
+  const [debounced, setDebounced] = useState(value);
+  useEffect(() => {
+    const timer = setTimeout(() => setDebounced(value), delay);
+    return () => clearTimeout(timer);
+  }, [value, delay]);
+  return debounced;
 }
 ```
 
 ---
 
 <a id="q17"></a>
-### Q17: How do you use `React.memo` to prevent re-renders?
+### Q17: What is the difference between Controlled and Uncontrolled components?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy:**
-`React.memo` is a higher-order component that memoizes a functional component. It checks if the *props* have changed. If props are the same (shallow comparison), it skips re-rendering the component.
-
-**Warning:** Don't wrap everything in `memo`. Use it only for pure components that render often with the same props.
-
+**Strategy**:
+Controlled components have value driven by React state; uncontrolled components rely on native DOM state via `ref`.
 
 **Code Example**:
-```javascript
-import React, { useState } from 'react';
-
-const Movie = React.memo(({ title, releaseDate }) => {
-  console.log(`Rendering Movie: ${title}`);
-  return (
-    <div>
-      <h3>{title}</h3>
-      <p>Release: {releaseDate}</p>
-    </div>
-  );
-});
-
-function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <button onClick={() => setCount(c => c + 1)}>Count: {count}</button>
-      {/* Movie will NOT re-render when count changes */}
-      <Movie title="Inception" releaseDate="2010" />
-    </div>
-  );
-}
+```jsx
+// Controlled
+<input value={val} onChange={e => setVal(e.target.value)} />
+// Uncontrolled
+<input ref={inputRef} defaultValue="Initial" />
 ```
 
 ---
 
 <a id="q18"></a>
-### Q18: How do you implement Code Splitting using `React.lazy` and `Suspense`?
+### Q18: What is React StrictMode and why does it double-invoke effects in development?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy:**
-Code splitting allows you to split your bundle into smaller chunks which can then be loaded on demand. This improves the initial load time. `React.lazy` lets you define a component that is loaded dynamically, and `Suspense` lets you show a fallback (like a spinner) while it's loading.
-
+**Strategy**:
+StrictMode checks for purity and missing cleanup by mounting, unmounting, and re-mounting components in dev mode.
 
 **Code Example**:
-```javascript
-import React, { Suspense } from 'react';
-
-// Lazy load the component
-const HeavyWidget = React.lazy(() => import('./HeavyWidget'));
-
-function App() {
-  return (
-    <div>
-      <h1>Dashboard</h1>
-      
-      {/* Show "Loading..." while HeavyWidget bundle is fetched */}
-      <Suspense fallback={<div>Loading widget...</div>}>
-        <HeavyWidget />
-      </Suspense>
-    </div>
-  );
-}
+```jsx
+<React.StrictMode><App /></React.StrictMode>
 ```
 
 ---
 
 <a id="q19"></a>
-### Q19: How do you handle forms efficiently using React Hook Form?
+### Q19: How do you implement custom `usePrevious` hook using `useRef`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-`React Hook Form` is a popular library that uses *uncontrolled components* (refs) to handle form state, resulting in significantly fewer re-renders compared to controlled components. It provides easy validation and error handling.
-
+**Strategy**:
+Updating `useRef` inside `useEffect` captures the previous render's value without triggering a re-render.
 
 **Code Example**:
-```javascript
-import React from 'react';
-import { useForm } from 'react-hook-form';
-
-function LoginForm() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-
-  const onSubmit = (data) => {
-    console.log("Form Data:", data);
-  };
-
-  return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label>Username</label>
-        {/* Register the input with validation rules */}
-        <input {...register("username", { required: "Username is required" })} />
-        {errors.username && <p>{errors.username.message}</p>}
-      </div>
-
-      <div>
-        <label>Email</label>
-        <input 
-          {...register("email", { 
-            required: "Email is required",
-            pattern: { value: /^\S+@\S+$/i, message: "Invalid email" }
-          })} 
-        />
-        {errors.email && <p>{errors.email.message}</p>}
-      </div>
-
-      <button type="submit">Login</button>
-    </form>
-  );
+```typescript
+export function usePrevious<T>(value: T): T | undefined {
+  const ref = useRef<T>();
+  useEffect(() => { ref.current = value; }, [value]);
+  return ref.current;
 }
 ```
 
 ---
 
 <a id="q20"></a>
-### Q20: How do you manage state with Redux Toolkit (Slice + Thunk)?
+### Q20: How do you implement custom `useLocalStorage` hook with multi-tab synchronization?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Redux Toolkit (RTK) simplifies Redux. A "Slice" contains the reducer logic and actions. `createAsyncThunk` handles async logic.
-
+**Strategy**:
+Sync state with localStorage and subscribe to the `storage` event for cross-tab updates.
 
 **Code Example**:
-```javascript
-// features/userSlice.js
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-// Async Thunk
-export const fetchUser = createAsyncThunk('user/fetch', async (userId) => {
-  const response = await fetch(`/api/user/${userId}`);
-  return await response.json();
-});
-
-const userSlice = createSlice({
-  name: 'user',
-  initialState: { data: null, status: 'idle' },
-  reducers: {
-    logout: (state) => { state.data = null; }
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchUser.pending, (state) => { state.status = 'loading'; })
-      .addCase(fetchUser.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.data = action.payload;
-      });
-  }
-});
-
-export const { logout } = userSlice.actions;
-export default userSlice.reducer;
-
-// Component
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
-function UserProfile({ id }) {
-  const dispatch = useDispatch();
-  const { data, status } = useSelector((state) => state.user);
-
-  useEffect(() => {
-    dispatch(fetchUser(id));
-  }, [dispatch, id]);
-
-  if (status === 'loading') return <p>Loading...</p>;
-  return <div>{data?.name}</div>;
+```typescript
+export function useLocalStorage<T>(key: string, initial: T) {
+  const [val, setVal] = useState<T>(() => {
+    try { const item = localStorage.getItem(key); return item ? JSON.parse(item) : initial; } catch { return initial; }
+  });
+  const update = (newVal: T) => {
+    setVal(newVal);
+    localStorage.setItem(key, JSON.stringify(newVal));
+  };
+  return [val, update] as const;
 }
 ```
 
 ---
 
 <a id="q21"></a>
-### Q21: How do you create a simple store using Zustand?
+### Q21: How do you implement custom hook `useOnClickOutside` for dropdowns?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Zustand is a minimalistic state management library. It uses hooks and doesn't require a provider wrapper (unlike Context or Redux). It's great for avoiding boilerplate.
-
+**Strategy**:
+Listen to document mousedown and check if ref contains target.
 
 **Code Example**:
-```javascript
-import create from 'zustand';
-
-// Create store
-const useStore = create((set) => ({
-  bears: 0,
-  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-  removeAllBears: () => set({ bears: 0 }),
-}));
-
-// Component
-function BearCounter() {
-  // Select state
-  const bears = useStore((state) => state.bears);
-  return <h1>{bears} around here...</h1>;
-}
-
-function Controls() {
-  // Select actions
-  const increase = useStore((state) => state.increasePopulation);
-  return <button onClick={increase}>One up</button>;
+```typescript
+export function useOnClickOutside(ref: any, handler: () => void) {
+  useEffect(() => {
+    const listener = (e: any) => { if (!ref.current?.contains(e.target)) handler(); };
+    document.addEventListener('mousedown', listener);
+    return () => document.removeEventListener('mousedown', listener);
+  }, [ref, handler]);
 }
 ```
 
 ---
 
 <a id="q22"></a>
-### Q22: How do you implement Private Routes for authentication?
+### Q22: What is `useSyncExternalStore` and when should you use it?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Private routes prevent unauthenticated users from accessing certain pages. In React Router v6, this is done by creating a wrapper component that checks for a token/user and redirects if missing.
-
+**Strategy**:
+Subscribes to external stores safely avoiding tearing in concurrent mode.
 
 **Code Example**:
-```javascript
-import { Navigate, Outlet } from 'react-router-dom';
-
-const useAuth = () => {
-  const user = localStorage.getItem('user');
-  return user ? true : false;
-};
-
-function PrivateRoutes() {
-  const isAuth = useAuth();
-  // If authorized, render child routes (Outlet), else redirect to login
-  return isAuth ? <Outlet /> : <Navigate to="/login" />;
+```typescript
+import { useSyncExternalStore } from 'react';
+function subscribe(cb: () => void) {
+  window.addEventListener('online', cb);
+  return () => window.removeEventListener('online', cb);
 }
-
-// App.js
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        
-        {/* Protected Routes */}
-        <Route element={<PrivateRoutes />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/settings" element={<Settings />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
-}
+export const useOnline = () => useSyncExternalStore(subscribe, () => navigator.onLine, () => true);
 ```
 
 ---
 
 <a id="q23"></a>
-### Q23: How do you handle JWT Authentication (Login/Logout)?
+### Q23: What is `useOptimistic` in React 19 and how does it improve UX?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Handling JWT involves sending credentials, storing the received token (usually `localStorage` or HttpOnly cookies), and attaching it to subsequent requests.
-
+**Strategy**:
+Provides immediate optimistic UI state while an async server action executes.
 
 **Code Example**:
-```javascript
-// api.js
-export const login = async (credentials) => {
-  const res = await fetch('/api/login', {
-    method: 'POST',
-    body: JSON.stringify(credentials),
-    headers: { 'Content-Type': 'application/json' }
-  });
-  const data = await res.json();
-  if (data.token) {
-    localStorage.setItem('token', data.token);
-  }
-  return data;
-};
-
-export const getProtectedData = async () => {
-  const token = localStorage.getItem('token');
-  const res = await fetch('/api/protected', {
-    headers: {
-      'Authorization': `Bearer ${token}`
-    }
-  });
-  return res.json();
-};
-
-export const logout = () => {
-  localStorage.removeItem('token');
-  window.location.href = '/login';
-};
+```jsx
+import { useOptimistic } from 'react';
+export function LikeButton({ likes, onLike }) {
+  const [opt, setOpt] = useOptimistic(likes, (prev) => prev + 1);
+  return <button onClick={async () => { setOpt(likes + 1); await onLike(); }}>❤️ {opt}</button>;
+}
 ```
 
 ---
 
 <a id="q24"></a>
-### Q24: How do you unit test a React component using Jest and React Testing Library?
+### Q24: What is `useActionState` in React 19?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-React Testing Library focuses on testing behavior from the user's perspective (clicking, seeing text) rather than implementation details (state, props).
-
+**Strategy**:
+Integrates server actions with component state and pending status.
 
 **Code Example**:
-```javascript
-// Counter.js
-import { useState } from 'react';
-export default function Counter() {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      <p data-testid="count-value">{count}</p>
-      <button onClick={() => setCount(c => c + 1)}>Increment</button>
-    </div>
-  );
+```jsx
+import { useActionState } from 'react';
+async function action(prev, formData) { return { count: prev.count + 1 }; }
+export function Form() {
+  const [state, formAction, isPending] = useActionState(action, { count: 0 });
+  return <form action={formAction}><button disabled={isPending}>Count: {state.count}</button></form>;
 }
-
-// Counter.test.js
-import { render, screen, fireEvent } from '@testing-library/react';
-import Counter from './Counter';
-
-test('increments counter on click', () => {
-  render(<Counter />);
-  
-  // Check initial state
-  const countValue = screen.getByTestId('count-value');
-  expect(countValue).toHaveTextContent('0');
-  
-  // Simulate click
-  const button = screen.getByText('Increment');
-  fireEvent.click(button);
-  
-  // Check updated state
-  expect(countValue).toHaveTextContent('1');
-});
 ```
 
 ---
 
 <a id="q25"></a>
-### Q25: How do you mock API calls in Jest tests?
+### Q25: What is the difference between shallow and deep comparison in React memoization?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-You should not make real network requests in tests. Instead, mock the `fetch` function or the module that makes the request.
-
+**Strategy**:
+Shallow checks references; deep recursively checks all properties.
 
 **Code Example**:
 ```javascript
-// UserList.js
-import { useEffect, useState } from 'react';
-
-export default function UserList() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch('/api/users')
-      .then(res => res.json())
-      .then(data => setUsers(data));
-  }, []);
-
-  return (
-    <ul>
-      {users.map(u => <li key={u.id}>{u.name}</li>)}
-    </ul>
-  );
-}
-
-// UserList.test.js
-import { render, screen, waitFor } from '@testing-library/react';
-import UserList from './UserList';
-
-// Mock global fetch
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve([{ id: 1, name: 'John Doe' }]),
-  })
-);
-
-test('renders users from API', async () => {
-  render(<UserList />);
-
-  // Wait for the element to appear
-  const userItem = await waitFor(() => screen.getByText('John Doe'));
-  
-  expect(userItem).toBeInTheDocument();
-  expect(fetch).toHaveBeenCalledTimes(1);
-});
+function arePropsEqual(prev, next) { return prev.id === next.id; }
+export const MemoCard = React.memo(Card, arePropsEqual);
 ```
 
 ---
 
 <a id="q26"></a>
-### Q26: How do you prevent XSS attacks in React?
+### Q26: Why should you avoid using array index as `key` prop in React lists?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy:**
-Cross-Site Scripting (XSS) occurs when an attacker injects malicious scripts. React protects against XSS by default because it escapes data before rendering it. However, you are vulnerable if you use `dangerouslySetInnerHTML` or user-controlled `href` attributes.
-
-**Best Practices:**
-1.  Avoid `dangerouslySetInnerHTML`. If necessary, use a sanitization library like `dompurify`.
-2.  Validate URLs in `<a>` tags (avoid `javascript:alert(1)`).
-
+**Strategy**:
+Index keys break component state association during re-ordering or deletions.
 
 **Code Example**:
-```javascript
-import DOMPurify from 'dompurify';
-
-function SafeContent({ htmlContent }) {
-  // BAD: Vulnerable if htmlContent contains <script>
-  // return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
-
-  // GOOD: Sanitize first
-  const cleanHTML = DOMPurify.sanitize(htmlContent);
-  
-  return <div dangerouslySetInnerHTML={{ __html: cleanHTML }} />;
-}
+```jsx
+// Good
+{items.map(item => <Item key={item.id} data={item} />)}
 ```
 
 ---
 
 <a id="q27"></a>
-### Q27: How do you fix "Can't perform a React state update on an unmounted component"?
+### Q27: How do you manage Focus for accessibility (a11y) inside React Modals?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-This warning occurs when an async operation (like `fetch` or `setTimeout`) completes and tries to call `setState` after the component has already unmounted.
-
-**Fix:** Use a cleanup function in `useEffect` to cancel the operation or set a flag.
-
+**Strategy**:
+Trap tab focus inside the modal and return focus to trigger on close.
 
 **Code Example**:
-```javascript
-useEffect(() => {
-  let isMounted = true;
-
-  fetchData().then(data => {
-    if (isMounted) {
-      setData(data);
-    }
-  });
-
-  return () => {
-    isMounted = false;
-  };
-}, []);
+```jsx
+useEffect(() => { if (isOpen) ref.current?.focus(); }, [isOpen]);
 ```
-*Note: In modern React, strict mode often helps detect this, and using proper cancellation (like AbortController) is preferred over the `isMounted` flag.*
 
 ---
 
 <a id="q28"></a>
-### Q28: How do you manage focus for accessibility (A11y)?
+### Q28: How do you implement Polymorphic components in React with TypeScript (`as` prop)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Managing focus is critical for keyboard navigation.
-1.  **Auto-focus:** Use `ref.current.focus()` to move focus to a modal when it opens.
-2.  **Focus Trap:** Keep focus inside a modal so Tab doesn't exit it.
-3.  **Skip Links:** Allow users to skip navigation to main content.
-
+**Strategy**:
+Use generic props extending `React.ElementType`.
 
 **Code Example**:
-```javascript
-import { useEffect, useRef } from 'react';
-
-function Modal({ isOpen, onClose, children }) {
-  const modalRef = useRef();
-
-  useEffect(() => {
-    if (isOpen) {
-      modalRef.current?.focus();
-    }
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
-  return (
-    <div role="dialog" aria-modal="true">
-      <div tabIndex={-1} ref={modalRef}>
-        {children}
-        <button onClick={onClose}>Close</button>
-      </div>
-    </div>
-  );
+```tsx
+type ButtonProps<T extends React.ElementType> = { as?: T; children: React.ReactNode; } & React.ComponentPropsWithoutRef<T>;
+export function Button<T extends React.ElementType = 'button'>({ as, children, ...props }: ButtonProps<T>) {
+  const Component = as || 'button';
+  return <Component {...props}>{children}</Component>;
 }
 ```
 
 ---
 
 <a id="q29"></a>
-### Q29: SSR vs CSR vs SSG: When to use what?
+### Q29: How do you implement code splitting with `React.lazy` and `Suspense`?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-*   **CSR (Client-Side Rendering):** Standard React. Browser downloads empty HTML + JS bundle, then renders.
-    *   *Use:* Dashboards, private apps behind login.
-*   **SSR (Server-Side Rendering):** Server renders HTML on every request. (Next.js `getServerSideProps`).
-    *   *Use:* Dynamic content needing SEO (e.g., Social Media feed).
-*   **SSG (Static Site Generation):** HTML is built at **build time**. (Next.js `getStaticProps`).
-    *   *Use:* Blogs, Marketing pages, Docs (Fastest performance).
+**Strategy**:
+Dynamically import components to create separate chunks.
+
+**Code Example**:
+```jsx
+const Admin = React.lazy(() => import('./Admin'));
+<React.Suspense fallback={<div>Loading...</div>}><Admin /></React.Suspense>
+```
 
 ---
 
 <a id="q30"></a>
-### Q30: What is React Fiber and how does it improve performance?
+### Q30: How do you test React components with Jest and React Testing Library?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-React Fiber is the reimplementation of React's core reconciliation algorithm (introduced in React 16).
-*   **Key Goal:** Incremental rendering. It can split rendering work into chunks and spread it out over multiple frames.
-*   **Impact:** It allows React to pause work, reuse it, or abort it to prioritize higher-priority updates (like user input) over low-priority ones (like data fetching). This results in smoother animations and responsiveness.
-*   **Features enabled by Fiber:** `Suspense`, `useTransition`, `Concurrency`.
+**Strategy**:
+Test behavior with `screen.getByRole` and `userEvent`.
+
+**Code Example**:
+```tsx
+test('increments', async () => {
+  render(<Counter />);
+  await userEvent.click(screen.getByRole('button', { name: /inc/i }));
+  expect(screen.getByText('1')).toBeInTheDocument();
+});
+```
+
+---
 
 <a id="q31"></a>
-### Q31: `useState` vs `useReducer`: When should you choose one over the other?
+### Q31: What causes memory leaks in React and how do you diagnose them?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use `useState` for simple, independent state values (strings, booleans). Use `useReducer` for complex state logic that involves multiple sub-values or when the next state depends on the previous one.
+**Strategy**:
+Uncleaned subscriptions, timers, and closures retaining DOM nodes.
 
-**Code Example:**
-import React, { useReducer } from 'react';
-
-const initialState = { count: 0 };
-
-function reducer(state, action) {
-  switch (action.type) {
-    case 'increment':
-      return { count: state.count + 1 };
-    case 'decrement':
-      return { count: state.count - 1 };
-    default:
-      throw new Error();
-  }
-}
-
-function Counter() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  return (
-    <>
-      Count: {state.count}
-      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
-      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
-    </>
-  );
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+useEffect(() => {
+  const sub = eventBus.subscribe(handler);
+  return () => sub.unsubscribe(); // Must cleanup
+}, []);
+```
 
 ---
 
 <a id="q32"></a>
-### Q32: How do you implement a custom hook `useOnClickOutside` to close modals?
+### Q32: How does React protect against XSS attacks in JSX?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-This hook detects clicks outside a specified element (ref). It binds a `mousedown` or `touchstart` listener to the document and checks if the event target is contained within the ref element.
+**Strategy**:
+React escapes all strings embedded in JSX before rendering.
 
-**Code Example:**
-import { useEffect } from 'react';
-
-function useOnClickOutside(ref, handler) {
-  useEffect(() => {
-    const listener = (event) => {
-      // Do nothing if clicking ref's element or descendent elements
-      if (!ref.current || ref.current.contains(event.target)) {
-        return;
-      }
-      handler(event);
-    };
-
-    document.addEventListener('mousedown', listener);
-    document.addEventListener('touchstart', listener);
-
-    return () => {
-      document.removeEventListener('mousedown', listener);
-      document.removeEventListener('touchstart', listener);
-    };
-  }, [ref, handler]);
-}
-
-// Usage
-// const ref = useRef();
-// useOnClickOutside(ref, () => setModalOpen(false));
-// <div ref={ref}>Modal Content</div>
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+// React escapes malicious strings automatically
+const dangerous = '<script>alert("XSS")</script>';
+return <div>{dangerous}</div>;
+```
 
 ---
 
 <a id="q33"></a>
-### Q33: How do you implement a `useMediaQuery` hook for responsive designs?
+### Q33: How do you safely render HTML in React with DOMPurify?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-This hook uses `window.matchMedia` to listen for media query changes and updates state accordingly.
+**Strategy**:
+Sanitize the string before using `dangerouslySetInnerHTML`.
 
-**Code Example:**
-import { useState, useEffect } from 'react';
-
-function useMediaQuery(query) {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
-
-    const listener = () => setMatches(media.matches);
-    media.addEventListener('change', listener);
-
-    return () => media.removeEventListener('change', listener);
-  }, [query]);
-
-  return matches;
+**Code Example**:
+```jsx
+import DOMPurify from 'dompurify';
+export function SafeHTML({ content }) {
+  const clean = DOMPurify.sanitize(content);
+  return <div dangerouslySetInnerHTML={{ __html: clean }} />;
 }
-
-// Usage
-// const isMobile = useMediaQuery('(max-width: 768px)');
-// return <div>{isMobile ? 'Mobile View' : 'Desktop View'}</div>;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+```
 
 ---
 
 <a id="q34"></a>
-### Q34: How do you make a custom button accessible using ARIA attributes?
+### Q34: How do you implement custom `useInterval` hook?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-When creating a non-native button (e.g., using a `div`), you must add `role='button'`, `tabIndex={0}` for keyboard focus, and handle `onKeyDown` for Enter/Space keys.
+**Strategy**:
+Store latest callback in ref to prevent stale closures while keeping interval active.
 
-**Code Example:**
-function AccessibleButton({ onClick, label }) {
-  return (
-    <div
-      role="button"
-      tabIndex={0}
-      aria-label={label}
-      onClick={onClick}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault(); // Prevent scrolling for Space
-          onClick();
-        }
-      }}
-      style={{ cursor: 'pointer' }}
-    >
-      {label}
-    </div>
-  );
+**Code Example**:
+```javascript
+export function useInterval(cb, delay) {
+  const ref = useRef(cb);
+  useEffect(() => { ref.current = cb; }, [cb]);
+  useEffect(() => {
+    if (delay !== null) {
+      const id = setInterval(() => ref.current(), delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
 }
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+```
 
 ---
 
 <a id="q35"></a>
-### Q35: How do you profile a React application to identify performance bottlenecks?
+### Q35: How do you implement Infinite Scroll using `IntersectionObserver`?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use the React DevTools Profiler tab. It records rendering information, showing which components rendered, why they rendered (changed props/state), and how long it took.
+**Strategy**:
+Attach observer to sentinel element at list bottom.
 
-**Code Example:**
-// 1. Install React DevTools extension.
-// 2. Open the 'Profiler' tab in Chrome DevTools.
-// 3. Click 'Record' (blue circle).
-// 4. Interact with your app.
-// 5. Stop recording.
-
-// Analysis:
-// - Flamegraph: Shows the component tree. Width of bar = time taken to render. Color (yellow/red) = slow.
-// - Ranked chart: Lists components by render time.
-// - Why did this render?: Hover over a component to see changed props or hooks.
-
-// Programmatic Profiling:
-<Profiler id="Navigation" onRender={(id, phase, actualDuration) => {
-  console.log({ id, phase, actualDuration });
-}}>
-  <Navigation />
-</Profiler>
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+useEffect(() => {
+  const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) loadMore(); });
+  if (ref.current) observer.observe(ref.current);
+  return () => observer.disconnect();
+}, [loadMore]);
+```
 
 ---
 
 <a id="q36"></a>
-### Q36: How do you safely render HTML content to prevent XSS attacks?
+### Q36: How do you build an accessible Accordion component?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-React escapes content by default. If you must render raw HTML, use `dangerouslySetInnerHTML` but sanitize the content first using a library like `dompurify`.
+**Strategy**:
+Use `aria-expanded`, `aria-controls`, and `role="region"`.
 
-**Code Example:**
-import DOMPurify from 'dompurify';
-
-function SafeHTML({ htmlContent }) {
-  const sanitizedHTML = DOMPurify.sanitize(htmlContent);
-
-  return (
-    <div
-      dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
-    />
-  );
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+<button aria-expanded={isOpen} aria-controls="panel-1" onClick={toggle}>Header</button>
+{isOpen && <div id="panel-1" role="region">Content</div>}
+```
 
 ---
 
 <a id="q37"></a>
-### Q37: What is the difference between `fireEvent` and `userEvent` in React Testing Library?
+### Q37: How does React Profiler API work in production?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-`fireEvent` dispatches DOM events directly. `userEvent` simulates full user interactions (e.g., typing triggers focus, keydown, input, keyup, blur), making tests more realistic.
+**Strategy**:
+Measure render phase durations with `<Profiler onRender={callback}>`.
 
-**Code Example:**
-// fireEvent (Low-level)
-fireEvent.change(input, { target: { value: 'hello' } });
-
-// userEvent (Recommended - mimics real user behavior)
-import userEvent from '@testing-library/user-event';
-
-const user = userEvent.setup();
-await user.type(input, 'hello'); // Triggers focus, keydown, input...
-await user.click(button);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+<Profiler id="App" onRender={(id, phase, time) => console.log(id, phase, time)}><App /></Profiler>
+```
 
 ---
 
 <a id="q38"></a>
-### Q38: How do you handle errors in Functional Components (since they lack `componentDidCatch`)?
+### Q38: What is Prop Drilling and how does Component Composition resolve it?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy:**
-Use the `react-error-boundary` library, which provides a reusable `ErrorBoundary` component that works with functional components and hooks.
+**Strategy**:
+Pass JSX components as children or props rather than drilling state down many levels.
 
-**Code Example:**
-import { ErrorBoundary } from 'react-error-boundary';
-
-function ErrorFallback({ error, resetErrorBoundary }) {
-  return (
-    <div role="alert">
-      <p>Something went wrong:</p>
-      <pre>{error.message}</pre>
-      <button onClick={resetErrorBoundary}>Try again</button>
-    </div>
-  );
-}
-
-function App() {
-  return (
-    <ErrorBoundary
-      FallbackComponent={ErrorFallback}
-      onReset={() => {
-        // Reset the state of your app so the error doesn't happen again
-      }}
-    >
-      <MyComponent />
-    </ErrorBoundary>
-  );
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+<Page header={<UserAvatar user={user} />} />
+```
 
 ---
 
 <a id="q39"></a>
-### Q39: What is Automatic Batching in React 18?
+### Q39: How do you handle JWT authentication refresh flow in React?
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Before React 18, updates inside promises, timeouts, or native event handlers were not batched. React 18 batches *all* state updates automatically, reducing re-renders.
+**Strategy**:
+Use Axios response interceptors to refresh access token on 401 error.
 
-**Code Example:**
-// React 17: Renders twice
-setTimeout(() => {
-  setCount(c => c + 1);
-  setFlag(f => !f);
-}, 1000);
-
-// React 18: Renders once (Automatic Batching)
-setTimeout(() => {
-  setCount(c => c + 1);
-  setFlag(f => !f);
-}, 1000);
-
-// Opt-out (rarely needed):
-import { flushSync } from 'react-dom';
-flushSync(() => {
-  setCount(c => c + 1); // Forces re-render immediately
+**Code Example**:
+```javascript
+axios.interceptors.response.use(res => res, async err => {
+  if (err.response?.status === 401) { await refreshToken(); return axios(err.config); }
+  return Promise.reject(err);
 });
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+```
 
 ---
 
 <a id="q40"></a>
-### Q40: How do you use `useTransition` to keep the UI responsive during heavy state updates?
+### Q40: What is the difference between `React.createElement` and JSX?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
-**Strategy:**
-`useTransition` marks a state update as 'non-urgent' (transition). This allows the UI to remain responsive (e.g., typing in an input) while the heavy update (e.g., filtering a list) calculates in the background.
+**Strategy**:
+JSX is syntactic sugar compiled into `React.createElement` or JSX runtime `jsx()` calls.
 
-**Code Example:**
-import { useState, useTransition } from 'react';
-
-function App() {
-  const [isPending, startTransition] = useTransition();
-  const [input, setInput] = useState('');
-  const [list, setList] = useState([]);
-
-  const handleChange = (e) => {
-    // Urgent: Update input immediately
-    setInput(e.target.value);
-
-    // Non-urgent: Filter list (can lag slightly)
-    startTransition(() => {
-      const filtered = largeList.filter(item => item.includes(e.target.value));
-      setList(filtered);
-    });
-  };
-
-  return (
-    <div>
-      <input value={input} onChange={handleChange} />
-      {isPending ? <p>Loading list...</p> : <List items={list} />}
-    </div>
-  );
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// JSX: <div className="box">Hi</div>
+React.createElement('div', { className: 'box' }, 'Hi');
+```
 
 ---
 
 <a id="q41"></a>
-### Q41: What is `useDeferredValue` and when should you use it?
+### Q41: How do you handle multi-step forms in React?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-`useDeferredValue` accepts a value and returns a new copy of the value that will defer to more urgent updates. It's like debouncing but integrated with React's rendering cycle.
+**Strategy**:
+Manage a step state index and collect accumulated form data at each step.
 
-**Code Example:**
-import { useState, useDeferredValue, useMemo } from 'react';
-
-function App() {
-  const [query, setQuery] = useState('');
-  // The deferred query will lag behind the actual query if the UI is busy
-  const deferredQuery = useDeferredValue(query);
-
-  // Expensive list calculation only runs when deferredQuery catches up
-  const list = useMemo(() => {
-    return largeList.filter(item => item.includes(deferredQuery));
-  }, [deferredQuery]);
-
-  return (
-    <>
-      <input value={query} onChange={e => setQuery(e.target.value)} />
-      <List items={list} />
-    </>
-  );
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+const [step, setStep] = useState(1);
+const [data, setData] = useState({});
+```
 
 ---
 
 <a id="q42"></a>
-### Q42: How does Suspense for Data Fetching work?
+### Q42: How do you optimize SVG icons in React?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
-**Strategy:**
-Suspense allows components to 'suspend' rendering while waiting for an async operation (like fetching data) to complete. It requires a Suspense-enabled data fetching library (like Relay, SWR, or React Query's suspense mode).
+**Strategy**:
+Use SVGR to bundle SVGs as reusable vector components.
 
-**Code Example:**
-import { Suspense } from 'react';
-
-// Assume 'ProfileData' is a component that throws a promise while fetching
-// This requires a library that supports Suspense for data fetching
-function ProfilePage() {
-  return (
-    <Suspense fallback={<h1>Loading profile...</h1>}>
-      <ProfileData />
-      <Suspense fallback={<h1>Loading posts...</h1>}>
-        <ProfilePosts />
-      </Suspense>
-    </Suspense>
-  );
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+export const Icon = ({ size = 24 }) => <svg width={size} height={size} viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>;
+```
 
 ---
 
 <a id="q43"></a>
-### Q43: Why is using the array index as a key an anti-pattern?
+### Q43: What is client-side routing vs server-side routing?
 
 **Difficulty**: Beginner
 
-**Strategy:**
-Using the index as a key can break your application and cause wrong data to be displayed if the list order changes (sorting, filtering, inserting). React uses keys to identify elements. If the index changes, React may reuse component state incorrectly.
+**Strategy**:
+Client routing updates the DOM and History API without requesting a new HTML document.
 
-**Code Example:**
-// ❌ Bad: Index as key
-{items.map((item, index) => (
-  <li key={index}>{item.name}</li>
-))}
-
-// ✅ Good: Unique ID as key
-{items.map((item) => (
-  <li key={item.id}>{item.name}</li>
-))}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+```
 
 ---
 
 <a id="q44"></a>
-### Q44: How do you solve Props Drilling without Context?
+### Q44: How do you create a custom `useMediaQuery` hook?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use **Component Composition**. Instead of passing data down through intermediate components, pass the components themselves as `children` or props.
+**Strategy**:
+Listen to `window.matchMedia` change events.
 
-**Code Example:**
-// ❌ Props Drilling
-function App() {
-  const user = { name: 'Alice' };
-  return <Layout user={user} />;
+**Code Example**:
+```typescript
+export function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const listener = (e: MediaQueryListEvent) => setMatches(e.matches);
+    media.addEventListener('change', listener);
+    return () => media.removeEventListener('change', listener);
+  }, [query]);
+  return matches;
 }
-function Layout({ user }) {
-  return <Header user={user} />; // Layout doesn't need user
-}
-function Header({ user }) {
-  return <div>Hello {user.name}</div>;
-}
-
-// ✅ Composition
-function App() {
-  const user = { name: 'Alice' };
-  return (
-    <Layout>
-      <Header user={user} />
-    </Layout>
-  );
-}
-function Layout({ children }) {
-  return <div>{children}</div>; // Layout is agnostic
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+```
 
 ---
 
 <a id="q45"></a>
-### Q45: What are Micro-frontends and how does Module Federation help?
+### Q45: How do you cancel pending Axios requests on unmount?
 
-**Difficulty**: Expert
+**Difficulty**: Intermediate
 
-**Strategy:**
-Micro-frontends split a monolithic frontend into smaller, independently deployable apps. Webpack 5 Module Federation allows a JavaScript application to dynamically load code from another application at runtime.
+**Strategy**:
+Pass `AbortController.signal` into Axios config.
 
-**Code Example:**
-// webpack.config.js (Host App)
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
-
-module.exports = {
-  plugins: [
-    new ModuleFederationPlugin({
-      name: "host",
-      remotes: {
-        app1: "app1@http://localhost:3001/remoteEntry.js",
-      },
-    }),
-  ],
-};
-
-// Usage in Host App
-const RemoteApp1 = React.lazy(() => import("app1/App"));
-
-function App() {
-  return (
-    <Suspense fallback="Loading App1...">
-      <RemoteApp1 />
-    </Suspense>
-  );
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+useEffect(() => {
+  const ctrl = new AbortController();
+  axios.get('/api', { signal: ctrl.signal });
+  return () => ctrl.abort();
+}, []);
+```
 
 ---
 
 <a id="q46"></a>
-### Q46: How do you use Generics in TypeScript with React Props?
+### Q46: What are Render Props and why did Hooks replace them?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Generics allow you to create reusable components that work with different data types while maintaining type safety.
+**Strategy**:
+Render props pass a rendering function as prop; hooks eliminate JSX wrapper nesting.
 
-**Code Example:**
-interface ListProps<T> {
-  items: T[];
-  renderItem: (item: T) => React.ReactNode;
-}
-
-function List<T>({ items, renderItem }: ListProps<T>) {
-  return <ul>{items.map((item, i) => <li key={i}>{renderItem(item)}</li>)}</ul>;
-}
-
-// Usage
-// <List<string> items={['a', 'b']} renderItem={(item) => <span>{item}</span>} />
-// <List<number> items={[1, 2]} renderItem={(item) => <span>{item}</span>} />
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+<DataProvider render={data => <div>{data.title}</div>} />
+```
 
 ---
 
 <a id="q47"></a>
-### Q47: How do you create Discriminated Unions for mutually exclusive props?
+### Q47: How do you implement Dark Mode with CSS Variables?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
-**Strategy:**
-Use a common literal type property (the discriminant) to distinguish between object types.
+**Strategy**:
+Toggle `data-theme` on documentElement and persist in localStorage.
 
-**Code Example:**
-type ButtonProps = 
-  | { variant: 'text'; text: string; icon?: never }
-  | { variant: 'icon'; icon: string; text?: never };
-
-function Button(props: ButtonProps) {
-  if (props.variant === 'text') {
-    return <button>{props.text}</button>;
-  }
-  return <button className="icon">{props.icon}</button>;
-}
-
-// Usage
-// <Button variant="text" text="Click me" /> // ✅ Valid
-// <Button variant="icon" icon="star" />     // ✅ Valid
-// <Button variant="text" icon="star" />     // ❌ Error: Property 'icon' does not exist...
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+document.documentElement.setAttribute('data-theme', 'dark');
+```
 
 ---
 
 <a id="q48"></a>
-### Q48: What does React Strict Mode do?
+### Q48: How do you handle Hydration mismatch errors in React SSR?
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-`React.StrictMode` is a development-only tool that highlights potential problems. It intentionally double-invokes effects (mount -> unmount -> mount) to help find side effects and unsafe lifecycle methods.
+**Strategy**:
+Ensure server and initial client render outputs match, or use `suppressHydrationWarning`.
 
-**Code Example:**
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// In Dev:
-// useEffect(() => console.log('mount'), []) 
-// Logs: 'mount', 'mount' (to ensure your cleanup logic is correct)
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+<span suppressHydrationWarning>{new Date().toLocaleTimeString()}</span>
+```
 
 ---
 
 <a id="q49"></a>
-### Q49: How does Event Delegation work in React?
+### Q49: What is `useId` and why is it important for accessibility?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
-**Strategy:**
-React doesn't attach event handlers to the DOM nodes you create. Instead, it attaches a single event listener to the root element. When an event occurs, React maps it back to the correct component instance (Synthetic Events). This improves memory usage.
+**Strategy**:
+Generates stable, unique IDs across client and server rendering.
 
-**Code Example:**
-// JSX
-<button onClick={handleClick}>Click</button>
-
-// Real DOM (Simplified)
-// <div id="root"></div> (Event Listener attached here)
-//   <button>Click</button> (No individual listener)
-
-// Event Bubble:
-// Button Click -> Bubbles up to #root -> React catches it -> Calls handleClick
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```jsx
+const id = useId();
+return <><label htmlFor={id}>Email</label><input id={id}/></>;
+```
 
 ---
 
 <a id="q50"></a>
-### Q50: What is the React Reconciler?
+### Q50: How do you implement Drag and Drop in React?
 
-**Difficulty**: Expert
+**Difficulty**: Intermediate
 
-**Strategy:**
-The Reconciler is the engine that diffs the Virtual DOM. React Fiber is the current reconciliation engine (since v16). It enables features like pausing/aborting work, assigning priority to different updates, and reusing DOM elements.
+**Strategy**:
+Use native HTML Drag and Drop events or `dnd-kit` library.
 
-**Code Example:**
-// Reconciliation Process:
-// 1. Render Phase: React calls your components and creates a Virtual DOM tree.
-//    - This phase can be interrupted/paused (Fiber).
-//    - Calculates changes (diffing).
+**Code Example**:
+```jsx
+<div draggable onDragStart={e => e.dataTransfer.setData('text', 'id')}>Item</div>
+```
 
-// 2. Commit Phase: React applies the changes to the real DOM.
-//    - This phase is synchronous and cannot be interrupted.
-//    - Lifecycle methods like componentDidMount / useLayoutEffect run here.
+---
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q51"></a>
+### Q51: What is the purpose of `React.Children.map`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Safely iterates over opaque `props.children` elements.
+
+**Code Example**:
+```jsx
+React.Children.map(children, child => React.cloneElement(child, { extra: true }))
+```
+
+---
+
+<a id="q52"></a>
+### Q52: How do you prevent unnecessary re-renders with Context objects?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Wrap context values inside `useMemo`.
+
+**Code Example**:
+```jsx
+const value = useMemo(() => ({ user, theme }), [user, theme]);
+return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
+```
+
+---
+
+<a id="q53"></a>
+### Q53: What are Higher-Order Components and what are their limitations?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Functions returning enhanced components; limitations include prop collisions and wrapper hell.
+
+**Code Example**:
+```jsx
+export const withLogger = (Comp) => (props) => { console.log('Render', props); return <Comp {...props}/>; };
+```
+
+---
+
+<a id="q54"></a>
+### Q54: How do you implement Undo/Redo history in React state?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Maintain past, present, and future state arrays in a reducer.
+
+**Code Example**:
+```javascript
+function undoReducer(state, action) {
+  if (action.type === 'UNDO') return { past: state.past.slice(0, -1), present: state.past[state.past.length - 1], future: [state.present, ...state.future] };
+  return state;
+}
+```
+
+---
+
+<a id="q55"></a>
+### Q55: What is the purpose of `useImperativeHandle`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Exposes imperative methods when parent component accesses ref.
+
+**Code Example**:
+```jsx
+useImperativeHandle(ref, () => ({ scroll: () => ref.current.scrollIntoView() }));
+```
+
+---
+
+<a id="q56"></a>
+### Q56: How do you debounce API validation in React Hook Form?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Debounce validation handler with lodash or custom timer.
+
+**Code Example**:
+```jsx
+const debouncedValidate = debounce(checkUsername, 500);
+```
+
+---
+
+<a id="q57"></a>
+### Q57: What is the difference in event delegation between React 16 and 17+?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+React 17+ attaches event listeners to root container rather than `document`.
+
+**Code Example**:
+```javascript
+// In React 17+, document.addEventListener runs before React synthetic events
+```
+
+---
+
+<a id="q58"></a>
+### Q58: How do you implement Skeleton Loaders during data fetching?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Render placeholder pulse shapes while `loading` state is true.
+
+**Code Example**:
+```jsx
+{loading ? <div className="skeleton" /> : <Content data={data} />}
+```
+
+---
+
+<a id="q59"></a>
+### Q59: How do you control HTML `<dialog>` element in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `ref.current.showModal()` and `ref.current.close()`.
+
+**Code Example**:
+```jsx
+const ref = useRef();
+<dialog ref={ref}><button onClick={() => ref.current.close()}>Close</button></dialog>
+```
+
+---
+
+<a id="q60"></a>
+### Q60: How does Server-Side Rendering (SSR) improve SEO?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Search engines receive pre-rendered HTML content on first response.
+
+**Code Example**:
+```javascript
+// Full HTML content available immediately for search crawlers
+```
+
+---
+
+<a id="q61"></a>
+### Q61: What is Static Site Generation (SSG)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Pre-generates static HTML pages at build time.
+
+**Code Example**:
+```javascript
+// Pages generated once at build time for instant CDN delivery
+```
+
+---
+
+<a id="q62"></a>
+### Q62: What is Incremental Static Regeneration (ISR)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Regenerates static pages in background on incoming requests after revalidation period.
+
+**Code Example**:
+```javascript
+// export const revalidate = 60;
+```
+
+---
+
+<a id="q63"></a>
+### Q63: What is `React.cloneElement` and why is it discouraged in modern React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Clones element and injects props; discouraged because it obscures data flow compared to Context or Render Props.
+
+**Code Example**:
+```jsx
+React.cloneElement(child, { isActive: true })
+```
+
+---
+
+<a id="q64"></a>
+### Q64: How do you build a Global Toast Notification system in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use Context Provider with reducer queue and auto-dismiss timer.
+
+**Code Example**:
+```jsx
+const { addToast } = useToast();
+addToast('Saved successfully', 'success');
+```
+
+---
+
+<a id="q65"></a>
+### Q65: How do you memoize recursive components in React?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Wrap recursive component in `React.memo` with stable parent callbacks.
+
+**Code Example**:
+```jsx
+const TreeNode = React.memo(({ node }) => (
+  <div>{node.name}{node.children?.map(c => <TreeNode key={c.id} node={c}/>)}</div>
+));
+```
+
+---
+
+<a id="q66"></a>
+### Q66: What is State Hoisting (Lifting State Up)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Moving state to nearest common ancestor so sibling components can share it.
+
+**Code Example**:
+```jsx
+function Parent() {
+  const [val, setVal] = useState('');
+  return <><Input val={val} setVal={setVal}/><Display val={val}/></>;
+}
+```
+
+---
+
+<a id="q67"></a>
+### Q67: How do you build dynamic breadcrumb navigation in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Parse current pathname and map segments to links.
+
+**Code Example**:
+```jsx
+const paths = location.pathname.split('/').filter(Boolean);
+```
+
+---
+
+<a id="q68"></a>
+### Q68: What is the difference between `PureComponent` and `Component`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`PureComponent` automatically implements `shouldComponentUpdate` with shallow prop/state comparison.
+
+**Code Example**:
+```jsx
+class Card extends React.PureComponent { render() { return <div>{this.props.title}</div>; } }
+```
+
+---
+
+<a id="q69"></a>
+### Q69: How do you track file upload progress in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use Axios `onUploadProgress` or XMLHttpRequest upload listener.
+
+**Code Example**:
+```javascript
+axios.post('/upload', formData, { onUploadProgress: e => setProgress(Math.round((e.loaded * 100) / e.total)) });
+```
+
+---
+
+<a id="q70"></a>
+### Q70: How do you implement responsive table card layouts in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use CSS Grid and media queries to convert table rows into card elements on mobile.
+
+**Code Example**:
+```css
+@media (max-width: 600px) { tr { display: flex; flex-direction: column; } }
+```
+
+---
+
+<a id="q71"></a>
+### Q71: What is the difference between `<React.Fragment>` and `<>` shorthand?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`<React.Fragment>` accepts `key` attribute; `<>` shorthand does not.
+
+**Code Example**:
+```jsx
+<React.Fragment key={id}><div>1</div><div>2</div></React.Fragment>
+```
+
+---
+
+<a id="q72"></a>
+### Q72: How do you handle keyboard arrow navigation in Tabs?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Listen for ArrowLeft / ArrowRight keydown events and shift active tab focus.
+
+**Code Example**:
+```jsx
+onKeyDown={e => { if (e.key === 'ArrowRight') nextTab(); }}
+```
+
+---
+
+<a id="q73"></a>
+### Q73: What is the difference between `window.location.href` and React Router `navigate`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+`window.location.href` triggers full page reload; `navigate` performs fast client-side transition.
+
+**Code Example**:
+```jsx
+navigate('/dashboard');
+```
+
+---
+
+<a id="q74"></a>
+### Q74: How do you mock API calls in Jest without extra libraries?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Mock `global.fetch` with `jest.fn()` returning a resolved Promise.
+
+**Code Example**:
+```javascript
+global.fetch = jest.fn(() => Promise.resolve({ json: () => Promise.resolve({ data: 123 }) }));
+```
+
+---
+
+<a id="q75"></a>
+### Q75: How do you test custom hooks using `renderHook`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `renderHook` from `@testing-library/react` and wrap state changes in `act`.
+
+**Code Example**:
+```tsx
+const { result } = renderHook(() => useCounter());
+act(() => result.current.inc());
+expect(result.current.count).toBe(1);
+```
+
+---
+
+<a id="q76"></a>
+### Q76: What is Micro-frontend Module Federation with React?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Dynamically imports independent React builds at runtime across multiple domains.
+
+**Code Example**:
+```javascript
+// ModuleFederationPlugin config
+```
+
+---
+
+<a id="q77"></a>
+### Q77: How do you optimize Core Web Vitals (LCP, INP, CLS) in React?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Preload hero images, split heavy bundles, reserve aspect-ratio boxes, and defer non-critical JS.
+
+**Code Example**:
+```jsx
+<img src="/hero.webp" fetchPriority="high" />
+```
+
+---
+
+<a id="q78"></a>
+### Q78: How do you implement Copy to Clipboard with temporary tooltip?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use `navigator.clipboard.writeText` and timeout state.
+
+**Code Example**:
+```jsx
+const copy = () => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); };
+```
+
+---
+
+<a id="q79"></a>
+### Q79: What is the difference between dependencies and peerDependencies in React packages?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+`dependencies` are installed by the package; `peerDependencies` must be installed by host application.
+
+**Code Example**:
+```json
+"peerDependencies": { "react": ">=18.0.0" }
+```
+
+---
+
+<a id="q80"></a>
+### Q80: How do you build an accessible Dropdown menu in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `aria-haspopup="true"`, `aria-expanded`, and Escape key to close.
+
+**Code Example**:
+```jsx
+<button aria-haspopup="true" aria-expanded={open} onClick={toggle}>Menu</button>
+```
+
+---
+
+<a id="q81"></a>
+### Q81: How do you test Error Boundary components with React Testing Library?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Spy on `console.error` and assert fallback UI is visible when child throws.
+
+**Code Example**:
+```jsx
+render(<ErrorBoundary><Bomb /></ErrorBoundary>);
+expect(screen.getByRole('alert')).toBeInTheDocument();
+```
+
+---
+
+<a id="q82"></a>
+### Q82: What was SyntheticEvent pooling in React 16 and why was it removed in React 17?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+React 16 reused event objects across ticks for memory efficiency; React 17 removed it so events can be accessed asynchronously without `e.persist()`.
+
+**Code Example**:
+```javascript
+// In React 17+, event properties can be accessed in async callbacks safely
+```
+
+---
+
+<a id="q83"></a>
+### Q83: How do you implement custom `useHover` hook?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Listen for `mouseenter` and `mouseleave` events.
+
+**Code Example**:
+```typescript
+export function useHover(ref: any) {
+  const [hovered, setHovered] = useState(false);
+  useEffect(() => {
+    const on = () => setHovered(true), off = () => setHovered(false);
+    const el = ref.current;
+    el?.addEventListener('mouseenter', on);
+    el?.addEventListener('mouseleave', off);
+    return () => { el?.removeEventListener('mouseenter', on); el?.removeEventListener('mouseleave', off); };
+  }, [ref]);
+  return hovered;
+}
+```
+
+---
+
+<a id="q84"></a>
+### Q84: How do you handle i18n localization in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Use `react-i18next` with JSON translation resources.
+
+**Code Example**:
+```jsx
+const { t } = useTranslation();
+return <h1>{t('welcome_message')}</h1>;
+```
+
+---
+
+<a id="q85"></a>
+### Q85: What are the advantages of `pnpm` in React monorepos?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Content-addressable store hard-links packages, preventing phantom dependencies and saving disk space.
+
+**Code Example**:
+```bash
+pnpm install
+```
+
+---
+
+<a id="q86"></a>
+### Q86: How do you implement pagination with ellipsis in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Generate page array `[1, '...', curr-1, curr, curr+1, '...', total]`.
+
+**Code Example**:
+```jsx
+const pages = getPaginationRange(current, total);
+```
+
+---
+
+<a id="q87"></a>
+### Q87: What is client state vs server state in React applications?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Client state handles local UI controls; server state handles remote persisted data requiring caching/invalidation.
+
+**Code Example**:
+```javascript
+// Client: const [isOpen, setOpen] = useState(false);
+// Server: const { data } = useQuery(['user'], fetchUser);
+```
+
+---
+
+<a id="q88"></a>
+### Q88: How do you implement auto-saving forms in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Debounce changes and fire background PATCH requests with save indicators.
+
+**Code Example**:
+```jsx
+useDebounceEffect(() => { api.save(formData); }, 1000, [formData]);
+```
+
+---
+
+<a id="q89"></a>
+### Q89: How do you build a custom Range Slider in React?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Control `<input type="range">` and compute CSS gradient progress fill.
+
+**Code Example**:
+```jsx
+<input type="range" min="0" max="100" value={val} onChange={e => setVal(e.target.value)} />
+```
+
+---
+
+<a id="q90"></a>
+### Q90: What are React Server Actions and how do they replace API routes?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Async server functions called directly from client forms with automatic serialization.
+
+**Code Example**:
+```jsx
+async function create(formData) { 'use server'; await db.insert(formData); }
+```
+
+---
+
+<a id="q91"></a>
+### Q91: How do you implement WebAuthn biometric login in React?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Call `navigator.credentials.get()` for biometric passkey authentication.
+
+**Code Example**:
+```javascript
+const cred = await navigator.credentials.get({ publicKey: options });
+```
+
+---
+
+<a id="q92"></a>
+### Q92: How do you create animated notification badges in React?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Trigger CSS keyframe bounce animation whenever count changes.
+
+**Code Example**:
+```css
+@keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
+```
+
+---
+
+<a id="q93"></a>
+### Q93: What is the difference between `useCallback` and regular inline functions?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Inline functions create new references every render; `useCallback` returns cached function identity.
+
+**Code Example**:
+```jsx
+const fn = useCallback(() => doWork(id), [id]);
+```
+
+---
+
+<a id="q94"></a>
+### Q94: How do you implement sticky headers in React?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Use CSS `position: sticky; top: 0; z-index: 10;`.
+
+**Code Example**:
+```css
+.header { position: sticky; top: 0; z-index: 100; }
+```
+
+---
+
+<a id="q95"></a>
+### Q95: How do you structure enterprise React codebases?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Feature-based architecture with modules containing UI, hooks, api, and tests.
+
+**Code Example**:
+```
+src/features/auth/{components, hooks, api, authSlice.ts}
+```
+
+---
+
+<a id="q96"></a>
+### Q96: How do you test accessibility with `@axe-core/react`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Log WCAG violations directly to developer console.
+
+**Code Example**:
+```javascript
+if (process.env.NODE_ENV !== 'production') { axe(React, ReactDOM, 1000); }
+```
+
+---
+
+<a id="q97"></a>
+### Q97: What is the difference between SPA and MPA?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+SPA renders client-side without full reloads; MPA requests full HTML documents per route.
+
+**Code Example**:
+```javascript
+// SPA provides app-like fluid navigation
+```
+
+---
+
+<a id="q98"></a>
+### Q98: How do you handle multi-tab session expiration in React?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Broadcast logout messages via `BroadcastChannel` or `localStorage` events.
+
+**Code Example**:
+```javascript
+const bc = new BroadcastChannel('auth');
+bc.onmessage = (e) => { if (e.data === 'logout') logout(); };
+```
+
+---
+
+<a id="q99"></a>
+### Q99: How do you implement custom `useCountdown` hook?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Decrement seconds using `setInterval` until reaching zero.
+
+**Code Example**:
+```typescript
+export function useCountdown(initialSec: number) {
+  const [sec, setSec] = useState(initialSec);
+  useEffect(() => {
+    if (sec <= 0) return;
+    const id = setInterval(() => setSec(s => s - 1), 1000);
+    return () => clearInterval(id);
+  }, [sec]);
+  return sec;
+}
+```
+
+---
+
+<a id="q100"></a>
+### Q100: What is shallow routing in React Router?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Updates URL query params without reloading route data loaders.
+
+**Code Example**:
+```jsx
+setSearchParams({ filter: 'active' });
+```
+
+---

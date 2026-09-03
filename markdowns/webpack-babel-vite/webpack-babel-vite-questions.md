@@ -1,1225 +1,2146 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Webpack, Babel & Vite Logo" width="100" height="100">
   </a>
   <h1>Webpack, Babel & Vite Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for developers</b></p>
+  <p><b>Comprehensive interview questions covering Module Federation, Vite ESM, AST Plugins, and HMR</b></p>
 </div>
 
 ---
 
 ## Table of Contents
 
-1. [You are migrating a legacy React project from Webpack to Vite to improve development server start time. The project relies on CommonJS modules (`require`). How do you handle this in Vite?](#q1-you-are-migrating-a-legacy-react-project-from-webpack-to-vite-to-improve-development-server-start-time.-the-project-relies-on-commonjs-modules-require.-how-do-you-handle-this-in-vite) <span class="beginner">Beginner</span>
-2. [Your Webpack bundle size has grown too large (5MB+), causing slow initial page loads. How do you use `SplitChunksPlugin` to optimize this?](#q2-your-webpack-bundle-size-has-grown-too-large-5mb+-causing-slow-initial-page-loads.-how-do-you-use-splitchunksplugin-to-optimize-this) <span class="beginner">Beginner</span>
-3. [You need to support Internet Explorer 11 in a modern JavaScript application. How do you configure Babel to ensure your code runs there without transpiling everything unnecessarily for modern browsers?](#q3-you-need-to-support-internet-explorer-11-in-a-modern-javascript-application.-how-do-you-configure-babel-to-ensure-your-code-runs-there-without-transpiling-everything-unnecessarily-for-modern-browsers) <span class="beginner">Beginner</span>
-4. [How do you optimize Tree Shaking in Webpack by marking side effects?](#q4-how-do-you-optimize-tree-shaking-in-webpack-by-marking-side-effects) <span class="beginner">Beginner</span>
-5. [How does Vite achieve instant server start times compared to Webpack?](#q5-how-does-vite-achieve-instant-server-start-times-compared-to-webpack) <span class="beginner">Beginner</span>
-6. [You are building a Micro Frontends architecture. How do you configure Webpack Module Federation to expose a component?](#q6-you-are-building-a-micro-frontends-architecture.-how-do-you-configure-webpack-module-federation-to-expose-a-component) <span class="beginner">Beginner</span>
-7. [How do you combine Babel Plugins to create a custom Preset?](#q7-how-do-you-combine-babel-plugins-to-create-a-custom-preset) <span class="beginner">Beginner</span>
-8. [You encounter a 'CORS' error when your frontend (localhost:3000) tries to call your API (localhost:5000). How do you fix this using Webpack Dev Server proxy?](#q8-you-encounter-a-cors-error-when-your-frontend-localhost:3000-tries-to-call-your-api-localhost:5000.-how-do-you-fix-this-using-webpack-dev-server-proxy) <span class="beginner">Beginner</span>
-9. [How do you debug a large bundle to find out which libraries are taking up the most space?](#q9-how-do-you-debug-a-large-bundle-to-find-out-which-libraries-are-taking-up-the-most-space) <span class="beginner">Beginner</span>
-10. [How do you enable Hot Module Replacement (HMR) manually in Webpack?](#q10-how-do-you-enable-hot-module-replacement-hmr-manually-in-webpack) <span class="beginner">Beginner</span>
-11. [You are using environment variables in your frontend code. Why does `process.env.API_KEY` work in Node.js but fail in the browser, and how do you fix it?](#q11-you-are-using-environment-variables-in-your-frontend-code.-why-does-process.env.api_key-work-in-node.js-but-fail-in-the-browser-and-how-do-you-fix-it) <span class="beginner">Beginner</span>
-12. [How do you configure secure Source Maps for production debugging without exposing source code?](#q12-how-do-you-configure-secure-source-maps-for-production-debugging-without-exposing-source-code) <span class="beginner">Beginner</span>
-13. [How do you implement 'Path Aliases' (e.g., importing from `@components/Button` instead of `../../components/Button`)?](#q13-how-do-you-implement-path-aliases-e.g.-importing-from-@componentsbutton-instead-of-....componentsbutton) <span class="beginner">Beginner</span>
-14. [How do you write a custom Babel Plugin using AST transformation?](#q14-how-do-you-write-a-custom-babel-plugin-using-ast-transformation) <span class="beginner">Beginner</span>
-15. [How do you use Webpack's `ProvidePlugin` to shim global variables like jQuery?](#q15-how-do-you-use-webpacks-provideplugin-to-shim-global-variables-like-jquery) <span class="beginner">Beginner</span>
-16. [How do you configure Webpack to use CSS Modules?](#q16-how-do-you-configure-webpack-to-use-css-modules) <span class="intermediate">Intermediate</span>
-17. [How do you set up PostCSS with Webpack?](#q17-how-do-you-set-up-postcss-with-webpack) <span class="intermediate">Intermediate</span>
-18. [How do you handle images and fonts in Webpack 5 (Asset Modules)?](#q18-how-do-you-handle-images-and-fonts-in-webpack-5-asset-modules) <span class="beginner">Beginner</span>
-19. [Should you use `ts-loader` or `babel-loader` for TypeScript?](#q19-should-you-use-ts-loader-or-babel-loader-for-typescript) <span class="intermediate">Intermediate</span>
-20. [How do you inject the bundle into HTML automatically?](#q20-how-do-you-inject-the-bundle-into-html-automatically) <span class="beginner">Beginner</span>
-21. [How do you use `DefinePlugin` to pass environment variables?](#q21-how-do-you-use-defineplugin-to-pass-environment-variables) <span class="intermediate">Intermediate</span>
-22. [How do you extract CSS into separate files for production?](#q22-how-do-you-extract-css-into-separate-files-for-production) <span class="intermediate">Intermediate</span>
-23. [How do you copy static assets (like favicon) to the build folder?](#q23-how-do-you-copy-static-assets-like-favicon-to-the-build-folder) <span class="beginner">Beginner</span>
-24. [How do you configure a Proxy in Webpack Dev Server?](#q24-how-do-you-configure-a-proxy-in-webpack-dev-server) <span class="intermediate">Intermediate</span>
-25. [What is Webpack Module Federation?](#q25-what-is-webpack-module-federation) <span class="advanced">Advanced</span>
-26. [How do you build a library using Vite?](#q26-how-do-you-build-a-library-using-vite) <span class="intermediate">Intermediate</span>
-27. [How do you access Environment Variables in Vite?](#q27-how-do-you-access-environment-variables-in-vite) <span class="beginner">Beginner</span>
-28. [How do you configure a Proxy in Vite?](#q28-how-do-you-configure-a-proxy-in-vite) <span class="intermediate">Intermediate</span>
-29. [How do you import multiple files at once in Vite (Glob Import)?](#q29-how-do-you-import-multiple-files-at-once-in-vite-glob-import) <span class="intermediate">Intermediate</span>
-30. [How do you enable Server-Side Rendering (SSR) in Vite?](#q30-how-do-you-enable-server-side-rendering-ssr-in-vite) <span class="advanced">Advanced</span>
-31. [How do you specify target browsers in Babel?](#q31-how-do-you-specify-target-browsers-in-babel) <span class="beginner">Beginner</span>
-32. [In what order do Babel plugins run?](#q32-in-what-order-do-babel-plugins-run) <span class="advanced">Advanced</span>
-33. [Why use `@babel/plugin-transform-runtime`?](#q33-why-use-@babelplugin-transform-runtime) <span class="intermediate">Intermediate</span>
-34. [How do you configure Babel for React?](#q34-how-do-you-configure-babel-for-react) <span class="beginner">Beginner</span>
-35. [How do you configure Babel for TypeScript?](#q35-how-do-you-configure-babel-for-typescript) <span class="beginner">Beginner</span>
-36. [How does Rollup's Tree Shaking compare to Webpack?](#q36-how-does-rollups-tree-shaking-compare-to-webpack) <span class="advanced">Advanced</span>
-37. [What are the common Output Formats (CJS, ESM, UMD)?](#q37-what-are-the-common-output-formats-cjs-esm-umd) <span class="beginner">Beginner</span>
-38. [Why is esbuild so fast?](#q38-why-is-esbuild-so-fast) <span class="intermediate">Intermediate</span>
-39. [How do you setup `lint-staged` and `husky`?](#q39-how-do-you-setup-lint-staged-and-husky) <span class="intermediate">Intermediate</span>
-40. [How do you enforce Conventional Commits?](#q40-how-do-you-enforce-conventional-commits) <span class="intermediate">Intermediate</span>
-41. [How do you run npm scripts in parallel?](#q41-how-do-you-run-npm-scripts-in-parallel) <span class="beginner">Beginner</span>
-42. [How do you setup Yarn Workspaces for a monorepo?](#q42-how-do-you-setup-yarn-workspaces-for-a-monorepo) <span class="intermediate">Intermediate</span>
-43. [What is Nx or Turborepo used for?](#q43-what-is-nx-or-turborepo-used-for) <span class="advanced">Advanced</span>
-44. [Why use `pnpm` over `npm` or `yarn`?](#q44-why-use-pnpm-over-npm-or-yarn) <span class="intermediate">Intermediate</span>
-45. [How do you automate semantic versioning and publishing?](#q45-how-do-you-automate-semantic-versioning-and-publishing) <span class="advanced">Advanced</span>
-46. [How do you cache `node_modules` in GitHub Actions?](#q46-how-do-you-cache-node_modules-in-github-actions) <span class="intermediate">Intermediate</span>
-47. [How do you optimize a Docker build for Node.js app?](#q47-how-do-you-optimize-a-docker-build-for-node.js-app) <span class="intermediate">Intermediate</span>
-48. [How do you visualize the Webpack bundle size?](#q48-how-do-you-visualize-the-webpack-bundle-size) <span class="beginner">Beginner</span>
-49. [How do you visualize the Vite/Rollup bundle size?](#q49-how-do-you-visualize-the-viterollup-bundle-size) <span class="beginner">Beginner</span>
-50. [How do you manually polyfill features using `core-js`?](#q50-how-do-you-manually-polyfill-features-using-core-js) <span class="intermediate">Intermediate</span>
+1. [How does Vite's Native ESM dev server differ fundamentally from Webpack's bundle-based architecture?](#q1) <span class="advanced">Advanced</span>
+2. [How does Webpack 5 Module Federation work and what problem does it solve in Micro-frontends?](#q2) <span class="advanced">Advanced</span>
+3. [How does Tree Shaking work in Webpack and Rollup, and what makes a module 'pure'?](#q3) <span class="intermediate">Intermediate</span>
+4. [What is the role of Babel AST (Abstract Syntax Tree) and how do Babel plugins transform code?](#q4) <span class="advanced">Advanced</span>
+5. [How does Hot Module Replacement (HMR) work under the hood?](#q5) <span class="advanced">Advanced</span>
+6. [What are Webpack Loaders vs Plugins?](#q6) <span class="beginner">Beginner</span>
+7. [How do you configure Code Splitting with `import()` dynamic imports in Webpack?](#q7) <span class="intermediate">Intermediate</span>
+8. [What is the purpose of `output.filename` vs `output.chunkFilename` in Webpack?](#q8) <span class="intermediate">Intermediate</span>
+9. [How does Content Hashing (`[contenthash]`) enable long-term browser caching?](#q9) <span class="intermediate">Intermediate</span>
+10. [What is `source-map` and which devtool options are best for development vs production?](#q10) <span class="intermediate">Intermediate</span>
+11. [How does Rollup differ from Webpack and why is it preferred for libraries?](#q11) <span class="intermediate">Intermediate</span>
+12. [What is esbuild and why is it orders of magnitude faster than Webpack and Babel?](#q12) <span class="intermediate">Intermediate</span>
+13. [How does SWC (Speedy Web Compiler) compare to Babel?](#q13) <span class="intermediate">Intermediate</span>
+14. [What is the purpose of `@babel/preset-env` and `browserslist`?](#q14) <span class="beginner">Beginner</span>
+15. [What is `core-js` and how does Polyfill injection work in Babel (`useBuiltIns`)?](#q15) <span class="advanced">Advanced</span>
+16. [How do you configure Webpack Bundle Analyzer to identify oversized dependencies?](#q16) <span class="beginner">Beginner</span>
+17. [What is the purpose of `SplitChunksPlugin` (`optimization.splitChunks`) in Webpack?](#q17) <span class="advanced">Advanced</span>
+18. [How do you configure Vite proxy for development API requests to avoid CORS?](#q18) <span class="beginner">Beginner</span>
+19. [What is the difference between `dependencies`, `devDependencies`, and `peerDependencies` in bundler builds?](#q19) <span class="beginner">Beginner</span>
+20. [How do you handle CSS Modules in Vite and Webpack?](#q20) <span class="beginner">Beginner</span>
+21. [What is the purpose of `publicPath` in Webpack config?](#q21) <span class="intermediate">Intermediate</span>
+22. [How do you configure Environment Variables in Webpack with `DefinePlugin` vs Vite with `import.meta.env`?](#q22) <span class="beginner">Beginner</span>
+23. [How does `esbuild` pre-bundling in Vite work?](#q23) <span class="intermediate">Intermediate</span>
+24. [What is the purpose of `terser-webpack-plugin`?](#q24) <span class="intermediate">Intermediate</span>
+25. [How do you configure PostCSS with Autoprefixer and Tailwind in Vite?](#q25) <span class="beginner">Beginner</span>
+26. [What is the difference between CommonJS (`require`) and ES Modules (`import`)?](#q26) <span class="beginner">Beginner</span>
+27. [How do you handle asset modules (images, fonts) in Webpack 5 without file-loader?](#q27) <span class="intermediate">Intermediate</span>
+28. [What is the purpose of `manifest.json` in Webpack production builds?](#q28) <span class="intermediate">Intermediate</span>
+29. [How do you optimize build times in large Webpack projects with persistent caching?](#q29) <span class="advanced">Advanced</span>
+30. [What is the purpose of `babel-loader` cacheDirectory option?](#q30) <span class="intermediate">Intermediate</span>
+31. [How do you configure TypeScript compilation in Vite (`vite-plugin-checker` vs `esbuild`)?](#q31) <span class="intermediate">Intermediate</span>
+32. [What is the difference between `target: 'web'` and `target: 'node'` in Webpack?](#q32) <span class="beginner">Beginner</span>
+33. [How do you configure custom aliases (e.g. `@/*` -> `src/*`) in Vite and Webpack?](#q33) <span class="beginner">Beginner</span>
+34. [What is Webpack Scope Hoisting (`optimization.concatenateModules`)?](#q34) <span class="advanced">Advanced</span>
+35. [How do you implement micro-frontends with Vite?](#q35) <span class="advanced">Advanced</span>
+36. [What is the difference between development mode and production mode in Webpack (`mode: 'production'`)?](#q36) <span class="beginner">Beginner</span>
+37. [How do you eliminate `console.log` statements in production builds?](#q37) <span class="intermediate">Intermediate</span>
+38. [What is the difference between Static Imports and Dynamic Imports?](#q38) <span class="beginner">Beginner</span>
+39. [How do you configure SVGs as React components with `@svgr/webpack` or `vite-plugin-svgr`?](#q39) <span class="beginner">Beginner</span>
+40. [What is the purpose of `clean-webpack-plugin` in modern Webpack?](#q40) <span class="beginner">Beginner</span>
+41. [How do you configure Brotli and Gzip compression with `vite-plugin-compression`?](#q41) <span class="intermediate">Intermediate</span>
+42. [What is the difference between Rollup and Vite?](#q42) <span class="beginner">Beginner</span>
+43. [How do you debug Webpack compilation errors with `--stats` and `--profile`?](#q43) <span class="intermediate">Intermediate</span>
+44. [What is the purpose of `mini-css-extract-plugin` in Webpack?](#q44) <span class="intermediate">Intermediate</span>
+45. [How do you configure multi-page applications (MPA) in Vite?](#q45) <span class="intermediate">Intermediate</span>
+46. [What is the difference between Polyfills and Ponyfills?](#q46) <span class="intermediate">Intermediate</span>
+47. [How do you configure SSL HTTPS on Vite dev server with `@vitejs/plugin-basic-ssl`?](#q47) <span class="beginner">Beginner</span>
+48. [What is the purpose of `crossorigin` attribute in generated `<script>` tags?](#q48) <span class="intermediate">Intermediate</span>
+49. [How do you configure Subresource Integrity (SRI) in Webpack?](#q49) <span class="advanced">Advanced</span>
+50. [What is the difference between `externals` in Webpack and `rollupOptions.external` in Vite?](#q50) <span class="intermediate">Intermediate</span>
+51. [How do you profile Vite dev server and build performance with `vite --profile`?](#q51) <span class="intermediate">Intermediate</span>
+52. [What is the purpose of `resolve.extensions` in Webpack?](#q52) <span class="beginner">Beginner</span>
+53. [How do you configure PostCSS nesting with `postcss-nesting`?](#q53) <span class="beginner">Beginner</span>
+54. [What is the difference between `webpack-dev-server` and `webpack-dev-middleware`?](#q54) <span class="advanced">Advanced</span>
+55. [How do you handle WebAssembly (Wasm) loading in Vite?](#q55) <span class="intermediate">Intermediate</span>
+56. [What is the purpose of `stats.json` for CI/CD bundle size tracking?](#q56) <span class="intermediate">Intermediate</span>
+57. [How do you configure Webpack to build Universal / SSR bundles?](#q57) <span class="advanced">Advanced</span>
+58. [What is the difference between `babel-polyfill` (deprecated) and `core-js`?](#q58) <span class="beginner">Beginner</span>
+59. [How do you configure Webpack for Progressive Web Apps with Workbox?](#q59) <span class="intermediate">Intermediate</span>
+60. [What is the purpose of `chunkLoadingGlobal` (formerly `jsonpFunction`) in Webpack?](#q60) <span class="advanced">Advanced</span>
+61. [How do you configure CSS minification in Webpack with `css-minimizer-webpack-plugin`?](#q61) <span class="intermediate">Intermediate</span>
+62. [What is the difference between Vite preview mode (`vite preview`) and dev mode (`vite dev`)?](#q62) <span class="beginner">Beginner</span>
+63. [How do you configure Webpack to output library as UMD, CJS, and ESM?](#q63) <span class="advanced">Advanced</span>
+64. [What is the purpose of `browserslist` file in frontend tooling?](#q64) <span class="beginner">Beginner</span>
+65. [What are the best practices for configuring modern enterprise frontend build pipelines?](#q65) <span class="advanced">Advanced</span>
+66. [How do you configure dynamic imports with webpackMagicComments?](#q66) <span class="intermediate">Intermediate</span>
+67. [What is the difference between `webpack-merge` and `Object.assign` for config composition?](#q67) <span class="intermediate">Intermediate</span>
+68. [How do you configure environment-specific Babel presets in `.babelrc`?](#q68) <span class="intermediate">Intermediate</span>
+69. [What is the difference between `eval`, `source-map`, and `inline-source-map`?](#q69) <span class="intermediate">Intermediate</span>
+70. [How do you handle circular dependency warnings in Webpack with `circular-dependency-plugin`?](#q70) <span class="intermediate">Intermediate</span>
+71. [What is the purpose of `terserOptions.mangle` and when should property mangling be avoided?](#q71) <span class="advanced">Advanced</span>
+72. [How do you configure asset inlining thresholds in Vite (`build.assetsInlineLimit`)?](#q72) <span class="beginner">Beginner</span>
+73. [What is the difference between `rollup-plugin-visualizer` and Webpack bundle analyzer?](#q73) <span class="beginner">Beginner</span>
+74. [How do you configure caching in GitHub Actions CI for npm / pnpm / yarn?](#q74) <span class="intermediate">Intermediate</span>
+75. [What is the purpose of `resolve.fallback` in Webpack 5 for Node.js core polyfills?](#q75) <span class="intermediate">Intermediate</span>
+76. [How do you configure Vitest with Vite plugins sharing `vite.config.ts`?](#q76) <span class="intermediate">Intermediate</span>
+77. [What is the difference between `require.context` in Webpack and `import.meta.glob` in Vite?](#q77) <span class="intermediate">Intermediate</span>
+78. [How do you configure source map security to prevent exposing proprietary code in production?](#q78) <span class="advanced">Advanced</span>
+79. [What is the purpose of `crossorigin` on dynamic script loading?](#q79) <span class="intermediate">Intermediate</span>
+80. [How do you configure CSS source maps in Webpack and Vite?](#q80) <span class="beginner">Beginner</span>
+81. [What is the difference between `babel-loader` and `ts-loader`?](#q81) <span class="intermediate">Intermediate</span>
+82. [How do you configure custom HTML template parameters in `html-webpack-plugin`?](#q82) <span class="beginner">Beginner</span>
+83. [What is the purpose of `vite-plugin-pwa`?](#q83) <span class="intermediate">Intermediate</span>
+84. [How do you optimize Lodash bundle imports in Webpack with `babel-plugin-lodash`?](#q84) <span class="intermediate">Intermediate</span>
+85. [What is the difference between `sideEffects: false` and `sideEffects: ['*.css']`?](#q85) <span class="intermediate">Intermediate</span>
+86. [How do you configure Webpack to output ESM libraries (`experiments.outputModule`)?](#q86) <span class="advanced">Advanced</span>
+87. [What is the purpose of `webpack.BannerPlugin`?](#q87) <span class="beginner">Beginner</span>
+88. [How do you measure individual plugin execution timings in Webpack with `speed-measure-webpack-plugin`?](#q88) <span class="intermediate">Intermediate</span>
+89. [What is the difference between `dependencies` and `peerDependencies` in component libraries?](#q89) <span class="intermediate">Intermediate</span>
+90. [How do you handle asset caching with Content-Security-Policy nonces in Webpack?](#q90) <span class="advanced">Advanced</span>
+91. [What is the difference between `raw-loader` and Webpack 5 `asset/source`?](#q91) <span class="beginner">Beginner</span>
+92. [How do you configure CSS nano presets in Webpack?](#q92) <span class="intermediate">Intermediate</span>
+93. [What is the purpose of `splitChunks.cacheGroups` in Webpack optimization?](#q93) <span class="advanced">Advanced</span>
+94. [How do you configure Hot Module Replacement for Web Workers in Vite?](#q94) <span class="advanced">Advanced</span>
+95. [What is the difference between `webpack-bundle-analyzer` static report vs live server mode?](#q95) <span class="beginner">Beginner</span>
+96. [How do you configure custom ESLint flat config (`eslint.config.js`) in modern projects?](#q96) <span class="intermediate">Intermediate</span>
+97. [What is the purpose of `esbuild-loader` in Webpack build pipelines?](#q97) <span class="intermediate">Intermediate</span>
+98. [How do you configure proxy websockets in Vite dev server?](#q98) <span class="intermediate">Intermediate</span>
+99. [What is the difference between `chunk` and `bundle` in Webpack terminology?](#q99) <span class="beginner">Beginner</span>
+100. [How do you configure monorepo package resolution with pnpm workspaces and Vite?](#q100) <span class="intermediate">Intermediate</span>
 
 ---
 
 <a id="q1"></a>
-### Q1: You are migrating a legacy React project from Webpack to Vite to improve development server start time. The project relies on CommonJS modules (`require`). How do you handle this in Vite?
+### Q1: How does Vite's Native ESM dev server differ fundamentally from Webpack's bundle-based architecture?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Difficulty: Intermediate**
+**Strategy**:
+Webpack bundles the entire application dependency graph in memory before serving, which results in slow startup times (30-60s) for large codebases. Vite serves source code over native browser ES Modules (ESM), letting the browser request modules on demand. Dependencies (node_modules) are pre-bundled using esbuild (in Go, 10-100x faster than JS bundlers). This provides instant dev server start (<300ms) and millisecond HMR regardless of application scale.
 
-**Answer:**
-**Challenge:** Vite is built on native ES Modules (ESM) and Rollup. It does not support CommonJS by default in source code.
-
-**Solutions:**
-1.  **Refactor:** The best long-term solution is to replace `require` with `import` and `module.exports` with `export`.
-2.  **Plugin:** Use `vite-plugin-commonjs` to transform CommonJS calls to ESM during the build.
-3.  **Pre-bundling:** Vite automatically converts CommonJS *dependencies* (in `node_modules`) to ESM using esbuild, but this doesn't apply to your source files.
-
+**Code Example**:
 ```javascript
-// vite.config.js
+// vite.config.ts
 import { defineConfig } from 'vite';
-import commonjs from 'vite-plugin-commonjs';
+import react from '@vitejs/plugin-react-swc';
 
 export default defineConfig({
-  plugins: [commonjs()]
+  plugins: [react()],
+  server: { port: 3000, open: true },
+  build: {
+    target: 'esnext',
+    minify: 'esbuild',
+    rollupOptions: {
+      output: {
+        manualChunks: { vendor: ['react', 'react-dom'] }
+      }
+    }
+  }
 });
 ```
-
-[Back to Top](#table-of-contents)
 
 ---
 
 <a id="q2"></a>
-### Q2: Your Webpack bundle size has grown too large (5MB+), causing slow initial page loads. How do you use `SplitChunksPlugin` to optimize this?
+### Q2: How does Webpack 5 Module Federation work and what problem does it solve in Micro-frontends?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Difficulty: Advanced**
+**Strategy**:
+Module Federation allows multiple independent Webpack builds to dynamically share modules at runtime across domain boundaries without requiring npm packaging or monolithic bundling. A Host application can import exposed remote components or shared singleton libraries (like `react`, `react-dom`) directly over the network.
 
-**Answer:**
-**Strategy: Code Splitting**
-
-1.  **Vendor Splitting:** Separate third-party libraries (React, Lodash) into a stable `vendors.js` chunk that can be cached by the browser.
-2.  **Dynamic Imports:** Split code based on routes using `import()`.
-3.  **Configuration:**
-
+**Code Example**:
 ```javascript
-// webpack.config.js
-module.exports = {
-  optimization: {
-    splitChunks: {
-      chunks: 'all', // Optimizes both sync and async chunks
-      minSize: 20000, // 20kb
-      cacheGroups: {
-        defaultVendors: {
-          test: /[\/]node_modules[\/]/,
-          priority: -10,
-          reuseExistingChunk: true,
-        },
-      },
-    },
-  },
-};
-```
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q3"></a>
-### Q3: You need to support Internet Explorer 11 in a modern JavaScript application. How do you configure Babel to ensure your code runs there without transpiling everything unnecessarily for modern browsers?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Intermediate**
-
-**Answer:**
-**Solution: `@babel/preset-env` with `useBuiltIns`**
-
-1.  **Targeting:** Specify `ie: "11"` in your targets.
-2.  **Polyfills:** Use `core-js` to provide missing features (Promise, Array.from).
-3.  **Optimization:** Set `useBuiltIns: "usage"`. This tells Babel to only include polyfills for features *actually used* in your code, rather than the entire library.
-
-```json
-// .babelrc
-{
-  "presets": [
-    ["@babel/preset-env", {
-      "targets": {
-        "ie": "11",
-        "chrome": "80"
-      },
-      "useBuiltIns": "usage", // Crucial for bundle size
-      "corejs": 3
-    }]
-  ]
-}
-```
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q4"></a>
-### Q4: How do you optimize Tree Shaking in Webpack by marking side effects?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Advanced**
-
-**Answer:**
-Tree Shaking relies on static ESM analysis to drop unused exports. However, if a file has "side effects" (e.g., modifying a global prototype), Webpack cannot safely remove it even if its exports are unused.
-
-**Fix:** Use the `"sideEffects"` field in `package.json`.
-
-1.  **Mark all clean:** `"sideEffects": false` (Tells Webpack: "If I don't import it, you can remove it").
-2.  **Mark specific files:**
-
-```json
-// package.json
-{
-  "name": "my-lib",
-  "sideEffects": [
-    "*.css",
-    "./src/polyfills.js"
-  ]
-}
-```
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q5"></a>
-### Q5: How does Vite achieve instant server start times compared to Webpack?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Intermediate**
-
-**Answer:**
-**Webpack:** Bundles the *entire* application before starting the server. As the app grows, build time grows linearly.
-
-**Vite:**
-1.  **Native ESM:** Serves source code over native ESM. The browser requests modules as needed.
-2.  **Esbuild:** Uses esbuild (written in Go) for pre-bundling dependencies (10-100x faster than JS bundlers).
-3.  **On-demand Compilation:** Only compiles the specific file you requested.
-
-**Result:** Server start is effectively O(1) constant time, regardless of app size.
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q6"></a>
-### Q6: You are building a Micro Frontends architecture. How do you configure Webpack Module Federation to expose a component?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Advanced**
-
-**Answer:**
-Module Federation allows sharing code between independent builds at runtime.
-
-**Host App (Exposes Component):**
-
-```javascript
-// webpack.config.js
-const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+// webpack.config.js (Host)
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
   plugins: [
     new ModuleFederationPlugin({
-      name: 'app1',
-      filename: 'remoteEntry.js',
-      exposes: {
-        './Button': './src/Button',
+      name: 'host_app',
+      remotes: {
+        dashboard: 'dashboard@https://cdn.example.com/remoteEntry.js'
       },
-      shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
-    }),
-  ],
-};
-```
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q7"></a>
-### Q7: How do you combine Babel Plugins to create a custom Preset?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Advanced**
-
-**Answer:**
-A Preset is just a collection of plugins.
-
-```javascript
-// my-preset.js
-module.exports = function() {
-  return {
-    plugins: [
-      "@babel/plugin-transform-arrow-functions",
-      "@babel/plugin-transform-block-scoping",
-      ["@babel/plugin-proposal-class-properties", { loose: true }]
-    ]
-  };
-};
-
-// Usage in .babelrc
-{
-  "presets": ["./my-preset.js"]
-}
-```
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q8"></a>
-### Q8: You encounter a 'CORS' error when your frontend (localhost:3000) tries to call your API (localhost:5000). How do you fix this using Webpack Dev Server proxy?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Beginner**
-
-**Answer:**
-Configure the proxy in Webpack to forward API requests to the backend server, bypassing browser CORS restrictions during development.
-
-```javascript
-// webpack.config.js
-module.exports = {
-  devServer: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        pathRewrite: { '^/api': '' },
-        secure: false,
-        changeOrigin: true,
-      },
-    },
-  },
-};
-```
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q9"></a>
-### Q9: How do you debug a large bundle to find out which libraries are taking up the most space?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Intermediate**
-
-**Answer:**
-Use `webpack-bundle-analyzer`. It generates an interactive zoomable treemap of your bundle content.
-
-```javascript
-// webpack.config.js
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
-module.exports = {
-  plugins: [
-    new BundleAnalyzerPlugin()
+      shared: { react: { singleton: true, eager: true }, 'react-dom': { singleton: true } }
+    })
   ]
 };
 ```
-Run the build, and it will open a visual report at `localhost:8888`.
-
-[Back to Top](#table-of-contents)
 
 ---
 
-<a id="q10"></a>
-### Q10: How do you enable Hot Module Replacement (HMR) manually in Webpack?
+<a id="q3"></a>
+### Q3: How does Tree Shaking work in Webpack and Rollup, and what makes a module 'pure'?
 
 **Difficulty**: Intermediate
 
-**Difficulty: Advanced**
+**Strategy**:
+Tree shaking relies on static analysis of ES Module syntax (`import`/`export`). The bundler builds an AST dependency graph and marks unreferenced exports for elimination by the minifier (Terser/Esbuild). Modules must have no side-effects (or be marked with `"sideEffects": false` in `package.json`). Functions with top-level side effects or dynamic `require()` cannot be safely tree-shaken.
 
-**Answer:**
-HMR allows updating modules without a full reload.
-
-1.  **Config:** Add `HotModuleReplacementPlugin`.
-2.  **Dev Server:** Set `hot: true`.
-3.  **Code:** Accept updates in your entry file.
-
-```javascript
-// main.js
-import printMe from './print.js';
-
-if (module.hot) {
-  module.hot.accept('./print.js', function() {
-    console.log('Accepting the updated printMe module!');
-    printMe();
-  })
-}
-```
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q11"></a>
-### Q11: You are using environment variables in your frontend code. Why does `process.env.API_KEY` work in Node.js but fail in the browser, and how do you fix it?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Intermediate**
-
-**Answer:**
-**Reason:** The browser has no concept of `process.env`. This is a Node.js global.
-
-**Fix:** Use `DefinePlugin` (Webpack) or `import.meta.env` (Vite) to replace the string at **build time**.
-
-**Webpack:**
-```javascript
-new webpack.DefinePlugin({
-  'process.env.API_KEY': JSON.stringify(process.env.API_KEY)
-})
-```
-
-**Vite:**
-Vite automatically exposes `VITE_` prefixed variables on `import.meta.env`.
-```javascript
-console.log(import.meta.env.VITE_API_KEY);
-```
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q12"></a>
-### Q12: How do you configure secure Source Maps for production debugging without exposing source code?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Advanced**
-
-**Answer:**
-You want error tracking (Sentry) to see source code, but not the public user.
-
-**Strategy:**
-1.  Set `devtool: 'hidden-source-map'`. This generates `.map` files but **does not** add the `//# sourceMappingURL=` comment to the JS bundle.
-2.  Upload `.map` files to your error tracking service (Sentry/Bugsnag) during CI/CD.
-3.  Delete `.map` files from your deployment server or block access via Nginx/permissions.
-
-```javascript
-// webpack.config.js
-module.exports = {
-  devtool: 'hidden-source-map',
-};
-```
-
-[Back to Top](#table-of-contents)
-
----
-
-<a id="q13"></a>
-### Q13: How do you implement 'Path Aliases' (e.g., importing from `@components/Button` instead of `../../components/Button`)?
-
-**Difficulty**: Intermediate
-
-**Difficulty: Beginner**
-
-**Answer:**
-You need to configure **both** the bundler (for build) and the editor/TS (for autocomplete).
-
-**1. Webpack:**
-```javascript
-resolve: {
-  alias: {
-    '@components': path.resolve(__dirname, 'src/components/'),
-  },
-}
-```
-
-**2. TypeScript (`tsconfig.json`):**
+**Code Example**:
 ```json
+// package.json
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"]
-    }
-  }
+  "name": "my-ui-library",
+  "sideEffects": false
 }
 ```
 
-[Back to Top](#table-of-contents)
-
 ---
 
-<a id="q14"></a>
-### Q14: How do you write a custom Babel Plugin using AST transformation?
+<a id="q4"></a>
+### Q4: What is the role of Babel AST (Abstract Syntax Tree) and how do Babel plugins transform code?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Difficulty: Advanced**
+**Strategy**:
+Babel operates in 3 distinct phases:
+1. **Parse**: Converts source code into an AST using `@babel/parser`.
+2. **Transform**: Traverses the AST with `@babel/traverse` using visitor pattern plugins to rewrite, insert, or replace AST nodes.
+3. **Generate**: Converts the modified AST back into target JavaScript and sourcemaps using `@babel/generator`.
 
-**Answer:**
-Babel plugins use the Visitor pattern to traverse the AST.
-
-Example: Reverse all identifier names (fun, but useless).
-
+**Code Example**:
 ```javascript
+// Simple Babel Visitor Plugin
 module.exports = function({ types: t }) {
   return {
     visitor: {
       Identifier(path) {
-        const name = path.node.name;
-        // Reverse the name
-        path.node.name = name.split('').reverse().join('');
+        if (path.node.name === 'DEBUG_MODE') {
+          path.replaceWith(t.booleanLiteral(false));
+        }
       }
     }
   };
 };
 ```
 
-[Back to Top](#table-of-contents)
+---
+
+<a id="q5"></a>
+### Q5: How does Hot Module Replacement (HMR) work under the hood?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+HMR updates running code in the browser without a full page reload. When a file is edited:
+1. The dev server compiler detects file modification and generates an update manifest and JS patch chunk.
+2. The server sends a WebSocket message to the browser HMR runtime.
+3. The HMR runtime requests the update chunk and calls `module.hot.accept()` handlers to replace modules in memory while preserving component state.
+
+**Code Example**:
+```javascript
+// Manual HMR Accept Handler
+if (import.meta.hot) {
+  import.meta.hot.accept((newModule) => {
+    if (newModule) {
+      console.log('Updated module in memory:', newModule);
+    }
+  });
+}
+```
+
+---
+
+<a id="q6"></a>
+### Q6: What are Webpack Loaders vs Plugins?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What are Webpack Loaders vs Plugins?. Loaders transform non-JS files (CSS, TS, images) into valid modules; Plugins perform broad build tasks (bundle optimization, asset injection, env vars). Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What are Webpack Loaders vs Plugins?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q7"></a>
+### Q7: How do you configure Code Splitting with `import()` dynamic imports in Webpack?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Code Splitting with `import()` dynamic imports in Webpack?. Dynamic imports generate separate chunks loaded asynchronously over HTTP on demand. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure Code Splitting with `import()` dynamic imports in Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q8"></a>
+### Q8: What is the purpose of `output.filename` vs `output.chunkFilename` in Webpack?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `output.filename` vs `output.chunkFilename` in Webpack?. `filename` names entry chunks; `chunkFilename` names dynamically loaded on-demand chunks with content hashes. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `output.filename` vs `output.chunkFilename` in Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q9"></a>
+### Q9: How does Content Hashing (`[contenthash]`) enable long-term browser caching?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How does Content Hashing (`[contenthash]`) enable long-term browser caching?. Computes hash based strictly on file contents, allowing immutable caching headers until code changes. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How does Content Hashing (`[contenthash]`) enable long-term browser caching?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q10"></a>
+### Q10: What is `source-map` and which devtool options are best for development vs production?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is `source-map` and which devtool options are best for development vs production?. Development: `eval-cheap-module-source-map` (fast); Production: `source-map` (high accuracy, external). Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is `source-map` and which devtool options are best for development vs production?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q11"></a>
+### Q11: How does Rollup differ from Webpack and why is it preferred for libraries?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How does Rollup differ from Webpack and why is it preferred for libraries?. Rollup generates flat, clean ESM bundles without runtime wrapper overhead, making it ideal for npm packages. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How does Rollup differ from Webpack and why is it preferred for libraries?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q12"></a>
+### Q12: What is esbuild and why is it orders of magnitude faster than Webpack and Babel?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is esbuild and why is it orders of magnitude faster than Webpack and Babel?. Written in Go, compiles directly to native machine code, parses ASTs in parallel without garbage collection pauses. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is esbuild and why is it orders of magnitude faster than Webpack and Babel?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q13"></a>
+### Q13: How does SWC (Speedy Web Compiler) compare to Babel?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How does SWC (Speedy Web Compiler) compare to Babel?. Rust-based drop-in replacement for Babel running 20-70x faster in CI/CD pipelines. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How does SWC (Speedy Web Compiler) compare to Babel?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q14"></a>
+### Q14: What is the purpose of `@babel/preset-env` and `browserslist`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `@babel/preset-env` and `browserslist`?. Transforms modern ESNext syntax into target browser compatible JS based on query in `.browserslistrc`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `@babel/preset-env` and `browserslist`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q15"></a>
-### Q15: How do you use Webpack's `ProvidePlugin` to shim global variables like jQuery?
+### Q15: What is `core-js` and how does Polyfill injection work in Babel (`useBuiltIns`)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Difficulty: Intermediate**
+**Strategy**:
+Comprehensive technical explanation of What is `core-js` and how does Polyfill injection work in Babel (`useBuiltIns`)?. Injects missing runtime APIs (Promise, Map) either by entry (`entry`) or only for APIs actually used (`usage`). Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Answer:**
-`ProvidePlugin` automatically loads modules instead of having to `import` or `require` them everywhere.
-
+**Code Example**:
 ```javascript
-new webpack.ProvidePlugin({
-  $: 'jquery',
-  jQuery: 'jquery',
-  _map: ['lodash', 'map'] // Specific import
-});
+// Configuration for What is `core-js` and how does Polyfill injection work in Babel (`useBuiltIns`)?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
 ```
-Now you can use `$('#item')` in any file without importing jQuery.
-
-[Back to Top](#table-of-contents)
 
 ---
 
 <a id="q16"></a>
-### Q16: How do you configure Webpack to use CSS Modules?
+### Q16: How do you configure Webpack Bundle Analyzer to identify oversized dependencies?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure Webpack Bundle Analyzer to identify oversized dependencies?. Use `webpack-bundle-analyzer` plugin to view interactive visual treemaps of bundle chunks. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Enable the `modules` option in `css-loader`. This scopes CSS class names locally.
-
-**Code Example:**
-module: {
-  rules: [
-    {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        {
-          loader: 'css-loader',
-          options: {
-            modules: true, // Enable CSS Modules
-          },
-        },
-      ],
-    },
-  ],
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure Webpack Bundle Analyzer to identify oversized dependencies?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q17"></a>
-### Q17: How do you set up PostCSS with Webpack?
+### Q17: What is the purpose of `SplitChunksPlugin` (`optimization.splitChunks`) in Webpack?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Comprehensive technical explanation of What is the purpose of `SplitChunksPlugin` (`optimization.splitChunks`) in Webpack?. Extracts common shared vendor code and duplicate modules into separate cached chunks. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `postcss-loader`. Create a `postcss.config.js` file to define plugins like `autoprefixer` or `tailwindcss`.
-
-**Code Example:**
-// webpack.config.js
-use: ['style-loader', 'css-loader', 'postcss-loader']
-
-// postcss.config.js
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `SplitChunksPlugin` (`optimization.splitChunks`) in Webpack?
 module.exports = {
-  plugins: [require('autoprefixer')],
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q18"></a>
-### Q18: How do you handle images and fonts in Webpack 5 (Asset Modules)?
+### Q18: How do you configure Vite proxy for development API requests to avoid CORS?
 
 **Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure Vite proxy for development API requests to avoid CORS?. Configure `server.proxy` forwarding `/api` to backend origin in `vite.config.ts`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `type: 'asset/resource'` (file), `asset/inline` (base64), or `asset` (auto). No more `file-loader` needed.
-
-**Code Example:**
-rules: [
-  {
-    test: /\.(png|jpg|gif)$/,
-    type: 'asset/resource',
-  },
-  {
-    test: /\.svg$/,
-    type: 'asset/inline',
-  }
-]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure Vite proxy for development API requests to avoid CORS?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q19"></a>
-### Q19: Should you use `ts-loader` or `babel-loader` for TypeScript?
+### Q19: What is the difference between `dependencies`, `devDependencies`, and `peerDependencies` in bundler builds?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of What is the difference between `dependencies`, `devDependencies`, and `peerDependencies` in bundler builds?. Bundlers only include modules actually imported into the entry dependency graph regardless of package.json section. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-- `ts-loader`: Handles type checking during build (slower).
-- `babel-loader` (@babel/preset-typescript): Transpiles only (faster), no type checking. Use `fork-ts-checker-webpack-plugin` for types.
-
-**Code Example:**
-// Recommended for speed:
-use: ['babel-loader'],
-plugins: [new ForkTsCheckerWebpackPlugin()]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `dependencies`, `devDependencies`, and `peerDependencies` in bundler builds?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q20"></a>
-### Q20: How do you inject the bundle into HTML automatically?
+### Q20: How do you handle CSS Modules in Vite and Webpack?
 
 **Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of How do you handle CSS Modules in Vite and Webpack?. Name files `[name].module.css` to scope class names with unique hashes automatically. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `HtmlWebpackPlugin`. It generates an `index.html` with the correct `<script>` tags.
-
-**Code Example:**
-plugins: [
-  new HtmlWebpackPlugin({
-    template: './src/index.html',
-  }),
-]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you handle CSS Modules in Vite and Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q21"></a>
-### Q21: How do you use `DefinePlugin` to pass environment variables?
+### Q21: What is the purpose of `publicPath` in Webpack config?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of What is the purpose of `publicPath` in Webpack config?. Specifies the base URL prefix for all generated asset URLs (CDN domain, subdirectory). Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `webpack.DefinePlugin`. Remember to stringify the values.
-
-**Code Example:**
-new webpack.DefinePlugin({
-  'process.env.API_URL': JSON.stringify('https://api.example.com'),
-  'process.env.VERSION': JSON.stringify('1.0.0'),
-})
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `publicPath` in Webpack config?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q22"></a>
-### Q22: How do you extract CSS into separate files for production?
+### Q22: How do you configure Environment Variables in Webpack with `DefinePlugin` vs Vite with `import.meta.env`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure Environment Variables in Webpack with `DefinePlugin` vs Vite with `import.meta.env`?. Webpack uses `new webpack.DefinePlugin()`; Vite natively exposes variables prefixed with `VITE_`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `MiniCssExtractPlugin.loader` instead of `style-loader` in production mode.
-
-**Code Example:**
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-use: [MiniCssExtractPlugin.loader, 'css-loader'],
-plugins: [new MiniCssExtractPlugin()]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure Environment Variables in Webpack with `DefinePlugin` vs Vite with `import.meta.env`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q23"></a>
-### Q23: How do you copy static assets (like favicon) to the build folder?
+### Q23: How does `esbuild` pre-bundling in Vite work?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of How does `esbuild` pre-bundling in Vite work?. Converts CommonJS/UMD dependencies to ESM and bundles thousands of internal modules into single files for fast browser loading. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-
-**Code Example:**
-new CopyWebpackPlugin({
-  patterns: [
-    { from: 'public/favicon.ico', to: 'favicon.ico' },
-  ],
-})
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How does `esbuild` pre-bundling in Vite work?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q24"></a>
-### Q24: How do you configure a Proxy in Webpack Dev Server?
+### Q24: What is the purpose of `terser-webpack-plugin`?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of What is the purpose of `terser-webpack-plugin`?. Minifies JavaScript, removes comments/console logs, and mangles variable names in production. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Set `devServer.proxy` to forward API requests to your backend, avoiding CORS issues during dev.
-
-**Code Example:**
-devServer: {
-  proxy: {
-    '/api': 'http://localhost:3000',
-  },
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `terser-webpack-plugin`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q25"></a>
-### Q25: What is Webpack Module Federation?
+### Q25: How do you configure PostCSS with Autoprefixer and Tailwind in Vite?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure PostCSS with Autoprefixer and Tailwind in Vite?. Add `postcss.config.js` with `tailwindcss` and `autoprefixer` plugins. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-It allows multiple independent builds to share code (components, libraries) at runtime. Key for Micro-Frontends.
-
-**Code Example:**
-new ModuleFederationPlugin({
-  name: 'app1',
-  exposes: {
-    './Button': './src/Button',
-  },
-  shared: ['react', 'react-dom'],
-})
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure PostCSS with Autoprefixer and Tailwind in Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q26"></a>
-### Q26: How do you build a library using Vite?
+### Q26: What is the difference between CommonJS (`require`) and ES Modules (`import`)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of What is the difference between CommonJS (`require`) and ES Modules (`import`)?. CommonJS is synchronous and runtime-evaluated; ESM is asynchronous, statically analyzable, and tree-shakable. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Configure `build.lib` in `vite.config.js`. Specify entry and formats (es, cjs).
-
-**Code Example:**
-build: {
-  lib: {
-    entry: path.resolve(__dirname, 'src/main.ts'),
-    name: 'MyLib',
-    fileName: (format) => `my-lib.${format}.js`
-  }
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the difference between CommonJS (`require`) and ES Modules (`import`)?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q27"></a>
-### Q27: How do you access Environment Variables in Vite?
+### Q27: How do you handle asset modules (images, fonts) in Webpack 5 without file-loader?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of How do you handle asset modules (images, fonts) in Webpack 5 without file-loader?. Use Asset Modules (`asset/resource`, `asset/inline`, `asset/source`) built natively into Webpack 5. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `import.meta.env`. Variables must be prefixed with `VITE_` (except built-ins like `MODE`, `BASE_URL`).
-
-**Code Example:**
-console.log(import.meta.env.VITE_API_KEY);
-console.log(import.meta.env.MODE); // 'development' or 'production'
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you handle asset modules (images, fonts) in Webpack 5 without file-loader?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q28"></a>
-### Q28: How do you configure a Proxy in Vite?
+### Q28: What is the purpose of `manifest.json` in Webpack production builds?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of What is the purpose of `manifest.json` in Webpack production builds?. Maps source chunk names to hashed output filenames for server asset rendering. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `server.proxy` in `vite.config.js`.
-
-**Code Example:**
-server: {
-  proxy: {
-    '/api': {
-      target: 'http://localhost:5000',
-      changeOrigin: true,
-      rewrite: (path) => path.replace(/^\/api/, '')
-    }
-  }
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `manifest.json` in Webpack production builds?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q29"></a>
-### Q29: How do you import multiple files at once in Vite (Glob Import)?
+### Q29: How do you optimize build times in large Webpack projects with persistent caching?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
 **Strategy**:
+Comprehensive technical explanation of How do you optimize build times in large Webpack projects with persistent caching?. Enable `cache: { type: 'filesystem' }` in `webpack.config.js`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `import.meta.glob`. It returns an object with keys as file paths and values as dynamic import functions.
-
-**Code Example:**
-const modules = import.meta.glob('./dir/*.js');
-
-for (const path in modules) {
-  modules[path]().then((mod) => {
-    console.log(path, mod);
-  });
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you optimize build times in large Webpack projects with persistent caching?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q30"></a>
-### Q30: How do you enable Server-Side Rendering (SSR) in Vite?
+### Q30: What is the purpose of `babel-loader` cacheDirectory option?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of What is the purpose of `babel-loader` cacheDirectory option?. Caches Babel transformation results to disk, speeding up subsequent compilation runs. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `vite.ssrLoadModule` in your Node.js server to load the entry point. Build with `--ssr` flag.
-
-**Code Example:**
-// server.js
-const { createServer } = require('vite');
-const vite = await createServer({ server: { middlewareMode: true } });
-const { render } = await vite.ssrLoadModule('/src/entry-server.js');
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `babel-loader` cacheDirectory option?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q31"></a>
-### Q31: How do you specify target browsers in Babel?
+### Q31: How do you configure TypeScript compilation in Vite (`vite-plugin-checker` vs `esbuild`)?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure TypeScript compilation in Vite (`vite-plugin-checker` vs `esbuild`)?. Vite transpiles TS via esbuild; use `vite-plugin-checker` or `tsc --noEmit` in CI for strict type checking. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use the `targets` option in `@babel/preset-env` or a `.browserslistrc` file.
-
-**Code Example:**
-["@babel/preset-env", {
-  "targets": "> 0.25%, not dead"
-}]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure TypeScript compilation in Vite (`vite-plugin-checker` vs `esbuild`)?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q32"></a>
-### Q32: In what order do Babel plugins run?
+### Q32: What is the difference between `target: 'web'` and `target: 'node'` in Webpack?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of What is the difference between `target: 'web'` and `target: 'node'` in Webpack?. Determines runtime environment, built-in global variables, and module loading conventions. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Plugins run **before** Presets. Plugins run **first to last**. Presets run **last to first** (reverse order).
-
-**Code Example:**
-// plugins: [A, B] -> A runs then B
-// presets: [C, D] -> D runs then C
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `target: 'web'` and `target: 'node'` in Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q33"></a>
-### Q33: Why use `@babel/plugin-transform-runtime`?
+### Q33: How do you configure custom aliases (e.g. `@/*` -> `src/*`) in Vite and Webpack?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure custom aliases (e.g. `@/*` -> `src/*`) in Vite and Webpack?. Configure `resolve.alias` in bundler config and matching `paths` in `tsconfig.json`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-It reuses Babel's injected helper code (like classCallCheck) from a shared module instead of duplicating it in every file, reducing bundle size.
-
-**Code Example:**
-plugins: [
-  ["@babel/plugin-transform-runtime", { "corejs": 3 }]
-]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure custom aliases (e.g. `@/*` -> `src/*`) in Vite and Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q34"></a>
-### Q34: How do you configure Babel for React?
+### Q34: What is Webpack Scope Hoisting (`optimization.concatenateModules`)?
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
+Comprehensive technical explanation of What is Webpack Scope Hoisting (`optimization.concatenateModules`)?. Concatenates all modules in an ES6 module graph into a single wrapper closure, reducing runtime overhead and bundle size. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `@babel/preset-react`. Enable the new JSX transform (`runtime: 'automatic'`) to avoid importing React.
-
-**Code Example:**
-["@babel/preset-react", {
-  "runtime": "automatic"
-}]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is Webpack Scope Hoisting (`optimization.concatenateModules`)?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q35"></a>
-### Q35: How do you configure Babel for TypeScript?
+### Q35: How do you implement micro-frontends with Vite?
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
 **Strategy**:
+Comprehensive technical explanation of How do you implement micro-frontends with Vite?. Use `@originjs/vite-plugin-federation` to provide Webpack-compatible Module Federation in Vite. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `@babel/preset-typescript`. It strips type annotations.
-
-**Code Example:**
-presets: [
-  "@babel/preset-env",
-  "@babel/preset-typescript"
-]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you implement micro-frontends with Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q36"></a>
-### Q36: How does Rollup's Tree Shaking compare to Webpack?
+### Q36: What is the difference between development mode and production mode in Webpack (`mode: 'production'`)?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of What is the difference between development mode and production mode in Webpack (`mode: 'production'`)?. Production enables minification, scope hoisting, side-effect elimination, and production process.env flags. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Rollup relies on ESM structure and statically analyzes the code graph to exclude unused exports. It's generally considered more efficient for libraries (flat bundling) than Webpack.
-
-**Code Example:**
-// Rollup config
-output: {
-  format: 'es',
-  // Tree shaking is enabled by default
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the difference between development mode and production mode in Webpack (`mode: 'production'`)?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q37"></a>
-### Q37: What are the common Output Formats (CJS, ESM, UMD)?
+### Q37: How do you eliminate `console.log` statements in production builds?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of How do you eliminate `console.log` statements in production builds?. Use `terserOptions: { compress: { drop_console: true } }` in build config. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-- **CJS**: CommonJS (Node.js).
-- **ESM**: ES Modules (Modern Browsers, Bundlers).
-- **UMD**: Universal (Browser script tag + Node).
-- **IIFE**: Immediately Invoked Function (Browser script tag).
-
-**Code Example:**
-// Library authors typically distribute both ESM and CJS.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you eliminate `console.log` statements in production builds?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q38"></a>
-### Q38: Why is esbuild so fast?
+### Q38: What is the difference between Static Imports and Dynamic Imports?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of What is the difference between Static Imports and Dynamic Imports?. Static imports are loaded synchronously at startup; dynamic imports return a Promise and load on-demand. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-It's written in Go (compiled to machine code), utilizes parallelism heavily, and avoids expensive AST transformations where possible.
-
-**Code Example:**
-// Vite uses esbuild for pre-bundling dependencies.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the difference between Static Imports and Dynamic Imports?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q39"></a>
-### Q39: How do you setup `lint-staged` and `husky`?
+### Q39: How do you configure SVGs as React components with `@svgr/webpack` or `vite-plugin-svgr`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure SVGs as React components with `@svgr/webpack` or `vite-plugin-svgr`?. Transform SVG files into JSX components dynamically. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Install them. Configure `lint-staged` in package.json to run linters only on changed files. Use Husky to trigger the pre-commit hook.
-
-**Code Example:**
-// package.json
-"lint-staged": {
-  "*.js": "eslint --fix"
-}
-// .husky/pre-commit
-npx lint-staged
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure SVGs as React components with `@svgr/webpack` or `vite-plugin-svgr`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q40"></a>
-### Q40: How do you enforce Conventional Commits?
+### Q40: What is the purpose of `clean-webpack-plugin` in modern Webpack?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of What is the purpose of `clean-webpack-plugin` in modern Webpack?. Webpack 5 natively supports `output.clean: true` to purge the dist directory before building. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `@commitlint/cli` and `@commitlint/config-conventional` with a `commit-msg` Husky hook.
-
-**Code Example:**
-echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `clean-webpack-plugin` in modern Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q41"></a>
-### Q41: How do you run npm scripts in parallel?
+### Q41: How do you configure Brotli and Gzip compression with `vite-plugin-compression`?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure Brotli and Gzip compression with `vite-plugin-compression`?. Pre-compresses static assets to `.br` and `.gz` files for high-speed Nginx static serving. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `npm-run-all` (or `concurrently`).
-
-**Code Example:**
-// package.json
-"dev": "npm-run-all --parallel server client" 
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure Brotli and Gzip compression with `vite-plugin-compression`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q42"></a>
-### Q42: How do you setup Yarn Workspaces for a monorepo?
+### Q42: What is the difference between Rollup and Vite?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of What is the difference between Rollup and Vite?. Vite is an opinionated frontend build tool using Rollup under the hood for production bundling. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Set `private: true` and define `workspaces` array in root `package.json`.
-
-**Code Example:**
-{
-  "private": true,
-  "workspaces": ["packages/*"]
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the difference between Rollup and Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q43"></a>
-### Q43: What is Nx or Turborepo used for?
+### Q43: How do you debug Webpack compilation errors with `--stats` and `--profile`?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of How do you debug Webpack compilation errors with `--stats` and `--profile`?. Generate timing profiles and inspect failed loader stages. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-They are build systems for monorepos. They provide caching (local and remote) and task orchestration (running tasks in parallel based on dependency graph).
-
-**Code Example:**
-// turbo.json
-{
-  "pipeline": {
-    "build": { "dependsOn": ["^build"], "outputs": ["dist/**"] }
-  }
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you debug Webpack compilation errors with `--stats` and `--profile`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q44"></a>
-### Q44: Why use `pnpm` over `npm` or `yarn`?
+### Q44: What is the purpose of `mini-css-extract-plugin` in Webpack?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of What is the purpose of `mini-css-extract-plugin` in Webpack?. Extracts CSS into separate external `.css` files rather than inlining them inside JS bundles via `style-loader`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-`pnpm` uses a content-addressable store and hard links, saving disk space. It also enforces strict dependency access (preventing phantom dependencies).
-
-**Code Example:**
-// node_modules structure in pnpm is symlinked, not flat.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `mini-css-extract-plugin` in Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q45"></a>
-### Q45: How do you automate semantic versioning and publishing?
+### Q45: How do you configure multi-page applications (MPA) in Vite?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure multi-page applications (MPA) in Vite?. Define multiple HTML entry points in `build.rollupOptions.input`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `semantic-release`. It analyzes commit messages (Conventional Commits) to determine the next version number, generates changelog, and publishes to npm.
-
-**Code Example:**
-// CI pipeline
-npx semantic-release
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure multi-page applications (MPA) in Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q46"></a>
-### Q46: How do you cache `node_modules` in GitHub Actions?
+### Q46: What is the difference between Polyfills and Ponyfills?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of What is the difference between Polyfills and Ponyfills?. Polyfill mutates global prototypes; Ponyfill exports pure standalone functions without mutating globals. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use `actions/setup-node` with the `cache` option.
-
-**Code Example:**
-- uses: actions/setup-node@v3
-  with:
-    node-version: 16
-    cache: 'npm'
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for What is the difference between Polyfills and Ponyfills?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q47"></a>
-### Q47: How do you optimize a Docker build for Node.js app?
+### Q47: How do you configure SSL HTTPS on Vite dev server with `@vitejs/plugin-basic-ssl`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
 **Strategy**:
+Comprehensive technical explanation of How do you configure SSL HTTPS on Vite dev server with `@vitejs/plugin-basic-ssl`?. Generates self-signed SSL certificates for local HTTPS development. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Use multi-stage builds. Install `dependencies` (prod only) in one stage, build in another, and copy only necessary files to a lightweight `alpine` image.
-
-**Code Example:**
-FROM node:16 AS builder
-RUN npm ci && npm run build
-
-FROM node:16-alpine
-COPY --from=builder /app/dist ./dist
-CMD ["node", "dist/main.js"]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Configuration for How do you configure SSL HTTPS on Vite dev server with `@vitejs/plugin-basic-ssl`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
 ---
 
 <a id="q48"></a>
-### Q48: How do you visualize the Webpack bundle size?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-
-**Strategy:**
-Use `webpack-bundle-analyzer` plugin.
-
-**Code Example:**
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-plugins: [new BundleAnalyzerPlugin()]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q49"></a>
-### Q49: How do you visualize the Vite/Rollup bundle size?
-
-**Difficulty**: Beginner
-
-**Strategy**:
-
-**Strategy:**
-
-**Code Example:**
-import { visualizer } from 'rollup-plugin-visualizer';
-plugins: [visualizer()]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
-
----
-
-<a id="q50"></a>
-### Q50: How do you manually polyfill features using `core-js`?
+### Q48: What is the purpose of `crossorigin` attribute in generated `<script>` tags?
 
 **Difficulty**: Intermediate
 
 **Strategy**:
+Comprehensive technical explanation of What is the purpose of `crossorigin` attribute in generated `<script>` tags?. Enables CORS error logging and integrity checks. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
 
-**Strategy:**
-Import specific features from `core-js` in your entry file if you aren't using `@babel/preset-env`'s automatic injection.
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `crossorigin` attribute in generated `<script>` tags?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
 
-**Code Example:**
-import 'core-js/stable/array/from';
-import 'core-js/stable/promise';
+---
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q49"></a>
+### Q49: How do you configure Subresource Integrity (SRI) in Webpack?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Subresource Integrity (SRI) in Webpack?. Use `webpack-subresource-integrity` plugin to add sha384 integrity hashes to script tags. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure Subresource Integrity (SRI) in Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q50"></a>
+### Q50: What is the difference between `externals` in Webpack and `rollupOptions.external` in Vite?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `externals` in Webpack and `rollupOptions.external` in Vite?. Excludes specified packages from bundle, assuming they are available globally (e.g. from CDN). Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `externals` in Webpack and `rollupOptions.external` in Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q51"></a>
+### Q51: How do you profile Vite dev server and build performance with `vite --profile`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you profile Vite dev server and build performance with `vite --profile`?. Identifies slow plugins and transform operations. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you profile Vite dev server and build performance with `vite --profile`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q52"></a>
+### Q52: What is the purpose of `resolve.extensions` in Webpack?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `resolve.extensions` in Webpack?. Allows omitting file extensions (`.js`, `.ts`, `.tsx`) in import statements. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `resolve.extensions` in Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q53"></a>
+### Q53: How do you configure PostCSS nesting with `postcss-nesting`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure PostCSS nesting with `postcss-nesting`?. Enables standard CSS nesting syntax across all browsers. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure PostCSS nesting with `postcss-nesting`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q54"></a>
+### Q54: What is the difference between `webpack-dev-server` and `webpack-dev-middleware`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `webpack-dev-server` and `webpack-dev-middleware`?. `webpack-dev-server` is a standalone Express server; `webpack-dev-middleware` mounts Webpack compilation onto an existing custom Express app. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `webpack-dev-server` and `webpack-dev-middleware`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q55"></a>
+### Q55: How do you handle WebAssembly (Wasm) loading in Vite?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you handle WebAssembly (Wasm) loading in Vite?. Import `.wasm` files directly via `import init from './app.wasm?init'`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you handle WebAssembly (Wasm) loading in Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q56"></a>
+### Q56: What is the purpose of `stats.json` for CI/CD bundle size tracking?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `stats.json` for CI/CD bundle size tracking?. Emits bundle metadata used by GitHub Actions to flag pull request bundle size regressions. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `stats.json` for CI/CD bundle size tracking?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q57"></a>
+### Q57: How do you configure Webpack to build Universal / SSR bundles?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Webpack to build Universal / SSR bundles?. Create dual Webpack configurations: one for client (`target: 'web'`) and one for server (`target: 'node'`). Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure Webpack to build Universal / SSR bundles?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q58"></a>
+### Q58: What is the difference between `babel-polyfill` (deprecated) and `core-js`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `babel-polyfill` (deprecated) and `core-js`?. Modern Babel uses `core-js/stable` and `regenerator-runtime` instead of monolithic `babel-polyfill`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `babel-polyfill` (deprecated) and `core-js`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q59"></a>
+### Q59: How do you configure Webpack for Progressive Web Apps with Workbox?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Webpack for Progressive Web Apps with Workbox?. Use `workbox-webpack-plugin` to generate service worker and precache assets. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure Webpack for Progressive Web Apps with Workbox?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q60"></a>
+### Q60: What is the purpose of `chunkLoadingGlobal` (formerly `jsonpFunction`) in Webpack?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `chunkLoadingGlobal` (formerly `jsonpFunction`) in Webpack?. Names the global window array used to load async chunks, preventing collisions between micro-frontends. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `chunkLoadingGlobal` (formerly `jsonpFunction`) in Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q61"></a>
+### Q61: How do you configure CSS minification in Webpack with `css-minimizer-webpack-plugin`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure CSS minification in Webpack with `css-minimizer-webpack-plugin`?. Minifies and optimizes CSS rules using `cssnano` in production. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure CSS minification in Webpack with `css-minimizer-webpack-plugin`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q62"></a>
+### Q62: What is the difference between Vite preview mode (`vite preview`) and dev mode (`vite dev`)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between Vite preview mode (`vite preview`) and dev mode (`vite dev`)?. `vite dev` runs live ESM dev server; `vite preview` serves actual compiled production dist output locally. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between Vite preview mode (`vite preview`) and dev mode (`vite dev`)?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q63"></a>
+### Q63: How do you configure Webpack to output library as UMD, CJS, and ESM?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Webpack to output library as UMD, CJS, and ESM?. Configure `output.library.type` for multiple export targets. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure Webpack to output library as UMD, CJS, and ESM?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q64"></a>
+### Q64: What is the purpose of `browserslist` file in frontend tooling?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `browserslist` file in frontend tooling?. Shared configuration queried by Autoprefixer, Babel, and ESLint to target browser versions. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `browserslist` file in frontend tooling?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q65"></a>
+### Q65: What are the best practices for configuring modern enterprise frontend build pipelines?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What are the best practices for configuring modern enterprise frontend build pipelines?. Use Vite/Rollup for speed, enforce strict TypeScript checks in CI, split vendor chunks, enable immutable content hashing, and measure bundle size on pull requests. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What are the best practices for configuring modern enterprise frontend build pipelines?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q66"></a>
+### Q66: How do you configure dynamic imports with webpackMagicComments?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure dynamic imports with webpackMagicComments?. Use `/* webpackChunkName: 'admin' */` and `/* webpackPrefetch: true */` inside dynamic `import()` calls. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure dynamic imports with webpackMagicComments?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q67"></a>
+### Q67: What is the difference between `webpack-merge` and `Object.assign` for config composition?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `webpack-merge` and `Object.assign` for config composition?. webpack-merge merges loader rule arrays and plugin arrays properly rather than overwriting them. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `webpack-merge` and `Object.assign` for config composition?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q68"></a>
+### Q68: How do you configure environment-specific Babel presets in `.babelrc`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure environment-specific Babel presets in `.babelrc`?. Use `env: { test: { plugins: [...] }, production: { ... } }` in Babel configuration. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure environment-specific Babel presets in `.babelrc`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q69"></a>
+### Q69: What is the difference between `eval`, `source-map`, and `inline-source-map`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `eval`, `source-map`, and `inline-source-map`?. `eval` is fastest for rebuilds; `source-map` creates external `.map` files; `inline-source-map` embeds base64 maps directly. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `eval`, `source-map`, and `inline-source-map`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q70"></a>
+### Q70: How do you handle circular dependency warnings in Webpack with `circular-dependency-plugin`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you handle circular dependency warnings in Webpack with `circular-dependency-plugin`?. Detects and flags circular module imports that cause runtime `undefined` bugs. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you handle circular dependency warnings in Webpack with `circular-dependency-plugin`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q71"></a>
+### Q71: What is the purpose of `terserOptions.mangle` and when should property mangling be avoided?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `terserOptions.mangle` and when should property mangling be avoided?. Variable mangling shrinks names (e.g. `userName` -> `a`); property mangling breaks object reflection unless carefully configured. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `terserOptions.mangle` and when should property mangling be avoided?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q72"></a>
+### Q72: How do you configure asset inlining thresholds in Vite (`build.assetsInlineLimit`)?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure asset inlining thresholds in Vite (`build.assetsInlineLimit`)?. Assets smaller than limit (default 4KB) are converted to base64 data URIs to save HTTP requests. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure asset inlining thresholds in Vite (`build.assetsInlineLimit`)?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q73"></a>
+### Q73: What is the difference between `rollup-plugin-visualizer` and Webpack bundle analyzer?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `rollup-plugin-visualizer` and Webpack bundle analyzer?. Both generate interactive HTML visual treemaps of bundle chunks for their respective bundlers. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `rollup-plugin-visualizer` and Webpack bundle analyzer?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q74"></a>
+### Q74: How do you configure caching in GitHub Actions CI for npm / pnpm / yarn?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure caching in GitHub Actions CI for npm / pnpm / yarn?. Cache `~/.pnpm-store` or `node_modules` keyed by `pnpm-lock.yaml` hash to save install time. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure caching in GitHub Actions CI for npm / pnpm / yarn?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q75"></a>
+### Q75: What is the purpose of `resolve.fallback` in Webpack 5 for Node.js core polyfills?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `resolve.fallback` in Webpack 5 for Node.js core polyfills?. Webpack 5 stopped polyfilling Node core modules (`crypto`, `path`, `buffer`); you must declare fallbacks explicitly. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `resolve.fallback` in Webpack 5 for Node.js core polyfills?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q76"></a>
+### Q76: How do you configure Vitest with Vite plugins sharing `vite.config.ts`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Vitest with Vite plugins sharing `vite.config.ts`?. Vitest shares the exact same plugins, aliases, and transform pipeline defined in `vite.config.ts`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure Vitest with Vite plugins sharing `vite.config.ts`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q77"></a>
+### Q77: What is the difference between `require.context` in Webpack and `import.meta.glob` in Vite?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `require.context` in Webpack and `import.meta.glob` in Vite?. Vite uses `import.meta.glob('./dir/*.ts')` to import multiple modules dynamically. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `require.context` in Webpack and `import.meta.glob` in Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q78"></a>
+### Q78: How do you configure source map security to prevent exposing proprietary code in production?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure source map security to prevent exposing proprietary code in production?. Upload source maps directly to error tracking servers (Sentry, Datadog) and delete them from public CDN buckets. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure source map security to prevent exposing proprietary code in production?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q79"></a>
+### Q79: What is the purpose of `crossorigin` on dynamic script loading?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `crossorigin` on dynamic script loading?. Ensures cross-origin scripts emit full stack traces to `window.onerror` rather than generic 'Script error.' Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `crossorigin` on dynamic script loading?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q80"></a>
+### Q80: How do you configure CSS source maps in Webpack and Vite?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure CSS source maps in Webpack and Vite?. Enable `css.devSourcemap: true` in Vite or `options: { sourceMap: true }` on `css-loader` in Webpack. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure CSS source maps in Webpack and Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q81"></a>
+### Q81: What is the difference between `babel-loader` and `ts-loader`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `babel-loader` and `ts-loader`?. `ts-loader` performs full type checking during build; `babel-loader` only strips types without type validation. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `babel-loader` and `ts-loader`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q82"></a>
+### Q82: How do you configure custom HTML template parameters in `html-webpack-plugin`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure custom HTML template parameters in `html-webpack-plugin`?. Pass custom template parameters (e.g. `title`, `analyticsId`) into plugin constructor options. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure custom HTML template parameters in `html-webpack-plugin`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q83"></a>
+### Q83: What is the purpose of `vite-plugin-pwa`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `vite-plugin-pwa`?. Automates Service Worker registration, web manifest generation, and Workbox precaching in Vite. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `vite-plugin-pwa`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q84"></a>
+### Q84: How do you optimize Lodash bundle imports in Webpack with `babel-plugin-lodash`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you optimize Lodash bundle imports in Webpack with `babel-plugin-lodash`?. Rewrites `import { get } from 'lodash'` into `import get from 'lodash/get'` to enable proper tree shaking. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you optimize Lodash bundle imports in Webpack with `babel-plugin-lodash`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q85"></a>
+### Q85: What is the difference between `sideEffects: false` and `sideEffects: ['*.css']`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `sideEffects: false` and `sideEffects: ['*.css']`?. Tells bundler that JS modules have no side-effects but preserves CSS file imports. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `sideEffects: false` and `sideEffects: ['*.css']`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q86"></a>
+### Q86: How do you configure Webpack to output ESM libraries (`experiments.outputModule`)?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Webpack to output ESM libraries (`experiments.outputModule`)?. Enable experimental ESM output flag in Webpack 5 configuration. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure Webpack to output ESM libraries (`experiments.outputModule`)?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q87"></a>
+### Q87: What is the purpose of `webpack.BannerPlugin`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `webpack.BannerPlugin`?. Prepends license banners, author info, and build version headers to every generated chunk. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `webpack.BannerPlugin`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q88"></a>
+### Q88: How do you measure individual plugin execution timings in Webpack with `speed-measure-webpack-plugin`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you measure individual plugin execution timings in Webpack with `speed-measure-webpack-plugin`?. Wraps Webpack configuration and outputs execution time metrics per loader and plugin. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you measure individual plugin execution timings in Webpack with `speed-measure-webpack-plugin`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q89"></a>
+### Q89: What is the difference between `dependencies` and `peerDependencies` in component libraries?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `dependencies` and `peerDependencies` in component libraries?. Dependencies are bundled; peerDependencies must be supplied by the consuming application. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `dependencies` and `peerDependencies` in component libraries?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q90"></a>
+### Q90: How do you handle asset caching with Content-Security-Policy nonces in Webpack?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you handle asset caching with Content-Security-Policy nonces in Webpack?. Inject dynamic `__webpack_nonce__` variable before loading asynchronous chunks. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you handle asset caching with Content-Security-Policy nonces in Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q91"></a>
+### Q91: What is the difference between `raw-loader` and Webpack 5 `asset/source`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `raw-loader` and Webpack 5 `asset/source`?. `asset/source` exports raw source text natively without installing `raw-loader`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `raw-loader` and Webpack 5 `asset/source`?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q92"></a>
+### Q92: How do you configure CSS nano presets in Webpack?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure CSS nano presets in Webpack?. Configure `css-minimizer-webpack-plugin` with `cssnano` safe optimizations. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure CSS nano presets in Webpack?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q93"></a>
+### Q93: What is the purpose of `splitChunks.cacheGroups` in Webpack optimization?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `splitChunks.cacheGroups` in Webpack optimization?. Defines custom rules for grouping modules into specific chunk names (e.g. `react-vendor`, `common`). Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `splitChunks.cacheGroups` in Webpack optimization?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q94"></a>
+### Q94: How do you configure Hot Module Replacement for Web Workers in Vite?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Hot Module Replacement for Web Workers in Vite?. Use `new Worker(new URL('./worker.ts', import.meta.url), { type: 'module' })`. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure Hot Module Replacement for Web Workers in Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q95"></a>
+### Q95: What is the difference between `webpack-bundle-analyzer` static report vs live server mode?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `webpack-bundle-analyzer` static report vs live server mode?. Static mode generates an offline HTML report file; server mode opens an interactive local web server. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `webpack-bundle-analyzer` static report vs live server mode?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q96"></a>
+### Q96: How do you configure custom ESLint flat config (`eslint.config.js`) in modern projects?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure custom ESLint flat config (`eslint.config.js`) in modern projects?. Export configuration array using `@eslint/js` and typescript-eslint parser. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure custom ESLint flat config (`eslint.config.js`) in modern projects?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q97"></a>
+### Q97: What is the purpose of `esbuild-loader` in Webpack build pipelines?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `esbuild-loader` in Webpack build pipelines?. Replaces `babel-loader` and `ts-loader` with esbuild for ultra-fast transpilation. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the purpose of `esbuild-loader` in Webpack build pipelines?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q98"></a>
+### Q98: How do you configure proxy websockets in Vite dev server?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure proxy websockets in Vite dev server?. Set `ws: true` on `server.proxy` target configuration. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure proxy websockets in Vite dev server?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q99"></a>
+### Q99: What is the difference between `chunk` and `bundle` in Webpack terminology?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `chunk` and `bundle` in Webpack terminology?. Module is single file; Chunk is grouped modules compiled together; Bundle is the final output file emitted to disk. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for What is the difference between `chunk` and `bundle` in Webpack terminology?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---
+
+<a id="q100"></a>
+### Q100: How do you configure monorepo package resolution with pnpm workspaces and Vite?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure monorepo package resolution with pnpm workspaces and Vite?. Use `resolve.alias` or typescript path mappings pointing to local workspace packages. Key focus on build performance, module systems (ESM vs CJS), AST transformations, tree shaking, and enterprise CI/CD standards.
+
+**Code Example**:
+```javascript
+// Configuration for How do you configure monorepo package resolution with pnpm workspaces and Vite?
+module.exports = {
+  // Production Build Optimization Standard
+  mode: 'production',
+  optimization: { splitChunks: { chunks: 'all' } }
+};
+```
+
+---

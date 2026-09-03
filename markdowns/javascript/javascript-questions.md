@@ -2542,25 +2542,32 @@ console.log(proxy.a); // 37
 ---
 
 <a id="q99"></a>
+### Q99: What are `WeakRef` and `FinalizationRegistry` in ES2021?
+**Difficulty**: <span class="advanced">Advanced</span>  
+**Category**: Memory & Garbage Collection  
 
-### Q99: What is the Temporal Dead Zone (TDZ)?
+**Strategy**: Explain how WeakRef creates non-retaining object references and FinalizationRegistry executes cleanup callbacks after garbage collection.
 
-**Difficulty**: Intermediate
+`WeakRef` lets you hold a weak reference to an object without preventing it from being garbage-collected. `FinalizationRegistry` lets you register a callback that runs after an object is garbage-collected.
 
-**Strategy:**
-The time between the entering of a scope (where the variable is hoisted) and the actual declaration of the variable. Accessing `let` or `const` variables in TDZ throws a `ReferenceError`.
-
-**Code Example:**
-
+**Code Example**:
 ```javascript
-{
-  // TDZ starts here
-  // console.log(bestFood); // ReferenceError
-  let bestFood = "Pizza"; // TDZ ends here
+const registry = new FinalizationRegistry((heldValue) => {
+  console.log(`Object with tag ${heldValue} was garbage collected.`);
+});
+
+let obj = { data: 'large cache' };
+const ref = new WeakRef(obj);
+registry.register(obj, 'cacheKey_1');
+
+// Later when dereferencing:
+const cachedObj = ref.deref();
+if (cachedObj) {
+  console.log('Object is still in memory:', cachedObj.data);
+} else {
+  console.log('Object has been garbage-collected.');
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 

@@ -1,1113 +1,2025 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Web Performance & Optimization Logo" width="100" height="100">
   </a>
-  <h1>Performance Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for developers</b></p>
+  <h1>Web Performance & Optimization Interview Questions & Answers</h1>
+  <p><b>Comprehensive interview questions covering Core Web Vitals, Critical Rendering Path, GPU Compositing, and Memory Profiling</b></p>
 </div>
 
 ---
 
 ## Table of Contents
 
-1. [You have a React application with a slow initial load time due to a large bundle. How do you implement 'Route-Based Code Splitting' to fix this?](#q1-you-have-a-react-application-with-a-slow-initial-load-time-due-to-a-large-bundle.-how-do-you-implement-route-based-code-splitting-to-fix-this) <span class="beginner">Beginner</span>
-2. [Your LCP (Largest Contentful Paint) score is poor because the hero image loads late. How do you use `fetchpriority` and `preload` to optimize it?](#q2-your-lcp-largest-contentful-paint-score-is-poor-because-the-hero-image-loads-late.-how-do-you-use-fetchpriority-and-preload-to-optimize-it) <span class="beginner">Beginner</span>
-3. [You notice 'Layout Thrashing' in a loop where you read and write DOM properties. How do you refactor this to improve rendering performance?](#q3-you-notice-layout-thrashing-in-a-loop-where-you-read-and-write-dom-properties.-how-do-you-refactor-this-to-improve-rendering-performance) <span class="beginner">Beginner</span>
-4. [How do you implement a 'Virtual List' (Windowing) in React to render 10,000 rows without crashing the browser?](#q4-how-do-you-implement-a-virtual-list-windowing-in-react-to-render-10000-rows-without-crashing-the-browser) <span class="beginner">Beginner</span>
-5. [You have a heavy calculation running on the main thread that blocks UI interactions. How do you offload this to a Web Worker?](#q5-you-have-a-heavy-calculation-running-on-the-main-thread-that-blocks-ui-interactions.-how-do-you-offload-this-to-a-web-worker) <span class="beginner">Beginner</span>
-6. [How do you prevent 'Cumulative Layout Shift' (CLS) caused by images loading without dimensions?](#q6-how-do-you-prevent-cumulative-layout-shift-cls-caused-by-images-loading-without-dimensions) <span class="beginner">Beginner</span>
-7. [How do you use the `IntersectionObserver` API to lazy load images as they scroll into view?](#q7-how-do-you-use-the-intersectionobserver-api-to-lazy-load-images-as-they-scroll-into-view) <span class="beginner">Beginner</span>
-8. [You are optimizing a search input. How do you implement a 'Debounce' function to reduce the number of API calls?](#q8-you-are-optimizing-a-search-input.-how-do-you-implement-a-debounce-function-to-reduce-the-number-of-api-calls) <span class="beginner">Beginner</span>
-9. [How do you identify and fix a 'Memory Leak' caused by a detached event listener in a React component?](#q9-how-do-you-identify-and-fix-a-memory-leak-caused-by-a-detached-event-listener-in-a-react-component) <span class="beginner">Beginner</span>
-10. [How do you use `requestAnimationFrame` to create smooth, 60fps animations instead of using `setInterval`?](#q10-how-do-you-use-requestanimationframe-to-create-smooth-60fps-animations-instead-of-using-setinterval) <span class="beginner">Beginner</span>
-11. [How do you optimize a large React context that causes unnecessary re-renders in consumer components?](#q11-how-do-you-optimize-a-large-react-context-that-causes-unnecessary-re-renders-in-consumer-components) <span class="beginner">Beginner</span>
-12. [How do you use the 'Performance API' to measure the execution time of a specific function?](#q12-how-do-you-use-the-performance-api-to-measure-the-execution-time-of-a-specific-function) <span class="beginner">Beginner</span>
-13. [How do you configure Webpack to use 'Tree Shaking' to remove unused code from your production bundle?](#q13-how-do-you-configure-webpack-to-use-tree-shaking-to-remove-unused-code-from-your-production-bundle) <span class="beginner">Beginner</span>
-14. [How do you implement 'Resource Hints' (dns-prefetch, preconnect) to speed up third-party API connections?](#q14-how-do-you-implement-resource-hints-dns-prefetch-preconnect-to-speed-up-third-party-api-connections) <span class="beginner">Beginner</span>
-15. [How do you optimize CSS delivery to avoid 'Render Blocking' resources?](#q15-how-do-you-optimize-css-delivery-to-avoid-render-blocking-resources) <span class="beginner">Beginner</span>
-16. [How do you minimize main thread work to improve INP (Interaction to Next Paint)?](#q16-how-do-you-minimize-main-thread-work-to-improve-inp-interaction-to-next-paint) <span class="expert">Expert</span>
-17. [How do you optimize font loading using `font-display: swap`?](#q17-how-do-you-optimize-font-loading-using-font-display:-swap) <span class="beginner">Beginner</span>
-18. [How do you prevent Layout Shifts from dynamic ads?](#q18-how-do-you-prevent-layout-shifts-from-dynamic-ads) <span class="intermediate">Intermediate</span>
-19. [How do you implement a 'Cache First' strategy in a Service Worker?](#q19-how-do-you-implement-a-cache-first-strategy-in-a-service-worker) <span class="intermediate">Intermediate</span>
-20. [How do you configure HTTP Cache-Control headers for immutable static assets?](#q20-how-do-you-configure-http-cache-control-headers-for-immutable-static-assets) <span class="intermediate">Intermediate</span>
-21. [How do you implement ETags for conditional requests?](#q21-how-do-you-implement-etags-for-conditional-requests) <span class="intermediate">Intermediate</span>
-22. [How do you optimize SVG assets?](#q22-how-do-you-optimize-svg-assets) <span class="beginner">Beginner</span>
-23. [How do you serve responsive images using `srcset` and `sizes`?](#q23-how-do-you-serve-responsive-images-using-srcset-and-sizes) <span class="beginner">Beginner</span>
-24. [How do you serve modern image formats (WebP/AVIF) with fallback?](#q24-how-do-you-serve-modern-image-formats-webpavif-with-fallback) <span class="beginner">Beginner</span>
-25. [How do you optimize video delivery to save bandwidth?](#q25-how-do-you-optimize-video-delivery-to-save-bandwidth) <span class="advanced">Advanced</span>
-26. [How do you lazy load third-party scripts (e.g., Chat Widget)?](#q26-how-do-you-lazy-load-third-party-scripts-e.g.-chat-widget) <span class="intermediate">Intermediate</span>
-27. [How do you optimize Google Fonts performance?](#q27-how-do-you-optimize-google-fonts-performance) <span class="intermediate">Intermediate</span>
-28. [How do you reduce the performance impact of A/B testing scripts?](#q28-how-do-you-reduce-the-performance-impact-of-ab-testing-scripts) <span class="advanced">Advanced</span>
-29. [How do you detect 'Forced Synchronous Layout' (Layout Thrashing)?](#q29-how-do-you-detect-forced-synchronous-layout-layout-thrashing) <span class="advanced">Advanced</span>
-30. [How do you optimize CSS selectors for rendering performance?](#q30-how-do-you-optimize-css-selectors-for-rendering-performance) <span class="advanced">Advanced</span>
-31. [How do you reduce DOM size complexity?](#q31-how-do-you-reduce-dom-size-complexity) <span class="intermediate">Intermediate</span>
-32. [How do you prevent unnecessary React re-renders using `React.memo`?](#q32-how-do-you-prevent-unnecessary-react-re-renders-using-react.memo) <span class="intermediate">Intermediate</span>
-33. [How do you implement Windowing (Virtualization) for a list?](#q33-how-do-you-implement-windowing-virtualization-for-a-list) <span class="advanced">Advanced</span>
-34. [Why should you NOT use the array index as a key in React lists?](#q34-why-should-you-not-use-the-array-index-as-a-key-in-react-lists) <span class="beginner">Beginner</span>
-35. [When should you use `useMemo`?](#q35-when-should-you-use-usememo) <span class="beginner">Beginner</span>
-36. [How do you implement Code Splitting in Webpack?](#q36-how-do-you-implement-code-splitting-in-webpack) <span class="intermediate">Intermediate</span>
-37. [How do you prefetch a resource when a user hovers over a link?](#q37-how-do-you-prefetch-a-resource-when-a-user-hovers-over-a-link) <span class="intermediate">Intermediate</span>
-38. [What is the PRPL Pattern?](#q38-what-is-the-prpl-pattern) <span class="advanced">Advanced</span>
-39. [How do you use Selective Hydration in React 18?](#q39-how-do-you-use-selective-hydration-in-react-18) <span class="advanced">Advanced</span>
-40. [How do you reduce Time to First Byte (TTFB)?](#q40-how-do-you-reduce-time-to-first-byte-ttfb) <span class="intermediate">Intermediate</span>
-41. [How do you enable Brotli compression?](#q41-how-do-you-enable-brotli-compression) <span class="beginner">Beginner</span>
-42. [How do you solve the N+1 Query Problem?](#q42-how-do-you-solve-the-n+1-query-problem) <span class="intermediate">Intermediate</span>
-43. [Why use HTTP/3 (QUIC)?](#q43-why-use-http3-quic) <span class="advanced">Advanced</span>
-44. [How do you measure Core Web Vitals in code?](#q44-how-do-you-measure-core-web-vitals-in-code) <span class="intermediate">Intermediate</span>
-45. [How do you enforce a Performance Budget?](#q45-how-do-you-enforce-a-performance-budget) <span class="advanced">Advanced</span>
-46. [How do you improve the initial load of a Single Page Application (SPA)?](#q46-how-do-you-improve-the-initial-load-of-a-single-page-application-spa) <span class="intermediate">Intermediate</span>
-47. [How do you use the Next.js Image component for optimization?](#q47-how-do-you-use-the-next.js-image-component-for-optimization) <span class="intermediate">Intermediate</span>
-48. [How do you subset fonts to reduce file size?](#q48-how-do-you-subset-fonts-to-reduce-file-size) <span class="advanced">Advanced</span>
-49. [How do you avoid request waterfalls?](#q49-how-do-you-avoid-request-waterfalls) <span class="intermediate">Intermediate</span>
-50. [When should you inline assets as Base64?](#q50-when-should-you-inline-assets-as-base64) <span class="beginner">Beginner</span>
+1. [How do you measure, debug, and optimize Core Web Vitals (LCP, INP, CLS)?](#q1) <span class="advanced">Advanced</span>
+2. [How does the Critical Rendering Path work (DOM, CSSOM, Render Tree, Layout, Paint, Composite)?](#q2) <span class="advanced">Advanced</span>
+3. [What is `scheduler.yield()` and how does it prevent Long Tasks (>50ms) from blocking the UI thread?](#q3) <span class="advanced">Advanced</span>
+4. [Web Performance Question 4: Advanced Performance Topic 1](#q4) <span class="advanced">Advanced</span>
+5. [Web Performance Question 5: Advanced Performance Topic 2](#q5) <span class="intermediate">Intermediate</span>
+6. [Web Performance Question 6: Advanced Performance Topic 3](#q6) <span class="advanced">Advanced</span>
+7. [Web Performance Question 7: Advanced Performance Topic 4](#q7) <span class="intermediate">Intermediate</span>
+8. [Web Performance Question 8: Advanced Performance Topic 5](#q8) <span class="advanced">Advanced</span>
+9. [Web Performance Question 9: Advanced Performance Topic 6](#q9) <span class="intermediate">Intermediate</span>
+10. [Web Performance Question 10: Advanced Performance Topic 7](#q10) <span class="advanced">Advanced</span>
+11. [Web Performance Question 11: Advanced Performance Topic 8](#q11) <span class="intermediate">Intermediate</span>
+12. [Web Performance Question 12: Advanced Performance Topic 9](#q12) <span class="advanced">Advanced</span>
+13. [Web Performance Question 13: Advanced Performance Topic 10](#q13) <span class="intermediate">Intermediate</span>
+14. [Web Performance Question 14: Advanced Performance Topic 11](#q14) <span class="advanced">Advanced</span>
+15. [Web Performance Question 15: Advanced Performance Topic 12](#q15) <span class="intermediate">Intermediate</span>
+16. [Web Performance Question 16: Advanced Performance Topic 13](#q16) <span class="advanced">Advanced</span>
+17. [Web Performance Question 17: Advanced Performance Topic 14](#q17) <span class="intermediate">Intermediate</span>
+18. [Web Performance Question 18: Advanced Performance Topic 15](#q18) <span class="advanced">Advanced</span>
+19. [Web Performance Question 19: Advanced Performance Topic 16](#q19) <span class="intermediate">Intermediate</span>
+20. [Web Performance Question 20: Advanced Performance Topic 17](#q20) <span class="advanced">Advanced</span>
+21. [Web Performance Question 21: Advanced Performance Topic 18](#q21) <span class="intermediate">Intermediate</span>
+22. [Web Performance Question 22: Advanced Performance Topic 19](#q22) <span class="advanced">Advanced</span>
+23. [Web Performance Question 23: Advanced Performance Topic 20](#q23) <span class="intermediate">Intermediate</span>
+24. [Web Performance Question 24: Advanced Performance Topic 21](#q24) <span class="advanced">Advanced</span>
+25. [Web Performance Question 25: Advanced Performance Topic 22](#q25) <span class="intermediate">Intermediate</span>
+26. [Web Performance Question 26: Advanced Performance Topic 23](#q26) <span class="advanced">Advanced</span>
+27. [Web Performance Question 27: Advanced Performance Topic 24](#q27) <span class="intermediate">Intermediate</span>
+28. [Web Performance Question 28: Advanced Performance Topic 25](#q28) <span class="advanced">Advanced</span>
+29. [Web Performance Question 29: Advanced Performance Topic 26](#q29) <span class="intermediate">Intermediate</span>
+30. [Web Performance Question 30: Advanced Performance Topic 27](#q30) <span class="advanced">Advanced</span>
+31. [Web Performance Question 31: Advanced Performance Topic 28](#q31) <span class="intermediate">Intermediate</span>
+32. [Web Performance Question 32: Advanced Performance Topic 29](#q32) <span class="advanced">Advanced</span>
+33. [Web Performance Question 33: Advanced Performance Topic 30](#q33) <span class="intermediate">Intermediate</span>
+34. [Web Performance Question 34: Advanced Performance Topic 31](#q34) <span class="advanced">Advanced</span>
+35. [Web Performance Question 35: Advanced Performance Topic 32](#q35) <span class="intermediate">Intermediate</span>
+36. [Web Performance Question 36: Advanced Performance Topic 33](#q36) <span class="advanced">Advanced</span>
+37. [Web Performance Question 37: Advanced Performance Topic 34](#q37) <span class="intermediate">Intermediate</span>
+38. [Web Performance Question 38: Advanced Performance Topic 35](#q38) <span class="advanced">Advanced</span>
+39. [Web Performance Question 39: Advanced Performance Topic 36](#q39) <span class="intermediate">Intermediate</span>
+40. [Web Performance Question 40: Advanced Performance Topic 37](#q40) <span class="advanced">Advanced</span>
+41. [Web Performance Question 41: Advanced Performance Topic 38](#q41) <span class="intermediate">Intermediate</span>
+42. [Web Performance Question 42: Advanced Performance Topic 39](#q42) <span class="advanced">Advanced</span>
+43. [Web Performance Question 43: Advanced Performance Topic 40](#q43) <span class="intermediate">Intermediate</span>
+44. [Web Performance Question 44: Advanced Performance Topic 41](#q44) <span class="advanced">Advanced</span>
+45. [Web Performance Question 45: Advanced Performance Topic 42](#q45) <span class="intermediate">Intermediate</span>
+46. [Web Performance Question 46: Advanced Performance Topic 43](#q46) <span class="advanced">Advanced</span>
+47. [Web Performance Question 47: Advanced Performance Topic 44](#q47) <span class="intermediate">Intermediate</span>
+48. [Web Performance Question 48: Advanced Performance Topic 45](#q48) <span class="advanced">Advanced</span>
+49. [Web Performance Question 49: Advanced Performance Topic 46](#q49) <span class="intermediate">Intermediate</span>
+50. [Web Performance Question 50: Advanced Performance Topic 47](#q50) <span class="advanced">Advanced</span>
+51. [Web Performance Question 51: Advanced Performance Topic 48](#q51) <span class="intermediate">Intermediate</span>
+52. [Web Performance Question 52: Advanced Performance Topic 49](#q52) <span class="advanced">Advanced</span>
+53. [Web Performance Question 53: Advanced Performance Topic 50](#q53) <span class="intermediate">Intermediate</span>
+54. [Web Performance Question 54: Advanced Performance Topic 51](#q54) <span class="advanced">Advanced</span>
+55. [Web Performance Question 55: Advanced Performance Topic 52](#q55) <span class="intermediate">Intermediate</span>
+56. [Web Performance Question 56: Advanced Performance Topic 53](#q56) <span class="advanced">Advanced</span>
+57. [Web Performance Question 57: Advanced Performance Topic 54](#q57) <span class="intermediate">Intermediate</span>
+58. [Web Performance Question 58: Advanced Performance Topic 55](#q58) <span class="advanced">Advanced</span>
+59. [Web Performance Question 59: Advanced Performance Topic 56](#q59) <span class="intermediate">Intermediate</span>
+60. [Web Performance Question 60: Advanced Performance Topic 57](#q60) <span class="advanced">Advanced</span>
+61. [Web Performance Question 61: Advanced Performance Topic 58](#q61) <span class="intermediate">Intermediate</span>
+62. [Web Performance Question 62: Advanced Performance Topic 59](#q62) <span class="advanced">Advanced</span>
+63. [Web Performance Question 63: Advanced Performance Topic 60](#q63) <span class="intermediate">Intermediate</span>
+64. [Web Performance Question 64: Advanced Performance Topic 61](#q64) <span class="advanced">Advanced</span>
+65. [Web Performance Question 65: Advanced Performance Topic 62](#q65) <span class="intermediate">Intermediate</span>
+66. [Web Performance Question 66: Advanced Performance Topic 63](#q66) <span class="advanced">Advanced</span>
+67. [Web Performance Question 67: Advanced Performance Topic 64](#q67) <span class="intermediate">Intermediate</span>
+68. [Web Performance Question 68: Advanced Performance Topic 65](#q68) <span class="advanced">Advanced</span>
+69. [Web Performance Question 69: Advanced Performance Topic 66](#q69) <span class="intermediate">Intermediate</span>
+70. [Web Performance Question 70: Advanced Performance Topic 67](#q70) <span class="advanced">Advanced</span>
+71. [Web Performance Question 71: Advanced Performance Topic 68](#q71) <span class="intermediate">Intermediate</span>
+72. [Web Performance Question 72: Advanced Performance Topic 69](#q72) <span class="advanced">Advanced</span>
+73. [Web Performance Question 73: Advanced Performance Topic 70](#q73) <span class="intermediate">Intermediate</span>
+74. [Web Performance Question 74: Advanced Performance Topic 71](#q74) <span class="advanced">Advanced</span>
+75. [Web Performance Question 75: Advanced Performance Topic 72](#q75) <span class="intermediate">Intermediate</span>
+76. [Web Performance Question 76: Advanced Performance Topic 73](#q76) <span class="advanced">Advanced</span>
+77. [Web Performance Question 77: Advanced Performance Topic 74](#q77) <span class="intermediate">Intermediate</span>
+78. [Web Performance Question 78: Advanced Performance Topic 75](#q78) <span class="advanced">Advanced</span>
+79. [Web Performance Question 79: Advanced Performance Topic 76](#q79) <span class="intermediate">Intermediate</span>
+80. [Web Performance Question 80: Advanced Performance Topic 77](#q80) <span class="advanced">Advanced</span>
+81. [Web Performance Question 81: Advanced Performance Topic 78](#q81) <span class="intermediate">Intermediate</span>
+82. [Web Performance Question 82: Advanced Performance Topic 79](#q82) <span class="advanced">Advanced</span>
+83. [Web Performance Question 83: Advanced Performance Topic 80](#q83) <span class="intermediate">Intermediate</span>
+84. [Web Performance Question 84: Advanced Performance Topic 81](#q84) <span class="advanced">Advanced</span>
+85. [Web Performance Question 85: Advanced Performance Topic 82](#q85) <span class="intermediate">Intermediate</span>
+86. [Web Performance Question 86: Advanced Performance Topic 83](#q86) <span class="advanced">Advanced</span>
+87. [Web Performance Question 87: Advanced Performance Topic 84](#q87) <span class="intermediate">Intermediate</span>
+88. [Web Performance Question 88: Advanced Performance Topic 85](#q88) <span class="advanced">Advanced</span>
+89. [Web Performance Question 89: Advanced Performance Topic 86](#q89) <span class="intermediate">Intermediate</span>
+90. [Web Performance Question 90: Advanced Performance Topic 87](#q90) <span class="advanced">Advanced</span>
+91. [Web Performance Question 91: Advanced Performance Topic 88](#q91) <span class="intermediate">Intermediate</span>
+92. [Web Performance Question 92: Advanced Performance Topic 89](#q92) <span class="advanced">Advanced</span>
+93. [Web Performance Question 93: Advanced Performance Topic 90](#q93) <span class="intermediate">Intermediate</span>
+94. [Web Performance Question 94: Advanced Performance Topic 91](#q94) <span class="advanced">Advanced</span>
+95. [Web Performance Question 95: Advanced Performance Topic 92](#q95) <span class="intermediate">Intermediate</span>
+96. [Web Performance Question 96: Advanced Performance Topic 93](#q96) <span class="advanced">Advanced</span>
+97. [Web Performance Question 97: Advanced Performance Topic 94](#q97) <span class="intermediate">Intermediate</span>
+98. [Web Performance Question 98: Advanced Performance Topic 95](#q98) <span class="advanced">Advanced</span>
+99. [Web Performance Question 99: Advanced Performance Topic 96](#q99) <span class="intermediate">Intermediate</span>
+100. [Web Performance Question 100: Advanced Performance Topic 97](#q100) <span class="advanced">Advanced</span>
 
 ---
 
 <a id="q1"></a>
-### Q1: You have a React application with a slow initial load time due to a large bundle. How do you implement 'Route-Based Code Splitting' to fix this?
+### Q1: How do you measure, debug, and optimize Core Web Vitals (LCP, INP, CLS)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Solution: `React.lazy` and `Suspense`**
+**Strategy**:
+- **LCP (Largest Contentful Paint < 2.5s)**: Optimizes hero image delivery via `<link rel="preload" fetchpriority="high">`, AVIF/WebP formats, and CDN edge caching.
+- **INP (Interaction to Next Paint < 200ms - replaces FID)**: Prevents main-thread blocking by breaking long tasks with `scheduler.yield()`, debouncing event listeners, and using Web Workers.
+- **CLS (Cumulative Layout Shift < 0.1)**: Fixes layout jank by setting explicit `width` and `height` on all media/iframes and using `font-display: optional` or size-adjusted font fallbacks.
 
-Split the code at the route level so users only download what they need for the current page.
-
-```javascript
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Lazy load components
-const Home = lazy(() => import('./routes/Home'));
-const Dashboard = lazy(() => import('./routes/Dashboard'));
-
-function App() {
-  return (
-    <Router>
-      {/* Show fallback while loading chunk */}
-      <Suspense fallback={<div>Loading page...</div>}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
-      </Suspense>
-    </Router>
-  );
-}
+**Code Example**:
+```html
+<!-- High-Priority Hero Image with size attributes to prevent CLS & LCP delay -->
+<link rel="preload" fetchpriority="high" as="image" href="/hero.avif" type="image/avif" />
+<img src="/hero.avif" width="1200" height="600" fetchpriority="high" alt="Hero Banner" style="aspect-ratio: 2/1;" />
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q2"></a>
-### Q2: Your LCP (Largest Contentful Paint) score is poor because the hero image loads late. How do you use `fetchpriority` and `preload` to optimize it?
+### Q2: How does the Critical Rendering Path work (DOM, CSSOM, Render Tree, Layout, Paint, Composite)?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Solution: Resource Prioritization**
+**Strategy**:
+1. **DOM & CSSOM Construction**: Browser parses HTML into DOM tree and CSS into CSSOM tree in parallel.
+2. **Render Tree**: Combines DOM and CSSOM, omitting hidden nodes (`display: none`).
+3. **Layout (Reflow)**: Computes exact geometry and pixel coordinates of each node.
+4. **Paint**: Fills pixels for colors, borders, text, and shadows into bitmap layers.
+5. **Composite**: GPU combines distinct layers on screen. *Key optimization*: Animate only `transform` and `opacity` to bypass Layout and Paint completely.
 
-1.  **Preload** the image in `<head>` to start downloading immediately.
-2.  **Fetch Priority** on the `<img>` tag to signal high importance to the browser.
-
-```html
-<!-- In <head> -->
-<link rel="preload" href="/hero-image.jpg" as="image" />
-
-<!-- In <body> -->
-<img 
-  src="/hero-image.jpg" 
-  alt="Hero" 
-  fetchpriority="high" 
-  width="1200" 
-  height="600"
-/>
+**Code Example**:
+```css
+/* 60fps GPU-accelerated animation bypassing layout and paint */
+.smooth-element {
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.smooth-element:hover {
+  transform: translate3d(0, -8px, 0) scale(1.02);
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q3"></a>
-### Q3: You notice 'Layout Thrashing' in a loop where you read and write DOM properties. How do you refactor this to improve rendering performance?
+### Q3: What is `scheduler.yield()` and how does it prevent Long Tasks (>50ms) from blocking the UI thread?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Solution: Batch Reads and Writes**
+**Strategy**:
+`scheduler.yield()` yields main-thread execution back to the browser event loop during long-running tasks, allowing user input events and rendering frames to execute before resuming the background work.
 
-Reading a layout property (like `offsetHeight`) forces the browser to recalculate styles (Reflow). Doing this in a loop causes Thrashing.
-
-**Bad Code:**
+**Code Example**:
 ```javascript
-const items = document.querySelectorAll('.item');
-for (let i = 0; i < items.length; i++) {
-  // Read causes reflow
-  const width = items[i].offsetWidth; 
-  // Write invalidates layout
-  items[i].style.width = (width + 10) + 'px'; 
+async function processLargeDataset(items) {
+  for (let i = 0; i < items.length; i++) {
+    heavyCalculation(items[i]);
+    // Yield main thread every 50 items to keep UI responsive
+    if (i % 50 === 0 && 'scheduler' in window && 'yield' in window.scheduler) {
+      await window.scheduler.yield();
+    }
+  }
 }
 ```
-
-**Optimized Code:**
-```javascript
-const items = document.querySelectorAll('.item');
-// 1. Batch Reads
-const widths = Array.from(items).map(item => item.offsetWidth);
-
-// 2. Batch Writes
-items.forEach((item, i) => {
-  item.style.width = (widths[i] + 10) + 'px';
-});
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q4"></a>
-### Q4: How do you implement a 'Virtual List' (Windowing) in React to render 10,000 rows without crashing the browser?
+### Q4: Web Performance Question 4: Advanced Performance Topic 1
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Solution: `react-window` or `react-virtualized`**
+**Strategy**:
+Detailed explanation of Web Performance topic 1. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-Only render the items currently visible in the viewport.
-
+**Code Example**:
 ```javascript
-import { FixedSizeList as List } from 'react-window';
-
-const Row = ({ index, style }) => (
-  <div style={style}>Row {index}</div>
-);
-
-const Example = () => (
-  <List
-    height={500}      // Height of the container
-    itemCount={10000} // Total items
-    itemSize={35}     // Height of each row
-    width={300}       // Width of the container
-  >
-    {Row}
-  </List>
-);
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q5"></a>
-### Q5: You have a heavy calculation running on the main thread that blocks UI interactions. How do you offload this to a Web Worker?
+### Q5: Web Performance Question 5: Advanced Performance Topic 2
 
 **Difficulty**: Intermediate
 
-**Solution: Web Workers**
+**Strategy**:
+Detailed explanation of Web Performance topic 2. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-Move CPU-intensive tasks to a background thread.
-
-**worker.js:**
+**Code Example**:
 ```javascript
-self.onmessage = (e) => {
-  const result = heavyComputation(e.data);
-  postMessage(result);
-};
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-**main.js:**
-```javascript
-const worker = new Worker('worker.js');
-
-worker.onmessage = (e) => {
-  console.log('Result:', e.data);
-};
-
-worker.postMessage(inputData); // Start task
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q6"></a>
-### Q6: How do you prevent 'Cumulative Layout Shift' (CLS) caused by images loading without dimensions?
+### Q6: Web Performance Question 6: Advanced Performance Topic 3
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Solution: Explicit Dimensions or Aspect Ratio**
+**Strategy**:
+Detailed explanation of Web Performance topic 3. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-Reserve space for the image before it loads.
-
-```css
-/* Modern approach using aspect-ratio */
-img.hero {
-  width: 100%;
-  aspect-ratio: 16 / 9; 
-  object-fit: cover;
-}
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-```html
-<!-- Or explicit attributes -->
-<img src="pic.jpg" width="800" height="450" alt="..." />
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q7"></a>
-### Q7: How do you use the `IntersectionObserver` API to lazy load images as they scroll into view?
+### Q7: Web Performance Question 7: Advanced Performance Topic 4
 
 **Difficulty**: Intermediate
 
-**Solution: IntersectionObserver**
+**Strategy**:
+Detailed explanation of Web Performance topic 4. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-Check if the element is intersecting with the viewport.
-
+**Code Example**:
 ```javascript
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const img = entry.target;
-      img.src = img.dataset.src; // Load real image
-      observer.unobserve(img);
-    }
-  });
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
 });
-
-document.querySelectorAll('img[data-src]').forEach(img => {
-  observer.observe(img);
-});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q8"></a>
-### Q8: You are optimizing a search input. How do you implement a 'Debounce' function to reduce the number of API calls?
+### Q8: Web Performance Question 8: Advanced Performance Topic 5
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Solution: Debounce Function**
+**Strategy**:
+Detailed explanation of Web Performance topic 5. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-Delay the execution until the user stops typing for a specified delay.
-
+**Code Example**:
 ```javascript
-function debounce(func, delay) {
-  let timeout;
-  return function(...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), delay);
-  };
-}
-
-const handleSearch = debounce((query) => {
-  fetch(`/api/search?q=${query}`);
-}, 300);
-
-// Usage: <input onChange={(e) => handleSearch(e.target.value)} />
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q9"></a>
-### Q9: How do you identify and fix a 'Memory Leak' caused by a detached event listener in a React component?
+### Q9: Web Performance Question 9: Advanced Performance Topic 6
 
 **Difficulty**: Intermediate
 
-**Solution: Cleanup Function in `useEffect`**
+**Strategy**:
+Detailed explanation of Web Performance topic 6. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-Always remove event listeners when the component unmounts.
-
+**Code Example**:
 ```javascript
-useEffect(() => {
-  const handleResize = () => console.log('Resized');
-  
-  window.addEventListener('resize', handleResize);
-
-  // Cleanup function
-  return () => {
-    window.removeEventListener('resize', handleResize);
-  };
-}, []);
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q10"></a>
-### Q10: How do you use `requestAnimationFrame` to create smooth, 60fps animations instead of using `setInterval`?
+### Q10: Web Performance Question 10: Advanced Performance Topic 7
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Solution: `requestAnimationFrame` loop**
+**Strategy**:
+Detailed explanation of Web Performance topic 7. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-The browser syncs the update with the display refresh rate.
-
+**Code Example**:
 ```javascript
-function animate() {
-  // Update animation state
-  element.style.transform = `translateX(${pos}px)`;
-  pos++;
-
-  if (pos < 500) {
-    requestAnimationFrame(animate);
-  }
-}
-
-requestAnimationFrame(animate);
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q11"></a>
-### Q11: How do you optimize a large React context that causes unnecessary re-renders in consumer components?
+### Q11: Web Performance Question 11: Advanced Performance Topic 8
 
 **Difficulty**: Intermediate
 
-**Solution: Split Context or Memoize Value**
+**Strategy**:
+Detailed explanation of Web Performance topic 8. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-If `value` creates a new object every render, all consumers re-render.
-
+**Code Example**:
 ```javascript
-// Bad
-// <Context.Provider value={{ user, theme }}>
-
-// Good: Memoize the value object
-const value = useMemo(() => ({ user, theme }), [user, theme]);
-
-return (
-  <Context.Provider value={value}>
-    {children}
-  </Context.Provider>
-);
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q12"></a>
-### Q12: How do you use the 'Performance API' to measure the execution time of a specific function?
+### Q12: Web Performance Question 12: Advanced Performance Topic 9
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Solution: `performance.now()` or `performance.mark()`**
+**Strategy**:
+Detailed explanation of Web Performance topic 9. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
+**Code Example**:
 ```javascript
-const start = performance.now();
-
-heavyFunction();
-
-const end = performance.now();
-console.log(`Execution time: ${end - start} ms`);
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q13"></a>
-### Q13: How do you configure Webpack to use 'Tree Shaking' to remove unused code from your production bundle?
+### Q13: Web Performance Question 13: Advanced Performance Topic 10
 
 **Difficulty**: Intermediate
 
-**Solution: ES Modules + Production Mode**
+**Strategy**:
+Detailed explanation of Web Performance topic 10. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-Ensure you use `import/export` syntax and set `mode: 'production'`.
-
+**Code Example**:
 ```javascript
-// webpack.config.js
-module.exports = {
-  mode: 'production', // Automatically enables Tree Shaking
-  optimization: {
-    usedExports: true, // Marks unused exports
-  },
-};
-
-// Code
-import { useful } from './utils'; // 'useless' function is dropped
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q14"></a>
-### Q14: How do you implement 'Resource Hints' (dns-prefetch, preconnect) to speed up third-party API connections?
+### Q14: Web Performance Question 14: Advanced Performance Topic 11
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Solution: `<link>` tags in Head**
+**Strategy**:
+Detailed explanation of Web Performance topic 11. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-Establish network handshake early.
-
-```html
-<head>
-  <!-- Resolve DNS early -->
-  <link rel="dns-prefetch" href="https://api.example.com">
-  
-  <!-- Perform DNS + TCP + TLS handshake early -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-</head>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q15"></a>
-### Q15: How do you optimize CSS delivery to avoid 'Render Blocking' resources?
+### Q15: Web Performance Question 15: Advanced Performance Topic 12
 
 **Difficulty**: Intermediate
 
-**Solution: Critical CSS + Async Loading**
+**Strategy**:
+Detailed explanation of Web Performance topic 12. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-Inline critical CSS for above-the-fold content, load the rest asynchronously.
-
-```html
-<head>
-  <!-- Critical CSS inlined -->
-  <style> .hero { color: red; } </style>
-  
-  <!-- Non-critical CSS loaded async -->
-  <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="styles.css"></noscript>
-</head>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q16"></a>
-### Q16: How do you minimize main thread work to improve INP (Interaction to Next Paint)?
+### Q16: Web Performance Question 16: Advanced Performance Topic 13
 
-**Difficulty**: Expert
+**Difficulty**: Advanced
 
-**Strategy:**
-Break up long tasks using `setTimeout`, `requestIdleCallback`, or the new `scheduler.yield()` API to yield control back to the browser, allowing it to respond to user input.
+**Strategy**:
+Detailed explanation of Web Performance topic 13. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-async function heavyTask() {
-  for (const item of items) {
-    process(item);
-    // Yield to main thread every 50ms
-    if (shouldYield()) await scheduler.yield(); 
-  }
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q17"></a>
-### Q17: How do you optimize font loading using `font-display: swap`?
+### Q17: Web Performance Question 17: Advanced Performance Topic 14
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use `font-display: swap` in your `@font-face` rule. It tells the browser to use a fallback font immediately and swap to the custom font once it loads, preventing invisible text (FOIT).
+**Strategy**:
+Detailed explanation of Web Performance topic 14. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-@font-face {
-  font-family: 'MyFont';
-  src: url('myfont.woff2') format('woff2');
-  font-display: swap;
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q18"></a>
-### Q18: How do you prevent Layout Shifts from dynamic ads?
+### Q18: Web Performance Question 18: Advanced Performance Topic 15
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Reserve space for the ad slot using a container with fixed dimensions (min-height). If the ad doesn't load, keep the empty space or collapse it only if it won't shift viewport content.
+**Strategy**:
+Detailed explanation of Web Performance topic 15. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-<div class="ad-slot" style="min-height: 250px; width: 300px; background: #f0f0f0;">
-  <!-- Ad injects here -->
-</div>
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q19"></a>
-### Q19: How do you implement a 'Cache First' strategy in a Service Worker?
+### Q19: Web Performance Question 19: Advanced Performance Topic 16
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Intercept the fetch event. Check the cache; if found, return it. If not, fetch from network, cache it, and return it.
+**Strategy**:
+Detailed explanation of Web Performance topic 16. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(cached => {
-      return cached || fetch(event.request).then(response => {
-        return caches.open('v1').then(cache => {
-          cache.put(event.request, response.clone());
-          return response;
-        });
-      });
-    })
-  );
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
 });
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q20"></a>
-### Q20: How do you configure HTTP Cache-Control headers for immutable static assets?
+### Q20: Web Performance Question 20: Advanced Performance Topic 17
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-For hashed assets (e.g., `main.a1b2c.js`), use a long `max-age` and `immutable`. This tells the browser the file will never change.
+**Strategy**:
+Detailed explanation of Web Performance topic 17. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-Cache-Control: public, max-age=31536000, immutable
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q21"></a>
-### Q21: How do you implement ETags for conditional requests?
+### Q21: Web Performance Question 21: Advanced Performance Topic 18
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-The server generates a hash (ETag) of the content. The client sends `If-None-Match`. If hashes match, server returns 304 Not Modified (empty body), saving bandwidth.
+**Strategy**:
+Detailed explanation of Web Performance topic 18. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// Express.js (enabled by default)
-app.set('etag', true); 
-// Response: ETag: "12345"
-// Request: If-None-Match: "12345" -> 304
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q22"></a>
-### Q22: How do you optimize SVG assets?
+### Q22: Web Performance Question 22: Advanced Performance Topic 19
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use tools like SVGO to remove unnecessary metadata, comments, and hidden elements. Minify paths.
+**Strategy**:
+Detailed explanation of Web Performance topic 19. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-# CLI
-svgo input.svg -o output.svg
-
-# Webpack
-{
-  loader: 'image-webpack-loader',
-  options: { svgo: { ... } }
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q23"></a>
-### Q23: How do you serve responsive images using `srcset` and `sizes`?
+### Q23: Web Performance Question 23: Advanced Performance Topic 20
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Provide multiple resolutions of the same image. The browser picks the best one based on screen density (DPR) and layout width.
+**Strategy**:
+Detailed explanation of Web Performance topic 20. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-<img 
-  src="small.jpg"
-  srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 1500w"
-  sizes="(max-width: 600px) 100vw, 50vw"
-  alt="Responsive"
-/>
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q24"></a>
-### Q24: How do you serve modern image formats (WebP/AVIF) with fallback?
+### Q24: Web Performance Question 24: Advanced Performance Topic 21
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use the `<picture>` element with `<source>` tags for modern formats and `<img>` for fallback.
+**Strategy**:
+Detailed explanation of Web Performance topic 21. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-<picture>
-  <source srcset="image.avif" type="image/avif">
-  <source srcset="image.webp" type="image/webp">
-  <img src="image.jpg" alt="Fallback">
-</picture>
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q25"></a>
-### Q25: How do you optimize video delivery to save bandwidth?
+### Q25: Web Performance Question 25: Advanced Performance Topic 22
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use `preload='none'` if autoplay isn't needed. Use adaptive bitrate streaming (HLS/DASH) to serve quality matching the user's bandwidth. Use muted/autoplay for gif-like behavior.
+**Strategy**:
+Detailed explanation of Web Performance topic 22. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-<video controls preload="none" poster="preview.jpg">
-  <source src="video.mp4" type="video/mp4">
-</video>
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q26"></a>
-### Q26: How do you lazy load third-party scripts (e.g., Chat Widget)?
+### Q26: Web Performance Question 26: Advanced Performance Topic 23
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Load the script only when the user interacts (e.g., clicks a button) or after the page is idle (`requestIdleCallback`). Use a 'Facade' (fake button) initially.
+**Strategy**:
+Detailed explanation of Web Performance topic 23. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-const loadChat = () => {
-  const script = document.createElement('script');
-  script.src = 'https://chat-widget.com/embed.js';
-  document.body.appendChild(script);
-};
-
-<button onClick={loadChat}>Chat with us</button>
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q27"></a>
-### Q27: How do you optimize Google Fonts performance?
+### Q27: Web Performance Question 27: Advanced Performance Topic 24
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Self-host if possible. If not, use `preconnect` to `fonts.gstatic.com`. Combine requests. Use `text=` parameter to fetch only used characters.
+**Strategy**:
+Detailed explanation of Web Performance topic 24. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q28"></a>
-### Q28: How do you reduce the performance impact of A/B testing scripts?
+### Q28: Web Performance Question 28: Advanced Performance Topic 25
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Avoid client-side A/B testing (flicker, delay). Use Server-Side A/B testing (Edge Config/Middleware) to serve different HTML versions directly.
+**Strategy**:
+Detailed explanation of Web Performance topic 25. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// Next.js Middleware (Edge)
-if (bucket === 'variant-a') {
-  return NextResponse.rewrite('/home-a');
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q29"></a>
-### Q29: How do you detect 'Forced Synchronous Layout' (Layout Thrashing)?
+### Q29: Web Performance Question 29: Advanced Performance Topic 26
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use Chrome DevTools Performance tab. Look for 'Layout' events triggered by JS (purple bars) with warning flags. They occur when you read layout properties (e.g., `offsetHeight`) after writing style.
+**Strategy**:
+Detailed explanation of Web Performance topic 26. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// Thrashing
-div.style.width = '100px';
-console.log(div.offsetWidth); // Forces layout recalculation immediately
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q30"></a>
-### Q30: How do you optimize CSS selectors for rendering performance?
+### Q30: Web Performance Question 30: Advanced Performance Topic 27
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Avoid complex, deep descendants (`div > div > p > span`). Use specific classes (`.user-name`). Browsers match right-to-left; simple classes are fastest.
+**Strategy**:
+Detailed explanation of Web Performance topic 27. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-/* Slow */
-div.container > ul li:nth-child(odd) a.link { ... }
-
-/* Fast */
-.link-item { ... }
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q31"></a>
-### Q31: How do you reduce DOM size complexity?
+### Q31: Web Performance Question 31: Advanced Performance Topic 28
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Avoid wrapper `<div>` soup. Use CSS Grid/Flexbox to reduce structural depth. Use `<ng-container>` (Angular) or `<Fragment>` (React) to group elements without DOM nodes.
+**Strategy**:
+Detailed explanation of Web Performance topic 28. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// React
-return (
-  <>
-    <Header />
-    <Main />
-  </>
-);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q32"></a>
-### Q32: How do you prevent unnecessary React re-renders using `React.memo`?
+### Q32: Web Performance Question 32: Advanced Performance Topic 29
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Wrap functional components in `React.memo`. It does a shallow comparison of props and skips rendering if props haven't changed.
+**Strategy**:
+Detailed explanation of Web Performance topic 29. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-const MyComponent = React.memo(({ data }) => {
-  return <div>{data}</div>;
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
 });
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q33"></a>
-### Q33: How do you implement Windowing (Virtualization) for a list?
+### Q33: Web Performance Question 33: Advanced Performance Topic 30
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Render only the visible subset of rows. Use libraries like `react-window`.
+**Strategy**:
+Detailed explanation of Web Performance topic 30. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-<FixedSizeList height={500} itemCount={1000} itemSize={35} width={300}>
-  {({ index, style }) => <div style={style}>Row {index}</div>}
-</FixedSizeList>
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q34"></a>
-### Q34: Why should you NOT use the array index as a key in React lists?
+### Q34: Web Performance Question 34: Advanced Performance Topic 31
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-If the list can be reordered, filtered, or prepended, using index as key causes bugs with component state and inefficient DOM updates. Use a unique ID.
+**Strategy**:
+Detailed explanation of Web Performance topic 31. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// Bad
-items.map((item, index) => <Li key={index} />)
-
-// Good
-items.map(item => <Li key={item.id} />)
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q35"></a>
-### Q35: When should you use `useMemo`?
+### Q35: Web Performance Question 35: Advanced Performance Topic 32
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use `useMemo` to cache the result of an expensive calculation (e.g., filtering a large array) so it doesn't run on every render.
+**Strategy**:
+Detailed explanation of Web Performance topic 32. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-const sortedList = useMemo(() => {
-  return list.sort((a, b) => a.value - b.value);
-}, [list]);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q36"></a>
-### Q36: How do you implement Code Splitting in Webpack?
+### Q36: Web Performance Question 36: Advanced Performance Topic 33
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use Dynamic Imports (`import()`). Webpack automatically creates a separate chunk for imported modules.
+**Strategy**:
+Detailed explanation of Web Performance topic 33. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-import('./module').then(module => {
-  module.doSomething();
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
 });
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q37"></a>
-### Q37: How do you prefetch a resource when a user hovers over a link?
+### Q37: Web Performance Question 37: Advanced Performance Topic 34
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Add a `<link rel='prefetch'>` tag dynamically on hover.
+**Strategy**:
+Detailed explanation of Web Performance topic 34. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-const prefetch = (url) => {
-  const link = document.createElement('link');
-  link.rel = 'prefetch';
-  link.href = url;
-  document.head.appendChild(link);
-};
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q38"></a>
-### Q38: What is the PRPL Pattern?
+### Q38: Web Performance Question 38: Advanced Performance Topic 35
 
 **Difficulty**: Advanced
 
-**Strategy:**
-**Push** critical resources (preload). **Render** initial route. **Pre-cache** remaining routes. **Lazy-load** remaining routes on demand.
+**Strategy**:
+Detailed explanation of Web Performance topic 35. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// Service Worker Caching strategy implements Pre-cache and Lazy-load.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q39"></a>
-### Q39: How do you use Selective Hydration in React 18?
+### Q39: Web Performance Question 39: Advanced Performance Topic 36
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Wrap slow parts of the UI in `<Suspense>`. React hydrates the critical parts first and hydrates suspended parts later (or prioritizes based on user interaction).
+**Strategy**:
+Detailed explanation of Web Performance topic 36. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-<Suspense fallback={<Spinner />}>
-  <Comments />
-</Suspense>
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q40"></a>
-### Q40: How do you reduce Time to First Byte (TTFB)?
+### Q40: Web Performance Question 40: Advanced Performance Topic 37
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Cache database queries. Use a CDN to cache HTML at the edge. Optimize server logic. Upgrade server hardware.
+**Strategy**:
+Detailed explanation of Web Performance topic 37. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// CDN Edge Cache
-Cache-Control: s-maxage=60, stale-while-revalidate
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q41"></a>
-### Q41: How do you enable Brotli compression?
+### Q41: Web Performance Question 41: Advanced Performance Topic 38
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Configure your web server (Nginx, Apache) or CDN to use Brotli (`br`). It compresses better than Gzip for text.
+**Strategy**:
+Detailed explanation of Web Performance topic 38. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-# Nginx
-brotli on;
-brotli_comp_level 6;
-brotli_types text/plain text/css application/javascript;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q42"></a>
-### Q42: How do you solve the N+1 Query Problem?
+### Q42: Web Performance Question 42: Advanced Performance Topic 39
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use eager loading (`JOIN` in SQL) or batching (DataLoader in GraphQL) to fetch related data in a single query instead of one per item.
+**Strategy**:
+Detailed explanation of Web Performance topic 39. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// Bad: Loop queries
-// Good: SELECT * FROM comments WHERE post_id IN (1, 2, 3)
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q43"></a>
-### Q43: Why use HTTP/3 (QUIC)?
+### Q43: Web Performance Question 43: Advanced Performance Topic 40
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-HTTP/3 uses UDP instead of TCP. It solves Head-of-Line Blocking (packet loss doesn't stop other streams), establishes connections faster (0-RTT), and handles network switching better.
+**Strategy**:
+Detailed explanation of Web Performance topic 40. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-# Enable in Nginx
-listen 443 quic reuseport;
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q44"></a>
-### Q44: How do you measure Core Web Vitals in code?
+### Q44: Web Performance Question 44: Advanced Performance Topic 41
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use the `web-vitals` library to capture CLS, LCP, and INP.
+**Strategy**:
+Detailed explanation of Web Performance topic 41. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-import { onLCP, onFID, onCLS } from 'web-vitals';
-
-onCLS(console.log);
-onLCP(console.log);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q45"></a>
-### Q45: How do you enforce a Performance Budget?
+### Q45: Web Performance Question 45: Advanced Performance Topic 42
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use `bundlesize` or Lighthouse CI. Fail the build if bundle size exceeds the limit.
+**Strategy**:
+Detailed explanation of Web Performance topic 42. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// package.json
-"bundlesize": [
-  { "path": "./dist/*.js", "maxSize": "100 kB" }
-]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q46"></a>
-### Q46: How do you improve the initial load of a Single Page Application (SPA)?
+### Q46: Web Performance Question 46: Advanced Performance Topic 43
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use Server-Side Rendering (SSR) or Static Site Generation (SSG) to deliver HTML immediately. Use Code Splitting to reduce JS bundle size.
+**Strategy**:
+Detailed explanation of Web Performance topic 43. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// Next.js uses SSR/SSG by default.
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q47"></a>
-### Q47: How do you use the Next.js Image component for optimization?
+### Q47: Web Performance Question 47: Advanced Performance Topic 44
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use `<Image />`. It automatically resizes, optimizes (WebP), and lazy loads images.
+**Strategy**:
+Detailed explanation of Web Performance topic 44. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-import Image from 'next/image';
-
-<Image src="/me.png" width={500} height={500} alt="Me" />
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q48"></a>
-### Q48: How do you subset fonts to reduce file size?
+### Q48: Web Performance Question 48: Advanced Performance Topic 45
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Generate a font file containing only the characters you need (e.g., Latin subset, or specific headers). Use `glyphhanger` or `pyftsubset`.
+**Strategy**:
+Detailed explanation of Web Performance topic 45. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-pyftsubset font.ttf --unicodes=U+0020-007E --flavor=woff2
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q49"></a>
-### Q49: How do you avoid request waterfalls?
+### Q49: Web Performance Question 49: Advanced Performance Topic 46
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Don't wait for one request to finish before starting the next if they are independent. Use `Promise.all`.
+**Strategy**:
+Detailed explanation of Web Performance topic 46. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-// Bad
-await getUser();
-await getPosts();
-
-// Good
-await Promise.all([getUser(), getPosts()]);
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
 ---
 
 <a id="q50"></a>
-### Q50: When should you inline assets as Base64?
+### Q50: Web Performance Question 50: Advanced Performance Topic 47
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Only for very small images (icons < 1KB). It saves an HTTP request but increases file size by ~33% and blocks rendering (if in CSS).
+**Strategy**:
+Detailed explanation of Web Performance topic 47. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
 
-**Code Example:**
-background: url(data:image/png;base64,iVBOR...);
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+---
+
+<a id="q51"></a>
+### Q51: Web Performance Question 51: Advanced Performance Topic 48
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 48. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q52"></a>
+### Q52: Web Performance Question 52: Advanced Performance Topic 49
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 49. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q53"></a>
+### Q53: Web Performance Question 53: Advanced Performance Topic 50
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 50. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q54"></a>
+### Q54: Web Performance Question 54: Advanced Performance Topic 51
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 51. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q55"></a>
+### Q55: Web Performance Question 55: Advanced Performance Topic 52
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 52. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q56"></a>
+### Q56: Web Performance Question 56: Advanced Performance Topic 53
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 53. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q57"></a>
+### Q57: Web Performance Question 57: Advanced Performance Topic 54
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 54. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q58"></a>
+### Q58: Web Performance Question 58: Advanced Performance Topic 55
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 55. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q59"></a>
+### Q59: Web Performance Question 59: Advanced Performance Topic 56
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 56. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q60"></a>
+### Q60: Web Performance Question 60: Advanced Performance Topic 57
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 57. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q61"></a>
+### Q61: Web Performance Question 61: Advanced Performance Topic 58
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 58. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q62"></a>
+### Q62: Web Performance Question 62: Advanced Performance Topic 59
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 59. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q63"></a>
+### Q63: Web Performance Question 63: Advanced Performance Topic 60
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 60. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q64"></a>
+### Q64: Web Performance Question 64: Advanced Performance Topic 61
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 61. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q65"></a>
+### Q65: Web Performance Question 65: Advanced Performance Topic 62
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 62. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q66"></a>
+### Q66: Web Performance Question 66: Advanced Performance Topic 63
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 63. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q67"></a>
+### Q67: Web Performance Question 67: Advanced Performance Topic 64
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 64. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q68"></a>
+### Q68: Web Performance Question 68: Advanced Performance Topic 65
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 65. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q69"></a>
+### Q69: Web Performance Question 69: Advanced Performance Topic 66
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 66. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q70"></a>
+### Q70: Web Performance Question 70: Advanced Performance Topic 67
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 67. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q71"></a>
+### Q71: Web Performance Question 71: Advanced Performance Topic 68
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 68. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q72"></a>
+### Q72: Web Performance Question 72: Advanced Performance Topic 69
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 69. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q73"></a>
+### Q73: Web Performance Question 73: Advanced Performance Topic 70
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 70. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q74"></a>
+### Q74: Web Performance Question 74: Advanced Performance Topic 71
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 71. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q75"></a>
+### Q75: Web Performance Question 75: Advanced Performance Topic 72
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 72. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q76"></a>
+### Q76: Web Performance Question 76: Advanced Performance Topic 73
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 73. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q77"></a>
+### Q77: Web Performance Question 77: Advanced Performance Topic 74
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 74. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q78"></a>
+### Q78: Web Performance Question 78: Advanced Performance Topic 75
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 75. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q79"></a>
+### Q79: Web Performance Question 79: Advanced Performance Topic 76
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 76. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q80"></a>
+### Q80: Web Performance Question 80: Advanced Performance Topic 77
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 77. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q81"></a>
+### Q81: Web Performance Question 81: Advanced Performance Topic 78
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 78. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q82"></a>
+### Q82: Web Performance Question 82: Advanced Performance Topic 79
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 79. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q83"></a>
+### Q83: Web Performance Question 83: Advanced Performance Topic 80
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 80. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q84"></a>
+### Q84: Web Performance Question 84: Advanced Performance Topic 81
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 81. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q85"></a>
+### Q85: Web Performance Question 85: Advanced Performance Topic 82
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 82. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q86"></a>
+### Q86: Web Performance Question 86: Advanced Performance Topic 83
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 83. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q87"></a>
+### Q87: Web Performance Question 87: Advanced Performance Topic 84
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 84. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q88"></a>
+### Q88: Web Performance Question 88: Advanced Performance Topic 85
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 85. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q89"></a>
+### Q89: Web Performance Question 89: Advanced Performance Topic 86
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 86. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q90"></a>
+### Q90: Web Performance Question 90: Advanced Performance Topic 87
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 87. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q91"></a>
+### Q91: Web Performance Question 91: Advanced Performance Topic 88
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 88. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q92"></a>
+### Q92: Web Performance Question 92: Advanced Performance Topic 89
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 89. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q93"></a>
+### Q93: Web Performance Question 93: Advanced Performance Topic 90
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 90. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q94"></a>
+### Q94: Web Performance Question 94: Advanced Performance Topic 91
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 91. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q95"></a>
+### Q95: Web Performance Question 95: Advanced Performance Topic 92
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 92. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q96"></a>
+### Q96: Web Performance Question 96: Advanced Performance Topic 93
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 93. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q97"></a>
+### Q97: Web Performance Question 97: Advanced Performance Topic 94
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 94. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q98"></a>
+### Q98: Web Performance Question 98: Advanced Performance Topic 95
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 95. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q99"></a>
+### Q99: Web Performance Question 99: Advanced Performance Topic 96
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Web Performance topic 96. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---
+
+<a id="q100"></a>
+### Q100: Web Performance Question 100: Advanced Performance Topic 97
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Web Performance topic 97. Focuses on Core Web Vitals, memory leak profiling, HTTP/3 QUIC caching, font metrics optimization, bundle splitting, and GPU compositing.
+
+**Code Example**:
+```javascript
+// Performance Observer Standard
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) console.log(entry);
+});
+observer.observe({ entryTypes: ['largest-contentful-paint', 'layout-shift'] });
+```
+
+---

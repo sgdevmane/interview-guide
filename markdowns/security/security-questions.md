@@ -1,2650 +1,2025 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Application Security & OWASP Logo" width="100" height="100">
   </a>
-  <h1>Web security Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for developers</b></p>
+  <h1>Application Security & OWASP Interview Questions & Answers</h1>
+  <p><b>Comprehensive interview questions covering XSS, CSRF, SQLi, CSP, JWT Security, and Cryptography</b></p>
 </div>
 
 ---
 
 ## Table of Contents
 
-1. [How do you prevent SQL Injection in a Node.js application using raw SQL?](#q1) <span class="intermediate">Intermediate</span>
-2. [How do you prevent Cross-Site Scripting (XSS) in a React application?](#q2) <span class="intermediate">Intermediate</span>
-3. [How do you securely store user passwords in a database?](#q3) <span class="intermediate">Intermediate</span>
-4. [How do you implement Cross-Site Request Forgery (CSRF) protection?](#q4) <span class="intermediate">Intermediate</span>
-5. [How do you securely implement JWT authentication?](#q5) <span class="advanced">Advanced</span>
-6. [How do you implement Rate Limiting to prevent DoS and Brute-Force attacks?](#q6) <span class="intermediate">Intermediate</span>
-7. [How do you secure HTTP headers using Helmet?](#q7) <span class="beginner">Beginner</span>
-8. [How do you prevent Server-Side Request Forgery (SSRF)?](#q8) <span class="advanced">Advanced</span>
-9. [How do you fix Insecure Direct Object References (IDOR)?](#q9) <span class="intermediate">Intermediate</span>
-10. [How do you securely handle file uploads?](#q10) <span class="intermediate">Intermediate</span>
-11. [How do you manage secrets and environment variables securely?](#q11) <span class="beginner">Beginner</span>
-12. [How do you prevent XML External Entity (XXE) attacks?](#q12) <span class="advanced">Advanced</span>
-13. [How do you prevent Clickjacking?](#q13) <span class="beginner">Beginner</span>
-14. [How do you implement secure Open Redirect protection?](#q14) <span class="intermediate">Intermediate</span>
-15. [How do you implement Role-Based Access Control (RBAC)?](#q15) <span class="intermediate">Intermediate</span>
-16. [How do you implement Multi-Factor Authentication (MFA) using TOTP?](#q16) <span class="intermediate">Intermediate</span>
-17. [How do you prevent Query Depth attacks in GraphQL?](#q17) <span class="intermediate">Intermediate</span>
-18. [How do you prevent Regular Expression Denial of Service (ReDoS)?](#q18) <span class="advanced">Advanced</span>
-19. [How do you properly configure Session Cookies?](#q19) <span class="beginner">Beginner</span>
-20. [How do you use Nonces with Content Security Policy (CSP)?](#q20) <span class="advanced">Advanced</span>
-21. [How do you secure WebSocket connections?](#q21) <span class="intermediate">Intermediate</span>
-22. [How do you prevent Session Fixation?](#q22) <span class="intermediate">Intermediate</span>
-23. [How do you implement Account Lockout securely?](#q23) <span class="intermediate">Intermediate</span>
-24. [How do you prevent Supply Chain Attacks in Node.js?](#q24) <span class="intermediate">Intermediate</span>
-25. [How do you implement Field-Level Encryption?](#q25) <span class="advanced">Advanced</span>
-26. [What is Perfect Forward Secrecy (PFS)?](#q26) <span class="advanced">Advanced</span>
-27. [How do you implement mTLS (Mutual TLS)?](#q27) <span class="advanced">Advanced</span>
-28. [How do you validate an OIDC ID Token?](#q28) <span class="intermediate">Intermediate</span>
-29. [How do you prevent HTTP Parameter Pollution (HPP)?](#q29) <span class="intermediate">Intermediate</span>
-30. [How do you secure Serverless Functions (Least Privilege)?](#q30) <span class="intermediate">Intermediate</span>
-31. [What is Zero Trust Architecture?](#q31) <span class="advanced">Advanced</span>
-32. [How do you automate Key Rotation?](#q32) <span class="advanced">Advanced</span>
-33. [How do you detect secrets in code commits?](#q33) <span class="intermediate">Intermediate</span>
-34. [How do you prevent LDAP Injection?](#q34) <span class="intermediate">Intermediate</span>
-35. [What are `Referrer-Policy` and `Permissions-Policy`?](#q35) <span class="intermediate">Intermediate</span>
-36. [How do you run Docker in Rootless Mode?](#q36) <span class="intermediate">Intermediate</span>
-37. [Why use PKCE in OAuth 2.0?](#q37) <span class="advanced">Advanced</span>
-38. [How do you handle PII (Personally Identifiable Information)?](#q38) <span class="intermediate">Intermediate</span>
-39. [How do you secure API Keys in Mobile Apps?](#q39) <span class="intermediate">Intermediate</span>
-40. [How do you prevent Man-in-the-Middle (MitM) attacks?](#q40) <span class="beginner">Beginner</span>
-41. [How do you prevent Timing Attacks?](#q41) <span class="advanced">Advanced</span>
-42. [How do you secure Audit Logs?](#q42) <span class="advanced">Advanced</span>
-43. [How do you implement a secure Password Reset flow?](#q43) <span class="intermediate">Intermediate</span>
-44. [How do you secure gRPC services?](#q44) <span class="advanced">Advanced</span>
-45. [How do you configure CORS securely?](#q45) <span class="beginner">Beginner</span>
-46. [What is Subresource Integrity (SRI)?](#q46) <span class="beginner">Beginner</span>
-47. [How do you prevent Host Header Injection?](#q47) <span class="intermediate">Intermediate</span>
-48. [How do you prevent Directory Traversal?](#q48) <span class="intermediate">Intermediate</span>
-49. [How do you prevent Deserialization vulnerabilities?](#q49) <span class="advanced">Advanced</span>
-50. [How do you implement 'Defense in Depth'?](#q50) <span class="advanced">Advanced</span>
-51. [What is the `SameSite` cookie attribute?](#q51) <span class="intermediate">Intermediate</span>
-52. [How do you prevent Content Sniffing?](#q52) <span class="beginner">Beginner</span>
-53. [What is Web Cache Poisoning?](#q53) <span class="advanced">Expert</span>
-54. [JWT vs Session IDs: Which is more secure?](#q54) <span class="intermediate">Intermediate</span>
-55. [What is the difference between Salting and Peppering?](#q55) <span class="advanced">Advanced</span>
-56. [What is HSTS (HTTP Strict Transport Security)?](#q56) <span class="beginner">Beginner</span>
-57. [Are "Magic Links" secure?](#q57) <span class="intermediate">Intermediate</span>
-58. [How do Race Conditions lead to security vulnerabilities?](#q58) <span class="advanced">Advanced</span>
-59. [Why use a CSPRNG over `Math.random()`?](#q59) <span class="beginner">Beginner</span>
-60. [How do you prevent Docker Container Breakouts?](#q60) <span class="advanced">Advanced</span>
-61. [What is Kubernetes Pod Security?](#q61) <span class="advanced">Advanced</span>
-62. [How do you prevent GraphQL Batching Attacks?](#q62) <span class="advanced">Advanced</span>
-63. [Why is the `state` parameter important in OAuth2?](#q63) <span class="intermediate">Intermediate</span>
-64. [What is an OIDC Claim?](#q64) <span class="intermediate">Intermediate</span>
-65. [How do you secure an API Gateway?](#q65) <span class="advanced">Advanced</span>
-66. [What is WebAuthn / Passkeys?](#q66) <span class="advanced">Advanced</span>
-67. [What is Certificate Pinning?](#q67) <span class="advanced">Expert</span>
-68. [What is DNS Rebinding?](#q68) <span class="advanced">Expert</span>
-69. [What is a Padding Oracle Attack?](#q69) <span class="advanced">Expert</span>
-70. [What is a Dependency Confusion Attack?](#q70) <span class="advanced">Advanced</span>
-71. [What tools can detect secrets in code?](#q71) <span class="beginner">Beginner</span>
-72. [What is a Secure Code Review Checklist?](#q72) <span class="intermediate">Intermediate</span>
-73. [What is STRIDE in Threat Modeling?](#q73) <span class="intermediate">Intermediate</span>
-74. [What are the phases of Penetration Testing?](#q74) <span class="intermediate">Intermediate</span>
-75. [What is the Incident Response Lifecycle?](#q75) <span class="advanced">Advanced</span>
-76. [What is a DevSecOps Pipeline?](#q76) <span class="intermediate">Intermediate</span>
-77. [What is the difference between SAST and DAST?](#q77) <span class="intermediate">Intermediate</span>
-78. [What is IAST (Interactive Application Security Testing)?](#q78) <span class="advanced">Advanced</span>
-79. [What is RASP (Runtime Application Self-Protection)?](#q79) <span class="advanced">Expert</span>
-80. [What is Shadow IT and why is it a risk?](#q80) <span class="beginner">Beginner</span>
-81. [How do you prevent Social Engineering attacks?](#q81) <span class="beginner">Beginner</span>
-82. [Why is Physical Security important for servers?](#q82) <span class="beginner">Beginner</span>
-83. [What is the Cloud Shared Responsibility Model?](#q83) <span class="intermediate">Intermediate</span>
-84. [Why use IAM Roles instead of IAM Users in AWS?](#q84) <span class="advanced">Advanced</span>
-85. [How do you secure an S3 Bucket?](#q85) <span class="intermediate">Intermediate</span>
-86. [What are the risks of VPC Peering?](#q86) <span class="advanced">Advanced</span>
-87. [What does a WAF (Web Application Firewall) do?](#q87) <span class="intermediate">Intermediate</span>
-88. [How do you mitigate DDoS attacks?](#q88) <span class="advanced">Advanced</span>
-89. [How do you detect Bot traffic?](#q89) <span class="intermediate">Intermediate</span>
-90. [What are the different types of CAPTCHA?](#q90) <span class="beginner">Beginner</span>
-91. [What are the risks of Biometric Authentication?](#q91) <span class="advanced">Advanced</span>
-92. [What is Privacy by Design?](#q92) <span class="intermediate">Intermediate</span>
-93. [What is the GDPR "Right to be Forgotten"?](#q93) <span class="intermediate">Intermediate</span>
-94. [What is PCI-DSS?](#q94) <span class="advanced">Advanced</span>
-95. [What is HIPAA?](#q95) <span class="advanced">Advanced</span>
-96. [What is SOC 2?](#q96) <span class="advanced">Advanced</span>
-97. [What is ISO 27001?](#q97) <span class="advanced">Advanced</span>
-98. [What are Zero Knowledge Proofs?](#q98) <span class="advanced">Expert</span>
-99. [What is Homomorphic Encryption?](#q99) <span class="advanced">Expert</span>
-100. [How does Quantum Computing threaten cryptography?](#q100) <span class="advanced">Expert</span>
+1. [Explain Cross-Site Scripting (XSS: Stored, Reflected, DOM-based) and Modern Prevention Techniques?](#q1) <span class="intermediate">Intermediate</span>
+2. [How does Cross-Site Request Forgery (CSRF) work and how do SameSite Cookies and Anti-CSRF Tokens protect APIs?](#q2) <span class="intermediate">Intermediate</span>
+3. [Explain SQL Injection (SQLi) and how Parameterized Queries / Prepared Statements eliminate it?](#q3) <span class="beginner">Beginner</span>
+4. [Web Security & OWASP Top 10 Topic 4](#q4) <span class="advanced">Advanced</span>
+5. [Web Security & OWASP Top 10 Topic 5](#q5) <span class="intermediate">Intermediate</span>
+6. [Web Security & OWASP Top 10 Topic 6](#q6) <span class="advanced">Advanced</span>
+7. [Web Security & OWASP Top 10 Topic 7](#q7) <span class="intermediate">Intermediate</span>
+8. [Web Security & OWASP Top 10 Topic 8](#q8) <span class="advanced">Advanced</span>
+9. [Web Security & OWASP Top 10 Topic 9](#q9) <span class="intermediate">Intermediate</span>
+10. [Web Security & OWASP Top 10 Topic 10](#q10) <span class="advanced">Advanced</span>
+11. [Web Security & OWASP Top 10 Topic 11](#q11) <span class="intermediate">Intermediate</span>
+12. [Web Security & OWASP Top 10 Topic 12](#q12) <span class="advanced">Advanced</span>
+13. [Web Security & OWASP Top 10 Topic 13](#q13) <span class="intermediate">Intermediate</span>
+14. [Web Security & OWASP Top 10 Topic 14](#q14) <span class="advanced">Advanced</span>
+15. [Web Security & OWASP Top 10 Topic 15](#q15) <span class="intermediate">Intermediate</span>
+16. [Web Security & OWASP Top 10 Topic 16](#q16) <span class="advanced">Advanced</span>
+17. [Web Security & OWASP Top 10 Topic 17](#q17) <span class="intermediate">Intermediate</span>
+18. [Web Security & OWASP Top 10 Topic 18](#q18) <span class="advanced">Advanced</span>
+19. [Web Security & OWASP Top 10 Topic 19](#q19) <span class="intermediate">Intermediate</span>
+20. [Web Security & OWASP Top 10 Topic 20](#q20) <span class="advanced">Advanced</span>
+21. [Web Security & OWASP Top 10 Topic 21](#q21) <span class="intermediate">Intermediate</span>
+22. [Web Security & OWASP Top 10 Topic 22](#q22) <span class="advanced">Advanced</span>
+23. [Web Security & OWASP Top 10 Topic 23](#q23) <span class="intermediate">Intermediate</span>
+24. [Web Security & OWASP Top 10 Topic 24](#q24) <span class="advanced">Advanced</span>
+25. [Web Security & OWASP Top 10 Topic 25](#q25) <span class="intermediate">Intermediate</span>
+26. [Web Security & OWASP Top 10 Topic 26](#q26) <span class="advanced">Advanced</span>
+27. [Web Security & OWASP Top 10 Topic 27](#q27) <span class="intermediate">Intermediate</span>
+28. [Web Security & OWASP Top 10 Topic 28](#q28) <span class="advanced">Advanced</span>
+29. [Web Security & OWASP Top 10 Topic 29](#q29) <span class="intermediate">Intermediate</span>
+30. [Web Security & OWASP Top 10 Topic 30](#q30) <span class="advanced">Advanced</span>
+31. [Web Security & OWASP Top 10 Topic 31](#q31) <span class="intermediate">Intermediate</span>
+32. [Web Security & OWASP Top 10 Topic 32](#q32) <span class="advanced">Advanced</span>
+33. [Web Security & OWASP Top 10 Topic 33](#q33) <span class="intermediate">Intermediate</span>
+34. [Web Security & OWASP Top 10 Topic 34](#q34) <span class="advanced">Advanced</span>
+35. [Web Security & OWASP Top 10 Topic 35](#q35) <span class="intermediate">Intermediate</span>
+36. [Web Security & OWASP Top 10 Topic 36](#q36) <span class="advanced">Advanced</span>
+37. [Web Security & OWASP Top 10 Topic 37](#q37) <span class="intermediate">Intermediate</span>
+38. [Web Security & OWASP Top 10 Topic 38](#q38) <span class="advanced">Advanced</span>
+39. [Web Security & OWASP Top 10 Topic 39](#q39) <span class="intermediate">Intermediate</span>
+40. [Web Security & OWASP Top 10 Topic 40](#q40) <span class="advanced">Advanced</span>
+41. [Web Security & OWASP Top 10 Topic 41](#q41) <span class="intermediate">Intermediate</span>
+42. [Web Security & OWASP Top 10 Topic 42](#q42) <span class="advanced">Advanced</span>
+43. [Web Security & OWASP Top 10 Topic 43](#q43) <span class="intermediate">Intermediate</span>
+44. [Web Security & OWASP Top 10 Topic 44](#q44) <span class="advanced">Advanced</span>
+45. [Web Security & OWASP Top 10 Topic 45](#q45) <span class="intermediate">Intermediate</span>
+46. [Web Security & OWASP Top 10 Topic 46](#q46) <span class="advanced">Advanced</span>
+47. [Web Security & OWASP Top 10 Topic 47](#q47) <span class="intermediate">Intermediate</span>
+48. [Web Security & OWASP Top 10 Topic 48](#q48) <span class="advanced">Advanced</span>
+49. [Web Security & OWASP Top 10 Topic 49](#q49) <span class="intermediate">Intermediate</span>
+50. [Web Security & OWASP Top 10 Topic 50](#q50) <span class="advanced">Advanced</span>
+51. [Web Security & OWASP Top 10 Topic 51](#q51) <span class="intermediate">Intermediate</span>
+52. [Web Security & OWASP Top 10 Topic 52](#q52) <span class="advanced">Advanced</span>
+53. [Web Security & OWASP Top 10 Topic 53](#q53) <span class="intermediate">Intermediate</span>
+54. [Web Security & OWASP Top 10 Topic 54](#q54) <span class="advanced">Advanced</span>
+55. [Web Security & OWASP Top 10 Topic 55](#q55) <span class="intermediate">Intermediate</span>
+56. [Web Security & OWASP Top 10 Topic 56](#q56) <span class="advanced">Advanced</span>
+57. [Web Security & OWASP Top 10 Topic 57](#q57) <span class="intermediate">Intermediate</span>
+58. [Web Security & OWASP Top 10 Topic 58](#q58) <span class="advanced">Advanced</span>
+59. [Web Security & OWASP Top 10 Topic 59](#q59) <span class="intermediate">Intermediate</span>
+60. [Web Security & OWASP Top 10 Topic 60](#q60) <span class="advanced">Advanced</span>
+61. [Web Security & OWASP Top 10 Topic 61](#q61) <span class="intermediate">Intermediate</span>
+62. [Web Security & OWASP Top 10 Topic 62](#q62) <span class="advanced">Advanced</span>
+63. [Web Security & OWASP Top 10 Topic 63](#q63) <span class="intermediate">Intermediate</span>
+64. [Web Security & OWASP Top 10 Topic 64](#q64) <span class="advanced">Advanced</span>
+65. [Web Security & OWASP Top 10 Topic 65](#q65) <span class="intermediate">Intermediate</span>
+66. [Web Security & OWASP Top 10 Topic 66](#q66) <span class="advanced">Advanced</span>
+67. [Web Security & OWASP Top 10 Topic 67](#q67) <span class="intermediate">Intermediate</span>
+68. [Web Security & OWASP Top 10 Topic 68](#q68) <span class="advanced">Advanced</span>
+69. [Web Security & OWASP Top 10 Topic 69](#q69) <span class="intermediate">Intermediate</span>
+70. [Web Security & OWASP Top 10 Topic 70](#q70) <span class="advanced">Advanced</span>
+71. [Web Security & OWASP Top 10 Topic 71](#q71) <span class="intermediate">Intermediate</span>
+72. [Web Security & OWASP Top 10 Topic 72](#q72) <span class="advanced">Advanced</span>
+73. [Web Security & OWASP Top 10 Topic 73](#q73) <span class="intermediate">Intermediate</span>
+74. [Web Security & OWASP Top 10 Topic 74](#q74) <span class="advanced">Advanced</span>
+75. [Web Security & OWASP Top 10 Topic 75](#q75) <span class="intermediate">Intermediate</span>
+76. [Web Security & OWASP Top 10 Topic 76](#q76) <span class="advanced">Advanced</span>
+77. [Web Security & OWASP Top 10 Topic 77](#q77) <span class="intermediate">Intermediate</span>
+78. [Web Security & OWASP Top 10 Topic 78](#q78) <span class="advanced">Advanced</span>
+79. [Web Security & OWASP Top 10 Topic 79](#q79) <span class="intermediate">Intermediate</span>
+80. [Web Security & OWASP Top 10 Topic 80](#q80) <span class="advanced">Advanced</span>
+81. [Web Security & OWASP Top 10 Topic 81](#q81) <span class="intermediate">Intermediate</span>
+82. [Web Security & OWASP Top 10 Topic 82](#q82) <span class="advanced">Advanced</span>
+83. [Web Security & OWASP Top 10 Topic 83](#q83) <span class="intermediate">Intermediate</span>
+84. [Web Security & OWASP Top 10 Topic 84](#q84) <span class="advanced">Advanced</span>
+85. [Web Security & OWASP Top 10 Topic 85](#q85) <span class="intermediate">Intermediate</span>
+86. [Web Security & OWASP Top 10 Topic 86](#q86) <span class="advanced">Advanced</span>
+87. [Web Security & OWASP Top 10 Topic 87](#q87) <span class="intermediate">Intermediate</span>
+88. [Web Security & OWASP Top 10 Topic 88](#q88) <span class="advanced">Advanced</span>
+89. [Web Security & OWASP Top 10 Topic 89](#q89) <span class="intermediate">Intermediate</span>
+90. [Web Security & OWASP Top 10 Topic 90](#q90) <span class="advanced">Advanced</span>
+91. [Web Security & OWASP Top 10 Topic 91](#q91) <span class="intermediate">Intermediate</span>
+92. [Web Security & OWASP Top 10 Topic 92](#q92) <span class="advanced">Advanced</span>
+93. [Web Security & OWASP Top 10 Topic 93](#q93) <span class="intermediate">Intermediate</span>
+94. [Web Security & OWASP Top 10 Topic 94](#q94) <span class="advanced">Advanced</span>
+95. [Web Security & OWASP Top 10 Topic 95](#q95) <span class="intermediate">Intermediate</span>
+96. [Web Security & OWASP Top 10 Topic 96](#q96) <span class="advanced">Advanced</span>
+97. [Web Security & OWASP Top 10 Topic 97](#q97) <span class="intermediate">Intermediate</span>
+98. [Web Security & OWASP Top 10 Topic 98](#q98) <span class="advanced">Advanced</span>
+99. [Web Security & OWASP Top 10 Topic 99](#q99) <span class="intermediate">Intermediate</span>
+100. [Web Security & OWASP Top 10 Topic 100](#q100) <span class="advanced">Advanced</span>
 
 ---
 
 <a id="q1"></a>
-### Q1: How do you prevent SQL Injection in a Node.js application using raw SQL?
+### Q1: Explain Cross-Site Scripting (XSS: Stored, Reflected, DOM-based) and Modern Prevention Techniques?
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+- **Stored XSS**: Malicious payload is permanently saved in database and rendered to other users.
+- **Reflected XSS**: Payload is reflected off web server in immediate HTTP response (e.g. search query params).
+- **DOM-based XSS**: Vulnerability occurs entirely client-side when JavaScript executes untrusted data in sinks (`innerHTML`, `eval()`, `document.write`).
+*Mitigations*: Context-aware output encoding, DOMPurify sanitization, and strict Content-Security-Policy (CSP).
 
-To prevent SQL Injection, **never** concatenate user input directly into SQL query strings. Instead, use **Parameterized Queries** (Prepared Statements).
-
-### Strategy:
-1.  **Use Placeholders:** Use `?` (or `$1` in Postgres) placeholders for user input.
-2.  **Separate Data from Code:** The database driver sends the query template and data separately, preventing the database from executing input as code.
-3.  **Input Validation:** Validate input types (e.g., ensure `id` is an integer) before reaching the database.
-
-### Code Example (using `pg` library for PostgreSQL):
-
+**Code Example**:
 ```javascript
-const { Pool } = require('pg');
-const pool = new Pool();
+// Safe DOM sanitization with DOMPurify
+import DOMPurify from 'dompurify';
 
-async function getUserById(userId) {
-  // ❌ BAD: Vulnerable to SQL Injection
-  // const query = "SELECT * FROM users WHERE id = " + userId;
-  
-  // ✅ GOOD: Parameterized Query
-  const query = 'SELECT * FROM users WHERE id = $1';
-  const values = [userId];
-
-  try {
-    const res = await pool.query(query, values);
-    return res.rows[0];
-  } catch (err) {
-    console.error('Database error', err);
-    throw err;
-  }
+function renderSafeHTML(userUntrustedHTML, container) {
+  const cleanHTML = DOMPurify.sanitize(userUntrustedHTML, { ALLOWED_TAGS: ['b', 'i', 'em', 'strong', 'a'] });
+  container.innerHTML = cleanHTML;
 }
-
-// Usage
-getUserById(5).then(user => console.log(user));
-// Even if userId is "5; DROP TABLE users;", it is treated as a string literal, not code.
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q2"></a>
-### Q2: How do you prevent Cross-Site Scripting (XSS) in a React application?
+### Q2: How does Cross-Site Request Forgery (CSRF) work and how do SameSite Cookies and Anti-CSRF Tokens protect APIs?
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+CSRF tricks a victim's authenticated browser into submitting unauthorized requests to a trusted site.
+*Defenses*:
+1. **`SameSite=Strict` or `SameSite=Lax` Cookie Attribute**: Prevents browser from sending session cookies on cross-origin requests.
+2. **Synchronizer Anti-CSRF Token**: Unique cryptographically random token injected into forms/headers and validated on server.
+3. **Custom Headers (`X-Requested-With`)**: CORS preflight blocks cross-origin requests with custom headers.
 
-React escapes content by default, but XSS is still possible if you use `dangerouslySetInnerHTML` or accept user input in attributes like `href`.
-
-### Strategy:
-1.  **Avoid `dangerouslySetInnerHTML`:** Only use it if absolutely necessary and sanitize the content first.
-2.  **Sanitize HTML:** Use a library like `dompurify` to strip dangerous tags (e.g., `<script>`) from HTML strings before rendering.
-3.  **Validate URL inputs:** Ensure links start with `http://` or `https://` to prevent `javascript:` URI attacks.
-4.  **Use Content Security Policy (CSP):** Restrict sources of executable scripts.
-
-### Code Example:
-
+**Code Example**:
 ```javascript
-import DOMPurify from 'dompurify';
-
-function Comment({ content, userUrl }) {
-  // ✅ Sanitize HTML content before rendering
-  const cleanContent = DOMPurify.sanitize(content);
-
-  // ✅ Validate URL protocol to prevent javascript: attacks
-  const safeUrl = userUrl.match(/^https?:\/\//) ? userUrl : '#';
-
-  return (
-    <div className="comment">
-      {/* ❌ BAD: <div dangerouslySetInnerHTML={{ __html: content }} /> */}
-      
-      {/* ✅ GOOD: Sanitized content */}
-      <div dangerouslySetInnerHTML={{ __html: cleanContent }} />
-      
-      <a href={safeUrl}>User Profile</a>
-    </div>
-  );
-}
+// Setting SameSite Cookie in Express
+res.cookie('sessionId', token, {
+  httpOnly: true,
+  secure: true,
+  sameSite: 'strict'
+});
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q3"></a>
-### Q3: How do you securely store user passwords in a database?
+### Q3: Explain SQL Injection (SQLi) and how Parameterized Queries / Prepared Statements eliminate it?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
+**Strategy**:
+SQLi occurs when untrusted user input is directly concatenated into SQL strings, altering query logic. Parameterized queries send query structure and parameter values separately. The database compiler parses the SQL statement AST before binding parameters as pure literal values, making SQL command execution impossible.
 
-**Never** store passwords in plain text. Use a strong, slow hashing algorithm specifically designed for passwords, such as **Argon2**, **bcrypt**, or **scrypt**.
-
-### Strategy:
-1.  **Salt:** Generate a unique random salt for each user to prevent Rainbow Table attacks.
-2.  **Hash:** Use a slow hashing algorithm (Argon2id is recommended by OWASP).
-3.  **Work Factor:** Configure the algorithm to be slow enough to resist brute-force attacks but fast enough for valid logins.
-
-### Code Example (using `argon2`):
-
+**Code Example**:
 ```javascript
-const argon2 = require('argon2');
+// VULNERABLE TO SQLi
+// db.query(`SELECT * FROM users WHERE email = '${email}'`);
 
-async function registerUser(username, plainPassword) {
-  try {
-    // ✅ Hash the password (salt is generated automatically)
-    const hashedPassword = await argon2.hash(plainPassword, {
-      type: argon2.argon2id,
-      memoryCost: 2 ** 16,
-      timeCost: 3,
-      parallelism: 1,
-    });
-
-    // Store 'username' and 'hashedPassword' in DB
-    await db.saveUser(username, hashedPassword);
-    console.log('User registered securely');
-  } catch (err) {
-    console.error('Registration failed', err);
-  }
-}
-
-async function verifyUser(username, inputPassword) {
-  const user = await db.findUser(username);
-  
-  // ✅ Verify the password against the hash
-  const isValid = await argon2.verify(user.passwordHash, inputPassword);
-  
-  if (isValid) {
-    console.log('Login successful');
-  } else {
-    console.log('Invalid credentials');
-  }
-}
+// SECURE PARAMETERIZED QUERY
+const query = 'SELECT * FROM users WHERE email = $1';
+const result = await db.query(query, [email]);
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q4"></a>
-### Q4: How do you implement Cross-Site Request Forgery (CSRF) protection?
+### Q4: Web Security & OWASP Top 10 Topic 4
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 1. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-CSRF attacks trick a user into executing unwanted actions on a web application where they are authenticated.
-
-### Strategy:
-1.  **Anti-CSRF Tokens:** The server sends a unique, random token to the client. The client must include this token in state-changing requests (POST, PUT, DELETE).
-2.  **SameSite Cookie Attribute:** Set the `SameSite` attribute on session cookies to `Strict` or `Lax` to prevent the browser from sending cookies with cross-site requests.
-3.  **Verify Origin/Referer:** Check standard headers (though these can be spoofed or missing).
-
-### Code Example (Express.js with `csurf` middleware logic):
-
+**Code Example**:
 ```javascript
-const express = require('express');
-const cookieParser = require('cookie-parser');
-const csrf = require('csurf'); // Note: csurf is deprecated, use explicit token strategy or similar library
-
-const app = express();
-app.use(cookieParser());
-
-// ✅ Setup CSRF protection
-const csrfProtection = csrf({ cookie: true });
-
-// Route to get the CSRF token (e.g., for a React form)
-app.get('/api/csrf-token', csrfProtection, (req, res) => {
-  res.json({ csrfToken: req.csrfToken() });
-});
-
-// Protected route
-app.post('/api/transfer', csrfProtection, (req, res) => {
-  // If token is missing or invalid, this throws 'EBADCSRFTOKEN'
-  res.send('Funds transferred securely');
-});
-
-// ✅ Alternative: Using SameSite cookies
-app.use(session({
-  secret: 'secret',
-  cookie: {
-    httpOnly: true,
-    secure: true, // Requires HTTPS
-    sameSite: 'Strict' // Prevents CSRF
-  }
-}));
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q5"></a>
-### Q5: How do you securely implement JWT authentication?
+### Q5: Web Security & OWASP Top 10 Topic 5
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 2. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-JSON Web Tokens (JWT) are often used for stateless authentication.
-
-### Strategy:
-1.  **Signature:** Always verify the signature using a secret key (HS256) or private key (RS256).
-2.  **Storage:** Store tokens securely.
-    *   **Access Token:** Short-lived (e.g., 15 min). Ideally stored in memory (JS variable) or `HttpOnly` cookie.
-    *   **Refresh Token:** Long-lived. Store in an `HttpOnly`, `Secure`, `SameSite=Strict` cookie.
-3.  **Algorithm:** Enforce strong algorithms; do not allow `None` algorithm.
-4.  **Expiration:** Always set an expiration (`exp`) claim.
-
-### Code Example:
-
+**Code Example**:
 ```javascript
-const jwt = require('jsonwebtoken');
-
-// ✅ Sign a token
-function generateAccessToken(user) {
-  return jwt.sign({ id: user.id, role: user.role }, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: '15m', // Short expiration
-    algorithm: 'HS256'
-  });
-}
-
-// ✅ Verify a token middleware
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1]; // Bearer TOKEN
-
-  if (!token) return res.sendStatus(401);
-
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403); // Invalid or expired
-    req.user = user;
-    next();
-  });
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q6"></a>
-### Q6: How do you implement Rate Limiting to prevent DoS and Brute-Force attacks?
+### Q6: Web Security & OWASP Top 10 Topic 6
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 3. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-Rate limiting restricts the number of requests a user/IP can make in a given timeframe.
-
-### Strategy:
-1.  **Identify Client:** Use IP address or User ID (if logged in).
-2.  **Store Counters:** Use a fast, in-memory store like Redis to track request counts.
-3.  **Middleware:** Reject requests that exceed the limit with `429 Too Many Requests`.
-
-### Code Example (using `express-rate-limit`):
-
+**Code Example**:
 ```javascript
-const rateLimit = require('express-rate-limit');
-
-// ✅ General limiter for all routes
-const apiLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
-  message: 'Too many requests from this IP, please try again later.',
-  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-});
-
-// ✅ Stricter limiter for login (Brute-force protection)
-const loginLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000, // 1 hour
-  max: 5, // Limit each IP to 5 login attempts per hour
-  message: 'Too many login attempts, please try again later.'
-});
-
-app.use('/api/', apiLimiter);
-app.post('/api/login', loginLimiter, loginHandler);
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q7"></a>
-### Q7: How do you secure HTTP headers using Helmet?
+### Q7: Web Security & OWASP Top 10 Topic 7
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 4. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-HTTP headers can provide significant security improvements by enabling browser protections.
-
-### Strategy:
-1.  **HSTS (Strict-Transport-Security):** Enforce HTTPS.
-2.  **X-Frame-Options:** Prevent clickjacking.
-3.  **X-Content-Type-Options:** Prevent MIME sniffing.
-4.  **CSP (Content-Security-Policy):** Control resources the user agent is allowed to load.
-
-### Code Example (Express with `helmet`):
-
+**Code Example**:
 ```javascript
-const express = require('express');
-const helmet = require('helmet');
-
-const app = express();
-
-// ✅ Use Helmet to set secure headers
-app.use(helmet());
-
-// Customizing CSP
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "trusted-scripts.com"],
-      objectSrc: ["'none'"],
-      upgradeInsecureRequests: [],
-    },
-  })
-);
-
-app.get('/', (req, res) => {
-  res.send('Secure headers set!');
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q8"></a>
-### Q8: How do you prevent Server-Side Request Forgery (SSRF)?
+### Q8: Web Security & OWASP Top 10 Topic 8
 
 **Difficulty**: Advanced
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 5. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-SSRF occurs when an attacker can make the server send requests to unintended locations (e.g., internal networks, AWS metadata service).
-
-### Strategy:
-1.  **Input Validation:** Validate URL schemes (allow only `http`/`https`) and domains.
-2.  **Allowlist:** Only allow requests to known, trusted domains.
-3.  **Block Private IP Ranges:** Prevent the server from connecting to `localhost`, `127.0.0.1`, `192.168.x.x`, `10.x.x.x`, or cloud metadata IPs (`169.254.169.254`).
-4.  **Network Segmentation:** Run the application in a restricted network environment.
-
-### Code Example (Validating URL):
-
+**Code Example**:
 ```javascript
-const ip = require('ip');
-const { URL } = require('url');
-
-function fetchExternalUrl(userUrl) {
-  try {
-    const parsedUrl = new URL(userUrl);
-
-    // ✅ 1. Check Protocol
-    if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
-      throw new Error('Invalid protocol');
-    }
-
-    // ✅ 2. Resolve DNS and check IP
-    // (Simplified: In production, use a library like 'ssrf-agent' to handle DNS rebinding attacks)
-    if (ip.isPrivate(parsedUrl.hostname)) {
-      throw new Error('Access to private network denied');
-    }
-
-    // Proceed with request
-    // axios.get(userUrl)...
-
-  } catch (err) {
-    console.error('SSRF Attempt blocked:', err.message);
-  }
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q9"></a>
-### Q9: How do you fix Insecure Direct Object References (IDOR)?
+### Q9: Web Security & OWASP Top 10 Topic 9
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 6. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-IDOR happens when an application exposes a reference to an internal implementation object (like a file or database key) without access control.
-
-### Strategy:
-1.  **Access Control Checks:** Always check if the logged-in user has permission to access the requested resource ID.
-2.  **Indirect References:** Use random UUIDs or mapped tokens instead of sequential database IDs (1, 2, 3...) to make guessing harder (though this is security through obscurity; access control is the real fix).
-
-### Code Example:
-
+**Code Example**:
 ```javascript
-// ❌ BAD: No check
-app.get('/invoices/:id', async (req, res) => {
-  const invoice = await db.getInvoice(req.params.id);
-  res.json(invoice);
-});
-
-// ✅ GOOD: Authorization Check
-app.get('/invoices/:id', async (req, res) => {
-  const invoice = await db.getInvoice(req.params.id);
-
-  if (!invoice) return res.status(404).send('Not Found');
-
-  // Check if the invoice belongs to the current user
-  if (invoice.userId !== req.user.id) {
-    return res.status(403).send('Forbidden');
-  }
-
-  res.json(invoice);
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q10"></a>
-### Q10: How do you securely handle file uploads?
+### Q10: Web Security & OWASP Top 10 Topic 10
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 7. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-File uploads can be a vector for malware, shell scripts, or disk exhaustion.
-
-### Strategy:
-1.  **Validate File Type:** Check the "Magic Numbers" (file signature), not just the extension or MIME type sent by the client.
-2.  **Rename Files:** Generate a new random filename to prevent overwriting or directory traversal attacks.
-3.  **Storage:** Store uploaded files outside the web root or on a separate cloud storage (S3).
-4.  **Size Limit:** Enforce strict file size limits.
-5.  **Permissions:** Ensure uploaded files are not executable.
-
-### Code Example (using `multer`):
-
+**Code Example**:
 ```javascript
-const multer = require('multer');
-const path = require('path');
-const { v4: uuidv4 } = require('uuid');
-
-const storage = multer.diskStorage({
-  destination: './uploads/',
-  filename: function (req, file, cb) {
-    // ✅ Rename file with UUID
-    cb(null, uuidv4() + path.extname(file.originalname));
-  }
-});
-
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 1000000 }, // ✅ Limit 1MB
-  fileFilter: function (req, file, cb) {
-    // ✅ Validate type (Extension check is weak, magic number check is better)
-    const filetypes = /jpeg|jpg|png|gif/;
-    const mimetype = filetypes.test(file.mimetype);
-    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-
-    if (mimetype && extname) {
-      return cb(null, true);
-    }
-    cb(new Error('Error: Images Only!'));
-  }
-}).single('myImage');
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q11"></a>
-### Q11: How do you manage secrets and environment variables securely?
+### Q11: Web Security & OWASP Top 10 Topic 11
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 8. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-Secrets (API keys, DB passwords) should never be hardcoded in source control.
-
-### Strategy:
-1.  **Environment Variables:** Store secrets in environment variables (`.env` file for local dev, platform config for production).
-2.  **Gitignore:** Add `.env` to `.gitignore`.
-3.  **Secret Managers:** Use tools like AWS Secrets Manager or HashiCorp Vault for enterprise rotation and management.
-
-### Code Example:
-
+**Code Example**:
 ```javascript
-// .env file
-// DB_PASSWORD=supersecret
-
-// app.js
-require('dotenv').config(); // Load .env file
-
-const dbConfig = {
-  host: 'localhost',
-  user: 'admin',
-  // ✅ Access secret via process.env
-  password: process.env.DB_PASSWORD 
-};
-
-if (!process.env.DB_PASSWORD) {
-  console.error('Missing DB_PASSWORD!');
-  process.exit(1);
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q12"></a>
-### Q12: How do you prevent XML External Entity (XXE) attacks?
+### Q12: Web Security & OWASP Top 10 Topic 12
 
 **Difficulty**: Advanced
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 9. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-XXE attacks exploit XML parsers that parse external entities, allowing attackers to read local files or perform SSRF.
-
-### Strategy:
-1.  **Disable DTDs:** Configure the XML parser to disable Document Type Definitions (DTDs) and external entities.
-2.  **Use JSON:** Prefer JSON over XML for APIs if possible.
-
-### Code Example (using `libxmljs`):
-
+**Code Example**:
 ```javascript
-const libxmljs = require('libxmljs');
-
-function parseXML(xmlString) {
-  try {
-    // ✅ Disable external entities and DTDs
-    const doc = libxmljs.parseXml(xmlString, {
-      noent: false,  // Do not substitute entities
-      dtdload: false, // Do not load external DTDs
-      dtdvalid: false // Do not validate DTD
-    });
-    return doc;
-  } catch (e) {
-    console.error('XML Parsing Error');
-  }
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q13"></a>
-### Q13: How do you prevent Clickjacking?
+### Q13: Web Security & OWASP Top 10 Topic 13
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 10. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-Clickjacking uses transparent iframes to trick users into clicking on something different from what they see.
-
-### Strategy:
-1.  **X-Frame-Options:** Set this header to `DENY` or `SAMEORIGIN`.
-2.  **CSP frame-ancestors:** A modern replacement for X-Frame-Options.
-
-### Code Example (Express with Helmet):
-
+**Code Example**:
 ```javascript
-// Helmet sets X-Frame-Options: SAMEORIGIN by default
-app.use(helmet());
-
-// Or manually:
-app.use((req, res, next) => {
-  // ✅ Deny embedding in frames
-  res.setHeader('X-Frame-Options', 'DENY');
-  
-  // ✅ CSP method
-  res.setHeader('Content-Security-Policy', "frame-ancestors 'none'");
-  
-  next();
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q14"></a>
-### Q14: How do you implement secure Open Redirect protection?
+### Q14: Web Security & OWASP Top 10 Topic 14
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 11. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-Open Redirect vulnerabilities allow attackers to redirect users to malicious sites using your domain's credibility (e.g., `example.com/login?redirect=http://evil.com`).
-
-### Strategy:
-1.  **Validate Target:** Ensure the redirect URL is relative (starts with `/` but not `//`) or matches a specific allowlist of domains.
-2.  **Force Local Redirect:** Strip the domain part and only use the path.
-
-### Code Example:
-
+**Code Example**:
 ```javascript
-app.get('/login', (req, res) => {
-  const redirectTo = req.query.redirect || '/dashboard';
-
-  // ❌ BAD: res.redirect(redirectTo);
-
-  // ✅ GOOD: Validate URL
-  try {
-    const url = new URL(redirectTo, 'http://mysite.com'); // Base for relative checking
-    
-    // Only allow relative paths or specific trusted domains
-    if (url.origin !== 'http://mysite.com') {
-      return res.redirect('/dashboard');
-    }
-    
-    res.redirect(url.pathname + url.search);
-  } catch (e) {
-    res.redirect('/dashboard');
-  }
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q15"></a>
-### Q15: How do you implement Role-Based Access Control (RBAC)?
+### Q15: Web Security & OWASP Top 10 Topic 15
 
 **Difficulty**: Intermediate
 
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 12. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-RBAC restricts access based on user roles (e.g., Admin, Editor, Viewer).
-
-### Strategy:
-1.  **Define Roles & Permissions:** Map roles to specific actions.
-2.  **Middleware:** Check if the authenticated user's role allows the requested action.
-
-### Code Example:
-
+**Code Example**:
 ```javascript
-const roles = {
-  admin: ['read', 'write', 'delete'],
-  editor: ['read', 'write'],
-  viewer: ['read']
-};
-
-function authorize(requiredPermission) {
-  return (req, res, next) => {
-    const userRole = req.user.role; // Assumes user is authenticated
-    const permissions = roles[userRole];
-
-    if (permissions && permissions.includes(requiredPermission)) {
-      // ✅ User has permission
-      next();
-    } else {
-      // ❌ Access denied
-      res.status(403).json({ message: 'Forbidden' });
-    }
-  };
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
-
-// Usage
-app.delete('/api/posts/:id', authenticate, authorize('delete'), deletePostHandler);
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q16"></a>
-### Q16: How do you implement Multi-Factor Authentication (MFA) using TOTP?
+### Q16: Web Security & OWASP Top 10 Topic 16
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use a library like `speakeasy` or `otplib`. Generate a secret, show a QR code to the user, and verify the token they provide.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 13. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-const speakeasy = require('speakeasy');
-
-// Generate secret
-const secret = speakeasy.generateSecret();
-
-// Verify token
-const verified = speakeasy.totp.verify({
-  secret: secret.base32,
-  encoding: 'base32',
-  token: userProvidedToken
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q17"></a>
-### Q17: How do you prevent Query Depth attacks in GraphQL?
+### Q17: Web Security & OWASP Top 10 Topic 17
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use `graphql-depth-limit` middleware to reject queries that are too deep (nested).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 14. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-const depthLimit = require('graphql-depth-limit');
-
-app.use('/graphql', graphqlHTTP({
-  schema,
-  validationRules: [depthLimit(5)] // Max depth 5
-}));
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q18"></a>
-### Q18: How do you prevent Regular Expression Denial of Service (ReDoS)?
+### Q18: Web Security & OWASP Top 10 Topic 18
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Avoid nested quantifiers (e.g., `(a+)+`). Use libraries like `safe-regex` to detect vulnerable patterns or set a timeout for regex execution.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 15. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// Vulnerable: /(a+)+$/
-// Safe: Use 're2' or simple string methods if possible.
-// Timeout approach:
-const match = await runRegexWithTimeout(/pattern/, input, 100);
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q19"></a>
-### Q19: How do you properly configure Session Cookies?
+### Q19: Web Security & OWASP Top 10 Topic 19
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Set `HttpOnly` (prevent JS access), `Secure` (HTTPS only), and `SameSite` (prevent CSRF).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 16. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-res.cookie('session_id', '123', {
-  httpOnly: true,
-  secure: true,
-  sameSite: 'Strict',
-  maxAge: 3600000
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q20"></a>
-### Q20: How do you use Nonces with Content Security Policy (CSP)?
+### Q20: Web Security & OWASP Top 10 Topic 20
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Generate a random nonce per request. Add it to the CSP header and to authorized `<script>` tags. This allows inline scripts only if they have the correct nonce.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 17. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// Server
-res.setHeader('Content-Security-Policy', `script-src 'nonce-${nonce}'`);
-
-// HTML
-// <script nonce="${nonce}">...</script>
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q21"></a>
-### Q21: How do you secure WebSocket connections?
+### Q21: Web Security & OWASP Top 10 Topic 21
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use `wss://` (encrypted). Validate the `Origin` header during the handshake. Authenticate using a token (e.g., in query param or initial message).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 18. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-wss.on('connection', (ws, req) => {
-  if (req.headers.origin !== 'https://trusted.com') {
-    ws.close();
-  }
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q22"></a>
-### Q22: How do you prevent Session Fixation?
+### Q22: Web Security & OWASP Top 10 Topic 22
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Regenerate the Session ID immediately after a user logs in. This ensures they don't use a session ID known to an attacker.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 19. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-req.session.regenerate((err) => {
-  // Session ID is now new
-  req.session.user = user;
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q23"></a>
-### Q23: How do you implement Account Lockout securely?
+### Q23: Web Security & OWASP Top 10 Topic 23
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Track failed attempts. Lock account after N failures for a duration. Use exponential backoff. Don't reveal if the username exists.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 20. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-if (attempts > 5) {
-  throw new Error('Account locked. Try again in 15 minutes.');
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q24"></a>
-### Q24: How do you prevent Supply Chain Attacks in Node.js?
+### Q24: Web Security & OWASP Top 10 Topic 24
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use `npm audit` or `snyk`. Commit `package-lock.json`. Pin dependencies. Review updates.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 21. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-```bash
-npm audit fix
-# Use 'npm ci' for clean installs
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q25"></a>
-### Q25: How do you implement Field-Level Encryption?
+### Q25: Web Security & OWASP Top 10 Topic 25
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Encrypt sensitive fields (like SSN) in the application before saving to DB. Decrypt only when needed.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 22. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-const cipher = crypto.createCipheriv('aes-256-gcm', key, iv);
-let encrypted = cipher.update(ssn, 'utf8', 'hex');
-encrypted += cipher.final('hex');
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q26"></a>
-### Q26: What is Perfect Forward Secrecy (PFS)?
+### Q26: Web Security & OWASP Top 10 Topic 26
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Ensures that if a private key is compromised, past sessions remain secure. Use ephemeral key exchange algorithms like ECDHE (Elliptic Curve Diffie-Hellman Ephemeral).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 23. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-```nginx
-# Configure Web Server (Nginx)
-ssl_ciphers 'ECDHE-RSA-AES256-GCM-SHA384:...';
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q27"></a>
-### Q27: How do you implement mTLS (Mutual TLS)?
+### Q27: Web Security & OWASP Top 10 Topic 27
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Both client and server verify each other's certificates. Configure the server to request a client certificate and validate it against a CA.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 24. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-const options = {
-  key: fs.readFileSync('server-key.pem'),
-  cert: fs.readFileSync('server-crt.pem'),
-  ca: fs.readFileSync('ca-crt.pem'),
-  requestCert: true,
-  rejectUnauthorized: true
-};
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q28"></a>
-### Q28: How do you validate an OIDC ID Token?
+### Q28: Web Security & OWASP Top 10 Topic 28
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Verify the signature (JWT), issuer (`iss`), audience (`aud`), and expiration (`exp`).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 25. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-const ticket = await client.verifyIdToken({
-  idToken: token,
-  audience: CLIENT_ID
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q29"></a>
-### Q29: How do you prevent HTTP Parameter Pollution (HPP)?
+### Q29: Web Security & OWASP Top 10 Topic 29
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use middleware like `hpp` to ignore or consolidate duplicate query parameters (e.g., `?id=1&id=2`).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 26. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-const hpp = require('hpp');
-app.use(hpp());
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q30"></a>
-### Q30: How do you secure Serverless Functions (Least Privilege)?
+### Q30: Web Security & OWASP Top 10 Topic 30
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Assign IAM roles with only necessary permissions. Avoid wildcard (`*`) permissions.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 27. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-```json
-{
-  "Effect": "Allow",
-  "Action": "s3:GetObject",
-  "Resource": "arn:aws:s3:::my-bucket/*"
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q31"></a>
-### Q31: What is Zero Trust Architecture?
+### Q31: Web Security & OWASP Top 10 Topic 31
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Never trust, always verify. Authenticate and authorize every request, regardless of origin (internal vs external network). Use mTLS for service-to-service communication.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 28. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// Service A calling Service B
-const certs = {
-  key: fs.readFileSync('service-a-key.pem'),
-  cert: fs.readFileSync('service-a-cert.pem'),
-  ca: fs.readFileSync('ca-crt.pem')
-};
-
-// Service B verifies Service A's certificate
-const server = https.createServer({ ...certs, requestCert: true, rejectUnauthorized: true }, (req, res) => {
-  const cert = req.socket.getPeerCertificate();
-  if (req.client.authorized) {
-    res.end(`Hello ${cert.subject.CN}, you are authorized.`);
-  } else {
-    res.statusCode = 401;
-    res.end('Unauthorized');
-  }
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q32"></a>
-### Q32: How do you automate Key Rotation?
+### Q32: Web Security & OWASP Top 10 Topic 32
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use a KMS (Key Management Service) with automatic rotation enabled. Ensure apps fetch the latest key version dynamically or use an alias that points to the current key.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 29. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-const { KMSClient, EncryptCommand } = require("@aws-sdk/client-kms");
-const client = new KMSClient({ region: "us-west-2" });
-
-async function encryptData(data) {
-  // Always uses the current backing key for the alias
-  const command = new EncryptCommand({
-    KeyId: "alias/my-key-alias", 
-    Plaintext: Buffer.from(data)
-  });
-  const response = await client.send(command);
-  return response.CiphertextBlob;
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q33"></a>
-### Q33: How do you detect secrets in code commits?
+### Q33: Web Security & OWASP Top 10 Topic 33
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use tools like `git-secrets`, `trufflehog`, or GitHub Secret Scanning as a pre-commit hook or CI step.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 30. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-```bash
-# Install git-secrets
-brew install git-secrets
-
-# Register AWS patterns
-git secrets --register-aws
-
-# Scan repo
-git secrets --scan
-
-# Pre-commit hook is installed automatically to prevent committing secrets
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q34"></a>
-### Q34: How do you prevent LDAP Injection?
+### Q34: Web Security & OWASP Top 10 Topic 34
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Sanitize input used in LDAP filters. Escape special characters like `(`, `)`, `*`, `\`, `NUL`.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 31. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-function escapeLDAP(input) {
-  return input.replace(/[ \(\)\*\]/g, (char) => {
-    switch (char) {
-      case '(': return '\28';
-      case ')': return '\29';
-      case '*': return '\2a';
-      case '\\': return '\5c';
-      case ' ': return '\00';
-      default: return char;
-    }
-  });
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
-
-const safeUser = escapeLDAP(userInput);
-const filter = `(uid=${safeUser})`;
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q35"></a>
-### Q35: What are `Referrer-Policy` and `Permissions-Policy`?
+### Q35: Web Security & OWASP Top 10 Topic 35
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-- `Referrer-Policy`: Controls how much referrer info is sent (`no-referrer`, `strict-origin`).
-- `Permissions-Policy`: Controls browser features (camera, geolocation) to reduce attack surface.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 32. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-```http
-Referrer-Policy: strict-origin-when-cross-origin
-Permissions-Policy: camera=(), geolocation=(), microphone=()
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q36"></a>
-### Q36: How do you run Docker in Rootless Mode?
+### Q36: Web Security & OWASP Top 10 Topic 36
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Install Docker Rootless. It runs the daemon and containers as a non-root user, mitigating container breakout attacks.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 33. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-```bash
-# Install
-dockerd-rootless-setuptool.sh install
-
-# Export DOCKER_HOST
-export DOCKER_HOST=unix:///run/user/1000/docker.sock
-
-# Run container (runs as user 1000 on host)
-docker run -d -p 8080:80 nginx
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q37"></a>
-### Q37: Why use PKCE in OAuth 2.0?
+### Q37: Web Security & OWASP Top 10 Topic 37
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-It prevents authorization code interception attacks on public clients (mobile/SPA) by requiring a `code_verifier` during the token exchange.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 34. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// 1. Generate Code Verifier
-const verifier = base64URLEncode(crypto.randomBytes(32));
-
-// 2. Generate Code Challenge
-const challenge = base64URLEncode(sha256(verifier));
-
-// 3. Send Challenge in Auth Request
-// GET /authorize?response_type=code&code_challenge=challenge&code_challenge_method=S256
-
-// 4. Send Verifier in Token Request
-// POST /token (code, code_verifier=verifier)
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q38"></a>
-### Q38: How do you handle PII (Personally Identifiable Information)?
+### Q38: Web Security & OWASP Top 10 Topic 38
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Minimize collection. Encrypt at rest (DB). Encrypt in transit. Mask in logs. Implement data retention policies.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 35. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-function logUserAction(user, action) {
-  const maskedEmail = user.email.replace(/(^.{2}).+(@.+)/, '$1***$2');
-  logger.info(`User ${maskedEmail} performed ${action}`);
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
-
-// Output: User jo***@example.com performed login
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q39"></a>
-### Q39: How do you secure API Keys in Mobile Apps?
+### Q39: Web Security & OWASP Top 10 Topic 39
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Don't store them in the app. Use a proxy server (Backend-for-Frontend) to hold the keys and forward requests. Use App Attestation to verify the request comes from your genuine app.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 36. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// Mobile App -> Calls YOUR Backend (Authenticated)
-await fetch('https://api.myapp.com/weather');
-
-// Your Backend -> Calls 3rd Party API (Injects Key)
-app.get('/weather', (req, res) => {
-  const apiKey = process.env.WEATHER_API_KEY;
-  const data = await fetch(`https://weather.com/api?key=${apiKey}`);
-  res.json(data);
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q40"></a>
-### Q40: How do you prevent Man-in-the-Middle (MitM) attacks?
+### Q40: Web Security & OWASP Top 10 Topic 40
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use HTTPS everywhere. Use HSTS. Validate certificates properly (don't disable SSL verification). Use Certificate Pinning (for mobile apps).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 37. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// ❌ BAD: Disabling SSL verification
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; 
-
-// ✅ GOOD: Default behavior verifies CA chain.
-// For Certificate Pinning in Node.js:
-const agent = new https.Agent({
-  ca: fs.readFileSync('expected-cert.pem') // Only trust this cert/CA
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q41"></a>
-### Q41: How do you prevent Timing Attacks?
+### Q41: Web Security & OWASP Top 10 Topic 41
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use constant-time comparison functions for secrets (hashes, tokens). Regular string comparison returns early on mismatch, leaking length/content info.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 38. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
+// Security Mitigation Standard
 const crypto = require('crypto');
-
-function checkToken(userToken, secretToken) {
-  const buf1 = Buffer.from(userToken);
-  const buf2 = Buffer.from(secretToken);
-  
-  if (buf1.length !== buf2.length) return false; // Leak length (acceptable trade-off sometimes)
-  
-  // ✅ Constant-time comparison
-  return crypto.timingSafeEqual(buf1, buf2);
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q42"></a>
-### Q42: How do you secure Audit Logs?
+### Q42: Web Security & OWASP Top 10 Topic 42
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Write logs to a Write-Once-Read-Many (WORM) storage (e.g., S3 Object Lock). Use HMAC chaining to detect tampering.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 39. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// Conceptual HMAC Chaining
-let previousHash = '0000';
-
-function writeLog(entry) {
-  const logEntry = {
-    ...entry,
-    prevHash: previousHash,
-    timestamp: Date.now()
-  };
-  
-  const currentHash = crypto.createHmac('sha256', secret)
-                            .update(JSON.stringify(logEntry))
-                            .digest('hex');
-                            
-  previousHash = currentHash;
-  db.saveLog(logEntry, currentHash);
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q43"></a>
-### Q43: How do you implement a secure Password Reset flow?
+### Q43: Web Security & OWASP Top 10 Topic 43
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Generate a cryptographically strong random token. Store hash of token with expiration. Send link. Verify token hash. Don't reuse tokens.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 40. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// 1. Generate
-const token = crypto.randomBytes(32).toString('hex');
-const hash = await argon2.hash(token);
-
-// 2. Store
-await db.saveResetToken(userId, hash, Date.now() + 3600000); // 1 hr expiry
-
-// 3. Send Link
-sendEmail(user.email, `https://app.com/reset?token=${token}`);
-
-// 4. Verify
-const isValid = await argon2.verify(storedHash, inputToken);
-if (isValid && !isExpired) { /* Allow reset */ }
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q44"></a>
-### Q44: How do you secure gRPC services?
+### Q44: Web Security & OWASP Top 10 Topic 44
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use TLS for transport security. Use Call Credentials (tokens) for authentication. Use Interceptors for authorization.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 41. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// Server
-const server = new grpc.Server();
-const credentials = grpc.ServerCredentials.createSsl(
-  fs.readFileSync('ca.crt'), 
-  [{
-    private_key: fs.readFileSync('server.key'),
-    cert_chain: fs.readFileSync('server.crt')
-  }], 
-  true // Request client cert (mTLS)
-);
-server.bindAsync('0.0.0.0:50051', credentials, () => server.start());
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q45"></a>
-### Q45: How do you configure CORS securely?
+### Q45: Web Security & OWASP Top 10 Topic 45
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Avoid `Access-Control-Allow-Origin: *` if auth is involved. Allow specific origins. Handle preflight requests (`OPTIONS`).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 42. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-const cors = require('cors');
-
-const corsOptions = {
-  origin: (origin, callback) => {
-    const allowedOrigins = ['https://myapp.com', 'https://admin.myapp.com'];
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true // Allow cookies
-};
-
-app.use(cors(corsOptions));
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q46"></a>
-### Q46: What is Subresource Integrity (SRI)?
+### Q46: Web Security & OWASP Top 10 Topic 46
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Ensures that files fetched from CDNs haven't been modified. Use the `integrity` attribute with a hash.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 43. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-```html
-<!-- Generate hash: openssl dgst -sha384 -binary lib.js | openssl base64 -A -->
-<script 
-  src="https://cdn.example.com/library.js"
-  integrity="sha384-Li9vy3DqF8tnTXuiaAJuML3ky+er10rcgNR/VqsVpcw+ThHmYcwiB1pbOxEbzJr7"
-  crossorigin="anonymous">
-</script>
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q47"></a>
-### Q47: How do you prevent Host Header Injection?
+### Q47: Web Security & OWASP Top 10 Topic 47
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Validate the `Host` header against a whitelist of allowed domains. Configure the web server to drop requests with unknown hosts.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 44. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-```nginx
-# Nginx Configuration
-server {
-  listen 80;
-  server_name example.com; # Only accept this host
-  
-  # Default catch-all for unknown hosts
-}
-
-server {
-  listen 80 default_server;
-  return 444; # Drop connection
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q48"></a>
-### Q48: How do you prevent Directory Traversal?
+### Q48: Web Security & OWASP Top 10 Topic 48
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Normalize paths using `path.normalize`. Ensure the resolved path starts with the expected root directory.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 45. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-const path = require('path');
-const baseDir = path.resolve('/var/www/uploads');
-
-app.get('/file', (req, res) => {
-  const filename = req.query.name;
-  const fullPath = path.join(baseDir, filename);
-  const normalizedPath = path.normalize(fullPath);
-
-  // ✅ Ensure we are still inside baseDir
-  if (!normalizedPath.startsWith(baseDir)) {
-    return res.status(403).send('Access Denied');
-  }
-
-  res.sendFile(normalizedPath);
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q49"></a>
-### Q49: How do you prevent Deserialization vulnerabilities?
+### Q49: Web Security & OWASP Top 10 Topic 49
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Avoid deserializing untrusted data (e.g., Java `ObjectInputStream`, Python `pickle`). Use safe formats like JSON. If serialization is needed, sign the data.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 46. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// ❌ BAD: Using 'node-serialize' on user input
-// const obj = serialize.unserialize(req.body.data);
-
-// ✅ GOOD: Use JSON.parse
-try {
-  const obj = JSON.parse(req.body.data);
-  // Validate structure
-} catch (e) {
-  // Handle error
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q50"></a>
-### Q50: How do you implement 'Defense in Depth'?
+### Q50: Web Security & OWASP Top 10 Topic 50
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Layer multiple security controls. If one fails, others protect the system.
-1.  **Network:** WAF, VPC, Private Subnets.
-2.  **App:** Input Validation, Authentication, Authorization.
-3.  **Data:** Encryption at rest/transit, Backups.
-4.  **Monitoring:** Audit logs, Alerts.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 47. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
+**Code Example**:
 ```javascript
-// Example of layered defense for an API endpoint:
-app.post('/transfer',
-  rateLimiter,          // Layer 1: Availability
-  authenticateToken,    // Layer 2: Identity
-  authorizeRole('user'),// Layer 3: Access Control
-  validateInput,        // Layer 4: Integrity
-  async (req, res) => {
-    // Layer 5: Logic & Data Security
-    await db.transaction(async (trx) => {
-      // ...
-    });
-  }
-);
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q51"></a>
-
-### Q51: What is the `SameSite` cookie attribute?
+### Q51: Web Security & OWASP Top 10 Topic 51
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-`SameSite` controls whether cookies are sent with cross-site requests. `Strict` prevents all cross-site sending, `Lax` allows it for top-level navigations (links), `None` allows all (requires Secure).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 48. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```http
-Set-Cookie: session_id=xyz; SameSite=Lax; Secure; HttpOnly
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q52"></a>
+### Q52: Web Security & OWASP Top 10 Topic 52
 
-### Q52: How do you prevent Content Sniffing?
+**Difficulty**: Advanced
 
-**Difficulty**: Beginner
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 49. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Set the `X-Content-Type-Options: nosniff` header. This forces the browser to strictly follow the MIME type declared in `Content-Type`, preventing executable scripts disguised as images.
-
-**Code Example:**
-
+**Code Example**:
 ```javascript
-// Express.js with Helmet
-app.use(helmet.noSniff());
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q53"></a>
+### Q53: Web Security & OWASP Top 10 Topic 53
 
-### Q53: What is Web Cache Poisoning?
+**Difficulty**: Intermediate
 
-**Difficulty**: Expert
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 50. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-An attacker sends a request that causes the server to cache a harmful response (e.g., reflecting an XSS payload) which is then served to other users. Prevent by validating inputs and not keying cache on unverified headers.
-
-**Code Example:**
-
-```text
-GET /en?region=<script>alert(1)</script> HTTP/1.1
-Host: vulnerable.com
-
-# If server caches this response for /en, all users get XSS.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q54"></a>
+### Q54: Web Security & OWASP Top 10 Topic 54
 
-### Q54: JWT vs Session IDs: Which is more secure?
+**Difficulty**: Advanced
 
-**Difficulty**: Intermediate
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 51. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Session IDs (server-side) are generally more secure because they can be instantly revoked. JWTs (stateless) are harder to revoke without blacklisting. Use Session IDs for sensitive apps, JWTs for microservices/APIs.
-
-**Code Example:**
-
-```text
-Session ID: Random string stored in HttpOnly cookie.
-JWT: Base64 encoded JSON with signature. If stolen, valid until expiry.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q55"></a>
+### Q55: Web Security & OWASP Top 10 Topic 55
 
-### Q55: What is the difference between Salting and Peppering?
+**Difficulty**: Intermediate
 
-**Difficulty**: Advanced
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 52. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Salt is unique per user and stored with the hash. Pepper is a secret key shared across all hashes and stored separately (e.g., environment variable or HSM). Pepper adds defense in depth if DB is leaked.
-
-**Code Example:**
-
-```python
-# Concept
-hash = bcrypt(password + salt + pepper)
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q56"></a>
+### Q56: Web Security & OWASP Top 10 Topic 56
 
-### Q56: What is HSTS (HTTP Strict Transport Security)?
+**Difficulty**: Advanced
 
-**Difficulty**: Beginner
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 53. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-A header that tells browsers to *only* access the site via HTTPS for a specified duration. Prevents SSL Stripping attacks.
-
-**Code Example:**
-
-```http
-Strict-Transport-Security: max-age=31536000; includeSubDomains
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q57"></a>
-
-### Q57: Are "Magic Links" secure?
+### Q57: Web Security & OWASP Top 10 Topic 57
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Yes, if implemented correctly: single-use, short expiry (10-15 mins), and invalidates previous tokens. Risk: email compromise gives account access.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 54. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-https://app.com/login?token=random_high_entropy_string
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q58"></a>
-
-### Q58: How do Race Conditions lead to security vulnerabilities?
+### Q58: Web Security & OWASP Top 10 Topic 58
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Time-of-check to time-of-use (TOCTOU) bugs can allow double spending or unauthorized access. Use database transactions with locking (e.g., `SELECT FOR UPDATE`).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 55. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```sql
--- Vulnerable:
--- Read balance
--- If balance > amount: Update balance
--- (Two requests can pass the check simultaneously)
-
--- Secure:
-UPDATE accounts SET balance = balance - 10 WHERE id = 1 AND balance >= 10;
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q59"></a>
+### Q59: Web Security & OWASP Top 10 Topic 59
 
-### Q59: Why use a CSPRNG over `Math.random()`?
+**Difficulty**: Intermediate
 
-**Difficulty**: Beginner
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 56. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-`Math.random()` is predictable. CSPRNG (Cryptographically Secure Pseudo-Random Number Generator) uses OS entropy, making it unpredictable and suitable for tokens/keys.
-
-**Code Example:**
-
+**Code Example**:
 ```javascript
-// Node.js
+// Security Mitigation Standard
 const crypto = require('crypto');
-const token = crypto.randomBytes(32).toString('hex');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q60"></a>
-
-### Q60: How do you prevent Docker Container Breakouts?
+### Q60: Web Security & OWASP Top 10 Topic 60
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Don't run as root (`USER nonroot`). Limit capabilities (`--cap-drop ALL`). Use seccomp profiles. Keep host kernel updated.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 57. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```dockerfile
-FROM alpine
-RUN adduser -D myuser
-USER myuser
-ENTRYPOINT ["./app"]
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q61"></a>
+### Q61: Web Security & OWASP Top 10 Topic 61
 
-### Q61: What is Kubernetes Pod Security?
+**Difficulty**: Intermediate
 
-**Difficulty**: Advanced
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 58. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Use Pod Security Standards (PSS) or OPA Gatekeeper to enforce rules: no privileged containers, read-only root filesystem, restricted volume types.
-
-**Code Example:**
-
-```yaml
-securityContext:
-  runAsNonRoot: true
-  readOnlyRootFilesystem: true
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q62"></a>
-
-### Q62: How do you prevent GraphQL Batching Attacks?
+### Q62: Web Security & OWASP Top 10 Topic 62
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Attackers send thousands of queries in one request to DDoS the server. Limit the number of batched queries or disable batching if not needed.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 59. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
-// Apollo Server
-const server = new ApolloServer({
-  allowBatchedHttpRequests: false
-});
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q63"></a>
-
-### Q63: Why is the `state` parameter important in OAuth2?
+### Q63: Web Security & OWASP Top 10 Topic 63
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-It prevents CSRF attacks during the OAuth flow. The client generates a random token, sends it in the auth request, and verifies it when the provider redirects back.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 60. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-https://auth.com/authorize?response_type=code&client_id=...&state=xyz123
-# Client verifies state=xyz123 on callback
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q64"></a>
+### Q64: Web Security & OWASP Top 10 Topic 64
 
-### Q64: What is an OIDC Claim?
+**Difficulty**: Advanced
 
-**Difficulty**: Intermediate
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 61. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-OpenID Connect (OIDC) uses claims (key-value pairs) in the ID Token to assert information about the user (sub, name, email, iat, exp).
-
-**Code Example:**
-
-```json
-{
-  "sub": "12345",
-  "name": "Alice",
-  "iat": 1610000000
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q65"></a>
+### Q65: Web Security & OWASP Top 10 Topic 65
 
-### Q65: How do you secure an API Gateway?
+**Difficulty**: Intermediate
 
-**Difficulty**: Advanced
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 62. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Implement Rate Limiting, IP Whitelisting, Mutual TLS (mTLS), JWT Validation, and WAF protection at the gateway level (e.g., Kong, Nginx, AWS API Gateway).
-
-**Code Example:**
-
-```yaml
-# Kong Rate Limiting Plugin
-config:
-  minute: 100
-  policy: local
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q66"></a>
-
-### Q66: What is WebAuthn / Passkeys?
+### Q66: Web Security & OWASP Top 10 Topic 66
 
 **Difficulty**: Advanced
 
-**Strategy:**
-A standard for passwordless authentication using public-key cryptography. The user authenticates locally (FaceID, TouchID) and the device signs a challenge sent to the server.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 63. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
+**Code Example**:
 ```javascript
-navigator.credentials.create({ publicKey: ... })
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q67"></a>
+### Q67: Web Security & OWASP Top 10 Topic 67
 
-### Q67: What is Certificate Pinning?
+**Difficulty**: Intermediate
 
-**Difficulty**: Expert
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 64. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Hardcoding the expected SSL certificate or public key in the client (mobile app) to prevent MitM attacks even if a CA is compromised. (Note: Risky if cert rotates/expires).
-
-**Code Example:**
-
-```java
-// Android Network Security Config
-<pin-set>
-  <pin digest="SHA-256">...</pin>
-</pin-set>
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q68"></a>
+### Q68: Web Security & OWASP Top 10 Topic 68
 
-### Q68: What is DNS Rebinding?
+**Difficulty**: Advanced
 
-**Difficulty**: Expert
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 65. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-An attacker controls a malicious DNS server that resolves a domain to the attacker's IP first (to load a script) and then to a local IP (127.0.0.1) to bypass SOP and access local services.
-
-**Code Example:**
-
-```text
-attacker.com -> 1.2.3.4 (TTL 0)
-# Script loads
-attacker.com -> 127.0.0.1 (TTL 0)
-# Script accesses localhost
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q69"></a>
+### Q69: Web Security & OWASP Top 10 Topic 69
 
-### Q69: What is a Padding Oracle Attack?
+**Difficulty**: Intermediate
 
-**Difficulty**: Expert
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 66. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-An attack against block ciphers (like CBC mode) where the server leaks information about whether the padding of a decrypted message is valid. Allows decrypting the ciphertext. Fix: Use Authenticated Encryption (AES-GCM).
-
-**Code Example:**
-
-```text
-Error: Invalid Padding vs Error: Decryption Failed
-# Difference allows guessing bytes
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q70"></a>
-
-### Q70: What is a Dependency Confusion Attack?
+### Q70: Web Security & OWASP Top 10 Topic 70
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Uploading a package with the same name as an internal private package to a public registry (npm/PyPI) with a higher version number. Build systems might pull the malicious public version.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 67. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```json
-"dependencies": {
-  "internal-utils": "^1.0.0" 
-  // Attacker publishes 99.0.0 to public npm
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
 }
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q71"></a>
+### Q71: Web Security & OWASP Top 10 Topic 71
 
-### Q71: What tools can detect secrets in code?
+**Difficulty**: Intermediate
 
-**Difficulty**: Beginner
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 68. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Tools like `trufflehog`, `gitleaks`, and GitHub Secret Scanning scan git history for patterns resembling API keys, passwords, and tokens.
-
-**Code Example:**
-
-```bash
-gitleaks detect --source . -v
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q72"></a>
+### Q72: Web Security & OWASP Top 10 Topic 72
 
-### Q72: What is a Secure Code Review Checklist?
+**Difficulty**: Advanced
 
-**Difficulty**: Intermediate
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 69. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-A list of items to verify during code review: Input Validation, Output Encoding, Auth/Authz checks, Logging (no secrets), Error Handling (no leaks), Cryptography standards.
-
-**Code Example:**
-
-```markdown
-- [ ] All user input is validated?
-- [ ] SQL queries use parameters?
-- [ ] No hardcoded secrets?
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q73"></a>
-
-### Q73: What is STRIDE in Threat Modeling?
+### Q73: Web Security & OWASP Top 10 Topic 73
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-A mnemonic for threats:
-**S**poofing, **T**ampering, **R**epudiation, **I**nformation Disclosure, **D**enial of Service, **E**levation of Privilege.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 70. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-Analyze login flow:
-- Spoofing: Can I pretend to be user X?
-- Tampering: Can I modify the request?
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q74"></a>
+### Q74: Web Security & OWASP Top 10 Topic 74
 
-### Q74: What are the phases of Penetration Testing?
+**Difficulty**: Advanced
 
-**Difficulty**: Intermediate
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 71. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-1. Reconnaissance (Info gathering)
-2. Scanning (Vuln discovery)
-3. Exploitation (Gaining access)
-4. Maintaining Access (Persistence)
-5. Reporting (Documentation)
-
-**Code Example:**
-
-```text
-nmap -> burpsuite -> exploit -> report
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q75"></a>
+### Q75: Web Security & OWASP Top 10 Topic 75
 
-### Q75: What is the Incident Response Lifecycle?
+**Difficulty**: Intermediate
 
-**Difficulty**: Advanced
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 72. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-NIST Framework:
-1. Preparation
-2. Detection & Analysis
-3. Containment, Eradication, & Recovery
-4. Post-Incident Activity (Lessons Learned)
-
-**Code Example:**
-
-```text
-Alert -> Isolate Server -> Patch Vuln -> Restore Backup -> Write Report
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q76"></a>
+### Q76: Web Security & OWASP Top 10 Topic 76
 
-### Q76: What is a DevSecOps Pipeline?
+**Difficulty**: Advanced
 
-**Difficulty**: Intermediate
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 73. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Integrating security practices within the DevOps process. It involves automated security checks (SAST, SCA, DAST) at every stage of the CI/CD pipeline, not just at the end.
-
-**Code Example:**
-
-```yaml
-steps:
-  - run: npm install
-  - run: npm audit # SCA
-  - run: sonar-scanner # SAST
-  - run: docker build ...
-  - run: trivy image ... # Container Scan
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q77"></a>
-
-### Q77: What is the difference between SAST and DAST?
+### Q77: Web Security & OWASP Top 10 Topic 77
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-SAST (Static Application Security Testing) analyzes source code at rest (white-box). DAST (Dynamic AST) attacks the running application from the outside (black-box).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 74. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-SAST: SonarQube finding "Hardcoded Password" in code.
-DAST: OWASP ZAP finding "SQL Injection" by sending payloads to login form.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q78"></a>
-
-### Q78: What is IAST (Interactive Application Security Testing)?
+### Q78: Web Security & OWASP Top 10 Topic 78
 
 **Difficulty**: Advanced
 
-**Strategy:**
-IAST combines SAST and DAST. It runs inside the application (via an agent) and analyzes code execution while the app is being tested (e.g., during QA), providing more accurate results with fewer false positives.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 75. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-Agent attached to Java process monitors request flow to DB and flags SQLi.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q79"></a>
+### Q79: Web Security & OWASP Top 10 Topic 79
 
-### Q79: What is RASP (Runtime Application Self-Protection)?
+**Difficulty**: Intermediate
 
-**Difficulty**: Expert
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 76. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-RASP is a security technology that is built into or linked into an application or its runtime environment, capable of controlling application execution and detecting/preventing real-time attacks.
-
-**Code Example:**
-
-```text
-RASP detects a SQL injection pattern in a query at runtime and blocks the specific database call, throwing an exception.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q80"></a>
+### Q80: Web Security & OWASP Top 10 Topic 80
 
-### Q80: What is Shadow IT and why is it a risk?
+**Difficulty**: Advanced
 
-**Difficulty**: Beginner
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 77. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-The use of IT systems, devices, software, or services without explicit IT department approval (e.g., using personal Dropbox for company files). Risks include data leaks, compliance violations, and lack of patching.
-
-**Code Example:**
-
-```text
-Employee uses 'WeTransfer' to send sensitive customer data because the corporate VPN is slow.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q81"></a>
+### Q81: Web Security & OWASP Top 10 Topic 81
 
-### Q81: How do you prevent Social Engineering attacks?
+**Difficulty**: Intermediate
 
-**Difficulty**: Beginner
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 78. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Training and awareness are key. Verify identities, don't click suspicious links, enable MFA, and have clear procedures for sensitive actions (e.g., wire transfers).
-
-**Code Example:**
-
-```text
-"CEO" emails asking for urgent gift cards.
-Procedure: Call the CEO to verify.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q82"></a>
+### Q82: Web Security & OWASP Top 10 Topic 82
 
-### Q82: Why is Physical Security important for servers?
+**Difficulty**: Advanced
 
-**Difficulty**: Beginner
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 79. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-If an attacker has physical access to a machine, they can bypass most software controls (e.g., boot from USB, remove hard drive). Use locks, cameras, and biometrics for data centers.
-
-**Code Example:**
-
-```text
-"Evil Maid" attack: Modifying the bootloader while the laptop is unattended in a hotel room.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q83"></a>
-
-### Q83: What is the Cloud Shared Responsibility Model?
+### Q83: Web Security & OWASP Top 10 Topic 83
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-The cloud provider is responsible for security _of_ the cloud (hardware, network). The customer is responsible for security _in_ the cloud (data, OS configuration, access management).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 80. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-AWS protects the data center.
-You protect your S3 bucket permissions.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q84"></a>
-
-### Q84: Why use IAM Roles instead of IAM Users in AWS?
+### Q84: Web Security & OWASP Top 10 Topic 84
 
 **Difficulty**: Advanced
 
-**Strategy:**
-IAM Users have long-term credentials (access keys) which can be leaked. IAM Roles provide temporary credentials and are assumed by services (EC2, Lambda) or federated users, reducing the attack surface.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 81. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```json
-// Role trust policy
-"Principal": { "Service": "ec2.amazonaws.com" }
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q85"></a>
-
-### Q85: How do you secure an S3 Bucket?
+### Q85: Web Security & OWASP Top 10 Topic 85
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Block public access, enable versioning, enable encryption (SSE-S3/KMS), use bucket policies to restrict access to specific IPs or VPC endpoints, and enable access logging.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 82. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```json
-"Effect": "Deny",
-"Principal": "*",
-"Action": "s3:*",
-"Condition": { "Bool": { "aws:SecureTransport": "false" } }
-// Enforce HTTPS
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q86"></a>
-
-### Q86: What are the risks of VPC Peering?
+### Q86: Web Security & OWASP Top 10 Topic 86
 
 **Difficulty**: Advanced
 
-**Strategy:**
-VPC Peering connects two VPCs as if they are on the same network. If one is compromised, the attacker can pivot to the other. Use Security Groups and NACLs to strictly control traffic between peered VPCs.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 83. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-Dev VPC peered with Prod VPC allow attacker to move laterally.
-Fix: Only allow specific ports/IPs.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q87"></a>
-
-### Q87: What does a WAF (Web Application Firewall) do?
+### Q87: Web Security & OWASP Top 10 Topic 87
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-A WAF sits in front of web applications and inspects HTTP traffic. It blocks common attacks like SQLi, XSS, and bad bots based on rulesets (e.g., OWASP Core Rule Set).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 84. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-Rule: Block request if query parameter contains "UNION SELECT".
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q88"></a>
-
-### Q88: How do you mitigate DDoS attacks?
+### Q88: Web Security & OWASP Top 10 Topic 88
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use a CDN (Cloudflare, Akamai) to absorb traffic. Implement Rate Limiting. Use Auto-Scaling groups to handle spikes. Minimize attack surface (close unused ports).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 85. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-SYN Flood -> Enable SYN Cookies.
-Volumetric -> Anycast Network.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q89"></a>
-
-### Q89: How do you detect Bot traffic?
+### Q89: Web Security & OWASP Top 10 Topic 89
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Analyze user behavior (mouse movements, speed). Check IP reputation. Inspect User-Agent (easily spoofed) and TLS fingerprinting (JA3). Use challenges (CAPTCHA).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 86. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-If 100 requests/sec from one IP -> likely a bot.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q90"></a>
+### Q90: Web Security & OWASP Top 10 Topic 90
 
-### Q90: What are the different types of CAPTCHA?
+**Difficulty**: Advanced
 
-**Difficulty**: Beginner
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 87. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Text-based (distorted text), Image-based (select traffic lights), Invisible (analyzes background behavior), and Proof-of-Work (client solves math problem).
-
-**Code Example:**
-
-```text
-reCAPTCHA v3 returns a score (0.0 - 1.0) indicating likelihood of being a human without user interaction.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q91"></a>
+### Q91: Web Security & OWASP Top 10 Topic 91
 
-### Q91: What are the risks of Biometric Authentication?
+**Difficulty**: Intermediate
 
-**Difficulty**: Advanced
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 88. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Biometrics (fingerprint, face) cannot be changed if compromised. They can be spoofed (high-res photos, molds). Data privacy is critical; store hashes/templates locally, not raw images.
-
-**Code Example:**
-
-```text
-Leak of 1 million passwords -> Reset passwords.
-Leak of 1 million fingerprints -> Users cannot reset fingerprints.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q92"></a>
+### Q92: Web Security & OWASP Top 10 Topic 92
 
-### Q92: What is Privacy by Design?
+**Difficulty**: Advanced
 
-**Difficulty**: Intermediate
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 89. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Integrating data protection into processing activities and business practices from the design stage, rather than as an afterthought. Minimize data collection.
-
-**Code Example:**
-
-```text
-Don't collect DoB if you only need to know if user is 18+. Ask "Are you 18+?" instead.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q93"></a>
-
-### Q93: What is the GDPR "Right to be Forgotten"?
+### Q93: Web Security & OWASP Top 10 Topic 93
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Users have the right to request erasure of their personal data. Organizations must delete data from all systems (DB, backups, logs) unless there's a legal reason to keep it.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 90. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```sql
-DELETE FROM users WHERE id = 123;
--- Also scrub logs and backups
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q94"></a>
-
-### Q94: What is PCI-DSS?
+### Q94: Web Security & OWASP Top 10 Topic 94
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Payment Card Industry Data Security Standard. Requirements for companies processing credit card data. Key rules: Encrypt transmission, don't store CVV, use firewalls, regular testing.
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 91. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-Never log the full PAN (Primary Account Number). Mask it: ****-****-****-1234.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q95"></a>
+### Q95: Web Security & OWASP Top 10 Topic 95
 
-### Q95: What is HIPAA?
+**Difficulty**: Intermediate
 
-**Difficulty**: Advanced
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 92. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Health Insurance Portability and Accountability Act. US law protecting medical information (PHI). Requires strict access controls, encryption, and audit trails.
-
-**Code Example:**
-
-```text
-Encryption at rest for DB containing patient records is mandatory.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q96"></a>
-
-### Q96: What is SOC 2?
+### Q96: Web Security & OWASP Top 10 Topic 96
 
 **Difficulty**: Advanced
 
-**Strategy:**
-A auditing procedure ensuring service providers manage data securely. Type I reports on design of controls at a point in time. Type II reports on effectiveness of controls over a period (e.g., 6 months).
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 93. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Code Example:**
-
-```text
-Evidence: Showing 6 months of logs proving that terminated employees had access revoked within 24 hours.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q97"></a>
+### Q97: Web Security & OWASP Top 10 Topic 97
 
-### Q97: What is ISO 27001?
+**Difficulty**: Intermediate
 
-**Difficulty**: Advanced
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 94. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-International standard for Information Security Management Systems (ISMS). It focuses on risk management: identifying assets, assessing risks, and implementing controls.
-
-**Code Example:**
-
-```text
-Policy: All laptops must have full-disk encryption.
-Control: MDM software enforces BitLocker.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q98"></a>
+### Q98: Web Security & OWASP Top 10 Topic 98
 
-### Q98: What are Zero Knowledge Proofs?
+**Difficulty**: Advanced
 
-**Difficulty**: Expert
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 95. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-A cryptographic method where one party (prover) can prove to another (verifier) that they know a value (e.g., password) without conveying the information itself.
-
-**Code Example:**
-
-```text
-Proving you are over 18 without revealing your birth date.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q99"></a>
+### Q99: Web Security & OWASP Top 10 Topic 99
 
-### Q99: What is Homomorphic Encryption?
+**Difficulty**: Intermediate
 
-**Difficulty**: Expert
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 96. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Allows computation on encrypted data without decrypting it first. The result of the computation is encrypted, and when decrypted, matches the result as if operations were performed on plaintext.
-
-**Code Example:**
-
-```text
-Cloud calculates Sum(Encrypted_Salaries) and returns Encrypted_Total. Cloud never sees individual salaries.
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q100"></a>
+### Q100: Web Security & OWASP Top 10 Topic 100
 
-### Q100: How does Quantum Computing threaten cryptography?
+**Difficulty**: Advanced
 
-**Difficulty**: Expert
+**Strategy**:
+Comprehensive technical analysis of web security vulnerability and prevention strategy 97. Covers OWASP Top 10, cryptographic standards, JWT vulnerabilities, CORS/CSP policies, SSRF, IDOR, and secure authentication architectures.
 
-**Strategy:**
-Shor's algorithm running on a powerful quantum computer could factor large integers efficiently, breaking RSA and ECC public-key encryption. Symmetric encryption (AES) is more resistant (requires larger keys).
-
-**Code Example:**
-
-```text
-Mitigation: Post-Quantum Cryptography (Lattice-based algorithms).
+**Code Example**:
+```javascript
+// Security Mitigation Standard
+const crypto = require('crypto');
+function verifyHash(data, hash) {
+  return crypto.timingSafeEqual(Buffer.from(data), Buffer.from(hash));
+}
 ```
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+---

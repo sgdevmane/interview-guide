@@ -1,1238 +1,1842 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/devops-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Docker & Containers Logo" width="100" height="100">
   </a>
-  <h1>Docker Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for DevOps engineers</b></p>
+  <h1>Docker & Containers Interview Questions & Answers</h1>
+  <p><b>Comprehensive interview questions covering Namespaces, Cgroups, Multi-Stage Builds, OverlayFS, and Networking</b></p>
 </div>
 
 ---
 
 ## Table of Contents
 
-1. [How do you optimize a Docker image size using multi-stage builds?](#q1) <span class="intermediate">Intermediate</span>
-2. [How do you secure a Docker container by running it as a non-root user?](#q2) <span class="intermediate">Intermediate</span>
-3. [How do you implement health checks in Docker Compose to ensure dependent services start in order?](#q3) <span class="intermediate">Intermediate</span>
-4. [How do you persist database data using Docker Volumes?](#q4) <span class="beginner">Beginner</span>
-5. [How do you debug a crashing container that exits immediately upon starting?](#q5) <span class="intermediate">Intermediate</span>
-6. [How do you connect two containers on the same host so they can communicate by name?](#q6) <span class="beginner">Beginner</span>
-7. [How do you pass sensitive configuration (secrets) to a Docker container securely?](#q7) <span class="advanced">Advanced</span>
-8. [How do you speed up Docker builds by leveraging the build cache effectively?](#q8) <span class="intermediate">Intermediate</span>
-9. [How do you limit the memory and CPU usage of a Docker container?](#q9) <span class="intermediate">Intermediate</span>
-10. [How do you export and import a Docker image to transfer it between air-gapped systems?](#q10) <span class="intermediate">Intermediate</span>
-11. [How do you mount a local configuration file into a container to override defaults?](#q11) <span class="beginner">Beginner</span>
-12. [How do you prevent a Docker container from accumulating large log files?](#q12) <span class="advanced">Advanced</span>
-13. [How do you execute a command inside a running container?](#q13) <span class="beginner">Beginner</span>
-14. [How do you clean up unused Docker resources (images, containers, networks, volumes)?](#q14) <span class="beginner">Beginner</span>
-15. [How do you run a container that automatically restarts on failure?](#q15) <span class="beginner">Beginner</span>
-16. [How do you use `docker buildx` for multi-architecture builds?](#q16) <span class="advanced">Advanced</span>
-17. [How do you speed up builds using BuildKit cache mounts?](#q17) <span class="advanced">Advanced</span>
-18. [How do you implement a healthcheck in Docker Compose?](#q18) <span class="intermediate">Intermediate</span>
-19. [How do you secure a container using read-only filesystems?](#q19) <span class="intermediate">Intermediate</span>
-20. [How do you copy files between a container and the host?](#q20) <span class="beginner">Beginner</span>
-21. [How do you analyze the contents and layers of an image?](#q21) <span class="intermediate">Intermediate</span>
-22. [How do you change the default ENTRYPOINT of an image at runtime?](#q22) <span class="intermediate">Intermediate</span>
-23. [How do you create a Docker network for container communication?](#q23) <span class="intermediate">Intermediate</span>
-24. [How do you use `.dockerignore` to optimize build context?](#q24) <span class="beginner">Beginner</span>
-25. [How do you mount a specific file as a volume (Bind Mount)?](#q25) <span class="beginner">Beginner</span>
-26. [How do you view the logs of a running container in real-time?](#q26) <span class="beginner">Beginner</span>
-27. [How do you inspect a container's IP address and configuration?](#q27) <span class="intermediate">Intermediate</span>
-28. [How do you use Docker Compose `extends` or `yaml anchors` to reduce duplication?](#q28) <span class="intermediate">Intermediate</span>
-29. [How do you implement caching for `pip install` or `npm install` in Docker builds?](#q29) <span class="advanced">Advanced</span>
-30. [How do you network containers across multiple hosts (Overlay Network)?](#q30) <span class="advanced">Advanced</span>
-31. [How do you use Docker Context to manage multiple Docker daemons?](#q31) <span class="intermediate">Intermediate</span>
-32. [How do you debug a container that fails to start due to an 'Exec format error'?](#q32) <span class="intermediate">Intermediate</span>
-33. [How do you flatten a Docker image to reduce layers?](#q33) <span class="advanced">Advanced</span>
-34. [How do you prevent the 'PID 1 zombie reaping' problem in Docker?](#q34) <span class="advanced">Advanced</span>
-35. [How do you optimize Docker layer caching for `apt-get install`?](#q35) <span class="intermediate">Intermediate</span>
-36. [How do you use Docker in Docker (DinD) for CI pipelines?](#q36) <span class="advanced">Advanced</span>
-37. [How do you change the default logging driver for all containers?](#q37) <span class="intermediate">Intermediate</span>
-38. [How do you inspect the resource usage (stats) of running containers?](#q38) <span class="beginner">Beginner</span>
-39. [How do you use multi-stage builds to run tests before building the final image?](#q39) <span class="intermediate">Intermediate</span>
-40. [How do you handle timezones in Docker containers?](#q40) <span class="beginner">Beginner</span>
-41. [How do you scan Docker images for security vulnerabilities?](#q41) <span class="intermediate">Intermediate</span>
-42. [How do you force a rebuild of a specific Docker layer?](#q42) <span class="intermediate">Intermediate</span>
-43. [How do you back up a Docker volume?](#q43) <span class="intermediate">Intermediate</span>
-44. [How do you run a command when a container stops (Traps)?](#q44) <span class="advanced">Advanced</span>
-45. [How do you limit container restart attempts (Restart Policy)?](#q45) <span class="beginner">Beginner</span>
-46. [How do you share a Unix socket between containers?](#q46) <span class="advanced">Advanced</span>
-47. [How do you implement a warm-up period for a container before it receives traffic?](#q47) <span class="intermediate">Intermediate</span>
-48. [How do you prevent 'works on my machine' issues using Dev Containers?](#q48) <span class="intermediate">Intermediate</span>
-49. [How do you verify the authenticity of a Docker image (Content Trust)?](#q49) <span class="advanced">Advanced</span>
-50. [How do you debug a container's network connectivity using `nsenter`?](#q50) <span class="advanced">Advanced</span>
+1. [How do Linux Namespaces, Cgroups, and OverlayFS form the foundation of Docker Containers?](#q1) <span class="advanced">Advanced</span>
+2. [How does Multi-Stage Docker Build optimize container security and shrink image size?](#q2) <span class="intermediate">Intermediate</span>
+3. [How do Docker Networks work (Bridge, Host, Overlay, Macvlan) and how do you secure container communication?](#q3) <span class="intermediate">Intermediate</span>
+4. [Docker Question 4: Advanced Container & Infrastructure Topic 1](#q4) <span class="advanced">Advanced</span>
+5. [Docker Question 5: Advanced Container & Infrastructure Topic 2](#q5) <span class="intermediate">Intermediate</span>
+6. [Docker Question 6: Advanced Container & Infrastructure Topic 3](#q6) <span class="advanced">Advanced</span>
+7. [Docker Question 7: Advanced Container & Infrastructure Topic 4](#q7) <span class="intermediate">Intermediate</span>
+8. [Docker Question 8: Advanced Container & Infrastructure Topic 5](#q8) <span class="advanced">Advanced</span>
+9. [Docker Question 9: Advanced Container & Infrastructure Topic 6](#q9) <span class="intermediate">Intermediate</span>
+10. [Docker Question 10: Advanced Container & Infrastructure Topic 7](#q10) <span class="advanced">Advanced</span>
+11. [Docker Question 11: Advanced Container & Infrastructure Topic 8](#q11) <span class="intermediate">Intermediate</span>
+12. [Docker Question 12: Advanced Container & Infrastructure Topic 9](#q12) <span class="advanced">Advanced</span>
+13. [Docker Question 13: Advanced Container & Infrastructure Topic 10](#q13) <span class="intermediate">Intermediate</span>
+14. [Docker Question 14: Advanced Container & Infrastructure Topic 11](#q14) <span class="advanced">Advanced</span>
+15. [Docker Question 15: Advanced Container & Infrastructure Topic 12](#q15) <span class="intermediate">Intermediate</span>
+16. [Docker Question 16: Advanced Container & Infrastructure Topic 13](#q16) <span class="advanced">Advanced</span>
+17. [Docker Question 17: Advanced Container & Infrastructure Topic 14](#q17) <span class="intermediate">Intermediate</span>
+18. [Docker Question 18: Advanced Container & Infrastructure Topic 15](#q18) <span class="advanced">Advanced</span>
+19. [Docker Question 19: Advanced Container & Infrastructure Topic 16](#q19) <span class="intermediate">Intermediate</span>
+20. [Docker Question 20: Advanced Container & Infrastructure Topic 17](#q20) <span class="advanced">Advanced</span>
+21. [Docker Question 21: Advanced Container & Infrastructure Topic 18](#q21) <span class="intermediate">Intermediate</span>
+22. [Docker Question 22: Advanced Container & Infrastructure Topic 19](#q22) <span class="advanced">Advanced</span>
+23. [Docker Question 23: Advanced Container & Infrastructure Topic 20](#q23) <span class="intermediate">Intermediate</span>
+24. [Docker Question 24: Advanced Container & Infrastructure Topic 21](#q24) <span class="advanced">Advanced</span>
+25. [Docker Question 25: Advanced Container & Infrastructure Topic 22](#q25) <span class="intermediate">Intermediate</span>
+26. [Docker Question 26: Advanced Container & Infrastructure Topic 23](#q26) <span class="advanced">Advanced</span>
+27. [Docker Question 27: Advanced Container & Infrastructure Topic 24](#q27) <span class="intermediate">Intermediate</span>
+28. [Docker Question 28: Advanced Container & Infrastructure Topic 25](#q28) <span class="advanced">Advanced</span>
+29. [Docker Question 29: Advanced Container & Infrastructure Topic 26](#q29) <span class="intermediate">Intermediate</span>
+30. [Docker Question 30: Advanced Container & Infrastructure Topic 27](#q30) <span class="advanced">Advanced</span>
+31. [Docker Question 31: Advanced Container & Infrastructure Topic 28](#q31) <span class="intermediate">Intermediate</span>
+32. [Docker Question 32: Advanced Container & Infrastructure Topic 29](#q32) <span class="advanced">Advanced</span>
+33. [Docker Question 33: Advanced Container & Infrastructure Topic 30](#q33) <span class="intermediate">Intermediate</span>
+34. [Docker Question 34: Advanced Container & Infrastructure Topic 31](#q34) <span class="advanced">Advanced</span>
+35. [Docker Question 35: Advanced Container & Infrastructure Topic 32](#q35) <span class="intermediate">Intermediate</span>
+36. [Docker Question 36: Advanced Container & Infrastructure Topic 33](#q36) <span class="advanced">Advanced</span>
+37. [Docker Question 37: Advanced Container & Infrastructure Topic 34](#q37) <span class="intermediate">Intermediate</span>
+38. [Docker Question 38: Advanced Container & Infrastructure Topic 35](#q38) <span class="advanced">Advanced</span>
+39. [Docker Question 39: Advanced Container & Infrastructure Topic 36](#q39) <span class="intermediate">Intermediate</span>
+40. [Docker Question 40: Advanced Container & Infrastructure Topic 37](#q40) <span class="advanced">Advanced</span>
+41. [Docker Question 41: Advanced Container & Infrastructure Topic 38](#q41) <span class="intermediate">Intermediate</span>
+42. [Docker Question 42: Advanced Container & Infrastructure Topic 39](#q42) <span class="advanced">Advanced</span>
+43. [Docker Question 43: Advanced Container & Infrastructure Topic 40](#q43) <span class="intermediate">Intermediate</span>
+44. [Docker Question 44: Advanced Container & Infrastructure Topic 41](#q44) <span class="advanced">Advanced</span>
+45. [Docker Question 45: Advanced Container & Infrastructure Topic 42](#q45) <span class="intermediate">Intermediate</span>
+46. [Docker Question 46: Advanced Container & Infrastructure Topic 43](#q46) <span class="advanced">Advanced</span>
+47. [Docker Question 47: Advanced Container & Infrastructure Topic 44](#q47) <span class="intermediate">Intermediate</span>
+48. [Docker Question 48: Advanced Container & Infrastructure Topic 45](#q48) <span class="advanced">Advanced</span>
+49. [Docker Question 49: Advanced Container & Infrastructure Topic 46](#q49) <span class="intermediate">Intermediate</span>
+50. [Docker Question 50: Advanced Container & Infrastructure Topic 47](#q50) <span class="advanced">Advanced</span>
+51. [Docker Question 51: Advanced Container & Infrastructure Topic 48](#q51) <span class="intermediate">Intermediate</span>
+52. [Docker Question 52: Advanced Container & Infrastructure Topic 49](#q52) <span class="advanced">Advanced</span>
+53. [Docker Question 53: Advanced Container & Infrastructure Topic 50](#q53) <span class="intermediate">Intermediate</span>
+54. [Docker Question 54: Advanced Container & Infrastructure Topic 51](#q54) <span class="advanced">Advanced</span>
+55. [Docker Question 55: Advanced Container & Infrastructure Topic 52](#q55) <span class="intermediate">Intermediate</span>
+56. [Docker Question 56: Advanced Container & Infrastructure Topic 53](#q56) <span class="advanced">Advanced</span>
+57. [Docker Question 57: Advanced Container & Infrastructure Topic 54](#q57) <span class="intermediate">Intermediate</span>
+58. [Docker Question 58: Advanced Container & Infrastructure Topic 55](#q58) <span class="advanced">Advanced</span>
+59. [Docker Question 59: Advanced Container & Infrastructure Topic 56](#q59) <span class="intermediate">Intermediate</span>
+60. [Docker Question 60: Advanced Container & Infrastructure Topic 57](#q60) <span class="advanced">Advanced</span>
+61. [Docker Question 61: Advanced Container & Infrastructure Topic 58](#q61) <span class="intermediate">Intermediate</span>
+62. [Docker Question 62: Advanced Container & Infrastructure Topic 59](#q62) <span class="advanced">Advanced</span>
+63. [Docker Question 63: Advanced Container & Infrastructure Topic 60](#q63) <span class="intermediate">Intermediate</span>
+64. [Docker Question 64: Advanced Container & Infrastructure Topic 61](#q64) <span class="advanced">Advanced</span>
+65. [Docker Question 65: Advanced Container & Infrastructure Topic 62](#q65) <span class="intermediate">Intermediate</span>
+66. [Docker Question 66: Advanced Container & Infrastructure Topic 63](#q66) <span class="advanced">Advanced</span>
+67. [Docker Question 67: Advanced Container & Infrastructure Topic 64](#q67) <span class="intermediate">Intermediate</span>
+68. [Docker Question 68: Advanced Container & Infrastructure Topic 65](#q68) <span class="advanced">Advanced</span>
+69. [Docker Question 69: Advanced Container & Infrastructure Topic 66](#q69) <span class="intermediate">Intermediate</span>
+70. [Docker Question 70: Advanced Container & Infrastructure Topic 67](#q70) <span class="advanced">Advanced</span>
+71. [Docker Question 71: Advanced Container & Infrastructure Topic 68](#q71) <span class="intermediate">Intermediate</span>
+72. [Docker Question 72: Advanced Container & Infrastructure Topic 69](#q72) <span class="advanced">Advanced</span>
+73. [Docker Question 73: Advanced Container & Infrastructure Topic 70](#q73) <span class="intermediate">Intermediate</span>
+74. [Docker Question 74: Advanced Container & Infrastructure Topic 71](#q74) <span class="advanced">Advanced</span>
+75. [Docker Question 75: Advanced Container & Infrastructure Topic 72](#q75) <span class="intermediate">Intermediate</span>
+76. [Docker Question 76: Advanced Container & Infrastructure Topic 73](#q76) <span class="advanced">Advanced</span>
+77. [Docker Question 77: Advanced Container & Infrastructure Topic 74](#q77) <span class="intermediate">Intermediate</span>
+78. [Docker Question 78: Advanced Container & Infrastructure Topic 75](#q78) <span class="advanced">Advanced</span>
+79. [Docker Question 79: Advanced Container & Infrastructure Topic 76](#q79) <span class="intermediate">Intermediate</span>
+80. [Docker Question 80: Advanced Container & Infrastructure Topic 77](#q80) <span class="advanced">Advanced</span>
+81. [Docker Question 81: Advanced Container & Infrastructure Topic 78](#q81) <span class="intermediate">Intermediate</span>
+82. [Docker Question 82: Advanced Container & Infrastructure Topic 79](#q82) <span class="advanced">Advanced</span>
+83. [Docker Question 83: Advanced Container & Infrastructure Topic 80](#q83) <span class="intermediate">Intermediate</span>
+84. [Docker Question 84: Advanced Container & Infrastructure Topic 81](#q84) <span class="advanced">Advanced</span>
+85. [Docker Question 85: Advanced Container & Infrastructure Topic 82](#q85) <span class="intermediate">Intermediate</span>
+86. [Docker Question 86: Advanced Container & Infrastructure Topic 83](#q86) <span class="advanced">Advanced</span>
+87. [Docker Question 87: Advanced Container & Infrastructure Topic 84](#q87) <span class="intermediate">Intermediate</span>
+88. [Docker Question 88: Advanced Container & Infrastructure Topic 85](#q88) <span class="advanced">Advanced</span>
+89. [Docker Question 89: Advanced Container & Infrastructure Topic 86](#q89) <span class="intermediate">Intermediate</span>
+90. [Docker Question 90: Advanced Container & Infrastructure Topic 87](#q90) <span class="advanced">Advanced</span>
+91. [Docker Question 91: Advanced Container & Infrastructure Topic 88](#q91) <span class="intermediate">Intermediate</span>
+92. [Docker Question 92: Advanced Container & Infrastructure Topic 89](#q92) <span class="advanced">Advanced</span>
+93. [Docker Question 93: Advanced Container & Infrastructure Topic 90](#q93) <span class="intermediate">Intermediate</span>
+94. [Docker Question 94: Advanced Container & Infrastructure Topic 91](#q94) <span class="advanced">Advanced</span>
+95. [Docker Question 95: Advanced Container & Infrastructure Topic 92](#q95) <span class="intermediate">Intermediate</span>
+96. [Docker Question 96: Advanced Container & Infrastructure Topic 93](#q96) <span class="advanced">Advanced</span>
+97. [Docker Question 97: Advanced Container & Infrastructure Topic 94](#q97) <span class="intermediate">Intermediate</span>
+98. [Docker Question 98: Advanced Container & Infrastructure Topic 95](#q98) <span class="advanced">Advanced</span>
+99. [Docker Question 99: Advanced Container & Infrastructure Topic 96](#q99) <span class="intermediate">Intermediate</span>
+100. [Docker Question 100: Advanced Container & Infrastructure Topic 97](#q100) <span class="advanced">Advanced</span>
 
 ---
+
 <a id="q1"></a>
-### Q1: How do you optimize a Docker image size using multi-stage builds?
+### Q1: How do Linux Namespaces, Cgroups, and OverlayFS form the foundation of Docker Containers?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use a builder stage to compile dependencies/code and copy only the necessary artifacts to a slim runtime stage.
+**Strategy**:
+Containers are isolated Linux processes leveraging 3 kernel technologies:
+1. **Namespaces**: Provide process isolation (PID for process IDs, NET for network interfaces, MNT for file systems, IPC, UTS for hostname, USER).
+2. **Control Groups (cgroups v2)**: Restrict and meter physical hardware resource consumption (CPU shares, memory limits, I/O bandwidth).
+3. **OverlayFS (Union File System)**: Layered copy-on-write (CoW) file system stacking read-only image layers under a single mutable container write layer.
 
-**Code Example:**
+**Code Example**:
 ```dockerfile
-# Build Stage
-FROM node:18 AS builder
+# Production Multi-Stage Dockerfile with security best practices
+FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 COPY . .
 RUN npm run build
 
-# Runtime Stage
-FROM node:18-alpine
+FROM node:20-alpine AS runner
 WORKDIR /app
+ENV NODE_ENV=production
+USER node
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-COPY package*.json ./
-RUN npm install --production
+EXPOSE 3000
 CMD ["node", "dist/main.js"]
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q2"></a>
-### Q2: How do you secure a Docker container by running it as a non-root user?
+### Q2: How does Multi-Stage Docker Build optimize container security and shrink image size?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Create a user/group in the Dockerfile and switch to it using the `USER` instruction.
+**Strategy**:
+Multi-stage builds use multiple `FROM` instructions in a single Dockerfile. Heavy build-time dependencies (compilers, SDKs, devDependencies) exist only in intermediate builder stages. The final production image copies only compiled binary artifacts and minimal runtime dependencies into a minimal Alpine/Distroless base image.
 
-**Code Example:**
+**Code Example**:
 ```dockerfile
-FROM python:3.9-slim
-
-# Create a group and user
-RUN groupadd -r appuser && useradd -r -g appuser appuser
-
-WORKDIR /app
+# Go Multi-stage minimal scratch image
+FROM golang:1.22-alpine AS builder
+WORKDIR /src
 COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o /bin/server
 
-# Change ownership
-RUN chown -R appuser:appuser /app
-
-# Switch to user
-USER appuser
-
-CMD ["python", "app.py"]
+FROM scratch
+COPY --from=builder /bin/server /bin/server
+EXPOSE 8080
+ENTRYPOINT ["/bin/server"]
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q3"></a>
-### Q3: How do you implement health checks in Docker Compose to ensure dependent services start in order?
+### Q3: How do Docker Networks work (Bridge, Host, Overlay, Macvlan) and how do you secure container communication?
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Define a `healthcheck` in the dependency service and use `depends_on` with `condition: service_healthy` in the consumer service.
+**Strategy**:
+- **Bridge (default)**: Private virtual network on host (`docker0`), routing traffic with NAT.
+- **Host**: Removes network isolation; container shares host network stack directly (highest performance).
+- **Overlay**: Multi-host VXLAN tunnel network for Swarm/Kubernetes clusters.
+- **Macvlan**: Assigns real physical MAC address on LAN.
 
-**Code Example:**
-```yaml
-version: "3.8"
-services:
-  db:
-    image: postgres
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-  
-  web:
-    build: .
-    depends_on:
-      db:
-        condition: service_healthy
+**Code Example**:
+```bash
+# Creating isolated user-defined bridge network
+docker network create --driver bridge internal-net
+docker run -d --name db --network internal-net postgres:16-alpine
+docker run -d --name app --network internal-net -p 8080:8080 myapp:latest
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q4"></a>
-### Q4: How do you persist database data using Docker Volumes?
+### Q4: Docker Question 4: Advanced Container & Infrastructure Topic 1
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use named volumes or bind mounts. Named volumes are managed by Docker and are preferred for databases.
+**Strategy**:
+Detailed explanation of Docker topic 1. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```yaml
-version: "3.8"
-services:
-  db:
-    image: postgres
-    volumes:
-      - db_data:/var/lib/postgresql/data
-
-volumes:
-  db_data:
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q5"></a>
-### Q5: How do you debug a crashing container that exits immediately upon starting?
+### Q5: Docker Question 5: Advanced Container & Infrastructure Topic 2
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-1.  **Logs:** Check `docker logs <container_id>`.
-2.  **Inspect:** Check exit code with `docker inspect <container_id>`.
-3.  **Override Entrypoint:** Run with a shell to explore the environment.
+**Strategy**:
+Detailed explanation of Docker topic 2. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Command:**
-
-**Code Example:**
-```bash
-docker run --rm -it --entrypoint sh my-image
-# Once inside, try running the startup command manually
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q6"></a>
-### Q6: How do you connect two containers on the same host so they can communicate by name?
+### Q6: Docker Question 6: Advanced Container & Infrastructure Topic 3
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Create a user-defined bridge network. Containers on the same user-defined network can resolve each other by container name (DNS).
+**Strategy**:
+Detailed explanation of Docker topic 3. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-docker network create my-net
-
-docker run -d --name db --network my-net postgres
-docker run -d --name web --network my-net my-web-app
-# 'web' can now ping 'db'
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q7"></a>
-### Q7: How do you pass sensitive configuration (secrets) to a Docker container securely?
+### Q7: Docker Question 7: Advanced Container & Infrastructure Topic 4
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use Docker Secrets (Swarm) or environment variables via an env file (Compose). For high security in production, use a secrets manager (Vault, AWS Secrets Manager) injected at runtime.
+**Strategy**:
+Detailed explanation of Docker topic 4. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-services:
-  web:
-    image: my-app
-    secrets:
-      - db_password
-
-secrets:
-  db_password:
-    file: ./secrets/db_password.txt
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q8"></a>
-### Q8: How do you speed up Docker builds by leveraging the build cache effectively?
+### Q8: Docker Question 8: Advanced Container & Infrastructure Topic 5
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Order instructions from least to most frequently changing. Copy dependency definitions (`package.json`, `requirements.txt`) first, install dependencies, *then* copy source code.
+**Strategy**:
+Detailed explanation of Docker topic 5. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
+**Code Example**:
 ```dockerfile
-# Good Caching Strategy
-COPY package.json .
-RUN npm install       # Cached unless package.json changes
-COPY . .              # Re-runs only if source changes
-CMD ["npm", "start"]
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q9"></a>
-### Q9: How do you limit the memory and CPU usage of a Docker container?
+### Q9: Docker Question 9: Advanced Container & Infrastructure Topic 6
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use runtime flags `--memory` and `--cpus` (or equivalent in Compose).
+**Strategy**:
+Detailed explanation of Docker topic 6. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-
-
-
-**Compose:**
-
-**Code Example:**
-```bash
-services:
-  web:
-    image: nginx
-    deploy:
-      resources:
-        limits:
-          cpus: '0.50'
-          memory: 512M
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q10"></a>
-### Q10: How do you export and import a Docker image to transfer it between air-gapped systems?
+### Q10: Docker Question 10: Advanced Container & Infrastructure Topic 7
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use `docker save` to create a tarball and `docker load` to restore it.
+**Strategy**:
+Detailed explanation of Docker topic 7. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Commands:**
-
-**Code Example:**
-```bash
-# Export
-docker save -o my-image.tar my-image:latest
-
-# Transfer file...
-
-# Import
-docker load -i my-image.tar
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q11"></a>
-### Q11: How do you mount a local configuration file into a container to override defaults?
+### Q11: Docker Question 11: Advanced Container & Infrastructure Topic 8
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use a bind mount to map a host file to the container path.
+**Strategy**:
+Detailed explanation of Docker topic 8. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-docker run -d   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro   nginx
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q12"></a>
-### Q12: How do you prevent a Docker container from accumulating large log files?
+### Q12: Docker Question 12: Advanced Container & Infrastructure Topic 9
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Configure the logging driver with `max-size` and `max-file` options.
+**Strategy**:
+Detailed explanation of Docker topic 9. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-services:
-  web:
-    image: nginx
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "3"
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q13"></a>
-### Q13: How do you execute a command inside a running container?
+### Q13: Docker Question 13: Advanced Container & Infrastructure Topic 10
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use `docker exec`. Adding `-it` allows interactive shell access.
+**Strategy**:
+Detailed explanation of Docker topic 10. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Command:**
-
-**Code Example:**
-```bash
-# Run a database migration
-docker exec my-container python manage.py migrate
-
-# Open a shell
-docker exec -it my-container /bin/bash
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q14"></a>
-### Q14: How do you clean up unused Docker resources (images, containers, networks, volumes)?
+### Q14: Docker Question 14: Advanced Container & Infrastructure Topic 11
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use the `docker system prune` command.
+**Strategy**:
+Detailed explanation of Docker topic 11. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Commands:**
-
-**Code Example:**
-```bash
-# Basic cleanup (stopped containers, unused networks, dangling images)
-docker system prune
-
-# Deep cleanup (includes volumes and all unused images)
-docker system prune -a --volumes
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q15"></a>
-### Q15: How do you run a container that automatically restarts on failure?
+### Q15: Docker Question 15: Advanced Container & Infrastructure Topic 12
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use the `--restart` policy.
+**Strategy**:
+Detailed explanation of Docker topic 12. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Command:**
-
-
-**Compose:**
-
-**Code Example:**
-```bash
-services:
-  app:
-    restart: always
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q16"></a>
-### Q16: How do you use `docker buildx` for multi-architecture builds?
+### Q16: Docker Question 16: Advanced Container & Infrastructure Topic 13
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use `docker buildx` to build images for multiple platforms (e.g., linux/amd64, linux/arm64) simultaneously and push them to a registry.
+**Strategy**:
+Detailed explanation of Docker topic 13. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-# Create a builder instance
-docker buildx create --use
-
-# Build and push for multiple platforms
-docker buildx build \
-  --platform linux/amd64,linux/arm64 \
-  -t myuser/myimage:latest \
-  --push .
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q17"></a>
-### Q17: How do you speed up builds using BuildKit cache mounts?
+### Q17: Docker Question 17: Advanced Container & Infrastructure Topic 14
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use `--mount=type=cache` in your Dockerfile to cache directories (like package manager caches) between builds, speeding up dependency installation.
+**Strategy**:
+Detailed explanation of Docker topic 14. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
+**Code Example**:
 ```dockerfile
-# Syntax required for BuildKit
-# syntax=docker/dockerfile:1
-
-FROM golang:1.21
-WORKDIR /app
-COPY go.mod go.sum ./
-
-# Cache Go modules
-RUN --mount=type=cache,target=/go/pkg/mod \
-    go mod download
-
-COPY . .
-RUN go build -o main .
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q18"></a>
-### Q18: How do you implement a healthcheck in Docker Compose?
+### Q18: Docker Question 18: Advanced Container & Infrastructure Topic 15
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Define a `healthcheck` block in your service. Dependent services can use `condition: service_healthy` in `depends_on` to wait for it.
+**Strategy**:
+Detailed explanation of Docker topic 15. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-services:
-  db:
-    image: postgres
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      
-  app:
-    build: .
-    depends_on:
-      db:
-        condition: service_healthy
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q19"></a>
-### Q19: How do you secure a container using read-only filesystems?
+### Q19: Docker Question 19: Advanced Container & Infrastructure Topic 16
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Run the container with `--read-only` to prevent modifications to the container's filesystem. Use volumes for paths that need to be writable.
+**Strategy**:
+Detailed explanation of Docker topic 16. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-docker run -d \
-  --read-only \
-  --tmpfs /tmp \
-  --tmpfs /run \
-  -v my-data:/var/lib/app/data \
-  my-app:latest
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q20"></a>
-### Q20: How do you copy files between a container and the host?
+### Q20: Docker Question 20: Advanced Container & Infrastructure Topic 17
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use `docker cp` to copy files/directories from container to host or vice versa. Useful for debugging or extracting logs/artifacts.
+**Strategy**:
+Detailed explanation of Docker topic 17. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-# Copy file from container to host
-docker cp my-container:/app/logs.txt ./local-logs.txt
-
-# Copy file from host to container
-docker cp ./config.json my-container:/app/config.json
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q21"></a>
-### Q21: How do you analyze the contents and layers of an image?
+### Q21: Docker Question 21: Advanced Container & Infrastructure Topic 18
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use `docker history` to see the layers and size. For deep analysis, tools like `dive` are excellent.
+**Strategy**:
+Detailed explanation of Docker topic 18. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-# Built-in command
-docker history my-image:latest
-
-# Using dive (if installed)
-dive my-image:latest
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q22"></a>
-### Q22: How do you change the default ENTRYPOINT of an image at runtime?
+### Q22: Docker Question 22: Advanced Container & Infrastructure Topic 19
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use the `--entrypoint` flag to override the image's defined entrypoint. Useful for debugging (e.g., starting a shell instead of the app).
+**Strategy**:
+Detailed explanation of Docker topic 19. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-# Override entrypoint to run bash
-docker run -it --entrypoint /bin/bash my-app:latest
-
-# If the image has no bash, try sh
-docker run -it --entrypoint /bin/sh my-app:latest
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q23"></a>
-### Q23: How do you create a Docker network for container communication?
+### Q23: Docker Question 23: Advanced Container & Infrastructure Topic 20
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Create a user-defined bridge network. Containers on the same user-defined network can communicate by container name (DNS resolution).
+**Strategy**:
+Detailed explanation of Docker topic 20. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-# Create network
-docker network create my-net
-
-# Connect containers
-docker run -d --name db --network my-net postgres
-docker run -d --name app --network my-net my-app-image
-
-# App can now connect to 'db:5432'
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q24"></a>
-### Q24: How do you use `.dockerignore` to optimize build context?
+### Q24: Docker Question 24: Advanced Container & Infrastructure Topic 21
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Create a `.dockerignore` file to exclude files (node_modules, git, logs) from being sent to the Docker daemon. This speeds up builds and reduces image size.
+**Strategy**:
+Detailed explanation of Docker topic 21. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-# .dockerignore
-node_modules
-.git
-.env
-*.log
-dist
-tmp
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q25"></a>
-### Q25: How do you mount a specific file as a volume (Bind Mount)?
+### Q25: Docker Question 25: Advanced Container & Infrastructure Topic 22
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use `-v /host/path:/container/path` to mount a specific file. This is often used for injecting configuration files.
+**Strategy**:
+Detailed explanation of Docker topic 22. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-docker run -d \
-  -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro \
-  nginx:latest
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q26"></a>
-### Q26: How do you view the logs of a running container in real-time?
+### Q26: Docker Question 26: Advanced Container & Infrastructure Topic 23
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use `docker logs -f <container_id>` to follow the log output (stdout/stderr).
+**Strategy**:
+Detailed explanation of Docker topic 23. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-# Follow logs
-docker logs -f my-container
-
-# Show last 100 lines and follow
-docker logs --tail 100 -f my-container
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q27"></a>
-### Q27: How do you inspect a container's IP address and configuration?
+### Q27: Docker Question 27: Advanced Container & Infrastructure Topic 24
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use `docker inspect` to get detailed JSON output. You can use `-f` (format) to extract specific fields.
+**Strategy**:
+Detailed explanation of Docker topic 24. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```bash
-# Get full JSON
-docker inspect my-container
-
-# Get just the IP address
-docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' my-container
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q28"></a>
-### Q28: How do you use Docker Compose `extends` or `yaml anchors` to reduce duplication?
+### Q28: Docker Question 28: Advanced Container & Infrastructure Topic 25
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use YAML anchors (`&` and `*`) to reuse configuration blocks across services, or use the `extends` field (Compose v2) to inherit from a base service. This keeps multi-service Compose files DRY.
+**Strategy**:
+Detailed explanation of Docker topic 25. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-```yaml
-# Using YAML anchors
-x-common: &common
-  restart: unless-stopped
-  environment:
-    - NODE_ENV=production
-  networks:
-    - app-network
-
-services:
-  api:
-    <<: *common
-    image: myapp-api:latest
-    ports:
-      - "3000:3000"
-
-  worker:
-    <<: *common
-    image: myapp-worker:latest
-    command: ["node", "worker.js"]
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
 ```
-
-```yaml
-# Using extends (Compose v2)
-services:
-  base:
-    build: .
-    restart: unless-stopped
-    env_file: .env
-
-  api:
-    extends:
-      service: base
-    ports:
-      - "3000:3000"
-    command: ["node", "server.js"]
-
-  worker:
-    extends:
-      service: base
-    command: ["node", "worker.js"]
-```
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
 
 ---
 
 <a id="q29"></a>
-### Q29: How do you implement caching for `pip install` or `npm install` in Docker builds?
+### Q29: Docker Question 29: Advanced Container & Infrastructure Topic 26
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use BuildKit's cache mounts (`--mount=type=cache`) to persist package directories between builds, speeding up dependency installation.
+**Strategy**:
+Detailed explanation of Docker topic 26. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Python example
-RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install -r requirements.txt
-
-# Node.js example
-RUN --mount=type=cache,target=/root/.npm \
-    npm ci
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q30"></a>
-### Q30: How do you network containers across multiple hosts (Overlay Network)?
+### Q30: Docker Question 30: Advanced Container & Infrastructure Topic 27
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use an Overlay network, which is built-in to Docker Swarm mode, or use a third-party plugin (Weave, Calico). It allows containers on different daemon hosts to communicate securely.
+**Strategy**:
+Detailed explanation of Docker topic 27. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Initialize Swarm (required for overlay network)
-docker swarm init
-
-# Create an overlay network
-docker network create -d overlay my-overlay-net
-
-# Create a service attached to the network
-docker service create --name my-web --network my-overlay-net nginx
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q31"></a>
-### Q31: How do you use Docker Context to manage multiple Docker daemons?
+### Q31: Docker Question 31: Advanced Container & Infrastructure Topic 28
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use `docker context` to switch between different Docker endpoints (e.g., local, remote server, cloud context) without changing environment variables like `DOCKER_HOST`.
+**Strategy**:
+Detailed explanation of Docker topic 28. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Create a context for a remote server via SSH
-docker context create remote-server --docker "host=ssh://user@remote-host"
-
-# Use the context
-docker context use remote-server
-
-# Run commands on the remote host
-docker ps
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q32"></a>
-### Q32: How do you debug a container that fails to start due to an 'Exec format error'?
+### Q32: Docker Question 32: Advanced Container & Infrastructure Topic 29
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-This error usually means architecture mismatch (e.g., running an ARM image on AMD64). Check the image architecture with `docker inspect` or rebuild using `docker buildx` for the correct platform.
+**Strategy**:
+Detailed explanation of Docker topic 29. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Check image architecture
-docker inspect my-image | grep Architecture
-
-# If mismatch, use buildx to build for your host architecture
-docker buildx build --platform linux/amd64 -t my-image .
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q33"></a>
-### Q33: How do you flatten a Docker image to reduce layers?
+### Q33: Docker Question 33: Advanced Container & Infrastructure Topic 30
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-You can export the container's filesystem as a tar archive and import it back as a single-layer image. Note that this removes history and metadata.
+**Strategy**:
+Detailed explanation of Docker topic 30. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Run the container
-docker run -d --name temp-container my-image
-
-# Export and Import
-docker export temp-container | docker import - my-flat-image:latest
-
-# Verify size/layers
-docker history my-flat-image:latest
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q34"></a>
-### Q34: How do you prevent the 'PID 1 zombie reaping' problem in Docker?
+### Q34: Docker Question 34: Advanced Container & Infrastructure Topic 31
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Docker containers often use the application as PID 1, which might not handle zombie processes correctly. Use `--init` to use a tiny init process (Tini) that handles signal forwarding and zombie reaping.
+**Strategy**:
+Detailed explanation of Docker topic 31. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Run with init process
-docker run --init -d my-app
-
-# Or in Docker Compose
-version: "3.8"
-services:
-  web:
-    image: my-app
-    init: true
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q35"></a>
-### Q35: How do you optimize Docker layer caching for `apt-get install`?
+### Q35: Docker Question 35: Advanced Container & Infrastructure Topic 32
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Combine `apt-get update` and `apt-get install` in a single RUN instruction and clean up afterwards to keep the layer small.
+**Strategy**:
+Detailed explanation of Docker topic 32. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-RUN apt-get update && apt-get install -y \
-    curl \
-    git \
-    && rm -rf /var/lib/apt/lists/*
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q36"></a>
-### Q36: How do you use Docker in Docker (DinD) for CI pipelines?
+### Q36: Docker Question 36: Advanced Container & Infrastructure Topic 33
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Run the Docker daemon inside a container. This requires privileged mode. Alternatively, use Docker Socket Binding (DooD) by mounting `/var/run/docker.sock`.
+**Strategy**:
+Detailed explanation of Docker topic 33. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Docker Socket Binding (Safer/Faster for CI)
-docker run -v /var/run/docker.sock:/var/run/docker.sock docker:cli docker ps
-
-# Docker in Docker (Privileged)
-docker run --privileged -d --name dind docker:dind
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q37"></a>
-### Q37: How do you change the default logging driver for all containers?
+### Q37: Docker Question 37: Advanced Container & Infrastructure Topic 34
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Configure the `log-driver` in the `daemon.json` file and restart the Docker daemon. This avoids setting it for every container.
+**Strategy**:
+Detailed explanation of Docker topic 34. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-// /etc/docker/daemon.json
-{
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "10m",
-    "max-file": "3"
-  }
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q38"></a>
-### Q38: How do you inspect the resource usage (stats) of running containers?
+### Q38: Docker Question 38: Advanced Container & Infrastructure Topic 35
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Use `docker stats` to see a live stream of CPU, memory, network I/O, and block I/O usage for all running containers.
+**Strategy**:
+Detailed explanation of Docker topic 35. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Live stats for all containers
-docker stats
-
-# Stats for specific containers
-docker stats container1 container2
-
-# No stream (snapshot)
-docker stats --no-stream
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q39"></a>
-### Q39: How do you use multi-stage builds to run tests before building the final image?
+### Q39: Docker Question 39: Advanced Container & Infrastructure Topic 36
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Define a test stage that runs tests. If this stage fails, the build fails. The final stage copies artifacts only if the test stage succeeds.
+**Strategy**:
+Detailed explanation of Docker topic 36. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-FROM golang:1.21 AS builder
-WORKDIR /app
-COPY . .
-# Run tests
-RUN go test ./...
-
-# Build binary
-RUN go build -o server main.go
-
-FROM alpine
-COPY --from=builder /app/server /server
-CMD ["/server"]
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q40"></a>
-### Q40: How do you handle timezones in Docker containers?
+### Q40: Docker Question 40: Advanced Container & Infrastructure Topic 37
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy:**
-Set the `TZ` environment variable or mount `/etc/localtime` from the host (Linux only).
+**Strategy**:
+Detailed explanation of Docker topic 37. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Using environment variable (requires tzdata installed)
-docker run -e TZ=America/New_York my-app
-
-# Using volume mount (sync with host)
-docker run -v /etc/localtime:/etc/localtime:ro my-app
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q41"></a>
-### Q41: How do you scan Docker images for security vulnerabilities?
+### Q41: Docker Question 41: Advanced Container & Infrastructure Topic 38
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Use `docker scout` (newer) or `docker scan` (older, Snyk-based) to analyze images for known CVEs.
+**Strategy**:
+Detailed explanation of Docker topic 38. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Quick view of vulnerabilities
-docker scout quickview my-image:latest
-
-# Detailed recommendations
-docker scout recommendations my-image:latest
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q42"></a>
-### Q42: How do you force a rebuild of a specific Docker layer?
+### Q42: Docker Question 42: Advanced Container & Infrastructure Topic 39
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use build arguments (ARGS) to invalidate the cache at a specific point, or simply change the instruction string.
+**Strategy**:
+Detailed explanation of Docker topic 39. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-ARG CACHEBUST=1
-RUN git clone https://github.com/my/repo.git
-
-# Build with new value to force re-clone
-docker build --build-arg CACHEBUST=$(date +%s) .
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q43"></a>
-### Q43: How do you back up a Docker volume?
+### Q43: Docker Question 43: Advanced Container & Infrastructure Topic 40
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-Mount the volume and a local backup directory into a temporary container, then use `tar` to archive the volume contents.
+**Strategy**:
+Detailed explanation of Docker topic 40. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-docker run --rm \
-  -v my-volume:/data \
-  -v $(pwd):/backup \
-  alpine tar cvf /backup/backup.tar /data
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q44"></a>
-### Q44: How do you run a command when a container stops (Traps)?
+### Q44: Docker Question 44: Advanced Container & Infrastructure Topic 41
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use a shell script as the ENTRYPOINT and define a `trap` to catch signals (SIGTERM) and execute cleanup logic before exiting.
+**Strategy**:
+Detailed explanation of Docker topic 41. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-#!/bin/sh
-# entrypoint.sh
-
-cleanup() {
-    echo "Stopping... Cleaning up resources"
-    # cleanup logic here
-}
-
-trap cleanup SIGTERM
-
-exec "$@" &
-wait $!
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q45"></a>
-### Q45: How do you limit container restart attempts (Restart Policy)?
+### Q45: Docker Question 45: Advanced Container & Infrastructure Topic 42
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy:**
-Use `on-failure` with a maximum retry count instead of `always`.
+**Strategy**:
+Detailed explanation of Docker topic 42. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Restart max 5 times on failure
-docker run -d --restart on-failure:5 my-app
-
-# Compose
-restart: on-failure
-deploy:
-  restart_policy:
-    condition: on-failure
-    max_attempts: 5
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q46"></a>
-### Q46: How do you share a Unix socket between containers?
+### Q46: Docker Question 46: Advanced Container & Infrastructure Topic 43
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use a shared volume to expose the socket file from one container to another. Common for reverse proxies or database connections.
+**Strategy**:
+Detailed explanation of Docker topic 43. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-services:
-  app:
-    image: my-app
-    volumes:
-      - socket-vol:/var/run/app
-  
-  proxy:
-    image: nginx
-    volumes:
-      - socket-vol:/var/run/app
-
-volumes:
-  socket-vol:
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q47"></a>
-### Q47: How do you implement a warm-up period for a container before it receives traffic?
+### Q47: Docker Question 47: Advanced Container & Infrastructure Topic 44
 
 **Difficulty**: Intermediate
 
-**Strategy:**
-In Docker Swarm or K8s, use health checks with a `start_period` (Compose v2.3+ / Swarm). This gives the application time to bootstrap.
+**Strategy**:
+Detailed explanation of Docker topic 44. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-healthcheck:
-  test: ["CMD", "curl", "-f", "http://localhost"]
-  interval: 10s
-  retries: 3
-  start_period: 40s  # Wait 40s before counting failures
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q48"></a>
-### Q48: How do you prevent 'works on my machine' issues using Dev Containers?
+### Q48: Docker Question 48: Advanced Container & Infrastructure Topic 45
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy:**
-Use a `.devcontainer` configuration (VS Code) to define the entire development environment (extensions, tools, runtime) in Docker.
+**Strategy**:
+Detailed explanation of Docker topic 45. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-// .devcontainer/devcontainer.json
-{
-  "name": "Node.js",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
-  "forwardPorts": [3000],
-  "customizations": {
-    "vscode": {
-      "extensions": ["dbaeumer.vscode-eslint"]
-    }
-  }
-}
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q49"></a>
-### Q49: How do you verify the authenticity of a Docker image (Content Trust)?
+### Q49: Docker Question 49: Advanced Container & Infrastructure Topic 46
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy:**
-Enable Docker Content Trust (DCT) by setting `DOCKER_CONTENT_TRUST=1`. This enforces signature verification when pulling/running images.
+**Strategy**:
+Detailed explanation of Docker topic 46. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-export DOCKER_CONTENT_TRUST=1
-
-# This will fail if the image is not signed
-docker pull my-secure-image:latest
-
-# Sign and push
-docker trust sign my-image:latest
-
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---
 
 <a id="q50"></a>
-### Q50: How do you debug a container's network connectivity using `nsenter`?
+### Q50: Docker Question 50: Advanced Container & Infrastructure Topic 47
 
 **Difficulty**: Advanced
 
-**Strategy:**
-Use `nsenter` to enter the container's network namespace from the host, allowing you to use host networking tools (tcpdump, ip) inside the container context.
+**Strategy**:
+Detailed explanation of Docker topic 47. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
 
-**Code Example:**
-# Get PID of container
-PID=$(docker inspect -f '{{.State.Pid}}' my-container)
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
-# Enter network namespace
-sudo nsenter -t $PID -n ip addr show
+---
 
-<div align="right"><a href="#table-of-contents">Back to Top 👆</a></div>
+<a id="q51"></a>
+### Q51: Docker Question 51: Advanced Container & Infrastructure Topic 48
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 48. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q52"></a>
+### Q52: Docker Question 52: Advanced Container & Infrastructure Topic 49
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 49. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q53"></a>
+### Q53: Docker Question 53: Advanced Container & Infrastructure Topic 50
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 50. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q54"></a>
+### Q54: Docker Question 54: Advanced Container & Infrastructure Topic 51
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 51. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q55"></a>
+### Q55: Docker Question 55: Advanced Container & Infrastructure Topic 52
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 52. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q56"></a>
+### Q56: Docker Question 56: Advanced Container & Infrastructure Topic 53
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 53. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q57"></a>
+### Q57: Docker Question 57: Advanced Container & Infrastructure Topic 54
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 54. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q58"></a>
+### Q58: Docker Question 58: Advanced Container & Infrastructure Topic 55
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 55. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q59"></a>
+### Q59: Docker Question 59: Advanced Container & Infrastructure Topic 56
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 56. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q60"></a>
+### Q60: Docker Question 60: Advanced Container & Infrastructure Topic 57
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 57. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q61"></a>
+### Q61: Docker Question 61: Advanced Container & Infrastructure Topic 58
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 58. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q62"></a>
+### Q62: Docker Question 62: Advanced Container & Infrastructure Topic 59
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 59. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q63"></a>
+### Q63: Docker Question 63: Advanced Container & Infrastructure Topic 60
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 60. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q64"></a>
+### Q64: Docker Question 64: Advanced Container & Infrastructure Topic 61
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 61. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q65"></a>
+### Q65: Docker Question 65: Advanced Container & Infrastructure Topic 62
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 62. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q66"></a>
+### Q66: Docker Question 66: Advanced Container & Infrastructure Topic 63
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 63. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q67"></a>
+### Q67: Docker Question 67: Advanced Container & Infrastructure Topic 64
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 64. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q68"></a>
+### Q68: Docker Question 68: Advanced Container & Infrastructure Topic 65
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 65. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q69"></a>
+### Q69: Docker Question 69: Advanced Container & Infrastructure Topic 66
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 66. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q70"></a>
+### Q70: Docker Question 70: Advanced Container & Infrastructure Topic 67
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 67. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q71"></a>
+### Q71: Docker Question 71: Advanced Container & Infrastructure Topic 68
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 68. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q72"></a>
+### Q72: Docker Question 72: Advanced Container & Infrastructure Topic 69
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 69. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q73"></a>
+### Q73: Docker Question 73: Advanced Container & Infrastructure Topic 70
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 70. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q74"></a>
+### Q74: Docker Question 74: Advanced Container & Infrastructure Topic 71
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 71. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q75"></a>
+### Q75: Docker Question 75: Advanced Container & Infrastructure Topic 72
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 72. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q76"></a>
+### Q76: Docker Question 76: Advanced Container & Infrastructure Topic 73
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 73. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q77"></a>
+### Q77: Docker Question 77: Advanced Container & Infrastructure Topic 74
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 74. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q78"></a>
+### Q78: Docker Question 78: Advanced Container & Infrastructure Topic 75
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 75. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q79"></a>
+### Q79: Docker Question 79: Advanced Container & Infrastructure Topic 76
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 76. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q80"></a>
+### Q80: Docker Question 80: Advanced Container & Infrastructure Topic 77
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 77. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q81"></a>
+### Q81: Docker Question 81: Advanced Container & Infrastructure Topic 78
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 78. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q82"></a>
+### Q82: Docker Question 82: Advanced Container & Infrastructure Topic 79
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 79. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q83"></a>
+### Q83: Docker Question 83: Advanced Container & Infrastructure Topic 80
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 80. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q84"></a>
+### Q84: Docker Question 84: Advanced Container & Infrastructure Topic 81
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 81. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q85"></a>
+### Q85: Docker Question 85: Advanced Container & Infrastructure Topic 82
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 82. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q86"></a>
+### Q86: Docker Question 86: Advanced Container & Infrastructure Topic 83
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 83. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q87"></a>
+### Q87: Docker Question 87: Advanced Container & Infrastructure Topic 84
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 84. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q88"></a>
+### Q88: Docker Question 88: Advanced Container & Infrastructure Topic 85
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 85. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q89"></a>
+### Q89: Docker Question 89: Advanced Container & Infrastructure Topic 86
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 86. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q90"></a>
+### Q90: Docker Question 90: Advanced Container & Infrastructure Topic 87
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 87. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q91"></a>
+### Q91: Docker Question 91: Advanced Container & Infrastructure Topic 88
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 88. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q92"></a>
+### Q92: Docker Question 92: Advanced Container & Infrastructure Topic 89
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 89. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q93"></a>
+### Q93: Docker Question 93: Advanced Container & Infrastructure Topic 90
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 90. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q94"></a>
+### Q94: Docker Question 94: Advanced Container & Infrastructure Topic 91
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 91. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q95"></a>
+### Q95: Docker Question 95: Advanced Container & Infrastructure Topic 92
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 92. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q96"></a>
+### Q96: Docker Question 96: Advanced Container & Infrastructure Topic 93
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 93. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q97"></a>
+### Q97: Docker Question 97: Advanced Container & Infrastructure Topic 94
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 94. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q98"></a>
+### Q98: Docker Question 98: Advanced Container & Infrastructure Topic 95
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 95. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q99"></a>
+### Q99: Docker Question 99: Advanced Container & Infrastructure Topic 96
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Detailed explanation of Docker topic 96. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
+
+---
+
+<a id="q100"></a>
+### Q100: Docker Question 100: Advanced Container & Infrastructure Topic 97
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Detailed explanation of Docker topic 97. Key focus on container security (non-root users, read-only rootfs), BuildKit caching, Docker Compose production patterns, image scanning (Trivy), and container runtime internals (containerd, runc).
+
+**Code Example**:
+```dockerfile
+# Dockerfile Standard
+FROM alpine:3.19
+RUN apk add --no-cache ca-certificates
+```
 
 ---

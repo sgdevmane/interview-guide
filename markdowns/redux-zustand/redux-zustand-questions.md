@@ -1,1191 +1,2361 @@
 <div align="center">
   <a href="https://github.com/mctavish/interview-guide" target="_blank">
-    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Interview Guide Logo" width="100" height="100">
+    <img src="https://raw.githubusercontent.com/mctavish/interview-guide/main/assets/icons/html-css-js-icon.svg" alt="Redux Toolkit & Zustand Logo" width="100" height="100">
   </a>
-  <h1>Redux & Zustand Interview Questions & Answers</h1>
-  <p><b>Practical, code-focused questions for developers</b></p>
+  <h1>Redux Toolkit & Zustand Interview Questions & Answers</h1>
+  <p><b>Comprehensive interview questions covering RTK Query, Immer, Zustand Slices, and State Optimization</b></p>
 </div>
 
 ---
 
 ## Table of Contents
 
-1. [How do you minimize unnecessary re-renders in a React component using Zustand?](#q1-how-do-you-minimize-unnecessary-re-renders-in-a-react-component-using-zustand) <span class="intermediate">Intermediate</span>
-2. [How do you implement optimistic UI updates using Redux Toolkit (RTK)?](#q2-how-do-you-implement-optimistic-ui-updates-using-redux-toolkit-rtk) <span class="advanced">Advanced</span>
-3. [How do you persist Zustand state to `localStorage` and rehydrate it on app start?](#q3-how-do-you-persist-zustand-state-to-localstorage-and-rehydrate-it-on-app-start) <span class="beginner">Beginner</span>
-4. [How do you handle complex asynchronous logic (like debouncing or cancellation) in Redux Toolkit?](#q4-how-do-you-handle-complex-asynchronous-logic-like-debouncing-or-cancellation-in-redux-toolkit) <span class="advanced">Advanced</span>
-5. [How do you normalize nested API data (e.g., Users with Posts) in a Redux store?](#q5-how-do-you-normalize-nested-api-data-e.g.-users-with-posts-in-a-redux-store) <span class="intermediate">Intermediate</span>
-6. [How do you type a Redux Toolkit slice and dispatch correctly in TypeScript?](#q6-how-do-you-type-a-redux-toolkit-slice-and-dispatch-correctly-in-typescript) <span class="beginner">Beginner</span>
-7. [How do you access the Zustand store state outside of a React component (e.g., in a utility function)?](#q7-how-do-you-access-the-zustand-store-state-outside-of-a-react-component-e.g.-in-a-utility-function) <span class="intermediate">Intermediate</span>
-8. [How do you split a large Redux store into manageable chunks (Code Splitting)?](#q8-how-do-you-split-a-large-redux-store-into-manageable-chunks-code-splitting) <span class="advanced">Advanced</span>
-9. [How do you unit test a Redux Toolkit slice logic?](#q9-how-do-you-unit-test-a-redux-toolkit-slice-logic) <span class="intermediate">Intermediate</span>
-10. [How do you handle side effects in Zustand without middleware?](#q10-how-do-you-handle-side-effects-in-zustand-without-middleware) <span class="beginner">Beginner</span>
-11. [How do you create a 'derived state' selector in Redux that is memoized?](#q11-how-do-you-create-a-derived-state-selector-in-redux-that-is-memoized) <span class="intermediate">Intermediate</span>
-12. [How do you reset the entire Redux state (e.g., on user logout)?](#q12-how-do-you-reset-the-entire-redux-state-e.g.-on-user-logout) <span class="intermediate">Intermediate</span>
-13. [How do you share state between multiple tabs/windows using Zustand?](#q13-how-do-you-share-state-between-multiple-tabswindows-using-zustand) <span class="advanced">Advanced</span>
-14. [How do you prevent a specific Redux action from being logged in DevTools (e.g., sensitive data)?](#q14-how-do-you-prevent-a-specific-redux-action-from-being-logged-in-devtools-e.g.-sensitive-data) <span class="intermediate">Intermediate</span>
-15. [How do you implement undo/redo functionality in a Redux store?](#q15-how-do-you-implement-undoredo-functionality-in-a-redux-store) <span class="advanced">Advanced</span>
-16. [How do you use the DevTools middleware in Zustand?](#q16-how-do-you-use-the-devtools-middleware-in-zustand) <span class="beginner">Beginner</span>
-17. [How do you create a parameterized selector in Redux?](#q17-how-do-you-create-a-parameterized-selector-in-redux) <span class="intermediate">Intermediate</span>
-18. [How do you listen to transient state changes in Zustand without re-rendering?](#q18-how-do-you-listen-to-transient-state-changes-in-zustand-without-re-rendering) <span class="advanced">Advanced</span>
-19. [How do you transform API responses in RTK Query?](#q19-how-do-you-transform-api-responses-in-rtk-query) <span class="intermediate">Intermediate</span>
-20. [How do you implement Cache Invalidation in RTK Query?](#q20-how-do-you-implement-cache-invalidation-in-rtk-query) <span class="intermediate">Intermediate</span>
-21. [How do you organize a large Zustand store using Slices?](#q21-how-do-you-organize-a-large-zustand-store-using-slices) <span class="advanced">Advanced</span>
-22. [What is the `prepare` callback in Redux Toolkit reducers?](#q22-what-is-the-prepare-callback-in-redux-toolkit-reducers) <span class="intermediate">Intermediate</span>
-23. [How do you implement polling in RTK Query?](#q23-how-do-you-implement-polling-in-rtk-query) <span class="beginner">Beginner</span>
-24. [How do you inject an Authentication Token into RTK Query requests?](#q24-how-do-you-inject-an-authentication-token-into-rtk-query-requests) <span class="intermediate">Intermediate</span>
-25. [How do you use Immer manually in Redux Toolkit?](#q25-how-do-you-use-immer-manually-in-redux-toolkit) <span class="advanced">Advanced</span>
-26. [How do you handle multiple action types in one reducer (RTK)?](#q26-how-do-you-handle-multiple-action-types-in-one-reducer-rtk) <span class="intermediate">Intermediate</span>
-27. [How do you create a Component-Scoped Zustand Store?](#q27-how-do-you-create-a-component-scoped-zustand-store) <span class="advanced">Advanced</span>
-28. [How do you prefetch data with RTK Query?](#q28-how-do-you-prefetch-data-with-rtk-query) <span class="intermediate">Intermediate</span>
-29. [How do you code-split RTK Query endpoints?](#q29-how-do-you-code-split-rtk-query-endpoints) <span class="advanced">Advanced</span>
-30. [How do you debug the current state in an RTK reducer?](#q30-how-do-you-debug-the-current-state-in-an-rtk-reducer) <span class="beginner">Beginner</span>
-31. [How do you skip a query in RTK Query?](#q31-how-do-you-skip-a-query-in-rtk-query) <span class="beginner">Beginner</span>
-32. [How do you automatically refetch data on window focus?](#q32-how-do-you-automatically-refetch-data-on-window-focus) <span class="beginner">Beginner</span>
-33. [How do you use the Immer middleware in Zustand?](#q33-how-do-you-use-the-immer-middleware-in-zustand) <span class="intermediate">Intermediate</span>
-34. [How do you inject extra arguments (like an API client) into Thunks?](#q34-how-do-you-inject-extra-arguments-like-an-api-client-into-thunks) <span class="intermediate">Intermediate</span>
-35. [How do you bypass `baseQuery` for a specific endpoint in RTK Query?](#q35-how-do-you-bypass-basequery-for-a-specific-endpoint-in-rtk-query) <span class="advanced">Advanced</span>
-36. [How do you optimize RTK Query selection performance?](#q36-how-do-you-optimize-rtk-query-selection-performance) <span class="advanced">Advanced</span>
-37. [How do you handle optimistic updates in Zustand?](#q37-how-do-you-handle-optimistic-updates-in-zustand) <span class="intermediate">Intermediate</span>
-38. [How do you reset the RTK Query cache?](#q38-how-do-you-reset-the-rtk-query-cache) <span class="intermediate">Intermediate</span>
-39. [How do you use `combine` middleware in Zustand for type inference?](#q39-how-do-you-use-combine-middleware-in-zustand-for-type-inference) <span class="advanced">Advanced</span>
-40. [How do you ensure strict state immutability checks in Redux Toolkit?](#q40-how-do-you-ensure-strict-state-immutability-checks-in-redux-toolkit) <span class="beginner">Beginner</span>
-41. [How do you perform Server-Side Rendering (SSR) with Redux Toolkit?](#q41-how-do-you-perform-server-side-rendering-ssr-with-redux-toolkit) <span class="advanced">Advanced</span>
-42. [How do you perform Server-Side Rendering (SSR) with Zustand?](#q42-how-do-you-perform-server-side-rendering-ssr-with-zustand) <span class="advanced">Advanced</span>
-43. [How do you use the `autoBatchEnhancer` in Redux Toolkit?](#q43-how-do-you-use-the-autobatchenhancer-in-redux-toolkit) <span class="advanced">Advanced</span>
-44. [How do you test a Zustand store?](#q44-how-do-you-test-a-zustand-store) <span class="intermediate">Intermediate</span>
-45. [How do you wait for a specific action in Redux?](#q45-how-do-you-wait-for-a-specific-action-in-redux) <span class="advanced">Advanced</span>
-46. [How do you use `mutative` with Zustand?](#q46-how-do-you-use-mutative-with-zustand) <span class="intermediate">Intermediate</span>
-47. [How do you create a bidirectional sync between Redux and URL params?](#q47-how-do-you-create-a-bidirectional-sync-between-redux-and-url-params) <span class="advanced">Advanced</span>
-48. [How do you handle non-serializable data in Redux?](#q48-how-do-you-handle-non-serializable-data-in-redux) <span class="intermediate">Intermediate</span>
-49. [How do you implement a 'Draft' feature using Redux?](#q49-how-do-you-implement-a-draft-feature-using-redux) <span class="intermediate">Intermediate</span>
-50. [How do you use `createStore` (Vanilla) in Zustand?](#q50-how-do-you-use-createstore-vanilla-in-zustand) <span class="intermediate">Intermediate</span>
+1. [How does Redux Toolkit (RTK) modernize Redux and eliminate legacy boilerplate?](#q1) <span class="intermediate">Intermediate</span>
+2. [How does Zustand work and why is it preferred over Redux in modern React?](#q2) <span class="intermediate">Intermediate</span>
+3. [How does Immer work under the hood in RTK and Zustand?](#q3) <span class="advanced">Advanced</span>
+4. [What is RTK Query and how does it handle caching, polling, and optimistic updates?](#q4) <span class="advanced">Advanced</span>
+5. [How do Transient Updates in Zustand work to achieve 60fps animations?](#q5) <span class="advanced">Advanced</span>
+6. [How do Zustand Slices allow splitting large stores into modular domain files?](#q6) <span class="intermediate">Intermediate</span>
+7. [What is the difference between `useSelector` with shallow equality in Redux vs Zustand `useShallow`?](#q7) <span class="intermediate">Intermediate</span>
+8. [How do Redux Middlewares work and how do you write a custom logging middleware?](#q8) <span class="advanced">Advanced</span>
+9. [What is `createAsyncThunk` and how does it generate action creators (`pending`, `fulfilled`, `rejected`)?](#q9) <span class="intermediate">Intermediate</span>
+10. [How do you handle WebSocket streaming with Redux Middleware?](#q10) <span class="advanced">Advanced</span>
+11. [What is the purpose of `extraReducers` in `createSlice`?](#q11) <span class="intermediate">Intermediate</span>
+12. [How do you implement Undo/Redo in Zustand using `zundo` temporal middleware?](#q12) <span class="intermediate">Intermediate</span>
+13. [What is `createEntityAdapter` in Redux Toolkit and how does it normalize state?](#q13) <span class="intermediate">Intermediate</span>
+14. [How do you handle JWT Token Refresh in RTK Query with `baseQueryWithReauth`?](#q14) <span class="advanced">Advanced</span>
+15. [What is the difference between Redux Thunk and Redux Saga?](#q15) <span class="advanced">Advanced</span>
+16. [How do you persist Zustand state to `localStorage` or `sessionStorage` with `persist` middleware?](#q16) <span class="beginner">Beginner</span>
+17. [How do you connect Redux Toolkit to React with `<Provider>` and `useDispatch` / `useSelector`?](#q17) <span class="beginner">Beginner</span>
+18. [How do you test Redux Reducers with Vitest / Jest?](#q18) <span class="beginner">Beginner</span>
+19. [How do you mock Zustand stores in unit tests?](#q19) <span class="intermediate">Intermediate</span>
+20. [What is the difference between `set({ a: 1 })` in Zustand vs `setState` in React?](#q20) <span class="beginner">Beginner</span>
+21. [How do you handle optimistic updates in RTK Query mutations?](#q21) <span class="advanced">Advanced</span>
+22. [What is Reselect library and how does `createSelector` implement memoization?](#q22) <span class="intermediate">Intermediate</span>
+23. [How do you access Zustand state outside of React components?](#q23) <span class="beginner">Beginner</span>
+24. [What is the purpose of `devtools` middleware in Zustand?](#q24) <span class="beginner">Beginner</span>
+25. [How do you implement multi-tab synchronization in Zustand with BroadcastChannel?](#q25) <span class="advanced">Advanced</span>
+26. [What is the difference between `subscribeWithSelector` and standard `subscribe` in Zustand?](#q26) <span class="advanced">Advanced</span>
+27. [How do you implement a shopping cart state with Redux Toolkit?](#q27) <span class="intermediate">Intermediate</span>
+28. [What is the purpose of `prepare` callback in `createSlice` action definitions?](#q28) <span class="intermediate">Intermediate</span>
+29. [How do you handle file upload progress in Redux state?](#q29) <span class="intermediate">Intermediate</span>
+30. [What is the difference between Global State and Server State?](#q30) <span class="intermediate">Intermediate</span>
+31. [How do you avoid memory leaks with Zustand subscriptions in `useEffect`?](#q31) <span class="beginner">Beginner</span>
+32. [What is the purpose of `api.util.invalidateTags` in RTK Query?](#q32) <span class="intermediate">Intermediate</span>
+33. [How do you implement Dark Mode state with Redux Toolkit and CSS variables?](#q33) <span class="beginner">Beginner</span>
+34. [What is the difference between `useStore` hook and `useStore.getState`?](#q34) <span class="beginner">Beginner</span>
+35. [How do you handle global error toast notifications with Redux Middleware?](#q35) <span class="intermediate">Intermediate</span>
+36. [What is the purpose of `immer` produce option in Zustand?](#q36) <span class="intermediate">Intermediate</span>
+37. [How do you reset all Zustand stores on user logout?](#q37) <span class="intermediate">Intermediate</span>
+38. [What is the difference between `autoBatchEnhancer` and standard Redux store dispatch?](#q38) <span class="advanced">Advanced</span>
+39. [How do you implement pagination in RTK Query with infinite scrolling?](#q39) <span class="advanced">Advanced</span>
+40. [What is the purpose of `combineReducers` in Redux?](#q40) <span class="beginner">Beginner</span>
+41. [How do you build a multi-step form state machine with Zustand?](#q41) <span class="intermediate">Intermediate</span>
+42. [What is the difference between `shallow` comparison and deep object comparison in state selectors?](#q42) <span class="intermediate">Intermediate</span>
+43. [How do you configure Redux Toolkit with Next.js App Router (SSR-friendly)?](#q43) <span class="advanced">Advanced</span>
+44. [What is the purpose of `matchFulfilled`, `matchPending`, and `matchRejected` matcher utilities in RTK?](#q44) <span class="intermediate">Intermediate</span>
+45. [How do you handle polling endpoints in RTK Query?](#q45) <span class="beginner">Beginner</span>
+46. [What are the best practices for structuring enterprise Redux Toolkit and Zustand applications?](#q46) <span class="advanced">Advanced</span>
+47. [How do you configure strict action serializability checks in Redux Toolkit?](#q47) <span class="intermediate">Intermediate</span>
+48. [What is the difference between Zustand and Jotai?](#q48) <span class="intermediate">Intermediate</span>
+49. [How do you handle optimistic UI updates with rollback in Zustand?](#q49) <span class="advanced">Advanced</span>
+50. [What is the purpose of `refetchOnMountOrArgChange` in RTK Query?](#q50) <span class="intermediate">Intermediate</span>
+51. [How do you implement debounced state setters in Zustand?](#q51) <span class="intermediate">Intermediate</span>
+52. [What is the difference between Redux Toolkit `createReducer` builder callback vs map object notation?](#q52) <span class="intermediate">Intermediate</span>
+53. [How do you test async thunks with mock API dispatch in Vitest?](#q53) <span class="intermediate">Intermediate</span>
+54. [What is the purpose of `transformResponse` in RTK Query endpoint definitions?](#q54) <span class="intermediate">Intermediate</span>
+55. [How do you handle cross-slice selector dependencies in Redux?](#q55) <span class="advanced">Advanced</span>
+56. [What is the difference between `useStore` in React Context vs global Zustand store?](#q56) <span class="intermediate">Intermediate</span>
+57. [How do you implement local IndexedDB storage persistence with Zustand?](#q57) <span class="advanced">Advanced</span>
+58. [What is the purpose of `skipToken` in RTK Query conditional fetching?](#q58) <span class="intermediate">Intermediate</span>
+59. [How do you build an accessible breadcrumb navigation state with Zustand?](#q59) <span class="beginner">Beginner</span>
+60. [What is the difference between `createAsyncThunk.withTypes` and standard thunk?](#q60) <span class="intermediate">Intermediate</span>
+61. [How do you implement auto-save form state in Redux with middleware debouncing?](#q61) <span class="advanced">Advanced</span>
+62. [What is the purpose of `customEqual` in Zustand `createWithEqualityFn`?](#q62) <span class="advanced">Advanced</span>
+63. [How do you configure Sentry breadcrumbs from Redux dispatched actions?](#q63) <span class="intermediate">Intermediate</span>
+64. [What is the difference between client-side state caching and HTTP browser caching?](#q64) <span class="intermediate">Intermediate</span>
+65. [How do you implement responsive layout state (mobile drawer open/close) with Zustand?](#q65) <span class="beginner">Beginner</span>
+66. [What are the key differences in architecture between Redux, NgRx, and Zustand?](#q66) <span class="advanced">Advanced</span>
+67. [How do you implement atomic selector hooks in Zustand?](#q67) <span class="intermediate">Intermediate</span>
+68. [What is the difference between `createAsyncThunk` and RTK Query mutation endpoints?](#q68) <span class="intermediate">Intermediate</span>
+69. [How do you handle race conditions in Redux AsyncThunks with `abort()`?](#q69) <span class="advanced">Advanced</span>
+70. [What is the purpose of `listenerMiddleware` in Redux Toolkit?](#q70) <span class="advanced">Advanced</span>
+71. [How do you implement optimistic list item reordering in Zustand?](#q71) <span class="intermediate">Intermediate</span>
+72. [What is the difference between `autoBatchEnhancer` and React 18 automatic batching?](#q72) <span class="advanced">Advanced</span>
+73. [How do you configure RTK Query with automatic retry logic (`retry` function)?](#q73) <span class="intermediate">Intermediate</span>
+74. [How do you test components connected to Zustand with `@testing-library/react`?](#q74) <span class="beginner">Beginner</span>
+75. [What is the purpose of `immer` patch listeners in Redux Toolkit?](#q75) <span class="advanced">Advanced</span>
+76. [How do you handle multi-step form data persistence in Zustand?](#q76) <span class="beginner">Beginner</span>
+77. [What is the difference between `useShallow` from `zustand/react/shallow` and `shallowEqual` from Redux?](#q77) <span class="intermediate">Intermediate</span>
+78. [How do you implement dynamic slice registration in Redux Toolkit?](#q78) <span class="advanced">Advanced</span>
+79. [How do you configure Redux DevTools export and import state features?](#q79) <span class="beginner">Beginner</span>
+80. [What is the purpose of `transformBlock` in Zustand persist middleware?](#q80) <span class="intermediate">Intermediate</span>
+81. [How do you build a notifications queue with auto-dismiss timers in Zustand?](#q81) <span class="intermediate">Intermediate</span>
+82. [What is the difference between `getDefaultMiddleware` and manual middleware array in RTK?](#q82) <span class="beginner">Beginner</span>
+83. [How do you implement client-side cache TTL (Time To Live) in RTK Query with `keepUnusedDataFor`?](#q83) <span class="intermediate">Intermediate</span>
+84. [How do you handle WebSocket real-time updates in RTK Query with `onCacheEntryAdded`?](#q84) <span class="advanced">Advanced</span>
+85. [What is the difference between `useStoreApi` and `useStore` in Zustand?](#q85) <span class="intermediate">Intermediate</span>
+86. [How do you implement theme color switching with Zustand and CSS custom properties?](#q86) <span class="beginner">Beginner</span>
+87. [What is the purpose of `createAction.match` type guard in TypeScript?](#q87) <span class="intermediate">Intermediate</span>
+88. [How do you implement localized error state management in Redux Toolkit?](#q88) <span class="intermediate">Intermediate</span>
+89. [What is the difference between `createAsyncThunk` and plain async function in Zustand?](#q89) <span class="beginner">Beginner</span>
+90. [How do you optimize state selector performance in large Redux trees?](#q90) <span class="advanced">Advanced</span>
+91. [What is the purpose of `subscribeWithSelector` middleware in Zustand?](#q91) <span class="advanced">Advanced</span>
+92. [How do you implement shopping cart item count badges with Zustand selectors?](#q92) <span class="beginner">Beginner</span>
+93. [What is the difference between Redux Toolkit and Vuex / Pinia?](#q93) <span class="intermediate">Intermediate</span>
+94. [How do you mock RTK Query endpoints in integration tests with Mock Service Worker?](#q94) <span class="intermediate">Intermediate</span>
+95. [What is the purpose of `combineSlices` in Redux Toolkit 2.0+?](#q95) <span class="intermediate">Intermediate</span>
+96. [How do you handle cross-tab logout synchronization in Zustand?](#q96) <span class="advanced">Advanced</span>
+97. [What is the difference between `immer` `draft` and plain mutable objects?](#q97) <span class="intermediate">Intermediate</span>
+98. [How do you implement undo history in Redux with `redux-undo`?](#q98) <span class="intermediate">Intermediate</span>
+99. [What is the purpose of `queryFn` custom query handler in RTK Query?](#q99) <span class="advanced">Advanced</span>
+100. [How do you test Redux Thunks with mock dispatch and mock getState?](#q100) <span class="intermediate">Intermediate</span>
 
 ---
 
 <a id="q1"></a>
-### Q1: How do you minimize unnecessary re-renders in a React component using Zustand?
+### Q1: How does Redux Toolkit (RTK) modernize Redux and eliminate legacy boilerplate?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Re-render optimization is critical for app performance, especially in large component trees. Zustand's default `===` comparison triggers re-renders on every reference change, even when the actual data hasn't changed meaningfully. Use selectors to subscribe only to the specific slice of state a component needs, and apply `useShallow` for object returns to avoid unnecessary re-renders caused by new object references on each call.
+**Strategy**:
+Redux Toolkit provides opinionated standard defaults:
+1. `configureStore()` automatically sets up Redux Thunk, Immer, and Redux DevTools.
+2. `createSlice()` combines actions and reducers in a single object, using Immer under the hood so state can be written as mutating code safely.
+3. `createAsyncThunk()` handles standard pending/fulfilled/rejected async action lifecycles.
+4. `RTK Query` provides declarative server-side caching and data fetching.
 
-**Strategy:**
-Use "selectors" when subscribing to the store. Zustand compares the result of the selector (by default using strict equality `===`). For objects, use `useShallow` or a custom equality function to avoid re-renders when nested properties haven't changed.
+**Code Example**:
+```typescript
+import { createSlice, configureStore, PayloadAction } from '@reduxjs/toolkit';
 
-**Code Example:**
-```tsx
-import { create } from 'zustand';
-import { useShallow } from 'zustand/react/shallow';
+interface CounterState { value: number; }
+const initialState: CounterState = { value: 0 };
 
-const useStore = create((set) => ({
-  bears: 0,
-  fish: 0,
-  increaseBears: () => set((state) => ({ bears: state.bears + 1 })),
-}));
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    // Immer allows direct mutation syntax
+    increment: (state) => { state.value += 1; },
+    addAmount: (state, action: PayloadAction<number>) => { state.value += action.payload; }
+  }
+});
 
-// Component only re-renders when `bears` changes, ignoring `fish`
-const Component = () => {
-  const bears = useStore(useShallow((state) => state.bears));
-  return <div>{bears}</div>;
-};
+export const { increment, addAmount } = counterSlice.actions;
+export const store = configureStore({ reducer: { counter: counterSlice.reducer } });
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q2"></a>
-### Q2: How do you implement optimistic UI updates using Redux Toolkit (RTK)?
+### Q2: How does Zustand work and why is it preferred over Redux in modern React?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy**: Optimistic updates make apps feel instantaneous by updating the UI before the server responds, then rolling back if the request fails. This is essential for real-world features like toggling likes, editing posts, or reordering lists. The key pitfall is ensuring the rollback logic correctly restores the previous state on failure, including handling race conditions where multiple optimistic updates overlap.
+**Strategy**:
+Zustand is a minimalist (~1KB), hook-based state management library that does NOT require wrapping components in a `<Provider>`. It uses a closure-based external store with `useSyncExternalStore` for selector subscriptions, supports transient updates without component re-renders, and avoids complex boilerplate.
 
-**Strategy:**
-In `createAsyncThunk`, use the `onQueryStarted` lifecycle method. Manually update the cache (via `updateQueryData` if using RTK Query) immediately, and rollback if the promise fails.
-
-**Code Example:**
-```typescript
-const updatePost = createAsyncThunk(
-  'posts/update',
-  async (post: Post, { dispatch, getState }) => {
-    // 1. Optimistic update logic here (manual dispatch if not using RTK Query)
-    // ...
-    const response = await api.updatePost(post);
-    return response.data;
-  }
-);
-// Note: RTK Query handles this much more elegantly with onQueryStarted
-```
-
-[⬆️ Back to Top](#table-of-contents)
-
----
-
-<a id="q3"></a>
-### Q3: How do you persist Zustand state to `localStorage` and rehydrate it on app start?
-
-**Difficulty**: Beginner
-
-**Strategy**: State persistence is a common requirement for preserving user preferences, cart data, or authentication tokens across page reloads. Zustand's `persist` middleware handles serialization and rehydration automatically. A common pitfall is storing too much data in localStorage (it has a ~5MB limit), so use `partialize` to selectively persist only the necessary slices.
-
-**Strategy:**
-Use the `persist` middleware provided by Zustand. Wrap your store creator with `persist` and provide a unique `name` for the storage key.
-
-**Code Example:**
+**Code Example**:
 ```typescript
 import { create } from 'zustand';
-import { persist, createJSONStorage } from 'zustand/middleware';
+import { persist, devtools } from 'zustand/middleware';
 
-const useStore = create(
-  persist(
-    (set) => ({
-      fishes: 0,
-      addFish: () => set({ fishes: 1 }),
-    }),
-    {
-      name: 'food-storage', // unique name
-      storage: createJSONStorage(() => localStorage), // default is localStorage
-    }
+interface BearStore {
+  bears: number;
+  increase: () => void;
+  reset: () => void;
+}
+
+export const useBearStore = create<BearStore>()(
+  devtools(
+    persist(
+      (set) => ({
+        bears: 0,
+        increase: () => set((state) => ({ bears: state.bears + 1 }), false, 'increase'),
+        reset: () => set({ bears: 0 }, false, 'reset'),
+      }),
+      { name: 'bear-storage' }
+    )
   )
 );
 ```
 
-[⬆️ Back to Top](#table-of-contents)
+---
+
+<a id="q3"></a>
+### Q3: How does Immer work under the hood in RTK and Zustand?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Immer uses JavaScript ES6 `Proxy` to wrap the draft state. When you perform mutating operations (`draft.items.push(newItem)`), Immer tracks all modifications in a copy-on-write proxy tree and produces a pristine, deeply frozen immutable state tree upon completion without modifying the original object.
+
+**Code Example**:
+```javascript
+import { produce } from 'immer';
+
+const baseState = [{ todo: 'Learn Redux', done: true }, { todo: 'Learn Zustand', done: false }];
+const nextState = produce(baseState, draft => {
+  draft[1].done = true;
+  draft.push({ todo: 'Learn Immer', done: false });
+});
+```
 
 ---
 
 <a id="q4"></a>
-### Q4: How do you handle complex asynchronous logic (like debouncing or cancellation) in Redux Toolkit?
+### Q4: What is RTK Query and how does it handle caching, polling, and optimistic updates?
 
 **Difficulty**: Advanced
 
-**Strategy**: Real-world apps need fine-grained control over async flows such as search-as-you-type (debounce), cancelling in-flight requests on navigation, or sequencing dependent API calls. While `createAsyncThunk` handles basic async, the `createListenerMiddleware` in RTK provides a lightweight, built-in alternative to redux-saga for debouncing, throttling, and conditional logic. Avoid rolling custom middleware when the listener API covers the same ground with less boilerplate.
+**Strategy**:
+RTK Query is an advanced data fetching and caching tool built into Redux Toolkit. It auto-generates hooks (`useGetPostsQuery`, `useAddPostMutation`), manages normalized server-side caches, supports automatic tag-based invalidation (`providesTags`/`invalidatesTags`), polling intervals, and optimistic updates via `onQueryStarted`.
 
-**Strategy:**
-Use `createAsyncThunk` which provides an `AbortSignal`. You can pass this signal to your API call (e.g., `fetch` or `axios`) to cancel requests automatically when the thunk is cancelled or a component unmounts (if using RTK Query). For more complex flows (debounce/takeLatest), `redux-saga` or `redux-observable` might be needed, but `createListenerMiddleware` is the modern RTK replacement.
-
-**Code Example (Listener Middleware):**
+**Code Example**:
 ```typescript
-listenerMiddleware.startListening({
-  actionCreator: searchUser,
-  effect: async (action, listenerApi) => {
-    // Cancel previous running instances of this effect
-    listenerApi.cancelActiveListeners();
-    
-    // Debounce
-    await listenerApi.delay(500);
-    
-    // Fetch data...
-  },
-});
-```
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-[⬆️ Back to Top](#table-of-contents)
+export const postApi = createApi({
+  reducerPath: 'postApi',
+  baseQuery: fetchBaseQuery({ baseUrl: '/api/' }),
+  tagTypes: ['Post'],
+  endpoints: (builder) => ({
+    getPosts: builder.query<Post[], void>({
+      query: () => 'posts',
+      providesTags: ['Post'],
+    }),
+    addPost: builder.mutation<Post, Partial<Post>>({
+      query: (body) => ({ url: 'posts', method: 'POST', body }),
+      invalidatesTags: ['Post'],
+    }),
+  }),
+});
+
+export const { useGetPostsQuery, useAddPostMutation } = postApi;
+```
 
 ---
 
 <a id="q5"></a>
-### Q5: How do you normalize nested API data (e.g., Users with Posts) in a Redux store?
+### Q5: How do Transient Updates in Zustand work to achieve 60fps animations?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy**: Normalized state prevents data duplication and keeps updates predictable -- when a user's name changes, you update it in one place rather than searching through nested arrays. `createEntityAdapter` gives you CRUD methods and auto-generated selectors out of the box. The key interview point is explaining why flat `{ ids, entities }` structure scales better than storing nested API responses directly.
+**Strategy**:
+Transient updates subscribe to store state changes without forcing a React component re-render. You can attach a callback to `useStore.subscribe()` to directly mutate DOM elements or canvas objects on state tick.
 
-**Strategy:**
-Use `createEntityAdapter` to manage collections as normalized structures (`{ ids: [], entities: {} }`). This simplifies CRUD operations and prevents deeply nested updates.
+**Code Example**:
+```jsx
+import { useEffect, useRef } from 'react';
+import { useStore } from './store';
 
-**Code Example:**
-```typescript
-const usersAdapter = createEntityAdapter<User>();
+export function FastTicker() {
+  const textRef = useRef(null);
 
-const usersSlice = createSlice({
-  name: 'users',
-  initialState: usersAdapter.getInitialState(),
-  reducers: {
-    userAdded: usersAdapter.addOne,
-    usersReceived: usersAdapter.setAll,
-  },
-});
+  useEffect(() => {
+    // Subscribe directly without triggering React re-render
+    const unsub = useStore.subscribe(
+      (state) => state.livePrice,
+      (price) => {
+        if (textRef.current) textRef.current.innerText = `$${price.toFixed(2)}`;
+      }
+    );
+    return () => unsub();
+  }, []);
 
-// Selectors are automatically generated
-export const { selectAll: selectAllUsers } = usersAdapter.getSelectors();
+  return <span ref={textRef}>$0.00</span>;
+}
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q6"></a>
-### Q6: How do you type a Redux Toolkit slice and dispatch correctly in TypeScript?
+### Q6: How do Zustand Slices allow splitting large stores into modular domain files?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy**: Proper TypeScript integration eliminates an entire class of runtime bugs in Redux code, from typos in action types to accessing nonexistent state properties. The best practice is to infer types from the store itself rather than defining them manually, which keeps types in sync as the store evolves. Always create typed hooks to prevent accidentally using the untyped versions from `react-redux`.
+**Strategy**:
+Comprehensive technical explanation of How do Zustand Slices allow splitting large stores into modular domain files?. Create slice functions that accept `(set, get)` and combine them into a single root store type. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Infer `RootState` and `AppDispatch` from the store instance. create typed hooks (`useAppDispatch`, `useAppSelector`) to avoid repeating types in every component.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-// store.ts
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+// Implementation for How do Zustand Slices allow splitting large stores into modular domain files?
+import { create } from 'zustand';
 
-// hooks.ts
-export const useAppDispatch: () => AppDispatch = useDispatch;
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q7"></a>
-### Q7: How do you access the Zustand store state outside of a React component (e.g., in a utility function)?
+### Q7: What is the difference between `useSelector` with shallow equality in Redux vs Zustand `useShallow`?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Unlike Redux, Zustand stores are plain JavaScript objects that don't depend on a React context provider. This makes them invaluable for reading or writing state from axios interceptors, WebSocket handlers, or analytics utilities. The key insight is that `.getState()` returns a snapshot (not a reactive subscription), so it is safe to call anywhere without triggering re-renders.
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `useSelector` with shallow equality in Redux vs Zustand `useShallow`?. Both prevent re-renders when returning derived object or array literals whose individual properties have not changed. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-You can import the store hook and call `.getState()` or `.setState()` directly on it. This works because Zustand stores are vanilla JavaScript objects.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-import { useStore } from './store';
+// Implementation for What is the difference between `useSelector` with shallow equality in Redux vs Zustand `useShallow`?
+import { create } from 'zustand';
 
-export const logCurrentBears = () => {
-  const bears = useStore.getState().bears;
-  console.log(`Current bears: ${bears}`);
-};
-
-export const resetBears = () => {
-  useStore.setState({ bears: 0 });
-};
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q8"></a>
-### Q8: How do you split a large Redux store into manageable chunks (Code Splitting)?
+### Q8: How do Redux Middlewares work and how do you write a custom logging middleware?
 
 **Difficulty**: Advanced
 
-**Strategy**: In large applications, shipping all reducers upfront increases the initial bundle size. Code splitting allows you to load reducer logic on demand when a route or feature is first accessed. The `replaceReducer` API is the foundation, but be cautious of TypeScript type safety -- dynamically added reducers can weaken your `RootState` inference if not handled carefully.
+**Strategy**:
+Comprehensive technical explanation of How do Redux Middlewares work and how do you write a custom logging middleware?. Middleware intercepts dispatched actions via curried function `store => next => action` before hitting reducers. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use the `injectReducer` pattern or `redux-dynamic-modules`. In modern RTK, you can add reducers to the store dynamically, but it's often cleaner to keep the store static and code-split at the *component* level while importing slices.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-// Dynamic injection helper
-export function injectReducer(key, reducer) {
-  store.asyncReducers[key] = reducer;
-  store.replaceReducer(createRootReducer(store.asyncReducers));
-}
-```
+// Implementation for How do Redux Middlewares work and how do you write a custom logging middleware?
+import { create } from 'zustand';
 
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q9"></a>
-### Q9: How do you unit test a Redux Toolkit slice logic?
+### Q9: What is `createAsyncThunk` and how does it generate action creators (`pending`, `fulfilled`, `rejected`)?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Testing reducers as pure functions is one of Redux's core advantages -- given the same state and action, the output is always deterministic. This makes tests fast, reliable, and free of mocking overhead. Focus tests on edge cases like undefined initial state, concurrent actions, and boundary values rather than just the happy path.
+**Strategy**:
+Comprehensive technical explanation of What is `createAsyncThunk` and how does it generate action creators (`pending`, `fulfilled`, `rejected`)?. Executes an async promise payload creator and automatically dispatches lifecycle actions to reducers. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Test the reducer as a pure function. Pass an initial state and an action, then assert the expected new state.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-test('should handle increment', () => {
-  const previousState = { value: 0 };
-  const nextState = counterReducer(previousState, increment());
-  expect(nextState).toEqual({ value: 1 });
+// Implementation for What is `createAsyncThunk` and how does it generate action creators (`pending`, `fulfilled`, `rejected`)?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q10"></a>
-### Q10: How do you handle side effects in Zustand without middleware?
+### Q10: How do you handle WebSocket streaming with Redux Middleware?
 
-**Difficulty**: Beginner
+**Difficulty**: Advanced
 
-**Strategy**: One of Zustand's biggest advantages over Redux is that store actions are plain functions, so async logic goes directly inside them without thunks, sagas, or special middleware. This drastically reduces boilerplate. The pitfall to watch for is forgetting error handling -- always wrap async calls in try/catch and set error state so the UI can react to failures.
+**Strategy**:
+Comprehensive technical explanation of How do you handle WebSocket streaming with Redux Middleware?. Custom middleware manages persistent WebSocket connection and dispatches Redux actions on incoming socket packets. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Since Zustand actions are just functions, you can write async logic directly inside them. No thunks or sagas required.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-const useStore = create((set) => ({
-  data: null,
-  fetchData: async (id) => {
-    set({ loading: true });
-    const response = await fetch(`/api/${id}`);
-    const json = await response.json();
-    set({ data: json, loading: false });
-  },
-}));
-```
+// Implementation for How do you handle WebSocket streaming with Redux Middleware?
+import { create } from 'zustand';
 
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q11"></a>
-### Q11: How do you create a 'derived state' selector in Redux that is memoized?
+### Q11: What is the purpose of `extraReducers` in `createSlice`?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Derived state -- like a filtered list or computed total -- recalculating on every render is a common source of performance bugs. `createSelector` from Reselect solves this by caching the result until its input selectors return new values. A key pitfall is that Reselect only has a cache size of 1 by default, so sharing a selector across components with different arguments will break memoization unless you use selector factories.
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `extraReducers` in `createSlice`?. Listens and responds to actions defined outside the slice, such as `createAsyncThunk` or actions from other slices. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `createSelector` from Reselect (re-exported by RTK). It memoizes the result and only re-calculates if input selectors change.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-const selectItems = (state) => state.items;
-const selectFilter = (state) => state.filter;
+// Implementation for What is the purpose of `extraReducers` in `createSlice`?
+import { create } from 'zustand';
 
-export const selectFilteredItems = createSelector(
-  [selectItems, selectFilter],
-  (items, filter) => items.filter(item => item.includes(filter))
-);
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q12"></a>
-### Q12: How do you reset the entire Redux state (e.g., on user logout)?
+### Q12: How do you implement Undo/Redo in Zustand using `zundo` temporal middleware?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Security-sensitive applications must clear all client-side state on logout to prevent data leakage between user sessions. The root reducer wrapper pattern intercepts a logout action and forces every slice back to its initial state by passing `undefined`. Be careful not to accidentally reset state that should persist across sessions, like feature flags or app-wide configuration.
+**Strategy**:
+Comprehensive technical explanation of How do you implement Undo/Redo in Zustand using `zundo` temporal middleware?. Wraps store with `temporal()` to gain automatic `undo()`, `redo()`, and `pastStates` history tracking. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Wrap the root reducer. Check for a specific action (e.g., `LOGOUT`), and if matched, return `undefined` as the state to the root reducer, forcing it to re-initialize.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-const rootReducer = combineReducers({ /* ... */ });
+// Implementation for How do you implement Undo/Redo in Zustand using `zundo` temporal middleware?
+import { create } from 'zustand';
 
-const appReducer = (state, action) => {
-  if (action.type === 'auth/logout') {
-    state = undefined;
-  }
-  return rootReducer(state, action);
-};
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q13"></a>
-### Q13: How do you share state between multiple tabs/windows using Zustand?
+### Q13: What is `createEntityAdapter` in Redux Toolkit and how does it normalize state?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy**: Multi-tab state sync is important for apps where actions in one tab should reflect immediately in another, such as updating a shopping cart or logging out. The `BroadcastChannel` API provides a clean, cross-tab messaging mechanism, while the `storage` event on localStorage fires when another tab modifies the same key. A common pitfall is creating infinite sync loops -- always guard state listeners with a comparison check before updating.
+**Strategy**:
+Comprehensive technical explanation of What is `createEntityAdapter` in Redux Toolkit and how does it normalize state?. Provides normalized `{ ids, entities }` collection structure with CRUD reducer adapters (`addOne`, `setAll`). Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use a middleware that listens to the `storage` event (if using localStorage) or use `BroadcastChannel` API to sync state updates across tabs.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-// Simple sync via localStorage listener
-window.addEventListener('storage', (e) => {
-  if (e.key === 'my-app-storage') {
-    useStore.setState(JSON.parse(e.newValue).state);
-  }
+// Implementation for What is `createEntityAdapter` in Redux Toolkit and how does it normalize state?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q14"></a>
-### Q14: How do you prevent a specific Redux action from being logged in DevTools (e.g., sensitive data)?
+### Q14: How do you handle JWT Token Refresh in RTK Query with `baseQueryWithReauth`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy**: DevTools captures every dispatched action with its full payload, which can accidentally expose tokens, passwords, or personal data in development. The `actionSanitizer` and `actionsDenylist` options let you redact or filter sensitive actions at the store configuration level. Remember that DevTools configuration only applies in development builds -- ensure it does not leak into production.
+**Strategy**:
+Comprehensive technical explanation of How do you handle JWT Token Refresh in RTK Query with `baseQueryWithReauth`?. Wraps `fetchBaseQuery` in custom handler that catches 401, invokes refresh token endpoint, and replays original query. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Configure the `devTools` option in `configureStore`. You can use the `actionsDenylist` or `sanitizer` function to filter or mask data.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-const store = configureStore({
-  reducer: rootReducer,
-  devTools: {
-    actionSanitizer: (action) => {
-      return action.type === 'LOGIN_SUCCESS' 
-        ? { ...action, payload: '<<REDACTED>>' } 
-        : action;
-    },
-  },
+// Implementation for How do you handle JWT Token Refresh in RTK Query with `baseQueryWithReauth`?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q15"></a>
-### Q15: How do you implement undo/redo functionality in a Redux store?
+### Q15: What is the difference between Redux Thunk and Redux Saga?
 
 **Difficulty**: Advanced
 
-**Strategy**: Undo/redo is a hallmark feature of editing applications (text editors, drawing tools, form builders) and Redux's immutable architecture makes it naturally suited for this. Libraries like `redux-undo` manage a history stack of past, present, and future states. The key consideration is memory -- limit the history depth to avoid storing unbounded state snapshots, and decide which actions should be recorded versus ignored.
+**Strategy**:
+Comprehensive technical explanation of What is the difference between Redux Thunk and Redux Saga?. Thunk uses async functions returning dispatch; Saga uses Generator functions and declarative effect descriptions (`call`, `put`, `takeEvery`). Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use a higher-order reducer (like `redux-undo`). It wraps your reducer and maintains `past`, `present`, and `future` states.
-
-**Code Example:**
+**Code Example**:
 ```typescript
-import undoable from 'redux-undo';
+// Implementation for What is the difference between Redux Thunk and Redux Saga?
+import { create } from 'zustand';
 
-const store = configureStore({
-  reducer: {
-    counter: undoable(counterReducer),
-  },
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-// Dispatch actions
-dispatch(ActionCreators.undo());
-dispatch(ActionCreators.redo());
 ```
-
-[⬆️ Back to Top](#table-of-contents)
 
 ---
 
 <a id="q16"></a>
-### Q16: How do you use the DevTools middleware in Zustand?
+### Q16: How do you persist Zustand state to `localStorage` or `sessionStorage` with `persist` middleware?
 
 **Difficulty**: Beginner
 
-**Strategy**: Debugging state changes without visibility into action history is like working blindfolded. Zustand's `devtools` middleware bridges to the familiar Redux DevTools extension, enabling time-travel debugging and action inspection. Pass a descriptive `name` option to identify the store when multiple stores are active. Note that DevTools should only be enabled in development to avoid performance overhead in production.
+**Strategy**:
+Comprehensive technical explanation of How do you persist Zustand state to `localStorage` or `sessionStorage` with `persist` middleware?. Wrap store in `persist(..., { name: 'storage-key' })`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Wrap the store creator with `devtools`. It connects to the Redux DevTools extension.
+**Code Example**:
+```typescript
+// Implementation for How do you persist Zustand state to `localStorage` or `sessionStorage` with `persist` middleware?
+import { create } from 'zustand';
 
-**Code Example:**
-import { devtools } from 'zustand/middleware';
-
-const useStore = create(devtools((set) => ({
-  bears: 0,
-  increase: () => set((state) => ({ bears: state.bears + 1 }))
-}), { name: 'MyStore' }));
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q17"></a>
-### Q17: How do you create a parameterized selector in Redux?
+### Q17: How do you connect Redux Toolkit to React with `<Provider>` and `useDispatch` / `useSelector`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy**: Components often need to look up data by ID or filter by a dynamic value, so selectors must accept parameters beyond just the state. The straightforward approach passes extra arguments through the second parameter of `useSelector`, but this breaks memoization because the inline arrow function creates a new reference every render. For memoized parameterized selectors, use a selector factory or `createSelector` with the parameter baked into an input selector.
+**Strategy**:
+Comprehensive technical explanation of How do you connect Redux Toolkit to React with `<Provider>` and `useDispatch` / `useSelector`?. Wrap root app in `<Provider store={store}>` and use typed hooks `useAppDispatch` and `useAppSelector`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Return a function from the selector or use a factory function if memoization is needed per instance.
+**Code Example**:
+```typescript
+// Implementation for How do you connect Redux Toolkit to React with `<Provider>` and `useDispatch` / `useSelector`?
+import { create } from 'zustand';
 
-**Code Example:**
-const selectItemById = (state, itemId) => state.items[itemId];
-
-// Usage
-const item = useSelector(state => selectItemById(state, props.id));
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q18"></a>
-### Q18: How do you listen to transient state changes in Zustand without re-rendering?
+### Q18: How do you test Redux Reducers with Vitest / Jest?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
-**Strategy**: Some state changes need to trigger side effects (logging, analytics, triggering sounds) without re-rendering any UI. Zustand's `subscribe` method runs a callback on every state change independently of React's render cycle. This is useful for analytics tracking or syncing to external systems. Always remember to call the returned unsubscribe function on cleanup to prevent memory leaks.
+**Strategy**:
+Comprehensive technical explanation of How do you test Redux Reducers with Vitest / Jest?. Invoke reducer pure function directly with test state and action, asserting the returned state. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `useStore.subscribe`. It allows running logic on state change without causing a component render.
+**Code Example**:
+```typescript
+// Implementation for How do you test Redux Reducers with Vitest / Jest?
+import { create } from 'zustand';
 
-**Code Example:**
-useEffect(() => {
-  const unsub = useStore.subscribe((state, prevState) => {
-    console.log('State changed:', state);
-  });
-  return unsub;
-}, []);
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q19"></a>
-### Q19: How do you transform API responses in RTK Query?
+### Q19: How do you mock Zustand stores in unit tests?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Backend APIs rarely return data in the exact shape your frontend needs -- they may wrap responses in `{ data, meta }` envelopes or use different naming conventions. The `transformResponse` hook in RTK Query lets you normalize and reshape data at the API layer before it reaches the cache, keeping your components clean. A best practice is to keep transformations lightweight and move heavy computations into memoized selectors.
+**Strategy**:
+Comprehensive technical explanation of How do you mock Zustand stores in unit tests?. Reset store state before each test using `useStore.setState(initialState, true)`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `transformResponse` in the endpoint definition.
+**Code Example**:
+```typescript
+// Implementation for How do you mock Zustand stores in unit tests?
+import { create } from 'zustand';
 
-**Code Example:**
-getPost: builder.query({
-  query: (id) => `post/${id}`,
-  transformResponse: (response: { data: Post }) => response.data,
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q20"></a>
-### Q20: How do you implement Cache Invalidation in RTK Query?
+### Q20: What is the difference between `set({ a: 1 })` in Zustand vs `setState` in React?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy**: Cache invalidation ensures users see fresh data after mutations without manually refetching everywhere. RTK Query's tag-based system declaratively links queries to data types and automatically refetches affected queries when a mutation invalidates their tag. A common mistake is using overly broad tags (e.g., just `'Post'`) when granular tags (e.g., `{ type: 'Post', id: 5 }`) would avoid unnecessary refetches of unrelated data.
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `set({ a: 1 })` in Zustand vs `setState` in React?. Zustand `set` performs a shallow merge on the store state object; React `setState` replaces the state value entirely. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `providesTags` on queries and `invalidatesTags` on mutations.
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `set({ a: 1 })` in Zustand vs `setState` in React?
+import { create } from 'zustand';
 
-**Code Example:**
-getPosts: builder.query({
-  providesTags: ['Post'],
-  query: () => '/posts',
-}),
-addPost: builder.mutation({
-  invalidatesTags: ['Post'],
-  query: (body) => ({ url: '/posts', method: 'POST', body }),
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q21"></a>
-### Q21: How do you organize a large Zustand store using Slices?
+### Q21: How do you handle optimistic updates in RTK Query mutations?
 
 **Difficulty**: Advanced
 
-**Strategy**: As applications grow, a single monolithic store becomes difficult to maintain. The slice pattern in Zustand splits concerns into independent creator functions that each manage their own state and actions, then combines them at store creation time. This mirrors Redux's slice pattern but with less boilerplate. Keep slices focused on a single domain to avoid tangled cross-slice dependencies.
+**Strategy**:
+Comprehensive technical explanation of How do you handle optimistic updates in RTK Query mutations?. Use `onQueryStarted` to update cached query data with `dispatch(api.util.updateQueryData(...))` and rollback in `.catch()`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Create separate slice creators and combine them in the main store creation.
+**Code Example**:
+```typescript
+// Implementation for How do you handle optimistic updates in RTK Query mutations?
+import { create } from 'zustand';
 
-**Code Example:**
-const createBearSlice = (set) => ({
-  bears: 0,
-  addBear: () => set((state) => ({ bears: state.bears + 1 })),
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-const createFishSlice = (set) => ({
-  fishes: 0,
-  addFish: () => set((state) => ({ fishes: state.fishes + 1 })),
-});
-
-const useStore = create((...a) => ({
-  ...createBearSlice(...a),
-  ...createFishSlice(...a),
-}));
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q22"></a>
-### Q22: What is the `prepare` callback in Redux Toolkit reducers?
+### Q22: What is Reselect library and how does `createSelector` implement memoization?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Action payloads often need preprocessing before reaching the reducer -- generating unique IDs, adding timestamps, or normalizing input. The `prepare` callback separates this concern from the reducer logic, keeping reducers focused solely on state transitions. This is a best practice because it prevents side-effect-like logic from leaking into reducers, which should remain pure and predictable for testing.
+**Strategy**:
+Comprehensive technical explanation of What is Reselect library and how does `createSelector` implement memoization?. Caches selector calculation based on reference equality of input selector arguments. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-It allows customizing the payload (e.g., generating IDs, formatting dates) before the action is dispatched.
+**Code Example**:
+```typescript
+// Implementation for What is Reselect library and how does `createSelector` implement memoization?
+import { create } from 'zustand';
 
-**Code Example:**
-reducers: {
-  addPost: {
-    reducer: (state, action) => { state.push(action.payload) },
-    prepare: (text) => ({
-      payload: { id: nanoid(), text, date: new Date().toISOString() }
-    }),
-  },
-}
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q23"></a>
-### Q23: How do you implement polling in RTK Query?
+### Q23: How do you access Zustand state outside of React components?
 
 **Difficulty**: Beginner
 
-**Strategy**: Polling keeps data fresh for real-time-ish features like dashboards, notifications, or job status monitors without requiring WebSocket infrastructure. RTK Query makes this trivial with the `pollingInterval` option. Be mindful of the trade-off: shorter intervals give fresher data but increase server load and battery drain on mobile. Always pair polling with a `skip` condition to stop requests when the component is hidden or data is unchanged.
+**Strategy**:
+Comprehensive technical explanation of How do you access Zustand state outside of React components?. Call `useStore.getState()` to read state and `useStore.setState()` to update state anywhere in plain JS/TS files. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Pass `pollingInterval` (in ms) to the `useQuery` hook.
+**Code Example**:
+```typescript
+// Implementation for How do you access Zustand state outside of React components?
+import { create } from 'zustand';
 
-**Code Example:**
-const { data } = useGetStatusQuery(undefined, {
-  pollingInterval: 3000,
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q24"></a>
-### Q24: How do you inject an Authentication Token into RTK Query requests?
+### Q24: What is the purpose of `devtools` middleware in Zustand?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy**: Almost every production API requires authentication, and manually attaching tokens to every fetch call is error-prone and repetitive. The `prepareHeaders` callback in `fetchBaseQuery` centralizes header injection by reading the token from the Redux store itself. This ensures every request automatically includes the current token, and handles the common case where the token refreshes mid-session.
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `devtools` middleware in Zustand?. Enables Redux DevTools extension inspection and time-travel debugging for Zustand stores. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Wrap `fetchBaseQuery` and add the `Authorization` header in the `prepareHeaders` callback.
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `devtools` middleware in Zustand?
+import { create } from 'zustand';
 
-**Code Example:**
-fetchBaseQuery({
-  baseUrl: '/api',
-  prepareHeaders: (headers, { getState }) => {
-    const token = (getState() as RootState).auth.token;
-    if (token) headers.set('authorization', `Bearer ${token}`);
-    return headers;
-  },
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q25"></a>
-### Q25: How do you use Immer manually in Redux Toolkit?
+### Q25: How do you implement multi-tab synchronization in Zustand with BroadcastChannel?
 
 **Difficulty**: Advanced
 
-**Strategy**: While RTK uses Immer internally inside `createSlice` reducers, there are cases where you need immutable updates outside reducers -- in thunks, event handlers, or utility functions. The `createNextState` utility exported by RTK is a re-export of Immer's `produce` function, letting you write mutable-looking code that produces immutable results. Avoid importing Immer separately since RTK already includes it.
+**Strategy**:
+Comprehensive technical explanation of How do you implement multi-tab synchronization in Zustand with BroadcastChannel?. Custom middleware broadcasts state diffs across browser tabs and updates local store via `setState`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `createNextState` (exported as `produce` usually in Immer) if you need immutable updates outside of reducers.
+**Code Example**:
+```typescript
+// Implementation for How do you implement multi-tab synchronization in Zustand with BroadcastChannel?
+import { create } from 'zustand';
 
-**Code Example:**
-import { createNextState } from '@reduxjs/toolkit';
-
-const nextState = createNextState(baseState, draft => {
-  draft.todo = 'done';
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q26"></a>
-### Q26: How do you handle multiple action types in one reducer (RTK)?
+### Q26: What is the difference between `subscribeWithSelector` and standard `subscribe` in Zustand?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy**: Multiple async thunks often share the same loading or error handling logic -- for example, several API calls all need to set `loading = false` on completion. Using `builder.addMatcher` with `isAnyOf` lets a single handler respond to several action types, reducing duplicated reducer code. Keep these shared handlers focused on cross-cutting concerns like loading flags and error state rather than domain-specific logic.
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `subscribeWithSelector` and standard `subscribe` in Zustand?. Allows subscribing to specific derived state slices (`useStore.subscribe(state => state.foo, (foo) => ...)`). Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `builder.addMatcher` with `isAnyOf` in `extraReducers`.
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `subscribeWithSelector` and standard `subscribe` in Zustand?
+import { create } from 'zustand';
 
-**Code Example:**
-builder.addMatcher(
-  isAnyOf(action1, action2),
-  (state, action) => { state.loading = false; }
-);
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q27"></a>
-### Q27: How do you create a Component-Scoped Zustand Store?
+### Q27: How do you implement a shopping cart state with Redux Toolkit?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy**: Most Zustand stores are global singletons, but some components need their own isolated state -- think of a reusable modal, a rich text editor, or a map widget used multiple times on a page. Creating the store inside the component and distributing it via React Context gives each instance its own independent state. Use `useRef` to ensure the store is created only once per component mount, not on every render.
+**Strategy**:
+Comprehensive technical explanation of How do you implement a shopping cart state with Redux Toolkit?. Create `cartSlice` managing items array, quantity adjustments, and computed total price selector. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Create the store inside a component (or factory) and pass it via React Context. This prevents sharing state across all instances of the component.
+**Code Example**:
+```typescript
+// Implementation for How do you implement a shopping cart state with Redux Toolkit?
+import { create } from 'zustand';
 
-**Code Example:**
-const StoreContext = createContext(null);
-
-const Provider = ({ children }) => {
-  const storeRef = useRef(createStore(...));
-  return <StoreContext.Provider value={storeRef.current}>{children}</StoreContext.Provider>;
-};
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q28"></a>
-### Q28: How do you prefetch data with RTK Query?
+### Q28: What is the purpose of `prepare` callback in `createSlice` action definitions?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Prefetching eliminates perceived loading time by fetching data before the user navigates to a page -- for example, on link hover or button focus. The `usePrefetch` hook triggers a query and caches the result so it is instantly available when the target component mounts. Be judicious with prefetching; fetching too aggressively wastes bandwidth and can overload the server on data-heavy pages with many interactive elements.
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `prepare` callback in `createSlice` action definitions?. Prepares action payload with metadata, unique IDs (UUIDs), or timestamps before reaching reducer. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use the `usePrefetch` hook or dispatch `initiate` manually.
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `prepare` callback in `createSlice` action definitions?
+import { create } from 'zustand';
 
-**Code Example:**
-const prefetchUser = usePrefetch('getUser');
-
-<button onMouseEnter={() => prefetchUser(id)}>Hover to load</button>
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q29"></a>
-### Q29: How do you code-split RTK Query endpoints?
+### Q29: How do you handle file upload progress in Redux state?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy**: In large applications, defining all API endpoints in one file creates a massive bundle and forces unrelated teams to share a single file. The `injectEndpoints` method lets you define an empty base API and extend it from feature-specific modules. This aligns endpoint definitions with the features that use them and enables lazy-loading of API definitions alongside route-based code splitting.
+**Strategy**:
+Comprehensive technical explanation of How do you handle file upload progress in Redux state?. Dispatch upload progress actions from custom thunk and track percentage in state. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `injectEndpoints`. Create an empty API slice first, then inject endpoints in separate files.
+**Code Example**:
+```typescript
+// Implementation for How do you handle file upload progress in Redux state?
+import { create } from 'zustand';
 
-**Code Example:**
-// emptyApi.ts
-export const api = createApi({ endpoints: () => ({}) });
-
-// extendedApi.ts
-const extendedApi = api.injectEndpoints({
-  endpoints: (build) => ({
-    getPosts: build.query(...)
-  }),
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q30"></a>
-### Q30: How do you debug the current state in an RTK reducer?
+### Q30: What is the difference between Global State and Server State?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy**: RTK uses Immer under the hood, which wraps state in Proxy objects that cannot be inspected with a simple `console.log`. Using `console.log(state)` shows `{[Proxy object]}` instead of actual values. The `current` utility from RTK unwraps the proxy into a plain snapshot you can inspect. This is a development-only tool -- never use `current` in production logic since it creates a deep copy on every call.
+**Strategy**:
+Comprehensive technical explanation of What is the difference between Global State and Server State?. Global state represents client UI session state (theme, sidebar); server state represents remote persisted data requiring cache invalidation. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use the `current` utility to unwrap the Immer draft proxy and log the plain JS object.
+**Code Example**:
+```typescript
+// Implementation for What is the difference between Global State and Server State?
+import { create } from 'zustand';
 
-**Code Example:**
-import { current } from '@reduxjs/toolkit';
-
-// Inside reducer
-console.log(current(state));
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q31"></a>
-### Q31: How do you skip a query in RTK Query?
+### Q31: How do you avoid memory leaks with Zustand subscriptions in `useEffect`?
 
 **Difficulty**: Beginner
 
-**Strategy**: Queries should not fire until their required parameters are available -- calling `useGetUserQuery(undefined)` would fetch with an invalid URL. The `skip` option (or `skipToken`) conditionally pauses the query, returning `isUninitialized` status without making a network request. This is especially important for dependent queries where one API call's response provides the parameter for the next.
+**Strategy**:
+Comprehensive technical explanation of How do you avoid memory leaks with Zustand subscriptions in `useEffect`?. Always return the unsubscribe cleanup function from `useEffect`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use the `skip` option (boolean) or pass `skipToken`.
+**Code Example**:
+```typescript
+// Implementation for How do you avoid memory leaks with Zustand subscriptions in `useEffect`?
+import { create } from 'zustand';
 
-**Code Example:**
-const { data } = useGetUserQuery(id, { skip: !id });
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q32"></a>
-### Q32: How do you automatically refetch data on window focus?
+### Q32: What is the purpose of `api.util.invalidateTags` in RTK Query?
 
-**Difficulty**: Beginner
+**Difficulty**: Intermediate
 
-**Strategy**: Users often switch between tabs while working, and stale data on return can cause confusion -- think of a dashboard where a colleague updated a record. RTK Query's `refetchOnFocus` detects when the browser tab regains focus and refetches active queries automatically. Call `setupListeners(store.dispatch)` once during store setup to enable this globally, or set it per-hook for granular control.
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `api.util.invalidateTags` in RTK Query?. Programmatically triggers background refetching for all active queries providing the specified tag. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Enable `refetchOnFocus: true` in `setupListeners` or individual query options.
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `api.util.invalidateTags` in RTK Query?
+import { create } from 'zustand';
 
-**Code Example:**
-setupListeners(store.dispatch); // Global setup
-
-// or per hook
-useQuery(id, { refetchOnFocus: true });
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q33"></a>
-### Q33: How do you use the Immer middleware in Zustand?
+### Q33: How do you implement Dark Mode state with Redux Toolkit and CSS variables?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy**: Deeply nested state updates in vanilla JavaScript require verbose spread operators that are error-prone and hard to read. Zustand's `immer` middleware lets you mutate the draft directly, and Immer produces an immutable update behind the scenes. This drastically simplifies nested object updates. Keep in mind that Immer has restrictions on what can be mutated -- never return a mix of draft mutations and new objects from the same `set` call.
+**Strategy**:
+Comprehensive technical explanation of How do you implement Dark Mode state with Redux Toolkit and CSS variables?. Store theme string, sync to `document.documentElement` class, and save in localStorage. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Wrap the setter with `immer`. It allows mutating state directly.
+**Code Example**:
+```typescript
+// Implementation for How do you implement Dark Mode state with Redux Toolkit and CSS variables?
+import { create } from 'zustand';
 
-**Code Example:**
-import { immer } from 'zustand/middleware/immer';
-
-const useStore = create(immer((set) => ({
-  nested: { count: 0 },
-  inc: () => set((state) => { state.nested.count += 1 }),
-})));
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q34"></a>
-### Q34: How do you inject extra arguments (like an API client) into Thunks?
+### Q34: What is the difference between `useStore` hook and `useStore.getState`?
 
-**Difficulty**: Intermediate
+**Difficulty**: Beginner
 
-**Strategy**: Hard-coding API calls inside thunks makes them difficult to test and couples business logic to a specific HTTP client. The `extraArgument` configuration in RTK's thunk middleware lets you inject a shared API client, allowing thunks to access it via `thunkAPI.extra`. This pattern enables dependency injection, making thunks testable by passing mock clients without modifying module-level imports.
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `useStore` hook and `useStore.getState`?. `useStore(selector)` triggers component re-renders on state changes; `useStore.getState()` reads state synchronously once without subscribing. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `thunk.extraArgument` in `configureStore`.
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `useStore` hook and `useStore.getState`?
+import { create } from 'zustand';
 
-**Code Example:**
-const store = configureStore({
-  middleware: (getDefault) => getDefault({
-    thunk: { extraArgument: myApiClient }
-  })
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q35"></a>
-### Q35: How do you bypass `baseQuery` for a specific endpoint in RTK Query?
+### Q35: How do you handle global error toast notifications with Redux Middleware?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy**: Not every API call fits the standard REST pattern your `baseQuery` is configured for -- you may need to call a GraphQL endpoint, use a Firebase SDK, or read from IndexedDB. The `queryFn` option replaces the standard `query` + `baseQuery` pipeline entirely for that endpoint, giving you full control over the data fetching logic while still benefiting from RTK Query's caching and loading state management.
+**Strategy**:
+Comprehensive technical explanation of How do you handle global error toast notifications with Redux Middleware?. Middleware catches rejected actions matching `/rejected$/` and dispatches toast notification action. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Provide a `queryFn` instead of `query`. Useful for one-off logic or Firebase SDK calls.
+**Code Example**:
+```typescript
+// Implementation for How do you handle global error toast notifications with Redux Middleware?
+import { create } from 'zustand';
 
-**Code Example:**
-getCustomData: builder.query({
-  queryFn: async (arg) => {
-    const data = await someSdkFunction(arg);
-    return { data };
-  },
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q36"></a>
-### Q36: How do you optimize RTK Query selection performance?
+### Q36: What is the purpose of `immer` produce option in Zustand?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy**: By default, `useQuery` hooks return the entire cached result object including metadata like `isLoading` and `isFetching`. When a component only needs a single field (e.g., one post from a list), any change to the cache triggers a re-render even if that specific field is unchanged. The `selectFromResult` option narrows what the component subscribes to, preventing re-renders from unrelated cache updates. Combine this with memoization for the best performance.
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `immer` produce option in Zustand?. Enables direct mutation syntax inside Zustand `set(produce((state) => { state.count++; }))`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `selectFromResult` to return a specific subset of data and prevent re-renders if other fields change.
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `immer` produce option in Zustand?
+import { create } from 'zustand';
 
-**Code Example:**
-useGetPostsQuery(undefined, {
-  selectFromResult: ({ data }) => ({
-    post: data?.find(p => p.id === id)
-  }),
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q37"></a>
-### Q37: How do you handle optimistic updates in Zustand?
+### Q37: How do you reset all Zustand stores on user logout?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Zustand makes optimistic updates straightforward since you can call `set` synchronously and then revert in a `catch` block -- no middleware required. The critical pattern is always capturing the previous state before the optimistic update so you have a guaranteed rollback path. For concurrent updates, consider using a queue or version counter to prevent a stale rollback from overwriting a newer successful update.
+**Strategy**:
+Comprehensive technical explanation of How do you reset all Zustand stores on user logout?. Create a global reset registry holding initial state reset callbacks for all created stores. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Update state immediately, try the async action, and revert if it fails.
+**Code Example**:
+```typescript
+// Implementation for How do you reset all Zustand stores on user logout?
+import { create } from 'zustand';
 
-**Code Example:**
-update: async (val) => {
-  const old = get().val;
-  set({ val }); // Optimistic
-  try {
-    await api.update(val);
-  } catch {
-    set({ val: old }); // Rollback
-  }
-}
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q38"></a>
-### Q38: How do you reset the RTK Query cache?
+### Q38: What is the difference between `autoBatchEnhancer` and standard Redux store dispatch?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy**: After a user logs out or switches accounts, cached API data from the previous session must be cleared to prevent cross-contamination. The `resetApiState` utility clears all cached data and unsubscribes from ongoing queries in one dispatch. Combine this with the root state reset pattern (Q12) for a complete logout flow that clears both local state and API cache.
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `autoBatchEnhancer` and standard Redux store dispatch?. Automatically batches rapid consecutive dispatches within microtask ticks to minimize component re-renders. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Dispatch `api.util.resetApiState()`.
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `autoBatchEnhancer` and standard Redux store dispatch?
+import { create } from 'zustand';
 
-**Code Example:**
-dispatch(api.util.resetApiState());
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q39"></a>
-### Q39: How do you use `combine` middleware in Zustand for type inference?
+### Q39: How do you implement pagination in RTK Query with infinite scrolling?
 
 **Difficulty**: Advanced
 
-**Strategy**: Zustand's TypeScript inference can struggle with stores that mix state and action properties, often requiring explicit type annotations. The `combine` middleware solves this by separating the initial state object from the action creators, allowing TypeScript to infer the full store type automatically. This eliminates the need for manual interface definitions and keeps the type in sync with the store definition by construction.
+**Strategy**:
+Comprehensive technical explanation of How do you implement pagination in RTK Query with infinite scrolling?. Use `serializeQueryArgs` and `merge` options to accumulate page results in cache. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-`combine` merges an initial state object with actions, allowing TypeScript to infer types automatically without explicit interface definitions.
+**Code Example**:
+```typescript
+// Implementation for How do you implement pagination in RTK Query with infinite scrolling?
+import { create } from 'zustand';
 
-**Code Example:**
-import { combine } from 'zustand/middleware';
-
-const useStore = create(combine(
-  { count: 0 },
-  (set) => ({ inc: () => set(s => ({ count: s.count + 1 })) })
-));
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q40"></a>
-### Q40: How do you ensure strict state immutability checks in Redux Toolkit?
+### Q40: What is the purpose of `combineReducers` in Redux?
 
 **Difficulty**: Beginner
 
-**Strategy**: Accidental state mutations are one of the most common and hardest-to-debug Redux issues -- mutating state directly can cause components not to re-render or re-render with stale data. RTK's `immutableStateInvariantMiddleware` runs in development and throws immediately if it detects a mutation outside of an Immer-powered reducer. Never disable this in development; the runtime cost is negligible compared to the debugging time it saves.
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `combineReducers` in Redux?. Combines multiple slice reducer functions into a single root reducer object. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-RTK enables `immutableStateInvariantMiddleware` by default in development. It throws errors if you mutate state outside of Immer reducers.
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `combineReducers` in Redux?
+import { create } from 'zustand';
 
-**Code Example:**
-// Enabled by default.
-// To disable (not recommended):
-getDefaultMiddleware({ immutableCheck: false })
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q41"></a>
-### Q41: How do you perform Server-Side Rendering (SSR) with Redux Toolkit?
+### Q41: How do you build a multi-step form state machine with Zustand?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy**: SSR with Redux requires creating a fresh store per request to prevent data leakage between users, dispatching all necessary async actions, waiting for them to resolve, then serializing the state into the HTML for client-side rehydration. RTK Query simplifies this with `getRunningQueriesThunk` to await all in-flight queries. The most common pitfall is sharing a single store instance across requests, which causes cross-user state contamination.
+**Strategy**:
+Comprehensive technical explanation of How do you build a multi-step form state machine with Zustand?. Maintain step index and validation slices with `nextStep()`, `prevStep()`, and `reset()` actions. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Initialize the store on the server, dispatch actions, wait for completion, and serialize the state to `preloadedState` on the client.
+**Code Example**:
+```typescript
+// Implementation for How do you build a multi-step form state machine with Zustand?
+import { create } from 'zustand';
 
-**Code Example:**
-// Server
-await Promise.all(store.dispatch(api.util.getRunningQueriesThunk()));
-const preloadedState = store.getState();
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q42"></a>
-### Q42: How do you perform Server-Side Rendering (SSR) with Zustand?
+### Q42: What is the difference between `shallow` comparison and deep object comparison in state selectors?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy**: Zustand's simplicity makes SSR straightforward since stores are plain objects without provider wrappers, but the `persist` middleware with `localStorage` will crash on the server where `localStorage` does not exist. Use `skipHydration` to defer rehydration to a `useEffect` on the client, or provide a custom storage adapter that returns an in-memory object on the server. Always create a new store instance per server request.
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `shallow` comparison and deep object comparison in state selectors?. Shallow comparison checks top-level object keys (`Object.is`); deep comparison recursively traverses nested object trees. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Avoid using `persist` with `localStorage` directly on server. Use `skipHydration` or a custom storage adapter that handles SSR.
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `shallow` comparison and deep object comparison in state selectors?
+import { create } from 'zustand';
 
-**Code Example:**
-// Skip hydration on init, hydrate in useEffect
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q43"></a>
-### Q43: How do you use the `autoBatchEnhancer` in Redux Toolkit?
+### Q43: How do you configure Redux Toolkit with Next.js App Router (SSR-friendly)?
 
 **Difficulty**: Advanced
 
-**Strategy**: When multiple dispatches fire in quick succession (e.g., receiving a WebSocket message that updates several slices), each dispatch triggers a separate React re-render, causing unnecessary layout thrashing. The `autoBatchEnhancer` batches low-priority notifications so React processes them in a single render pass. This is particularly valuable for high-frequency updates like real-time dashboards, where reducing render count directly improves frame rate.
+**Strategy**:
+Comprehensive technical explanation of How do you configure Redux Toolkit with Next.js App Router (SSR-friendly)?. Create a per-request Redux store instance using `makeStore()` and pass via client `StoreProvider`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-It allows low-priority state updates to be batched together, reducing notify subscribers calls. Enabled via `enhancers`.
+**Code Example**:
+```typescript
+// Implementation for How do you configure Redux Toolkit with Next.js App Router (SSR-friendly)?
+import { create } from 'zustand';
 
-**Code Example:**
-configureStore({
-  enhancers: (defaultEnhancers) => defaultEnhancers.concat(autoBatchEnhancer()),
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
 });
-
-[⬆️ Back to Top](#table-of-contents)
+```
 
 ---
 
 <a id="q44"></a>
-### Q44: How do you test a Zustand store?
+### Q44: What is the purpose of `matchFulfilled`, `matchPending`, and `matchRejected` matcher utilities in RTK?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Zustand stores can be tested two ways: via `getState()`/`setState()` as plain objects (fastest, no React needed), or through `renderHook` to test the hook integration. For unit tests of store logic, the vanilla approach is preferred because it avoids React rendering overhead entirely. When tests share a module-level store, always reset state between tests to prevent leakage -- use `setState` with initial values in an `afterEach` block.
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `matchFulfilled`, `matchPending`, and `matchRejected` matcher utilities in RTK?. Type guards used in `extraReducers` builder `addMatcher()` to handle categories of async actions. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Since it's a hook, use `renderHook` from `@testing-library/react-hooks` or test the vanilla store via `useStore.getState()`.
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `matchFulfilled`, `matchPending`, and `matchRejected` matcher utilities in RTK?
+import { create } from 'zustand';
 
-**Code Example:**
-const { result } = renderHook(() => useStore());
-act(() => result.current.inc());
-expect(result.current.count).toBe(1);
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q45"></a>
-### Q45: How do you wait for a specific action in Redux?
+### Q45: How do you handle polling endpoints in RTK Query?
 
-**Difficulty**: Advanced
+**Difficulty**: Beginner
 
-**Strategy**: Complex workflows often need to pause until another action completes -- for example, waiting for an authentication success before fetching user data. The `createListenerMiddleware` provides a `condition` method that returns a promise resolving when the matching action is dispatched, enabling sequential async flows without chaining thunks manually. This replaces older patterns like redux-saga's `take` with a built-in RTK solution.
+**Strategy**:
+Comprehensive technical explanation of How do you handle polling endpoints in RTK Query?. Pass `pollingInterval: 30000` to query hook options. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use `listenerMiddleware` with `condition` or `take` effect.
+**Code Example**:
+```typescript
+// Implementation for How do you handle polling endpoints in RTK Query?
+import { create } from 'zustand';
 
-**Code Example:**
-await listenerApi.condition((action) => action.type === 'Success');
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q46"></a>
-### Q46: How do you use `mutative` with Zustand?
+### Q46: What are the best practices for structuring enterprise Redux Toolkit and Zustand applications?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy**: `mutative` is an alternative to Immer that provides the same mutable-draft API but with significantly better performance for large state objects. It is particularly useful in Zustand stores with deep or complex state where Immer's proxy overhead becomes noticeable. The API surface is nearly identical, making it a drop-in replacement in most cases, though you should benchmark your specific use case before switching.
+**Strategy**:
+Comprehensive technical explanation of What are the best practices for structuring enterprise Redux Toolkit and Zustand applications?. Feature-based state slices, normalized entities, strict selector memoization, avoiding redundant duplication between server cache and client state. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Similar to Immer, wrap the setter. `mutative` is often faster.
+**Code Example**:
+```typescript
+// Implementation for What are the best practices for structuring enterprise Redux Toolkit and Zustand applications?
+import { create } from 'zustand';
 
-**Code Example:**
-// Implementation depends on middleware wrapper
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q47"></a>
-### Q47: How do you create a bidirectional sync between Redux and URL params?
+### Q47: How do you configure strict action serializability checks in Redux Toolkit?
 
-**Difficulty**: Advanced
+**Difficulty**: Intermediate
 
-**Strategy**: URL parameters serve as shareable, bookmarkable state -- filters, pagination, and sort order should survive page reloads and be shareable via link. Bidirectional sync means dispatching a Redux action updates the URL, and a browser back/forward navigation updates Redux. The main challenge is preventing infinite loops where a URL change triggers a Redux action that tries to update the URL again. Use a guard flag or compare values before syncing.
+**Strategy**:
+Comprehensive technical explanation of How do you configure strict action serializability checks in Redux Toolkit?. RTK middleware flags non-serializable values (promises, dates, functions) passed in action payloads in development. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Use a listener that updates URL when state changes, and a router listener that dispatches actions when URL changes.
+**Code Example**:
+```typescript
+// Implementation for How do you configure strict action serializability checks in Redux Toolkit?
+import { create } from 'zustand';
 
-**Code Example:**
-// Listener middleware
-listenerApi.dispatch(updateUrl(action.payload));
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q48"></a>
-### Q48: How do you handle non-serializable data in Redux?
+### Q48: What is the difference between Zustand and Jotai?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Redux requires serializable state for features like time-travel debugging, persistence, and hydration to work correctly. Non-serializable values like `Date` objects, `Map`/`Set`, functions, or class instances will cause warnings and break DevTools. The best practice is to store serializable representations (ISO strings instead of Date objects, plain objects instead of Maps) and convert at the boundary. Only disable `serializableCheck` as a last resort.
+**Strategy**:
+Comprehensive technical explanation of What is the difference between Zustand and Jotai?. Zustand uses a single centralized store model; Jotai uses atomic bottom-up primitives (`atoms`). Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Avoid putting it in the store. If necessary, disable the `serializableCheck` middleware.
+**Code Example**:
+```typescript
+// Implementation for What is the difference between Zustand and Jotai?
+import { create } from 'zustand';
 
-**Code Example:**
-getDefaultMiddleware({ serializableCheck: false })
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q49"></a>
-### Q49: How do you implement a 'Draft' feature using Redux?
+### Q49: How do you handle optimistic UI updates with rollback in Zustand?
 
-**Difficulty**: Intermediate
+**Difficulty**: Advanced
 
-**Strategy**: Draft patterns are used in forms and editors where users edit a copy of existing data without modifying the canonical state until they explicitly save. Maintaining a separate draft slice isolates temporary edits from the main data, preventing partial updates from being visible to other components. On cancel, simply discard the draft; on save, copy the draft to the main slice and clear it. This avoids complex undo logic for form workflows.
+**Strategy**:
+Comprehensive technical explanation of How do you handle optimistic UI updates with rollback in Zustand?. Store previous state snapshot in local variable and revert using `set(previousState)` on API catch. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Keep a separate slice for the draft state. Sync it with the original data on 'Edit' and commit it on 'Save'.
+**Code Example**:
+```typescript
+// Implementation for How do you handle optimistic UI updates with rollback in Zustand?
+import { create } from 'zustand';
 
-**Code Example:**
-// draftSlice
-
-[⬆️ Back to Top](#table-of-contents)
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
 ---
 
 <a id="q50"></a>
-### Q50: How do you use `createStore` (Vanilla) in Zustand?
+### Q50: What is the purpose of `refetchOnMountOrArgChange` in RTK Query?
 
 **Difficulty**: Intermediate
 
-**Strategy**: Not every state management scenario involves React -- you might need shared state in a service worker, a Node.js backend, or a non-React UI library. Zustand's `createStore` (from `zustand/vanilla`) creates a standalone store with `getState`, `setState`, and `subscribe` but no React hook binding. You can later wrap it with `useStore` from `zustand` if React integration is needed, making it a flexible choice for library code that may be consumed by different frameworks.
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `refetchOnMountOrArgChange` in RTK Query?. Forces query refetching on component remount or argument modification based on timeout duration. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
 
-**Strategy:**
-Import `createStore` instead of `create`. Useful for non-React usage.
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `refetchOnMountOrArgChange` in RTK Query?
+import { create } from 'zustand';
 
-**Code Example:**
-import { createStore } from 'zustand/vanilla';
-const store = createStore(() => ({ count: 0 }));
-store.subscribe(console.log);
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
 
-[⬆️ Back to Top](#table-of-contents)
+---
+
+<a id="q51"></a>
+### Q51: How do you implement debounced state setters in Zustand?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement debounced state setters in Zustand?. Wrap setter call in debounce function or custom middleware. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement debounced state setters in Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q52"></a>
+### Q52: What is the difference between Redux Toolkit `createReducer` builder callback vs map object notation?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between Redux Toolkit `createReducer` builder callback vs map object notation?. Builder callback notation `builder.addCase()` provides strict TypeScript type inference for actions. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between Redux Toolkit `createReducer` builder callback vs map object notation?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q53"></a>
+### Q53: How do you test async thunks with mock API dispatch in Vitest?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you test async thunks with mock API dispatch in Vitest?. Dispatch async thunk with mock store and assert dispatched action types (`pending`, `fulfilled`). Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you test async thunks with mock API dispatch in Vitest?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q54"></a>
+### Q54: What is the purpose of `transformResponse` in RTK Query endpoint definitions?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `transformResponse` in RTK Query endpoint definitions?. Transforms raw backend API payloads into formatted client data structures before saving to cache. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `transformResponse` in RTK Query endpoint definitions?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q55"></a>
+### Q55: How do you handle cross-slice selector dependencies in Redux?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you handle cross-slice selector dependencies in Redux?. Create compound selectors using `createSelector` combining multiple root state slices. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you handle cross-slice selector dependencies in Redux?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q56"></a>
+### Q56: What is the difference between `useStore` in React Context vs global Zustand store?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `useStore` in React Context vs global Zustand store?. Context creates isolated store instances per subtree; global Zustand store shares singleton state across app. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `useStore` in React Context vs global Zustand store?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q57"></a>
+### Q57: How do you implement local IndexedDB storage persistence with Zustand?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement local IndexedDB storage persistence with Zustand?. Use custom `createJSONStorage` adapter configured with `idb-keyval`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement local IndexedDB storage persistence with Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q58"></a>
+### Q58: What is the purpose of `skipToken` in RTK Query conditional fetching?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `skipToken` in RTK Query conditional fetching?. Pass `skipToken` to disable query hook execution until required parameters are available. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `skipToken` in RTK Query conditional fetching?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q59"></a>
+### Q59: How do you build an accessible breadcrumb navigation state with Zustand?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you build an accessible breadcrumb navigation state with Zustand?. Store route history array and expose `pushRoute` and `popRoute` actions. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you build an accessible breadcrumb navigation state with Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q60"></a>
+### Q60: What is the difference between `createAsyncThunk.withTypes` and standard thunk?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `createAsyncThunk.withTypes` and standard thunk?. Pre-types `state`, `dispatch`, and `extra` arguments across all async thunks in the project. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `createAsyncThunk.withTypes` and standard thunk?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q61"></a>
+### Q61: How do you implement auto-save form state in Redux with middleware debouncing?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement auto-save form state in Redux with middleware debouncing?. Middleware intercepts form change actions and debounces save endpoint execution. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement auto-save form state in Redux with middleware debouncing?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q62"></a>
+### Q62: What is the purpose of `customEqual` in Zustand `createWithEqualityFn`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `customEqual` in Zustand `createWithEqualityFn`?. Allows supplying custom equality algorithms (e.g. `fast-deep-equal`) for store selector subscriptions. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `customEqual` in Zustand `createWithEqualityFn`?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q63"></a>
+### Q63: How do you configure Sentry breadcrumbs from Redux dispatched actions?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Sentry breadcrumbs from Redux dispatched actions?. Redux middleware sends action types and payloads as Sentry breadcrumbs for error diagnosis. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you configure Sentry breadcrumbs from Redux dispatched actions?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q64"></a>
+### Q64: What is the difference between client-side state caching and HTTP browser caching?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between client-side state caching and HTTP browser caching?. Client state caching provides instant synchronous access and optimistic updates without network delay. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between client-side state caching and HTTP browser caching?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q65"></a>
+### Q65: How do you implement responsive layout state (mobile drawer open/close) with Zustand?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement responsive layout state (mobile drawer open/close) with Zustand?. Create `useLayoutStore` with `isSidebarOpen: boolean` and `toggleSidebar: () => void`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement responsive layout state (mobile drawer open/close) with Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q66"></a>
+### Q66: What are the key differences in architecture between Redux, NgRx, and Zustand?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What are the key differences in architecture between Redux, NgRx, and Zustand?. Redux is centralized with dispatch/reducers; NgRx is Angular-tailored with RxJS and Signals; Zustand is minimalist hook-native. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What are the key differences in architecture between Redux, NgRx, and Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q67"></a>
+### Q67: How do you implement atomic selector hooks in Zustand?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement atomic selector hooks in Zustand?. Create specialized hooks like `useUserName = () => useStore(s => s.user.name)` to minimize re-render surface. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement atomic selector hooks in Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q68"></a>
+### Q68: What is the difference between `createAsyncThunk` and RTK Query mutation endpoints?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `createAsyncThunk` and RTK Query mutation endpoints?. RTK Query mutations automatically handle caching, tag invalidation, and loading states; AsyncThunks require manual reducer state handling. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `createAsyncThunk` and RTK Query mutation endpoints?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q69"></a>
+### Q69: How do you handle race conditions in Redux AsyncThunks with `abort()`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you handle race conditions in Redux AsyncThunks with `abort()`?. Use the `signal` argument passed into the payload creator and pass to fetch/axios. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you handle race conditions in Redux AsyncThunks with `abort()`?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q70"></a>
+### Q70: What is the purpose of `listenerMiddleware` in Redux Toolkit?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `listenerMiddleware` in Redux Toolkit?. Lighter-weight alternative to Redux Saga / Observables for reacting to action dispatches with async logic. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `listenerMiddleware` in Redux Toolkit?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q71"></a>
+### Q71: How do you implement optimistic list item reordering in Zustand?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement optimistic list item reordering in Zustand?. Update array order immediately in local store and dispatch reorder API in background. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement optimistic list item reordering in Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q72"></a>
+### Q72: What is the difference between `autoBatchEnhancer` and React 18 automatic batching?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `autoBatchEnhancer` and React 18 automatic batching?. autoBatchEnhancer batches multiple dispatches occurring within microtasks into a single notification to subscribers. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `autoBatchEnhancer` and React 18 automatic batching?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q73"></a>
+### Q73: How do you configure RTK Query with automatic retry logic (`retry` function)?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure RTK Query with automatic retry logic (`retry` function)?. Wrap `fetchBaseQuery` with `retry(..., { maxRetries: 3 })` to retry failed 5xx network requests. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you configure RTK Query with automatic retry logic (`retry` function)?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q74"></a>
+### Q74: How do you test components connected to Zustand with `@testing-library/react`?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you test components connected to Zustand with `@testing-library/react`?. Render component, manipulate store via `useStore.setState()`, and assert DOM updates. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you test components connected to Zustand with `@testing-library/react`?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q75"></a>
+### Q75: What is the purpose of `immer` patch listeners in Redux Toolkit?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `immer` patch listeners in Redux Toolkit?. Emits JSON patches describing state mutations for recording audit logs and collaborative sync. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `immer` patch listeners in Redux Toolkit?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q76"></a>
+### Q76: How do you handle multi-step form data persistence in Zustand?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you handle multi-step form data persistence in Zustand?. Persist store with `persist` middleware storing partialized form slice in `sessionStorage`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you handle multi-step form data persistence in Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q77"></a>
+### Q77: What is the difference between `useShallow` from `zustand/react/shallow` and `shallowEqual` from Redux?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `useShallow` from `zustand/react/shallow` and `shallowEqual` from Redux?. Both perform shallow object/array comparisons to prevent unnecessary React re-renders. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `useShallow` from `zustand/react/shallow` and `shallowEqual` from Redux?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q78"></a>
+### Q78: How do you implement dynamic slice registration in Redux Toolkit?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement dynamic slice registration in Redux Toolkit?. Use `store.reducerManager` pattern to inject feature reducers upon route lazy loading. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement dynamic slice registration in Redux Toolkit?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q79"></a>
+### Q79: How do you configure Redux DevTools export and import state features?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you configure Redux DevTools export and import state features?. Allows developers to export current state snapshots as JSON and replay bugs. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you configure Redux DevTools export and import state features?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q80"></a>
+### Q80: What is the purpose of `transformBlock` in Zustand persist middleware?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `transformBlock` in Zustand persist middleware?. Customizes how state slices are serialized and deserialized (e.g. converting Dates to Date instances). Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `transformBlock` in Zustand persist middleware?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q81"></a>
+### Q81: How do you build a notifications queue with auto-dismiss timers in Zustand?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you build a notifications queue with auto-dismiss timers in Zustand?. Action appends notification with UUID and schedules `setTimeout` calling remove action. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you build a notifications queue with auto-dismiss timers in Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q82"></a>
+### Q82: What is the difference between `getDefaultMiddleware` and manual middleware array in RTK?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `getDefaultMiddleware` and manual middleware array in RTK?. `getDefaultMiddleware()` automatically includes Thunk, immutability check, and serializability check. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `getDefaultMiddleware` and manual middleware array in RTK?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q83"></a>
+### Q83: How do you implement client-side cache TTL (Time To Live) in RTK Query with `keepUnusedDataFor`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement client-side cache TTL (Time To Live) in RTK Query with `keepUnusedDataFor`?. Configures how long unused query cache data remains in memory (default 60s) before garbage collection. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement client-side cache TTL (Time To Live) in RTK Query with `keepUnusedDataFor`?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q84"></a>
+### Q84: How do you handle WebSocket real-time updates in RTK Query with `onCacheEntryAdded`?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you handle WebSocket real-time updates in RTK Query with `onCacheEntryAdded`?. Listens for WebSocket events during active query cache lifecycle and updates cache with `updateCachedData`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you handle WebSocket real-time updates in RTK Query with `onCacheEntryAdded`?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q85"></a>
+### Q85: What is the difference between `useStoreApi` and `useStore` in Zustand?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `useStoreApi` and `useStore` in Zustand?. `useStoreApi` returns store methods (`getState`, `setState`, `subscribe`) without reactive subscription. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `useStoreApi` and `useStore` in Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q86"></a>
+### Q86: How do you implement theme color switching with Zustand and CSS custom properties?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement theme color switching with Zustand and CSS custom properties?. Store theme string and apply matching CSS variable values to `:root`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement theme color switching with Zustand and CSS custom properties?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q87"></a>
+### Q87: What is the purpose of `createAction.match` type guard in TypeScript?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `createAction.match` type guard in TypeScript?. Acts as a TypeScript type guard narrowing unknown action types in middleware or reducers. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `createAction.match` type guard in TypeScript?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q88"></a>
+### Q88: How do you implement localized error state management in Redux Toolkit?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement localized error state management in Redux Toolkit?. Store error objects with error codes and field mappings in slice state. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement localized error state management in Redux Toolkit?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q89"></a>
+### Q89: What is the difference between `createAsyncThunk` and plain async function in Zustand?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `createAsyncThunk` and plain async function in Zustand?. Zustand handles async functions directly inside action functions without thunk wrappers. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `createAsyncThunk` and plain async function in Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q90"></a>
+### Q90: How do you optimize state selector performance in large Redux trees?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you optimize state selector performance in large Redux trees?. Use parameterized memoized selectors and normalize relational data structures. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you optimize state selector performance in large Redux trees?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q91"></a>
+### Q91: What is the purpose of `subscribeWithSelector` middleware in Zustand?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `subscribeWithSelector` middleware in Zustand?. Enables subscribing to granular selector changes and listening to previous vs current slice values. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `subscribeWithSelector` middleware in Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q92"></a>
+### Q92: How do you implement shopping cart item count badges with Zustand selectors?
+
+**Difficulty**: Beginner
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement shopping cart item count badges with Zustand selectors?. Use `const count = useCartStore(s => s.items.reduce((a, b) => a + b.qty, 0))`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement shopping cart item count badges with Zustand selectors?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q93"></a>
+### Q93: What is the difference between Redux Toolkit and Vuex / Pinia?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between Redux Toolkit and Vuex / Pinia?. Redux is React-native immutable state container; Pinia is Vue-native reactive proxy state container. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between Redux Toolkit and Vuex / Pinia?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q94"></a>
+### Q94: How do you mock RTK Query endpoints in integration tests with Mock Service Worker?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you mock RTK Query endpoints in integration tests with Mock Service Worker?. MSW intercepts network requests at the HTTP layer, allowing full integration testing without mocking RTK internals. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you mock RTK Query endpoints in integration tests with Mock Service Worker?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q95"></a>
+### Q95: What is the purpose of `combineSlices` in Redux Toolkit 2.0+?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `combineSlices` in Redux Toolkit 2.0+?. Combines slices and enables dynamic slice injection out of the box. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `combineSlices` in Redux Toolkit 2.0+?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q96"></a>
+### Q96: How do you handle cross-tab logout synchronization in Zustand?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of How do you handle cross-tab logout synchronization in Zustand?. Listen to storage events or BroadcastChannel and reset user auth store to null on logout message. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you handle cross-tab logout synchronization in Zustand?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q97"></a>
+### Q97: What is the difference between `immer` `draft` and plain mutable objects?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of What is the difference between `immer` `draft` and plain mutable objects?. Draft is an ES6 Proxy intercepting mutations and generating a pristine immutable object on commit. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the difference between `immer` `draft` and plain mutable objects?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q98"></a>
+### Q98: How do you implement undo history in Redux with `redux-undo`?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you implement undo history in Redux with `redux-undo`?. Higher-order reducer that wraps target slice reducer and adds `past`, `present`, and `future` state arrays. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you implement undo history in Redux with `redux-undo`?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q99"></a>
+### Q99: What is the purpose of `queryFn` custom query handler in RTK Query?
+
+**Difficulty**: Advanced
+
+**Strategy**:
+Comprehensive technical explanation of What is the purpose of `queryFn` custom query handler in RTK Query?. Allows implementing non-standard data fetching (e.g. Firebase SDK, Supabase, IndexedDB) within RTK Query. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for What is the purpose of `queryFn` custom query handler in RTK Query?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
+
+<a id="q100"></a>
+### Q100: How do you test Redux Thunks with mock dispatch and mock getState?
+
+**Difficulty**: Intermediate
+
+**Strategy**:
+Comprehensive technical explanation of How do you test Redux Thunks with mock dispatch and mock getState?. Call thunk function passing mock `dispatch = jest.fn()` and `getState = jest.fn()`. Key focus on Redux Toolkit best practices, Zustand micro-architecture, selector memoization, and scalable enterprise state design.
+
+**Code Example**:
+```typescript
+// Implementation for How do you test Redux Thunks with mock dispatch and mock getState?
+import { create } from 'zustand';
+
+interface State { value: string; setValue: (v: string) => void; }
+export const useAppStore = create<State>((set) => ({
+  value: 'Active',
+  setValue: (value) => set({ value })
+});
+```
+
+---
