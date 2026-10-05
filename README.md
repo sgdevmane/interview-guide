@@ -110,6 +110,8 @@ To prevent port collisions with standard system services (such as default 3000, 
 14. **📹 WebRTC Peer-to-Peer Mock Interview Room**: Direct browser-to-browser peer video calling and synchronized coding without server relay costs.
 15. **🧠 Spaced Repetition Flashcards (SM-2)**: 3D flip-card study mode with SuperMemo SM-2 interval calculations (`Again`, `Hard`, `Good`, `Easy`).
 16. **🔒 Client-Side E2E Encrypted Notes**: AES-256-GCM encryption with PBKDF2 user passphrase key derivation for confidential candidate notes.
+17. **🌐 Space-Grade Landing Page & Instant Search**: Ambient radial glow, instant hero search with live keyboard shortcuts (`Cmd+K` / `/`), category domain filter tabs, and real-time interactive 3D flashcard flip demo.
+18. **🎛️ Fluid Sidebar Controls Center**: Smooth cubic-bezier expanding accordion with inset controls, symmetrical font sizing and tools grids, custom translucent scrollbars, and zero horizontal layout distortion.
 
 ---
 

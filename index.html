@@ -5,1836 +5,504 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Premium Tech Interview Guide - Master your technical interviews with our comprehensive guide"
+      content="Interview Guide Platform - 55 Specialized Technical Stacks, 5,650+ Production-Grade Questions & Answers, In-Browser Sandboxes, Distributed Systems Simulators, and SM-2 Spaced Repetition."
     />
-    <meta name="theme-color" content="#000000" />
-    <title>Tech Interview Guide - Master Your Technical Interviews</title>
+    <meta name="keywords" content="tech interview guide, system design, rust, docker, kubernetes, algorithms, data structures, low latency, distributed systems, frontend, backend" />
+    <meta name="theme-color" content="#07090e" />
+    <title>Interview Guide Platform | Master Staff+ & Systems Interviews</title>
 
-    <!-- PWA Support & Icons -->
+    <!-- PWA Manifest & App Icons -->
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/splash.css" />
-
-    <!-- Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --primary: #2a2a2a;
-        --primary-dark: #374151;
-        --secondary: #4b5563;
-        --accent: #6b7280;
-        --gold: #22c55e;
-        --text-primary: #f9fafb;
-        --text-secondary: #d1d5db;
-        --text-muted: #9ca3af;
-        --bg-primary: #1f2937;
-        --bg-secondary: #374151;
-        --bg-card: #4b5563;
-        --shadow: 0 20px 25px -5px rgba(31, 41, 55, 0.5),
-          0 10px 10px -5px rgba(31, 41, 55, 0.3);
-        --shadow-lg: 0 25px 50px -12px rgba(31, 41, 55, 0.8);
-        --shadow-gold: 0 0 30px rgba(34, 197, 94, 0.3);
-      }
-
-      body {
-        font-family: "Inter", sans-serif;
-        line-height: 1.6;
-        color: var(--text-primary);
-        background: var(--bg-primary);
-        overflow-x: hidden;
-      }
-
-      /* Navigation */
-      .navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: transparent;
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-        border-bottom: 1px solid transparent;
-        z-index: 1000;
-        transition: all 0.3s ease;
-      }
-
-      .navbar.scrolled {
-        background: rgba(75, 85, 99, 0.95);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid var(--border-color);
-      }
-
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0.5rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 60px;
-      }
-
-      .logo {
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: var(--gold);
-        text-decoration: none;
-        text-shadow: var(--shadow-gold);
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: var(--text-primary);
-        font-weight: 500;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-
-      .nav-links a:hover {
-        color: var(--gold);
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-      }
-
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--gold);
-        transition: width 0.3s ease;
-      }
-
-      .nav-links a:hover::after {
-        width: 100%;
-      }
-
-      .cta-button {
-        background: linear-gradient(135deg, var(--gold), #ffed4e);
-        color: var(--primary);
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 50px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: var(--shadow-gold);
-      }
-
-      .cta-button:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-gold), var(--shadow-lg);
-        background: linear-gradient(135deg, #ffed4e, var(--gold));
-      }
-
-      /* Hero Section with Carousel */
-      .hero {
-        height: 100vh;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        /* background: linear-gradient(
-          135deg,
-          var(--bg-primary) 0%,
-          var(--bg-secondary) 50%,
-          var(--secondary) 100%
-        ); */
-        animation: fadeInUp 1s ease-out;
-      }
-
-      .carousel {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-      }
-
-      .carousel-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .carousel-slide.active {
-        opacity: 1;
-      }
-
-      .carousel-content {
-        text-align: center;
-        color: white;
-        z-index: 2;
-      }
-
-      .carousel-icon {
-        width: 120px;
-        height: 120px;
-        margin: 0 auto 20px;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-        animation: float 3s ease-in-out infinite;
-      }
-
-      .carousel-content h3 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        margin: 0;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-      }
-
-      .carousel-slide::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(
-          circle at center,
-          rgba(255, 215, 0, 0.1) 0%,
-          rgba(0, 0, 0, 0.8) 70%
-        );
-        z-index: 1;
-      }
-
-      .hero-content {
-        text-align: center;
-        color: var(--text-primary);
-        z-index: 2;
-        max-width: 800px;
-        padding: 0 2rem;
-        animation: fadeInUp 1s ease-out;
-      }
-
-      .hero-title {
-        font-size: 4rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, var(--gold), #34d399);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        text-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
-        animation: slideInLeft 1s ease-out 0.3s both;
-      }
-
-      .hero-subtitle {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-        color: var(--text-secondary);
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        animation: slideInRight 1s ease-out 0.6s both;
-      }
-
-      .hero-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        animation: scaleIn 1s ease-out 0.9s both;
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, var(--gold), #34d399);
-        color: var(--primary);
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: 50px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
-        display: inline-block;
-      }
-
-      .btn-secondary {
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-        padding: 1rem 2rem;
-        border: 2px solid rgba(34, 197, 94, 0.5);
-        border-radius: 50px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        display: inline-block;
-      }
-
-      .btn-primary:hover,
-      .btn-secondary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 25px 50px -12px rgba(34, 197, 94, 0.4);
-      }
-
-      /* Features Section */
-      .features {
-        padding: 6rem 2rem;
-        background: var(--bg-secondary);
-        position: relative;
-      }
-
-      .feature-card {
-        animation: fadeInUp 0.8s ease-out both;
-      }
-
-      .feature-card:nth-child(1) {
-        animation-delay: 0.2s;
-      }
-      .feature-card:nth-child(2) {
-        animation-delay: 0.4s;
-      }
-      .feature-card:nth-child(3) {
-        animation-delay: 0.6s;
-      }
-
-      .features::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23000" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-        z-index: 0;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-      }
-
-      .section-title {
-        text-align: center;
-        font-size: 3rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, var(--gold), #ffed4e);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .section-subtitle {
-        text-align: center;
-        font-size: 1.2rem;
-        color: var(--text-secondary);
-        margin-bottom: 4rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-      }
-
-      .feature-card {
-        background: var(--bg-card);
-        padding: 2.5rem;
-        border-radius: 20px;
-        box-shadow: var(--shadow);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        border: 1px solid rgba(255, 215, 0, 0.1);
-      }
-
-      .feature-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: linear-gradient(135deg, var(--gold), #ffed4e);
-      }
-
-      .feature-card:hover {
-        transform: translateY(-10px);
-        box-shadow: var(--shadow-lg);
-        border-color: rgba(255, 215, 0, 0.3);
-      }
-
-      .feature-icon {
-        width: 60px;
-        height: 60px;
-        background: linear-gradient(135deg, var(--gold), #34d399);
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        margin-bottom: 1.5rem;
-        color: var(--primary);
-      }
-
-      .feature-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        color: var(--text-primary);
-      }
-
-      .feature-description {
-        color: var(--text-secondary);
-        line-height: 1.7;
-      }
-
-      /* Testimonials Section */
-      .testimonials {
-        padding: 6rem 2rem;
-        background: var(--bg-primary);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .testimonials::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          45deg,
-          transparent 30%,
-          rgba(255, 215, 0, 0.05) 50%,
-          transparent 70%
-        );
-        animation: shimmer 3s ease-in-out infinite;
-      }
-
-      @keyframes shimmer {
-        0%,
-        100% {
-          transform: translateX(-100%);
-        }
-        50% {
-          transform: translateX(100%);
-        }
-      }
-
-      .testimonials h2 {
-        text-align: center;
-        color: var(--text-primary);
-        margin-bottom: 3rem;
-        font-size: 2.5rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, var(--gold), #ffed4e);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .testimonial-slider {
-        max-width: 800px;
-        margin: 0 auto;
-        position: relative;
-      }
-
-      .testimonial-slide {
-        display: none;
-        text-align: center;
-        padding: 3rem;
-        background: var(--bg-card);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 215, 0, 0.1);
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-      }
-
-      .testimonial-slide.active {
-        display: block;
-        animation: fadeInUp 0.6s ease;
-      }
-
-      .testimonial-content {
-        font-size: 1.2rem;
-        color: var(--text-secondary);
-        line-height: 1.8;
-        margin-bottom: 2rem;
-        font-style: italic;
-      }
-
-      .testimonial-author {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      .author-avatar {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--gold), #ffed4e);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        color: var(--primary);
-        font-weight: bold;
-      }
-
-      .author-info h4 {
-        color: var(--text-primary);
-        margin: 0;
-        font-size: 1.1rem;
-      }
-
-      .author-info p {
-        color: var(--text-secondary);
-        margin: 5px 0 0 0;
-        font-size: 0.9rem;
-      }
-
-      .testimonial-dots {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 2rem;
-      }
-
-      .dot {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--accent);
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .dot.active {
-        background: var(--gold);
-        transform: scale(1.2);
-      }
-
-      /* Email Subscription Section */
-      .email-subscription {
-        padding: 6rem 2rem;
-        background: linear-gradient(
-          135deg,
-          var(--bg-secondary),
-          var(--bg-primary)
-        );
-        text-align: center;
-      }
-
-      .subscription-content h2 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-        background: linear-gradient(135deg, var(--gold), #ffed4e);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .subscription-content p {
-        font-size: 1.2rem;
-        color: var(--text-secondary);
-        margin-bottom: 3rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .subscription-form {
-        display: flex;
-        max-width: 500px;
-        margin: 0 auto;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .subscription-form input {
-        flex: 1;
-        padding: 1rem 1.5rem;
-        border: 1px solid rgba(255, 215, 0, 0.3);
-        border-radius: 50px;
-        background: var(--bg-card);
-        color: var(--text-primary);
-        font-size: 1rem;
-        min-width: 250px;
-      }
-
-      .subscription-form input::placeholder {
-        color: var(--text-muted);
-      }
-
-      .subscription-form button {
-        background: linear-gradient(135deg, var(--gold), #ffed4e);
-        color: var(--primary);
-        padding: 1rem 2rem;
-        border: none;
-        border-radius: 50px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        white-space: nowrap;
-      }
-
-      .subscription-form button:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-gold);
-      }
-
-      /* Image Carousel Section */
-      .image-carousel {
-        padding: 6rem 2rem;
-        background: var(--bg-secondary);
-      }
-
-      .image-carousel h2 {
-        text-align: center;
-        color: var(--text-primary);
-        margin-bottom: 3rem;
-        font-size: 2.5rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, var(--gold), #ffed4e);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .image-slider {
-        max-width: 1000px;
-        margin: 0 auto;
-        position: relative;
-        overflow: hidden;
-        border-radius: 20px;
-        box-shadow: var(--shadow-lg);
-      }
-
-      .image-slides {
-        display: flex;
-        transition: transform 0.5s ease;
-      }
-
-      .image-slide {
-        min-width: 100%;
-        height: 400px;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .image-slide::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(
-          45deg,
-          rgba(0, 0, 0, 0.3) 0%,
-          transparent 50%,
-          rgba(0, 0, 0, 0.3) 100%
-        );
-      }
-
-      .slide-content {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        color: white;
-      }
-
-      .slide-content h3 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      }
-
-      .slide-content p {
-        font-size: 1.2rem;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-      }
-
-      .image-nav {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: rgba(0, 0, 0, 0.5);
-        color: var(--gold);
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 1.5rem;
-        transition: all 0.3s ease;
-        z-index: 3;
-      }
-
-      .image-nav:hover {
-        background: var(--gold);
-        color: var(--primary);
-        transform: translateY(-50%) scale(1.1);
-      }
-
-      .image-nav.prev {
-        left: 20px;
-      }
-
-      .image-nav.next {
-        right: 20px;
-      }
-
-      .image-indicators {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 2rem;
-      }
-
-      .image-indicator {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: var(--accent);
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
-
-      .image-indicator.active {
-        background: var(--gold);
-        transform: scale(1.2);
-      }
-
-      /* Contact Section */
-      .contact {
-        padding: 6rem 2rem;
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-dark)
-        );
-        color: white;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .contact::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        right: -50%;
-        width: 100%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.1) 0%,
-          transparent 70%
-        );
-        animation: float 6s ease-in-out infinite;
-      }
-
-      .contact-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-        align-items: center;
-        position: relative;
-        z-index: 1;
-      }
-
-      .contact-info h2 {
-        font-size: 2.5rem;
-        font-weight: 800;
-        margin-bottom: 1rem;
-      }
-
-      /* Footer */
-      .footer {
-        background: var(--bg-secondary);
-        color: var(--text-primary);
-        text-align: center;
-        padding: 3rem 2rem;
-        border-top: 1px solid var(--accent);
-      }
-
-      .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .footer-links {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 2rem;
-        flex-wrap: wrap;
-      }
-
-      .footer-links a {
-        color: var(--text-secondary);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        position: relative;
-      }
-
-      .footer-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--gold);
-        transition: width 0.3s ease;
-      }
-
-      .footer-links a:hover {
-        color: var(--gold);
-      }
-
-      .footer-links a:hover::after {
-        width: 100%;
-      }
-
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
-      }
-
-      .social-links a {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        background: rgba(34, 197, 94, 0.1);
-        border: 1px solid var(--accent);
-        border-radius: 50%;
-        line-height: 48px;
-        text-align: center;
-        color: var(--gold);
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 1.2rem;
-      }
-
-      .social-links a:hover {
-        background: var(--gold);
-        color: var(--primary);
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-gold);
-      }
-
-      .footer-bottom {
-        padding-top: 2rem;
-        border-top: 1px solid var(--accent);
-        color: var(--text-muted);
-      }
-
-      /* Animations */
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slideInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes slideInRight {
-        from {
-          opacity: 0;
-          transform: translateX(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-      }
-
-      @keyframes glow {
-        0%,
-        100% {
-          box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-        }
-        50% {
-          box-shadow: 0 0 40px rgba(34, 197, 94, 0.6);
-        }
-      }
-
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes slideInLeft {
-        from {
-          opacity: 0;
-          transform: translateX(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes slideInRight {
-        from {
-          opacity: 0;
-          transform: translateX(50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateX(0);
-        }
-      }
-
-      @keyframes scaleIn {
-        from {
-          opacity: 0;
-          transform: scale(0.8);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1);
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-      }
-
-      .animate-on-scroll.animated {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .success-message {
-        background: linear-gradient(135deg, #10b981, #059669);
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 10px;
-        margin-top: 1rem;
-        display: none;
-        animation: fadeInUp 0.5s ease;
-      }
-
-      .success-message.show {
-        display: block;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 1024px) {
-        .nav-container {
-          padding: 0 2rem;
-        }
-
-        .hero-title {
-          font-size: 3rem;
-        }
-
-        .features-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-
-        .nav-container {
-          padding: 0 1rem;
-        }
-
-        .hero-title {
-          font-size: 2.5rem;
-        }
-
-        .hero-subtitle {
-          font-size: 1.1rem;
-        }
-
-        .hero-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .features-grid {
-          grid-template-columns: 1fr;
-          gap: 1.5rem;
-        }
-
-        .subscription-form {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .subscription-form input {
-          min-width: 100%;
-          margin-bottom: 1rem;
-        }
-
-        .contact-content {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-
-        .section-title {
-          font-size: 2rem;
-        }
-
-        .footer-links {
-          flex-direction: column;
-          gap: 1rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero-title {
-          font-size: 2rem;
-        }
-
-        .hero-subtitle {
-          font-size: 1rem;
-        }
-
-        .btn-primary,
-        .btn-secondary {
-          padding: 0.8rem 1.5rem;
-          font-size: 0.9rem;
-        }
-
-        .feature-card {
-          padding: 2rem 1.5rem;
-        }
-
-        .section-title {
-          font-size: 1.8rem;
-        }
-      }
-
-      /* Parallax Effect */
-      .parallax {
-        transform: translateZ(0);
-        will-change: transform;
-      }
-    </style>
+    <link rel="stylesheet" href="assets/css/landing.css" />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <a href="#" class="logo">📚 TechBook</a>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="dashboard.html" class="cta-button">Go to Dashboard</a></li>
-        </ul>
-      </div>
-    </nav>
+    <!-- Ambient Radial Mesh Glow -->
+    <div class="ambient-glow" aria-hidden="true"></div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-      <div class="carousel">
-        <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')">
-          <div class="carousel-content">
-            <!-- Content here -->
+    <!-- Navigation Bar -->
+    <header>
+      <nav class="navbar" id="mainNavbar">
+        <div class="nav-container">
+          <a href="#" class="nav-brand" aria-label="Interview Guide Home">
+            <img src="assets/icons/interview_guide_logo.png" alt="Interview Guide Logo" class="nav-brand-logo" />
+            <div class="nav-brand-title">
+              <span>Interview Guide</span>
+              <span class="badge-pro">v2.0 PRO</span>
+            </div>
+          </a>
+
+          <ul class="nav-links">
+            <li><a href="#topics" class="nav-link">55 Stacks</a></li>
+            <li><a href="#features" class="nav-link">Superpowers</a></li>
+            <li><a href="#flashcards" class="nav-link">Flashcards (SM-2)</a></li>
+            <li><a href="#cli" class="nav-link">Terminal TUI</a></li>
+            <li><a href="#architecture" class="nav-link">Architecture</a></li>
+          </ul>
+
+          <div class="nav-actions">
+            <div class="search-shortcut-pill" id="searchShortcutPill" title="Quick Search (Press Cmd+K or /)">
+              <span>🔍 Search</span>
+              <kbd>⌘K</kbd>
+            </div>
+            <a href="dashboard.html" class="btn-launch-nav">
+              <span>Launch Platform</span>
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
-        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
-        <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')"></div>
-      </div>
+      </nav>
+    </header>
 
-      <div class="hero-content">
-        <h1 class="hero-title">Master Your Tech Interview</h1>
-        <p class="hero-subtitle">
-          The most comprehensive, interactive, and up-to-date guide for
-          developers. Ace your next interview with confidence.
-        </p>
-        <div class="hero-buttons">
-          <a href="dashboard.html" class="btn-primary">Start Learning</a>
-          <a href="#topics" class="btn-secondary">Explore Topics</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Topics Grid Section -->
-    <section class="features" id="topics">
-      <div class="container">
-        <h2 class="section-title">Explore All Topics</h2>
-        <p class="section-subtitle">Comprehensive interview questions across all major technologies</p>
-        <div class="features-grid">
-    <a href="/markdowns/javascript/javascript-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">📜</div>
-      <h3 class="feature-title">JavaScript</h3>
-      <p class="feature-description">Core JS, ES6+, Closures, Event Loop, Memory, Promises</p>
-    </a>
-    <a href="/markdowns/typescript/typescript-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🔷</div>
-      <h3 class="feature-title">TypeScript</h3>
-      <p class="feature-description">Type System, Generics, Conditional Types, tsconfig</p>
-    </a>
-    <a href="/markdowns/react/react-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">⚛️</div>
-      <h3 class="feature-title">React.js</h3>
-      <p class="feature-description">React 18/19, Hooks, Fiber Architecture, RSC, Suspense</p>
-    </a>
-    <a href="/markdowns/nextjs/nextjs-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">▲</div>
-      <h3 class="feature-title">Next.js</h3>
-      <p class="feature-description">App Router, Server Actions, Caching, Middleware, ISR</p>
-    </a>
-    <a href="/markdowns/angular/angular-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🅰️</div>
-      <h3 class="feature-title">Angular 14-18</h3>
-      <p class="feature-description">Standalone Components, Signals, RxJS, DI, Directives</p>
-    </a>
-    <a href="/markdowns/vue/vue-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">💚</div>
-      <h3 class="feature-title">Vue.js 3</h3>
-      <p class="feature-description">Composition API, Reactivity, Pinia, Nuxt 3, Teleport</p>
-    </a>
-    <a href="/markdowns/svelte/svelte-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🔥</div>
-      <h3 class="feature-title">Svelte & SvelteKit</h3>
-      <p class="feature-description">Runes, Svelte 5, Compiler Reactivity, SSR, Hydration</p>
-    </a>
-    <a href="/markdowns/html/html-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🌐</div>
-      <h3 class="feature-title">HTML5 & Web APIs</h3>
-      <p class="feature-description">Semantic HTML, Accessibility, Web Components, Service Workers</p>
-    </a>
-    <a href="/markdowns/css/css-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🎨</div>
-      <h3 class="feature-title">CSS3 & Modern Styling</h3>
-      <p class="feature-description">Flexbox, CSS Grid, Custom Properties, Animations</p>
-    </a>
-    <a href="/markdowns/tailwind-bootstrap/tailwind-bootstrap-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🌊</div>
-      <h3 class="feature-title">Tailwind & Bootstrap</h3>
-      <p class="feature-description">Tailwind JIT, Design Tokens, CSS Grid, Utility API</p>
-    </a>
-    <a href="/markdowns/material-radix-ui/material-radix-ui-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">📐</div>
-      <h3 class="feature-title">Material & Radix UI</h3>
-      <p class="feature-description">Component Primitives, WAI-ARIA, Theming, Customization</p>
-    </a>
-    <a href="/markdowns/webpack-babel-vite/webpack-babel-vite-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">⚡</div>
-      <h3 class="feature-title">Webpack, Babel & Vite</h3>
-      <p class="feature-description">Native ESM, Module Federation, AST Plugins, HMR</p>
-    </a>
-    <a href="/markdowns/performance/performance-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🚀</div>
-      <h3 class="feature-title">Web Performance</h3>
-      <p class="feature-description">Core Web Vitals, Critical Rendering Path, GPU Compositing</p>
-    </a>
-    <a href="/markdowns/microfrontend/microfrontend-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🧩</div>
-      <h3 class="feature-title">Micro-frontends</h3>
-      <p class="feature-description">Module Federation, Single-SPA, Web Components, Routing</p>
-    </a>
-    <a href="/markdowns/ngrx/ngrx-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🔄</div>
-      <h3 class="feature-title">NgRx</h3>
-      <p class="feature-description">Store, Effects, Entity, ComponentStore, SignalStore</p>
-    </a>
-    <a href="/markdowns/redux-zustand/redux-zustand-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🟣</div>
-      <h3 class="feature-title">Redux & Zustand</h3>
-      <p class="feature-description">RTK Query, Immer, Zustand Slices, State Optimization</p>
-    </a>
-    <a href="/markdowns/nodejs/nodejs-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🟢</div>
-      <h3 class="feature-title">Node.js</h3>
-      <p class="feature-description">Event Loop, libuv, Streams, Worker Threads, Microservices</p>
-    </a>
-    <a href="/markdowns/python/python-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🐍</div>
-      <h3 class="feature-title">Python & Django</h3>
-      <p class="feature-description">GIL, Asyncio, Generators, Metaclasses, Django ORM</p>
-    </a>
-    <a href="/markdowns/java/java-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">☕</div>
-      <h3 class="feature-title">Java & Spring Boot</h3>
-      <p class="feature-description">Virtual Threads, JVM Memory, Spring Boot 3, Concurrency</p>
-    </a>
-    <a href="/markdowns/golang/golang-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🐹</div>
-      <h3 class="feature-title">Go (Golang)</h3>
-      <p class="feature-description">Goroutines, Channels, Interfaces, Garbage Collector</p>
-    </a>
-    <a href="/markdowns/rust/rust-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🦀</div>
-      <h3 class="feature-title">Rust 2024 & Tokio</h3>
-      <p class="feature-description">Ownership, Lifetimes, Tokio Async, Pinning, Memory Safety</p>
-    </a>
-    <a href="/markdowns/dotnet/dotnet-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🔧</div>
-      <h3 class="feature-title">.NET 8 & C# 12</h3>
-      <p class="feature-description">CLR GC, Span<T>, Async State Machines, ASP.NET Core</p>
-    </a>
-    <a href="/markdowns/cpp/cpp-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">💻</div>
-      <h3 class="feature-title">Modern C++</h3>
-      <p class="feature-description">Move Semantics, RAII, Memory Model, Concepts, C++20/23</p>
-    </a>
-    <a href="/markdowns/graphql/graphql-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🕸️</div>
-      <h3 class="feature-title">GraphQL</h3>
-      <p class="feature-description">Schema Design, Resolvers, Subscriptions, DataLoader</p>
-    </a>
-    <a href="/markdowns/database/database-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">💾</div>
-      <h3 class="feature-title">Database & SQL</h3>
-      <p class="feature-description">Indexing, ACID, Query Optimization, Sharding, Replication</p>
-    </a>
-    <a href="/markdowns/microservices/microservices-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🌩️</div>
-      <h3 class="feature-title">Microservices</h3>
-      <p class="feature-description">Service Discovery, Saga Pattern, Circuit Breakers, Kafka</p>
-    </a>
-    <a href="/markdowns/integration/integration-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🔌</div>
-      <h3 class="feature-title">Integration & APIs</h3>
-      <p class="feature-description">REST, GraphQL, gRPC, OAuth2 PKCE, Webhooks, API Gateways</p>
-    </a>
-    <a href="/markdowns/security/security-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🛡️</div>
-      <h3 class="feature-title">Application Security</h3>
-      <p class="feature-description">XSS, CSRF, SQLi, CSP, JWT Security, Cryptography</p>
-    </a>
-    <a href="/markdowns/swift-swiftui/swift-swiftui-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🍎</div>
-      <h3 class="feature-title">Swift & SwiftUI</h3>
-      <p class="feature-description">Swift Concurrency, SwiftUI, ARC, SwiftData, iOS Architecture</p>
-    </a>
-    <a href="/markdowns/kotlin/kotlin-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🤖</div>
-      <h3 class="feature-title">Kotlin & Android</h3>
-      <p class="feature-description">Coroutines, Jetpack Compose, Flows, KMP, Android Lifecycle</p>
-    </a>
-    <a href="/markdowns/flutter/flutter-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">💙</div>
-      <h3 class="feature-title">Flutter & Dart</h3>
-      <p class="feature-description">Widget Trees, Isolates, Bloc, Riverpod, Impeller Engine</p>
-    </a>
-    <a href="/markdowns/react-native/react-native-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">📱</div>
-      <h3 class="feature-title">React Native</h3>
-      <p class="feature-description">New Architecture, Fabric, JSI, Hermes, Reanimated 3</p>
-    </a>
-    <a href="/markdowns/docker/docker-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🐳</div>
-      <h3 class="feature-title">Docker & Containers</h3>
-      <p class="feature-description">Namespaces, Cgroups, Multi-Stage Builds, OverlayFS</p>
-    </a>
-    <a href="/markdowns/kubernetes/kubernetes-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">☸️</div>
-      <h3 class="feature-title">Kubernetes</h3>
-      <p class="feature-description">Pods, Deployments, Services, Ingress, Operators, Helm</p>
-    </a>
-    <a href="/markdowns/aws/aws-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">☁️</div>
-      <h3 class="feature-title">AWS Cloud Architecture</h3>
-      <p class="feature-description">Serverless, Well-Architected Framework, DynamoDB, IAM</p>
-    </a>
-    <a href="/markdowns/git/git-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🌿</div>
-      <h3 class="feature-title">Git Version Control</h3>
-      <p class="feature-description">Branching, Rebasing, Worktrees, Cherry-pick, Reflog</p>
-    </a>
-    <a href="/markdowns/linux/linux-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🐧</div>
-      <h3 class="feature-title">Linux & Shell</h3>
-      <p class="feature-description">Kernel, Inodes, Systemd, Process Signals, Bash Scripting</p>
-    </a>
-    <a href="/markdowns/algorithms/algorithms-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🧠</div>
-      <h3 class="feature-title">Algorithms</h3>
-      <p class="feature-description">Dynamic Programming, Graph Traversal, Sorting, Searching</p>
-    </a>
-    <a href="/markdowns/data-structures/data-structures-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🌲</div>
-      <h3 class="feature-title">Data Structures</h3>
-      <p class="feature-description">Arrays, Trees, Graphs, Heaps, Hash Tables, Big-O</p>
-    </a>
-    <a href="/markdowns/system-design/system-design-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🏗️</div>
-      <h3 class="feature-title">System Design</h3>
-      <p class="feature-description">Scalability, Load Balancing, Caching, CAP Theorem, Event-Driven</p>
-    </a>
-    <a href="/markdowns/design-patterns/design-patterns-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🎯</div>
-      <h3 class="feature-title">Design Patterns</h3>
-      <p class="feature-description">Creational, Structural, Behavioral, Clean Code</p>
-    </a>
-    <a href="/markdowns/testing/testing-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🧪</div>
-      <h3 class="feature-title">Testing & QA</h3>
-      <p class="feature-description">Unit Testing, MSW, RTL, Playwright, Mocking</p>
-    </a>
-    <a href="/markdowns/behavioral/behavioral-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">👥</div>
-      <h3 class="feature-title">Behavioral & Leadership</h3>
-      <p class="feature-description">STAR Method, Conflict Resolution, System Outages, and Leadership</p>
-    </a>
-    <a href="/markdowns/devsecops/devsecops-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🔒</div>
-      <h3 class="feature-title">DevSecOps & Threat Modeling</h3>
-      <p class="feature-description">STRIDE, Zero-Trust, Supply Chain Security, SBOM, and Container Hardening</p>
-    </a>
-    <a href="/markdowns/ai-engineering/ai-engineering-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🤖</div>
-      <h3 class="feature-title">AI Engineering & LLMs</h3>
-      <p class="feature-description">RAG, Transformers, LoRA, Vector Databases, and Agents</p>
-    </a>
-    <a href="/markdowns/sre/sre-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">📊</div>
-      <h3 class="feature-title">Site Reliability Engineering (SRE)</h3>
-      <p class="feature-description">SLOs, Error Budgets, OpenTelemetry, Incident Response, and Chaos Engineering</p>
-    </a>
-    <a href="/markdowns/fintech/fintech-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">📈</div>
-      <h3 class="feature-title">Low-Latency FinTech (HFT)</h3>
-      <p class="feature-description">Kernel Bypass, DPDK, LMAX Disruptor, Limit Order Books, and FIX Protocol</p>
-    </a>
-    <a href="/markdowns/embedded/embedded-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">📟</div>
-      <h3 class="feature-title">Embedded Systems & RTOS</h3>
-      <p class="feature-description">FreeRTOS, Priority Inversion, Memory-Mapped I/O, ISRs, and DMA</p>
-    </a>
-    <a href="/markdowns/web3-solidity/web3-solidity-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">⛓️</div>
-      <h3 class="feature-title">Web3 & Solidity Security</h3>
-      <p class="feature-description">Reentrancy, Storage Slot Packing, Flash Loans, EVM Internals, and MEV</p>
-    </a>
-    <a href="/markdowns/compiler-design/compiler-design-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">⚙️</div>
-      <h3 class="feature-title">Compiler Design & LLVM</h3>
-      <p class="feature-description">SSA Form, LR Parsers, JIT Compilation, LLVM IR, and Register Allocation</p>
-    </a>
-    <a href="/markdowns/linux-kernel-ebpf/linux-kernel-ebpf-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🔬</div>
-      <h3 class="feature-title">Linux Kernel & eBPF</h3>
-      <p class="feature-description">eBPF Verifier, XDP Line-Rate Packet Filtering, Ring Buffers, and Kernel Internals</p>
-    </a>
-    <a href="/markdowns/distributed-storage/distributed-storage-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">💽</div>
-      <h3 class="feature-title">Distributed Storage</h3>
-      <p class="feature-description">Ceph CRUSH, LSM Trees, NVMe-oF, Erasure Coding, and ZFS</p>
-    </a>
-    <a href="/markdowns/cryptography-zk/cryptography-zk-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🔐</div>
-      <h3 class="feature-title">Applied Cryptography & ZK</h3>
-      <p class="feature-description">ECDSA, zk-SNARKs, AES-GCM AEAD, Constant-Time Implementations, and R1CS</p>
-    </a>
-    <a href="/markdowns/graphics-webgpu/graphics-webgpu-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🎮</div>
-      <h3 class="feature-title">Graphics & WebGPU</h3>
-      <p class="feature-description">WebGPU Compute Pipelines, WGSL, Memory Coalescing, PSOs, and Workgroups</p>
-    </a>
-    <a href="/markdowns/networking-protocols/networking-protocols-questions.md" class="feature-card" style="text-decoration: none; display: block; color: inherit;">
-      <div class="feature-icon">🌐</div>
-      <h3 class="feature-title">Networking & Protocols</h3>
-      <p class="feature-description">HTTP/3, QUIC 0-RTT, Head-of-Line Blocking, Protobuf Varints, and BBR</p>
-    </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-      <div class="container">
-        <h2>What Our Users Say</h2>
-        <div class="testimonial-slider">
-          <div class="testimonial-slide active">
-            <div class="testimonial-content">
-              "This platform has completely transformed how I approach interview
-              preparation. The comprehensive guides and interactive features
-              make learning engaging and effective."
-            </div>
-            <div class="testimonial-author">
-              <div class="author-avatar">S</div>
-              <div class="author-info">
-                <h4>Sarah Johnson</h4>
-                <p>Software Engineer at Google</p>
-              </div>
-            </div>
+    <main>
+      <!-- Hero Section -->
+      <section class="hero" id="home">
+        <div class="container">
+          <div class="hero-pill-badge">
+            <span class="status-dot"></span>
+            <span>v2.0 Production Release • 55 Specialized Stacks • 5,650+ Questions</span>
           </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-content">
-              "The quality of content and the user experience is outstanding.
-              I've recommended this to all my colleagues preparing for technical
-              interviews."
-            </div>
-            <div class="testimonial-author">
-              <div class="author-avatar">M</div>
-              <div class="author-info">
-                <h4>Michael Chen</h4>
-                <p>Senior Developer at Microsoft</p>
-              </div>
-            </div>
-          </div>
-          <div class="testimonial-slide">
-            <div class="testimonial-content">
-              "Incredible resource! The structured approach and comprehensive
-              coverage helped me land my dream job. Highly recommended for
-              anyone serious about their career."
-            </div>
-            <div class="testimonial-author">
-              <div class="author-avatar">A</div>
-              <div class="author-info">
-                <h4>Alex Rodriguez</h4>
-                <p>Full Stack Developer at Amazon</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-dots">
-          <span class="dot active" onclick="currentTestimonial(1)"></span>
-          <span class="dot" onclick="currentTestimonial(2)"></span>
-          <span class="dot" onclick="currentTestimonial(3)"></span>
-        </div>
-      </div>
-    </section>
 
-    <!-- Image Carousel Section -->
-    <section class="image-carousel">
-      <div class="container">
-        <h2>Experience Excellence</h2>
-        <div class="image-slider">
-          <div class="image-slides" id="imageSlides">
-            <div
-              class="image-slide"
-              style="
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              "
-            >
-              <div class="slide-content">
-                <h3>Modern Interface</h3>
-                <p>
-                  Clean, intuitive design that enhances your learning experience
-                </p>
-              </div>
-            </div>
-            <div
-              class="image-slide"
-              style="
-                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-              "
-            >
-              <div class="slide-content">
-                <h3>Comprehensive Content</h3>
-                <p>
-                  Everything you need to succeed in your technical interviews
-                </p>
-              </div>
-            </div>
-            <div
-              class="image-slide"
-              style="
-                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-              "
-            >
-              <div class="slide-content">
-                <h3>Interactive Learning</h3>
-                <p>Engage with dynamic content and real-world scenarios</p>
-              </div>
-            </div>
-            <div
-              class="image-slide"
-              style="
-                background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-              "
-            >
-              <div class="slide-content">
-                <h3>Expert Guidance</h3>
-                <p>
-                  Learn from industry professionals and proven methodologies
-                </p>
-              </div>
-            </div>
-          </div>
-          <button class="image-nav prev" onclick="changeImageSlide(-1)">
-            ‹
-          </button>
-          <button class="image-nav next" onclick="changeImageSlide(1)">
-            ›
-          </button>
-        </div>
-        <div class="image-indicators">
-          <span
-            class="image-indicator active"
-            onclick="currentImageSlide(1)"
-          ></span>
-          <span class="image-indicator" onclick="currentImageSlide(2)"></span>
-          <span class="image-indicator" onclick="currentImageSlide(3)"></span>
-          <span class="image-indicator" onclick="currentImageSlide(4)"></span>
-        </div>
-      </div>
-    </section>
+          <h1 class="hero-title">
+            Architect Your Technical Mastery with <span class="text-gradient">Production Rigor</span>
+          </h1>
 
-    <!-- Email Subscription Section -->
-    <section class="email-subscription">
-      <div class="container">
-        <div class="subscription-content">
-          <h2>Stay Updated</h2>
-          <p>
-            Subscribe to our newsletter and get the latest interview tips,
-            industry insights, and exclusive content delivered straight to your
-            inbox.
+          <p class="hero-description">
+            The definitive local-first interview preparation platform for Staff/Principal, High-Frequency Trading, Distributed Systems, and Full-Stack Engineers. 100% tokenless, instant client-side execution, and exhaustive real-world scenarios.
           </p>
-          <form class="subscription-form" id="subscriptionForm">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              required
-              id="emailInput"
-            />
-            <button type="submit">Subscribe Now</button>
-          </form>
-          <div class="success-message" id="successMessage">
-            🎉 Thank you for subscribing! You'll receive our latest updates
-            soon.
+
+          <!-- Hero Instant Search -->
+          <div class="hero-search-wrapper">
+            <div class="hero-search-box">
+              <span class="hero-search-icon">🔍</span>
+              <input
+                type="text"
+                id="heroSearchInput"
+                class="hero-search-input"
+                placeholder="Search 5,650+ questions across 55 technologies... (Press / to search)"
+                autocomplete="off"
+                aria-label="Search questions and technologies"
+              />
+              <button class="hero-search-btn" onclick="document.getElementById('heroSearchInput').focus()">
+                <span>Explore</span>
+                <span aria-hidden="true">↵</span>
+              </button>
+            </div>
+
+            <!-- Quick Search Dropdown -->
+            <div class="search-dropdown" id="heroSearchDropdown" role="listbox"></div>
+          </div>
+
+          <!-- Popular Tech Chips -->
+          <div class="hero-chips-container">
+            <span class="chips-label">Popular Stacks:</span>
+            <a href="dashboard.html#rust" class="topic-chip">🦀 Rust 2024 & Tokio</a>
+            <a href="dashboard.html#system-design" class="topic-chip">📐 System Design</a>
+            <a href="dashboard.html#fintech" class="topic-chip">📈 Low-Latency FinTech</a>
+            <a href="dashboard.html#docker" class="topic-chip">🐳 Docker & Containers</a>
+            <a href="dashboard.html#kubernetes" class="topic-chip">☸️ Kubernetes</a>
+            <a href="dashboard.html#linux-kernel-ebpf" class="topic-chip">⚡ Linux Kernel & eBPF</a>
+            <a href="dashboard.html#react" class="topic-chip">⚛️ React 19</a>
+          </div>
+
+          <!-- Hero Call To Actions -->
+          <div class="hero-buttons">
+            <a href="dashboard.html" class="btn-primary-hero">
+              <span>Launch Interactive Dashboard</span>
+              <span aria-hidden="true">⚡</span>
+            </a>
+            <a href="#topics" class="btn-secondary-hero">
+              <span>Explore 55 Technologies</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <!-- Metrics Strip -->
+          <div class="hero-stats-grid">
+            <div class="stat-card">
+              <span class="stat-number">55</span>
+              <span class="stat-label">Specialized Domains</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">5,651</span>
+              <span class="stat-label">Verified Questions</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Per Technology</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">0</span>
+              <span class="stat-label">Tokens / 100% Free</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">&lt; 1ms</span>
+              <span class="stat-label">Inverted Index Search</span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- Superpowers & Interactive Features Section -->
+      <section class="showcase-section" id="features">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Platform Superpowers</span>
+            <h2 class="section-title">Engineered for Deep Technical Mastery</h2>
+            <p class="section-subtitle">
+              Beyond passive reading. We provide hands-on sandboxes, distributed consensus simulators, and memory retention algorithms running 100% in your browser.
+            </p>
+          </div>
+
+          <div class="showcase-grid">
+            <!-- Superpower 1 -->
+            <div class="showcase-card">
+              <div class="showcase-icon-box">⚡</div>
+              <h3 class="showcase-title">In-Browser Code & SQL Sandbox</h3>
+              <p class="showcase-desc">
+                Evaluate modern JavaScript/TypeScript and execute relational SQL queries against virtual database tables with tabular output directly in the client. Zero server roundtrip latency.
+              </p>
+              <span class="showcase-badge">Web Workers • Virtual SQL Engine</span>
+            </div>
+
+            <!-- Superpower 2 -->
+            <div class="showcase-card">
+              <div class="showcase-icon-box cyan">🚢</div>
+              <h3 class="showcase-title">Raft Consensus & LSM-Tree Visualizer</h3>
+              <p class="showcase-desc">
+                Interactive 3-node distributed consensus simulation with heartbeats, election timeouts, and leader crash triggers. Plus live LSM-tree MemTable to SSTable compaction animations.
+              </p>
+              <span class="showcase-badge">Distributed Systems • HTML5 Canvas</span>
+            </div>
+
+            <!-- Superpower 3 -->
+            <div class="showcase-card">
+              <div class="showcase-icon-box emerald">🧠</div>
+              <h3 class="showcase-title">SM-2 Spaced Repetition Engine</h3>
+              <p class="showcase-desc">
+                Retain intricate technical concepts using SuperMemo SM-2 memory scheduling. Tracks Leitner boxes, intervals, and optimal review dates so you never blank in high-stakes interviews.
+              </p>
+              <span class="showcase-badge">Cognitive Science • SM-2 Algorithm</span>
+            </div>
+
+            <!-- Superpower 4 -->
+            <div class="showcase-card">
+              <div class="showcase-icon-box violet">📹</div>
+              <h3 class="showcase-title">WebRTC Peer-to-Peer Mock Rooms</h3>
+              <p class="showcase-desc">
+                Practice live mock interviews with fellow engineers via direct browser-to-browser WebRTC video calls and synchronized code pairing without cloud relay costs.
+              </p>
+              <span class="showcase-badge">WebRTC Mesh • P2P Crypto</span>
+            </div>
+          </div>
+
+          <!-- Superpower 5 & 6 Row -->
+          <div class="showcase-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            <div class="showcase-card">
+              <div class="showcase-icon-box">📊</div>
+              <h3 class="showcase-title">Candidate Readiness Radar Index</h3>
+              <p class="showcase-desc">
+                Dynamic 5-axis competency radar measuring your real-time performance across Algorithms, Distributed Systems, Software Architecture, Application Security, and Web Engineering.
+              </p>
+              <span class="showcase-badge">HTML5 Canvas • Competency Index</span>
+            </div>
+
+            <div class="showcase-card">
+              <div class="showcase-icon-box cyan">⭕</div>
+              <h3 class="showcase-title">Consistent Hashing 360° Ring Simulator</h3>
+              <p class="showcase-desc">
+                Visualize key distribution across dynamic node topologies with virtual nodes. Simulate partition failures and observe minimal key migration in real time.
+              </p>
+              <span class="showcase-badge">Distributed Storage • Hash Rings</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Interactive 3D Flashcard Demo Section -->
+      <section class="showcase-section" id="flashcards" style="background: rgba(14, 19, 31, 0.3);">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Interactive Preview</span>
+            <h2 class="section-title">Test Your Deep Systems Intuition</h2>
+            <p class="section-subtitle">
+              Click the card below to flip between the scenario question and its architectural breakdown.
+            </p>
+          </div>
+
+          <div class="flashcard-demo-container">
+            <div class="flashcard-widget-header">
+              <span class="flashcard-tag" id="flashcardTopic">Rust 2024 & Tokio</span>
+              <span class="flashcard-counter" id="flashcardCounter">1 / 5</span>
+            </div>
+
+            <!-- 3D Flip Card Element -->
+            <div class="flip-card" id="demoFlashcard" role="button" aria-label="Click to flip flashcard" tabindex="0">
+              <div class="flip-card-inner">
+                <!-- Front Side -->
+                <div class="flip-card-front">
+                  <div>
+                    <div class="card-topic-title">Question Prompt</div>
+                    <div class="card-question-text" id="flashcardQuestion">
+                      What is the precise role of Pin&lt;P&lt;T&gt;&gt; in Rust async/await, and why is structural pinning dangerous?
+                    </div>
+                  </div>
+                  <div class="card-hint">
+                    <span>💡 Click card anywhere to reveal solution</span>
+                  </div>
+                </div>
+
+                <!-- Back Side -->
+                <div class="flip-card-back">
+                  <div>
+                    <div class="card-topic-title">Technical Strategy & Explanation</div>
+                    <div class="card-answer-text" id="flashcardAnswer">
+                      Pin guarantees that a type implementing !Unpin will not be moved in memory once pinned. This is strictly required for self-referential generator state machines created by async blocks, which store internal pointers to stack-allocated variables across yield points. Structural pinning requires careful unsafe contract enforcement: if a struct claims to pin its fields, it must never expose &mut access to them without Unpin.
+                    </div>
+                  </div>
+                  <div class="card-hint" style="color: var(--cyan);">
+                    <span>🔄 Click again to flip back</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actions Footer -->
+            <div class="flashcard-actions">
+              <button class="flashcard-btn-next" id="btnNextFlashcard">
+                <span>Next Sample Question →</span>
+              </button>
+              <a href="dashboard.html" class="flashcard-btn-practice">
+                <span>Practice Full 5,650+ Deck ⚡</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The 55 Technical Stacks Directory Section -->
+      <section class="directory-section" id="topics">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Exhaustive Curriculum</span>
+            <h2 class="section-title">55 Specialized Technical Stacks</h2>
+            <p class="section-subtitle">
+              Every single technology features at least 100 deep, verified questions with clear strategies, edge cases, and code examples. Zero placeholders.
+            </p>
+          </div>
+
+          <!-- Category Domain Filter Tabs -->
+          <div class="filter-tabs-wrapper" role="tablist">
+            <button class="filter-tab active" data-domain="all">All (55)</button>
+            <button class="filter-tab" data-domain="frontend">Frontend & Web (14)</button>
+            <button class="filter-tab" data-domain="backend">Backend & Systems (10)</button>
+            <button class="filter-tab" data-domain="devops">Cloud & DevOps (6)</button>
+            <button class="filter-tab" data-domain="systems">Systems & Low-Level (9)</button>
+            <button class="filter-tab" data-domain="mobile">Mobile Apps (4)</button>
+            <button class="filter-tab" data-domain="cs">CS & Architecture (8)</button>
+            <button class="filter-tab" data-domain="leadership">Leadership & Reliability (4)</button>
+          </div>
+
+          <!-- Directory Toolbar: Live Search & Category Counter -->
+          <div class="directory-toolbar">
+            <div class="dir-search-box">
+              <span>🔍</span>
+              <input
+                type="text"
+                id="dirSearchInput"
+                class="dir-search-input"
+                placeholder="Filter stacks (e.g. Rust, Docker, eBPF, Next.js)..."
+                aria-label="Filter category cards"
+              />
+            </div>
+            <div class="dir-count-badge">
+              Showing <strong id="visibleCategoryCount">55</strong> of 55 specialized stacks
+            </div>
+          </div>
+
+          <!-- 55 Topics Grid Container -->
+          <div class="directory-grid" id="directoryGrid">
+            <!-- Dynamically populated by assets/js/landing.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Terminal Practice CLI & TUI Section -->
+      <section class="arch-section" id="cli">
+        <div class="container">
+          <div class="cli-grid">
+            <div class="cli-content">
+              <span class="section-tag">Terminal-First Workflow</span>
+              <h3>Practice Inside Your Shell with <code>./guide-cli</code></h3>
+              <p>
+                Engineers who live inside tmux, Neovim, or terminal multiplexers can practice all 5,650+ questions without ever opening a browser.
+              </p>
+
+              <ul class="cli-features-list">
+                <li class="cli-feature-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Full-screen interactive TUI with arrow key navigation</span>
+                </li>
+                <li class="cli-feature-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Sub-millisecond global search across all 55 domains</span>
+                </li>
+                <li class="cli-feature-item">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Interactive terminal quizzes with immediate feedback</span>
+                </li>
+              </ul>
+
+              <a href="dashboard.html" class="btn-primary-hero" style="font-size: 0.95rem; padding: 12px 26px;">
+                <span>View Full CLI Documentation</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+
+            <!-- Terminal Mockup Window -->
+            <div class="terminal-box">
+              <div class="terminal-header">
+                <div class="terminal-dot red"></div>
+                <div class="terminal-dot yellow"></div>
+                <div class="terminal-dot green"></div>
+                <span class="terminal-title">zsh — guide-cli tui — 80x24</span>
+              </div>
+              <div class="terminal-body">
+                <p class="cmd-comment"># Launch full-screen interactive Terminal User Interface</p>
+                <p class="cmd-line">$ ./guide-cli tui</p>
+                <p class="cmd-output">[OK] Initialized Terminal TUI on 55 technical categories.</p>
+                <p class="cmd-output">[?] Select category: ❯ rust (Rust 2024 & Tokio)</p>
+                <br />
+                <p class="cmd-comment"># Query specific questions and strategies from your shell</p>
+                <p class="cmd-line">$ ./guide-cli view linux-kernel-ebpf 1</p>
+                <p class="cmd-success">Q1: Explain the eBPF Verifier safety checks and DAG exploration.</p>
+                <p class="cmd-output">Difficulty: Advanced | Code: C/libbpf verified</p>
+                <br />
+                <p class="cmd-comment"># Instant search across all 5,650+ questions</p>
+                <p class="cmd-line">$ ./guide-cli search "LMAX Disruptor"</p>
+                <p class="cmd-output">Found 14 matching questions across FinTech, Java & C++.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Production Architecture & Multi-Instance Load Balancer -->
+      <section class="showcase-section" id="architecture">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Enterprise Architecture</span>
+            <h2 class="section-title">Built for Resilience & Observability</h2>
+            <p class="section-subtitle">
+              Production-ready multi-instance topology featuring dual Web frontends and dual Rust Axum microservices fronted by an Nginx load balancer.
+            </p>
+          </div>
+
+          <div class="showcase-grid">
+            <div class="showcase-card">
+              <div class="showcase-icon-box">🦀</div>
+              <h3 class="showcase-title">Rust Axum Backend Microservices</h3>
+              <p class="showcase-desc">
+                High-throughput asynchronous REST API built with Axum, Tokio, and SQLx. Includes built-in token-bucket rate limiting (100 req/sec) and sub-millisecond inverted search index.
+              </p>
+              <span class="showcase-badge">Axum 2.0 • Inverted Index</span>
+            </div>
+
+            <div class="showcase-card">
+              <div class="showcase-icon-box cyan">⚖️</div>
+              <h3 class="showcase-title">Nginx Multi-Instance Load Balancer</h3>
+              <p class="showcase-desc">
+                Production Docker Compose routing public traffic on port 9443 across 2 Web instances and 2 Backend instances using <code>least_conn</code> balancing with automatic failover.
+              </p>
+              <span class="showcase-badge">Port 9443 • Zero Host Collisions</span>
+            </div>
+
+            <div class="showcase-card">
+              <div class="showcase-icon-box emerald">📊</div>
+              <h3 class="showcase-title">Prometheus Telemetry & Grafana</h3>
+              <p class="showcase-desc">
+                Integrated Prometheus scraping metrics on port 9191 with alerts on elevated error rates. Pre-provisioned Grafana dashboards visualizing latency percentiles on port 9292.
+              </p>
+              <span class="showcase-badge">Prometheus 9191 • Grafana 9292</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#features">Features</a>
-          <a href="dashboard.html">Dashboard</a>
-          <a href="login.html">Login</a>
-          <a href="signup.html">Sign Up</a>
-        </div>
-        <div class="social-links">
-          <a href="#" aria-label="Twitter">🐦</a>
-          <a href="#" aria-label="LinkedIn">💼</a>
-          <a href="#" aria-label="GitHub">🐙</a>
-          <a href="#" aria-label="Discord">💬</a>
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a href="#" class="nav-brand">
+              <img src="assets/icons/interview_guide_logo.png" alt="Logo" class="nav-brand-logo" />
+              <span>Interview Guide</span>
+            </a>
+            <p>
+              The world's most exhaustive, tokenless technical knowledge platform. Crafted for Staff+, Distributed Systems, and High-Frequency Trading engineers.
+            </p>
+          </div>
 
+          <div class="footer-col">
+            <h4>Curriculum</h4>
+            <ul class="footer-nav-list">
+              <li><a href="dashboard.html#rust">Rust 2024 & Tokio</a></li>
+              <li><a href="dashboard.html#system-design">System Design</a></li>
+              <li><a href="dashboard.html#fintech">Low-Latency FinTech</a></li>
+              <li><a href="dashboard.html#kubernetes">Kubernetes & Cloud</a></li>
+              <li><a href="dashboard.html#react">React 19 & Next.js</a></li>
+            </ul>
+          </div>
 
+          <div class="footer-col">
+            <h4>Interactive Tools</h4>
+            <ul class="footer-nav-list">
+              <li><a href="dashboard.html">Practice Dashboard</a></li>
+              <li><a href="#flashcards">SM-2 Spaced Repetition</a></li>
+              <li><a href="#features">Raft Consensus Sim</a></li>
+              <li><a href="#features">Code & SQL Sandbox</a></li>
+              <li><a href="all_links.html">All 55 Links Index</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>APIs & DevOps</h4>
+            <ul class="footer-nav-list">
+              <li><a href="docs/swagger.json">OpenAPI 3.0 Spec</a></li>
+              <li><a href="docs/postman_collection.json">Postman Collection</a></li>
+              <li><a href="init.sql">PostgreSQL init.sql</a></li>
+              <li><a href="https://github.com/sgdevmane/interview-guide" target="_blank" rel="noopener">GitHub Repository</a></li>
+            </ul>
+          </div>
         </div>
+
         <div class="footer-bottom">
-          <p>
-            &copy; 2024 Tech Interview Guide. Made with ❤️ for developers
-            worldwide.
-          </p>
+          <div class="footer-copyright">
+            &copy; 2026 Interview Guide Platform. 100% Free & Open-Source under MIT License.
+          </div>
+          <div class="footer-status-pill">
+            <span class="status-dot"></span>
+            <span>Cluster Status: Healthy (2 Web + 2 Backend)</span>
+          </div>
         </div>
       </div>
     </footer>
 
-    <script>
-      // Carousel functionality
-      const slides = document.querySelectorAll(".carousel-slide");
-      let currentSlide = 0;
+    <!-- Scroll To Top FAB Button -->
+    <button class="fab-scroll-top" id="fabScrollTop" aria-label="Scroll to top" title="Scroll to Top">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
 
-      function nextSlide() {
-        if (slides.length === 0) return;
-        slides[currentSlide].classList.remove("active");
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add("active");
-      }
-
-      setInterval(nextSlide, 5000);
-
-      // Parallax effect
-      window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll(".parallax");
-
-        parallaxElements.forEach((element) => {
-          const speed = 0.5;
-          element.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-      });
-
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        });
-      });
-
-      // Testimonials functionality
-      let currentTestimonialIndex = 0;
-      const testimonialSlides = document.querySelectorAll(".testimonial-slide");
-      const testimonialDots = document.querySelectorAll(
-        ".testimonial-dots .dot"
-      );
-
-      function showTestimonial(index) {
-        if (testimonialSlides.length === 0) return;
-        testimonialSlides.forEach((slide) => slide.classList.remove("active"));
-        testimonialDots.forEach((dot) => dot.classList.remove("active"));
-
-        testimonialSlides[index].classList.add("active");
-        testimonialDots[index].classList.add("active");
-      }
-
-      function currentTestimonial(index) {
-        currentTestimonialIndex = index - 1;
-        showTestimonial(currentTestimonialIndex);
-      }
-
-      // Auto-rotate testimonials
-      setInterval(() => {
-        if (testimonialSlides.length === 0) return;
-        currentTestimonialIndex =
-          (currentTestimonialIndex + 1) % testimonialSlides.length;
-        showTestimonial(currentTestimonialIndex);
-      }, 6000);
-
-      // Image carousel functionality
-      let currentImageIndex = 0;
-      const imageSlides = document.getElementById("imageSlides");
-      const imageIndicators = document.querySelectorAll(".image-indicator");
-      const totalImageSlides = document.querySelectorAll(".image-slide").length;
-
-      function showImageSlide(index) {
-        if (!imageSlides) return;
-        const translateX = -index * 100;
-        imageSlides.style.transform = `translateX(${translateX}%)`;
-
-        imageIndicators.forEach((indicator) =>
-          indicator.classList.remove("active")
-        );
-        if (imageIndicators[index]) {
-            imageIndicators[index].classList.add("active");
-        }
-      }
-
-      function changeImageSlide(direction) {
-        if (!imageSlides) return;
-        currentImageIndex += direction;
-
-        if (currentImageIndex >= totalImageSlides) {
-          currentImageIndex = 0;
-        } else if (currentImageIndex < 0) {
-          currentImageIndex = totalImageSlides - 1;
-        }
-
-        showImageSlide(currentImageIndex);
-      }
-
-      function currentImageSlide(index) {
-        currentImageIndex = index - 1;
-        showImageSlide(currentImageIndex);
-      }
-
-      // Auto-rotate image carousel
-      setInterval(() => {
-        changeImageSlide(1);
-      }, 4000);
-
-      // Email subscription handling
-      const subForm = document.getElementById("subscriptionForm");
-      if (subForm) {
-        subForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          const emailInput = document.getElementById("emailInput");
-          const successMessage = document.getElementById("successMessage");
-          const submitBtn = this.querySelector('button[type="submit"]');
-
-          const originalText = submitBtn.textContent;
-          submitBtn.textContent = "Subscribing...";
-          submitBtn.disabled = true;
-
-          setTimeout(() => {
-            successMessage.classList.add("show");
-            emailInput.value = "";
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-
-            setTimeout(() => {
-              successMessage.classList.remove("show");
-            }, 5000);
-          }, 1500);
-        });
-      }
-
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".navbar");
-        if (navbar) {
-            if (window.scrollY > 100) {
-            navbar.classList.add("scrolled");
-            } else {
-            navbar.classList.remove("scrolled");
-            }
-        }
-      });
-
-      // Intersection Observer for animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.style.animation = "fadeInUp 0.8s ease-out forwards";
-          }
-        });
-      }, observerOptions);
-
-      // Observe feature cards
-      document.querySelectorAll(".feature-card").forEach((card) => {
-        observer.observe(card);
-        
-        // Add click handler for routing to dashboard
-        card.addEventListener("click", function (e) {
-          e.preventDefault();
-          const href = this.getAttribute("href");
-          
-          // Extract topic from path (e.g., /markdowns/react/react-questions.md -> react)
-          const topicMatch = href.match(/\/markdowns\/([^\/]+)\//);
-          if (topicMatch && topicMatch[1]) {
-            const topic = topicMatch[1];
-            // Navigate to dashboard with topic hash
-            window.location.href = `/dashboard.html#${topic}`;
-          }
-        });
-      });
-
-      // Index FAB scroll to top
-      const fabButton = document.getElementById("fabButton");
-      if (fabButton) {
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 200) {
-            fabButton.style.opacity = "1";
-            fabButton.style.pointerEvents = "auto";
-            fabButton.style.transform = "translateY(0) scale(1)";
-          } else {
-            fabButton.style.opacity = "0";
-            fabButton.style.pointerEvents = "none";
-            fabButton.style.transform = "translateY(16px) scale(0.9)";
-          }
-        });
-        fabButton.addEventListener("click", () => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        // 3D Parallax Tilt Effect on Feature Cards
-        document.querySelectorAll('.feature-card').forEach(card => {
-          card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            const rotateX = (-y / rect.height) * 10;
-            const rotateY = (x / rect.width) * 10;
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-          });
-          card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-          });
-        });
-      }
-    </script>
-
-    <!-- Confetti & Animated Splashscreen Engines -->
+    <!-- Client-Side Engine Scripts -->
     <script src="assets/js/confetti.js"></script>
     <script src="assets/js/splash.js"></script>
-
-    <!-- FAB Button -->
-    <button
-      class="fab-button"
-      id="fabButton"
-      aria-label="Scroll to top"
-      title="Scroll to Top"
-      style="position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; background: linear-gradient(135deg, var(--gold, #22c55e), #16a34a); border: none; border-radius: 50%; color: #ffffff; font-size: 22px; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(16px) scale(0.9); pointer-events: none; transition: all 0.3s ease;"
-    >↑</button>
-</body>
+    <script src="assets/js/landing.js"></script>
+  </body>
 </html>

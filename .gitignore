@@ -223,3 +223,5 @@ docs/build/
 *.out
 *.err
 backend/target/
+__pycache__/
+*.pyc

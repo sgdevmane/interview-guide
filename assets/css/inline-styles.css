@@ -100,11 +100,31 @@ body {
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   padding: 20px;
   overflow-y: auto;
+  overflow-x: hidden !important;
   position: sticky;
   top: 0;
   height: 100vh;
   box-shadow: var(--shadow-xl);
   transform: translateX(0);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .sidebar::before {
@@ -374,13 +394,19 @@ body {
 /* Control Center Accordion */
 .control-center {
   margin-bottom: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: var(--border-radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   overflow: hidden;
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.control-center.expanded {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 .control-center-toggle {
@@ -388,19 +414,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 14px 18px;
   background: transparent;
   border: none;
   color: white;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
+  transition: background 0.2s ease;
   position: relative;
 }
 
 .control-center-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .control-center-toggle svg {
@@ -409,7 +435,7 @@ body {
 }
 
 .control-center-toggle .chevron {
-  transition: transform 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .control-center.expanded .chevron {
@@ -418,15 +444,18 @@ body {
 
 .control-center-content {
   max-height: 0;
-  /* padding: 12px; */
+  opacity: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
+  transition: max-height 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.28s ease, padding 0.32s ease;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 16px;
 }
 
 .control-center.expanded .control-center-content {
-  max-height: 100%;
-  padding: 12px;
+  max-height: 520px;
+  opacity: 1;
+  padding: 16px;
 }
 
 .control-section {
@@ -517,6 +546,13 @@ body {
   border: none;
 }
 
+.control-section .font-controls .control-btn {
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+  padding: 8px 12px;
+}
+
 .control-section .toolbar-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -526,6 +562,14 @@ body {
   background: transparent;
   border: none;
   box-shadow: none;
+}
+
+.control-section .toolbar-wrapper .control-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 9px 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 /* Main Content */
